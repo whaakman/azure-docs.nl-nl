@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395720"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
@@ -89,7 +89,7 @@ Afhankelijk van de ITSM-product dat u verbinding maakt, gebruikt u de volgende s
 
 Nadat u uw ITSM-hulpprogramma's hebt voorbereid, de volgende stappen om een verbinding te maken:
 
-1. Ga naar **alle Resources**, zoek naar **ServiceDesk(YourWorkspaceName)**.
+1. Ga naar **alle Resources**, zoek naar **ServiceDesk(YourWorkspaceName)** .
 2. Onder **GEGEVENSBRONNEN voor WERKRUIMTE** in het linkerdeelvenster klikt u op **ITSM-verbindingen**.
    ![ITSM-verbindingen](media/itsmc-overview/itsm-connections.png)
 
@@ -178,10 +178,10 @@ De volgende informatie ziet u voorbeelden van gegevens die worden verzameld door
 **Werkitem:** **Incidenten**  
 ServiceDeskWorkItemType_s="Incident"
 
-**Fields**
+**Velden**
 
 - ServiceDeskConnectionName
-- Servicedesk-id
+- Servicedesk-ID
 - Status
 - Urgentie
 - Impact
@@ -190,12 +190,12 @@ ServiceDeskWorkItemType_s="Incident"
 - Gemaakt door
 - Opgelost door
 - Gesloten door
-- Bron
+- source
 - Toegewezen aan
 - Category
 - Titel
-- Beschrijving
-- Gemaakt op
+- Description
+- Datum gemaakt
 - Datum gesloten
 - Datum opgelost
 - Datum van laatste wijziging
@@ -206,12 +206,12 @@ ServiceDeskWorkItemType_s="Incident"
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**Fields**
+**Velden**
 - ServiceDeskConnectionName
-- Servicedesk-id
+- Servicedesk-ID
 - Gemaakt door
 - Gesloten door
-- Bron
+- source
 - Toegewezen aan
 - Titel
 - Type
@@ -221,10 +221,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Status conflict
 - Urgentie
 - Prioriteit
-- Risico
+- Risico 's
 - Impact
 - Toegewezen aan
-- Gemaakt op
+- Datum gemaakt
 - Datum gesloten
 - Datum van laatste wijziging
 - Aanvraagdatum
@@ -271,7 +271,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CRState_s|  Status|
 | Urgency_s|  Urgentie |
 | Priority_s| Prioriteit|
-| Risk_s| Risico|
+| Risk_s| Risico 's|
 | Impact_s| Impact|
 | RequestedDate_t  | Aangevraagd op datum |
 | ClosedDate_t | Datum gesloten |

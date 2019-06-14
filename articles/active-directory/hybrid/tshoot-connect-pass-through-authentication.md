@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456124"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Pass through-verificatie voor Azure Active Directory oplossen
@@ -60,7 +60,7 @@ Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook z
 
 Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/) en aanmeldingsactiviteiten voor een specifieke gebruiker op. Zoek de **FOUTCODE voor aanmelding door** veld. De waarde van dat veld worden toegewezen aan een reden van fout en een oplossing met behulp van de volgende tabel:
 
-|Foutcode voor aanmelding|Reden van fout-aanmelding|Oplossing
+|Fout bij aanmelden code|Reden van fout-aanmelding|Oplossing
 | --- | --- | ---
 | 50144 | Het Active Directory-wachtwoord van de gebruiker is verlopen. | Opnieuw instellen van wachtwoord van de gebruiker in uw on-premises Active Directory.
 | 80001 | Er is geen verificatieagent beschikbaar. | Installeer en registreer een verificatie-Agent.
@@ -133,7 +133,7 @@ Voor gedetailleerde analyse, schakel het "" sessielogboek (met de rechtermuiskno
 
 ### <a name="detailed-trace-logs"></a>Gedetailleerde traceerlogboeken
 
-Om op te lossen gebruiker aanmeldingen dat is toegestaan, zoek naar Logboeken met traceringen op **%ProgramData%\Microsoft\Azure AD verbinding maken met verificatie Agent\Trace\\**. Deze logboeken bevatten de redenen waarom een specifieke gebruiker aanmelden is mislukt met de functie voor Pass through-verificatie. Deze fouten worden ook toegewezen aan de aanmelding mislukt redenen die wordt weergegeven in de voorgaande tabel van de redenen aanmelding mislukt. Hieronder volgt een voorbeeld van invoer voor logboekbestand:
+Om op te lossen gebruiker aanmeldingen dat is toegestaan, zoek naar Logboeken met traceringen op **%ProgramData%\Microsoft\Azure AD verbinding maken met verificatie Agent\Trace\\** . Deze logboeken bevatten de redenen waarom een specifieke gebruiker aanmelden is mislukt met de functie voor Pass through-verificatie. Deze fouten worden ook toegewezen aan de aanmelding mislukt redenen die wordt weergegeven in de voorgaande tabel van de redenen aanmelding mislukt. Hieronder volgt een voorbeeld van invoer voor logboekbestand:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -161,7 +161,7 @@ Als logboekregistratie is ingeschakeld, kunt u meer informatie vinden in de beve
 
 ## <a name="performance-monitor-counters"></a>Prestatiemeteritems
 
-Er is een andere manier voor het bewaken van verificatie-Agents voor het bijhouden van specifieke prestatiemeteritems op elke server waarop de verificatie-Agent is geïnstalleerd. Gebruik de volgende algemene items (**# PTA verificaties**, **#PTA mislukt verificaties** en **#PTA geslaagde verificaties**) en de foutentellers (**# PTA verificatiefouten**):
+Er is een andere manier voor het bewaken van verificatie-Agents voor het bijhouden van specifieke prestatiemeteritems op elke server waarop de verificatie-Agent is geïnstalleerd. Gebruik de volgende algemene items ( **# PTA verificaties**, **#PTA mislukt verificaties** en **#PTA geslaagde verificaties**) en de foutentellers ( **# PTA verificatiefouten**):
 
 ![Pass through-verificatie prestatiemeters](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387861"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808391"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Beginnen met controleren van de Java-webtoepassing
 
@@ -85,7 +85,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
    ![Menu Eclipse Azure Config](./media/java-quick-start/0007-j.png)
 
-5. Na het configureren van de Application Insights-invoegtoepassing, moet u uw toepassing opnieuw [publiceren](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure), voordat deze telemetrie kan gaan verzenden.
+5. Na het configureren van de Application Insights-invoegtoepassing, moet u uw toepassing opnieuw [publiceren](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app), voordat deze telemetrie kan gaan verzenden.
 
 > [!NOTE]
 > Met de Application Insights SDK voor Java kunt u live metrische gegevens vastleggen en visualiseren. Als u het verzamelen van telemetriegegevens de eerste keer inschakelt, kan het echter enkele minuten duren voordat deze worden weergegeven in de portal. Let op: als deze app een test-app met weinig verkeer is, worden de meeste metrische gegevens alleen vastgelegd bij actieve aanvragen en bewerkingen.

@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253184"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Met Spark gebouwde machine learning-modellen
@@ -43,7 +43,7 @@ Vervang voor het wijzigen van de Jupyter-notebook voor Spark 1.6 voor gebruik me
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Setup: opslaglocaties, bibliotheken en de vooraf ingestelde Spark-context
 Spark kan lezen en schrijven naar een Azure Storage-Blob (WASB). Dus een van uw bestaande gegevens die zijn opgeslagen kunnen er worden verwerkt met behulp van Spark en de resultaten weer in WASB worden opgeslagen.
 
-Om op te slaan modellen of de bestanden in WASB, moet het pad correct worden opgegeven. De standaardcontainer die is gekoppeld aan het Spark-cluster kan worden verwezen met behulp van een pad begint met: *"wasb / / /"*. Het volgende codevoorbeeld geeft de locatie van de gegevens te lezen en het pad voor de model-opslag-map waarin de uitvoer van het model is opgeslagen. 
+Om op te slaan modellen of de bestanden in WASB, moet het pad correct worden opgegeven. De standaardcontainer die is gekoppeld aan het Spark-cluster kan worden verwezen met behulp van een pad begint met: *"wasb / / /"* . Het volgende codevoorbeeld geeft de locatie van de gegevens te lezen en het pad voor de model-opslag-map waarin de uitvoer van het model is opgeslagen. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Directory-paden voor opslaglocaties in WASB instellen
 Modellen worden opgeslagen in: "wasb: / / / gebruiker/remoteuser/NYCTaxi/modellen '. Als dit pad is niet correct ingesteld, worden de modellen niet voor het scoren van geladen.

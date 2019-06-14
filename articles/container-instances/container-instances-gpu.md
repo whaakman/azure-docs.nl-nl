@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583805"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Containerinstanties die gebruikmaken van GPU-resources implementeren
@@ -45,7 +45,7 @@ Geef voor het gebruik van GPU's in een containerexemplaar, een *GPU resource* me
 * **Aantal** -het aantal GPU's: **1**, **2**, of **4**.
 * **SKU** -de GPU-SKU: **K80**, **P100**, of **V100**. Elke SKU wordt toegewezen aan de GPU NVIDIA Tesla in een de volgende Azure-met GPU VM-families:
 
-  | SKU | VM-serie |
+  | SKU | VM-reeks |
   | --- | --- |
   | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |

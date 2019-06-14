@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048716"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -155,8 +155,7 @@ Standaard genereert Azure het activiteitenlogboek. De logboeken worden gedurende
 
 ### <a name="access-log"></a>Toegangslogboek
 
-De access-logboek is gegenereerd, alleen als u deze op elk toepassingsgateway-exemplaar, zoals beschreven in de voorgaande stappen hebt ingeschakeld. De gegevens worden opgeslagen in de storage-account dat u hebt opgegeven toen u de logboekregistratie hebt ingeschakeld. Elke toegang van Application Gateway is vastgelegd in JSON-indeling, zoals wordt weergegeven in het volgende voorbeeld:
-
+De access-logboek is gegenereerd, alleen als u deze op elk toepassingsgateway-exemplaar, zoals beschreven in de voorgaande stappen hebt ingeschakeld. De gegevens worden opgeslagen in de storage-account dat u hebt opgegeven toen u de logboekregistratie hebt ingeschakeld. Elke toegang van Application Gateway is vastgelegd in JSON-indeling, zoals wordt weergegeven in het volgende voorbeeld voor v1:
 
 |Value  |Description  |
 |---------|---------|
@@ -196,6 +195,58 @@ De access-logboek is gegenereerd, alleen als u deze op elk toepassingsgateway-ex
     }
 }
 ```
+De logboeken weergeven voor Application Gateway en WAF v2, iets meer informatie:
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Toepassingsgateway-exemplaar dat de aanvraag wordt uitgevoerd.        |
+|clientIP     | Oorspronkelijke IP-adres voor de aanvraag.        |
+|clientPort     | Oorspronkelijke poort voor de aanvraag.       |
+|HttpMethod     | HTTP-methode die wordt gebruikt door de aanvraag.       |
+|requestUri     | De URI van de aanvraag ontvangen.        |
+|RequestQuery     | **Server-Routed**: Back-end-pool-exemplaar dat de aanvraag is verzonden.</br>**X-AzureApplicationGateway-LOG-ID**: Correlatie-ID die wordt gebruikt voor de aanvraag. Het kan worden gebruikt voor het oplossen van problemen met verkeer op de back-endservers. </br>**SERVER-STATUS**: HTTP-responscode die Application Gateway van de back-end ontvangen.       |
+|UserAgent     | Gebruikersagent van de header van de HTTP-aanvraag.        |
+|httpStatus     | HTTP-statuscode is geretourneerd naar de client van Application Gateway.       |
+|httpVersion     | HTTP-versie van de aanvraag.        |
+|receivedBytes     | Grootte van het pakket ontvangen, in bytes.        |
+|sentBytes| Grootte van het pakket dat is verzonden, in bytes.|
+|timeTaken| De lengte van de tijd (in milliseconden) die het duurt voordat een aanvraag om te worden verwerkt en de reactie wordt verzonden. Dit wordt berekend als het interval van de tijd die Application Gateway ontvangt wanneer de eerste byte van een HTTP-aanvraag naar de tijd waarop de bewerking is voltooid voor het verzenden van het antwoord. Het is belangrijk te weten dat het veld tijd meestal bevat de tijd die de aanvraag en respons pakketten worden overgebracht via het netwerk. |
+|sslEnabled| Communicatie met de back-end-adresgroepen gebruikt of SSL. Geldige waarden zijn in- en uitschakelen.|
+|sslCipher| Een coderingssuite wordt gebruikt voor SSL-communicatie (als SSL is ingeschakeld).|
+|sslProtocol| SSL-protocol wordt gebruikt (als SSL is ingeschakeld).|
+|serverRouted| De back-endserver die application gateway stuurt de aanvraag op.|
+|serverStatus| HTTP-statuscode van de back-endserver.|
+|serverResponseLatency| Latentie van het antwoord van de back-endserver.|
+|host| Adres in de host-header van de aanvraag.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
+    }
+}
+```
 
 ### <a name="performance-log"></a>Logboekbestand voor prestaties
 
@@ -208,7 +259,7 @@ Het logboekbestand voor prestaties is gegenereerd, alleen als u deze op elk toep
 |healthyHostCount     | Het aantal veilige hosts in de back-endpool.        |
 |unHealthyHostCount     | Aantal slechte hosts in de back-endpool.        |
 |requestCount     | Het aantal aanvragen.        |
-|latentie | Gemiddelde latentie (in milliseconden) van aanvragen van het exemplaar naar de back-end die een registratiesysteem de aanvragen vormt. |
+|Latentie | Gemiddelde latentie (in milliseconden) van aanvragen van het exemplaar naar de back-end die een registratiesysteem de aanvragen vormt. |
 |failedRequestCount| Het aantal mislukte aanvragen.|
 |throughput| Gemiddelde doorvoersnelheid sinds de laatste logboek, gemeten in bytes per seconde.|
 
@@ -249,9 +300,9 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 |ruleSetVersion     | Regelset versie die wordt gebruikt. Beschikbare waarden zijn 2.2.9 en 3.0.     |
 |ruleId     | Regel-ID van de activerende gebeurtenis.        |
 |message     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
-|actie     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
+|action     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
 |site     | De site waarvoor het logboek is gegenereerd. Op dit moment alleen Global vermeld omdat er regels zijn van toepassing.|
-|details     | De details van de triggergebeurtenis.        |
+|Meer informatie     | De details van de triggergebeurtenis.        |
 |Details.Message     | Beschrijving van de regel.        |
 |details.data     | Specifieke gegevens gevonden in de aanvraag die overeenkomen met de regel.         |
 |Details.File     | Configuratiebestand dat de regel.        |

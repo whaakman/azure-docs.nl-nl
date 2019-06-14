@@ -17,10 +17,10 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60269145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Zelfstudie: Azure Active Directory-integratie met iWellnessNow
@@ -45,9 +45,9 @@ Voor het configureren van Azure AD-integratie met iWellnessNow, moet u de volgen
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -61,7 +61,7 @@ Voor het configureren van de integratie van iWellnessNow in Azure AD, moet u iWe
 
 **Als u wilt toevoegen iWellnessNow uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -85,11 +85,11 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met iWellnessNow, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker iWellnessNow](#create-an-iwellnessnow-test-user)**  : als u wilt een equivalent van Britta Simon in iWellnessNow die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -109,7 +109,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![uploaden van iWellnessNow domein en URL's eenmalige aanmelding](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
 
-    a. Klik op **Metagegevensbestand uploaden**.
+    a. Klik op **metagegevensbestand uploaden**.
 
     ![uploadconfig iWellnessNow domein en URL's eenmalige aanmelding](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_uploadconfig.png)
 
@@ -123,15 +123,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![iWellnessNow domein en URL's één aanmeldings-informatie](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `http://<CustomerName>.iwellnessnow.com`
+    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `http://<CustomerName>.iwellnessnow.com`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<CustomerName>.iwellnessnow.com/ssologin`
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<CustomerName>.iwellnessnow.com/ssologin`
 
 1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![iWellnessNow domein en URL's één aanmeldings-informatie](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url1.png)
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<CustomerName>.iwellnessnow.com/`
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<CustomerName>.iwellnessnow.com/`
      
     > [!NOTE] 
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [iWellnessNow Client ondersteuningsteam](mailto:info@iwellnessnow.com) om deze waarden te verkrijgen.
@@ -142,7 +142,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik op **opslaan** knop.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/iwellnessnow-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/iwellnessnow-tutorial/tutorial_general_400.png)
     
 1. Het configureren van eenmalige aanmelding op **iWellnessNow** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [iWellnessNow ondersteuningsteam](mailto:info@iwellnessnow.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 

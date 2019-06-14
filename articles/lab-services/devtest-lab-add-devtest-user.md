@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311397"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Eigenaars en gebruikers toevoegen in Azure DevTest Labs
@@ -32,7 +32,7 @@ Toegang in Azure DevTest Labs wordt beheerd door [op rollen gebaseerd toegangsbe
 Er zijn drie primaire rollen kunt u een gebruiker toewijzen:
 
 * Eigenaar
-* DevTest Labs-gebruiker
+* DevTest Labs User
 * Inzender
 
 De volgende tabel ziet u de acties die kunnen worden uitgevoerd door gebruikers in elk van deze rollen:

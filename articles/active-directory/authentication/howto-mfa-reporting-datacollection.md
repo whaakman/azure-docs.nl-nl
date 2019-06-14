@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359038"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-factor Authentication-gebruiker gegevens verzamelen
@@ -43,7 +43,7 @@ Verificatiepogingen (gebruikt voor rapportage en probleemoplossing):
 - Modus voor mobiele App (Standard, PIN)
 - Modus OATH-Token (Standard, PIN)
 - Authenticatietype
-- Naam van toepassing
+- Naam van de toepassing
 - De aanroep van de primaire landcode
 - Aanroep van het primaire telefoonnummer
 - De aanroep van de primaire extensie
@@ -78,7 +78,7 @@ Activeringen (pogingen om een account in de mobiele Microsoft Authenticator-app 
 - Activering Status resultaat
 - De naam van apparaat
 - Apparaattype
-- Appversie
+- App-versie
 - OATH-Token is ingeschakeld
 
 Blokken (die wordt gebruikt om geblokkeerde status te bepalen en voor rapporten):
@@ -86,13 +86,13 @@ Blokken (die wordt gebruikt om geblokkeerde status te bepalen en voor rapporten)
 - Tijdstempel blokkeren
 - Blokkeren door gebruikersnaam
 - Gebruikersnaam
-- Landnummer
+- Landcode
 - Telefoonnummer
 - Indeling telefoonnummer
 - Toestelnummer
 - Opschonen van extensie
 - Geblokkeerd
-- Blokkeringsreden
+- Reden van blokkering
 - Timestamp van voltooiing
 - Reden voor voltooiing
 - Accountvergrendeling
@@ -106,7 +106,7 @@ Omleidingen (gebruikt voor het melden van):
 - Bypass-seconden
 - Bypass van gebruikersnaam
 - Gebruikersnaam
-- Landnummer
+- Landcode
 - Telefoonnummer
 - Indeling telefoonnummer
 - Toestelnummer
@@ -122,14 +122,14 @@ De wijzigingen (gebruikt voor het synchroniseren van wijzigingen van de gebruike
 - Gebruikersnaam
 - Nieuwe landcode
 - Nieuw telefoonnummer
-- Nieuw toestel
+- Nieuwe extensie
 - Nieuwe alternatieve landcode
 - Nieuwe back-telefoonnummer
 - Nieuwe Backup-extensie
-- Nieuwe pincode
-- Wijziging pincode vereist
+- Nieuwe PINCODE
+- Pincodewijziging vereist
 - Oude Apparaattoken
-- Nieuw apparaattoken
+- Nieuw Apparaattoken
 
 ## <a name="gather-data-from-mfa-server"></a>Verzamelen van gegevens van MFA-Server
 

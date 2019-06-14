@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296313"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
@@ -76,7 +76,7 @@ Bij de versies van November 2015 of hoger van Windows 10 wordt Enterprise State 
 Wanneer meerdere Azure AD-accounts van andere Azure AD-tenants op hetzelfde apparaat, moet u het apparaatregister om te communiceren met de Azure Rights Management-service voor elke Azure AD-tenant bijwerken.  
 
 1. De GUID voor elke Azure AD-tenant niet vinden. Open de Azure-portal en selecteert u een Azure AD-tenant. De GUID voor de tenant is op de pagina Eigenschappen voor de geselecteerde tenant (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), gelabelde **map-ID**. 
-2. Nadat u de GUID hebt, moet u de registersleutel toevoegen **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant-ID GUID >**.
+2. Nadat u de GUID hebt, moet u de registersleutel toevoegen **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant-ID GUID >** .
    Uit de **tenant-ID GUID** sleutel, maakt u een nieuwe waarde met meerdere tekenreeksen (REG-MULTI-SZ) te gebruiken met de naam **AllowedRMSServerUrls**. Geef de licentieverlening distribution point URL's van de andere Azure-tenants die het apparaat toegang heeft tot voor de gegevens.
 3. U kunt de distributie punt URL's voor licentieverlening vinden door te voeren de **Get-AadrmConfiguration** cmdlet uit de AADRM-module. Als de waarden voor de **LicensingIntranetDistributionPointUrl** en **LicensingExtranetDistributionPointUrl** verschillend zijn, worden beide waarden opgeven. Als de waarden gelijk zijn, geeft u de waarde slechts één keer in.
 

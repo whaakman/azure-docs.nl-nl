@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: de652f508f6946219627b3a3d51b148cbee58dbf
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050507"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -126,8 +126,10 @@ Zie voor meer informatie, [automatische inrichting in geval van een bestaande in
 
 ### Wat gebeurt er als ik heb een Microsoft Monitoring Agent is rechtstreeks geïnstalleerd op de computer, maar niet als een uitbreiding (Direct Agent)?<a name="directagentinstalled"></a>
 Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, wordt in Security Center de Microsoft Monitoring Agent-extensie wordt geïnstalleerd en kan de Microsoft Monitoring agent upgraden naar de nieuwste versie.
-De agent is geïnstalleerd om te rapporteren aan de reeds geconfigureerd werkruimten wordt voortgezet, en daarnaast rapporteren aan de werkruimte die is geconfigureerd in Security Center (multihoming wordt ondersteund).
+De agent is geïnstalleerd om te rapporteren aan de reeds geconfigureerd werkruimten wordt voortgezet, en daarnaast rapporteren aan de werkruimte die is geconfigureerd in Security Center (multihoming wordt ondersteund op Windows-machines).
 Als de geconfigureerde werkruimte is een gebruikerswerkruimte (geen standaardwerkruimte van Security Center bevinden), moet u voor het installeren van de "Security / 'SecurityCenterFree'-oplossing op het Security Center om te verwerken van gebeurtenissen starten van virtuele machines en computers die rapporteren werkruimte.
+
+Voor Linux-machines, multihoming Agent is nog niet ondersteund - daarom als een bestaande agentinstallatie wordt gedetecteerd, automatische inrichting wordt niet uitgevoerd en de configuratie van de computer wordt niet gewijzigd.
 
 Voor bestaande machines op abonnementen toegevoegd aan Security Center voor 2019-03-17, wanneer een bestaande agent wordt gedetecteerd, wordt de Microsoft Monitoring Agent-extensie niet geïnstalleerd en de machine worden niet beïnvloed. Zie de aanbeveling voor 'Los de problemen met de agent controleren op uw virtuele machines' om op te lossen, het installeren van beveiligingsagenten oplossen op deze machines voor deze machines
 

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288436"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Goedkeuren of weigeren van aanvragen voor Azure-resource-rollen in PIM
@@ -28,7 +28,7 @@ Met Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kunt
 
 Volg de stappen in dit artikel voor het goedkeuren of weigeren van aanvragen voor Azure-resourcerollen.
 
-## <a name="view-pending-requests"></a>De aanvragen in de wachtrij weergeven
+## <a name="view-pending-requests"></a>Aanvragen in behandeling weergeven
 
 Als een gedelegeerde fiatteur ontvangt u een e-mailmelding wanneer een aanvraag om de rol Azure-resource in afwachting van uw goedkeuring is. U kunt deze aanvragen in behandeling weergeven in PIM.
 

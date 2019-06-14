@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24576a46b47b22ef447793b4105730ed2755701d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776149"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050628"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Linux-rekenknooppunten in Batch-pools inrichten
 
@@ -48,7 +48,7 @@ Wanneer u een verwijzing naar de installatiekopie van de virtuele machine config
 | Uitgever |Canonical |
 | Aanbieding |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Versie |meest recente |
+| Version |meest recente |
 
 > [!TIP]
 > U kunt meer informatie over deze eigenschappen en het aanbieden van Marketplace-installatiekopieën in [navigeren door en selecteren installatiekopieën van Linux-machines in Azure met CLI of PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Houd er rekening mee dat niet alle Marketplace-installatiekopieën momenteel compatibel met Batch zijn. Zie voor meer informatie, [knooppuntagent-SKU](#node-agent-sku).
@@ -91,8 +91,8 @@ node_count = 1
 
 # Initialize the Batch client
 creds = batchauth.SharedKeyCredentials(account, key)
-config = batch.BatchServiceClientConfiguration(creds, base_url = batch_url)
-client = batch.BatchServiceClient(config)
+config = batch.BatchServiceClientConfiguration(creds, batch_url)
+client = batch.BatchServiceClient(creds, batch_url)
 
 # Create the unbound pool
 new_pool = batchmodels.PoolAddParameter(id = pool_id, vm_size = vm_size)

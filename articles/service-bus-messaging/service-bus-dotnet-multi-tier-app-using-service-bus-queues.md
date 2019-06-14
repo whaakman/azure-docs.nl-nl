@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60403096"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
@@ -177,7 +177,7 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
 6. Een dialoogvenster voor het maken van de weergave wordt weergegeven. Kies **Maken** in de lijst **Sjabloon**. Selecteer in de lijst **Modelklasse** de klasse **OnlineOrder**.
    
    ![][15]
-7. Klik op **Add**.
+7. Klik op **Toevoegen**.
 8. Wijzig nu de weergegeven naam van uw toepassing. Dubbelklik in **Solution Explorer** op het bestand **Views\Shared\\_Layout.cshtml** om dit te openen in de Visual Studio-editor.
 9. Vervang alle instanties van **Mijn ASP.NET-toepassing** door **Producten van Northwind Traders**.
 10. Verwijder de koppelingen **Start**, **Info** en **Contact**. Verwijder de gemarkeerde code:

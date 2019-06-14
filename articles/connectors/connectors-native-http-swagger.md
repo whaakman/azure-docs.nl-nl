@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448621"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Aanroepen van REST-eindpunten met HTTP + Swagger-connector in Azure Logic Apps
@@ -74,7 +74,7 @@ Hieronder vindt u de details voor de triggers en acties die deze HTTP + Swagger 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger-triggers
 Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gedefinieerd in een logische app te starten. HTTP + Swagger-connector heeft een trigger. [Meer informatie over triggers](../connectors/apis-list.md).
 
-| Trigger | Beschrijving |
+| Trigger | Description |
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
@@ -85,26 +85,26 @@ Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinie
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
-### <a name="action-details"></a>Actiedetails
+### <a name="action-details"></a>Actiegegevens
 HTTP + Swagger connector wordt geleverd met een mogelijke actie. Hieronder vindt u informatie over elk van de acties, de vereiste en optionele velden en de bijbehorende uitvoergegevens die gekoppeld aan hun gebruik zijn.
 
 #### <a name="http--swagger"></a>HTTP + Swagger
 Maakt een uitgaande HTTP-aanvraag met hulp van Swagger-metagegevens.
 Een sterretje (*) betekent dat een vereist veld.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| `Display name` | Naam van eigenschap | Description |
 | --- | --- | --- |
 | Methode * |method |HTTP-woord te gebruiken. |
-| URI * |uri |URI voor de HTTP-aanvraag. |
+| URI * |URI |URI voor de HTTP-aanvraag. |
 | Headers |Headers |Een JSON-object van HTTP-headers om op te nemen. |
-| Hoofdtekst |hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
+| Hoofdtekst |De hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
 | Verificatie |verificatie |Verificatietype moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP-connector](connectors-native-http.md#authentication). |
 
 **Uitvoergegevens**
 
 HTTP-antwoord
 
-| Naam van eigenschap | Gegevenstype | Description |
+| De naam van eigenschap | Gegevenstype | Description |
 | --- | --- | --- |
 | Headers |object |Antwoordheaders |
 | Hoofdtekst |object |Responsobject |
@@ -113,7 +113,7 @@ HTTP-antwoord
 ### <a name="http-responses"></a>HTTP-antwoorden
 U kunt bepaalde antwoorden krijgen bij het maken van aanroepen naar verschillende acties. Hieronder volgt een tabel waarin de bijbehorende antwoorden en beschrijvingen.
 
-| Name | Beschrijving |
+| Name | Description |
 | --- | --- |
 | 200 |OK |
 | 202 |Geaccepteerd |
@@ -121,7 +121,7 @@ U kunt bepaalde antwoorden krijgen bij het maken van aanroepen naar verschillend
 | 401 |Niet geautoriseerd |
 | 403 |Verboden |
 | 404 |Niet gevonden |
-| 500 |Er is een interne serverfout opgetreden. Er is een onbekende fout opgetreden. |
+| 500 |Interne serverfout. Er is een onbekende fout opgetreden. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

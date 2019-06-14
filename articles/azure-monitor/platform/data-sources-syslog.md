@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240860"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-gegevensbronnen in Azure Monitor
@@ -54,7 +54,7 @@ De Log Analytics-agent voor Linux worden alleen verzameld voor gebeurtenissen me
 ### <a name="configure-syslog-in-the-azure-portal"></a>Syslog configureren in Azure portal
 Configureren van Syslog uit de [menu van de gegevens in de geavanceerde instellingen](agent-data-sources.md#configuring-data-sources). Deze configuratie wordt bezorgd in het configuratiebestand op elke Linux-agent.
 
-U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+**. Voor elke faciliteit worden alleen berichten met de geselecteerde ernstcategorieën verzameld.  Raadpleeg de ernstcategorieën voor de specifieke faciliteit die u wenst te verzamelen. U kunt geen eventuele aanvullende criteria om berichten te filteren opgeven.
+U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+** . Voor elke faciliteit worden alleen berichten met de geselecteerde ernstcategorieën verzameld.  Raadpleeg de ernstcategorieën voor de specifieke faciliteit die u wenst te verzamelen. U kunt geen eventuele aanvullende criteria om berichten te filteren opgeven.
 
 ![Syslog configureren](media/data-sources-syslog/configure.png)
 

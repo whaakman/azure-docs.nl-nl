@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368069"
 ---
 # <a name="detect-domain-specific-content"></a>Domeinspecifieke inhoud detecteren
@@ -100,7 +100,7 @@ De volgende JSON-antwoord bevat hoe domeinspecifieke analyse kunnen worden opgen
 
 Computer Vision ondersteunt momenteel de volgende domeinspecifieke modellen:
 
-| Name | Beschrijving |
+| Name | Description |
 |------|-------------|
 | beroemdheden | Herkenning van beroemdheden, ondersteund voor installatiekopieën geclassificeerd de `people_` categorie |
 | Oriëntatiepunten | Oriëntatiepunten spraakherkenning, ondersteund voor installatiekopieën geclassificeerd de `outdoor_` of `building_` categorieën |

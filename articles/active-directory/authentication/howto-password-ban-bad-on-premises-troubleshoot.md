@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414763"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD-wachtwoordbeveiliging oplossen
@@ -100,7 +100,7 @@ Als u het verlagen van een domeincontroller waarop de DC-agentsoftware nog steed
 
 Zodra de degradatie is voltooid en de domeincontroller opnieuw is opgestart en wordt opnieuw uitgevoerd als een normale lidserver, wordt de DC-agentsoftware die wordt uitgevoerd in een passieve modus. Deze kan vervolgens worden verwijderd op elk gewenst moment.
 
-## <a name="removal"></a>Verwijdering
+## <a name="removal"></a>Verwijderen
 
 Als de software voor de beveiliging van Azure AD wachtwoord en opschonen alle gerelateerde status verwijderen uit de domeinen en forest wordt besloten, kan deze taak worden uitgevoerd met behulp van de volgende stappen uit:
 

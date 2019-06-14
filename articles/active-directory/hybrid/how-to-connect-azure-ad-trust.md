@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245718"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>AD FS-vertrouwensrelatie met Azure AD met behulp van Azure AD Connect beheren
@@ -60,7 +60,7 @@ Azure AD connect niet alle instellingen voor Azure AD-vertrouwensrelatie bijgewe
 | Eerst geven installatie (nieuwe AD FS-farm) | Een nieuwe AD FS-farm is gemaakt en een vertrouwensrelatie met Azure AD helemaal is gemaakt. |
 | Eerst geven installatie (bestaande AD FS-farm en bestaande Azure AD-vertrouwensrelatie) | Azure AD-id voor vertrouwensrelatie, transformatieregels voor uitgifte, Azure AD-eindpunten, alternatieve-id (indien nodig), de metagegevens van de automatische update |
 | Azure AD-vertrouwensrelatie opnieuw instellen | Token handtekeningcertificaat voor Token-ondertekening algoritme, Azure AD-id voor vertrouwensrelatie, transformatie uitgifte regels, Azure AD-eindpunten, alternatieve-id (indien nodig), de metagegevens van de automatische update |
-| Federatieve server toevoegen | Geen |
+| Federatieserver toevoegen | Geen |
 | WAP-server toevoegen | Geen |
 | Apparaatopties | Transformatieregels voor uitgifte, IWA voor device Registration service |
 | Federatief domein toevoegen | Als het domein wordt toegevoegd voor de eerste keer, dat wil zeggen, de installatie van Federatie met één domein wordt gewijzigd in meerdere domeinen federation: Azure AD Connect maakt de vertrouwensrelatie helemaal opnieuw. Als de vertrouwensrelatie met Azure AD al is geconfigureerd voor meerdere domeinen, worden alleen transformatieregels voor uitgifte gewijzigd |

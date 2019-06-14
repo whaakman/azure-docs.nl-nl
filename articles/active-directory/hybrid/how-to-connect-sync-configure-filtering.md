@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243508"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: Filtering configureren
@@ -123,7 +123,7 @@ Als u wilt de domein-filter kunt instellen, moet u de volgende stappen uitvoeren
 Als u wilt de domein-filter kunt instellen, moet u de volgende stappen uitvoeren:
 
 1.  Start de wizard Azure AD Connect
-2.  Klik op **Configureren**
+2.  Klik op **Configureren**.
 3.  Selecteer **Synchronisatieopties aanpassen** en klikt u op **volgende**.
 4.  Voer uw Azure AD-referenties in
 5.  Op de **verbonden mappen** scherm op **volgende**.
@@ -218,7 +218,7 @@ In het inkomende filteren, gebruikt u de kracht van **bereik** om te bepalen wel
 
 We bekijken een voorbeeld:  
 ![Bereik](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Deze moet worden gelezen als **(afdeling = IT) of (afdeling = verkoop-en c = US)**.
+Deze moet worden gelezen als **(afdeling = IT) of (afdeling = verkoop-en c = US)** .
 
 In de volgende voorbeelden en stappen, gebruikt u de gebruikersobject als een voorbeeld, maar u kunt deze gebruiken voor alle objecttypen.
 

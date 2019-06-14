@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050595"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's), virtuele-machineschaalsets, IaaS-containers en niet-Azure (met inbegrip van on-premises) computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De agent van Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -31,12 +31,11 @@ Dit artikel bevat richtlijnen over hoe u Microsoft Monitoring Agent installeren 
 > [!NOTE]
 > - Het verzamelen van gegevens is alleen nodig voor de Compute-resources (virtuele machines, virtuele-machineschaalsets, IaaS-containers en niet-Azure-computers). U kunt profiteren van Azure Security Center, zelfs als u agents; niet inrichten echter, u hebt beperkte beveiliging en bovenstaande functies worden niet ondersteund.  
 > - Zie voor een lijst van ondersteunde platforms, [ondersteunde platforms in Azure Security Center](security-center-os-coverage.md).
-> - Verzamelen van gegevens voor virtuele-machineschaalset is momenteel niet ondersteund.
-> - Opslaan van gegevens in Log Analytics, ongeacht of u een nieuwe of bestaande werkruimte mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
+> - Opslaan van gegevens in Log Analytics, ongeacht of u een nieuwe of bestaande werkruimte, kan kosten voor extra kosten voor gegevensopslag. Zie voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Automatische inrichting van Microsoft Monitoring Agent inschakelen <a name="auto-provision-mma"></a>
 
-Het verzamelen van de gegevens van de machines die u moet beschikken over de Microsoft Monitoring Agent is geïnstalleerd.  Installatie van de agent automatisch kan worden (aanbevolen) of u kunt de agent handmatig installeren.  
+Als u wilt de gegevens van de machines verzamelen, moet u de Microsoft Monitoring Agent geïnstalleerd hebben.  Installatie van de agent kan automatisch worden uitgevoerd (aanbevolen) of u kunt de agent handmatig installeren.  
 
 >[!NOTE]
 > Automatische inrichting is standaard uitgeschakeld. Als u wilt instellen in Security Center voor het installeren van automatische inrichting standaard, ingesteld op **op**.
@@ -87,10 +86,8 @@ Een werkruimte te selecteren die zijn gemaakt door Security Center:
 1. Security Center wordt automatisch ingeschakeld voor een oplossing voor Security Center in de werkruimte per de prijscategorie voor het abonnement instellen. 
 
 > [!NOTE]
-> De prijscategorie van werkruimten die zijn gemaakt door Security Center met Log Analytics heeft geen invloed op de facturering van Security Center. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte. Voor de laag gratis, schakelt Azure Security Center de *SecurityCenterFree* -oplossing op de standaardwerkruimte. Voor de standaardversie schakelt Azure Security Center de oplossing *Security* in voor de standaardwerkruimte.
-> Opslaan van gegevens in Log Analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
-
-Zie voor meer informatie over prijzen [prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+> De prijscategorie van werkruimten die zijn gemaakt door Security Center met Log Analytics heeft geen invloed op de facturering van Security Center. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte. Voor de laag gratis, schakelt Azure Security Center de *SecurityCenterFree* -oplossing op de standaardwerkruimte. Voor de Standard-laag, schakelt Azure Security Center de *Security* -oplossing op de standaardwerkruimte.
+> Opslaan van gegevens in Log Analytics mogelijk extra kosten voor gegevensopslag. Zie voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 
 Zie voor meer informatie over bestaande log analytics-accounts, [bestaande log analytics-klanten](security-center-faq.md#existingloganalyticscust).
 
@@ -102,7 +99,7 @@ Voor het gebruik van uw bestaande Log Analytics-werkruimte, hebt u lees- en schr
 
 > [!NOTE]
 > Oplossingen die zijn ingeschakeld op de bestaande werkruimte wordt toegepast op Azure-VM's die zijn verbonden met het. Voor betaalde oplossingen kan dit resulteren in extra kosten in rekening gebracht. Zorg ervoor dat de geselecteerde werkruimte zich in de juiste geografische regio voor overwegingen bij de privacy van gegevens.
-> Opslaan van gegevens in log analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
+> Opslaan van gegevens in log analytics mogelijk extra kosten voor gegevensopslag. Zie voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 
 Selecteer een bestaande Log Analytics-werkruimte:
 
@@ -150,7 +147,7 @@ Wanneer u een werkruimte waarin u uw gegevens kunt opslaan selecteert, worden al
 ## <a name="data-collection-tier"></a>Verzameling gegevenslaag
 Een verzameling gegevenslaag selecteren in Azure Security Center heeft alleen invloed op de opslag van beveiligingsgebeurtenissen in uw Log Analytics-werkruimte. De Log Analytics-agent wordt nog steeds verzamelen en analyseren van de beveiligingsgebeurtenissen die vereist zijn voor Azure Security Center bedreigingen detecties, ongeacht welke laag van beveiligingsgebeurtenissen die u kiest voor het opslaan in uw Log Analytics-werkruimte (indien aanwezig). Voor het opslaan van beveiligingsgebeurtenissen in uw werkruimte te kiezen kunt voor onderzoek, zoeken en controle van de gebeurtenissen die in uw werkruimte. 
 > [!NOTE]
-> Opslaan van gegevens in log analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
+> Opslaan van gegevens in log analytics mogelijk extra kosten voor gegevensopslag. Zie voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > U kunt het recht filterbeleid voor uw abonnementen en werkruimten op vier sets gebeurtenissen worden opgeslagen in uw werkruimte kiezen: 
 
@@ -205,8 +202,10 @@ De volgende gevallen gebruik opgeven hoe automatische inrichting in gevallen wan
 
 - Microsoft Monitoring Agent is geïnstalleerd op de computer, maar niet als een uitbreiding (Direct agent)<br>
 Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, wordt in Security Center de Microsoft Monitoring Agent-extensie wordt geïnstalleerd en kan de Microsoft Monitoring agent upgraden naar de nieuwste versie.
-De agent is geïnstalleerd om te rapporteren aan de reeds geconfigureerd werkruimten wordt voortgezet, en daarnaast rapporteren aan de werkruimte die is geconfigureerd in Security Center (multihoming wordt ondersteund).
+De agent is geïnstalleerd om te rapporteren aan de reeds geconfigureerd werkruimten wordt voortgezet, en daarnaast rapporteren aan de werkruimte die is geconfigureerd in Security Center (multihoming wordt ondersteund op Windows-machines).
 Als de geconfigureerde werkruimte een gebruikerswerkruimte (geen standaardwerkruimte van Security Center bevinden is), dan moet u installeert de "security /"securityFree"-oplossing op het Security Center om te verwerken van gebeurtenissen starten van virtuele machines en computers rapporteren aan deze werkruimte.<br>
+<br>
+Voor Linux-machines, multihoming Agent is nog niet ondersteund - daarom als een bestaande agentinstallatie wordt gedetecteerd, automatische inrichting wordt niet uitgevoerd en de configuratie van de computer wordt niet gewijzigd.
 <br>
 Voor bestaande machines op abonnementen toegevoegd aan Security Center voor 2019-03-17, wanneer een bestaande agent wordt gedetecteerd, wordt de Microsoft Monitoring Agent-extensie niet geïnstalleerd en de machine worden niet beïnvloed. Zie de aanbeveling voor 'Los de problemen met de agent controleren op uw virtuele machines' om op te lossen, het installeren van beveiligingsagenten oplossen op deze machines voor deze machines.
 

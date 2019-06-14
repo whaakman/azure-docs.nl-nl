@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246199"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie
@@ -137,7 +137,7 @@ De SRE is een resource kit-hulpprogramma en met Azure AD Connect-synchronisatie 
 
 In dit deelvenster ziet u alle synchronisatieregels die zijn gemaakt voor uw configuratie. Elke regel in de tabel is een regel voor synchronisatie. Aan de linkerkant onder regeltypen staan de twee verschillende typen: Binnenkomend en uitgaand. Inkomend en uitgaand afkomstig is van de weergave van de metaverse. Voornamelijk gaat u zich richten op de regels voor binnenkomende verbindingen in dit overzicht. De daadwerkelijke lijst synchronisatieregels is afhankelijk van de gedetecteerde schema in AD. De accountforest (fabrikamonline.com) beschikt niet over services, zoals Exchange en Lync, en geen synchronisatieregels zijn gemaakt voor deze services in de bovenstaande afbeelding. Echter, in de bron-forest (res.fabrikamonline.com) vindt u synchronisatieregels voor deze services. De inhoud van de regels is verschillend, afhankelijk van de versie gedetecteerd. Bijvoorbeeld in een implementatie met Exchange 2013 zijn er meer kenmerkstromen geconfigureerd dan in Exchange 2010/2007.
 
-### <a name="synchronization-rule"></a>Synchronisatieregel
+### <a name="synchronization-rule"></a>Regel voor synchronisatie
 Een Synchronisatieregel is een configuratieobject met een set kenmerken weergegeven als een voorwaarde wordt voldaan. Het wordt ook gebruikt om te beschrijven hoe een object in een connectorgebied is gerelateerd aan een object in de metaverse, ook wel **join** of **overeenkomen met**. De synchronisatieregels hebben een hogere prioriteitswaarde die aangeeft hoe ze aan elkaar zijn gerelateerd. Een regel voor synchronisatie met een lagere numerieke waarde heeft een hogere prioriteit en een kenmerk stroom conflict optreedt, hogere prioriteit de conflictoplossing wins.
 
 Bekijk een voorbeeld: de Synchronisatieregel **In uit Active Directory-gebruiker AccountEnabled**. Deze regel in de SRE en selecteer markeren **bewerken**.
@@ -148,7 +148,7 @@ Omdat met deze regel een regel voor out-of-box wordt, ontvangt u een waarschuwin
 
 Een regel voor synchronisatie heeft vier configuratiesecties: Beschrijving, Scoping-filter, lid worden van regels en transformaties.
 
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 De eerste sectie bevat algemene informatie, zoals een naam en beschrijving.
 
 ![Beschrijving van tabblad synchroon regeleditor](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)

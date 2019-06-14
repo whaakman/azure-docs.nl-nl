@@ -14,19 +14,19 @@ ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
 ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370710"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Enterprise Agreement voor Azure-beheerdersrollen in Azure begrijpen
 
 Om u te helpen bij het gebruik van uw organisatie te beheren en besteden, Azure kunnen klanten met een Enterprise Agreement (EA) vijf afzonderlijke beheerdersrollen toewijzen:
 
-- Ondernemingsbeheerder
+- Enterprise-beheerder
 - Enterprise-beheerder (alleen-lezen)
-- Afdelingsbeheerder
+- De beheerder van de afdeling
 - Afdeling beheerder (alleen-lezen)
 - Accounteigenaar
  
@@ -38,9 +38,9 @@ De volgende secties beschrijven de beperkingen en mogelijkheden van elke rol.
 
 |Rol| Gebruikerslimiet|
 |---|---|
-|Ondernemingsbeheerder|Onbeperkt|
+|Enterprise-beheerder|Onbeperkt|
 |Enterprise-beheerder (alleen-lezen)|Onbeperkt|
-|Afdelingsbeheerder|Onbeperkt|
+|De beheerder van de afdeling|Onbeperkt|
 |Afdeling beheerder (alleen-lezen)|Onbeperkt|
 |Accounteigenaar|1 per account<sup>1</sup>|
 
@@ -48,7 +48,7 @@ De volgende secties beschrijven de beperkingen en mogelijkheden van elke rol.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Machtigingen per rol en de structuur van organisatie
 
-|Taken| Ondernemingsbeheerder|Enterprise-beheerder (alleen-lezen)|Afdelingsbeheerder|Afdeling beheerder (alleen-lezen)|Accounteigenaar|
+|Taken| Enterprise-beheerder|Enterprise-beheerder (alleen-lezen)|De beheerder van de afdeling|Afdeling beheerder (alleen-lezen)|Accounteigenaar|
 |---|---|---|---|---|---|
 |Ondernemingsadministrators weergeven|✔|✔|✘|✘|✘|
 |Toevoegen of verwijderen van Ondernemingsadministrators|✔|✘|✘|✘|✘|
@@ -67,7 +67,7 @@ De volgende secties beschrijven de beperkingen en mogelijkheden van elke rol.
 
 ## <a name="usage-and-costs-access-by-role"></a>Gebruik en kosten toegang op basis van rollen
 
-|Taken| Ondernemingsbeheerder|Enterprise-beheerder (alleen-lezen)|Afdelingsbeheerder|Afdeling beheerder (alleen-lezen) |Accounteigenaar|
+|Taken| Enterprise-beheerder|Enterprise-beheerder (alleen-lezen)|De beheerder van de afdeling|Afdeling beheerder (alleen-lezen) |Accounteigenaar|
 |---|---|---|---|---|---|
 |Weergave-tegoed met inbegrip van de monetaire toezegging|✔|✔|✘|✘|✘|
 |Weergave afdeling uitgaven van quota|✔|✔|✘|✘|✘|
@@ -95,8 +95,8 @@ De volgende tabel ziet u de relatie tussen de Enterprise Agreement-beheerdersrol
 |---|---|---|---|
 |Accounteigenaar of beheerder van de afdeling|✔ Ingeschakeld|Eigenaar|Organisatie EA-prijzen|
 |Accounteigenaar of beheerder van de afdeling|✘ Uitgeschakeld|Eigenaar|Adviesprijzen|
-|Accounteigenaar of beheerder van de afdeling|✔ Ingeschakeld |geen|Er zijn geen prijzen|
-|Accounteigenaar of beheerder van de afdeling|✘ Uitgeschakeld |geen|Er zijn geen prijzen|
+|Accounteigenaar of beheerder van de afdeling|✔ Ingeschakeld |Geen|Er zijn geen prijzen|
+|Accounteigenaar of beheerder van de afdeling|✘ Uitgeschakeld |Geen|Er zijn geen prijzen|
 |Geen|Niet van toepassing |Eigenaar|Adviesprijzen|
 
 Stelt u de Enterprise-beheerdersrol en weergeven in rekening gebracht voor in de Enterprise portal. De RBAC-rol kan worden bijgewerkt in Azure portal. Zie voor meer informatie, [toegang met RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md).

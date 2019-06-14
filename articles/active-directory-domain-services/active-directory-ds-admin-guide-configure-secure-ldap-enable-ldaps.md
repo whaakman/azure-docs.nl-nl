@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: df189e405dcd5277c1ccbd94e9d5d302660be79b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359830"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Veilige LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services inschakelen
@@ -31,7 +31,7 @@ Volledige [taak 2: het certificaat voor secure LDAP om te exporteren een. PFX-be
 ## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>Taak 3: Secure LDAP inschakelen voor het beheerde domein met de Azure-portal
 Voor secure LDAP inschakelen, moet u de volgende configuratiestappen uitvoeren:
 
-1. Navigeer naar de  **[Azure-portal](https://portal.azure.com)**.
+1. Navigeer naar de  **[Azure-portal](https://portal.azure.com)** .
 
 2. Zoek op 'domain services' in de **zoeken naar resources** zoekvak. Selecteer **Azure AD Domain Services** uit de zoekresultaten. De **Azure AD Domain Services** pagina geeft een lijst van uw beheerde domein.
 

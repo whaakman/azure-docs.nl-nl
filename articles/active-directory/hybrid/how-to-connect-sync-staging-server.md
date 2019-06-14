@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381559"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Serverherstel en herstel na noodgevallen faseren
@@ -65,9 +65,9 @@ Als u aangepaste wijzigingen hebt aangebracht in de primaire server en u wilt ve
 
 #### <a name="import-and-synchronize"></a>Importeren en synchroniseren
 1. Selecteer **Connectors**, en selecteert u de Connector met het type **Active Directory Domain Services**. Klik op **uitvoeren**, selecteer **volledige import**, en **OK**. Voer deze stappen uit voor alle Connectors van dit type.
-2. Selecteer de Connector met het type **Azure Active Directory (Microsoft)**. Klik op **uitvoeren**, selecteer **volledige import**, en **OK**.
+2. Selecteer de Connector met het type **Azure Active Directory (Microsoft)** . Klik op **uitvoeren**, selecteer **volledige import**, en **OK**.
 3. Zorg ervoor dat het tabblad Connectors is nog steeds is geselecteerd. Voor elke Connector met het type **Active Directory Domain Services**, klikt u op **uitvoeren**, selecteer **Deltasynchronisatie**, en **OK**.
-4. Selecteer de Connector met het type **Azure Active Directory (Microsoft)**. Klik op **uitvoeren**, selecteer **Deltasynchronisatie**, en **OK**.
+4. Selecteer de Connector met het type **Azure Active Directory (Microsoft)** . Klik op **uitvoeren**, selecteer **Deltasynchronisatie**, en **OK**.
 
 U hebt nu gefaseerd uitvoer wordt gewijzigd in Azure AD en on-premises AD (als u hybride implementatie voor Exchange). De volgende stappen kunt u controleren wat bijna wordt gewijzigd voordat u de uitvoer naar de mappen daadwerkelijk wordt gestart.
 

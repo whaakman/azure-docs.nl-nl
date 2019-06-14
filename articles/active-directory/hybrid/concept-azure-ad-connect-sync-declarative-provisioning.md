@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246361"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synchronisatie: Inzicht in declaratieve inrichting
@@ -42,13 +42,13 @@ De pijplijn heeft verschillende andere modules. Elke gebeurtenis wordt die veran
 * [Prioriteit](#precedence), lost conflicterende kenmerk bijdragen
 * Doel, het beoogde doelobject
 
-## <a name="scope"></a>Bereik
+## <a name="scope"></a>Scope
 De scope-module is een object evalueren en bepaalt de regels die in het bereik en moeten worden opgenomen in de verwerking. Afhankelijk van de waarden voor kenmerken op het object, worden andere synchronisatieregels geëvalueerd als binnen het bereik. Een uitgeschakelde gebruiker geen Exchange-postvak heeft bijvoorbeeld andere regels dan een ingeschakelde gebruiker met een postvak.  
-![Bereik](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 Het bereik wordt gedefinieerd als groepen en -componenten. De componenten zijn binnen een groep. Een logische en wordt tussen alle componenten in een groep gebruikt. Bijvoorbeeld: (afdeling IT en land = = Denemarken). Een logische OR wordt gebruikt tussen groepen.
 
-![Bereik](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
 Het bereik in deze afbeelding moet worden gelezen als (afdeling IT en land = = Denemarken) of (land = Zweden). Als de groep 1 of 2-groep wordt geëvalueerd op waar, wordt de regel is binnen het bereik.
 
 De scope-module biedt ondersteuning voor de volgende bewerkingen.
@@ -66,7 +66,7 @@ De scope-module biedt ondersteuning voor de volgende bewerkingen.
 | ISBITSET, ISNOTBITSET |Evalueert als een bepaalde bit is ingesteld. Bijvoorbeeld, kan worden gebruikt om te evalueren van de bits in userAccountControl om te zien als een gebruiker is ingeschakeld of uitgeschakeld. |
 | ISMEMBEROF, ISNOTMEMBEROF |De waarde moet een DN-naam aan een groep in het connectorgebied bevatten. Als het object lid van de groep die is opgegeven is, wordt de regel is binnen het bereik. |
 
-## <a name="join"></a>Koppelen
+## <a name="join"></a>Deelnemen
 De join-module in de pijplijn synchronisatie is verantwoordelijk voor het vinden van de relatie tussen het object in de bron- en een object in het doel. Deze relatie is op een binnenkomende regel een object in een connectorgebied zoeken van een relatie met een object in de metaverse.  
 ![Deelnemen aan tussen cs en mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
 Het doel is om te zien dat als er een object is al in de metaverse, die zijn gemaakt door een andere Connector dit moet worden gekoppeld aan. In een account-bron-forest moet de gebruiker uit het accountforest bijvoorbeeld worden toegevoegd aan de gebruiker van de bron-forest.

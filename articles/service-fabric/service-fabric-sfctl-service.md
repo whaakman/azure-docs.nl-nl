@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556369"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -30,22 +30,22 @@ Maken, verwijderen en beheren van de service, servicetypen en service-pakketten.
 | --- | --- |
 | app-name | Hiermee haalt u de naam van de Service Fabric-toepassing voor een service. |
 | code-package-list | Hiermee haalt u de lijst met codepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| maken | Hiermee maakt u de opgegeven Service Fabric-service. |
+| create | Hiermee maakt u de opgegeven Service Fabric-service. |
 | delete | Hiermee verwijdert u een bestaande Service Fabric-service. |
 | geïmplementeerd-type | Hiermee haalt u de informatie over een opgegeven service-type van de toepassing die is geïmplementeerd op een knooppunt in een Service Fabric-cluster. |
 | geïmplementeerd-type-list | Hiermee haalt u de lijst met de informatie over de servicetypen van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster. |
 | description | Hiermee haalt u de beschrijving van een bestaande Service Fabric-service. |
 | Get-container-Logboeken | Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt. |
-| gezondheidszorg | Hiermee haalt u de status van de opgegeven Service Fabric-service. |
-| informatie | Hiermee haalt u de informatie over de specifieke service die behoren tot de Service Fabric-toepassing. |
+| health | Hiermee haalt u de status van de opgegeven Service Fabric-service. |
+| info | Hiermee haalt u de informatie over de specifieke service die behoren tot de Service Fabric-toepassing. |
 | list | Hiermee haalt u de informatie over alle services die behoren tot de toepassing die is opgegeven door de toepassings-ID. |
-| Het manifest | Hiermee haalt u de beschrijving van het servicetype van een manifest. |
+| manifest | Hiermee haalt u de beschrijving van het servicetype van een manifest. |
 | pakket implementeren | Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest voor de cache voor installatiekopieën van het opgegeven knooppunt. |
 | package-health | Hiermee haalt de informatie over de status van een servicepakket voor een specifieke toepassing die is geïmplementeerd voor een Service Fabric-knooppunt en de toepassing. |
 | package-info | Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt die overeenkomt met precies de opgegeven naam. |
 | pakket-lijst | Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt. |
 | recover | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de opgegeven service die momenteel sprake van quorumverlies is vastgelopen. |
-| rapport-en statusbewaking | Verzendt een statusrapport van de Service Fabric-service. |
+| report-health | Verzendt een statusrapport van de Service Fabric-service. |
 | oplossen | Een Service Fabric-partitie worden omgezet. |
 | type-list | Hiermee haalt u de lijst met de informatie over de servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster. |
 | update | De opgegeven service met behulp van de beschrijving van de betreffende update-updates. |

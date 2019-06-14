@@ -8,10 +8,10 @@ ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236234"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
@@ -23,7 +23,7 @@ Een [Linux-versie van de extensie](../../virtual-machines/extensions/diagnostics
 ## <a name="data-you-can-collect"></a>Gegevens die u kunt verzamelen
 De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
 
-| Gegevensbron | Beschrijving |
+| Gegevensbron | Description |
 | --- | --- |
 | Metrische gegevens voor prestaties teller |Besturingssysteem- en aangepaste prestatiemeteritems |
 | Toepassingslogboeken |Traceringsberichten die is geschreven door uw toepassing |

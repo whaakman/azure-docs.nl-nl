@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/22/2018
 ms.author: aschhab
 ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332343"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Overzicht van Service Bus-transactieverwerking
@@ -37,8 +37,8 @@ Service Bus biedt ondersteuning voor het groeperen van bewerkingen voor één be
 
 De bewerkingen die kunnen worden uitgevoerd in een transactiebereik zijn als volgt:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** : Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
 Ontvangen bewerkingen zijn niet opgenomen, omdat ervan wordt uitgegaan dat de toepassing krijgt van berichten met behulp van de [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) modus, in een paar lus ontvangen of met een [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) terugbellen, en opent alleen vervolgens een transactiebereik voor het verwerken van het bericht.
 

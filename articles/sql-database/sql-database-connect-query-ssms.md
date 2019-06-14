@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60f2edf0adbfd740ce552449125ae69ab50a8586
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409697"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051083"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL-database
 
@@ -68,7 +68,7 @@ In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
 2. Voer de volgende informatie in:
 
-   | Instelling      | Voorgestelde waarde    | Beschrijving |
+   | Instelling      | Voorgestelde waarde    | Description |
    | ------------ | ------------------ | ----------- |
    | **Servertype** | Database-engine | Vereiste waarde. |
    | **Servernaam** | De volledig gekwalificeerde servernaam | Dit moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |
@@ -87,7 +87,7 @@ In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
 5. Als u de objecten van de database wilt weergeven, vouwt u **Databases** uit en vouwt u vervolgens **mySampleDatabase** uit.
 
-   ![databaseobjecten weergeven](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase-objecten](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Querygegevens
 
@@ -106,7 +106,7 @@ Voer deze Transact-SQL \[SELECT](https://msdn.microsoft.com/library/ms189499.asp
 
 3. Selecteer op de werkbalk **Uitvoeren** om gegevens op te halen uit de tabellen `Product` en `ProductCategory`.
 
-    ![query voor het ophalen van gegevens uit twee tabellen](./media/sql-database-connect-query-ssms/query2.png)
+    ![query voor het ophalen van gegevens uit de tabel Product en ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
@@ -146,7 +146,7 @@ Voer deze Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx
 
 2. Selecteer **Uitvoeren**. Het volgende resultaat weergegeven.
 
-   ![Resultaat](./media/sql-database-connect-query-ssms/result.png)
+   ![resultaat van het Product tabelquery](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Gegevens bijwerken
 

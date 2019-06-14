@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370396"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren (klassiek)
@@ -23,7 +23,7 @@ ms.locfileid: "60370396"
 > 
 > 
 
-In dit artikel leest u hoe u ExpressRoute- en site-naar-site-VPN-verbindingen configureert die naast elkaar kunnen worden gebruikt. De mogelijkheid om site-naar-site-VPN en ExpressRoute te configureren heeft verschillende voordelen. U kunt een site-naar-site-VPN configureren als een beveiligd failoverpad voor ExpressRoute, of site-naar-site-VPN's gebruiken om verbinding te maken met sites die niet via ExpressRoute zijn verbonden. In dit artikel gaan we in op de stappen voor het configureren van beide scenario's. Dit artikel is van toepassing op het klassieke implementatiemodel. Deze configuratie is niet beschikbaar in de portal.
+Dit artikel helpt u bij het configureren van ExpressRoute en Site-naar-Site VPN-verbindingen die naast elkaar worden gebruikt. De mogelijkheid om site-naar-site-VPN en ExpressRoute te configureren heeft verschillende voordelen. U kunt een site-naar-site-VPN configureren als een beveiligd failoverpad voor ExpressRoute, of site-naar-site-VPN's gebruiken om verbinding te maken met sites die niet via ExpressRoute zijn verbonden. In dit artikel gaan we in op de stappen voor het configureren van beide scenario's. Dit artikel is van toepassing op het klassieke implementatiemodel. Deze configuratie is niet beschikbaar in de portal.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -177,7 +177,7 @@ Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressR
         OperationStatus      : Succeeded
 
 
-1. Configureer het lokale VPN-apparaat om verbinding te maken met de nieuwe gateway. Gebruik de informatie die u in stap 6 bij de configuratie van uw VPN-apparaat hebt opgehaald. Zie [VPN-apparaatconfiguratie](../vpn-gateway/vpn-gateway-about-vpn-devices.md) voor meer informatie over het configureren van een VPN-apparaat. 
+1. Configureer het lokale VPN-apparaat om verbinding te maken met de nieuwe gateway. Gebruik de informatie die u in stap 6 bij de configuratie van uw VPN-apparaat hebt opgehaald. Zie [VPN-apparaatconfiguratie](../vpn-gateway/vpn-gateway-about-vpn-devices.md) voor meer informatie over het configureren van een VPN-apparaat.
 2. Koppel de site-naar-site-VPN-gateway in Azure aan de lokale gateway.
    
     In dit voorbeeld is connectedEntityId de lokale gateway-ID. Deze kunt u vinden door `Get-AzureLocalNetworkGateway` uit te voeren. U kunt virtualNetworkGatewayId vinden met behulp van de cmdlet `Get-AzureVirtualNetworkGateway`. Na deze stap wordt de verbinding tussen uw lokale netwerk en Azure tot stand gebracht via de site-naar-site-VPN-verbinding.

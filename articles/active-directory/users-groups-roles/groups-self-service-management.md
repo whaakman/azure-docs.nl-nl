@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b860257fd1b3f0897152dc3d48bff0c7e1d3d994
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469858"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Self-service groepsbeheer in Azure Active Directory instellen 
@@ -33,7 +33,7 @@ Als beveiligingsgroepen worden gemaakt in Azure portal of met behulp van Azure A
 Groepen die zijn gemaakt in | Standaardgedrag voor beveiliging groep | Standaardgedrag voor Office 365-groep
 ------------------ | ------------------------------- | ---------------------------------
 [PowerShell voor Azure AD](groups-settings-cmdlets.md) | Alleen eigenaars kunnen leden toevoegen<br>Zichtbaar, maar niet beschikbaar zijn om toe te voegen in Toegangsvenster | Open om toe te voegen voor alle gebruikers
-[Azure-portal](https://portal.azure.com) | Alleen eigenaars kunnen leden toevoegen<br>Zichtbaar, maar niet beschikbaar zijn om toe te voegen in Toegangsvenster<br>De eigenaar wordt niet automatisch toegewezen tijdens het maken van groep | Open om toe te voegen voor alle gebruikers
+[Azure Portal](https://portal.azure.com) | Alleen eigenaars kunnen leden toevoegen<br>Zichtbaar, maar niet beschikbaar zijn om toe te voegen in Toegangsvenster<br>De eigenaar wordt niet automatisch toegewezen tijdens het maken van groep | Open om toe te voegen voor alle gebruikers
 [Toegangsvenster](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Open om toe te voegen voor alle gebruikers<br>Lidmaatschap van opties kunnen worden gewijzigd nadat de groep is gemaakt | Open om toe te voegen voor alle gebruikers<br>Lidmaatschap van opties kunnen worden gewijzigd nadat de groep is gemaakt
 
 ## <a name="self-service-group-management-scenarios"></a>Scenario's voor het beheer van selfservicegroepen

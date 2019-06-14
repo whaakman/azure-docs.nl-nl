@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422640"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Hoe u een telefonische oproep met behulp van Twilio in een Java-toepassing in Azure
@@ -183,7 +183,7 @@ Deze code is opgegeven om weer te geven u basisfunctionaliteit met behulp van Tw
 
 * U kunt in plaats van een webformulier, Azure storage-blobs of SQL-Database gebruiken voor het opslaan van telefoonnummers en aanroepen van tekst. Zie voor meer informatie over het gebruik van Azure storage-blobs in Java [over het gebruik van de Blob Storage-Service met Java][howto_blob_storage_java]. 
 * U kunt **RoleEnvironment.getConfigurationSettings** om op te halen van de Twilio-account-ID en -verificatie-token van uw implementatie van configuratie-instellingen, in plaats van hard-coding de waarden in makecall.jsp. Voor informatie over de **RoleEnvironment** klasse, Zie [met behulp van de Azure Service Runtime Library in JSP] [ azure_runtime_jsp] en de documentatie van het pakket Azure Service Runtime op [ http://dl.windowsazure.com/javadoc][azure_javadoc].
-* De code makecall.jsp wijst een Twilio-voorwaarde-URL, [ https://twimlets.com/message ] [ twimlet_message_url], naar de **Url** variabele. Deze URL bevat een Twilio Markup Language (TwiML)-antwoord dat informeert Twilio hoe om door te gaan met de aanroep. Bijvoorbeeld, de TwiML dat wordt geretourneerd kan bevatten een **&lt;zeg&gt;** term die resulteert in de tekst die wordt gesproken naar de ontvanger. In plaats van de geleverde Twilio-URL, kunt u uw eigen service om te reageren op aanvraag van Twilio; bouwen Zie voor meer informatie, [over het gebruik Twilio voor spraak- en SMS-mogelijkheden in Java][howto_twilio_voice_sms_java]. Meer informatie over TwiML kan worden gevonden op [ https://www.twilio.com/docs/api/twiml ] [ twiml], en meer informatie over **&lt;zeg&gt;** en andere Twilio-termen vinden op [ https://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
+* De code makecall.jsp wijst een Twilio-voorwaarde-URL, [ https://twimlets.com/message ] [ twimlet_message_url], naar de **Url** variabele. Deze URL bevat een Twilio Markup Language (TwiML)-antwoord dat informeert Twilio hoe om door te gaan met de aanroep. Bijvoorbeeld, de TwiML dat wordt geretourneerd kan bevatten een **&lt;zeg&gt;** term die resulteert in de tekst die wordt gesproken naar de ontvanger. In plaats van de geleverde Twilio-URL, kunt u uw eigen service om te reageren op aanvraag van Twilio; bouwen Zie voor meer informatie, [over het gebruik Twilio voor spraak- en SMS-mogelijkheden in Java][howto_twilio_voice_sms_java]. Meer informatie over TwiML kan worden gevonden op [ https://www.twilio.com/docs/api/twiml ] [ twiml], en meer informatie over **&lt; zeg&gt;** en andere Twilio-termen vinden op [ https://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
 * Lees de richtlijnen voor de beveiliging van Twilio op [ https://www.twilio.com/docs/security ] [ twilio_docs_security].
 
 Zie voor meer informatie over Twilio [ https://www.twilio.com/docs ] [ twilio_docs].

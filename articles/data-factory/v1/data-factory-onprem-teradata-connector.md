@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610745"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Gegevens verplaatsen van Teradata met Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-onprem-teradata-connector.md)
 > * [Versie 2 (huidige versie)](../connector-teradata.md)
 
@@ -286,8 +286,8 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 | Type van de Teradata-Database | .NET framework-type |
 | --- | --- |
 | char |String |
-| CLOB |String |
-| Afbeelding |String |
+| Clob |String |
+| Graphic |String |
 | VarChar |String |
 | VarGraphic |String |
 | Blob |Byte[] |
@@ -302,27 +302,27 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 | SmallInt |Int16 |
 | Date |DateTime |
 | Time |TimeSpan |
-| Tijd met de tijdzone |String |
+| Time With Time Zone |String |
 | Tijdstempel |DateTime |
-| Tijdstempel met tijdzone |DateTimeOffset |
+| Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
-| Interval voor dag uur |TimeSpan |
-| Interval voor dag minuut |TimeSpan |
-| Tweede interval dag |TimeSpan |
-| Interval uur |TimeSpan |
-| Interval voor uur minuut |TimeSpan |
-| Tweede interval uur |TimeSpan |
-| Interval minuut |TimeSpan |
-| Tweede interval minuut |TimeSpan |
-| Interval voor tweede |TimeSpan |
-| Interval van jaar |String |
-| Interval voor jaar tot maand |String |
-| Interval van maand |String |
-| Period(date) |String |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
+| Period(Date) |String |
 | Period(Time) |String |
-| Periode (tijd met tijdzone) |String |
-| Period(timestamp) |String |
-| Periode (Timestamp met tijdzone) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
 | Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen

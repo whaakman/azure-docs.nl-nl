@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357530"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportage-opties voor Azure AD-wachtwoordbeheer
@@ -74,7 +74,7 @@ De volgende tabel beschrijft de verschillende waarden die dat u kunt instellen v
 
 | Kolom | Toegestane waarden en hun betekenis |
 | --- | --- |
-| Gegevens die zijn geregistreerd |**Alternatief e-mailadres**: De gebruiker gebruikt een alternatief e-mailadres of verificatieadres voor verificatie.<p><p>**Telefoon (werk)**: De gebruiker gebruikt een telefoon (werk) om te verifiëren.<p>**Mobiele telefoon**: De gebruiker gebruikt een mobiele telefoon of telefoon voor authenticatie voor verificatie.<p>**Vragen over de beveiliging**: De gebruiker gebruikt vragen over de beveiliging voor verificatie.<p>**Een combinatie van de vorige methoden, bijvoorbeeld, alternatief e-mail + mobiele telefoon**: Treedt op wanneer een beleid voor twee-poort is opgegeven en ziet u welke twee methoden voor de gebruiker gebruikt voor verificatie verzoek hun wachtwoord opnieuw instellen. |
+| Gegevens die zijn geregistreerd |**Alternatief e-mailadres**: De gebruiker gebruikt een alternatief e-mailadres of verificatieadres voor verificatie.<p><p>**Telefoon (werk)** : De gebruiker gebruikt een telefoon (werk) om te verifiëren.<p>**Mobiele telefoon**: De gebruiker gebruikt een mobiele telefoon of telefoon voor authenticatie voor verificatie.<p>**Vragen over de beveiliging**: De gebruiker gebruikt vragen over de beveiliging voor verificatie.<p>**Een combinatie van de vorige methoden, bijvoorbeeld, alternatief e-mail + mobiele telefoon**: Treedt op wanneer een beleid voor twee-poort is opgegeven en ziet u welke twee methoden voor de gebruiker gebruikt voor verificatie verzoek hun wachtwoord opnieuw instellen. |
 
 ## <a name="self-service-password-management-activity-types"></a>Selfservice wachtwoordbeheer activiteitstypen
 

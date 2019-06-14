@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387300"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Voor hybride identiteit benodigde poorten en protocollen
@@ -63,7 +63,7 @@ Deze tabel worden beschreven de poorten en protocollen die vereist voor communic
 ## <a name="table-4---wap-and-federation-servers"></a>Tabel 4 - WAP en Federation-Servers
 Deze tabel worden de poorten en protocollen die vereist voor communicatie tussen de Federation-servers en WAP-servers zijn beschreven.
 
-| Protocol | Poorten | Beschrijving |
+| Protocol | Poorten | Description |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Gebruikt voor verificatie. |
 
@@ -102,8 +102,8 @@ Deze tabel beschrijft de volgende uitgaande poorten en protocollen die vereist v
 
 | Protocol | Poorten | Description |
 | --- | --- | --- |
-| HTTPS |443(TCP/UDP) |Uitgaand |
-| Azure Service Bus |5671 (TCP/UDP) |Uitgaand |
+| HTTPS |443(TCP/UDP) |Uitgaande |
+| Azure Service Bus |5671 (TCP/UDP) |Uitgaande |
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7B - eindpunten voor Azure AD Connect Health-agent voor (AD FS/Sync) en Azure AD
 Zie voor een lijst met eindpunten [de sectie vereisten voor de Azure AD Connect Health-agent](how-to-connect-health-agent-install.md#requirements).

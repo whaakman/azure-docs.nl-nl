@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400640"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-berichtroutering query-syntaxis
@@ -51,7 +51,7 @@ De IoT-Hub definieert een [algemene indeling](iot-hub-devguide-messages-construc
 
 Systeemeigenschappen te identificeren van de inhoud en de bron van de berichten. 
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | contentType | string | De gebruiker geeft het type inhoud van het bericht. Als u wilt toestaan dat query op de berichttekst, moet deze waarde application/JSON worden ingesteld. |
 | contentEncoding | string | De gebruiker Hiermee geeft u het coderingstype van het bericht. Toegestane waarden zijn UTF-8, UTF-16, UTF-32 als de contentType is ingesteld op application/JSON. |

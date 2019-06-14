@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60462585"
 ---
 # <a name="project-url-preview-v7-reference"></a>Naslaggids voor project URL-voorbeeld voor Bing versie 7
@@ -73,7 +73,7 @@ Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.
 ## <a name="query-parameters"></a>Queryparameters
 De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor vereiste parameters. Moet u de URL de queryparameters coderen. De query moet een absolute URL met een schema http of https; We bieden geen ondersteuning voor relatieve URL's of andere schema's, zoals ftp: / /
 
-|Name|Waarde|Type|Vereist|
+|Name|Value|Type|Vereist|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, markt-Codes.<br /><br /> **OPMERKING:** De URL van Preview-API ondersteunt momenteel alleen Amerikaanse Geografie en Engelse taal.<br /><br />|String|Ja|
 |<a name="query" />q|De URL om een voorbeeld van|String|Ja|
@@ -102,7 +102,7 @@ Hiermee definieert u de fout is opgetreden.
 ### <a name="errorresponse"></a>ErrorResponse
 Het object van het type op het hoogste niveau dat het antwoord bevat als de aanvraag is mislukt.
 
-|Name|Waarde|Type|
+|Name|Value|Type|
 |----------|-----------|----------|
 |_type|Type hint.|String|
 |<a name="errors" />Fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)]|
@@ -110,16 +110,16 @@ Het object van het type op het hoogste niveau dat het antwoord bevat als de aanv
 ### <a name="webpage"></a>WebPage
 Informatie over definieert een de webpagina wordt weergegeven in de Preview-versie.
 
-|Name|Waarde|Type|
+|Name|Value|Type|
 |----------|-----------|----------|
-|naam|De titel van de pagina, niet per se de HTML-titel|String|
+|name|De titel van de pagina, niet per se de HTML-titel|String|
 |url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|String|
 |description|Korte beschrijving van de pagina en de inhoud|String|
 |isFamilyFriendly|Meest nauwkeurige voor items in de web-index; realtime haalt doen deze detectie die uitsluitend zijn gebaseerd op de URL en niet op de pagina-inhoud|booleaans|
 |primaryImageOfPage/contentUrl|De URL naar een representatieve afbeelding wilt opnemen in de Preview-versie|String|
 
 ### <a name="identifiable"></a>Identificeerbare
-|Name|Waarde|Type|
+|Name|Value|Type|
 |-------------|-----------------|----------|
 |id|Een resource-id|String|
 
@@ -127,7 +127,7 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
 
 Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
-|Statuscode|Beschrijving|
+|Statuscode|Description|
 |-----------------|-----------------|
 |200|Geslaagd.|
 |400|Een van de queryparameters is ontbreekt of is ongeldig.|
@@ -172,7 +172,7 @@ Hier volgen de mogelijke fout code en de onderliggende fout code-waarden.
 
 |Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|HTTP-statuscode is 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP-statuscode is 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als u het HTTP-protocol in plaats van HTTPS, Bing retourneert HttpNotAllowed en de HTTP-statuscode 410.
 |RateLimitExceeded|Er is geen onderliggende codes|Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Als u QPS overschrijdt, Bing retourneert HTTP-statuscode 429 en als u QPM overschrijdt, Bing 403 retourneert.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.

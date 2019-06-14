@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236395"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Verbinding maken met Azure Databricks vanuit Excel-, Python of R
@@ -65,7 +65,7 @@ De naam van een gegevensbron (DSN) bevat informatie over een specifieke gegevens
     
     De volgende aanvullende stappen uitvoeren in het dialoogvenster van de DSN-instelling.
     
-    * Klik op **opties voor HTTP-**. Plak in het dialoogvenster dat wordt geopend, de waarde voor *HTTP-pad* die u hebt gekopieerd uit de Databricks-werkruimte. Klik op **OK**.
+    * Klik op **opties voor HTTP-** . Plak in het dialoogvenster dat wordt geopend, de waarde voor *HTTP-pad* die u hebt gekopieerd uit de Databricks-werkruimte. Klik op **OK**.
     * Klik op **SSL-opties**. Selecteer in het dialoogvenster dat wordt geopend, de **SSL inschakelen** selectievakje. Klik op **OK**.
     * Klik op **testen** voor het testen van de verbinding met Azure Databricks. Klik op **OK** om de configuratie op te slaan.
     * In de **ODBC-gegevensbronbeheer** in het dialoogvenster, klikt u op **OK**.

@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: ec34ff874eae9bbdd53470f135bcf0c182d5daed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60251063"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Scripts uitvoeren in uw Windows-VM
@@ -29,7 +29,7 @@ De [Custom Script Extension](../extensions/custom-script-windows.md) wordt voorn
 * PowerShell-script uitgevoerd op Windows-machines en Bash-scripts in Linux-machines.
 * Dit is handig voor post-implementatieconfiguratie, software-installatie, en andere configuratie of beheertaken.
 
-## <a name="run-command"></a>Uitvoeropdracht
+## <a name="run-command"></a>Voer de opdracht
 
 De [opdracht uitvoeren](run-command.md) functie kunt u virtuele machine en Toepassingsbeheer en problemen oplossen met behulp van scripts, en is beschikbaar, zelfs wanneer de computer is niet bereikbaar is, bijvoorbeeld als de Gast-firewall beschikt niet over de RDP of SSH-poort Open.
 

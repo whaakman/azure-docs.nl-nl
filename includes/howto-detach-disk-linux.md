@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25e67a5a6c3abebbac2e0489ff636ca1457b62ea
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476267"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807731"
 ---
 Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine (VM) niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Wanneer u een schijf van de virtuele machine loskoppelt, wordt de schijf niet verwijderd uit de opslag. Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.  
 
@@ -19,7 +19,7 @@ Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine (VM) niet
 ## <a name="find-the-disk"></a>De schijf vinden
 Voordat u een schijf van een virtuele machine kunt loskoppelen, moet u achter het LUN komen. Dit is een id voor de schijf die u wilt loskoppelen. Voer hiervoor de volgende stappen uit:
 
-1. Open Azure CLI en [maak verbinding met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+1. Open de Azure CLI en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
 2. Achterhaal welke schijven zijn gekoppeld aan uw virtuele machine. In het volgende voorbeeld worden schijven weergegeven voor de virtuele machine met de naam `myVM`:
 
     ```azurecli

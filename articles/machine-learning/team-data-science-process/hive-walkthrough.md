@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303901"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Het Team Data Science Process in actie: Azure HDInsight Hadoop-clusters gebruiken
@@ -574,7 +574,7 @@ Een groot voordeel van deze gegevens zich bevinden in een Azure-blob is dat we d
 Na de analysefase experimentele gegevens bent er nu klaar om down-sampling van de gegevens voor het ontwikkelen van modellen in Machine Learning. In deze sectie laten we zien hoe u een Hive-query voor down-sampling van de gegevens. Machine Learning vervolgens opent vanuit de [importgegevens] [ import-data] module.
 
 ### <a name="down-sampling-the-data"></a>De gegevens down-sampling
-Er zijn twee stappen in deze procedure. Eerst we toevoegen de **nyctaxidb.trip** en **nyctaxidb.fare** tabellen op de drie sleutels die aanwezig in alle records zijn: **straten**, **hack\_ licentie**, en **ophalen\_datum-/**. We vervolgens een label binaire classificatie genereren **punt**, en een multiklassen classificatielabel **tip\_klasse**.
+Er zijn twee stappen in deze procedure. Eerst we toevoegen de **nyctaxidb.trip** en **nyctaxidb.fare** tabellen op de drie sleutels die aanwezig in alle records zijn: **straten**, **hack\_ licentie**, en **ophalen\_datum-/** . We vervolgens een label binaire classificatie genereren **punt**, en een multiklassen classificatielabel **tip\_klasse**.
 
 Kunnen gebruikmaken van de gegevens naar beneden steekproef rechtstreeks vanuit de [importgegevens] [ import-data] module in Machine Learning, moet u de resultaten van de voorgaande query naar een interne Hive-tabel opslaan. In het volgende, we een interne Hive-tabel maken en vullen van de inhoud ervan met de gegevens van een domein en down-voorbeelden worden gemaakt.
 

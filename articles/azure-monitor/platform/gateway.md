@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60396331"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Verbinding maken met computers zonder toegang tot het internet met behulp van de Log Analytics-gateway in Azure Monitor
@@ -412,7 +412,7 @@ De volgende tabel ziet u de prestatiemeteritems die beschikbaar zijn voor de Log
 
 ![Schermafbeelding van Log Analytics gateway interface, prestatiemeteritems weergeven](./media/gateway/counters.png)
 
-## <a name="assistance"></a>Hulp
+## <a name="assistance"></a>Ondersteuning
 Wanneer u bent aangemeld bij de Azure-portal, kunt u hulp bij de Log Analytics-gateway of een andere Azure-service of functie.
 Hulp bij, selecteert u het vraagtekenpictogram in de rechterbovenhoek van de portal en selecteer **nieuwe ondersteuningsaanvraag**. Voltooi nieuw aanvraagformulier voor de ondersteuning.
 

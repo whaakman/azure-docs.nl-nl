@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381853"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding oplossen
@@ -57,7 +57,7 @@ Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook z
 
 Blader naar **Azure Active Directory** > **aanmeldingen** in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/), en selecteer vervolgens de aanmeldingsactiviteiten voor een specifieke gebruiker. Zoek de **FOUTCODE voor aanmelding door** veld. De waarde van dat veld worden toegewezen aan een reden van fout en een oplossing met behulp van de volgende tabel:
 
-|Foutcode voor aanmelding|Reden van fout-aanmelding|Oplossing
+|Fout bij aanmelden code|Reden van fout-aanmelding|Oplossing
 | --- | --- | ---
 | 81001 | Kerberos-ticket van de gebruiker is te groot. | Reduceer het aantal groepslidmaatschappen van de gebruiker en probeer het opnieuw.
 | 81002 | Kan niet valideren van het Kerberos-ticket van de gebruiker. | Zie de [controlelijst voor probleemoplossing](#troubleshooting-checklist).
@@ -91,7 +91,7 @@ Gebruik de volgende controlelijst om problemen met naadloze eenmalige aanmelding
 
 ### <a name="domain-controller-logs"></a>Domain controller Logboeken
 
-Als u de controle van geslaagde pogingen op uw domeincontroller en vervolgens telkens wanneer een gebruiker zich aanmeldt via naadloze eenmalige aanmelding inschakelt, wordt een vermelding security vastgelegd in het gebeurtenislogboek wordt geschreven. U vindt deze beveiligingsgebeurtenissen met behulp van de volgende query uit. (Zoek naar gebeurtenis **4769** die zijn gekoppeld aan het computeraccount **AzureADSSOAcc$**.)
+Als u de controle van geslaagde pogingen op uw domeincontroller en vervolgens telkens wanneer een gebruiker zich aanmeldt via naadloze eenmalige aanmelding inschakelt, wordt een vermelding security vastgelegd in het gebeurtenislogboek wordt geschreven. U vindt deze beveiligingsgebeurtenissen met behulp van de volgende query uit. (Zoek naar gebeurtenis **4769** die zijn gekoppeld aan het computeraccount **AzureADSSOAcc$** .)
 
 ```
     <QueryList>

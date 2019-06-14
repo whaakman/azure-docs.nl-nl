@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236929"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows-gebeurtenislogboek gegevensbronnen in Azure Monitor
@@ -28,7 +28,7 @@ Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen]
 ## <a name="configuring-windows-event-logs"></a>Configuratie Windows gebeurtenislogboeken
 Configureren van Windows-gebeurtenislogboeken vanuit de [menu van de gegevens in de geavanceerde instellingen](agent-data-sources.md#configuring-data-sources).
 
-Azure Monitor verzamelt alleen gebeurtenissen uit de Windows-gebeurtenislogboeken die zijn opgegeven in de instellingen.  U kunt een gebeurtenislogboek toevoegen door te klikken en naam van het logboek typen **+**.  Voor elk logboek, worden alleen de gebeurtenissen met de geselecteerde ernstcategorieën verzameld.  Raadpleeg de ernstcategorieën voor het logboek dat u wenst te verzamelen.  U kunt aanvullende criteria om te filteren van gebeurtenissen kan niet opgeven.
+Azure Monitor verzamelt alleen gebeurtenissen uit de Windows-gebeurtenislogboeken die zijn opgegeven in de instellingen.  U kunt een gebeurtenislogboek toevoegen door te klikken en naam van het logboek typen **+** .  Voor elk logboek, worden alleen de gebeurtenissen met de geselecteerde ernstcategorieën verzameld.  Raadpleeg de ernstcategorieën voor het logboek dat u wenst te verzamelen.  U kunt aanvullende criteria om te filteren van gebeurtenissen kan niet opgeven.
 
 Terwijl u de naam van een gebeurtenislogboek typt, bevat Azure Monitor suggesties van algemene namen van het gebeurtenislogboek. Als het logboek dat u wilt toevoegen niet wordt weergegeven in de lijst, kunt u deze nog steeds toevoegen door in de volledige naam van het logboek te typen. U vindt de volledige naam van het logboek met behulp van Logboeken. Open in de logboeken de *eigenschappen* pagina voor het logboek en kopieer de tekenreeks van de *volledige naam* veld.
 
@@ -56,10 +56,10 @@ Windows-gebeurtenis legt vast zijn een type **gebeurtenis** en hebben de eigensc
 | ParameterXml |Gebeurtenis parameterwaarden in XML-indeling. |
 | ManagementGroupName |Naam van de beheergroep van System Center Operations Manager-agents.  Voor andere agents is deze waarde `AOI-<workspace ID>` |
 | RenderedDescription |Beschrijving van gebeurtenis met parameterwaarden |
-| Bron |Bron van de gebeurtenis. |
+| source |Bron van de gebeurtenis. |
 | SourceSystem |Het type van de agent die de gebeurtenis is verzameld. <br> OpsManager – Windows-agent, rechtstreeks verbinding maken of Operations Manager worden beheerd <br> Linux: alle Linux-agents  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |De datum en tijd waarop die de gebeurtenis is gemaakt in Windows. |
-| Gebruikersnaam |De naam van de gebruiker van het account waarmee de gebeurtenis is vastgelegd. |
+| UserName |De naam van de gebruiker van het account waarmee de gebeurtenis is vastgelegd. |
 
 ## <a name="log-queries-with-windows-events"></a>Logboeken-query's met Windows-gebeurtenissen
 De volgende tabel bevat voorbeelden van Logboeken-query's waarmee Windows-gebeurtenis legt vast worden opgehaald.

@@ -13,10 +13,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311662"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Gegevens transformeren door het uitvoeren van een Databricks-notebook
@@ -59,7 +59,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebr
 
 |Eigenschap|Description|Vereist|
 |---|---|---|
-|naam|Naam van de activiteit in de pijplijn.|Ja|
+|name|Naam van de activiteit in de pijplijn.|Ja|
 |description|Tekst die beschrijft wat de activiteit doet.|Nee|
 |type|Voor Databricks Notebook-activiteit is het activiteitstype DatabricksNotebook.|Ja|
 |linkedServiceName|De naam van de Databricks gekoppelde Service waarop het Databricks-notebook wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.|Ja|

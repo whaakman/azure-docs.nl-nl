@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295579"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedure: Risico-beleid configureren in Azure Active Directory identity protection (vernieuwd)
@@ -60,7 +60,7 @@ Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
 
 - Het niveau van aanmeldingsrisico waarmee het beleid wordt geactiveerd:
 
-    ![Niveau van aanmeldingsrisico](./media/howto-configure-risk-policies/12.png)
+    ![Het niveau van aanmeldingsrisico](./media/howto-configure-risk-policies/12.png)
 
 - Het type toegang dat u wilt worden afgedwongen wanneer de risiconiveau van uw aanmelding is voldaan:  
 
@@ -73,7 +73,7 @@ Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
 
 Het dialoogvenster van de configuratie van beleid biedt u een optie voor het schatten van de impact van herconfiguratie.
 
-![Verwachte impact](./media/howto-configure-risk-policies/15.png)
+![De geschatte impact](./media/howto-configure-risk-policies/15.png)
 
 ## <a name="what-you-should-know-about-sign-in-risk-policies"></a>Wat u moet weten over het beleid voor aanmeldingsrisico
 
@@ -127,7 +127,7 @@ Het beleid voor gebruikersrisico's is een geautomatiseerd antwoord dat u voor ee
    
 Het beleid voor gebruikersrisico's zich in de **configureren** sectie op de [Azure AD Identity Protection-pagina](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Beleid voor gebruikersrisico's](./media/howto-configure-risk-policies/11014.png)
+![Beleid voor gebruikersrisico 's](./media/howto-configure-risk-policies/11014.png)
 
 
 
@@ -141,7 +141,7 @@ Wanneer u het beleid voor gebruikersrisico's configureert, moet u instellen:
 
 - Het niveau van aanmeldingsrisico waarmee het beleid wordt geactiveerd:
 
-    ![Niveau van gebruikersrisico](./media/howto-configure-risk-policies/112.png)
+    ![Risiconiveau van de gebruiker](./media/howto-configure-risk-policies/112.png)
 
 - Het type toegang dat u wilt worden afgedwongen wanneer de risiconiveau van uw aanmelding is voldaan:  
 
@@ -153,7 +153,7 @@ Wanneer u het beleid voor gebruikersrisico's configureert, moet u instellen:
 
 Het dialoogvenster van de configuratie van beleid biedt u een optie voor het schatten van de impact van uw configuratie.
 
-![Verwachte impact](./media/howto-configure-risk-policies/115.png)
+![De geschatte impact](./media/howto-configure-risk-policies/115.png)
 
 ## <a name="what-you-should-know-about-user-risk-polices"></a>Wat u moet weten over gebruikersrisico beleidsregels
 

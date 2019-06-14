@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193708"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-ends en back-end-pools in Azure voordeur Service
@@ -59,7 +59,7 @@ Het configureren van de **host-header van back-end** veld voor een back-end in d
 
 3. De back-end-host header-veld ingesteld op een aangepaste waarde of laat dit veld leeg. De hostnaam voor de inkomende aanvraag wordt gebruikt als de waarde van de host-header.
 
-## <a name="backend-pools"></a>Back-end-pools
+## <a name="backend-pools"></a>Back-endpools
 Een back-endpool voor de deur van Service verwijst naar de set met back-ends die soortgelijke verkeer voor de app wordt ontvangen. Er is een logische groepering van uw app-instanties met andere woorden, over de hele wereld die hetzelfde verkeer ontvangen en hierop reageren met het verwachte gedrag. Deze back-ends zijn geïmplementeerd in verschillende regio's of binnen dezelfde regio. Alle back-ends kunnen zich in de modus actief/actief-implementatie of wat is gedefinieerd als de actief/passief-configuratie.
 
 Een back-endpool wordt gedefinieerd hoe de verschillende back-ends via statustests moet worden geëvalueerd. Het definieert ook hoe u taakverdeling tussen de twee plaatsvindt.
@@ -71,7 +71,7 @@ Voordeur Service verzendt aanvragen van de test periodieke HTTP/HTTPS naar elk v
 
 - **Protocol**. Bepaalt of u de health test om aanvragen te verzenden vanaf de voordeur Service uw back-ends met HTTP of HTTPS-protocol.
 
-- **Interval (seconden)**. Definieert de frequentie van statuscontroles voor uw back-ends, of de intervallen waarin elk van de voordeur omgevingen een test wordt verzonden.
+- **Interval (seconden)** . Definieert de frequentie van statuscontroles voor uw back-ends, of de intervallen waarin elk van de voordeur omgevingen een test wordt verzonden.
 
     >[!NOTE]
     >Voor snellere failover, moet u het interval instellen op een lagere waarde. Hoe lager de waarde, hoe hoger het health test volume ontvangen uw back-ends. Bijvoorbeeld, als het interval is ingesteld op 30 seconden met 90 voordeur omgevingen of POP's wereldwijd, elke back-end ontvangt over 3 tot 5 test aanvragen per seconde.
@@ -85,7 +85,7 @@ Load balancing-instellingen voor de back endpool definiëren hoe we statuscontro
 
 - **Geslaagde samplegrootte**. Hiermee definieert u de samplegrootte zoals eerder vermeld, het aantal geslaagde voorbeelden die nodig zijn voor het aanroepen van de back-end in orde. Stel bijvoorbeeld een voordeur health test-interval is 30 seconden, samplegrootte is 5 en geslaagde samplegrootte is 3. Telkens wanneer we de status evalueren de tests voor uw back-end, kijken we naar de laatste vijf voorbeelden meer dan 150 seconden (5 x 30). Ten minste drie geslaagde tests zijn vereist om aan te geven van de back-end als in orde.
 
-- **Latentie gevoeligheid (extra latentie)**. Hiermee definieert u of u wilt dat de voordeur aan de aanvraag verzenden naar de back-ends binnen het bereik van latentie meting gevoeligheid of de aanvraag doorsturen naar de dichtstbijzijnde back-end.
+- **Latentie gevoeligheid (extra latentie)** . Hiermee definieert u of u wilt dat de voordeur aan de aanvraag verzenden naar de back-ends binnen het bereik van latentie meting gevoeligheid of de aanvraag doorsturen naar de dichtstbijzijnde back-end.
 
 Zie voor meer informatie, [minimale latentie op basis van de routeringsmethode](front-door-routing-methods.md#latency).
 

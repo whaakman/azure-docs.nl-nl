@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310923"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Overzicht van Service Fabric-clusters op Azure
@@ -31,9 +31,9 @@ Een Service Fabric-cluster op Azure is een Azure-resource die wordt gebruikt, en
 * Virtuele machines en virtuele netwerkkaarten
 * schaalsets voor virtuele machines
 * virtuele netwerken
-* load balancers
-* opslagaccounts
-* openbare IP-adressen
+* Load balancers
+* Storage-accounts
+* Openbare IP-adressen
 
 ![Service Fabric-cluster][Image]
 
@@ -55,7 +55,7 @@ U kunt schaalsets gebruiken om te implementeren en beheren van een verzameling v
 Lees voor meer informatie, [knooppunttypen van Service Fabric en virtual machine-schaalsets](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-VM-exemplaren lid zijn van achter een [Azure load balancer](/azure/load-balancer/load-balancer-overview), die is gekoppeld aan een [openbaar IP-adres](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) en DNS-label.  Wanneer u een cluster met inrichten  *&lt;clustername&gt;*, de DNS-naam  *&lt;clustername&gt;.&lt; locatie&gt;. cloudapp.azure.com* is de DNS-label dat is gekoppeld aan de load balancer vóór de schaalset.
+VM-exemplaren lid zijn van achter een [Azure load balancer](/azure/load-balancer/load-balancer-overview), die is gekoppeld aan een [openbaar IP-adres](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) en DNS-label.  Wanneer u een cluster met inrichten  *&lt;clustername&gt;* , de DNS-naam  *&lt;clustername&gt;.&lt; locatie&gt;. cloudapp.azure.com* is de DNS-label dat is gekoppeld aan de load balancer vóór de schaalset.
 
 Virtuele machines in een cluster hebben alleen [privé IP-adressen](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Beheer van verkeer en serviceverkeer worden gerouteerd via de openbare load balancer.  Netwerkverkeer wordt doorgestuurd naar deze machines via NAT-regels (clients verbinding maken met specifieke knooppunten/exemplaren) of regels voor taakverdeling (verkeer wordt gerouteerd naar virtuele machines round robin).  Een load balancer heeft een bijbehorende openbare IP-adres met een DNS-naam in de indeling:  *&lt;clustername&gt;.&lt; locatie&gt;. cloudapp.azure.com*.  Een openbaar IP-adres is een andere Azure-resource in de resourcegroep.  Als u meerdere typen in een cluster definiëren, wordt een load balancer gemaakt voor elk knooppunt type/schaalset. Of u kunt instellen dat een enkele load balancer voor meerdere typen.  Het primaire knooppunttype is het DNS-label  *&lt;clustername&gt;.&lt; locatie&gt;. cloudapp.azure.com*, andere typen DNS-label hebben  *&lt;clustername&gt;-&lt;nodetype&gt;.&lt; locatie&gt;. cloudapp.azure.com*.
 

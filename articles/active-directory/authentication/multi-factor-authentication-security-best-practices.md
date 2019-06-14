@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357931"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Beveiligingsrichtlijnen voor het gebruik van Azure multi-factor Authentication met Azure AD-accounts
@@ -85,7 +85,7 @@ De gebruikersportal kunt selfservicemogelijkheden en biedt een volledige set met
 * Installeer en Registreer ASP.NET v2.0.507207
 * Zorg ervoor dat deze server kan worden geïmplementeerd in een perimeternetwerk
 
-### <a name="app-passwords"></a>Appwachtwoorden
+### <a name="app-passwords"></a>App-wachtwoorden
 
 Als uw organisatie is gefedereerd voor eenmalige aanmelding met Azure AD en u wilt gebruikmaken van Azure MFA, klikt u rekening houden met de volgende gegevens:
 

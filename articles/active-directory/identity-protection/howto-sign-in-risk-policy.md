@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294580"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procedure: Het beleid voor aanmeldingsrisico’s configureren
@@ -53,7 +53,7 @@ Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
 
 - Het niveau van aanmeldingsrisico waarmee het beleid wordt geactiveerd:
 
-    ![Niveau van aanmeldingsrisico](./media/howto-sign-in-risk-policy/12.png)
+    ![Het niveau van aanmeldingsrisico](./media/howto-sign-in-risk-policy/12.png)
 
 - Het type toegang dat u wilt worden afgedwongen wanneer de risiconiveau van uw aanmelding is voldaan:  
 
@@ -66,7 +66,7 @@ Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
 
 Het dialoogvenster van de configuratie van beleid biedt u een optie voor het schatten van de impact van herconfiguratie.
 
-![Verwachte impact](./media/howto-sign-in-risk-policy/15.png)
+![De geschatte impact](./media/howto-sign-in-risk-policy/15.png)
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 

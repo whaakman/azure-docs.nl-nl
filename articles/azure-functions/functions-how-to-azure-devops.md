@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050662"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Continue levering met behulp van Azure DevOps
 
@@ -36,9 +36,7 @@ Elke taal heeft specifieke build-stappen voor het maken van een artefact voor im
 Het volgende voorbeeld kunt u uw YAML-bestand voor het bouwen van uw .NET-app maken.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: 'VS2017-Win2016'
 steps:
 - script: |
@@ -64,14 +62,12 @@ steps:
     name: 'drop'
 ```
 
-#### <a name="javascript"></a>JavaScript
+#### <a name="javascript"></a>Javascript
 
 Gebruik het volgende voorbeeld kunt u uw YAML-bestand voor het bouwen van uw JavaScript-app maken:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
@@ -99,9 +95,7 @@ steps:
 Gebruik het volgende voorbeeld kunt u uw YAML-bestand voor het bouwen van uw Python-app maken, Python, wordt alleen ondersteund voor Linux Azure Functions:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
@@ -118,6 +112,25 @@ steps:
     source worker_venv/bin/activate
     pip3.6 install setuptools
     pip3.6 install -r requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
+#### <a name="powershell"></a>PowerShell
+
+Gebruik het volgende voorbeeld kunt u uw YAML-bestand als u uw app in PowerShell pakket wilt maken, PowerShell wordt alleen ondersteund voor Windows Azure Functions:
+
+```yaml
+pool:
+      vmImage: 'VS2017-Win2016'
+steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -175,6 +188,10 @@ Na het configureren van de bron van uw code zoeken voor Azure Functions-sjablone
 
 ![Azure Functions bouwen sjablonen](media/functions-how-to-azure-devops/build-templates.png)
 
+In sommige gevallen kan de build-artefacten de structuur van een specifieke map hebben en moet u controleren de **Prepend naam hoofdmap voor het archiveren van paden** optie.
+
+![Voeg de hoofdmap](media/functions-how-to-azure-devops/prepend-root-folder.png)
+
 #### <a name="javascript-apps"></a>JavaScript-apps
 
 Als uw JavaScript-app hebt een afhankelijkheid op systeemeigen modules voor Windows, moet u om bij te werken:
@@ -182,10 +199,6 @@ Als uw JavaScript-app hebt een afhankelijkheid op systeemeigen modules voor Wind
 - De versie van de Agentpool **VS2017 die worden gehost**
 
   ![Besturingssysteem van de Build-Agent wijzigen](media/functions-how-to-azure-devops/change-agent.png)
-
-- Het script in de **extensies bouwen** stap in de sjabloon `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-
-  ![Script wijzigen](media/functions-how-to-azure-devops/change-script.png)
 
 ### <a name="deploy-your-app"></a>Uw app implementeren
 

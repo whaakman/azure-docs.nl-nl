@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383584"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
@@ -29,7 +29,7 @@ Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (A
 
 Hier volgt de legenda voor afbeeldingen in het artikel:
 
-| Beschrijving | Symbool |
+| Description | Symbool |
 | --- | --- |
 | On-premises Active Directory-forest |![On-premises Active Directory-forest](./media/plan-connect-topologies/LegendAD1.png) |
 | On-premises Active Directory met gefilterde importeren |![Active Directory met gefilterde importeren](./media/plan-connect-topologies/LegendAD2.png) |
@@ -165,7 +165,7 @@ Deze topologie heeft de volgende beperkingen met betrekking tot-ondersteund scen
 * Windows 10-apparaten kunnen worden gekoppeld aan slechts één Azure AD-tenant.
 * De eenmalige aanmelding (SSO) optie voor wachtwoord-hash-synchronisatie en Pass through-verificatie kan worden gebruikt met slechts één Azure AD-tenant.
 
-De vereiste voor een sluiten elkaar wederzijds uit set van objecten geldt ook voor terugschrijven van wachtwoorden. Sommige Write-back-functies worden niet ondersteund met deze topologie omdat ze gaan ervan uit een configuratie met één on-premises. Deze functies zijn onder andere:
+De vereiste voor een sluiten elkaar wederzijds uit set van objecten geldt ook voor terugschrijven van wachtwoorden. Sommige Write-back-functies worden niet ondersteund met deze topologie omdat ze gaan ervan uit een configuratie met één on-premises. Deze functies omvatten onder andere:
 
 * Groep terugschrijven van wachtwoorden met standaardconfiguratie.
 * Write-back van apparaat.

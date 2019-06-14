@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415652"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Aanpassen van de Azure AD-functionaliteit voor self-service voor wachtwoord opnieuw instellen
@@ -73,7 +73,7 @@ De afbeeldingen die u kiest, worden weergegeven in de volgende omstandigheden:
 
 Meer informatie vinden over het configureren van aangepaste huisstijl in het artikel [Huisstijlwijzigingen naar de aanmeldingspagina in Azure AD](../fundamentals/customize-branding.md).
 
-### <a name="directory-name"></a>Adreslijstnaam
+### <a name="directory-name"></a>Mapnaam
 
 U kunt het kenmerk directory name onder wijzigen **Azure Active Directory** > **eigenschappen**. In de portal en de geautomatiseerde communicatie, kunt u een aangepaste organisatienaam die is gezien weergeven. Deze optie is het meest zichtbaar in automatische e-mailberichten in de formulieren die gaat u als volgt:
 

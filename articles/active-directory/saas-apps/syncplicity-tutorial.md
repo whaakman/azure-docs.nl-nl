@@ -13,97 +13,71 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: c823b1b5d009d836ba3f134623a67cab0d38c180
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050323"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Zelfstudie: Azure Active Directory-integratie met Syncplicity
+# <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Zelfstudie: Syncplicity integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u Syncplicity integreren met Azure Active Directory (Azure AD).
-Syncplicity integreren met Azure AD biedt u de volgende voordelen:
+In deze zelfstudie leert u hoe u Syncplicity integreert met Azure Active Directory (Azure AD). Wanneer u Syncplicity met Azure AD integreert, kunt u het volgende doen:
 
-* U kunt beheren in Azure AD die toegang tot Syncplicity heeft.
-* U kunt uw gebruikers worden automatisch aangemeld Syncplicity (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* Beheren in Azure AD die toegang tot Syncplicity heeft.
+* Kunnen uw gebruikers worden automatisch aangemeld Syncplicity met hun Azure AD-accounts.
+* Beheer uw accounts in één centrale locatie - Azure portal.
 
-Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Syncplicity, moet u de volgende items:
+Om te beginnen, hebt u de volgende items nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Eenmalige aanmelding Syncplicity ingeschakeld abonnement
+* Een Azure AD-abonnement Als u geen abonnement hebt, krijgt u de gratis proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Ingeschakeld abonnement Syncplicity eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
-
-* Biedt ondersteuning voor Syncplicity **SP** gestart door SSO
+In deze zelfstudie hebt u configureren en testen van Azure AD-eenmalige aanmelding in een testomgeving. Biedt ondersteuning voor Syncplicity **SP** gestart door SSO.
 
 ## <a name="adding-syncplicity-from-the-gallery"></a>Syncplicity uit de galerie toe te voegen
 
 Voor het configureren van de integratie van Syncplicity in Azure AD, moet u Syncplicity uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Syncplicity uit de galerie, moet u de volgende stappen uitvoeren:**
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer in het navigatiedeelvenster links in de **Azure Active Directory** service.
+1. Navigeer naar **bedrijfstoepassingen** en selecteer vervolgens **alle toepassingen**.
+1. Nieuwe toepassing toevoegen, selecteert u **nieuwe toepassing**.
+1. In de **toevoegen vanuit de galerie** sectie, typt u **Syncplicity** in het zoekvak in.
+1. Selecteer **Syncplicity** van resultaten van het deelvenster en vervolgens de app toevoegen. Wacht een paar seconden terwijl de app wordt toegevoegd aan uw tenant.
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+## <a name="configure-and-test-azure-ad-sso"></a>Configureren en testen van Azure AD-eenmalige aanmelding
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+Configureren en testen van Azure AD-eenmalige aanmelding met Syncplicity met behulp van een testgebruiker met de naam **B.Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Syncplicity vast te stellen.
 
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met Syncplicity, voert u de volgende bouwstenen:
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Configureren van SSO Syncplicity](#configure-syncplicity-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met B.Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - B.Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maken van de testgebruiker Syncplicity](#create-syncplicity-test-user)**  : als u wilt een equivalent van B.Simon in Syncplicity die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+### <a name="configure-azure-ad-sso"></a>Azure AD-eenmalige aanmelding configureren
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de Azure-portal.
 
-4. Typ in het zoekvak **Syncplicity**, selecteer **Syncplicity** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. In de [Azure-portal](https://portal.azure.com/)op de **Syncplicity** toepassingspagina integratie, vinden de **beheren** sectie en selecteer **eenmalige aanmelding**.
+1. Op de **selecteert u een methode voor eenmalige aanmelding** pagina, selecteert u **SAML**.
+1. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op het pictogram voor bewerken/pen voor **SAML-basisconfiguratie** om de instellingen te bewerken.
 
-    ![Syncplicity in de lijst met resultaten](common/search-new-app.png)
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
-
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Syncplicity op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Syncplicity tot stand worden gebracht.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met Syncplicity, moet u de volgende bouwstenen voltooien:
-
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureren van eenmalige aanmelding Syncplicity](#configure-syncplicity-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker Syncplicity](#create-syncplicity-test-user)**  : als u wilt een equivalent van Britta Simon in Syncplicity die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
-
-In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
-
-Voor het configureren van Azure AD eenmalige aanmelding met Syncplicity, moet u de volgende stappen uitvoeren:
-
-1. In de [Azure-portal](https://portal.azure.com/)op de **Syncplicity** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
-
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
-
-2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
-
-    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
-
-3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
-
-    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
-
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
-
-    ![Syncplicity domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
+1. Op de **SAML-basisconfiguratie** pagina, voert u de waarden voor de volgende velden:
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.syncplicity.com`
 
@@ -112,21 +86,15 @@ Voor het configureren van Azure AD eenmalige aanmelding met Syncplicity, moet u 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Syncplicity Client ondersteuningsteam](https://www.syncplicity.com/contact-us) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+1. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, zoeken **certificaat (Base64)** en selecteer **downloaden** voor het downloaden van het certificaat en sla deze op uw computer.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+   ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-6. Op de **Syncplicity instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+1. Op de **Syncplicity instellen** sectie, kopieert u de juiste URL's op basis van uw behoeften.
 
-    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+   ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    a. Aanmeldings-URL
-
-    b. Azure AD-id
-
-    c. Afmeldings-URL
-
-### <a name="configure-syncplicity-single-sign-on"></a>Syncplicity voor eenmalige aanmelding configureren
+### <a name="configure-syncplicity-sso"></a>Syncplicity eenmalige aanmelding configureren
 
 1. Aanmelden bij uw **Syncplicity** tenant.
 
@@ -142,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Syncplicity, moet u 
   
     b. Selecteer **ingeschakeld** als **Single Sign-On Status**.
 
-    c. In de **entiteit-Id** tekstvak, plak de waarde van **Azure Ad-id** die u hebt gekopieerd vanuit Azure portal.
+    c. In de **entiteit-Id** tekstvak, plak de **id (entiteits-ID)** waarde die u hebt gebruikt in de **SAML-basisconfiguratie** in Azure portal.
 
     d. In de **aanmelden pagina-URL** tekstvak, plak de **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
 
@@ -154,53 +122,33 @@ Voor het configureren van Azure AD eenmalige aanmelding met Syncplicity, moet u 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+In deze sectie maakt u een testgebruiker in Azure portal B.Simon genoemd.
 
-1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
-
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
-
-2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
-
-    ![Knop Nieuwe gebruiker](common/new-user.png)
-
-3. In Gebruikerseigenschappen voert u de volgende stappen uit.
-
-    ![Het dialoogvenster Gebruiker](common/user-properties.png)
-
-    a. Voer in het veld **Naam** **Britta Simon**in.
-  
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
-    Bijvoorbeeld: BrittaSimon@contoso.com
-
-    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
-
-    d. Klik op **Create**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **Nieuwe gebruiker** boven aan het scherm.
+1. In de **gebruiker** eigenschappen als volgt te werk:
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Syncplicity.
+In deze sectie schakelt u B.Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Syncplicity.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Syncplicity**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst met toepassingen, **Syncplicity**.
+1. Zoek in de pagina overzicht van de app, de **beheren** sectie en selecteer **gebruikers en groepen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+   ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-2. Selecteer in de lijst met toepassingen, **Syncplicity**.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
-    ![De koppeling Syncplicity in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
-    ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
-
-4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
-
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
-
-5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
-
-6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
-
-7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+1. In de **gebruikers en groepen** dialoogvenster, selecteer **B.Simon** uit de lijst met gebruikers, klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Als u een waarde voor de rol in het SAML-verklaring verwacht de **rol selecteren** dialoogvenster, selecteer de juiste rol voor de gebruiker in de lijst en klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
 ### <a name="create-syncplicity-test-user"></a>Syncplicity testgebruiker maken
 
@@ -208,7 +156,7 @@ Voor AAD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht tot Syncpl
 
 **Voor het inrichten van een gebruikersaccount Syncplicity, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw **Syncplicity** tenant (bijvoorbeeld: `https://company.Syncplicity.com`).
+1. Aanmelden bij uw **Syncplicity** tenant (bijvoorbeeld: `https://company.Syncplicity.com`).
 
 1. Klik op **admin** en selecteer **gebruikersaccounts** en klik vervolgens op **ADD A USER**.
 
@@ -235,11 +183,9 @@ Voor AAD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht tot Syncpl
 > [!NOTE]
 > U kunt alle andere Syncplicity gebruiker-account maken van hulpprogramma's of API's geleverd door Syncplicity aan inrichten AAD-gebruikersaccounts.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-sso"></a>Test eenmalige aanmelding
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel Syncplicity in het toegangsvenster, moet u worden automatisch aangemeld bij de Syncplicity waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u de tegel Syncplicity in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de Syncplicity waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

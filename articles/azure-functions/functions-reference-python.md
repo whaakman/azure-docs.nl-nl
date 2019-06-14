@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d25082c429c58c074726c75f7ff6f248daee4151
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050618"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-Python
 
@@ -30,7 +30,7 @@ In dit artikel bevat een inleiding tot het ontwikkelen van Azure Functions met b
 
 Een Azure-functie moet een stateless methode in uw Python-script waarmee invoer worden verwerkt en geeft een resultaat. Standaard de runtime wordt verwacht dat de methode om te worden geïmplementeerd als een algemene methode met de naam `main()` in de `__init__.py` bestand.
 
-U kunt de standaard-configuratie wijzigen door op te geven de `scriptFile` en `entryPoint` eigenschappen in de `function.json` bestand. Bijvoorbeeld, de _function.json_ hieronder vertelt de runtime te gebruiken de _customentry()_ methode in de _main.py_ bestand, als het toegangspunt voor uw Azure-functie.
+U kunt de standaard-configuratie wijzigen door op te geven de `scriptFile` en `entryPoint` eigenschappen in de *function.json* bestand. Bijvoorbeeld, de _function.json_ hieronder vertelt de runtime te gebruiken de `customentry()` methode in de _main.py_ bestand, als het toegangspunt voor uw Azure-functie.
 
 ```json
 {
@@ -40,7 +40,7 @@ U kunt de standaard-configuratie wijzigen door op te geven de `scriptFile` en `e
 }
 ```
 
-Gegevens van triggers en bindingen is gebonden aan de functie via methode kenmerken met behulp van de `name` -eigenschap worden gedefinieerd de `function.json` configuratiebestand. Bijvoorbeeld, de _function.json_ wordt hieronder beschreven een eenvoudige functie geactiveerd door een HTTP-aanvraag met de naam `req`:
+Gegevens van triggers en bindingen is gebonden aan de functie via methode kenmerken met behulp van de `name` -eigenschap worden gedefinieerd de *function.json* bestand. Bijvoorbeeld, de _function.json_ wordt hieronder beschreven een eenvoudige functie geactiveerd door een HTTP-aanvraag met de naam `req`:
 
 ```json
 {
@@ -68,7 +68,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-U kunt eventueel ook de parametertypen declareren en type in de functie met behulp van Python type aantekeningen retourneren. Dezelfde functie kan bijvoorbeeld worden geschreven met behulp van aantekeningen, als volgt:
+(Optioneel) als u wilt gebruikmaken van de intellisense en automatisch aanvullen functies die worden geleverd door uw code-editor, kunt u ook de kenmerktypen zo declareren en retourtype in de functie met behulp van Python type aantekeningen. 
 
 ```python
 import azure.functions
@@ -78,7 +78,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```  
 
-Gebruik de Python-aantekeningen opgenomen in de [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) pakket invoer en uitvoer binden aan uw methoden. 
+Gebruik de Python-aantekeningen opgenomen in de [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) pakket invoer en uitvoer binden aan uw methoden.
 
 ## <a name="folder-structure"></a>mapstructuur
 
@@ -97,8 +97,6 @@ De mapstructuur voor een Python-Functions-project ziet er als volgt uit:
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
- | - extensions.csproj
- | - bin
 ```
 
 Er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand en het configuratiebestand van de binding (function.json). 
@@ -106,16 +104,16 @@ Er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden g
 Gedeelde code moet worden opgeslagen in een afzonderlijke map. Als u wilt verwijzen naar modules in de map SharedCode, kunt u de volgende syntaxis:
 
 ```
-from ..SharedCode import myFirstHelperFunction
+from __app__.SharedCode import myFirstHelperFunction
 ```
 
-Bindinguitbreidingen die worden gebruikt door de Functions-runtime worden gedefinieerd de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) met behulp van Azure Functions Core Tools. 
-
-Wanneer een Functions-project naar uw functie-app in Azure implementeert, moet de volledige inhoud van de map FunctionApp worden opgenomen in het pakket, maar niet de map zelf.
+Bij het implementeren van een functieproject naar uw functie-app in Azure, de volledige inhoud van de *FunctionApp* map moet worden opgenomen in het pakket, maar niet de map zelf.
 
 ## <a name="triggers-and-inputs"></a>Triggers en -invoer
 
-Invoer zijn onderverdeeld in twee categorieën in Azure Functions: invoer voor de werkstroomtrigger en aanvullende invoer. Hoewel ze in verschillende zijn `function.json`, de syntaxis is vrijwel identiek in Python-code.  Verbindingsreeksen voor trigger en invoer bronnen moeten worden toegewezen aan de waarden in de `local.settings.json` lokaal bestand en de toepassingsinstellingen bij uitvoering in Azure. We houden het volgende codefragment als voorbeeld:
+Invoer zijn onderverdeeld in twee categorieën in Azure Functions: invoer voor de werkstroomtrigger en aanvullende invoer. Hoewel ze verschillen in de `function.json` -bestand, gebruik is identiek in Python-code.  Tekenreeksen voor databaseverbindingen of geheimen voor trigger en invoer bronnen toewijzen aan de waarden in de `local.settings.json` bestand bij lokale uitvoering en de toepassingsinstellingen bij het uitvoeren in Azure. 
+
+Bijvoorbeeld, toont de volgende code het verschil tussen de twee:
 
 ```json
 // function.json
@@ -233,21 +231,9 @@ Er zijn aanvullende logboekregistratiemethoden beschikbaar waarmee u naar de con
 | logboekregistratie. **info (_bericht_)**    | Schrijft een bericht met niveau INFO op het logboek van de hoofdmap.  |
 | logboekregistratie. **foutopsporing (_bericht_)** | Schrijft een bericht met niveau FOUTOPSPORING op de logger hoofdmap.  |
 
-## <a name="importing-shared-code-into-a-function-module"></a>Gedeelde code importeren in een functiemodule
-
-Python-modules die zijn gepubliceerd samen met de functie modules moeten worden geïmporteerd met behulp van de syntaxis van de relatieve importeren:
-
-```python
-from . import helpers  # Use more dots to navigate up the folder structure.
-def main(req: func.HttpRequest):
-    helpers.process_http_request(req)
-```
-
-U kunt ook gedeelde code in een zelfstandige pakket geplaatst, deze publiceren naar een openbare of een persoonlijke PyPI-exemplaar en dit opgeven als een reguliere afhankelijkheid.
-
 ## <a name="async"></a>Async
 
-Aangezien een enkel Python proces per functie-app kan bestaan, wordt u aangeraden voor het implementeren van uw Azure-functie als een asynchrone coroutine met behulp van de `async def` instructie.
+Het is raadzaam dat u uw Azure-functie als het gebruik van een asynchrone coroutine schrijft de `async def` instructie.
 
 ```python
 # Will be run with asyncio directly
@@ -255,7 +241,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Als de functie main() synchroon is (geen `async` kwalificatie) wordt automatisch uitgevoerd een `asyncio` thread-pool.
+Als de functie main() synchroon is (geen `async` kwalificatie) we de functie voor het automatisch uitvoeren in een `asyncio` thread-pool.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -288,6 +274,21 @@ Naam van de functie.
 `invocation_id`  
 ID van de huidige functie-aanroep.
 
+## <a name="global-variables"></a>Globale variabelen
+
+Is er geen garantie dat de status van uw app voor toekomstige uitvoeringen behouden blijft. De Azure Functions-runtime hergebruikt echter vaak dezelfde procedure voor meerdere uitvoeringen van dezelfde app. Als u wilt de resultaten van een dure berekening in cache opslaan, kunt u het declareren als een globale variabele. 
+
+```python
+CACHED_DATA = None
+
+def main(req):
+    global CACHED_DATA
+    if CACHED_DATA is None:
+        CACHED_DATA = load_json()
+
+    # ... use CACHED_DATA in code
+```
+
 ## <a name="python-version-and-package-management"></a>Python-versie en package management
 
 Azure Functions ondersteunt momenteel alleen Python 3.6.x (officiële CPython distributie).
@@ -295,10 +296,6 @@ Azure Functions ondersteunt momenteel alleen Python 3.6.x (officiële CPython di
 Bij het ontwikkelen van lokaal via de Azure Functions Core Tools of Visual Studio Code, voeg de namen en versies van de vereiste pakketten naar de `requirements.txt` bestands- en deze installeren met behulp van `pip`.
 
 Bijvoorbeeld, de volgende vereisten voor bestands- en pip opdracht kan worden gebruikt voor het installeren van de `requests` pakket van PyPI.
-
-```bash
-pip install requests
-```
 
 ```txt
 requests==2.19.1
@@ -308,20 +305,9 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-Wanneer u klaar voor publicatie bent, zorg ervoor dat alle afhankelijkheden zijn vermeld de `requirements.txt` bestand, dat zich bevindt in de hoofdmap van de projectmap. Om uit te voeren is uw Azure-functies, moet het bestand vereisten minimaal de volgende pakketten bevatten:
-
-```txt
-azure-functions
-azure-functions-worker
-grpcio==1.14.1
-grpcio-tools==1.14.1
-protobuf==3.6.1
-six==1.11.0
-```
-
 ## <a name="publishing-to-azure"></a>Publiceren naar Azure
 
-Als u een pakket dat een compiler vereist en biedt geen ondersteuning voor de installatie van manylinux-compatibele wheels van PyPI, mislukken publiceren naar Azure met de volgende fout: 
+Wanneer u klaar om te publiceren bent, zorg ervoor dat alle afhankelijkheden zijn vermeld de *requirements.txt* -bestand, dat zich bevindt in de hoofdmap van de projectmap. Als u een pakket dat een compiler vereist en biedt geen ondersteuning voor de installatie van manylinux-compatibele wheels van PyPI, mislukken publiceren naar Azure met de volgende fout: 
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
@@ -336,70 +322,83 @@ func azure functionapp publish <app name> --build-native-deps
 
 Eronder, Core Tools docker wordt gebruikt om uit te voeren de [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) afbeelding als een container op uw lokale computer. Met behulp van deze omgeving, deze vervolgens ontwikkelt en de vereiste modules te installeren vanuit de bron-distributie, voordat ze verpakking voor laatste implementatie naar Azure.
 
-> [!NOTE]
-> Het programma PyInstaller Core Tools (func) gebruikt voor het blokkeren van de gebruiker code en afhankelijkheden in een enkele zelfstandig uitvoerbaar bestand om uit te voeren in Azure. Deze functionaliteit is momenteel in preview en kan niet van toepassing op alle typen pakketten voor Python. Als u niet voor het importeren van modules, probeert u te publiceren opnieuw met behulp van de `--no-bundler` optie. 
-> ```
-> func azure functionapp publish <app_name> --build-native-deps --no-bundler
-> ```
-> Als u problemen zich blijft voordoen, laat het ons weten door [openen van een probleem](https://github.com/Azure/azure-functions-core-tools/issues/new) en een beschrijving van het probleem. 
+De afhankelijkheden maken en publiceren met behulp van een systeem voor continue levering (CD), [gebruiken Azure DevOps pijplijnen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops). 
 
+## <a name="unit-testing"></a>Moduletests uitvoeren
 
-Voor het bouwen van uw afhankelijkheden en publiceren met behulp van een continue integratie (CI) en continue levering (CD) systeem, kunt u een [Azure pijplijn](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) of [Travis CI aangepast script](https://docs.travis-ci.com/user/deployment/script/). 
+Functies die zijn geschreven in Python kunnen worden getest als de andere Python-code met behulp van standaard testen frameworks. Voor de meeste bindingen, is het mogelijk te maken van een mock-invoerobject met het maken van een exemplaar van een juiste klasse van de `azure.functions` pakket.
 
-Hieronder volgt een voorbeeld `azure-pipelines.yml` script voor het bouwen en publiceren.
-```yml
-pool:
-  vmImage: 'Ubuntu 16.04'
+Volgende is bijvoorbeeld een mock een door HTTP geactiveerde functie te testen:
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '8.x'
+```python
+# myapp/__init__.py
+import azure.functions as func
+import logging
 
-- script: |
-    set -e
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-    sudo apt-get install -y apt-transport-https
-    echo "install Azure CLI..."
-    sudo apt-get update && sudo apt-get install -y azure-cli
-    npm i -g azure-functions-core-tools --unsafe-perm true
-    echo "installing dotnet core"
-    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 2.0
-- script: |
-    set -e
-    az login --service-principal --username "$(APP_ID)" --password "$(PASSWORD)" --tenant "$(TENANT_ID)" 
-    func settings add FUNCTIONS_WORKER_RUNTIME python
-    func extensions install
-    func azure functionapp publish $(APP_NAME) --build-native-deps
+def main(req: func.HttpRequest,
+         obj: func.InputStream):
+
+    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Hieronder volgt een voorbeeld `.travis.yaml` script voor het bouwen en publiceren.
+```python
+# myapp/test_func.py
+import unittest
 
-```yml
-sudo: required
+import azure.functions as func
+from . import my_function
 
-language: node_js
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock HTTP request.
+        req = func.HttpRequest(
+            method='GET',
+            body=None,
+            url='/my_function', 
+            params={'name': 'Test'})
 
-node_js:
-  - "8"
+        # Call the function.
+        resp = my_function(req)
 
-services:
-  - docker
-
-before_install:
-  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  - sudo apt-get install -y apt-transport-https
-  - sudo apt-get update && sudo apt-get install -y azure-cli
-  - npm i -g azure-functions-core-tools --unsafe-perm true
-
-
-script:
-  - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
-  - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps
-
+        # Check the output.
+        self.assertEqual(
+            resp.get_body(), 
+            'Hello, Test!',
+        )
 ```
+
+Hier volgt een voorbeeld, met een wachtrij geactiveerde functie:
+
+```python
+# myapp/__init__.py
+import azure.functions as func
+
+def my_function(msg: func.QueueMessage) -> str:
+    return f'msg body: {msg.get_body().decode()}'
+```
+
+```python
+# myapp/test_func.py
+import unittest
+
+import azure.functions as func
+from . import my_function
+
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock Queue message.
+        req = func.QueueMessage(
+            body=b'test')
+
+        # Call the function.
+        resp = my_function(req)
+
+        # Check the output.
+        self.assertEqual(
+            resp, 
+            'msg body: test',
+        )
+``` 
 
 ## <a name="known-issues-and-faq"></a>Bekende problemen en veelgestelde vragen
 

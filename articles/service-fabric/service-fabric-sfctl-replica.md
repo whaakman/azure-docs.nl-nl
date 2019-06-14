@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544667"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
@@ -28,13 +28,13 @@ De replica's die deel uitmaken van servicepartities beheren.
 
 |Opdracht|Description|
 | --- | --- |
-| geïmplementeerd | Hiermee haalt u de details van replica is geïmplementeerd op een Service Fabric-knooppunt. |
-| lijst met geïmplementeerd | Hiermee haalt u de lijst met replica's die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| gezondheidszorg | Hiermee haalt u de status van een Service Fabric stateful service-replica of een stateless service-exemplaar. |
-| informatie | Hiermee haalt u de informatie over een replica van een Service Fabric-partitie. |
+| deployed | Hiermee haalt u de details van replica is geïmplementeerd op een Service Fabric-knooppunt. |
+| deployed-list | Hiermee haalt u de lijst met replica's die zijn geïmplementeerd op een Service Fabric-knooppunt. |
+| health | Hiermee haalt u de status van een Service Fabric stateful service-replica of een stateless service-exemplaar. |
+| info | Hiermee haalt u de informatie over een replica van een Service Fabric-partitie. |
 | list | Hiermee haalt u de informatie over de replica's van de partitie van een Service Fabric-service. |
-| verwijderen | Hiermee verwijdert u de replica van een service die wordt uitgevoerd op een knooppunt. |
-| rapport-en statusbewaking | Verzendt een statusrapport voor de Service Fabric-replica. |
+| remove | Hiermee verwijdert u de replica van een service die wordt uitgevoerd op een knooppunt. |
+| report-health | Verzendt een statusrapport voor de Service Fabric-replica. |
 | restart | Een service-replica van een persistente service wordt uitgevoerd op een knooppunt opnieuw is opgestart. |
 
 ## <a name="sfctl-replica-deployed"></a>sfctl replica geïmplementeerd

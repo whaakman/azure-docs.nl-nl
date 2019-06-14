@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409874"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Uw Avere vFXT-systeem plannen
@@ -74,9 +74,9 @@ De virtuele machines die fungeren als knooppunten van het cluster de capaciteit 
 
 Elk knooppunt vFXT zijn identiek. Dat wil zeggen, als u een cluster met drie knooppunten maken hebt u drie virtuele machines van hetzelfde type en grootte. 
 
-| Instantietype | vCPU's | Geheugen  | Lokale SSD-opslag  | Max. aantal gegevensschijven | Doorvoer per schijf zonder caching | NIC (aantal) |
+| Instantietype | vcpu 's | Geheugen  | Lokale SSD-opslag  | Max. aantal gegevensschijven | Doorvoer per schijf zonder caching | NIC (aantal) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 IOPS <br/> 768 MBps | 16.000 MBps (8)  |
+| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51\.200 IOPS <br/> 768 MBps | 16\.000 MBps (8)  |
 
 Schijfcache per knooppunt kan worden geconfigureerd en kunt rage van 1000 GB tot 8000 GB. 4 TB per knooppunt is de aanbevolen cachegrootte voor Standard_E32s_v3 knooppunten.
 

@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294327"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory Identity Protection
@@ -51,7 +51,7 @@ De volgende procedure te voltooien, moet u gebruiken:
 - De [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) om anonieme IP-adressen te simuleren. Mogelijk moet u een virtuele machine gebruiken als uw organisatie het gebruik van de Tor-browser beperkt.
 - Een testaccount die nog niet is geregistreerd voor meervoudige verificatie.
 
-**De volgende stappen uitvoeren om te simuleren een aanmelding vanaf een anoniem IP-adres,**:
+**De volgende stappen uitvoeren om te simuleren een aanmelding vanaf een anoniem IP-adres,** :
 
 1. Met behulp van de [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), gaat u naar [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
 2. Gebruik de referenties van het account dat moet worden weergegeven in het rapport **aanmeldingen vanaf anonieme IP-adressen**.
@@ -91,7 +91,7 @@ Zie voor meer informatie over deze risicogebeurtenis [onmogelijk reis naar ongew
 De voorwaarde onmogelijk traject simuleren is moeilijk, omdat het algoritme maakt gebruik van machine learning om te selecteren om fout-positieven zoals onmogelijk traject van vertrouwde apparaten of aanmeldingen van VPN's die worden gebruikt door andere gebruikers in de map. Bovendien vereist het algoritme een geschiedenis aanmelden van 14 dagen en 10 aanmeldingen van de gebruiker voordat deze wordt gestart met het genereren van risico's. Vanwege de complexe machine learning-modellen en hoger regels, is er een kans is dat de volgende stappen niet tot een risicogebeurtenis leiden zal. Het is raadzaam om te repliceren van deze stappen voor meerdere Azure AD-accounts voor het publiceren van deze risicogebeurtenis.
 
 
-**De volgende stappen uitvoeren om te simuleren een onmogelijke reis naar ongewone locatie,**:
+**De volgende stappen uitvoeren om te simuleren een onmogelijke reis naar ongewone locatie,** :
 
 1. Gebruik uw standaardbrowser, Ga naar [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
 2. Voer de referenties in van het account dat u wilt gebruiken om een risicogebeurtenis voor een onmogelijke reis te genereren.
@@ -103,7 +103,6 @@ De aanmelding wordt weergegeven in het dashboard Identity Protection binnen 2-4 
 
 ## <a name="simulating-vulnerabilities"></a>Beveiligingsproblemen simuleren
 Zwakke plekken zijn zwakke punten in een Azure AD-omgeving die door een kwaadwillend persoon kunnen worden misbruikt. Momenteel zijn er 3 typen zwakke plekken in Azure AD Identity Protection bekend die gebruikmaken van andere functies van Azure AD. Deze beveiligingslekken worden automatisch weergegeven op het Identity Protection-dashboard zodra deze functies zijn ingesteld.
-
 
 * Azure AD [multi-factor Authentication](../authentication/multi-factor-authentication.md)
 * Azure AD [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
@@ -122,7 +121,7 @@ Zie [Het risicobeleid voor gebruikers configureren](howto-user-risk-policy.md) v
 ![Gebruikersrisico](./media/playbook/02.png "Playbook")
 
 
-**De volgende stappen uitvoeren om te testen in een beleid voor gebruikersrisico's security,**:
+**De volgende stappen uitvoeren om te testen in een beleid voor gebruikersrisico's security,** :
 
 1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com) met referenties van de globale beheerder voor uw tenant.
 2. Navigeer naar **Identity Protection**. 

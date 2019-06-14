@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 03c7da3e17e8e606b46c5c5e104a1271e8fbfd33
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8abd71609d3e063c92541485007a3bde44be954
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051237"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Quickstart: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en lezen met een back-endtoepassing (Python)
 
@@ -112,6 +112,13 @@ De toepassing voor het gesimuleerde apparaat maakt verbinding met een apparaatsp
     In de volgende schermafbeelding ziet u de uitvoer op het moment dat de toepassing voor het gesimuleerde apparaat telemetriegegevens naar uw IoT-hub verzendt:
 
     ![Het gesimuleerde apparaat uitvoeren](media/quickstart-send-telemetry-python/SimulatedDevice.png)
+    
+### <a name="to-avoid-the-import-iothubclient-error"></a>Om te voorkomen dat de fout bij het importeren iothub_client
+De huidige versie van de Azure IoT-SDK voor Python is een wrapper boven [onze C-SDK](https://github.com/azure/azure-iot-sdk-c). Deze wordt gegenereerd met behulp van de [Boost](https://www.boost.org/) bibliotheek. Vanwege die wordt geleverd met enkele belangrijke beperkingen. Meer informatie [hier](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)
+
+1. Controleer of de juiste versie van [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues). Let erop dat alleen bepaalde versies werkt prima voor dit voorbeeld. 
+2. Controleer of de juiste versie van C++ runtime [Microsoft Visual C++ Redistributable voor Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). (Aangeraden de meest recente).
+3. Controleer of dat u het iothub-client hebt geïnstalleerd: `pip install azure-iothub-device-client`.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>De telemetrie van uw hub lezen
 

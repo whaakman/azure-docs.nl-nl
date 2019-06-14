@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a2322636aab2e0f38e29063d958cb670b5e062f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Zelfstudie: Azure Active Directory-integratie met SmartDraw
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van SmartDraw in Azure AD, moet u SmartD
 
 **Als u wilt toevoegen SmartDraw uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met SmartDraw, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding SmartDraw](#configure-smartdraw-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker SmartDraw](#create-smartdraw-test-user)**  : als u wilt een equivalent van Britta Simon in SmartDraw die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -116,7 +116,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SmartDraw, moet u de
     > [!NOTE]
     > De waarde voor de aanmeldings-URL is niet echt. Vervang de waarde voor de aanmeldings-URL door de echte URL. Dit wordt later in de zelfstudie uitgelegd. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-6. SmartDraw toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
+6. SmartDraw toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op **bewerken** pictogram openen **gebruikerskenmerken** dialoogvenster.
 
     ![image](common/edit-attribute.png)
 
@@ -126,7 +126,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SmartDraw, moet u de
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | E-mailen | user.mail |
+    | Email | user.mail |
     | Groepen | User.groups |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
@@ -175,13 +175,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met SmartDraw, moet u de
 
     a. In de **uw domein (bijvoorbeeld acme.com)** tekstvak typt u uw domein.
 
-    b. Kopiëren de **uw SP geïnitieerde aanmeldings-Url is** voor uw exemplaar en plak deze in de aanmeldings-URL-tekstvak in **SAML-basisconfiguratie** in Azure portal.
+    b. Kopiëren de **uw SP geïnitieerde aanmeldings-Url is** voor uw exemplaar en plak deze in de aanmeldings-URL-tekstvak in **SAML-basisconfiguratie** in Azure portal.
     
     c. In de **beveiligingsgroepen toestaan SmartDraw toegang krijgen tot** tekstvak, type **iedereen**.
 
     d. In de **uw Url voor SAML-verlener** tekstvak, plak de waarde van **Azure AD-id** die u hebt gekopieerd vanuit Azure portal.
 
-    e. In Kladblok, open het Metadata XML-bestand dat u hebt gedownload van de Azure-portal, Kopieer de inhoud en plak deze in de **uw SAML-metagegevens** vak.
+    e. In Kladblok, open het Metadata XML-bestand dat u hebt gedownload van de Azure-portal, Kopieer de inhoud en plak deze in de **uw SAML-metagegevens** vak.
 
     f. Klik op **configuratie op te slaan** 
 
@@ -203,7 +203,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension** .  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.

@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: f7c9bcc51757100cb1fc957dee12213bc8bf2eec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556599"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -30,16 +30,16 @@ Query's uitvoeren en beheren van partities voor elke service.
 | --- | --- |
 | verlies van gegevens | Deze API wordt verlies van gegevens voor de opgegeven partitie veroorzaken. |
 | status van gegevens verloren gaan | Hiermee haalt u de voortgang van een partitie gegevens verloren gaan bewerking aan de slag met de API StartDataLoss. |
-| gezondheidszorg | Hiermee haalt u de status van de opgegeven Service Fabric-partitie. |
-| informatie | Hiermee haalt u de informatie over een Service Fabric-partitie. |
+| health | Hiermee haalt u de status van de opgegeven Service Fabric-partitie. |
+| info | Hiermee haalt u de informatie over een Service Fabric-partitie. |
 | list | Hiermee haalt u de lijst met partities van een Service Fabric-service. |
-| laden | Hiermee haalt u de gegevens laden van de opgegeven Service Fabric-partitie. |
+| load | Hiermee haalt u de gegevens laden van de opgegeven Service Fabric-partitie. |
 | load-reset | Hiermee stelt u de huidige belasting van een Service Fabric-partitie. |
 | quorum-loss | Induceert quorumverlies voor een bepaalde stateful service-partitie. |
 | quorum-loss-status | Hiermee haalt u de voortgang van een quorum-verlies-bewerking op een partitie die aan de slag met de API StartQuorumLoss. |
 | recover | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van een specifieke partitie die momenteel sprake van quorumverlies is vastgelopen. |
 | herstellen-all | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de diensten (inclusief systeemservices) die momenteel sprake van quorumverlies zijn vastgelopen. |
-| rapport-en statusbewaking | Verzendt een statusrapport over de Service Fabric-partitie. |
+| report-health | Verzendt een statusrapport over de Service Fabric-partitie. |
 | restart | Deze API wordt opnieuw opgestart sommige of alle replica's of exemplaren van de opgegeven partitie. |
 | opnieuw opstarten-status | Hiermee haalt u de voortgang van een aan de slag met StartPartitionRestart PartitionRestart-bewerking. |
 | svc-name | Hiermee haalt u de naam van de Service Fabric-service voor een partitie. |

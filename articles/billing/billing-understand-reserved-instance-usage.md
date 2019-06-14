@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370362"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Gebruik Azure-reservering voor uw abonnement op gebruiksbasis begrijpen
@@ -33,10 +33,10 @@ In dit artikel wordt ervan uitgegaan dat de reservering wordt toegepast op één
 
 Voor de volgende secties wordt ervan uitgegaan dat u een Standard_DS1_v2 Windows virtuele machine worden uitgevoerd in de regio VS-Oost en uw gereserveerde VM-exemplaar informatie lijkt erop dat de volgende tabel:
 
-| Veld | Waarde |
+| Veld | Value |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
-|Hoeveelheid |1|
+|Aantal |1|
 |SKU | Standard_DS1_v2|
 |Regio | eastus |
 
@@ -44,7 +44,7 @@ De hardware-gedeelte van de virtuele machine wordt behandeld, omdat de geïmplem
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>De sectie overzicht van CSV-bestand voor virtuele machines
 
-Deze sectie van uw CSV-bestand toont het totale gebruik voor de reservering. Het filter toepassen op de **subcategorie van de Meter** veld met **'Reservering-'**. U ziet er ongeveer als de volgende schermafbeelding:
+Deze sectie van uw CSV-bestand toont het totale gebruik voor de reservering. Het filter toepassen op de **subcategorie van de Meter** veld met **'Reservering-'** . U ziet er ongeveer als de volgende schermafbeelding:
 
 ![Schermafbeelding van gefilterde reservering informatie over het gebruik en kosten](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
@@ -68,10 +68,10 @@ De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor h
 
 Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
 
-| Veld | Waarde |
+| Veld | Value |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
-|Hoeveelheid |2|
+|Aantal |2|
 |Product| SQL Database Gen 4 (2 Kerngeheugens)|
 |Regio | eastus |
 

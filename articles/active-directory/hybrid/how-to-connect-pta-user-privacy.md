@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242382"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Gebruikersprivacy en Azure Active Directory Pass through-verificatie
@@ -93,12 +93,12 @@ Als u deze uit te voeren script plannen om 48 uur als volgt:
 1.  Sla het script in een bestand met de '. Ps1 "extensie.
 2.  Open **Configuratiescherm** en klikt u op **systeem en beveiliging**.
 3.  Onder de **Systeembeheer** kop, klikt u op '**taken plant**'.
-4.  In **Task Scheduler**, met de rechtermuisknop op "**taak planning bibliotheek**'en klik op'**... in eenvoudige taak maken** '.
+4.  In **Task Scheduler**, met de rechtermuisknop op "**taak planning bibliotheek**'en klik op' **... in eenvoudige taak maken** '.
 5.  Voer de naam voor de nieuwe taak en klik op **volgende**.
 6.  Selecteer "**dagelijkse**' voor de **Taaktrigger** en klikt u op **volgende**.
 7.  Het terugkeerpatroon ingesteld op twee dagen en klikt u op **volgende**.
 8.  Selecteer "**begint met een programma**' als de actie en klik op **volgende**.
-9.  Type "**PowerShell**"in het vak voor het programma/script en in het vak met de tekst"**argumenten toevoegen (optioneel)**', voert u het volledige pad naar het script dat u eerder hebt gemaakt en klik vervolgens op **volgende**.
+9.  Type "**PowerShell**"in het vak voor het programma/script en in het vak met de tekst"**argumenten toevoegen (optioneel)** ', voert u het volledige pad naar het script dat u eerder hebt gemaakt en klik vervolgens op **volgende**.
 10. Het volgende scherm bevat een overzicht van de taak die u gaat maken. Controleer of de waarden en klik op **voltooien** om de taak te maken:
  
 ### <a name="note-about-domain-controller-logs"></a>Houd er rekening mee over de Domain controller Logboeken

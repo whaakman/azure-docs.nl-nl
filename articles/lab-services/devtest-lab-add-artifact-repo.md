@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311685"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Een Git-opslagplaats voor het opslaan van aangepaste artefacten en Resource Manager-sjablonen toevoegen
@@ -74,7 +74,7 @@ Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke inform
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst met services.
 3. Selecteer in de lijst met labs, uw lab. 
-4. Selecteer **configuratie en het beleid** > **opslagplaatsen** > **+ toevoegen**.
+4. Selecteer **configuratie en het beleid** > **opslagplaatsen** >  **+ toevoegen**.
 
     ![De knop van de opslagplaats toevoegen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. In het tweede **opslagplaatsen** pagina, geeft u de volgende informatie:

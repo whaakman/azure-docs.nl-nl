@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310999"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichten
@@ -30,7 +30,7 @@ Wanneer een producent een bericht via een wachtrij verzendt, gebeurt het meestal
 Microsoft Azure Service Bus-berichten, is de nettolading van eigenschappen die producenten en consumenten gebruiken moeten om door te geven van dergelijke trace-context gedefinieerd.
 Het protocol is gebaseerd op de [correlatie van HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Naam van eigenschap        | Description                                                 |
+| De naam van eigenschap        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnose-Id       | De unieke id van een externe aanroep van producent naar de wachtrij. Raadpleeg [Request-Id in de HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) voor logica, overwegingen en indeling |
 |  Correlation-Context | De bewerkingscontext, die wordt doorgegeven in alle services die betrokken zijn bij de bewerking wordt verwerkt. Zie voor meer informatie, [correlatie-Context in HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
@@ -139,7 +139,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In dit voorbeeld registreert listener duur, resultaat, unieke id en de begintijd voor elke Service Bus-bewerking.
 
-#### <a name="events"></a>Gebeurtenissen
+#### <a name="events"></a>Events
 
 Voor elke bewerking, worden twee gebeurtenissen verzonden: 'Start' en 'Stop'. U bent waarschijnlijk, alleen geïnteresseerd in 'Stop'-gebeurtenissen. Ze geven het resultaat van bewerking, evenals begintijd en duur als de activiteitseigenschappen van een.
 
@@ -153,7 +153,7 @@ Elke gebeurtenis 'Stop' heeft een `Status` eigenschap met de `TaskStatus` asynch
 
 Dit is de volledige lijst met providers bewerkingen:
 
-| Naam van bewerking | Bijgehouden API | De nettolading van de specifieke eigenschappen|
+| Operation Name | Bijgehouden API | De nettolading van de specifieke eigenschappen|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Lijst met berichten worden verzonden |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -Bericht dat wordt verwerkt<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Offset gepland bericht<br/>`long SequenceNumber` -Het volgnummer van gepland bericht (nettolading 'Stop') |

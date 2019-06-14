@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12bfd70336c01e5595a086f360ce176df190a20e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60356531"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedure: Goedgekeurde client-apps vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang 
@@ -121,7 +121,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaublad-apps** en **moderne verificatieclients**.
+    b. Als **Client-apps (preview)** , selecteer **mobiele apps en bureaublad-apps** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
@@ -145,9 +145,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps (preview)** . 
 
-    a. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
+    a. Als **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/92.png)
 
@@ -202,7 +202,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
+    b. Als **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
@@ -229,7 +229,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps**:
 
-    a. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
+    a. Als **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/92.png)
 
@@ -286,7 +286,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
+    b. Als **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
@@ -318,7 +318,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps**. 
 
-    Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
+    Als **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
@@ -382,7 +382,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaublad-apps** en **moderne verificatieclients**.
+    b. Als **Client-apps (preview)** , selecteer **mobiele apps en bureaublad-apps** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
@@ -412,9 +412,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps (preview)** . 
 
-    Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
+    Als **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/92.png)
 

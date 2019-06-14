@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245128"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Azure AD Connect met behulp van een bestaande ADSync-database installeren
@@ -98,7 +98,7 @@ Gebruik de onderstaande tabel om te controleren of eventuele extra stappen die n
 
 |Functie|Stappen|
 |-----|-----|
-|Wachtwoord-hashsynchronisatie| de wachtwoord-Hashsynchronisatie en instellingen voor het terugschrijven van wachtwoorden zijn volledig hersteld voor versies van Azure AD Connect beginnen met 1.2.65.0.  Als het herstellen van een oudere versie van Azure AD Connect, controleert u de instellingen van de synchronisatie-optie voor deze functies om te controleren of ze overeenkomen met uw server voor de actieve synchronisatie.  Er zijn geen andere configuratiestappen moeten nodig zijn.|
+|Wachtwoord-Hashsynchronisatie| de wachtwoord-Hashsynchronisatie en instellingen voor het terugschrijven van wachtwoorden zijn volledig hersteld voor versies van Azure AD Connect beginnen met 1.2.65.0.  Als het herstellen van een oudere versie van Azure AD Connect, controleert u de instellingen van de synchronisatie-optie voor deze functies om te controleren of ze overeenkomen met uw server voor de actieve synchronisatie.  Er zijn geen andere configuratiestappen moeten nodig zijn.|
 |Federatie met AD FS|Azure verificaties zullen echter ook doorgaan met het AD FS-beleid dat is geconfigureerd voor uw server voor de actieve synchronisatie.  Als u Azure AD Connect gebruikt voor het beheren van uw AD FS-farm, kunt u de aanmeldingsmethode kunt (optioneel) voor AD FS-federatie ter voorbereiding op de stand-by-server steeds de actieve synchronisatie-instantie wijzigen.   Als opties voor apparaten op de server voor de actieve synchronisatie zijn ingeschakeld, configureert u deze opties op deze server door het uitvoeren van de taak 'Apparaatopties configureren'.|
 |Pass through-verificatie en Desktop Single Sign-On|Bijwerken van de aanmelding methode zodat deze overeenkomen met de configuratie op uw server voor de actieve synchronisatie.  Als dit niet wordt gevolgd voordat bevordering van de server naar de primaire, Pass through-verificatie samen met naadloze eenmalige aanmelding op uitgeschakeld en uw tenant mogelijk worden vergrendeld als u geen synchronisatie van wachtwoordhashes als back-up maken van optie aanmelden. Ook Houd er rekening mee dat wanneer u in de faseringsmodus Pass through-verificatie inschakelt, een nieuwe verificatieagent wordt geïnstalleerd, geregistreerd en wordt uitgevoerd als een hoge beschikbaarheid-agent die aanmelden aanvragen accepteert.|
 |Federatie met PingFederate|Azure verificaties zullen echter ook doorgaan met de PingFederate-beleid dat is geconfigureerd voor uw server voor de actieve synchronisatie.  U mag de methode aanmelden (optioneel) wijzigen in PingFederate ter voorbereiding op de stand-by-server steeds de actieve synchronisatie-exemplaar.  Deze stap kan worden uitgesteld totdat u nodig hebt voor het federeren van aanvullende domeinen met PingFederate.|

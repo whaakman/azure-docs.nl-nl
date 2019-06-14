@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050577"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -103,7 +103,7 @@ De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op
     sudo apt-get update
     ```
 
-    | Linux-distributie | Versie |
+    | Linux-distributie | Version |
     | --------------- | ----------- |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -173,7 +173,7 @@ Zie voor meer informatie, [Azure Functions-triggers en bindingen concepten](./fu
 
 ## <a name="local-settings-file"></a>Lokale instellingsbestand
 
-Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core Tools. Instellingen in het bestand local.settings.json worden alleen gebruikt door de Functions-hulpprogramma's bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen deze instellingen worden toegevoegd aan de functie-app in Azure. Houd er rekening mee dat de waarden in **ConnectionStrings** nooit worden gepubliceerd. Het bestand heeft de volgende structuur:
+Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core Tools. Instellingen in het bestand local.settings.json worden alleen gebruikt door de Functions-hulpprogramma's bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen deze instellingen worden toegevoegd aan de functie-app in Azure. De waarden in **ConnectionStrings** nooit worden gepubliceerd. Het bestand heeft de volgende structuur:
 
 ```json
 {
@@ -419,43 +419,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publiceren naar Azure
 
-Core-hulpprogramma's ondersteunt twee typen implementatie, functie project-bestanden rechtstreeks naar uw functie-app implementeren en implementeren van een aangepaste Linux-container, dit wordt alleen ondersteund in versie 2.x. U moet al hebben [een functie-app gemaakt in uw Azure-abonnement](functions-cli-samples.md#create).
+Azure Functions Core Tools ondersteunt twee typen implementatie: functie projectbestanden implementeren rechtstreeks naar uw functie-app via [Zip implementeren](functions-deployment-technologies.md#zip-deploy) en [implementeren van een aangepaste Docker-container](functions-deployment-technologies.md#docker-container). U moet al hebben [een functie-app gemaakt in uw Azure-abonnement](functions-cli-samples.md#create), waarnaar u implementeert uw code. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd.
 
-In versie 2.x gebruikt, hebt u [geregistreerd uw extensies](#register-extensions) in uw project voordat u publiceert. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd.
+### <a name="project-file-deployment"></a>Implementatie (projectbestanden)
 
-### <a name="project-file-deployment"></a>Bestand implementeren
-
-De meest voorkomende implementatiemethode omvat het gebruik van Core-hulpprogramma's kunnen worden verpakt uw functie-app-project, binaire bestanden en afhankelijkheden en het pakket implementeren op uw functie-app. U kunt eventueel [uitvoeren van uw functies direct vanuit het implementatiepakket](run-functions-from-deployment-package.md).
-
-Als u wilt publiceren een Functions-project aan een functie-app in Azure, gebruikt u de `publish` opdracht:
+Voor het publiceren van uw lokale code in een functie-app in Azure, gebruikt u de `publish` opdracht:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout optreedt wanneer de `<FunctionAppName>` bestaat niet in uw abonnement. Zie voor meer informatie over het maken van een functie-app vanuit de opdrachtprompt of terminal-venster met de Azure CLI, [maken van een functie-App voor uitvoering zonder server](./scripts/functions-cli-create-serverless.md).
-
-De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht worden niet verwijderd van Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure-portal].
+Met deze opdracht publiceert naar een bestaande functie-app in Azure. U krijgt een fout op als u probeert te publiceren naar een `<FunctionAppName>` die niet bestaat in uw abonnement. Zie voor meer informatie over het maken van een functie-app vanuit de opdrachtprompt of terminal-venster met de Azure CLI, [maken van een functie-App voor uitvoering zonder server](./scripts/functions-cli-create-serverless.md). Standaard wordt inschakelen voor deze opdracht de app om uit te voeren [uitvoeren van pakket](run-functions-from-deployment-package.md) modus.
 
 >[!IMPORTANT]
 > Wanneer u een functie-app in Azure portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).
 > U kunt de runtimeversie voor een functie-app met bestaande functies niet wijzigen.
 
-Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van toepassing:
+De volgende opties voor het publiceren van toepassing voor zowel versies, 1.x en 2.x:
 
 | Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | De prompt dat appinstellingen worden overschreven wanneer `--publish-local-settings -i` wordt gebruikt.|
 
-Opties voor het volgende project publiceren worden alleen ondersteund in versie 2.x:
+De volgende opties publiceren, worden alleen ondersteund in versie 2.x:
 
 | Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Publicatie-instellingen en alleen de inhoud overslaan. De standaardwaarde is vragen. |
 |**`--list-ignored-files`** | Geeft een lijst van bestanden die worden genegeerd tijdens het publiceren, die is gebaseerd op het bestand .funcignore. |
 | **`--list-included-files`** | Geeft een lijst van bestanden die zijn gepubliceerd, die is gebaseerd op het bestand .funcignore. |
-| **`--nozip`** | Hiermee schakelt u de standaard `Run-From-Zip` modus uit. |
+| **`--nozip`** | Hiermee schakelt u de standaard `Run-From-Package` modus uit. |
 | **`--build-native-deps`** | Slaat het genereren van .wheels map bij het publiceren van python functie-apps. |
 | **`--additional-packages`** | Lijst met pakketten te installeren bij het bouwen van systeemeigen afhankelijkheden. Bijvoorbeeld: `python3-dev libevent-dev`. |
 | **`--force`** | Negeren vooraf publishing verificatie in bepaalde scenario's. |
@@ -463,9 +457,9 @@ Opties voor het volgende project publiceren worden alleen ondersteund in versie 
 | **`--no-build`** | Overslaan dotnet functies bouwen. |
 | **`--dotnet-cli-params`** | Wanneer publiceren gecompileerde C# (.csproj) functies, de essentiële hulpprogramma 'dotnet build--output bin/publiceren'-aanroepen. Parameters doorgegeven aan deze zullen worden toegevoegd aan de opdrachtregel. |
 
-### <a name="custom-container-deployment"></a>Aangepaste container implementeren
+### <a name="deployment-custom-container"></a>Implementatie (aangepaste container)
 
-Functions kunt u uw functieproject in een aangepaste Linux-container implementeren. Zie voor meer informatie, [een functie in Linux maken met een aangepaste installatiekopie](functions-create-function-linux-custom-image.md). Versie 2.x van Core Tools ondersteuning biedt voor een aangepaste container te implementeren. Aangepaste containers moeten een docker-bestand hebben. Gebruik de optie--dockerfile op `func init`.
+Azure Functions kunt u uw functieproject in implementeren een [aangepaste Docker-container](functions-deployment-technologies.md#docker-container). Zie voor meer informatie, [een functie in Linux maken met een aangepaste installatiekopie](functions-create-function-linux-custom-image.md). Aangepaste containers moeten een docker-bestand hebben. Voor het maken van een app met een docker-bestand, gebruikt u de optie--dockerfile op `func init`.
 
 ```bash
 func deploy

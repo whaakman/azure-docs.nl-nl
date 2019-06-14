@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307851"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
@@ -70,10 +70,10 @@ De volgende JSON bevat het schema voor VM-extensie voor Azure prestaties diagnos
 |   **Naam**   |**Waarde / voorbeeld**|       **Beschrijving**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|De versie van de API.
-|Uitgever|Microsoft.Azure.Performance.Diagnostics|De naamruimte van de uitgever voor de extensie.
+|publisher|Microsoft.Azure.Performance.Diagnostics|De naamruimte van de uitgever voor de extensie.
 |type|AzurePerformanceDiagnostics|Het type van de VM-extensie.
 |typeHandlerVersion|1.0|De versie van de extensie-handler.
-|performanceScenario|standaard|Het scenario prestaties waarvoor gegevens vast te leggen. Geldige waarden zijn: **basic**, **vmslow**, **Azure Files**, en **aangepaste**.
+|performanceScenario|Basic|Het scenario prestaties waarvoor gegevens vast te leggen. Geldige waarden zijn: **basic**, **vmslow**, **Azure Files**, en **aangepaste**.
 |traceDurationInSeconds|300|De duur van de traceringen, als een van de traceeropties zijn geselecteerd.
 |perfCounterTrace|p|Optie voor het inschakelen van de prestaties teller tracering. Geldige waarden zijn **p** of lege waarde. Als u niet vastleggen van deze tracering wilt, laat u de waarde als leeg zijn.
 |networkTrace|n|Optie voor het inschakelen van netwerk-Trace. Geldige waarden zijn **n** of lege waarde. Als u niet vastleggen van deze tracering wilt, laat u de waarde als leeg zijn.
@@ -109,11 +109,11 @@ Volg deze instructies voor de extensie installeren op Windows-machines:
     > [!NOTE]
     > De extensie wordt uitgevoerd wanneer het inrichten is voltooid. Het duurt twee minuten of minder om voor het eenvoudige scenario te voltooien. Voor andere scenario's, wordt deze uitgevoerd via de duur van de opgegeven tijdens de installatie.
 
-## <a name="remove-the-extension"></a>De extensie verwijderen
+## <a name="remove-the-extension"></a>Verwijder de extensie
 Als u wilt verwijderen van de extensie van een virtuele machine, de volgende stappen uit:
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com), selecteer de virtuele machine van waaruit u wilt deze extensie te verwijderen en selecteer vervolgens de **extensies** blade. 
-2. Selecteer de (**...** ) voor de extensie voor diagnostische gegevens van prestaties vermelding in de lijst en selecteer **verwijderen**.
+2. Selecteer de ( **...** ) voor de extensie voor diagnostische gegevens van prestaties vermelding in de lijst en selecteer **verwijderen**.
 
     ![Schermafbeelding van de extensies blade verwijderen gemarkeerd](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +234,7 @@ Het hulpprogramma PerfInsights verzamelt verschillende logboeken, configuratie e
 
 ## <a name="view-and-share-the-results"></a>Weergeven en delen van de resultaten
 
-Uitvoer van de extensie kunt u vinden in een zip-bestand geüpload naar het opslagaccount dat u opgeeft tijdens de installatie en wordt gedeeld voor 30 dagen met behulp van [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Dit zip-bestand bevat de logboeken met diagnostische gegevens en een rapport met resultaten en aanbevelingen. Een SAS-koppeling naar het zip-bestand voor uitvoer kan worden gevonden in een tekstbestand met de naam *zipfilename*_saslink.txt onder de map **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<versie >**. Iedereen die deze koppeling kan voor het downloaden van het zip-bestand.
+Uitvoer van de extensie kunt u vinden in een zip-bestand geüpload naar het opslagaccount dat u opgeeft tijdens de installatie en wordt gedeeld voor 30 dagen met behulp van [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Dit zip-bestand bevat de logboeken met diagnostische gegevens en een rapport met resultaten en aanbevelingen. Een SAS-koppeling naar het zip-bestand voor uitvoer kan worden gevonden in een tekstbestand met de naam *zipfilename*_saslink.txt onder de map **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<versie >** . Iedereen die deze koppeling kan voor het downloaden van het zip-bestand.
 
 Om te helpen de ondersteuningstechnicus van uw ondersteuningsticket gewerkt, kan Microsoft deze SAS-koppeling gebruiken om de diagnostische gegevens te downloaden.
 

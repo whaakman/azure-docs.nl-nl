@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394902"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exporteren of verwijderen van persoonlijke gegevens uit Azure DevTest Labs
@@ -39,10 +39,10 @@ DevTest Labs maakt gebruik van de e-mailadres van de gebruiker automatisch afslu
 ### <a name="user-object-id"></a>Object-ID van gebruiker
 DevTest Labs maakt gebruik van de object-ID van de gebruiker om weer te geven van de maand na maand kostentrends en kosten door informatie over de resources voor lab-beheerders. Hiermee kunnen de kosten bijhouden en beheren van drempelwaarden voor de testomgeving. 
 
-**Trend van de geschatte kosten voor de huidige kalendermaand:**
+**Trend van de geschatte kosten voor de huidige kalendermaand:** 
 ![trend van de geschatte kosten voor de huidige kalendermaand](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Geschatte kosten maand tot heden per resource:**
+**Geschatte kosten maand tot heden per resource:** 
 ![geschatte kosten maand tot heden per resource](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
@@ -69,7 +69,7 @@ Als een gebruiker lab, kunt u aanvragen exporteren van een van de persoonlijke g
     ![Selecteer de tegel Blobs](./media/personal-data-delete-export/select-blobs-tile.png)
 5. Selecteer de container met de naam **labresourceusage** in de lijst met containers.
 
-    ![Blobcontainer selecteren](./media/personal-data-delete-export/select-blob-container.png)
+    ![Blob-container selecteren](./media/personal-data-delete-export/select-blob-container.png)
 6. Selecteer de **map** met de naam van uw testomgeving. U vindt **csv** bestanden voor **schijven** en **virtuele machines** in uw testomgeving in deze map. U kunt deze csv-bestanden downloaden, de inhoud voor de lab-gebruiker die een toegang aanvragen filteren en met hen delen.
 
     ![CSV-bestand downloaden](./media/personal-data-delete-export/download-csv-file.png)

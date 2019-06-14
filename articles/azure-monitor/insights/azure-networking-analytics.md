@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: bwren
-ms.openlocfilehash: 244df90a9db2a2b0d5f6ca6e1874bce94fc7f5bf
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048636"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure-netwerken bewakingsoplossingen in Azure Monitor
 
@@ -32,7 +32,7 @@ Azure Monitor biedt de volgende oplossingen voor het bewaken van uw netwerken:
     * Metrische gegevens van Azure Application Gateway
 * Netwerkactiviteit van oplossingen bewaken en analyseren in uw cloudnetwerk
     * [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-    * Analyse van Azure-netwerkbeveiligingsgroep
+    * Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Netwerkprestatiemeter (NPM)
 
@@ -221,8 +221,8 @@ Bijgewerkte oplossingen gebruiken:
 
      | In plaats van: | U kunt gebruiken: |
      | --- | --- |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; waar ResourceType = "APPLICATIONGATEWAYS" en OperationName == "ApplicationGatewayAccess" |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; waar ResourceType == "APPLICATIONGATEWAYS" en OperationName ApplicationGatewayPerformance = |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; waar ResourceType == "APPLICATIONGATEWAYS" en OperationName == "ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; waar ResourceType == "APPLICATIONGATEWAYS" en OperationName == "ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; waar ResourceType == "NETWORKSECURITYGROUPS" |
 
    + Voor elk veld dat een achtervoegsel van \_s, \_d, of \_g in de naam wijzigen van het eerste teken in kleine letters
@@ -232,7 +232,7 @@ Bijgewerkte oplossingen gebruiken:
 
 Gegevens die worden verzameld voordat de wijziging niet zichtbaar in de nieuwe oplossing is. U kunt zoeken naar deze gegevens met behulp van de oude Type en de veldnamen.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Volgende stappen

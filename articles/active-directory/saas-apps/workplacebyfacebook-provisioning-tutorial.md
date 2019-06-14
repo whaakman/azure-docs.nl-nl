@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72c2e23b0d60ca242549ebf2c058ea8f44f2b1c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520132"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Zelfstudie: Werkplek door Facebook configureren voor het automatisch inrichten van gebruikers
@@ -36,7 +36,7 @@ U hebt het volgende nodig om Azure AD-integratie te configureren met Workplace b
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
@@ -76,7 +76,7 @@ Azure AD ondersteunt de mogelijkheid om automatisch te synchroniseren de account
 
 4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![inrichten](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![Inrichting](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
 5. Onder de **beheerdersreferenties** sectie, voer het toegangstoken van uw werkplek door Facebook-beheerder en stel de waarde van de Tenant-URL op `https://www.facebook.com/scim/v1/` . Deze [instructies](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) over het maken van een toegangstoken voor werkplek. 
 

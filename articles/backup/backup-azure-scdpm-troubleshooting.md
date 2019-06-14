@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236200"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Problemen oplossen met System Center Data Protection Manager
@@ -22,7 +22,7 @@ Dit artikel wordt beschreven oplossingen voor problemen die u tegenkomen kunt ti
 Zie voor de meest recente releaseopmerkingen voor System Center Data Protection Manager de [documentatie voor System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). U kunt meer informatie over ondersteuning voor Data Protection Manager in [deze matrix](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
-## <a name="error-replica-is-inconsistent"></a>Fout: Replica is inconsistent
+## <a name="error-replica-is-inconsistent"></a>Fout: De replica is inconsistent
 
 Een replica is inconsistent voor de volgende redenen:
 - De taak voor het maken van replica is mislukt.
@@ -42,7 +42,7 @@ U lost dit probleem, moet u de volgende acties uitvoeren:
 - Zorg ervoor dat de schijf in orde is en of er voldoende ruimte voor de replica.
 - Zorg ervoor dat er geen dubbele back-uptaken die gelijktijdig worden uitgevoerd.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Fout: Een of meer online herstelpunten zijn niet gemaakt
+## <a name="error-online-recovery-point-creation-failed"></a>Fout: Online herstelpunt is mislukt
 
 U lost dit probleem, moet u de volgende acties uitvoeren:
 - Zorg ervoor dat u de nieuwste versie van de Azure backup-agent.
@@ -53,7 +53,7 @@ U lost dit probleem, moet u de volgende acties uitvoeren:
 - Zorg ervoor dat de replica aanwezig zijn en niet ontbreekt.
 - Zorg ervoor dat de replica voldoende ruimte voor het maken van het logboek update sequence USN (number).
 
-## <a name="error-unable-to-configure-protection"></a>Fout: Beveiliging kan niet worden geconfigureerd
+## <a name="error-unable-to-configure-protection"></a>Fout: Kan geen beveiliging configureren
 
 Deze fout treedt op wanneer de Data Protection Manager-server kan geen contact op met de beveiligde server. 
 

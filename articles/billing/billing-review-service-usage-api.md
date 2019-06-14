@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
 ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370982"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Bekijk het gebruik van Azure-resource met behulp van de REST-API
@@ -46,7 +46,7 @@ De volgende headers zijn vereist:
 |Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*| Vereist. Ingesteld op `application/json`. |  
-|*Autorisatie:*| Vereist. Ingesteld op een geldige `Bearer` token. |
+|*Authorization:*| Vereist. Ingesteld op een geldige `Bearer` token. |
 
 Configureer de parameters van het rapport in de hoofdtekst van de HTTP-aanvraag. In het volgende voorbeeld wordt het rapport is ingesteld voor het genereren van elke dag als actief, een CSV-bestand dat is geschreven naar een Azure Storage blob-container en per uur gegevens over kosten voor alle resources in de resourcegroep bevat `westus`.
 
@@ -89,7 +89,7 @@ Configureer de parameters van het rapport in de hoofdtekst van de HTTP-aanvraag.
 }
 ```
 
-de
+Kan
 
 ## <a name="filtering-reports"></a>Filteren van rapporten
 

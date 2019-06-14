@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453224"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Procedure: De nauwkeurigheid van de detectie te verbeteren 
@@ -49,7 +49,7 @@ Er zijn drie manieren om de nauwkeurigheid van de detectie te: bevestig waarmee 
 Uw feedback wordt verwerkt door Azure AD voor het verbeteren van de nauwkeurigheid van de resultaten. Normaal gesproken feedback u geven als onderdeel van een gebruikersrisico of aanmeldingsrisico onderzoek. Zie voor meer informatie, [onderzoeken riskante gebruikers en aanmeldingen](howto-investigate-risky-users-signins.md).
 
 
-## <a name="confirm-compromised"></a>Inbraak bevestigen
+## <a name="confirm-compromised"></a>Controleer of aangetast
 
 Bevestiging van een gebeurtenis aanmelden als geknoeid geeft aan Azure AD dat de aanmelding is niet gemachtigd door de eigenaar van de identiteit. Wanneer u selecteert "bevestigen aangetast", wordt Azure AD
 
@@ -73,7 +73,7 @@ Bevestig als een verdachte aanmelding:
 
 
  
-## <a name="confirm-safe"></a>Veiligheid bevestigen
+## <a name="confirm-safe"></a>Veilige bevestigen
 
 
 Bevestiging van een gebeurtenis aanmelden als veilig signalen en Azure AD dat de aanmelding **is** geautoriseerd door de eigenaar van de desbetreffende identiteit. Wanneer u de "bevestigen veilige" selecteert, wordt Azure AD:

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d9e30bb8b31939b14d347369bbe88e23fcec49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050522"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Efficiënt query's naar de lijst met Batch-resources maken
 
@@ -89,7 +89,7 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 * In dit voorbeeld Vouw tekenreeks geeft aan dat de statistische gegevens voor elk item in de lijst moet worden geretourneerd: `stats`.
 
 > [!NOTE]
-> Bij het maken van een van de typen van de drie query-tekenreeks (filteren, selecteren en uitvouwen), moet u ervoor zorgen dat de namen van eigenschappen en de aanvraag overeenkomt met die van hun tegenhangers REST-API-element. Bijvoorbeeld, als u werkt met de .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) klasse, moet u **status** in plaats van **status**, zelfs als de eigenschap .NET [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). Zie de onderstaande tabellen voor de eigenschaptoewijzingen tussen de .NET en REST-API's.
+> Bij het maken van een van de typen van de drie query-tekenreeks (filteren, selecteren en uitvouwen), moet u ervoor zorgen dat de namen van eigenschappen en de aanvraag overeenkomt met die van hun tegenhangers REST-API-element. Bijvoorbeeld, als u werkt met de .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) klasse, moet u **status** in plaats van **status**, zelfs als de eigenschap .NET [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Zie de onderstaande tabellen voor de eigenschaptoewijzingen tussen de .NET en REST-API's.
 > 
 > 
 
@@ -110,7 +110,7 @@ Binnen de [Batch .NET] [ api_net] API, de [ODATADetailLevel] [ odata] klasse wor
 * [ODATADetailLevel][odata].[SelectClause][odata_select]: Geef op welke waarden van eigenschappen voor elk item worden geretourneerd.
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Ophalen van gegevens voor alle items in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
 
-Het volgende codefragment maakt gebruik van de Batch .NET API efficiënt query uitvoeren op de Batch-service voor de statistische gegevens van een specifieke set van toepassingen. In dit scenario heeft de gebruiker Batch pools voor test- en productieomgevingen. De test-groep-id's worden voorafgegaan door 'test' en de productie-groep-id's worden voorafgegaan door 'prod'. In het codefragment *myBatchClient* is een goed geïnitialiseerd exemplaar van de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) klasse.
+Het volgende codefragment maakt gebruik van de Batch .NET API efficiënt query uitvoeren op de Batch-service voor de statistische gegevens van een specifieke set van toepassingen. In dit scenario heeft de gebruiker Batch pools voor test- en productieomgevingen. De test-groep-id's worden voorafgegaan door 'test' en de productie-groep-id's worden voorafgegaan door 'prod'. In het codefragment *myBatchClient* is een goed geïnitialiseerd exemplaar van de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) klasse.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met bepaalde en uitbreiden van de EU kunnen ook worden doorgegeven aan de juiste Get-methoden, zoals [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), beperken van de hoeveelheid gegevens die wordt geretourneerd.
+> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met bepaalde en uitbreiden van de EU kunnen ook worden doorgegeven aan de juiste Get-methoden, zoals [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), beperken van de hoeveelheid gegevens die wordt geretourneerd.
 > 
 > 
 

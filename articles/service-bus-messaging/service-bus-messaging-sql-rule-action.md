@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307475"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction-syntaxis
@@ -197,7 +197,7 @@ Booleaanse constanten worden vertegenwoordigd door de trefwoorden `TRUE` of `FAL
   
 Tekenreeksconstanten tussen enkele aanhalingstekens zijn en geen geldige unicodetekens bevatten. Een enkel aanhalingsteken ingesloten in een tekenreeksconstante wordt weergegeven als twee enkele aanhalingstekens.  
   
-## <a name="function"></a>functie  
+## <a name="function"></a>Functie  
   
 ```  
 <function> :=  

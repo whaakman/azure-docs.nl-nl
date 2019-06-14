@@ -2,17 +2,16 @@
 title: Concepten - opslag in Azure Kubernetes-Services (AKS)
 description: Meer informatie over opslag in Azure Kubernetes Service (AKS), met inbegrip van volumes, permanente volumes Opslagklassen en claims
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/01/2019
+ms.author: iainfou
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60466791"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opties voor opslag voor toepassingen in Azure Kubernetes Service (AKS)
@@ -26,7 +25,7 @@ In dit artikel worden de belangrijkste concepten die over de opslag die aan uw t
 - [Volumes](#volumes)
 - [Permanente volumes](#persistent-volumes)
 - [Opslagklassen](#storage-classes)
-- [Claims van permanent volume](#persistent-volume-claims)
+- [Claims voor permanente volumes](#persistent-volume-claims)
 
 ## <a name="volumes"></a>Volumes
 

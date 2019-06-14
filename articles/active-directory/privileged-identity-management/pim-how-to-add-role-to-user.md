@@ -14,10 +14,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289317"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Azure AD-rollen in PIM toewijzen
@@ -48,11 +48,11 @@ Volg deze stappen voor het maken van een gebruiker in aanmerking voor een Azure 
 
 1. Klik op **Selecteer een rol**, klikt u op een rol die u wilt beheren, en klik vervolgens op **Selecteer**.
 
-    ![Rol selecteren](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Selecteer een rol](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Klik op **leden selecteren**, selecteer de gebruikers die u wilt toewijzen aan de rol en klik vervolgens op **Selecteer**.
 
-    ![Rol selecteren](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selecteer een rol](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Klik in toevoegen beheerde leden op **OK** om toe te voegen van de gebruiker aan de rol.
 
@@ -126,7 +126,7 @@ Volg deze stappen voor de rol Administrator voor gebruikerstoegang toewijzen aan
 
 1. Kies uw abonnement.
 
-1. Kies **Toegangsbeheer (IAM)**.
+1. Kies **Toegangsbeheer (IAM)** .
 
 1. Kies **roltoewijzingen** om te zien van de huidige lijst van roltoewijzingen weergegeven bij het abonnementsbereik.
 

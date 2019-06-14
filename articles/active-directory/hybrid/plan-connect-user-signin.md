@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296365"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-aanmelden-gebruikersopties
@@ -128,7 +128,7 @@ De aanmeldingspagina van Azure AD bevat de UPN-achtervoegsels die zijn gedefinie
 
 | Status | Description | Actie vereist |
 |:--- |:--- |:--- |
-| Geverifieerd |Azure AD Connect gevonden dat een overeenkomende geverifieerd domein in Azure AD. Alle gebruikers voor dit domein kunnen zich aanmelden met behulp van hun on-premises referenties. |U hoeft geen actie te ondernemen. |
+| Geverifieerd |Azure AD Connect gevonden dat een overeenkomende geverifieerd domein in Azure AD. Alle gebruikers voor dit domein kunnen zich aanmelden met behulp van hun on-premises referenties. |Er is geen actie nodig. |
 | Niet gecontroleerd |Azure AD Connect een overeenkomende aangepaste domein in Azure AD worden gevonden, maar deze is niet geverifieerd. Het UPN-achtervoegsel van de gebruikers van dit domein wordt gewijzigd in de standaard. het achtervoegsel onmicrosoft.com na synchronisatie als het domein is niet geverifieerd. | [Controleer of het aangepaste domein in Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Niet toegevoegd |Azure AD Connect niet een aangepast domein dat kwam met het UPN-achtervoegsel overeen niet vinden. Het UPN-achtervoegsel van de gebruikers van dit domein wordt gewijzigd in de standaardinstelling. achtervoegsel onmicrosoft.com als het domein is niet toegevoegd en gecontroleerd in Azure. | [Toevoegen en controleer of een aangepast domein die overeenkomt met het UPN-achtervoegsel.](../fundamentals/add-custom-domain.md) |
 
@@ -175,7 +175,7 @@ Als u ervoor hebt gekozen gebruiker aanmelden **Federatie met AD FS**, hebt u ee
 ## <a name="changing-the-user-sign-in-method"></a>De gebruiker aanmelden methode wijzigen
 U kunt de gebruiker aanmelden methode kunt wijzigen van de Federatie, wachtwoord-hashsynchronisatie en pass-through-verificatie met behulp van de taken die beschikbaar in Azure AD Connect na de eerste configuratie van Azure AD Connect met de wizard zijn. De Azure AD Connect-wizard opnieuw uitvoeren en u ziet een lijst met taken die u kunt uitvoeren. Selecteer **aanmelden van gebruikers wijzigen** uit de lijst met taken.
 
-![Gebruikersaanmelding wijzigen](./media/plan-connect-user-signin/changeusersignin.png)
+![Aanmelden van gebruikers wijzigen](./media/plan-connect-user-signin/changeusersignin.png)
 
 Op de volgende pagina wordt u gevraagd de referenties opgeven voor Azure AD.
 

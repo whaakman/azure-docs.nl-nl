@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
 ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238623"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Bestanden herstellen naar Windows met behulp van het implementatiemodel Azure Resource Manager
@@ -44,7 +44,7 @@ Als u per ongeluk een bestand verwijderd en u herstellen op dezelfde computer wi
 
     ![Schermopname van Azure-up en herstellen van gegevens die zijn gemarkeerd](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Op de **aan de slag** pagina, de gegevens te herstellen naar dezelfde server of computer, selecteer **deze server (`<server name>`)** > **volgende**.
+3. Op de **aan de slag** pagina, de gegevens te herstellen naar dezelfde server of computer, selecteer **deze server (`<server name>`)**  > **volgende**.
 
     ![Schermafbeelding van herstellen gegevens Wizard pagina aan de slag](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 

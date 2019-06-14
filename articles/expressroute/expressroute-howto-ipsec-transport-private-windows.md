@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366924"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>IPsec-transportmodus voor ExpressRoute-privépeering configureren
@@ -176,7 +176,7 @@ Maak een filterlijst met versleutelde HTTP-verkeer met bestemmingspoort 8080.
 7. Op de **Type IP-Protocol** weergeeft, schakelt **TCP**. Klik op **Volgende**.
 
    [![30]][30]
-8. Op de **IP-protocolpoort** weergeeft, schakelt **van een willekeurige poort** en **op deze poort:**. Type **8080** in het tekstvak in. Deze instellingen bepalen dat alleen de HTTP-verkeer op bestemmingspoort 8080, worden versleuteld. Klik op **Volgende**.
+8. Op de **IP-protocolpoort** weergeeft, schakelt **van een willekeurige poort** en **op deze poort:** . Type **8080** in het tekstvak in. Deze instellingen bepalen dat alleen de HTTP-verkeer op bestemmingspoort 8080, worden versleuteld. Klik op **Volgende**.
 
    [![31]][31]
 9. Bekijk de lijst met IP-filter.  De configuratie van de lijst met IP-Filter **azure-on-HTTP8080** activeert versleuteling voor al het verkeer dat overeenkomt met de volgende criteria:
@@ -252,7 +252,7 @@ Toevoegen aan het IPsec-beleid de **IP-filterlijst** en **filteractie** die u ee
 6. Selecteer de bestaande filteractie **myEncryption** die u eerder hebt gemaakt.
 
    [![46]][46]
-7. Windows ondersteunt vier verschillende soorten verificatie: Kerberos, certificaten, NTLMv2 en vooraf gedeelde sleutel. Omdat we met domein-hosts werken, selecteer **Active Directory-standaard (Kerberos V5-protocol)**, en klik vervolgens op **volgende**.
+7. Windows ondersteunt vier verschillende soorten verificatie: Kerberos, certificaten, NTLMv2 en vooraf gedeelde sleutel. Omdat we met domein-hosts werken, selecteer **Active Directory-standaard (Kerberos V5-protocol)** , en klik vervolgens op **volgende**.
 
    [![47]][47]
 8. Het nieuwe beleid wordt gemaakt van de beveiligingsregel: **azure-on-HTTP8080**. Klik op **OK**.

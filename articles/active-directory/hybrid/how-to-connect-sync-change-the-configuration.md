@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244334"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: Breng een wijziging aan in de standaardconfiguratie
@@ -71,7 +71,7 @@ De [scheduler](how-to-connect-sync-feature-scheduler.md) wordt standaard elke 30
    ![De binnenkomende regel bereikfilter](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    In deze sectie wordt gebruikt om te definiëren welke objecten de regel moet worden toegepast. Als deze leeg wordt gelaten, zou de regel van toepassing op alle gebruikersobjecten. Dat zou echter vergaderruimten, service-accounts en andere niet-mensen gebruikersobjecten bevatten.
 4. Op de **Join regels** pagina, laat het veld leeg.
-5. Op de **transformaties** pagina, wijzigt u **FlowType** naar **expressie**. Voor **doelkenmerk**, selecteer **givenName**. En voor **bron**, voer **PCase([givenName])**.
+5. Op de **transformaties** pagina, wijzigt u **FlowType** naar **expressie**. Voor **doelkenmerk**, selecteer **givenName**. En voor **bron**, voer **PCase([givenName])** .
    ![Regel voor binnenkomende verbindingen transformaties](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    De synchronisatie-engine is hoofdlettergevoelig zijn voor zowel de naam van de functie en de naam van het kenmerk. Als u er iets mis typt, ziet u een waarschuwing wanneer u de regel toevoegt. U kunt opslaan en doorgaan, maar u wilt openen en de regel te corrigeren.
 6. Klik op **toevoegen** op de regel niet opslaan.
@@ -273,7 +273,7 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
     | Verbonden systeem | *Kies de on-premises AD-connector* |  |
     | Verbonden systeem objecttype | **User** |  |
     | Metaverse-objecttype | **Person** |  |
-    | Type koppeling | **Koppelen** |  |
+    | Koppelingstype | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatieregels. Een waarde die wordt gebruikt door een andere regel voor synchronisatie niet verzamelen. |
 
 5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep** met de volgende component:
@@ -286,15 +286,15 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
 
 6. Ga naar de **transformatie** tabblad en implementeren van de gewenste transformatie-regel. Bijvoorbeeld, als u hebt aangewezen als een niet-gebruikte on-premises AD-kenmerk (zoals extensionAttribute1) als het bronkenmerk voor de UserType, kunt u een directe kenmerkstroom implementeren:
 
-    | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
+    | Type gebruikersstroom | Doelkenmerk | source | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     | Direct | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
 
     In een ander voorbeeld wilt u de waarde voor het UserType-kenmerk zijn afgeleid van andere eigenschappen. Bijvoorbeeld, u wilt synchroniseren van alle gebruikers als Gast als hun on-premises AD userPrincipalName-kenmerk eindigt met domeingedeelte <em>@partners.fabrikam123.org</em>. U kunt een expressie als volgt implementeren:
 
-    | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
+    | Type gebruikersstroom | Doelkenmerk | source | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Expressie | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), 'Lid', 'Guest'), fout ("UserPrincipalName is niet aanwezig zijn om te bepalen UserType")) | Dit selectievakje is uitgeschakeld | Update |
+    | expressie | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), 'Lid', 'Guest'), fout ("UserPrincipalName is niet aanwezig zijn om te bepalen UserType")) | Dit selectievakje is uitgeschakeld | Update |
 
 7. Klik op **toevoegen** om de binnenkomende regel te maken.
 
@@ -311,11 +311,11 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
     | Kenmerk | Value | Details |
     | ----- | ------ | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, *Out voor AAD-gebruiker UserType* |
-    | Beschrijving | *Geef een beschrijving* ||
+    | Description | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de AAD-connector* ||
     | Verbonden systeem objecttype | **User** ||
     | Metaverse-objecttype | **Person** ||
-    | Type koppeling | **Koppelen** ||
+    | Koppelingstype | **Koppelen** ||
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatieregels. Een waarde die wordt gebruikt door een andere regel voor synchronisatie niet verzamelen. |
 
 5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep** met twee componenten:
@@ -329,7 +329,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 
 6. Ga naar de **transformatie** tabblad en implementeren van de volgende transformatieregel:
 
-    | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
+    | Type gebruikersstroom | Doelkenmerk | source | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     | Direct | UserType | UserType | Dit selectievakje is uitgeschakeld | Update |
 

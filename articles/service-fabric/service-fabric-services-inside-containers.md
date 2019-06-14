@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050471"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Uw Service Fabric Reliable Services en Reliable Actors op Windows in een container plaatsen
 
@@ -119,6 +119,16 @@ Dit document bevat richtlijnen voor het ophalen van de service die wordt uitgevo
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Service Fabric-toepassingen hebben standaard toegang tot de Service Fabric-runtime, in de vorm van een eindpunt toepassingsspecifieke aanvragen te accepteren. Houd rekening met deze toegang uitschakelen wanneer de toepassing als host fungeert voor niet-vertrouwde code. Zie voor meer informatie, [best practices voor beveiliging in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Als u wilt uitschakelen toegang tot de Service Fabric-runtime, voeg de volgende instelling in de sectie beleid van het manifest van de toepassing overeenkomt met het geïmporteerde servicemanifest als volgt:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Als u wilt testen van deze toepassing, moet u deze implementeren in een cluster met versie 5.7 of hoger. Voor runtime-versie 6.1 of lager, die u wilt bewerken en bijwerken van de clusterinstellingen voor deze preview-functie. Volg de stappen in dit [artikel](service-fabric-cluster-fabric-settings.md) om toe te voegen van de instelling van de volgende weergegeven.
     ```

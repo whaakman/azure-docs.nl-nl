@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400594"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
@@ -108,7 +108,7 @@ Wanneer u SASL zonder opmaak met AMQP, kan een client die verbinding maken met e
 
 ## <a name="scope-iot-hub-level-credentials"></a>Het bereik van IoT hub-niveau van referenties
 
-IoT hub-niveau beveiligingsbeleid kunt u beperken door het maken van tokens met een beperkte resource-URI. Het eindpunt voor het verzenden van apparaat-naar-cloud-berichten vanaf een apparaat is bijvoorbeeld **/devices/ {apparaat-id} / berichten/gebeurtenissen**. U kunt ook een IoT hub-niveau gedeeld toegangsbeleid met **DeviceConnect** machtigingen voor het ondertekenen van een token waarvan resourceURI is **/devices/ {deviceId}**. Deze methode maakt u een token dat kan alleen worden gebruikt voor het verzenden van berichten namens apparaat **deviceId**.
+IoT hub-niveau beveiligingsbeleid kunt u beperken door het maken van tokens met een beperkte resource-URI. Het eindpunt voor het verzenden van apparaat-naar-cloud-berichten vanaf een apparaat is bijvoorbeeld **/devices/ {apparaat-id} / berichten/gebeurtenissen**. U kunt ook een IoT hub-niveau gedeeld toegangsbeleid met **DeviceConnect** machtigingen voor het ondertekenen van een token waarvan resourceURI is **/devices/ {deviceId}** . Deze methode maakt u een token dat kan alleen worden gebruikt voor het verzenden van berichten namens apparaat **deviceId**.
 
 Dit mechanisme is vergelijkbaar met de [Event Hubs uitgeversbeleid](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab), en kunt u voor het implementeren van aangepaste verificatiemethoden.
 
@@ -134,7 +134,7 @@ Het beveiligingstoken heeft de volgende indeling:
 
 Hier volgen de verwachte waarden:
 
-| Waarde | Beschrijving |
+| Value | Description |
 | --- | --- |
 | {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: De sleutel is gedecodeerd op basis van base64 en gebruikt als sleutel voor het uitvoeren van de HMAC-SHA256-berekening. |
 | {resourceURI} |URI-voorvoegsel (per segment) van de eindpunten die toegankelijk zijn met dit token, beginnend met de hostnaam van de IoT-hub (Er is geen protocol). Bijvoorbeeld: `myHub.azure-devices.net/devices/device1` |

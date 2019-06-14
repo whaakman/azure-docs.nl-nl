@@ -15,10 +15,10 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60194324"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal
@@ -34,7 +34,7 @@ Voor informatie over de toewijzing van een weigeren, moet u het volgende hebben:
 
 - `Microsoft.Authorization/denyAssignments/read` machtiging die is opgenomen in de meeste [ingebouwde rollen voor Azure-resources](built-in-roles.md).
 
-## <a name="view-deny-assignments"></a>Weigeringstoewijzingen weergeven
+## <a name="view-deny-assignments"></a>Weergave weigeren toewijzingen
 
 Volg deze stappen om weer te geven weigeren toewijzingen aan het abonnement of beheergroep groepsbereik.
 
@@ -42,7 +42,7 @@ Volg deze stappen om weer te geven weigeren toewijzingen aan het abonnement of b
 
 1. Klik op de beheergroep of het abonnement dat u wilt weergeven.
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 
 1. Klik op de **weigeren toewijzingen** tabblad (of klik op de **weergave** knop op de weergave weigeren toewijzingen tegel).
 

@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243696"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installatieprocedure voor Azure AD Connect en Azure AD Connect Health
@@ -160,7 +160,7 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 ![Portal voor Azure AD Connect Health](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
 * **Snel starten**: wanneer u deze optie selecteert, wordt de blade **Snel starten** geopend. U kunt de Azure AD Connect Health-agent downloaden door **Hulpprogramma's downloaden** te selecteren. U kunt ook documentatie bekijken en feedback geven.
-* **Azure Active Directory Connect (Sync)**: deze optie laat uw Azure AD Connect-servers zien die momenteel door Azure AD Connect Health worden bewaakt. Onder de vermelding **Synchronisatiefouten** ziet u basissynchronisatiefouten van uw eerste geïmplementeerde synchronisatieservice per categorie. Wanneer u de vermelding **Synchronisatieservices** selecteert, vindt u op de blade die wordt geopend informatie over uw Azure AD Connect-servers. Zie [Azure AD Connect Health for Sync gebruiken](how-to-connect-health-sync.md) voor meer informatie over de mogelijkheden.
+* **Azure Active Directory Connect (Sync)** : deze optie laat uw Azure AD Connect-servers zien die momenteel door Azure AD Connect Health worden bewaakt. Onder de vermelding **Synchronisatiefouten** ziet u basissynchronisatiefouten van uw eerste geïmplementeerde synchronisatieservice per categorie. Wanneer u de vermelding **Synchronisatieservices** selecteert, vindt u op de blade die wordt geopend informatie over uw Azure AD Connect-servers. Zie [Azure AD Connect Health for Sync gebruiken](how-to-connect-health-sync.md) voor meer informatie over de mogelijkheden.
 * **Active Directory Federation Services**: deze optie laat alle AD FS-services zien die momenteel door Azure AD Connect Health worden bewaakt. Wanneer u een exemplaar selecteert, staat er op de blade die wordt geopend informatie over dat service-exemplaar. Deze informatie omvat een overzicht, eigenschappen, waarschuwingen, controle en gebruiksanalyses. Zie [Azure AD Connect Health gebruiken met AD FS](how-to-connect-health-adfs.md) voor meer informatie over de mogelijkheden.
 * **Active Directory Domain Services**: deze optie laat alle AD DS-forests zien die momenteel door Azure AD Connect Health worden bewaakt. Wanneer u een forest selecteert, staat er op de blade die wordt geopend informatie over die forest. Deze informatie bevat een overzicht van essentiële gegevens, een dashboard voor domeincontrollers, een dashboard voor replicatiestatus, waarschuwingen en bewaking. Zie [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor meer informatie over de mogelijkheden.
 * **Configureren**: dit gedeelte bevat opties voor het uit- of inschakelen van de volgende zaken:

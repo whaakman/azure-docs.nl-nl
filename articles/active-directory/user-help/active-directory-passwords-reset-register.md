@@ -14,10 +14,10 @@ ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530909"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registreren voor de selfservice voor het opnieuw instellen van een wachtwoord
@@ -32,7 +32,7 @@ U kunt uw wachtwoord opnieuw instellen of uw account ontgrendelen door uzelf als
 1. Open de webbrowser op uw apparaat en Ga naar de [pagina voor de registratie voor wachtwoordherstel](https://aka.ms/ssprsetup).
 2. Voer uw gebruikersnaam en het wachtwoord die uw beheerder heeft.
 3. Afhankelijk van hoe uw IT-personeel dingen heeft geconfigureerd, zijn een of meer van de volgende opties beschikbaar voor u configureren en controleren. Als uw beheerder uw toestemming om uw informatie te gebruiken heeft, kunnen ze een deel van de gegevens voor u vullen.
-    * **Telefoon (werk)**: Alleen de beheerder kan deze optie instellen.
+    * **Telefoon (werk)** : Alleen de beheerder kan deze optie instellen.
     * **Telefoon voor authenticatie**: Deze optie instelt op een ander telefoonnummer op dat u toegang tot hebt. Een voorbeeld is een mobiele telefoon die een SMS-bericht of een aanroep kan ontvangen.
     * **Verificatie-e-mailbericht**: Deze optie instelt op een alternatief e-mailadres waartoe u toegang zonder het wachtwoord die u wilt instellen.
     * **Vragen over de beveiliging**: Uw beheerder heeft goedgekeurd dat deze lijst met vragen u moet beantwoorden. U kan niet dezelfde vraag gebruiken of meer dan één keer te beantwoorden.
@@ -52,7 +52,7 @@ Uw beheerders kunnen vereisen dat u kunt bevestigen dat uw verificatiemethoden n
 
 | Foutaanvraag| Welk foutbericht ziet u?| Oplossing |
 | --- | --- | --- |
-| Er verschijnt een pagina 'Neem contact op met uw beheerder' na het invoeren van mijn gebruikers-ID | Neem contact op met de beheerder. <br> <br> Er is vastgesteld dat uw wachtwoord niet wordt beheerd door Microsoft. We zijn als gevolg hiervan kan niet automatisch uw wachtwoord opnieuw instellen. <br> <br> Neem contact op met uw IT-personeel voor verdere ondersteuning. | U ziet dit bericht omdat uw IT-afdeling uw wachtwoord in uw on-premises-omgeving beheert en kunt u uw wachtwoord opnieuw instellen niet de **geen toegang tot uw account** koppeling. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, contact op met uw IT-personeel rechtstreeks voor hulp. Laat weten dat u wilt uw wachtwoord opnieuw instellen, zodat ze deze functie voor u inschakelen kunnen.|
+| Er verschijnt een pagina 'Neem contact op met uw beheerder' na het invoeren van mijn gebruikers-ID | Neem contact op met uw beheerder. <br> <br> Er is vastgesteld dat uw wachtwoord niet wordt beheerd door Microsoft. We zijn als gevolg hiervan kan niet automatisch uw wachtwoord opnieuw instellen. <br> <br> Neem contact op met uw IT-personeel voor verdere ondersteuning. | U ziet dit bericht omdat uw IT-afdeling uw wachtwoord in uw on-premises-omgeving beheert en kunt u uw wachtwoord opnieuw instellen niet de **geen toegang tot uw account** koppeling. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, contact op met uw IT-personeel rechtstreeks voor hulp. Laat weten dat u wilt uw wachtwoord opnieuw instellen, zodat ze deze functie voor u inschakelen kunnen.|
 | Er verschijnt een foutbericht 'uw account is niet ingeschakeld voor wachtwoord opnieuw instellen' na het invoeren van mijn gebruikers-ID | Uw account is niet ingeschakeld voor wachtwoord opnieuw instellen. <br> <br> Onze excuses, maar uw IT-afdeling heeft niet instellen van uw account voor gebruik met deze service. <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat uw IT-personeel is niet ingeschakeld voor wachtwoordherstel in voor uw organisatie van de **geen toegang tot uw account** koppelen of u voor het gebruik van de functie nog niet is gelicentieerd. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, selecteert u de **contact op met een beheerder** koppeling. Een e-mailbericht ontvangt van uw bedrijf IT-personeel. Het e-mailbericht hen te laten weten dat u wilt dat uw wachtwoord opnieuw instellen, zodat ze deze functie voor u inschakelen kunnen. |
 | Er verschijnt een foutbericht ' we kunnen uw account niet verifiëren' na het invoeren van mijn gebruikers-ID | We kunnen uw account niet verifiëren. <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat u hebt ingeschakeld voor wachtwoord opnieuw instellen, maar u dit nog niet hebt geregistreerd voor het gebruik van de service. Als u wilt registreren voor wachtwoord opnieuw instellen, gaat u naar de [pagina voor de registratie voor wachtwoordherstel](https://aka.ms/ssprsetup) nadat u hebt toegang heeft gekregen bij uw account. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, selecteert u de **contact op met een beheerder** koppelen aan een e-mailbericht verzenden van uw bedrijf IT-personeel. |
 

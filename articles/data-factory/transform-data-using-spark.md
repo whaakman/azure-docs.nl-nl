@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387822"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Spark-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-spark.md)
 > * [Huidige versie](transform-data-using-spark.md)
 
@@ -62,7 +62,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebr
 
 | Eigenschap              | Description                              | Vereist |
 | --------------------- | ---------------------------------------- | -------- |
-| naam                  | Naam van de activiteit in de pijplijn.    | Ja      |
+| name                  | Naam van de activiteit in de pijplijn.    | Ja      |
 | description           | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                  | Voor Spark-activiteit is het activiteitstype HDInsightSpark. | Ja      |
 | linkedServiceName     | De naam van de HDInsight Spark gekoppelde Service waarop het Spark-programma wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
@@ -70,7 +70,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebr
 | rootPath              | Het Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. Verwijzen naar de mapstructuur sectie (volgende sectie) voor meer informatie over de structuur van deze map. | Ja      |
 | entryFilePath         | Relatief pad naar de hoofdmap van de Spark-code of pakket. De post-bestand moet een Python-bestand of een JAR-bestand. | Ja      |
 | className             | Java/Spark-hoofdklasse van de toepassing      | Nee       |
-| argumenten             | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee       |
+| arguments             | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee       |
 | proxyUser             | De account van de gebruiker te imiteren voor het uitvoeren van het Spark-programma | Nee       |
 | sparkConfig           | Geef waarden op voor Spark configuratie-eigenschappen die worden vermeld in het onderwerp: [Spark-configuratie - eigenschappen voor de toepassing](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee       |
 | getDebugInfo          | Hiermee geeft u aan bij de Spark-logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door sparkJobLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee       |
@@ -80,7 +80,7 @@ Spark-taken zijn beter worden uitgebreid dan Pig of Hive-taken. Voor Spark-taken
 
 De volgende mapstructuur maken in de Azure Blob-opslag waarnaar wordt verwezen door de gekoppelde HDInsight-service. Vervolgens kunt u afhankelijke bestanden uploaden naar de juiste submappen in de hoofdmap wordt vertegenwoordigd door **entryFilePath**. Bijvoorbeeld, python-bestanden naar de submap pyFiles en jar-bestanden uploaden naar de submap JAR-bestanden van de hoofdmap. Tijdens runtime verwacht Data Factory-service de volgende mapstructuur in de Azure Blob-opslag:     
 
-| Pad                  | Beschrijving                              | Vereist | Type   |
+| Pad                  | Description                              | Vereist | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (root)            | Het pad naar de hoofdmap van de Spark-taak in de gekoppelde storage-service | Ja      | Map |
 | &lt;door de gebruiker gedefinieerde &gt; | Het pad dat verwijst naar het bestand vermelding van de Spark-taak | Ja      | File   |

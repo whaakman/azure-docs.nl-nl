@@ -3,20 +3,21 @@ title: Prioriteit verkeersrouteringsmethode configureren met behulp van Azure Tr
 description: In dit artikel wordt uitgelegd hoe u de prioriteit verkeersrouteringsmethode configureren in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048484"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Routeringsmethode voor verkeer prioriteit configureren in Traffic Manager
 
@@ -33,7 +34,7 @@ Een algemeen patroon voor failover van de service is het verzenden van verkeer n
     1. Voor **traffic routing-methode-instellingen**, Controleer of de verkeersrouteringsmethode **prioriteit**. Als dit niet het geval is, klikt u op **prioriteit** in de vervolgkeuzelijst.
     2. Stel de **monitor eindpuntinstellingen** identiek voor alle elk eindpunt binnen dit profiel als volgt te werk:
         1. Selecteer de juiste **Protocol**, en geef de **poort** getal. 
-        2. Voor **pad** typt u een slash */*. Voor het controleren van eindpunten, moet u een pad en bestandsnaam opgeven. Een schuine streep naar voren '/' is een geldige vermelding voor het relatieve pad en geeft aan dat het bestand is in de hoofdmap (standaard).
+        2. Voor **pad** typt u een slash */* . Voor het controleren van eindpunten, moet u een pad en bestandsnaam opgeven. Een schuine streep naar voren '/' is een geldige vermelding voor het relatieve pad en geeft aan dat het bestand is in de hoofdmap (standaard).
         3. Aan de bovenkant van de pagina, klikt u op **opslaan**.
 5. In de **instellingen** sectie, klikt u op **eindpunten**.
 6. In de **eindpunten** blade, Controleer de volgorde van prioriteit voor uw eindpunten. Wanneer u selecteert de **prioriteit** routeringsmethode voor verkeer, de volgorde van de geselecteerde eindpunten belangrijk is. Controleer of de volgorde van prioriteit van eindpunten.  Het primaire eindpunt is op de voorgrond. Controleer op de volgorde die wordt weergegeven. alle aanvragen worden doorgestuurd naar het eerste eindpunt en als Traffic Manager wordt gedetecteerd, worden niet in orde, wordt het verkeer automatisch failover-schakeling naar het eindpunt van de volgende. 

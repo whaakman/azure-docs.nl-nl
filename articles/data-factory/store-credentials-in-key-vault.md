@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71f78685ee5fa340ec22c63e3e7f057bef122474
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048513"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Store-referentie in Azure Key Vault
 
@@ -32,7 +32,7 @@ Deze functie is afhankelijk van de identiteit van de data factory die worden beh
 
 Als u wilt verwijzen naar een referenties die zijn opgeslagen in Azure Key Vault, moet u naar:
 
-1. **Ophalen van data factory beheerde identiteit** door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren. Als u ADF gebruikersinterface ontwerpen, wordt de beheerde identiteit toepassings-ID weergegeven in het venster van Azure Key Vault gekoppelde service maken. u kunt ook het ophalen van Azure-portal verwijzen naar [ophalen gegevensfactory beheerde identiteit](data-factory-service-identity.md#retrieve-managed-identity).
+1. **Ophalen van data factory beheerde identiteit** door de waarde van "beheerde identiteit toepassings-ID gegenereerd samen met uw factory kopiëren. Als u ADF gebruikersinterface ontwerpen, wordt de beheerde identiteit toepassings-ID weergegeven in het venster van Azure Key Vault gekoppelde service maken. u kunt ook het ophalen van Azure-portal verwijzen naar [ophalen gegevensfactory beheerde identiteit](data-factory-service-identity.md#retrieve-managed-identity).
 2. **De beheerde identiteit toegang verlenen tot uw Azure Key Vault.** In uw key vault -> beleid -> toegang toevoegen -> nieuwe zoekopdracht dit beheerde identiteit toepassings-ID te verlenen **ophalen** machtiging in de vervolgkeuzelijst geheime machtigingen. Hiermee kunt deze aangewezen factory voor toegang tot geheim in de sleutelkluis.
 3. **Een gekoppelde service die verwijst naar uw Azure Key Vault maken.** Raadpleeg [gekoppelde service van Azure Key Vault](#azure-key-vault-linked-service).
 4. **Data store gekoppelde service, in welke verwijzing naar de bijbehorende geheime sleutel opgeslagen in kluis maken.** Raadpleeg [verwijzing geheim is opgeslagen in key vault](#reference-secret-stored-in-key-vault).
@@ -48,7 +48,7 @@ De volgende eigenschappen worden ondersteund voor Azure Key Vault gekoppelde ser
 
 **Met behulp van gebruikersinterface ontwerpen:**
 
-Klik op **verbindingen** -> **gekoppelde Services** -> **+ nieuw** -zoek naar "Azure Key Vault" >:
+Klik op **verbindingen** -> **gekoppelde Services** ->  **+ nieuw** -zoek naar "Azure Key Vault" >:
 
 ![Zoeken in Azure Sleutelkluis](media/store-credentials-in-key-vault/search-akv.png)
 

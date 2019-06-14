@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441010"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Controleactiviteitenrapporten in Azure Active Directory Portal 
@@ -127,7 +127,7 @@ De **categorie** filter kunt u een van de volgende filters selecteren:
 
 De **activiteit** filteren is gebaseerd op de categorie en activiteit resource type selectie die u maakt. U kunt een specifieke activiteit of alle activiteiten selecteren. 
 
-U kunt de lijst met alle controleactiviteiten opvragen met behulp van de Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein. U kunt ook het artikel [Controlerapportgebeurtenissen](reference-audit-activities.md) raadplegen.
+U kunt de lijst met alle controleactiviteiten opvragen met behulp van de Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein. U kunt ook het artikel [Controlerapportgebeurtenissen](reference-audit-activities.md) raadplegen.
 
 De **Status** filter kunt u filteren op basis van de status van een audit-bewerking. De status kan zijn dat een van de volgende:
 

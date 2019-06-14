@@ -17,10 +17,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441404"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Activiteiten bekijken en controlegeschiedenis voor Azure-resource-rollen in PIM
@@ -43,7 +43,7 @@ Als u wilt zien welke acties die een specifieke gebruiker in verschillende resou
 
     U ziet een grafische weergave van acties van de gebruiker in Azure-resources op datum. U ziet ook de recente rolactiveringen diezelfde periode van tijd.
 
-    ![Gebruikersdetails](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Details van gebruiker](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Klik op een specifieke rol moet worden geactiveerd om te zien van gegevens en de bijbehorende Azure-resource-activiteit die is opgetreden bij die gebruiker actief is.
 
@@ -85,7 +85,7 @@ Resourcecontrole geeft u een overzicht van alle activiteiten van de rol voor een
 
     ![Resourcecontrole filteren](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. Voor **controletype**, selecteer **activeren (toegewezen + geactiveerd)**.
+1. Voor **controletype**, selecteer **activeren (toegewezen + geactiveerd)** .
 
     ![Detail van activiteit](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 

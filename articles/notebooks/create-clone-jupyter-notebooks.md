@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237539"
 ---
 # <a name="create-and-clone-projects"></a>Projecten maken en klonen
@@ -78,11 +78,11 @@ De volgende gereserveerde woorden worden niet op zichzelf als project-id's gebru
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| info | account | Beheer | api | blog | leslokaal |
+| over | account | Beheer | api | blog | leslokaal |
 | content | dashboard | Verkennen | faq | Help | html |
-| start | Importeren | bibliotheek | beheer | nieuw | Notebook |
-| Notitieblokken | pdf | preview | prijzen | profiel | zoeken |
-| status | ondersteuning | test | | | |
+| startpagina | Importeren | bibliotheek | management | nieuw | Notebook |
+| Notitieblokken | pdf | preview | Prijzen | Profiel | Zoeken |
+| status | Ondersteuning | test | | | |
 
 Als u probeert een van deze woorden gebruiken als een project-ID, de **nieuw Project maken** en **projectinstellingen** pop-ups aan de orde, "bibliotheek-id is een gereserveerde-id."
 
@@ -120,7 +120,7 @@ Voor het klonen van een project:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Voorbeelden van notebooks verkennen](azure-notebooks-samples.md)
+- [Voorbeeldnotitieblokken verkennen](azure-notebooks-samples.md)
 - [Procedure: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
 - [Procedure: Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
 - [Procedure: Een diavoorstelling](present-jupyter-notebooks-slideshow.md)

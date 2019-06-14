@@ -10,10 +10,10 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370744"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB
@@ -67,9 +67,9 @@ De reserveringskorting wordt toegepast op Azure Cosmos DB doorvoer kosten op bas
 |Azure Cosmos DB - 100 RU/s/uur - Australië Oost|     AU - oost    |   1.15       |
 |Azure Cosmos DB - 100 RU/s/uur - CA-centraal|  CA - centraal       |   1.2       |
 |Azure Cosmos DB - 100 RU/s/uur - FR-centraal|   FR - centraal      |    1.25      |
-|Azure Cosmos DB - 100 RU/s/uur - Brazilië Zuid|  BR - zuid       |   1.5      |
-|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal|   AU - centraal      |   1.5      |
-|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal 2| AU - centraal 2        |    1.5     |
+|Azure Cosmos DB - 100 RU/s/uur - Brazilië Zuid|  BR - zuid       |   1,5      |
+|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal|   AU - centraal      |   1,5      |
+|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal 2| AU - centraal 2        |    1,5     |
 |Azure Cosmos DB - 100 RU/s/uur - FR-Zuid|    FR - zuid     |    1.625     |
 
 ## <a name="scenarios-that-show-how-the-reservation-discount-is-applied"></a>Scenario's die laten zien hoe de reserveringskorting wordt toegepast

@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399785"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: Een end-to-end-overzicht
@@ -135,7 +135,7 @@ De taken van de gegevensverwerking geïllustreerd in deze sectie bevatten opneme
 
 De U-SQL-scripts zijn die hier worden beschreven en vindt u in een afzonderlijk bestand. U kunt de volledige downloaden **U-SQL-scripts** van [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Voor het uitvoeren van U-SQL, Visual Studio openen, klikt u op **bestand--> Nieuw Project-->**, kiest u **U-SQL Project**, een naam en sla deze op een map.
+Voor het uitvoeren van U-SQL, Visual Studio openen, klikt u op **bestand--> Nieuw Project-->** , kiest u **U-SQL Project**, een naam en sla deze op een map.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -148,7 +148,7 @@ Voor het uitvoeren van U-SQL, Visual Studio openen, klikt u op **bestand--> Nieu
 
 ### <a name="ingest"></a>Opname van gegevens: In de gegevens van een openbare blob lezen
 
-De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://container\_naam\@blob\_opslag\_account\_name.blob.core.windows.net/blob_name**en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en storage-accountnaam in de volgende scripts voor de container\_naam\@blob\_opslag\_account\_naam in het wasb-adres. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_gegevens\_\{\*\}CSV** in alle 12 reis-bestanden worden gelezen.
+De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://container\_naam\@blob\_opslag\_account\_name.blob.core.windows.net/blob_name**en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()** . Vervangen door uw eigen containernaam en storage-accountnaam in de volgende scripts voor de container\_naam\@blob\_opslag\_account\_naam in het wasb-adres. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_gegevens\_\{\*\}CSV** in alle 12 reis-bestanden worden gelezen.
 
     ///Read in Trip data
     @trip0 =

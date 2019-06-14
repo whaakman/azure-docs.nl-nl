@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407908"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configureren van een VNet-naar-VNet-verbinding (klassiek)
@@ -29,7 +29,7 @@ ms.locfileid: "60407908"
 Dit artikel helpt u bij het maken van een VPN-gatewayverbinding tussen virtuele netwerken. De virtuele netwerken kunnen zich in dezelfde of verschillende regio's bevinden en tot dezelfde of verschillende abonnementen behoren. De stappen in dit artikel zijn van toepassing op het klassieke implementatiemodel en Azure portal. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure-CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassiek)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -80,7 +80,7 @@ De volgende tabel ziet u een voorbeeld van hoe u uw vnet's definiëren. Gebruik 
 
 **Voorbeeld**
 
-| Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |
+| Virtueel netwerk | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |US - oost |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |US - west |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -142,7 +142,7 @@ Bijvoorbeeld, TestVNet1 verbinding maakt met de site van een lokale netwerk die 
 
 De lokale site voor elke VNet is het andere VNet. De volgende voorbeelden van waarden worden gebruikt voor de configuratie:
 
-| Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |
+| Virtueel netwerk | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |US - oost |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |US - west |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -178,7 +178,7 @@ Herhaal de stappen voor het [maken van een lokale site](#localsite) en [maken va
 
 Nadat de virtuele netwerkgateways voor beide vnet's zijn gemaakt, moet u de lokale sites aanpassen **IP-adres van VPN-gateway** waarden.
 
-|VNET-naam|Verbonden site|IP-adres van gateway|
+|VNet-naam|Verbonden site|IP-adres van gateway|
 |:--- |:--- |:--- |
 |TestVNet1|VNet4Local|IP-adres van VPN-gateway voor TestVNet4|
 |TestVNet4|VNet1Local|IP-adres van VPN-gateway voor TestVNet1|

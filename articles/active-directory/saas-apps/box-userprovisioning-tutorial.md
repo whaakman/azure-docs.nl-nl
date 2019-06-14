@@ -16,10 +16,10 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431706"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Zelfstudie: Vak voor het automatisch inrichten van gebruikers configureren
@@ -41,8 +41,8 @@ Voor het configureren van Azure AD-integratie met Box hebt u de volgende items n
 
 Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Gebruikers toewijzen aan het vak 
 
@@ -95,7 +95,7 @@ Het doel van deze sectie is om een overzicht van het inschakelen van de inrichti
 
 4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![inrichten](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Inrichting](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren** een dialoogvenster voor aanmelding in een nieuw browservenster geopend.
 

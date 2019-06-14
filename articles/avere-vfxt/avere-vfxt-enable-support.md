@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409841"
 ---
 # <a name="enable-support-uploads"></a>Ondersteuningsuploads inschakelen
@@ -30,13 +30,13 @@ Volg deze stappen in het Configuratiescherm Avere ondersteuning te activeren. (L
 1. Klik op de **Revalidate uploadinformatie** knop.
 1. Naam van de ondersteuning van het cluster instellen in **unieke clusternaam** -Zorg ervoor dat deze unieke identificatie van uw cluster ter ondersteuning van personeel.
 1. Schakel de selectievakjes voor **statistieken bewaking**, **algemene gegevens uploaden**, en **Crash gegevens uploaden**.
-1. Klik op **Submit**
+1. Klik op **Indienen**.
 
    ![Schermafbeelding met voltooide klant info-sectie van de pagina instellingen ondersteuning](media/avere-vfxt-support-info.png)
 
 1. Klik op het driehoekje aan de linkerkant van **Secure proactieve ondersteuning (SP's)** om uit te breiden, de sectie.
 1. Schakel het selectievakje voor **inschakelen SP's koppeling**.
-1. Klik op **Submit**
+1. Klik op **Indienen**.
 
    ![Schermafbeelding met voltooide proactieve ondersteuning beveiligde sectie op de instellingenpagina voor ondersteuning](media/avere-vfxt-support-sps.png)
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: a0bb34f8a43199a5d3a18064bce92ef4bec543af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492839"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050641"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions netwerkopties
 
@@ -25,13 +25,13 @@ U kunt de functie-apps in een aantal manieren hosten:
 
 * Er is een set opties die worden uitgevoerd op een multitenant-infrastructuur, met verschillende niveaus van verbinding met het virtuele netwerk- en schaalopties:
     * De [verbruiksabonnement](functions-scale.md#consumption-plan), die dynamisch schalen in reactie op laden en biedt opties voor minimale netwerk isolatie.
-    * De [Premium-abonnement](functions-scale.md#premium-plan-public-preview), die ook kan worden geschaald dynamisch, terwijl meer uitgebreide netwerkisolatie.
+    * De [Premium-abonnement](functions-scale.md#premium-plan), die ook kan worden geschaald dynamisch, terwijl meer uitgebreide netwerkisolatie.
     * De Azure [App Service-plan](functions-scale.md#app-service-plan), dat werkt op een vaste schaal en biedt vergelijkbare netwerkisolatie naar het Premium-abonnement.
 * U kunt functies uitvoeren in een [App Service-omgeving](../app-service/environment/intro.md). Deze methode wordt de functie wordt geïmplementeerd in uw virtuele netwerk en biedt volledige netwerk besturingselement en isolatie.
 
 ## <a name="matrix-of-networking-features"></a>Matrix van functies voor netwerkbeheer
 
-|                |[Verbruiksabonnement](functions-scale.md#consumption-plan)|[Premium-abonnement (preview)](functions-scale.md#premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service-omgeving](../app-service/environment/intro.md)|
+|                |[Verbruiksabonnement](functions-scale.md#consumption-plan)|[Premium-abonnement (preview)](functions-scale.md#premium-plan)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service-omgeving](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inkomende IP-adresbeperkingen](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Uitgaande IP-beperkingen](#private-site-access)|❌No| ❌No|❌No|✅Yes|
