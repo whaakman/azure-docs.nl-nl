@@ -79,7 +79,7 @@ De volgende JSON ziet u het schema voor de afhankelijkheid van Azure VM agent-ex
 | Name | Waarde / voorbeeld |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| Uitgever | Microsoft.Azure.Monitoring.DependencyAgent |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
