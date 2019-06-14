@@ -128,7 +128,7 @@ Deze stappen beschrijven de gedetailleerde procedure die voor het uploaden van g
    | Veld voor eindpunt response-header | Type | Vereist | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Nee | De voorgestelde chunkgrootte in bytes |
-   | **Locatie** | String | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
+   | **Location** | String | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
    ||||
 
 3. Uw logische app maakt en follow-up vullen van de HTTP-berichten - allemaal zijn voorzien van deze gegevens verzendt:
