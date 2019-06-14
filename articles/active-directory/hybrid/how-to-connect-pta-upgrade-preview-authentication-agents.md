@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386744"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Pass through-verificatie: Voorbeeld van verificatie-Agents bijwerken
@@ -69,7 +69,7 @@ U moet Azure AD Connect upgraden vóór de upgrade van de verificatie-Agent op d
 
 1. **Upgrade uitvoeren van Azure AD Connect**: Volg deze [artikel](how-to-upgrade-previous-version.md) en een upgrade uit naar de nieuwste versie van Azure AD Connect.
 2. **De preview-versie van de verificatie-Agent verwijderen**: Download [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
-3. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de [servicevoorwaarden](https://aka.ms/authagenteula) en download de nieuwste versie van de verificatie-Agent. U kunt ook de verificatie-Agent vanuit downloaden [hier](https://aka.ms/getauthagent).
+3. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)** : Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->** . Accepteer de [servicevoorwaarden](https://aka.ms/authagenteula) en download de nieuwste versie van de verificatie-Agent. U kunt ook de verificatie-Agent vanuit downloaden [hier](https://aka.ms/getauthagent).
 4. **Installeer de nieuwste versie van de verificatie-Agent**: Voer het uitvoerbare bestand in stap 3 hebt gedownload. Bieden van uw tenant-hoofdbeheerder referenties wanneer hierom wordt gevraagd.
 5. **Controleer of de meest recente versie is geïnstalleerd**: Zoals eerder, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding voor '**Microsoft Azure AD Connect Authentication-Agent**'.
 
@@ -81,7 +81,7 @@ U moet Azure AD Connect upgraden vóór de upgrade van de verificatie-Agent op d
 Volg deze stappen voor het upgraden van verificatie-Agents op andere servers (waarop Azure AD Connect is niet geïnstalleerd):
 
 1. **De preview-versie van de verificatie-Agent verwijderen**: Download [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
-2. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de voorwaarden van de service en de nieuwste versie downloaden.
+2. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)** : Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->** . Accepteer de voorwaarden van de service en de nieuwste versie downloaden.
 3. **Installeer de nieuwste versie van de verificatie-Agent**: Voer het uitvoerbare bestand in stap 2 hebt gedownload. Bieden van uw tenant-hoofdbeheerder referenties wanneer hierom wordt gevraagd.
 4. **Controleer of de meest recente versie is geïnstalleerd**: Zoals eerder, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding die met de naam **Microsoft Azure AD Connect Authentication-Agent**.
 
