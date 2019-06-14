@@ -77,7 +77,7 @@ De volgende JSON bevat het schema voor de afhankelijkheid van Azure VM agent-ext
 | Name | Waarde / voorbeeld |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| Uitgever | Microsoft.Azure.Monitoring.DependencyAgent |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
 
