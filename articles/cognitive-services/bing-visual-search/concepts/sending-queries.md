@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
 ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60579861"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Zoekquery's verzenden naar de Bing visuele zoekopdrachten-API
@@ -84,7 +84,7 @@ Hier volgen de queryparameters die in uw aanvraag moeten worden opgegeven. U moe
 
 Hier volgen de headers die in uw aanvraag moeten worden opgegeven. De `Content-Type` en `Ocp-Apim-Subscription-Key` headers zijn de enige vereiste kopteksten, maar u moet ook `User-Agent`, `X-MSEdge-ClientID`, `X-MSEdge-ClientIP`, en `X-Search-Location`.
 
-| Header | Beschrijving |
+| Header | Description |
 | --- | --- |
 | <a name="acceptlanguage" />Accept-Language  | Optionele aanvraagheader.<br /><br /> Een door komma's gescheiden lijst met talen die moet worden gebruikt voor gebruikersinterfacetekenreeksen. De lijst is in aflopende volgorde van voorkeur. Zie [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) voor meer informatie, waaronder de verwachte indeling.<br /><br /> Deze header en de queryparameter [setLang](#setlang) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Als u deze header instelt, moet u ook de queryparameter [cc](#cc) opgeven. Om de markt te bepalen waarvoor resultaten moeten worden geretourneerd, gebruikt Bing de eerste ondersteunde taal die wordt gevonden in de lijst en combineert deze met de parameterwaarde `cc`. Als de lijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen, of gebruikt een geaggregeerde of standaardmarkt voor de resultaten. Om te bepalen de markt die Bing gebruikt, Zie de `BingAPIs-Market` header.<br /><br /> Gebruik deze header en de queryparameter `cc` alleen als u meerdere talen opgeeft. Gebruik anders de queryparameters [mkt](#mkt) en [setLang](#setlang).<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.  |
 | <a name="contenttype" />Content-Type  |     |

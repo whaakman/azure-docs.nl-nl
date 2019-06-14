@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627266"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Het apparaatregistraties beheren met Azure Device Provisioning Service-SDK 's
@@ -21,7 +21,7 @@ Een *apparaatinschrijving* maakt een record van een enkel apparaat of een groep 
 ## <a name="prerequisites"></a>Vereisten
 * De verbindingsreeks ophalen uit uw Device Provisioning Service-exemplaar.
 * Verkrijgen van het apparaat beveiligingsartefacten voor de [attestation-mechanisme](concepts-security.md#attestation-mechanism) gebruikt:
-    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Afzonderlijke inschrijving: Registratie-ID en TPM-goedkeuringssleutel vanaf een fysiek apparaat of van TPM-Simulator.
         * Registratiegroep geldt niet voor TPM-attestation.
     * [**X.509**](/azure/iot-dps/concepts-security):

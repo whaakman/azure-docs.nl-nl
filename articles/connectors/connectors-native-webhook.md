@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447191"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Maken van werkstromen op basis van gebeurtenissen of acties worden uitgevoerd met behulp van webhooks en Azure Logic Apps
@@ -82,7 +82,7 @@ Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
 
 ## <a name="webhook-triggers"></a>Webhook-triggers
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen. |
 
@@ -93,16 +93,16 @@ Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
 Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen.
 Een * betekent vereist veld.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| Weergavenaam | De naam van eigenschap | Description |
 | --- | --- | --- |
 | Abonneren methode * |method |HTTP-methode moet worden gebruikt voor de abonnementsaanvraag |
-| Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
+| Abonneren URI * |URI |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
 | Afmelden methode * |method |HTTP-methode moet worden gebruikt voor afmelding |
-| Afmelden URI * |uri |HTTP-URI moet worden gebruikt voor afmelding |
-| Hoofdtekst abonneren |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor abonneren |
+| Afmelden URI * |URI |HTTP-URI moet worden gebruikt voor afmelding |
+| Hoofdtekst abonneren |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor abonneren |
 | Headers abonneren |Headers |HTTP-aanvraagheaders voor abonneren |
 | Abonneer u verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
-| Afmelden voor hoofdtekst |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
+| Afmelden voor hoofdtekst |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
 | Headers afmelden |Headers |HTTP-aanvraagheaders voor afmelden |
 | Afmelden voor verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
 
@@ -110,7 +110,7 @@ Een * betekent vereist veld.
 
 Webhook-aanvraag
 
-| Naam van eigenschap | Gegevenstype | Description |
+| De naam van eigenschap | Gegevenstype | Description |
 | --- | --- | --- |
 | Headers |object |Webhook-aanvraagheaders |
 | Hoofdtekst |object |Webhook-request-object |
@@ -118,27 +118,27 @@ Webhook-aanvraag
 
 ## <a name="webhook-actions"></a>Webhookacties
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te hervatten van een werkstroomstap naar behoefte kunt aanroepen. |
 
-### <a name="action-details"></a>Actiedetails
+### <a name="action-details"></a>Actiegegevens
 
 #### <a name="http-webhook"></a>HTTP-webhook
 
 Abonneren op een callback-URL voor een service die de URL om te hervatten van een werkstroomstap naar behoefte kunt aanroepen.
 Een * betekent vereist veld.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| Weergavenaam | De naam van eigenschap | Description |
 | --- | --- | --- |
 | Abonneren methode * |method |HTTP-methode moet worden gebruikt voor de abonnementsaanvraag |
-| Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
+| Abonneren URI * |URI |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
 | Afmelden methode * |method |HTTP-methode moet worden gebruikt voor afmelding |
-| Afmelden URI * |uri |HTTP-URI moet worden gebruikt voor afmelding |
-| Hoofdtekst abonneren |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor abonneren |
+| Afmelden URI * |URI |HTTP-URI moet worden gebruikt voor afmelding |
+| Hoofdtekst abonneren |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor abonneren |
 | Headers abonneren |Headers |HTTP-aanvraagheaders voor abonneren |
 | Abonneer u verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
-| Afmelden voor hoofdtekst |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
+| Afmelden voor hoofdtekst |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
 | Headers afmelden |Headers |HTTP-aanvraagheaders voor afmelden |
 | Afmelden voor verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
 
@@ -146,7 +146,7 @@ Een * betekent vereist veld.
 
 Webhook-aanvraag
 
-| Naam van eigenschap | Gegevenstype | Description |
+| De naam van eigenschap | Gegevenstype | Description |
 | --- | --- | --- |
 | Headers |object |Webhook-aanvraagheaders |
 | Hoofdtekst |object |Webhook-request-object |

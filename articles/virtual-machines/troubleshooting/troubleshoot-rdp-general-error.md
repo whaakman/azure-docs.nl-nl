@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319510"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Een algemene fout RDP in Azure VM oplossen
@@ -63,11 +63,11 @@ De RDP-listener is onjuist geconfigureerd.
 
 Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](../windows/snapshot-copy-managed-disk.md), en [de besturingssysteemschijf koppelen aan een redden VM](troubleshoot-recovery-disks-portal-windows.md), en volg de stappen.
 
-### <a name="serial-console"></a>Seriële Console
+### <a name="serial-console"></a>Seriële console
 
 #### <a name="step-1-open-cmd-instance-in-serial-console"></a>Stap 1: Open CMD-exemplaar in de seriële console
 
-1. Toegang tot de [seriële Console](serial-console-windows.md) hiervoor **ondersteuning en probleemoplossing** > **seriële console (Preview)**. Als de functie is ingeschakeld op de virtuele machine, kunt u de virtuele machine is verbinden.
+1. Toegang tot de [seriële Console](serial-console-windows.md) hiervoor **ondersteuning en probleemoplossing** > **seriële console (Preview)** . Als de functie is ingeschakeld op de virtuele machine, kunt u de virtuele machine is verbinden.
 
 2. Maak een nieuw kanaal voor een CMD-exemplaar. Type **CMD** starten van het kanaal om op te halen van de naam van het kanaal.
 
@@ -242,6 +242,6 @@ Zie voor meer informatie, [extern bureaublad-Services is niet gestart op een Azu
 
 Zie voor meer informatie, [extern bureaublad verbinding verbreekt vaak in Azure VM](troubleshoot-rdp-intermittent-connectivity.md).
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

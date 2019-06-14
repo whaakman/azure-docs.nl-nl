@@ -2,21 +2,22 @@
 title: Prestaties traffic routeringsmethode configureren met behulp van Azure Traffic Manager | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u Traffic Manager configureren om verkeer te routeren naar het eindpunt met de laagste latentie
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883956"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048478"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>De methode voor verkeersroutering voor prestaties configureren
 
@@ -31,7 +32,7 @@ De methode voor verkeersroutering voor prestaties kunt u instellen dat verkeer n
     1. Voor **traffic routing-methode-instellingen**, voor **routeringsmethode** Selecteer **prestaties**.
     2. Stel de **monitor eindpuntinstellingen** identiek voor alle elk eindpunt binnen dit profiel als volgt te werk:
         1. Selecteer de juiste **Protocol**, en geef de **poort** getal. 
-        2. Voor **pad** typt u een slash */*. Voor het controleren van eindpunten, moet u een pad en bestandsnaam opgeven. Een schuine streep naar voren '/' is een geldige vermelding voor het relatieve pad en geeft aan dat het bestand is in de hoofdmap (standaard).
+        2. Voor **pad** typt u een slash */* . Voor het controleren van eindpunten, moet u een pad en bestandsnaam opgeven. Een schuine streep naar voren '/' is een geldige vermelding voor het relatieve pad en geeft aan dat het bestand is in de hoofdmap (standaard).
         3. Aan de bovenkant van de pagina, klikt u op **opslaan**.
 5.  De wijzigingen in uw configuratie als volgt testen:
     1.  In de zoekbalk van de portal, zoek de naam van het Traffic Manager-profiel en klik op het Traffic Manager-profiel in de resultaten die de weergegeven.

@@ -4,24 +4,24 @@ description: Meer informatie over de Operations-tabblad in de Synchronization Se
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/13/2017
-ms.date: 11/12/2018
-ms.component: hybrid
-ms.author: v-junlch
+ms.topic: conceptual
+ms.date: 07/13/2017
+ms.subservice: hybrid
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: 474000d1d4d7e1358682d1421125d482e3782049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381392"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Met behulp van het tabblad Synchronisatie Service Manager-bewerkingen
@@ -43,7 +43,7 @@ De **Status** kolom zijn de belangrijkste gegevens en het meest ernstige problee
 | voltooide -\*-waarschuwingen |De uitvoering is voltooid, maar sommige gegevens is niet de verwachte status. Als u fouten hebt, klikt u vervolgens dit bericht is meestal alleen een symptoom zijn. Totdat u fouten hebt opgelost, moet u geen waarschuwingen onderzoeken. |
 | voltooid |Geen problemen. |
 
-Wanneer u een rij selecteert, wordt onder bijgewerkt om weer te geven van de details van die worden uitgevoerd. Aan de linkerkant van de onderste, mogelijk hebt u een lijst met de melding **stap #**. Deze lijst wordt alleen weergegeven als u meerdere domeinen in uw forest waar elk domein wordt vertegenwoordigd door een stap. Naam van het domein kunt u vinden onder de kop **partitie**. Onder **Synchronisatiestatistieken**, vindt u meer informatie over het aantal wijzigingen dat is verwerkt. U kunt klikken op de koppelingen een lijst van de gewijzigde objecten te krijgen. Als u objecten met fouten hebt, die fouten weergegeven op **synchronisatiefouten**.
+Wanneer u een rij selecteert, wordt onder bijgewerkt om weer te geven van de details van die worden uitgevoerd. Aan de linkerkant van de onderste, mogelijk hebt u een lijst met de melding **stap #** . Deze lijst wordt alleen weergegeven als u meerdere domeinen in uw forest waar elk domein wordt vertegenwoordigd door een stap. Naam van het domein kunt u vinden onder de kop **partitie**. Onder **Synchronisatiestatistieken**, vindt u meer informatie over het aantal wijzigingen dat is verwerkt. U kunt klikken op de koppelingen een lijst van de gewijzigde objecten te krijgen. Als u objecten met fouten hebt, die fouten weergegeven op **synchronisatiefouten**.
 
 Zie voor meer informatie, [oplossen van een object dat niet kan worden gesynchroniseerd](tshoot-connect-object-not-syncing.md)
 
@@ -51,4 +51,3 @@ Zie voor meer informatie, [oplossen van een object dat niet kan worden gesynchro
 Meer informatie over de [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md) configuratie.
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](whatis-hybrid-identity.md).
-

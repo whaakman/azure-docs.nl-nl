@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da55370df55bcd9122bf87c561b00f3106cc6c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296760"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Over het beheren van de lokale groep administrators op de Azure AD gekoppelde apparaten
@@ -92,7 +92,7 @@ Standaard wordt de gebruiker die de Azure AD join aan de groep Administrators op
 
 Naast het gebruik van de Azure AD join-proces, kunt u ook handmatig een gewone gebruiker om te worden van een lokale beheerder op een specifiek apparaat verhogen. Deze stap moet u al een lid van de lokale groep administrators. 
 
-Beginnen met de **Windows 10 1709** release, kunt u deze taak uitvoeren vanuit **instellingen -> Accounts andere gebruikers ->**. Selecteer **een werk- of schoolaccount gebruiker toevoegen**, voer de UPN van de gebruiker onder **gebruikersaccount** en selecteer *beheerder* onder **accounttype**  
+Beginnen met de **Windows 10 1709** release, kunt u deze taak uitvoeren vanuit **instellingen -> Accounts andere gebruikers ->** . Selecteer **een werk- of schoolaccount gebruiker toevoegen**, voer de UPN van de gebruiker onder **gebruikersaccount** en selecteer *beheerder* onder **accounttype**  
  
 U kunt daarnaast ook gebruikers via de opdrachtprompt toevoegen:
 

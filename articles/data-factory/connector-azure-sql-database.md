@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 231f44612b5e87afdf84f31d86c80be644fb4484
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6ae1094a6e47d19af97fbbb1ce988d0756f33731
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048548"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-azure-sql-connector.md)
 > * [Huidige versie](connector-azure-sql-database.md)
 
@@ -364,6 +364,9 @@ GO
 
 ### <a name="azure-sql-database-as-the-sink"></a>Azure SQL-Database als de sink
 
+> [!TIP]
+> Meer informatie over de ondersteunde schrijven gedrag, configuraties en best practices van [Best practice om gegevens te laden in Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+
 Instellen om gegevens te kopiëren naar Azure SQL Database, de **type** sink-eigenschap in de Kopieeractiviteit naar **SqlSink**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **sink** sectie:
 
 | Eigenschap | Description | Vereist |
@@ -372,14 +375,11 @@ Instellen om gegevens te kopiëren naar Azure SQL Database, de **type** sink-eig
 | writeBatchSize | Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). Standaard bepalen Data Factory dynamisch van de juiste batchgrootte op basis van de rijgrootte. | Nee |
 | writeBatchTimeout | De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out.<br/> De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Database. Deze wordt slechts één keer aangeroepen per exemplaar uitvoeren. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
-| sqlWriterStoredProcedureName | De naam van de opgeslagen procedure die over het toepassen van gegevens in een doeltabel definieert. Een voorbeeld is upsert-bewerking of transformeren met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is **per batch aangeroepen**. Voor bewerkingen die slechts één keer uitgevoerd en hebben niets te doen met de brongegevens, gebruikt u de `preCopyScript` eigenschap. Voorbeeld van de bewerkingen zijn verwijderen en afkappen. | Nee |
+| sqlWriterStoredProcedureName | De naam van de opgeslagen procedure die over het toepassen van gegevens in een doeltabel definieert. <br/>Deze opgeslagen procedure is **per batch aangeroepen**. Voor bewerkingen die slechts één keer uitgevoerd en hebben niets te met brongegevens, bijvoorbeeld verwijderen of afbreken, gebruikt u de `preCopyScript` eigenschap. | Nee |
 | storedProcedureParameters |Parameters voor de opgeslagen procedure.<br/>Toegestane waarden zijn naam / waarde-paren. Namen en hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de opgeslagen-procedureparameters. | Nee |
 | sqlWriterTableType | Geef een naam van het type tabel moet worden gebruikt in de opgeslagen procedure. Kopieeractiviteit maakt de gegevens worden verplaatst beschikbaar zijn in een tijdelijke tabel met dit tabeltype. Opgeslagen procedurecode kunt vervolgens de gegevens worden gekopieerd met bestaande gegevens samenvoegen. | Nee |
 
-> [!TIP]
-> Wanneer u gegevens naar Azure SQL Database kopieert, Kopieeractiviteit worden gegevens toegevoegd aan de sink-tabel standaard. Hiertoe een upsert of extra zakelijke logica, gebruikt u de opgeslagen procedure in **SqlSink**. Meer details bekijken van [aanroepen van opgeslagen procedure van SQL-Sink](#invoking-stored-procedure-for-sql-sink).
-
-#### <a name="append-data-example"></a>Gegevens voorbeeld Append
+**Voorbeeld 1: gegevens toevoegen**
 
 ```json
 "activities":[
@@ -411,7 +411,7 @@ Instellen om gegevens te kopiëren naar Azure SQL Database, de **type** sink-eig
 ]
 ```
 
-#### <a name="invoke-a-stored-procedure-during-copy-for-upsert-example"></a>Een opgeslagen procedure aanroepen tijdens het kopiëren van upsert-voorbeeld
+**Voorbeeld 2: een opgeslagen procedure aanroepen tijdens het kopiëren van**
 
 Meer details bekijken van [aanroepen van opgeslagen procedure van SQL-Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -450,84 +450,69 @@ Meer details bekijken van [aanroepen van opgeslagen procedure van SQL-Sink](#inv
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Id-kolommen in de doeldatabase
+## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Aanbevolen procedure voor het laden van gegevens in Azure SQL Database
 
-Deze sectie leest u hoe u gegevens kopiëren van een brontabel zonder een id-kolom in een doeltabel met een id-kolom.
+Wanneer u gegevens naar Azure SQL Database kopiëren, moet u wellicht gedrag verschillende schrijven:
 
-#### <a name="source-table"></a>Brontabel
+- **[Toevoeg-](#append-data)** : Mijn brongegevens heeft alleen nieuwe records.
+- **[Upsert](#upsert-data)** : Mijn brongegevens heeft zowel invoegingen en updates;
+- **[Overschrijven](#overwrite-entire-table)** : Ik wil laden gehele dimensietabel telkens;
+- **[Schrijf met aangepaste logica](#write-data-with-custom-logic)** : Moet ik extra verwerking vóór de laatste invoeging in de doeltabel.
+
+Raadpleeg de respectievelijk de secties over het configureren van ADF en de aanbevolen procedures.
+
+### <a name="append-data"></a>Gegevens toevoegen
+
+Dit is het standaardgedrag van deze Azure SQL Database-sink-connector en ADF **bulksgewijs invoegen** efficiënt schrijven naar de tabel. U kunt gewoon configureren van de bron en sink-dienovereenkomstig in de kopieeractiviteit.
+
+### <a name="upsert-data"></a>Upsert-gegevens
+
+**Optie ik** (met name wanneer u grote hoeveelheden gegevens te kopiëren hebt aanbevolen): de **meeste biedt praktische aanpak** te doen van upsert, is het volgende: 
+
+- Ten eerste, gebruikmaken van een [tijdelijke tabel in het databasebereik](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) voor bulksgewijs laden van alle records met activiteit kopiëren. Wanneer bewerkingen voor database scoped tijdelijke tabellen worden niet geregistreerd, kunt u miljoenen records laden in een paar seconden.
+- Een opgeslagen Procedure-activiteit uitvoeren in ADF om toe te passen een [samenvoegen](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (of invoegen/bijwerken)-instructie en het gebruik van de tijdelijke tabel als bron voor het uitvoeren van alle bijwerkt of invoegt als één transactie, verminderen de hoeveelheid interactie en bewerkingen in een logboek. Aan het einde van de activiteit opgeslagen Procedure, kan de tijdelijke tabel als u wilt deze klaar is voor de volgende cyclus van upsert worden afgekapt. 
+
+Als u bijvoorbeeld in Azure Data Factory, kunt u een pijplijn met een **Kopieeractiviteit** gekoppeld met een **Stored Procedure-activiteit** bij succes. De vorige worden gegevens gekopieerd van de brongegevensopslag naar een tijdelijke tabel van Azure SQL Database, bijvoorbeeld ' **##UpsertTempTable**' als de tabelnaam in uw gegevensset, de laatste wordt een opgeslagen Procedure voor het samenvoegen van brongegevens van de tijdelijke tabel in doel tabel, en het opschonen van de tijdelijke tabel.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+In de database, definieert u een opgeslagen Procedure met de logica van samenvoegen, zoals het volgende voorbeeld, waarin wordt aangewezen uit de bovenstaande Stored Procedure-activiteit. Ervan uitgaande dat het doel **Marketing** een tabel met drie kolommen: **ProfileID**, **status**, en **categorie**, en voer de upsert op basis van de **ProfileID** kolom.
 
 ```sql
-create table dbo.SourceTbl
-(
-       name varchar(100),
-       age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-#### <a name="destination-table"></a>Doeltabel
+**Optie II:** ook u kunt [aanroepen van de opgeslagen procedure in de kopieeractiviteit](#invoking-stored-procedure-for-sql-sink), terwijl deze benadering wordt uitgevoerd voor elke rij in de brontabel in plaats van gebruik te maken van bulksgewijs Opmerking invoegen als de aanpak van standaard in de kopieeractiviteit, waardoor deze niet geschikt voor grootschalige upsert.
 
-```sql
-create table dbo.TargetTbl
-(
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
-)
-```
+### <a name="overwrite-entire-table"></a>Hele tabel overschrijven
 
-> [!NOTE]
-> De doeltabel is een identiteitskolom.
+U kunt configureren **preCopyScript** sink-eigenschap in de kopieeractiviteit, in dat geval voor elke kopie-activiteit die wordt uitgevoerd, ADF voert het script eerst, voert u de kopie voor het invoegen van de gegevens. Bijvoorbeeld, als u wilt overschrijven de hele tabel met de meest recente gegevens, kunt u een script voor het eerst alle records verwijderen voordat u de nieuwe gegevens uit de bron voor bulksgewijs laden.
 
-#### <a name="source-dataset-json-definition"></a>Source dataset-JSON-definitie
+### <a name="write-data-with-custom-logic"></a>Schrijven van gegevens met aangepaste logica
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-#### <a name="destination-dataset-json-definition"></a>Bestemming gegevensset JSON-definitie
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-> [!NOTE]
-> De bron en doel-tabel hebben verschillende schema. 
-
-Het doel heeft een extra kolom met een identiteit. In dit scenario, moet u de **structuur** eigenschap in de definitie van doel, waaronder de identiteitskolom niet.
+Net zoals beschreven in [Upsert gegevens](#upsert-data) sectie, wanneer u moet extra verwerking vóór de laatste invoeging van gegevens in de doeltabel toepassen kunt u een) voor de grote schaal, naar een database-scoped tijdelijke tabel laadt en aanroepen een opgeslagen procedure of een b) een opgeslagen procedure tijdens het kopiëren van aanroepen.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Aanroepen van de opgeslagen procedure van SQL-sink
 
 Wanneer u gegevens naar Azure SQL Database kopiëren, kunt u ook configureren en aanroepen van een gebruiker opgegeven opgeslagen procedure met extra parameters.
 
-U kunt een opgeslagen procedure gebruiken bij het kopiëren van ingebouwde mechanismen niet voldoen aan het doel. Ze doorgaans worden gebruikt wanneer een upsert, insert en update of extra verwerking moet worden uitgevoerd voordat de laatste invoeging van gegevens in de doeltabel. Voorbeelden van de extra verwerking zijn kolommen samenvoegen, zoekt u aanvullende waarden en plaatst deze in meer dan één tabel.
+> [!TIP]
+> Aanroepen van opgeslagen procedure verwerkt de gegevens per rij in plaats van bulkbewerking, niet voor grootschalige kopiëren aangeraden wordt. Meer informatie uit [Best practice om gegevens te laden in Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+
+U kunt een opgeslagen procedure als ingebouwd kopiëren mechanismen niet aan het doel voldoen, bijvoorbeeld extra verwerking vóór de laatste invoeging van gegevens in de doeltabel van toepassing. Voorbeelden van de extra verwerking zijn kolommen samenvoegen, zoekt u aanvullende waarden en plaatst deze in meer dan één tabel.
 
 Het volgende voorbeeld laat zien hoe een opgeslagen procedure gebruiken om te doen van een upsert in een tabel in Azure SQL Database. Wordt ervan uitgegaan dat de invoer- en de sink **Marketing** tabel elke drie kolommen bevatten: **ProfileID**, **status**, en **categorie**. Voer de upsert op basis van de **ProfileID** kolom, en alleen toe te passen voor een specifieke categorie.
 
@@ -620,7 +605,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numerieke |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -628,12 +613,12 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| tekst |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

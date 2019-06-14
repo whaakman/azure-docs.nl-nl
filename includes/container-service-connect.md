@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
-ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb6dec606169eb0bf2bfbeff042700cff441560b
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202820"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808903"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Een externe verbinding maken met een Kubernetes-, DC/OS- of Docker Swarm-cluster
 Nadat u een Azure Container Service-cluster hebt gemaakt, moet u het cluster verbinden om workloads te kunnen implementeren en beheren. In dit artikel wordt beschreven hoe u vanaf een externe computer verbinding maakt met de hoofd-VM van het cluster. 
@@ -32,7 +32,7 @@ Volg deze stappen om `kubectl` op uw computer te installeren en te configureren.
 > 
 
 ### <a name="install-kubectl"></a>Kubectl installeren
-Eén manier om dit hulpprogramma te installeren, is met de `az acs kubernetes install-cli` Azure CLI-opdracht. Als u wilt deze opdracht uitvoert, zorg ervoor dat u [geïnstalleerd](/cli/azure/install-az-cli2) de nieuwste versie van de Azure CLI en bent aangemeld bij een Azure-account (`az login`).
+Eén manier om dit hulpprogramma te installeren, is met de `az acs kubernetes install-cli` Azure CLI-opdracht. Deze opdracht uit te voeren [Azure CLI installeren](/cli/azure/install-azure-cli) en meld u aan bij een Azure-account met `az login`.
 
 ```azurecli
 # Linux or macOS
@@ -78,7 +78,7 @@ kubectl proxy
 
 De gebruikersinterface van Kubernetes is nu beschikbaar via `http://localhost:8001/ui`.
 
-Raadpleeg de [Snelstartgids van Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/) voor meer informatie.
+Zie voor meer informatie de [Kubernetes-snelstartgids](http://kubernetes.io/docs/user-guide/quick-start/).
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Verbinding maken met een DC/OS- of Swarm-cluster
 

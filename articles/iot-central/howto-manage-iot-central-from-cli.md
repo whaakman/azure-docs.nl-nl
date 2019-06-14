@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151959"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>IoT Central beheren vanuit Azure CLI
@@ -54,7 +54,7 @@ Deze opdrachten wordt eerst een resourcegroep maken in de regio voor de toepassi
 | ----------------- | ----------- |
 | resource-group    | De resourcegroep die de toepassing bevat. Deze resourcegroep moet al bestaan in uw abonnement. |
 | location          | Met deze opdracht maakt standaard gebruik van de locatie van de resourcegroep. Op dit moment kunt u een IoT Central-toepassing in de **VS-Oost**, **VS-West**, **Noord-Europa**, of **West-Europa** regio's. |
-| naam              | De naam van de toepassing in Azure portal. |
+| name              | De naam van de toepassing in Azure portal. |
 | Subdomein         | Het subdomein in de URL van de toepassing. In het voorbeeld wordt de URL van de toepassing is https://mysubdomain.azureiotcentral.com. |
 | sku               | Op dit moment de enige waarde die is **S1** (standard-laag). Zie [prijzen voor Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | sjabloon          | De toepassingssjabloon te gebruiken. Zie de volgende tabel voor meer informatie: |

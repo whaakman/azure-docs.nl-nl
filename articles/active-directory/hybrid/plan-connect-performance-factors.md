@@ -13,10 +13,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295366"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factoren die invloed hebben op de prestaties van Azure AD Connect
@@ -29,7 +29,7 @@ Azure AD Connect synchroniseert uw Active Directory naar Azure AD. Deze server i
 | Schalen| Het aantal objecten, zoals de gebruikers, groepen en organisatie-eenheden, worden beheerd door Azure AD Connect. |
 | Hardware| De hardware (fysiek of virtueel) voor de Azure AD Connect en de prestaties van afhankelijke capaciteit van elke hardware-onderdeel zoals CPU, geheugen, netwerk en de configuratie van de harde schijf. |
 | Configuratie| Hoe Azure AD Connect-processen de mappen en gegevens. |
-| Belasting| De frequentie van object wordt gewijzigd. De belasting kunnen variëren tijdens een uur, dag of week. Mogelijk moet u afhankelijk van het onderdeel ontwerp voor piekbelasting of gemiddelde belasting. |
+| Laden| De frequentie van object wordt gewijzigd. De belasting kunnen variëren tijdens een uur, dag of week. Mogelijk moet u afhankelijk van het onderdeel ontwerp voor piekbelasting of gemiddelde belasting. |
 
 Het doel van dit document is om te beschrijven van de factoren die invloed op de prestaties van de Azure AD Connect engine wordt ingericht. Groot of complex organisaties (organisaties meer dan 100.000 objecten inrichting) kunnen de aanbevelingen gebruiken voor het optimaliseren van hun Azure AD Connect-implementatie, als ze een prestatieproblemen die hier wordt beschreven. De andere onderdelen van Azure AD Connect, zoals [Azure AD Connect health](how-to-connect-health-agent-install.md) en agents worden niet op de hier beschreven.
 

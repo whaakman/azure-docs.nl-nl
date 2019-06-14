@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60355985"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>App-beveiligingsbeleid vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang (preview)
@@ -111,17 +111,17 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/07.png)
 
-4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)**:
+4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)** :
 
     a. In **apparaatplatformen**, selecteer **Android** en **iOS**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/03.png)
 
-    b. In **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
+    b. In **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/91.png)
 
-5. Onder **besturingselementen voor toegang**, selecteer **vereisen app-beveiligingsbeleid (preview)**.
+5. Onder **besturingselementen voor toegang**, selecteer **vereisen app-beveiligingsbeleid (preview)** .
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/05.png)
  
@@ -141,13 +141,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/07.png)
 
-4. In **voorwaarden**, Configureer **Client-apps (preview)**. 
+4. In **voorwaarden**, Configureer **Client-apps (preview)** . 
 
-    a. In **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
+    a. In **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/92.png)
 
-    b. Onder **besturingselementen voor toegang**, selecteer **vereisen app-beveiligingsbeleid (preview)**.
+    b. Onder **besturingselementen voor toegang**, selecteer **vereisen app-beveiligingsbeleid (preview)** .
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/05.png)
 
@@ -194,13 +194,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
      ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/07.png)
 
-4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)**. 
+4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)** . 
  
     a. In **apparaatplatformen**, selecteer **Android** en **iOS**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/03.png)
 
-    b. In **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
+    b. In **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/91.png)
 
@@ -230,9 +230,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/07.png)
 
-4. In **voorwaarden**, Configureer **Client-apps (preview)**. 
+4. In **voorwaarden**, Configureer **Client-apps (preview)** . 
 
-    In **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
+    In **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/92.png)
 
@@ -296,13 +296,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
      ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/07.png)
 
-4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)**. 
+4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)** . 
  
     a. In **apparaatplatformen**, selecteer **Android** en **iOS**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/03.png)
 
-    b. In **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
+    b. In **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/91.png)
 
@@ -332,9 +332,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/07.png)
 
-4. In **voorwaarden**, Configureer **Client-apps (preview)**. 
+4. In **voorwaarden**, Configureer **Client-apps (preview)** . 
 
-    In **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
+    In **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/92.png)
 
@@ -403,13 +403,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
      ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/02.png)
 
-4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)**. 
+4. In **voorwaarden**, Configureer **apparaatplatformen** en **Client-apps (preview)** . 
  
     a. In **apparaatplatformen**, selecteer **Android** en **iOS**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/03.png)
 
-    b. In **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
+    b. In **Client-apps (preview)** , selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
     ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/91.png)
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333948"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Een Azure Machine Learning Studio-webservice implementeren
@@ -47,7 +47,7 @@ Het proces voor het maken en beheren van training experimenten wordt uitgebreid 
 * [Uw trainingsgegevens importeren in Azure Machine Learning Studio](import-data.md)
 * [Experimentherhalingen in Azure Machine Learning Studio beheren](manage-experiment-iterations.md)
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een voorspellend experiment
+## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een Voorspellend experiment
 
 Nadat u uw model hebt getraind, u kunt uw trainingsexperiment converteren naar een Voorspellend experiment te scoren van nieuwe gegevens.
 
@@ -65,7 +65,7 @@ De volgende stappen beschrijven een Voorspellend experiment als een nieuwe webse
 
 Nu dat de Voorspellend experiment is voorbereid, kunt u deze kunt implementeren als een nieuwe (op een Resource Manager gebaseerde) Azure-web-service. Met behulp van de webservice, kunnen gebruikers gegevens verzenden naar uw model en het model de voorspellingen wordt geretourneerd.
 
-Als u wilt uw Voorspellend experiment implementeren, klikt u op **uitvoeren** aan de onderkant van het experimentcanvas. Wanneer het experiment is voltooid, klikt u op **webservice implementeren** en selecteer **webservice implementeren [nieuw]**.  De implementatiepagina van de portal voor Machine Learning Studio-webservice wordt geopend.
+Als u wilt uw Voorspellend experiment implementeren, klikt u op **uitvoeren** aan de onderkant van het experimentcanvas. Wanneer het experiment is voltooid, klikt u op **webservice implementeren** en selecteer **webservice implementeren [nieuw]** .  De implementatiepagina van de portal voor Machine Learning Studio-webservice wordt geopend.
 
 > [!NOTE] 
 > Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waarvoor u de webservice implementeert. Zie voor meer informatie, [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md). 
@@ -77,7 +77,7 @@ Een prijscategorie selecteren. Hebt u een bestaande prijsstelling dat kunt u dit
 
 1. In de **Prijsplan** vervolgkeuzelijst, selecteert u een bestaand plan of de **Selecteer nieuw plan** optie.
 2. In **Plannaam**, typ een naam waarmee het abonnement op uw factuur wordt geïdentificeerd.
-3. Selecteer een van de **maandelijkse Plan lagen**. Standaard worden de prijscategorieën voor uw standaardregio gebruikt en de webservice wordt ook in die regio geïmplementeerd.
+3. Selecteer een van de **maandelijkse Plan lagen**. De standaardwaarde van de lagen plan voor de abonnementen voor uw standaardregio en wordt uw webservice wordt geïmplementeerd voor deze regio.
 
 Klik op **implementeren** en de **snelstartgids** pagina voor uw webservice wordt geopend.
 
@@ -167,7 +167,7 @@ Als u wilt uw Voorspellend experiment implementeren, klikt u op **uitvoeren** ca
 
 U kunt de webservice testen in de portal van de Machine Learning Studio-webservices of Machine Learning Studio.
 
-Als u wilt testen de Request Response-webservice, klikt u op de **testen** knop in het dashboard van de webservice. Een dialoogvenster wordt weergegeven gebruiken om u te vragen voor de invoergegevens voor de service. Dit zijn de kolommen die door het scoring experiment wordt verwacht. Voer een set gegevens in en klik vervolgens op **OK**. De resultaten die worden gegenereerd door de webservice worden weergegeven aan de onderkant van het dashboard.
+Als u wilt testen de Request Response-webservice, klikt u op de **testen** knop in het dashboard van de webservice. Een dialoogvenster wordt weergegeven gebruiken om u te vragen voor de invoergegevens voor de service. Dit zijn de kolommen die door het scoring experiment wordt verwacht. Voer een set gegevens en klik vervolgens op **OK**. De resultaten die worden gegenereerd door de webservice worden weergegeven aan de onderkant van het dashboard.
 
 U kunt klikken op de **testen** preview koppeling naar uw service testen in de portal voor Azure Machine Learning Studio-webservices, zoals eerder in de sectie nieuwe web-service.
 

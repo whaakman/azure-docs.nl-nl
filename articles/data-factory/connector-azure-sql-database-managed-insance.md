@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048591"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database Managed Instance met behulp van Azure Data Factory
 
@@ -29,7 +29,7 @@ U kunt gegevens uit Azure SQL Database Managed Instance kopiëren naar een onder
 
 Specifiek, ondersteunt deze Azure SQL Database Managed Instance-connector:
 
-- Kopiëren van gegevens met behulp van SQL- of Windows-verificatie.
+- Kopiëren van gegevens met behulp van SQL-verificatie.
 - Als een bron, het ophalen van gegevens met behulp van een SQL-query of een opgeslagen procedure.
 - Als een sink, gegevens toevoegen aan een tabel van de bestemming of het aanroepen van een opgeslagen procedure met aangepaste logica tijdens het kopiëren.
 
@@ -37,9 +37,9 @@ SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-database
 
 ## <a name="prerequisites"></a>Vereisten
 
-Instellen van een zelf-hostende integratieruntime die toegang heeft tot de database voor het gebruik van gegevens kopiëren van een Azure SQL Database Managed Instance die zich in een virtueel netwerk. Zie voor meer informatie, [zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md).
+Voor toegang tot Azure SQL Database Managed Instance  **[openbaar eindpunt](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)** , kunt u Azure IR ADF beheerd Zorg ervoor dat u niet alleen het openbare eindpunt inschakelen, maar ook openbaar eindpunt verkeer toestaan in de netwerkbeveiligingsgroep zodat de token wordt geen verbinding maken met uw database, door ADF [deze richtlijnen](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
-Als u uw zelf-hostende integratieruntime in hetzelfde virtuele netwerk bevinden als uw beheerde exemplaar inricht, zorg ervoor dat uw integratie-runtime-machine in een ander subnet dan uw beheerde exemplaar. Als u uw zelf-hostende integratieruntime in een ander virtueel netwerk dan uw beheerde exemplaar inricht, kunt u een peering op virtueel netwerk of een virtueel netwerk met virtuele netwerk. Zie voor meer informatie, [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+Voor toegang tot Azure SQL Database Managed Instance **persoonlijke eindpunt**Stel een [zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md) die toegang heeft tot de database. Als u de zelf-hostende integratieruntime in hetzelfde virtuele netwerk bevinden als uw beheerde exemplaar inricht, zorg ervoor dat uw integratie-runtime-machine in een ander subnet dan uw beheerde exemplaar. Als u uw zelf-hostende integratieruntime in een ander virtueel netwerk dan uw beheerde exemplaar inricht, kunt u een peering op virtueel netwerk of een virtueel netwerk met virtuele netwerk. Zie voor meer informatie, [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="get-started"></a>Aan de slag
 
@@ -54,13 +54,8 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **SqlServer**. | Ja. |
-| connectionString |Deze eigenschap geeft u de connectionString-informatie die nodig is om verbinding met het beheerde exemplaar met behulp van SQL-verificatie of Windows-verificatie. Zie voor meer informatie de volgende voorbeelden. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault, en als het SQL-verificatie pull de `password` configuratie buiten de verbindingsreeks. Zie het JSON-voorbeeld onder de tabel en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. |Ja. |
-| userName |Deze eigenschap geeft de naam van een gebruiker als u Windows-verificatie gebruiken. Een voorbeeld is **domainname\\gebruikersnaam**. |Nee. |
-| password |Deze eigenschap geeft u een wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de naam van de gebruiker. Selecteer **SecureString** de connectionString-gegevens veilig opslaan in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee. |
-| connectVia | Dit [integratieruntime](concepts-integration-runtime.md) wordt gebruikt voor verbinding met het gegevensarchief. Richt de zelf-hostende integratieruntime in hetzelfde virtuele netwerk bevinden als uw beheerde exemplaar. |Ja. |
-
->[!TIP]
->U ziet de foutcode 'UserErrorFailedToConnectToSqlServer' met een bericht, zoals "de sessielimiet voor de database is XXX en is bereikt." Als deze fout optreedt, voegt u toe `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.
+| connectionString |Deze eigenschap geeft u de connectionString-informatie die nodig is om verbinding met het beheerde exemplaar met behulp van SQL-verificatie. Zie voor meer informatie de volgende voorbeelden. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault, en als het SQL-verificatie pull de `password` configuratie buiten de verbindingsreeks. Zie het JSON-voorbeeld onder de tabel en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. |Ja. |
+| connectVia | Dit [integratieruntime](concepts-integration-runtime.md) wordt gebruikt voor verbinding met het gegevensarchief. U kunt zelfgehoste Cloudintegratieruntime of Azure Integration Runtime (als uw beheerde exemplaar openbaar eindpunt heeft en u ADF kunt voor toegang tot) gebruiken. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Ja. |
 
 **Voorbeeld 1: SQL-verificatie gebruiken**
 
@@ -72,7 +67,7 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -102,32 +97,6 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName>" 
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-**Voorbeeld 3: Windows-verificatie gebruiken**
-
-```json
-{
-    "name": "AzureSqlMILinkedService",
-    "properties": {
-        "type": "SqlServer",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
-            },
-            "userName": "<domain\\username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
             }
         },
         "connectVia": {
@@ -278,6 +247,9 @@ GO
 
 ### <a name="azure-sql-database-managed-instance-as-a-sink"></a>Azure SQL Database Managed Instance als een sink
 
+> [!TIP]
+> Meer informatie over de ondersteunde schrijven gedrag, configuraties en best practices van [Best practice voor het laden van gegevens in Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+
 Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het sink-type in de kopieeractiviteit naar **SqlSink**. De volgende eigenschappen worden ondersteund in de sectie kopiëren activiteit-sink:
 
 | Eigenschap | Description | Vereist |
@@ -286,14 +258,11 @@ Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het s
 | writeBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. Standaard bepalen Data Factory dynamisch van de juiste batchgrootte op basis van de rijgrootte.  |Nee |
 | writeBatchTimeout |Deze eigenschap geeft u de wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn voor de tijdsduur. Een voorbeeld hiervan is "00: 30:00, ' die is 30 minuten. |Nee. |
 | preCopyScript |Deze eigenschap geeft u een SQL-query voor de kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in het beheerde exemplaar. De toepassing wordt aangeroepen slechts één keer per exemplaar uitvoeren. U kunt deze eigenschap gebruiken om vooraf geladen gegevens op te schonen. |Nee. |
-| sqlWriterStoredProcedureName |Deze naam is voor de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in de doeltabel van toepassing. Voorbeelden van procedures zijn upsert-bewerking of transformaties doen met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is *per batch aangeroepen*. Een bewerking die wordt slechts één keer worden uitgevoerd en heeft niets te met brongegevens, bijvoorbeeld verwijderen of afbreken, gebruikt u de `preCopyScript` eigenschap. |Nee. |
+| sqlWriterStoredProcedureName |Deze naam is voor de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in de doeltabel van toepassing. <br/>Deze opgeslagen procedure is *per batch aangeroepen*. Een bewerking die wordt slechts één keer worden uitgevoerd en heeft niets te met brongegevens, bijvoorbeeld verwijderen of afbreken, gebruikt u de `preCopyScript` eigenschap. |Nee. |
 | storedProcedureParameters |Deze parameters worden gebruikt voor de opgeslagen procedure.<br/>Toegestane waarden zijn de naam of waarde-paren. De naam en het hoofdlettergebruik van de parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de opgeslagen-procedureparameters. |Nee. |
 | sqlWriterTableType |Deze eigenschap geeft u een tabel typenaam die moet worden gebruikt in de opgeslagen procedure. De kopieeractiviteit maakt de gegevens worden verplaatst beschikbaar zijn in een tijdelijke tabel met dit tabeltype. Opgeslagen procedurecode kunt vervolgens de gegevens die wordt gekopieerd met bestaande gegevens samenvoegen. |Nee. |
 
-> [!TIP]
-> Wanneer gegevens worden gekopieerd naar Azure SQL Database Managed Instance, de kopieeractiviteit worden gegevens toegevoegd aan de sink-tabel standaard. Als u een upsert of extra zakelijke logica, gebruikt u de opgeslagen procedure in SqlSink. Zie voor meer informatie, [aanroepen van een opgeslagen procedure uit een SQL-sink](#invoke-a-stored-procedure-from-a-sql-sink).
-
-**Voorbeeld 1: Gegevens toevoegen**
+**Voorbeeld 1: gegevens toevoegen**
 
 ```json
 "activities":[
@@ -325,9 +294,9 @@ Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het s
 ]
 ```
 
-**Voorbeeld 2: Een opgeslagen procedure aanroepen tijdens het kopiëren van upsert**
+**Voorbeeld 2: een opgeslagen procedure aanroepen tijdens het kopiëren van**
 
-Meer details bekijken van [aanroepen van een opgeslagen procedure uit een SQL-sink](#invoke-a-stored-procedure-from-a-sql-sink).
+Meer details bekijken van [aanroepen van een opgeslagen procedure uit een SQL-sink](#invoking-stored-procedure-for-sql-sink).
 
 ```json
 "activities":[
@@ -364,80 +333,69 @@ Meer details bekijken van [aanroepen van een opgeslagen procedure uit een SQL-si
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Id-kolommen in de doeldatabase
+## <a name="best-practice-for-loading-data-into-azure-sql-database-managed-instance"></a>Best practices voor het laden van gegevens in Azure SQL Database Managed Instance
 
-Het volgende voorbeeld worden gegevens gekopieerd van een tabel met geen id-kolom in een doeltabel met een id-kolom.
+Wanneer u gegevens naar Azure SQL Database Managed Instance kopiëren, moet u wellicht gedrag verschillende schrijven:
 
-**Brontabel**
+- **[Toevoeg-](#append-data)** : Mijn brongegevens heeft alleen nieuwe records.
+- **[Upsert](#upsert-data)** : Mijn brongegevens heeft zowel invoegingen en updates;
+- **[Overschrijven](#overwrite-entire-table)** : Ik wil laden gehele dimensietabel telkens;
+- **[Schrijf met aangepaste logica](#write-data-with-custom-logic)** : Moet ik extra verwerking vóór de laatste invoeging in de doeltabel.
+
+Raadpleeg de respectievelijk de secties over het configureren van ADF en de aanbevolen procedures.
+
+### <a name="append-data"></a>Gegevens toevoegen
+
+Dit is het standaardgedrag van deze Azure SQL Database Managed Instance-sink-connector en ADF **bulksgewijs invoegen** efficiënt schrijven naar de tabel. U kunt gewoon configureren van de bron en sink-dienovereenkomstig in de kopieeractiviteit.
+
+### <a name="upsert-data"></a>Upsert-gegevens
+
+**Optie ik** (met name wanneer u grote hoeveelheden gegevens te kopiëren hebt aanbevolen): de **meeste biedt praktische aanpak** te doen van upsert, is het volgende: 
+
+- Ten eerste, gebruikmaken van een [tijdelijke tabel](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) voor bulksgewijs laden van alle records met activiteit kopiëren. Zolang er bewerkingen op tijdelijke tabellen worden niet geregistreerd, kunt u miljoenen records laden in een paar seconden.
+- Een opgeslagen Procedure-activiteit uitvoeren in ADF om toe te passen een [samenvoegen](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (of invoegen/bijwerken)-instructie en het gebruik van de tijdelijke tabel als bron voor het uitvoeren van alle bijwerkt of invoegt als één transactie, verminderen de hoeveelheid interactie en bewerkingen in een logboek. Aan het einde van de activiteit opgeslagen Procedure, kan de tijdelijke tabel als u wilt deze klaar is voor de volgende cyclus van upsert worden afgekapt. 
+
+Als u bijvoorbeeld in Azure Data Factory, kunt u een pijplijn met een **Kopieeractiviteit** gekoppeld met een **Stored Procedure-activiteit** bij succes. De vorige worden gegevens gekopieerd van de brongegevensopslag naar een tijdelijke tabel bijvoorbeeld ' **##UpsertTempTable**' als de tabelnaam in uw gegevensset, de laatste wordt een opgeslagen Procedure voor het samenvoegen van brongegevens van de tijdelijke tabel in de doeltabel en opschonen tijdelijke tabel.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+In de database, definieert u een opgeslagen Procedure met de logica van samenvoegen, zoals het volgende voorbeeld, waarin wordt aangewezen uit de bovenstaande Stored Procedure-activiteit. Ervan uitgaande dat het doel **Marketing** een tabel met drie kolommen: **ProfileID**, **status**, en **categorie**, en voer de upsert op basis van de **ProfileID** kolom.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**Doeltabel**
+**Optie II:** ook u kunt [aanroepen van de opgeslagen procedure in de kopieeractiviteit](#invoking-stored-procedure-for-sql-sink), terwijl deze benadering wordt uitgevoerd voor elke rij in de brontabel in plaats van gebruik te maken van bulksgewijs Opmerking invoegen als de aanpak van standaard in de kopieeractiviteit, waardoor deze niet geschikt voor grootschalige upsert.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>Hele tabel overschrijven
 
-U ziet dat de doeltabel een identiteitskolom.
+U kunt configureren **preCopyScript** sink-eigenschap in de kopieeractiviteit, in dat geval voor elke kopie-activiteit die wordt uitgevoerd, ADF voert het script eerst, voert u de kopie voor het invoegen van de gegevens. Bijvoorbeeld, als u wilt overschrijven de hele tabel met de meest recente gegevens, kunt u een script voor het eerst alle records verwijderen voordat u de nieuwe gegevens uit de bron voor bulksgewijs laden.
 
-**Source dataset-JSON-definitie**
+### <a name="write-data-with-custom-logic"></a>Schrijven van gegevens met aangepaste logica
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
+Net zoals beschreven in [Upsert gegevens](#upsert-data) sectie, wanneer u moet extra verwerking vóór de laatste invoeging van gegevens in de doeltabel toepassen kunt u een) voor de grote schaal, naar een tijdelijke tabel laadt en aanroepen van een opgeslagen procedure of een b) een opgeslagen procedure tijdens het kopiëren van aanroepen.
 
-**Bestemming gegevensset JSON-definitie**
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Aanroepen van een opgeslagen procedure uit een SQL-sink
 
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
+Wanneer u gegevens naar Azure SQL Database Managed Instance kopiëren, kunt u ook configureren en aanroepen van een gebruiker opgegeven opgeslagen procedure met extra parameters.
 
-U ziet dat de bron en doel-tabel verschillende schema hebben. De doeltabel is een identiteitskolom. Geef de eigenschap "structuur" in de definitie van doel, waaronder de identiteitskolom niet in dit scenario.
+> [!TIP]
+> Aanroepen van opgeslagen procedure verwerkt de gegevens per rij in plaats van bulkbewerking, niet voor grootschalige kopiëren aangeraden wordt. Meer informatie uit [Best practice voor het laden van gegevens in Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Aanroepen van een opgeslagen procedure uit een SQL-sink
-
-Wanneer gegevens worden gekopieerd naar Azure SQL Database Managed Instance, kunt u een opgeslagen procedure geconfigureerd en aangeroepen met extra parameters die u opgeeft.
-
-U kunt een opgeslagen procedure gebruiken bij het kopiëren van ingebouwde mechanismen niet voldoen aan het doel. Dit wordt doorgaans gebruikt wanneer een upsert (update + invoegen) of een extra verwerking moet worden uitgevoerd voordat de laatste invoeging van gegevens in de doeltabel. Extra verwerking kan taken zoals het samenvoegen van kolommen, opzoeken van aanvullende waarden en plaatst deze in meerdere tabellen bevatten.
+U kunt een opgeslagen procedure als ingebouwd kopiëren mechanismen niet aan het doel voldoen, bijvoorbeeld extra verwerking vóór de laatste invoeging van gegevens in de doeltabel van toepassing. Voorbeelden van de extra verwerking zijn kolommen samenvoegen, zoekt u aanvullende waarden en plaatst deze in meer dan één tabel.
 
 Het volgende voorbeeld laat zien hoe een opgeslagen procedure gebruiken om te doen van een upsert in een tabel in de SQL Server-database. Wordt ervan uitgegaan dat de invoer- en de sink **Marketing** tabel elke drie kolommen bevatten: **ProfileID**, **status**, en **categorie**. Voer de upsert op basis van de **ProfileID** kolom, en alleen toe te passen voor een specifieke categorie.
 
@@ -526,7 +484,7 @@ Wanneer gegevens worden gekopieerd en naar Azure SQL Database Managed Instance, 
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numerieke |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -534,12 +492,12 @@ Wanneer gegevens worden gekopieerd en naar Azure SQL Database Managed Instance, 
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| tekst |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238056"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 en hoger configuratieschema
@@ -447,7 +447,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Vereist
 
-|Kenmerken|Beschrijving|  
+|Kenmerken|Description|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | De maximale hoeveelheid lokale schijfruimte die kan worden gebruikt door de verschillende typen diagnostische gegevens die zijn verzameld door Azure Diagnostics. De standaardinstelling is 4096 MB.<br />
 |**useProxyServer** | Azure Diagnostics voor het gebruik van de proxy-instellingen zoals in de instellingen van Internet Explorer configureren.|
@@ -491,7 +491,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Optionele **scheduledTransferPeriod** kenmerk. Zie de uitleg eerder.  
 
-|Onderliggende elementen|Beschrijving|  
+|Onderliggende elementen|Description|  
 |--------------------|-----------------|  
 |**IISLogs**|Met inbegrip van dit element in de configuratie kunt u het verzamelen van IIS-logboeken:<br /><br /> **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van de IIS-logboeken.|   
 |**FailedRequestLogs**|Met inbegrip van dit element in de configuratie kunt verzamelen van logboeken over mislukte aanvragen voor een IIS-site of toepassing. U moet ook traceringsopties onder inschakelen **system. WebServer** in **Web.config**.|  
@@ -552,7 +552,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|Onderliggende elementen|Beschrijving|  
+|Onderliggende elementen|Description|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
 |**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Hiermee kunt u voor het genereren van een tabel met prestaties teller die is geoptimaliseerd voor snelle query's. Elk prestatiemeteritem dat is gedefinieerd in de **PerformanceCounters** element wordt opgeslagen in de metrische gegevenstabel voor naast het prestatiemeteritem-tabel.  
 
- De **resourceId** kenmerk is vereist.  De resource-ID van de virtuele Machine of virtuele-Machineschaalset implementeert u om de Azure Diagnostics. Krijgen de **resourceID** uit de [Azure-portal](https://portal.azure.com). Selecteer **Bladeren** -> **resourcegroepen** -> **< naam\>**. Klik op de **eigenschappen** tegel en kopieer de waarde van de **ID** veld.  
+ De **resourceId** kenmerk is vereist.  De resource-ID van de virtuele Machine of virtuele-Machineschaalset implementeert u om de Azure Diagnostics. Krijgen de **resourceID** uit de [Azure-portal](https://portal.azure.com). Selecteer **Bladeren** -> **resourcegroepen** ->  **< naam\>** . Klik op de **eigenschappen** tegel en kopieer de waarde van de **ID** veld.  
 
 |Onderliggende elementen|Description|  
 |--------------------|-----------------|  
@@ -596,7 +596,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Optionele **scheduledTransferPeriod** kenmerk. Zie de uitleg eerder.  
 
-|Onderliggend Element|Beschrijving|  
+|Onderliggend Element|Description|  
 |-------------------|-----------------|  
 |**DataSource**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '|  
 
@@ -610,7 +610,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Definieert de configuratie van de buffer voor basic Logboeken in Azure.  
 
-|Kenmerk|Type|Beschrijving|  
+|Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
 |**scheduledTransferLogLevelFilter**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
@@ -644,7 +644,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**De naam**|string|Een tekenreeks die de sinkname identificeren.|  
+|**name**|string|Een tekenreeks die de sinkname identificeren.|  
 
 |Element|Type|Description|  
 |-------------|----------|-----------------|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Filters voor gegevensstromen van logboekgegevens die zijn doorgegeven via een sink definieert.  
 
-|Element|Type|Beschrijving|  
+|Element|Type|Description|  
 |-------------|----------|-----------------|  
 |**Kanaal**|string|Zie de beschrijving elders op deze pagina.|  
 
@@ -669,10 +669,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Locaties voor het verzenden van diagnostische gegevens naar definieert. De Application Insights-service.  
 
-|Kenmerken|Type|Beschrijving|  
+|Kenmerken|Type|Description|  
 |----------------|----------|-----------------|  
 |**logLevel**|**Tekenreeks**|Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
-|**De naam**|**Tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
+|**name**|**Tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig-Element
@@ -684,7 +684,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Slaat de persoonlijke gegevens van het opslagaccount (naam, sleutel en -eindpunt). Deze informatie wordt verzonden naar de virtuele machine, maar kan niet worden opgehaald uit.  
 
-|Onderliggende elementen|Beschrijving|  
+|Onderliggende elementen|Description|  
 |--------------------|-----------------|  
 |**StorageAccount**|De storage-account te gebruiken. De volgende kenmerken zijn vereist<br /><br /> - **naam** -de naam van het storage-account.<br /><br /> - **sleutel** -de sleutel tot het opslagaccount.<br /><br /> - **eindpunt** -het eindpunt voor toegang tot het opslagaccount. <br /><br /> -**sasToken** (toegevoegd 1.8.1)-kunt u een SAS-token in plaats van een opslagaccountsleutel in de persoonlijke configuratie. Indien opgegeven, wordt de opslagaccountsleutel genegeerd. <br />Vereisten voor het SAS-Token: <br />-Ondersteunt alleen SAS-token van account <br />- *b*, *t* servicetypen zijn vereist. <br /> - *een*, *c*, *u*, *w* machtigingen zijn vereist. <br /> - *c*, *o* resourcetypen zijn vereist. <br /> -Ondersteunt alleen het HTTPS-protocol <br /> -De starten en verlooptijd moet geldig zijn.|  
 

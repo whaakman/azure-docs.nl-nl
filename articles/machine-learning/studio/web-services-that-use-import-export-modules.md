@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345114"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Azure Machine Learning Studio-webservices die gebruikmaken van gegevens importeren en exporteren van gegevens modules implementeren
@@ -67,7 +67,7 @@ De gegevens lezen uit de Azure SQL-tabel:
 ## <a name="create-the-predictive-experiment"></a>De Voorspellend experiment maken
 De volgende instellen van de Voorspellend experiment van waaruit u uw webservice implementeert.
 
-1. Aan de onderkant van het experimentcanvas, klikt u op **webservice ingesteld** en selecteer **voorspellende webservice (aanbevolen)**.
+1. Aan de onderkant van het experimentcanvas, klikt u op **webservice ingesteld** en selecteer **voorspellende webservice (aanbevolen)** .
 2. Verwijder de *Web Service invoer* en *Web Service uitvoer modules* uit de Voorspellend experiment.
 3. Typ in het zoekvak onderdelen exporteren.
 4. In de lijst met resultaten, Voeg een *gegevens exporteren* module naar het experimentcanvas.
@@ -100,10 +100,10 @@ U kunt implementeren op een klassieke of een nieuwe webservice betreft.
 Als een klassieke webservice implementeren en maken van een toepassing gebruikt:
 
 1. Klik op uitvoeren aan de onderkant van het experimentcanvas.
-2. Wanneer de uitvoering is voltooid, klikt u op **webservice implementeren** en selecteer **webservice implementeren [klassieke]**.
+2. Wanneer de uitvoering is voltooid, klikt u op **webservice implementeren** en selecteer **webservice implementeren [klassieke]** .
 3. Zoek op het dashboard van de webservice, uw API-sleutel. Kopiëren en opslaan voor later gebruik.
 4. In de **standaard eindpunt** tabel, klikt u op de **Batchuitvoering** koppeling naar de API Help-pagina te openen.
-5. Maak in Visual Studio een C# consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)**.
+5. Maak in Visual Studio een C# consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)** .
 6. Zoek op de API Help-pagina, de **voorbeeldcode** sectie aan de onderkant van de pagina.
 7. Kopieer en plak de C# voorbeeldcode in het bestand Program.cs en verwijder alle verwijzingen naar de blob-opslag.
 8. Werk de waarde van de *apiKey* variabele met de API-sleutel eerder hebt opgeslagen.
@@ -128,11 +128,11 @@ Na voltooiing van de uitvoering wordt een nieuwe tabel toegevoegd aan de databas
 Als een nieuwe webservice implementeren en maken van een toepassing gebruikt:
 
 1. Aan de onderkant van het experimentcanvas, klikt u op **uitvoeren**.
-2. Wanneer de uitvoering is voltooid, klikt u op **webservice implementeren** en selecteer **Web Service implementeren [Nieuw]**.
+2. Wanneer de uitvoering is voltooid, klikt u op **webservice implementeren** en selecteer **Web Service implementeren [Nieuw]** .
 3. Voer een naam voor uw webservice op de pagina Experiment implementeren en een prijscategorie selecteren en klik vervolgens op **implementeren**.
 4. Op de **snelstartgids** pagina, klikt u op **verbruiken**.
 5. In de **voorbeeldcode** sectie, klikt u op **Batch**.
-6. Maak in Visual Studio een C# consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)**.
+6. Maak in Visual Studio een C# consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)** .
 7. Kopieer en plak de C# voorbeeldcode in het bestand Program.cs.
 8. Werk de waarde van de *apiKey* variabele met de **primaire sleutel** zich in de **Basic verbruik info** sectie.
 9. Zoek de *scoreRequest* declaratie en de waarden voor de Webserviceparameters die worden doorgegeven aan de *importgegevens* en *gegevens exporteren* modules. In dit geval u gebruikt u de oorspronkelijke query, maar de naam van een nieuwe tabel te definiëren.

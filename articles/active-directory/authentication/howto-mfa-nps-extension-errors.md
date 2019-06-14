@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414933"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
@@ -96,7 +96,7 @@ Als u een van deze fouten ondervindt, raden we u [contact op met ondersteuning](
 
 Als uw gebruikers zich [problemen hebt met verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-troubleshoot.md), help ze zelf diagnose problemen.
 
-### <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft Ondersteuning
+### <a name="contact-microsoft-support"></a>Neem contact op met Microsoft ondersteuning
 
 Als u meer hulp nodig hebt, neem dan contact op met een ondersteuningsmedewerker via [ondersteuning voor Azure multi-factor Authentication-Server](https://support.microsoft.com/oas/default.aspx?prid=14947). Wanneer u contact met ons opneemt, is het handig als u zo veel mogelijk informatie over uw probleem mogelijk kunt opnemen. Informatie u opgeven kunt, inclusief de pagina waar u het foutbericht, de specifieke foutcode, gezien de specifieke sessie-ID, de ID van de gebruiker die de fout hebt gezien en fouten opsporen in Logboeken.
 

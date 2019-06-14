@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242217"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: Veelgestelde vragen
@@ -83,7 +83,7 @@ Het is belangrijk dat u vaak plaats de muisaanwijzer op de ontsleutelingssleutel
 
 Volg deze stappen op de on-premises server waarop Azure AD Connect:
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Step 1. Lijst met AD-forests waarop naadloze eenmalige aanmelding is ingeschakeld
+### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Stap 1. Lijst met AD-forests waarop naadloze eenmalige aanmelding is ingeschakeld
 
 1. Eerst, download en installeer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
@@ -106,7 +106,7 @@ Volg deze stappen op de on-premises server waarop Azure AD Connect:
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Hoe kan ik naadloze eenmalige aanmelding uitschakelen?
 
-### <a name="step-1-disable-the-feature-on-your-tenant"></a>Step 1. Schakel de functie op uw tenant
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>Stap 1. Schakel de functie op uw tenant
 
 #### <a name="option-a-disable-using-azure-ad-connect"></a>Optie A: Uitschakelen met behulp van Azure AD Connect
 

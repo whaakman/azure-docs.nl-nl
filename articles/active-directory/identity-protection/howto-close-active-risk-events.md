@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453440"
 ---
 # <a name="how-to-close-active-risk-events"></a>Procedure: Actieve risicogebeurtenissen sluiten
@@ -103,7 +103,6 @@ Wanneer risicogebeurtenissen handmatig sluiten, kunt u enkele van de volgende ac
 - **Negeren** :  als u geen herstelactie heb uitgevoerd, maar wilt dat de risicogebeurtenis wordt verwijderd uit de actieve lijst, kunt u een risicogebeurtenis markeren als Negeren. De status van de gebeurtenis wordt dan Gesloten. Genegeerde gebeurtenissen dragen niet bij aan het gebruikersrisico. Deze optie dient alleen in ongebruikelijke omstandigheden te worden gebruikt.
 
 - **Opnieuw activeren** -risicogebeurtenissen die handmatig zijn gesloten (door oplossen, fout-positief, of op negeren te kiezen) kunnen opnieuw worden geactiveerd, de gebeurtenisstatus van de instellen terug naar actief. Opnieuw geactiveerde risicogebeurtenissen dragen bij aan de berekening van het gebruikersrisiconiveau. Risico's die gesloten zijn via herstelacties (zoals het opnieuw instellen van een beveiligd wachtwoord), kunnen niet opnieuw worden geactiveerd.
-
   
 
 ## <a name="next-steps"></a>Volgende stappen

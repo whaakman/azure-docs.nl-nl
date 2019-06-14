@@ -11,10 +11,10 @@ ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0269397b0f8da66d2bafecfb427ba705fdfff001
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394486"
 ---
 # <a name="part-of-speech-tagging"></a>Part-of-Speech Tagging
@@ -30,14 +30,14 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 
 ## <a name="list-of-part-of-speech-tags"></a>Lijst met Part-of-Speech Tags
 
-| Label | Description | Voorbeeld van de woorden |
+| Tag | Description | Voorbeeld van de woorden |
 |-----|-------------|---------------|
 | $ | dollar | $ |
 | \`\` | aanhalingsteken openen | \` \`\` |
 | '' | aanhalingsteken sluiten | ' '' |
 | ( | openingshaakje | ( [ { |
 | ) | haakje sluiten | ) ] } |
-| ,  | door komma 's | ,  |
+| , | door komma 's | , |
 | -- | streepje | -- |
 | . | zin eindteken | . ! ? |
 | : | dubbele punt of de drie puntjes | : ; ... |
@@ -65,7 +65,7 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 | RESOURCESTRUCTUUR | bewerkingsparameter, superlative | beste grootste bluntest vroegste verst eerste verst moeilijkst heartiest hoogste grootste minst minder meeste dichtstbijzijnde tweede strengste slechtste |
 | RP | Particle | op off-up maken van informatie over |
 | SYM | Symbool | % & |
-| TOT | "tot" als voorzetsel of infinitive markering | tot |
+| AAN | "tot" als voorzetsel of infinitive markering | tot |
 | OJEE | Tussenwerpsel | ojee zeer Blije howdy Hallo |
 | VB | term baseform | Geef elk gewenst moment toewijzen |
 | VBD | term verleden tijd | heeft toegewezen flew |

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60440604"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) implementeren
@@ -32,7 +32,7 @@ Deze stapsgewijze handleiding wordt beschreven hoe u de implementatie van Azure 
 > 
 > Dit zijn algemene aanbevelingen en moet u alleen implementeren als ze van toepassing op uw specifieke zakelijke behoeften zijn.
 
-## <a name="step-1-learn-about-pim"></a>Step 1. Meer informatie over PIM
+## <a name="step-1-learn-about-pim"></a>Stap 1. Meer informatie over PIM
 
 Azure AD Privileged Identity Management (PIM) helpt u bij het beheren van bevoegde beheerdersrollen in Azure AD, Azure-resources en andere Microsoft Online Services. In een wereld waar bevoegde identiteiten zijn toegewezen en bent vergeten, biedt PIM oplossingen zoals just-in-time-toegang, aanvraag goedkeuringswerkstromen en volledig geïntegreerde toegang beoordelingen, zodat u identificeren kunt, ontdekken en te voorkomen dat schadelijke activiteiten van bevoegdheden rollen in realtime. PIM voor het beheren van uw bevoorrechte rollen binnen uw organisatie implementeert, wordt risico aanzienlijk verlagen terwijl u waardevolle inzichten over de activiteiten van uw bevoorrechte rollen zichtbaar te maken.
 
@@ -153,7 +153,7 @@ U kunt de functie voor het controleren van toegang tot in PIM gebruiken voor het
 
 ![Een toegangsbeoordeling maken](./media/pim-deployment-plan/create-access-review.png)
 
-U moet de revisoren ingesteld op **leden (zelf)**. Hiermee wordt een e-mail verzonden op alle leden in de rol aan om ze om te bevestigen of ze de toegang nodig hebben. U moet ook inschakelen **reden vereisen bij goedkeuring** in de geavanceerde instellingen zodat gebruikers kunnen aangeven waarom ze moeten de rol. Op basis van deze informatie, kunt u zich gebruikers verwijderen van onnodige rollen en het delegeren van gedetailleerdere beheerdersrollen in het geval van globale beheerders.
+U moet de revisoren ingesteld op **leden (zelf)** . Hiermee wordt een e-mail verzonden op alle leden in de rol aan om ze om te bevestigen of ze de toegang nodig hebben. U moet ook inschakelen **reden vereisen bij goedkeuring** in de geavanceerde instellingen zodat gebruikers kunnen aangeven waarom ze moeten de rol. Op basis van deze informatie, kunt u zich gebruikers verwijderen van onnodige rollen en het delegeren van gedetailleerdere beheerdersrollen in het geval van globale beheerders.
 
 Toegangsbeoordelingen zijn afhankelijk van e-mailberichten mensen om te controleren van hun toegang tot de rollen te laten weten. Als u accounts waarvoor geen e-mails die zijn gekoppeld uitgebreide, moet u voor het vullen van het veld secundaire e-mailadres op deze accounts. Zie voor meer informatie, [proxyAddresses-kenmerk in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
@@ -179,14 +179,14 @@ Het is belangrijk om te prioriteren beveiligen van Azure AD-rollen die het hoogs
 
 1. Globale beheerder
 1. Beveiligingsbeheerder
-1. Gebruikersbeheerder
+1. Gebruikerbeheerder
 1. Exchange-beheerder
 1. SharePoint-beheerder
 1. Intune-beheerder
 1. Beveiligingslezer
 1. Servicebeheerder
 1. Factureringsbeheerder
-1. Skype voor Bedrijven-beheerder
+1. Skype voor bedrijven-beheerder
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft raadt aan** u beheert alle globale beheerders en Beveiligingsbeheerders PIM gebruiken als eerste stap als ze degene die de meeste schade zijn als geknoeid kunnen doen.
@@ -244,7 +244,7 @@ Voordat u de PIM-oplossing implementeert, is het raadzaam om de PIM-instellingen
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Globale beheerder | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andere globale beheerders | 1 uur | Accounts voor toegang in noodgevallen |
 | Exchange-beheerder | :heavy_check_mark: | :heavy_check_mark: | : x:. | : x:. | Geen | 2 uur | Geen |
-| Helpdeskbeheerder | : x:. | : x:. | :heavy_check_mark: | : x:. | Geen | 8 uur | Geen |
+| Helpdesk-beheerder | : x:. | : x:. | :heavy_check_mark: | : x:. | Geen | 8 uur | Geen |
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>PIM-instellingen voor Azure-resourcerollen
 
@@ -256,7 +256,7 @@ Voordat u de PIM-oplossing implementeert, is het raadzaam om de PIM-instellingen
 
 De volgende tabel beschrijft elke van de instellingen.
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 | --- | --- |
 | Rol | Naam van de rol die u definieert de instellingen voor. |
 | MFA vereisen | De in aanmerking komende gebruiker moet of MFA uitvoeren voordat u de rol activeert.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** u MFA afdwingen voor alle beheerdersrollen, met name als de rollen gastgebruikers ook kunnen hebben. |
@@ -353,7 +353,7 @@ Als PIM is mislukt om te werken naar wens in de productieomgeving, kunnen de vol
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management**.
 1. Klik op **Azure AD-rollen** en klik vervolgens op **rollen**.
-1. Voor elke rol die u hebt geconfigureerd, klikt u op het weglatingsteken (**...** ) voor alle gebruikers met een in aanmerking komende toewijzing.
+1. Voor elke rol die u hebt geconfigureerd, klikt u op het weglatingsteken ( **...** ) voor alle gebruikers met een in aanmerking komende toewijzing.
 1. Klik op de **permanent maken** optie de roltoewijzing om permanent te maken.
 
 #### <a name="azure-resource-roles"></a>Azure-resourcerollen
@@ -362,7 +362,7 @@ Als PIM is mislukt om te werken naar wens in de productieomgeving, kunnen de vol
 1. Open **Azure AD Privileged Identity Management**.
 1. Klik op **Azure-resources** en klik vervolgens op een abonnement of een resource die u wilt terugdraaien.
 1. Klik op **rollen**.
-1. Voor elke rol die u hebt geconfigureerd, klikt u op het weglatingsteken (**...** ) voor alle gebruikers met een in aanmerking komende toewijzing.
+1. Voor elke rol die u hebt geconfigureerd, klikt u op het weglatingsteken ( **...** ) voor alle gebruikers met een in aanmerking komende toewijzing.
 1. Klik op de **permanent maken** optie de roltoewijzing om permanent te maken.
 
 ## <a name="step-4-next-steps-after-deploying-pim"></a>Stap 4. Vervolgstappen na de implementatie van PIM

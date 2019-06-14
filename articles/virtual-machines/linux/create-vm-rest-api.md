@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391358"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Een Linux-machine die gebruikmaakt van SSH-verificatie met de REST-API maken
@@ -55,7 +55,7 @@ De volgende headers zijn vereist:
 | Aanvraagheader   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | Vereist. Ingesteld op `application/json`. |
-| *Autorisatie:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Raadpleeg voor algemene informatie over het werken met REST API-aanvragen [onderdelen van een REST-API-aanvraag/antwoord](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -66,7 +66,7 @@ De volgende algemene definities worden gebruikt voor het bouwen van een aanvraag
 | Name                       | Vereist | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Resourcelocatie. |
-| naam                       |          | string                                                                              | Naam voor de virtuele machine. |
+| name                       |          | string                                                                              | Naam voor de virtuele machine. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Hiermee geeft u de hardware-instellingen voor de virtuele machine. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Hiermee geeft u de opslaginstellingen voor de virtuele-machineschijven. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Hiermee geeft u de instellingen van het besturingssysteem voor de virtuele machine. |
@@ -133,11 +133,11 @@ Zie voor een volledige lijst van de beschikbare definities in de aanvraagtekst [
 
 U kunt de client van uw voorkeur voor het verzenden van deze HTTP-aanvraag. U kunt ook een [in de browser hulpprogramma](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) door te klikken op de **uitproberen** knop.
 
-### <a name="responses"></a>Antwoorden
+### <a name="responses"></a>Responses
 
 Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van een virtuele machine:
 
-| Name        | Type                                                                              | Beschrijving |
+| Name        | Type                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201-gemaakt | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Gemaakt     |

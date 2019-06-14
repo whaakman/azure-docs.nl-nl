@@ -16,10 +16,10 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Zelfstudie: Azure Active Directory-integratie met 23 Video
@@ -44,7 +44,7 @@ Voor het configureren van Azure AD-integratie met 23 Video, moet u de volgende i
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
@@ -60,17 +60,17 @@ Voor het configureren van de integratie van 23 Video in Azure AD, moet u 23 Vide
 
 **Als u wilt toevoegen 23 Video uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Applicaties][2]
+    ![Toepassingen][2]
     
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Applicaties][3]
+    ![Toepassingen][3]
 
 4. Typ in het zoekvak **23 Video**.
 
@@ -113,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_url.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<subdomain>.23video.com`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.23video.com`
 
     b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://www.23video.com/saml/trust/<uniqueid>`
 
@@ -124,7 +124,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_certificate.png) 
 
-5. Klik op de knop **Save**.
+5. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_general_400.png)
 
@@ -132,7 +132,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_configure.png) 
 
-7. Het configureren van eenmalige aanmelding op **23 Video** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)**, **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [23 Video-ondersteuningsteam](mailto:support@23company.com). 
+7. Het configureren van eenmalige aanmelding op **23 Video** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** , **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [23 Video-ondersteuningsteam](mailto:support@23company.com). 
 
 
 > [!TIP]
@@ -177,7 +177,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
 1. Meld u aan bij uw 23 Video bedrijf site als administrator.
 
-2. Ga naar **Settings**.
+2. Ga naar **instellingen**.
  
 3. In **gebruikers** sectie, klikt u op **configureren**.
    

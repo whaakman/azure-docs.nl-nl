@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
 ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336764"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Verifiëren van aanvragen voor Azure Cognitive Services
@@ -161,5 +161,5 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## <a name="see-also"></a>Zie ook
 
 * [Wat zijn cognitieve services?](welcome.md)
-* [Prijsinformatie cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Prijzen van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [Een account maken](cognitive-services-apis-create-account.md)

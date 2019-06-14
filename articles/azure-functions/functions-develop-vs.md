@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050715"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -89,7 +89,7 @@ Zie voor meer informatie, [Functions-klassebibliotheekproject](functions-dotnet-
 
 ## <a name="configure-the-project-for-local-development"></a>Het project configureren voor lokale ontwikkeling
 
-De Functions-runtime wordt intern gebruikt een Azure Storage-account. Voor alle andere typen dan HTTP en webhooks activeert, moet u instellen de **Values.AzureWebJobsStorage** sleutel op een geldige verbindingsreeks voor Azure Storage-account. Uw functie-app kunt ook de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) voor de **AzureWebJobsStorage** verbinding instellingen vereist voor het project. Voor het gebruik van de emulator, stel de waarde van **AzureWebJobsStorage** naar `UseDevelopmentStorage=true`. Met een verbinding van de werkelijke opslag vóór de implementatie moet u deze instelling wijzigen.
+De Functions-runtime wordt intern gebruikt een Azure Storage-account. Voor alle andere typen dan HTTP en webhooks activeert, moet u instellen de **Values.AzureWebJobsStorage** sleutel op een geldige verbindingsreeks voor Azure Storage-account. Uw functie-app kunt ook de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) voor de **AzureWebJobsStorage** verbinding instellingen vereist voor het project. Voor het gebruik van de emulator, stel de waarde van **AzureWebJobsStorage** naar `UseDevelopmentStorage=true`. Deze instelling wijzigen in een werkelijke opslagverbinding vóór de implementatie.
 
 De verbindingsreeks voor opslag instellen:
 
@@ -185,7 +185,11 @@ Zie voor meer informatie over het gebruik van Azure Functions Core Tools, [Code 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Instellingen voor functie-apps
+### <a name="deployment-technology"></a>Implementatietechnologie
+
+Bij het publiceren vanuit Visual Studio, wordt een van twee technologieën gebruikt om uit te voeren van de implementatie: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) en [Zip implementeren met het uitvoeren van pakket ingeschakeld (aanbevolen)](functions-deployment-technologies.md#zip-deploy).
+
+## <a name="function-app-settings"></a>Instellingen voor functie-app
 
 Alle instellingen die u hebt toegevoegd in de local.settings.json moeten ook worden toegevoegd aan de functie-app in Azure. Deze instellingen worden niet automatisch geüpload wanneer u het project publiceren.
 

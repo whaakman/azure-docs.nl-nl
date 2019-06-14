@@ -18,10 +18,10 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295945"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procedure: Riskante gebruikers en aanmeldingen onderzoeken 
@@ -30,7 +30,7 @@ ms.locfileid: "60295945"
 Met behulp van de rapporten over riskante aanmeldingen en riskante gebruikers kunt u onderzoek en krijg inzicht in de risico's in uw omgeving. Met de mogelijkheid om te filteren en sorteren van de riskante aanmeldingen en gebruikers, kunt u beter te begrijpen mogelijke indringers in uw organisatie. 
 
 
-## <a name="risky-users-report"></a>Rapport over riskante gebruikers
+## <a name="risky-users-report"></a>Rapport riskante gebruikers
 
 Met de informatie die wordt geleverd door het rapport riskante gebruikers, vindt u antwoorden op vragen zoals:
 
@@ -41,38 +41,38 @@ Met de informatie die wordt geleverd door het rapport riskante gebruikers, vindt
 
 Uw eerste beginpunt voor dit rapport is de **onderzoeken** sectie op de pagina.
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/01.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/01.png)
 
 
 Het rapport riskante gebruikers heeft een standaard-weergave waarin wordt weergegeven:
 
 - Name
 
-- Status van risico
+- Status gebruikersrisico
 
 - Risiconiveau
 
-- Details van risico
+- Details van de risico 's
 
-- Risico voor het laatst bijgewerkt
+- Laatst bijgewerkt risico
 
 - Type
 
 - Status
  
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/03.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/03.png)
 
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/04.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/04.png)
 
 Het dialoogvenster kolommen kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
 
 Wanneer u op een item in de lijstweergave klikt, worden in een horizontale weergave alle beschikbare gegevens voor het item vermeld.
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/05.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/05.png)
 
 
 De details weer wordt weergegeven:
@@ -81,15 +81,15 @@ De details weer wordt weergegeven:
 
 - Recente riskante aanmeldingen
 
-- Riskante gebeurtenissen die niet zijn gekoppeld aan een aanmelding
+- Risicogebeurtenissen niet is gekoppeld aan een aanmelding
 
-- Risicogeschiedenis
+- Geschiedenis van risico
 
 
 
 U kunt ook het volgende doen:
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/08.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/08.png)
 
 - Bekijk alle aanmeldingen snelkoppeling om het rapport aanmeldingen voor die gebruiker weer te geven.
 
@@ -109,7 +109,7 @@ Als u wilt beperken de gerapporteerde gegevens naar een niveau die bij u past, k
 
 - Gebruikersnaam
 
-- Status van risico
+- Status gebruikersrisico
 
 - Risiconiveau
 
@@ -117,7 +117,7 @@ Als u wilt beperken de gerapporteerde gegevens naar een niveau die bij u past, k
 
 - Status
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/06.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/06.png)
 
 
 
@@ -126,15 +126,15 @@ De **naam** filter kunt u de naam of de user principal name (UPN) van de gewenst
 
 De **risico status** filter kunt u selecteren:
 
-- Loopt risico
+- Risico lopen
 - Hersteld
-- Verwijderd
+- Gesloten
 
 
 De **risiconiveau** filter kunt u selecteren:
 
 - Hoog
-- Middelgroot
+- Gemiddeld
 - Laag
 
 
@@ -145,7 +145,7 @@ De **Type** filter kunt u selecteren:
 
 De **Status** filter kunt u selecteren:
 
-- Deleted
+- Verwijderen
 - Actief
 
 
@@ -153,7 +153,7 @@ De **Status** filter kunt u selecteren:
 
 Als u wilt werken met deze buiten de Azure-portal, kunt u de gegevens riskante gebruikers downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 2500 records. 
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/07.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/07.png)
 
 
 U kunt de lijstweergave aanpassen door kolommen in de werkbalk te klikken.
@@ -193,7 +193,7 @@ Het rapport riskante aanmeldingen heeft een standaard-weergave waarin wordt weer
 
 - Aanmeldingsstatus
 
-- Status van risico
+- Status gebruikersrisico
 
 - Risiconiveau (totaal)
 
@@ -209,13 +209,13 @@ Het rapport riskante aanmeldingen heeft een standaard-weergave waarin wordt weer
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/11.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/11.png)
 
 Het dialoogvenster kolommen kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
 
 Wanneer u op een item in de lijstweergave klikt, worden in een horizontale weergave alle beschikbare gegevens voor het item vermeld.
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/12.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/12.png)
 
 
 De details weer wordt weergegeven:
@@ -224,7 +224,7 @@ De details weer wordt weergegeven:
 
 - Apparaatgegevens
 
-- Risicogegevens
+- Informatie over de risico 's
 
 - MFA-info
 
@@ -236,11 +236,11 @@ De details weer wordt weergegeven:
 
 U kunt ook het volgende doen:
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/13.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/13.png)
 
-- Inbraak bevestigen 
+- Controleer of aangetast 
 
-- Veiligheid bevestigen
+- Veilige bevestigen
 
 Zie voor meer informatie, [over het verbeteren van de nauwkeurigheid van de detectie](howto-improve-detection-accuracy.md).
 
@@ -254,7 +254,7 @@ Als u wilt beperken de gerapporteerde gegevens naar een niveau die bij u past, k
 - Gebruiker
 - Toepassing
 - Aanmeldingsstatus
-- Status van risico
+- Status gebruikersrisico
 - Risiconiveau (totaal)
 - Risiconiveau (realtime)
 - Voorwaardelijke toegang
@@ -278,23 +278,23 @@ Met het filter **Aanmeldingsstatus** kunt u selecteren:
 
 De **risico status** filter kunt u selecteren:
 
-- Loopt risico
-- Inbraak bevestigd
-- Bevestigd (veilig)
-- Verwijderd
+- Risico lopen
+- Bevestigd aangetast
+- Veilige bevestigd
+- Gesloten
 - Hersteld
 
 
 De **risiconiveau (totaal)** filter kunt u selecteren:
 
 - Hoog
-- Middelgroot
+- Gemiddeld
 - Laag
 
 De **(realtime) risiconiveau** filter kunt u selecteren:
 
 - Hoog
-- Middelgroot
+- Gemiddeld
 - Laag
 
 
@@ -310,7 +310,7 @@ Met het filter **Datum** kunt u een tijdsbestek opgeven voor de geretourneerde g
 Mogelijke waarden zijn:
 
 - Afgelopen maand
-- Laatste 7 dagen
+- Afgelopen 7 dagen
 - Afgelopen 24 uur
 - Aangepast tijdsinterval
 
@@ -322,7 +322,7 @@ Mogelijke waarden zijn:
 
 Als u wilt werken met deze buiten de Azure-portal, kunt u de gegevens riskante aanmeldingen downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 2500 records. 
 
-![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/15.png)
+![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/15.png)
 
 
 

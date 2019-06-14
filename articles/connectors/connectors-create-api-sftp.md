@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
 ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450757"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van Azure Logic Apps
@@ -73,7 +73,7 @@ Raadpleeg voor andere verschillen tussen de SFTP-connector en de SFTP-SSH-connec
    Selecteer de actie die u wilt onder de lijst met acties.
 
    Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
-   Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+   Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
 1. Hiermee geeft u de benodigde informatie voor uw verbinding.
 
@@ -112,7 +112,7 @@ Als een trigger een nieuw bestand wordt gevonden, wordt de trigger wordt gecontr
 
 Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
 
-* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)** .
 
 * Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -120,7 +120,7 @@ Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter
 
 <a name="file-add-modified"></a>
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-trigger: Wanneer een bestand is toegevoegd of gewijzigd
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-trigger: Wanneer een bestand wordt toegevoegd of gewijzigd
 
 Deze trigger wordt een werkstroom voor logische app gestart wanneer een bestand wordt toegevoegd of gewijzigd op een SFTP-server. U kunt bijvoorbeeld een voorwaarde die controleert of de inhoud van het bestand en wordt de inhoud op basis van of de inhoud voldoet aan een opgegeven voorwaarde toevoegen. U kunt vervolgens een actie toevoegen die de bestandsinhoud opgehaald en die inhoud in een map op de SFTP-server geplaatst. 
 
@@ -128,7 +128,7 @@ Deze trigger wordt een werkstroom voor logische app gestart wanneer een bestand 
 
 Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
 
-* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)** .
 
 * Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -140,7 +140,7 @@ Deze actie wordt de inhoud opgehaald van een bestand in een SFTP-server. U kunt 
 
 Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
 
-* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)** .
 
 * Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 

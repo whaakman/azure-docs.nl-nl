@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254475"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Back-up van SQL Server op de Stack
@@ -66,7 +66,7 @@ Het beheer van SQL Server-database back-up naar Azure en het herstel van Azure o
 
 8. In de **Replica methode voor maken**, kiezen hoe u uw eerste herstelpunt maken. U kunt de eerste back-up handmatig (uit netwerk) om te voorkomen opstoppingen in het bandbreedte overdragen of via het netwerk. Als u ervoor kiest om over te dragen van de eerste back-up wachten, kunt u de tijd voor de initiële overdracht opgeven. Klik op **volgende**.
 
-    ![Methode van initiële replicatie](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Methode voor eerste replicatie](./media/backup-azure-backup-sql/pg-manual.png)
 
     De eerste back-up moet overdragen van de gehele gegevensbron (SQL Server-database) van productieserver (SQL Server-machine) naar Azure Backup-Server. Deze gegevens zijn mogelijk grote, en bandbreedte als de gegevens worden overgebracht via het netwerk kunt overschrijden. U kunt kiezen om deze reden om over te dragen van de eerste back-up: **Handmatig** (met behulp van verwijderbare media) om te voorkomen opstoppingen in het bandbreedte, of **automatisch via het netwerk** (op een bepaald tijdstip).
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60496362"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
@@ -96,7 +96,7 @@ De DNS-tegel bevat het aantal DNS-servers waar de gegevens worden verzameld. Het
 
 ### <a name="solution-dashboard"></a>Dashboard van de oplossing
 
-Dashboard van de oplossing bevat een samenvatting van de gegevens voor de verschillende functies van de oplossing. Het bevat ook koppelingen naar de gedetailleerde weergave voor forensische analyse en diagnose. Standaard worden de gegevens weergegeven voor de afgelopen zeven dagen. U kunt het bereik van de datum en tijd wijzigen met behulp van de **-upbesturingselement voor selectie van datum / tijd-**, zoals wordt weergegeven in de volgende afbeelding:
+Dashboard van de oplossing bevat een samenvatting van de gegevens voor de verschillende functies van de oplossing. Het bevat ook koppelingen naar de gedetailleerde weergave voor forensische analyse en diagnose. Standaard worden de gegevens weergegeven voor de afgelopen zeven dagen. U kunt het bereik van de datum en tijd wijzigen met behulp van de **-upbesturingselement voor selectie van datum / tijd-** , zoals wordt weergegeven in de volgende afbeelding:
 
 ![Time-upbesturingselement voor selectie](./media/dns-analytics/dns-time.png)
 

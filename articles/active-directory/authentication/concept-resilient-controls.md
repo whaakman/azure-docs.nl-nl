@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414950"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
@@ -81,7 +81,7 @@ In dit voorbeeld beleidsset verleent geselecteerde gebruikers in **AppUsers**, t
   * Gebruikers en groepen: Alle gebruikers bevat. AppUsers, CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Alle apps opnemen
   * Voorwaarden: (Geen)
-  * Controle van verlenen: Blok
+  * Controle van verlenen: Blokkeren
 * Beleid 2: Toegang verlenen tot AppUsers MFA of vertrouwd apparaat vereisen.
   * Gebruikers en groepen: AppUsers bevatten. CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Alle apps opnemen
@@ -151,21 +151,21 @@ Het volgende voorbeeld: **Voorbeeld van de A - Contingency CA-beleid toegang her
   * Gebruikers en groepen: Alle gebruikers bevat. CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Exchange Online en SharePoint Online
   * Voorwaarden: Platform omvatten alle platformen voor apparaten, uitsluiten Windows
-  * Controle van verlenen: Blok
+  * Controle van verlenen: Blokkeren
   * Status: Uitgeschakeld
 * 3-beleid: Netwerken dan CorpNetwork blokkeren
   * Naam: EM003 - INSCHAKELEN IN NOODGEVALLEN: MFA wordt onderbroken toegang van de [3/4] - Exchange SharePoint - blokkeren met uitzondering van het netwerk van bedrijf
   * Gebruikers en groepen: Alle gebruikers bevat. CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Exchange Online en SharePoint Online
   * Voorwaarden: Locaties zijn onder andere een willekeurige locatie, CorpNetwork uitsluiten
-  * Controle van verlenen: Blok
+  * Controle van verlenen: Blokkeren
   * Status: Uitgeschakeld
 * 4-beleid: EAS expliciet blokkeren
   * Naam: EM004 - INSCHAKELEN IN NOODGEVALLEN: Onderbreking van de MFA [4/4] - Exchange - blok EAS voor alle gebruikers
   * Gebruikers en groepen: Alle gebruikers bevat
   * Cloud-Apps: Exchange Online opnemen
   * Voorwaarden: Client-apps: Exchange Active Sync
-  * Controle van verlenen: Blok
+  * Controle van verlenen: Blokkeren
   * Status: Uitgeschakeld
 
 De volgorde van de activering:
@@ -186,14 +186,14 @@ In dit voorbeeld volgende **voorbeeld B - noodplan voor CA-beleid voor mobiele t
   * Gebruikers en groepen: Alle gebruikers bevat. SalesAdmins en SalesforceContingency uitsluiten
   * Cloud-Apps: SalesForce.
   * Voorwaarden: Geen
-  * Controle van verlenen: Blok
+  * Controle van verlenen: Blokkeren
   * Status: Uitgeschakeld
 * Beleid 2: Het verkoopteam vanaf elk platform dan mobile (voor surface area van aanvallen verkleinen) blokkeren
   * Naam: EM002 - INSCHAKELEN IN NOODGEVALLEN: Apparaat naleving onderbreking [2/2] - Salesforce - blok alle platforms met uitzondering van iOS en Android
   * Gebruikers en groepen: SalesforceContingency bevatten. SalesAdmins uitsluiten
-  * Cloud-Apps: SalesForce
+  * Cloud-Apps: Salesforce
   * Voorwaarden: Platform omvatten alle Apparaatplatformen, uitsluiten iOS en Android
-  * Controle van verlenen: Blok
+  * Controle van verlenen: Blokkeren
   * Status: Uitgeschakeld
 
 De volgorde van de activering:

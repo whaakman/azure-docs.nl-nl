@@ -18,17 +18,17 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295140"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Vereisten voor toegangsbeheer voor uw oplossing voor hybride identiteit bepalen
 Wanneer een organisatie hun hybride identiteitsoplossing ontwerpt, kunnen ze deze kans ook gebruiken om te controleren van vereisten voor gegevenstoegang voor de resources die ze van plan bent om het beschikbaar maken voor gebruikers. De toegang tot de cross-alle vier pijlers van identiteit, die zijn:
 
 * Beheer
-* Authentication
+* Verificatie
 * Autorisatie
 * Controleren
 

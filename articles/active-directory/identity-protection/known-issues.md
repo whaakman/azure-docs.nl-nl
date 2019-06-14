@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452673"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met identity protection (vernieuwd) in Azure Active Directory
@@ -32,7 +32,7 @@ ms.locfileid: "60452673"
 **Negeren van gebruikersrisico** in de klassieke versie Identity Protection Hiermee stelt u de actor in de geschiedenis van risico's van de gebruiker in Identity Protection (vernieuwd) voor **Azure AD**.
 
 
-**Negeren van gebruikersrisico** in Identity Protection (vernieuwd) Hiermee stelt u de actor in de geschiedenis van risico's van de gebruiker in Identity Protection (vernieuwd) voor **\<beheerdersnaam met een hyperlink naar de blade van de gebruiker\>**.
+**Negeren van gebruikersrisico** in Identity Protection (vernieuwd) Hiermee stelt u de actor in de geschiedenis van risico's van de gebruiker in Identity Protection (vernieuwd) voor **\<beheerdersnaam met een hyperlink naar de blade van de gebruiker\>** .
 
 Er is een bekend probleem met huidige latentie in de gebruikersstroom voor het ontslag van risico's veroorzaken. Hebt u een 'beleid voor gebruikersrisico's ', stopt dit beleid toe te passen op gesloten gebruikers binnen enkele minuten van te klikken op 'Gebruikersrisico negeren'. Maar zijn er bekende vertragingen bij het vernieuwen van de 'risico-status' gesloten gebruikers UX. Als tijdelijke oplossing, vernieuw de pagina op het browserniveau van de om te zien dat de meest recente gebruiker 'Risico state'.
 
@@ -43,7 +43,7 @@ Query's op de **gebruikersnaam** veld zijn hoofdlettergevoelig, terwijl de query
 
 Bij het omschakelen van **datums weergeven als** wordt ingeschakeld, wordt de **LAATST bijgewerkt risico** kolom. Klik op kolom toegewezen **kolommen** aan de bovenkant van het tabblad riskante gebruikers.
 
-**Alle gebeurtenissen sluiten** in de klassieke versie Identity Protection de status van de risicogebeurtenissen naar stelt **gesloten (opgelost)**.
+**Alle gebeurtenissen sluiten** in de klassieke versie Identity Protection de status van de risicogebeurtenissen naar stelt **gesloten (opgelost)** .
 
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Rapport riskante aanmeldingen bekende problemen
@@ -76,7 +76,7 @@ IP-geolocatie toewijzing is een uitdaging voor de hele branche. Als u denkt dat 
 
 **Bevestig veilige** (op een aanmelding bij): Azure AD Identity Protection informeert dat de aanmelding is uitgevoerd door de eigenaar van de identiteit en geeft niet aan een inbreuk op.
 
-- Na ontvangst van deze feedback gaan we de aanmelding (niet de gebruiker) de status van risico **bevestigd veilig** en het risiconiveau voor **-**.
+- Na ontvangst van deze feedback gaan we de aanmelding (niet de gebruiker) de status van risico **bevestigd veilig** en het risiconiveau voor **-** .
 
 - Daarnaast bieden we de informatie voor ons machine learning-systemen voor toekomstige verbeteringen in de risico-evaluatie.
 

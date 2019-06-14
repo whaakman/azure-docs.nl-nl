@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 607d538a2a2636e17265e95195000a777f162dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60263378"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Zelfstudie: Jive configureren voor het automatisch inrichten van gebruikers
@@ -68,7 +68,7 @@ Als onderdeel van deze procedure bent u op te geven van een gebruiker beveiligin
 
 1. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![inrichten](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Inrichting](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. Onder de **beheerdersreferenties** sectie, geeft u de volgende configuratie-instellingen:
    

@@ -2,7 +2,7 @@
 title: Azure Batch taakgebeurtenis voltooid | Microsoft Docs
 description: Naslaginformatie voor Batch gebeurtenis die taak is voltooid.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
+ms.date: 04/20/2017
+ms.author: lahugh
 ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549968"
 ---
 # <a name="task-complete-event"></a>Gebeurtenis taak voltooid
@@ -92,5 +91,3 @@ ms.locfileid: "60549968"
 |exitCode|Int32|De afsluitcode van de taak.|
 |retryCount|Int32|Het aantal keren dat die de taak door de Batch-service opnieuw is geprobeerd. De taak wordt opnieuw uitgevoerd als deze wordt afgesloten met een andere afsluitcode, tot aan de opgegeven MaxTaskRetryCount.|
 |requeueCount|Int32|Het aantal keren dat die de taak is door de Batch-service is ingepland als gevolg van een gebruikersaanvraag.<br /><br /> Wanneer de knooppunten van de gebruiker wordt verwijderd uit een groep (op basis van het formaat of verkleinen van de pool) of wanneer de taak wordt uitgeschakeld, de gebruiker kan opgeven dat wordt uitgevoerd op de knooppunten taken worden ingepland voor uitvoering. Dit aantal worden gevolgd hoe vaak de taak heeft zijn ingepland voor deze redenen.|
-
-<!-- Update_Description: update metedata properties -->

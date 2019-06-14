@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: a13d1f843604025ee0f843c0770b3d11b53dd837
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fc3b1cdfee76bbee7676170fa69a1c53a495dc53
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762879"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051139"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Zelfstudie: Een relationele database in een individuele database in Azure SQL Database ontwerpen met behulp van SQL Server Management Studio
 
@@ -227,10 +227,10 @@ Het volgende diagram laat zien hoe deze tabellen aan elkaar zijn gerelateerd. So
 4. Voer de volgende opdrachten uit om voorbeeldgegevens toe te voegen aan de tabellen. Vervang hierbij de waarden voor *server*, *database*, *user* en *password* door de waarden voor uw omgeving.
 
    ```cmd
-   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 U hebt nu voorbeeldgegevens geladen in de tabellen die u eerder hebt gemaakt.

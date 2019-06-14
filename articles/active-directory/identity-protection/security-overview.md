@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452932"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - beveiligingsoverzicht
@@ -39,7 +39,7 @@ De beveiligingsoverzicht is breed onderverdeeld in twee secties:
   
 ## <a name="trends"></a>Trends
 
-### <a name="new-risky-users-detected"></a>Er zijn nieuwe riskante gebruikers gedetecteerd
+### <a name="new-risky-users-detected"></a>Nieuwe riskante gebruikers gevonden
 
 In deze grafiek toont het aantal nieuwe riskante gebruikers die zijn gedetecteerd via de geselecteerde tijdsperiode. U kunt de weergave van deze grafiek door gebruiker risiconiveau (laag, Gemiddeld, hoog) filteren. Beweeg de muisaanwijzer over de stappen van de UTC-datum om het aantal riskante gebruikers gevonden voor die dag te zien. Klik in deze grafiek gaat u naar het rapport 'Riskante gebruikers'. Als u wilt herstellen van gebruikers die risico lopen, kunt u overwegen hun wachtwoord wijzigen.
 
@@ -56,7 +56,7 @@ De tegel 'gebruikers met een hoog risico' ziet u de meest recente telling van ge
 ![Beveiligingsoverzicht](./media/security-overview/02.png)
 
 
-### <a name="medium-risk-users"></a>Gebruikers met gemiddeld risico
+### <a name="medium-risk-users"></a>Gebruikers van gemiddeld risico
 De tegel 'gemiddeld risico gebruikers' ziet de meest recente telling van gebruikers met gemiddeld kans van inbreuk op de identiteit. Klik op 'gemiddeld risico gebruikers' tegel wordt u doorgestuurd naar een gefilterde weergave van het rapport 'Riskante gebruikers' is alleen gebruikers met een risiconiveau van gemiddeld weergegeven. Met dit rapport kunt u verder onderzoeken en herstellen van deze gebruikers.
 
 ### <a name="unprotected-risky-sign-ins"></a>Niet-beveiligde riskante aanmeldingen
@@ -69,7 +69,7 @@ De tegel 'Niet-beveiligde riskante aanmeldingen' zien van de afgelopen week aant
 De tegel 'Legacy authentication' ziet u de afgelopen week telling van verouderde verificaties in uw organisatie. Verouderde verificatieprotocollen bieden geen ondersteuning voor moderne beveiligingsmethoden, zoals een MFA. Om te voorkomen dat een legacy-verificatie, kunt u een beleid voor voorwaardelijke toegang toepassen. Klik op de tegel 'Legacy verificatie' wordt u doorgestuurd naar de 'identiteit Secure Score'.
 
 
-### <a name="identity-secure-score"></a>Identity Secure Score
+### <a name="identity-secure-score"></a>Identiteit beveiligde Score
 
 De identiteit Secure Score meet en vergelijking van uw beveiligingspostuur branche patronen. Als u klikt op de tegel 'Identiteit Secure Score (Preview)', wordt deze omgeleid naar de blade 'Identiteit Secure Score (Preview)' is waar u kunt meer informatie over uw beveiligingspostuur verbeteren.
 

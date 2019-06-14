@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237845"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Het Schema van Azure Diagnostics 1.0
@@ -103,7 +103,7 @@ Kenmerken:
 
 |Kenmerk  |Type   |Vereist| Standaard | Description|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|duur|Optioneel | PT1M| Hiermee geeft u het interval waarmee de diagnostische monitor pollt voor diagnostische configuratiewijzigingen.|  
+|**configurationChangePollInterval**|Duur|Optioneel | PT1M| Hiermee geeft u het interval waarmee de diagnostische monitor pollt voor diagnostische configuratiewijzigingen.|  
 |**overallQuotaInMB**|unsignedInt|Optioneel| 4000 MB. Als u een waarde opgeeft, het mag niet groter zijn dan deze hoeveelheid |De totale hoeveelheid opslag bestandssysteem toegewezen voor alle buffers van logboekregistratie.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs-Element  
@@ -117,7 +117,7 @@ Kenmerken:
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
 |**scheduledTransferLogLevelFilter**|string|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**. Andere mogelijke waarden zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **kritieke**.|  
-|**scheduledTransferPeriod**|duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
+|**scheduledTransferPeriod**|Duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
 
 ## <a name="logs-element"></a>Logboeken-Element  
  Definieert de configuratie van de buffer voor basic Logboeken in Azure.
@@ -130,7 +130,7 @@ Kenmerken:
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
 |**scheduledTransferLogLevelFilter**|string|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**. Andere mogelijke waarden zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **kritieke**.|  
-|**scheduledTransferPeriod**|duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
+|**scheduledTransferPeriod**|Duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
 
 ## <a name="directories-element"></a>Mappen-Element  
 Definieert de configuratie van de buffer voor logboeken op basis van bestanden die u kunt definiëren.
@@ -143,7 +143,7 @@ Kenmerken:
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
-|**scheduledTransferPeriod**|duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
+|**scheduledTransferPeriod**|Duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
 
 ## <a name="crashdumps-element"></a>CrashDumps-Element  
  Hiermee definieert u de map van crashes dumpbestanden voor foutopsporing.
@@ -176,7 +176,7 @@ Kenmerken:
 
 Kenmerken:  
 
-|Kenmerk|Type|Beschrijving|  
+|Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
@@ -207,7 +207,7 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**path**|string|Vereist. Het absolute pad naar de map om te controleren.|  
+|**Pad**|string|Vereist. Het absolute pad naar de map om te controleren.|  
 |**expandEnvironment**|booleaans|Vereist. Indien ingesteld op **waar**, omgevingsvariabelen in het pad worden uitgevouwen.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
@@ -219,7 +219,7 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**De naam**|string|Vereist. De naam van de lokale resource die de map voor het bewaken van bevat.|  
+|**name**|string|Vereist. De naam van de lokale resource die de map voor het bewaken van bevat.|  
 |**relativePath**|string|Vereist. Het pad relatief ten opzichte van de lokale resource om te controleren.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters-Element  
@@ -233,7 +233,7 @@ Kenmerken:
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
-|**scheduledTransferPeriod**|duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
+|**scheduledTransferPeriod**|Duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration-Element  
  Het prestatiemeteritem voor het verzamelen van definieert.
@@ -245,7 +245,7 @@ Kenmerken:
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Vereist. Het pad naar het prestatiemeteritem voor het verzamelen van.|  
-|**sampleRate**|duur|Vereist. De snelheid waarmee het prestatiemeteritem moet worden verzameld.|  
+|**sampleRate**|Duur|Vereist. De snelheid waarmee het prestatiemeteritem moet worden verzameld.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  Hiermee definieert u de gebeurtenislogboeken om te controleren.
@@ -258,7 +258,7 @@ Kenmerken:
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
 |**scheduledTransferLogLevelFilter**|string|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**. Andere mogelijke waarden zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **kritieke**.|  
-|**scheduledTransferPeriod**|duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
+|**scheduledTransferPeriod**|Duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
 
 ## <a name="datasource-element"></a>DataSource-Element  
  Hiermee definieert u het gebeurtenislogboek om te controleren.
@@ -269,5 +269,5 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**De naam**|string|Vereist. Een XPath-expressie op te geven van het logboek te verzamelen.|  
+|**name**|string|Vereist. Een XPath-expressie op te geven van het logboek te verzamelen.|  
 

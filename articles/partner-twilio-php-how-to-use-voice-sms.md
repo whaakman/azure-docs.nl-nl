@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: a51cd589702320ecb55e6a2e3c5f0a6139e281fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422352"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Over het gebruik van Twilio voor spraak en SMS-mogelijkheden in PHP
@@ -44,16 +44,16 @@ De API maakt gebruik van Twilio termen; bijvoorbeeld, de **&lt;zeg&gt;** term ge
 
 Hier volgt een lijst met Twilio-bewerkingen. Meer informatie over de andere bewerkingen en mogelijkheden via [Twilio Markup Language documentatie](https://www.twilio.com/docs/api/twiml).
 
-* **&lt;Dial&gt;**: De oproepende functie verbindt met een ander telefoonnummer.
-* **&lt;Gather&gt;**: Verzamelt cijfers ingevoerd op het telefoonnummer.
-* **&lt;Ophangen&gt;**: Een gesprek is beëindigd.
-* **&lt;Afspelen&gt;**: Hiermee wordt een geluidsbestand afgespeeld.
-* **&lt;Onderbreken&gt;**: Wacht op de achtergrond gedurende een opgegeven aantal seconden.
-* **&lt;Record&gt;**: Registreert de stem van de oproepende functie en het resultaat van een URL van een bestand met de opname.
-* **&lt;Omleiden&gt;**: Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
-* **&lt;Afwijzen&gt;**: Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder dat u facturering
-* **&lt;Stel dat&gt;**: Converteert tekst naar spraak die wordt gemaakt op een aanroep.
-* **&lt;Sms&gt;**: Verzendt een SMS-bericht.
+* **&lt;Dial&gt;** : De oproepende functie verbindt met een ander telefoonnummer.
+* **&lt;Gather&gt;** : Verzamelt cijfers ingevoerd op het telefoonnummer.
+* **&lt;Ophangen&gt;** : Een gesprek is beëindigd.
+* **&lt;Afspelen&gt;** : Hiermee wordt een geluidsbestand afgespeeld.
+* **&lt;Onderbreken&gt;** : Wacht op de achtergrond gedurende een opgegeven aantal seconden.
+* **&lt;Record&gt;** : Registreert de stem van de oproepende functie en het resultaat van een URL van een bestand met de opname.
+* **&lt;Omleiden&gt;** : Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
+* **&lt;Afwijzen&gt;** : Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder dat u facturering
+* **&lt;Stel dat&gt;** : Converteert tekst naar spraak die wordt gemaakt op een aanroep.
+* **&lt;Sms&gt;** : Verzendt een SMS-bericht.
 
 ### <a id="TwiML"></a>TwiML
 TwiML is een set op basis van de Twilio-termen die Twilio van het verwerken van een oproep of SMS op de hoogte op basis van een XML-instructies.

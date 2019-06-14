@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452820"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary
@@ -145,7 +145,7 @@ Een risicogebeurtenis geactiveerd wanneer een gebruiker zich heeft aangemeld van
 ### <a name="sign-in-risk"></a>Aanmeldingsrisico
 Zie risico niveau (aanmelden)
 
-### <a name="sign-in-risk-policy"></a>Beleid voor aanmeldingsrisico's
+### <a name="sign-in-risk-policy"></a>Beleid voor aanmeldingsrisico
 Dit is een beleid voor voorwaardelijke toegang die wordt geëvalueerd als de risico's voor een specifieke aanmelding en oplossingen op basis van vooraf gedefinieerde voorwaarden en regels van toepassing is.
 
 ### <a name="user-compromise-risk"></a>Inbreuk op gebruikersrisico
@@ -154,13 +154,13 @@ Zie risico niveau (gebruiker inbreuk)
 ### <a name="user-risk"></a>Gebruikersrisico
 Zie risico niveau (gebruiker inbreuk).
 
-### <a name="user-risk-policy"></a>Beleid voor gebruikersrisico's
+### <a name="user-risk-policy"></a>Beleid voor gebruikersrisico 's
 Dit is een beleid voor voorwaardelijke toegang die rekening gehouden met de aanmelding en oplossingen op basis van vooraf gedefinieerde voorwaarden en regels van toepassing is.
 
 ### <a name="users-flagged-for-risk"></a>Gebruikers voor wie wordt aangegeven dat ze risico lopen
 Gebruikers die risico's, welke actieve of opgeloste hebben
 
-### <a name="vulnerability"></a>Beveiligingsprobleem
+### <a name="vulnerability"></a>Beveiligingslek in
 Een configuratie of een voorwaarde in Azure Active Directory, waardoor de map vatbaar voor aanvallen en aanvallen.
 
 ## <a name="see-also"></a>Zie ook

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: a52f42fb194d2f39861a57c95a664ad57b4f91d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60500768"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Back-up van een SharePoint-farm in Azure Stack
@@ -21,7 +21,7 @@ U back-up van een SharePoint-farm in Azure Stack bij Microsoft Azure met behulp 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint ondersteunde versies en verwante scenario's voor gegevensbescherming
 Azure Backup voor MABS ondersteunt de volgende scenario's:
 
-| Workload | Versie | SharePoint-implementatie | Beveiliging en herstel |
+| Workload | Version | SharePoint-implementatie | Beveiliging en herstel |
 | --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint geïmplementeerd als een virtuele machine van Azure Stack <br> -------------- <br> Sqlalwayson | Opties voor herstel van SharePoint-Farm beveiligen: Farm voor herstel, een database en een bestand of lijstitem van herstelpunten van de schijf.  Farm en databaseherstel uit Azure herstelpunten. |
 

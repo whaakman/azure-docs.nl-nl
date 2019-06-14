@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381141"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: Functieverwijzing
@@ -363,7 +363,7 @@ De functie CGuid converteert de tekenreeksweergave van een GUID naar de binaire 
 * Een tekenreeks die is opgemaakt in dit patroon: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx of {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>Contains
+### <a name="contains"></a>bevat
 **Beschrijving:**  
 De functie Contains zoekt u naar een tekenreeks binnen een kenmerk met meerdere waarden
 
@@ -396,13 +396,13 @@ De functie ConvertFromBase64 zet de waarde van de opgegeven base64-gecodeerd om 
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Bron: Base64-gecodeerde tekenreeks  
-* Codering: Unicode, ASCII, UTF8
+* Encoding: Unicode, ASCII, UTF8
 
 **Voorbeeld**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Beide voorbeelden retourneren '*Hallo wereld!*"
+Beide voorbeelden retourneren '*Hallo wereld!* "
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
@@ -420,7 +420,7 @@ Deze indeling wordt gebruikt door Azure Active Directory als de DN-naam.
 
 **Voorbeeld:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-Retourneert '*Hallo wereld!*"
+Retourneert '*Hallo wereld!* "
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -846,7 +846,7 @@ De functie ItemOrNull is nuttig, samen met de functie Contains sinds de laatste 
 Als de index ligt buiten het bereik valt, retourneert vervolgens een Null-waarde.
 
 - - -
-### <a name="join"></a>Koppelen
+### <a name="join"></a>Deelnemen
 **Beschrijving:**  
 De Join-functie een tekenreeks met meerdere waarden en retourneert een tekenreeks met één waarde met opgegeven scheidingsteken ingevoegd tussen elk item.
 
@@ -956,7 +956,7 @@ Retourneert "hn doen".
 Retourneert "Doe"
 
 - - -
-### <a name="now"></a>Nu
+### <a name="now"></a>nu
 **Beschrijving:**  
 De functie nu retourneert een datum/tijd op te geven van de huidige datum en tijd, op basis van datum en tijd van de computer.
 
@@ -1184,7 +1184,7 @@ Het proces alle waarden in een meerdere waarden kenmerk (of uitvoer van een expr
 Alle waarden in de otherPhone kenmerk met meerdere waarden retourneren nadat afbreekstreepjes (-) zijn verwijderd.
 
 - - -
-### <a name="split"></a>Splitsen
+### <a name="split"></a>splitsen
 **Beschrijving:**  
 De functie Split een tekenreeks van elkaar gescheiden met een scheidingsteken en maakt het een tekenreeks met meerdere waarden.
 
@@ -1246,7 +1246,7 @@ Waarde kan ook worden de functie fout, die een aangepaste tekenreeks geretournee
 Retourneert de gesproken taal in sommige steden, anders wordt een fout geretourneerd.
 
 - - -
-### <a name="trim"></a>Omloopspaties wissen
+### <a name="trim"></a>Trim
 **Beschrijving:**  
 De functie spaties verwijdert voorloopspaties en afsluitende spaties uit een tekenreeks.
 
@@ -1295,7 +1295,7 @@ Retourneert de certificaatwaarden in het kenmerk met meerdere waarden userCertif
 **Beschrijving:**  
 De With-functie biedt een manier om een complexe expressie vereenvoudigen met behulp van een variabele om weer te geven van een subexpressie die wordt weergegeven een of meer keer in de complexe expressie.
 
-**Syntaxis:**
+**Syntaxis:** 
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variabele: Hiermee geeft u de subexpressie.
 * Subexpressie: subexpressie vertegenwoordigd door de variabele.

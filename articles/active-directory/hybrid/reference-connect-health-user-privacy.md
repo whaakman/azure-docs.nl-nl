@@ -15,10 +15,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386205"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Gebruikersprivacy en Azure AD Connect Health 
@@ -31,7 +31,7 @@ ms.locfileid: "60386205"
 ## <a name="user-privacy-classification"></a>Gebruiker privacy classificatie
 Azure AD Connect Health valt in de **gegevensverwerker** categorie van GDPR-classificatie. Als een pijplijn gegevensverwerker biedt de service services voor gegevensverwerking op belangrijke partners en klanten te beëindigen. Azure AD Connect Health genereert geen gebruikersgegevens en heeft geen onafhankelijke controle over welke persoonlijke gegevens worden verzameld en hoe deze wordt gebruikt. Het ophalen van gegevens, aggregatie, analyse en rapportage in Azure AD Connect Health zijn gebaseerd op bestaande on-premises gegevens. 
 
-## <a name="data-retention-policy"></a>Beleid voor gegevensretentie
+## <a name="data-retention-policy"></a>Bewaarbeleid voor gegevens
 Azure AD Connect Health rapporten, analyses uitvoeren, of geen inzichten langer dan 30 dagen te kunnen bieden. Daarom Azure AD Connect Health niet opslaan, verwerken, of alle gegevens langer dan 30 dagen bewaren. Dit ontwerp is compatibel met de GDPR voorschriften, Microsoft privacy de regelgeving en bewaarbeleid voor Azure AD-gegevens. 
 
 Servers met actieve **Health service-gegevens is niet up-to-date** **fout** waarschuwingen voor meer dan 30 opeenvolgende dagen voorstellen dat er geen gegevens Connect Health tijdens die periode is bereikt. Deze servers wordt uitgeschakeld en wordt niet weergegeven in Connect Health-portal. Als u wilt de servers opnieuw inschakelt, moet u eerst verwijderen en [opnieuw installeren van de health-agent](how-to-connect-health-agent-install.md). Houd er rekening mee dat dit niet van toepassing op **waarschuwingen** met hetzelfde Waarschuwingstype. Waarschuwingen geven aan dat gegevens gedeeltelijk in de server die u wordt gewaarschuwd ontbreekt voor. 

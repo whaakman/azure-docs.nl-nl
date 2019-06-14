@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: danlep
 ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430788"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Verwijderen van installatiekopieën van containers in Azure Container Registry
@@ -48,7 +48,7 @@ product-returns/legacy-integrator:20180715
 
 Een containerinstallatiekopie binnen een register is gekoppeld aan een of meer labels, heeft een of meer lagen en wordt geïdentificeerd door een manifest. Informatie over hoe deze onderdelen aan elkaar zijn gerelateerd, kunt u bepalen wat de beste methode voor het vrijmaken van ruimte in het register.
 
-### <a name="tag"></a>Label
+### <a name="tag"></a>Tag
 
 Van een installatiekopie *tag* Hiermee geeft u de versie ervan. Een één installatiekopie binnen een opslagplaats een of meer labels kan worden toegewezen en kan ook worden als "niet-gecodeerde." Dat wil zeggen, kunt u alle tags verwijderen van een installatiekopie van het image-gegevens (de lagen) blijven in het register.
 

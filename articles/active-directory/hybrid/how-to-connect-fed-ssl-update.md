@@ -2,25 +2,25 @@
 title: Azure AD Connect - Update het SSL-certificaat voor AD FS-farm | Microsoft Docs
 description: De Documentdetails van dit van de stappen voor het bijwerken van het SSL-certificaat van AD FS-farm met behulp van Azure AD Connect.
 services: active-directory
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/09/2018
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 07/09/2018
+ms.subservice: hybrid
 author: billmath
 ms.custom: seohack1
-ms.author: v-junlch
+ms.author: billmath
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244710"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>De SSL-certificaat voor een Active Directory Federation Services (AD FS)-farm bijwerken
@@ -38,8 +38,8 @@ U kunt de hele bewerking van het SSL-certificaat voor de AD FS-farm bijwerken me
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **AD FS-Farm**: Zorg ervoor dat uw AD FS-farm op basis van Windows Server 2012 R2 of hoger.
-- **Azure AD Connect**: Zorg ervoor dat de versie van Azure AD Connect 1.1.553.0 of hoger. Gebruikt u de taak **Update AD FS SSL-certificaat**.
+* **AD FS-Farm**: Zorg ervoor dat uw AD FS-farm op basis van Windows Server 2012 R2 of hoger.
+* **Azure AD Connect**: Zorg ervoor dat de versie van Azure AD Connect 1.1.553.0 of hoger. Gebruikt u de taak **Update AD FS SSL-certificaat**.
 
 ![SSL-taak bijwerken](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 
@@ -85,23 +85,23 @@ Nadat u de configuratie hebt voltooid, wordt Azure AD Connect het bericht weerge
 
 ## <a name="faqs"></a>Veelgestelde vragen
 
-- **Wat moet de onderwerpnaam van het certificaat voor de nieuwe AD FS SSL-certificaat?**
+* **Wat moet de onderwerpnaam van het certificaat voor de nieuwe AD FS SSL-certificaat?**
 
     Azure AD Connect controleert of de naam/alternatieve onderwerpnaam onderwerpnaam van het certificaat de naam van de federation-service bevat. Bijvoorbeeld, als de naam van uw federation service fs.contoso.com is, moet de naam voor onderwerp de naam/alternatieve onderwerpnaam fs.contoso.com.  Jokertekens-certificaten worden ook geaccepteerd.
 
-- **Waarom Word ik gevraagd om referenties opnieuw op de pagina van de WAP-server?**
+* **Waarom Word ik gevraagd om referenties opnieuw op de pagina van de WAP-server?**
 
     Als de referenties die u opgeeft voor het verbinden met AD FS-servers geen ook de bevoegdheden voor het beheren van de WAP-servers hebt, klikt u vervolgens Azure AD Connect wordt gevraagd om referenties met Administrator-bevoegdheden op de WAP-servers.
 
-- **De server wordt weergegeven als offline zijn. Wat moet ik doen?**
+* **De server wordt weergegeven als offline zijn. Wat moet ik doen?**
 
     Azure AD Connect kan bewerking niet uitvoeren als de server offline is. Als de server deel van de AD FS-farm uitmaakt, controleert u de verbinding met de server. Nadat u het probleem hebt opgelost, drukt u op het vernieuwingspictogram om de status van de wizard te werken. Als de server is onderdeel van de farm eerder, maar nu niet meer bestaat, klikt u op **verwijderen** onderhoudt die Azure AD Connect verwijderen uit de lijst met servers. De AD FS-configuratie zelf niet van invloed op de server wordt verwijderd uit de lijst in Azure AD Connect. Als u van AD FS in Windows Server 2016 of hoger, de server blijft in de configuratie-instellingen gebruikmaakt en opnieuw in de volgende keer worden weergegeven wordt de taak uitgevoerd.
 
-- **Kan ik een subset van mijn farmservers bijwerken met het nieuwe SSL-certificaat**
+* **Kan ik een subset van mijn farmservers bijwerken met het nieuwe SSL-certificaat**
 
     Ja. U kunt altijd de taak uitvoeren **SSL-certificaat bijwerken** opnieuw om bij te werken van de resterende servers. Op de **servers selecteren voor SSL-certificaat bijwerken** pagina, kunt u de lijst met servers sorteren op **SSL-vervaldatum** eenvoudige toegang tot de servers die nog niet zijn bijgewerkt.
 
-- **Kan ik de server in de vorige uitvoering verwijderd, maar wordt nog steeds wordt weergegeven als offline en weergegeven op de pagina met AD FS-Servers. Waarom is er nog de offline server, zelfs nadat ik deze verwijderd?**
+* **Kan ik de server in de vorige uitvoering verwijderd, maar wordt nog steeds wordt weergegeven als offline en weergegeven op de pagina met AD FS-Servers. Waarom is er nog de offline server, zelfs nadat ik deze verwijderd?**
 
     De server wordt verwijderd uit de lijst in Azure AD Connect verwijdert niet u deze in de AD FS-configuratie. Azure AD Connect verwijst naar AD FS (WindowsServer 2016 of hoger) voor informatie over de farm. Als de server nog steeds aanwezig in de AD FS-configuratie is, wordt het terug in de lijst worden weergegeven.  
 

@@ -16,10 +16,10 @@ ms.date: 07/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60264232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Zelfstudie: Azure Active Directory-integratie met Kanbanize
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Kanbanize, moet u de volgende 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Kanbanize in Azure AD, moet u Kanban
 
 **Als u wilt toevoegen Kanbanize uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -84,11 +84,11 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Kanbanize, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker Kanbanize](#create-a-kanbanize-test-user)**  : als u wilt een equivalent van Britta Simon in Kanbanize die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -108,9 +108,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Kanbanize domein en URL's, eenmalige aanmelding informatie](./media/kanbanize-tutorial/tutorial_kanbanize_url.png)
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<subdomain>.kanbanize.com/`
+    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.kanbanize.com/`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<subdomain>.kanbanize.com/saml/acs`
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.kanbanize.com/saml/acs`
 
     c. Controleer **geavanceerde URL-instellingen weergeven**.
 
@@ -131,7 +131,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 7. Klik op **opslaan** knop.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/kanbanize-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/kanbanize-tutorial/tutorial_general_400.png)
     
 8. Op de **Kanbanize configuratie** sectie, klikt u op **configureren Kanbanize** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 

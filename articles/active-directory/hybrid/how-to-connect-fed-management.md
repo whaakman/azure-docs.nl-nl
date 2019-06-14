@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353458"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
@@ -108,7 +108,7 @@ Configureren van alternatieve aanmeldings-ID voor AD FS bestaat uit twee belangr
 
    ![Certificaatwachtwoord](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Geef een SSL-certificaat op](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![SSL-certificaat opgeven](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. Op de **AD FS-Servers** pagina, typ de servernaam of IP-adres moet worden toegevoegd aan de AD FS-farm.
 
@@ -136,7 +136,7 @@ Configureren van alternatieve aanmeldings-ID voor AD FS bestaat uit twee belangr
 3. Op de **opgeven SSL-certificaat** pagina, geeft u het wachtwoord voor het PFX-bestand dat u hebt opgegeven tijdens het configureren van de AD FS-farm met Azure AD Connect.
    ![Certificaatwachtwoord](./media/how-to-connect-fed-management/WapServer3.PNG)
 
-    ![Geef een SSL-certificaat op](./media/how-to-connect-fed-management/WapServer4.PNG)
+    ![SSL-certificaat opgeven](./media/how-to-connect-fed-management/WapServer4.PNG)
 
 4. De server moet worden toegevoegd als een WAP-server toevoegen. Omdat de WAP-server kan niet worden toegevoegd aan het domein, wordt de wizard gevraagd om administratieve referenties voor de server die wordt toegevoegd.
 
@@ -172,7 +172,7 @@ Het is gemakkelijk om toe te voegen van een domein dat gefedereerd met Azure AD 
 
 4. Op de volgende pagina bevat de wizard een lijst van Azure AD-domeinen die u kunt uw on-premises directory met federeren. Kies het domein in de lijst.
 
-   ![Azure AD-domein](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
+   ![Azure AD domain](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
     Nadat u het domein hebt gekozen, de wizard kunt u met de juiste informatie over verdere acties die de wizard gaat ondernemen en het effect van de configuratie. In sommige gevallen, als u een domein dat nog niet is geverifieerd in Azure AD, selecteert biedt de wizard u informatie om te controleren of het domein. Zie [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory-domains-add-azure-portal.md) voor meer informatie.
 

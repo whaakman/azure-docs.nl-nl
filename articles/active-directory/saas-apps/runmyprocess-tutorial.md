@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60517879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Zelfstudie: Azure Active Directory-integratie met RunMyProcess
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met RunMyProcess, moet u de volgen
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden:[proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,17 +60,17 @@ Voor het configureren van de integratie van RunMyProcess in Azure AD, moet u Run
 
 **Als u wilt toevoegen RunMyProcess uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Applicaties][2]
+    ![Toepassingen][2]
     
 1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Applicaties][3]
+    ![Toepassingen][3]
 
 1. Typ in het zoekvak **RunMyProcess**.
 
@@ -113,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_url.png)
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://live.runmyprocess.com/live/<tenant id>`
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://live.runmyprocess.com/live/<tenant id>`
 
     > [!NOTE] 
     > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [RunMyProcess Client ondersteuningsteam](mailto:support@runmyprocess.com) om de waarde. 
@@ -122,7 +122,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
 
-1. Klik op de knop **Save**.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_general_400.png)
 

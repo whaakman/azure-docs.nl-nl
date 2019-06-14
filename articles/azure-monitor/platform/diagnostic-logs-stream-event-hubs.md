@@ -9,10 +9,10 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237729"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream Azure diagnostische logboeken naar een event hub
@@ -24,7 +24,7 @@ Hier volgen een paar manieren waarop u de streaming-mogelijkheden voor diagnosti
 * **Stream logboeken naar 3e systemen van derden logboekregistratie en telemetrie** – u kunt al uw diagnostische logboeken naar een enkele event hub om pipe logboekgegevens naar een derde partij SIEM of log analytics-hulpprogramma te streamen.
 * **Servicestatus weergeven door het streamen van gegevens naar Power BI 'hot path'** – met behulp van Event Hubs, Stream Analytics en Power BI, kunt u eenvoudig uw diagnostische gegevens in transformeren bijna realtime inzichten in uw Azure-services. [Deze documentatieartikel biedt een goed overzicht van het instellen van Event Hubs, gegevens te verwerken met Stream Analytics en Power BI gebruiken als uitvoer](../../stream-analytics/stream-analytics-power-bi-dashboard.md). Hier volgen enkele tips voor het ophalen van instellen met Logboeken met diagnostische gegevens:
 
-  * Een event hub voor een categorie van logboeken met diagnostische gegevens wordt automatisch gemaakt wanneer u schakelt u de optie in de portal of via PowerShell, inschakelen, zodat u de event hub selecteren in de naamruimte met de naam die begint wilt met **insights -**.
+  * Een event hub voor een categorie van logboeken met diagnostische gegevens wordt automatisch gemaakt wanneer u schakelt u de optie in de portal of via PowerShell, inschakelen, zodat u de event hub selecteren in de naamruimte met de naam die begint wilt met **insights -** .
   * De volgende SQL-code is een voorbeeld van Stream Analytics-query die u gebruiken kunt voor het parseren van alle logboekgegevens in een Power BI-tabel:
 
     ```sql

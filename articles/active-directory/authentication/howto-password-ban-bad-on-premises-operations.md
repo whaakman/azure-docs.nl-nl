@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358176"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD-wachtwoordbeveiliging operationele procedures
@@ -32,7 +32,7 @@ Volg de instructies in het artikel [configureren van de lijst met uitgesloten wa
 1. Stel **wachtwoordbeveiliging inschakelen op Windows Server Active Directory** naar **Ja**
 1. Zoals vermeld in de [Implementatiehandleiding](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), het verdient aanbeveling om in te stellen in eerste instantie de **modus** naar **Audit**
    * Nadat u vertrouwd met de functie bent, kunt u schakelen de **modus** naar **afgedwongen**
-1. Klik op **Opslaan**.
+1. Klik op **Opslaan**
 
 ![Wachtwoordbeveiliging van Azure AD-onderdelen in Azure portal inschakelen](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 

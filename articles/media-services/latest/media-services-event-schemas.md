@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322230"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-schema's voor Media Services-gebeurtenissen
@@ -198,7 +198,7 @@ Voor elke laatste taak statuswijziging (zoals JobFinished, JobCanceled, JobError
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | Uitvoer | Matrix | Hiermee haalt u de taak uitvoer.|
 
@@ -395,7 +395,7 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventEncoderDisconnected**
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | streamId | string | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor het toevoegen van deze ID in de URL voor opnemen. |  
 | ingestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |  
@@ -414,7 +414,7 @@ Het resultaat foutcodes zijn:
 
 De correcte verbinding verbreken resultaatcodes zijn:
 
-| Resultaatcode | Beschrijving |
+| Resultaatcode | Description |
 | ----------- | ----------- |
 | S_OK | Het coderingsprogramma is verbroken. |
 | MPE_CLIENT_TERMINATED_SESSION | Coderingsprogramma verbroken (RTMP). |
@@ -609,7 +609,7 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIngestHeartbeat** geb
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
@@ -622,7 +622,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | nonIncreasingCount | geheel getal | Aantal gegevenssegmenten met tijdstempels in het verleden zijn ontvangen in de afgelopen 20 seconden. |
 | unexpectedBitrate | bool | Als de verwachte en de daadwerkelijke bitsnelheden verschillen door meer dan de toegestane limiet afgelopen 20 seconden. Dit is waar als en alleen als, incomingBitrate > = 2 * bitrate of incomingBitrate < = bitrate/2 of IncomingBitrate = 0. |
 | state | string | Status van de live-gebeurtenis. |
-| in orde | bool | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
+| In orde | bool | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -669,12 +669,12 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | string | Het onderwerp EventGrid. Deze eigenschap heeft de resource-ID voor de Media Services-account. |
-| onderwerp | string | Het bronpad voor het kanaal in Media Services onder het Media Services-account. Samenvoegen van het onderwerp en het onderwerp kunt u de resource-ID voor de taak. |
+| topic | string | Het onderwerp EventGrid. Deze eigenschap heeft de resource-ID voor de Media Services-account. |
+| subject | string | Het bronpad voor het kanaal in Media Services onder het Media Services-account. Samenvoegen van het onderwerp en het onderwerp kunt u de resource-ID voor de taak. |
 | eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. Bijvoorbeeld: 'Microsoft.Media.JobStateChange'. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | string | De unieke id voor de gebeurtenis. |
-| gegevens | object | Gebeurtenisgegevens voor Media Services. |
+| data | object | Gebeurtenisgegevens voor Media Services. |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 

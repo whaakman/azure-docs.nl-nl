@@ -1,18 +1,18 @@
 ---
 title: Aangepaste metrische gegevens voor een Azure-resource verzenden naar de Azure Monitor metrische store met behulp van een REST-API
 description: Aangepaste metrische gegevens voor een Azure-resource verzenden naar de Azure Monitor metrische store met behulp van een REST-API
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253893"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Aangepaste metrische gegevens voor een Azure-resource verzenden naar de Azure Monitor metrische store met behulp van een REST-API
@@ -39,11 +39,11 @@ Geef de app gemaakt als onderdeel van stap 1, bewaking metrische gegevens over u
 Open een opdrachtprompt en voer de volgende opdracht uit:
 
 ```shell
-curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 Sla het toegangstoken op uit het antwoord.
 
-![Toegangstoken](./media/metrics-store-custom-rest-api/accesstoken.png)
+![toegangstoken](./media/metrics-store-custom-rest-api/accesstoken.png)
 
 ## <a name="emit-the-metric-via-the-rest-api"></a>Verzenden van de metrische gegevens via de REST-API 
 
@@ -77,7 +77,7 @@ Sla het toegangstoken op uit het antwoord.
     } 
     ``` 
 
-2. In het venster Opdrachtprompt plaatsen de metrische gegevens: 
+1. In het venster Opdrachtprompt plaatsen de metrische gegevens: 
    - **azureRegion**. Moet overeenkomen met de implementatieregio van de resource die u bij het verzenden van metrische gegevens voor. 
    - **resourceID**.  Resource-ID van de Azure-resource die u de metrische gegevens tegen bijhoudt.  
    - **AccessToken**. Plak het token dat u eerder hebt verkregen.
@@ -85,8 +85,8 @@ Sla het toegangstoken op uit het antwoord.
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
-3. Wijzig de tijdstempel en de waarden in het JSON-bestand. 
-4. Herhaal de vorige twee stappen een paar keer, zodat u gegevens voor enkele minuten hebt.
+1. Wijzig de tijdstempel en de waarden in het JSON-bestand. 
+1. Herhaal de vorige twee stappen een paar keer, zodat u gegevens voor enkele minuten hebt.
 
 ## <a name="troubleshooting"></a>Problemen oplossen 
 Als u een foutbericht weergegeven met een deel van het proces wordt, kunt u de volgende informatie voor probleemoplossing:
@@ -119,3 +119,4 @@ Als u een foutbericht weergegeven met een deel van het proces wordt, kunt u de v
  
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [aangepaste metrische gegevens](../../azure-monitor/platform/metrics-custom-overview.md).
+

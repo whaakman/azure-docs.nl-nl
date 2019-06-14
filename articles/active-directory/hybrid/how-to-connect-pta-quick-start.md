@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243664"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
@@ -83,7 +83,7 @@ Als u Azure AD Connect voor het eerst installeert, kiest u de [aangepaste instal
 
 Als u Azure AD Connect al hebt geïnstalleerd met behulp van de [snelle installatie](how-to-connect-install-express.md) of de [aangepaste installatie](how-to-connect-install-custom.md) pad, selecteer de **aanmelden van gebruikers wijzigen** taak in Azure AD Verbinding maken en selecteer vervolgens **volgende**. Selecteer vervolgens **Pass through-verificatie** als de methode aanmelden. Een Pass through-verificatie-Agent is geïnstalleerd op dezelfde server als Azure AD Connect is gelukt, en de functie is ingeschakeld op uw tenant.
 
-![Azure AD Connect: Gebruikersaanmelding wijzigen](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+![Azure AD Connect: Aanmelden van gebruikers wijzigen](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
 >Pass through-verificatie is een functie op tenantniveau. Het inschakelen van is van invloed op de aanmelding voor gebruikers in _alle_ de beheerde domeinen in uw tenant. Als u van Active Directory Federation Services (AD FS) naar Pass-through-verificatie overstapt, moet u ten minste 12 uur vóór het afsluiten van de AD FS-infrastructuur wacht. Deze wachttijd is om ervoor te zorgen dat gebruikers houden bij Exchange ActiveSync tijdens de overgang aanmelden kunnen. Voor meer informatie over het migreren van AD FS naar Pass-through-verificatie, Bekijk onze gedetailleerde implementatieplan gepubliceerd [hier](https://aka.ms/adfstoptadpdownload).
@@ -140,7 +140,7 @@ Eerst, u kunt dit doen interactief door alleen waarop de gedownloade uitvoerbare
 Ten tweede kunt u maken en uitvoeren van een script zonder toezicht implementatie. Dit is handig als u wilt implementeren meerdere verificatie-Agents in één keer of verificatie-Agents installeren op Windows-servers die geen gebruikersinterface is ingeschakeld, of dat u geen toegang tot met extern bureaublad. Hier vindt u de instructies over het gebruik van deze benadering:
 
 1. Voer de volgende opdracht om een verificatie-Agent te installeren: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. U kunt de verificatie-Agent registreren met onze service met behulp van Windows PowerShell. Maken van een object PowerShell-referenties `$cred` dat een globale beheerder van gebruikersnaam en wachtwoord voor uw tenant bevat. Voer de volgende opdracht vervangt *\<gebruikersnaam\>* en  *\<wachtwoord\>*:
+2. U kunt de verificatie-Agent registreren met onze service met behulp van Windows PowerShell. Maken van een object PowerShell-referenties `$cred` dat een globale beheerder van gebruikersnaam en wachtwoord voor uw tenant bevat. Voer de volgende opdracht vervangt *\<gebruikersnaam\>* en  *\<wachtwoord\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'

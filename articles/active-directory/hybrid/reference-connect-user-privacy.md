@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455761"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Gebruikersprivacy en Azure AD Connect 
@@ -77,7 +77,7 @@ Gebruik de volgende stappen uit om te plannen dat het script om uit te voeren om
 5.  Selecteer **dagelijkse** voor de taaktrigger en klik op **volgende**.
 6.  Het terugkeerpatroon ingesteld op **2 dagen** en klikt u op **volgende**.
 7.  Selecteer **begint met een programma** als de actie en klikt u op **volgende**.
-8.  Type **PowerShell** in het vak voor het programma/script en in het vak met de tekst **argumenten toevoegen (optioneel)**, voert u het volledige pad naar het script dat u eerder hebt gemaakt en klik vervolgens op **volgende**.
+8.  Type **PowerShell** in het vak voor het programma/script en in het vak met de tekst **argumenten toevoegen (optioneel)** , voert u het volledige pad naar het script dat u eerder hebt gemaakt en klik vervolgens op **volgende**.
 9.  Het volgende scherm bevat een overzicht van de taak die u gaat maken. Controleer of de waarden en klik op **voltooien** om de taak te maken.
 
 

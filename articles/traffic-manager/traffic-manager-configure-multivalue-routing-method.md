@@ -3,20 +3,21 @@ title: Routeringsmethode voor verkeer met meerdere waarden configureren in Azure
 description: In dit artikel wordt uitgelegd hoe u Traffic Manager configureren om verkeer te routeren naar A/AAAA-eindpunten.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: kumud
-ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: allensu
+ms.openlocfilehash: 5db8e2932a43a2d6c6cb8a99c4f32b37a4a5a3f8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050883"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Routeringsmethode voor met meerdere waarden configureren in Traffic Manager
 
@@ -66,7 +67,7 @@ Twee IP-adressen als externe eindpunten toevoegen aan meerdere waarden Traffic M
     | Volledig gekwalificeerde domeinnaam (FQDN) of IP           | Typ het openbare IP-adres van het eindpunt dat u wilt toevoegen aan dit Traffic Manager-profiel                         |
     |        |           |
 
-4. Herhaal stappen 2 en 3 om toe te voegen een ander eindpunt met de naam *myEndpoint2*, voor **volledig gekwalificeerde domeinnaam (FQDN) of IP-**, voer het openbare IP-adres van het tweede eindpunt.
+4. Herhaal stappen 2 en 3 om toe te voegen een ander eindpunt met de naam *myEndpoint2*, voor **volledig gekwalificeerde domeinnaam (FQDN) of IP-** , voer het openbare IP-adres van het tweede eindpunt.
 5. Als beide eindpunten zijn toegevoegd, worden ze weergegeven in **Traffic Manager-profiel**, samen met de controlestatus **Online**.
 
    ![Traffic Manager-eindpunt toevoegen](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
