@@ -36,7 +36,7 @@ De aanvraag moet de volgende velden:
 | **Naam**             | **Beschrijving**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | Client wordt geleverd GUID                                |
-| voornaam            | De voornaam van de gebruiker                              |
+| firstName            | De voornaam van de gebruiker                              |
 | lastName             | De achternaam van de gebruiker                               |
 | emailAddress         | E-mailadres van de gebruiker                           |
 | externalId           | Azure AD-object-ID van de gebruiker                      |
@@ -70,7 +70,7 @@ Blockchain Workbench retourneert een antwoord met de volgende velden:
 | messageSchemaVersion  | Messaging schemaversie |
 | messageName           | **CreateUserUpdate** |
 | status                | De status van de aanvraag voor het maken van gebruiker.  Als lukt, waarde is **succes**. Bij fouten, ligt **fout**.     |
-| AdditionalInformation | Als u meer informatie vindt u op basis van de status |
+| additionalInformation | Als u meer informatie vindt u op basis van de status |
 
 Voorbeeld van de geslaagde **gebruiker maken** reactie van Blockchain Workbench:
 
