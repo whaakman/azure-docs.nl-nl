@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 05/22/2019
 ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002211"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Veelvoorkomende problemen met Azure Database Migration Service en-fouten oplossen
@@ -96,7 +96,7 @@ Wanneer u een MySQL-database naar een Azure Database for MySQL-exemplaar via Azu
 
 | Oorzaak         | Oplossing    |
 | ------------- | ------------- |
-| Deze fout treedt op wanneer de migratie mislukt vanwege de time-out voor wachten op vergrendeling tijdens de migratie. | Vergroot de waarde van serverparameter **'innodb_lock_wait_timeout'**. De hoogste toegestane waarde is 1073741824. |
+| Deze fout treedt op wanneer de migratie mislukt vanwege de time-out voor wachten op vergrendeling tijdens de migratie. | Vergroot de waarde van serverparameter **'innodb_lock_wait_timeout'** . De hoogste toegestane waarde is 1073741824. |
 
 ## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Fout bij het verbinding maken met de bron-SQL Server bij het gebruik van dynamische poort of benoemd exemplaar
 
