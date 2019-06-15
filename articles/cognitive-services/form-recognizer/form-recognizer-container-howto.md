@@ -2,44 +2,46 @@
 title: Installeren en uitvoeren van container - formulier-herkenning
 titleSuffix: Azure Cognitive Services
 description: Meer informatie over het gebruik van de Form Recognizer-container voor het parseren van formulier- en tabelgegevens.
-author: PatrickFarley
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/31/2019
-ms.author: pafarley
-ms.openlocfilehash: 1c9e68f643f27f70190b5847225692d554cc5480
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 6a7e6a38c1e3e785108a42de05022300f0bc4107
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063969"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installeren en formulier herkenning containers uitvoeren
-Formulier herkenning van toepassing is machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren. Het wordt gekoppeld aan waarden en items in de tabel toe en vervolgens voert gestructureerde gegevens vindt u de relaties in het oorspronkelijke bestand. U kunt uw aangepaste formulier herkenning-model met behulp van een eenvoudige REST-API om te kunnen de complexiteit en eenvoudig integreren in uw automation-werkstroomproces of andere toepassing aanroepen. Maximaal vijf documenten (of een leeg formulier) zijn nodig, dus u resultaten snel, nauwkeurig krijgt kunt en die zijn afgestemd op uw specifieke inhoud, zonder zware handmatige tussenkomst of uitgebreide data science expertise. Deze hoeven niet labeling van gegevens of gegevens aantekening.
+Herkenning van Azure formulier is van toepassing machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren. Het wordt gekoppeld aan waarden en de items in tabel met de sleutel / waarde-paren en gestructureerde gegevens vindt u de relaties in het oorspronkelijke bestand vervolgens weergeeft. 
+
+Verminder complexiteit en een aangepast formulier herkenning model eenvoudig te integreren in uw automation-werkstroomproces of andere toepassing, kunt u het model met behulp van een eenvoudige REST-API aanroepen. Maximaal vijf documenten (of een leeg formulier) zijn nodig, dus u resultaten snel, nauwkeurig krijgt kunt, en die zijn afgestemd op uw specifieke inhoud. Er is geen zware handmatige tussenkomst of uitgebreide data science-expertise is nodig. En er is geen vereist labeling van gegevens of gegevens aantekening.
 
 |Function|Functies|
 |-|-|
-|Form Recognizer| <li>Bestanden van de processen van Typ PDF-, PNG en JPG.<li>Aangepaste modellen met ten minste 5 vormen van dezelfde indeling traint. <li>Sleutel / waarde-paren en de gegevens worden geëxtraheerd. <li>Maakt gebruik van Cognitive Service Computer Vision-API RecognizeText om te detecteren en extraheer gedrukte tekst uit afbeeldingen in formulieren.<li>Vereist geen aantekening of labels.|
+|Form Recognizer| <li>PDF-, PNG en JPG-bestanden worden verwerkt<li>Treinen aangepaste modellen met een minimum van 5 vormen van dezelfde lay-out <li>Sleutel / waarde-paren en de gegevens worden geëxtraheerd <li>Maakt gebruik van de functie Azure Cognitive Services Computer Vision-API herkent tekst om te detecteren en extraheer gedrukte tekst uit afbeeldingen in formulieren<li>Aantekening of labels vereist niet|
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet voldoen aan de volgende vereisten voordat u met behulp van formulier herkenning containers:
+Voordat u een formulier herkenning containers gebruiken, moet u voldoen aan de volgende vereisten:
 
 |Vereist|Doel|
 |--|--|
-|Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
-|Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.|
-|Azure-CLI| U moet installeren de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) op de host.|
-|Computer Vision-API-resource| Als u wilt verwerken van gescande documenten en afbeeldingen, een **Computer Vision-resource** is vereist. U hebt toegang tot de **tekst herkennen** functie als een van beide een Azure-resource (REST-API of SDK) of als een `cognitive-services-recognize-text` [container](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). De kosten voor de gebruikelijke facturering van toepassing. <br><br>U moet doorgeven in de sleutel en de facturering-eindpunt voor uw specifieke Computer Vision-resource (Azure-cloud of Cognitive Services-container). Gebruik deze sleutel en het eindpunt van de facturering als {COMPUTER_VISION_API_KEY} en {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Als u de  **`cognitive-services-recognize-text` container**, zorg ervoor dat:<br><br>* Uw Computer Vision-sleutel voor de herkenning van formulier-container is de sleutel die is opgegeven in de Computer Vision `docker run` opdracht voor het `cognitive-services-recognize-text` container.<br>* Uw facturering-eindpunt is het eindpunt van de container, zoals `https://localhost:5000`. Als u de Computer Vision- en het formulier herkenning containers samen op dezelfde host, ze kunnen niet beide worden gestart met de standaardpoort `5000`.  |  
-|Formulier herkenning resource |Als u wilt deze containers gebruiken, moet u het volgende hebben:<br><br>Een _formulier herkenning_ Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op de Azure-portal **formulier herkenning** overzicht en sleutels pagina's en zijn vereist voor het starten van de container.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
+|Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> Op Windows, moet Docker ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
+|Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën en kennis van basic `docker` opdrachten.|
+|De Azure CLI| Installeer de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) op de host.|
+|Computer Vision-API-resource| Voor het verwerken van gescande documenten en afbeeldingen, moet u een Computer Vision-resource. U hebt toegang tot de functie tekst herkennen als een Azure resource (de REST-API of SDK) of een *cognitive services-herkennen-tekst* [container](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). De kosten voor de gebruikelijke facturering van toepassing. <br><br>In de sleutel en de facturering eindpunten doorgeven voor de Computer Vision-bron (Azure-cloud of Cognitive Services-container). Gebruik deze sleutel en het eindpunt van de facturering als {COMPUTER_VISION_API_KEY} en {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Als u de *cognitive services-herkennen-tekst* container, zorg ervoor dat:<br><br>Uw Computer Vision-sleutel voor de herkenning van formulier-container is de sleutel die is opgegeven in de Computer Vision `docker run` opdracht voor het *cognitive services-herkennen-tekst* container.<br>Uw facturering-eindpunt is van de container-eindpunt (bijvoorbeeld `https://localhost:5000`). Als u de Computer Vision-container en de container formulier herkenning samen op dezelfde host, ze kunnen niet beide worden gestart met de standaardpoort *5000*.  |  
+|Formulier herkenning resource |Voor het gebruik van deze containers, moet u het volgende hebben:<br><br>Een _formulier herkenning_ Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op de Azure-portal **formulier herkenning overzicht** en **formulier herkenning overzicht sleutels** pagina's, en beide waarden zijn vereist voor het starten van de container.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Aanvraag voor toegang tot de container registry
 
-U moet eerst invullen en verzenden de [Cognitive Services formulier herkenning Containers aanvraagformulier](https://aka.ms/FormRecognizerRequestAccess) toegang vragen tot de container. Dit wordt ook aangemeld voor Computer Vision. U hoeft niet te registreren voor het aanvraagformulier voor de Computer Vision-afzonderlijk. 
+U moet eerst invullen en verzenden de [Cognitive Services formulier herkenning Containers toegang krijgen tot aanvraagformulier](https://aka.ms/FormRecognizerRequestAccess) toegang vragen tot de container. In dat geval ook ondertekent u voor Computer Vision. U hoeft niet te registreren voor het aanvraagformulier voor de Computer Vision-afzonderlijk. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -51,7 +53,7 @@ U moet eerst invullen en verzenden de [Cognitive Services formulier herkenning C
 
 ### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
-De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen toewijzen voor elke container formulier herkenning.
+De minimale en aanbevolen CPU-kernen en geheugen toewijzen voor elke container formulier herkenning worden in de volgende tabel beschreven:
 
 | Container | Minimum | Aanbevolen |
 |-----------|---------|-------------|
@@ -59,15 +61,14 @@ De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen to
 
 * Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
 * TPS - transacties per seconde
-
-Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
+* Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
 
 > [!Note]
-> De minimale en aanbevolen waarden worden op basis van Docker-limieten en *niet* resources van de host de computer.
+> De minimale en aanbevolen waarden zijn gebaseerd op de Docker-limieten en *niet* resources van de host de computer.
 
-## <a name="get-the-container-image-with-docker-pull-command"></a>De installatiekopie van de container met docker pull opdracht ophalen
+## <a name="get-the-container-image-with-the-docker-pull-command"></a>Ophalen van de installatiekopie van de container met de docker pull-opdracht
 
-Containerinstallatiekopieën voor herkenning van formulier zijn beschikbaar.
+Containerinstallatiekopieën voor herkenning van formulier zijn beschikbaar in de volgende opslagplaats:
 
 | Container | Opslagplaats |
 |-----------|------------|
@@ -81,10 +82,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ### <a name="docker-pull-for-the-form-recognizer-container"></a>Docker pull voor de herkenning van formulier-container
 
 #### <a name="form-recognizer"></a>Form Recognizer
+
+Als u de container formulier herkenning, gebruikt u de volgende opdracht uit:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
@@ -92,21 +94,21 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recogn
 
 ## <a name="how-to-use-the-container"></a>Het gebruik van de container
 
-Als de container op de [hostcomputer](#the-host-computer), de volgende procedure gebruiken om te werken met de container.
+Nadat de container wordt op de [hostcomputer](#the-host-computer), de volgende procedure gebruiken om te werken met de container.
 
-1. [Uitvoeren van de container](#run-the-container-with-docker-run), met de facturering instellingen vereist, maar niet in gebruik. Meer [voorbeelden](form-recognizer-container-configuration.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar.
+1. [Uitvoeren van de container](#run-the-container-by-using-the-docker-run-command), met de facturering instellingen vereist, maar niet in gebruik. Meer [voorbeelden](form-recognizer-container-configuration.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar.
 1. [Query van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>De container met uitvoeren `docker run`
+## <a name="run-the-container-by-using-the-docker-run-command"></a>De container uitvoeren met behulp van de docker opdracht uitvoeren
 
 Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren op een van de drie containers. De opdracht maakt gebruik van de volgende parameters:
 
 | Tijdelijke aanduiding | Value |
 |-------------|-------|
-|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de pagina van de Azure portal-formulier herkenning sleutels.  |
-|{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de pagina van de vorm herkenning overzicht van de Azure portal.|
-|{COMPUTER_VISION_API_KEY}| De sleutel is beschikbaar op de Computer Vision-API-sleutels-pagina van de Azure portal.|
-|{COMPUTER_VISION_ENDPOINT_URI}|De facturering-eindpunt. Als u van een cloud-gebaseerde Computer Vision-resource gebruikmaakt, is de URI-waarde is beschikbaar op de Computer Vision-API-overzicht-pagina van de Azure portal. Als u een `cognitive-services-recognize-text` container, gebruiken de facturering eindpunt-URL die is doorgegeven aan de container in de `docker run` opdracht.|
+|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container. Het is beschikbaar in Azure portal **formulier herkenning sleutels** pagina.  |
+|{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de Azure-portal **formulier herkenning overzicht** pagina.|
+|{COMPUTER_VISION_API_KEY}| De sleutel beschikbaar is op de Azure-portal **Computer Vision-API-sleutels** pagina.|
+|{COMPUTER_VISION_ENDPOINT_URI}|De facturering-eindpunt. Als u een cloud-gebaseerde Computer Vision-resource, de URI-waarde is beschikbaar op de Azure-portal **Computer Vision-API-overzicht** pagina. Als u een `cognitive-services-recognize-text` container, gebruikt u de facturering eindpunt-URL die wordt doorgegeven aan de container in de `docker run` opdracht.|
 
 Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
 
@@ -126,17 +128,17 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 
 Met deze opdracht:
 
-* Een formulier herkenning container kan worden uitgevoerd van de container-installatiekopie
-* 2 CPU-kernen en 8 GB (Gigabyte) aan geheugen worden toegewezen
-* Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
+* Hiermee wordt een container formulier herkenning installatiekopie van de container.
+* 2 CPU-kernen en 8 GB (Gigabyte) aan geheugen worden toegewezen.
+* Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container.
 * De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer.
-* Hiermee koppelt u een /input en een volume/output naar de container
+* Hiermee wordt een /input en een volume/output naar de container gekoppeld.
 
 [!INCLUDE [Running multiple containers on the same host H2](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ### <a name="run-separate-containers-as-separate-docker-run-commands"></a>Afzonderlijke containers worden uitgevoerd als afzonderlijke docker-opdrachten uitvoeren
 
-Voor de combinatie van het formulier herkenning en herkenning van tekst die lokaal worden gehost op dezelfde host, volgt u twee voorbeeld van de Docker CLI-opdrachten.
+Voor de combinatie van formulier herkenning en herkenning van tekst die lokaal wordt gehost op dezelfde host worden opgenomen, gebruikt u de volgende twee voorbeeld Docker-CLI-opdrachten:
 
 De eerste container worden uitgevoerd op poort 5000. 
 
@@ -166,7 +168,7 @@ Elke volgende container moet zich op een andere poort.
 
 ### <a name="run-separate-containers-with-docker-compose"></a>Voer afzonderlijke containers met Docker Compose
 
-De combinatie van het formulier herkenning en herkenning van tekst die lokaal worden gehost op dezelfde host, volgt een voorbeeld van de Docker Compose YAML-bestand. De tekst-herkenning `{COMPUTER_VISION_API_KEY}` moet hetzelfde zijn voor zowel de `formrecognizer` en `ocr` containers. De `{COMPUTER_VISION_ENDPOINT_URI}` wordt alleen gebruikt in de `ocr` container omdat de `formrecognizer` container maakt gebruik van de `ocr` naam en poort. 
+Zie voor de herkenning van formulier en tekst herkenning combinatie die lokaal wordt gehost op dezelfde host, het volgende voorbeeld Docker Compose YAML-bestand. De tekst-herkenning `{COMPUTER_VISION_API_KEY}` moet hetzelfde zijn voor zowel de `formrecognizer` en `ocr` containers. De `{COMPUTER_VISION_ENDPOINT_URI}` wordt uitsluitend gebruikt in de `ocr` container, omdat de `formrecognizer` container maakt gebruik van de `ocr` naam en poort. 
 
 ```docker
 version: '3.3'
@@ -218,7 +220,7 @@ services:
 
 
 > [!IMPORTANT]
-> De `Eula`, `Billing`, en `ApiKey` , evenals `FormRecognizer:ComputerVisionApiKey` en `FormRecognizer:ComputerVisionEndpointUri` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
+> De `Eula`, `Billing`, en `ApiKey`, evenals de `FormRecognizer:ComputerVisionApiKey` en `FormRecognizer:ComputerVisionEndpointUri` opties moet worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start. Zie voor meer informatie, [facturering](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het eindpunt voorspelling van de container
 
@@ -229,7 +231,7 @@ services:
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-De container biedt eindpunt van de query op basis van websocket API's, die toegankelijk zijn via [formulier herkenning services SDK-documentatie](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
+De container biedt op basis van websocket query eindpunt API's, die u via toegang tot [formulier herkenning services SDK-documentatie](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 Het formulier herkenning SDK gebruikt standaard de online services. Voor het gebruik van de container, moet u de van de initialisatiemethode wijzigen. Zie de onderstaande voorbeelden.
 
@@ -241,7 +243,7 @@ Wijzigen van het gebruik van deze aanroep van de initialisatie van Azure-cloud:
 var config = FormRecognizerConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-met behulp van het eindpunt van de container op deze aanroep:
+op deze aanroep waarin het eindpunt van de container:
 
 ```C#
 var config = FormRecognizerConfig.FromEndpoint("ws://localhost:5000/formrecognizer/v1.0-preview/custom", "YourSubscriptionKey");
@@ -249,13 +251,13 @@ var config = FormRecognizerConfig.FromEndpoint("ws://localhost:5000/formrecogniz
 
 #### <a name="for-python"></a>Voor Python
 
-In plaats van deze aanroep van de initialisatie van Azure-cloud
+Wijzigen van het gebruik van deze aanroep van de initialisatie van Azure-cloud:
 
 ```python
 formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=formrecognizer_key, region=service_region)
 ```
 
-met behulp van het eindpunt van de container op deze aanroep:
+op deze aanroep waarin het eindpunt van de container:
 
 ```python
 formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=formrecognizer_key, endpoint="ws://localhost:5000/formrecognizer/v1.0-preview/custom"
@@ -263,7 +265,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-De container biedt REST-eindpunt API's vindt u [hier](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
+De container biedt REST-eindpunt API's, die u kunt vinden op de [Form-herkenning API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel) pagina.
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -275,17 +277,17 @@ De container biedt REST-eindpunt API's vindt u [hier](https://westus2.dev.cognit
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Wanneer u de container uitvoert, wordt de container gebruikt **stdout** en **stderr** naar uitvoerinformatie die is het handig om het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container.
+Wanneer u de container uitvoert, wordt de container gebruikt **stdout** en **stderr** naar uitvoerinformatie die nuttig is voor het oplossen van problemen die zich voordoen bij het starten of uitvoeren van de container.
 
 ## <a name="billing"></a>Billing
 
-Het verzenden van de containers formulier herkenning factuurgegevens naar Azure, met behulp van een _formulier herkenning_ resource voor uw Azure-account.
+De containers formulier herkenning factureringsgegevens verzenden naar Azure met behulp van een _formulier herkenning_ resource voor uw Azure-account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](form-recognizer-container-configuration.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video courses -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -296,13 +298,13 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Formulier herkenning biedt een Linux-container voor Docker.
 * Containerinstallatiekopieën worden gedownload van het privé containerregister in Azure.
 * Containerinstallatiekopieën uitvoeren in Docker.
-* U kunt de REST-API of de SDK gebruiken om aan te roepen van bewerkingen in formulier herkenning container door de host-URI van de container op te geven.
-* Bij het instantiëren van een container, moet u informatie over facturering opgeven.
+* U kunt de REST-API of de REST SDK gebruiken om aan te roepen van bewerkingen in formulier herkenning container door de host-URI van de container op te geven.
+* Wanneer u een container, moet u de factureringsgegevens opgeven.
 
 > [!IMPORTANT]
->  Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (zoals de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.
+>  Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden gegevens van de klant (bijvoorbeeld, de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Beoordeling [containers configureren](form-recognizer-container-configuration.md) voor configuratie-instellingen
-* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)
+* Beoordeling [containers configureren](form-recognizer-container-configuration.md) voor configuratie-instellingen.
+* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md).

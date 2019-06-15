@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417580"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Aanbevelingen voor prestaties voor SQL-Database
@@ -77,9 +77,9 @@ Nadat u deze aanbeveling toepast, kan deze geforceerde parameterisering binnen e
 
 De aanbeveling voor 'Schemaprobleem op te lossen' wordt weergegeven wanneer de service Azure SQL Database meldingen een anomalie in het nummer van de schema-fouten met betrekking tot SQL die op uw SQL-database plaatsvinden. De volgende tabel ziet u de fouten die zijn gerelateerd aan schema problemen:
 
-| SQL-foutcode | Bericht |
+| SQL-foutcode | Message |
 | --- | --- |
-| 201 |Procedure of functie '*'wordt verwacht dat de parameter'*', die niet is opgegeven. |
+| 201 |Procedure of functie ' *'wordt verwacht dat de parameter'* ', die niet is opgegeven. |
 | 207 |Ongeldige kolomnaam ' *'. |
 | 208 |Ongeldige objectnaam ' *'. |
 | 213 |Kolomnaam of -nummer van opgegeven waarden komt niet overeen met tabeldefinitie. |

@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751772"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Werk van anderen kopiëren om gegevenswetenschap uit te voeren
@@ -52,7 +52,7 @@ Een van de handelsgeheimen van gegevenswetenschap is ophalen van andere gebruike
 
 Microsoft heeft een cloud-gebaseerde service met de naam [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) dat kunt u gratis te proberen. Het biedt u aan een werkruimte waar u kunt experimenteren met verschillende machine learning-algoritmen, en wanneer u uw oplossing uitstekend hebt, kunt u deze starten als een webservice.
 
-Een deel van deze service is iets met de naam de  **[Azure AI Gallery](https://gallery.azure.ai/)**. Het bevat resources, met inbegrip van een verzameling van Azure Machine Learning Studio-experimenten of modellen die mensen hebben gemaakt en heeft bijgedragen zodat anderen deze kunnen gebruiken. Deze experimenten zijn een uitstekende manier om gebruikmaken van de gedachte en harde werk van anderen aan de slag te gaan op uw eigen oplossingen. Iedereen is Welkom bij bladert.
+Een deel van deze service is iets met de naam de  **[Azure AI Gallery](https://gallery.azure.ai/)** . Het bevat resources, met inbegrip van een verzameling van Azure Machine Learning Studio-experimenten of modellen die mensen hebben gemaakt en heeft bijgedragen zodat anderen deze kunnen gebruiken. Deze experimenten zijn een uitstekende manier om gebruikmaken van de gedachte en harde werk van anderen aan de slag te gaan op uw eigen oplossingen. Iedereen is Welkom bij bladert.
 
 ![Azure AI-galerie](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 

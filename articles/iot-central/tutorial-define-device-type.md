@@ -3,18 +3,18 @@ title: Een nieuw apparaattype definiëren in Azure IoT Central | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u als bouwer een nieuw apparaattype kunt definiëren in uw Azure IoT Central-toepassing. U definieert de telemetrie, status, eigenschappen en instellingen voor uw type.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54884728533aeff0472ed99660be00478227fbcd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056778"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing
 
@@ -307,7 +307,7 @@ U gebruikt *toepassingseigenschappen* om gegevens over uw apparaat in de toepass
     | Weergavenaam         | Laatste servicedatum       |
     | Veldnaam           | Servicedatum             |
     | Initiële waarde        | 1/1/2019                |
-    | Beschrijving          | Laatste servicebeurt           |
+    | Description          | Laatste servicebeurt           |
 
     ![De apparaateigenschappen configureren](./media/tutorial-define-device-type/configureproperties2.png)
 
@@ -323,7 +323,7 @@ U gebruikt *toepassingseigenschappen* om gegevens over uw apparaat in de toepass
     | -------------------- | ----------------------- |
     | Weergavenaam         | Firmwareversie        |
     | Veldnaam           | firmwareversie         |
-    | Gegevenstype            | tekst                    |
+    | Gegevenstype            | text                    |
     | Description          | De firmwareversie van de airconditioner |
 
     ![Firmwareversie configureren](./media/tutorial-define-device-type/configureproperties3.png)
@@ -338,7 +338,7 @@ U gebruikt *toepassingseigenschappen* om gegevens over uw apparaat in de toepass
     | -------------------- | ----------------------- |
     | Weergavenaam         | Serienummer           |
     | Veldnaam           | Serienummer            |
-    | Gegevenstype            | tekst                    |
+    | Gegevenstype            | text                    |
     | Description          | Het serienummer van de airconditioner  |
 
     ![Het serienummer configureren](./media/tutorial-define-device-type/configureproperties4.png)
@@ -363,7 +363,7 @@ U kunt _opdrachten_ gebruiken om een operator in te schakelen om opdrachten rech
     | Weergavenaam         | Opdracht Echo    |
     | Veldnaam           | echo            |
     | Standaardtime-out      | 30              |
-    | Weergavetype         | tekst            |
+    | Weergavetype         | text            |
     | Description          | Apparaatopdracht  |  
 
     U kunt aanvullende invoer aan de opdracht toevoegen door te selecteren **+** voor **invoer velden**.

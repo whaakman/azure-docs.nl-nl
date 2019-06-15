@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237661"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
@@ -120,7 +120,7 @@ De volgende tabel ziet u enkele voorbeelden van deze formules voor de ingerichte
 |10,240      | 10,240  | Maximaal 30,720  | 675 | 450   |
 |33,792      | 33,792  | Maximaal 100.000 | 2,088 | 1,392   |
 |51,200      | 51,200  | Maximaal 100.000 | 3,132 | 2,088   |
-|102,400     | 100.000 | Maximaal 100.000 | 6,204 | 4,136   |
+|102,400     | 100\.000 | Maximaal 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Bursting
 

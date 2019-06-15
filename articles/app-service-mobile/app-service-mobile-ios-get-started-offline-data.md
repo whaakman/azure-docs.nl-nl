@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112647"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Offline synchroniseren met mobiele iOS-apps inschakelen
@@ -147,7 +147,7 @@ Open **QSDataModel.xcdatamodeld**. Vier tabellen zijn gedefinieerd--drie die wor
   * TodoItem: Slaat de to-do-items. De systeemkolommen **createdAt**, **updatedAt**, en **versie** zijn optioneel Systeemeigenschappen.
 
 > [!NOTE]
-> De Mobile Apps SDK reserveert kolomnamen die met beginnen '**``**'. Gebruik dit voorvoegsel niet met iets anders dan systeemkolommen. De kolomnamen zijn anders gewijzigd wanneer u de externe back-end gebruikt.
+> De Mobile Apps SDK reserveert kolomnamen die met beginnen ' **``** '. Gebruik dit voorvoegsel niet met iets anders dan systeemkolommen. De kolomnamen zijn anders gewijzigd wanneer u de externe back-end gebruikt.
 >
 >
 
@@ -164,7 +164,7 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | id | Geheel getal 64 |
 | itemId | String |
 | properties | Binaire gegevens |
-| tabel | String |
+| table | String |
 | tableKind | Geheel getal 16 |
 
 
@@ -188,7 +188,7 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | id |String |
 | key |String |
 | keyType |Geheel getal 64 |
-| tabel |String |
+| table |String |
 | value |String |
 
 ### <a name="data-table"></a>Gegevenstabel
@@ -199,10 +199,10 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | --- | --- | --- |
 | id | Tekenreeks, gemarkeerd als vereist |primaire sleutel in de externe opslag |
 | Voltooien | Boolean | Veld to-do-item |
-| tekst |String |Veld to-do-item |
+| text |String |Veld to-do-item |
 | createdAt | Date | (optioneel) Toegewezen aan **createdAt** systeemeigenschap |
 | updatedAt | Date | (optioneel) Toegewezen aan **updatedAt** systeemeigenschap |
-| versie | String | (optioneel) Voor het detecteren van conflicten, toegewezen aan versie |
+| version | String | (optioneel) Voor het detecteren van conflicten, toegewezen aan versie |
 
 ## <a name="setup-sync"></a>Het gedrag van de synchronisatie van de app wijzigen
 In deze sectie maakt wijzigen u de app zodat deze wordt niet gesynchroniseerd op de app start of als u invoegen en bijwerken van items. Deze synchroniseert alleen als de knop Vernieuwen gebaar wordt uitgevoerd.

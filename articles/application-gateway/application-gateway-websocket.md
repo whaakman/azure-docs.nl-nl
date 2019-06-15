@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831233"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Overzicht van de WebSocket-ondersteuning in Application Gateway
 
-Application Gateway biedt systeemeigen ondersteuning voor WebSocket over alle gateway-grootten. Er is geen door de gebruiker configureerbare instelling om selectief WebSocket-ondersteuning in of uit te schakelen. 
+Application Gateway biedt systeemeigen ondersteuning voor WebSocket in gateways van alle grootten. Er is geen door de gebruiker configureerbare instelling om selectief WebSocket-ondersteuning in of uit te schakelen. 
 
 WebSocket-protocol in gestandaardiseerd [RFC6455](https://tools.ietf.org/html/rfc6455) een full-duplex communicatie tussen een server en een client via een langlopende TCP-verbinding mogelijk maakt. Deze functie kunt voor een interactiever communicatie tussen de webserver en de client, die in twee richtingen zonder de noodzaak voor polling als vereiste in op basis van HTTP-implementaties worden kan. WebSocket heeft lage overhead in tegenstelling tot HTTP en dezelfde TCP-verbinding voor meerdere aanvragen/antwoorden, wat resulteert in een efficiënter gebruik van resources kunt hergebruiken. WebSocket-protocollen zijn ontworpen om te werken via traditionele HTTP-poorten 80 en 443.
 

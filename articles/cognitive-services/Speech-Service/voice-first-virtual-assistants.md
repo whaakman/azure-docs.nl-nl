@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
 ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603480"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Over aangepaste spraak op de eerste virtuele assistenten Preview-versie
@@ -45,7 +45,7 @@ Voorbeeldcode voor het maken van een stem op de eerste virtuele assistent is bes
 * [Snelstartgids: voice-first virtuele assistenten (C#)](quickstart-virtual-assistant-csharp-uwp.md)
 * [Snelstartgids: stem op de eerste virtuele assistenten (Java)](quickstart-virtual-assistant-java-jre.md)
 
-## <a name="customization"></a>Aanpassen
+## <a name="customization"></a>Aanpassing
 
 Stem op de eerste virtuele assistenten gebouwd met behulp van Azure Speech Services kunnen gebruiken het volledige bereik van aanpassingsopties die beschikbaar zijn voor [spraak-naar-tekst](speech-to-text.md), [tekst naar spraak](text-to-speech.md), en [aangepaste trefwoord selectie](speech-devices-sdk-create-kws.md).
 

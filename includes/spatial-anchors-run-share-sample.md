@@ -4,18 +4,16 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46a2b18309851bbe2934980137a53d2de6f6efc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681189"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135358"
 ---
-## <a name="set-up-your-device"></a>Uw apparaat instellen
+## <a name="set-up-your-device-in-unity"></a>Instellen van uw apparaat in Unity
 
-Open in Unity, het project in de `Unity` map.
-
-![Unity-venster](./media/spatial-anchors-unity/unity-window.png)
+[!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
 ### <a name="set-up-an-android-device"></a>Een Android-apparaat instellen
 
@@ -43,20 +41,26 @@ Meld u aan op uw Android-apparaat en deze op uw computer verbinding maken met be
 
 Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
-Onder **schermen In bouwt**, schakel het selectievakje naast de `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scène en schakel het selectievakje markeert van alle andere schermen.
+Onder **schermen In bouwt**, zorg ervoor dat alle schermen hebben een vinkje naast.
 
 Zorg ervoor dat **Project exporteren** geen een vinkje. Selecteer **bouwen en uitvoeren**. U wordt gevraagd om op te slaan uw `.apk` bestand. U kunt een willekeurige naam voor het kiezen.
 
-Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. Het eerste scenario maakt u een anker die later op hetzelfde apparaat of op een ander account worden kan. Het tweede scenario, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers. Nadat u uw scenario kiest, leidt de app u verdere instructies om wat te doen. Bijvoorbeeld: u wordt gevraagd uw apparaat voor het verzamelen van omgevingsgegevens herinrichten. Later op, zult u plaatst u een anker in de hele wereld, wordt geduld terwijl deze wordt geüpload, enzovoort.
+Zodra de app wordt gestart, in de **kiest u een Demo** dialoogvenster, gebruikt u de pijl naar links of rechts selecteren de **LocalShare** optie en tik op **gaan!** . Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**.
+
+Het eerste scenario maakt u een anker die later op hetzelfde apparaat of op een ander account worden kan.
+Het tweede scenario, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers. Nadat u uw scenario kiest, leidt de app u verdere instructies om wat te doen. Bijvoorbeeld: u wordt gevraagd uw apparaat voor het verzamelen van omgevingsgegevens herinrichten. U gaat later plaatst u een anker in de hele wereld, wacht op te slaan en enzovoort.
 
 ### <a name="deploy-to-an-ios-device"></a>Implementeren op een iOS-apparaat
 
 Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
-Onder **schermen In bouwt**, schakel het selectievakje naast de `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scène en schakel het selectievakje markeert van alle andere schermen.
+Onder **schermen In bouwt**, zorg ervoor dat alle schermen hebben een vinkje naast.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. Het eerste scenario maakt u een anker die later op hetzelfde apparaat of op een ander account worden kan. Het tweede scenario, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers. Nadat u uw scenario kiest, leidt de app u verdere instructies om wat te doen. Bijvoorbeeld: u wordt gevraagd uw apparaat voor het verzamelen van omgevingsgegevens herinrichten. Later op, zult u plaatst u een anker in de hele wereld, wordt geduld terwijl deze wordt geüpload, enzovoort.
+Zodra de app wordt gestart, in de **kiest u een Demo** dialoogvenster, gebruikt u de pijl naar links of rechts selecteren de **LocalShare** optie en tik op **gaan!** . Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**.
+
+Het eerste scenario maakt u een anker die later op hetzelfde apparaat of op een ander account worden kan.
+Het tweede scenario, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers. Nadat u uw scenario kiest, leidt de app u verdere instructies om wat te doen. Bijvoorbeeld: u wordt gevraagd uw apparaat voor het verzamelen van omgevingsgegevens herinrichten. U gaat later plaatst u een anker in de hele wereld, wacht op te slaan en enzovoort.
 
 In Xcode, stopt u de app door te selecteren **stoppen**.

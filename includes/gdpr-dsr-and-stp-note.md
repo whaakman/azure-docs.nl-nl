@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 20eb51aea676db0feaf21c2c7889f6cf93206709
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f2927bb10c282218e378f0f12a22cb1bfcdc9154
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113376"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112962"
 ---
->[!Note] 
->Als u geïnteresseerd in weergeven of verwijderen van persoonlijke gegevens bent, raadpleegt u de [Azure Data Subject Requests de AVG](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure) artikel. Zie het [gedeelte AVG van de Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted) als u op zoek bent naar algemene informatie over de AVG.
+>[!NOTE] 
+>Zie voor meer informatie over het weergeven of verwijderen van persoonsgegevens [Azure Data Subject Requests de AVG](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure). Zie voor meer informatie over GDPR, de [GDPR-sectie van de Service Trust-portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

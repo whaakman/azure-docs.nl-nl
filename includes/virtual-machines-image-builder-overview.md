@@ -6,10 +6,10 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111458"
 ---
 Installatiekopieën van gestandaardiseerde virtuele machines (VM) kunnen organisaties om te migreren naar de cloud en zorgen voor consistentie in de implementaties. Afbeeldingen bevatten doorgaans vooraf gedefinieerde beveiliging en configuratie-instellingen en software die nodig zijn. Instellen van uw eigen installatiekopieën pijplijn vereist tijd, infrastructuur en configuratie, maar met Azure VM Image Builder alleen bieden een eenvoudige configuratie met een beschrijving van uw installatiekopie, het verzenden naar de service en de installatiekopie is gebouwd en gedistribueerd.
@@ -20,7 +20,7 @@ De Azure VM Image Builder (Azure Image Builder) kunt u beginnen met een Windows 
 > Azure Image Builder is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-## <a name="preview-features"></a>Evaluatiefuncties
+## <a name="preview-features"></a>Preview-functies
 
 Voor de Preview-versie, worden deze functies worden ondersteund:
 
@@ -51,7 +51,7 @@ AIB ondersteunt basisinstallatiekopieën OS voor Azure Marketplace:
 - Windows 2019
 
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
 
 ![Concepttekening van een Azure-functie voor installatiekopieën maken](./media/virtual-machines-image-builder-overview/image-builder.png)

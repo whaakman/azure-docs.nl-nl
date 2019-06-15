@@ -10,10 +10,10 @@ ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 4b47af857fada453e36fcb0c23e6d89e5ad90e42
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154346"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Azure Storage gebruiken met een Hudson CI-oplossing
@@ -111,7 +111,7 @@ Voor instructie-doeleinden, eerst moet we een taak voor het maken van meerdere b
 8. Klik op **nieuwe container openbaar maken standaard** voor dit voorbeeld. (Als u een privé-container gebruiken wilt, moet u het maken van een shared access signature om toegang te verlenen. Dat is buiten het bereik van dit artikel. U kunt meer informatie over handtekeningen voor gedeelde toegang op [met behulp van Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
 9. [Optioneel] Klik op **schone container voordat u uploadt** als u wilt dat de container van de inhoud van worden gewist voordat build-artefacten worden geüpload (laat het vakje uitgeschakeld als u niet wilt opschonen van de inhoud van de container).
 10. Voor **lijst van artefacten uploaden**, voer **tekst/*.txt**.
-11. Voor **algemene virtuele pad voor geüploade artefacten**, voer **${bouwen\_ID} / ${bouwen\_getal}**.
+11. Voor **algemene virtuele pad voor geüploade artefacten**, voer **${bouwen\_ID} / ${bouwen\_getal}** .
 12. Klik op **opslaan** uw instellingen op te slaan.
 13. Klik in het dashboard Hudson **Build Now** om uit te voeren **MyJob**. Bekijk de uitvoer van de console voor status. Statusberichten voor Azure Storage worden opgenomen in de console-uitvoer wanneer de na build-actie start voor het uploaden van de build-artefacten.
 14. Na voltooiing van de taak, kunt u de build-artefacten controleren door het openen van de openbare blob.
@@ -134,7 +134,7 @@ De volgende stappen laten zien hoe het configureren van een build-stap om items 
 1. In de **bouwen** sectie van de taakconfiguratie van de, klikt u op **build-stap toevoegen** en kies **downloaden uit Azure Blob storage**.
 2. Voor **opslagaccountnaam**, selecteer het opslagaccount te gebruiken.
 3. Voor **containernaam**, geef de naam van de container met de blobs die u wilt downloaden. U kunt omgevingsvariabelen gebruiken.
-4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\\*** geeft alle blobs waarvan de namen met beginnen **project**.
+4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\\** * geeft alle blobs waarvan de namen met beginnen **project**.
 5. [Optioneel] Voor **downloadpad**, geef het pad op de Hudson machine waar u bestanden wilt downloaden uit Azure Blob storage. Omgevingsvariabelen kunnen ook worden gebruikt. (Als u een waarde op voor geen opgeeft **downloadpad**, de bestanden van Azure Blob-opslag naar de werkruimte van de taak zal worden gedownload.)
 
 Als u extra items die u wilt downloaden uit Azure Blob storage hebt, kunt u extra build-stappen kunt maken.
@@ -153,7 +153,7 @@ Het volgende biedt een overzicht van de onderdelen van de Blob-service.
   
     (De bovenstaande indeling van toepassing op de openbare Azure-cloud. Als u van een andere Azure-cloud gebruikmaakt, gebruikt u het eindpunt in de [Azure Portal](https://portal.azure.com) om te bepalen van uw URL-eindpunt.)
   
-    In de bovenstaande indeling `storageaccount` vertegenwoordigt de naam van uw opslagaccount `container_name` vertegenwoordigt de naam van uw container en `blob_name` vertegenwoordigt de naam van de blob, respectievelijk. In de containernaam van de, kunt u meerdere paden, gescheiden door een slash hebben **/**. De naam van de voorbeeld-container in deze zelfstudie is **MyJob**, en **${bouwen\_ID} / ${bouwen\_getal}** is gebruikt voor het algemene virtueel pad, wat resulteert in de blob met een URL van de de volgende vorm:
+    In de bovenstaande indeling `storageaccount` vertegenwoordigt de naam van uw opslagaccount `container_name` vertegenwoordigt de naam van uw container en `blob_name` vertegenwoordigt de naam van de blob, respectievelijk. In de containernaam van de, kunt u meerdere paden, gescheiden door een slash hebben **/** . De naam van de voorbeeld-container in deze zelfstudie is **MyJob**, en **${bouwen\_ID} / ${bouwen\_getal}** is gebruikt voor het algemene virtueel pad, wat resulteert in de blob met een URL van de de volgende vorm:
   
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 

@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64682489"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager gebruiken om te verbinden en beheren van StorSimple-apparaten
 ## <a name="overview"></a>Overzicht
 U kunt knooppunten gebruiken in de StorSimple Snapshot Manager **bereik** deelvenster om te controleren of de geïmporteerde gegevens van de StorSimple-apparaat en vernieuwen van verbonden apparaten. Bovendien, als u klikt op de **apparaten** knooppunt, ziet u een lijst van verbonden apparaten en de bijbehorende statusinformatie in de **resultaten** deelvenster.
 
-![Aangesloten apparaten](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
+![Verbonden apparaten](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
 **Afbeelding 1: Verbonden apparaat StorSimple Snapshot Manager** 
 
@@ -35,7 +35,7 @@ Afhankelijk van uw **weergave** selectie heeft de **resultaten** deelvenster zie
 |:--- |:--- |
 | Name |De naam van het apparaat zoals geconfigureerd in de klassieke Azure portal |
 | Model |Het modelnummer van het apparaat |
-| Versie |De versie van de software is geïnstalleerd op het apparaat |
+| Version |De versie van de software is geïnstalleerd op het apparaat |
 | Status |Of het apparaat beschikbaar is |
 | Laatste synchronisatie |Datum en tijd wanneer het apparaat het laatst is gesynchroniseerd |
 | Serienummer |Het serienummer van het apparaat |

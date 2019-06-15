@@ -10,10 +10,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65793625"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Een queryparameter facet is ingesteld op een veld en afhankelijk van het gegevenstype, kan worden verder als parameters gebruikt met door komma's gescheiden lijst met `count:<integer>`, `sort:<>`, `interval:<integer>`, en `values:<list>`. Een lijst met waarden wordt ondersteund voor numerieke gegevens bij het instellen van bereiken. Zie [documenten zoeken (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor informatie over het gebruik.
 
-Samen met de facetten, moet de aanvraag die door uw toepassing ook filters om de set candidate documenten op basis van de selectie van een facet waarde vast te maken. Facetnavigatie biedt voor een fiets-store, of er aanwijzingen op vragen zoals *welke kleuren, fabrikanten en typen fietsen beschikbaar zijn?*. Filteren van antwoorden op vragen zoals *mountainbikes, welke exacte fietsen zijn rood, in dit bereik te prijs?*. Wanneer u klikt op "Rood" om aan te geven dat alleen de rode producten moeten worden weergegeven, de volgende query die de toepassing verzendt bevat `$filter=Color eq ‘Red’`.
+Samen met de facetten, moet de aanvraag die door uw toepassing ook filters om de set candidate documenten op basis van de selectie van een facet waarde vast te maken. Facetnavigatie biedt voor een fiets-store, of er aanwijzingen op vragen zoals *welke kleuren, fabrikanten en typen fietsen beschikbaar zijn?* . Filteren van antwoorden op vragen zoals *mountainbikes, welke exacte fietsen zijn rood, in dit bereik te prijs?* . Wanneer u klikt op "Rood" om aan te geven dat alleen de rode producten moeten worden weergegeven, de volgende query die de toepassing verzendt bevat `$filter=Color eq ‘Red’`.
 
 Het volgende codefragment uit de `JobsSearch.cs` pagina wordt de geselecteerde functie aan het filter toegevoegd als u een waarde in het facet Business titel selecteert.
 

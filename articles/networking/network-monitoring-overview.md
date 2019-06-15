@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
 ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620428"
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
@@ -41,11 +41,11 @@ Prestatiemeter, ExpressRoute-bewaking en Connectiviteitsmonitor Service mogelijk
 
 Prestatiemeter maakt deel uit van NPM en netwerkbewaking is voor de cloud, hybride en on-premises omgevingen. U kunt de netwerkconnectiviteit controleren voor externe filialen en bijkantoren, WINKELLOCATIES, datacentrums en clouds. U kunt netwerkproblemen detecteren voordat uw gebruikers klagen. De belangrijkste voordelen zijn:
 
-* Verlies en latentie bewaken in verschillende subnetten en waarschuwingen instellen
+* Verlies en latentie controleren in verschillende subnetten en waarschuwingen instellen
 * Alle paden (inclusief redundante paden) op het netwerk controleren
 * Problemen met tijdelijke en point-in-time-netwerk, die moeilijk te repliceren
 * Het specifieke segment van het netwerk, die verantwoordelijk is voor de verslechterde prestaties bepalen
-* De status van het netwerk bewaken, zonder dat een SNMP nodig is
+* Controleer de status van het netwerk, zonder de noodzaak voor SNMP
 
 ![NPM topologiekaart weer](./media/network-monitoring-overview/npm-topology-map.png) 
 
@@ -91,7 +91,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 * [Network Performance Monitor configureren voor het bewaken van Service-eindpunten](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Blogbericht](https://aka.ms/svcendptmonitor)
 
-## <a name="traffic-analytics"></a>Verkeersanalyse
+## <a name="traffic-analytics"></a>Traffic Analytics
 Traffic Analytics is een cloud-gebaseerde oplossing waarmee u inzicht in gebruikers en toepassingen in uw cloudnetwerken. Stroomlogboeken logboeken zijn geanalyseerd om te bieden van inzicht in:
 
 * Verkeer stroomt tussen uw netwerken tussen Azure en Internet, openbare cloud-regio's, VNETs en subnetten
@@ -108,7 +108,7 @@ Traffic Analytics voorziet u van bruikbare informatie die helpt u activiteit op 
 Verwante koppelingen:
 * [Blogbericht](https://aka.ms/trafficanalytics), [documentatie](https://aka.ms/trafficanalyticsdocs), [Veelgestelde vragen](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
-## <a name="dns-analytics"></a>DNS Analytics
+## <a name="dns-analytics"></a>DNS-analyse
 Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert DNS-logboeken voor beveiliging, bewerkingen en inzichten met betrekking tot prestaties.  Enkele van de mogelijkheden zijn:
 
 * Identificatie van clients die proberen te worden omgezet naar schadelijke domeinen
@@ -122,6 +122,6 @@ Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert 
 Verwante koppelingen:
 * [Blogpost](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>Overig
+## <a name="miscellaneous"></a>Diversen
 
 * [Nieuwe prijzen](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

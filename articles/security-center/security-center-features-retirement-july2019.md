@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
 ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952132"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Buiten gebruik stellen van Security Center-functies (2019 juli)
@@ -110,7 +110,7 @@ Uw bestaande gegevens wordt niet blijven beschikbaar in de Log Analytics-beveili
 
 ### <a name="security-events-map---the-new-experience"></a>Beveiliging-kaart voor gebeurtenissen - de nieuwe ervaring
 
-We raden u aan het gebruik van de waarschuwingen kaart functionaliteit die is ingebouwd in Security Center: **Beveiliging waarschuwingen kaart (Preview)**. Deze functionaliteit biedt een optimale ervaring en werkt met alle abonnementen en bijbehorende werkruimten. Het biedt u een weergave op hoog niveau in uw omgeving en is niet gericht op één werkruimte.
+We raden u aan het gebruik van de waarschuwingen kaart functionaliteit die is ingebouwd in Security Center: **Beveiliging waarschuwingen kaart (Preview)** . Deze functionaliteit biedt een optimale ervaring en werkt met alle abonnementen en bijbehorende werkruimten. Het biedt u een weergave op hoog niveau in uw omgeving en is niet gericht op één werkruimte.
 
 ## Aangepaste waarschuwingsregels (Preview)<a name="menu_customalerts"></a>
 

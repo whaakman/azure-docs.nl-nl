@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425131"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk naar Azure Monitor log-query
@@ -30,14 +30,14 @@ De volgende tabel vergelijkt de concepten en gegevensstructuren tussen Splunk en
 
  | Concept  | Splunk | Azure Monitor |  Opmerking
  | --- | --- | --- | ---
- | Implementatie-eenheid  | cluster |  cluster |  Azure Monitor kunt willekeurige cross-cluster query's. Splunk bestaat niet. |
+ | Implementatie-eenheid  | Cluster |  Cluster |  Azure Monitor kunt willekeurige cross-cluster query's. Splunk bestaat niet. |
  | Gegevens-caches |  buckets  |  Caching-en bewaarbeleid |  Hiermee bepaalt u de periode en het niveau van de gegevens opslaan in cache. Deze instelling rechtstreeks van invloed is op de prestaties van query's en kosten van de implementatie. |
  | Logische partitie van de gegevens  |  index  |  database  |  Hiermee kunt logische scheiding van de gegevens. Beide implementaties kunt samenvoegingen en deze koppelen aan over deze partities. |
- | De metagegevens van gestructureerde gebeurtenis | N/A | tabel |  Splunk beschikt niet over het concept blootgesteld aan de zoektaal van metagegevens van de gebeurtenis. Logboeken in Azure Monitor heeft het concept van een tabel, die kolommen bevat. Elk exemplaar van de gebeurtenis is toegewezen aan een rij. |
+ | De metagegevens van gestructureerde gebeurtenis | N/A | table |  Splunk beschikt niet over het concept blootgesteld aan de zoektaal van metagegevens van de gebeurtenis. Logboeken in Azure Monitor heeft het concept van een tabel, die kolommen bevat. Elk exemplaar van de gebeurtenis is toegewezen aan een rij. |
  | Gegevensrecord | gebeurtenis | rij |  Terminologie wijzigen. |
  | Kenmerk van de record gegevens | Veld |  Kolom |  In Azure Monitor, is dit een vooraf gedefinieerd als onderdeel van de structuur van de tabel. In Splunk heeft elke gebeurtenis een eigen set velden. |
- | Typen | datatype |  datatype |  Azure Monitor-gegevenstypen zijn meer expliciete zoals ze zijn ingesteld op de kolommen. Hebben de mogelijkheid om te werken dynamisch met gegevenstypen en ruwweg set gegevenstypen, inclusief ondersteuning voor JSON. |
- | Query's en zoeken  | zoeken | query |  Concepten zijn in wezen hetzelfde tussen zowel Azure Monitor en Splunk. |
+ | Types | datatype |  datatype |  Azure Monitor-gegevenstypen zijn meer expliciete zoals ze zijn ingesteld op de kolommen. Hebben de mogelijkheid om te werken dynamisch met gegevenstypen en ruwweg set gegevenstypen, inclusief ondersteuning voor JSON. |
+ | Query's en zoeken  | Zoeken | query |  Concepten zijn in wezen hetzelfde tussen zowel Azure Monitor en Splunk. |
  | Tijd van de gebeurtenis opname | Wanneer het systeem | ingestion_time() |  Elke gebeurtenis wordt in Splunk, de tijdstempel van een systeem van de tijd die de gebeurtenis is geïndexeerd. U kunt een beleid met de naam ingestion_time waarmee wordt aangegeven dat een systeemkolom die kan worden verwezen door de functie ingestion_time() definiëren in Azure Monitor. |
 
 ## <a name="functions"></a>Functions
@@ -55,10 +55,10 @@ De volgende tabel worden de functies in Azure Monitor die gelijk zijn aan Splunk
 | substr | substring() | (1)<br>Houd er ook rekening mee dat Splunk maakt gebruik van indexen op basis van een. Azure Monitor opmerkingen bij de op nul gebaseerde index. |
 | tolower |  tolower() | (1) |
 | ToUpper | toupper() | (1) |
-| overeenkomst | komt overeen met reguliere expressie |  (2)  |
+| Overeenkomst | komt overeen met reguliere expressie |  (2)  |
 | regex | komt overeen met reguliere expressie | In Splunk, `regex` een operator. In Azure Monitor is een relationele operator. |
 | searchmatch | == | In Splunk, `searchmatch` kunt u zoeken naar de exacte tekenreeks.
-| willekeurig | ASELECT()<br>rand(n) | Splunk van functie retourneert een getal van 0 tot 2<sup>31</sup>-1. Azure Monitor' retourneert een getal tussen 0,0 en 1,0, of als een parameter die is opgegeven, tussen 0 en n-1.
+| willekeurige | ASELECT()<br>rand(n) | Splunk van functie retourneert een getal van 0 tot 2<sup>31</sup>-1. Azure Monitor' retourneert een getal tussen 0,0 en 1,0, of als een parameter die is opgegeven, tussen 0 en n-1.
 | nu | now() | (1)
 | relative_time | totimespan() | (1)<br>In Azure Monitor is het equivalent van Splunk van relative_time (datetimeVal, offsetVal) datetimeVal + totimespan(offsetVal).<br>Bijvoorbeeld, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> wordt <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
@@ -158,7 +158,7 @@ Zie de [aggregaties in Azure Monitor query's bijgehouden](aggregations.md) voor 
 
 
 
-### <a name="join"></a>Koppelen
+### <a name="join"></a>Deelnemen
 Join in Splunk heeft belangrijke beperkingen. De subquery heeft een limiet van 10000 resultaten (ingesteld in het configuratiebestand voor implementatie), en er een beperkt aantal join-versies.
 
 | |  | |

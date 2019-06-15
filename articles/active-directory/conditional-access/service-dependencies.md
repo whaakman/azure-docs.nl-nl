@@ -2,7 +2,7 @@
 title: Wat zijn serviceafhankelijkheden in Azure Active Directory voor voorwaardelijke toegang? | Microsoft Docs
 description: Meer informatie over hoe voorwaarden worden gebruikt in Azure Active Directory voor voorwaardelijke toegang voor het activeren van een beleid.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54e5de5fdb03cfaff4d4ed53da94b512f30db58a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112100"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Wat zijn serviceafhankelijkheden in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -79,4 +79,4 @@ De onderstaande tabel bevat aanvullende service-afhankelijkheden, waar de client
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Uw implementatie van voorwaardelijke toegang in Azure Active Directory plannen](plan-conditional-access.md) voor informatie over het implementeren van voorwaardelijke toegang tot uw omgeving.
+Zie voor informatie over het implementeren van voorwaardelijke toegang in uw omgeving, [plannen van uw implementatie van voorwaardelijke toegang in Azure Active Directory](plan-conditional-access.md).

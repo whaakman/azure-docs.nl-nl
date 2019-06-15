@@ -1,9 +1,9 @@
 ---
-title: Aanbevelingen voor beveiliging in Azure Security Center beheren | Microsoft Docs
+title: Aanbevelingen voor beveiliging in Azure Security Center | Microsoft Docs
 description: Dit document helpt u bij hoe aanbevelingen in Azure Security Center helpen u bij het beveiligen van uw Azure-resources en blijven in overeenstemming met beveiligingsbeleid.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: rkarlin
-ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.author: v-mohabe
+ms.openlocfilehash: fe1d4bf27f3c4bb1f70c1c1fa9767c27f8767998
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064244"
 ---
-# <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
-Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
+# <a name="security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center 
+In dit onderwerp wordt uitgelegd hoe u bekijken en te begrijpen van de aanbevelingen in Azure Security Center voor het beschermen van uw Azure-resources.
 
 > [!NOTE]
 > In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie.  Dit document is geen stapsgewijze handleiding.
->
 >
 
 ## <a name="what-are-security-recommendations"></a>Wat zijn aanbevelingen voor beveiliging?
@@ -43,40 +42,41 @@ In [beveiligingsbeleid instellen in Azure Security Center](tutorial-security-pol
 Aanbevelingen van huidige beleidscentrum om de systeemupdates, basislijnregels, anti-malware-programma's, [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) op subnetten en netwerkinterfaces, controleren voor SQL database, transparent data encryption voor SQL database, Apps en web application firewalls.  [Beveiligingsbeleid instellen](tutorial-security-policy.md) bevat een beschrijving van elke optie aanbeveling.
 
 ### <a name="monitor-recommendations"></a>Monitor voor aanbevelingen
-Nadat er een beveiligingsbeleid is ingesteld, wordt met Security Center de beveiligingsstatus van de Azure-resources geanalyseerd om potentiële beveiligingsproblemen op te sporen. De **aanbevelingen** tegel onder **overzicht** kunt u het totale aantal aanbevelingen geïdentificeerd door Security Center weten.
+Nadat er een beveiligingsbeleid is ingesteld, wordt met Security Center de beveiligingsstatus van de Azure-resources geanalyseerd om potentiële beveiligingsproblemen op te sporen. De **aanbevelingen** tegel onder **overzicht** toont het totale aantal aanbevelingen geïdentificeerd door Security Center.
 
-![Aanbevelingen tegel][1]
+![Security center-overzicht](./media/security-center-recommendations/asc-overview.png)
 
-De details van elke aanbeveling, selecteer de **aanbevelingen tegel** onder **overzicht**. **Aanbevelingen** wordt geopend.
+1. Selecteer de **aanbevelingen tegel** onder **overzicht**. De **aanbevelingen** lijst wordt geopend.
+    
+      ![Aanbevelingen bekijken](./media/security-center-recommendations/view-recommendations.png)
 
-![Aanbevelingen voor filteren][2]
+    U kunt filteren, aanbevelingen. Als u wilt de aanbevelingen filteren, selecteert u **Filter** op de **aanbevelingen** blade. De **Filter** blade wordt geopend en selecteert u de ernst en status waarden die u wilt zien.
 
-U kunt filteren, aanbevelingen. Als u wilt de aanbevelingen filteren, selecteert u **Filter** op de **aanbevelingen** blade. De **Filter** blade wordt geopend en selecteert u de ernst en status waarden die u wilt zien.
+   * **AANBEVELINGEN**: De aanbeveling.
+   * **BEVEILIGDE SCORE IMPACT**: Een score die worden gegenereerd door Security Center met behulp van de aanbevelingen voor beveiliging, en het toepassen van geavanceerde algoritmen om te bepalen hoe essentieel is voor elke aanbeveling. Zie voor meer informatie, [scoreberekening Secure](security-center-secure-score.md#secure-score-calculation).
+   * **RESOURCE**: Geeft een lijst van de resources die deze aanbeveling van toepassing is.
+   * **STATUS STAVEN**:  Hierin wordt de ernst van deze bepaalde aanbeveling beschreven:
+       * **Hoog (rood)** : Een beveiligingslek in de bestaat een belangrijke resource (zoals een toepassing, een virtuele machine of een netwerkbeveiligingsgroep) en aandacht vereist.
+       * **Gemiddeld (oranje)** : Een beveiligingslek en niet-kritieke of extra stappen zijn vereist om dit te dichten of om een proces te voltooien.
+       * **Laag (blauw)** : Een beveiligingslek dat moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Standaard lage aanbevelingen worden niet weergegeven, maar u kunt filteren op lage aanbevelingen als u wilt zien.) 
+       * **In orde (groen)** :
+       * **Niet beschikbaar (grijs)** :
 
+1. Als u wilt weergeven van details van elke aanbeveling, klikt u op de aanbeveling.
 
-* **AANBEVELINGEN**: De aanbeveling.
-* **BEVEILIGDE SCORE IMPACT**:
-* **RESOURCE**: Geeft een lijst van de resources die deze aanbeveling van toepassing is.
-* **STATUS STAVEN**:  Hierin wordt de ernst van deze bepaalde aanbeveling beschreven:
-   * **Hoog (rood)**: Een beveiligingslek in de bestaat een belangrijke resource (zoals een toepassing, een virtuele machine of een netwerkbeveiligingsgroep) en aandacht vereist.
-   * **Gemiddeld (oranje)**: Een beveiligingslek en niet-kritieke of extra stappen zijn vereist om dit te dichten of om een proces te voltooien.
-   * **Laag (blauw)**: Een beveiligingslek dat moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Standaard lage aanbevelingen worden niet weergegeven, maar u kunt filteren op lage aanbevelingen als u wilt zien.) 
-   * **In orde (groen)**:
-   * **Niet beschikbaar (grijs)**:
- 
+    ![Details van de aanbeveling](./media/security-center-recommendations/recommendation-details.png)
 
+>[!NOTE] 
+> Zie [klassieke en Resource Manager-implementatiemodel](../azure-classic-rm.md) voor Azure-resources.
+  
+ ### <a name="apply-recommendations"></a>Toepassen van aanbevelingen
+> Bekijk alle aanbevelingen en bepalen welke sjabloon eerst toepassen. Het is raadzaam dat u de beveiligde score gevolgen te evalueren welke aanbevelingen voor moeten eerst worden toegepast.
 
-> [!NOTE]
-> Wilt u inzicht in de [klassieke en Resource Manager-implementatiemodel](../azure-classic-rm.md) voor Azure-resources.
-> 
-> 
-> ### <a name="apply-recommendations"></a>Toepassen van aanbevelingen
-> Bekijk alle aanbevelingen en besluiten die u moet eerst worden toegepast. U wordt aangeraden de ernstclassificatie die de te gebruiken aangezien de belangrijkste parameter om te evalueren welke aanbevelingen voor moet eerst worden toegepast.
-
-
+1. Klik op de aanbeveling in de lijst.
+1. Volg de instructies in de *herstelstappen* sectie.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document, kunt u kennisgemaakt met aanbevelingen voor beveiliging in Security Center. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
+In dit document, kunt u kennisgemaakt met aanbevelingen voor beveiliging in Security Center. Zie de volgende onderwerpen voor meer informatie over Security Center:
 
 * [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
@@ -84,7 +84,3 @@ In dit document, kunt u kennisgemaakt met aanbevelingen voor beveiliging in Secu
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
-
-<!--Image references-->
-[1]: ./media/security-center-recommendations/recommendations-tile.png
-[2]: ./media/security-center-recommendations/filter-recommendations.png

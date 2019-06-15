@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800280"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Chef VM-extensie voor Linux en Windows
@@ -71,7 +71,7 @@ De volgende JSON bevat het schema voor de Chef-VM-extensie. De extensie vereist 
 | Name | Waarde / voorbeeld | Gegevenstype
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | tekenreeks (datum) |
-| Uitgever | `Chef.Bootstrap.WindowsAzure` | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | tekenreeks (double) |
 

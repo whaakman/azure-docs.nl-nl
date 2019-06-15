@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710405"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux Diagnostic-extensie gebruiken om te controleren, logboeken en metrische gegevens
@@ -169,7 +169,7 @@ Deze optionele sectie definieert aanvullende bestemmingen waarnaar de extensie v
 
 Element | Value
 ------- | -----
-naam | Een tekenreeks die wordt gebruikt om te verwijzen naar deze sink elders in de configuratie van de extensie.
+name | Een tekenreeks die wordt gebruikt om te verwijzen naar deze sink elders in de configuratie van de extensie.
 type | Het type van sink wordt gedefinieerd. Bepaalt de andere waarden (indien aanwezig) in de exemplaren van dit type.
 
 Versie 3.0 van de Linux Diagnostic-extensie ondersteunt twee sink-typen: Event hub en JsonBlob.
@@ -231,7 +231,7 @@ Deze structuur bevat verschillende blokken met instellingen die invloed hebben o
 
 Element | Value
 ------- | -----
-Opslagaccount | De naam van het opslagaccount waarin gegevens worden geschreven door de extensie. Moet dezelfde naam als is opgegeven in de [beveiligde instellingen](#protected-settings).
+StorageAccount | De naam van het opslagaccount waarin gegevens worden geschreven door de extensie. Moet dezelfde naam als is opgegeven in de [beveiligde instellingen](#protected-settings).
 mdsdHttpProxy | (optioneel) Hetzelfde als in de [beveiligde instellingen](#protected-settings). De waarde van de openbare wordt overschreven door het privé-waarde als instellen. Proxy-instellingen met een geheim, zoals een wachtwoord, in plaats de [beveiligde instellingen](#protected-settings).
 
 De resterende elementen worden beschreven in de volgende secties.
@@ -313,12 +313,12 @@ Element | Value
 ------- | -----
 sinks | (optioneel) Een door komma's gescheiden lijst met namen van sinks welke LAD verzendt metrische resultaten samengevoegde. Alle samengevoegde metrische gegevens worden gepubliceerd naar elke vermelde sink. Zie [sinksConfig](#sinksconfig). Voorbeeld: `"EHsink1, myjsonsink"`.
 type | Hiermee geeft u de werkelijke provider van de metrische gegevens.
-klasse | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de provider, samen met 'item'.
+Klasse | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de provider, samen met 'item'.
 counter | Samen met "class", identificeert de specifieke metrische gegevens in de naamruimte van de provider.
 counterSpecifier | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de metrische gegevens van Azure.
-voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waaraan de metrische gegevens is van toepassing, of selecteert de aggregatie voor alle instanties van dat object. Zie voor meer informatie de `builtin` metrische definities.
+condition | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waaraan de metrische gegevens is van toepassing, of selecteert de aggregatie voor alle instanties van dat object. Zie voor meer informatie de `builtin` metrische definities.
 sampleRate | Hiermee stelt u de snelheid waarmee onbewerkte voorbeelden voor deze metrische gegevens worden verzameld 8601 interval IS. Als niet is ingesteld, het interval voor gegevensverzameling is ingesteld door de waarde van [sampleRateInSeconds](#ladcfg). De kortste ondersteunde samplefrequentie is 15 seconden (PT15S).
-eenheid | Moet een van deze tekenreeksen: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Hiermee definieert u de eenheid voor de metrische gegevens. Gebruikers van de verzamelde gegevens verwacht dat de waarden van de verzamelde gegevens zodat deze overeenkomt met deze eenheid. LAD negeert dit veld.
+Eenheid | Moet een van deze tekenreeksen: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Hiermee definieert u de eenheid voor de metrische gegevens. Gebruikers van de verzamelde gegevens verwacht dat de waarden van de verzamelde gegevens zodat deze overeenkomt met deze eenheid. LAD negeert dit veld.
 displayName | Het label (in de taal die is opgegeven door de bijbehorende landinstelling) moet worden gekoppeld aan deze gegevens in Azure metrische gegevens. LAD negeert dit veld.
 
 De counterSpecifier is een identifier. Consumenten van metrische gegevens, zoals de Azure portal voor grafieken en waarschuwingen functie counterSpecifier gebruiken als de "sleutel" waarmee een metrische waarde of een exemplaar van een metrische waarde. Voor `builtin` metrische gegevens, raden wij aan u counterSpecifier waarden die met beginnen `/builtin/`. Als u een specifiek exemplaar van metrische gegevens verzamelt, raden wij dat u de id van het exemplaar koppelen aan de counterSpecifier-waarde. Een aantal voorbeelden:
@@ -388,7 +388,7 @@ Element | Value
 ------- | -----
 naamruimte | (optioneel) De OMI-naamruimte waarin de query moet worden uitgevoerd. Als u niets opgeeft, de standaardwaarde is "root/scx", uitgevoerd door de [System Center platformoverschrijdende Providers](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | De OMI-query moet worden uitgevoerd.
-tabel | (optioneel) De Azure storage-tabel in de aangewezen storage-account (Zie [beveiligde instellingen](#protected-settings)).
+table | (optioneel) De Azure storage-tabel in de aangewezen storage-account (Zie [beveiligde instellingen](#protected-settings)).
 frequency | (optioneel) Het aantal seconden tussen het uitvoeren van de query. Standaardwaarde is 300 (5 minuten); minimumwaarde is 15 seconden.
 sinks | (optioneel) Een door komma's gescheiden lijst met namen van aanvullende sinks waarmee onbewerkte voorbeeld metrische resultaten moeten worden gepubliceerd. Geen aggregatie van deze onbewerkte voorbeelden wordt berekend door de extensie of metrische gegevens van Azure.
 
@@ -410,8 +410,8 @@ Hiermee bepaalt u het vastleggen van logboekbestanden. LAD nieuwe regels vastgel
 
 Element | Value
 ------- | -----
-bestand | De volledige padnaam van het logboekbestand moet worden gevolgd en vastgelegd. De padnaam moet één bestand; de naam het kan de naam van een map of jokertekens bevatten.
-tabel | (optioneel) De Azure storage-tabel in de aangewezen storage-account (zoals aangegeven in de configuratie van de beveiligde), waarin u nieuwe regels van de 'staart"van het bestand worden geschreven.
+file | De volledige padnaam van het logboekbestand moet worden gevolgd en vastgelegd. De padnaam moet één bestand; de naam het kan de naam van een map of jokertekens bevatten.
+table | (optioneel) De Azure storage-tabel in de aangewezen storage-account (zoals aangegeven in de configuratie van de beveiligde), waarin u nieuwe regels van de 'staart"van het bestand worden geschreven.
 sinks | (optioneel) Een door komma's gescheiden lijst met namen van aanvullende sinks aan welke regels log is verzonden.
 
 De 'tabel' of 'sinks', of beide moeten worden opgegeven.

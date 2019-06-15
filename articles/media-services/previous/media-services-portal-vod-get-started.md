@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 5df666dc2bd574c168d6b5f65dd6a909564a921f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868426"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Aan de slag met het leveren van inhoud op aanvraag via Azure Portal
@@ -101,8 +101,8 @@ Als u de voortgang van de coderingstaak wilt controleren, klikt u bovenaan de pa
 ## <a name="publish-content"></a>Inhoud publiceren
 Als u aan uw gebruikers een URL wilt leveren die ze kunnen gebruiken om uw inhoud te streamen of te downloaden, moet u uw asset eerst publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Azure Media Services ondersteunt twee typen locators: 
 
-* **Streaming-locators (OnDemandOrigin)**. Streaming-locators worden gebruikt voor adaptief streamen. Voorbeelden van adaptief streamen zijn HLS, Smooth Streaming en MPEG-DASH. Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. 
-* **Progressieve locators (Shared Access Signature)**. Progressieve locators worden gebruikt voor het leveren van video via progressief downloaden.
+* **Streaming-locators (OnDemandOrigin)** . Streaming-locators worden gebruikt voor adaptief streamen. Voorbeelden van adaptief streamen zijn HLS, Smooth Streaming en MPEG-DASH. Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. 
+* **Progressieve locators (Shared Access Signature)** . Progressieve locators worden gebruikt voor het leveren van video via progressief downloaden.
 
 Als u een streaming-URL voor HLS wilt maken, voegt u *(format=m3u8-aapl)* toe aan de URL:
 

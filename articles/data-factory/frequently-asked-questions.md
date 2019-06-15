@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61345751"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
@@ -139,7 +139,7 @@ Een gegevensset is een algemeen type parameter en een entiteit die u kunt gebrui
 
 Een gekoppelde service is ook een algemeen type parameter met de verbindingsgegevens voor een gegevensarchief of een compute-omgeving. Het is ook een entiteit die u kunt gebruiken of verwijzen naar.
 
-### <a name="control-flows"></a>Stromen beheren
+### <a name="control-flows"></a>Stromen controleren
 Besturingselement stromen pipeline-activiteiten met koppelen van activiteiten in een reeks, vertakkingen, parameters die u op het pijplijnniveau van de definieert, indelen en argumenten die u als u doorgeeft de pijplijn op aanvraag of vanuit een trigger aanroepen. Besturingselement stromen ook aangepaste status doorgeven en luscontainers (dat wil zeggen, foreach iterators).
 
 

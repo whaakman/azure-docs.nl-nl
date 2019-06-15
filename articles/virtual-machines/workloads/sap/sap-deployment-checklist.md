@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236857"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-werkbelasting op Azure controlelijst voor planning en implementatie 
@@ -99,7 +99,7 @@ De test kunt uitvoeren voordat u parallel aan het project plannen en voorbereide
       3.  Evalueren en te testen van de grootte van uw Azure-VM's met betrekking tot de maximale doorvoer en de netwerkdoorvoer van de verschillende VM-typen die u hebt gekozen in de planningsfase. De gegevens kunnen worden gevonden:
           1.  [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Het is belangrijk rekening houden met de **schijfdoorvoer, met maximale zonder caching** voor schaling
           2.  [Grootten voor virtuele Linux-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) is het belangrijk om te overwegen de **schijfdoorvoer, met maximale zonder caching** voor schaling
-   2. Storage
+   2. Opslag
       1.  Gebruik [Azure Standard-SSD-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) als minimale voor lagen van SAP-toepassing voor virtuele machines en voor implementatie van gevoelige niet-prestaties DBMS-systemen
       2.  We bevelen niet te gebruiken [Azure standaard harde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) in het algemeen
       2.  Gebruik [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) voor elke DBMS-VM's die op afstand gevoelige prestaties
@@ -109,7 +109,7 @@ De test kunt uitvoeren voordat u parallel aan het project plannen en voorbereide
       5.  Voor SAP HANA, meer details worden gedocumenteerd in [configuraties van SAP HANA-infrastructuur en bewerkingen op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
       6.  Nooit gegevensschijven koppelen van Azure met een Azure Linux-VM met behulp van de apparaat-ID. Gebruik in plaats daarvan de universally unique identifier (UUID). Wees voorzichtig wanneer u grafische hulpprogramma's te koppelen van een Azure-gegevensschijven, bijvoorbeeld. Controleer de vermeldingen in/etc/fstab om ervoor te zorgen dat de schijven zijn gekoppeld met behulp van de UUID
           1.  Meer informatie vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
-   3. Netwerk
+   3. Netwerken
       1.  Test en evalueer uw VNet-infrastructuur en de distributie van uw SAP-toepassingen in of in de verschillende virtuele netwerken
           1.  De benadering van de hub en spoke-architectuur voor virtueel netwerk of microsegmentation binnen een enkel Azure-netwerk op basis van evalueren
               1.  Kosten vanwege het uitwisselen van gegevens tussen [Azure VNets gekoppeld](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Controleer voor de kosten van [prijzen voor Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/)
@@ -183,7 +183,7 @@ In deze fase veronderstellen we dat na een geslaagde pilot of PoC u begint aan n
 11. De controles uitvoeren, zoals vermeld in de fase testen van concepten voordat u de werkbelasting
 12. Als de werkbelasting van toepassing is, het Resourcegebruik van deze systemen worden vastgelegd in Azure en vergelijken met de records die u hebt verkregen via uw oude platform. VM-grootte van de toekomstige implementaties aanpassen als u ziet dat er grotere verschillen. Houd er rekening mee dat in het geval van downsizing-, opslag- en netwerkbandbreedten van een virtuele machine wordt ook worden teruggebracht:
     1.  [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 
-    2.  [Grootten voor virtuele Linux-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    2.  [Grootten voor Linux Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Werken op een kopie van systeemfunctionaliteit en processen. Doel is om gemakkelijk voor u om te kopiëren van een systeem voor de ontwikkeling of een testsysteem, dus dat teams project kunnen behalen nieuwe systemen. Houd rekening met [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) als een hulpprogramma dat u deze taken.
 14. Optimaliseren en specificeren van uw team toegang krijgt tot Azure op basis van rollen, machtigingen en processen om ervoor te zorgen dat u een scheiding van het recht op de een-zijde hebt. Aan de andere kant, die u wilt alle teams ingeschakeld voor het uitvoeren van hun taken in de Azure-infrastructuur hebt.
 15. Oefening-, test- en document hoge beschikbaarheid en noodherstel herstelprocedures zodat uw medewerkers die taken uitvoeren. Nadelen te identificeren en nieuwe functionaliteit van Azure die u in uw implementaties integreert aan te passen

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718064"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Overzicht van ondersteuning voor meerdere tenants voor VMware naar Azure met CSP een noodgeval
@@ -24,11 +24,11 @@ Dit artikel bevat een overzicht van de implementatie en beheer van meerdere tena
 
 Er zijn drie belangrijke modellen voor meerdere tenants:
 
-* **Gedeelde Services-hostingprovider (HSP)**: De partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
+* **Gedeelde Services-hostingprovider (HSP)** : De partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
 
 * **Toegewezen Hosting serviceprovider**: De partner is eigenaar van de fysieke infrastructuur, maar toegewezen resources (meerdere vCenters, fysieke gegevensopslag, enzovoort) gebruikt voor het hosten van elke tenant-VM's op een aparte infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan het als een oplossing voor de selfservice.
 
-* **Managed serviceprovider (MSP)**: De klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
+* **Managed serviceprovider (MSP)** : De klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Gedeeld-hosting services serviceprovider (HSP)
 
@@ -110,7 +110,7 @@ Om te beperken van bewerkingen voor noodherstel accountpagina alleen failover (d
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>Resources implementeren op het tenantabonnement
 
 1. Maak een resourcegroep in Azure portal, en implementeert u een Recovery Services-kluis per het normale proces.
-2. Download de registratiesleutel voor de kluis.
+2. Download de kluisregistratiesleutel.
 3. Registreer de CS voor de tenant met behulp van de kluisregistratiesleutel.
 4. Voer de referenties voor de twee toegangsaccounts, het account voor toegang tot de vCenter-server en het account voor toegang tot de virtuele machine.
 

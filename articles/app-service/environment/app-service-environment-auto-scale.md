@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955962"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Automatisch schalen en App Service Environment v1
@@ -93,7 +93,7 @@ Frank is erg bekend zijn met de toepassing. Ze weet dat de piekuren voor taakver
 |  | |
 | **Regel voor automatisch schalen (Omhoog schalen)** |**Regel voor automatisch schalen (Omhoog schalen)** |
 | **bron:** Productie (App Service-omgeving) |**bron:** Productie (App Service-omgeving) |
-| **Metriek:** CPU-percentage |**Metriek:** CPU-percentage |
+| **Metriek:** CPU-PERCENTAGE |**Metriek:** CPU-PERCENTAGE |
 | **Bewerking:** Meer dan 60% |**Bewerking:** Meer dan 80% |
 | **Duur:** 5 minuten |**Duur:** 10 minuten |
 | **Tijdverzameling:** Gemiddeld |**Tijdverzameling:** Gemiddeld |
@@ -102,7 +102,7 @@ Frank is erg bekend zijn met de toepassing. Ze weet dat de piekuren voor taakver
 |  | |
 | **Regel voor automatisch schalen (schaal omlaag)** |**Regel voor automatisch schalen (schaal omlaag)** |
 | **bron:** Productie (App Service-omgeving) |**bron:** Productie (App Service-omgeving) |
-| **Metriek:** CPU-percentage |**Metriek:** CPU-percentage |
+| **Metriek:** CPU-PERCENTAGE |**Metriek:** CPU-PERCENTAGE |
 | **Bewerking:** Minder dan 30% |**Bewerking:** Minder dan 20% |
 | **Duur:** 10 minuten |**Duur:** 15 minuten |
 | **Tijdverzameling:** Gemiddeld |**Tijdverzameling:** Gemiddeld |
@@ -209,7 +209,7 @@ Voor dit scenario weet Frank dat de frequentie van fouten wordt verhoogd wanneer
 |  |
 | **Regel voor automatisch schalen (Omhoog schalen)** |
 | **bron:** Front-end-pool |
-| **Metriek:** CPU-percentage |
+| **Metriek:** CPU-PERCENTAGE |
 | **Bewerking:** Meer dan 60% |
 | **Duur:** 20 minuten |
 | **Tijdverzameling:** Gemiddeld |
@@ -218,7 +218,7 @@ Voor dit scenario weet Frank dat de frequentie van fouten wordt verhoogd wanneer
 |  |
 | **Regel voor automatisch schalen (schaal omlaag)** |
 | **bron:** Worker-groep 1 |
-| **Metriek:** CPU-percentage |
+| **Metriek:** CPU-PERCENTAGE |
 | **Bewerking:** Minder dan 30% |
 | **Duur:** 20 minuten |
 | **Tijdverzameling:** Gemiddeld |

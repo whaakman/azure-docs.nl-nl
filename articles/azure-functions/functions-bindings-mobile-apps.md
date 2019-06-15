@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438122"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps-bindingen voor Azure Functions 
@@ -144,10 +144,10 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 | **type**|| Moet worden ingesteld op "mobileTable"|
 | **direction**||Moet worden ingesteld op 'in'|
-| **De naam**|| De naam van de invoerparameter in de functiehandtekening.|
+| **name**|| De naam van de invoerparameter in de functiehandtekening.|
 |**tableName** |**TableName**|Naam van de mobiele app gegevenstabel|
 | **id**| **Id** | De id van de record om op te halen. Kan zijn statisch of op basis van de trigger die de functie activeert. Bijvoorbeeld, als u een wachtrijtrigger vervolgens gebruiken voor uw functie `"id": "{queueTrigger}"` maakt gebruik van de tekenreekswaarde van bericht uit de wachtrij als de record-ID om op te halen.|
-|**verbinding**|**Verbinding**|De naam van een appinstelling met de URL van de mobiele app. De functie maakt gebruik van deze URL om de vereiste REST-bewerkingen op uw mobiele app samen te stellen. Maken van een app-instelling in uw functie-app die van de mobiele app-URL bevat, geeft u vervolgens de naam van de app-instelling in de `connection` eigenschap in uw Invoerbinding. De URL lijkt `http://<appname>.azurewebsites.net`.
+|**verbinding**|**verbinding**|De naam van een appinstelling met de URL van de mobiele app. De functie maakt gebruik van deze URL om de vereiste REST-bewerkingen op uw mobiele app samen te stellen. Maken van een app-instelling in uw functie-app die van de mobiele app-URL bevat, geeft u vervolgens de naam van de app-instelling in de `connection` eigenschap in uw Invoerbinding. De URL lijkt `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|De naam van een appinstelling met de API-sleutel van uw mobiele app. Geef de API-sleutel als u [implementeren van een API-sleutel in uw mobiele app voor Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [een API-sleutel in uw mobiele .NET-app implementeren](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Maken van een app-instelling in uw functie-app met de API-sleutel voor de sleutel, en vervolgens toevoegen de `apiKey` eigenschap in uw Invoerbinding met de naam van de app-instelling. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -302,7 +302,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 | **type**|| Moet worden ingesteld op "mobileTable"|
 | **direction**||Moet worden ingesteld op 'out'|
-| **De naam**|| De naam van de uitvoerparameter bij functiehandtekening.|
+| **name**|| De naam van de uitvoerparameter bij functiehandtekening.|
 |**tableName** |**TableName**|Naam van de mobiele app gegevenstabel|
 |**verbinding**|**MobileAppUriSetting**|De naam van een appinstelling met de URL van de mobiele app. De functie maakt gebruik van deze URL om de vereiste REST-bewerkingen op uw mobiele app samen te stellen. Maken van een app-instelling in uw functie-app die van de mobiele app-URL bevat, geeft u vervolgens de naam van de app-instelling in de `connection` eigenschap in uw Invoerbinding. De URL lijkt `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|De naam van een appinstelling met de API-sleutel van uw mobiele app. Geef de API-sleutel als u [implementeren van een API-sleutel in uw back-end mobiele app Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [implementeren van een API-sleutel in uw mobiele app .NET back-end](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Maken van een app-instelling in uw functie-app met de API-sleutel voor de sleutel, en vervolgens toevoegen de `apiKey` eigenschap in uw Invoerbinding met de naam van de app-instelling. |

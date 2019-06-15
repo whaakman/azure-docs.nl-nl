@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717125"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib een machine learning-toepassing bouwen en analyseren van een gegevensset gebruiken
@@ -199,12 +199,12 @@ Laten we beginnen aan een idee van wat de gegevensset bevat.
 
     Om te voorspellen een resultaat van de inspectie food, moet u een model op basis van de schendingen te ontwikkelen. Omdat logistieke regressie een binaire classificatie-methode is, worden het verstandig om de resulterende gegevens te groeperen in twee categorieën: **Mislukken** en **doorgeven**:
 
-   - Geslaagd
-       - Geslaagd
+   - Pass
+       - Pass
        - Doorgeven met voorwaarden
    - Mislukt
        - Mislukt
-   - Verwijderen
+   - Negeren
        - Bedrijven niet vinden
        - Buiten het bedrijf
 

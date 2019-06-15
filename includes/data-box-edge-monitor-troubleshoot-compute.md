@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404072"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67125625"
 ---
 Opdrachten zijn beschikbaar om te controleren of het oplossen van modules op een Data Box-Edge-apparaat dat de compute-functie die is geconfigureerd, heeft een subset van docker. Voor een overzicht van de beschikbare opdrachten [verbinding maken met de PowerShell-interface](#connect-to-the-powershell-interface) en gebruik de `dkrdbe` functie.
 
@@ -37,7 +37,7 @@ Commands:
 ```
 De volgende tabel bevat een korte beschrijving van de opdrachten die beschikbaar zijn voor `dkrdbe`:
 
-|command  |Description |
+|Opdracht  |Description |
 |---------|---------|
 |`image`     | Installatiekopieën beheren       |
 |`images`     | Installatiekopieën vermelden         |

@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122815"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Gebruik automatische inrichting van Azure IoT Hub Device Provisioning Service voor het registreren van de MXChip IoT DevKit met IoT Hub
@@ -60,7 +60,7 @@ Om op te slaan een ud's op de DevKit:
 
 1. Op DevKit, houdt u **een knop**, push en laat de **opnieuw** knop en loslaten **een knop**. Uw DevKit krijgt de configuratiemodus.
 
-1. Klik op `F1` om te openen de command palette, typ en selecteer **Azure IoT-apparaat Workbench: Configureren van apparaatinstellingen... > Config unieke apparaat-tekenreeks (ud's)**.
+1. Klik op `F1` om te openen de command palette, typ en selecteer **Azure IoT-apparaat Workbench: Configureren van apparaatinstellingen... > Config unieke apparaat-tekenreeks (ud's)** .
   ![Ud's configureren](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. Noteer de gegenereerde ud's-tekenreeks. U hebt deze voor het genereren van het X.509-certificaat. Druk op `Enter`.

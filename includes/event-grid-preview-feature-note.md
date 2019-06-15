@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119549"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814736"
 ---
 Deze functie is beschikbaar als preview-versie. Als u wilt gebruiken, moet u een extensie van de Preview-versie of de module te installeren.
 
@@ -28,11 +28,9 @@ In [CloudShell](/azure/cloud-shell/quickstart):
 
 Voor een lokale installatie:
 
-1. Azure CLI lokaal te verwijderen.
-1. Installeer de [meest recente versie](/cli/azure/install-azure-cli) van Azure CLI.
-1. Start-opdrachtvenster.
+1. [De Azure CLI installeren](/cli/azure/install-azure-cli). Zorg ervoor dat u de meest recente versie hebt door te controleren met `az --version`.
 1. Vorige versies van de extensie verwijderen `az extension remove -n eventgrid`
-1. De extensie installeren `az extension add -n eventgrid`
+1. Installeer de `eventgrid` uitbreiding met `az extension add -n eventgrid`
 
 ### <a name="install-module-for-powershell"></a>Module voor PowerShell installeren
 

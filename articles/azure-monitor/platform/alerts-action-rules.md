@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734929"
 ---
 # <a name="action-rules-preview"></a>Actieregels (preview)
@@ -164,7 +164,7 @@ Aanbevolen gebruik te maken van naar waarschuwingen voor aan de actieregels van 
     * Een exacte overeenkomst: Bijvoorbeeld, zijn de regel van de actie die u wilt definiëren en een actieregel voor de overlappende in hetzelfde abonnement.
     * Een subset: Bijvoorbeeld, de actieregel die u wilt definiëren is op een abonnement en de actieregel van de overlappende is op een resourcegroep binnen het abonnement.
     * Een hoofdverzameling: Bijvoorbeeld, de regel van de actie die u wilt definiëren op een resourcegroep is, en de actieregel van de overlappende is op het abonnement met de resourcegroep.
-    * Een intersection bevatten: Bijvoorbeeld, de regel van de actie die u wilt definiëren, is op 'VM1' en 'VM2' en de actieregel van de overlappende is op 'VM2' en 'VM3'.
+    * Een kruispunt: Bijvoorbeeld, de regel van de actie die u wilt definiëren, is op 'VM1' en 'VM2' en de actieregel van de overlappende is op 'VM2' en 'VM3'.
 
     ![Overlappende actieregels](media/alerts-action-rules/action-rules-overlapping.png)
 
@@ -174,7 +174,7 @@ Aanbevolen gebruik te maken van naar waarschuwingen voor aan de actieregels van 
     * Een exacte overeenkomst: Bijvoorbeeld, zijn de waarschuwingsregel die u wilt definiëren en een actieregel voor de op hetzelfde abonnement.
     * Een subset: Bijvoorbeeld, de waarschuwingsregel die u wilt definiëren, is op een abonnement en de actieregel is op een resourcegroep binnen het abonnement.
     * Een hoofdverzameling: Bijvoorbeeld, de waarschuwingsregel die u wilt definiëren, is op een resourcegroep en de actieregel is op het abonnement met de resourcegroep.
-    * Een intersection bevatten: Bijvoorbeeld, de waarschuwingsregel die u wilt definiëren, is op 'VM1' en 'VM2' en de actieregel is op 'VM2' en 'VM3'.
+    * Een kruispunt: Bijvoorbeeld, de waarschuwingsregel die u wilt definiëren, is op 'VM1' en 'VM2' en de actieregel is op 'VM2' en 'VM3'.
     
     ![Overlappende actieregels](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 

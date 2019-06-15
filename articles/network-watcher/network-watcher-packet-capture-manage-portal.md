@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
 ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714692"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Pakketopname beheren met Azure Network Watcher met behulp van de portal
@@ -54,7 +54,7 @@ Als een netwerkbeveiligingsgroep gekoppeld aan de netwerkinterface, of het subne
 
    - **Maximum aantal bytes per pakket**: Het aantal bytes van elk pakket die zijn vastgelegd. Als dit veld leeg blijft, worden alle bytes zijn vastgelegd.
    - **Maximum aantal bytes per sessie**: Het totale aantal bytes die worden vastgelegd. Wanneer de waarde is de packet capture stopt is bereikt.
-   - **Tijdslimiet (seconden)**: De tijdslimiet voordat de pakketopname is gestopt. De standaardwaarde is 18.000 seconden.
+   - **Tijdslimiet (seconden)** : De tijdslimiet voordat de pakketopname is gestopt. De standaardwaarde is 18.000 seconden.
    - Filteren (optioneel). Selecteer **+ filter toevoegen**
      - **Protocol**: Het protocol om te filteren op de pakketopname. De beschikbare waarden zijn TCP, UDP en alle.
      - **Lokaal IP-adres**: Filtert de pakketopname voor pakketten waarvan het lokale IP-adres overeenkomt met deze waarde.

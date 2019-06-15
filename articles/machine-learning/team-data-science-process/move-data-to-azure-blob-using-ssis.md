@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429877"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors
@@ -42,7 +42,7 @@ Als u de taken die in dit artikel wordt beschreven, hebt u een Azure-abonnement 
 
 Gebruik de **SSIS-connectors**, moet u het downloaden:
 
-* **SQL Server 2014 of 2016 Standard (of hoger)**: Deze installatie bevat de SQL Server Integration Services.
+* **SQL Server 2014 of 2016 Standard (of hoger)** : Deze installatie bevat de SQL Server Integration Services.
 * **Microsoft SQL Server 2014 of 2016 Integration Services Feature Pack voor Azure**: Deze kunnen worden gedownload, respectievelijk uit de [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) en [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) pagina's.
 
 > [!NOTE]

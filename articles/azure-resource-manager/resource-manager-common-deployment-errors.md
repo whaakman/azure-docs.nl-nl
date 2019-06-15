@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128581"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
@@ -63,7 +63,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 | MissingRegistrationForLocation | Controleer de status van de registratie van resourceprovider en ondersteunde locaties. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Uw abonnement met de resourceprovider registreren. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Controleer de status van de registratie van resourceprovider. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
-| Niet gevonden | Mogelijk probeert u een afhankelijke resource in combinatie met een bovenliggende resource implementeren. Controleer of u moet een afhankelijkheid toevoegen. | [Omzetten van afhankelijkheden](resource-manager-not-found-errors.md) |
+| NotFound | Mogelijk probeert u een afhankelijke resource in combinatie met een bovenliggende resource implementeren. Controleer of u moet een afhankelijkheid toevoegen. | [Omzetten van afhankelijkheden](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | De implementatie, is er wordt geprobeerd een bewerking die het quotum voor het abonnement, resourcegroep of regio overschrijdt. Wijzig, indien mogelijk, uw implementatie om binnen de quota te blijven. Overweeg anders aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Zorg ervoor dat een bovenliggende resource bestaat voor het maken van de onderliggende resources. | [Bovenliggende resource oplossen](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | Als u een wachtwoord met te veel tekens hebt geselecteerd of mogelijk hebt omgezet in de password-waarde een beveiligde tekenreeks voordat deze wordt doorgegeven als parameter. Als de sjabloon bevat een **beveiligde tekenreeks** parameter, hoeft u niet de waarde te converteren naar een beveiligde tekenreeks. Geef de waarde van het wachtwoord op als tekst. |  |
@@ -95,7 +95,7 @@ Validatiefouten voortvloeien uit scenario's die vóór de implementatie kunnen w
 
 Beide typen fouten retourneren een foutcode die u gebruikt om de problemen met de implementatie op te lossen. Beide typen fouten worden weergegeven in de [activiteitenlogboek](resource-group-audit.md). Validatiefouten worden echter niet weergegeven in de implementatiegeschiedenis omdat de implementatie niet is gestart.
 
-### <a name="validation-errors"></a>Validatiefouten
+### <a name="validation-errors"></a>validatiefouten
 
 Wanneer u implementeert via de portal, ziet u een validatiefout na het indienen van uw waarden.
 
@@ -131,7 +131,7 @@ U vindt u meer over de implementatie. Selecteer de optie voor meer informatie ov
 
 Ziet u het foutbericht en foutcodes. Er zijn twee foutcodes. De eerste foutcode (**implementatie mislukt**) is een algemene fout dat biedt geen informatie die u nodig hebt voor het oplossen van de fout. De tweede foutcode (**StorageAccountNotFound**) bevat de details die u nodig hebt. 
 
-![foutgegevens](./media/resource-manager-common-deployment-errors/error-details.png)
+![Details van fout](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Inschakelen van logboekregistratie voor foutopsporing
 

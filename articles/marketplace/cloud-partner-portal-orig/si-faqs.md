@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943102"
 ---
 <a name="seller-insights-faq"></a>De verkoper Insights Veelgestelde vragen
@@ -35,19 +35,19 @@ Na het downloaden van uw transacties van de module Payout, zoek de kolom met het
 <a name="calculate-my-open-accounts-receivable"></a>Mijn open klanten berekenen
 -------------------------------------
 
-Na het downloaden van uw transacties van de module Payout, zoek de kolom met het label **Payout Status**, en past u het filter om alleen de waarde "Toekomstige Payout" en "Niet gereed voor Payout." Som van de kolom met het label vervolgens **Payout bedrag (PC)**.
+Na het downloaden van uw transacties van de module Payout, zoek de kolom met het label **Payout Status**, en past u het filter om alleen de waarde "Toekomstige Payout" en "Niet gereed voor Payout." Som van de kolom met het label vervolgens **Payout bedrag (PC)** .
 
 
 <a name="calculate-revenue-by-customer-usage-period"></a>Omzet per klant gebruiksperiode berekenen
 ------------------------------------------
 
-Na het downloaden van uw transacties van de module Payout, zoek de kolom met het label **transactiestatus**, en de waarde "Betaald" filteren.   Voor elke transactie vermeld, de kolom met het label **Payout bedrag (PC)** vertegenwoordigt het bedrag dat u zijn betaald.  De kolom wordt gebruikt voor een schatting van de gebruiksperiode die zijn gekoppeld aan de transactie **datum van afschrijving**, die een nauwkeurige benadering van de laatste dag van het gebruik van voor de periode dat de transactie is van toepassing is.
+Na het downloaden van uw transacties van de module Payout, zoek de kolom met het label **transactiestatus**, en de waarde "Betaald" filteren.   Voor elke transactie vermeld, de kolom met het label **Payout bedrag (PC)**  vertegenwoordigt het bedrag dat u zijn betaald.  De kolom wordt gebruikt voor een schatting van de gebruiksperiode die zijn gekoppeld aan de transactie **datum van afschrijving**, die een nauwkeurige benadering van de laatste dag van het gebruik van voor de periode dat de transactie is van toepassing is.
 
 
 <a name="calculate-your-bad-debt"></a>Uw oninbare berekenen
 ---------------------
 
-Na het downloaden van uw transacties van de module Payout, zoek de kolom met het label **verzameling de definitieve Status**, en het filter toepassen op alleen de weergave de waarde 'afschrijven." Som van de kolom met het label vervolgens **Payout bedrag (PC)**.
+Na het downloaden van uw transacties van de module Payout, zoek de kolom met het label **verzameling de definitieve Status**, en het filter toepassen op alleen de weergave de waarde 'afschrijven." Som van de kolom met het label vervolgens **Payout bedrag (PC)** .
 
 
 <a name="view-payout-or-customer-contact-information"></a>Payout of klant contactgegevens weergeven

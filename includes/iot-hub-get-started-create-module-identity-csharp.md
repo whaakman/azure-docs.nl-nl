@@ -9,10 +9,10 @@ ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166273"
 ---
 ## <a name="create-a-module-identity"></a>Een module-id maken
@@ -20,7 +20,7 @@ ms.locfileid: "66166273"
 In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id en een module-id kan maken in het identiteitsregister van uw IoT Hub. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie voor meer informatie de [sectie id-register van de IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md). Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
 
 
-1. **Een Visual Studio-project maken**: voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan een nieuwe oplossing met behulp van de projectsjabloon **Console App (.NET Framework)**. Zorg ervoor dat de versie van .NET Framework minimaal 4.6.1 is. Geef het project de naam **CreateIdentities** en geef de oplossing de naam **IoTHubGetStarted**.
+1. **Een Visual Studio-project maken**: voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan een nieuwe oplossing met behulp van de projectsjabloon **Console App (.NET Framework)** . Zorg ervoor dat de versie van .NET Framework minimaal 4.6.1 is. Geef het project de naam **CreateIdentities** en geef de oplossing de naam **IoTHubGetStarted**.
 
     ![Een Visual Studio-project maken](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
 

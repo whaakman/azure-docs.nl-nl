@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067330"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Instellingen voor het gebruik en het beleid configureren
 In dit artikel wordt beschreven hoe u gebruikers toevoegen aan het lab, ze geregistreerd bij de testomgeving, bepalen het aantal uren dat de virtuele machine, en meer kan worden gebruikt. 
@@ -80,19 +80,24 @@ Selecteer **gebruikers** geregistreerd in het menu links om te zien van de lijst
 U kunt quota's per gebruiker instellen met behulp van de volgende stappen uit: 
 
 1. Selecteer **Gebruikers** in het menu links.
-2. Selecteer **quotum per gebruiker: onbeperkte** op de werkbalk. 
-3. Op de **quotum per gebruiker** pagina, selecteert u een van de volgende opties: 
-    1. **Geen**. Gebruikers kunnen hun virtuele machines alleen tijdens het geplande tijdstip, of als lab-eigenaar op virtuele machines worden gebruikt om ze gebruiken.
-    2. **Onbeperkt (standaard)**. Gebruikers kunnen hun virtuele machines zonder enige tijdsbeperkingen gebruiken.
-    3. **Geef het aantal uren per gebruiker**. Gebruikers kunnen hun virtuele machines gebruiken voor het aantal uren (hieronder) naast het geplande tijdstip. Als u deze optie selecteert, voert u de **aantal uren** in het tekstvak in. 
+2. Selecteer **quotum per gebruiker:** op de werkbalk. 
+3. Op de **quotum per gebruiker** pagina, geef het aantal uren dat u wilt verlenen aan elke gebruiker (studenten): 
+    1. **0 uur (alleen schedule)** . Alleen tijdens het geplande tijdstip, of wanneer u als de eigenaar van het lab voor deze virtuele machines inschakelt, kunnen gebruikers hun VM's gebruiken.
+
+        ![Nul uur - alleen geplande tijd](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Totale aantal uren per gebruiker lab**. Gebruikers kunnen hun VM's gebruiken voor het aantal uren (opgegeven voor dit veld) **naast het geplande tijdstip**. Als u deze optie selecteert, voert u de **aantal uren** in het tekstvak in. 
 
         ![Aantal uren per gebruiker](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Selecteer **Opslaan**. 
-5. Ziet u de gewijzigde waarden op de werkbalk nu: **Quotum per gebruiker: &lt;aantal uren&gt;**. 
+5. Ziet u de gewijzigde waarden op de werkbalk nu: **Quotum per gebruiker: &lt;aantal uren&gt;** . 
 
     ![Quotum per gebruiker](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Voordat u de registratiekoppeling wilt verzenden naar de studenten, docenten moeten een instellen van de planning voor de klasse als ze Kies 0 quotum uur of geef de uren quotum voor de testomgeving.
+>
 > De [geplande uitvoeringstijd van virtuele machines](how-to-create-schedules.md) worden niet meegeteld in het quotum dat is toegewezen aan een gebruiker. Het quotum is voor de tijd buiten schema voor uren dat een student op virtuele machines spendeert. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Gebruikers toevoegen door een CSV-bestand te uploaden

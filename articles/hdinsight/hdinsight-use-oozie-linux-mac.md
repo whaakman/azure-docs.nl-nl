@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142829"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
@@ -494,7 +494,7 @@ Zie voor meer informatie over het gebruik van de REST-API voor Oozie [Apache Ooz
 
 De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. Met de webgebruikersinterface kunt u de volgende informatie bekijken:
 
-   * Taakstatus
+   * De status van taak
    * Jobdefinitie
    * Configuratie
    * Een grafiek van de acties in de taak
@@ -665,7 +665,7 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
 **Oorzaak**: De Azure Blob-opslag-adressen die worden gebruikt de **job.xml** bestand geen het storage-container of de naam van het opslagaccount. De indeling van Blob storage-adres moet `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
-**Oplossing**: De Blob storage-adressen die gebruikmaakt van de taak wijzigen.
+**Resolutie**: De Blob storage-adressen die gebruikmaakt van de taak wijzigen.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002: Oozie is niet toegestaan om te imiteren &lt;gebruiker&gt;
 
@@ -675,7 +675,7 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
 **Oorzaak**: Instellingen voor de huidige machtigingen toestaan niet Oozie te imiteren van het opgegeven gebruikersaccount.
 
-**Oplossing**: Oozie kan imiteren gebruikers in de **gebruikers** groep. Gebruik de `groups USERNAME` om te zien van de groepen die het gebruikersaccount dat lid is van is. Als de gebruiker geen lid is van is de **gebruikers** groep, gebruikt u de volgende opdracht uit om toe te voegen van de gebruiker aan de groep:
+**Resolutie**: Oozie kan imiteren gebruikers in de **gebruikers** groep. Gebruik de `groups USERNAME` om te zien van de groepen die het gebruikersaccount dat lid is van is. Als de gebruiker geen lid is van is de **gebruikers** groep, gebruikt u de volgende opdracht uit om toe te voegen van de gebruiker aan de groep:
 
     sudo adduser USERNAME users
 
@@ -690,7 +690,7 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
 **Oorzaak**: Sqoop is kan niet worden geladen stuurprogramma voor de database vereist voor toegang tot de database.
 
-**Oplossing**: Wanneer u Sqoop van een taak Oozie gebruiken, moet u een stuurprogramma voor de database met de andere resources, zoals de workflow.xml, de taak gebruikt opnemen. Ook verwijzen naar het archief met het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
+**Resolutie**: Wanneer u Sqoop van een taak Oozie gebruiken, moet u een stuurprogramma voor de database met de andere resources, zoals de workflow.xml, de taak gebruikt opnemen. Ook verwijzen naar het archief met het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
 
 Bijvoorbeeld, voor de taak in dit document, moet u de volgende stappen gebruiken:
 

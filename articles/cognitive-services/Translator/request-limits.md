@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: erhopf
 ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514643"
 ---
 # <a name="request-limits-for-translator-text"></a>Aanvraaglimieten voor Translator tekst
@@ -31,8 +31,8 @@ De volgende tabel lijsten matrix-element en teken limieten voor elke bewerking v
 |:----|:----|:----|:----|
 | Translate | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 10.000 | 100 |   50,000 |
-| BreakSentence | 10.000    | 100 | 5,0000 |
+| Detect | 10\.000 | 100 |   50,000 |
+| BreakSentence | 10\.000    | 100 | 5,0000 |
 | Opzoeken in woordenlijst| 100 |  10  | 1000 |
 | Voorbeelden in woordenlijst | 100 voor tekst en 100 voor vertaling (200 totaal)| 10|   2,000 |
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772730"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Rapport van de Azure Site Recovery-Implementatieplanner analyseren
@@ -33,13 +33,13 @@ Het werkblad Samenvatting on-premises biedt een overzicht van de geprofileerde H
 
 **Gemiddeld aantal schijven per compatibele virtuele machine**: Het gemiddelde aantal schijven voor alle compatibele virtuele machines is berekend.
 
-**Gemiddelde schijfgrootte (GB)**: De gemiddelde schijfgrootte die voor alle compatibele virtuele machines is berekend.
+**Gemiddelde schijfgrootte (GB)** : De gemiddelde schijfgrootte die voor alle compatibele virtuele machines is berekend.
 
-**Gewenste RPO (minuten)**: Ofwel de standaard herstelpunt of de waarde doorgegeven voor de parameter 'desiredrpo ' wordt op het moment van het rapport kunt u schatten van de vereiste bandbreedte.
+**Gewenste RPO (minuten)** : Ofwel de standaard herstelpunt of de waarde doorgegeven voor de parameter 'desiredrpo ' wordt op het moment van het rapport kunt u schatten van de vereiste bandbreedte.
 
-**Gewenste bandbreedte (Mbps)**: De waarde die u op het moment van het rapport kunt u schatten haalbare beoogde herstelpunt (RPO) doorgegeven voor de parameter 'Bandwidth'.
+**Gewenste bandbreedte (Mbps)** : De waarde die u op het moment van het rapport kunt u schatten haalbare beoogde herstelpunt (RPO) doorgegeven voor de parameter 'Bandwidth'.
 
-**Waargenomen typisch gegevensverloop per dag (GB)**: Het gemiddelde gegevensverloop dat voor alle profileringsdagen is vastgesteld.
+**Waargenomen typisch gegevensverloop per dag (GB)** : Het gemiddelde gegevensverloop dat voor alle profileringsdagen is vastgesteld.
 
 ## <a name="recommendations"></a>Aanbevelingen 
 Het werkblad met de aanbevelingen voor het Hyper-V naar Azure-rapport heeft de volgende gegevens aan de hand van de geselecteerde gewenste RPO:
@@ -197,17 +197,17 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **R/W IOPS (met groeifactor) pieken**: De piek werkbelasting IOPS voor lezen/schrijven op de schijf (de standaardwaarde is 95e percentiel) samen met de toekomstige groeifactor (standaard is 30 procent). De totale IOPS voor lezen/schrijven van een VM is niet altijd de som van de IOPS voor lezen/schrijven van afzonderlijke schijven van de VM. De piek IOPS voor lezen/schrijven van de VM is de piek van de som van de IOPS voor lezen/schrijven van afzonderlijke schijven van de VM gedurende elke minuut van de profileringsperiode.
 
-**Piek voor Gegevensverloop in MB/s (met groeifactor)**: Het piekverloop op de schijf (de standaardwaarde is 95e percentiel) samen met de toekomstige groeifactor (standaard is 30 procent). De totale gegevensverloop van de VM is niet altijd de som van de gegevensverloop van afzonderlijke schijven van de VM. De piekgegevensverloop van de VM is de piek van de som van de verloop van afzonderlijke schijven van de VM gedurende elke minuut van de profileringsperiode.
+**Piek voor Gegevensverloop in MB/s (met groeifactor)** : Het piekverloop op de schijf (de standaardwaarde is 95e percentiel) samen met de toekomstige groeifactor (standaard is 30 procent). De totale gegevensverloop van de VM is niet altijd de som van de gegevensverloop van afzonderlijke schijven van de VM. De piekgegevensverloop van de VM is de piek van de som van de verloop van afzonderlijke schijven van de VM gedurende elke minuut van de profileringsperiode.
 
 **Azure VM-grootte**: De ideale toegewezen grootte van de virtuele machine in Azure Cloud Services voor deze on-premises virtuele machine. De toewijzing is gebaseerd op het geheugen, het aantal schijven/kerngeheugens/NIC's en de IOPS voor lezen/schrijven van de on-premises VM. De aanbeveling is altijd de laagste Azure VM-grootte die overeenkomt met alle kenmerken van de on-premises virtuele machine.
 
 **Aantal schijven**: Het totale aantal schijven (VHD's) van virtuele machines op de virtuele machine.
 
-**Schijfgrootte (GB)**: De totale grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
+**Schijfgrootte (GB)** : De totale grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
 
 **Kernen**: Het aantal CPU-kernen op de virtuele machine.
 
-**Geheugen (MB)**: Het RAM-geheugen op de virtuele machine.
+**Geheugen (MB)** : Het RAM-geheugen op de virtuele machine.
 
 **NIC's**: Het aantal NIC's op de virtuele machine.
 
@@ -254,15 +254,15 @@ Het Excel-rapport dat is gegenereerd door de Site Recovery-implementatieplanner 
 
 **R/W IOPS (met groeifactor) pieken**: De piekworkload-IOPS op de schijf (de standaardwaarde is 95e percentiel) samen met de toekomstige groeifactor (standaard is 30 procent). De piek IOPS voor lezen/schrijven van de VM is niet altijd de som van de IOPS voor lezen/schrijven van afzonderlijke schijven van de VM. De IOPS voor lezen/schrijven van de VM is de piek van de som van de IOPS voor lezen/schrijven van afzonderlijke schijven van de VM gedurende elke minuut van de profileringsperiode.
 
-**Piek voor Gegevensverloop (MB/s) (met groeifactor)**: Het piekverloop op de schijf (de standaardwaarde is 95e percentiel) samen met de toekomstige groeifactor (standaard is 30 procent). Onthoud dat de totale gegevensverloop van de VM niet altijd de som is van de gegevensverlopen van afzonderlijke schijven van de VM. De piekgegevensverloop van de VM is de piek van de som van de verloop van afzonderlijke schijven van de VM gedurende elke minuut van de profileringsperiode.
+**Piek voor Gegevensverloop (MB/s) (met groeifactor)** : Het piekverloop op de schijf (de standaardwaarde is 95e percentiel) samen met de toekomstige groeifactor (standaard is 30 procent). Onthoud dat de totale gegevensverloop van de VM niet altijd de som is van de gegevensverlopen van afzonderlijke schijven van de VM. De piekgegevensverloop van de VM is de piek van de som van de verloop van afzonderlijke schijven van de VM gedurende elke minuut van de profileringsperiode.
 
 **Aantal schijven**: Het totale aantal VHD's op de virtuele machine.
 
-**Schijfgrootte (GB)**: De totale ingestelde grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
+**Schijfgrootte (GB)** : De totale ingestelde grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
 
 **Kernen**: Het aantal CPU-kernen op de virtuele machine.
 
-**Geheugen (MB)**: De hoeveelheid RAM-geheugen op de virtuele machine.
+**Geheugen (MB)** : De hoeveelheid RAM-geheugen op de virtuele machine.
 
 **NIC's**: Het aantal NIC's op de virtuele machine.
 
@@ -298,13 +298,13 @@ Het werkblad toont de totale vrije ruimte opslagvereiste voor elk volume van de 
 
 **Hyper-V-host**: De lijst met geprofileerde Hyper-V-servers. Als een server deel uitmaakt van een Hyper-V-cluster, worden alle clusterknooppunten gegroepeerd.
 
-**Volume (VHD path)**: Elk volume van een Hyper-V-host waar VHD/vhdx-bestanden aanwezig zijn. 
+**Volume (VHD path)** : Elk volume van een Hyper-V-host waar VHD/vhdx-bestanden aanwezig zijn. 
 
-**Vrije ruimte beschikbaar (GB)**: De vrije ruimte beschikbaar op het volume.
+**Vrije ruimte beschikbaar (GB)** : De vrije ruimte beschikbaar op het volume.
 
-**Totale opslagruimte vereist op het volume (GB)**: Totale vrije opslagruimte vereist op het volume voor een geslaagde initiële replicatie en replicatie van verschillen. 
+**Totale opslagruimte vereist op het volume (GB)** : Totale vrije opslagruimte vereist op het volume voor een geslaagde initiële replicatie en replicatie van verschillen. 
 
-**Totaal aantal extra opslagruimte worden ingericht op het volume voor een geslaagde replicatie (GB)**: Dit is de aanbevolen de hoeveelheid totale extra ruimte die moet worden ingericht op het volume voor een geslaagde initiële replicatie en replicatie van verschillen.
+**Totaal aantal extra opslagruimte worden ingericht op het volume voor een geslaagde replicatie (GB)** : Dit is de aanbevolen de hoeveelheid totale extra ruimte die moet worden ingericht op het volume voor een geslaagde initiële replicatie en replicatie van verschillen.
 
 ## <a name="initial-replication-batching"></a>Initiële replicatie via batchverwerking 
 
@@ -327,21 +327,21 @@ Nadat u de aanbeveling voor lokale vereiste opslag voor elk volume hebt opgevolg
 
 **Opmerkingen**: Als geen actie vereist voor een bepaald volume van een virtuele machine is, wordt hier de opmerking verstrekt. Als er bijvoorbeeld niet voldoende vrije ruimte beschikbaar is op een volume, wordt hier de opmerking 'Extra opslag toevoegen om deze VM te beveiligen' weergegeven.
 
-**Volume (VHD path)**: De naam van het volume waar de VM VHD's zich bevinden. 
+**Volume (VHD path)** : De naam van het volume waar de VM VHD's zich bevinden. 
 
-**Vrije ruimte beschikbaar op het volume (GB)**: De vrije schijfruimte beschikbaar op het volume voor de virtuele machine. Bij het berekenen van de beschikbare vrije ruimte op de volumes, wordt rekening gehouden met de schijfruimte die wordt gebruikt voor de replicatie van verschillen voor de virtuele machines in de vorige batches waarvan de VHD's zich op hetzelfde volume bevinden. 
+**Vrije ruimte beschikbaar op het volume (GB)** : De vrije schijfruimte beschikbaar op het volume voor de virtuele machine. Bij het berekenen van de beschikbare vrije ruimte op de volumes, wordt rekening gehouden met de schijfruimte die wordt gebruikt voor de replicatie van verschillen voor de virtuele machines in de vorige batches waarvan de VHD's zich op hetzelfde volume bevinden. 
 
 Bijvoorbeeld, VM1, VM2 en VM3 bevinden zich op een volume zoals E:\VHDpath. Vóór de replicatie is er 500 GB aan vrije ruimte op het volume. VM1 maakt deel uit van batch 1, VM2 maakt deel uit van batch 2 en VM3 maakt deel uit van batch 3. Voor VM1 is er 500 G aan vrije ruimte beschikbaar. Voor VM2 is 500 vrije ruimte beschikbaar, de schijfruimte die is vereist voor een replicatie van verschillen voor VM1. Als er voor VM1 300 GB ruimte nodig is voor een replicatie van verschillen, dan bedraagt de vrije ruimte die beschikbaar is voor VM2 500 GB – 300 GB = 200 GB. Voor een replicatie van verschillen van VM2 zou er dus 300 GB nodig zijn. De hoeveelheid vrije ruimte voor VM3 is 200 GB - 300 GB =-100 GB.
 
-**Opslagruimte vereist op het volume voor de initiële replicatie (GB)**: De beschikbare opslagruimte vereist op het volume voor de virtuele machine voor de initiële replicatie.
+**Opslagruimte vereist op het volume voor de initiële replicatie (GB)** : De beschikbare opslagruimte vereist op het volume voor de virtuele machine voor de initiële replicatie.
 
-**Opslagruimte vereist op het volume voor de replicatie van verschillen (GB)**: De beschikbare opslagruimte vereist op het volume voor de virtuele machine voor replicatie van verschillen.
+**Opslagruimte vereist op het volume voor de replicatie van verschillen (GB)** : De beschikbare opslagruimte vereist op het volume voor de virtuele machine voor replicatie van verschillen.
 
-**Extra opslag vereist op basis van tekort Replicatiefout (GB)**: De extra opslagruimte vereist op het volume voor de virtuele machine. Dit is de maximale hoeveelheid opslagruimte, minus de beschikbare ruimte op het volume, die is vereist voor een initiële replicatie en een replicatie van verschillen.
+**Extra opslag vereist op basis van tekort Replicatiefout (GB)** : De extra opslagruimte vereist op het volume voor de virtuele machine. Dit is de maximale hoeveelheid opslagruimte, minus de beschikbare ruimte op het volume, die is vereist voor een initiële replicatie en een replicatie van verschillen.
 
-**Minimale bandbreedte vereist voor de initiële replicatie (Mbps)**: De minimale bandbreedte vereist voor de initiële replicatie voor de virtuele machine.
+**Minimale bandbreedte vereist voor de initiële replicatie (Mbps)** : De minimale bandbreedte vereist voor de initiële replicatie voor de virtuele machine.
 
-**Minimale bandbreedte vereist voor replicatie van verschillen (Mbps)**: De minimale bandbreedte vereist voor replicatie van verschillen voor de virtuele machine.
+**Minimale bandbreedte vereist voor replicatie van verschillen (Mbps)** : De minimale bandbreedte vereist voor replicatie van verschillen voor de virtuele machine.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Gegevens over het netwerkgebruik voor elke batch 
 Elke tabel bevat een samenvatting van het netwerkgebruik van de batch.
@@ -352,7 +352,7 @@ Elke tabel bevat een samenvatting van het netwerkgebruik van de batch.
 
 **Voor replicatie van verschillen van batch verbruikte bandbreedte**: De bandbreedte die nodig zijn voor replicatie van verschillen van de virtuele machines van de batch. 
 
-**Geschatte tijd van de initiële replicatie voor batch (uu: mm)**: De tijd van de geschatte initiële replicatie in uren: minuten.
+**Geschatte tijd van de initiële replicatie voor batch (uu: mm)** : De tijd van de geschatte initiële replicatie in uren: minuten.
 
 
 

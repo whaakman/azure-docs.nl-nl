@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: estfan
 ms.openlocfilehash: 3fa71085d649ace95aa24ac87c8714a7268f5386
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161956"
 ---
 Voor een meer nauwkeurige verbruikskosten schatting, houd rekening met het aantal berichten of gebeurtenissen die mogelijk op een willekeurige dag binnenkomen, in plaats van uw berekeningen baseren op alleen het polling-interval. Wanneer een gebeurtenis of een bericht voldoet aan de criteria van de trigger, wordt er onmiddellijk veel triggers probeert te lezen en alle andere wachten gebeurtenissen of de berichten die voldoen aan de criteria. Dit gedrag betekent dat zelfs als u een langer polling-interval, de trigger wordt geactiveerd op basis van het aantal gebeurtenissen van de wachtrij of berichten die in aanmerking komen voor het starten van werkstromen. Triggers die dit gedrag volgen zijn Azure Service Bus en Azure Event Hub.

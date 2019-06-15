@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160168"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>De quotalimieten voor CloudSimple knooppunt
@@ -28,7 +28,7 @@ U kunt het knooppuntquotum verhogen door een ondersteuningsaanvraag indienen. He
 * Service type: **VMware-oplossing door CloudSimple**
 * Probleemtype: **Toegewezen knooppunten quotum**
 * Probleem-subtype: **Verhoog het quotum van toegewezen knooppunten**
-* Houder: **Verhoging**
+* Onderwerp: **Verhoging**
 
 In de details van de ondersteuningsticket, bieden het vereiste aantal knooppunten en knooppunt SKU.
 

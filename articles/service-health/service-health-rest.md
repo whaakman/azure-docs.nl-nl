@@ -8,10 +8,10 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790909"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Ophalen Resource Health met behulp van de REST-API 
@@ -20,7 +20,7 @@ In dit artikel voorbeeld laat zien hoe ophalen van een lijst van health-gebeurte
 
 Volledige documentatie en meer voorbeelden voor de REST-API zijn beschikbaar in de [naslaginformatie over de Azure Monitor REST](/rest/api/monitor). 
 
-## <a name="build-the-request"></a>De aanvraag maken
+## <a name="build-the-request"></a>De aanvraag voor het samenstellen
 
 Gebruik de volgende `GET` HTTP-aanvraag om de health-gebeurtenissen voor uw abonnement voor het bereik van de tijd tussen `2018-05-16` en `2018-06-20`.
 
@@ -35,14 +35,14 @@ De volgende headers zijn vereist:
 |Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
-|*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parameters
 
 | Name | Description |
 | :--- | :---------- |
 | subscriptionId | De abonnements-ID waarmee een Azure-abonnement. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| API-versie | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2015-04-01`opgenomen in de bovenstaande URL.  |
+| api-version | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2015-04-01`opgenomen in de bovenstaande URL.  |
 | $filter | De filteroptie te verminderen van het aantal geretourneerde resultaten. De toegestane patronen voor deze parameter zijn beschikbaar [in de referentie voor de bewerking activiteitenlogboeken](/rest/api/monitor/activitylogs/list#uri-parameters). Het voorbeeld bevat alle gebeurtenissen in een periode tussen 2018-05-16 en 2018-06-20 |
 | &nbsp; | &nbsp; |
 

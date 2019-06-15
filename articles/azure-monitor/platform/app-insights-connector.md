@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606738"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-Connector-beheeroplossing (afgeschaft)
@@ -142,7 +142,7 @@ Perspectief onderdelen zijn bijgewerkt, afhankelijk van de zoekquery. Dit beteke
 
 Application Insights-Connector blades zijn ontworpen om te kunnen Schakel over naar de geselecteerde Application Insights-app *bij het gebruik van de Azure-portal*. U kunt de oplossing gebruiken als een platform voor het controleren van hoog niveau waarmee u een app op te lossen. Als u een potentieel probleem in een van uw verbonden toepassingen ziet, kunt u een van beide Zoom in op deze in Log Analytics search of u kunt draaien rechtstreeks naar de Application Insights-app.
 
-Draaitabel, klikt u op de weglatingstekens (**...** ) die aan het einde van elke regel wordt weergegeven, en selecteer **openen in Application Insights**.
+Draaitabel, klikt u op de weglatingstekens ( **...** ) die aan het einde van elke regel wordt weergegeven, en selecteer **openen in Application Insights**.
 
 >[!NOTE]
 >**Openen in Application Insights** is niet beschikbaar in de Azure-portal.

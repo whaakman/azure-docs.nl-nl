@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954516"
 ---
 # <a name="basic-concepts"></a>Basisbegrippen
@@ -190,7 +190,7 @@ Microsoft Speech Service kunt tal van nettolading-indelingen in transcriptie ant
 
 U kunt de woordgroep resultaatindeling beheren door op te geven de `format` URL-queryparameter. Standaard stuurt de service `simple` resultaten.
 
-| Notatie | Description |
+| Indeling | Description |
 |-----|-----|
 | `simple` | Een vereenvoudigde woordgroep resultaat met de status van de spraakherkenning en de herkende tekst in formulier weergeven. |
 | `detailed` | Een opname-status en een lijst van de N-beste woordgroep resultaten waarbij elk resultaat woordgroep alle vier herkenning van formulieren en een betrouwbaarheidsscore bevat. |

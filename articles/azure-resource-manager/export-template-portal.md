@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65515382"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Één of meerdere resources exporteren naar de sjabloon in Azure portal
@@ -88,7 +88,7 @@ Voor het exporteren van een resource:
 
 1. Na de validatie wordt doorgegeven, maar voordat u begint met de implementatie, selecteer **een sjabloon voor automation downloaden**.
 
-   ![Sjabloon downloaden](./media/export-template-portal/download-before-deployment.png)
+   ![Een sjabloon downloaden](./media/export-template-portal/download-before-deployment.png)
 
 1. De sjabloon wordt weergegeven en is beschikbaar voor downloaden.
 

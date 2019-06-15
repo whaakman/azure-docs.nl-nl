@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
 ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60716044"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale op Azure implementeren
@@ -120,7 +120,7 @@ De GitHub-opslagplaats bevat DB2server.rsp, een antwoordbestand (.rsp) waarmee u
 
 - Wanneer het setup-script wordt uitgevoerd op d0, de **/dev/dm -\***  waarden kunnen afwijken op d1, cf0 en cf1. Het verschil in waarden heeft geen invloed op de installatie van de pureScale DB2.
 
-## <a name="troubleshooting-and-known-issues"></a>Het oplossen van problemen en bekende problemen
+## <a name="troubleshooting-and-known-issues"></a>Probleemoplossing en bekende problemen
 
 De GitHub-opslagplaats bevat een knowledge base die de auteurs onderhouden. Geeft mogelijke problemen en oplossingen die kunt u proberen. Bijvoorbeeld, bekende problemen kunnen gebeuren wanneer:
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: 10dbf7e8cf67ab721cf525d4a1e7594473592bd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459110"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Getimede metagegevens signaleren in Live streamen 
@@ -70,7 +70,7 @@ Voor eenvoudige RTMP-modus ondersteunt Media Services een enkele AMF hint-berich
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | hint        | String     | Vereist | Het gebeurtenisbericht.  Worden moet 'SpliceOut' om aan te geven van een eenvoudige modus genereren.                                              |
 | id         | String     | Vereist | Een unieke id die met een beschrijving van de verbinding of het segment. Dit exemplaar van het bericht aangeeft                            |
-| duur   | Aantal     | Vereist | De duur van de verbinding. Eenheden zijn precisiewaarde.                                                                |
+| Duur   | Aantal     | Vereist | De duur van de verbinding. Eenheden zijn precisiewaarde.                                                                |
 | elapsed    | Aantal     | Optioneel | Wanneer het signaal wordt herhaald ter ondersteuning van afstemmen op, in dit veld moet de hoeveelheid presentatietijd die is verstreken sinds het begin van de verbinding. Eenheden zijn precisiewaarde. Als u eenvoudige gebruikt, moet deze waarde niet langer zijn dan de oorspronkelijke duur van de verbinding.                                                  |
 | time       | Aantal     | Vereist | De tijd van de verbinding in de presentatietijd zijn. Eenheden zijn precisiewaarde.                                     |
 
@@ -83,7 +83,7 @@ Voor eenvoudige RTMP-modus ondersteunt Media Services een enkele AMF hint-berich
 | hint        | String     | Vereist | Het gebeurtenisbericht.  Voor [SCTE-35] berichten, moet dit de met base64 (IETF RFC 4648) binaire codering splice_info_section() in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].                                              |
 | type       | String     | Vereist | Een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten moet dit "urn: scte:scte35:2013a:bin" in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].  |
 | id         | String     | Vereist | Een unieke id die met een beschrijving van de verbinding of het segment. Hiermee geeft u dit exemplaar van het bericht.  Berichten met gelijkwaardige semantiek moeten dezelfde waarde hebben.|
-| duur   | Aantal     | Vereist | De duur van de gebeurtenis of ad splice-segment, indien bekend. Als onbekend, moet de waarde 0 zijn.                                                                 |
+| Duur   | Aantal     | Vereist | De duur van de gebeurtenis of ad splice-segment, indien bekend. Als onbekend, moet de waarde 0 zijn.                                                                 |
 | elapsed    | Aantal     | Optioneel | Wanneer het signaal van de ad [SCTE-35] wordt herhaald om te stemmen, bevat dit veld moet de hoeveelheid presentatietijd die is verstreken sinds het begin van de verbinding. Eenheden zijn precisiewaarde. In de modus [SCTE-35] deze waarde kan groter zijn dan de oorspronkelijke opgegeven duur van de verbinding of het segment.                                                  |
 | time       | Aantal     | Vereist | De presentatietijd van de gebeurtenis of ad genereren.  De presentatietijd en de duur moeten worden uitgelijnd met Stream toegang punten (SAP) van het type 1 of 2, zoals gedefinieerd in [ISO-14496-12] bijlage I. Tijdstip en de duur moeten voor uitgaand verkeer HLS uitgelijnd met de grenzen van het segment. De presentatietijd en de duur van verschillende gebeurtenisberichten binnen hetzelfde gebeurtenisstroom mogen elkaar niet overlappen. Eenheden zijn precisiewaarde.
 
@@ -119,7 +119,7 @@ Het vak 'moov' moet bevatten een **TrackHeaderBox (tkhd)** vak zoals gedefinieer
 
 | **Veldnaam** | **Veldtype**          | **Vereist?** | **Beschrijving**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
-| duur       | niet-ondertekende 64-bits geheel getal | Vereist      | Moet 0, omdat het nummer nul voorbeelden is en de totale duur van de voorbeelden in het spoor 0 is. |
+| Duur       | niet-ondertekende 64-bits geheel getal | Vereist      | Moet 0, omdat het nummer nul voorbeelden is en de totale duur van de voorbeelden in het spoor 0 is. |
 
 -------------------------------------
 
@@ -151,7 +151,7 @@ Het vak MediaDataBox (mdat) moet de volgende indeling hebben:
 
 | **Veldnaam**          | **Veldtype**                   | **Vereist?** | **Beschrijving**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-------------------------|----------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| versie                 | 32-bits geheel getal zonder teken (uimsbf) | Vereist      | Bepaalt de indeling van de inhoud van het vak 'mdat'. Niet-herkende versies worden genegeerd. Op dit moment is de enige ondersteunde versie 1.                                                                                                                                                                                                                                                                                                                                                      |
+| version                 | 32-bits geheel getal zonder teken (uimsbf) | Vereist      | Bepaalt de indeling van de inhoud van het vak 'mdat'. Niet-herkende versies worden genegeerd. Op dit moment is de enige ondersteunde versie 1.                                                                                                                                                                                                                                                                                                                                                      |
 | id                      | 32-bits geheel getal zonder teken (uimsbf) | Vereist      | Hiermee geeft u dit exemplaar van het bericht. Berichten met gelijkwaardige semantiek hebben dezelfde waarde; dat wil zeggen, is het voldoende verwerken van een berichtvenster één gebeurtenis met dezelfde id.                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | 32-bits geheel getal zonder teken (uimsbf) | Vereist      | De som van de fragment_absolute_time, opgegeven in de TrackFragmentExtendedHeaderBox en de presentation_time_delta moet de presentatietijd van de gebeurtenis. De presentatietijd en de duur moeten worden uitgelijnd met Stream toegang punten (SAP) van het type 1 of 2, zoals gedefinieerd in [ISO-14496-12] bijlage I. Tijdstip en de duur moeten voor uitgaand verkeer HLS uitgelijnd met de grenzen van het segment. De presentatietijd en de duur van verschillende gebeurtenisberichten binnen hetzelfde gebeurtenisstroom mogen elkaar niet overlappen. |
 | message                 | bytematrix                       | Vereist      | Het gebeurtenisbericht. Het bericht is de binaire splice_info_section() voor [SCTE-35] berichten, hoewel [SCTE-67] Hiermee wordt aanbevolen iets anders. Voor [SCTE-35] berichten moet dit de splice_info_section() in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67]. Voor [SCTE-35] berichten, het binaire splice_info_section() is de nettolading van het vak 'mdat' en het is niet base64-gecodeerd.                                                            |
@@ -292,7 +292,7 @@ Nul of meer elementen van de gebeurtenis zijn opgenomen in het element EventStre
 | **De naam van kenmerk**  | **Type**                | **Vereist?** | **Beschrijving**                                                                                                                                                                                                             |
 |---------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | presentation_time   | niet-ondertekende 64-bits geheel getal | Optioneel      | Moet de media presentatietijd van de gebeurtenis ten opzichte van het begin van de periode. De presentatietijd en de duur moeten worden uitgelijnd met Stream toegang punten (SAP) van het type 1 of 2, zoals gedefinieerd in [ISO-14496-12] bijlage I. |
-| duur            | niet-ondertekende 32-bits geheel getal | Optioneel      | De duur van de gebeurtenis. Dit moet worden weggelaten als de duur onbekend is.                                                                                                                                                 |
+| Duur            | niet-ondertekende 32-bits geheel getal | Optioneel      | De duur van de gebeurtenis. Dit moet worden weggelaten als de duur onbekend is.                                                                                                                                                 |
 | id                  | niet-ondertekende 32-bits geheel getal | Optioneel      | Hiermee geeft u dit exemplaar van het bericht. Berichten met gelijkwaardige semantiek moeten dezelfde waarde hebben. Als de ID niet opgegeven is wanneer het bericht wordt opgenomen, wordt een unieke id gegenereerd in Azure Media Services.             |
 | De waarde van de gebeurtenis-element | string                  | Vereist      | Het gebeurtenisbericht weergegeven als een tekenreeks met Base 64 zoals beschreven in [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
@@ -383,7 +383,7 @@ Gebeurtenissen worden gesignaleerd in-band, in het vak 'emsg' voor video en audi
 
 [SCTE-35] berichten zijn opgenomen in binaire indeling met behulp van het schema **"urn: scte:scte35:2013a:bin"** voor Smooth opnemen en het type **"scte35"** voor RTMP opnemen. De conversie van de timing [SCTE-35], die is gebaseerd op MPEG-2 transport stream presentatie tijdstempels (punten), een toewijzing tussen punten te vereenvoudigen (pts_time + pts_adjustment van de splice_time()) en de tijdlijn van de media wordt geleverd door de gebeurtenis presentatie tijd ( het veld fragment_absolute_time voor Smooth opnemen en de tijd-veld voor RTMP opnemen). De toewijzing is nodig omdat de waarde van 33-bits punten wordt getotaliseerd via gebeurt ongeveer elke 26,5 uur.
 
-Smooth Streaming opnemen is vereist dat de Media Data Box (mdat) moet bevatten de **splice_info_section()** in tabel 8-1 [SCTE-35] gedefinieerd. Voor RTMP opnemen, de hint-kenmerk van het bericht AMF is ingesteld op de base64encoded **splice_info_section()**. Wanneer de berichten de indeling die hebben hierboven worden beschreven, zijn ze verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].
+Smooth Streaming opnemen is vereist dat de Media Data Box (mdat) moet bevatten de **splice_info_section()** in tabel 8-1 [SCTE-35] gedefinieerd. Voor RTMP opnemen, de hint-kenmerk van het bericht AMF is ingesteld op de base64encoded **splice_info_section()** . Wanneer de berichten de indeling die hebben hierboven worden beschreven, zijn ze verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].
 
 
 ## <a name="5-references"></a>5-verwijzingen

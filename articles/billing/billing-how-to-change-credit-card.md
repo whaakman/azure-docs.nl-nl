@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918593"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard of betaalpas nodig voor Azure
@@ -44,12 +44,12 @@ In de Azure-portal, kunt u een nieuwe creditcard toevoegen, een bestaande credit
 
     ![Schermopname die laat beheren methoden betalingsoptie geselecteerd zien.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. In de linkerbovenhoek, selecteer '+' om toe te voegen een kaart. Een creditcardformulier wordt weergegeven aan de rechterkant.
+1. Selecteer '+' In de linkerbovenhoek om een kaart toe te voegen Een creditcardformulier wordt aan de rechterkant weergegeven.
 1. Voer de details van de creditcard of betaalpas in.
 
     ![Schermafbeelding van een nieuwe kaart toe te voegen.](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
 
-1. Deze kaart van de actieve betalingswijze, schakel het selectievakje in naast **hiervan Mijn actieve betalingswijze** boven het formulier. Deze kaart wordt de actieve betalingswijze voor alle abonnementen waarvoor de kaart wordt hetzelfde als het geselecteerde abonnement.
+1. Deze kaart van de actieve betalingswijze, schakel het selectievakje in naast **hiervan Mijn actieve betalingswijze** boven het formulier. Deze kaart wordt de actieve betalingswijze voor alle abonnementen waarvoor dezelfde kaart wordt gebruikt als voor het geselecteerde abonnement.
 
 1. Selecteer **Next**.
 
@@ -68,11 +68,11 @@ Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de deta
 
     ![Schermopname die laat beheren methoden betalingsoptie geselecteerd zien.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Klik op de creditcard of betaalpas kaart die u wilt bewerken. Een creditcardformulier wordt weergegeven aan de rechterkant.
+1. Klik op de creditcard of betaalpas die u wilt bewerken. Een creditcardformulier wordt aan de rechterkant weergegeven.
 
     ![Schermopname die laat creditcard of betaalpas hebt geselecteerd zien.](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
-1. De details van de creditcard of betaalpas bijwerken.
+1. Werk de details van de creditcard of betaalpas bij.
 1. Selecteer **Opslaan**.
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Een andere creditcard gebruiken voor het Azure-abonnement
@@ -104,7 +104,7 @@ Als meer dan een van uw abonnementen de dezelfde actieve betalingswijze wordt ge
 
     ![Schermopname die laat beheren methoden betalingsoptie geselecteerd zien.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Schakel het selectievakje naast de kaart die u wilt verwijderen.
+1. Schakel het selectievakje in naast de kaart die u wilt verwijderen.
 1. Klik op **Verwijderen**.
 
 Als uw creditcard de actieve betalingswijze wordt gebruikt voor het gebruik van uw Microsoft-abonnementen is, kunt u deze niet verwijderen uit uw Azure-account. Wijzig de actieve betalingswijze wordt gebruikt voor alle abonnementen die zijn gekoppeld aan deze kaart creditcard of betaalpas en probeer het opnieuw
