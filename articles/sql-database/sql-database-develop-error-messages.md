@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723489"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
@@ -155,7 +155,7 @@ De volgende fouten vallen niet in de vorige categorieën.
 | Foutcode | Severity | Description |
 | ---:| ---:|:--- |
 | [15006](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-15000-to-15999) |16 |(AdministratorLogin) is niet een geldige naam omdat deze ongeldige tekens bevat.|
-| [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Aanmelding mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%.&#x2a;ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
+| [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Aanmelden is mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%.&#x2a;ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
 | [18456](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Aanmelden is mislukt voor gebruiker ' %. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (de aanmelding is mislukt voor gebruiker ' %.&#x2a; ls'.) |
 | [18470](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Aanmelding mislukt voor gebruiker '%.&#x2a;ls'. Reden: Het account is disabled.%. &#x2a;ls |
 | 40014 |16 |Meerdere databases kunnen niet worden gebruikt in dezelfde transactie. |
@@ -216,7 +216,7 @@ De volgende fouten vallen niet in de vorige categorieën.
 | 40652 |16 |Kan verplaatsen of -server maken. Abonnement (abonnement-id) overschrijdt de serverquota. |
 | 40671 |17 |Communicatiefout tussen de gateway en de management-service. Probeer het later opnieuw. |
 | 40852 |16 |Kan de database openen ' %. \*ls op server "%. \*ls' aangevraagd door de aanmelding. Toegang tot de database is alleen toegestaan met behulp van een beveiligde verbindingsreeks. Voor toegang tot deze database, wijzigt u uw verbindingsreeksen bevat veilig op de server FQDN - naam van server.database.windows .net moet worden gewijzigd in 'servernaam'.database. `secure`. windows.net. |
-| 40914 | 16 | Server kan niet worden geopend '*[servernaam]* is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.<br /><br />U kunt toevoegen om op te lossen, een [regel voor virtuele netwerken](sql-database-vnet-service-endpoint-rule-overview.md). |
+| 40914 | 16 | Server kan niet worden geopend ' *[servernaam]* is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.<br /><br />U kunt toevoegen om op te lossen, een [regel voor virtuele netwerken](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |De SQL Azure-systeem wordt belast, en een bovengrens op gelijktijdige DB CRUD-bewerkingen voor een enkele SQL-Database-server is geplaatst (bijvoorbeeld database maken). De server die is opgegeven in het foutbericht heeft het maximum aantal gelijktijdige verbindingen overschreden. Probeer het later opnieuw. |
 | 45169 |16 |De azure SQL-systeem wordt belast en een bovengrens wordt geplaatst op het aantal gelijktijdige server CRUD-bewerkingen voor één abonnement (bijvoorbeeld server maken). Het abonnement dat is opgegeven in het foutbericht overschrijdt het maximum aantal gelijktijdige verbindingen en de aanvraag is geweigerd. Probeer het later opnieuw. |
 

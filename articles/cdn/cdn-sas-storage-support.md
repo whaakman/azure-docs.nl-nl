@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324101"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN gebruiken met SAS
@@ -135,8 +135,8 @@ Omdat het SAS-parameters zijn niet zichtbaar voor Azure CDN, kan de van levering
 
 | Naam van de SAS | Description |
 | --- | --- |
-| Starten | Het tijdstip waarop Azure CDN beginnen kunt met het toegang krijgen tot de blobbestand. Vanwege de klok scheeftrekken (wanneer een kloksignaal binnenkomt op verschillende tijdstippen voor verschillende onderdelen), kiest u een periode van 15 minuten eerder als u wilt dat de asset onmiddellijk beschikbaar zijn. |
-| Beëindigen | De tijd waarna Azure CDN geen toegang meer de blob-bestand tot kan. Eerder zijn de bestanden in de cache op Azure CDN nog steeds toegankelijk. Voor het beheren van de verlooptijd van het bestand, instellen van de juiste verlooptijd op het Azure CDN-beveiligingstoken of opschonen van de asset. |
+| Start | Het tijdstip waarop Azure CDN beginnen kunt met het toegang krijgen tot de blobbestand. Vanwege de klok scheeftrekken (wanneer een kloksignaal binnenkomt op verschillende tijdstippen voor verschillende onderdelen), kiest u een periode van 15 minuten eerder als u wilt dat de asset onmiddellijk beschikbaar zijn. |
+| einde | De tijd waarna Azure CDN geen toegang meer de blob-bestand tot kan. Eerder zijn de bestanden in de cache op Azure CDN nog steeds toegankelijk. Voor het beheren van de verlooptijd van het bestand, instellen van de juiste verlooptijd op het Azure CDN-beveiligingstoken of opschonen van de asset. |
 | Toegestane IP-adressen | Optioneel. Als u **Azure CDN van Verizon**, kunt u deze parameter instellen op de bereiken die zijn gedefinieerd [Azure CDN van Verizon Edge-Server IP-adresbereiken](/azure/cdn/cdn-pop-list-api). Als u **Azure CDN van Akamai**, u kunt de IP-adresbereiken parameter niet instellen omdat de IP-adressen niet statisch zijn.|
 | Toegestane protocollen | De netwerkprotocollen die zijn toegestaan voor een aanvraag voor de account-SAS. De HTTPS-instelling wordt aanbevolen.|
 

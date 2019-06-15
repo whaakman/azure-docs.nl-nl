@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538127"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Aan de slag met de aanvraag- en -onderdelen
@@ -86,7 +86,7 @@ De volgende tabellen beschrijven de invoervelden voor de trigger en de actie en 
 #### <a name="request-trigger"></a>Trigger voor de aanvraag
 Hier volgt een invoerveld voor de trigger van een binnenkomende HTTP-aanvraag.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| `Display name` | Naam van eigenschap | Description |
 | --- | --- | --- |
 | JSON-Schema |schema |De JSON-schema van de hoofdtekst van de HTTP-aanvraag |
 
@@ -104,11 +104,11 @@ Hier volgen de uitvoerdetails van de voor de aanvraag.
 #### <a name="response-action"></a>Reactie
 Hier volgen de invoervelden voor de actie van de HTTP-antwoord. Een * betekent dat het een verplicht veld.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| `Display name` | Naam van eigenschap | Description |
 | --- | --- | --- |
 | Status Code * |statusCode |De HTTP-statuscode |
 | Headers |Headers |Een JSON-object van een antwoordheaders om op te nemen |
-| Hoofdtekst |hoofdtekst |De hoofdtekst van reactie |
+| Hoofdtekst |De hoofdtekst |De hoofdtekst van reactie |
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu uitproberen van het platform en [maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). U kunt de beschikbare connectors in logic apps verkennen door te kijken onze [lijst van API's](apis-list.md).

@@ -3,7 +3,7 @@ title: Als u wilt voorbereiden, taken en volledige taken op rekenknooppunten - A
 description: Gebruik van taakniveau Voorbereidingstaken om te beperken van de overdracht van gegevens naar Azure Batch-rekenknooppunten en vrijgevingstaken om op te schonen knooppunt op de taak is voltooid.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 02/27/2017
-ms.date: 06/29/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.date: 02/27/2017
+ms.author: lahugh
+ms.custom: seodec18
 ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776195"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Taak uitvoeren-jobvoorbereidingstaken en jobvrijgevingstaken op Batch-rekenknooppunten
@@ -59,7 +58,7 @@ Mogelijk wilt u Bewaar een kopie van de logboekbestanden die uw taken wordt gege
 > 
 > 
 
-## <a name="job-preparation-task"></a>Taakvoorbereidingstaak
+## <a name="job-preparation-task"></a>Jobvoorbereidingstaak
 Batch wordt de jobvoorbereidingstaak voordat de uitvoering van de taken van een job uitgevoerd op elk knooppunt dat een taak is gepland. Standaard wacht de Batch-service voor de jobvoorbereidingstaak om te worden voltooid voordat de taken die zijn gepland om uit te voeren op het knooppunt worden uitgevoerd. U kunt echter de service niet te wachten. Als het knooppunt opnieuw wordt opgestart, wordt de jobvoorbereidingstaak wordt opnieuw uitgevoerd, maar u kunt dit gedrag ook uitschakelen.
 
 De jobvoorbereidingstaak wordt uitgevoerd alleen op knooppunten die zijn gepland voor een taak uitvoert. Dit voorkomt dat de onnodige uitvoering van een voorbereidingstaak als een knooppunt niet aan een taak toegewezen is. Dit kan gebeuren wanneer het aantal taken voor een job kleiner dan het aantal knooppunten in een pool is. Dit geldt ook wanneer [uitvoering van gelijktijdige taken](batch-parallel-node-tasks.md) is ingeschakeld, waardoor sommige knooppunten niet-actieve als het aantal voor de taak is lager dan de totale mogelijk gelijktijdige taken. Door de jobvoorbereidingstaak wordt niet wordt uitgevoerd op niet-actieve knooppunten, kunt u minder geld te besteden aan kosten voor gegevensoverdracht.
@@ -69,7 +68,7 @@ De jobvoorbereidingstaak wordt uitgevoerd alleen op knooppunten die zijn gepland
 > 
 > 
 
-## <a name="job-release-task"></a>Taakvrijgevingstaak
+## <a name="job-release-task"></a>Jobvrijgevingstaak
 Wanneer een taak is gemarkeerd als voltooid, wordt de jobvrijgevingstaak uitgevoerd op elk knooppunt in de pool dat ten minste één taak uitgevoerd. U kunt een taak markeren als voltooid door het uitgeven van een aanvraag beëindigen. De Batch-service wordt de taakstatus van de vervolgens ingesteld op *beëindigen*, eventuele actieve of actieve taken die zijn gekoppeld aan de taak wordt beëindigd en wordt de jobvrijgevingstaak uitgevoerd. De taak wordt verplaatst naar de *voltooid* staat.
 
 > [!NOTE]
@@ -196,11 +195,11 @@ Dit MSDN-forumbericht bevat een overzicht van de verschillende methoden voor het
 
 Geschreven door een van de Azure Batch-teamleden, hierin verschillende technieken die u gebruiken kunt om toepassingen en gegevens rekenknooppunten te implementeren.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[azure_storage]: https://www.azure.cn/home/features/storage/
-[portal]: https://portal.azure.cn
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
+[azure_storage]: https://azure.microsoft.com/services/storage/
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -226,5 +225,3 @@ Geschreven door een van de Azure Batch-teamleden, hierin verschillende technieke
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-<!-- Update_Description: wording update -->

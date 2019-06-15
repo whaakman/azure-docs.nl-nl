@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784704"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Veelgestelde vragen over Azure Databricks
@@ -99,7 +99,7 @@ Databricks-clusters gebruiken één openbaar IP-adres per knooppunt. Als uw abon
 #### <a name="error-message"></a>Foutbericht
 
 "Fout bij het starten van de Provider in de cloud: Er is een cloud-provider-fout opgetreden tijdens het instellen van het cluster. Zie de Databricks-gids voor meer informatie.
-Azure-foutcode: MissingSubscriptionRegistration Azure-foutbericht: Het abonnement is niet geregistreerd voor het gebruik van de naamruimte Microsoft.Compute. Zie https://aka.ms/rps-not-found voor informatie over het registreren van abonnementen. "
+Azure-foutcode: MissingSubscriptionRegistration Azure-foutbericht: Het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Compute'. Zie https://aka.ms/rps-not-found voor informatie over het registreren van abonnementen. "
 
 #### <a name="solution"></a>Oplossing
 

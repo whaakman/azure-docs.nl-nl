@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610526"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
@@ -106,7 +106,7 @@ Logboeken in Azure Monitor is een handig hulpmiddel in forensische en andere bev
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
 Bovendien helpt Azure Security Center bij de beveiligingsbewerkingen doordat u één dashboard dat oppervlakken meldingen en aanbevelingen die kunnen worden gereageerd onmiddellijk. U kunt vaak problemen met één klik in de Azure Security Center-console herstellen.
-## <a name="applications"></a>Applicaties
+## <a name="applications"></a>Toepassingen
 De sectie biedt meer informatie over de belangrijkste functies in de toepassing beveiligings- en samenvatting van informatie over deze mogelijkheden.
 
 ### <a name="web-application-vulnerability-scanning"></a>Web-toepassing scannen van beveiligingsproblemen
@@ -149,7 +149,7 @@ In Application Diagnostics, kunt u gebeurtenissen gegroepeerd op de volgende man
 -   Toepassingsfouten (uitzonderingsgebeurtenissen worden weergegeven)
 -   Prestaties (prestatiegebeurtenissen worden weergegeven)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 De sectie biedt meer informatie over de belangrijkste functies in Azure storage-beveiligings- en samenvatting van informatie over deze mogelijkheden.
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (op rollen gebaseerd toegangsbeheer)

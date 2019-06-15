@@ -16,10 +16,10 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60766733"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Inrichten en implementeren van microservices zoals verwacht in Azure
@@ -193,7 +193,7 @@ Nogmaals, de ingesloten resources moeten een vergelijkbaar met die in uw JSON-sj
 De **implementeren in Azure** knop is erg handig, maar kunt u de resource-groep om sjabloon te implementeren in azuredeploy.json alleen als u al azuredeploy.json naar GitHub hebt gepusht. De Azure .NET SDK biedt ook de hulpprogramma's voor het implementeren van een JSON-sjabloonbestand rechtstreeks vanuit uw lokale computer. U doet dit door de volgende stappen uit te voeren:
 
 1. Klik in Visual Studio op **File** > **New** > **Project**.
-2. Klik op **Visual C#** > **Cloud** > **Azure-resourcegroep**, klikt u vervolgens op **OK**.
+2. Klik op **Visual C#**  > **Cloud** > **Azure-resourcegroep**, klikt u vervolgens op **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. In **Azure-sjabloon selecteren**, selecteer **lege sjabloon** en klikt u op **OK**.
@@ -238,7 +238,7 @@ De **implementeren in Azure** knop is erg handig, maar kunt u de resource-groep 
     > Automatisch schalen is een functie die wordt aangeboden in **Standard** laag of hoger, plan op het niveau en waarschuwingen zijn functies die worden aangeboden **Basic** laag of hoger gebruikt, moet u om in te stellen de **sku** parameter naar **Standard** of **Premium** als u wilt bekijken van al uw nieuwe App Insights-resources belicht.
     > 
     > 
-16. Klik op **Implementeren**. Als u hebt geselecteerd **wachtwoorden opslaan**, het wachtwoord wordt opgeslagen in het parameterbestand **in tekst zonder opmaak**. Anders wordt u gevraagd voor het invoeren van het wachtwoord voor de database tijdens het implementatieproces.
+16. Klik op **implementeren**. Als u hebt geselecteerd **wachtwoorden opslaan**, het wachtwoord wordt opgeslagen in het parameterbestand **in tekst zonder opmaak**. Anders wordt u gevraagd voor het invoeren van het wachtwoord voor de database tijdens het implementatieproces.
 
 Dat is alles. Nu u alleen hoeft te gaat u naar de [Azure Portal](https://portal.azure.com/) en de [Azure Resource Explorer](https://resources.azure.com) hulpprogramma om te zien van de nieuwe waarschuwingen en de instellingen voor automatisch schalen is toegevoegd aan uw JSON-toepassing geïmplementeerd.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 56a66c3eb1dad93fad3ad1572989dc0c0aa14632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60622752"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>VHD-bestand uploaden naar het lab storage-account met behulp van PowerShell
@@ -39,7 +39,7 @@ De volgende stappen helpen u bij het uploaden van een VHD-bestand naar Azure Dev
 
 1. Selecteer op de blade van de testomgeving **configuratie**. 
 
-1. In het lab **configuratie** Selecteer **aangepaste installatiekopieën (VHD's)**.
+1. In het lab **configuratie** Selecteer **aangepaste installatiekopieën (VHD's)** .
 
 1. Op de **aangepaste installatiekopieën** blade, selecteer **+ toevoegen**. 
 

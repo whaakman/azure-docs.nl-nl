@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725484"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfisme in Reliable Actors-framework
@@ -29,7 +29,7 @@ Het Reliable Actors-framework, moet u ten minste één interface om te worden ge
 
 ![Hiërarchie van de interface voor vorm actoren][shapes-interface-hierarchy]
 
-## <a name="types"></a>Typen
+## <a name="types"></a>Types
 U kunt ook een hiërarchie van de actor-typen die zijn afgeleid van de basisklasse van Actor die wordt geleverd door het platform maken. In het geval van vormen, mogelijk hebt u een base `Shape`(C#) of `ShapeImpl`(Java)-type:
 
 ```csharp

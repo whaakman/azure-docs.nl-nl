@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837263"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
@@ -28,9 +28,9 @@ Maken, verwijderen en beheren van Docker Compose-toepassingen.
 
 |Opdracht|Description|
 | --- | --- |
-| maken | Hiermee maakt u een Service Fabric implementatie voor opstellen. |
+| create | Hiermee maakt u een Service Fabric implementatie voor opstellen. |
 | list | Haalt de lijst met implementaties die zijn gemaakt in de Service Fabric-cluster vormen. |
-| verwijderen | Verwijdert een bestaande Service Fabric vormen van de cluster-implementatie. |
+| remove | Verwijdert een bestaande Service Fabric vormen van de cluster-implementatie. |
 | status | Haalt informatie over een Service Fabric implementatie voor opstellen. |
 | upgrade | Hiermee start u een upgrade van een implementatie voor opstellen in de Service Fabric-cluster. |
 | upgrade-rollback | Start een implementatie voor opstellen terugdraaien upgraden via de Service Fabric-cluster. |

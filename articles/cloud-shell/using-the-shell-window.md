@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60200609"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Met behulp van de Azure Cloud Shell-venster
@@ -30,9 +30,9 @@ Dit document wordt uitgelegd hoe u met behulp van de Cloud Shell-venster.
 De omgevingsselectie in de Cloud Shell-werkbalk gebruiken om te schakelen tussen omgevingen met Bash en PowerShell.  
 ![Omgeving selecteren](media/using-the-shell-window/env-selector.png)
 
-## <a name="restart-cloud-shell"></a>Cloud Shell opnieuw starten
+## <a name="restart-cloud-shell"></a>Cloudshell opnieuw starten
 Klik op het pictogram opnieuw opstarten in de Cloud Shell-werkbalk MACHINESTATUS opnieuw instellen.  
-![Cloud Shell opnieuw starten](media/using-the-shell-window/restart.png)
+![Cloudshell opnieuw starten](media/using-the-shell-window/restart.png)
 > [!WARNING]
 > Cloud Shell opnieuw start, wordt de status van machine opnieuw ingesteld en de bestanden niet-persistent door uw Azure-bestandsshare, gaan verloren.
 

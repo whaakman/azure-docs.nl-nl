@@ -11,10 +11,10 @@ ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531858"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Uw eerste taak plannen en maken met Azure Scheduler - Azure Portal
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
 1. Voer onder **Scheduler-taak** deze informatie in:
 
-   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   | Eigenschap | Voorbeeldwaarde | Description |
    |----------|---------------|-------------| 
    | **Naam** | getMicrosoft | De naam van uw taak | 
    | **Jobverzameling** | <*job-collection-name*> | Maak een taakverzameling of selecteer een bestaande verzameling. | 
@@ -47,7 +47,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
 1. Selecteer **Actie-instellingen - Configureren**, verstrek deze informatie en kies vervolgens **OK** als u klaar bent:
 
-   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   | Eigenschap | Voorbeeldwaarde | Description |
    |----------|---------------|-------------| 
    | **Actie** | **Http** | Het type actie dat moet worden uitgevoerd | 
    | **Methode** | **Get** | De aan te roepen methode | 

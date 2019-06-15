@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551931"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Azure-dashboards delen met behulp van Role-Based Access Control
@@ -36,7 +36,7 @@ Met rollen gebaseerd toegangsbeheer (RBAC), kunt u gebruikers toewijzen aan roll
 
 * abonnement
 * resourcegroep
-* Bron
+* resource
 
 De machtigingen die u toewijst, worden overgenomen van abonnement omlaag naar de resource. De gepubliceerde dashboard is een resource. Daarom mogelijk hebt u al gebruikers toegewezen aan rollen voor het abonnement dat ook voor de gepubliceerde dashboard werken. 
 

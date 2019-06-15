@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60864057"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in Azure portal en failover initiëren
@@ -70,7 +70,7 @@ De secundaire database kunt om te worden van de primaire worden overgeschakeld.
 2. Selecteer op de blade SQL Database **alle instellingen** > **geo-replicatie**.
 3. In de **secundaire DATABASES** , selecteert u de database die u wilt worden van de nieuwe primaire en klikt u op **Failover**.
 
-    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Klik op **Ja** om te beginnen met de failover.
 
 De opdracht wordt onmiddellijk de secundaire database in de primaire rol. Dit proces moet normaal gesproken voltooid binnen 30 seconden of minder.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393405"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Gebeurtenis analyses en visualisatie met Azure Monitor-Logboeken
@@ -43,7 +43,7 @@ Nadat de gegevens worden ontvangen door de logboeken van Azure Monitor, Azure he
 
 In de [Azure Portal](https://portal.azure.com), gaat u naar de resourcegroep waarin u de Service Fabric-analyse-oplossing hebt gemaakt.
 
-Selecteer de resource **ServiceFabric\<nameOfOMSWorkspace\>**.
+Selecteer de resource **ServiceFabric\<nameOfOMSWorkspace\>** .
 
 In `Summary`, ziet u tegels in de vorm van een grafiek voor elk van de oplossingen ingeschakeld, met inbegrip van een Service Fabric. Klik op de **Service Fabric** graph om door te gaan naar de Service Fabric-analyse-oplossing.
 

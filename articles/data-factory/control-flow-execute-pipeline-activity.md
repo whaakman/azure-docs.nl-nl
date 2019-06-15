@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808851"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Execute Pipeline-activiteit in Azure Data Factory
@@ -62,9 +62,9 @@ De Execute Pipeline-activiteit kunt een Data Factory-pijplijn om aan te roepen e
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | De naam van de execute pipeline-activiteit. | String | Ja
+name | De naam van de execute pipeline-activiteit. | String | Ja
 type | Moet worden ingesteld op: **ExecutePipeline**. | String | Ja
-pijplijn | Pijplijn verwijzing naar de afhankelijke pijplijn die deze pijplijn aanroept. Een pijplijn reference-object heeft twee eigenschappen: **verwijzing** en **type**. De eigenschap verwijzing geeft de naam van de referentie-pijplijn. De eigenschap type moet worden ingesteld op PipelineReference. | PipelineReference | Ja
+Pijplijn | Pijplijn verwijzing naar de afhankelijke pijplijn die deze pijplijn aanroept. Een pijplijn reference-object heeft twee eigenschappen: **verwijzing** en **type**. De eigenschap verwijzing geeft de naam van de referentie-pijplijn. De eigenschap type moet worden ingesteld op PipelineReference. | PipelineReference | Ja
 parameters | Parameters worden doorgegeven aan de pijplijn aangeroepen | Een JSON-object dat de namen van parameters wordt toegewezen aan de waarden van het argument | Nee
 waitOnCompletion | Bepaalt of de uitvoeringsomgeving van de activiteit moet wachten voor de uitvoering van de afhankelijke pipeline om te voltooien. De standaardinstelling is onwaar. | Boolean | Nee
 

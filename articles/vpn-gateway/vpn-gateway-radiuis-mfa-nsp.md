@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458081"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN-gateway RADIUS-verificatie integreren met NPS-server voor multi-factor Authentication 
@@ -55,7 +55,7 @@ U MFA inschakelt, moet de gebruikers in Azure Active Directory (Azure AD), die m
 2. Open de console NSP, met de rechtermuisknop op **RADUIS Clients**, en selecteer vervolgens **nieuw**. De client RADUIS maken door de volgende instellingen op te geven:
 
     - **Beschrijvende naam**: Typ een naam.
-    - **Adres (IP- of DNS)**: Typ het gatewaysubnet dat u in stap 1 hebt gemaakt.
+    - **Adres (IP- of DNS)** : Typ het gatewaysubnet dat u in stap 1 hebt gemaakt.
     - **Gedeeld geheim**: Typ een geheime sleutel en onthouden voor later gebruik.
 
       ![De afbeelding RADUIS clientinstellingen](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)

@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648802"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Azure Recovery Services back-upbeleid met behulp van REST-API maken
@@ -53,7 +53,7 @@ Bijvoorbeeld, voor het maken van een beleid voor Azure VM backup, vindt hieronde
 |Name  |Vereist  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource eigenschappen        |
-|tags     |         | Object        |  Resourcetags       |
+|codes     |         | Object        |  Resourcetags       |
 
 Voor de volledige lijst met definities in de aanvraagtekst, raadpleegt u de [back-upbeleid REST API-document](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -152,7 +152,7 @@ Het beleid zegt:
 > [!IMPORTANT]
 > De tijdnotatie voor planning en retentie ondersteunen alleen datum/tijd. Alleen tijdnotatie niet wordt ondersteund.
 
-## <a name="responses"></a>Antwoorden
+## <a name="responses"></a>Responses
 
 De back-upbeleid maken/bijwerken is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 

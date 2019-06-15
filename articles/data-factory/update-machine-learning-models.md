@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335472"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Bijwerken van Azure Machine Learning-modellen met behulp van de activiteit resources bijwerken
@@ -59,7 +59,7 @@ De volgende JSON-fragment definieert een Azure Machine Learning Batch Execution-
 
 | Eigenschap                      | Description                              | Vereist |
 | :---------------------------- | :--------------------------------------- | :------- |
-| naam                          | Naam van de activiteit in de pijplijn     | Ja      |
+| name                          | Naam van de activiteit in de pijplijn     | Ja      |
 | description                   | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                          | Voor Azure Machine Learning Update Resource-activiteit, het activiteitstype is **AzureMLUpdateResource**. | Ja      |
 | linkedServiceName             | Azure Machine Learning gekoppelde service met de eigenschap updateResourceEndpoint. | Ja      |

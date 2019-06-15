@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703163"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Gebruik het diagnoselogboek voor Intelligent Insights Azure SQL Database-prestaties
@@ -85,7 +85,7 @@ Afhankelijk van het prestatieprobleem gedetecteerd, de details in de diagnostisc
 | Verbeterde MAXDOP | <li>Query-hashes</li><li>CXP wachttijden</li><li>Wachttijden</li> |
 | Pagelatch conflicten | <li>Query-hashes van query's veroorzaken conflicten</li> |
 | Ontbrekende Index | <li>Query-hashes</li> |
-| Nieuwe query | <li>Queryhash van de nieuwe query 's</li> |
+| Nieuwe Query | <li>Queryhash van de nieuwe query 's</li> |
 | Ongebruikelijke wacht statistiek | <li>Ongebruikelijke wait-typen</li><li>Query-hashes</li><li>Query-wachttijden</li> |
 | TempDB conflicten | <li>Query-hashes van query's veroorzaken conflicten</li><li>Query attribution aan de algehele database pagelatch conflicten wachttijd [%]</li> |
 | Elastische pool-DTU tekort | <li>Elastische pool</li><li>Bovenste DTU verbruikt database</li><li>Procent van de groep van toepassingen die worden gebruikt door de bovenste consument DTU</li> |
@@ -98,7 +98,7 @@ Afhankelijk van het prestatieprobleem gedetecteerd, de details in de diagnostisc
 
 De impact (invloed) eigenschap beschrijft hoeveel een gedetecteerd probleem hebben bijgedragen aan het probleem dat een database heeft. Heeft gevolgen voor het bereik van 1 tot 3, met 3 als de hoogste bijdrage, Gemiddeld, 2 en 1 als de bijdrage van de laagste. De waarde van de impact kan worden gebruikt als invoer voor aangepaste waarschuwingen automatisering, afhankelijk van uw specifieke behoeften. De eigenschap query's betrokken (QueryHashes) bieden een overzicht van de query-hashes die door een bepaalde detectie.
 
-### <a name="impacted-queries"></a>Betrokken query's
+### <a name="impacted-queries"></a>Betrokken query 's
 
 De volgende sectie van het logboek Intelligent Insights bevat informatie over bepaalde query's die worden beïnvloed door de gedetecteerde prestatieproblemen. Deze informatie wordt vermeld als een matrix met objecten die zijn ingesloten in de eigenschap impact_s. De eigenschap gevolgen bestaat uit entiteiten en metrische gegevens. Entiteiten verwijst naar een bepaalde query (Type: Query). De unieke queryhash wordt vermeld onder de eigenschap value (waarde). Bovendien wordt elk van de query's vermeld gevolgd door een metrische waarde en een waarde die wijzen op een prestatieprobleem aangetroffen.
 

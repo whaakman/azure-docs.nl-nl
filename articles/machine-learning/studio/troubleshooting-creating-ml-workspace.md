@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7cc825daa29a0398793f3c6fc5ce8ee426ad79e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193829"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Probleemoplossingsgids: Maken en verbinding maken met een Azure Machine Learning Studio-werkruimte
@@ -22,7 +22,7 @@ Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij
 
 
 
-## <a name="workspace-owner"></a>Eigenaar van de werkruimte
+## <a name="workspace-owner"></a>De eigenaar van de werkruimte
 Als u wilt een werkruimte opent in Machine Learning Studio, u moet zijn aangemeld bij de Microsoft-Account dat u gebruikt voor het maken van de werkruimte, of moet u een uitnodiging ontvangen van de eigenaar voor deelname aan de werkruimte. U kunt de werkruimte, inclusief de mogelijkheid om toegang te configureren beheren vanuit Azure portal.
 
 Zie voor meer informatie over het beheren van een werkruimte [een Azure Machine Learning Studio-werkruimte beheren].
@@ -39,7 +39,7 @@ De Machine Learning-service moet een storage-account voor het opslaan van gegeve
 
 Nadat de nieuwe Machine Learning Studio-werkruimte is gemaakt, kunt u zich aanmelden voor Machine Learning Studio met behulp van het Microsoft-account dat u gebruikt voor het maken van de werkruimte. Als u het foutbericht 'Werkruimte niet gevonden' (vergelijkbaar met de volgende schermafbeelding), gebruik de volgende stappen uit om uw browsercookies te verwijderen.
 
-![Kan de werkruimte niet vinden](media/troubleshooting-creating-ml-workspace/screen3.png)
+![De werkruimte niet vinden](media/troubleshooting-creating-ml-workspace/screen3.png)
 
 **Browsercookies te verwijderen**
 

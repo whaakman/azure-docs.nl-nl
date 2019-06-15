@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679549"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt maken
@@ -44,7 +44,7 @@ Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com)
    
     ![Pagina eindpunt toevoegen](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Voer voor **Naam** een unieke naam voor het nieuwe CDN-eindpunt in. Deze naam wordt gebruikt voor toegang tot uw resources in de cache in het domein  _\<endpointname >_. azureedge.net.
+3. Voer voor **Naam** een unieke naam voor het nieuwe CDN-eindpunt in. Deze naam wordt gebruikt voor toegang tot uw resources in de cache in het domein  _\<endpointname >_ . azureedge.net.
 
 4. Voor **oorsprongtype**, kies een van de volgende oorsprongstypen: 
    - **Opslag** voor Azure-opslag
@@ -62,7 +62,7 @@ Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com)
    > Bepaalde oorsprongtypen, zoals Azure Storage en Web Apps, vereisen dat de hostheader overeenkomt met het domein van de oorsprong. Tenzij u een oorsprong hebt waarvoor een andere host-header is vereist dan die van het domein, laat u de standaardwaarde ongewijzigd.
    > 
     
-8. Voor **Protocol** en **poort van oorsprong**, geef de protocollen en poorten gebruiken voor toegang tot uw resources in de oorspronkelijke server. Er moet minimaal één protocol (HTTP of HTTPS) worden geselecteerd. Het opgegeven CDN domein (_\<endpointname >_. azureedge.net) voor toegang tot HTTPS-inhoud. 
+8. Voor **Protocol** en **poort van oorsprong**, geef de protocollen en poorten gebruiken voor toegang tot uw resources in de oorspronkelijke server. Er moet minimaal één protocol (HTTP of HTTPS) worden geselecteerd. Het opgegeven CDN domein ( _\<endpointname >_ . azureedge.net) voor toegang tot HTTPS-inhoud. 
    
    > [!NOTE]
    > De **poort van oorsprong** waarde bepaalt alleen de poort die gebruikmaakt van het eindpunt van de gegevens ophalen uit de oorspronkelijke server. Het eindpunt zelf is alleen beschikbaar voor eindclients op de standaard-HTTP- en -HTTPS-poorten (80 en 443), ongeacht de waarde voor **Poort van oorsprong**.  

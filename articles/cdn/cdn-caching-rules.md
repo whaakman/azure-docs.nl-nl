@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679167"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Azure CDN caching-gedrag met caching-regels beheren
@@ -75,7 +75,7 @@ U kunt de vervaltijd van de cache voor algemene en aangepaste cacheregels opgeve
 
 Twee identieke voorwaarden zijn beschikbaar voor cacheregels voor aangepaste:
  
-- **Pad**: Dit probleem komt overeen met het pad van de URL, met uitzondering van de naam van het domein, en biedt ondersteuning voor het jokerteken (\*). Bijvoorbeeld, _/myfile.html_, _/mijn/map / *_, en _/my/images/*.jpg_. De maximumlengte is 260 tekens.
+- **Pad**: Dit probleem komt overeen met het pad van de URL, met uitzondering van de naam van het domein, en biedt ondersteuning voor het jokerteken (\*). Bijvoorbeeld, _/myfile.html_, _/mijn/map / *_ , en _/my/images/*.jpg_. De maximumlengte is 260 tekens.
 
 - **Extensie**: Dit probleem komt overeen met de bestandsextensie van het aangevraagde bestand. U kunt een lijst met bestandsextensies die overeenkomen met door komma's gescheiden opgeven. Bijvoorbeeld, _.jpg_, _.mp3_, of _.png_. Het maximum aantal extensies is 50 en het maximum aantal tekens per extensie is 16. 
 
@@ -103,7 +103,7 @@ Algemene en aangepaste cacheregels worden verwerkt in de volgende volgorde:
    - Cachegedrag: **Instellen indien ontbrekend**
    - Vervaltijd van de cache: 3 dagen
 
-Wanneer deze regels zijn ingesteld, een aanvraag voor  _&lt;hostnaam van eindpunt&gt;_.azureedge.net/home/index.html triggers aangepaste caching #2, die is ingesteld op regel: **Instellen indien ontbrekend** en 3 dagen. Dus als de *index.html* bestand heeft `Cache-Control` of `Expires` HTTP-headers, ze worden gebruikt; anders als deze headers zijn niet ingesteld, het bestand is opgeslagen in de cache voor 3 dagen.
+Wanneer deze regels zijn ingesteld, een aanvraag voor  _&lt;hostnaam van eindpunt&gt;_ .azureedge.net/home/index.html triggers aangepaste caching #2, die is ingesteld op regel: **Instellen indien ontbrekend** en 3 dagen. Dus als de *index.html* bestand heeft `Cache-Control` of `Expires` HTTP-headers, ze worden gebruikt; anders als deze headers zijn niet ingesteld, het bestand is opgeslagen in de cache voor 3 dagen.
 
 > [!NOTE] 
 > Bestanden die in de cache voordat de wijziging van een regel opgeslagen behouden hun duur van de oorsprong cache-instelling. Als u de duur van hun cache herstellen, moet u [opschonen van het bestand](cdn-purge-endpoint.md). 

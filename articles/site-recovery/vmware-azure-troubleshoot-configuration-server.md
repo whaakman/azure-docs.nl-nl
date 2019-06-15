@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725564"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Problemen met configuratie-server
@@ -53,7 +53,7 @@ De bronmachine wordt geregistreerd bij de configuratieserver bij de installatie 
     c. Open het bestand Installation_Directory/Fx/uninstall.sh en een opmerking bij de volledige sectie waartoe de Fx-service te stoppen.
     d. [Verwijder](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) de mobility-agent. Het systeem opnieuw opstarten na geslaagde verwijdering en probeer het vervolgens opnieuw installeren van de mobility-agent.
 
-## <a name="installation-failure-failed-to-load-accounts"></a>Installatiefout: Kan de accounts niet laden
+## <a name="installation-failure-failed-to-load-accounts"></a>Installatiefout: Accounts laden is mislukt
 
 Deze fout treedt op wanneer de service kan geen gegevens uit de transportverbinding lezen bij het installeren van de mobility-agent en registreren met de configuratieserver. Het probleem oplossen door ervoor te zorgen dat TLS 1.0 is ingeschakeld op de bronmachine.
 
@@ -191,7 +191,7 @@ U hebt onvoldoende machtigingen voor het maken van een toepassing in Azure Activ
 Los het probleem, meld u aan bij Azure portal en een van de volgende handelingen uit:
 
 - Aanvragen van de rol van ontwikkelaar van toepassing in AAD. Zie voor meer informatie over de rol van ontwikkelaar [rol beheerdersmachtigingen in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Controleer de **toepassing kunt maken door gebruiker** vlag is ingesteld op *waar* in AAD. Zie voor meer informatie [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Controleer de **toepassing kunt maken door gebruiker** vlag is ingesteld op *waar* in AAD. Zie voor meer informatie, [het: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Proces-server/Master Target zijn kan niet communiceren met de configuratieserver 
 

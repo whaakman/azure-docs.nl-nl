@@ -4,23 +4,23 @@ description: Worden de technische concepten van Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 01/15/2018
-ms.date: 11/12/2018
-ms.component: hybrid
-ms.author: v-junlch
+ms.topic: conceptual
+ms.date: 01/15/2018
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347568"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synchronisatie: Technische concepten
@@ -34,11 +34,11 @@ Bouwen voort op MIIS ILM en FIM, biedt de Azure Active Directory Sync Services d
 
 De volgende secties vindt u meer informatie over de volgende aspecten van de FIM-synchronisatieservice:
 
-- Connector
-- Kenmerkstroom
-- Connectorgebied
-- Metaverse
-- Inrichten
+* Connector
+* Kenmerkstroom
+* Connectorgebied
+* Metaverse
+* Inrichten
 
 ## <a name="connector"></a>Connector
 De codemodules die worden gebruikt om te communiceren met een verbonden adreslijst worden connectors (voorheen bekend als beheeragents (MAs)) genoemd.
@@ -87,9 +87,8 @@ Op deze manier inherent een koppeling maakt en kenmerkstroom richtingen kunt doo
 Wanneer een regel bepaalt dat een nieuwe connector space-object moet worden gemaakt, wordt het inrichten van genoemd. Echter omdat deze bewerking alleen plaats in het connectorgebied overgebracht vindt, wordt deze niet meegenomen in de gekoppelde gegevensbron totdat een export wordt uitgevoerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-- [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
-- [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
+* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-

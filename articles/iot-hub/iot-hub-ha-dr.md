@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60779369"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
@@ -72,7 +72,7 @@ Microsoft geïnitieerde failover wordt uitgevoerd door Microsoft in zeldzame gev
 
 De grote RTO is, omdat Microsoft moet de failoverbewerking namens de betrokken klanten in die regio uitvoeren. Als u een minder belangrijke IoT-oplossing die het bestand is tegen een uitvaltijd van ongeveer een dag worden uitgevoerd, is het geschikt voor u een afhankelijkheid op deze optie om te voldoen aan de doelstellingen van de herstel na noodgevallen voor uw IoT-oplossing. De totale tijd voor runtime bewerkingen om te worden volledig operationeel zodra dit proces wordt geactiveerd, wordt beschreven in de sectie 'Tijd hebt om te herstellen'.
 
-### <a name="manual-failover-preview"></a>Handmatige failover (preview-versie)
+### <a name="manual-failover-preview"></a>Handmatige failover (preview)
 
 Als uw bedrijfsdoelen uptime niet worden voldaan door de RTO bepaalt die Microsoft heeft gestart-failover biedt, moet u overwegen handmatige failover voor het activeren van het failoverproces. De RTO bepaalt met deze optie kan overal worden tussen 10 minuten een paar uur. De RTO is momenteel een functie van het aantal apparaten die zijn geregistreerd op basis van de IoT hub-instantie waarvoor een failover is. U kunt verwachten dat de RTO bepaalt voor een hub die als host fungeert ongeveer 100.000 apparaten zich in de ballpark van 15 minuten. De totale tijd voor runtime bewerkingen om te worden volledig operationeel zodra dit proces wordt geactiveerd, wordt beschreven in de sectie 'Tijd hebt om te herstellen'.
 

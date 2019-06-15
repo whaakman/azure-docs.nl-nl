@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348066"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory Pass through-verificatie grondig onderzoek van beveiliging
@@ -186,7 +186,7 @@ Vernieuwen van een verificatie-Agent-vertrouwensrelatie met Azure AD:
 
 De verificatie-Agent de Updater-toepassing automatisch bijgewerkt wanneer er een nieuwe versie (met oplossingen voor problemen of prestatieverbeteringen) wordt uitgebracht. De toepassing Updater verwerkt niet alle aanvragen van de validatie van wachtwoord voor uw tenant.
 
-Azure AD als host fungeert voor de nieuwe versie van de software als een ondertekende **Windows Installer-pakket (MSI)**. Het MSI-bestand is ondertekend met behulp van [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) met SHA256 als de digest-algoritme. 
+Azure AD als host fungeert voor de nieuwe versie van de software als een ondertekende **Windows Installer-pakket (MSI)** . Het MSI-bestand is ondertekend met behulp van [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) met SHA256 als de digest-algoritme. 
 
 ![Automatisch bijwerken](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 

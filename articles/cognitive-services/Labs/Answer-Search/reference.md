@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721008"
 ---
 # <a name="project-answer-search-v7-reference"></a>Antwoord zoeken v7 verwijzing project
@@ -131,7 +131,7 @@ Hiermee definieert u de licentie waaronder de tekst of foto's kan worden gebruik
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|De naam van de licentie.|String|  
+|name|De naam van de licentie.|String|  
 |url|De URL naar een website waar de gebruiker meer informatie over de licentie krijgt.<br /><br /> De naam en URL gebruiken om een hyperlink te maken.|String|  
   
 
@@ -141,7 +141,7 @@ Definieert een contractuele regel voor attribution license.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Een hint type is ingesteld op LicenseAttribution.|String|  
-|licentie|De licentie waaronder de inhoud kan worden gebruikt.|[Licentie](#license)|  
+|Licentie|De licentie waaronder de inhoud kan worden gebruikt.|[Licentie](#license)|  
 |licenseNotice|De licentie om naast het betreffende veld weer te geven. Bijvoorbeeld: 'Tekst onder licentie CC door SA'.<br /><br /> Gebruik de naam van de licentie en de URL in de `license` veld om te maken van een hyperlink naar de website waaronder de details van de licentie worden beschreven. Vervang vervolgens de licentienaam van de in de `licenseNotice` tekenreeks (bijvoorbeeld, CC-van-SA) met de hyperlink die u zojuist hebt gemaakt.|String|  
 |mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Boolean|  
 |targetPropertyName|De naam van het veld dat de regel van toepassing op.|String|  
@@ -153,7 +153,7 @@ Hiermee definieert u de onderdelen van een hyperlink.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Type hint.|String|  
-|tekst|De tekst.|String|  
+|text|De tekst.|String|  
 |url|EEN URL. Gebruik de URL en tekst voor het maken van een hyperlink weer te geven.|String|  
   
 
@@ -165,7 +165,7 @@ Definieert een contractuele regel voor koppeling attribution.
 |_type|Een hint type is ingesteld op LinkAttribution.|String|  
 |mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Boolean|  
 |targetPropertyName|De naam van het veld dat de regel van toepassing op.<br /><br /> Als een doel niet opgegeven is, wordt de toekenning is van toepassing op de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst en koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label. Bijvoorbeeld, "gegevens uit < provider name1\> &#124; < provider name2\>'.|String|  
-|tekst|De tekst attribution.|String|  
+|text|De tekst attribution.|String|  
 |url|De URL naar de website van de provider. Gebruik `text` en de URL voor het maken van een hyperlink.|String|  
   
   
@@ -188,7 +188,7 @@ Houd er rekening mee dat de uitgever hun naam of de website of beide bieden kan.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|Naam van de uitgever.|String|  
+|name|Naam van de uitgever.|String|  
 |url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever niet een website bieden mogelijk.|String|  
   
   
@@ -198,7 +198,7 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
   
 |Name|Value|Type|  
 |----------|-----------|----------|
-|naam|De titel van de pagina, niet per se de HTML-titel|String|
+|name|De titel van de pagina, niet per se de HTML-titel|String|
 |url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|String|  
 |description|Korte beschrijving van de pagina en de inhoud|String|  
 |isFamilyFriendly|Meest nauwkeurige voor items in de web-index; realtime haalt doen deze detectie die uitsluitend zijn gebaseerd op de URL en niet op de pagina-inhoud|booleaans|
@@ -266,14 +266,14 @@ Definieert een contractuele regel voor attribution tekst zonder opmaak.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Een hint type is ingesteld op TextAttribution.|String|  
-|tekst|De tekst attribution.<br /><br /> Tekst attribution geldt voor de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst of een koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label.|String| 
+|text|De tekst attribution.<br /><br /> Tekst attribution geldt voor de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst of een koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label.|String| 
 
 
 ## <a name="error-codes"></a>Foutcodes
 
 Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |200|Geslaagd.|  
 |400|Een van de queryparameters is ontbreekt of is ongeldig.|  
@@ -315,7 +315,7 @@ Hier volgen de mogelijke fout code en de onderliggende fout code-waarden.
 
 |Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|HTTP-statuscode is 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP-statuscode is 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als u het HTTP-protocol in plaats van HTTPS, Bing retourneert HttpNotAllowed en de HTTP-statuscode 410.
 |RateLimitExceeded|Er is geen onderliggende codes|Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Als u QPS overschrijdt, Bing retourneert HTTP-statuscode 429 en als u QPM overschrijdt, Bing 403 retourneert.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419911"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Een on-premises WCF-service zichtbaar maken voor een webtoepassing in de cloud met behulp van Azure Relay 
@@ -81,7 +81,7 @@ U bouwt eerst een gesimuleerd on-premises systeem voor de productcatalogus op.  
 ### <a name="create-the-project"></a>Het project maken
 1. Start Microsoft Visual Studio met administratorbevoegdheden. Om dit te doen, klikt u met de rechtermuisknop op het pictogram van het Visual Studio-programma en vervolgens op **Als administrator uitvoeren**.
 2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
-3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **Consoletoepassing (.NET Framework)**. Typ in het vak **Naam** de naam **ProductsServer**:
+3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#** , op **Consoletoepassing (.NET Framework)** . Typ in het vak **Naam** de naam **ProductsServer**:
 
    ![Het dialoogvenster Nieuw project][11]
 4. Klik op **OK** om het project **ProductsServer** te maken.
@@ -229,7 +229,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 
 1. Zorg ervoor dat Visual Studio met administratorbevoegdheden wordt uitgevoerd.
 2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
-3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **ASP.NET-webtoepassing (.NET Framework)**. Noem het project **ProductsPortal**. Klik vervolgens op **OK**.
+3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#** , op **ASP.NET-webtoepassing (.NET Framework)** . Noem het project **ProductsPortal**. Klik vervolgens op **OK**.
 
    ![Het dialoogvenster Nieuw project][15]
 

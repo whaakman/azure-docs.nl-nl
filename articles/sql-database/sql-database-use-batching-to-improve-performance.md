@@ -13,10 +13,10 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331125"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Batchverwerking gebruiken voor het verbeteren van de prestaties van toepassingen voor SQL-Database
@@ -105,7 +105,7 @@ De volgende tabel toont de resultaten van een ad-hoc testen. De tests uitgevoerd
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure naar Azure (hetzelfde datacenter)**:
+**Azure naar Azure (hetzelfde datacenter)** :
 
 | Bewerkingen | Er is geen transactie (ms) | Transactie (ms) |
 | --- | --- | --- |
@@ -200,7 +200,7 @@ De volgende tabel ziet u ad-hoc testresultaten voor het gebruik van tabelwaardep
 | 10 |131 |25 |
 | 100 |338 |51 |
 | 1000 |2615 |382 |
-| 10.000 |23830 |3586 |
+| 10\.000 |23830 |3586 |
 
 > [!NOTE]
 > Geen zijn resultaten benchmarks. Zie de [opmerking over timing resultaten in dit artikel](#note-about-timing-results-in-this-article).
@@ -240,7 +240,7 @@ De volgende ad-hoc testresultaten geven de prestaties van de batchverwerking met
 | 10 |441 |32 |
 | 100 |636 |53 |
 | 1000 |2535 |341 |
-| 10.000 |21605 |2737 |
+| 10\.000 |21605 |2737 |
 
 > [!NOTE]
 > Geen zijn resultaten benchmarks. Zie de [opmerking over timing resultaten in dit artikel](#note-about-timing-results-in-this-article).

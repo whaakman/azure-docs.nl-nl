@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60722502"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
@@ -92,7 +92,7 @@ Wanneer u uw eerste Batch-account maakt in de modus Gebruikersabonnement, moet u
 
     ![Microsoft.Batch-provider registreren][register_provider]
 
-1. Op de pagina **Abonnement** selecteert u **Toegangsbeheer (IAM)** > **Roltoewijzingen** > **Roltoewijzing toevoegen**.
+1. Op de pagina **Abonnement** selecteert u **Toegangsbeheer (IAM)**  > **Roltoewijzingen** > **Roltoewijzing toevoegen**.
 
     ![Toegangsbeheer voor abonnement][subscription_access]
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408497"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Maken, bewaken en beheren van FTP-bestanden met behulp van Azure Logic Apps
@@ -61,7 +61,7 @@ U kunt triggers die te antwoorden krijgen van uw FTP-server en de uitvoer beschi
    Selecteer de actie die u wilt onder de lijst met acties.
 
    Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
-   Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+   Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
 1. Geeft u de benodigde informatie voor uw verbinding en kies vervolgens **maken**.
 
@@ -69,7 +69,7 @@ U kunt triggers die te antwoorden krijgen van uw FTP-server en de uitvoer beschi
 
 Bij het aanvragen van inhoud van ophalen de trigger niet bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon:
 
-* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)** .
 
 * Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -77,7 +77,7 @@ Bij het aanvragen van inhoud van ophalen de trigger niet bestanden groter zijn d
 
 <a name="file-added-modified"></a>
 
-### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP-trigger: Wanneer een bestand is toegevoegd of gewijzigd
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP-trigger: Wanneer een bestand wordt toegevoegd of gewijzigd
 
 Deze trigger start een werkstroom voor logische Apps wanneer de trigger wordt gedetecteerd wanneer een bestand wordt toegevoegd of gewijzigd op een FTP-server. Dus bijvoorbeeld, dat kunt u een voorwaarde die controleert of de inhoud van het bestand en beslist of om op te halen die inhoud toevoegen op basis van of die inhoud voldoet aan een opgegeven voorwaarde. Ten slotte kunt u een actie toevoegen die de inhoud van het bestand opgehaald en die inhoud opslaat in een map op de SFTP-server. 
 
@@ -85,7 +85,7 @@ Deze trigger start een werkstroom voor logische Apps wanneer de trigger wordt ge
 
 Bij het aanvragen van de inhoud van bestand triggers kunnen niet ophalen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
 
-* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)** .
 
 * Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -106,7 +106,7 @@ Hier volgt een voorbeeld waarin deze trigger: **Wanneer een bestand wordt toegev
 
    ![FTP-serververbinding maken](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Naast de **map** Kies het pictogram van de map zodat er wordt een lijst weergegeven. Naar de map die u wilt controleren op nieuwe of bewerkte bestanden, selecteer de pijl-rechts hoek (**>**), bladert u naar die map en selecteer vervolgens de map.
+1. Naast de **map** Kies het pictogram van de map zodat er wordt een lijst weergegeven. Naar de map die u wilt controleren op nieuwe of bewerkte bestanden, selecteer de pijl-rechts hoek ( **>** ), bladert u naar die map en selecteer vervolgens de map.
 
    ![Zoek en selecteer de map die u wilt bewaken](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -124,7 +124,7 @@ Deze actie wordt de inhoud opgehaald van een bestand in een FTP-server wanneer d
 
 Bij het aanvragen van de inhoud van bestand triggers kunnen niet ophalen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
 
-* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)** .
 
 * Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 

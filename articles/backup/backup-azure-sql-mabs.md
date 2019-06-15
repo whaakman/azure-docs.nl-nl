@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782058"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Back-up van SQL Server naar Azure met Azure Backup Server
@@ -64,7 +64,7 @@ Voordat u begint, zorgt u ervoor dat u hebt [geïnstalleerd en de Azure Backup S
     Als **volumes automatisch vergroten** optie is geselecteerd, MABS kunt rekening voor de verbeterde back-upvolume wanneer de productiegegevens groeit. Als **volumes automatisch vergroten** optie niet is ingeschakeld, MABS beperkt de back-upopslag gebruikt met de gegevensbronnen in de beveiligingsgroep.
 9. Beheerders, krijgen de keuze van het overdragen van deze eerste back-up handmatig (uit netwerk) om te voorkomen opstoppingen in het bandbreedte of via het netwerk. Ze kunnen ook de tijd waarop de initiële overdracht kan gebeuren configureren. Klik op **volgende**.
 
-    ![Methode van initiële replicatie](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Methode voor eerste replicatie](./media/backup-azure-backup-sql/pg-manual.png)
 
     De eerste back-up is vereist voor overdracht van de gehele gegevensbron (SQL Server-database) van productieserver (SQL Server-machine) naar MABS. Deze gegevens zijn mogelijk grote, en bandbreedte als de gegevens worden overgebracht via het netwerk kunt overschrijden. Beheerders kunnen kiezen om deze reden om over te dragen van de eerste back-up: **Handmatig** (met behulp van verwijderbare media) om te voorkomen opstoppingen in het bandbreedte, of **automatisch via het netwerk** (op een bepaald tijdstip).
 

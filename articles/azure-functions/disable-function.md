@@ -3,35 +3,31 @@ title: Het uitschakelen van de functies in Azure Functions
 description: Meer informatie over het uitschakelen en inschakelen van functies in Azure Functions 1.x en 2.x.
 services: functions
 documentationcenter: ''
-author: tdykstra
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-origin.date: 07/24/2018
-ms.date: 08/31/2018
-ms.author: v-junlch
+author: ggailey777
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 07/24/2018
+ms.author: glenga
 ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60710566"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Het uitschakelen van de functies in Azure Functions
 
 In dit artikel wordt uitgelegd hoe u een functie in Azure Functions uitschakelen. Naar *uitschakelen* betekent dat een functie waarmee de runtime de automatische trigger die is gedefinieerd voor de functie negeren. De manier waarop u dit doen, is afhankelijk van de runtimeversie en de programmeertaal:
 
-- Functions 1.x
-  - Scripttalen
-  - C#-klassebibliotheken
-- Functions 2.x
-  - Een manier voor alle talen
-  - Optionele manier voor C#-klassebibliotheken
+* Functions 1.x
+  * Scripttalen
+  * C#-klassebibliotheken
+* Functions 2.x
+  * Een manier voor alle talen
+  * Optionele manier voor C#-klassebibliotheken
 
-## <a name="functions-1x---scripting-languages"></a>1.x - scripttalen functies
+## <a name="functions-1x---scripting-languages"></a>1\.x - scripttalen functies
 
 Voor scripts talen zoals C#-script en JavaScript, gebruikt u de `disabled` eigenschap van de *function.json* bestand om te zien van de runtime niet voor het activeren van een functie. Deze eigenschap kan worden ingesteld op `true` of de naam van een app-instelling:
 
@@ -62,9 +58,9 @@ In het tweede voorbeeld wordt de functie is uitgeschakeld als er een app-instell
 
 U kunt het bestand in de Azure portal of gebruik bewerken de **Functiestatus** overschakelen op van de functie **beheren** tabblad. De portal switch werkt door het veranderen van de *function.json* bestand.
 
-![Functie status switch](./media/disable-function/function-state-switch.png)
+![Functie status switch](media/disable-function/function-state-switch.png)
 
-## <a name="functions-1x---c-class-libraries"></a>1.x - C#-klassebibliotheken functies
+## <a name="functions-1x---c-class-libraries"></a>1\.x - C#-klassebibliotheken functies
 
 In een functies 1.x-klassebibliotheek, gebruikt u een `Disable` kenmerk om te voorkomen dat een functie die wordt geactiveerd. U kunt het kenmerk zonder een constructorparameter kunt gebruiken, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -113,7 +109,7 @@ Deze methode kunt u inschakelen en uitschakelen van de functie door het wijzigen
 
 In de functies 2.x u een functie uitschakelen met behulp van een app-instelling. Bijvoorbeeld, een functie uitschakelen met de naam `QueueTrigger`, maken van een app-instelling met de naam `AzureWebJobs.QueueTrigger.Disabled`, en stel deze in op `true`. Zodat de functie door de appinstelling in te stellen op `false`. U kunt ook de **Functiestatus** overschakelen op van de functie **beheren** tabblad. De switch werkt door te maken en verwijderen van de `AzureWebJobs.<functionname>.Disabled` app-instelling.
 
-![Functie status switch](./media/disable-function/function-state-switch.png)
+![Functie status switch](media/disable-function/function-state-switch.png)
 
 ## <a name="functions-2x---c-class-libraries"></a>Functies 2.x - C#-klassebibliotheken
 
@@ -122,4 +118,3 @@ U wordt aangeraden dat u de methode die geschikt is voor alle talen wilt gebruik
 ## <a name="next-steps"></a>Volgende stappen
 
 Dit artikel is over het uitschakelen van automatische triggers. Zie voor meer informatie over triggers [Triggers en bindingen](functions-triggers-bindings.md).
-

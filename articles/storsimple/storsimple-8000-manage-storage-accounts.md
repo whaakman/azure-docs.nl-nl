@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632599"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>De StorSimple Device Manager-service gebruiken voor het beheren van uw opslagaccountreferenties
@@ -77,7 +77,7 @@ Gebruik de volgende procedures om toe te voegen van Azure storage-accountreferen
 
 1. Navigeer naar uw StorSimple Device Manager-service, selecteert en dubbelklik erop. Hiermee opent u de **overzicht** blade.
 2. Selecteer **opslagaccountreferenties** binnen de **configuratie** sectie. Dit geeft een lijst van alle bestaande referenties van het opslagaccount dat is gekoppeld aan de StorSimple Device Manager-service.
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 4. In de **een opslagaccountreferentie toevoegen** blade, doet u het volgende:
    
     1. Voor **abonnement**, selecteer **andere**.
@@ -88,7 +88,7 @@ Gebruik de volgende procedures om toe te voegen van Azure storage-accountreferen
    
     4. Als SSL, klikt u op de **inschakelen** om te maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple Device Manager-service en de cloud. Klik op de **uitschakelen** knop alleen als u binnen een privécloud werkt.
    
-    5. Klik op **Add**. U krijgt een melding nadat de opslagaccountreferentie is gemaakt.
+    5. Klik op **Toevoegen**. U krijgt een melding nadat de opslagaccountreferentie is gemaakt.
 
 5. De referentie voor het zojuist gemaakte opslagaccount wordt weergegeven op de serviceblade configureren StorSimple-Apparaatbeheerfunctie onder **opslagaccountreferenties**.
    

@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486512"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
@@ -28,12 +28,12 @@ Dit artikel bevat informatie over functies en variabelen die worden ondersteund 
 
 ## <a name="data-factory-system-variables"></a>Data Factory-systeemvariabelen
 
-| De naam van variabele | Beschrijving | Bereik van het object | JSON-bereik en Use-Cases |
+| De naam van variabele | Description | Bereik van het object | JSON-bereik en Use-Cases |
 | --- | --- | --- | --- |
-| WindowStart |Begin van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |activiteit |<ol><li>Geef gegevensselectiequery's. Zie de artikelen van connector waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
-| WindowEnd |Einde van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |activiteit |hetzelfde als WindowStart. |
-| SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |activiteit<br/>Gegevensset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden met data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
-| SliceEnd |Einde van de tijdsinterval voor het huidige gegevenssegment. |activiteit<br/>Gegevensset |hetzelfde als de slicestart-waarde. |
+| WindowStart |Begin van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |Activiteit |<ol><li>Geef gegevensselectiequery's. Zie de artikelen van connector waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
+| WindowEnd |Einde van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |Activiteit |hetzelfde als WindowStart. |
+| SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |Activiteit<br/>Gegevensset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden met data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
+| SliceEnd |Einde van de tijdsinterval voor het huidige gegevenssegment. |Activiteit<br/>Gegevensset |hetzelfde als de slicestart-waarde. |
 
 > [!NOTE]
 > Op dit moment vereist gegevensfactory dat de planning die is opgegeven in de activiteit exact overeenkomt met het schema dat is opgegeven in de beschikbaarheid van de uitvoergegevensset. Daarom WindowStart, WindowEnd, en SliceStart en SliceEnd altijd toegewezen aan dezelfde periode en een uitvoersegment één.
@@ -82,7 +82,7 @@ De volgende tabellen worden de functies in Azure Data Factory:
 | --- | --- | --- | --- |
 | Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Y-uren toevoegt aan de opgegeven tijd X. <br/><br/>Voorbeeld: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X van Y minuten toevoegen<br/><br/>Voorbeeld: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Time |StartOfHour(X) |X: DateTime |Hiermee haalt u de begintijd voor het uur wordt vertegenwoordigd door het uurgedeelte van X. <br/><br/>Voorbeeld: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Time |StartOfHour(X) |X: Datetime |Hiermee haalt u de begintijd voor het uur wordt vertegenwoordigd door het uurgedeelte van X. <br/><br/>Voorbeeld: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Y dagen toevoegt aan X. <br/><br/>Voorbeeld: 9/15/2013 12:00:00 uur + 2 dagen = 9/17 //build/ 2013 12:00:00 PM.<br/><br/>U kunt ook dagen aftrekken door Y op te geven als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X van Y maanden toevoegen<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>U kunt maanden te aftrekken door Y op te geven als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Voegt Y * 3 maanden op X.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |

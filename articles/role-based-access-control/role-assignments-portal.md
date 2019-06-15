@@ -15,10 +15,10 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533167"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren
@@ -69,13 +69,13 @@ Het eerste wat dat u nodig hebt om te bepalen is waar u de blade toegangsbeheer 
 
 1. Klik op de specifieke resource.
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 
     Hieronder ziet u een voorbeeld van de blade toegangsbeheer (IAM) voor een abonnement. Als u geen hier access control-wijzigingen aanbrengt, zouden ze van toepassing op het hele abonnement.
 
     ![Blade toegangsbeheer (IAM) voor een abonnement](./media/role-assignments-portal/access-control-subscription.png)
 
-## <a name="view-roles-and-permissions"></a>Rollen en machtigingen weergeven
+## <a name="view-roles-and-permissions"></a>Machtigingen en rollen weergeven
 
 Een roldefinitie is een verzameling machtigingen die u gebruikt voor roltoewijzingen. Azure heeft meer dan 70 [ingebouwde rollen voor Azure-resources](built-in-roles.md). Volg deze stappen om de beschikbare rollen en machtigingen weer te geven.
 
@@ -161,7 +161,7 @@ Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [e
 
 1. Klik op het abonnement waar u om toegang te verlenen.
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 
 1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen voor dit abonnement.
 
@@ -208,4 +208,4 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 * [Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en de Azure-portal](quickstart-assign-role-user-portal.md)
 * [Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [RBAC voor Azure-resources oplossen](troubleshooting.md)
-* [Uw resources organiseren met Azure-beheergroepen](../governance/management-groups/index.md)
+* [Resources organiseren met beheergroepen voor Azure](../governance/management-groups/index.md)

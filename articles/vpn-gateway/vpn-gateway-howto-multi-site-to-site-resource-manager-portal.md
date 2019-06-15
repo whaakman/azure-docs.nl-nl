@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60760416"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Een Site-naar-Site-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding
@@ -63,7 +63,7 @@ Controleer of de volgende items:
 5. Op de **verbinding toevoegen** pagina, vul de volgende velden:
    
    * **Naam:** De naam die u wilt geven tot de site die u de verbinding met maakt.
-   * **Verbindingstype:** Selecteer **Site-naar-site (IPsec)**.
+   * **Verbindingstype:** Selecteer **Site-naar-site (IPsec)** .
      
      ![Pagina van de verbinding toevoegen](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "pagina van de verbinding toevoegen")<br>
 

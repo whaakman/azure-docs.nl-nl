@@ -11,14 +11,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764404"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van de SQL Server opgeslagen Procedure-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-stored-proc-activity.md)
 > * [Huidige versie](transform-data-using-stored-procedure.md)
 
@@ -67,7 +67,7 @@ De volgende tabel beschrijft deze JSON-eigenschappen:
 
 | Eigenschap                  | Description                              | Vereist |
 | ------------------------- | ---------------------------------------- | -------- |
-| naam                      | Naam van de activiteit                     | Ja      |
+| name                      | Naam van de activiteit                     | Ja      |
 | description               | Beschrijving van het doel waarvoor de activiteit wordt gebruikt | Nee       |
 | type                      | Voor de opgeslagen Procedureactiviteit, het activiteitstype is **SqlServerStoredProcedure** | Ja      |
 | linkedServiceName         | De verwijzing naar de **Azure SQL Database** of **Azure SQL Data Warehouse** of **SQL Server** geregistreerd als een gekoppelde service in Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |

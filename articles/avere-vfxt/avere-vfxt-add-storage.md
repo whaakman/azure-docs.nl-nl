@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516027"
 ---
 # <a name="configure-storage"></a>Opslag configureren
@@ -118,7 +118,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
 
 1. Vul in de volgende informatie om te maken van een referentie voor de cloud core filer: 
 
-   | Veld | Waarde |
+   | Veld | Value |
    | --- | --- |
    | Referentienaam | een beschrijvende naam |
    | Servicetype | (Selecteer Azure-toegangssleutel voor opslag) |
@@ -126,7 +126,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
    | Abonnement | abonnements-ID |
    | Toegangssleutel voor opslag | Azure storage-accountsleutel (in de vorige stap hebt gekopieerd) | 
 
-   Klik op **Submit**
+   Klik op **Indienen**.
 
    ![Cloud-referentie-formulier in het Configuratiescherm Avere voltooid](media/avere-vfxt-new-credential-submit.png)
 

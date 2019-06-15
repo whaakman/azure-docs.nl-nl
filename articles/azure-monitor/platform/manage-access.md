@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782766"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
@@ -117,7 +117,7 @@ De volgende tabel geeft een overzicht van de toegangsmodi in:
 | Hoe kan een gebruiker toegang tot logboeken? | Start **logboeken** van **Azure Monitor** menu of **Log Analytics-werkruimten**. | Start **logboeken** in het menu voor de Azure-resource. |
 
 
-## <a name="access-control-mode"></a>Modus toegangsbeheer
+## <a name="access-control-mode"></a>Access control-modus
 De _besturingselement toegangsmodus_ is een instelling op elk werkruimten die definieert hoe machtigingen voor deze werkruimte worden bepaald.
 
 **Machtigingen voor de werkruimte vereisen**:  In deze modus controle is niet toegestaan voor gedetailleerde RBAC. Voor een gebruiker voor toegang tot de werkruimte, moeten deze machtigingen aan de werkruimte of specifieke tabellen worden verleend. 

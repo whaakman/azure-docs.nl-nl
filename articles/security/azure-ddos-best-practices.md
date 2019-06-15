@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588082"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Aanbevolen procedures en referentiearchitecturen
@@ -87,7 +87,7 @@ Voor [Azure App Service](../app-service/app-service-value-prop-what-is.md), sele
 
 Het idee achter verdediging is het risico's beheren met behulp van diverse defensieve strategieën. Stapelen beveiligingen in een toepassing vermindert de kans dat een geslaagde aanval. Het is raadzaam dat u beveiligde ontwerpen voor uw toepassingen wilt implementeren met behulp van de ingebouwde mogelijkheden van het Azure-platform.
 
-Bijvoorbeeld, het risico van aanvallen neemt toe met de grootte (*-surface area*) van de toepassing. U kunt de surface area beperken door met behulp van opname in de whitelist moeten sluiten de beschikbaar gemaakte IP-adresruimte en poorten die nodig zijn niet op de load balancers te hebben geluisterd ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) en [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). [Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/security-overview.md) zijn van een andere manier om de kwetsbaarheid voor aanvallen verminderen.
+Bijvoorbeeld, het risico van aanvallen neemt toe met de grootte ( *-surface area*) van de toepassing. U kunt de surface area beperken door met behulp van opname in de whitelist moeten sluiten de beschikbaar gemaakte IP-adresruimte en poorten die nodig zijn niet op de load balancers te hebben geluisterd ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) en [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). [Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/security-overview.md) zijn van een andere manier om de kwetsbaarheid voor aanvallen verminderen.
 U kunt [servicetags](../virtual-network/security-overview.md#service-tags) en [toepassingsbeveiligingsgroepen](../virtual-network/security-overview.md#application-security-groups) complexiteit voor het maken van beveiligingsregels en netwerkbeveiliging configureren als een natuurlijk verlengstuk van de structuur van een toepassing te minimaliseren.
 
 U moet implementeren in Azure-services een [virtueel netwerk](../virtual-network/virtual-networks-overview.md) indien mogelijk. Met deze procedure kunt service-resources om te communiceren via privé-IP-adressen. Azure-serviceverkeer vanaf een virtueel netwerk maakt gebruik van openbare IP-adressen als bron-IP-adressen standaard. Met behulp van [service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) gaat het verkeer van de service voor het gebruik van privéadressen van virtuele netwerken als de bron-IP-adressen wanneer ze toegang wilt de Azure-service vanuit een virtueel netwerk tot krijgen.
@@ -182,7 +182,7 @@ Cyberbeveiliging vereist constante innovatie in defense. Azure DDoS Standard pro
 
 Een DDoS-aanval die is doorgaans gericht op Azure-resources vereist zo weinig mogelijk tussenkomst vanuit het oogpunt van een gebruiker. Nog steeds, DDoS met risicobeperking als onderdeel van een strategie voor respons op incidenten te minimaliseren de gevolgen voor zakelijke continuïteit.
 
-### <a name="microsoft-threat-intelligence"></a>Bedreigingsinformatie van Microsoft
+### <a name="microsoft-threat-intelligence"></a>Microsoft threat intelligence
 
 Microsoft heeft een uitgebreide threat intelligence virtueel netwerk. Dit netwerk maakt gebruik van de collectieve kennis van een uitgebreide beveiligingscommunity die ondersteuning biedt voor Microsoft online services, Microsoft-partners en relaties in de beveiligingscommunity internet. 
 

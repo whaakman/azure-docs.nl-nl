@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60767962"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Activiteit-variabele instellen in Azure Data Factory
@@ -26,7 +26,7 @@ Gebruik de variabele instellen-activiteit om de waarde van een bestaande variabe
 
 Eigenschap | Description | Vereist
 -------- | ----------- | --------
-naam | Naam van de activiteit in de pijplijn | Ja
+name | Naam van de activiteit in de pijplijn | Ja
 description | Een beschrijving van de werking van de activiteit | nee
 type | Activiteitstype is SetVariable | ja
 value | Tekenreeks van letterlijke waarde of expressie objectwaarde gebruikt voor het opgegeven variabele instellen | ja

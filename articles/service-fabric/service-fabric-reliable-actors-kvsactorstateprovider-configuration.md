@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60728046"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors--KVSActorStateProvider configureren
@@ -39,14 +39,14 @@ Standaard wordt een lege beveiligingsconfiguratiesectie voorkomen dat replicatie
 > Op Linux-knooppunten moeten certificaten een PEM-indeling. Zie voor meer informatie over het zoeken naar en configureren van certificaten voor Linux [certificaten configureren op Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Sectienaam
+### <a name="section-name"></a>De naam van sectie
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuratie van de replicatie
 Configuraties voor replicatie configureren de replicatie dat verantwoordelijk is voor het maken van de status van de Actor State-Provider zeer betrouwbare.
 De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio en moet voldoende zijn. In deze sectie wordt besproken aanvullende configuraties die beschikbaar zijn voor het afstemmen van de replicatie.
 
-### <a name="section-name"></a>Sectienaam
+### <a name="section-name"></a>De naam van sectie
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Configuratienamen
@@ -63,7 +63,7 @@ De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio e
 Store-configuraties worden gebruikt voor het configureren van het lokale archief dat wordt gebruikt om vast te leggen de status die wordt gerepliceerd.
 De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio en moet voldoende zijn. In deze sectie wordt besproken aanvullende configuraties die beschikbaar zijn voor het afstemmen van het lokale archief.
 
-### <a name="section-name"></a>Sectienaam
+### <a name="section-name"></a>De naam van sectie
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Configuratienamen

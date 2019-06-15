@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837303"
 ---
 # <a name="sfctl-container"></a>sfctl container
@@ -29,7 +29,7 @@ Voer container gerelateerde opdrachten op een clusterknooppunt.
 |Opdracht|Description|
 | --- | --- |
 | invoke-api | Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen. |
-| logboeken | Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket. |
+| logs | Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl aanroepen container-api
 Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen.

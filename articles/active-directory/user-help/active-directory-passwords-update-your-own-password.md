@@ -15,10 +15,10 @@ ms.author: lizross
 ms.custom: end-user
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60862203"
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk- of schoolaccount wachtwoord opnieuw instellen
@@ -122,7 +122,7 @@ U zou nu moeten kunnen toegang tot uw account. Als dit niet het geval is, neem d
 | Foutaanvraag| Welk foutbericht ziet u?| Oplossing |
 | --- | --- | --- |
 | Er wordt een foutbericht wanneer ik wil mijn wachtwoord wijzigen. | Helaas komt bevat uw wachtwoord een woord, woordgroep of patroon dat uw wachtwoord gemakkelijk te raden maakt. Probeer het opnieuw met een ander wachtwoord. | Kies een wachtwoord dat is het moeilijker te raden. |
-| Er verschijnt een pagina 'Neem contact op met uw beheerder' na het invoeren van mijn gebruikers-ID | Neem contact op met de beheerder. <br> <br> Er is vastgesteld dat uw wachtwoord niet wordt beheerd door Microsoft. We zijn als gevolg hiervan kan niet automatisch uw wachtwoord opnieuw instellen. <br> <br> U moet contact opnemen met uw IT-personeel voor verdere ondersteuning. | U ziet dit bericht omdat uw IT-afdeling uw wachtwoord in uw on-premises-omgeving beheert. U kunt uw wachtwoord via de koppeling 'Geen toegang tot uw account' niet opnieuw instellen. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, rechtstreeks voor hulp contact op met uw IT-personeel en laten weten dat u wilt uw wachtwoord opnieuw instellen, zodat ze deze functie voor u inschakelen kunnen.|
+| Er verschijnt een pagina 'Neem contact op met uw beheerder' na het invoeren van mijn gebruikers-ID | Neem contact op met uw beheerder. <br> <br> Er is vastgesteld dat uw wachtwoord niet wordt beheerd door Microsoft. We zijn als gevolg hiervan kan niet automatisch uw wachtwoord opnieuw instellen. <br> <br> U moet contact opnemen met uw IT-personeel voor verdere ondersteuning. | U ziet dit bericht omdat uw IT-afdeling uw wachtwoord in uw on-premises-omgeving beheert. U kunt uw wachtwoord via de koppeling 'Geen toegang tot uw account' niet opnieuw instellen. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, rechtstreeks voor hulp contact op met uw IT-personeel en laten weten dat u wilt uw wachtwoord opnieuw instellen, zodat ze deze functie voor u inschakelen kunnen.|
 | Er verschijnt een foutbericht 'uw account is niet ingeschakeld voor wachtwoord opnieuw instellen' na het invoeren van mijn gebruikers-ID | Uw account is niet ingeschakeld voor wachtwoord opnieuw instellen. <br> <br> Onze excuses, maar uw IT-afdeling heeft niet instellen van uw account om deze service te gebruiken. <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat uw IT-personeel voor wachtwoord opnieuw instellen voor uw organisatie via de koppeling 'Geen toegang tot uw account' niet is ingeschakeld, of u voor het gebruik van de functie nog niet is gelicentieerd. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, selecteert u de "Neem contact op met de koppeling van een beheerder' een e-mailbericht verzenden naar uw bedrijf laten weten dat u wilt uw wachtwoord opnieuw instellen, zodat ze deze functie voor u inschakelen kunnen en van IT-personeel. |
 | Er verschijnt een foutbericht ' We kunnen uw account niet verifiëren' na het invoeren van mijn gebruikers-ID | We kunnen uw account niet verifiëren. <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat u hebt ingeschakeld voor wachtwoord opnieuw instellen, maar u niet hebt geregistreerd voor het gebruik van de service. Als u wilt registreren voor wachtwoord opnieuw instellen, gaat u naar https://aka.ms/ssprsetup nadat u hebt toegang heeft gekregen bij uw account. <br> <br> Als u wilt uw wachtwoord opnieuw instellen, selecteert u de koppeling 'Neem contact op met een beheerder' voor het verzenden van een e-mailadres van uw bedrijf IT-personeel. |
 

@@ -3,16 +3,16 @@ title: Apparaatconcepten het inrichten van apparaten in Azure | Microsoft Docs
 description: Beschrijft de concepten die specifiek zijn voor apparaten met Device Provisioning Service en IoT Hub voor apparaatinrichting
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745975"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concepten van IoT Hub Device Provisioning Service-apparaat
@@ -42,7 +42,7 @@ De HSM, of een aangepaste HSM wordt gebruikt voor beveiligde, op hardware gebase
 
 Apparaat geheimen kunnen ook worden opgeslagen in de software (geheugen), maar er is een minder veilige vorm van opslag dan een HSM.
 
-## <a name="registration-id"></a>Registratie-id
+## <a name="registration-id"></a>Registratie-ID
 
 De registratie-ID wordt gebruikt voor het aanduiden van een apparaat in de Device Provisioning Service. De apparaat-ID moet uniek zijn in de inrichtingsservice [ID-bereik](#id-scope). Elk apparaat moet een registratie-id hebben. De registratie-ID is alfanumerieke tekens, kleine letters en afbreekstreepjes mag bevatten.
 

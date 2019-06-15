@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444151"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>De ondergeschikte Azure-Plugin gebruiken met Hudson CI
@@ -152,7 +152,7 @@ In deze sectie maakt u een Hudson-taak die wordt uitgevoerd op een knooppunt ond
 5. Selecteer in de configuratiepagina van de taak **beperken waar dit project kan worden uitgevoerd**.
 6. Selecteer **knooppunt en het label menu** en selecteer **linux** (We hebben opgegeven dit label bij het maken van de virtuele-machinesjabloon in de vorige sectie).
 7. In de **bouwen** sectie, klikt u op **build-stap toevoegen** en selecteer **shell uitvoeren**.
-8. Bewerken van het volgende script, vervangen **{uw github-account-name}**, **{naam van uw project}**, en **{uw projectmap}** met waarden van toepassing en plak het bewerkte script in het tekstvak dat wordt weergegeven.
+8. Bewerken van het volgende script, vervangen **{uw github-account-name}** , **{naam van uw project}** , en **{uw projectmap}** met waarden van toepassing en plak het bewerkte script in het tekstvak dat wordt weergegeven.
    
         # Clone from git repo
    

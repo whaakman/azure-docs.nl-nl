@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594928"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Verificatiefouten oplossen wanneer u verbinding maken met virtuele Azure-machine met RDP
@@ -83,7 +83,7 @@ Voor verbinding met de virtuele machine op afstand, gebruikt u een van de method
 
 ### <a name="group-policy-client-service"></a>Group policy client-service
 
-Als dit een VM domein is, moet u eerst de Group Policy Client-service om te voorkomen dat een Active Directory-beleid van het overschrijven van de wijzigingen stoppen. Voer hiervoor de volgende opdracht uit:
+Als dit een VM domein is, moet u eerst de Group Policy Client-service om te voorkomen dat een Active Directory-beleid van het overschrijven van de wijzigingen stoppen. U doet dit door de volgende opdracht uitvoeren:
 
 ```cmd
 REM Disable the member server to retrieve the latest GPO from the domain upon start

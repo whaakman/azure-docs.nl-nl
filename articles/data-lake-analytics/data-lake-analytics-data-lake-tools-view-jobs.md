@@ -10,10 +10,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616098"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Gebruik Job Browser en Job View voor Azure Data Lake Analytics
@@ -45,8 +45,8 @@ Project-weergave bevat:
       ![Status van Azure Data Lake Analytics-taak fasen](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Voorbereiding: Uw script uploaden naar de cloud, compileren en optimaliseren van het script met behulp van de compile-service.
-    * In wachtrij geplaatst: Taken in de wachtrij geplaatst wanneer ze op onvoldoende bronnen wachten of de taken langer zijn dan de maximale gelijktijdige taken per accountbeperking. De prioriteitsinstelling van de bepaalt de volgorde van de taken in de wachtrij - hoe lager het nummer, hoe hoger de prioriteit.
-    * Wordt uitgevoerd: De taak daadwerkelijk wordt uitgevoerd in uw Data Lake Analytics-account.
+    * In de wachtrij geplaatst: Taken in de wachtrij geplaatst wanneer ze op onvoldoende bronnen wachten of de taken langer zijn dan de maximale gelijktijdige taken per accountbeperking. De prioriteitsinstelling van de bepaalt de volgorde van de taken in de wachtrij - hoe lager het nummer, hoe hoger de prioriteit.
+    * Uitgevoerd: De taak daadwerkelijk wordt uitgevoerd in uw Data Lake Analytics-account.
     * Voltooien: De taak wordt voltooid (bijvoorbeeld, wordt het bestand voltooid).
       
       De taak kan mislukken in elke fase. Bijvoorbeeld, compilatiefouten in de fase voorbereiden, de time-outfouten optreden in de fase in de wachtrij geplaatst en de uitvoeringsfouten in de fase wordt uitgevoerd, enzovoort.
@@ -136,7 +136,7 @@ Project-weergave bevat:
     U kunt enkele bewerkingen van metagegevens in uw U-SQL-script uitvoeren, zoals een database te maken, verwijderen van een tabel, enzovoort. Deze bewerkingen worden weergegeven in de metagegevens is na de compilatie. U kunt vinden van asserties, entiteiten maken, entiteiten hier neerzetten.
   
     ![Azure Data Lake Analytics-taak weergeven voor de bewerkingen van metagegevens](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
-* Statusgeschiedenis
+* Geschiedenis van status
   
     De geschiedenis van Knooppuntstatus tevens worden gevisualiseerd in taaksamenvatting, maar krijgt u hier meer informatie. U kunt de gedetailleerde informatie kunt vinden, zoals wanneer de taak is voorbereid, in de wachtrij de slag te gaan die wordt uitgevoerd, is beëindigd. U kunt ook het aantal keren dat de taak is gecompileerd vinden (de CcsAttempts: 1), wanneer de taak verzonden naar het cluster feitelijk (details: Verzending van taak voor het cluster), enzovoort.
   

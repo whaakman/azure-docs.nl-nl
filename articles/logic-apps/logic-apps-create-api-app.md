@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681828"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste API's die u vanuit Azure Logic Apps aanroepen kunt maken
@@ -183,7 +183,7 @@ Als u wilt regelmatig controleren op uw service voor nieuwe bestanden, kan u bij
 | --------------------- | -------------| 
 | Één bestand | Retourneert een HTTP `200 OK` status en de nettolading van de inhoud bijwerken `triggerState` naar de `DateTime` voor de geretourneerde bestands- en set `retry-after` interval op 15 seconden. | 
 | Meerdere bestanden | Een bestand op een tijdstip en een HTTP-retourneren `200 OK` status, update `triggerState`, en stel de `retry-after` interval 0 seconden. </br>Volgende stappen uit om de engine weten dat er meer gegevens beschikbaar is en dat de engine onmiddellijk de gegevens moet aanvragen via de URL in de `location` header. | 
-| Geen bestanden | Retourneert een HTTP `202 ACCEPTED` status, niet te wijzigen `triggerState`, en stel de `retry-after` interval op 15 seconden. | 
+| Er zijn geen bestanden | Retourneert een HTTP `202 ACCEPTED` status, niet te wijzigen `triggerState`, en stel de `retry-after` interval op 15 seconden. | 
 ||| 
 
 > [!TIP]

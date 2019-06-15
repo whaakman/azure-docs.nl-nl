@@ -4,17 +4,16 @@ description: Meer informatie over het toevoegen van een markdown-tegel aan een A
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: v-biyu
-origin.date: 01/25/2019
-ms.date: 03/04/2019
+ms.author: kfollis
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551585"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Een tegel markdown gebruiken op Azure-dashboards om aangepaste inhoud weer te geven
@@ -29,7 +28,7 @@ U kunt een tegel markdown toevoegen aan uw Azure-dashboards om aangepaste, stati
 
 2. In de **Tegelgalerie**, zoek de tegel met de naam **Markdown** en klikt u op **toevoegen**. De tegel wordt toegevoegd aan het dashboard en de **Markdown bewerken** deelvenster wordt geopend.
 
-3. Bewerk de **titel**, **subtitel**, en **inhoud** velden voor het aanpassen van de tegel. In het voorbeeld hieronder wordt is de tegel markdown bewerkt om aangepaste help helpdesk-informatie weer te geven.
+1. Bewerk de **titel**, **subtitel**, en **inhoud** velden voor het aanpassen van de tegel. In het voorbeeld hieronder wordt is de tegel markdown bewerkt om aangepaste help helpdesk-informatie weer te geven.
 
    ![Schermafbeelding van de weergave voor het bewerken van tegel markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 

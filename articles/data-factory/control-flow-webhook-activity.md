@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764302"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-activiteit in Azure Data Factory
@@ -56,12 +56,12 @@ U kunt een webactiviteit hook gebruiken voor het beheren van de uitvoering van p
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de web-hook-activiteit | String | Ja |
+name | Naam van de web-hook-activiteit | String | Ja |
 type | Moet worden ingesteld op **WebHook**. | String | Ja |
 method | De rest-API-methode voor het doel-eindpunt. | tekenreeks. Ondersteunde typen: 'POST' | Ja |
 url | Doel-eindpunt en het pad | Tekenreeks (of expressie resultType van de tekenreeks). | Ja |
 Headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: "headers": {'Accept-taal': ' nl-ons ", 'Content-Type': ' application/json'}. | Tekenreeks (of expressie resultType van de tekenreeks) | Ja, de Content-type-header is vereist. "headers": {'Content-Type': ' application/json'} |
-hoofdtekst | Hiermee geeft u de nettolading die wordt verzonden naar het eindpunt. | De hoofdtekst van de doorgegeven aan de terugbellen URI moet een geldige JSON. Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) sectie. | Ja |
+De hoofdtekst | Hiermee geeft u de nettolading die wordt verzonden naar het eindpunt. | De hoofdtekst van de doorgegeven aan de terugbellen URI moet een geldige JSON. Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) sectie. | Ja |
 verificatie | De verificatiemethode die wordt gebruikt voor het aanroepen van het eindpunt. Ondersteunde typen zijn 'Basic' of "ClientCertificate." Zie voor meer informatie, [verificatie](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) sectie. Als verificatie niet vereist is, sluit u deze eigenschap. | Tekenreeks (of expressie resultType van de tekenreeks) | Nee |
 timeout | Hoe lang de activiteit wordt gewacht op het &#39;callBackUri&#39; worden aangeroepen. Hoe lang de activiteit wacht callBackUri worden aangeroepen. Standaardwaarde is 10mins ("00: 10:00 '). De indeling is Timespan dat wil zeggen d.hh:mm:ss | String | Nee |
 

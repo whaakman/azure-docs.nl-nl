@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759908"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor log-queryvoorbeelden
@@ -25,7 +25,7 @@ In dit artikel bevat verschillende voorbeelden van [query's](log-query-overview.
 
 Zie de [Kusto-Naslaggids](https://docs.microsoft.com/azure/kusto/query/) voor meer informatie over de verschillende trefwoorden die in deze voorbeelden worden gebruikt. Doorloop een [les over het maken van query's](get-started-queries.md) als u geen ervaring met Azure Monitor.
 
-## <a name="events"></a>Gebeurtenissen
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Zoeken op toepassingsniveau gebeurtenissen die worden beschreven als "Cryptografische"
 In dit voorbeeld wordt gezocht naar de **gebeurtenissen** tabel voor records waarin **EventLog** is _Application_ en **RenderedDescription** bevat _cryptographic_. Bevat records van de afgelopen 24 uur.

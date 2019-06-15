@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332370"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA voor Azure-resources en gebruikers 
 
-Azure Security Center-partners met Microsoft Cloud App Security om u waarschuwingen op basis van gebruiker and entity Behavior analytics (UEBA) voor uw Azure-resources en gebruikers (Azure-activiteit). Deze waarschuwingen afwijkingen in het gedrag van gebruikers en zijn gebaseerd op gebruikers- en entity Behavior analytics en machine learning-(ML) zodat u kunt onmiddellijk geavanceerde detectie van bedreigingen voor uw abonnementen op de activiteiten uitvoeren. Omdat ze zijn automatisch ingeschakeld, detecties de nieuwe afwijkingen onmiddellijk resultaten door op te geven van onmiddellijke detecties, die gericht is op talrijke gedragsafwijkingen voor de gebruikers en de resources die zijn gekoppeld aan uw abonnement. Bovendien is deze waarschuwingen gebruikmaken van aanvullende gegevens die al in de detectie-engine van Microsoft Cloud App Security bestaat, kunt u het onderzoeksproces versneld en doorlopende bedreigingen bevatten. 
+Azure Security Center-partners met Microsoft Cloud App Security om u waarschuwingen op basis van gebruiker and entity Behavior analytics (UEBA) voor uw Azure-resources en gebruikers (Azure-activiteit). Deze waarschuwingen detecteren afwijkingen in het gedrag van gebruikers en zijn gebaseerd op UEBA en machine learning (ML), zodat u onmiddellijk geavanceerde dreigingsdetectie kunt uitvoeren op de activiteiten van uw abonnementen. Omdat ze automatisch worden ingeschakeld, bieden de nieuwe detecties van afwijkend gedrag onmiddellijk resultaten doordat ze meteen detecties aanleveren, op basis van verschillende gedragsafwijkingen van de gebruikers en resources die aan uw abonnement zijn gekoppeld. Bovendien maken deze waarschuwingen gebruik van aanvullende gegevens die al aanwezig zijn in de detectie-engine van Microsoft Cloud App Security, waardoor het onderzoeksproces nog verder wordt versneld en u altijd op de hoogte bent van doorlopende dreigingen. 
 
 > [!NOTE]
 > Azure Security Center, die mogelijk Sla een kopie van gegevens van de klant met betrekking tot beveiliging, die worden verzameld uit of die zijn gekoppeld aan een klant-resource (bijvoorbeeld virtuele machine of Azure Active Directory-tenant): (a) in hetzelfde geografische gebied als de resource met uitzondering van in deze geografische gebieden waar Microsoft nog niet is implementeren van Azure Security Center, in dat geval een kopie van dergelijke gegevens worden opgeslagen in de Verenigde Staten; en (b) waar Azure Security Center maakt gebruik van een andere Microsoft Online Service voor het verwerken van dergelijke gegevens, die gegevens in overeenstemming met de geolocatie van de regels van die andere Online Service kunnen worden opgeslagen.

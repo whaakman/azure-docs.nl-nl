@@ -2,19 +2,18 @@
 title: Configureerbare drempelwaarde op basis van regels in Azure Stream Analytics
 description: In dit artikel wordt beschreven hoe u van referentiegegevens voor een oplossing voor waarschuwingen met configureerbare drempelwaarde op basis van regels in Azure Stream Analytics.
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
-manager: digimobile
+author: zhongc
+ms.author: zhongc
+manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 08/20/2018
+ms.date: 04/30/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761723"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Verwerken configureerbare drempelwaarde-regels in Azure Stream Analytics
@@ -47,6 +46,7 @@ De referentiegegevens voor dit voorbeeld laat zien hoe een regel op basis van ee
 - U ziet de regel is een **operator** veld, die wordt dynamisch geïnterpreteerd in de query-syntaxis later `AVGGREATEROREQUAL`. 
 - De regel filtert de gegevens op een bepaalde dimensie-sleutel `2` met waarde `C1`. Andere velden zijn lege tekenreeks is, waarmee wordt aangegeven dat niet de invoerstroom van die gebeurtenis velden filteren. U kan extra CPU-regels instellen voor het filteren van andere velden indien nodig.
 - Niet alle kolommen zijn moeten worden opgenomen in de waarschuwing uitvoergebeurtenis. In dit geval `includedDim` sleutel nummer `2` is ingeschakeld op `TRUE` om weer te geven dat Veldnummer 2 van de gegevens van de gebeurtenis in de stroom worden opgenomen in de uitvoergebeurtenissen die in aanmerking komend. De andere velden zijn niet opgenomen in de uitvoer van de waarschuwing, maar de lijst met velden kan worden aangepast.
+
 
 ```json
 {
@@ -292,4 +292,3 @@ In dit voorbeeld van uitvoer in JSON-gegevens bevat één waarschuwing gebeurten
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
-<!--Update_Description: updat meta properties, wording update-->

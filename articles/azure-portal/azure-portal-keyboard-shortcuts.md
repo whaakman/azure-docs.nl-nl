@@ -16,10 +16,10 @@ ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551427"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Sneltoetsen gebruiken in Azure portal
@@ -41,7 +41,7 @@ In dit artikel geeft een lijst van de sneltoetsen die overal in Azure portal wer
 
 |Deze navigatie doen |Druk op |
 | --- | --- |
-|Focus naar opdrachtbalk verplaatsen |G+, |
+|De focus naar opdrachtbalk verplaatsen |G+, |
 |De focus schakelen tussen koptekst en linkerzijbalk | G +. |
 
 ## <a name="go-to"></a>Ga naar
@@ -51,7 +51,7 @@ In dit artikel geeft een lijst van de sneltoetsen die overal in Azure portal wer
 |Ga naar **Dashboard** |G+D |
 |Ga naar **alle resources**|G+A |
 |Ga naar **resourcegroepen**|G + R |
-|Open de linkerzijbalk-item op deze positie |G+ nummer|
+|Open de linkerzijbalk-item op deze positie |G + nummer|
 
 ## <a name="next-steps"></a>Volgende stappen
 

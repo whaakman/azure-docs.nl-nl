@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285202"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Het schema van de logboeken voor aanmelding bij Azure AD in Azure Monitor interpreteren
@@ -159,7 +159,7 @@ Dit artikel beschrijft het schema van de inloggen in Azure Active Directory (Azu
 | CorrelationId | De optionele GUID die doorgegeven door de client. Deze waarde kan helpen bij elkaar te vergelijken client-side-bewerkingen met server-side-bewerkingen en dit is handig wanneer u logboeken met betrekking services tot bijhoudt. |
 | Identiteit | De identiteit van het token dat is opgegeven wanneer u de aanvraag heeft ingediend. Een gebruikersaccount, systeem-account of service-principal kan het zijn. |
 | Niveau | Geeft het type van het bericht. Voor controle, is het altijd *ter informatie*. |
-| Location | Bevat de locatie van de activiteit aanmelden. |
+| Locatie | Bevat de locatie van de activiteit aanmelden. |
 | Properties | Geeft een lijst van alle eigenschappen die gekoppeld aan aanmeldingen zijn. Zie voor meer informatie, [Microsoft Graph API Reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Dit schema maakt gebruik van de namen van dezelfde als de resource-in voor de leesbaarheid.
 
 ## <a name="next-steps"></a>Volgende stappen

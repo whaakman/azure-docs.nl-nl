@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591680"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>De taakverdeling op meerdere IP-configuraties met behulp van Azure portal
@@ -180,7 +180,7 @@ Configureer de load balancer-regels voor elke website (contoso.com en fabrikam.c
 
 4. Voor **poort** en **back-endpoort**, hou de standaardwaarde **80**.
 
-5. Voor **zwevend IP (direct server return)**, selecteer **uitgeschakelde**.
+5. Voor **zwevend IP (direct server return)** , selecteer **uitgeschakelde**.
 
 6. <a name="step6-6"></a>Selecteer **OK**.
 

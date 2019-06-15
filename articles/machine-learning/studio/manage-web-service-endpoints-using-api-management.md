@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347082"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Azure Machine Learning Studio-webservices met API Management beheren
@@ -150,7 +150,7 @@ Bewerkingen kunnen rechtstreeks vanuit de portal voor ontwikkelaars, waarmee u e
 
 4. Voor **aanvraagparameters**, type de **werkruimte** en **service**, type "2.0 voor de **apiversion**, en 'true' voor de **details**. U vindt uw **werkruimte** en **service** in het dashboard van de webservice AzureML (Zie **testen van de webservice** in bijlage A).
 
-   Voor **aanvraagheaders**, klikt u op **koptekst toevoegen** en typ 'Content-Type' en ' application/json'. Klik op **koptekst toevoegen** opnieuw en typt u "Autorisatie" en "Bearer  *\<uw service API-sleutel\>*'. U vindt uw API-sleutel in het dashboard van de webservice AzureML (Zie **testen van de webservice** in bijlage A).
+   Voor **aanvraagheaders**, klikt u op **koptekst toevoegen** en typ 'Content-Type' en ' application/json'. Klik op **koptekst toevoegen** opnieuw en typt u "Autorisatie" en "Bearer  *\<uw service API-sleutel\>* '. U vindt uw API-sleutel in het dashboard van de webservice AzureML (Zie **testen van de webservice** in bijlage A).
 
    Voor **aanvraagtekst**, type `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 

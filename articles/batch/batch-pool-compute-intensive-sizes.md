@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776521"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Gebruik van RDMA of GPU-exemplaren in de Batch-pools
@@ -43,7 +43,7 @@ De RDMA of GPU-mogelijkheden van rekenintensieve grootten in Batch worden alleen
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pools voor Linux - VM-configuratie
 
-| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
+| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Instellingen voor toepassingen |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, of<br/>Op basis van centOS HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Stuurprogramma's voor Linux RDMA | De communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
 | [NC, de NCv2, NCv3, NDv2-serie](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (verschilt per serie) | Ubuntu 16.04 LTS, of<br/>CentOS 7.3 of 7.4<br/>(Azure Marketplace) | Stuurprogramma's van NVIDIA CUDA of CUDA Toolkit | N/A | 
@@ -53,7 +53,7 @@ De RDMA of GPU-mogelijkheden van rekenintensieve grootten in Batch worden alleen
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pools van Windows - VM-configuratie
 
-| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
+| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Instellingen voor toepassingen |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | WindowsServer 2016, 2012 R2, of<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 of hoger, of<br/> Intel MPI 5<br/><br/>Windows RDMA-stuurprogramma 's | De communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
 | [NC, de NCv2, NCv3, ND, NDv2-serie](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (verschilt per serie) | WindowsServer 2016 of <br/>2012 R2 (Azure Marketplace) | Stuurprogramma's van NVIDIA CUDA of CUDA Toolkit| N/A | 
@@ -67,7 +67,7 @@ De RDMA of GPU-mogelijkheden van rekenintensieve grootten in Batch worden alleen
 > N-serie worden niet ondersteund in Batch-pools met de configuratie van de Service in de Cloud.
 >
 
-| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
+| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Instellingen voor toepassingen |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | WindowsServer 2016, 2012 R2, 2012, of<br/>2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 of hoger, of<br/>Intel MPI 5<br/><br/>Windows RDMA-stuurprogramma 's | Klik in de communicatie tussen knooppunten inschakelen<br/> uitvoering van gelijktijdige taken uitschakelen |
 

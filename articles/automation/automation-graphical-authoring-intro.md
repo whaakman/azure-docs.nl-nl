@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740667"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
@@ -44,7 +44,7 @@ U kunt de besturingselementen aan de onderkant van het canvas in-en uitzoomen.
 
 Het besturingselement bibliotheek is waar u het selecteert [activiteiten](#activities) om toe te voegen aan uw runbook. U toevoegen ze aan het papier waar u deze aan andere activiteiten verbinden. Het bevat vier secties wordt beschreven in de volgende tabel:
 
-| Sectie | Description |
+| Section | Description |
 |:--- |:--- |
 | Cmdlets |Bevat alle cmdlets die kunnen worden gebruikt in uw runbook. Cmdlets zijn ingedeeld door de module. Alle modules die u hebt geïnstalleerd in uw automation-account zijn beschikbaar. |
 | Runbooks |Bevat de runbooks in uw automation-account. Deze runbooks kunnen worden toegevoegd aan het canvas om te worden gebruikt als onderliggende runbooks. Alleen runbooks van hetzelfde type als het runbook wordt bewerkt core worden weergegeven; Grafische worden runbooks alleen op PowerShell gebaseerde runbooks weergegeven, terwijl voor grafische PowerShell Workflow-runbooks alleen PowerShell-werkstroom runbooks worden weergegeven. |
@@ -123,7 +123,7 @@ Als u een waarde voor een parameter opgeeft, selecteert u een gegevensbron om te
 
 #### <a name="optional-additional-parameters"></a>Optionele extra parameters
 
-Alle cmdlets hebben de optie voor het bieden van aanvullende parameters. Dit zijn algemene PowerShell-parameters of andere aangepaste parameters. Krijgt u een tekstvak waarin u de parameters met behulp van PowerShell-syntaxis kunt opgeven. Bijvoorbeeld, om te gebruiken de **uitgebreid** algemene parameter geeft u **'-Verbose: $True "**.
+Alle cmdlets hebben de optie voor het bieden van aanvullende parameters. Dit zijn algemene PowerShell-parameters of andere aangepaste parameters. Krijgt u een tekstvak waarin u de parameters met behulp van PowerShell-syntaxis kunt opgeven. Bijvoorbeeld, om te gebruiken de **uitgebreid** algemene parameter geeft u **'-Verbose: $True "** .
 
 ### <a name="retry-activity"></a>Opnieuw proberen van activiteit
 
@@ -191,10 +191,10 @@ Maak een koppeling tussen twee activiteiten op basis van de bronactiviteit selec
 
 Selecteer de koppeling naar de eigenschappen ervan configureren in de blade van de configuratie. Dit omvat het koppelingstype, die wordt beschreven in de volgende tabel:
 
-| Type koppeling | Description |
+| Koppelingstype | Description |
 |:--- |:--- |
 | Pijplijn |De doelactiviteit wordt eenmaal uitgevoerd voor elk objectuitvoer van de bronactiviteit. De doelactiviteit wordt niet uitgevoerd als de bronactiviteit in geen uitvoer resulteert. Uitvoer van de bronactiviteit is beschikbaar als een object. |
-| Volgorde |De doelactiviteit wordt slechts één keer uitgevoerd. Ontvangt deze een matrix met objecten uit de bronactiviteit. Uitvoer van de bronactiviteit is beschikbaar als een matrix met objecten. |
+| Takenreeks |De doelactiviteit wordt slechts één keer uitgevoerd. Ontvangt deze een matrix met objecten uit de bronactiviteit. Uitvoer van de bronactiviteit is beschikbaar als een matrix met objecten. |
 
 ### <a name="starting-activity"></a>Activiteit vanaf
 
@@ -272,7 +272,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 U kunt instellen [controlepunten](automation-powershell-workflow.md#checkpoints) in een grafische PowerShell Workflow-runbook door te selecteren *runbookcontrolepunt* voor elke activiteit. Dit zorgt ervoor dat een controlepunt worden ingesteld nadat de activiteit is uitgevoerd.
 
-![Check Point](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Controlepunt](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Controlepunten worden alleen ingeschakeld in grafische PowerShell Workflow-runbooks, is niet beschikbaar in grafische runbooks. Als het runbook maakt gebruik van Azure-cmdlets, moet u een controlepunt activiteit met een Connect-AzureRmAccount volgen in het geval het runbook wordt onderbroken en opnieuw wordt opgestart vanaf dit controlepunt op een andere werknemer.
 

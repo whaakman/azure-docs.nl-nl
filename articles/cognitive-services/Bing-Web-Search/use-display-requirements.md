@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499882"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Vereisten voor gebruik en weergave van Bing Zoeken-API's
@@ -39,7 +39,7 @@ Deze vereisten voor gebruik en weergave van toepassing op elke uitvoering van de
 |Antwoord     | Een categorie van de resultaten in een antwoord geretourneerd. Een antwoord van de Bing webzoekopdrachten-API kan bijvoorbeeld antwoorden bevatten in de categorieën van webpagina-resultaten, afbeelding, video, visueel element en nieuws. |
 |Antwoord     | Alle antwoorden en de bijbehorende gegevens ontvangen in antwoord op één aanroep aan een Search-API. |
 |Resultaat    | Een item van gegevens in een antwoord. De set gegevens die zijn verbonden met een enkele nieuwsartikel is bijvoorbeeld een resultaat in een nieuwsantwoord. |
-|Zoek-API's    | gezamenlijk de Bing Custom Search, entiteiten zoeken, afbeeldingen zoeken, nieuws zoeken, video's zoeken, visuele zoekopdrachten, lokale bedrijven zoeken en Web zoeken-API's. |
+|Zoeken-API 's    | gezamenlijk de Bing Custom Search, entiteiten zoeken, afbeeldingen zoeken, nieuws zoeken, video's zoeken, visuele zoekopdrachten, lokale bedrijven zoeken en Web zoeken-API's. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Bing Spell Check en Automatische suggestie-API-beperkingen
 

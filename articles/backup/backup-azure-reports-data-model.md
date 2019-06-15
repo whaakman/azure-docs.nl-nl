@@ -2,19 +2,17 @@
 title: Gegevensmodel voor Azure Backup
 description: In dit artikel wordt besproken details van een Power BI-gegevens-model, voor Azure Backup-rapporten.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-origin.date: 06/26/2017
-ms.date: 08/08/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.date: 06/26/2017
+ms.author: adigan
 ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337575"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Gegevensmodel voor Azure Backup-rapporten
@@ -46,7 +44,7 @@ Deze tabel bevat algemene velden en aggregaties die via verschillende gerelateer
 ### <a name="backup-item"></a>Back-upitem
 Deze tabel bevat de algemene velden en aggregaties die via verschillende back-item-gerelateerde velden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #BackupItems |Geheel getal |Aantal back-upitems |
 | #UnprotectedBackupItems |Geheel getal |Aantal back-upitems voor beveiliging is gestopt of geconfigureerd voor back-ups, maar back-ups niet gestart|
@@ -151,7 +149,7 @@ Deze tabel bevat de algemene velden en aggregaties die via verschillende beveili
 | ProtectedServerName |Text |Naam van de beveiligde server naar welke back-upitem behoort |
 | RegisteredContainerId |Text |Id van de container is geregistreerd voor back-up |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot opslag.
 
 | Veld | Gegevenstype | Description |
@@ -165,7 +163,7 @@ Deze tabel bevat de algemene velden en aggregaties die via verschillende velden 
 ### <a name="time"></a>Time
 Deze tabel bevat details over velden met betrekking tot de tijd.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | Uur |Time |Uur van de dag bijvoorbeeld 13:00:00 uur |
 | HourNumber |Decimaal getal |Het aantal uren op een dag bijvoorbeeld 13,00 |
@@ -191,8 +189,5 @@ Deze tabel bevat de algemene velden en aggregaties die via verschillende velden 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u het gegevensmodel voor het maken van Azure Backup-rapporten bekijken, raadpleegt u de volgende artikelen voor meer informatie over het maken en weergeven van rapporten in Power BI.
 
-- [Het maken van rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-- [Filters gebruiken om rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-
-
-<!-- Update_Description: update metedata properties -->
+* [Het maken van rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Filters gebruiken om rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

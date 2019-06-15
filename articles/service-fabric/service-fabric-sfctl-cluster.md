@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837311"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -30,16 +30,16 @@ Selecteer, beheren en gebruiken van Service Fabric-clusters.
 | --- | --- |
 | code-versies | Hiermee haalt u een lijst van fabric code-versies die zijn ingericht in een Service Fabric-cluster. |
 | configuratie-versies | Hiermee haalt u een lijst van de fabric config-versies die zijn ingericht in een Service Fabric-cluster. |
-| gezondheidszorg | Hiermee haalt u de status van een Service Fabric-cluster. |
-| Het manifest | Haal het manifest van Service Fabric-cluster. |
+| health | Hiermee haalt u de status van een Service Fabric-cluster. |
+| manifest | Haal het manifest van Service Fabric-cluster. |
 | bewerking annuleren | Een gebruiker veroorzaakte fouten geannuleerd. |
 | operation-list | Hiermee haalt u een lijst met gebruikers veroorzaakte fouten bewerkingen die zijn gefilterd op de opgegeven invoer. |
-| inrichten | De code of configuratie-pakketten van een Service Fabric-cluster inrichten. |
+| provision | De code of configuratie-pakketten van een Service Fabric-cluster inrichten. |
 | herstellen-systeem | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de systeemservices die momenteel zijn vastgelopen sprake van quorumverlies. |
-| rapport-en statusbewaking | Verzendt een statusrapport over de Service Fabric-cluster. |
-| selecteren | Maakt verbinding met het eindpunt van een Service Fabric-cluster. |
+| report-health | Verzendt een statusrapport over de Service Fabric-cluster. |
+| Selecteer | Maakt verbinding met het eindpunt van een Service Fabric-cluster. |
 | show-connection | Weergeven welke dit sfctl-exemplaar is verbonden met Service Fabric-cluster. |
-| inrichting verwijderen | Inrichting verwijderen van de code of configuratie-pakketten van een Service Fabric-cluster. |
+| unprovision | Inrichting verwijderen van de code of configuratie-pakketten van een Service Fabric-cluster. |
 | upgrade | Start het bijwerken van de versie van de code of configuratie van een Service Fabric-cluster. |
 | upgrade-resume | Controleer de upgrade van het cluster gaat u verder met het volgende upgradedomein. |
 | upgrade-rollback | De upgrade van een Service Fabric-cluster terugdraaien. |

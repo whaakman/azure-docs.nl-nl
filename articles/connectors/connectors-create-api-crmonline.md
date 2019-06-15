@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60313642"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Dynamics 365-records met Azure Logic Apps beheren
@@ -78,11 +78,11 @@ Nu de Dynamics 365-actie die u een taakrecord voor een nieuwe leadrecord maakt t
    | **Naam van de entiteit** | Ja | De entiteit waarin u wilt maken van de record, bijvoorbeeld "Taken" |
    | | |
 
-   ![Actiedetails](./media/connectors-create-api-crmonline/action-details.png)
+   ![Actiegegevens](./media/connectors-create-api-crmonline/action-details.png)
 
 1. Wanneer de **onderwerp** vak wordt weergegeven in de actie, klikt u in de **onderwerp** vak, zodat de lijst met dynamische inhoud wordt weergegeven. In deze lijst, selecteer de veldwaarden om op te nemen in de taakrecord die zijn gekoppeld aan een record met de nieuwe potentiële klant:
 
-   | Veld | Beschrijving |
+   | Veld | Description |
    |-------|-------------|
    | **Achternaam** | De achternaam van de potentiële klant als de primaire contactpersoon in de record |
    | **Onderwerp** | De beschrijvende naam voor de lead in de record |
@@ -120,7 +120,7 @@ Wanneer u een waarde voor een veld in een actie of trigger opgeeft, het gegevens
 
 Deze tabel worden enkele van de veldtypen en de vereiste gegevenstypen voor hun waarden beschreven.
 
-| Veldtype | Gegevens van het type vereist | Beschrijving | 
+| Veldtype | Gegevens van het type vereist | Description | 
 |------------|--------------------|-------------|
 | Tekstvelden | Eén tekstregel | Deze velden vereist één regel tekst of dynamische inhoud het teksttype heeft. <p><p>*Voorbeeld van de velden*: **Beschrijving** en **categorie** | 
 | Velden voor gehele getallen | Geheel getal | Sommige velden vereist geheel getal of dynamische inhoud het type geheel getal zijn heeft. <p><p>*Voorbeeld van de velden*: **Percentage voltooid** en **duur** | 
@@ -130,7 +130,7 @@ Deze tabel worden enkele van de veldtypen en de vereiste gegevenstypen voor hun 
 
 Voortbouwend op deze veldtypen, vindt hier u voorbeeld van de velden in Dynamics 365-triggers en acties waarvoor een record-ID en het Opzoektype zijn vereist. Deze vereiste betekent dat de waarden die u in de lijst met dynamische selecteert werkt niet.
 
-| Veld | Beschrijving |
+| Veld | Description |
 |-------|-------------|
 | **Eigenaar** | Moet een geldige gebruikersnaam of team record-ID. |
 | **Eigenaarstype** | Moet een **systemusers** of **teams**. |

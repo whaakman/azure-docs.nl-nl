@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199068"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Test uw LUIS-app in de portal LUIS
@@ -103,9 +103,9 @@ Gebruik de volgende procedure om op te nemen de [Bing spellingcontrole versie 7]
 
 1. In de **Test** in het deelvenster een utterance invoeren. Wanneer de utterance wordt voorspeld, selecteert u **[inspecteren](#inspect-score)** onder de utterance die u hebt ingevoerd. 
 
-2. Wanneer de **inspecteren** deelvenster wordt geopend, selecteer  **[vergelijken met gepubliceerde](#compare-with-published-version)**. 
+2. Wanneer de **inspecteren** deelvenster wordt geopend, selecteer  **[vergelijken met gepubliceerde](#compare-with-published-version)** . 
 
-3. Wanneer de **gepubliceerd** deelvenster wordt geopend, selecteer  **[extra instellingen](#additional-settings-in-test-panel)**.
+3. Wanneer de **gepubliceerd** deelvenster wordt geopend, selecteer  **[extra instellingen](#additional-settings-in-test-panel)** .
 
 4. Voer in het pop-updialoogvenster uw **Bing spellingcontrole** servicesleutel. 
     ![Voer de sleutel van de Bing Spell Check-service](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)

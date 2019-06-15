@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455005"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Een object dat niet kan worden gesynchroniseerd met Azure Active Directory oplossen
@@ -81,7 +81,7 @@ De **Status** kolom bevat de meest belangrijke informatie en het meest ernstige 
 | voltooide -\*-waarschuwingen |De uitvoering is voltooid, maar sommige gegevens zijn niet de verwachte status. Als u fouten hebt, wordt dit bericht is meestal alleen een symptoom zijn. Geen waarschuwingen onderzoeken, totdat u fouten hebt opgelost. |
 | voltooid |Geen problemen. |
 
-Wanneer u selecteert u een rij, onder aan de **Operations** tabblad wordt bijgewerkt om de details van deze uitvoering weer te geven. Klik aan de uiterst links van dit gebied mogelijk hebt u een lijst met de titel **stap #**. Deze lijst wordt alleen weergegeven als er meerdere domeinen in uw forest en elk domein wordt vertegenwoordigd door een stap. Naam van het domein kunt u vinden onder de kop **partitie**. Onder de **Synchronisatiestatistieken** kop, u vindt meer informatie over het aantal wijzigingen dat is verwerkt. Selecteer de koppelingen voor een lijst van de gewijzigde objecten. Als u objecten met fouten hebt, die fouten weergegeven op de **synchronisatiefouten** kop.
+Wanneer u selecteert u een rij, onder aan de **Operations** tabblad wordt bijgewerkt om de details van deze uitvoering weer te geven. Klik aan de uiterst links van dit gebied mogelijk hebt u een lijst met de titel **stap #** . Deze lijst wordt alleen weergegeven als er meerdere domeinen in uw forest en elk domein wordt vertegenwoordigd door een stap. Naam van het domein kunt u vinden onder de kop **partitie**. Onder de **Synchronisatiestatistieken** kop, u vindt meer informatie over het aantal wijzigingen dat is verwerkt. Selecteer de koppelingen voor een lijst van de gewijzigde objecten. Als u objecten met fouten hebt, die fouten weergegeven op de **synchronisatiefouten** kop.
 
 ### <a name="errors-on-the-operations-tab"></a>Fouten op het tabblad bewerkingen
 Wanneer u fouten hebt, ziet u Synchronization Service Manager zowel het object in de fout als de fout zelf als koppelingen met meer informatie.
@@ -91,7 +91,7 @@ Begin met het selecteren van de fouttekenreeks. (In de afbeelding hierboven de f
 
 Met de rechtermuisknop op de **Call Stack informatie** Klik **Alles selecteren**, en selecteer vervolgens **kopie**. Kopieer de stack en bekijk de fout in de gewenste editor, zoals Kladblok.
 
-Als de fout van is **SyncRulesEngine**, de call stack informatie eerst een lijst met alle kenmerken van het object. Schuif omlaag totdat u de kop ziet **InnerException = >**.  
+Als de fout van is **SyncRulesEngine**, de call stack informatie eerst een lijst met alle kenmerken van het object. Schuif omlaag totdat u de kop ziet **InnerException = >** .  
 
   ![Schermafbeelding van de Synchronization Service Manager of met gegevens over de fout onder de kop InnerException = >](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   

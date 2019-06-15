@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764319"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Standaardactiviteit voor groepsvalidatie in Azure Data Factory
@@ -61,7 +61,7 @@ U kunt een validatie in een pijplijn gebruiken om te controleren of de pijplijn 
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de activiteit 'Validatie' | String | Ja |
+name | Naam van de activiteit 'Validatie' | String | Ja |
 type | Moet worden ingesteld op **validatie**. | String | Ja |
 Gegevensset | Activiteit wordt de uitvoering blokkeren totdat ze deze gegevenssetverwijzing heeft gevalideerd bestaat en dat het voldoet aan de opgegeven criteria of time-out is bereikt. Gegevensset die opgegeven moet de eigenschap "MinimumSize" of "ChildItems" ondersteunen. | Gegevenssetverwijzing | Ja |
 timeout | Hiermee geeft u de time-out op voor de activiteit die moet worden uitgevoerd. Als er geen waarde is opgegeven, is de standaardwaarde 7 dagen ("7.00:00:00"). De indeling is d.hh:mm:ss | String | Nee |

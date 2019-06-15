@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764285"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
@@ -63,14 +63,14 @@ De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen 
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de webactiviteit | String | Ja
+name | Naam van de webactiviteit | String | Ja
 type | Moet worden ingesteld op **WebActivity**. | String | Ja
 method | De rest-API-methode voor het doel-eindpunt. | tekenreeks. <br/><br/>Ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS' | Ja
 url | Doel-eindpunt en het pad | Tekenreeks (of expressie resultType van de tekenreeks). De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt. | Ja
 Headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Tekenreeks (of expressie resultType van de tekenreeks) | Ja, de Content-type-header is vereist. `"headers":{ "Content-Type":"application/json"}`
-hoofdtekst | Hiermee geeft u de nettolading die wordt verzonden naar het eindpunt.  | Tekenreeks (of expressie resultType van de tekenreeks). <br/><br/>Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](#request-payload-schema) sectie. | Vereist voor POST/PUT-methoden.
+De hoofdtekst | Hiermee geeft u de nettolading die wordt verzonden naar het eindpunt.  | Tekenreeks (of expressie resultType van de tekenreeks). <br/><br/>Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](#request-payload-schema) sectie. | Vereist voor POST/PUT-methoden.
 verificatie | De verificatiemethode die wordt gebruikt voor het aanroepen van het eindpunt. Ondersteunde typen zijn "Basic of ClientCertificate." Zie voor meer informatie, [verificatie](#authentication) sectie. Als verificatie niet vereist is, sluit u deze eigenschap. | Tekenreeks (of expressie resultType van de tekenreeks) | Nee
-gegevenssets | Lijst met gegevenssets doorgegeven aan het eindpunt. | Matrix van verwijzingen van de gegevensset. Geen lege matrix kan zijn. | Ja
+datasets | Lijst met gegevenssets doorgegeven aan het eindpunt. | Matrix van verwijzingen van de gegevensset. Geen lege matrix kan zijn. | Ja
 linkedServices | Lijst met gekoppelde services doorgegeven aan eindpunt. | Matrix van gekoppelde service verwijst naar. Geen lege matrix kan zijn. | Ja
 
 > [!NOTE]

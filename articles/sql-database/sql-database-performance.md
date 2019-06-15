@@ -6,17 +6,16 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: danimir
+ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 01/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584797"
 ---
 # <a name="monitor-and-improve-performance"></a>Prestaties bewaken en verbeteren
@@ -41,10 +40,10 @@ In deze weergave bevat een samenvatting van de databaseprestaties van uw, en hel
 
 ![Prestaties](./media/sql-database-performance/performance.png)
 
-* De **aanbevelingen** tegel bevat een verdeling van de aanbevelingen voor uw database voor het afstemmen (drie belangrijkste aanbevelingen worden weergegeven of er meer zijn). Op deze tegel klikt, gaat u naar  **[aanbevelingen voor prestaties](#performance-recommendations)**. 
+* De **aanbevelingen** tegel bevat een verdeling van de aanbevelingen voor uw database voor het afstemmen (drie belangrijkste aanbevelingen worden weergegeven of er meer zijn). Op deze tegel klikt, gaat u naar  **[aanbevelingen voor prestaties](#performance-recommendations)** . 
 * De **Afstemmingsactiviteit** tegel bevat een samenvatting van de actieve en voltooide acties voor uw database afstemmen, zodat u snel inzicht krijgt in de geschiedenis van het afstemmen van de activiteit. Op deze tegel klikt, wordt u gaat naar de volledige geschiedenis-weergave afstemmen voor uw database.
 * De **automatisch afstemmen** tegel toont de [configuratie voor automatisch afstemmen](sql-database-automatic-tuning-enable.md) voor uw database (de opties die automatisch worden toegepast op uw database afstemmen). Op deze tegel klikt, opent u het dialoogvenster van de configuratie van automation.
-* De **databasequery's** tegel staat een overzicht van de prestaties van query's voor uw database (totale DTU-gebruik en boven die veel resources verbruiken query's). Op deze tegel klikt, gaat u naar  **[Query Performance Insight](#query-performance-insight)**.
+* De **databasequery's** tegel staat een overzicht van de prestaties van query's voor uw database (totale DTU-gebruik en boven die veel resources verbruiken query's). Op deze tegel klikt, gaat u naar  **[Query Performance Insight](#query-performance-insight)** .
 
 ## <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
 
@@ -74,7 +73,7 @@ Azure SQL-databases kunnen automatisch afstemmen van prestaties van de database 
 
   ![van Prestatiedashboard](./media/sql-database-query-performance/performance.png)
 
-Meer informatie over deze pagina vinden in het artikel  **[Query Performance Insight gebruiken](sql-database-query-performance.md)**.
+Meer informatie over deze pagina vinden in het artikel  **[Query Performance Insight gebruiken](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

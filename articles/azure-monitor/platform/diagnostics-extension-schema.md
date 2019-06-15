@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527314"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-extensie configuration schema-versies en de geschiedenis
@@ -37,7 +37,7 @@ De Azure Diagnostics-extensie wordt gebruikt met andere Microsoft-producten voor
 |------------------|-------------------------------|------|  
 |1.x               |1.0                            |invoegtoepassing|  
 |2.0 - 2.4         |1.0                            |invoegtoepassing|  
-|2,5               |1.2                            |Extensie|  
+|2.5               |1.2                            |Extensie|  
 |2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
 |2.8               |1.5                            |"|  
@@ -174,7 +174,7 @@ Toegevoegde opslagtype u moet PublicConfig. StorageType mag *tabel*, *Blob*, *Ta
 ### <a name="diagnostics-extension-17"></a>Extensie voor diagnostische gegevens 1.7
 De mogelijkheid om te routeren naar EventHub toegevoegd.
 
-### <a name="diagnostics-extension-15"></a>1.5-extensie voor diagnostische gegevens
+### <a name="diagnostics-extension-15"></a>1\.5-extensie voor diagnostische gegevens
 De PUT-element en de mogelijkheid voor het verzenden van diagnostische gegevens toegevoegd [Application Insights](../../azure-monitor/app/cloudservices.md) waardoor het gemakkelijker wordt om problemen te diagnosticeren op uw toepassing als het niveau van de systeem- en -infrastructuur.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 en diagnostische gegevens van de extensie 1.3

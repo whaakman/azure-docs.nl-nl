@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538794"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>3270 scherm gebaseerde apps voor IBM-mainframes integreren met Azure met behulp van Azure Logic Apps en IBM 3270 connector
@@ -293,7 +293,7 @@ In deze modus definieert u een methode die is gekoppeld aan uw abonnement naviga
    |---------------|-----------------|
    | **Gegevenstype** | Datum en tijd, Decimal, Int, byte lang, kort gezegd, tekenreeks |
    | **Veld opvulling techniek** | Parameters ondersteuning van deze typen opvulling, vullen met lege waarden, indien nodig: <p><p>- **Type**: Sequentieel tekens invoeren in het veld. <p>- **Fill**: Inhoud van het veld vervangen door tekens, vullen met lege waarden indien nodig. <p>- **EraseEofType**: Wis het veld en geef de tekens sequentieel worden verwerkt in het veld. |
-   | **Notatietekenreeks** | Sommige gegevenstypes parameter gebruikt een opmaaktekenreeks, die u informeert de 3270 connector tekst converteren van het scherm in een .NET-gegevenstype: <p><p>- **Datum-/**: De tekenreeks voor de datum/tijd-indeling volgt de [.NET aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Bijvoorbeeld, de datum `06/30/2019` maakt gebruik van de notatietekenreeks `MM/dd/yyyy`. <p>- **Decimaal**: Maakt gebruik van de tekenreeks voor notatie decimaal de [COBOL afbeelding component](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Bijvoorbeeld, het aantal `100.35` maakt gebruik van de notatietekenreeks `999V99`. |
+   | **Notatietekenreeks** | Sommige gegevenstypes parameter gebruikt een opmaaktekenreeks, die u informeert de 3270 connector tekst converteren van het scherm in een .NET-gegevenstype: <p><p>- **Datum-/** : De tekenreeks voor de datum/tijd-indeling volgt de [.NET aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Bijvoorbeeld, de datum `06/30/2019` maakt gebruik van de notatietekenreeks `MM/dd/yyyy`. <p>- **Decimaal**: Maakt gebruik van de tekenreeks voor notatie decimaal de [COBOL afbeelding component](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Bijvoorbeeld, het aantal `100.35` maakt gebruik van de notatietekenreeks `999V99`. |
    |||
 
 ## <a name="save-and-view-metadata"></a>Opslaan en weergeven van metagegevens
@@ -355,7 +355,7 @@ Wanneer u klaar bent met al deze stappen, kunt u de actie die u in uw logische a
    ![3270 actie selecteren](./media/connectors-create-api-3270/select-3270-action.png)
 
    Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
-   Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+   Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
 1. Als er geen verbinding nog niet bestaat, geef de benodigde gegevens voor uw verbinding en kies **maken**.
 
@@ -393,7 +393,7 @@ Wanneer u klaar bent met al deze stappen, kunt u de actie die u in uw logische a
 
    **Selecteer de methode**
 
-   ![Een methode selecteren](./media/connectors-create-api-3270/select-method.png)
+   ![Methode selecteren](./media/connectors-create-api-3270/select-method.png)
 
    **Selecteer de volgende parameters**
 

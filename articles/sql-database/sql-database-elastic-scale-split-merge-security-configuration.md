@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335220"
 ---
 # <a name="split-merge-security-configuration"></a>Beveiligingsconfiguratie splitsen en samenvoegen
@@ -421,7 +421,7 @@ Volg deze stappen:
 1. Mmc.exe worden uitgevoerd.
 2. File -> module toevoegen/verwijderen...
 3. Selecteer **certificaten**.
-4. Klik op **Add**.
+4. Klik op **Toevoegen**.
 5. Kies de locatie van de store certificaat.
 6. Klik op **Voltooien**.
 7. Klik op **OK**.

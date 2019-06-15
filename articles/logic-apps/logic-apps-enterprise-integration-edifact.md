@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
 ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684451"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>EDIFACT-berichten uitwisselen voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
@@ -66,9 +66,9 @@ Nadat u [maken van een integratieaccount](../logic-apps/logic-apps-enterprise-in
    | Eigenschap | Description |
    | --- | --- |
    | Name |Naam van de overeenkomst |
-   | Overeenkomsttype | Moet EDIFACT |
+   | Overeenkomsttype selecteren | Moet EDIFACT |
    | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De hostpartner vertegenwoordigt de organisatie die Hiermee configureert u de overeenkomst. |
-   | Hostidentiteit |Een id voor de hostpartner |
+   | Identiteit van de host |Een id voor de hostpartner |
    | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De gastpartner vertegenwoordigt de organisatie die wordt zakendoen met de hostpartner. |
    | Gastidentiteit |Een id voor de gastpartner |
    | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
@@ -94,8 +94,8 @@ De overeenkomst is nu gereed voor het afhandelen van berichten die aan de gesele
 
 | Eigenschap | Description |
 | --- | --- |
-| UNB6.1 (referentiewachtwoord van de ontvanger) |Voer een alfanumerieke waarde met een resultaat tussen 1 en 14 tekens. |
-| UNB6.2 (referentiekwalificatie van de ontvanger) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal twee tekens bestaan. |
+| UNB6.1 (referentiewachtwoord ontvanger) |Voer een alfanumerieke waarde met een resultaat tussen 1 en 14 tekens. |
+| UNB6.2 (Referentiekwalificatie ontvanger) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal twee tekens bestaan. |
 
 ### <a name="acknowledgments"></a>Bevestigingen
 
@@ -121,11 +121,11 @@ De overeenkomst is nu gereed voor het afhandelen van berichten die aan de gesele
 | --- | --- |
 | Uitwisselingscontrolenummer duplicaten weigeren |Voor het blokkeren van dubbele uitwisselingen, selecteert u deze eigenschap. Indien geselecteerd, controleert de EDIFACT-decodering actie de uitwisseling controlenummer (UNB5) voor de ontvangen uitwisseling komt niet overeen met een controlenummer eerder verwerkte uitwisseling. Als een overeenkomst wordt gedetecteerd, klikt u vervolgens de uitwisseling niet is verwerkt. |
 | Controleren op dubbele UNB5 elke (dagen) |Als u ervoor de controlenummers dubbele uitwisseling weigeren kiest, kunt u het aantal dagen opgeven voor het uitvoeren van de controle door middel van de juiste waarde voor deze instelling. |
-| Dubbele groepscontrolenummers niet toestaan |Als u wilt blokkeren uitwisselingen met dubbele groep controlenummers (UNG5), selecteert u deze eigenschap. |
-| Dubbele transactiereekscontrolenummers niet toestaan |Als u wilt blokkeren uitwisselingen met dubbele transactie set controlenummers (UNH1), selecteert u deze eigenschap. |
-| EDIFACT-bevestigingscontrolenummer |Voer een waarde voor het voorvoegsel, een bereik van verwijzing getallen en een achtervoegsel om de nummers set transactie voor gebruik in een bevestiging. |
+| Dubbele weigeren |Als u wilt blokkeren uitwisselingen met dubbele groep controlenummers (UNG5), selecteert u deze eigenschap. |
+| Transactie dubbele weigeren |Als u wilt blokkeren uitwisselingen met dubbele transactie set controlenummers (UNH1), selecteert u deze eigenschap. |
+| EDIFACT-Bevestigingscontrolenummer |Voer een waarde voor het voorvoegsel, een bereik van verwijzing getallen en een achtervoegsel om de nummers set transactie voor gebruik in een bevestiging. |
 
-### <a name="validations"></a>Validaties
+### <a name="validations"></a>Bevestigingen
 
 Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toegevoegd. Als u een van de regels niet opgeeft, wordt validatie van de rij 'Standaard'.
 
@@ -134,8 +134,8 @@ Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toeg
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie op gegevenstypen zoals gedefinieerd door de schema's EDI eigenschappen, beperkingen voor de lengte, lege gegevenselementen en volgscheidingstekens uitvoeren. |
 | Uitgebreide validatie |Als het gegevenstype niet EDI, valideren is op de gegevensvereiste-element en herhaling, opsommingen en element lengte gegevensvalidatie (min./Max.) toegestaan. |
-| Voorloop-/volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
-| Voorloop-/volgnullen knippen |Voorloop- of volgspaties nul en spaties verwijderen. |
+| Voorloop-/ volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
+| Voorloop-/ volgnullen knippen |Voorloop- of volgspaties nul en spaties verwijderen. |
 | Beleid voor volgscheidingstekens |Navolgende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt navolgende scheidingstekens en scheidingstekens in de uitwisseling ontvangen. Als de uitwisseling navolgende scheidingstekens en scheidingstekens heeft, is de uitwisseling gedeclareerd niet geldig. <p>Selecteer **optioneel** uitwisselingen met of zonder afsluitende scheidingstekens en scheidingstekens accepteren. <p>Selecteer **verplichte** wanneer de ontvangen uitwisseling moet hebben navolgende scheidingstekens en scheidingstekens. |
 
 ### <a name="internal-settings"></a>Interne instellingen
@@ -143,10 +143,10 @@ Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toeg
 | Eigenschap | Description |
 | --- | --- |
 | Lege XML-tags maken als volgscheidingstekens zijn toegestaan |Schakel dit selectievakje in om de uitwisseling afzender lege XML-tags voor navolgende scheidingstekens bevatten. |
-| Uitwisseling splitsen in transactiereeksen - transactiereeksen onderbreken bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toe te passen op de transactieset worden geparseerd. Alleen de transactiereeksen die de validatie niet onderbreken. |
-| Uitwisseling splitsen in transactiereeksen - uitwisseling onderbreken bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document door toe te passen van de juiste envelop worden geparseerd. De gehele uitwisseling onderbreken bij een of meer transactiesets in de uitwisseling validatie is mislukt. | 
+| Uitwisseling splitsen in transactiereeksen - onderbreken transactiereeksen bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toe te passen op de transactieset worden geparseerd. Alleen de transactiereeksen die de validatie niet onderbreken. |
+| Uitwisseling splitsen in transactiereeksen - onderbreken uitwisseling bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document door toe te passen van de juiste envelop worden geparseerd. De gehele uitwisseling onderbreken bij een of meer transactiesets in de uitwisseling validatie is mislukt. | 
 | Uitwisseling bewaren-transactiereeksen onderbreken bij fout |De uitwisseling intact blijven, maakt u een XML-document voor de gehele uitwisseling van de batch. Alleen de transactiereeksen die de validatie, terwijl u verdergaat met het verwerken van alle andere transactiesets niet onderbreken. |
-| Uitwisseling bewaren - uitwisseling onderbreken bij fout |De uitwisseling intact blijven, maakt u een XML-document voor de gehele uitwisseling van de batch. De gehele uitwisseling onderbreken bij een of meer transactiesets in de uitwisseling validatie is mislukt. |
+| Uitwisseling bewaren-uitwisseling onderbreken bij fout |De uitwisseling intact blijven, maakt u een XML-document voor de gehele uitwisseling van de batch. De gehele uitwisseling onderbreken bij een of meer transactiesets in de uitwisseling validatie is mislukt. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configureren hoe berichten worden verzonden door uw overeenkomst
 
@@ -168,18 +168,18 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 | Eigenschap | Description |
 | --- | --- |
 | UNB1.2 (Syntaxisversie) |Selecteer een waarde tussen **1** en **4**. |
-| UNB2.3 (omgekeerd routeringsadres van de afzendeer) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens bestaan. |
-| UNB3.3 (omgekeerd routeringsadres van de ontvanger) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens bestaan. |
-| UNB6.1 (referentiewachtwoord van de ontvanger) |Voer een alfanumerieke waarde met een minimaal een en maximaal 14 tekens bestaan. |
-| UNB6.2 (referentiekwalificatie van de ontvanger) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal twee tekens bestaan. |
-| UNB7 (toepassingsreferentie-id) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens |
+| UNB2.3 (omgekeerde routering afzenderadres) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens bestaan. |
+| UNB3.3 (ontvanger omgekeerd Routeringsadres van) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens bestaan. |
+| UNB6.1 (referentiewachtwoord ontvanger) |Voer een alfanumerieke waarde met een minimaal een en maximaal 14 tekens bestaan. |
+| UNB6.2 (Referentiekwalificatie ontvanger) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal twee tekens bestaan. |
+| UNB7 (Toepassingsreferentie-ID) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens |
 
 ### <a name="acknowledgment"></a>Acknowledgment
 | Eigenschap | Description |
 | --- | --- |
 | Berichtontvangst (CONTRL) |Schakel dit selectievakje in als de gehoste partner verwacht voor het ontvangen van een technische (CONTRL)-bevestiging. Deze instelling geeft aan dat de gehoste partner die het bericht verzendt, aanvragen van een bevestiging van de gastpartner. |
 | Bevestiging (CONTRL) |Schakel dit selectievakje in als de gehoste partner verwacht voor het ontvangen van een functionele (CONTRL)-bevestiging. Deze instelling geeft aan dat de gehoste partner die het bericht verzendt, aanvragen van een bevestiging van de gastpartner. |
-| SG1/SG4-lus genereren voor geaccepteerde transactiesets |Als u ervoor kiest om aan te vragen van een functionele bevestiging, selecteert u dit selectievakje in om af te dwingen van het genereren van SG1/SG4-lus in functionele CONTRL bevestigingen voor geaccepteerde transactiesets. |
+| SG1/SG4-lus voor geaccepteerde transactiesets genereren |Als u ervoor kiest om aan te vragen van een functionele bevestiging, selecteert u dit selectievakje in om af te dwingen van het genereren van SG1/SG4-lus in functionele CONTRL bevestigingen voor geaccepteerde transactiesets. |
 
 ### <a name="schemas"></a>Schema 's
 | Eigenschap | Description |
@@ -193,10 +193,10 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 | Eigenschap | Description |
 | --- | --- |
 | UNB8 (prioriteitcode voor verwerking) |Voer een alfabetische waarde die niet meer dan één teken bestaan. |
-| UNB10 (communicatieovereenkomst) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 40 tekens. |
-| UNB11 (testindicator) |Schakel dit selectievakje in om aan te geven dat de uitwisseling gegenereerd testgegevens |
-| UNA-segment toepassen (advies voor de servicetekenreeks) |Schakel dit selectievakje in voor het genereren van een UNA-segment voor de uitwisseling moet worden verzonden. |
-| UNG-segmenten toepassen (functiegroepheader) |Schakel dit selectievakje in groeperen om segmenten te maken in de functiegroep-header in de berichten die worden verzonden naar de gastpartner. De volgende waarden worden gebruikt om de UNG-segmenten te maken: <p>Voor **UNG1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal zes tekens. <p>Voor **UNG2.1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal 35 tekens in. <p>Voor **UNG2.2**, voer een alfanumerieke waarde, met een maximum van vier tekens. <p>Voor **UNG3.1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal 35 tekens in. <p>Voor **UNG3.2**, voer een alfanumerieke waarde, met een maximum van vier tekens. <p>Voor **UNG6**, voer een alfanumerieke waarde met een minimaal een en maximaal drie tekens bestaan. <p>Voor **UNG7.1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal drie tekens bestaan. <p>Voor **UNG7.2**, voer een alfanumerieke waarde met een minimaal één teken en maximaal drie tekens bestaan. <p>Voor **UNG7.3**, voer een alfanumerieke waarde met een minimaal 1 teken en maximaal 6 tekens. <p>Voor **UNG8**, voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens bestaan. |
+| UNB10 (Communicatieovereenkomst) |Voer een alfanumerieke waarde met een minimaal één teken en maximaal 40 tekens. |
+| UNB11 (Testindicator) |Schakel dit selectievakje in om aan te geven dat de uitwisseling gegenereerd testgegevens |
+| UNA-Segment (Servicetekenreeks) toepassen |Schakel dit selectievakje in voor het genereren van een UNA-segment voor de uitwisseling moet worden verzonden. |
+| UNG-segmenten (Functiegroepheader) toepassen |Schakel dit selectievakje in groeperen om segmenten te maken in de functiegroep-header in de berichten die worden verzonden naar de gastpartner. De volgende waarden worden gebruikt om de UNG-segmenten te maken: <p>Voor **UNG1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal zes tekens. <p>Voor **UNG2.1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal 35 tekens in. <p>Voor **UNG2.2**, voer een alfanumerieke waarde, met een maximum van vier tekens. <p>Voor **UNG3.1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal 35 tekens in. <p>Voor **UNG3.2**, voer een alfanumerieke waarde, met een maximum van vier tekens. <p>Voor **UNG6**, voer een alfanumerieke waarde met een minimaal een en maximaal drie tekens bestaan. <p>Voor **UNG7.1**, voer een alfanumerieke waarde met een minimaal één teken en maximaal drie tekens bestaan. <p>Voor **UNG7.2**, voer een alfanumerieke waarde met een minimaal één teken en maximaal drie tekens bestaan. <p>Voor **UNG7.3**, voer een alfanumerieke waarde met een minimaal 1 teken en maximaal 6 tekens. <p>Voor **UNG8**, voer een alfanumerieke waarde met een minimaal één teken en maximaal 14 tekens bestaan. |
 
 ### <a name="character-sets-and-separators"></a>Tekensets en scheidingstekens
 
@@ -210,16 +210,16 @@ Anders dan het teken is ingesteld, kunt u een andere set scheidingstekens moet w
 | Scheidingsteken voor onderdelen |Afzonderlijke elementen samengestelde gegevens, voert u één teken. |
 | Scheidingsteken voor gegevenselementen |Afzonderlijke eenvoudige gegevenselementen in samengestelde elementen, voer één teken. |
 | Segmenteindteken |Geeft een enkel teken aan het einde van een EDI-segment. |
-| Achtervoegsel |Selecteer het teken dat wordt gebruikt met de segment-id. Als u een achtervoegsel opgeeft, kan klikt u vervolgens het segmenteindteken element niet leeg zijn. Als de segmenteindteken leeg wordt gelaten, moet u een achtervoegsel opgeven. |
+| Suffix |Selecteer het teken dat wordt gebruikt met de segment-id. Als u een achtervoegsel opgeeft, kan klikt u vervolgens het segmenteindteken element niet leeg zijn. Als de segmenteindteken leeg wordt gelaten, moet u een achtervoegsel opgeven. |
 
 ### <a name="control-numbers"></a>Controlenummers
 | Eigenschap | Description |
 | --- | --- |
-| UNB5 (uitwisselingscontrolenummer) |Voer een voorvoegsel, een bereik van waarden voor het controlenummer uitwisseling en een achtervoegsel. Deze waarden worden gebruikt voor het genereren van een uitgaande uitwisseling. Het voorvoegsel en het achtervoegsel zijn optioneel, terwijl het controlenummer vereist is. Het controlenummer wordt verhoogd voor elk nieuw bericht; het voorvoegsel en het achtervoegsel blijven hetzelfde. |
-| UNG5 (groepscontrolenummer) |Voer een voorvoegsel, een bereik van waarden voor het controlenummer uitwisseling en een achtervoegsel. Deze waarden worden gebruikt voor het genereren van het controlenummer voor de groep. Het voorvoegsel en het achtervoegsel zijn optioneel, terwijl het controlenummer vereist is. Het controlenummer wordt voor elk nieuw bericht verhoogd, totdat de maximumwaarde is bereikt. het voorvoegsel en het achtervoegsel blijven hetzelfde. |
-| UNH1 (referentienummer van de berichtheader) |Voer een voorvoegsel, een bereik van waarden voor het controlenummer uitwisseling en een achtervoegsel. Deze waarden worden gebruikt voor het genereren van de referentienummer van de bericht-header. Het voorvoegsel en het achtervoegsel zijn optioneel, terwijl het nummer vereist is. Het nummer wordt verhoogd voor elk nieuw bericht; het voorvoegsel en het achtervoegsel blijven hetzelfde. |
+| UNB5 (Uitwisselingscontrolenummer) |Voer een voorvoegsel, een bereik van waarden voor het controlenummer uitwisseling en een achtervoegsel. Deze waarden worden gebruikt voor het genereren van een uitgaande uitwisseling. Het voorvoegsel en het achtervoegsel zijn optioneel, terwijl het controlenummer vereist is. Het controlenummer wordt verhoogd voor elk nieuw bericht; het voorvoegsel en het achtervoegsel blijven hetzelfde. |
+| UNG5 (Groepscontrolenummer) |Voer een voorvoegsel, een bereik van waarden voor het controlenummer uitwisseling en een achtervoegsel. Deze waarden worden gebruikt voor het genereren van het controlenummer voor de groep. Het voorvoegsel en het achtervoegsel zijn optioneel, terwijl het controlenummer vereist is. Het controlenummer wordt voor elk nieuw bericht verhoogd, totdat de maximumwaarde is bereikt. het voorvoegsel en het achtervoegsel blijven hetzelfde. |
+| UNH1 (referentienummer van de berichtheader Message) |Voer een voorvoegsel, een bereik van waarden voor het controlenummer uitwisseling en een achtervoegsel. Deze waarden worden gebruikt voor het genereren van de referentienummer van de bericht-header. Het voorvoegsel en het achtervoegsel zijn optioneel, terwijl het nummer vereist is. Het nummer wordt verhoogd voor elk nieuw bericht; het voorvoegsel en het achtervoegsel blijven hetzelfde. |
 
-### <a name="validations"></a>Validaties
+### <a name="validations"></a>Bevestigingen
 
 Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toegevoegd. Als u een van de regels niet opgeeft, wordt validatie van de rij 'Standaard'.
 
@@ -228,8 +228,8 @@ Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toeg
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie op gegevenstypen zoals gedefinieerd door de EDI-eigenschappen van het schema, beperkingen voor de lengte, lege gegevenselementen en volgscheidingstekens uitvoeren. |
 | Uitgebreide validatie |Als het gegevenstype niet EDI, valideren is op de gegevensvereiste-element en herhaling, opsommingen en element lengte gegevensvalidatie (min./Max.) toegestaan. |
-| Voorloop-/volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
-| Voorloop-/volgnullen knippen |Voorloop- of afsluitende nul tekens verwijderen. |
+| Voorloop-/ volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
+| Voorloop-/ volgnullen knippen |Voorloop- of afsluitende nul tekens verwijderen. |
 | Beleid voor volgscheidingstekens |Navolgende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt navolgende scheidingstekens en scheidingstekens in de uitwisseling verzonden. Als de uitwisseling navolgende scheidingstekens en scheidingstekens heeft, is de uitwisseling gedeclareerd niet geldig. <p>Selecteer **optioneel** uitwisselingen met of zonder afsluitende scheidingstekens en scheidingstekens verzenden. <p>Selecteer **verplichte** als de verzonden uitwisseling moet navolgende scheidingstekens en scheidingstekens bevatten. |
 
 ## <a name="find-your-created-agreement"></a>Uw overeenkomst gevonden

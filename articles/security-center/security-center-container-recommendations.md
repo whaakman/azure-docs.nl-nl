@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60705270"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Aanbevelingen voor Azure Security Center-container begrijpen
@@ -32,11 +32,11 @@ Azure Security Center biedt de volgende mogelijkheden om u te helpen u uw contai
     ![container-tabblad](./media/security-center-container-recommendations/docker-recommendation.png)
 
 
-- **Aanbevelingen voor beveiliging op basis van configuratie-items benchmark voor Docker**<br>Security Center scant uw Docker-configuraties en geeft u inzicht in onjuiste configuraties door te geven van een lijst met alle mislukte regels die zijn beoordeeld. Security Center bevat richtlijnen waarmee u kunt deze problemen snel worden opgelost en bespaar tijd. Security Center wordt voortdurend beoordeelt de Docker-configuraties en biedt u de meest recente status.
+- **Aanbevelingen voor beveiliging op basis van configuratie-items benchmark voor Docker**<br>Security Center scant uw Docker-configuraties en geeft u inzicht in onjuiste configuraties door een lijst op te stellen met alle mislukte regels die zijn beoordeeld. Security Center bevat richtlijnen waarmee u kunt deze problemen snel worden opgelost en bespaar tijd. Docker-configuraties worden doorlopend beoordeeld door Security Center en u ziet steeds wat de actuele status is.
 
     ![container-tabblad](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Detectie van bedreigingen van realtime-container**<br> Security Center biedt realtime bedreigingen voor uw containers op Linux-machines met AuditD-component. De waarschuwingen identificeren verschillende verdachte Docker-activiteiten, zoals het maken van een bevoegde container op een indicatie van Secure Shell (SSH)-server die worden uitgevoerd binnen een Docker-container of het gebruik van de cryptografische miners-host. U kunt deze informatie gebruiken om snel te herstellen van beveiligingsproblemen met zich mee en de beveiliging van uw containers te verbeteren.
+- **Detectie van bedreigingen van realtime-container**<br> Security Center biedt realtime bedreigingen voor uw containers op Linux-machines met AuditD-component. De waarschuwingen identificeren verschillende verdachte Docker-activiteiten, zoals het maken van een bevoegde container op een indicatie van Secure Shell (SSH)-server die worden uitgevoerd binnen een Docker-container of het gebruik van de cryptografische miners-host. U kunt deze informatie gebruiken om snel beveiligingsproblemen op te lossen en om de beveiliging van uw containers te verbeteren.
 
     ![container-tabblad](./media/security-center-container-recommendations/docker-threat-detection.png)
 
@@ -45,7 +45,7 @@ Gebruik de onderstaande tabellen als referentie om te begrijpen van de beschikba
 
 | Aanbeveling | Description | Herstel |
 | --- | --- | --- |
-|Beveiligingsproblemen in containerbeveiligingsconfiguraties verhelpen |Beveiligingsproblemen in container-beveiligingsconfiguraties op basis van aanbevolen procedures voor configuratie herstellen.| Door beveiligingslekken in de container-beveiligingsconfiguraties herstellen:<br>1. Bekijk de lijst met mislukte regels.<br>2. Elke regel op basis van de opgegeven instructies oplossen.|
+|Beveiligingsproblemen in container-beveiligingsconfiguraties herstellen |Beveiligingsproblemen in container-beveiligingsconfiguraties op basis van aanbevolen procedures voor configuratie herstellen.| Door beveiligingslekken in de container-beveiligingsconfiguraties herstellen:<br>1. Bekijk de lijst met mislukte regels.<br>2. Elke regel op basis van de opgegeven instructies oplossen.|
 
 
 ## <a name="next-steps"></a>Volgende stappen
