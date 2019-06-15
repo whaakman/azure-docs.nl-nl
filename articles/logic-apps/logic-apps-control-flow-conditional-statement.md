@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684759"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Voorwaardelijke instructies waarmee werkstroomacties in Azure Logic Apps maken
@@ -39,7 +39,7 @@ Stel bijvoorbeeld dat u hebt een logische app die te veel e-mailberichten verzen
 
 1. Een voorwaarde op de locatie die u wilt toevoegen. 
 
-   Om toe te voegen een voorwaarde tussen fasen, gaat u de aanwijzer over de pijl waar u wilt toevoegen van de voorwaarde. Kies de **plusteken** (**+**) die wordt weergegeven, en kies vervolgens **een actie toevoegen**. Bijvoorbeeld:
+   Om toe te voegen een voorwaarde tussen fasen, gaat u de aanwijzer over de pijl waar u wilt toevoegen van de voorwaarde. Kies de **plusteken** ( **+** ) die wordt weergegeven, en kies vervolgens **een actie toevoegen**. Bijvoorbeeld:
 
    ![Actie tussen fasen toevoegen](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 

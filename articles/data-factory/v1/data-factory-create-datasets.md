@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487250"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-create-datasets.md)
 > * [Versie 2 (huidige versie)](../concepts-datasets-linked-services.md)
 
@@ -81,12 +81,12 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
 | Eigenschap | Description | Vereist | Standaard |
 | --- | --- | --- | --- |
-| name |Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](data-factory-naming-rules.md) voor naamgevingsregels. |Ja |N.v.t. |
+| name |Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](data-factory-naming-rules.md) voor naamgevingsregels. |Ja |N.V.T. |
 | type |Het type van de gegevensset. Geef een van de typen die worden ondersteund door Data Factory (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie, [gegevenssettype](#Type). |Ja |N.v.t. |
-| structure |Het schema van de gegevensset.<br/><br/>Zie voor meer informatie, [gegevenssetstructuur](#Structure). |Nee |N.v.t. |
-| typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob-, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#Type). |Ja |N.v.t. |
+| structure |Het schema van de gegevensset.<br/><br/>Zie voor meer informatie, [gegevenssetstructuur](#Structure). |Nee |N.V.T. |
+| typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob-, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#Type). |Ja |N.V.T. |
 | external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. Als de invoergegevensset voor een activiteit wordt niet door de huidige pijplijn geproduceerd, moet u deze markering instellen op true. Deze markering instellen op true voor de invoergegevensset van de eerste activiteit in de pijplijn.  |Nee |false |
-| availability | Definieert het segmenteringsmodel (bijvoorbeeld elk uur of dagelijks) of het segmenteringshulplijnen model voor de gegevensset voor productie. Elke eenheid van de gegevens verwerkt en geproduceerd door het uitvoeren van een activiteit wordt een gegevenssegment genoemd. Als de beschikbaarheid van een uitvoergegevensset is ingesteld op dagelijks (frequentie: dag, interval: 1), wordt een segment dagelijks geproduceerd. <br/><br/>Zie voor meer informatie, beschikbaarheid van gegevenssets. <br/><br/>Zie voor meer informatie over de gegevensset voor het verwerkingsvenster, de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.v.t. |
+| availability | Definieert het segmenteringsmodel (bijvoorbeeld elk uur of dagelijks) of het segmenteringshulplijnen model voor de gegevensset voor productie. Elke eenheid van de gegevens verwerkt en geproduceerd door het uitvoeren van een activiteit wordt een gegevenssegment genoemd. Als de beschikbaarheid van een uitvoergegevensset is ingesteld op dagelijks (frequentie: dag, interval: 1), wordt een segment dagelijks geproduceerd. <br/><br/>Zie voor meer informatie, beschikbaarheid van gegevenssets. <br/><br/>Zie voor meer informatie over de gegevensset voor het verwerkingsvenster, de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.V.T. |
 | policy |Definieert de criteria of de voorwaarde die moeten voldoen aan de gegevensset segmenten. <br/><br/>Zie voor meer informatie, de [gegevensset beleid](#Policy) sectie. |Nee |N.v.t. |
 
 ## <a name="dataset-example"></a>Voorbeeld van de gegevensset
@@ -196,14 +196,14 @@ Elke kolom in de structuur bevat de volgende eigenschappen:
 | name |Naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom.  |Nee |
 | culture |. NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. |Nee |
-| format |Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. |Nee |
+| Indeling |Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. |Nee |
 
 De volgende richtlijnen kunnen u bepalen waar structuur informatie op te nemen, en wat u wilt opnemen de **structuur** sectie.
 
 * **Voor gestructureerde gegevensbronnen**, geef de structuur sectie alleen als u toewijzen bronkolommen wilt sink-kolommen, en hun namen niet hetzelfde zijn. Dit soort gestructureerde gegevens worden opgeslagen gegevens schema en het type informatie samen met de gegevens zelf. Voorbeelden van gestructureerde gegevensbronnen zijn SQL Server, Oracle en Azure-tabel.
   
     Als u informatie over het type is al beschikbaar voor gestructureerde gegevensbronnen, moet u informatie over het type niet opnemen wanneer u de sectie structuur opgeeft.
-* **Voor het schema op lezen gegevensbronnen (met name Blob storage)**, u kunt kiezen voor het opslaan van gegevens zonder een schema of het type informatie met de gegevens op te slaan. Voor deze typen gegevensbronnen, structuur opnemen wanneer u toewijzen bronkolommen wilt sink-kolommen. Structuur ook bevatten wanneer de gegevensset een invoer voor een kopieeractiviteit is en gegevenstypen van brongegevensset moeten worden geconverteerd naar native-typen voor de sink.
+* **Voor het schema op lezen gegevensbronnen (met name Blob storage)** , u kunt kiezen voor het opslaan van gegevens zonder een schema of het type informatie met de gegevens op te slaan. Voor deze typen gegevensbronnen, structuur opnemen wanneer u toewijzen bronkolommen wilt sink-kolommen. Structuur ook bevatten wanneer de gegevensset een invoer voor een kopieeractiviteit is en gegevenstypen van brongegevensset moeten worden geconverteerd naar native-typen voor de sink.
     
     Data Factory ondersteunt de volgende waarden voor het ontwikkelen van type informatie in de structuur: **Int16, Int32, Int64, één, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, datum/tijd, Datetimeoffset en Timespan**. Deze waarden zijn Common Language Specification (CLS)-compatibel zijn,. Type NET-op basis van waarden.
 
@@ -235,8 +235,8 @@ De volgende tabel beschrijft de eigenschappen die u in de beschikbaarheidssectie
 
 | Eigenschap | Description | Vereist | Standaard |
 | --- | --- | --- | --- |
-| frequency |Hiermee geeft u de tijdseenheid voor de gegevensset segment productie.<br/><br/><b>Ondersteunde frequentie</b>: Minuut, uur, dag, Week, maand |Ja |N.v.t. |
-| interval |Hiermee geeft u een vermenigvuldiger voor de frequentie.<br/><br/>"X Synchronisatiefrequentie-interval" bepaalt hoe vaak het segment wordt geproduceerd. Bijvoorbeeld, als u de gegevensset om te worden gesegmenteerd op uurbasis, moet u instellen <b>frequentie</b> naar <b>uur</b>, en <b>interval</b> naar <b>1</b>.<br/><br/>Houd er rekening mee dat als u opgeeft **frequentie** als **minuut**, moet u het interval instellen op niet kleiner zijn dan 15. |Ja |N.v.t. |
+| frequency |Hiermee geeft u de tijdseenheid voor de gegevensset segment productie.<br/><br/><b>Ondersteunde frequentie</b>: Minuut, uur, dag, Week, maand |Ja |N.V.T. |
+| interval |Hiermee geeft u een vermenigvuldiger voor de frequentie.<br/><br/>"X Synchronisatiefrequentie-interval" bepaalt hoe vaak het segment wordt geproduceerd. Bijvoorbeeld, als u de gegevensset om te worden gesegmenteerd op uurbasis, moet u instellen <b>frequentie</b> naar <b>uur</b>, en <b>interval</b> naar <b>1</b>.<br/><br/>Houd er rekening mee dat als u opgeeft **frequentie** als **minuut**, moet u het interval instellen op niet kleiner zijn dan 15. |Ja |N.V.T. |
 | style |Hiermee geeft u op of het segment aan het begin of einde van het interval moet worden gemaakt.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Als **frequentie** is ingesteld op **maand**, en **stijl** is ingesteld op **EndOfInterval**, het segment op de laatste dag van maand wordt geproduceerd. Als **stijl** is ingesteld op **StartOfInterval**, het segment op de eerste dag van maand wordt geproduceerd.<br/><br/>Als **frequentie** is ingesteld op **dag**, en **stijl** is ingesteld op **EndOfInterval**, in het afgelopen uur van de dag het segment wordt geproduceerd.<br/><br/>Als **frequentie** is ingesteld op **uur**, en **stijl** is ingesteld op **EndOfInterval**, het segment aan het einde van het uur wordt geproduceerd. Het segment wordt bijvoorbeeld voor een segment voor de periode van 1-2 uur worden geproduceerd om 2 uur. |Nee |EndOfInterval |
 | anchorDateTime |Hiermee definieert u de absolute positie in de tijd die door de scheduler wordt gebruikt voor het berekenen van de grenzen van de gegevensset-segment. <br/><br/>Houd er rekening mee dat als deze eigenschap de onderdelen van de datum die meer gedetailleerde dan de opgegeven frequentie heeft, de gedetailleerdere onderdelen worden genegeerd. Bijvoorbeeld, als de **interval** is **per uur** (frequentie: uur en interval: 1), en de **anchorDateTime** bevat **minuten en seconden**, en vervolgens de minuten en seconden delen van **anchorDateTime** worden genegeerd. |Nee |01/01/0001 |
 | offset |TimeSpan waarmee het begin en einde van alle segmenten van de gegevensset worden verschoven. <br/><br/>Houd er rekening mee dat als beide **anchorDateTime** en **offset** zijn opgegeven, wordt het resultaat is de gecombineerde verschuiving. |Nee |N.v.t. |
@@ -282,7 +282,7 @@ De **beleid** sectie in de definitie van de criteria of de voorwaarde die moeten
 ### <a name="validation-policies"></a>Validatiebeleid voor
 | Beleidsnaam | Description | Toegepast op | Vereist | Standaard |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Valideert dat de gegevens in **Azure Blob-opslag** voldoet aan de minimale grootte (in MB). |Azure Blob Storage |Nee |N.v.t. |
+| minimumSizeMB |Valideert dat de gegevens in **Azure Blob-opslag** voldoet aan de minimale grootte (in MB). |Azure Blob Storage |Nee |N.V.T. |
 | minimumRows |Valideert dat de gegevens in een **Azure SQL-database** of een **Azure table** het minimum aantal rijen bevat. |<ul><li>Azure SQL-database</li><li>Azure Table</li></ul> |Nee |N.v.t. |
 
 #### <a name="examples"></a>Voorbeelden

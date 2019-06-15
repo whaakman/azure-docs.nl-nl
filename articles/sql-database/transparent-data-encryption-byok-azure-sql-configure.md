@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330870"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption inschakelen met de klant beheerde sleutel uit Azure Key Vault
@@ -43,7 +43,7 @@ Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor trans
    - Niet uitgeschakeld
    - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
 
-## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Step 1. Een Azure AD-identiteit toewijzen aan uw server 
+## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Stap 1. Een Azure AD-identiteit toewijzen aan uw server 
 
 Als u een bestaande server hebt, gebruikt u de volgende in een Azure AD-identiteit toevoegen aan uw server:
 
@@ -209,7 +209,7 @@ Controleer het volgende als er een probleem optreedt:
    - Niet uitgeschakeld
    - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
    
-## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Step 1. Een server maken met een Azure AD-identiteit
+## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Stap 1. Een server maken met een Azure AD-identiteit
       cli
       # create server (with identity) and database
       az sql server create --name <servername> --resource-group <rgname>  --location <location> --admin-user <user> --admin-password <password> --assign-identity

@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714139"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Diagnostische logboeken van Service Bus
 
 U kunt twee typen logboeken voor Azure Service Bus weergeven:
-* **[Activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md)**. Deze logboeken bevatten informatie over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
-* **[Diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md)**. U kunt diagnostische logboeken voor uitgebreidere informatie over alles wat er gebeurt in een taak configureren. Diagnostische logboeken voor activiteiten vanaf het moment dat de taak is gemaakt totdat de taak wordt verwijderd, met inbegrip van updates en activiteiten die plaatsvinden terwijl de taak wordt uitgevoerd.
+* **[Activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md)** . Deze logboeken bevatten informatie over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
+* **[Diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md)** . U kunt diagnostische logboeken voor uitgebreidere informatie over alles wat er gebeurt in een taak configureren. Diagnostische logboeken voor activiteiten vanaf het moment dat de taak is gemaakt totdat de taak wordt verwijderd, met inbegrip van updates en activiteiten die plaatsvinden terwijl de taak wordt uitgevoerd.
 
 ## <a name="turn-on-diagnostic-logs"></a>Logboeken met diagnostische gegevens inschakelen
 

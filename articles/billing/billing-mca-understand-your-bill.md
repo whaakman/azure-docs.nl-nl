@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372095"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Meer informatie over de kosten op uw Microsoft-KLANTOVEREENKOMST factuur
@@ -52,8 +52,8 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
     |Productfamilie     | De categorie van het product berekenen voor virtuele machines of database voor Azure SQL database|
     |Product-sku     | Een unieke code identificeren van het exemplaar van uw product |
     |Bedrag     |  Het bedrag van transactie      |
-    |Factuursectie     | De transactie wordt weergegeven in deze sectie van de facturering van het profiel factuur |
-    |Factureringsprofiel     | De transactie wordt weergegeven in dit profiel facturering factuur |
+    |Factuur-sectie     | De transactie wordt weergegeven in deze sectie van de facturering van het profiel factuur |
+    |Facturering-profiel     | De transactie wordt weergegeven in dit profiel facturering factuur |
 
 5. Zoek op de factuur-ID voor het filteren van de transacties voor de factuur.
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861087"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics vanuit Excel migreren naar Azure Machine Learning Studio
@@ -73,7 +73,7 @@ Wanneer we de aanbevelingen hebt toegepast, bereikt we dezelfde basislijnprestat
 | --- |:---:|:---:|:---:|
 | Label waarde |Werkelijke waarden (numeriek) |Dezelfde |Dezelfde |
 | Learner |Excel-gegevens > Analysis -> regressie |Lineaire regressie. |Lineaire regressie |
-| Opties voor learner |N/A |Standaardwaarden |gewone kleinste kwadraten<br />L2 = 0.005 |
+| Opties voor learner |N/A |Standaardinstellingen |gewone kleinste kwadraten<br />L2 = 0.005 |
 | Gegevensset |26 rijen, 3-functies, 1 label. Alle numerieke. |Dezelfde |Dezelfde |
 | Splitsen: Trainen |Excel die zijn getraind op de eerste 18 rijen zijn getest op de laatste 8 rijen. |Dezelfde |Dezelfde |
 | Splitsen: Testen |Regressieformule toegepast op de laatste 8 rijen in Excel |Dezelfde |Dezelfde |
@@ -119,7 +119,7 @@ Als u experimenteren met regressie wilt, is een goede gegevensset om te proberen
 | --- | --- | --- | --- | --- | --- |
 | Boosted-beslisboom |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | Lineaire regressie (met stochastische Gradiëntdaling) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
-| Neural Network regressie |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
+| Regressie neuraal netwerk |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
 | Linear Regression (Ordinary Least Squares) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Belangrijkste Takeaways

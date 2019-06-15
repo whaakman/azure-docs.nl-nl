@@ -17,10 +17,10 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583082"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
@@ -294,7 +294,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 Dit scenario wordt uitgelegd waar u de bestaande aangepaste installatiekopieën die zich in een Standard Storage-account bevinden hebt. Zoals vermeld als u wilt plaatsen van VHD met het besturingssysteem op de Premium-opslag die u wilt kopiëren van de installatiekopie die voorkomt in de Standard-opslagaccount en deze overbrengen naar een Premium Storage voordat deze kan worden gebruikt. Als u een installatiekopie van een on-premises, kunt u deze methode ook gebruiken om te kopiëren die rechtstreeks naar de Premium Storage-account.
 
-#### <a name="step-1-create-storage-account"></a>Stap 1: Opslagaccount maken
+#### <a name="step-1-create-storage-account"></a>Stap 1: Storage-Account maken
 
 ```powershell
 $mysubscription = "DansSubscription"

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: 7cbffdd40e574c7e906a9388b70ca9d32fd84649
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198964"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry integreren met Azure
@@ -48,7 +48,7 @@ Azure basic load balancer wordt standaard gebruikt voor inkomende CF API/apps-aa
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer *
 Azure Load Balancer is een Layer 4 load balancer. Het wordt gebruikt voor het distribueren van het verkeer tussen exemplaren van services in een load balancer-set. De standard-versie biedt [geavanceerde functies](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) boven op de basic-versie. Voorbeeld 1. De maximale limiet voor back-end-pool is verhoogd van 100 tot 1000 virtuele machines.  2. De eindpunten bieden nu ondersteuning voor meerdere beschikbaarheidssets in plaats van één beschikbaarheidsset.  3. Aanvullende functies zoals HA-poorten, uitgebreidere bewakingsgegevens, enzovoort. Als u naar Azure binnen een Beschikbaarheidszone verplaatsen wilt, is standaardversie van load balancer vereist. Voor een nieuwe implementatie raden we u om te starten met Azure Standard Load Balancer. 
 
-## <a name="3-authentication"></a>3. Authentication 
+## <a name="3-authentication"></a>3. Verificatie 
 [Cloud Foundry-gebruikersaccount en verificatie](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) is de centrale identity management-service voor CF en de verschillende onderdelen. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is van Microsoft met meerdere tenants, cloudgebaseerde directory service- en identiteit. UAA wordt standaard gebruikt voor verificatie van de Cloud Foundry. Als een geavanceerde optie ondersteuning UAA ook voor Azure AD als een archief van de externe gebruiker. Azure AD-gebruikers hebben toegang tot Cloud Foundry met hun identiteit LDAP, zonder Cloud Foundry-account. Volg deze stappen om [configureren van de Azure AD voor UAA in PCF](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Gegevensopslag voor Cloud Foundry Runtime-systeem

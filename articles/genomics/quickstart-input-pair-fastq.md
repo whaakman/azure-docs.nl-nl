@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 2662a8f52c58a39916e5789fa9ed7fadd91216c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333669"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Een werkstroom verzenden met behulp van FASTQ-bestandsinvoer in Microsoft Genomics
@@ -21,7 +21,7 @@ ms.locfileid: "60333669"
 In dit artikel ziet u hoe u een werkstroom verzendt naar de service Microsoft Genomics als uw invoerbestanden een tweetal FASTQ-bestanden. In dit onderwerp wordt ervan uitgegaan dat u de `msgen`-client al hebt geïnstalleerd en uitgevoerd, en dat u bekend bent met het gebruik van Azure Storage. Als u een werkstroom met de opgegeven voorbeeldgegevens is verzonden, bent u klaar om door te gaan met dit artikel. 
 
 ## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>Instellen: Uw FASTQ-bestanden uploaden naar Azure storage
-Stel dat u twee bestanden hebt, *reads_1.fq.gz* en *reads_2.fq.gz*, en u ze hebt geüpload naar uw opslagaccount *myaccount* in Azure als **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads_1<span></span>.fq<span></span>.gz<span></span>** en **https://<span></span>myaccount.blob.core.<span></span>windows<span></span>.net/<span></span>inputs/<span></span>reads_2.fq<span></span>.gz<span></span>**. U hebt de URL van de API en uw toegangssleutel. U wilt de uitvoer in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** hebben.
+Stel dat u twee bestanden hebt, *reads_1.fq.gz* en *reads_2.fq.gz*, en u ze hebt geüpload naar uw opslagaccount *myaccount* in Azure als **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads_1<span></span>.fq<span></span>.gz<span></span>** en **https://<span></span>myaccount.blob.core.<span></span>windows<span></span>.net/<span></span>inputs/<span></span>reads_2.fq<span></span>.gz<span></span>** . U hebt de URL van de API en uw toegangssleutel. U wilt de uitvoer in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** hebben.
 
 
 ## <a name="submit-your-job-to-the-msgen-client"></a>De taak naar de `msgen`-client verzenden 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587334"
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
@@ -284,9 +284,9 @@ Een NSG wordt geleverd met enkele ingebouwde regels die u moet rekening houden m
 
 -   **Al het verkeer binnen een bepaald virtueel netwerk toestaan:** Alle virtuele machines op hetzelfde Azure-netwerk kunnen met elkaar communiceren.
 
--   **Azure load balancing inkomende toestaan:** met deze regel staat verkeer vanaf elk bronadres naar een bestemmingsadres voor de Azure load balancer.
+-   **Azure load balancing inkomende toestaan:**  met deze regel staat verkeer vanaf elk bronadres naar een bestemmingsadres voor de Azure load balancer.
 
--   **Alle binnenkomend verkeer weigeren:** met deze regel blokkeert al het verkeer sourcing vanaf het Internet die u expliciet zijn toegestaan.
+-   **Alle binnenkomend verkeer weigeren:**  met deze regel blokkeert al het verkeer sourcing vanaf het Internet die u expliciet zijn toegestaan.
 
 -   **Al het verkeer uitgaand verkeer naar Internet toestaan:** Deze regel kunnen virtuele machines moet verbinding met Internet initiëren. Als u niet dat deze verbindingen geïnitieerd wilt, moet u het maken van een regel voor het blokkeren van deze verbindingen of af te dwingen geforceerde tunneling.
 
@@ -364,7 +364,7 @@ Azure-netwerk-beveiligingsapparaten verbeteren VNet beveiligings- en netwerkfunc
 
 -   Active Directory
 
--   Meervoudige verificatie
+-   Multifactor-verificatie
 
 #### <a name="application-gateway"></a>Toepassingsgateway
 
@@ -547,7 +547,7 @@ Bepaalt de [volgende hop](https://docs.microsoft.com/azure/network-watcher/netwo
 
 Volgende hop retourneert ook de routetabel die zijn gekoppeld aan de volgende hop. Bij het opvragen van de volgende hop als de route is gedefinieerd als een gebruiker gedefinieerde route, worden die route geretourneerd. Anders retourneert de volgende hop 'Systeemroute'.
 
-#### <a name="security-group-view"></a>Weergave van de beveiligingsgroep
+#### <a name="security-group-view"></a>weergave van de beveiligingsgroep
 
 Hiermee haalt u de effectieve en toegepaste beveiligingsregels die worden toegepast op een virtuele machine. Netwerkbeveiligingsgroepen worden gekoppeld op het subnetniveau van een of op een NIC-niveau. Als dat is gekoppeld op het subnetniveau van een, geldt dit voor alle VM-exemplaren in het subnet. Netwerk [beveiligingsgroep weergave](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) retourneert de geconfigureerde Netwerkbeveiligingsgroepen en regels die zijn gekoppeld op het niveau van een NIC en het subnet voor een virtuele machine biedt inzicht in de configuratie. Bovendien worden de effectieve beveiligingsregels voor elk van de NIC's in een virtuele machine geretourneerd. Met behulp van Network Security Group weergeven, kunt u een virtuele machine voor netwerk-beveiligingsproblemen, zoals poorten openen beoordelen. U kunt ook controleren of uw Netwerkbeveiligingsgroep werkt zoals verwacht op basis van een [vergelijking tussen de geconfigureerde en de effectieve beveiligingsregels](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 

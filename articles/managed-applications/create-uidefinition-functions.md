@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587917"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition-functies
@@ -164,7 +164,7 @@ Het volgende voorbeeld retourneert `true`:
 "[contains(steps('foo').element1, 'key1')]"
 ```
 
-### <a name="length"></a>Lengte
+### <a name="length"></a>length
 Retourneert het aantal tekens in een tekenreeks, het aantal waarden in een matrix of het aantal sleutels in een object.
 
 #### <a name="example-1-string"></a>Voorbeeld 1: tekenreeks
@@ -197,7 +197,7 @@ Het volgende voorbeeld retourneert `2`:
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>Leeg
+### <a name="empty"></a>leeg zijn
 Retourneert `true` als de tekenreeks, een matrix of een object null of leeg zijn is.
 
 #### <a name="example-1-string"></a>Voorbeeld 1: tekenreeks
@@ -335,7 +335,7 @@ Het volgende voorbeeld retourneert `{"key1": "foobar"}`:
 "[take(steps('foo').element1, 1)]"
 ```
 
-### <a name="skip"></a>overslaan
+### <a name="skip"></a>Overslaan
 Een opgegeven aantal elementen in een verzameling omzeilt en retourneert vervolgens de resterende elementen.
 
 #### <a name="example-1-string"></a>Voorbeeld 1: tekenreeks
@@ -469,7 +469,7 @@ Het volgende voorbeeld retourneert `true`:
 "[or(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="not"></a>niet
+### <a name="not"></a>not
 Retourneert `true` als de parameter wordt geëvalueerd als `false`. Deze functie biedt ondersteuning voor parameters alleen van het type Booleaanse waarde.
 
 Het volgende voorbeeld retourneert `true`:
@@ -653,7 +653,7 @@ Het volgende voorbeeld retourneert `3`:
 "[add(1, 2)]"
 ```
 
-### <a name="sub"></a>Sub
+### <a name="sub"></a>sub
 Het tweede nummer van het eerste getal aftrekt, en retourneert het resultaat.
 
 Het volgende voorbeeld retourneert `1`:

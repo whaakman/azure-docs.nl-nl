@@ -16,13 +16,13 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530994"
 ---
-# <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1.2 opmerkingen bij de release voor uw StorSimple 8000-apparaat bijwerken
+# <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1\.2 opmerkingen bij de release voor uw StorSimple 8000-apparaat bijwerken
 
 ## <a name="overview"></a>Overzicht
 De volgende releaseopmerkingen beschrijven de nieuwe functies en de kritieke open problemen identificeren voor StorSimple 8000 serie Update 1.2. Ze bevatten ook een lijst van de StorSimple-software, stuurprogramma en updates van de schijffirmware inbegrepen in deze release. 
@@ -67,7 +67,7 @@ De volgende tabel bevat een samenvatting van problemen die zijn verholpen in Upd
 | Nee. | Functie | Probleem | Opgelost in Update | Is van toepassing op het fysieke apparaat | Is van toepassing op het virtuele apparaat |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell voor StorSimple |Wanneer een gebruiker het StorSimple-apparaat op afstand toegang te krijgen met behulp van Windows PowerShell voor StorSimple en vervolgens de wizard setup worden gestart, wordt een crash zo snel Data 0 IP is ingevoerd is opgetreden. Deze fout is nu opgelost in Update 1. |Update 1 |Ja |Ja |
-| 2 |Fabrieksinstellingen terugzetten |In sommige gevallen tijdens de fabrieksinstellingen terug te zetten, het StorSimple-apparaat is geworden vastgelopen en dit bericht weergegeven: **Terugzetten op fabrieksinstellingen wordt uitgevoerd (fase 8)**. Dit is gebeurd als u op CTRL + C drukt, terwijl de cmdlet werd uitgevoerd. Deze fout is nu hersteld. |Update 1 |Ja |Nee |
+| 2 |Fabrieksinstellingen terugzetten |In sommige gevallen tijdens de fabrieksinstellingen terug te zetten, het StorSimple-apparaat is geworden vastgelopen en dit bericht weergegeven: **Terugzetten op fabrieksinstellingen wordt uitgevoerd (fase 8)** . Dit is gebeurd als u op CTRL + C drukt, terwijl de cmdlet werd uitgevoerd. Deze fout is nu hersteld. |Update 1 |Ja |Nee |
 | 3 |Fabrieksinstellingen terugzetten |Nadat een factory dual controller defect is opnieuw ingesteld, is het zijn toegestaan om door te gaan met device Registration service. Dit heeft geresulteerd in een niet-ondersteunde configuratie. In de Update 1, een foutbericht wordt weergegeven en registratie is geblokkeerd op een apparaat dat is een mislukte Fabrieksinstellingen terugzetten. |Update 1 |Ja |Nee |
 | 4 |Fabrieksinstellingen terugzetten |In sommige gevallen, zijn ONWAAR positief incompatibel waarschuwingen gegenereerd. Op apparaten met Update 1 worden niet langer onjuiste incompatibel waarschuwingen gegenereerd. |Update 1 |Ja |Nee |
 | 5 |Fabrieksinstellingen terugzetten |Als de fabrieksinstellingen terug te zetten werd onderbroken voordat is voltooid, wordt het apparaat de herstelmodus en staat niet toe dat u toegang krijgen tot Windows PowerShell voor StorSimple. Deze fout is nu hersteld. |Update 1 |Ja |Nee |

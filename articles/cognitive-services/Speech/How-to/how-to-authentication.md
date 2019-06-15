@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515060"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Verifiëren bij de spraak-API
@@ -35,7 +35,7 @@ Voor langdurig gebruik of een verbeterd quotum, zich aanmelden voor een [Azure-a
 
 Voor het gebruik van de REST-API voor spraakherkenning, moet u de abonnementssleutel in doorgeven de `Ocp-Apim-Subscription-Key` veld in de aanvraagheader.
 
-Name| Indeling| Beschrijving
+Name| Indeling| Description
 ----|-------|------------
 OCP-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

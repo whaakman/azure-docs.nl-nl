@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617923"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Uw Microsoft Azure-factuur weergeven en downloaden
@@ -106,7 +106,7 @@ Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur
     ![Schermafbeelding waarin de eigenschappen van de e-factuur](./media/billing-download-azure-invoice/billingprofile-email.png)
 
 1. Selecteer **Opt-in**.
-1. Klik op **Update**.
+1. Klik op **Bijwerken**.
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Afmelden voor uw Microsoft-KLANTOVEREENKOMST facturen in e-mailbericht ophalen
 

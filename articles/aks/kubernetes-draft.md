@@ -2,17 +2,16 @@
 title: Draft gebruiken met AKS en Azure Container Registry
 description: Draft gebruiken met AKS en Azure Container Registry
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465140"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Draft gebruiken met Azure Kubernetes Service (AKS)
@@ -77,7 +76,7 @@ Er is een vertrouwensrelatie tussen het AKS en ACR, schakel het gebruik van de A
 1. Het configureren van Draft *register* waarde. Vervang in de volgende opdrachten, `<acrName>` met de naam van uw ACR-register:
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. Meld u aan bij het ACR-register met [az acr login][az-acr-login]:
@@ -220,7 +219,7 @@ Bijwerken van de Java-voorbeeldtoepassing om te wijzigen van de weergegeven teks
 vi src/main/java/helloworld/Hello.java
 ```
 
-Bijwerken van de weer te geven, uitvoertekst *Hello World, ik ben Java in AKS!*:
+Bijwerken van de weer te geven, uitvoertekst *Hello World, ik ben Java in AKS!* :
 
 ```java
 package helloworld;
@@ -271,4 +270,4 @@ Voor meer informatie over het gebruik van concept, raadpleegt u de ontwerp-docum
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

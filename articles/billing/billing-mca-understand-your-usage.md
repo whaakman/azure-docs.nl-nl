@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371305"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Meer informatie over uw Azure-gebruik en kosten CSV voor een Microsoft-KLANTOVEREENKOMST
@@ -44,25 +44,25 @@ Als u een EA-klant bent, zult u merken dat de voorwaarden in de facturering gebr
 | Jaar | date |
 | Product | product |
 | Meter-id | meterID |
-| Metercategorie | meterCategory |
-| Metersubcategorie | meterSubCategory |
-| Meterregio | meterRegion |
-| Meternaam | meterName |
-| Verbruikte hoeveelheid | quantity |
-| Resourcetarief | effectivePrice | <!-- this was highlighted -->
-| Berekende kosten | kosten |
-| Resourcelocatie | resourceLocation |
-| Verbruikte service | consumedService |
-| Instantie-id | instanceId |
-| Servicegegevens 1 | serviceInfo1 |
-| Servicegegevens 2 | serviceInfo2 |
-| Extra informatie | additionalInfo |
-| Tags | tags |
-| Service-id voor de store | N/A |
+| MeterCategory | meterCategory |
+| MeterSubCategory | meterSubCategory |
+| MeterRegion | meterRegion |
+| MeterName | meterName |
+| ConsumedQuantity | Hoeveelheid |
+| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ExtendedCost | kosten |
+| resourceLocation | resourceLocation |
+| ConsumedService | consumedService |
+| InstanceId | instanceId |
+| ServiceInfo1 | serviceInfo1 |
+| ServiceInfo2 | serviceInfo2 |
+| Aanvullende informatie | Aanvullende informatie |
+| Tags | codes |
+| StoreServiceIdentifier | N/A |
 | Naam van de afdeling | invoiceSection | <!-- this was highlighted -->
-| Kostenplaats | costCenter |
-| Maateenheid | unitofMeasure |
-| ResourceGroup | resourceGroup |
+| CostCenter | costCenter |
+| unitOfMeasure | unitofMeasure |
+| ResourceGroup | ResourceGroup |
 | ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
 
 <!-- TO DO: Marketplace CSV? -->
@@ -71,7 +71,7 @@ Als u een EA-klant bent, zult u merken dat de voorwaarden in de facturering gebr
 
 De volgende sectie bevat de belangrijke termen weergegeven in een bestand met de Azure-gebruik en kosten in rekening gebracht.
 
-Termijn | Beschrijving
+Termijn | Description
 --- | ---
 invoiceId | De unieke document-ID weergegeven op de factuur PDF
 previousInvoiceId | Verwijzing naar een oorspronkelijke factuur als dit regelitem een restitutie
@@ -111,14 +111,14 @@ resourceId | De unieke id voor de resource-instantie
 ResourceType | Type resource-exemplaar
 resourceLocation | Geeft de locatie van het datacenter waar de resource wordt uitgevoerd.
 location | Genormaliseerde locatie van de resource als andere resource-locaties zijn geconfigureerd voor dezelfde regio 's
-quantity | Het aantal eenheden die zijn aangeschaft of die worden gebruikt
+Hoeveelheid | Het aantal eenheden die zijn aangeschaft of die worden gebruikt
 unitOfMeasure | De maateenheid voor de service wordt gefactureerd. Bijvoorbeeld, worden compute-services gefactureerd per uur.
 chargeType | Het type van de kosten in rekening gebracht. Waarden: <ul><li>AsCharged-Usage: Opgetelde kosten op basis van gebruik van een Azure-service. Dit geldt ook voor gebruik op basis van virtuele machines die geen kosten in rekening vanwege gereserveerde instanties gebracht.</li><li>AsCharged-PurchaseMarketplace: Eenmalig of vaste terugkerende kosten van Marketplace-aankopen</li><li>AsCharged-UsageMarketplace: Kosten voor Marketplace-services die worden in rekening gebracht op basis van eenheden van het verbruik</li></ul>
 isAzureCreditEligible | Markering waarmee wordt aangegeven of de kosten worden berekend op basis van de service in aanmerking komende te betalen voor het gebruik van Azure-tegoed (waarden: True, False)
 serviceInfo1 | Servicespecifieke metagegevens
 serviceInfo2 | Ouder veld met optionele servicespecifieke metagegevens
-additionalInfo | Aanvullende servicespecifieke metagegevens.
-tags | Tags die u aan de resource toewijst
+Aanvullende informatie | Aanvullende servicespecifieke metagegevens.
+codes | Tags die u aan de resource toewijst
 
 ### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Hoe ik ervoor zorgen dat de kosten in rekening gebracht in mijn Azure-gebruik en de kosten-bestand correct zijn?
 

@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738754"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
@@ -31,15 +31,15 @@ In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen
 | Inzender |De rol van Bijdrager maakt het mogelijk om alles te beheren, behalve de toegangsrechten van andere gebruikers te wijzigen naar een Automation-account. |
 | Lezer |Met de rol van Lezer kunt u alle resources in een Automation-account bekijken, maar niets wijzigen. |
 | Automation-operator |De rol Automation-Operator kunt u de runbooknaam van het en eigenschappen weergeven en taken voor alle runbooks in een Automation-account maken en beheren. Deze rol is handig als u niet wilt dat uw Automation-accountresources zoals referentieassets en runbooks worden weergegeven of gewijzigd, maar u wel wilt toestaan dat leden van uw organisatie deze runbooks uitvoeren. |
-|Operator voor Automation-taak|De rol Operator voor Automation kunt u taken voor alle runbooks in een Automation-account maken en beheren.|
-|Operator voor Automation-runbook|De rol Operator voor Automation-Runbook kunt u de naam en de eigenschappen van een runbook weergeven.|
+|Operator voor Automation|De rol Operator voor Automation kunt u taken voor alle runbooks in een Automation-account maken en beheren.|
+|Operator voor Automation-Runbook|De rol Operator voor Automation-Runbook kunt u de naam en de eigenschappen van een runbook weergeven.|
 | Inzender van Log Analytics | De rol Inzender van Log Analytics kunt u alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor VM's, het lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure-opslag, het maken en configureren van Automation-accounts, oplossingen toe te voegen en Azure diagnostics configureren op alle Azure-resources.|
 | Lezer van Log Analytics | De rol Lezer van Log Analytics kunt u bekijken en zoeken van alle bewaking gegevens, evenals controle-instellingen weergeven. Dit omvat de configuratie van Azure diagnostics op alle Azure-resources bekijken. |
-| Bijdrager voor bewaking | De rol Inzender controle kunt u lezen alle bewakingsgegevens en controle-instellingen bijwerken.|
-| Lezer voor bewaking | De rol van lezer controle kunt u alle controlegegevens lezen. |
+| Controlebijdrager | De rol Inzender controle kunt u lezen alle bewakingsgegevens en controle-instellingen bijwerken.|
+| Controlelezer | De rol van lezer controle kunt u alle controlegegevens lezen. |
 | Beheerder van gebruikerstoegang |De beheerdersrol gebruiker toegang kunt u gebruikerstoegang tot Azure Automation-accounts beheren. |
 
-## <a name="role-permissions"></a>Rolmachtigingen
+## <a name="role-permissions"></a>Machtigingen van de rol
 
 De volgende tabellen beschrijven de specifieke machtigingen die aan elke rol. Dit kunnen bijvoorbeeld acties, welke machtigingen geven, en NotActions, die ze beperken.
 
@@ -98,7 +98,7 @@ Er is een Automation-Operator kunt maken en beheren van taken en runbooknamen en
 |Microsoft.Insights/alertRules/*      | Maken en beheren van regels voor waarschuwingen.        |
 |Microsoft.Support/* |Maak en ondersteuningstickets beheren.|
 
-### <a name="automation-job-operator"></a>Operator voor Automation-taak
+### <a name="automation-job-operator"></a>Operator voor Automation
 
 Een rol Operator voor Automation krijgt bij het Automation-accountbereik. Hiermee wordt de operatormachtigingen voor het maken en beheren van taken voor alle runbooks in het account. De volgende tabel ziet u de machtigingen voor de rol:
 
@@ -116,7 +116,7 @@ Een rol Operator voor Automation krijgt bij het Automation-accountbereik. Hier
 |Microsoft.Insights/alertRules/*      | Maken en beheren van regels voor waarschuwingen.        |
 |Microsoft.Support/* |Maak en ondersteuningstickets beheren.|
 
-### <a name="automation-runbook-operator"></a>Operator voor Automation-runbook
+### <a name="automation-runbook-operator"></a>Operator voor Automation-Runbook
 
 Een Operator voor Automation-Runbook-rol wordt verleend op het bereik van het Runbook. Een Operator voor Automation-Runbook kunt weergeven, de naam en de eigenschappen van het runbook.  Deze rol in combinatie met de rol 'Automation-taak Operator' kunt de operator op die ook maken en beheren van taken voor het runbook. De volgende tabel ziet u de machtigingen voor de rol:
 
@@ -135,7 +135,7 @@ Een inzender van Log Analytics kan alle controlegegevens lezen en bewerken van i
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
+|\* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.Automation/automationAccounts/*|Automation-accounts beheren.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Maken en beheren van extensies voor virtuele machines.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|Lijst met sleutels voor klassieke opslagaccount.|
@@ -155,20 +155,20 @@ Een lezer van Log Analytics kunt bekijken en zoeken van alle bewakingsgegevens e
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
+|\* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Query's in Azure Monitor-logboeken beheren.|
 |Microsoft.OperationalInsights/workspaces/search/action|Azure Monitor-logboekgegevens zoeken.|
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
 |**Geen acties**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Kan de gedeelde toegangssleutel gelezen.|
 
-### <a name="monitoring-contributor"></a>Bijdrager voor bewaking
+### <a name="monitoring-contributor"></a>Controlebijdrager
 
 Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen bijwerken. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
+|\* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.AlertsManagement/alerts/*|Waarschuwingen beheren.|
 |Microsoft.AlertsManagement/alertsSummary/*|De waarschuwing dashboard beheren.|
 |Microsoft.Insights/AlertRules/*|Regels voor waarschuwingen beheren.|
@@ -188,13 +188,13 @@ Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen 
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
 |Microsoft.WorkloadMonitor/workloads/*|Workloads beheren.|
 
-### <a name="monitoring-reader"></a>Lezer voor bewaking
+### <a name="monitoring-reader"></a>Controlelezer
 
 Een lezer bewaking kan alle controlegegevens lezen. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
+|\* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.OperationalInsights/workspaces/search/action|Zoeken naar Log Analytics-werkruimten.|
 |Microsoft.Support/*|Maken en ondersteuningstickets beheren|
 
@@ -204,7 +204,7 @@ Een Administrator voor gebruikerstoegang beheren de gebruikerstoegang tot Azure-
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Lezen van alle resources|
+|\* / lezen|Lezen van alle resources|
 |Microsoft.Authorization/*|Machtigingen beheren|
 |Microsoft.Support/*|Maken en ondersteuningstickets beheren|
 
@@ -222,14 +222,14 @@ De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboa
 |Nieuw Account maken      |  Microsoft.Automation/automationAccounts/write        |Resourcegroep         |
 |Koppeling werkruimte en account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Werkruimte</br>Automation-account
 |Oplossing maken      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resourcegroep          |
-|Maken van de MMA-extensie      | Microsoft.Compute/virtualMachines/write         | Virtuele machine         |
+|Maken van de MMA-extensie      | Microsoft.Compute/virtualMachines/write         | Virtuele Machine         |
 |Opgeslagen zoekactie maken      | Microsoft.OperationalInsights/workspaces/write          | Werkruimte         |
 |Bereik-configuratie maken      | Microsoft.OperationalInsights/workspaces/write          | Werkruimte         |
 |Koppeling oplossing voor het bereik config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Oplossing         |
 |Onboardingstatus van de werkruimte worden gecontroleerd: lezen      | Microsoft.OperationalInsights/workspaces/read         | Werkruimte         |
 |Controleren van de onboarding - lezen eigenschap van de werkruimte van account gekoppeld     | Microsoft.Automation/automationAccounts/read      | Automation-account        |
 |Onboardingstatus van de controleren - oplossing lezen      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Oplossing         |
-|Controleren van de onboarding - lezen-VM      | Microsoft.Compute/virtualMachines/read         | Virtuele machine         |
+|Controleren van de onboarding - lezen-VM      | Microsoft.Compute/virtualMachines/read         | Virtuele Machine         |
 |Onboardingstatus van de controleren - account lezen      | Microsoft.Automation/automationAccounts/read  |  Automation-account   |
 | Onboarding werkruimte controle voor de virtuele machine<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonnement         |
 
@@ -252,7 +252,7 @@ De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboa
 |Bereik config maken/bewerken     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
 |Koppeling oplossing voor het bereik config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Oplossing         |
 |**Stap 2: onboarding meerdere virtuele machines**     |         |         |
-|VMOnboarding blade - extensie van de MMA maken     | Microsoft.Compute/virtualMachines/write           | Virtuele machine        |
+|VMOnboarding blade - extensie van de MMA maken     | Microsoft.Compute/virtualMachines/write           | Virtuele Machine        |
 |Maken / bewerken van opgeslagen zoekopdracht     | Microsoft.OperationalInsights/workspaces/write           | Werkruimte        |
 |Maken / bewerken van bereik config  | Microsoft.OperationalInsights/workspaces/write   | Werkruimte|
 
@@ -267,7 +267,7 @@ Updatebeheer bereikt over meerdere services om de service te bieden. De volgende
 |Log Analytics-werkruimte     | Inzender van Log Analytics| Log Analytics-werkruimte        |
 |Log Analytics-werkruimte |Lezer van Log Analytics| Abonnement|
 |Oplossing     |Inzender van Log Analytics         | Oplossing|
-|Virtuele machine     | Inzender voor virtuele machines        | Virtuele machine        |
+|Virtuele Machine     | Inzender voor virtuele machines        | Virtuele Machine        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>RBAC configureren voor uw Automation-account
 

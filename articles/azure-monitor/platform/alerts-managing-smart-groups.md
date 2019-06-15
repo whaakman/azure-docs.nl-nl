@@ -1,18 +1,18 @@
 ---
 title: Slimme groepen beheren
 description: Slimme groepen die zijn gemaakt via de waarschuwing instanties beheren
-author: lingliw
+author: anantr
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.date: 09/24/2018
+ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: a9434bebe82687b14f45b3c375572717d71d0e55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60713335"
 ---
 # <a name="manage-smart-groups"></a>Slimme groepen beheren
@@ -26,4 +26,5 @@ ms.locfileid: "60713335"
 ![Bewaking](./media/alerts-managing-smart-groups/sg-list.jpg)
 3.  Te klikken op een groep Smart opent u de pagina met details, waar u de reden groeperen, samen met de lid-waarschuwingen kunt zien. Met deze aggregatie kunt u om op te lossen met een enkel slimme groep, in plaats van meerdere waarschuwingen moet doornemen.   
 ![Bewaking](./media/alerts-managing-smart-groups/sg-details.jpg)
+
 

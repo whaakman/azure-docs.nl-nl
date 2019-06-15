@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591491"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
@@ -74,7 +74,7 @@ U hebt een operationeel inzicht in de volgende technologieën:
 - [Windows-clustertechnologieën](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server-failovercluster-exemplaren](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Een belangrijk verschil is dat op een failovercluster voor Azure IaaS VM-Gast wordt aangeraden één NIC per server (clusterknooppunt) en één subnet. Azure-netwerken heeft fysieke redundantie extra NIC's en subnetten onnodige maakt op een Azure IaaS VM-gastcluster. Hoewel het clustervalidatierapport wordt een waarschuwing dat de knooppunten alleen bereikbaar is op één netwerk zijn uitgeeft, kan deze waarschuwing veilig worden genegeerd op Azure IaaS VM-gastclusters voor failover. 
+Een belangrijk verschil is dat op een failovercluster voor Azure IaaS VM-Gast wordt aangeraden één NIC per server (clusterknooppunt) en één subnet. Een Azure-netwerk maakt gebruikt van fysieke redundantie, waardoor extra NIC's en subnetten overbodig zijn voor een gastcluster voor een Azure IaaS-VM. Hoewel het clustervalidatierapport een waarschuwing zal bevatten dat de knooppunten alleen bereikbaar zijn in één netwerk, kan deze waarschuwing zonder problemen worden genegeerd in het geval van failover-gastclusters voor een Azure IaaS-VM. 
 
 Bovendien hebt u een algemeen begrip van de volgende technologieën:
 
@@ -416,12 +416,12 @@ De load balancer maken:
    - **Naam**: Een naam voor de load balancer-regels.
    - **Frontend-IP-adres**: Gebruik het IP-adres voor de netwerkbron van FCI van SQL Server-cluster.
    - **Poort**: Voor de SQL Server FCI TCP-poort ingesteld. De exemplaar-standaardpoort is 1433.
-   - **Back-endpoort**: Deze waarde gebruikt dezelfde poort als de **poort** wanneer u de waarde **zwevend IP (direct server return)**.
+   - **Back-endpoort**: Deze waarde gebruikt dezelfde poort als de **poort** wanneer u de waarde **zwevend IP (direct server return)** .
    - **Back-end-pool**: Gebruik de naam van de back-end-toepassingen die u eerder hebt geconfigureerd.
    - **Statustest**: Gebruik de statustest die u eerder hebt geconfigureerd.
    - **Sessiepersistentie**: Geen.
-   - **Time-out (minuten)**: 4.
-   - **Zwevend IP (direct server return)**: Enabled
+   - **Time-out (minuten)** : 4.
+   - **Zwevend IP (direct server return)** : Enabled
 
 1. Klik op **OK**.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254636"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Ondersteuningsmatrix voor back-up met Microsoft Azure Backup-Server of System Center DPM
@@ -53,7 +53,7 @@ Voor meer informatie:
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's 
 
-**Scenario** | **Agent** | **Locatie**
+**Scenario** | **Agent** | **Location**
 --- | --- | ---
 **Een back-up on-premises machines/werkbelastingen** | DPM/MABS-beveiligingsagent op de machines die u back wilt-up wordt uitgevoerd.<br/><br/> De MARS-agent op DPM/MABS-server. | DPM/MABS moet on-premises worden uitgevoerd.
 **Back-ups van Azure-VM's / workloads** | DPM/MABS-beveiligingsagent op beveiligde computer.<br/><br/> De MARS-agent op DPM/MABS-server. | DPM/MABS moet worden uitgevoerd op een Azure-VM.

@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473130"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Een map in Azure Active Directory verwijderen
@@ -101,7 +101,7 @@ Zie de volgende tabel voor wat u kunt verwachten wanneer u een proefversie Offic
 Productstatus | Gegevens | Toegang tot gegevens
 ------------- | ---- | --------------
 Actieve (voor de proefversie van 30 dagen) | Gegevens die toegankelijk is voor alle | Gebruikers hebben normale toegang tot Self-servicegebruikers Meld u aan product, bestanden of toepassingen<br>Beheerders hebben de normale wijze toegang tot Microsoft 365-beheercentrum en bronnen
-Deleted | Gegevens zijn verwijderd | Gebruikers geen toegang tot Self-servicegebruikers Meld u aan product, bestanden of toepassingen<br>Beheerders hebben toegang tot het Microsoft 365-beheercentrum aanschaffen en andere abonnementen beheren
+Verwijderen | Gegevens zijn verwijderd | Gebruikers geen toegang tot Self-servicegebruikers Meld u aan product, bestanden of toepassingen<br>Beheerders hebben toegang tot het Microsoft 365-beheercentrum aanschaffen en andere abonnementen beheren
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Hoe verwijder ik een selfservice aanmelding product in de Azure-portal?
 

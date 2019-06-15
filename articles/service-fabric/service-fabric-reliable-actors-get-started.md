@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726329"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Aan de slag met Reliable Actors
@@ -50,11 +50,11 @@ Het project bevat de volgende structuur:
 
 De oplossing bevat drie projecten:
 
-* **Het toepassingsproject (MyApplication)**. Dit project pakketten alle services samen voor implementatie. Deze bevat de *ApplicationManifest.xml* en PowerShell-scripts voor het beheren van de toepassing.
+* **Het toepassingsproject (MyApplication)** . Dit project pakketten alle services samen voor implementatie. Deze bevat de *ApplicationManifest.xml* en PowerShell-scripts voor het beheren van de toepassing.
 
-* **De interfaceproject (HelloWorld.Interfaces)**. Dit project bevat de interfacedefinitie voor de actor. Actor-interfaces kunnen worden gedefinieerd in een project met een willekeurige naam.  De interface definieert het actorcontract dat wordt gedeeld met de actorimplementatie en de clients die de actor aanroepen.  Omdat afhankelijk van het client-projecten zijn, zinvol het doorgaans om te definiëren in een assembly die is gescheiden van de actorimplementatie.
+* **De interfaceproject (HelloWorld.Interfaces)** . Dit project bevat de interfacedefinitie voor de actor. Actor-interfaces kunnen worden gedefinieerd in een project met een willekeurige naam.  De interface definieert het actorcontract dat wordt gedeeld met de actorimplementatie en de clients die de actor aanroepen.  Omdat afhankelijk van het client-projecten zijn, zinvol het doorgaans om te definiëren in een assembly die is gescheiden van de actorimplementatie.
 
-* **De actor-service-project (HelloWorld)**. Dit project definieert de Service Fabric-service die u voor het hosten van de actor. Deze bevat de implementatie van de actor *HelloWorld.cs*. De actorimplementatie van een is een klasse die is afgeleid van het basistype `Actor` en implementeert de interfaces die zijn gedefinieerd in de *MyActor.Interfaces* project. Een actor-klasse moet ook implementeren om een constructor die accepteert een `ActorService` exemplaar en een `ActorId` en geeft deze door aan de base `Actor` klasse.
+* **De actor-service-project (HelloWorld)** . Dit project definieert de Service Fabric-service die u voor het hosten van de actor. Deze bevat de implementatie van de actor *HelloWorld.cs*. De actorimplementatie van een is een klasse die is afgeleid van het basistype `Actor` en implementeert de interfaces die zijn gedefinieerd in de *MyActor.Interfaces* project. Een actor-klasse moet ook implementeren om een constructor die accepteert een `ActorService` exemplaar en een `ActorId` en geeft deze door aan de base `Actor` klasse.
     
     Dit project bevat ook *Program.cs*, waardoor actor klassen wordt geregistreerd met de Service Fabric-runtime via `ActorRuntime.RegisterActorAsync<T>()`. De `HelloWorld` klasse is al geregistreerd. De aanvullende actor implementaties die zijn toegevoegd aan het project moeten ook worden geregistreerd de `Main()` methode.
 
@@ -97,7 +97,7 @@ Maak een eenvoudige consoletoepassing voor het aanroepen van de actor-service.
 
 1. Met de rechtermuisknop op de oplossing in Solution Explorer > **toevoegen** > **nieuw Project...** .
 
-2. Onder de **.NET Core** projecttypen, kiest u **Console-App (.NET Core)**.  Noem het project *ActorClient*.
+2. Onder de **.NET Core** projecttypen, kiest u **Console-App (.NET Core)** .  Noem het project *ActorClient*.
     
     ![Dialoogvenster Nieuw Project toevoegen][6]    
     

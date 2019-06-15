@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498743"
 ---
 # <a name="conference-instance-entity"></a>Conferentie exemplaar entiteit
@@ -23,9 +23,9 @@ ms.locfileid: "60498743"
 
 Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entiteits-id                              |Int64      |Is gelijk aan
+Id      |Entiteit-ID                              |Int64      |Is gelijk aan
 CIN     |Conferentie genormaliseerde exemplaarnaam ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |String     |Is gelijk aan
-DCN     |Weergavenaam van de Conferentie-instantie ({ConferenceSeriesName}: {ConferenceInstanceYear})       |String     |geen
+DCN     |Weergavenaam van de Conferentie-instantie ({ConferenceSeriesName}: {ConferenceInstanceYear})       |String     |Geen
 CIL     |Locatie van de Conferentie    |String     |Is gelijk aan,<br/>StartsWith
 CISD    |De begindatum van de Conferentie  |Date       |Is gelijk aan,<br/>IsBetween
 CIED    |Einddatum van de Conferentie    |Date       |Is gelijk aan,<br/>IsBetween
@@ -37,8 +37,8 @@ CD.T    |Titel van een conferentie exemplaar van gebeurtenis   |Date       |Is g
 CD.D    |Datum van een conferentie exemplaar van gebeurtenis    |Date       |Is gelijk aan,<br/>IsBetween
 PCS.CN  |Naam van de Conferentie reeks van het exemplaar |String     |Is gelijk aan
 PCS.CId |Conferentie reeks-ID van het exemplaar |Int64    |Is gelijk aan
-CC      |De totale citaat exemplaren Conferentie           |Int32      |geen  
-ECC     |De totale geschatte citaat exemplaren Conferentie |Int32      |geen
+CC      |De totale citaat exemplaren Conferentie           |Int32      |Geen  
+ECC     |De totale geschatte citaat exemplaren Conferentie |Int32      |Geen
 
 
 ## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##

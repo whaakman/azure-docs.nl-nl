@@ -13,15 +13,15 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3a255b21e8bfd7d78954603e9aa6e5ca39cee95b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60566060"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Fouttolerantie in de Kopieeractiviteit toevoegen door het overslaan van incompatibele rijen
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-copy-activity-fault-tolerance.md)
 > * [Versie 2 (huidige versie)](../copy-activity-fault-tolerance.md)
 
@@ -75,7 +75,7 @@ Het volgende voorbeeld bevat een JSON-definitie voor het configureren van het ov
 | **enableSkipIncompatibleRow** | Schakel overslaan incompatibele rijen tijdens het kopiëren van of niet. | True<br/>False (standaard) | Nee |
 | **redirectIncompatibleRowSettings** | Een groep met eigenschappen die kunnen worden opgegeven wanneer u wilt registreren van incompatibele rijen. | &nbsp; | Nee |
 | **linkedServiceName** | De gekoppelde service van Azure Storage voor het opslaan van het logboek dat de overgeslagen rijen bevat. | De naam van een [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) of [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) gekoppelde service, die verwijst naar de opslag-instantie die u wilt gebruiken voor het opslaan van het logboekbestand. | Nee |
-| **path** | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad op Blob-opslag die u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee |
+| **Pad** | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad op Blob-opslag die u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee |
 
 ## <a name="monitoring"></a>Bewaking
 Nadat de copy-activiteit uitvoeren is voltooid, ziet u het aantal overgeslagen rijen in de sectie bewaking:

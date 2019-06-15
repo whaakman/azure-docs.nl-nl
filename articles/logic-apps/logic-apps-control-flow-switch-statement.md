@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683086"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Switch-instructies die worden uitgevoerd op basis van specifieke waarden in Azure Logic Apps werkstroomacties maken
@@ -45,7 +45,7 @@ Stel bijvoorbeeld dat u wilt dat een logische app waarmee verschillende stappen 
 
 1. Voegt een switch-instructie aan het einde de voorbeeldwerkstroom in dit voorbeeld. Na de laatste stap kiezen **nieuwe stap**.
 
-   Als u toevoegen van een switch-instructie tussen fasen wilt, gaat u de aanwijzer over de pijl waar u wilt toevoegen van de switch-instructie. Kies de **plusteken** (**+**) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
+   Als u toevoegen van een switch-instructie tussen fasen wilt, gaat u de aanwijzer over de pijl waar u wilt toevoegen van de switch-instructie. Kies de **plusteken** ( **+** ) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
 
 1. Typ 'Ga' als filter in het zoekvak. Selecteer deze actie: **Switch - besturingselement**
 

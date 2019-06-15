@@ -18,10 +18,10 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353222"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Naslaginformatie over roaminginstellingen voor Windows 10
@@ -30,7 +30,7 @@ Hier volgt een volledige lijst van alle instellingen die worden verplaatste of e
 ## <a name="devices-and-endpoints"></a>Apparaten en -eindpunten
 Zie de volgende tabel voor een overzicht van de apparaten en accounttypen die worden ondersteund door de synchronisatie, back-up en herstel framework in Windows 10.
 
-| Accounttype en bewerking | Bureaublad | Mobiele telefoon |
+| Accounttype en bewerking | Bureaublad | mobiele |
 | --- | --- | --- |
 | Azure Active Directory: synchronisatie |Ja |Nee |
 | Azure Active Directory: back-up/herstellen |Nee |Nee |
@@ -67,7 +67,7 @@ In de volgende tabel, andere vermeldingen in de kolom instellingengroep verwijst
 Interne vermeldingen in de instellingengroep kolom verwijzen naar instellingen en apps die alleen kunnen worden gesynchroniseerd binnen de app zelf of door het uitschakelen van synchronisatie uit voor het hele apparaat met behulp van mobile device management (MDM) of instellingen voor Groepsbeleid kunnen worden uitgeschakeld.
 Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 
-| Instellingen | Bureaublad | Mobiele telefoon | Groep |
+| Instellingen | Bureaublad | mobiele | Groep |
 | --- | --- | --- | --- |
 | **Accounts**: accountafbeelding |Synchronisatie |X |Thema |
 | **Accounts**: andere Accountinstellingen |X |X | |
@@ -145,25 +145,25 @@ Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 | **Taal**: spellingcontrole - spelfouten automatisch corrigeren en markeren |Synchronisatie |Back-up |Taal |
 | **Taal**: lijst met toetsenborden |Synchronisatie |Back-up |Taal |
 | **Scherm vergrendelen**: alle scherminstellingen van het vergrendelen |X |X | |
-| **Vergrootglas**: in- of uitschakelen (master in-/ uitschakelen) |X |X |Toegankelijkheid |
-| **Vergrootglas**: tekenomkering kleur inschakelen of uitschakelen (standaard uitgeschakeld) |Synchronisatie |X |Toegankelijkheid |
-| **Vergrootglas**: bijhouden - Volg de toetsenbordfocus |Synchronisatie |X |Toegankelijkheid |
-| **Vergrootglas**: bijhouden - volgt u de muisaanwijzer |Synchronisatie |X |Toegankelijkheid |
-| **Vergrootglas**: start wanneer gebruikers zich aanmelden (standaard uitgeschakeld) |Synchronisatie |X |Toegankelijkheid |
+| **Vergrootglas**: in- of uitschakelen (master in-/ uitschakelen) |X |X |Betere toegankelijkheid |
+| **Vergrootglas**: tekenomkering kleur inschakelen of uitschakelen (standaard uitgeschakeld) |Synchronisatie |X |Betere toegankelijkheid |
+| **Vergrootglas**: bijhouden - Volg de toetsenbordfocus |Synchronisatie |X |Betere toegankelijkheid |
+| **Vergrootglas**: bijhouden - volgt u de muisaanwijzer |Synchronisatie |X |Betere toegankelijkheid |
+| **Vergrootglas**: start wanneer gebruikers zich aanmelden (standaard uitgeschakeld) |Synchronisatie |X |Betere toegankelijkheid |
 | **Muis**: de grootte van de muisaanwijzer wijzigen |Synchronisatie |X |andere |
 | **Muis**: de kleur van de muisaanwijzer wijzigen |Synchronisatie |X |andere |
 | **Muis**: alle andere instellingen |X |X | |
-| **Verteller**: snel starten |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: gebruikers kunnen Narrator spreken inspiratie wijzigen |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: gebruikers kunnen inschakelen of uitschakelen Narrator hints voor algemene artikelen lezen (op standaard) |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: gebruikers kunnen inschakelen of uitschakelen of getypte tekst kunnen horen (op standaard) |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: gebruikers kunnen inschakelen of uitschakelen of getypte woorden kunnen horen (op standaard) |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: insert-cursor Narrator te volgen hebben (op standaard) |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: visual markeren van Verteller cursor inschakelen (op standaard) |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: afspelen van geluid hints (op standaard) |Synchronisatie |X |Toegankelijkheid |
-| **Verteller**: sleutels in het schermtoetsenbord activeren wanneer u uw vinger (standaard uitgeschakeld) |Synchronisatie |X |Toegankelijkheid |
-| **Betere toegankelijkheid**: de dikte van de knipperende cursor instellen |Synchronisatie |X |Toegankelijkheid |
-| **Betere toegankelijkheid**: achtergrondafbeeldingen te verwijderen (standaard uitgeschakeld) |Synchronisatie |X |Toegankelijkheid |
+| **Verteller**: snel starten |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: gebruikers kunnen Narrator spreken inspiratie wijzigen |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: gebruikers kunnen inschakelen of uitschakelen Narrator hints voor algemene artikelen lezen (op standaard) |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: gebruikers kunnen inschakelen of uitschakelen of getypte tekst kunnen horen (op standaard) |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: gebruikers kunnen inschakelen of uitschakelen of getypte woorden kunnen horen (op standaard) |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: insert-cursor Narrator te volgen hebben (op standaard) |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: visual markeren van Verteller cursor inschakelen (op standaard) |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: afspelen van geluid hints (op standaard) |Synchronisatie |X |Betere toegankelijkheid |
+| **Verteller**: sleutels in het schermtoetsenbord activeren wanneer u uw vinger (standaard uitgeschakeld) |Synchronisatie |X |Betere toegankelijkheid |
+| **Betere toegankelijkheid**: de dikte van de knipperende cursor instellen |Synchronisatie |X |Betere toegankelijkheid |
+| **Betere toegankelijkheid**: achtergrondafbeeldingen te verwijderen (standaard uitgeschakeld) |Synchronisatie |X |Betere toegankelijkheid |
 | **Uitschakelen en slaapstand**: alle instellingen |X |X | |
 | **Persoonlijke instellingen scherm Start**: accent kleur (alleen phone) |X |Synchronisatie |Thema |
 | **Typen**: woordenlijst |Synchronisatie |Back-up |Taal |

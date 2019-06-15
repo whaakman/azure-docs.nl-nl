@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333866"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics  
@@ -83,7 +83,7 @@ De definitie van de argumenten en waarden zijn als volgt:
 * **USQLTargetType = samenvoegen of SyntaxCheck**:
     * **Merge**. Modus compileert code-behind-bestanden samenvoegen. Voorbeelden zijn **.cs**, **.py**, en **.r** bestanden. Deze inlines de resulterende zelfgedefinieerde-codebibliotheek in de U-SQL-script. Voorbeelden zijn een DLL-bestand binair, Python of R code.
     * **SyntaxCheck**. Code-behind-bestanden samengevoegd SyntaxCheck modus eerst in de U-SQL-script. Vervolgens wordt de U-SQL-script voor het valideren van uw code gecompileerd.
-* **DataRoot =\<pad DataRoot >**. DataRoot is alleen nodig voor SyntaxCheck modus. Wanneer deze SyntaxCheck modus voor het script wordt gemaakt, controleert MSBuild de verwijzingen naar objecten in de database in het script. Voordat u gebouw, instellen van een overeenkomende lokale omgeving waarin de waarnaar wordt verwezen, objecten uit de U-SQL-database in de map DataRoot van de build-machine. U kunt ook de databaseafhankelijkheden door beheren [verwijst naar een U-SQL-database-project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild alleen verwijzingen in de database-object, bestanden niet gecontroleerd.
+* **DataRoot =\<pad DataRoot >** . DataRoot is alleen nodig voor SyntaxCheck modus. Wanneer deze SyntaxCheck modus voor het script wordt gemaakt, controleert MSBuild de verwijzingen naar objecten in de database in het script. Voordat u gebouw, instellen van een overeenkomende lokale omgeving waarin de waarnaar wordt verwezen, objecten uit de U-SQL-database in de map DataRoot van de build-machine. U kunt ook de databaseafhankelijkheden door beheren [verwijst naar een U-SQL-database-project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild alleen verwijzingen in de database-object, bestanden niet gecontroleerd.
 * **EnableDeployment = true** of **false**. EnableDeployment wordt aangegeven als het is toegestaan om te distribueren waarnaar wordt verwezen, U-SQL-databases tijdens het bouwproces. Als u verwijst naar een project U-SQL-database en de database-objecten in uw U-SQL-script gebruiken, stel deze parameter in op **waar**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Continue integratie met Azure-pijplijnen
@@ -454,7 +454,7 @@ De volgende stappen voor het instellen van een taak database implementatie in Az
 
 #### <a name="common-parameters"></a>Algemene parameters
 
-| Parameter | Beschrijving | Standaardwaarde | Vereist |
+| Parameter | Description | Standaardwaarde | Vereist |
 |---------|-----------|-------------|--------|
 |Pakket|Het pad van het implementatiepakket voor U-SQL-database om te worden geïmplementeerd.|null|true|
 |Database|De naam van de database moet worden geïmplementeerd naar of gemaakt.|model|false|
@@ -463,7 +463,7 @@ De volgende stappen voor het instellen van een taak database implementatie in Az
 
 #### <a name="parameter-for-local-deployment"></a>{De parameter voor lokale implementatie
 
-|Parameter|Beschrijving|Standaardwaarde|Vereist|
+|Parameter|Description|Standaardwaarde|Vereist|
 |---------|-----------|-------------|--------|
 |DataRoot|Het pad van de hoofdmap van de lokale gegevens.|null|true|
 

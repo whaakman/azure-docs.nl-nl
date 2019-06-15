@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: bwren
 ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519894"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Verandert van Log Analytics zoeken in Logboeken in Logboeken van Azure Monitor
@@ -49,7 +49,7 @@ Als u wilt de huidige query opslaan in Azure Monitor-Logboeken, selecteer **opsl
 
 ![Logboekquery opslaan](media/log-search-transition/save-query-logs.png)
 
-## <a name="saved-queries"></a>Opgeslagen query's
+## <a name="saved-queries"></a>Opgeslagen query 's
 In zoeken in Logboeken, uw opgeslagen query's zijn beschikbaar via de actie-balkitem **opgeslagen zoekopdrachten**. Toegang tot opgeslagen query's uit in Azure Monitor-Logboeken, [Queryverkenner](../log-query/get-started-portal.md#save-queries).
 
 ![Queryverkenner](media/log-search-transition/query-explorer.png)

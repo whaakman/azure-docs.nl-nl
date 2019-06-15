@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332319"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Uitschalen-databases met de shard-Toewijzingsbeheer
@@ -59,7 +59,7 @@ Elastisch schalen ondersteuning van de volgende typen als sharding sleutels:
 | GUID |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
-| timespan | duur|
+| timespan | Duur|
 | datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Lijst met en het bereik-shard-kaarten
@@ -98,8 +98,8 @@ Elk van de bovenstaande tabellen is een voorbeeld van een concept van een **Shar
 
 In de clientbibliotheek is de shard-Toewijzingsbeheer een verzameling van shard-toewijzingen. De gegevens die worden beheerd door een **ShardMapManager** exemplaar wordt opgeslagen op drie locaties:
 
-1. **Globale Shard-toewijzing (GSM)**: U opgeven een database om te fungeren als de opslagplaats voor alle van de shard-toewijzingen en toewijzingen. Speciale tabellen en opgeslagen procedures worden automatisch gemaakt om de gegevens te beheren. Dit is doorgaans een kleine database en licht toegankelijk is, en mag niet worden gebruikt voor andere behoeften van de toepassing. De tabellen zijn in een speciale schema met de naam **__ShardManagement**.
-2. **Lokale Shard-toewijzing (LSM)**: Elke database die u opgeeft als een shard worden gewijzigd voor het aantal kleine tabellen en speciale opgeslagen procedures die bevatten en beheren van specifieke shard voor shard kaart informatie bevatten. Deze informatie is redundant zijn met de informatie in de GSM en hierdoor kan de toepassing in de cache shard-kaart om informatie te valideren zonder een elke belasting door op de GSM; worden geplaatst de toepassing gebruikt de LSM om te bepalen of er een toewijzing in de cache nog steeds geldig is. De tabellen die overeenkomt met de LSM op elke shard zich ook in het schema **__ShardManagement**.
+1. **Globale Shard-toewijzing (GSM)** : U opgeven een database om te fungeren als de opslagplaats voor alle van de shard-toewijzingen en toewijzingen. Speciale tabellen en opgeslagen procedures worden automatisch gemaakt om de gegevens te beheren. Dit is doorgaans een kleine database en licht toegankelijk is, en mag niet worden gebruikt voor andere behoeften van de toepassing. De tabellen zijn in een speciale schema met de naam **__ShardManagement**.
+2. **Lokale Shard-toewijzing (LSM)** : Elke database die u opgeeft als een shard worden gewijzigd voor het aantal kleine tabellen en speciale opgeslagen procedures die bevatten en beheren van specifieke shard voor shard kaart informatie bevatten. Deze informatie is redundant zijn met de informatie in de GSM en hierdoor kan de toepassing in de cache shard-kaart om informatie te valideren zonder een elke belasting door op de GSM; worden geplaatst de toepassing gebruikt de LSM om te bepalen of er een toewijzing in de cache nog steeds geldig is. De tabellen die overeenkomt met de LSM op elke shard zich ook in het schema **__ShardManagement**.
 3. **Toepassingscache**: Elke toepassing exemplaar toegang tot een **ShardMapManager** object onderhoudt een lokale cache in het geheugen van de toewijzingen. Informatie over de routering die onlangs zijn opgehaald worden opgeslagen.
 
 ## <a name="constructing-a-shardmapmanager"></a>Maken van een ShardMapManager

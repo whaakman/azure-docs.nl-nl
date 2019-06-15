@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388672"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
@@ -74,7 +74,7 @@ De volgende JSON ziet u het schema voor de extensie.
 | Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Uitgever | Microsoft.HpcCompute | string |
+| publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
@@ -162,7 +162,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | Foutcode | Betekenis | Mogelijke actie |
 | :---: | --- | --- |
 | 0 | Bewerking is geslaagd |
-| 1 | De bewerking is geslaagd. Opnieuw opstarten vereist. |
+| 1 | De bewerking is geslaagd. Opnieuw opstarten is vereist. |
 | 100 | Bewerking wordt niet ondersteund of kan niet worden voltooid. | Mogelijke oorzaken: PowerShell-versie niet ondersteund, VM-grootte is niet een VM uit de N-serie, fout bij het downloaden van gegevens. Raadpleeg de logbestanden om de oorzaak van de fout te achterhalen. |
 | 240, 840 | Time-out van de bewerking. | Voer de bewerking opnieuw uit. |
 | -1 | Er is een uitzondering opgetreden. | Raadpleeg de logbestanden om de oorzaak van de uitzondering te bepalen. |

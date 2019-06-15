@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
 ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367543"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute voor Cloud Solution Providers (CSP)
@@ -60,9 +60,9 @@ In dit scenario moet de klant rechtstreeks verbinding maken via een klantnetwerk
 
 De keuze tussen deze twee opties is gebaseerd op de behoeften van uw klant en uw huidige behoefte om Azure-services te leveren. Voor gedetailleerde informatie over deze modellen en het bijbehorende op rollen gebaseerde toegangsbeheer, de netwerken en de ontwerppatronen voor de identiteit volgt u de volgende links:
 
-* **RBAC (op rollen gebaseerd toegangsbeheer)**: RBAC is gebaseerd op Azure Active Directory.  Klik [hier](../role-based-access-control/role-assignments-portal.md) voor meer informatie over Azure RBAC. 
+* **RBAC (op rollen gebaseerd toegangsbeheer)** : RBAC is gebaseerd op Azure Active Directory.  Klik [hier](../role-based-access-control/role-assignments-portal.md) voor meer informatie over Azure RBAC.
 * **Netwerken**: bevat informatie over de verschillende netwerkonderwerpen in Microsoft Azure.
-* **Azure Active Directory (Azure AD)**: Azure AD biedt het identiteitsbeheer voor Microsoft Azure en SaaS-toepassingen van derden. Klik [hier](https://azure.microsoft.com/documentation/services/active-directory/) voor meer informatie over Azure AD.  
+* **Azure Active Directory (Azure AD)** : Azure AD biedt het identiteitsbeheer voor Microsoft Azure en SaaS-toepassingen van derden. Klik [hier](https://azure.microsoft.com/documentation/services/active-directory/) voor meer informatie over Azure AD.  
 
 ## <a name="network-speeds"></a>Netwerksnelheden
 ExpressRoute ondersteunt netwerksnelheden van 50 Mb/s tot 10 Gb/s. Dit geeft klanten de mogelijkheid om de hoeveelheid bandbreedte aan te schaffen die nodig is voor hun specifieke omgeving.

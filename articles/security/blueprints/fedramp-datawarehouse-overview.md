@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586006"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure-beveiliging en naleving blauwdruk: Datawarehouse voor automatisering van FedRAMP
@@ -53,7 +53,7 @@ Beschikbaarheidssets
 -   (1) active Directory-domeincontrollers
 -   (1) SQL-clusterknooppunten en -witness
 
-Virtual Network
+Virtueel netwerk
 -   (4) subnetten
 -   (4) de Netwerkbeveiligingsgroepen
 
@@ -104,7 +104,7 @@ Elk van de nsg's zijn bepaalde poorten en protocollen openen, zodat de oplossing
 
 **Subnetten**: Elk subnet is gekoppeld aan de bijbehorende NSG.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 
 **Azure Storage** om versleutelde data-at-rest-vereisten te voldoen aan alle [Azure Storage](https://azure.microsoft.com/services/storage/) maakt gebruik van [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).

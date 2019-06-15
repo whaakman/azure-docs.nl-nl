@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329481"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Twilio voor spraak en SMS-mogelijkheden van Azure gebruiken
@@ -85,7 +85,7 @@ Twilio biedt een set met .NET-helper-bibliotheken die verschillende aspecten van
 
 Twilio biedt vijf-bibliotheken voor .NET-ontwikkelaars:
 
-| Bibliotheek | Beschrijving |
+| Bibliotheek | Description |
 | --- | --- |
 | Twilio.API | De core Twilio-bibliotheek die de Twilio-REST-API in een aangepaste .NET-bibliotheek. Deze bibliotheek is beschikbaar voor .NET, Silverlight en Windows Phone 7. |
 | Twilio.TwiML | Biedt een gebruiksvriendelijke manier van .NET voor het genereren van TwiML aantekeningen. |
@@ -143,7 +143,7 @@ var call = CallResource.Create(
 
 Voor meer informatie over de parameters doorgegeven aan de **CallResource.Create** methode, Zie [ https://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
 
-Zoals gezegd, wordt met deze code een Twilio-opgegeven site gebruikt om terug te keren van het antwoord TwiML. U kunt uw eigen locatie in plaats daarvan gebruiken voor het antwoord TwiML. Zie voor meer informatie [Procedure: Bieden van respons van uw eigen website TwiML](#howto_provide_twiml_responses).
+Zoals gezegd, wordt met deze code een Twilio-opgegeven site gebruikt om terug te keren van het antwoord TwiML. U kunt uw eigen locatie in plaats daarvan gebruiken voor het antwoord TwiML. Zie voor meer informatie, [het: Bieden van respons van uw eigen website TwiML](#howto_provide_twiml_responses).
 
 ## <a id="howto_send_sms"></a>Procedures: Een SMS-bericht verzenden
 De volgende schermafbeelding ziet u hoe u verzendt een SMS-bericht met de **MessageResource** klasse. De **van** nummer wordt verstrekt door Twilio voor proefaccounts voor het verzenden van SMS-berichten. De **naar** getal moet worden geverifieerd voor uw Twilio-account voordat u de code uitvoeren.
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 Wanneer een aanroep naar de Twilio-API - voorbeeld in uw toepassing wordt gestart de **CallResource.Create** methode - Twilio stuurt de aanvraag naar een URL die wordt verwacht dat een TwiML antwoord. Het voorbeeld in [het: Een uitgaande aanroep](#howto_make_call) maakt gebruik van de URL van de geleverde Twilio [ https://twimlets.com/message ] [ twimlet_message_url] om terug te keren van het antwoord.
 
 > [!NOTE]
-> Terwijl TwiML is bedoeld voor gebruik door webservices, kunt u de TwiML weergeven in uw browser. Bijvoorbeeld, klikt u op [ https://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege `<Response>` element; een ander voorbeeld, klikt u op [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) om te zien een `<Response>` element met een &lt;zeg&gt; element.
+> Terwijl TwiML is bedoeld voor gebruik door webservices, kunt u de TwiML weergeven in uw browser. Bijvoorbeeld, klikt u op [ https://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege `<Response>` element; een ander voorbeeld, klikt u op [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) om te zien een `<Response>` element met een &lt; zeg&gt; element.
 >
 
 In plaats van de geleverde Twilio-URL, kunt u uw eigen URL-locatie waarmee HTTP-antwoorden worden geretourneerd. U kunt de site maken in elke taal waarmee HTTP-antwoorden worden geretourneerd. In dit onderwerp wordt ervan uitgegaan dat u de URL van een ASP.NET-handler voor algemene moet worden gehost.

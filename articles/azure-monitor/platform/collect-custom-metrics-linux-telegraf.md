@@ -1,18 +1,18 @@
 ---
 title: Aangepaste metrische gegevens verzamelen voor een Linux-VM met de agent InfluxData Telegraf
 description: Aangepaste metrische gegevens verzamelen voor een Linux-VM met de agent InfluxData Telegraf
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741552"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Aangepaste metrische gegevens verzamelen voor een Linux-VM met de agent InfluxData Telegraf
@@ -47,7 +47,7 @@ Maak een nieuwe Linux-VM:
 
     ![Overzicht van virtuele machines grootte telegraaf agent](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Op de **instellingen** pagina **netwerk** > **Network Security Group**   >  ** Openbare binnenkomende poorten selecteren**, selecteer **HTTP** en **SSH (22)**. Laat de rest van de standaardwaarden en selecteer **OK**. 
+1. Op de **instellingen** pagina **netwerk** > **Network Security Group**   >  ** Openbare binnenkomende poorten selecteren**, selecteer **HTTP** en **SSH (22)** . Laat de rest van de standaardwaarden en selecteer **OK**. 
 
 1. Selecteer op de pagina overzicht **maken** de implementatie van de virtuele machine te starten. 
 
@@ -132,5 +132,6 @@ Wanneer ze niet meer nodig zijn, kunt u de resourcegroep, de virtuele machine en
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [aangepaste metrische gegevens](metrics-custom-overview.md).
+
 
 

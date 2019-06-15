@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563411"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Back-up en herstel voor SQL Server in Azure Virtual Machines
@@ -69,7 +69,7 @@ Zie een van de volgende artikelen voor meer informatie over het configureren van
 - **Centraal beheer en controle**: Centraal beheer al uw back-ups, met inbegrip van andere werkbelastingen die Azure Backup, vanaf één dashboard in Azure ondersteunt.
 - **Beleid voor back-up en retentie gestuurde**: Standaard back-upbeleid voor regelmatige back-ups maken. Tot stand brengen voor het bewaren van voor het onderhouden van back-ups voor jaar.
 - **Ondersteuning voor SQL altijd op**: Detecteren en beschermen van de configuratie van een SQL Server Always On en voldoen aan de back-back-upvoorkeur voor beschikbaarheidsgroep.
-- **15 minuten Recovery Point Objective (RPO)**: Configureer SQL transactielogboekback-ups maximaal elke 15 minuten.
+- **15 minuten Recovery Point Objective (RPO)** : Configureer SQL transactielogboekback-ups maximaal elke 15 minuten.
 - **Punt in tijd herstel**: De portal gebruiken om databases te herstellen naar een bepaald punt in tijd zonder handmatig herstellen meerdere volledige, differentiële en logboekback-ups.
 - **E-mailwaarschuwingen voor fouten geconsolideerd**: Geconsolideerde e-mailmeldingen fouten configureren.
 - **Op rollen gebaseerd toegangsbeheer**: Bepalen wie kan beheren van back-up en herstelbewerkingen via de portal.

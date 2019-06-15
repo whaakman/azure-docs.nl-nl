@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636222"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Mediastreaming optimalisatie met Azure CDN 
@@ -86,8 +86,8 @@ De korte tijd voor negatieve opslaan in cache is nuttig om de oorsprong offload 
 
 |   | Algemene webweergave | Algemene mediastreaming | Video on demand streaming van media  
 --- | --- | --- | ---
-Caching: Positief <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |365 dagen | 365 dagen   
-Caching: Negatief <br> HTTP 204, 305, 404, <br> en 405 | Geen | 1 seconde | 1 seconde
+Caching: positieve <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |365 dagen | 365 dagen   
+Caching: negatief zijn <br> HTTP 204, 305, 404, <br> en 405 | Geen | 1 seconde | 1 seconde
  
 ### <a name="deal-with-origin-failure"></a>Fout bij de oorsprong zijn getroffen  
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60562533"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formules beheren
@@ -44,7 +44,7 @@ De volgende stappen begeleiden u bij het proces voor het maken van een formule v
 
 3. Selecteer de gewenste lab in de lijst met labs.  
 
-4. Selecteer op de pagina van het lab **formules (herbruikbare bases)**.
+4. Selecteer op de pagina van het lab **formules (herbruikbare bases)** .
    
     ![Menu formule](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
@@ -102,7 +102,7 @@ Volg deze stappen voor het wijzigen van een formule:
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 3. Selecteer de gewenste lab in de lijst met labs.  
-4. Selecteer op de pagina van het lab **formules (herbruikbare bases)**.
+4. Selecteer op de pagina van het lab **formules (herbruikbare bases)** .
    
     ![Menu formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Op de **Lab formules** pagina, selecteert u de formule die u wilt wijzigen.

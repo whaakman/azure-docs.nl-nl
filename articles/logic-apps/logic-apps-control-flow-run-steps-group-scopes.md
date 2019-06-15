@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685403"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Uitvoeren van acties op basis van status van de groep met een bereik in Azure Logic Apps
@@ -81,7 +81,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
       | ------- | ----- | ----------- |
       | **Routepunt 1** | <*Start*> | Voer beginpunt van uw route. | 
       | **Routepunt 2** | <*end*> | Voer de bestemming van uw route. | 
-      | **Vermijden** | Geen | Voer items om te voorkomen op uw route, zoals snelwegen, tolwegen, enzovoort. Zie voor mogelijke waarden [een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Avoid** | Geen | Voer items om te voorkomen op uw route, zoals snelwegen, tolwegen, enzovoort. Zie voor mogelijke waarden [een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimaliseren** | timeWithTraffic | Selecteer een parameter voor het optimaliseren van uw route, zoals afstand, tijd met informatie over de huidige gegevensverkeer, enzovoort. In dit voorbeeld maakt gebruik van deze waarde: "timeWithTraffic" | 
       | **Afstandseenheid** | <*your-preference*> | Voer de Afstandseenheid die voor het berekenen van uw route. In dit voorbeeld maakt gebruik van deze waarde: "Mijl" | 
       | **Vervoermiddel** | Auto | Geef de vervoersoptie voor uw route. In dit voorbeeld wordt deze waarde "Aangedreven" | 
@@ -165,7 +165,7 @@ Voeg vervolgens een bereik zodat u kunt specifieke acties te groeperen en hun st
 1. Een bereik op de locatie van de werkstroom die u wilt toevoegen. Als u wilt toevoegen een bereik tussen bestaande stappen in de werkstroom voor logische Apps, als volgt te werk: 
 
    1. Plaats de muisaanwijzer boven de pijl waar u wilt toevoegen van het bereik. 
-   Kies de **plusteken** (**+**) > **een actie toevoegen**.
+   Kies de **plusteken** ( **+** ) > **een actie toevoegen**.
 
       ![Een bereik toevoegen](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 

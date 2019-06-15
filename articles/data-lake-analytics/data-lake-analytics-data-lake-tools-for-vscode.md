@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60508891"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools voor Visual Studio Code gebruiken
@@ -170,7 +170,7 @@ Een handige manier voor het activeren van de **ADL: Registreren Assembly** opdra
 
 **Registreren via de ADL: Registreren van de opdracht Assembly (Geavanceerd)**
 1.  Selecteer Ctrl + Shift + P het opdrachtenpalet te openen.
-2.  Voer **ADL: Registreren van Assembly (Geavanceerd)**. 
+2.  Voer **ADL: Registreren van Assembly (Geavanceerd)** . 
 3.  Geef het lokale assembly-pad. 
 4.  Het JSON-bestand wordt weergegeven. Bekijken en bewerken van de assembly-afhankelijkheden en de resourceparameters, indien nodig. Instructies worden weergegeven in de **uitvoer** venster. Opslaan (Ctrl + S) het JSON-bestand om door te gaan naar de assembly-registratie.
 
@@ -369,7 +369,7 @@ U kunt [bewaken van de uploadstatus](#check-storage-tasks-status).
 U kunt een bestand downloaden met behulp van de opdracht **ADL: Bestand downloaden** of **ADL: (Geavanceerd)-bestand downloaden**.
 
 **Een bestand te downloaden via de ADL: Downloaden van bestand (Geavanceerd)**
-1. Met de rechtermuisknop op de script-editor, en selecteer vervolgens **bestand downloaden (Geavanceerd)**.
+1. Met de rechtermuisknop op de script-editor, en selecteer vervolgens **bestand downloaden (Geavanceerd)** .
 2. VS Code wordt een JSON-bestand weergegeven. U kunt bestandspaden invoeren en meerdere bestanden tegelijkertijd te downloaden. Instructies worden weergegeven in de **uitvoer** venster. Opslaan (Ctrl + S) het JSON-bestand om door te gaan voor het downloaden van het bestand of de bestanden.
 
     ![JSON-bestand met de paden voor downloaden van bestanden](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -460,7 +460,7 @@ Blader naar de Blob-opslag:
 
 Data Lake-Tools wordt het pad van de Azure Storage in Azure portal geopend. U kunt het pad niet vinden en voorbeeld van het bestand van het web.
 
-## <a name="additional-features"></a>Aanvullende functies
+## <a name="additional-features"></a>Extra functies
 
 Data Lake Tools voor VS Code ondersteunt de volgende functies:
 

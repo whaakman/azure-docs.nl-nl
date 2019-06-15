@@ -15,10 +15,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60766264"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificaten en de App Service-omgeving 
@@ -79,7 +79,7 @@ Het certificaat uploaden naar uw app in de as-omgeving:
 
 1. Genereren van een *.cer* -bestand voor uw certificaat. 
 2. Ga naar de app die u het certificaat in de Azure-portal moet
-3. Ga naar de SSL-instellingen in de app. Klik op certificaat uploaden. Selecteer openbaar. Selecteer de lokale computer. Geef een naam op. Blader en selecteer uw *.cer* bestand. Selecteer uploaden. 
+3. Ga naar de SSL-instellingen in de app. Klik op certificaat uploaden. Selecteer openbaar. Selecteer de lokale computer. Geef een naam. Blader en selecteer uw *.cer* bestand. Selecteer uploaden. 
 4. Kopieer de vingerafdruk.
 5. Ga naar de toepassingsinstellingen. Maak een App-instelling WEBSITE_LOAD_ROOT_CERTIFICATES met de vingerafdruk van het als de waarde. Als u meerdere certificaten hebt, kunt u ze in dezelfde instelling gescheiden door komma's en geen witruimte zoals plaatsen 
 

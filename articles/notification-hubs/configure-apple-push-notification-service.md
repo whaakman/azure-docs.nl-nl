@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237814"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>In de Azure-portal Apple Push Notification Service (APNS)-instellingen voor een notification hub configureren
@@ -33,7 +33,7 @@ De volgende procedure bevat stappen voor het configureren van instellingen voor 
 
    a. Als u selecteert **certificaat**:
    * Selecteer het pictogram van het bestand en selecteer vervolgens de *.p12* bestand dat u wilt uploaden.
-   * Voer een wachtwoord in.
+   * Voer een wachtwoord.
    * Selecteer de modus **Sandbox**. Voor het verzenden van pushmeldingen naar gebruikers die uw app uit de store hebt aangeschaft, selecteert u **productie** modus.
 
      ![Schermafbeelding van een APNS-certificaat-configuratie in Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60746971"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van de Azure-portal
@@ -55,7 +55,7 @@ Voer de stappen in een van de secties die volgen, op basis van het type IP-adres
 Voer de volgende stappen uit om een nieuwe privé IP-adres:
 
 1. Voer de stappen in de [Core stappen](#coreadd) sectie van dit artikel.
-2. Klik op **Add**. In de **toevoegen IP-configuratie** deelvenster dat verschijnt, maak een IP-configuratie met de naam *IPConfig-4* met *10.0.0.7* als een *statische* privé-IP-adres en klik vervolgens op **OK**.
+2. Klik op **Toevoegen**. In de **toevoegen IP-configuratie** deelvenster dat verschijnt, maak een IP-configuratie met de naam *IPConfig-4* met *10.0.0.7* als een *statische* privé-IP-adres en klik vervolgens op **OK**.
 
     > [!NOTE]
     > Bij het toevoegen van een statisch IP-adres, moet u een niet-gebruikte, geldig adres op de NIC is verbonden met subnet. Als het adres dat u selecteert niet beschikbaar is, de portal wordt weergegeven een X voor het IP-adres en moet u een ander account.
@@ -87,7 +87,7 @@ Een openbaar IP-adres is een instelling voor een openbare IP-adresresource. Als 
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Koppel het openbare IP-adresresource aan een nieuwe IP-configuratie
 
 1. Voer de stappen in de [Core stappen](#coreadd) sectie van dit artikel.
-2. Klik op **Add**. In de **toevoegen IP-configuratie** deelvenster dat verschijnt, maak een IP-configuratie met de naam *IPConfig-4*. Inschakelen de **openbaar IP-adres** en selecteer een bestaande, beschikbare openbare IP-adresresource uit de **openbare IP-adres kiezen** deelvenster dat wordt weergegeven.
+2. Klik op **Toevoegen**. In de **toevoegen IP-configuratie** deelvenster dat verschijnt, maak een IP-configuratie met de naam *IPConfig-4*. Inschakelen de **openbaar IP-adres** en selecteer een bestaande, beschikbare openbare IP-adresresource uit de **openbare IP-adres kiezen** deelvenster dat wordt weergegeven.
 
     Nadat u het openbare IP-adresresource hebt geselecteerd, klikt u op **OK** en het venster wordt gesloten. Als u een bestaande openbare IP-adres niet hebt, kunt u maken door de stappen in de [maken van een openbare IP-adresresource](#create-public-ip) sectie van dit artikel. 
 

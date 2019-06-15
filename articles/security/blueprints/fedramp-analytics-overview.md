@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586261"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: Analytics voor FedRAMP
@@ -86,11 +86,11 @@ Elk van de nsg's zijn bepaalde poorten en protocollen openen, zodat de oplossing
   - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
   - [Logboeken in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) is verbonden met de diagnostische logboeken van de NSG.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 
 **Replicatie van gegevens** Azure Government heeft twee opties voor [gegevensreplicatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy):
- - De standaardinstelling voor replicatie van gegevens is **geografisch redundante opslag (GRS)**, waarin gegevens van de klant asynchroon wordt opgeslagen in een afzonderlijk Datacenter buiten de primaire regio. Dit zorgt ervoor dat het herstellen van gegevens in een gebeurtenis van het totale verlies van het primaire Datacenter.
+ - De standaardinstelling voor replicatie van gegevens is **geografisch redundante opslag (GRS)** , waarin gegevens van de klant asynchroon wordt opgeslagen in een afzonderlijk Datacenter buiten de primaire regio. Dit zorgt ervoor dat het herstellen van gegevens in een gebeurtenis van het totale verlies van het primaire Datacenter.
  - **Lokaal redundante opslag (LRS)** kunnen ook worden geconfigureerd via de Azure Storage-Account. LRS repliceert gegevens in een opslagschaaleenheid, die wordt gehost in dezelfde regio bevinden waarin de klant wordt hun account gemaakt. Alle gegevens worden gerepliceerd gelijktijdig, ervoor te zorgen dat er geen back-upgegevens in een fout bij de primaire opslag scale unit gaat verloren.
 
 **Azure Storage** om te voldoen aan de gecodeerde data-at-rest-vereisten, alle services die zijn geïmplementeerd in deze referentie-architectuur gebruik te maken van [Azure Storage](https://azure.microsoft.com/services/storage/), waarin wordt opgeslagen gegevens met [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).

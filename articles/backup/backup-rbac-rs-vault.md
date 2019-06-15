@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: trinadhk
 ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253731"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Backup-herstelpunten
@@ -45,19 +45,19 @@ De volgende tabel bevat de acties voor back-up en de bijbehorende minimale RBAC-
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
 | Niet-beheerde schijven VM back-up herstellen | Back-upoperator | Recovery vault-resource |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
-| | Inzender voor opslagaccounts | Opslagaccountresource waar opstartcyclus schijven kunnen worden hersteld |
+| | Inzender voor Opslagaccounts | Opslagaccountresource waar opstartcyclus schijven kunnen worden hersteld |
 | Beheerde schijven terugzetten van back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
-| | Inzender voor opslagaccounts | Tijdelijke Opslagaccount dat is geselecteerd als onderdeel van herstellen voor het opslaan van gegevens uit de kluis voordat u deze te converteren naar beheerde schijven |
+| | Inzender voor Opslagaccounts | Tijdelijke Opslagaccount dat is geselecteerd als onderdeel van herstellen voor het opslaan van gegevens uit de kluis voordat u deze te converteren naar beheerde schijven |
 | | Inzender | Resourcegroep waartoe de beheerde schijven worden hersteld |
 | Afzonderlijke bestanden herstellen vanaf back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
-| Back-upbeleid voor back-up van virtuele Azure-machine maken | Back-upinzender | Recovery vault-resource |
-| Back-upbeleid van Azure VM backup wijzigen | Back-upinzender | Recovery vault-resource |
-| Back-upbeleid van Azure VM backup | Back-upinzender | Recovery vault-resource |
-| Back-up stoppen (met behoud van gegevens of verwijderen van gegevens) op virtuele machine back-up | Back-upinzender | Recovery vault-resource |
+| Back-upbeleid voor back-up van virtuele Azure-machine maken | Back-Inzender | Recovery vault-resource |
+| Back-upbeleid van Azure VM backup wijzigen | Back-Inzender | Recovery vault-resource |
+| Back-upbeleid van Azure VM backup | Back-Inzender | Recovery vault-resource |
+| Back-up stoppen (met behoud van gegevens of verwijderen van gegevens) op virtuele machine back-up | Back-Inzender | Recovery vault-resource |
 | On-premises Windows Server/client-/ SCDPM of Azure Backup-Server registreren | Back-upoperator | Recovery vault-resource |
-| Geregistreerde on-premises Windows Server/client-/ SCDPM of Azure Backup-Server verwijderen | Back-upinzender | Recovery vault-resource |
+| Geregistreerde on-premises Windows Server/client-/ SCDPM of Azure Backup-Server verwijderen | Back-Inzender | Recovery vault-resource |
 
 > [!IMPORTANT]
 > Als u VM-Inzender bij een VM-resource-bereik opgeven en klik op back-up als onderdeel van de VM-instellingen, wordt deze 'Back-up inschakelen' scherm geopend, zelfs als de virtuele machine is al back-up gemaakt als de aanroep om te controleren of de status van de back-up werkt alleen op abonnementsniveau. Om dit te voorkomen, hetzij gaat u naar de kluis en opent u de back-upitem weergave van de virtuele machine of geef de rol Inzender voor virtuele machine op een abonnementsniveau.
@@ -67,16 +67,16 @@ De volgende tabel bevat de acties voor back-up en de bijbehorende rol Azure File
 
 | Bewerking voor het beheer | Rol is vereist | Resources |
 | --- | --- | --- |
-| Back-up van Azure-bestandsshares inschakelen | Back-upinzender | Recovery Services-kluis |
+| Back-up van Azure-bestandsshares inschakelen | Back-Inzender | Recovery Services-kluis |
 | | Opslagaccount | Inzender voor de resource van Opslagaccount |
 | On-demand back-up van virtuele machine | Back-upoperator | Recovery Services-kluis |
 | Terugzetten van bestandsshare | Back-upoperator | Recovery Services-kluis |
-| | Inzender voor opslagaccounts | Waar terugzetten bron en doel-bestandsshares aanwezig zijn de resources van opslagaccount |
+| | Inzender voor Opslagaccounts | Waar terugzetten bron en doel-bestandsshares aanwezig zijn de resources van opslagaccount |
 | Afzonderlijke bestanden terugzetten | Back-upoperator | Recovery Services-kluis |
-| | Inzender voor opslagaccounts |   Waar terugzetten bron en doel-bestandsshares aanwezig zijn de resources van opslagaccount |
-| Beveiliging stoppen | Back-upinzender | Recovery Services-kluis |      
-| Registratie van storage-account van de kluis ongedaan maken |   Back-upinzender | Recovery Services-kluis |
-| | Inzender voor opslagaccounts | De resource van opslagaccount|
+| | Inzender voor Opslagaccounts |   Waar terugzetten bron en doel-bestandsshares aanwezig zijn de resources van opslagaccount |
+| Beveiliging stoppen | Back-Inzender | Recovery Services-kluis |      
+| Registratie van storage-account van de kluis ongedaan maken |   Back-Inzender | Recovery Services-kluis |
+| | Inzender voor Opslagaccounts | De resource van opslagaccount|
 
 
 ## <a name="next-steps"></a>Volgende stappen

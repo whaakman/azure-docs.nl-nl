@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d5ddec40a1b20e377ec18ce871018f674557e7b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703996"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Transparent Data Encryption in Azure Security Center inschakelen
@@ -41,7 +41,7 @@ Deze aanbeveling is van toepassing op de Azure SQL-service. geen SQL die worden 
 
    Zodra TDE is ingeschakeld voor de geselecteerde SQL-database, de **versleutelingsstatus** wordt gewijzigd in **versleutelde**.    
 
-   ![Versleutelingsstatus][4]
+   ![Status voor schijfversleuteling][4]
 
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebt u geleerd hoe u de aanbeveling van Security Center implementeren 'Transparent Data Encryption inschakelen'. Voor meer informatie over SQL TDE, Zie de volgende:

@@ -10,10 +10,10 @@ ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499957"
 ---
 # <a name="runbook-input-parameters"></a>Invoerparameters voor runbook
@@ -96,7 +96,7 @@ U kunt de [ **Write-Output** ](/powershell/module/microsoft.powershell.utility/w
    |:--- |:--- |
    | `Name` |Vereist. De naam van de parameter. Dit moet uniek zijn binnen het runbook en kunnen bevatten alleen letters, cijfers of onderstrepingstekens. Deze moet beginnen met een letter. |
    | `Description` |Optioneel. Beschrijving over het doel van de invoerparameter. |
-   | `Type` |Optioneel. Het gegevenstype dat wordt verwacht voor de waarde van parameter. Ondersteunde parametertypen zijn **tekenreeks**, **Int32**, **Int64**, **decimaal**, **Booleaanse**,  **Datum-/**, en **Object**. Als een gegevenstype dat niet is geselecteerd, wordt standaard **tekenreeks**. |
+   | `Type` |Optioneel. Het gegevenstype dat wordt verwacht voor de waarde van parameter. Ondersteunde parametertypen zijn **tekenreeks**, **Int32**, **Int64**, **decimaal**, **Booleaanse**,  **Datum-/** , en **Object**. Als een gegevenstype dat niet is geselecteerd, wordt standaard **tekenreeks**. |
    | `Mandatory` |Optioneel. Hiermee geeft u op of moet een waarde worden opgegeven voor de parameter. Als u ervoor kiest **Ja**, en vervolgens moet een waarde worden opgegeven wanneer het runbook wordt gestart. Als u ervoor kiest **geen**, en vervolgens een waarde niet vereist is als het runbook wordt gestart en kan een standaardwaarde worden ingesteld. |
    | `Default Value` |Optioneel. Hiermee geeft u een waarde die wordt gebruikt voor de parameter als een waarde niet wordt doorgegeven wanneer het runbook wordt gestart. Een standaardwaarde kan worden ingesteld voor een parameter die is niet verplicht. Als u wilt een standaardwaarde instelt, kiest u **aangepaste**. Deze waarde wordt gebruikt, tenzij een andere waarde is opgegeven als het runbook wordt gestart. Kies **geen** als u niet wilt bieden een standaardwaarde. |
 

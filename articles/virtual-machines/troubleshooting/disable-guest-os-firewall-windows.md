@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505458"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>De firewall van het gastbesturingssysteem uitschakelen in Azure VM
@@ -104,11 +104,11 @@ Volg deze stappen om het gebruik van [Remote Registry](https://support.microsoft
 
 4.  Open een exemplaar van **Services.msc**.
 
-5.  Klik op **Services (lokaal)**.
+5.  Klik op **Services (lokaal)** .
 
 6.  Selecteer **verbinding maken met een andere computer**.
 
-7.  Voer de **privé IP-adres (DIP)** van de virtuele machine van het probleem.
+7.  Voer de **privé IP-adres (DIP)**  van de virtuele machine van het probleem.
 
 8.  De lokale firewall-beleid voor opnieuw opstarten.
 

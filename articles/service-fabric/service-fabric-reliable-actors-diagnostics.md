@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726567"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnose- en prestatiecontrole voor betrouwbare actoren
@@ -29,7 +29,7 @@ De naam van de gebeurtenisbron-provider voor de Reliable Actors-runtime is 'Micr
 
 Voorbeelden van hulpprogramma's en technologieën die hulp bieden bij het verzamelen en/of EventSource gebeurtenissen bekijken zijn [voorbeeld](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantische logboekregistratie](https://msdn.microsoft.com/library/dn774980.aspx), en de [ Bibliotheek van Microsoft TraceEvent](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-### <a name="keywords"></a>Trefwoorden
+### <a name="keywords"></a>trefwoorden
 Alle gebeurtenissen die deel uitmaken van de betrouwbare actoren EventSource zijn gekoppeld aan een of meer trefwoorden. Hierdoor is het filteren van gebeurtenissen die worden verzameld. De volgende sleutelwoord bits zijn gedefinieerd.
 
 | Bit | Description |
@@ -44,8 +44,8 @@ De runtime Reliable Actors definieert de volgende categorieën voor prestatiemet
 
 | Category | Description |
 | --- | --- |
-| Service Fabric-actor |Prestatiemeteritems specifiek voor Azure Service Fabric-actoren, bijvoorbeeld tijd genomen om op te slaan van de actorstatus |
-| Service Fabric-actormethode |Prestatiemeteritems specifiek zijn voor methoden die worden geïmplementeerd door de Service Fabric-actoren, bijvoorbeeld hoe vaak een actormethode wordt aangeroepen |
+| Service Fabric-Actor |Prestatiemeteritems specifiek voor Azure Service Fabric-actoren, bijvoorbeeld tijd genomen om op te slaan van de actorstatus |
+| Service Fabric-Actormethode |Prestatiemeteritems specifiek zijn voor methoden die worden geïmplementeerd door de Service Fabric-actoren, bijvoorbeeld hoe vaak een actormethode wordt aangeroepen |
 
 Elk van de bovenstaande categorieën heeft een of meer items.
 
@@ -102,9 +102,9 @@ De runtime Reliable Actors publiceert de volgende prestatiemeteritems met betrek
 
 | Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
-| Service Fabric-actormethode |Aanroepen/sec |Aantal keren dat de actorservicemethode wordt aangeroepen per seconde |
-| Service Fabric-actormethode |Gemiddeld aantal milliseconden per aanroep |Gebruikte tijd in milliseconden voor het uitvoeren van de actorservicemethode |
-| Service Fabric-actormethode |Aantal opgetreden uitzonderingen/sec |Aantal keren dat de actorservicemethode een uitzondering per seconde is opgetreden |
+| Service Fabric-Actormethode |Aanroepen per seconde |Aantal keren dat de actorservicemethode wordt aangeroepen per seconde |
+| Service Fabric-Actormethode |Gemiddeld aantal milliseconden per aanroep |Gebruikte tijd voor het uitvoeren van de actorservicemethode in milliseconden |
+| Service Fabric-Actormethode |Opgetreden uitzonderingen/Sec |Aantal keren dat de actorservicemethode een uitzondering per seconde is opgetreden |
 
 ### <a name="concurrency-events-and-performance-counters"></a>Gelijktijdigheid van taken, gebeurtenissen en prestatiemeters
 De Reliable Actors-runtime verzendt de volgende gebeurtenissen met betrekking tot [gelijktijdigheid](service-fabric-reliable-actors-introduction.md#concurrency).
@@ -117,9 +117,9 @@ De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrek
 
 | Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
-| Service Fabric-actor |Aantal actoraanroepen die wachten op een actorvergrendeling |Aantal in behandeling zijnde actoraanroepen die wachten op het verkrijgen van de per-actorvergrendeling die inschakelen op basis van gelijktijdigheid afdwingt |
-| Service Fabric-actor |Gemiddeld aantal milliseconden wachttijd per vergrendeling |Gebruikte tijd (in milliseconden) voor het verkrijgen van de per-actorvergrendeling die inschakelen op basis van gelijktijdigheid afdwingt |
-| Service Fabric-actor |Gemiddeld aantal milliseconden actorvergrendeling vastgehouden |Tijd (in milliseconden) waarvoor de afzonderlijke actorvergrendeling wordt vastgehouden |
+| Service Fabric-Actor |aantal actoraanroepen die wachten op actorvergrendeling |Aantal in behandeling zijnde actoraanroepen die wachten op het verkrijgen van de per-actorvergrendeling die inschakelen op basis van gelijktijdigheid afdwingt |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden per vergrendeling wachttijd |Gebruikte tijd (in milliseconden) voor het verkrijgen van de per-actorvergrendeling die inschakelen op basis van gelijktijdigheid afdwingt |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden actorvergrendeling vastgehouden |Tijd (in milliseconden) waarvoor de afzonderlijke actorvergrendeling wordt vastgehouden |
 
 ### <a name="actor-state-management-events-and-performance-counters"></a>Actor-staat management gebeurtenissen en prestatiemeters
 De Reliable Actors-runtime verzendt de volgende gebeurtenissen met betrekking tot [actor statusbeheer](service-fabric-reliable-actors-state-management.md).
@@ -133,8 +133,8 @@ De runtime Reliable Actors publiceert de volgende prestatiemeteritems met betrek
 
 | Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
-| Service Fabric-actor |Gemiddeld aantal milliseconden per bewerking voor het opslaan van de status |Gebruikte tijd in milliseconden voor het opslaan van de actorstatus |
-| Service Fabric-actor |Gemiddeld aantal milliseconden per bewerking voor het laden van de status |Gebruikte tijd in milliseconden voor het laden van de actorstatus |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden per opslaan bewerking voor de status |Gebruikte tijd voor het opslaan van de actorstatus in milliseconden |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden per bewerking voor het laden status |Gebruikte tijd voor het laden van de actorstatus in milliseconden |
 
 ### <a name="events-related-to-actor-replicas"></a>Gebeurtenissen met betrekking tot actorreplica 's
 De Reliable Actors-runtime verzendt de volgende gebeurtenissen met betrekking tot [actorreplica's](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
@@ -156,17 +156,17 @@ De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrek
 
 | Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
-| Service Fabric-actor |Gemiddeld aantal milliseconden voor OnActivateAsync |Gebruikte tijd in milliseconden voor het uitvoeren van de methode OnActivateAsync |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden voor OnActivateAsync |Gebruikte tijd voor het uitvoeren van de methode OnActivateAsync in milliseconden |
 
 ### <a name="actor-request-processing-performance-counters"></a>Actor-aanvraagverwerking-prestatiemeteritems
 Wanneer een client een methode via een proxy actorobject roept, resulteert dit in een bericht naar de actorservice worden verzonden via het netwerk. De service het aanvraagbericht verwerkt en stuurt een antwoord terug naar de client. De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrekking hebben op de actor-aanvraagverwerking.
 
 | Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
-| Service Fabric-actor |Aantal openstaande aanvragen |Aantal aanvragen in de service wordt verwerkt |
-| Service Fabric-actor |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service om een aanvraag te verwerken |
-| Service Fabric-actor |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Gebruikte tijd (in milliseconden) voor het deserialiseren van het aanvraagbericht actor wanneer het is ontvangen door de service |
-| Service Fabric-actor |Gemiddeld aantal milliseconden voor de serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht actor bij de service voordat de reactie wordt verzonden naar de client |
+| Service Fabric-Actor |aantal openstaande aanvragen |Aantal aanvragen in de service wordt verwerkt |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service om een aanvraag te verwerken |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Gebruikte tijd (in milliseconden) voor het deserialiseren van het aanvraagbericht actor wanneer het is ontvangen door de service |
+| Service Fabric-Actor |Gemiddeld aantal milliseconden voor serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht actor bij de service voordat de reactie wordt verzonden naar de client |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Hoe Reliable Actors het Service Fabric-platform gebruiken](service-fabric-reliable-actors-platform.md)

@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776504"
 ---
 # <a name="pool-create-event"></a>Gebeurtenis pool maken
@@ -61,7 +61,7 @@ ms.locfileid: "60776504"
 |enableInterNodeCommunication|Bool|Hiermee geeft u op of de groep is ingesteld voor rechtstreekse communicatie tussen knooppunten.|
 |isAutoPool|Bool|Hiermee geeft u op of de groep is gemaakt via een job AutoPool mechanisme.|
 |maxTasksPerNode|Int32|Het maximale aantal taken die mogen worden uitgevoerd op een enkel knooppunt in de pool.|
-|vmFillType|String|Hiermee wordt gedefinieerd hoe taken met de Batch-service tussen rekenknooppunten in de groep worden gedistribueerd. Geldige waarden worden verdeeld, of Pack.|
+|vmFillType|String|Hiermee definieert u hoe taken tussen rekenknooppunten in de groep in de Batch-service wordt gedistribueerd. Geldige waarden worden verdeeld, of Pack.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
@@ -82,10 +82,10 @@ ms.locfileid: "60776504"
 
 |De naam van element|Type|Opmerkingen|
 |------------------|----------|-----------|
-|Uitgever|String|De uitgever van de installatiekopie.|
+|publisher|String|De uitgever van de installatiekopie.|
 |aanbieding|String|De aanbieding van de installatiekopie.|
 |sku|String|De SKU van de installatiekopie.|
-|versie|String|De versie van de installatiekopie.|
+|version|String|De versie van de installatiekopie.|
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 

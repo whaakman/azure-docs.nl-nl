@@ -14,15 +14,15 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567420"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Activiteiten voor gegevenstransformatie"]
 > * [Hive-activiteit](data-factory-hive-activity.md)
 > * [Pig-activiteit](data-factory-pig-activity.md)
 > * [MapReduce-activiteit](data-factory-map-reduce.md)
@@ -303,7 +303,7 @@ Het is raadzaam dat u doorloopt de [uw eerste pijplijn met Data Factory maken] [
       }
       ```
 
-      Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**" Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
+      Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.** " Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
 
       > [!NOTE]
       > Activiteit is op te geven voor de AzureMLBatchExecution invoer optioneel.
@@ -407,7 +407,7 @@ Wanneer u de reader-module in een Azure Machine Learning-experiment, kunt u Azur
 In de bovenstaande JSON-voorbeeld:
 
 * De geïmplementeerde Azure Machine Learning-webservice gebruikt een lezer en een schrijfmodule voor lezen/schrijven van gegevens van/naar een Azure SQL Database. Deze webservice wordt aangegeven dat de volgende vier parameters:  Database-servernaam, databasenaam, gebruikersnaam voor account Server en Server het wachtwoord voor gebruikersaccount.
-* Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**" Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
+* Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.** " Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
 
 ### <a name="other-scenarios"></a>Andere scenario's
 #### <a name="web-service-requires-multiple-inputs"></a>Web-service vereist meerdere invoergegevens

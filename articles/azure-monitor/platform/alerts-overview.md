@@ -9,10 +9,10 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347454"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Overzicht van waarschuwingen in Microsoft Azure 
@@ -108,14 +108,14 @@ U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aa
 
 Selecteer de volgende waarden aan de bovenkant van de pagina met waarschuwingen om een andere pagina te openen.
 
-| Value | Beschrijving |
+| Value | Description |
 |:---|:---|
 | Totaal aantal waarschuwingen | Het totale aantal waarschuwingen dat voldoet aan de geselecteerde criteria. Selecteer deze waarde in de weergave alle waarschuwingen openen met geen filter. |
 | Slimme groepen | Het totale aantal slimme groepen die zijn gemaakt op basis van de waarschuwingen die overeenkomen met de geselecteerde criteria. Selecteer deze waarde aan de groepslijst met slimme openen in de weergave alle waarschuwingen.
 | Totaal aantal waarschuwingsregels | Het totale aantal regels voor waarschuwingen in het geselecteerde abonnement en resourcegroep. Selecteer deze waarde om de weergave van de regels gefilterd op het geselecteerde abonnement en resourcegroep te openen.
 
 
-## <a name="manage-alert-rules"></a>Waarschuwingsregels beheren
+## <a name="manage-alert-rules"></a>regels voor waarschuwingen beheren
 Klik op **Waarschuwingsregels beheren** om weer te geven de **regels** pagina. **Regels** is één plek voor het beheren van alle regels voor waarschuwingen voor uw Azure-abonnementen. Het geeft een lijst van alle regels voor waarschuwingen en kan worden gesorteerd op basis van de doelresources, resourcegroepen, regelnaam of status. Regels voor waarschuwingen kunnen ook worden bewerkt, ingeschakeld of uitgeschakeld op deze pagina.  
 
  ![waarschuwingen-regels](./media/alerts-overview/alerts-preview-rules.png)
@@ -150,9 +150,9 @@ U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuz
 | Resourcetype | Selecteer een of meer resourcetypen. Alleen waarschuwingen met doelen van het geselecteerde type worden opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcegroep is opgegeven. |
 | Resource | Selecteer een resource. Alleen waarschuwingen met die bron als doel zijn opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcetype is opgegeven. |
 | Severity | Selecteer de ernst van een waarschuwing of selecteer *alle* om op te nemen van waarschuwingen van alle ernstcategorieën. |
-| Monitorconditie | Selecteer een controleconditie *alle* om op te nemen van waarschuwingen van voorwaarden. |
+| Bewakingsvoorwaarde | Selecteer een controleconditie *alle* om op te nemen van waarschuwingen van voorwaarden. |
 | Waarschuwingsstatus | Selecteer een waarschuwingsstatus *alle* om op te nemen van waarschuwingen van de volgende statussen. |
-| Service bewaken | Selecteer een service of selecteer *alle* om op te nemen alle services. Alleen de waarschuwingen die zijn gemaakt door regels die gebruikmaken van service als een doel zijn opgenomen. |
+| Bewakingsservice | Selecteer een service of selecteer *alle* om op te nemen alle services. Alleen de waarschuwingen die zijn gemaakt door regels die gebruikmaken van service als een doel zijn opgenomen. |
 | Tijdsbereik | Alleen waarschuwingen geactiveerd in het geselecteerde tijdvenster zijn opgenomen in de weergave. Ondersteunde waarden zijn het afgelopen uur, de afgelopen 24 uur, de afgelopen 7 dagen en de afgelopen 30 dagen. |
 
 Selecteer **kolommen** aan de bovenkant van de pagina om te selecteren welke kolommen om weer te geven. 
@@ -164,7 +164,7 @@ De detailpagina van de waarschuwing wordt weergegeven wanneer u een waarschuwing
 
 De detailpagina van de waarschuwing bevat de volgende secties.
 
-| Sectie | Description |
+| Section | Description |
 |:---|:---|
 | Essentials | Geeft de eigenschappen en andere belangrijke informatie over de waarschuwing. |
 | Geschiedenis | Geeft een lijst van elke actie op die door de waarschuwing en eventuele wijzigingen in de waarschuwing. Momenteel beperkt tot de status verandert. |

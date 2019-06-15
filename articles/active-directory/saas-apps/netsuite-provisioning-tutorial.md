@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 928070ae7e5c9077c6f77e8cb7beb36815f47d6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515810"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Zelfstudie: Netsuite configureren voor het automatisch inrichten van gebruikers
@@ -67,7 +67,7 @@ Het doel van deze sectie is om een overzicht van het inschakelen van het inricht
 
 1. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![inrichten](./media/netsuite-provisioning-tutorial/provisioning.png)
+    ![Inrichting](./media/netsuite-provisioning-tutorial/provisioning.png)
 
 1. Onder de **beheerdersreferenties** sectie, geeft u de volgende configuratie-instellingen:
    

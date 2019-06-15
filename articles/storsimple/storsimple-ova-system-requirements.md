@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629302"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systeemvereisten voor StorSimple virtuele array
@@ -94,10 +94,10 @@ De volgende tabel staan de poorten die moeten worden geopend in uw firewall om t
 
 | **Nee. de poort<sup>1</sup>** | **In- of uitschalen** | **Poort-bereik** | **Vereist** | **Opmerkingen** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Uit |WAN |Nee |Uitgaande poort wordt gebruikt voor toegang tot Internet om op te halen van updates. <br></br>De webproxy uitgaande is gebruiker worden geconfigureerd. |
-| TCP 443 (HTTPS) |Uit |WAN |Ja |Uitgaande poort wordt gebruikt voor toegang tot gegevens in de cloud. <br></br>De webproxy uitgaande is gebruiker worden geconfigureerd. |
-| UDP 53 (DNS) |Uit |WAN |In sommige gevallen; Zie de opmerkingen. |Deze poort is alleen vereist als u van een op basis van een Internet-DNS-server gebruikmaakt. <br></br> Houd er rekening mee dat als een bestandsserver implementeert, wordt u aangeraden lokale DNS-server. |
-| UDP 123 (NTP) |Uit |WAN |In sommige gevallen; Zie de opmerkingen. |Deze poort is alleen vereist als u een Internet-gebaseerde NTP-server gebruikt.<br></br> Houd er rekening mee dat als u een bestandsserver implementeert, het beste tijd synchroniseren met uw Active Directory-domeincontrollers. |
+| TCP 80 (HTTP) |out |WAN |Nee |Uitgaande poort wordt gebruikt voor toegang tot Internet om op te halen van updates. <br></br>De webproxy uitgaande is gebruiker worden geconfigureerd. |
+| TCP 443 (HTTPS) |out |WAN |Ja |Uitgaande poort wordt gebruikt voor toegang tot gegevens in de cloud. <br></br>De webproxy uitgaande is gebruiker worden geconfigureerd. |
+| UDP 53 (DNS) |out |WAN |In sommige gevallen; Zie de opmerkingen. |Deze poort is alleen vereist als u van een op basis van een Internet-DNS-server gebruikmaakt. <br></br> Houd er rekening mee dat als een bestandsserver implementeert, wordt u aangeraden lokale DNS-server. |
+| UDP 123 (NTP) |out |WAN |In sommige gevallen; Zie de opmerkingen. |Deze poort is alleen vereist als u een Internet-gebaseerde NTP-server gebruikt.<br></br> Houd er rekening mee dat als u een bestandsserver implementeert, het beste tijd synchroniseren met uw Active Directory-domeincontrollers. |
 | TCP 80 (HTTP) |In |LAN |Ja |Dit is de binnenkomende poort voor lokale gebruikersinterface op het StorSimple-apparaat voor lokaal beheer. <br></br> Houd er rekening mee dat toegang tot de gebruikersinterface voor het lokale via HTTP worden automatisch omgeleid naar HTTPS. |
 | TCP 443 (HTTPS) |In |LAN |Ja |Dit is de binnenkomende poort voor lokale gebruikersinterface op het StorSimple-apparaat voor lokaal beheer. |
 | TCP 3260 (iSCSI) |In |LAN |Nee |Deze poort wordt gebruikt voor toegang tot gegevens via iSCSI. |

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331912"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastische Database-clientbibliotheek met Entity Framework
@@ -45,8 +45,8 @@ Als u deze databases hebt gemaakt, vult u de tijdelijke aanduidingen in **Progra
 
 Entity Framework ontwikkelaars afhankelijk zijn van een van de volgende vier werkstromen om toepassingen te bouwen en om ervoor te zorgen persistentie van de objecten voor toepassingen:
 
-* **Code First (nieuwe Database)**: De ontwikkelaar EF maakt het model in de toepassingscode en EF genereert vervolgens de database uit. 
-* **Code First (bestaande Database)**: De ontwikkelaar kunt EF de toepassingscode voor het model genereren vanuit een bestaande database.
+* **Code First (nieuwe Database)** : De ontwikkelaar EF maakt het model in de toepassingscode en EF genereert vervolgens de database uit. 
+* **Code First (bestaande Database)** : De ontwikkelaar kunt EF de toepassingscode voor het model genereren vanuit een bestaande database.
 * **Eerste model**: De ontwikkelaar maakt het model in de ontwerpfunctie voor EF en EF maakt vervolgens de database uit het model.
 * **Eerste database**: De ontwikkelaar gebruikt EF hulpprogramma's voor het afleiden van het model van een bestaande database. 
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326251"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Algemene richtlijnen voor het werken met Wingtip Tickets voorbeeld-SaaS-apps
@@ -90,7 +90,7 @@ Een geslaagde demo-verbinding, zodat alle servers hebben een [firewallregel](sql
     - **Zelfstandige toepassing:** servers van afzonderlijke tenants (ex.) *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Per tenant-database:** *tenants1-dpt -&lt;gebruiker&gt;. database.windows.net*
     - **Multitenant-database:** *tenants1-mt -&lt;gebruiker&gt;. database.windows.net* 
-2. Klik op **Verbinding maken**  > **Database-engine...**:
+2. Klik op **Verbinding maken**  > **Database-engine...** :
 
    ![catalogusserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 

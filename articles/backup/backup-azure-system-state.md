@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782535"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Back-up van systeemstatus van Windows in Resource Manager-implementatie
@@ -24,7 +24,7 @@ Als u meer wilt weten over Azure Backup, lees dan dit [overzicht](backup-overvie
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan waarmee u toegang hebt tot alle services van Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
-Als u wilt back-up van de systeemstatus van Windows Server, moet u een Recovery Services-kluis maken in de regio waar u de gegevens worden opgeslagen. U moet ook bepalen op welke manier u uw opslag wilt repliceren. 
+Als u wilt back-up van de systeemstatus van Windows Server, moet u een Recovery Services-kluis maken in de regio waar u de gegevens worden opgeslagen. U moet ook bepalen op welke manier u uw opslag wilt repliceren.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
@@ -95,7 +95,7 @@ Nu dat u een kluis hebt gemaakt, kunt u deze voor de back-ups van de systeemstat
 
     ![Open de blade back-updoelstelling](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. Selecteer **On-premises** in het menu **Waar wordt uw workload uitgevoerd?**.
+2. Selecteer **On-premises** in het menu **Waar wordt uw workload uitgevoerd?** .
 
     U kiest **On-premises** omdat uw Windows Server of Windows-computer een fysieke machine is die zich niet in Azure bevindt.
 

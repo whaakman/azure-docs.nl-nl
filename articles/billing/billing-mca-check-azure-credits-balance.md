@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372221"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Azure-tegoed voor Microsoft-KLANTOVEREENKOMST bijhouden
@@ -47,8 +47,8 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
    | Termijn               | Definitie                           |
    |--------------------|--------------------------------------------------------|
-   | Geschat saldo  | Geschatte hoeveelheid tegoed hebt nadat u alle kosten in rekening gebracht en transacties in behandeling |
-   | Huidig saldo    | De hoeveelheid tegoed sinds uw laatste factuur. Deze niet opgenomen in afwachting van transacties |
+   | Geschatte saldo  | Geschatte hoeveelheid tegoed hebt nadat u alle kosten in rekening gebracht en transacties in behandeling |
+   | Het huidige saldo    | De hoeveelheid tegoed sinds uw laatste factuur. Deze niet opgenomen in afwachting van transacties |
    | Transacties       | Alle facturering transacties die beïnvloed saldo van uw Azure-tegoed |
 
    Wanneer het saldo van uw geschatte op 0 komt, wordt u in rekening gebracht voor alle uw gebruik, met inbegrip van producten die worden gedekt door tegoed.
@@ -59,9 +59,9 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
    | Termijn                 | Definitie                           |
    |----------------------|--------------------------------------------------------|
-   | Bron               | De overname-bron van het tegoed |
+   | source               | De overname-bron van het tegoed |
    | Begindatum           | De datum waarop u het tegoed hebt aangeschaft |
-   | Verloopdatum      | De datum waarop het tegoed verloopt |
+   | Vervaldatum      | De datum waarop het tegoed verloopt |
    | Saldo              | Het saldo van uw laatste factuur |
    | Oorspronkelijke hoeveelheid      | De oorspronkelijke hoeveelheid tegoed |
    | Status               | De huidige status van krediet. De status kan actief is, worden gebruikt, is verlopen of verloopt |
@@ -93,7 +93,7 @@ Azure-tegoed vormen een van de betalingswijzen. U ontvangt tegoed van Microsoft,
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 

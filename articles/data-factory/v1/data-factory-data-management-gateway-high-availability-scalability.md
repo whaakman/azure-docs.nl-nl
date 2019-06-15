@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488630"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hoge beschikbaarheid en schaalbaarheid (Preview)
@@ -165,7 +165,7 @@ Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor he
 - Elk knooppunt voor integration runtime moet dit certificaat, evenals de client-computer waarop de toepassing Referentiebeheer vertrouwen. 
   > [!NOTE]
   > Toepassing Referentiebeheer wordt gebruikt bij het instellen van beveiligde referentie van de Wizard kopiëren / Azure Portal. En dit kan zijn van een computer in hetzelfde netwerk bevinden als de on-premises geactiveerde / persoonlijke gegevensopslag.
-- Jokertekens certificaten worden ondersteund. Als uw FQDN-naam is **node1.domain.contoso.com**, kunt u ***. domain.contoso.com** als onderwerpnaam van het certificaat.
+- Jokertekens certificaten worden ondersteund. Als uw FQDN-naam is **node1.domain.contoso.com**, kunt u * **. domain.contoso.com** als onderwerpnaam van het certificaat.
 - SAN-certificaten worden niet aanbevolen, omdat alleen het laatste item van de alternatieve namen voor onderwerpen worden gebruikt en alle andere worden genegeerd vanwege een beperking. Bijvoorbeeld u hebt een SAN-certificaat waarvan SAN zijn **node1.domain.contoso.com** en **node2.domain.contoso.com**, kunt u dit certificaat alleen gebruiken op de machine waarvan FQDN **node2.domain.contoso.com**.
 - Ondersteunt sleutelgrootte ondersteund door Windows Server 2012 R2 voor SSL-certificaten.
 - Het certificaat met CNG sleutels worden niet ondersteund.
@@ -184,11 +184,11 @@ U kunt de near-real-time-momentopname van Resourcegebruik (CPU, geheugen, networ
 
 U kunt inschakelen **geavanceerde instellingen** in de **Gateway** pagina voor geavanceerde metrische gegevens, zoals **netwerk**(in/uit), **rollen en referentiestatus**, dit is handig bij het opsporen van gatewayproblemen, en **gelijktijdige taken** (actief / beperken) die kan worden gewijzigd / gewijzigde dienovereenkomstig tijdens het afstemmen van prestaties. De volgende tabel bevat beschrijvingen van de kolommen in de **Gatewayknooppunten** lijst:  
 
-Bewaking van eigenschap | Beschrijving
+Bewaking van eigenschap | Description
 :------------------ | :---------- 
 Name | De naam van de logische-gateway en de knooppunten die zijn gekoppeld aan de gateway.  
 Status | De status van de logische-gateway en de gateway-knooppunten. Voorbeeld: Online/Offline/Limited/etc. Zie voor meer informatie over deze statussen [gatewaystatus](#gateway-status) sectie. 
-Versie | Toont de versie van de logische gateway en de gateway-knooppunt. De versie van de logische gateway wordt bepaald op basis van de versie van het merendeel van de knooppunten in de groep. Als er knooppunten met verschillende versies in de logische gateway-instellingen, alleen de knooppunten met het versienummer hetzelfde als de functie logische gateway correct zijn. Anderen in de beperkte modus zijn en moeten handmatig worden bijgewerkt (alleen als automatisch bijwerken is mislukt). 
+Version | Toont de versie van de logische gateway en de gateway-knooppunt. De versie van de logische gateway wordt bepaald op basis van de versie van het merendeel van de knooppunten in de groep. Als er knooppunten met verschillende versies in de logische gateway-instellingen, alleen de knooppunten met het versienummer hetzelfde als de functie logische gateway correct zijn. Anderen in de beperkte modus zijn en moeten handmatig worden bijgewerkt (alleen als automatisch bijwerken is mislukt). 
 Beschikbaar geheugen | Beschikbaar geheugen op een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
 CPU-gebruik | CPU-gebruik van een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
 Netwerken (In/uit) | Het netwerkgebruik van een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60623949"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Over het gebruik van Twilio voor spraak en SMS-mogelijkheden in Java
@@ -42,17 +42,17 @@ De API maakt gebruik van Twilio termen; bijvoorbeeld, de **&lt;zeg&gt;** term ge
 
 Hier volgt een lijst met Twilio-bewerkingen.
 
-* **&lt;Dial&gt;**: De oproepende functie verbindt met een ander telefoonnummer.
-* **&lt;Gather&gt;**: Verzamelt cijfers ingevoerd op het telefoonnummer.
-* **&lt;Ophangen&gt;**: Een gesprek is beëindigd.
-* **&lt;Afspelen&gt;**: Hiermee wordt een geluidsbestand afgespeeld.
-* **&lt;Wachtrij&gt;**: Voeg het aan een wachtrij met aanroepers.
-* **&lt;Onderbreken&gt;**: Wacht op de achtergrond gedurende een opgegeven aantal seconden.
-* **&lt;Record&gt;**: Registreert de stem van de oproepende functie en het resultaat van een URL van een bestand met de opname.
-* **&lt;Omleiden&gt;**: Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
-* **&lt;Afwijzen&gt;**: Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder facturering u.
-* **&lt;Stel dat&gt;**: Converteert tekst naar spraak die wordt gemaakt op een aanroep.
-* **&lt;Sms&gt;**: Verzendt een SMS-bericht.
+* **&lt;Dial&gt;** : De oproepende functie verbindt met een ander telefoonnummer.
+* **&lt;Gather&gt;** : Verzamelt cijfers ingevoerd op het telefoonnummer.
+* **&lt;Ophangen&gt;** : Een gesprek is beëindigd.
+* **&lt;Afspelen&gt;** : Hiermee wordt een geluidsbestand afgespeeld.
+* **&lt;Wachtrij&gt;** : Voeg het aan een wachtrij met aanroepers.
+* **&lt;Onderbreken&gt;** : Wacht op de achtergrond gedurende een opgegeven aantal seconden.
+* **&lt;Record&gt;** : Registreert de stem van de oproepende functie en het resultaat van een URL van een bestand met de opname.
+* **&lt;Omleiden&gt;** : Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
+* **&lt;Afwijzen&gt;** : Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder facturering u.
+* **&lt;Stel dat&gt;** : Converteert tekst naar spraak die wordt gemaakt op een aanroep.
+* **&lt;Sms&gt;** : Verzendt een SMS-bericht.
 
 ### <a id="TwiML"></a>TwiML
 TwiML is een set op basis van de Twilio-termen die Twilio van het verwerken van een oproep of SMS op de hoogte op basis van een XML-instructies.
@@ -158,7 +158,7 @@ Hieronder ziet u hoe u verzendt een SMS-bericht met de **bericht** klasse. De **
 Voor meer informatie over de parameters doorgegeven aan de **Message.creator** methode, Zie [ https://www.twilio.com/docs/api/rest/sending-sms ] [ twilio_rest_sending_sms].
 
 ## <a id="howto_provide_twiml_responses"></a>Procedures: Bieden van respons TwiML van uw eigen Website
-Wanneer uw toepassing initieert een aanroep naar de Twilio API, bijvoorbeeld de **CallCreator.create** methode, Twilio wordt uw aanvraag verzenden naar een URL die wordt verwacht dat TwiML reactie retourneren. Het bovenstaande voorbeeld maakt gebruik van de URL van de geleverde Twilio [ https://twimlets.com/message ] [ twimlet_message_url]. (Hoewel TwiML is ontworpen voor gebruik door webservices, vindt u de TwiML in uw browser. Bijvoorbeeld, klikt u op [ https://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege **&lt;antwoord&gt;** element; een ander voorbeeld, klikt u op [ https://twimlets.com/message?Message%5B0%5D=Hello%20World%21 ] [ twimlet_message_url_hello_world] om te zien een **&lt;antwoord&gt;** element bevat een **&lt;zeg&gt;** element.)
+Wanneer uw toepassing initieert een aanroep naar de Twilio API, bijvoorbeeld de **CallCreator.create** methode, Twilio wordt uw aanvraag verzenden naar een URL die wordt verwacht dat TwiML reactie retourneren. Het bovenstaande voorbeeld maakt gebruik van de URL van de geleverde Twilio [ https://twimlets.com/message ] [ twimlet_message_url]. (Hoewel TwiML is ontworpen voor gebruik door webservices, vindt u de TwiML in uw browser. Bijvoorbeeld, klikt u op [ https://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege **&lt; antwoord&gt;** element; een ander voorbeeld, klikt u op [ https://twimlets.com/message?Message%5B0%5D=Hello%20World%21 ] [ twimlet_message_url_hello_world] om te zien een **&lt; antwoord&gt;** element bevat een **&lt; zeg&gt;** element.)
 
 In plaats van de geleverde Twilio-URL, kunt u uw eigen URL-locatie waarmee HTTP-antwoorden worden geretourneerd. U kunt de site maken in elke taal waarmee HTTP-antwoorden; wordt geretourneerd in dit onderwerp wordt ervan uitgegaan dat u de URL in een JSP-pagina gaat hosten.
 

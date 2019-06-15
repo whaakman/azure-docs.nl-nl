@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630310"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Inleiding tot StorSimple Virtual Array
@@ -76,7 +76,7 @@ Een overzicht van ondersteunde werkbelastingen van StorSimple is Zie tabel hiero
 
 |Scenario     |Workload     |Ondersteund      |Beperkingen               | Versies van toepassing|
 |-------------|-------------|---------------|---------------------------|--------------------|
-|Externe kantoren/filialen Office (ROBO)  |Bestandsdeling     |Ja      |Zie [maximumlimieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
+|Externe kantoren/filialen Office (ROBO)  |Het delen van bestanden     |Ja      |Zie [maximumlimieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
 |In de cloud archiveren  |Archivering het delen van bestanden     |Ja      |Zie [maximumlimieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
 
 De StorSimple Virtual Array is het meest geschikt voor weinig gebruikte gegevens. Terwijl de virtuele matrix een lokale cache is om prestaties te verbeteren, gebruikers ervan uitgaan dat het apparaat services-bestanden van het laagste niveau van de opslag (cloud). Elke virtuele matrix kunt schrijven en lezen naar Azure-opslag met ongeveer 100 Mbps. Deze koppeling wordt gedeeld door alle aanvragen die afkomstig zijn bij het apparaat en kan een knelpunt zoals wordt weergegeven in het onderstaande diagram.

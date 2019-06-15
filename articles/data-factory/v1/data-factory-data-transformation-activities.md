@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: b1a99f2872a69e01232c69a73f36319552429ca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486597"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformeer gegevens in Azure Data Factory
@@ -69,7 +69,7 @@ Zie [gebruik Machine Learning-activiteiten](data-factory-azure-ml-batch-executio
 ## <a name="stored-procedure-activity"></a>Opgeslagen procedureactiviteit
 U kunt de SQL Server opgeslagen Procedure-activiteit in een Data Factory-pijplijn gebruiken om aan te roepen een opgeslagen procedure in een van de volgende gegevensarchieven: Azure SQL-Database, Azure SQL Data Warehouse, SQL Server-Database in uw onderneming of een Azure-VM. Zie [opgeslagen-Procedureactiviteit](data-factory-stored-proc-activity.md) artikel voor meer informatie.  
 
-## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-activiteit van Data Lake Analytics
+## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-activiteit
 Data Lake Analytics U-SQL-activiteit wordt een U-SQL-script uitgevoerd op een Azure Data Lake Analytics-cluster. Zie [Data Analytics U-SQL-activiteit](data-factory-usql-activity.md) artikel voor meer informatie. 
 
 ## <a name="net-custom-activity"></a>Aangepaste .NET-activiteit

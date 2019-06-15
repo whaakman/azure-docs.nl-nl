@@ -12,10 +12,10 @@ ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7611f5f16111b5d8b0d2d293750f658125e50837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60535429"
 ---
 # <a name="constituency-parsing"></a>Frasestructuur parseren
@@ -58,7 +58,7 @@ Het doel van een parser is om alle dergelijke woordgroepen vinden.
 Opmerkelijk, in natuurlijke taal, de zinnen zijn meestal zijn genest binnen elkaar.
 Een natuurlijke weergave van de volgende zinnen is een structuur, zoals het volgende:
 
-![Boomstructuur](./Images/tree.png)
+![structuur](./Images/tree.png)
 
 In deze structuur zijn de branches die zijn gemarkeerd als "NP" zelfstandig naamwoord zinnen.
 Er zijn verschillende dergelijke zinnen: *Ik*, *een nieuwe hybride auto*, *Bluetooth*, en *een nieuwe hybride auto met Bluetooth*.

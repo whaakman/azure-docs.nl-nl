@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630561"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>StorSimple indicatoren gebruiken om uw apparaat te beheren
@@ -239,7 +239,7 @@ De volgende tabel beschrijft de verschillende voorwaarden voor de waarschuwing.
 | Besturingselement voor station stroomstoring |Waarschuwing: zonder verlies van station power |S1 |Module-fout |
 | Besturingselement voor station stroomstoring |Fout: essentiële; stroomstoring station |S1 |Module-fout |
 | Station verwijderd |Waarschuwing |Geen |Module-fout |
-| Onvoldoende acculading beschikbaar |Waarschuwing |geen |Module-fout |
+| Onvoldoende acculading beschikbaar |Waarschuwing |Geen |Module-fout |
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [StorSimple hardware-onderdelen en de status](storsimple-8000-monitor-hardware-status.md).

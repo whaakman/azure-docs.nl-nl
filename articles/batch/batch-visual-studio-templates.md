@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550075"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio-projectsjablonen voor Batch-oplossingen snel gebruiken
@@ -89,7 +89,7 @@ Als u wilt een taak toevoegen aan de oplossing die u eerder hebt gemaakt, de vol
 
 1. Open uw bestaande oplossing in Visual Studio.
 2. Klik in Solution Explorer met de rechtermuisknop op de oplossing, klikt u op **toevoegen** > **nieuw Project**.
-3. Onder **Visual C#**, klikt u op **Cloud**, en klik vervolgens op **Azure Batch-Job Manager met taak splitsen**.
+3. Onder **Visual C#** , klikt u op **Cloud**, en klik vervolgens op **Azure Batch-Job Manager met taak splitsen**.
 4. Typ een naam die uw toepassing wordt beschreven en wordt dit project (bijvoorbeeld als de beheerder van de taak geïdentificeerd "LitwareJobManager").
 5. Klik op om het project **OK**.
 6. Bouw ten slotte het project om af te dwingen van Visual Studio laden van alle waarnaar wordt verwezen, NuGet-pakketten en om te verifiëren dat het project geldig is voordat u begint dat u deze wijzigt.
@@ -258,7 +258,7 @@ De processor van een taak toevoegen aan de oplossing die u eerder hebt gemaakt, 
 
 1. Open uw bestaande oplossing in Visual Studio.
 2. Klik in Solution Explorer met de rechtermuisknop op de oplossing, klikt u op **toevoegen**, en klik vervolgens op **nieuw Project**.
-3. Onder **Visual C#**, klikt u op **Cloud**, en klik vervolgens op **Azure Batch-taak Processor**.
+3. Onder **Visual C#** , klikt u op **Cloud**, en klik vervolgens op **Azure Batch-taak Processor**.
 4. Typ een naam die wordt beschreven voor uw en dit project (bijvoorbeeld) identificeert als de taak-processor "LitwareTaskProcessor").
 5. Klik op om het project **OK**.
 6. Bouw ten slotte het project om af te dwingen van Visual Studio laden van alle waarnaar wordt verwezen, NuGet-pakketten en om te verifiëren dat het project geldig is voordat u begint dat u deze wijzigt.

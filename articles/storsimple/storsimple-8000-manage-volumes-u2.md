@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634724"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>De StorSimple Device Manager-service gebruiken voor het beheren van volumes (Update 3 of hoger)
@@ -48,7 +48,7 @@ Lokaal vastgemaakte volumes worden volledig is ingericht; u moet daarom voldoend
 
 Wanneer u een lokaal vastgemaakt volume maakt, wordt de beschikbare ruimte voor het maken van gelaagde volumes verminderd. Het omgekeerde geldt ook: hebt u een bestaande gelaagde volumes, de ruimte die beschikbaar zijn voor het maken van lokaal volumes vastgemaakte worden niet lager zijn dan de bovenstaande maximumlimieten. Raadpleeg voor meer informatie over lokale volumes, de [Veelgestelde vragen over de lokaal vastgemaakte volumes](storsimple-8000-local-volume-faq.md).
 
-### <a name="tiered-volumes"></a>Gelaagde volumes
+### <a name="tiered-volumes"></a>Gelaagd volumes
 
 Gelaagde volumes zijn dun ingerichte volumes waarop de veelgebruikte gegevens lokaal op het apparaat blijft en gelaagde minder vaak gebruikte gegevens automatisch naar de cloud. Thin provisioning is een virtualisatietechnologie waarin beschikbare opslag meer dan fysieke resources wordt weergegeven. In plaats van het reserveren van tevoren voldoende opslagruimte, StorSimple maakt gebruik van thin provisioning, net voldoende ruimte om te voldoen aan de actuele vereisten toe te wijzen. De elastische aard van opslag in de cloud vereenvoudigt het uitvoeren van deze benadering omdat StorSimple kunt vergroten of verkleinen van opslag in de cloud om te voldoen aan veranderende eisen.
 

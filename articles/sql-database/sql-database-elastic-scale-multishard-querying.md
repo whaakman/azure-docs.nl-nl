@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761689"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Multi-shard query's uitvoeren met behulp van hulpprogramma's voor elastische databases
@@ -61,7 +61,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 
 Een belangrijk verschil is het maken van meerdere shard-verbindingen. Waar **SqlConnection** is van invloed op een individuele database, de **MultiShardConnection** duurt een ***verzameling van shards*** als invoer. Vul de verzameling van shards van een shard-toewijzing. De query wordt vervolgens uitgevoerd op de verzameling van shards met behulp van **UNION ALL** semantiek voor het samenstellen van een enkel het uiteindelijke resultaat. (Optioneel) de naam van de shard waar de rij is afkomstig uit kan worden toegevoegd aan de uitvoer met behulp van de **ExecutionOptions** eigenschap van de opdracht.
 
-Houd er rekening mee de aanroep van **myShardMap.GetShards()**. Deze methode haalt alle shards van de shard-toewijzing en biedt een eenvoudige manier om een query uitvoeren voor alle relevante databases. De verzameling van shards voor een query meerdere shards verfijnd worden kan verder door het uitvoeren van een LINQ-query op de verzameling geretourneerd van de aanroep aan **myShardMap.GetShards()**. In combinatie met het beleid voor gedeeltelijke resultaten, is de huidige capaciteit in meerdere shards uitvoeren van query's zijn ontworpen om goed voor tientallen tot honderden shards.
+Houd er rekening mee de aanroep van **myShardMap.GetShards()** . Deze methode haalt alle shards van de shard-toewijzing en biedt een eenvoudige manier om een query uitvoeren voor alle relevante databases. De verzameling van shards voor een query meerdere shards verfijnd worden kan verder door het uitvoeren van een LINQ-query op de verzameling geretourneerd van de aanroep aan **myShardMap.GetShards()** . In combinatie met het beleid voor gedeeltelijke resultaten, is de huidige capaciteit in meerdere shards uitvoeren van query's zijn ontworpen om goed voor tientallen tot honderden shards.
 
 Een beperking met meerdere shards uitvoeren van query's is momenteel het ontbreken van validatie voor shards en shardlets die zijn opgevraagd. Terwijl gegevensafhankelijke routering heeft geverifieerd dat een bepaalde shard deel van de shard-toewijzing op het moment van het uitvoeren van query's uitmaakt, voer multi-shard query's niet deze controle uit. Dit kan leiden tot meerdere shard-query's die worden uitgevoerd op databases die zijn verwijderd uit de shard-toewijzing.
 

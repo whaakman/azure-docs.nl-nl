@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349817"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatische upgrade
@@ -40,7 +40,7 @@ De huidige status van de automatische upgrade kan worden weergegeven met de Powe
 | Status | Opmerking |
 | --- | --- |
 | Enabled |Automatisch bijwerken is ingeschakeld. |
-| Uitgesteld |Door het systeem alleen ingesteld. Het systeem is **momenteel niet** in aanmerking voor automatische upgrades. |
+| Suspended |Door het systeem alleen ingesteld. Het systeem is **momenteel niet** in aanmerking voor automatische upgrades. |
 | Uitgeschakeld |Automatisch bijwerken is uitgeschakeld. |
 
 U kunt wisselen tussen **ingeschakeld** en **uitgeschakelde** met `Set-ADSyncAutoUpgrade`. Alleen het systeem moet de status ingesteld **onderbroken**.  Voorafgaand aan 1.1.750.0 zou de cmdlet Set-ADSyncAutoUpgrade Autoupgrade geblokkeerd als de status van de automatische clientupdate is ingesteld op uitgesteld. Deze functionaliteit is nu gewijzigd zodat AutoUpgrade niet worden geblokkeerd.
@@ -67,7 +67,7 @@ U ziet nu de gebeurtenislogboeken die zijn gekoppeld aan de status voor automati
 
 De resultaatcode heeft een voorvoegsel met een overzicht van de status.
 
-| Het voorvoegsel van de resultaat | Beschrijving |
+| Het voorvoegsel van de resultaat | Description |
 | --- | --- |
 | Geslaagd |De installatie is bijgewerkt. |
 | UpgradeAborted |Een tijdelijke situatie de upgrade gestopt. Het wordt opnieuw geprobeerd en de verwachting is dat deze later slaagt. |
@@ -75,7 +75,7 @@ De resultaatcode heeft een voorvoegsel met een overzicht van de status.
 
 Hier volgt een lijst van de meest voorkomende berichten die u wilt zoeken. Deze lijst bevat niet alle, maar het bericht met het resultaat moet wissen met wat het probleem is.
 
-| Bericht met het resultaat | Beschrijving |
+| Bericht met het resultaat | Description |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Kan niet schrijven naar het register. |

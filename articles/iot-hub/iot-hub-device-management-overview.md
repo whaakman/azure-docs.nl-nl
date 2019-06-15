@@ -2,18 +2,16 @@
 title: Overzicht van Apparaatbeheer met Azure IoT Hub | Microsoft Docs
 description: Overzicht van Apparaatbeheer in Azure IoT Hu--enterprise-apparaat levenscyclus en apparaatbeheerpatronen, zoals opnieuw opstarten, Fabrieksinstellingen terugzetten, firmware-update, configuratie, apparaatdubbels, query's, -taken.
 author: bzurcher
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 08/24/2017
-ms.date: 10/29/2018
-ms.author: v-yiso
+ms.date: 08/24/2017
+ms.author: briz
 ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400921"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Overzicht van apparaatbeheer met IoT Hub
@@ -24,25 +22,29 @@ Azure IoT Hub biedt de functies en het uitbreidingsmodel waarmee apparaat- en ba
 
 Een essentieel onderdeel van het maken van een geslaagde enterprise-IoT-oplossing is het bieden van een strategie voor hoe operators omgaan met het continue beheer van de apparaten in hun bedrijf. IoT-operators hebben eenvoudige en betrouwbare hulpprogramma's en toepassingen nodig waarmee ze zich kunnen concentreren op de strategische aspecten van hun werk. Dit artikel bevat:
 
-- Een kort overzicht van de Azure IoT Hub-aanpak van apparaatbeheer.
-- Een beschrijving van de algemene principes van apparaatbeheer.
-- Een beschrijving van de levenscyclus van het apparaat.
-- Een overzicht van de algemene patronen van apparaatbeheer.
+* Een kort overzicht van de Azure IoT Hub-aanpak van apparaatbeheer.
+* Een beschrijving van de algemene principes van apparaatbeheer.
+* Een beschrijving van de levenscyclus van het apparaat.
+* Een overzicht van de algemene patronen van apparaatbeheer.
 
 ## <a name="device-management-principles"></a>Principes van apparaatbeheer
+
 IoT zorgt voor unieke apparaatbeheeruitdagingen en elke oplossing van enterprise-klasse moet rekening houden met de volgende principes:
 
 ![Afbeelding Principes van apparaatbeheer](media/iot-hub-device-management-overview/image4.png)
 
-- **Schaal en automatisering**: IoT-oplossingen vereisen een eenvoudige hulpprogramma's die kunnen worden routinematige taken geautomatiseerd en waarmee een relatief klein aantal operationele medewerkers miljoenen apparaten kan beheren. Operators verwachten dagelijks apparaatbewerkingen extern en bulksgewijs uit te voeren en alleen te worden gewaarschuwd wanneer er problemen opduiken waarvoor hun directe aandacht is vereist.
+* **Schaal en automatisering**: IoT-oplossingen vereisen een eenvoudige hulpprogramma's die kunnen worden routinematige taken geautomatiseerd en waarmee een relatief klein aantal operationele medewerkers miljoenen apparaten kan beheren. Operators verwachten dagelijks apparaatbewerkingen extern en bulksgewijs uit te voeren en alleen te worden gewaarschuwd wanneer er problemen opduiken waarvoor hun directe aandacht is vereist.
 
-- **Openheid en compatibiliteit**: Het ecosysteem van apparaten is buitengewoon Divers. Beheerhulpprogramma's moeten zo worden aangepast dat ze kunnen omgaan met een groot aantal apparaatklassen, platforms en protocollen. Operators moeten vele typen apparaten kunnen ondersteunen, van de meest beperkte ingesloten chips voor enkelvoudige processen tot krachtige en volledig functionele computers.
-- **Contextbewustzijn**: IoT-omgevingen zijn dynamisch en veranderen voortdurend. Betrouwbaarheid van de service is cruciaal. Tijdens bewerkingen voor apparaatbeheer moet er rekening worden gehouden met de volgende factoren, om ervoor te zorgen dat uitvaltijd wegens onderhoud de kritieke bedrijfsbewerkingen niet beïnvloedt en geen gevaarlijke situaties creëert:
+* **Openheid en compatibiliteit**: Het ecosysteem van apparaten is buitengewoon Divers. Beheerhulpprogramma's moeten zo worden aangepast dat ze kunnen omgaan met een groot aantal apparaatklassen, platforms en protocollen. Operators moeten vele typen apparaten kunnen ondersteunen, van de meest beperkte ingesloten chips voor enkelvoudige processen tot krachtige en volledig functionele computers.
+
+* **Contextbewustzijn**: IoT-omgevingen zijn dynamisch en veranderen voortdurend. Betrouwbaarheid van de service is cruciaal. Tijdens bewerkingen voor apparaatbeheer moet er rekening worden gehouden met de volgende factoren, om ervoor te zorgen dat uitvaltijd wegens onderhoud de kritieke bedrijfsbewerkingen niet beïnvloedt en geen gevaarlijke situaties creëert:
+
     * SLA-onderhoudsvensters
     * Netwerk- en voedingsstatussen
     * Voorwaarden wanneer in gebruik
     * Geolocatie van apparaat
-- **Vele rollen bedienen**: Ondersteuning voor de unieke werkstromen en processen van IoT-bewerkingsrollen is cruciaal. Beheerders moeten in harmonie met de gegeven beperkingen van interne IT-afdelingen werken.  Ze moeten ook duurzame manieren vinden om in realtime gegevens over apparaatbewerkingen door te sturen naar toezichthouders en andere zakelijke leidinggevende rollen.
+
+* **Vele rollen bedienen**: Ondersteuning voor de unieke werkstromen en processen van IoT-bewerkingsrollen is cruciaal. Beheerders moeten in harmonie met de gegeven beperkingen van interne IT-afdelingen werken.  Ze moeten ook duurzame manieren vinden om in realtime gegevens over apparaatbewerkingen door te sturen naar toezichthouders en andere zakelijke leidinggevende rollen.
 
 ## <a name="device-lifecycle"></a>Levenscyclus van apparaat
 Er is een set algemene fasen voor apparaatbeheer die hetzelfde zijn voor alle enterprise-IoT-projecten. In Azure IoT zijn er vijf fasen binnen de levenscyclus van een apparaat:
@@ -114,6 +116,7 @@ Met IoT Hub wordt de volgende set apparaatbeheerpatronen mogelijk gemaakt. De [z
     ![Afbeelding van het proces- en statuspatroon van apparaatbeheerrapportage](./media/iot-hub-device-management-overview/report-progress-pattern.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 U kunt de mogelijkheden, patronen en codebibliotheken die IoT Hub biedt voor apparaatbeheer, gebruiken voor het maken van IoT-toepassingen die voldoen aan de enterprise-IoT-operatorvereisten in elke fase van de levenscyclus van een apparaat.
 
 Om meer te leren over de functies voor Apparaatbeheer in IoT Hub, Zie de [aan de slag met Apparaatbeheer](iot-hub-node-node-device-management-get-started.md) zelfstudie.

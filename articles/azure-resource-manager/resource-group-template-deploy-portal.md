@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520582"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Resources implementeren met Resource Manager-sjablonen en Azure Portal
@@ -30,7 +30,7 @@ In dit artikel ziet u hoe u de [Azure-portal](https://portal.azure.com) met [Azu
 
 1. Selecteer onder de resourcegroepen, **toevoegen**.
 
-   ![Resourcegroep toevoegen](./media/resource-group-template-deploy-portal/add-resource-group.png)
+   ![resourcegroep toevoegen](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
 1. Wijs hieraan een naam en locatie en, indien nodig, selecteert u een abonnement. U moet een locatie voor de resourcegroep opgeven, omdat de resourcegroep metagegevens op over de resources slaat. Om wettelijke redenen, kunt u opgeven waar de metagegevens worden opgeslagen. In het algemeen is het raadzaam dat u opgeeft dat een locatie waar de meeste van uw resources worden opgeslagen. Met behulp van dezelfde locatie bevinden, kan de sjabloon vereenvoudigen.
 

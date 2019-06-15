@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
 ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60600404"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Beheren van VMware vCenter-server
@@ -98,7 +98,7 @@ Als het IP-adres wordt bijgewerkt, kan Site Recovery-onderdelen wordt gestart de
 ## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Aantal beveiligde virtuele machines migreren naar een nieuwe vCenter
 
 > [!NOTE]
-> In deze sectie is van toepassing alleen wanneer u migreert enkele van uw beveiligde virtuele machines naar een nieuwe vCenter. Als u wilt dat een nieuwe set van virtuele machines beschermen tegen een nieuwe vCenter [nieuwe details voor vCenter toevoegen aan de configuratieserver](#add-vmware-server-to-the-vault) en beginnen met  **[beveiliging inschakelen](vmware-azure-tutorial.md#enable-replication)**.
+> In deze sectie is van toepassing alleen wanneer u migreert enkele van uw beveiligde virtuele machines naar een nieuwe vCenter. Als u wilt dat een nieuwe set van virtuele machines beschermen tegen een nieuwe vCenter [nieuwe details voor vCenter toevoegen aan de configuratieserver](#add-vmware-server-to-the-vault) en beginnen met  **[beveiliging inschakelen](vmware-azure-tutorial.md#enable-replication)** .
 
 Een paar virtuele machines verplaatsen naar een nieuwe vCenter:
 
@@ -108,7 +108,7 @@ Een paar virtuele machines verplaatsen naar een nieuwe vCenter:
 4. Nu beveiligen gemigreerde virtuele machines door [de nieuwe vCenter selecteren wanneer u beveiliging inschakelt](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Als het aantal virtuele machines gemigreerd **hogere** dat het aantal virtuele machines die zijn opgeslagen in de oude vCenter, het IP-adres van de nieuwe vCenter met behulp van de instructies hier bijwerken. Voor het aantal virtuele machines die worden bewaard op de oude vCenter [replicatie uitschakelen](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [nieuwe details voor vCenter toevoegen aan de configuratieserver](#add-vmware-server-to-the-vault), en start  **[beveiliging inschakelen](vmware-azure-tutorial.md#enable-replication)**.
+> Als het aantal virtuele machines gemigreerd **hogere** dat het aantal virtuele machines die zijn opgeslagen in de oude vCenter, het IP-adres van de nieuwe vCenter met behulp van de instructies hier bijwerken. Voor het aantal virtuele machines die worden bewaard op de oude vCenter [replicatie uitschakelen](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [nieuwe details voor vCenter toevoegen aan de configuratieserver](#add-vmware-server-to-the-vault), en start  **[beveiliging inschakelen](vmware-azure-tutorial.md#enable-replication)** .
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

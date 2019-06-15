@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611349"
 ---
 # <a name="the-azure-production-network"></a>De Azure-productienetwerk
@@ -54,7 +54,7 @@ Firewallfuncties op verschillende niveaus voor het afdwingen van beveiligingsfun
 ### <a name="azure-security-features"></a>Functies van Azure-beveiliging
 De implementatie van Azure-host op basis van softwarefirewalls in het productienetwerk. Verschillende kernbeveiliging en firewall-functies zich bevinden in de belangrijkste Azure-omgeving. Deze beveiligingsfuncties weer een ingrijpende strategie in de Azure-omgeving. Klantgegevens in Azure wordt beveiligd door de volgende firewalls:
 
-**Hypervisor-firewall (pakketfilter)**: Deze firewall wordt in de hypervisor geïmplementeerd en geconfigureerd door de infrastructuurcontroller (FC)-agent. Deze firewall beveiligt de tenant die wordt uitgevoerd binnen de virtuele machine tegen onbevoegde toegang. Standaard, wanneer een virtuele machine wordt gemaakt, al het verkeer wordt geblokkeerd en vervolgens de agent FC regels en uitzonderingen toegevoegd in het filter geautoriseerde verkeer toe te staan.
+**Hypervisor-firewall (pakketfilter)** : Deze firewall wordt in de hypervisor geïmplementeerd en geconfigureerd door de infrastructuurcontroller (FC)-agent. Deze firewall beveiligt de tenant die wordt uitgevoerd binnen de virtuele machine tegen onbevoegde toegang. Standaard, wanneer een virtuele machine wordt gemaakt, al het verkeer wordt geblokkeerd en vervolgens de agent FC regels en uitzonderingen toegevoegd in het filter geautoriseerde verkeer toe te staan.
 
 Twee categorieën regels worden hier geprogrammeerd:
 

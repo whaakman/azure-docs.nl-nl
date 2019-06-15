@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 4843828c89b04e36b0bcc73dcedf9c5735b73729
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610862"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Beveiliging-Frame: Controle en logboekregistratie | Oplossingen 
@@ -76,7 +76,7 @@ ms.locfileid: "60610862"
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
-| **Stappen**                   | <p>Controleer of u zich niet gevoelige gegevens die een gebruiker worden verzonden naar uw site. Controleer voor opzettelijke logboekregistratie, evenals neveneffecten veroorzaakt door problemen van ontwerp. Voorbeelden van gevoelige gegevens zijn:</p><ul><li>Gebruikersreferenties</li><li>Sociaal-fiscaal nummer of andere identificerende gegevens</li><li>Creditcardnummers of andere financiële gegevens</li><li>Gegevens over de servicestatus</li><li>Persoonlijke sleutels of andere gegevens die kunnen worden gebruikt voor het ontsleutelen van versleutelde gegevens</li><li>Systeem- of gegevens die kan worden gebruikt voor de toepassing effectiever aanvallen</li></ul>|
+| **Stappen**                   | <p>Controleer of u zich niet gevoelige gegevens die een gebruiker worden verzonden naar uw site. Controleer voor opzettelijke logboekregistratie, evenals neveneffecten veroorzaakt door problemen van ontwerp. Voorbeelden van gevoelige gegevens zijn:</p><ul><li>De referenties van gebruiker</li><li>Sociaal-fiscaal nummer of andere identificerende gegevens</li><li>Creditcardnummers of andere financiële gegevens</li><li>Gegevens over de servicestatus</li><li>Persoonlijke sleutels of andere gegevens die kunnen worden gebruikt voor het ontsleutelen van versleutelde gegevens</li><li>Systeem- of gegevens die kan worden gebruikt voor de toepassing effectiever aanvallen</li></ul>|
 
 ## <a id="log-restricted-access"></a>Zorg ervoor dat u controle- en logboekbestanden beperkte toegang hebben
 

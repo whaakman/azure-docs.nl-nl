@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
 ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595044"
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
@@ -49,7 +49,7 @@ Verschillende implementaties in de klassieke versie hebben verschillende functio
 
 | Klassieke implementatie | Functionaliteit die beschikbaar is | 
 | --- | --- |
-| Virtuele machine | scenario [1](#ilpip), [2](#publiclbendpoint), of [3](#defaultsnat) |
+| Virtuele Machine | scenario [1](#ilpip), [2](#publiclbendpoint), of [3](#defaultsnat) |
 | Web-Werkrol | alleen scenario [2](#publiclbendpoint), [3](#defaultsnat) | 
 
 [Strategieën voor risicobeperking](#snatexhaust) hebben ook de dezelfde verschillen.
@@ -108,7 +108,7 @@ Azure preallocates SNAT poorten wanneer een exemplaar is geïmplementeerd op bas
 
 De volgende tabel toont de preallocations SNAT poort voor de lagen van de back-end poolgrootten:
 
-| Exemplaren | Vooraf toegewezen SNAT poorten per exemplaar |
+| exemplaren | Vooraf toegewezen SNAT poorten per exemplaar |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |

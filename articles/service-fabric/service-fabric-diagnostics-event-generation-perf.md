@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392888"
 ---
 # <a name="performance-metrics"></a>Metrische gegevens voor prestaties
@@ -29,7 +29,7 @@ Metrische gegevens moeten worden verzameld voor meer informatie over de prestati
 
 Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatiemeteritems om beter te begrijpen van de belasting op elke machine en juiste cluster schalen beslissingen te maken.
 
-| Categorie | Naam van teller |
+| Categorie | Naam van het prestatiemeteritem |
 | --- | --- |
 | Logische schijf | Logical Disk Free Space |
 | PhysicalDisk(per Disk) | Gem. Wachtrijlengte voor schijf lezen |
@@ -45,8 +45,8 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 | Processor(Total) | % Processortijd |
 | Proces (per service) | % Processortijd |
 | Proces (per service) | Proces-ID |
-| Proces (per service) | Privébytes |
-| Proces (per service) | Aantal threads |
+| Proces (per service) | Private Bytes |
+| Proces (per service) | Threadaantal |
 | Proces (per service) | Virtuele Bytes |
 | Proces (per service) | Werkset |
 | Proces (per service) | Werkset - privé |
@@ -63,9 +63,9 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 
 De volgende prestatiemeteritems verzamelen als u .NET-services met uw cluster implementeert. 
 
-| Categorie | Naam van teller |
+| Categorie | Naam van het prestatiemeteritem |
 | --- | --- |
-| .NET CLR-geheugen (per service) | Proces-id |
+| .NET CLR-geheugen (per service) | Proces-ID |
 | .NET CLR-geheugen (per service) | # Totaal toegewezen Bytes |
 | .NET CLR-geheugen (per service) | # Totaal aantal Bytes gereserveerd |
 | .NET CLR-geheugen (per service) | Aantal bytes in alle Heaps |

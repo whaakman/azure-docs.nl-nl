@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703498"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
@@ -189,7 +189,7 @@ De logboekbestanden met diagnostische gegevens voert query-hashes voor de query'
 > Voor de optimalisatie van de continue prestaties van SQL-Database, wordt aangeraden dat u inschakelt [SQL Database automatisch afstemmen](sql-database-automatic-tuning.md). Deze unieke functie van SQL Database ingebouwde intelligentie continu bewaakt uw SQL-database en automatisch afgestemd en indexen voor uw databases.
 >
 
-## <a name="new-query"></a>Nieuwe query
+## <a name="new-query"></a>Nieuwe Query
 
 ### <a name="what-is-happening"></a>Wat gebeurt er
 

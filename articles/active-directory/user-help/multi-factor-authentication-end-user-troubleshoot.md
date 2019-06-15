@@ -14,13 +14,13 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60476655"
 ---
-# <a name="get-help-with-two-step-verification"></a>Help-informatie weergeven bij verificatie in twee stappen
+# <a name="get-help-with-two-step-verification"></a>Hulp bij het met verificatie in twee stappen
 
 Verificatie in twee stappen is een beveiligingsfunctie die uw organisatie worden gebruikt voor het beveiligen van uw accounts. Verificatie in twee stappen is veiliger dat alleen een wachtwoord omdat het is gebaseerd op twee soorten verificatie: iets dat u weet, en iets dat u bij u hebt. De iets dat die u weet is uw wachtwoord, terwijl de iets dat die u bij u hebben uw telefoon of een apparaat is. Met behulp van verificatie in twee stappen kan helpen om te stoppen schadelijke hackers aanmelden als u, zelfs als ze uw wachtwoord.
 

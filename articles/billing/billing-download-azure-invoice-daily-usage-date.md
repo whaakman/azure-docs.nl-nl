@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616319"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
@@ -113,7 +113,7 @@ Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur
 1. Onder **instellingen**, selecteer **eigenschappen**.
 1. Onder **e-Mailfactuur**, selecteer **Update e factuur voorkeur**.
 1. Selecteer **Opt-in**.
-1. Klik op **Update**.
+1. Klik op **Bijwerken**.
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>Afmelden voor uw facturen profiel ophalen in e-mailbericht
 

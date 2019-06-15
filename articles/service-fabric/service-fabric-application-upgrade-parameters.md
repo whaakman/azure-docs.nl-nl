@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614400"
 ---
 # <a name="application-upgrade-parameters"></a>Parameters toepassingsupgrade
@@ -29,7 +29,7 @@ Dit artikel beschrijft de verschillende parameters die van toepassing tijdens de
 - [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 Upgrades van toepassingen worden gestart via een van drie modi voor de gebruiker instelbare upgrade. Beide modi heeft een eigen set parameters voor de toepassing:
-- Gecontroleerd
+- Bewaakt
 - Niet-bewaakte automatisch
 - Niet-bewaakte handmatig
 
@@ -44,12 +44,12 @@ Visual Studio Service Fabric application upgrade parameters zijn ingesteld via h
 ### <a name="required-parameters"></a>Vereiste parameters
 (PS=PowerShell, VS=Visual Studio)
 
-| Parameter | Van toepassing op | Description |
+| Parameter | Is van toepassing op | Description |
 | --- | --- | --- |
 ApplicationName |PS| De naam van de toepassing die wordt bijgewerkt. Voorbeelden: fabric: / VisualObjects, fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Typt u de versie van de toepassing die de upgrade doelen. |
 FailureAction |PS, VS|Toegestane waarden zijn **terugdraaien**, **handmatig**, en **ongeldig**. De compenserende actie om uit te voeren wanneer een *bewaakte* tegenkomt bewaking beleidsschendingen beleid of de gezondheid van een upgrade uitvoert. <br>**Terugdraaien** geeft aan dat de upgrade automatisch naar de versie van vóór de upgrade wordt teruggedraaid. <br>**Handmatige** geeft aan dat de upgrade wordt overgeschakeld naar de *UnmonitoredManual* upgrademodus. <br>**Ongeldige** geeft aan dat de actie ongeldig is.|
-Gecontroleerd |PS|Geeft aan dat de upgrademodus wordt bewaakt. Nadat de cmdlet is een upgrade voor een upgradedomein voltooid als de status van het upgradedomein en de cluster voldoen aan de health-beleidsregels die u definieert, wordt het volgende upgradedomein bijgewerkt in Service Fabric. Als de upgradedomein of het cluster is mislukt om te voldoen aan statusbeleid, mislukt de upgrade en Service Fabric de upgrade voor het upgradedomein teruggedraaid of ingesteld op handmatige modus per het beleid dat is opgegeven. Dit is de aanbevolen modus voor upgrades van toepassingen in een productieomgeving. |
+Bewaakt |PS|Geeft aan dat de upgrademodus wordt bewaakt. Nadat de cmdlet is een upgrade voor een upgradedomein voltooid als de status van het upgradedomein en de cluster voldoen aan de health-beleidsregels die u definieert, wordt het volgende upgradedomein bijgewerkt in Service Fabric. Als de upgradedomein of het cluster is mislukt om te voldoen aan statusbeleid, mislukt de upgrade en Service Fabric de upgrade voor het upgradedomein teruggedraaid of ingesteld op handmatige modus per het beleid dat is opgegeven. Dit is de aanbevolen modus voor upgrades van toepassingen in een productieomgeving. |
 UpgradeMode | VS | Toegestane waarden zijn **bewaakte** (standaard), **UnmonitoredAuto**, of **UnmonitoredManual**. Zie de PowerShell-parameters voor beide modi in dit artikel voor meer informatie. |
 UnmonitoredAuto | PS | Geeft aan dat de upgrademodus voor niet-bewaakte automatisch. Nadat de Service Fabric een upgradedomein wordt bijgewerkt, wordt het volgende upgradedomein, ongeacht de status van de toepassing in Service Fabric bijgewerkt. In deze modus wordt niet aanbevolen voor productie, en is alleen nuttig tijdens de ontwikkeling van een toepassing. |
 UnmonitoredManual | PS | Geeft aan dat de upgrademodus voor niet-bewaakte handmatig. Nadat de Service Fabric voert u een upgrade van een upgradedomein, wacht u het volgende upgradedomein bijwerken met behulp van de *hervatten ServiceFabricApplicationUpgrade* cmdlet. |
@@ -62,7 +62,7 @@ Gebruik de horizontale schuifbalk aan de onderkant van de tabel om het veld voll
 
 (PS=PowerShell, VS=Visual Studio)
 
-| Parameter | Van toepassing op | Description |
+| Parameter | Is van toepassing op | Description |
 | --- | --- | --- |
 | ApplicationParameter |PS, VS| Hiermee geeft u de onderdrukkingen voor de parameters voor de toepassing.<br>PowerShell-parameters van toepassing zijn opgegeven als hashtabel naam/waarde-paren. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Parameters voor Visual Studio de toepassing kunnen worden opgegeven in het dialoogvenster voor Service Fabric-toepassing publiceren in de **Toepassingsparametersbestand** veld.
 | Bevestigen |PS| Toegestane waarden zijn **waar** en **False**. Als u wordt gevraagd om bevestiging voordat u de cmdlet uitvoert. |

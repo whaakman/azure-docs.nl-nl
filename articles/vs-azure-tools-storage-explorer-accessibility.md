@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457247"
 ---
 # <a name="storage-explorer-accessibility"></a>Toegankelijkheid van Storage Explorer
@@ -35,7 +35,7 @@ Linux    | (schermlezers worden niet ondersteund op Linux)
 
 Als u een probleem toegankelijkheid ondervindt bij het gebruik van Storage Explorer, [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="zoom"></a>In-/uitzoomen
+## <a name="zoom"></a>Uitzoomen
 
 U kunt de tekst in Storage Explorer groter maken via inzoomen. Als u wilt inzoomen, klikt u op **inzoomen** in het menu Help. U kunt ook het Help-menu om uit te zoomen en opnieuw instellen van het zoomniveau terug naar het standaardniveau gebruiken.
 
@@ -58,7 +58,7 @@ De instelling thema verandert de kleur van de meeste UI-elementen. Het verdient 
 Opdracht       | Sneltoets
 --------------|--------------------
 Nieuw venster    | **Control+Shift+N**
-Editor sluiten  | **Control+F4**
+Sluit de Editor  | **Control+F4**
 Afsluiten          | **Control+Shift+W**
 
 ### <a name="navigation-commands"></a>Navigatie-opdrachten
@@ -67,7 +67,7 @@ Opdracht                | Sneltoets
 -----------------------|----------------------
 Het volgende deelvenster focus       | **F6**
 Vorige deelvenster focus   | **Shift+F6**
-Verkenner               | **Control+Shift+E**
+Explorer               | **Control+Shift+E**
 Accountbeheer     | **Control+Shift+A**
 Zijbalk voor in-/ uitschakelen        | **Control+B**
 Activiteitenlogboek           | **Control+Shift+L**
@@ -88,14 +88,14 @@ Uitzoomen | **Control+-**
 Opdracht | Sneltoets
 --------|--------------------
 Terug    | **ALT + pijl-links**
-Doorsturen | **ALT + pijl-rechts**
+Zone voor forward | **ALT + pijl-rechts**
 Omhoog      | **ALT + pijl-omhoog**
 
 ### <a name="editor-commands"></a>Editor-opdrachten
 
 Opdracht | Sneltoets
 --------|------------------
-Exemplaar    | **Control+C**
+kopiëren    | **Control+C**
 Knippen     | **Control+X**
 Plakken   | **CTRL + V**
 Vernieuwen  | **Besturingselement + R**

@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60365977"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien dingen die u dit op de Windows Data Science Virtual Machine doen kunt
@@ -403,7 +403,7 @@ Als uw gegevens zich in Azure Blob-opslag bevinden, kunt u gegevens rechtstreeks
 
 ![Schermopname van het dialoogvenster gegevensbron toevoegen](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-In Visual Studio, kunt u gegevens lezen van blob-opslag, doen enkele gegevens manipuleren, functie-engineering en voert u de resulterende gegevens naar Azure Data Lake of Azure Blob Storage. Wanneer u verwijst naar de gegevens in blob-opslag, gebruikt u **wasb: / /**; wanneer u verwijst naar de gegevens in Azure Data Lake, gebruik **swbhdfs: / /**
+In Visual Studio, kunt u gegevens lezen van blob-opslag, doen enkele gegevens manipuleren, functie-engineering en voert u de resulterende gegevens naar Azure Data Lake of Azure Blob Storage. Wanneer u verwijst naar de gegevens in blob-opslag, gebruikt u **wasb: / /** ; wanneer u verwijst naar de gegevens in Azure Data Lake, gebruik **swbhdfs: / /**
 
 ![Schermafbeelding van de query met de WASB-vermelding is gemarkeerd](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

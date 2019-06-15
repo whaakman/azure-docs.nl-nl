@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
 ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461508"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure log analytics-voorbeelden van Firewall
@@ -28,7 +28,7 @@ Voer de volgende stappen uit om de weergave aan uw Log Analytics-werkruimte:
 
 1. Open de Log Analytics-werkruimte in de Azure Portal.
 2. Open **Designer bekijken** hieronder **algemene**.
-3. Klik op **Import**.
+3. Klik op **importeren**.
 4. Blader en selecteer de **AzureFirewall.omsview** dat u hebt gedownload voordat.
 5. Klik op **Opslaan**.
 

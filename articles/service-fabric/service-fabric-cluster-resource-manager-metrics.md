@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516697"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Beheren van resourceverbruik en laden in Service Fabric met metrische gegevens
@@ -36,7 +36,7 @@ Stel dat u wilt aan de slag schrijven en implementeren van uw service. Op dit mo
 | Gegevens | Stateless exemplaar laden | Stateful secundaire laden | Stateful primaire laden | Gewicht |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Hoog |
-| ReplicaCount |0 |1 |1 |Middelgroot |
+| ReplicaCount |0 |1 |1 |Gemiddeld |
 | Count |1 |1 |1 |Laag |
 
 
@@ -143,7 +143,7 @@ Als een herinnering: als u alleen gebruiken de standaard metrische gegevens wilt
 
 Nu we gaan door elk van deze instellingen in meer detail en praten over het gedrag op dat dit van invloed op.
 
-## <a name="load"></a>Belasting
+## <a name="load"></a>Laden
 Het hele punt van het definiëren van metrische gegevens is voor sommige laden. *Load* welk deel van een bepaalde waarde wordt gebruikt door sommige service-exemplaar of de replica op een bepaald knooppunt is. Belasting kan worden geconfigureerd op bijna elk gewenst moment. Bijvoorbeeld:
 
   - Belasting kan worden gedefinieerd als een service wordt gemaakt. Dit heet _standaard load_.

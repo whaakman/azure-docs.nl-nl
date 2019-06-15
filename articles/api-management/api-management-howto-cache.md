@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527460"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
@@ -57,7 +57,7 @@ Met de cachebeleidsregels in dit voorbeeld wordt met de eerste aanvraag voor de 
 4. Klik in de API-lijst op **Demo Conference API**.
 5. Selecteer **GetSpeakers**.
 6. Selecteer boven in het scherm het tabblad **Ontwerp**.
-7. Klik in de sectie **Binnenkomende verwerking** op het pictogram **</>**.
+7. Klik in de sectie **Binnenkomende verwerking** op het pictogram **</>** .
 
     ![code-editor](media/api-management-howto-cache/code-editor.png)
 

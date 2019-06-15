@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593611"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Zelfstudie: Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
@@ -299,7 +299,7 @@ U bent nu klaar om te configureren van een beschikbaarheidsgroep toevoegen met b
 
     ![Wizard Nieuwe AG, eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is,  **\\ \\ \<eerst SQL Server\>\Backup\\**. Klik op **volgende**.
+8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is,  **\\ \\ \<eerst SQL Server\>\Backup\\** . Klik op **volgende**.
 
    >[!NOTE]
    >Volledige synchronisatie duurt een volledige back-up van de database op het eerste exemplaar van SQL Server en aan het tweede exemplaar te herstellen. Volledige synchronisatie wordt voor grote databases, niet aanbevolen omdat het lang duurt. U kunt dit moment beperken door handmatig een back-up maken van de database en het herstellen van met `NO RECOVERY`. Als de database is al hersteld met `NO RECOVERY` op de tweede SQL Server voordat u de beschikbaarheidsgroep configureert, kiest u **alleen deelnemen**. Als u wilt een back-up na de configuratie van de beschikbaarheidsgroep, kiest u **eerste gegevenssynchronisatie overslaan**.
@@ -365,7 +365,7 @@ Een Azure Load Balancer mag een Standard Load Balancer of een Basic Load Balance
    | **IP-adrestoewijzing** |Statisch |
    | **IP-adres** |Gebruik een beschikbaar adres uit het subnet. Dit adres gebruiken voor de beschikbaarheidsgroeplistener. Houd er rekening mee dat dit af van het IP-adres van uw cluster wijkt.  |
    | **Abonnement** |Gebruik hetzelfde abonnement als de virtuele machine. |
-   | **Locatie** |Gebruik de dezelfde locatie als de virtuele machine. |
+   | **Location** |Gebruik de dezelfde locatie als de virtuele machine. |
 
    De blade in Azure portal ziet er als volgt:
 

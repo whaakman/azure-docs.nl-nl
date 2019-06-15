@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578543"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Een geografisch kunstmatige intelligentie-Machine in Azure inrichten 
@@ -64,7 +64,7 @@ Hier volgt de procedure voor het maken van een exemplaar van de Geo AI Data Scie
 
    - **Instellingen voor**: Selecteer een van de grootte van de NC-serie GPU-virtuele machine als u van plan bent om uit te voeren deep learning in de GPU op uw geografische DSVM. Anders kunt u een van de CPU op basis van exemplaar.  Maak een opslagaccount voor uw virtuele machine. 
    
-   - **Summary**: Controleer of alle informatie die u hebt ingevoerd juist is.
+   - **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is.
 
    - **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Een koppeling wordt met de voorwaarden van de service geleverd. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
  

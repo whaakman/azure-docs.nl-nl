@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588233"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Toegang tot Key Vault-geheim bij het implementeren van Azure Managed Applications
@@ -40,7 +40,7 @@ In dit artikel wordt beschreven hoe het configureren van de Key Vault om te werk
 
 ## <a name="add-service-as-contributor"></a>Service toevoegen als Inzender
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Selecteer **toegangsbeheer (IAM)** .
 
    ![Selecteer toegangsbeheer](./media/key-vault-access/access-control.png)
 

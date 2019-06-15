@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390021"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Een op route gebaseerde VPN-gateway maken met behulp van de Azure portal
@@ -32,7 +32,7 @@ De stappen in dit artikel maakt een VNet, een subnet, een gatewaysubnet en een o
    - **Abonnement**: Controleer of het weergegeven abonnement die u wilt gebruiken. U kunt abonnementen wijzigen met behulp van de vervolgkeuzelijst.
    - **Resourcegroep**: TestRG1
    - **Locatie**: US - oost
-   - **Subnet**: Front-end
+   - **Subnet**: Frontend
    - **Adresbereik**: 10.1.0.0/24
 
    ![Pagina Virtueel netwerk maken](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Pagina Virtueel netwerk maken")
@@ -49,7 +49,7 @@ Het gatewaysubnet bevat de gereserveerde IP-adressen die de virtuele-netwerkgate
    ![Het gatewaysubnet toevoegen](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Het gatewaysubnet toevoegen")
 4. De **naam** voor uw subnet wordt automatisch gevuld met de vereiste waarde 'GatewaySubnet'. Pas de automatisch ingevulde **adresbereik** waarden zodat deze overeenkomen met de volgende waarden:
 
-   **Adresbereik (CIDR-blok)**: 10.1.255.0/27
+   **Adresbereik (CIDR-blok)** : 10.1.255.0/27
 
    ![Het gatewaysubnet toevoegen](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Het gatewaysubnet toevoegen")
 5. Klik op om het gatewaysubnet **OK** aan de onderkant van de pagina.

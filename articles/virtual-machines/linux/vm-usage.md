@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: d3e6d3c534a9295b76043dc8a6e01b9c1bb1496e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743204"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Inzicht in het gebruik van de virtuele machine van Azure
@@ -102,11 +102,11 @@ De naam van de regio die is ingevuld in het veld locatie van de Resource van de 
 |    USDoDCentral          |    US DoD - centraal                        |
 |    USDoDEast             |    US DoD - oost                           |
 |    USGovArizona          |    USGov Arizona                         |
-|    usgoviowa             |    USGov Iowa                            |
+|    usgoviowa             |    Iowa USGov                            |
 |    USGovTexas            |    USGov Texas                           |
-|    usgovvirginia         |    USGov Virginia                        |
+|    usgovvirginia         |    Virginia USGov                        |
 |    westcentralus         |    US - west-centraal                       |
-|    westeurope            |    Europa -west                           |
+|    Europa West            |    Europa -west                           |
 |    WestIndia             |    West-India                               |
 |    westus                |    US - west                               |
 |    westus2               |    US - west 2                             |

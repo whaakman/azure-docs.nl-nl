@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474932"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Beveiligingsgegevens (preview) ingesteld voor het gebruik van telefoongesprekken
@@ -86,11 +86,11 @@ Als u wilt dat telefoongesprekken te zijn van de standaard-methode gebruikt wann
 
     ![Koppeling voor de aanmeldingsmethode standaard wijzigen](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecteer **telefoon - aanroep (*_your_phone_number_*)** uit de vervolgkeuzelijst met beschikbare methoden en selecteer vervolgens **bevestigen**.
+2. Selecteer **telefoon - aanroep ( *_your_phone_number_* )** uit de vervolgkeuzelijst met beschikbare methoden en selecteer vervolgens **bevestigen**.
 
     ![Methode voor aanmelding bij de standaard kiezen](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    De standaardmethode die wordt gebruikt voor aanmelding bij wijzigingen in **telefoon - aanroep (*_your_phone_number_*)**.
+    De standaardmethode die wordt gebruikt voor aanmelding bij wijzigingen in **telefoon - aanroep ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Aanvullende informatie voor beveiligingsmethoden
 Hebt u extra opties voor hoe uw organisatie contactpersonen u om te controleren of uw identiteit, afhankelijk van wat u probeert te doen. De opties zijn:

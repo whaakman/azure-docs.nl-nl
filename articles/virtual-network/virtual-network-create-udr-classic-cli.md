@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743918"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Beheren van Routering en gebruik van virtuele apparaten zijn met de Azure CLI (klassiek)
@@ -72,8 +72,8 @@ Voor het maken van de routetabel en route die nodig zijn voor de front-end-subne
    
     Parameters:
    
-   * **-l (of --locatie)**. Azure-regio waar de nieuwe Netwerkbeveiligingsgroep wordt gemaakt. In ons scenario *westus*.
-   * **-n (of --naam)**. Naam voor de nieuwe Netwerkbeveiligingsgroep. In ons scenario *NSG-FrontEnd*.
+   * **-l (of --locatie)** . Azure-regio waar de nieuwe Netwerkbeveiligingsgroep wordt gemaakt. In ons scenario *westus*.
+   * **-n (of --naam)** . Naam voor de nieuwe Netwerkbeveiligingsgroep. In ons scenario *NSG-FrontEnd*.
 3. Voer de volgende opdracht om te maken van een route in de routetabel voor het verzenden van al het verkeer dat bestemd is voor de back-end-subnet (192.168.2.0/24) naar de **FW1** VM (192.168.0.4):
 
     ```azurecli
@@ -89,9 +89,9 @@ Voor het maken van de routetabel en route die nodig zijn voor de front-end-subne
    
     Parameters:
    
-   * **-r (of--route-table-naam)**. De naam van de routetabel waarin de route wordt toegevoegd. In ons scenario *UDR-FrontEnd*.
-   * **-a (of --adresvoorvoegsel)**. Het adresvoorvoegsel voor het subnet waarin de pakketten zijn bestemd is voor. In ons scenario *192.168.2.0/24*.
-   * **-t (of--volgende hoptype)**. Type object verkeer wordt verzonden naar. Mogelijke waarden zijn *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, of *geen*.
+   * **-r (of--route-table-naam)** . De naam van de routetabel waarin de route wordt toegevoegd. In ons scenario *UDR-FrontEnd*.
+   * **-a (of --adresvoorvoegsel)** . Het adresvoorvoegsel voor het subnet waarin de pakketten zijn bestemd is voor. In ons scenario *192.168.2.0/24*.
+   * **-t (of--volgende hoptype)** . Type object verkeer wordt verzonden naar. Mogelijke waarden zijn *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, of *geen*.
    * **-p (of--volgende-hop-ip-adres**). IP-adres van volgende hop. In ons scenario *192.168.0.4*.
 4. Voer de volgende opdracht om te koppelen van de routetabel gemaakt met de **FrontEnd** subnet:
 
@@ -114,7 +114,7 @@ Voor het maken van de routetabel en route die nodig zijn voor de front-end-subne
    
     Parameters:
    
-   * **-t (of--vnet naam)**. Naam van de VNet waar het subnet zich bevindt. In ons scenario *TestVNet*.
+   * **-t (of--vnet naam)** . Naam van de VNet waar het subnet zich bevindt. In ons scenario *TestVNet*.
    * **-n (of--subnet-name**. De naam van het subnet in dat de routetabel wordt toegevoegd aan. In ons scenario *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>De UDR voor het back-end-subnet maken

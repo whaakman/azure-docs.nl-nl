@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554844"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filteren van activiteit in Azure Data Factory
@@ -41,8 +41,8 @@ Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 name | Naam van de `Filter` activiteit. | String | Ja
 type | Moet worden ingesteld op **filter**. | String | Ja
-condition | Voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
-items | De invoermatrix waarop filter moet worden toegepast. | Expressie | Ja
+condition | Voorwaarde moet worden gebruikt voor het filteren van de invoer. | expressie | Ja
+items | De invoermatrix waarop filter moet worden toegepast. | expressie | Ja
 
 ## <a name="example"></a>Voorbeeld
 

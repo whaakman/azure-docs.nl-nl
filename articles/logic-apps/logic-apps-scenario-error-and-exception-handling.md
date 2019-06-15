@@ -11,10 +11,10 @@ ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60599533"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Afhandeling van uitzonderingen en logboekregistratie van fouten voor logische apps
@@ -53,7 +53,7 @@ De eerste stap is het maken van de logische app en de app in Logic App Designer 
 
 Omdat we gaan de logboekrecord die afkomstig zijn uit Dynamics CRM Online, laten we beginnen aan de bovenkant. We moet gebruiken een **aanvragen** omdat het bovenliggende logische app wordt geactiveerd voor dit kind activeren.
 
-### <a name="logic-app-trigger"></a>Activering voor een logische app
+### <a name="logic-app-trigger"></a>Logische app-trigger
 
 We gebruiken een **aanvragen** activeren zoals wordt weergegeven in het volgende voorbeeld:
 

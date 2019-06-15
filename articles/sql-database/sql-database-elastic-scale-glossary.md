@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585582"
 ---
 # <a name="elastic-database-tools-glossary"></a>Woordenlijst voor elastische Database-hulpprogramma 's
@@ -29,7 +29,7 @@ Deze voorwaarden worden gebruikt in [toe te voegen een shard met behulp van hulp
 
 **Database**: Een Azure SQL-database. 
 
-**Gegevensafhankelijke routering**: De functionaliteit waarmee een toepassing verbinding maken met een shard gegeven van een specifieke sharding-sleutel. Zie [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md). Vergelijken met  **[multi-shard Query](sql-database-elastic-scale-multishard-querying.md)**.
+**Gegevensafhankelijke routering**: De functionaliteit waarmee een toepassing verbinding maken met een shard gegeven van een specifieke sharding-sleutel. Zie [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md). Vergelijken met  **[multi-shard Query](sql-database-elastic-scale-multishard-querying.md)** .
 
 **Globale shard-toewijzing**: De toewijzing tussen sleutels voor sharding en hun respectieve shards binnen een **shard set**. De globale shard-toewijzing is opgeslagen in de **shard-Toewijzingsbeheer**. Vergelijken met **lokale shard-toewijzing**.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458396"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Azure Blob Storage-resources beheren met Opslagverkenner
@@ -172,7 +172,7 @@ De volgende stappen ziet u hoe u voor het beheren van de blobs (en mappen) binne
      1. Selecteer **Uploaden** op de werkbalk van het hoofdvenster en selecteer vervolgens **Bestanden uploaden** in de vervolgkeuzelijst.
 
         ![Menu voor Bestanden uploaden][15]
-     2. Selecteer in het dialoogvenster **Bestanden uploaden** de knop met de weglatingstekens (**...** ) rechts van het tekstvak **Bestanden** om de bestanden te selecteren die u wilt uploaden.
+     2. Selecteer in het dialoogvenster **Bestanden uploaden** de knop met de weglatingstekens ( **...** ) rechts van het tekstvak **Bestanden** om de bestanden te selecteren die u wilt uploaden.
 
         ![Opties voor bestanden uploaden][16]
      3. Geef het type **Blobtype**. Zie [de container maken en machtigingen instellen](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) voor meer informatie.
@@ -183,7 +183,7 @@ De volgende stappen ziet u hoe u voor het beheren van de blobs (en mappen) binne
      1. Selecteer **Uploaden** op de werkbalk van het hoofdvenster en selecteer vervolgens **Map uploaden** in de vervolgkeuzelijst.
 
         ![Menu voor uploaden van map][17]
-     2. Selecteer in het dialoogvenster **Map uploaden** de knop met de weglatingstekens (**...** ) rechts van het tekstvak **Map** om de map te selecteren waarvan u de inhoud wilt uploaden.
+     2. Selecteer in het dialoogvenster **Map uploaden** de knop met de weglatingstekens ( **...** ) rechts van het tekstvak **Map** om de map te selecteren waarvan u de inhoud wilt uploaden.
 
         ![Opties voor map uploaden][18]
      3. Geef het type **Blobtype**. Zie [de container maken en machtigingen instellen](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) voor meer informatie.

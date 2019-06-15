@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543140"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migreren IaaS-resources van klassiek naar Azure Resource Manager met behulp van Azure CLI
@@ -35,7 +35,7 @@ Hier volgt een stroomdiagram voor het identificeren van de volgorde waarin stapp
 
 ![Schermafbeelding van de migratiestappen](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>Stap 1: Voorbereiden voor migratie
+## <a name="step-1-prepare-for-migration"></a>Stap 1: Voorbereiden op migratie
 Hier volgen enkele aanbevolen procedures die wij adviseren kijkt u bij het evalueren van migratie IaaS-resources van klassiek naar Resource Manager:
 
 * Lees de [lijst van niet-ondersteunde configuraties of functies](../windows/migration-classic-resource-manager-overview.md). Als u virtuele machines die gebruikmaken van niet-ondersteunde configuraties of functies hebt, raden wij u wacht de functieconfiguratie /-ondersteuning wordt aangekondigd. U kunt ook deze functie te verwijderen of verplaatsen uit dat de configuratie van het inschakelen van de migratie als deze aan uw behoeften voldoet.
@@ -146,7 +146,7 @@ De uitvoer ziet er ongeveer als volgt:
 
 ![Schermopname van de opdrachtregel met de naam van de volledige virtuele netwerk is gemarkeerd.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-In het bovenstaande voorbeeld de **virtualNetworkName** is de volledige naam **"Groep classicubuntu16 classicubuntu16"**.
+In het bovenstaande voorbeeld de **virtualNetworkName** is de volledige naam **"Groep classicubuntu16 classicubuntu16"** .
 
 Valideer eerst als u het virtuele netwerk met de volgende opdracht kunt migreren:
 

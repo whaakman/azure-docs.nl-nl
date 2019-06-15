@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611505"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop MapReduce-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-map-reduce.md)
 > * [Huidige versie](transform-data-using-hadoop-map-reduce.md)
 
@@ -62,7 +62,7 @@ Zie [Pig](transform-data-using-hadoop-pig.md) en [Hive](transform-data-using-had
 
 | Eigenschap          | Description                              | Vereist |
 | ----------------- | ---------------------------------------- | -------- |
-| naam              | Naam van de activiteit                     | Ja      |
+| name              | Naam van de activiteit                     | Ja      |
 | description       | Beschrijving van het doel waarvoor de activiteit wordt gebruikt | Nee       |
 | type              | Voor MapReduce-activiteit wordt het activiteitstype HDinsightMapReduce | Ja      |
 | linkedServiceName | Verwijzing naar het HDInsight-cluster geregistreerd als een gekoppelde service in Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
@@ -71,8 +71,8 @@ Zie [Pig](transform-data-using-hadoop-pig.md) en [Hive](transform-data-using-had
 | jarFilePath       | Geef het pad naar het Jar-bestanden die zijn opgeslagen in Azure Storage waarnaar wordt verwezen door jarLinkedService. De bestandsnaam is hoofdlettergevoelig. | Ja      |
 | jarlibs           | Matrix van het pad naar het Jar-bibliotheekbestanden waarnaar wordt verwezen door de taak die zijn opgeslagen in de Azure-opslag die is gedefinieerd in jarLinkedService de tekenreeks. De bestandsnaam is hoofdlettergevoelig. | Nee       |
 | getDebugInfo      | Geeft aan wanneer de logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door jarLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee       |
-| argumenten         | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten worden doorgegeven als opdrachtregelargumenten aan elke taak. | Nee       |
-| Hiermee worden gedefinieerd           | Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script. | Nee       |
+| arguments         | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten worden doorgegeven als opdrachtregelargumenten aan elke taak. | Nee       |
+| defines           | Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script. | Nee       |
 
 
 

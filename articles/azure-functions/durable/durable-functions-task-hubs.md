@@ -8,14 +8,13 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2017
-ms.date: 02/21/2019
-ms.author: v-junlch
+ms.date: 12/07/2017
+ms.author: azfuncdf
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730261"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Taakhubs in duurzame functies (Azure Functions)
@@ -30,11 +29,11 @@ Als meerdere functie-apps delen met een opslagaccount, elke functie-app *moet* w
 
 Een hub taak bestaat uit de volgende opslagresources:
 
-- Een of meer controle-wachtrijen.
-- Een werkitem wachtrij.
-- Van één geschiedenistabel.
-- Tabel met één exemplaren.
-- Een storage-container met een of meer lease-blobs.
+* Een of meer controle-wachtrijen.
+* Een werkitem wachtrij.
+* Van één geschiedenistabel.
+* Tabel met één exemplaren.
+* Een storage-container met een of meer lease-blobs.
 
 Al deze resources worden automatisch gemaakt in de standaard Azure Storage-account als orchestrator of activiteitsfuncties zijn gepland uitvoeren. De [prestaties en schaal](durable-functions-perf-and-scale.md) artikel wordt uitgelegd hoe deze resources worden gebruikt.
 
@@ -141,5 +140,3 @@ Namen van taken hub moeten beginnen met een letter en bestaan uit alleen letters
 
 > [!div class="nextstepaction"]
 > [Meer informatie over het afhandelen van versiebeheer](durable-functions-versioning.md)
-
-<!-- Update_Description: wording update -->

@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348402"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synchronisatie: De installatiewizard een tweede keer uitvoeren
@@ -72,7 +72,7 @@ Wanneer u deze optie selecteert, worden de mappen in uw configuratie weergegeven
 
 ![Pagina met een lijst van alle mappen in de omgeving](./media/how-to-connect-installation-wizard/refreshschema.png)
 
-## <a name="configure-staging-mode"></a>De faseringsmodus configureren
+## <a name="configure-staging-mode"></a>Faseringsmodus configureren
 Deze optie kunt u om te schakelen en schakel de faseringsmodus op de server uit. Meer informatie over de staging-modus en hoe deze wordt gebruikt kan worden gevonden [Operations](how-to-connect-sync-staging-server.md).
 
 De optie wordt weergegeven als fasering momenteel is ingeschakeld of uitgeschakeld:  
@@ -81,7 +81,7 @@ De optie wordt weergegeven als fasering momenteel is ingeschakeld of uitgeschake
 Selecteer deze optie als u wilt wijzigen van de status, en selecteer of het selectievakje uit.  
 ![Optie die ook zichtbaar is voor de huidige status van de faseringsmodus](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Gebruikersaanmelding wijzigen
+## <a name="change-user-sign-in"></a>Aanmelden van gebruikers wijzigen
 Deze optie kunt u de gebruiker aanmelden methode wijzigen naar en van synchronisatie van wachtwoordhashes, pass-through-verificatie of Federatie. U kunt niet wijzigen naar **niet configureert**.
 
 Zie voor meer informatie over deze optie [aanmelden van gebruikers](plan-connect-user-signin.md#changing-the-user-sign-in-method).

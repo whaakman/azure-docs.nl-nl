@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60566815"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Back-up en herstellen van een Oracle Database 12c-database op een virtuele Azure Linux-machine
@@ -303,7 +303,7 @@ Zie voor meer informatie, [toepassingsconsistente back-up voor virtuele Linux-ma
 
     ![Recovery Services-kluizen myVault-detailpagina](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Op de **back-Upitems (Azure virtuele Machine)** blade aan de rechterkant van de pagina, klikt u op het weglatingsteken (**...** ) en klik vervolgens op **back-up nu**.
+9.  Op de **back-Upitems (Azure virtuele Machine)** blade aan de rechterkant van de pagina, klikt u op het weglatingsteken ( **...** ) en klik vervolgens op **back-up nu**.
 
     ![Recovery Services-kluizen de opdracht nu back-up](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -351,7 +351,7 @@ Als u de verwijderde bestanden herstellen, voert u de volgende stappen uit:
 
     ![Recovery Services-kluizen aantal voor virtuele Azure-Machine-back-upitems](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Op de **myvm1** blade, klikt u op **Bestandsherstel (Preview)**.
+3. Op de **myvm1** blade, klikt u op **Bestandsherstel (Preview)** .
 
     ![Schermafbeelding van de Recovery Services-kluizen pagina van de herstel-bestand](./media/oracle-backup-recovery/recovery_service_14.png)
 
@@ -472,7 +472,7 @@ In plaats van de verwijderde bestanden terugzetten vanuit de Recovery Services-k
 
     ![Pagina voor herstel-VM](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Op de **myvm1** blade, klik op het weglatingsteken (**...** ) en klik vervolgens op **VM terugzetten**.
+4.  Op de **myvm1** blade, klik op het weglatingsteken ( **...** ) en klik vervolgens op **VM terugzetten**.
 
     ![Opdracht van de virtuele machine herstellen](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -503,7 +503,7 @@ Nadat de virtuele machine is hersteld, instellen van het openbare IP-adres.
 
     ![Lijst met openbare IP-adressen](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  Op de **openbare IP-adressen** blade, klikt u op **toevoegen**. Op de **openbare IP-adres maken** blade voor **naam**, selecteert u het openbare IP-naam. Voor **Resourcegroep** selecteert u **Bestaande gebruiken**. Klik vervolgens op **Maken**.
+2.  Op de **openbare IP-adressen** blade, klikt u op **toevoegen**. Op de **openbare IP-adres maken** blade voor **naam**, selecteert u het openbare IP-naam. Voor **Resourcegroep** selecteert u **Bestaande gebruiken**. Klik vervolgens op **maken**.
 
     ![IP-adres maken](./media/oracle-backup-recovery/create_ip_01.png)
 

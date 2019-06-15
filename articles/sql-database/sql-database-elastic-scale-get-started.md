@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584988"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Aan de slag met elastische Databasehulpprogramma 's
@@ -92,7 +92,7 @@ Als u wilt downloaden en uitvoeren van het voorbeeld, de volgende stappen uit:
 
 5. Experimenteer met de verschillende opties voor meer informatie over de mogelijkheden voor de bibliotheek. Houd er rekening mee de stappen die de toepassing in de console wordt uitgevoerd en u kunt de code achter de schermen worden besproken.
    
-    ![Voortgang][4]
+    ![Wordt uitgevoerd][4]
 
 Gefeliciteerd! U hebt gemaakt en u hebt uw eerste shard-toepassing uitvoeren met behulp van hulpprogramma's voor elastische databases in SQL-Database. Gebruik Visual Studio of SQL Server Management Studio verbinding maken met uw SQL-database en een beknopt overzicht van de shards die het voorbeeld hebt gemaakt. U zult de nieuwe voorbeeld shard-databases en een shard map manager-database die het voorbeeld is gemaakt.
 

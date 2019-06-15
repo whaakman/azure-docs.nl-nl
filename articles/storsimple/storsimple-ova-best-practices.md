@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630135"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Aanbevolen procedures voor StorSimple Virtual Array
@@ -237,7 +237,7 @@ Wanneer u een failover uitvoert via voor uw virtuele array, houd rekening met he
   * Er is een fout opgetreden tijdens het werkelijke failover. In dit geval is het doelapparaat onbruikbaar gemarkeerd. U moet inrichten en een ander doel virtuele matrix configureren en gebruiken die voor failover.
   * De failover is voltooid waarna het bronapparaat is verwijderd, maar het doelapparaat heeft problemen en u geen toegang tot gegevens. De gegevens in de cloud nog steeds veilig is en eenvoudig kan worden opgehaald door het maken van een andere virtuele matrix en vervolgens wordt gebruikt als een apparaat voor het herstel na Noodgevallen.
 
-### <a name="deactivate"></a>Deactiveren
+### <a name="deactivate"></a>deactiveren
 Wanneer u een StorSimple Virtual Array deactiveert, verbreekt u de verbinding tussen het apparaat en de bijbehorende StorSimple Manager-service. Deactivering is een **permanente** bewerking kan niet ongedaan worden gemaakt. Een gedeactiveerd apparaat kan niet opnieuw worden geregistreerd bij de StorSimple Manager-service. Ga voor meer informatie naar [deactiveren en verwijderen van uw StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Houd er rekening mee met de volgende aanbevolen procedures bij het deactiveren van uw virtuele matrix:

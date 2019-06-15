@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550543"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Azure Resource Manager-resourcegroepen beheren met behulp van Azure CLI
@@ -27,7 +27,7 @@ Andere artikelen over het beheren van resourcegroepen:
 - [Azure-resourcegroepen beheren met behulp van de Azure-portal](./manage-resources-portal.md)
 - [Azure-resourcegroepen beheren met behulp van Azure PowerShell](./manage-resources-powershell.md)
 
-## <a name="what-is-a-resource-group"></a>Wat is een resourcegroep
+## <a name="what-is-a-resource-group"></a>Wat is er een resourcegroep
 
 Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is. Over het algemeen resources die aan dezelfde resourcegroep dezelfde levenscyclus delen, zodat u kunt eenvoudig implementeren, bijwerken en als een groep verwijderen toevoegen.
 
@@ -47,7 +47,7 @@ read location &&
 az group create --name $resourceGroupName --location $location
 ```
 
-## <a name="list-resource-groups"></a>Een lijst met resourcegroepen maken
+## <a name="list-resource-groups"></a>Lijst met resourcegroepen
 
 De volgende CLI-script geeft een lijst van de resourcegroepen onder uw abonnement.
 

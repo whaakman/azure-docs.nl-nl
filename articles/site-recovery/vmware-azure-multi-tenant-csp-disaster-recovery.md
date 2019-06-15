@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60460982"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Herstel van VMware na noodgevallen in een omgeving met meerdere tenants met het programma Cloud Solution Provider (CSP) instellen
@@ -52,7 +52,7 @@ Abonnement van de tenant is toegankelijk via het Microsoft Partner Center-Dashbo
 
 1. Op de **klanten** pagina, klikt u op de naam van de tenantaccount.
 2. In de **abonnementen** pagina van de tenantaccount kunt u de bestaande abonnementen te controleren en meer abonnementen toevoegen zoals vereist.
-3. Selecteer voor het beheren van de tenant-NOODHERSTELBEWERKINGEN, **alle resources (Azure portal)**. Dit biedt dat u toegang tot Azure-abonnementen van de tenant.
+3. Selecteer voor het beheren van de tenant-NOODHERSTELBEWERKINGEN, **alle resources (Azure portal)** . Dit biedt dat u toegang tot Azure-abonnementen van de tenant.
 
     ![De koppeling alle Resources](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 
@@ -76,7 +76,7 @@ U kunt nu uitvoeren en beheren van alle Site Recovery-bewerkingen voor de tenant
     
     c) nadat u een nieuwe gebruiker hebt gemaakt, Ga terug naar de Azure-portal. In de **abonnement** pagina, selecteert u het desbetreffende abonnement.
 
-    d) Selecteer **toegangsbeheer (IAM)**, en klik vervolgens op **roltoewijzingen**.
+    d) Selecteer **toegangsbeheer (IAM)** , en klik vervolgens op **roltoewijzingen**.
 
     e) Klik op **roltoewijzing toevoegen** een gebruiker met de relevante toegangsniveau toe te voegen. De gebruikers die zijn gemaakt via de CSP-portal worden weergegeven op het tabblad rol toewijzingen.
 
@@ -89,11 +89,11 @@ U kunt nu uitvoeren en beheren van alle Site Recovery-bewerkingen voor de tenant
 
 Er zijn drie belangrijke modellen voor meerdere tenants:
 
-* **Gedeelde Services-hostingprovider (HSP)**: De partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
+* **Gedeelde Services-hostingprovider (HSP)** : De partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
 
 * **Toegewezen Hosting serviceprovider**: De partner is eigenaar van de fysieke infrastructuur, maar toegewezen resources (meerdere vCenters, fysieke gegevensopslag, enzovoort) gebruikt voor het hosten van elke tenant-VM's op een aparte infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan het als een oplossing voor de selfservice.
 
-* **Managed serviceprovider (MSP)**: De klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
+* **Managed serviceprovider (MSP)** : De klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
 
 Door het instellen van tenant abonnementen zoals beschreven in dit artikel, kunt u snel starten zodat klanten in een van de relevante multitenant-modellen. U kunt meer informatie over de verschillende modellen voor meerdere tenants en inschakelen van on-premises toegangsbeheer [hier](vmware-azure-multi-tenant-overview.md).
 

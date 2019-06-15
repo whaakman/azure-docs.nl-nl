@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486461"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Releaseopmerkingen voor Data Management Gateway
@@ -103,7 +103,7 @@ We onderhouden de Release-opmerkingen niet meer. Ophalen van de meest recente re
 *  Ondersteunt het HTTP-proxy voor de gateway met behulp van de Gateway Configuration Manager instellen. Als geconfigureerd, zijn Azure Blob-, Azure Table-, Azure Data Lake- en Document DB toegankelijk via HTTP-proxy.
 *  Ondersteunt header verwerking voor TextFormat bij het kopiëren van gegevens van/naar Azure Blob, Azure Data Lake Store, on-premises bestandssysteem, en on-premises HDFS.
 *  Ondersteunt het kopiëren van gegevens uit een toevoeg-Blob en pagina-blobs, samen met de al ondersteunde blok-Blob.
-*  Introduceert een nieuwe gatewaystatus **Online (beperkt)**, wat aangeeft dat de belangrijkste functionaliteit van de gateway met uitzondering van de interactieve bewerking-ondersteuning voor de Wizard kopiëren werkt.
+*  Introduceert een nieuwe gatewaystatus **Online (beperkt)** , wat aangeeft dat de belangrijkste functionaliteit van de gateway met uitzondering van de interactieve bewerking-ondersteuning voor de Wizard kopiëren werkt.
 *  Verbetert de stabiliteit van de gateway registreren met behulp van de registratiesleutel.
 
 ## <a name="216040"></a>2.1.6040.

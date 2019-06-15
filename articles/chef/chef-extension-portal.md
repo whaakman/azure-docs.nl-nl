@@ -9,10 +9,10 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563772"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>De Chef-client installeren vanuit de Azure-portal
@@ -74,7 +74,7 @@ In deze sectie gaat u eerst de Azure-portal gebruiken om een Linux-machine te ma
 
      ![Extensie toevoegen aan een extensie toevoegen aan een virtuele machine selecteren](./media/chef-extension-portal/add-vm-add-extension.png)
 
-1. Op de **nieuwe resource** tabblad **Linux Chef-extensie (1.2.3)**.
+1. Op de **nieuwe resource** tabblad **Linux Chef-extensie (1.2.3)** .
 
      ![Chef heeft uitbreidingen voor virtuele machines met Linux en Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
 
@@ -82,7 +82,7 @@ In deze sectie gaat u eerst de Azure-portal gebruiken om een Linux-machine te ma
 
 1. Op de **-extensie installeren** tabblad, geef de volgende waarden en selecteer vervolgens **OK**.
 
-    - **URL van chef** -Geef de URL van de Chef-Server met de naam van de organisatie, bijvoorbeeld *https://api.chef.io/organization/mycompany*.
+    - **URL van chef** -Geef de URL van de Chef-Server met de naam van de organisatie, bijvoorbeeld *https://api.chef.io/organization/mycompany* .
     - **Naam van het knooppunt chef** -Geef de naam van de Chef-knooppunt. Dit kan een willekeurige waarde zijn.
     - **Run List** -voert u de lijst met Chef uitvoeren die wordt toegevoegd aan de machine. Dit kan leeg worden gelaten.
     - **Naam van de Client validatie** -Voer de naam van Chef validatie-Client. bijvoorbeeld, *tarcher validator*.

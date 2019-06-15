@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576183"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Gebruik het diagnostisch hulpprogramma voor StorSimple 8000 series apparaat problemen oplossen
@@ -420,7 +420,7 @@ Hier volgt een tabel met een beschrijving van wat de verschillende Windows Power
 | Name                    | De beschrijvende naam van het apparaat geconfigureerd via Azure portal tijdens de implementatie van het apparaat. De beschrijvende naam die standaard is het serienummer van het apparaat. |
 | Model                   | Het model van de StorSimple 8000-apparaat. Het model is 8100 of 8600.|
 | Serienummer            | Het serienummer van het apparaat is toegewezen in de fabriek en 15 tekens lang is. Bijvoorbeeld, 8600-SHX0991003G44HT geeft aan dat:<br> 8600 – is het Apparaatmodel.<br>VX – Is de productie-site.<br> 0991003 - is een specifiek product. <br> G44HT:-de laatste 5 cijfers voor het maken van de unieke serienummers worden verhoogd. Dit kan niet een opeenvolgende reeks zijn.|
-| TimeZone                | De apparaat-tijdzone zoals geconfigureerd in de Azure portal tijdens de implementatie van het apparaat.|
+| Tijdzone                | De apparaat-tijdzone zoals geconfigureerd in de Azure portal tijdens de implementatie van het apparaat.|
 | CurrentController       | De controller die u aan zijn gekoppeld via de Windows PowerShell-interface van uw StorSimple-apparaat.|
 | ActiveController        | De controller die actief is op uw apparaat en wordt alle netwerk- en schijfconfiguratie bewerkingen beheren. Dit kan Controller 0 of 1 van de domeincontroller zijn.  |
 | Controller0Status       | De status van Controller 0 op uw apparaat. De status van de domeincontroller kan worden normaal, in de herstelmodus of niet bereikbaar is.|

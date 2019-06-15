@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556971"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Geo-herstel met een multitenant SaaS-toepassing herstellen vanuit back-ups
@@ -80,7 +80,7 @@ De DR-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar in de [Win
 ## <a name="review-the-healthy-state-of-the-application"></a>Controleer de status in orde van de toepassing
 Voordat u het herstelproces start, controleert u de normale, gezonde status van de toepassing.
 
-1. Open in uw webbrowser de Wingtip Tickets events hub (http://events.wingtip-dpt.&lt; gebruiker&gt;. trafficmanager.net, Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie).
+1. Open in uw webbrowser de Wingtip Tickets events hub (http://events.wingtip-dpt.&lt ; gebruiker&gt;. trafficmanager.net, Vervang &lt; gebruiker&gt; met de waarde van de gebruiker van uw implementatie).
     
    Ga naar de onderkant van de pagina en ziet u de naam van de catalogus-server en de locatie in de voettekst. De locatie is de regio waarin u de app hebt geïmplementeerd.    
 
@@ -200,7 +200,7 @@ Terwijl het toepassingseindpunt van de is uitgeschakeld in Traffic Manager, word
  
     ![Herstelproces](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Als u van een tenant gebeurtenissen pagina rechtstreeks openen terwijl de tenant offline is is bereikt, wordt de pagina een tenant offline-melding weergegeven. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall.
+  * Als u van een tenant gebeurtenissen pagina rechtstreeks openen terwijl de tenant offline is is bereikt, wordt de pagina een tenant offline-melding weergegeven. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt ; gebruiker&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Herstelproces](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ In deze taak werkt u een van de herstelde tenant-databases. Het proces repatrië
 
 3. Selecteer F5 voor het uitvoeren van het script.
 
-4. Vernieuw de pagina van de gebeurtenissen Contoso Concert Hall (http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall), en u ziet dat de gebeurtenis ernstig Strauss ontbreekt.
+4. Vernieuw de pagina van de gebeurtenissen Contoso Concert Hall (http://events.wingtip-dpt.&lt ; gebruiker&gt;.trafficmanager.net/contosoconcerthall), en u ziet dat de gebeurtenis ernstig Strauss ontbreekt.
 
 Op dit moment in de zelfstudie hebt u de toepassing, die nu wordt uitgevoerd in de herstelregio hersteld. U hebt een nieuwe tenant in de herstelregio ingericht en gegevens van een van de herstelde tenants gewijzigd.  
 
@@ -330,7 +330,7 @@ Als u de zelfstudie hebt gevolgd, het script onmiddellijk opnieuw geactiveerd Fa
 
     Selecteer het herstelscript uitgevoerd in een nieuw PowerShell-venster, F5. Repatriëring duurt enkele minuten en kan worden gecontroleerd in het PowerShell-venster.
 
-3. Terwijl het script wordt uitgevoerd, vernieuw de pagina van de hub gebeurtenissen (http://events.wingtip-dpt.&lt; gebruiker&gt;. trafficmanager.net).
+3. Terwijl het script wordt uitgevoerd, vernieuw de pagina van de hub gebeurtenissen (http://events.wingtip-dpt.&lt ; gebruiker&gt;. trafficmanager.net).
 
     U ziet dat de Wizardoptie online en toegankelijk tijdens dit proces.
 

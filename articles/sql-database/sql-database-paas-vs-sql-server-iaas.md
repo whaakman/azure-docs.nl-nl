@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584847"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Kies de juiste SQL Server-optie in Azure
@@ -25,7 +25,7 @@ ms.locfileid: "60584847"
 In Azure, hebt u uw SQL Server-workloads die worden uitgevoerd in een gehoste infrastructuur (IaaS) of die wordt uitgevoerd als een gehoste service ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)). In PaaS hebt u meerdere implementatie-opties en service-lagen binnen elke Implementatieoptie. De belangrijkste vraag die u nodig hebt om te vragen bij het bepalen van tussen PaaS of IaaS is wilt u het beheer van uw database, toepassen van patches, back-ups maken, of u wilt overdragen van deze bewerkingen naar Azure?
 Afhankelijk van het antwoord hebt u de volgende opties:
 
-- [Azure SQL Database](sql-database-technical-overview.md): Een volledig beheerde SQL database-engine, op basis van de nieuwste stabiele Enterprise-editie van SQL Server. Dit is een relationele database-as-a-service (DBaaS) die wordt gehost in de Azure-cloud die in de branchecategorie van valt *Platform-as-a-Service (PaaS)*. SQL-database heeft meerdere implementatie-opties, die is gebouwd op gestandaardiseerde hardware en software die is die eigendom zijn, die wordt gehost en beheerd door Microsoft. Met SQL-Database, kunt u ingebouwde functies en functionaliteiten die uitgebreide configuratie bij gebruik in SQL Server vereist (on-premises of in een virtuele machine van Azure). Als u SQL Database gebruikt, betaalt u per gebruik met opties voor het omhoog schalen voor meer vermogen zonder onderbrekingen. SQL-Database heeft extra functies die niet beschikbaar in SQL Server, zoals ingebouwde hoge beschikbaarheid, intelligentie en beheer zijn. Azure SQL Database biedt de volgende implementatie-opties:
+- [Azure SQL Database](sql-database-technical-overview.md): Een volledig beheerde SQL database-engine, op basis van de nieuwste stabiele Enterprise-editie van SQL Server. Dit is een relationele database-as-a-service (DBaaS) die wordt gehost in de Azure-cloud die in de branchecategorie van valt *Platform-as-a-Service (PaaS)* . SQL-database heeft meerdere implementatie-opties, die is gebouwd op gestandaardiseerde hardware en software die is die eigendom zijn, die wordt gehost en beheerd door Microsoft. Met SQL-Database, kunt u ingebouwde functies en functionaliteiten die uitgebreide configuratie bij gebruik in SQL Server vereist (on-premises of in een virtuele machine van Azure). Als u SQL Database gebruikt, betaalt u per gebruik met opties voor het omhoog schalen voor meer vermogen zonder onderbrekingen. SQL-Database heeft extra functies die niet beschikbaar in SQL Server, zoals ingebouwde hoge beschikbaarheid, intelligentie en beheer zijn. Azure SQL Database biedt de volgende implementatie-opties:
   
   - Als een [individuele database](sql-database-single-database.md) beheerd met een eigen set resources via een SQL Database-server. Een individuele database is vergelijkbaar met een [ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server. Deze optie is geoptimaliseerd voor het ontwikkelen van nieuwe toepassingen cloudgegevens moderne toepassingen.
   - Een [elastische pool](sql-database-elastic-pool.md), dit is een verzameling van databases met een gemeenschappelijke set bronnen die worden beheerd via een SQL Database-server. Individuele databases kunnen worden verplaatst naar en van een elastische pool. Deze optie is geoptimaliseerd voor moderne toepassingen ontwikkelen van nieuwe cloudgegevens-toepassingen met behulp van de SaaS-toepassing voor meerdere tenants.
@@ -107,7 +107,7 @@ Op dit moment **SQL-Database** wordt verkocht als een service en is beschikbaar 
 
 - Met SQL Database single database, kunt u een servicelaag die past bij uw behoeften uit een breed scala aan prijzen die vanaf 5$ / maand voor basic-laag.
 - U kunt maken [elastische pools](sql-database-elastic-pool.md) pieken voor het delen van resources met database-exemplaren te verlagen en geschikt voor gebruik.
-- Met het beheerde exemplaar van SQL Database, kunt u ook uw eigen licentie brengen. Zie voor meer informatie over licentieverlening bring-your-own [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) of gebruik [Azure Hybrid Benefit calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) om te zien hoe u **Bespaar tot 40%**.
+- Met het beheerde exemplaar van SQL Database, kunt u ook uw eigen licentie brengen. Zie voor meer informatie over licentieverlening bring-your-own [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) of gebruik [Azure Hybrid Benefit calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) om te zien hoe u **Bespaar tot 40%** .
 
 Bovendien wordt uitgaand internetverkeer in rekening gebracht bij u tegen het reguliere [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/). U kunt dynamisch aanpassen van de service-lagen en compute-grootten zodat deze overeenkomt met de uiteenlopende doorvoerbehoeften van uw toepassing.
 
@@ -143,7 +143,7 @@ Zie de volgende bronnen voor meer informatie over prijzen:
 
 Veel bedrijven besluiten over te stappen naar een cloudservice zowel vanwege offloading van beheercomplexiteit als de kosten. Met IaaS en PaaS, Microsoft worden beheerd door de onderliggende infrastructuur en automatisch worden gerepliceerd van alle gegevens voor herstel na noodgevallen, configureert en de databasesoftware upgrades, beheert taakverdeling en voert transparante failover uit als er een Serverfout binnen een datacenter.
 
-- Met **Azure SQL Database**, u kunt doorgaan met het beheren van uw database, maar u niet meer nodig hebt voor het beheren van de database-engine, het besturingssysteem of de hardware. Voorbeelden van items die u kunt blijven beheren zijn onder meer databases en aanmeldingen, index en query afstemmen, en controle en beveiliging.  Bovendien vereist configureren van hoge beschikbaarheid naar een ander datacenter minimale configuratie en beheer.
+- Met **Azure SQL Database**, u kunt doorgaan met het beheren van uw database, maar u niet meer nodig hebt voor het beheren van de database-engine, het besturingssysteem of de hardware. Voorbeelden van items die u kunt blijven beheren zijn onder meer databases en aanmeldingen, index en query afstemmen, en controle en beveiliging. Bovendien vereist configureren van hoge beschikbaarheid naar een ander datacenter minimale configuratie en beheer.
 - Met **SQL Server op Azure Virtual Machines** hebt u volledige controle over het besturingssysteem en de configuratie van het SQL Server-exemplaar. Met een VM kunt u zelf bepalen wanneer een upgrade van het besturingssysteem en de databasesoftware nodig is en wanneer u aanvullende software zoals antivirusprogramma's moet installeren. Sommige geautomatiseerde functies worden geleverd om patchen, het maken van een back-up en hoge beschikbaarheid aanzienlijk te vereenvoudigen. Bovendien kunt u de grootte van de VM, het aantal schijven en hun opslagconfiguraties beheren. Met Azure kunt de grootte van een VM indien nodig wijzigen. Zie voor meer informatie [Virtual Machine en Cloud Service Sizes for Azure](../virtual-machines/windows/sizes.md).
 
 ### <a name="service-level-agreement-sla"></a>Service Level Agreement (SLA)

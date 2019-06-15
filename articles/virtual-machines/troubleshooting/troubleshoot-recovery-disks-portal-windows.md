@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
 ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320698"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Een virtuele Windows-machine oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met behulp van de Azure-portal voor herstel
@@ -105,7 +105,7 @@ Voor de volgende stappen gebruikt u een andere virtuele machine voor het oplosse
 
     ![Schakel Bestands- en opslagservices in Serverbeheer](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. De gegevensschijf is automatisch gedetecteerd en die is gekoppeld. Een lijst van de gekoppelde schijven wilt bekijken, selecteert u **schijven**. U kunt de gegevensschijf voor volume-informatie, inclusief de stationsletter. Het volgende voorbeeld ziet u de gegevensschijf die is gekoppeld en het gebruik van **F:**:
+3. De gegevensschijf is automatisch gedetecteerd en die is gekoppeld. Een lijst van de gekoppelde schijven wilt bekijken, selecteert u **schijven**. U kunt de gegevensschijf voor volume-informatie, inclusief de stationsletter. Het volgende voorbeeld ziet u de gegevensschijf die is gekoppeld en het gebruik van **F:** :
 
     ![Schijf die is gekoppeld en volumegegevens in Serverbeheer](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 

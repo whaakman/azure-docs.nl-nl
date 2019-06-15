@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391168"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Queue storage en Visual Studio verbonden services (webtaak projecten)
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 De SDK serialiseert automatisch het object naar JSON. Een wachtrijbericht is altijd gemaakt, zelfs als het object null is.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Meerdere berichten maken of in de asynchrone functies
-Zorg voor het maken van meerdere berichten, het parametertype voor de uitvoerwachtrij **ICollector<T>**  of **IAsyncCollector<T>**, zoals wordt weergegeven in het volgende voorbeeld.
+Zorg voor het maken van meerdere berichten, het parametertype voor de uitvoerwachtrij **ICollector<T>**  of **IAsyncCollector<T>** , zoals wordt weergegeven in het volgende voorbeeld.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -342,7 +342,7 @@ Berichten waarvan de inhoud zorgt ervoor een functie dat mislukken heten *Onverw
 ### <a name="automatic-poison-message-handling"></a>Automatisch beheer van Onverwerkbare berichten verwerken
 De SDK roept een functie maximaal 5 keer een wachtrijbericht te verwerken. Als de vijfde poging mislukt, wordt het bericht verplaatst naar een onverwerkbare wachtrij. U kunt zien hoe het configureren van het maximum aantal nieuwe pogingen in [over het instellen van configuratie-opties](#how-to-set-configuration-options).
 
-De naam van het beheer van onverwerkbare wachtrij *{originalqueuename}*-onverwerkbare. U kunt schrijven om een functie voor het verwerken van berichten uit de wachtrij onverwerkbare door registratie of een melding verzonden dat handmatige aandacht is vereist.
+De naam van het beheer van onverwerkbare wachtrij *{originalqueuename}* -onverwerkbare. U kunt schrijven om een functie voor het verwerken van berichten uit de wachtrij onverwerkbare door registratie of een melding verzonden dat handmatige aandacht is vereist.
 
 In het volgende voorbeeld de **CopyBlob** functie mislukken wanneer er een wachtrijbericht bevat de naam van een blob die niet bestaat. Wanneer dit gebeurt, wordt het bericht uit de wachtrij copyblobqueue verplaatst naar de wachtrij copyblobqueue poison. De **ProcessPoisonMessage** meldt zich vervolgens aan het beheer van Onverwerkbare berichten.
 
@@ -544,7 +544,7 @@ In het WebJobs-SDK-Dashboard, de meest recente 100 regels van de Console-uitvoer
 
 ![Uitvoer van de in-/ uitschakelen](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-In een doorlopende webtaak toepassingslogboeken weergegeven in/data/jobs/continue/*{webjobname}*/job_log.txt in het bestandssysteem van de web-app.
+In een doorlopende webtaak toepassingslogboeken weergegeven in/data/jobs/continue/ *{webjobname}* /job_log.txt in het bestandssysteem van de web-app.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

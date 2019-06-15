@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60651623"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -327,7 +327,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>De infrastructuur op de scale-out bestandsservercluster met behulp van een andere Host van de SAP-algemene voorbereiden
 
-U kunt de tweede scale-out Bestandsserver configureren (bijvoorbeeld, de tweede SOFS cluster-rol met  **\<SAPGlobalHost2 >** en een andere **Volume2** voor de tweede  **\< SID2 >**).
+U kunt de tweede scale-out Bestandsserver configureren (bijvoorbeeld, de tweede SOFS cluster-rol met  **\<SAPGlobalHost2 >** en een andere **Volume2** voor de tweede  **\< SID2 >** ).
 
 ![Afbeelding 4: Multi-SID scale-out Bestandsserver is hetzelfde als de naam van de globale SAP host 2][sap-ha-guide-figure-8015]
 

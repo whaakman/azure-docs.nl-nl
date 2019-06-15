@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60592246"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op Azure virtual machines
@@ -85,11 +85,11 @@ Het virtuele netwerk maken:
    | --- | --- |
    | **Naam** |autoHAVNET |
    | **Adresruimte** |10.33.0.0/24 |
-   | **Subnetnaam** |Gemeente |
+   | **Subnetnaam** |beheerder |
    | **Subnetadresbereik** |10.33.0.0/29 |
    | **Abonnement** |Geef het abonnement dat u wilt gebruiken. **Abonnement** is leeg als u slechts één abonnement hebt. |
    | **Resourcegroep** |Kies **gebruik bestaande** en kies de naam van de resourcegroep. |
-   | **Locatie** |Geef de Azure-locatie. |
+   | **Location** |Geef de Azure-locatie. |
 
    Uw adres ruimte en subnet-adresbereik kan afwijken van de tabel. Afhankelijk van uw abonnement stelt de portal voor een beschikbare adresruimte en het bijbehorende adresbereik. Als er geen onvoldoende adresruimte beschikbaar is, gebruikt u een ander abonnement.
 
@@ -131,7 +131,7 @@ De volgende tabel geeft een overzicht van de configuratie-instellingen van het n
 | **Subnetadresbereik** |Deze waarde is afhankelijk van de beschikbare adresbereiken in uw abonnement. Een typische waarde is 10.0.1.0/24. |
 | **Abonnement** |Geef het abonnement dat u wilt gebruiken. |
 | **Resourcegroep** |**SQL-HA-RG** |
-| **Locatie** |Geef op dezelfde locatie die u hebt gekozen voor de resourcegroep. |
+| **Location** |Geef op dezelfde locatie die u hebt gekozen voor de resourcegroep. |
 
 ## <a name="create-availability-sets"></a>Beschikbaarheidssets maken
 
@@ -158,7 +158,7 @@ Nadat u het netwerk, subnetten, beschikbaarheidssets, en een internetgerichte lo
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Maken van virtuele machines voor de domeincontrollers
 Als u wilt maken en configureren van de domeincontrollers, gaat u terug naar de **SQL-HA-RG** resourcegroep.
 
-1. Klik op **Add**. 
+1. Klik op **Toevoegen**. 
 2. Type **Windows Server 2016 Datacenter**.
 3. Klik op **Windows Server 2016 Datacenter**. In **Windows Server 2016 Datacenter**, Controleer of het implementatiemodel **Resource Manager**, en klik vervolgens op **maken**. 
 
@@ -182,7 +182,7 @@ De volgende tabel ziet u de instellingen voor deze twee machines:
 | **Wachtwoord** |Contoso!0000 |
 | **Abonnement** |*Uw abonnement* |
 | **Resourcegroep** |SQL-HA-RG |
-| **Locatie** |*Uw locatie* |
+| **Location** |*Uw locatie* |
 | **Grootte** |DS1_V2 |
 | **Storage** | **Beheerde schijven gebruiken** - **Ja** |
 | **Virtueel netwerk** |autoHAVNET |
@@ -206,7 +206,7 @@ In de volgende stappen configureert de **ad-primaire-dc** machine als een domein
 1. Open in de portal de **SQL-HA-RG** resource-groep en selecteer de **ad-primaire-dc** machine. Op **ad-primaire-dc**, klikt u op **Connect** een RDP-bestand voor toegang tot extern bureaublad te openen.
 
     ![Verbinding maken met een virtuele machine](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Meld u aan met uw geconfigureerde administrator-account (**\DomainAdmin**) en het wachtwoord (**Contoso! 0000**).
+2. Meld u aan met uw geconfigureerde administrator-account ( **\DomainAdmin**) en het wachtwoord (**Contoso! 0000**).
 3. Standaard de **Serverbeheer** dashboard moet worden weergegeven.
 4. Klik op de **functies en onderdelen toevoegen** koppeling op het dashboard.
 

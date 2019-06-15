@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804081"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics op IoT Edge
  
-Azure Stream Analytics (ASA) op IoT Edge kunnen ontwikkelaars bijna-realtime analytische intelligence dichter bij IoT-apparaten implementeren, zodat ze de volledige waarde van het apparaat worden gegenereerd gegevens kunnen ontgrendelen. Azure Stream Analytics biedt een lage latentie, tolerantie en efficiënt gebruik van bandbreedte en naleving. Ondernemingen kunnen nu implementeren logische besturingselement dicht bij de industriële bewerkingen en een aanvulling vormen op Big Data-analyses klaar in de cloud.  
+Azure Stream Analytics (ASA) op IoT Edge kunnen ontwikkelaars bijna-realtime analytische intelligence dichter bij IoT-apparaten implementeren, zodat ze de volledige waarde van het apparaat worden gegenereerd gegevens kunnen ontgrendelen. Azure Stream Analytics is ontworpen voor lage latentie, tolerantie en efficiënt gebruik van bandbreedte en naleving. Ondernemingen kunnen nu implementeren logische besturingselement dicht bij de industriële bewerkingen en een aanvulling vormen op Big Data-analyses klaar in de cloud.  
 
 Azure Stream Analytics op IoT Edge wordt uitgevoerd binnen de [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Nadat de taak is gemaakt in ASA, kunt u deze kunt implementeren en beheren met behulp van IoT-Hub.
 

@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506151"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux-VM in Azure
@@ -40,7 +40,7 @@ De volgende stappen helpen u bij het isoleren van de bron van de fout en oplossi
 
 2. Selecteer **instellingen** om te controleren van eindpunten, IP-adressen, netwerkbeveiligingsgroepen en andere instellingen.
 
-   De virtuele machine moet een eindpunt dat is gedefinieerd voor SSH-verkeer die u kunt bekijken in **eindpunten** of  **[netwerkbeveiligingsgroep](../../virtual-network/security-overview.md)**. Eindpunten in virtuele machines die zijn gemaakt met behulp van Resource Manager worden opgeslagen in een netwerkbeveiligingsgroep. Controleer of de regels aan de netwerkbeveiligingsgroep zijn toegepast en wordt verwezen in het subnet.
+   De virtuele machine moet een eindpunt dat is gedefinieerd voor SSH-verkeer die u kunt bekijken in **eindpunten** of  **[netwerkbeveiligingsgroep](../../virtual-network/security-overview.md)** . Eindpunten in virtuele machines die zijn gemaakt met behulp van Resource Manager worden opgeslagen in een netwerkbeveiligingsgroep. Controleer of de regels aan de netwerkbeveiligingsgroep zijn toegepast en wordt verwezen in het subnet.
 
 Als u wilt controleren of verbinding met het netwerk, Controleer de geconfigureerde eindpunten en zien als u verbinding met de virtuele machine via een ander protocol, zoals HTTP of een andere service maken kunt.
 

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 5d892005881436dec89c0d0d010f7f02e7bdebf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585261"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight voor Azure SQL-Database
@@ -45,8 +45,8 @@ Query Performance Insight vereist dat [Query Store](https://msdn.microsoft.com/l
 
 U hebt het volgende nodig [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) machtigingen Query Performance Insight gebruiken:
 
-* **Lezer**, **eigenaar**, **Inzender**, **' SQL DB Contributor '**, of **Inzender voor SQL Server** machtigingen zijn vereist de top-resource-intensieve query's en grafieken bekijken.
-* **De eigenaar van**, **Inzender**, **' SQL DB Contributor '**, of **Inzender voor SQL Server** machtigingen zijn vereist om querytekst weer te geven.
+* **Lezer**, **eigenaar**, **Inzender**, **' SQL DB Contributor '** , of **Inzender voor SQL Server** machtigingen zijn vereist de top-resource-intensieve query's en grafieken bekijken.
+* **De eigenaar van**, **Inzender**, **' SQL DB Contributor '** , of **Inzender voor SQL Server** machtigingen zijn vereist om querytekst weer te geven.
 
 ## <a name="use-query-performance-insight"></a>Query Performance Insight gebruiken
 

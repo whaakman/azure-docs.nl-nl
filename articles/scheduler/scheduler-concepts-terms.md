@@ -11,10 +11,10 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530940"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepten, terminologie en entiteiten in Azure Scheduler
@@ -26,7 +26,7 @@ ms.locfileid: "60530940"
 
 De volgende entiteiten of resources worden door de REST API voor Azure Scheduler beschikbaar gemaakt en gebruikt:
 
-| Entiteit | Beschrijving |
+| Entiteit | Description |
 |--------|-------------|
 | **Job** | Definieert één terugkerende actie, met eenvoudige of complexe strategieën, die moet worden uitgevoerd. Acties omvatten mogelijk HTTP-, opslagwachtrij-, Service Bus-wachtrij- of Service Bus-onderwerpaanvragen. | 
 | **Jobverzameling** | Bevat een aantal jobs en onderhoudt instellingen, quota en vertragingen die worden gedeeld door jobs binnen de verzameling. Als eigenaar van een Azure-abonnement kunt u jobverzamelingen maken en jobs groeperen op basis van gebruiks- of toepassingsgrenzen. Een jobverzameling heeft de volgende kenmerken: <p>- Beperkt tot één regio. <br>- U kunt er quota mee afdwingen, zodat u het gebruik voor alle jobs in een verzameling kunt beperken. <br>- Quota omvatten MaxJobs en MaxRecurrence. | 
@@ -81,7 +81,7 @@ Op hoog niveau bevat een Scheduler-job uit de volgende basisonderdelen:
 
 De job bevat ook door het systeem geleverde gegevens, zoals volgende geplande uitvoeringstijd van de job. De codedefinitie van de job is een object in de indeling JSON (JavaScript Object Notation). Deze bevat drie elementen:
 
-| Element | Vereist | Beschrijving | 
+| Element | Vereist | Description | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Nee | De begintijd voor de taak, met een tijdverschuiving in de [indeling ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Ja | De details van de primaire actie, die een **errorAction**-object kan omvatten | 
@@ -275,7 +275,7 @@ In het geval dat een Scheduler-job mislukt, kunt u een beleid voor opnieuw probe
 },
 ```
 
-| Eigenschap | Vereist | Value | Beschrijving | 
+| Eigenschap | Vereist | Value | Description | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Vast**, **Geen** | Bepaalt of u een beleid voor opnieuw proberen opgeeft (**vast**) of niet (**geen**). | 
 | **retryInterval** | Nee | PT30S | Geeft het interval en de frequentie op tussen herhaalpogingen in de [indeling ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). De minimumwaarde is 15 seconden; de maximumwaarde is 18 maanden. | 

@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60540376"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Voorbeeld van de Azure-infrastructuur-overzicht voor het Windows-VM 's
@@ -55,13 +55,13 @@ Alle bovenstaande voldoen aan deze naamgeving:
 * Adventure Works Cycles gebruikt **[IT werkbelasting]-[location]-[Azure-resource]** als voorvoegsel
   * In dit voorbeeld '**azos**"(Azure Online Store) is de naam van de workload IT en"**gebruiken**' (VS-Oost 2) is de locatie
 * Virtuele netwerken gebruiken AZOS-USE-VN **[aantal]**
-* Beschikbaarheidssets gebruiken azos-gebruiken-als-**[rol]**
-* Namen van virtuele machines gebruiken azos-gebruiken-vm -**[vmname]**
+* Beschikbaarheidssets gebruiken azos-gebruiken-als- **[rol]**
+* Namen van virtuele machines gebruiken azos-gebruiken-vm - **[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure-abonnementen en accounts
 Adventure Works Cycles maakt gebruik van de Enterprise-abonnement, met de naam van Adventure Works Enterprise-abonnement voor facturering voor deze workload IT.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 Adventure Works Cycles bepaald dat ze Azure Managed Disks te gebruiken. Bij het maken van virtuele machines, worden beide lagen beschikbare opslag worden gebruikt:
 
 * **Standard-opslag** voor de webservers, toepassingsservers, en domeincontrollers en hun gegevensschijven.

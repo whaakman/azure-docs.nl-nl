@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729916"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Oplossingen voor de overdracht van periodieke
@@ -55,7 +55,7 @@ De volgende tabel geeft een overzicht van de verschillen in de belangrijkste mog
 | Functie                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Vormfactor                                   | Virtueel apparaat             | Fysiek apparaat          | -Service in Azure portal, agent on-premises                                                            |
-| Hardware                                      | De hypervisor            | Geleverd door Microsoft    | N.v.t.                                                            |
+| Hardware                                      | De hypervisor            | Geleverd door Microsoft    | N.V.T.                                                            |
 | Eerste configuratie inspanning                          | Laag (< 30 minuten.)            | Gemiddeld (~ Combineer uur) | Large (~days)                                                 |
 | Gegevensindeling                                   | Azure-Blobs, Azure Files   | Azure-Blobs, Azure Files | [Biedt ondersteuning voor 70 gegevensconnectors voor data-archieven en indelingen](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Gegevens vooraf verwerken                           | Nee                         | Ja, via Edge-Computing    | Ja                                                           |

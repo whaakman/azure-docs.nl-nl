@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "58861876"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Een aangepaste test maken voor Azure Application Gateway (klassiek) met behulp van PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -148,7 +148,7 @@ Een nieuwe configuratie-item \<Probe\> wordt toegevoegd aan het configureren van
 
 De parameters voor de configuratie zijn:
 
-|Parameter|Beschrijving|
+|Parameter|Description|
 |---|---|
 |**Naam** |De referentienaam voor aangepaste test. |
 | **Protocol** | Protocol dat wordt gebruikt (mogelijke waarden zijn HTTP of HTTPS).|

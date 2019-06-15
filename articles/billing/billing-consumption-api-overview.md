@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
 ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615886"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure-verbruik API-overzicht 
@@ -109,7 +109,7 @@ De API omvat:
 
 -   **Azure Role-based Access Control** -configureren toegangsbeleid op de [Azure-portal](https://portal.azure.com), wordt de [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) of [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview) om op te geven welke gebruikers of toepassingen kunnen toegang krijgen tot gegevens over het gebruik van het abonnement. Aanroepers moeten standaard Azure Active Directory-tokens gebruiken voor verificatie. De oproepende functie toevoegen aan de factureren voor lezer, lezer, eigenaar, Inzender rol of toegang krijgen tot gegevens over gebruik voor een specifieke Azure-abonnement. 
 -   **Filteren** -uw aanbeveling Resultaten met behulp van de volgende filters aanpassen:
-    - Bereik
+    - Scope
     - Lookback periode
 -   **Reservering van gegevens voor verschillende typen** -informatie van de reservering is momenteel beschikbaar voor Enterprise- en Web Direct-klanten.
 

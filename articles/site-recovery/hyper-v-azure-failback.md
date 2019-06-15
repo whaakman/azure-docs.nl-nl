@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552413"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Een failback uitvoeren voor Hyper-V-machines
@@ -29,11 +29,11 @@ Na een failover van de primaire naar secundaire locatie, gerepliceerde virtuele 
 1. Selecteer **herstelplannen** > *recoveryplan_name*. Klik op **Failover** > **geplande Failover**.
 2. Op de **geplande Failover bevestigen** pagina, kiest u de bron- en doellocaties. Houd er rekening mee de failoverrichting. Als de failover van primaire gewerkt als verwachten en alle virtuele machines zijn op de secundaire locatie als die dit alleen ter informatie is.
 3. Als u bent werkt het uitvoeren van Azure selecteert u instellingen in **gegevenssynchronisatie**:
-    - **Synchroniseren van gegevens voordat de failover (Synchronize alleen op de deltawijzigingen)**— deze optie wordt de uitvaltijd voor virtuele machines geminimaliseerd omdat het synchroniseert zonder dat deze wordt afgesloten. Het biedt de volgende stappen uit:
+    - **Synchroniseren van gegevens voordat de failover (Synchronize alleen op de deltawijzigingen)** — deze optie wordt de uitvaltijd voor virtuele machines geminimaliseerd omdat het synchroniseert zonder dat deze wordt afgesloten. Het biedt de volgende stappen uit:
         - Fase 1: Momentopname van de virtuele machine in Azure en vervolgens gekopieerd naar de on-premises Hyper-V-host. De machine wordt uitgevoerd in Azure.
         - Fase 2: Sluit de virtuele machine in Azure zodat er geen nieuwe wijzigingen worden uitgevoerd. De uiteindelijke set wijzigingen worden overgedragen naar de on-premises server en de on-premises virtuele machine is gestart.
 
-    - **Synchroniseren van gegevens tijdens de failover alleen (volledige download)**— deze optie is veel sneller.
+    - **Synchroniseren van gegevens tijdens de failover alleen (volledige download)** — deze optie is veel sneller.
         - Deze optie is sneller, omdat we verwachten dat de meeste van de schijf is gewijzigd en we niet wilt dat de tijd in de berekening van de controlesom. Een download van de schijf worden uitgevoerd. Het is ook handig wanneer de on-premises virtuele machine is verwijderd.
         - We raden u deze optie als u hebt uitgevoerd Azure een tijdje (per maand of langer) of de on-premises virtuele machine is verwijderd. Deze optie niet controlesom berekeningen uit te voeren.
 

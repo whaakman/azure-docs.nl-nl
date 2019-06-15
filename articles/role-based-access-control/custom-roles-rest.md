@@ -16,10 +16,10 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596682"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Aangepaste rollen voor Azure-resources met behulp van de REST-API maken
@@ -54,7 +54,7 @@ U kunt aangepaste rollen met een bereik, gebruiken de [roldefinities - lijst](/r
 
 1. Vervang in de URI, *{bereik}* met het bereik waarvoor u wilt weergeven van de rollen.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |
@@ -78,7 +78,7 @@ Voor informatie over een aangepaste rol op de weergavenaam, gebruikt de [roldefi
 
 1. Vervang in de URI, *{bereik}* met het bereik waarvoor u wilt weergeven van de rollen.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |
@@ -104,7 +104,7 @@ Voor informatie over een aangepaste rol door de unieke id, gebruikt de [roldefin
 
 1. Vervang in de URI, *{bereik}* met het bereik waarvoor u wilt weergeven van de rollen.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |
@@ -152,7 +152,7 @@ U kunt een aangepaste rol maken met de [roldefinities - maken of bijwerken](/res
 
 1. Vervang in de URI, *{bereik}* waarbij de eerste `assignableScopes` van de aangepaste rol.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |
@@ -217,7 +217,7 @@ Gebruiken voor het bijwerken van een aangepaste rol, de [roldefinities - maken o
 
 1. Vervang in de URI, *{bereik}* waarbij de eerste `assignableScopes` van de aangepaste rol.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |
@@ -301,7 +301,7 @@ Als u wilt een aangepaste rol verwijderen, gebruikt u de [roldefinities - verwij
 
 1. Vervang in de URI, *{bereik}* met het bereik dat u wilt dat de aangepaste beveiligingsrol te verwijderen.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |

@@ -10,10 +10,10 @@ ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ea6599152d3cbf1f50132f5b207c19148401f798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564256"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Workers oplossen
@@ -56,7 +56,7 @@ Computers met de Hybrid Runbook Worker dient te voldoen aan de minimale hardware
 
 Controleer of de computer met de functie Hybrid Runbook Worker voldoet aan de minimale hardwarevereisten. Als dit het geval is, worden monitor CPU en geheugen gebruiken om te bepalen een correlatie tussen de prestaties van Hybrid Runbook Worker-processen en Windows. Als er geheugen of CPU druk te verlichten, kan dit duiden op de noodzaak om bij te werken van resources. U kunt ook een andere compute-resource die ondersteunen kan de minimale vereisten en schaal wanneer werklastvraag geven een toename van de benodigde selecteren.
 
-Controleer de **Microsoft SMA** gebeurtenislogboek voor een overeenkomende gebeurtenis met beschrijving *Win32 proces is afgesloten met code [4294967295]*. De oorzaak van deze fout is u dit nog niet hebt geconfigureerd verificatie in runbooks uitvoert of de uitvoeren als-referenties voor de Hybrid worker-groep is opgegeven. Beoordeling [runbookmachtigingen](../automation-hrw-run-runbooks.md#runbook-permissions) om te bevestigen u verificatie juist hebt geconfigureerd voor uw runbooks.
+Controleer de **Microsoft SMA** gebeurtenislogboek voor een overeenkomende gebeurtenis met beschrijving *Win32 proces is afgesloten met code [4294967295]* . De oorzaak van deze fout is u dit nog niet hebt geconfigureerd verificatie in runbooks uitvoert of de uitvoeren als-referenties voor de Hybrid worker-groep is opgegeven. Beoordeling [runbookmachtigingen](../automation-hrw-run-runbooks.md#runbook-permissions) om te bevestigen u verificatie juist hebt geconfigureerd voor uw runbooks.
 
 ### <a name="no-cert-found"></a>Scenario: Er is geen certificaat gevonden in het certificaatarchief op Hybrid Runbook Worker
 

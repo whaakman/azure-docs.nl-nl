@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551721"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filters in Azure Monitor-weergaven
@@ -28,7 +28,7 @@ Klik op het datumbereik voor de tijd aan de bovenkant van een weergave te openen
 
 ![Voorbeeld van filter](media/view-designer-filters/filters-example-time.png)
 
-Klik op de **+** een filter met behulp van aangepaste filters die zijn gedefinieerd voor de weergave toe te voegen. Selecteer een waarde voor het filter ofwel uit de vervolgkeuzelijst of typ een waarde in. Doorgaan met het toevoegen van filters door te klikken op de **+**. 
+Klik op de **+** een filter met behulp van aangepaste filters die zijn gedefinieerd voor de weergave toe te voegen. Selecteer een waarde voor het filter ofwel uit de vervolgkeuzelijst of typ een waarde in. Doorgaan met het toevoegen van filters door te klikken op de **+** . 
 
 
 ![Voorbeeld van filter](media/view-designer-filters/filters-example-custom.png)
@@ -48,13 +48,13 @@ De volgende tabel beschrijft de instellingen voor een filter.
 |:---|:---|
 | Veldnaam | De naam van het veld dat wordt gebruikt om te filteren.  Dit veld moet overeenkomen met het veld samenvatten in **Query voor waarden**. |
 | Query voor waarden | De query uit te voeren om het vullen van de vervolgkeuzelijst met filters voor de gebruiker.  Deze query moet een gebruiken [samenvatten](/azure/kusto/query/summarizeoperator) of [afzonderlijke](/azure/kusto/query/distinctoperator) unieke waarden opgeven voor een bepaald veld, zodat het overeenkomt met de **veldnaam**.  U kunt [sorteren](/azure/kusto/query/sortoperator) om te sorteren van de waarden die worden weergegeven aan de gebruiker. |
-| Label | Naam voor het veld dat wordt gebruikt in query's het filter ondersteunt en wordt ook weergegeven aan de gebruiker. |
+| Tag | Naam voor het veld dat wordt gebruikt in query's het filter ondersteunt en wordt ook weergegeven aan de gebruiker. |
 
 ### <a name="examples"></a>Voorbeelden
 
 De volgende tabel bevat enkele voorbeelden van algemene filters.  
 
-| Veldnaam | Query voor waarden | Label |
+| Veldnaam | Query voor waarden | Tag |
 |:--|:--|:--|
 | Computer   | Heartbeat &#124; distinct Computer &#124; sorteren op Computer asc | Computers |
 | EventLevelName | Event &#124; distinct EventLevelName | Severity |

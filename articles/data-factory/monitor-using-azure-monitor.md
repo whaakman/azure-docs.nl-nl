@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319117"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
@@ -273,7 +273,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Eigenschap | Type | Description | Voorbeeld |
+| Eigenschap | Type | Beschrijving | Voorbeeld |
 | --- | --- | --- | --- |
 | Niveau |String | Niveau van de diagnostische logboeken. Niveau 4 is altijd het geval is bij Logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |String | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -319,7 +319,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Eigenschap | Type | Description | Voorbeeld |
+| Eigenschap | Type | Beschrijving | Voorbeeld |
 | --- | --- | --- | --- |
 | Niveau |String | Niveau van de diagnostische logboeken. Niveau 4 is het geval is bij Logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |String | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |

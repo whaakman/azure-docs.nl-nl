@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546626"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een REST-eindpunt met behulp van Azure Data Factory
@@ -288,8 +288,8 @@ Deze algemene REST-connector ondersteunt de volgende paginering patronen:
 | Sleutel | Description |
 |:--- |:--- |
 | AbsoluteUrl | Geeft aan dat de URL voor het uitgeven van de volgende aanvraag. Kan het zijn **absolute URL of relatieve URL**. |
-| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is gebruiker gedefinieerd die verwijst naar een query parameter de naam in de volgende HTTP-aanvraag-URL. |
-| Headers.*request_header* OR Headers['request_header'] | "request_header" is gebruiker gedefinieerd die verwijst naar een headernaam in de volgende HTTP-aanvraag. |
+| QueryParameters. *request_query_parameter* of QueryParameters [request_query_parameter] | "request_query_parameter" is gebruiker gedefinieerd die verwijst naar een query parameter de naam in de volgende HTTP-aanvraag-URL. |
+| Headers. *request_header* of Headers [request_header] | "request_header" is gebruiker gedefinieerd die verwijst naar een headernaam in de volgende HTTP-aanvraag. |
 
 **Ondersteunde waarden** in paginering regels:
 

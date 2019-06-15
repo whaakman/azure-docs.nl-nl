@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630184"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serie: een oplossing voor hybride cloudopslag
@@ -205,9 +205,9 @@ Ontdubbeling vermindert de totale hoeveelheid gegevens die zijn opgeslagen door 
 ## <a name="storsimple-workload-summary"></a>StorSimple workloadoverzicht
 Een overzicht van de ondersteunde werkbelastingen van StorSimple is Zie tabel hieronder.
 
-| Scenario | Workload | Ondersteund | Beperkingen | Versie |
+| Scenario | Workload | Ondersteund | Beperkingen | Version |
 | --- | --- | --- | --- | --- |
-| Samenwerking |Bestandsdeling |Ja | |Alle versies |
+| Samenwerking |Het delen van bestanden |Ja | |Alle versies |
 | Samenwerking |Gedistribueerde het delen van bestanden |Ja | |Alle versies |
 | Samenwerking |SharePoint |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Update 2 en hoger |
 | Archivering |Eenvoudig-bestand archiveren |Ja | |Alle versies |
@@ -232,7 +232,7 @@ De volgende werkbelastingen worden niet ondersteund door apparaten uit de StorSi
 
 Hieronder volgt een lijst van de onderdelen van de infrastructuur van StorSimple wordt ondersteund.
 
-| Scenario | Workload | Ondersteund | Beperkingen | Versie |
+| Scenario | Workload | Ondersteund | Beperkingen | Version |
 | --- | --- | --- | --- | --- |
 | Algemeen |ExpressRoute |Ja | |Alle versies |
 | Algemeen |DataCore FC |Ja* |Ondersteund met DataCore SANsymphony |Alle versies |

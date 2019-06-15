@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390483"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configureren en beheren van Azure Active Directory-verificatie met behulp van SQL
@@ -143,7 +143,7 @@ Het beheerde exemplaar moeten toegangsmachtigingen voor het lezen van Azure AD o
 
 8. Selecteer aan de bovenkant van de pagina Active Directory-beheerder, **opslaan**.
 
-    ![opslaan](./media/sql-database-aad-authentication/save.png)
+    ![Opslaan](./media/sql-database-aad-authentication/save.png)
 
     Het wijzigen van de beheerder kan enkele minuten duren. De nieuwe beheerder wordt vervolgens weergegeven in het vak van Active Directory-beheerder.
 
@@ -195,7 +195,7 @@ PowerShell-cmdlets, hebt u nodig hebt van Azure PowerShell installeren en uitvoe
 
 Cmdlets gebruikt voor het inrichten en beheren van Azure AD-beheerder:
 
-| Naam van cmdlet | Beschrijving |
+| Naam van cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
@@ -345,7 +345,7 @@ Gebruik deze methode als u bent aangemeld bij Windows met uw Azure Active Direct
 
     ![Selecteer de databasenaam][13]
 
-## <a name="active-directory-password-authentication"></a>Wachtwoordverificatie voor Active Directory
+## <a name="active-directory-password-authentication"></a>Active Directory-wachtwoordverificatie
 
 Gebruik deze methode wanneer u verbinding maakt met een Azure AD UPN-naam met behulp van de Azure AD beheerde domein. U kunt deze ook gebruiken voor federatieve accounts geen toegang tot het domein, bijvoorbeeld bij het op afstand werken.
 
@@ -377,7 +377,7 @@ conn.Open();
 
 Het sleutelwoord van de verbindingsreeks ``Integrated Security=True`` wordt niet ondersteund voor het verbinden met Azure SQL Database. Bij het maken van een ODBC-verbinding, moet u spaties verwijderen en het instellen van verificatie met 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Wachtwoordverificatie voor Active Directory
+### <a name="active-directory-password-authentication"></a>Active Directory-wachtwoordverificatie
 
 Voor verbinding met een database met behulp van geïntegreerde verificatie en een Azure AD-identiteit, moet het sleutelwoord verificatie worden ingesteld op Active Directory-wachtwoord. De verbindingsreeks moet gebruiker-ID/gebruikers-id en wachtwoord/PWD trefwoorden en waarden bevatten. De volgende C#-codevoorbeeld maakt gebruik van ADO .NET.
 

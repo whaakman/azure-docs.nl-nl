@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312704"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Nieuwe en gewijzigde bestanden door LastModifiedDate met Azure Data Factory kopiëren
@@ -60,12 +60,12 @@ De sjabloon definieert vier parameters:
     ![De pijplijn weergeven](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Selecteer **Debug**, schrijft de waarde voor de **Parameters** en selecteer **voltooien**.  In de volgende afbeelding stellen we de parameters als volgt.
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
-     Het voorbeeld is de bestanden die het laatst zijn gewijzigd in de tijd tussen de aangeeft *2019-02-01T00:00:00Z* en *2019-03-01T00:00:00Z* moeten worden gekopieerd vanuit een map */source/*  naar een map */destination/*.  U kunt deze met uw eigen parameters vervangen.
+     Het voorbeeld is de bestanden die het laatst zijn gewijzigd in de tijd tussen de aangeeft *2019-02-01T00:00:00Z* en *2019-03-01T00:00:00Z* moeten worden gekopieerd vanuit een map */source/*  naar een map */destination/* .  U kunt deze met uw eigen parameters vervangen.
     
      ![De pijplijn uitvoeren](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -86,10 +86,10 @@ De sjabloon definieert vier parameters:
     ![Trigger maken](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. De waarde voor de **Parameters voor Pijplijnuitvoeringen** als volgende, en selecteer **voltooien**.
-    - **FolderPath_Source** = **/source/**.  U kunt vervangen door uw map in de bron-gegevensopslag.
-    - **FolderPath_Destination** = **/destination/**.  U kunt vervangen door uw map in doelgegevensarchief.
-    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  Er is een systeemvariabele door de trigger bepalen van de tijd wanneer de pijplijn de laatste keer is geactiveerd.
-    - **LastModified_To** = **@trigger(). outputs.windowEndTime**.  Er is een systeemvariabele door de trigger voor het bepalen van de tijd wanneer de pijplijn dit moment wordt geactiveerd.
+    - **FolderPath_Source** =  **/source/** .  U kunt vervangen door uw map in de bron-gegevensopslag.
+    - **FolderPath_Destination** =  **/destination/** .  U kunt vervangen door uw map in doelgegevensarchief.
+    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  Er is een systeemvariabele door de trigger bepalen van de tijd wanneer de pijplijn de laatste keer is geactiveerd.
+    - **LastModified_To** =  **@trigger(). outputs.windowEndTime**.  Er is een systeemvariabele door de trigger voor het bepalen van de tijd wanneer de pijplijn dit moment wordt geactiveerd.
     
     ![Invoerparameters](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

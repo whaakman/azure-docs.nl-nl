@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
 ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398702"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Platformondersteuning voor Azure IoT SDK 's
@@ -41,8 +41,8 @@ Er zijn verschillende platforms die worden ondersteund.
 | OS                  | Arch | Compiler             | TLS-bibliotheek       |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl - 1.0.2g |
-| 18.04 Ubuntu LTS    | X64  | GCC-7.3              | WolfSSL – 1.13    |
-| 18.04 Ubuntu LTS    | X64  | Clang 6.0.X          | Openssl-1.1.0g  |
+| 18\.04 Ubuntu LTS    | X64  | GCC-7.3              | WolfSSL – 1.13    |
+| 18\.04 Ubuntu LTS    | X64  | Clang 6.0.X          | Openssl-1.1.0g  |
 | OSX 10.13.4         | x64  | XCode 9.4.1          | Systeemeigen OSX        |
 | Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
 | Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
@@ -56,8 +56,8 @@ Er zijn verschillende platforms die worden ondersteund.
 | Windows Server 2016 | x64  | Python 2.7 | openssl     |
 | Windows Server 2016 | x86  | Python 3.5 | openssl     |
 | Windows Server 2016 | x64  | Python 3.5 | openssl     |
-| 18.04 Ubuntu LTS    | x86  | Python 2.7 | openssl     |
-| 18.04 Ubuntu LTS    | x86  | Python 3.4 | openssl     |
+| 18\.04 Ubuntu LTS    | x86  | Python 2.7 | openssl     |
+| 18\.04 Ubuntu LTS    | x86  | Python 3.4 | openssl     |
 | MacOS High Sierra   | x64  | Python 2.7 | openssl     |
 
 ### <a name="net-sdk"></a>.NET SDK
