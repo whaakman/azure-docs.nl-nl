@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326057"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Een load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure
@@ -73,7 +73,7 @@ Maak eerst de load balancer.
    | **Privé IP-adres** |Geef een beschikbaar IP-adres van het subnet. Gebruik dit IP-adres wanneer u een listener op het cluster maakt. In een PowerShell-script, verderop in dit artikel gebruikt u dit adres voor de `$ILBIP` variabele. |
    | **Abonnement** |Als u meerdere abonnementen hebt, kan dit veld weergegeven. Selecteer het abonnement dat u wilt koppelen aan deze resource. Het is normaal hetzelfde abonnement als alle resources voor de beschikbaarheidsgroep. |
    | **Resourcegroep** |Selecteer de resourcegroep die de SQL Server-exemplaren in. |
-   | **Locatie** |Selecteer de Azure-locatie hebben als de SQL Server-exemplaren. |
+   | **Location** |Selecteer de Azure-locatie hebben als de SQL Server-exemplaren. |
 
 6. Klik op **Create**. 
 
@@ -140,7 +140,7 @@ De regels voor taakverdeling configureren hoe de load balancer verkeer routeert 
    | **Naam** |Een naam voor de load balancer-regels. Bijvoorbeeld, **SQLAlwaysOnEndPointListener**. |
    | **Protocol** |**TCP** |
    | **Poort** |*1433* |
-   | **Back-Endpoort** |*1433*. Deze waarde wordt genegeerd omdat deze regel maakt gebruik van **zwevend IP (direct server return)**. |
+   | **Back-Endpoort** |*1433*. Deze waarde wordt genegeerd omdat deze regel maakt gebruik van **zwevend IP (direct server return)** . |
    | **Probe** |Gebruik de naam van de test die u hebt gemaakt voor deze load balancer. |
    | **Sessiepersistentie** |**Geen** |
    | **Time-out voor inactiviteit (minuten)** |*4* |
@@ -226,7 +226,7 @@ Een IP-adres toevoegen aan een load balancer met de Azure-portal, het volgende d
    |**Naam** |Een unieke naam voor de test.
    |**Protocol** |TCP
    |**Poort** |Een niet-gebruikte TCP-poort, die beschikbaar zijn op alle virtuele machines moet zijn. Het kan niet worden gebruikt voor andere doeleinden. Er zijn geen twee listeners kunnen dezelfde testpoort gebruiken. 
-   |**Interval** |Tijdsduur tussen testpogingen. Gebruik de standaardwaarde (5).
+   |**Interval** |De tijdsduur tussen testpogingen. Gebruik de standaardwaarde (5).
    |**Drempelwaarde voor onjuiste status** |Het aantal opeenvolgende drempelwaarden die er mislukken moeten voordat een virtuele machine als slecht beschouwd.
 
 8. Klik op **OK** om op te slaan van de test. 

@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331378"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Gebruik virtual network-service-eindpunten en regels voor database-servers
@@ -197,7 +197,7 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse
    > - Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u **eerst upgraden naar v2** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Voor bekende problemen met Azure Data Lake Storage Gen2 Raadpleeg dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob** RBAC-rol met uw SQL Database-server.
+1. Onder uw storage-account, gaat u naar **Access Control (IAM)** , en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob** RBAC-rol met uw SQL Database-server.
 
    > [!NOTE] 
    > Alleen leden met de eigenaar van bevoegdheden kunnen deze stap uitvoeren. Voor de verschillende ingebouwde rollen voor Azure-resources, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -209,7 +209,7 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
     
-   1. Maken van database-scoped referentie met **id = 'Beheerde Service-identiteit'**:
+   1. Maken van database-scoped referentie met **id = 'Beheerde Service-identiteit'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -248,7 +248,7 @@ Er is een verbindingsfout 40914 gekoppeld aan *virtuele netwerkregels*, zoals op
 
 ### <a name="error-40914"></a>Fout 40914
 
-*Tekst van:* Server kan niet worden geopend '*[servernaam]* is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.
+*Tekst van:* Server kan niet worden geopend ' *[servernaam]* is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.
 
 *Foutbeschrijving:* De client zich in een subnet met de eindpunten van virtual network-server. Maar de Azure SQL Database-server heeft geen regel voor virtuele netwerken die verleent aan het subnet van het recht om te communiceren met de SQL-Database.
 

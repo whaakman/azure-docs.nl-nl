@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/20/2019
 ms.author: aljo
 ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387856"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Plannen en voorbereiden voor de implementatie van een cluster
@@ -64,7 +64,7 @@ Omdat veel services, services, met name in containers, kan de naam van een besta
 
 De omgekeerde proxy adressen services in het cluster die beschikbaar maken van HTTP-eindpunten (inclusief HTTPS). De omgekeerde proxy vereenvoudigt het aanroepen van andere services door te geven van een specifieke URI-indeling.  De omgekeerde proxy ook oplossen door verwerkt, verbinding en probeer de stappen die nodig zijn voor een service om te communiceren met een andere.
 
-## <a name="prepare-for-disaster-recovery"></a>Voorbereiden op herstel na noodgeval
+## <a name="prepare-for-disaster-recovery"></a>Voorbereiden voor herstel na noodgevallen
 Een belangrijk onderdeel van het leveren van hoge beschikbaarheid is ervoor te zorgen dat services verschillende typen fouten meer storingen kunnen doorstaan. Dit is vooral belangrijk voor fouten die niet-geplande zijn en buiten het besturingselement. [Voorbereiden voor herstel na noodgevallen](service-fabric-disaster-recovery.md) beschrijft enkele algemene foutmodi die rampen worden kunnen als niet gemodelleerd en goed beheerd. Hierin worden ook oplossingen en acties moet uitvoeren als er een ramp toch opgetreden.
 
 ## <a name="production-readiness-checklist"></a>Controlelijst voor productiegereedheid

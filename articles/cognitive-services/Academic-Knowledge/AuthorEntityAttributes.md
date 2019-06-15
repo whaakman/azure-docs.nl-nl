@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609749"
 ---
 # <a name="author-entity"></a>De auteur van entiteit
@@ -22,12 +22,12 @@ ms.locfileid: "60609749"
 
 Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entiteits-id                              |Int64      |Is gelijk aan
+Id      |Entiteit-ID                              |Int64      |Is gelijk aan
 AuN     |Genormaliseerde naam van auteur                 |String     |Is gelijk aan
-DAuN    |Weergavenaam van de auteur                    |String     |geen
-CC      |Totale citaat aantal van auteur            |Int32      |geen  
-ECC     |Totale geschatte citaat aantal van auteur  |Int32      |geen
-E       |Uitgebreide metagegevens (Zie tabel "Uitgebreide metagegevens kenmerken")  |String     |geen  
+DAuN    |Weergavenaam van de auteur                    |String     |Geen
+CC      |Totale citaat aantal van auteur            |Int32      |Geen  
+ECC     |Totale geschatte citaat aantal van auteur  |Int32      |Geen
+E       |Uitgebreide metagegevens (Zie tabel "Uitgebreide metagegevens kenmerken")  |String     |Geen  
 
 
 ## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##

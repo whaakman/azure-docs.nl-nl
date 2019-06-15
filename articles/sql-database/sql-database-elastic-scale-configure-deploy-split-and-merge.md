@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585505"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Een service voor het verplaatsen van gegevens tussen de shard-databases voor splitsen en samenvoegen implementeren
@@ -120,7 +120,7 @@ Voor de Webrol:
 . Houd er rekening mee dat de implementaties voor productie certificaten scheiden moet worden gebruikt voor de CA voor versleuteling, het servercertificaat en clientcertificaten. Zie voor gedetailleerde instructies op deze [Beveiligingsconfiguratie](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## <a name="deploy-your-service"></a>De service implementeert
-1. Ga naar de [Azure-portal](https://portal.azure.com)
+1. Ga naar [Azure Portal](https://portal.azure.com)
 2. Selecteer de cloudservice die u eerder hebt gemaakt.
 3. Klik op **Overzicht**.
 4. Kies de faseringsomgeving en klik vervolgens op **uploaden**.
@@ -142,7 +142,7 @@ Als de werkrol niet online is gekomen, maar uw Webrol is geslaagd, is het zeer w
    Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
    ```
 
-* Zorg ervoor dat de servernaam begint niet met **https://**.
+* Zorg ervoor dat de servernaam begint niet met **https://** .
 * Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. Om dit te doen, opent u uw database in de portal en zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op ** op ***.
 
 ## <a name="test-the-service-deployment"></a>De service-implementatie testen

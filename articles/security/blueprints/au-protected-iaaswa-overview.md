@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
 ms.openlocfilehash: 3c82a88ea15b52672f9bed428e2e7af40a65309c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610221"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure-beveiliging en naleving blauwdruk - IaaS-webtoepassing voor Australië beveiligd
@@ -93,14 +93,14 @@ Elk van de subnetten heeft een speciale beveiligingsgroep:
 - 1 netwerkbeveiligingsgroep voor de SQL-Servers en Cloud-Witness (SQLNSG)
 - 1 netwerkbeveiligingsgroep voor de weblaag (WEBNSG)
 
-### <a name="data-in-transit"></a>Gegevens die onderweg zijn
+### <a name="data-in-transit"></a>Actieve gegevens
 Alle communicatie naar en van Azure-datacenters versleutelt Azure standaard. 
 
 Voor beveiligde gegevens tijdens de overdracht van netwerken van klanten, de architectuur maakt gebruik van de Internet- of ExpressRoute met een VPN-Gateway zijn geconfigureerd met IPSEC.
 
 Bovendien worden alle transacties naar Azure via de Azure management portal via HTTPS met behulp van TLS 1.2 optreden.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 
 **Azure Storage**: Om versleutelde data-at-rest-vereisten te voldoen aan alle [Azure Storage](https://azure.microsoft.com/services/storage/) maakt gebruik van [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Dit helpt te beschermen en beveiligen van gegevens ter ondersteuning van de organisatie beveiligingsverplichtingen en nalevingsvereisten zijn gedefinieerd door de Australische overheid-console.

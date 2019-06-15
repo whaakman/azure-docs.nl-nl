@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630883"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Unpack, rack koppelen, en uw StorSimple 8600-apparaat bekabelen
@@ -252,7 +252,7 @@ De volgende stappen uitvoeren om de seriële poort-kabel.
 4. De serie USB-stuurprogramma's (geleverd met het apparaat) installeren op uw computer.
 5. Stel de seriële verbinding als volgt in:
    
-   * 115.200 baudrate
+   * 115\.200 baudrate
    * 8 databits
    * 1 stop-bits
    * Er is geen pariteit

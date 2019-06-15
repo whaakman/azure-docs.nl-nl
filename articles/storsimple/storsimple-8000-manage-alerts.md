@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320335"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>De StorSimple Device Manager-service gebruiken voor het StorSimple-waarschuwingen weergeven en beheren
@@ -72,7 +72,7 @@ Nadat u e-mailmelding voor een apparaat hebt ingeschakeld, wordt een e-mailberic
       
 3. Als u wilt een test-e-mailmelding verzenden, klikt u op **testbericht verzenden**. De StorSimple Device Manager-service wordt statusberichten weergegeven als de Testmelding wordt doorgestuurd.
 
-    ![Waarschuwingsinstellingen](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+    ![instellingen voor waarschuwingen](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
 4. U ziet een melding wanneer de test-e-mailbericht is verzonden. 
    
@@ -154,13 +154,13 @@ Als cloud-connectiviteit op uw StorSimple-apparaat voor productie is mislukt, kl
 |:--- |:--- |:--- |
 | Apparaat een failover naar <*apparaatnaam*>. |Apparaat is in de onderhoudsmodus bevindt. |Apparaat een failover vanwege activeren of afsluiten van de onderhoudsmodus. Dit is normaal en geen actie te ondernemen. Nadat u deze waarschuwing hebt bevestigd, wist u deze van de pagina met waarschuwingen. |
 | Apparaat een failover naar <*apparaatnaam*>. |Apparaatfirmware of software is zojuist hebt bijgewerkt. |Er is een clusterfailover vanwege een update. Dit is normaal en geen actie te ondernemen. Nadat u deze waarschuwing hebt bevestigd, wist u deze van de pagina met waarschuwingen. |
-| Apparaat een failover naar <*apparaatnaam*>. |Controller heeft afgesloten of opnieuw opgestart. |Apparaat een failover omdat de actieve controller heeft afgesloten of opnieuw door een beheerder opgestart. U hoeft geen actie te ondernemen. Nadat u deze waarschuwing hebt bevestigd, wist u deze van de pagina met waarschuwingen. |
+| Apparaat een failover naar <*apparaatnaam*>. |Controller heeft afgesloten of opnieuw opgestart. |Apparaat een failover omdat de actieve controller heeft afgesloten of opnieuw door een beheerder opgestart. Er is geen actie nodig. Nadat u deze waarschuwing hebt bevestigd, wist u deze van de pagina met waarschuwingen. |
 | Apparaat een failover naar <*apparaatnaam*>. |Geplande failover. |Controleer of dat dit een geplande failover. Nadat u de juiste actie hebt ondernomen, moet u deze waarschuwing op de pagina met waarschuwingen wissen. |
 | Apparaat een failover naar <*apparaatnaam*>. |Niet-geplande failover. |StorSimple is gebouwd voor niet-geplande failovers automatisch worden hersteld. Als u een groot aantal van deze waarschuwingen ziet, moet u contact op met Microsoft Support. |
 | Apparaat een failover naar <*apparaatnaam*>. |Andere/onbekende oorzaak. |Als u een groot aantal van deze waarschuwingen ziet, moet u contact op met Microsoft Support. Nadat het probleem opgelost is, kunt u deze waarschuwing op de pagina met waarschuwingen wissen. |
 | Een service essentiële apparaat gerapporteerd als mislukt. |Gegevenspad-fout-service. |Neem voor hulp contact op met Microsoft Support. |
-| Virtueel IP-adres voor de netwerkinterface <*gegevens #*> status wordt gerapporteerd als mislukt. |Andere/onbekende oorzaak. |Soms tijdelijke omstandigheden kunnen leiden tot deze waarschuwingen. Als dit het geval is, wordt klikt u vervolgens deze waarschuwing automatisch gewist na enige tijd. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |
-| Virtueel IP-adres voor de netwerkinterface <*gegevens #*> status wordt gerapporteerd als mislukt. |De naam van interface: <*gegevens #*> IP-adres `<IP address>` niet online worden gebracht omdat er een dubbel IP-adres is gedetecteerd op het netwerk. |Zorg ervoor dat het dubbele IP-adres is verwijderd uit het netwerk of de interface met een ander IP-adres configureren. |
+| Virtueel IP-adres voor de netwerkinterface <*gegevens #* > status wordt gerapporteerd als mislukt. |Andere/onbekende oorzaak. |Soms tijdelijke omstandigheden kunnen leiden tot deze waarschuwingen. Als dit het geval is, wordt klikt u vervolgens deze waarschuwing automatisch gewist na enige tijd. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |
+| Virtueel IP-adres voor de netwerkinterface <*gegevens #* > status wordt gerapporteerd als mislukt. |De naam van interface: <*gegevens #* > IP-adres `<IP address>` niet online worden gebracht omdat er een dubbel IP-adres is gedetecteerd op het netwerk. |Zorg ervoor dat het dubbele IP-adres is verwijderd uit het netwerk of de interface met een ander IP-adres configureren. |
 
 ### <a name="disaster-recovery-alerts"></a>Disaster recovery waarschuwingen
 

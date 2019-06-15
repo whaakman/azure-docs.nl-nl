@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60547868"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Gegevens laden van Office 365 met behulp van Azure Data Factory
@@ -32,7 +32,7 @@ Dit artikel laat u het gebruik van de Data Factory _gegevens uit Office 365 lade
       
    ![De pagina Nieuwe data factory](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadFromOffice365Demo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_**LoadFromOffice365Demo**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+    * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadFromOffice365Demo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_ **LoadFromOffice365Demo**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of Selecteer de **nieuw** optie en voer de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
     * **Version**: Selecteer **V2**.
@@ -137,7 +137,7 @@ Uitvoeringen van activiteit die is gekoppeld aan de pijplijnuitvoering, selectee
 
 Als dit de eerste keer dat u gegevens voor deze context aanvraagt (een combinatie van welke gegevens worden tabel toegang, welke bestemming-account is de gegevens worden geladen in en welke gebruikers-id is, zodat de gegevens toegangsaanvraag), ziet u de copy-activiteit Als de status '**Bezig**', en alleen wanneer u klikt op in de koppeling 'Details' onder acties wordt de status wordt weergegeven als '**RequesetingConsent**'.  Een lid van de groep data access goedkeurder nodig voor het goedkeuren van de aanvraag in het Privileged Access Management voordat de gegevensextractie verder kunt gaan.
 
-_Status als aanvragende toestemming:_
+_Status als aanvragende toestemming:_ 
 ![uitvoeringsdetails van activiteit - toestemming van de aanvraag](./media/load-office-365-data/activity-details-request-consent.png) 
 
 _Status als het ophalen van gegevens:_

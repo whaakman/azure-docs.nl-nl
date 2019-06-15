@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312435"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta-kopie van een database met een besturingselement-tabel
@@ -41,14 +41,14 @@ De sjabloon bevat vier activiteiten:
 
 De sjabloon definieert vijf parameters:
 - *Data_Source_Table_Name* is de tabel in de brondatabase die u wilt laden van gegevens uit.
-- *Data_Source_WaterMarkColumn* is de naam van de kolom in de brontabel die is gebruikt voor het nieuwe identificeren of rijen bijgewerkt. Het type van deze kolom is meestal *datum-/*, *INT*, of vergelijkbare.
+- *Data_Source_WaterMarkColumn* is de naam van de kolom in de brontabel die is gebruikt voor het nieuwe identificeren of rijen bijgewerkt. Het type van deze kolom is meestal *datum-/* , *INT*, of vergelijkbare.
 - *Data_Destination_Folder_Path* of *Data_Destination_Table_Name* is de plaats waar de gegevens in uw doelarchief om te worden gekopieerd.
 - *Control_Table_Table_Name* is de externe controle-tabel waarin de hoge grenswaarde.
 - *Control_Table_Column_Name* is de kolom in de externe controle-tabel die de hoge watermerk-waarde wordt opgeslagen.
 
 ## <a name="how-to-use-this-solution-template"></a>Het gebruik van deze oplossingssjabloon
 
-1. Verken de bron-tabel u die wilt laden en de hoge grenswaardekolom die kan worden gebruikt voor het identificeren van nieuwe of bijgewerkte rijen definiëren. Het type van deze kolom mogelijk *datum-/*, *INT*, of vergelijkbare. De waarde van deze kolom wordt verhoogd als nieuwe rijen worden toegevoegd. In het volgende voorbeeld brontabel (data_source_table), gebruiken we de *LastModifytime* kolom als de hoge grenswaardekolom.
+1. Verken de bron-tabel u die wilt laden en de hoge grenswaardekolom die kan worden gebruikt voor het identificeren van nieuwe of bijgewerkte rijen definiëren. Het type van deze kolom mogelijk *datum-/* , *INT*, of vergelijkbare. De waarde van deze kolom wordt verhoogd als nieuwe rijen worden toegevoegd. In het volgende voorbeeld brontabel (data_source_table), gebruiken we de *LastModifytime* kolom als de hoge grenswaardekolom.
 
     ```sql
             PersonID    Name    LastModifytime
@@ -63,7 +63,7 @@ De sjabloon definieert vijf parameters:
             9   iiiiiiiii   2017-09-09 09:01:00.000
     ```
     
-2. Een besturingselement-tabel in SQL Server of Azure SQL Database voor het opslaan van de hoge grenswaarde voor het laden van deltagegevens maken. In het volgende voorbeeld wordt de naam van de tabel van het besturingselement is *watermarktable*. In deze tabel *WatermarkValue* is de kolom waarin de hoge grenswaarde en het type *datum-/*.
+2. Een besturingselement-tabel in SQL Server of Azure SQL Database voor het opslaan van de hoge grenswaarde voor het laden van deltagegevens maken. In het volgende voorbeeld wordt de naam van de tabel van het besturingselement is *watermarktable*. In deze tabel *WatermarkValue* is de kolom waarin de hoge grenswaarde en het type *datum-/* .
 
     ```sql
             create table watermarktable
@@ -108,11 +108,11 @@ De sjabloon definieert vijf parameters:
 
      ![De pijplijn controleren](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Selecteer **opgeslagen Procedure**. Voor **opgeslagen procedurenaam**, kiest u **[update_watermark]**. Selecteer **importparameter**, en selecteer vervolgens **dynamische inhoud toevoegen**.  
+9. Selecteer **opgeslagen Procedure**. Voor **opgeslagen procedurenaam**, kiest u **[update_watermark]** . Selecteer **importparameter**, en selecteer vervolgens **dynamische inhoud toevoegen**.  
 
      ![Stel de opgeslagen procedure-activiteit](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 
-10. De inhoud schrijven  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, en selecteer vervolgens **voltooien**.  
+10. De inhoud schrijven  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** , en selecteer vervolgens **voltooien**.  
 
      ![Schrijven van de inhoud voor de parameters van de opgeslagen procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
      

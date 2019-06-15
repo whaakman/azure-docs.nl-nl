@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487033"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor het verplaatsen van gegevens
@@ -79,7 +79,7 @@ Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-Rest.
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Data Factory biedt op dit moment geen ondersteuning voor Amazon Redshift binnen een VPC. 
 
-#### <a name="salesforce"></a>SalesForce
+#### <a name="salesforce"></a>Salesforce
 SalesForce ondersteunt Shield Platform versleuteling waarmee het coderen van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie, [inzicht in de Web Server OAuth-Verificatiestroom](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>Hybride scenario's (met behulp van Data Management Gateway)
@@ -127,7 +127,7 @@ Virtueel netwerk is een logische weergave van uw netwerk in de cloud. U kunt een
 
 De volgende tabel geeft een overzicht van de netwerk- en gateway-configuratie-aanbevelingen op basis van verschillende combinaties van bron- en doellocaties voor hybride verplaatsing van gegevens.
 
-| Bron | Doel | Netwerkconfiguratie | Gateway-installatie |
+| source | Bestemming | Netwerkconfiguratie | Gateway-installatie |
 | ------ | ----------- | --------------------- | ------------- | 
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec-VPN (punt-naar-site of site-naar-site) | Gateway kan worden geïnstalleerd van on-premises of op een virtuele Azure voor machine (VM) in VNet | 
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (persoonlijke Peering) | Gateway kan worden geïnstalleerd van on-premises of op een Azure-VM in VNet | 
@@ -150,7 +150,7 @@ In een onderneming, een **bedrijfsfirewall** wordt uitgevoerd op de centrale-rou
 
 De volgende tabel bevat **uitgaande poort** en vereisten voor het domein voor de **bedrijfsfirewall**.
 
-| Domeinnamen | Uitgaande poorten | Beschrijving |
+| Domeinnamen | Uitgaande poorten | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Vereist door de gateway verbinding maken met services voor gegevensverplaatsing in Data Factory |
 | `*.core.windows.net` | 443 | Gebruikt door de gateway verbinding maken met Azure Storage-Account wanneer u de [gefaseerd kopiëren](data-factory-copy-activity-performance.md#staged-copy) functie. | 
@@ -163,7 +163,7 @@ De volgende tabel bevat **uitgaande poort** en vereisten voor het domein voor de
 
 De volgende tabel bevat **binnenkomende poort** vereisten voor de **windows firewall**.
 
-| Poorten voor inkomend verkeer | Beschrijving | 
+| Poorten voor inkomend verkeer | Description | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Vereist door de toepassing Referentiebeheer veilig referenties instellen voor on-premises gegevensopslagexemplaren op de gateway. | 
 
@@ -183,7 +183,7 @@ De volgende cloud-gegevensarchieven vereisen zwarte lijst plaatsen van IP-adres 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 **Vraag:** Kan de Gateway worden gedeeld met andere data factory's?
-**Antwoord:** We bieden deze functie nog geen ondersteuning. We werken actief erop.
+**Antwoord:** We bieden deze functie nog geen ondersteuning. We zijn hier druk mee bezig.
 
 **Vraag:** Wat zijn de Poortvereisten voor de gateway om te werken?
 **Antwoord:** Gateway maakt op basis van HTTP-verbindingen met het openbare internet. De **uitgaande poorten 443 en 80** moet worden geopend voor de gateway deze verbinding te maken. Open **binnenkomende poort 8050** alleen op het machineniveau van de (niet op het niveau van de firewall van het bedrijf) voor de toepassing Referentiebeheer. Als Azure SQL Database of Azure SQL Data Warehouse wordt gebruikt als bron / bestemming, dan hebt u nodig hebt om te openen **1433** ook poort. Zie voor meer informatie, [Firewall-configuraties en IP-adressen voor opname in de whitelist](#firewall-configurations-and-whitelisting-ip-address-of gateway) sectie. 

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288380"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Azure-resource rolinstellingen in PIM configureren
@@ -79,13 +79,13 @@ En u kunt een van deze **active** duur toewijzingsopties:
 
 PIM biedt optionele afdwinging van Azure multi-factor Authentication (MFA) voor twee verschillende scenario's.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>Multi-Factor Authentication vereisen voor actieve toewijzing
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Meervoudige verificatie vereisen bij actieve toewijzing
 
 In sommige gevallen is het raadzaam om toe te wijzen een lid aan een rol voor een korte periode (bijvoorbeeld één dag). In dit geval hoeft ze niet de toegewezen leden aan de aanvraag voor activering. In dit scenario kan geen PIM MFA afdwingen wanneer het lid maakt gebruik van hun roltoewijzing, omdat ze al actief zijn in de rol vanaf het moment dat ze zijn toegewezen.
 
 Om ervoor te zorgen dat de beheerder van de resource die voldoen aan de toewijzing is wie ze beweren te zijn, kunt u MFA afdwingen op actieve toewijzing door het controleren van de **multi-factor Authentication vereisen bij actieve toewijzing** vak.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>Multi-Factor Authentication bij activering vereisen
+### <a name="require-multi-factor-authentication-on-activation"></a>Meervoudige verificatie vereisen bij activering
 
 U kunt vereisen dat in aanmerking komende leden van een rol om uit te voeren van MFA voor ze kunnen activeren. Dit proces zorgt ervoor dat de gebruiker die vraagt om de activering is wie ze beweren te zijn met redelijke zekerheid. Afdwingen van deze optie worden beveiligd op kritieke resources in situaties wanneer het gebruikersaccount dat mogelijk is aangetast.
 
@@ -101,7 +101,7 @@ Gebruik de **maximale activeringsduur** schuifregelaar om in te stellen de maxim
 
 U kunt vereisen dat leden een reden op actieve toewijzing of wanneer ze activeren invoeren. Om te vereisen dat reden, Controleer de **reden vereisen bij actieve toewijzing** vak of de **reden vereisen bij activering** vak.
 
-## <a name="require-approval-to-activate"></a>Goedkeuring vereisen om deze rol te activeren
+## <a name="require-approval-to-activate"></a>Goedkeuring vereisen voor activeren
 
 Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 
@@ -109,7 +109,7 @@ Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 
 1. Klik op **fiatteurs selecteren** Selecteer een lid of een groep om deelvenster te openen.
 
-    ![Lid of groep selecteren](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Selecteer een lid of de groep](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Selecteer ten minste één lid of de groep en klik vervolgens op **Selecteer**. U kunt een willekeurige combinatie van leden en groepen toevoegen. U moet ten minste één goedkeurder selecteren. Er zijn geen Standaard fiatteurs.
 

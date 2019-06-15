@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323762"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Problemen met CDN-bestandscompressie oplossen
@@ -97,7 +97,7 @@ Navigeer naar het eindpunt in de [Azure-portal](https://portal.azure.com) en kli
 
 Controleer de antwoordheaders om te controleren of dat het bestand is in de cache opgeslagen in de regio waar deze wordt aangevraagd met hulpprogramma's voor ontwikkelaars van uw browser.
 
-* Controleer de **Server** response-header.  De header moet de indeling hebben **Platform (POP-server/Server-ID)**, zoals te zien is in het volgende voorbeeld.
+* Controleer de **Server** response-header.  De header moet de indeling hebben **Platform (POP-server/Server-ID)** , zoals te zien is in het volgende voorbeeld.
 * Controleer de **X-Cache** response-header.  De header moet lezen **bereikt**.  
 
 ![CDN-antwoordheaders](./media/cdn-troubleshoot-compression/cdn-response-headers.png)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545517"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services-telemetrie  
@@ -103,7 +103,7 @@ Tijdstempel|Tijdstempel|Automatische-timestamp van Azure Table 2016-09-09T22:43:
 Type|Type|StreamingEndpoint
 Name|Name|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceID|Service-id|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceID|Service-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Hostnaam|Hostnaam van het eindpunt|builddemoserver.origin.mediaservices.windows.net
 StatusCode|Records HTTP-status|200
 ResultCode|Details van de resultaat-code|S_OK
@@ -122,7 +122,7 @@ Tijdstempel|Tijdstempel|Automatische-timestamp van de Azure-tabel 2016-09-09T22:
 Type|Type|Kanaal
 Name|Name|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceID|Service-id|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceID|Service-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Type van de video, audio/tekst van bijhouden|video/audio
 TrackName|Naam van het spoor|video/audio_1
 Bitrate|Bitrate bijhouden|785000
@@ -147,7 +147,7 @@ Tijdstempel|Tijdstempel|Automatische-timestamp van de Azure-tabel 2016-09-09T22:
 Type|Type|Archiveren
 Name|Name|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceID|Service-id|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceID|Service-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|Programma-url|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
 TrackName|Naam van het spoor|audio_1
 TrackType|Type van het spoor|Audio/video

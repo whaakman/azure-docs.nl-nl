@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565715"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
@@ -51,7 +51,7 @@ Microsoft werkt de lijst met ondersteunde versies van HDInsight met de nieuwste 
 Na 15 December 2017:
 
 - U kunt niet meer maken op basis van Linux HDInsight versie 3.3 (of eerdere versies) clusters met behulp van een on-demand HDInsight-service in Data Factory versie 1 gekoppeld. 
-- Als de [ **osType** en **versie** eigenschappen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) niet expliciet zijn opgegeven in de JSON-definitie voor een bestaande Data Factory versie 1 op aanvraag gekoppelde HDInsight-service , de standaardwaarde is gewijzigd van **versie 3.1, osType = Windows =** naar **versie =\<meest recente versie voor HDI-standaard\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType Linux =**.
+- Als de [ **osType** en **versie** eigenschappen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) niet expliciet zijn opgegeven in de JSON-definitie voor een bestaande Data Factory versie 1 op aanvraag gekoppelde HDInsight-service , de standaardwaarde is gewijzigd van **versie 3.1, osType = Windows =** naar **versie =\<meest recente versie voor HDI-standaard\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType Linux =** .
 
 Na 31 juli 2018:
 
@@ -60,7 +60,7 @@ Na 31 juli 2018:
 ### <a name="recommended-actions"></a>Aanbevolen acties 
 
 - Om ervoor te zorgen dat u de nieuwste onderdelen van Hadoop-ecosysteem en oplossingen kunt gebruiken, werken de [ **osType** en **versie** eigenschappen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) van betrokken Data Factory versie 1 op aanvraag Definities van de gekoppelde HDInsight-service naar nieuwere versies van HDInsight op basis van Linux (HDInsight 3.6). 
-- Vóór 15 December 2017, test u Data Factory versie 1 Hive, Pig, MapReduce en Hadoop streaming activiteiten die verwijzen naar de betrokken gekoppelde service. Zorg ervoor dat ze compatibel met de nieuwe zijn **osType** en **versie** standaardwaarden (**versie 3.6 =**, **osType Linux =**) of de Typ dat u wilt naar bijwerken expliciete HDInsight-versie en besturingssysteem. 
+- Vóór 15 December 2017, test u Data Factory versie 1 Hive, Pig, MapReduce en Hadoop streaming activiteiten die verwijzen naar de betrokken gekoppelde service. Zorg ervoor dat ze compatibel met de nieuwe zijn **osType** en **versie** standaardwaarden (**versie 3.6 =** , **osType Linux =** ) of de Typ dat u wilt naar bijwerken expliciete HDInsight-versie en besturingssysteem. 
   Zie voor meer informatie over de compatibiliteit, [migreren vanuit een HDInsight op basis van een Windows-cluster naar een cluster op basis van Linux](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) en [wat zijn de Hadoop-onderdelen en versies die beschikbaar met HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions). 
 - Als u wilt doorgaan met behulp van een Data Factory versie 1-service op aanvraag HDInsight gekoppeld aan het maken van HDInsight op basis van een Windows-clusters, expliciet instellen **osType** naar **Windows** vóór 15 December 2017. Het is raadzaam om te migreren naar Linux gebaseerde HDInsight-clusters vóór 31 juli 2018. 
 - Als u een gekoppelde HDInsight-service op aanvraag voor het uitvoeren van Data Factory versie 1 DotNet aangepaste activiteit, update de DotNet aangepaste activiteit JSON-definitie te gebruiken in plaats daarvan een Azure-Batch gekoppelde service. Zie voor meer informatie, [aangepaste activiteiten gebruiken in een Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
@@ -126,7 +126,7 @@ De volgende JSON definieert een service op aanvraag gekoppeld HDInsight op basis
 | type                         | De eigenschap type ingesteld op **HDInsightOnDemand**. | Ja      |
 | clusterSize                  | Het aantal worker- en gegevensknooppunten in het cluster. Het HDInsight-cluster is gemaakt met 2 hoofdknooppunten, naast het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn van de grootte Standard_D3 met 4 kernen. Een cluster met 4-worker-knooppunten wordt 24 kernen (4\*4 = 16 cores voor worker-knooppunten, plus 2\*4 = 8 cores voor hoofdknooppunten). Zie voor meer informatie over de laag Standard_D3 [maken Linux gebaseerde Hadoop-clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
 | timeToLive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag blijft actief wanneer het uitvoeren van een activiteit is voltooid, als er geen andere actieve taken in het cluster.<br /><br />Bijvoorbeeld, als een activiteit uitvoert 6 minuten duurt en **timeToLive** is ingesteld op 5 minuten, de cluster blijft actief gedurende vijf minuten na de zes minuten van de verwerking van de activiteit die wordt uitgevoerd. Als een andere activiteit die wordt uitgevoerd in het venster 6 minuten wordt uitgevoerd, wordt verwerkt door hetzelfde cluster.<br /><br />Het maken van een on-demand HDInsight-cluster is een dure bewerking (het kan even duren). Gebruik deze instelling als die nodig zijn om prestaties te verbeteren van een data factory door opnieuw een on-demand HDInsight-cluster te gebruiken.<br /><br />Als u de **timeToLive** waarde die moet worden **0**, het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Echter, als u een hoge waarde hebt ingesteld, het cluster kan Blijf op de niet-actieve, onnodig leidt tot hoge kosten. Het is belangrijk om in te stellen van de juiste waarde op basis van uw behoeften.<br /><br />Als de **timeToLive** waarde op de juiste wijze is ingesteld, wordt het exemplaar van de HDInsight-cluster op aanvraag door meerdere pijplijnen kunnen delen. | Ja      |
-| versie                      | De versie van het HDInsight-cluster. Zie voor toegestane HDInsight-versies, [ondersteund HDInsight-versies](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Als deze waarde niet is opgegeven, de [meest recente versie voor HDI-standaard](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) wordt gebruikt. | Nee       |
+| version                      | De versie van het HDInsight-cluster. Zie voor toegestane HDInsight-versies, [ondersteund HDInsight-versies](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Als deze waarde niet is opgegeven, de [meest recente versie voor HDI-standaard](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) wordt gebruikt. | Nee       |
 | linkedServiceName            | De gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster is gemaakt in dezelfde regio als dit storage-account.<p>U kunt geen op dit moment een HDInsight-cluster op aanvraag die gebruikmaakt van Azure Data Lake Store als de opslag maken. Als u wilt voor het opslaan van de resulterende gegevens uit HDInsight verwerking in Data Lake Store, kunt u de Kopieeractiviteit gebruiken de gegevens van Blob-opslag kopiëren naar Data Lake Store. </p> | Ja      |
 | additionalLinkedServiceNames | Hiermee geeft u een extra opslagaccounts voor de gekoppelde HDInsight-service. Data Factory registreert de storage-accounts uit uw naam. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster. Het HDInsight-cluster is gemaakt in dezelfde regio als het opslagaccount dat opgegeven door de **linkedServiceName** eigenschap. | Nee       |
 | besturingssysteemtype                       | Het type besturingssysteem. Toegestane waarden zijn **Linux** en **Windows**. Als deze waarde niet is opgegeven, **Linux** wordt gebruikt.  <br /><br />Het is raadzaam met HDInsight op basis van Linux-clusters. De vervaldatum voor HDInsight in Windows is en met 31 juli 2018. | Nee       |
@@ -261,7 +261,7 @@ U kunt een gekoppelde HDInsight-service voor het registreren van uw eigen HDInsi
 | ----------------- | ---------------------------------------- | -------- |
 | type              | De eigenschap type ingesteld op **HDInsight**. | Ja      |
 | clusterUri        | De URI van het HDInsight-cluster.        | Ja      |
-| gebruikersnaam          | De naam van het gebruikersaccount dat u gebruikt om te verbinden met een bestaand HDInsight-cluster. | Ja      |
+| username          | De naam van het gebruikersaccount dat u gebruikt om te verbinden met een bestaand HDInsight-cluster. | Ja      |
 | password          | Het wachtwoord voor het gebruikersaccount.   | Ja      |
 | linkedServiceName | De naam van de gekoppelde storage-service die naar de Blob-opslag die wordt gebruikt door het HDInsight-cluster verwijst. <p>Momenteel kunt opgeven u niet dat een Data Lake Store gekoppelde service voor deze eigenschap. Als het HDInsight-cluster toegang tot Data Lake Store heeft, kunt u toegang tot gegevens in Data Lake Store via Hive of Pig-scripts. </p> | Ja      |
 
@@ -392,7 +392,7 @@ Voor verificatie van de gebruiker referentie voor Data Lake Analytics, geeft u d
 
 | Eigenschap          | Description                              | Vereist |
 | :---------------- | :--------------------------------------- | :------- |
-| Autorisatie | In Data Factory-Editor selecteert u de **autoriseren** knop. Voer de referenties die de automatisch gegenereerde autorisatie-URL aan deze eigenschap wordt toegewezen. | Ja      |
+| authorization | In Data Factory-Editor selecteert u de **autoriseren** knop. Voer de referenties die de automatisch gegenereerde autorisatie-URL aan deze eigenschap wordt toegewezen. | Ja      |
 | sessionId     | De OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u Data Factory-Editor gebruiken. | Ja      |
 
 **Voorbeeld: Verificatie van gebruikersreferenties**

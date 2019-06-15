@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487279"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Maken, bewaken en beheren van Azure data factory's met behulp van Azure Data Factory .NET SDK
@@ -113,7 +113,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
 1. Maak met behulp van Visual Studio 2012/2013/2015 een C# .NET-consoletoepassing.
    1. Open **Visual Studio** 2012/2013/2015.
    2. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**.
-   3. Vouw **Templates** uit en selecteer **Visual C#**. Tijdens deze walkthrough gebruikt u C#, maar u kunt een willekeurige .NET-taal gebruiken.
+   3. Vouw **Templates** uit en selecteer **Visual C#** . Tijdens deze walkthrough gebruikt u C#, maar u kunt een willekeurige .NET-taal gebruiken.
    4. Selecteer **Console Application** uit de lijst met projecttypen aan de rechterkant.
    5. Voer **DataFactoryAPITestApp** in als de naam.
    6. Selecteer **C:\ADFGetStarted** als de locatie.
@@ -139,7 +139,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         </appSettings>
     </configuration>
     ```
-5. Werk in het bestand App.Config de waarden voor  **&lt;toepassings-ID&gt;**,  **&lt;wachtwoord&gt;**,  **&lt;abonnement ID&gt;**, en **&lt;tenant-ID&gt;** door uw eigen waarden.
+5. Werk in het bestand App.Config de waarden voor  **&lt;toepassings-ID&gt;** ,  **&lt;wachtwoord&gt;** ,  **&lt;abonnement ID&gt;** , en **&lt;tenant-ID&gt;** door uw eigen waarden.
 6. Voeg de volgende **met behulp van** instructies toe aan de **Program.cs** bestand in het project.
 
     ```csharp

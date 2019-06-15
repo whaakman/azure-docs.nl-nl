@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610788"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Aan de slag met de Threat Modeling Tool
 
-Microsoft Threat Modeling Tool 2018 is uitgebracht als algemeen beschikbaar in September 2018 als een gratis  **[Klik hier om te downloaden](https://aka.ms/threatmodelingtool)**. De wijziging in een leveringsmechanisme kan we de meest recente verbeteringen en oplossingen voor problemen om naar te pushen klanten telkens wanneer die ze opent u het hulpprogramma, waardoor het gemakkelijker te onderhouden en te gebruiken.
+Microsoft Threat Modeling Tool 2018 is uitgebracht als algemeen beschikbaar in September 2018 als een gratis  **[Klik hier om te downloaden](https://aka.ms/threatmodelingtool)** . De wijziging in een leveringsmechanisme kan we de meest recente verbeteringen en oplossingen voor problemen om naar te pushen klanten telkens wanneer die ze opent u het hulpprogramma, waardoor het gemakkelijker te onderhouden en te gebruiken.
 In dit artikel doorloopt u het proces van het aan de slag met de SDL Microsoft threat modeling benadering en ziet u hoe u het hulpprogramma te gebruiken voor het ontwikkelen van geweldige bedreigingsmodellen als een backbone van de beveiliging wordt uitgevoerd.
 
 In dit artikel is gebaseerd op bestaande kennis van de SDL threat modeling benadering. Raadpleeg voor een kort overzicht **[Threat Modeling webtoepassingen](https://msdn.microsoft.com/library/ms978516.aspx)** en een gearchiveerde versie van **[bloot Security fouten met behulp van de STRIDE-methode](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN-artikel gepubliceerd in 2006.
@@ -79,14 +79,14 @@ Ze gaan door het proces van het ontwikkelen van hun eerste risicomodel.
 > - Deze opdrachten op uw webserver verzendt, de cirkel
 > - De webserver is overleg met een database (twee parallelle lijnen)
 
-Wat Ricardo NET heeft laten zien Cristina is een GSD, kort voor  **[gegevensstroom-Diagram](https://en.wikipedia.org/wiki/Data_flow_diagram)**. De Threat Modeling Tool kunnen gebruikers de grenzen van vertrouwensrelaties, aangegeven door de rode stippellijn, om weer te geven waarin verschillende entiteiten worden in het besturingselement opgeven. IT-beheerders vereisen bijvoorbeeld een Active Directory-systeem voor verificatiedoeleinden wordt gebruikt, zodat de Active Directory buiten hun beheer vallen is.
+Wat Ricardo NET heeft laten zien Cristina is een GSD, kort voor  **[gegevensstroom-Diagram](https://en.wikipedia.org/wiki/Data_flow_diagram)** . De Threat Modeling Tool kunnen gebruikers de grenzen van vertrouwensrelaties, aangegeven door de rode stippellijn, om weer te geven waarin verschillende entiteiten worden in het besturingselement opgeven. IT-beheerders vereisen bijvoorbeeld een Active Directory-systeem voor verificatiedoeleinden wordt gebruikt, zodat de Active Directory buiten hun beheer vallen is.
 
 > Cristina: Klopt aan mij. Hoe zit het met de bedreigingen?
 > Ricardo: Ik wil u laten.
 
 ## <a name="analyzing-threats"></a>Analyseren van bedreigingen
 
-Nadat hij op de weergave van de analyse van het pictogram menuselectie (bestand met Vergrootglas) klikt, hij wordt ondernomen om een lijst van bedreigingen voor de gegenereerde de Threat Modeling Tool gevonden op basis van de standaardsjabloon die gebruikmaakt van de SDL-benadering met de naam  **[ STRIDE (vervalsing, knoeien, vrijgeven van informatie, ontkenning, Denial of Service en misbruik van bevoegdheden)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Het idee is dat software wordt geleverd bij een voorspelbare set bedreigingen, die kan worden gevonden met behulp van deze categorieën 6.
+Nadat hij op de weergave van de analyse van het pictogram menuselectie (bestand met Vergrootglas) klikt, hij wordt ondernomen om een lijst van bedreigingen voor de gegenereerde de Threat Modeling Tool gevonden op basis van de standaardsjabloon die gebruikmaakt van de SDL-benadering met de naam  **[ STRIDE (vervalsing, knoeien, vrijgeven van informatie, ontkenning, Denial of Service en misbruik van bevoegdheden)](https://en.wikipedia.org/wiki/STRIDE_(security))** . Het idee is dat software wordt geleverd bij een voorspelbare set bedreigingen, die kan worden gevonden met behulp van deze categorieën 6.
 
 Deze benadering is, net als een mechanisme voor vergrendeling in plaats voor het toevoegen van een alarmsysteem of chasing na de dief huis beveiligen door ervoor te zorgen dat elke klep en het venster heeft.
 

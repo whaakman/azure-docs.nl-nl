@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447723"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar Azure Data Explorer met behulp van Azure Data Factory 
@@ -46,7 +46,7 @@ In dit artikel leest u hoe de gegevens kopiëren van Data Factory-hulpprogramma 
 
     **Instelling**  | **Beschrijving van veld**
     |---|---|
-    | **Naam** | Voer een unieke naam op voor uw data factory. Als u de foutmelding *' naam Data factory \"LoadADXDemo\" is niet beschikbaar '*, Geef een andere naam voor de data factory. Zie voor de naamgevingsregels van Data Factory-artefacten, [Data Factory-naamgevingsregels](/azure/data-factory/naming-rules).|
+    | **Naam** | Voer een unieke naam op voor uw data factory. Als u de foutmelding *' naam Data factory \"LoadADXDemo\" is niet beschikbaar '* , Geef een andere naam voor de data factory. Zie voor de naamgevingsregels van Data Factory-artefacten, [Data Factory-naamgevingsregels](/azure/data-factory/naming-rules).|
     | **Abonnement** | Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. |
     | **Resourcegroep** | Selecteer **nieuw** en voer de naam van een nieuwe resourcegroep. Selecteer **gebruik bestaande**, hebt u een bestaande resourcegroep. |
     | **Versie** | Selecteer **V2** |
@@ -158,7 +158,7 @@ Azure Data Explorer nieuwe gekoppelde service is gemaakt om te kopiëren van de 
     * De toewijzing van het tweede treedt op wanneer deze gegevens in tabelvorm in Azure Data Explorer wordt opgenomen. Toewijzing wordt uitgevoerd volgens [CSV toewijzingsregels](/azure/kusto/management/mappings#csv-mapping). Houd er rekening mee dat, zelfs als de brongegevens bevinden zich niet in CSV-indeling, ADF de gegevens in tabelvorm is geconverteerd, CSV-toewijzing is daarom alleen relevante de toewijzing van het in deze fase.
         * Onder **Azure Data Explorer (Kusto) sink eigenschappen** toevoegen de relevante **opname toewijzingsnaam** (optioneel) zodanig dat in de kolomtoewijzing kan worden gebruikt.
         * Als **opname toewijzingsnaam** is niet opgegeven, wordt "by-name" toewijzing volgorde gedefinieerd in **kolomtoewijzingen** sectie wordt uitgevoerd. Als "by-name" toewijzing is mislukt, probeert Azure Data Explorer voor opname van de gegevens in een volgorde 'kolom op positie' (maps door-positie als standaard).
-    * Selecteer **volgende**
+    * Selecteer **Volgende**
 
     ![Kolomtoewijzing bestemming-gegevensset](media/data-factory-load-data/destination-dataset-column-mapping.png)
 

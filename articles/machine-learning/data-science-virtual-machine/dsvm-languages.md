@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502215"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Talen die worden ondersteund op de Data Science Virtual Machine 
@@ -234,12 +234,12 @@ De standaardwaarde van Julia locatie is een globale omgeving kan worden gelezen 
 
 ## <a name="other-languages"></a>Andere talen
 
-**C#**: Beschikbaar op Windows en toegankelijk is via de Visual Studio Community-editie of op een `Developer Command Prompt for Visual Studio` waar u kunt alleen uitvoeren `csc` opdracht. 
+**C#** : Beschikbaar op Windows en toegankelijk is via de Visual Studio Community-editie of op een `Developer Command Prompt for Visual Studio` waar u kunt alleen uitvoeren `csc` opdracht. 
 
 **Java**: OpenJDK is beschikbaar op Linux- en Windows-versie van de DSVM en instellen op het pad. U kunt typen `javac` of `java` opdracht op de opdrachtprompt in Windows- of bash-shell in Linux Java gebruiken. 
 
 **node.js**: node.js is beschikbaar op Linux- en Windows-versie van de DSVM en instellen op het pad. U kunt typen `node` of `npm` opdracht op de opdrachtprompt in de Windows- of bash-shell in Linux voor toegang tot node.js. De Node.js-hulpprogramma's voor Visual Studio-extensie is geïnstalleerd op Windows, voor een grafische IDE voor het ontwikkelen van uw node.js-toepassing. 
 
-**F#**: Beschikbaar op Windows en toegankelijk is via de Visual Studio Community-editie of op een `Developer Command Prompt for Visual Studio` waar u kunt alleen uitvoeren `fsc` opdracht. 
+**F#** : Beschikbaar op Windows en toegankelijk is via de Visual Studio Community-editie of op een `Developer Command Prompt for Visual Studio` waar u kunt alleen uitvoeren `fsc` opdracht. 
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240458"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Werken met gegevensbestanden in Azure Notebook-projecten
@@ -62,11 +62,11 @@ U kunt bestanden overbrengen naar een project van het projectdashboard of binnen
 
 1. In de **Uploadstatus** pop-upbericht verschijnt, selecteer een **doelmap** uit de vervolgkeuzelijst:
 
-    - Sessie-map (*~/* ): Uploads van bestanden in de huidige sessie van de notebook maar bestanden in het project niet maken. De map van de sessie is een peer in de projectmap, maar niet bewaard is gebleven na de sessie wordt beëindigd. Voorvoegsel voor toegang tot sessiebestanden in code, de bestandsnamen met het relatieve pad *... /*.
+    - Sessie-map ( *~/* ): Uploads van bestanden in de huidige sessie van de notebook maar bestanden in het project niet maken. De map van de sessie is een peer in de projectmap, maar niet bewaard is gebleven na de sessie wordt beëindigd. Voorvoegsel voor toegang tot sessiebestanden in code, de bestandsnamen met het relatieve pad *... /* .
 
         Met behulp van de sessie-map, is het handig om te experimenten en voorkomt u dat het project met bestanden die u kan of mogelijk niet op lange termijn. U kunt bestanden ook uploaden naar de sessie-map die dezelfde naam hebben tot bestanden in het project zonder conflicten veroorzaken, en zonder dat om de bestandsnamen te wijzigen. Bijvoorbeeld: Stel dat u één versie van hebt *data.csv* in het project al, maar wilt om te experimenteren met een andere versie van *data.csv*. Door het bestand te uploaden naar de map van de sessie, kunt u de notebook met behulp van gegevens in het geüploade bestand uitvoeren (naar wordt verwezen in met behulp van code *... /Data.csv*) in plaats van de gegevens in het bestand van het project.
 
-    - Projectmap (*/project*): worden bestanden geüpload in het project waar ze kunnen worden geopend met behulp van relatieve padnamen in de code. Een bestand uploadt naar deze map is hetzelfde als het uploaden van een bestand op het projectdashboard. Het bestand met het project wordt opgeslagen en is beschikbaar in latere sessies.
+    - Projectmap ( */project*): worden bestanden geüpload in het project waar ze kunnen worden geopend met behulp van relatieve padnamen in de code. Een bestand uploadt naar deze map is hetzelfde als het uploaden van een bestand op het projectdashboard. Het bestand met het project wordt opgeslagen en is beschikbaar in latere sessies.
 
         Uploaden mislukt als u probeert een bestand met dezelfde naam als een bestaande resourcegroep in het project te uploaden. Als u wilt een bestand wilt overschrijven, upload het nieuwe bestand in het projectdashboard in plaats daarvan, waarmee u de optie om te overschrijven.
 

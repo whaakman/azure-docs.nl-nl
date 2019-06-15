@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
 ms.openlocfilehash: 7704d9124846c0c6c82728031327990f8f9b1cf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608218"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-pci-dss"></a>Azure-beveiliging en naleving blauwdruk: Datawarehouse voor PCI DSS
@@ -76,7 +76,7 @@ De volgende sectie bevat de elementen van de implementatie en uitvoering.
 
 **SQL Data Warehouse**: [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is een Enterprise Data Warehouse (EDW) die gebruikmaakt van uiterst (Massively Parallel Processing) als u wilt snel complexe query's uitvoeren voor petabytes aan gegevens, zodat gebruikers een voor de financiële gegevens efficiënt te identificeren. Gebruikers kunnen eenvoudige PolyBase T-SQL-query's gebruiken om big data importeren in SQL Data Warehouse en gebruikmaken van de kracht van MPP te krachtige analyses uitvoeren.
 
-**SQL Server Reporting Services (SSRS)**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) biedt snel maken van rapporten met tabellen, diagrammen, kaarten, meters, matrices en meer voor Azure SQL Data Warehouse.
+**SQL Server Reporting Services (SSRS)** : [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) biedt snel maken van rapporten met tabellen, diagrammen, kaarten, meters, matrices en meer voor Azure SQL Data Warehouse.
 
 **Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) gegevensbronnen gemakkelijk kunnen worden gedetecteerd en begrijpelijk is door de gebruikers die de gegevens beheren. Algemene gegevensbronnen kunnen worden geregistreerd, gelabeld en financiële gegevens gezocht. De gegevens blijven in de bestaande locatie, maar een kopie van de metagegevens wordt toegevoegd aan Data Catalog, samen met een verwijzing naar de locatie van de gegevens. Deze metagegevens worden ook geïndexeerd zodat elke gegevensbron gemakkelijk kan worden gedetecteerd via zoekopdrachten, en begrijpelijk is voor gebruikers die de gegevensbron detecteren.
 
@@ -107,7 +107,7 @@ Elk van de netwerkbeveiligingsgroepen specifieke poorten en protocollen openen, 
 
 **Subnetten**: Elk subnet is gekoppeld aan de bijbehorende netwerkbeveiligingsgroep.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 
 De architectuur beveiligt gegevens in rust via meerdere metingen, versleuteling en Databasecontrole.
 

@@ -15,10 +15,10 @@ ms.date: 03/15/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64f9f835393c5ad2bf6022e4a274e8e2eeb1830
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349858"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health-Waarschuwingscatalogus 
@@ -29,17 +29,17 @@ Waarschuwingen van Azure AD Connect Health worden opgelost op een voorwaarde ges
 
 ## <a name="general-alerts"></a>Algemene waarschuwingen
 
-| Naam van de waarschuwing | Beschrijving | Herstel |
+| Naam van waarschuwing | Description | Herstel |
 | --- | --- | ----- |
 | Health service-gegevens is niet up-to-date | De Health-agents die worden uitgevoerd op een of meer servers is niet verbonden met de Health-Service en de Health-Service is niet ontvangen van de meest recente gegevens van deze server. De meest recente gegevens verwerkt door de Health-Service is ouder dan 2 uur. | Zorg ervoor dat de health-agents uitgaande verbinding met de vereiste service-eindpunten hebben. [Meer informatie](how-to-connect-health-data-freshness.md) |
 
 ## <a name="alerts-for-azure-ad-connect-sync"></a>Waarschuwingen voor Azure AD Connect (Sync)
 
-| Naam van de waarschuwing | Description | Herstel |
+| Naam van waarschuwing | Description | Herstel |
 | --- | --- | ----- |
 | Azure AD Connect Sync-Service wordt niet uitgevoerd | Microsoft Azure AD Sync Windows-service wordt niet uitgevoerd of kan niet worden gestart. Als gevolg hiervan objecten niet gesynchroniseerd met Azure Active Directory. | Start Microsoft Azure Active Directory Sync Services</b> <ol> <li>Klik op <b>Start</b>, klikt u op <b>uitvoeren</b>, type <b>Services.msc</b>, en klik vervolgens op <b>OK</b>.</li> <li>Zoek de <b>Microsoft Azure AD Sync-service</b>, en controleer vervolgens of de service is gestart. Als de service is niet gestart, met de rechtermuisknop op en klik vervolgens op <b>Start</b>. | 
 | Importeren uit Azure Active Directory is mislukt | De importbewerking van Azure Active Directory-Connector is mislukt. |  Onderzoek het gebeurtenissenlogboek van de importbewerking voor meer informatie.  |
-| Verbinding met Azure Active Directory is mislukt vanwege een verificatiefout | Verbinding maken met Azure Active Directory is mislukt vanwege een verificatiefout. Als gevolg hiervan worden objecten niet worden gesynchroniseerd met Azure Active Directory.  | Onderzoek het gebeurtenissenlogboek voor meer informatie. |
+| De verbinding met Azure Active Directory is mislukt vanwege een verificatiefout | De verbinding met Azure Active Directory is mislukt vanwege een verificatiefout. Als gevolg hiervan worden objecten niet worden gesynchroniseerd met Azure Active Directory.  | Onderzoek het gebeurtenissenlogboek voor meer informatie. |
 | Exporteren naar Active Directory is mislukt | De exportbewerking naar Active Directory-Connector is mislukt. | Onderzoek het gebeurtenissenlogboek van de exportbewerking voor meer informatie. | 
 | Importeren uit Active Directory is mislukt | Importeren uit Active Directory is mislukt. Objecten uit bepaalde domeinen van dit forest mogelijk als gevolg hiervan niet geïmporteerd. | <li>DC-connectiviteit controleren</li> <li>Importeren handmatig opnieuw uitvoeren</li> <li> Onderzoek het gebeurtenissenlogboek van de importbewerking voor meer informatie. | 
 | Exporteren naar Azure Active Directory is mislukt | De exportbewerking naar Azure Active Directory-Connector is mislukt. Als gevolg hiervan kunnen sommige objecten niet worden geëxporteerd naar Azure Active Directory. | Onderzoek het gebeurtenissenlogboek van de exportbewerking voor meer informatie. |
@@ -50,7 +50,7 @@ Waarschuwingen van Azure AD Connect Health worden opgelost op een voorwaarde ges
 | Exporteren naar Azure Active Directory is gestopt. Drempelwaarde voor onopzettelijk verwijderen is bereikt | De exportbewerking naar Azure Active Directory is mislukt. Er zijn meer objecten om te worden verwijderd dan de geconfigureerde drempelwaarde. Als gevolg hiervan zijn geen objecten geëxporteerd. | <li> Het aantal objecten zijn gemarkeerd voor verwijdering zijn groter is dan de ingestelde drempelwaarde. Zorg ervoor dat deze resultaten vereist is.</li> <li> Als u wilt toestaan dat de export om door te gaan, moet u de volgende stappen uitvoeren: <ol type="a"> <li>Drempelwaarde voor uitschakelen door het uitvoeren van Disable-ADSyncExportDeletionThreshold</li> <li>Start Synchronization Service Manager</li> <li>Exporteren worden uitgevoerd op de Connector met het type = Azure Active Directory</li> <li>Schakel na het exporteren is van de objecten, drempelwaarde door te voeren: Enable-ADSyncExportDeletionThreshold</li> </ol> </li> |
 
 ## <a name="alerts-for-active-directory-federation-services"></a>Waarschuwingen voor Active Directory Federatieservices
-| Naam van de waarschuwing | Description | Herstel |
+| Naam van waarschuwing | Description | Herstel |
 | --- | --- | ----- |
 |Testverificatieverzoek (synthetische transactie) kan een token verkrijgen | De test-verificatieaanvragen (synthetische transacties) die zijn gestart vanaf deze server kan niet een token verkrijgen na 5 pogingen. Dit kan worden veroorzaakt door tijdelijke netwerkproblemen, de beschikbaarheid van AD DS-domeincontroller of een verkeerd geconfigureerde AD FS-server.  Als gevolg hiervan kunnen verificatieaanvragen verwerkt door de federatieservice mislukken. De agent maakt gebruik van de lokale computeraccount-context om te verkrijgen van een token van de Federation-Service. | Zorg ervoor dat de volgende stappen uit om te valideren dat de status van de server worden genomen.<ol><li>Controleer of er geen extra niet-opgeloste waarschuwingen voor deze of andere AD FS-servers in uw farm.</li><li>Valideren dat dit probleem niet een tijdelijke fout is door aanmelden met een testgebruiker van de AD FS-aanmeldingspagina op https://{your_adfs_server_name}/adfs/ls/idpinitiatedsignon.aspx</li><li>Ga naar <a href="https://testconnectivity.microsoft.com"> https://testconnectivity.microsoft.com </a> en kies het tabblad 'Office 365'. De 'Office 365 Single Sign-On Test uitvoeren '.</li><li>Controleer of de naam van uw AD FS-service vanaf deze server kan worden opgelost door het uitvoeren van de volgende opdracht uit vanaf een opdrachtprompt op deze server. Nslookup your_adfs_server_name</li></ol><p>Als de naam van de service kan niet worden omgezet, raadpleegt u het gedeelte met veelgestelde vragen voor instructies van het toevoegen van een hostbestandvermelding van uw AD FS-service met het IP-adres van deze server. Hierdoor kunnen de synthetische transactie-module die wordt uitgevoerd op deze server om aan te vragen van een token</p> | 
 | De proxy-server kan de federation-server niet bereiken | Deze AD FS-proxyserver kan geen contact op met de AD FS-service. Als gevolg hiervan mislukken verwerkt met deze server verificatieaanvragen. | Voer de volgende stappen uit voor het valideren van de verbinding tussen deze server en de AD FS-service. <ol><li> Zorg ervoor dat de firewall tussen deze server en de AD FS-service correct is geconfigureerd. </li><li> Zorg ervoor dat DNS-omzetting voor de naam van de AD FS-service op de juiste wijze verwijst naar de AD FS-service die deel uitmaakt van het bedrijfsnetwerk bevinden. Dit kan worden bereikt via een DNS-server dat deze server in het perimeternetwerk of via vermeldingen in het HOSTS-bestanden voor de AD FS-servicenaam. </li><li> De netwerkconnectiviteit controleren door te openen van de browser op deze server en toegang tot het federation metadata-eindpunt, deze bevindt zich op `https://<your-adfs-service-name>/federationmetadata/2007-06/federationmetadata.xml` </li> | 
@@ -77,7 +77,7 @@ Waarschuwingen van Azure AD Connect Health worden opgelost op een voorwaarde ges
 
 ## <a name="alerts-for-active-directory-domain-services"></a>Waarschuwingen voor Active Directory Domain Services
 
-| Naam van de waarschuwing | Description | Herstel |
+| Naam van waarschuwing | Description | Herstel |
 | --- | --- | ----- |
 | Domeincontroller is niet bereikbaar via LDAP-ping | De domeincontroller is niet bereikbaar via LDAP-Ping. Dit kan worden veroorzaakt door problemen met de netwerk- of machine problemen. Hierdoor mislukken LDAP-Pings. |  <li>Controleer de lijst met waarschuwingen op gerelateerde waarschuwingen, zoals: Domeincontroller kondigt zich niet aan. </li><li>Zorg ervoor dat de betrokken domeincontroller voldoende schijfruimte heeft. Het uitvoeren geen schijfruimte meer stopt met de domeincontroller niet adverteren zelf als een LDAP-server. </li><li> Poging tot de PDC niet vinden: Voer <br> <i>netdom query fsmo </i> </br> op de betrokken domeincontroller. <li> Controleer of het fysieke netwerk is correct geconfigureerd/verbonden. </li> |
 | Active Directory-Replicatiefout aangetroffen | Deze domeincontroller ondervindt replicatieproblemen, die kunnen worden gevonden door te gaan naar het Dashboard voor replicatiestatus. Replicatiefouten mogelijk veroorzaakt door onjuiste configuratie of andere gerelateerde problemen. Onbehandelde replicatiefouten kunnen leiden tot inconsistenties in de gegevens. | Zie aanvullende details voor de namen van de betreffende bron en doel-DC's. Navigeer naar het dashboard voor replicatiestatus en zoek naar de actieve fouten op de desbetreffende DC's. Klik op de fout die naar een blade geopend met meer informatie over het oplossen van die specifieke fout.| 

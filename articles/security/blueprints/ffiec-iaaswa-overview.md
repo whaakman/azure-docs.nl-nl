@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 10d13e7dd145feff286b8dd58fa1bc657961e8c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585768"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-ffiec-financial-services"></a>Azure-beveiliging en naleving blauwdruk: IaaS-webtoepassing voor de financiële dienstverlening FFIEC
@@ -96,10 +96,10 @@ Elk van de subnetten heeft een speciaal netwerk beveiligingsgroep:
 - 1 netwerk beveiligingsgroep voor SQL-Servers en Cloud-Witness (SQLNSG)
 - 1 netwerk beveiligingsgroep voor de weblaag (WEBNSG)
 
-### <a name="data-in-transit"></a>Gegevens die onderweg zijn
+### <a name="data-in-transit"></a>Actieve gegevens
 Alle communicatie naar en van Azure-datacenters versleutelt Azure standaard. Bovendien worden alle transacties met Azure Storage via Azure portal via HTTPS optreden.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60548425"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
@@ -52,7 +52,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
       
    ![De pagina Nieuwe data factory](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadADLSG1Demo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+    * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadADLSG1Demo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_ **ADFTutorialDataFactory**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of Selecteer de **nieuw** optie en voer de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
     * **Version**: Selecteer **V2**.

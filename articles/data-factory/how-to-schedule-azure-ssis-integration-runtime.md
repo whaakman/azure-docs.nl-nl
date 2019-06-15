@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60522173"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Het starten en stoppen van Azure-SSIS Integration Runtime volgens een schema
@@ -109,7 +109,7 @@ Als u een derde trigger die is gepland voor uitvoering elke dag om middernacht m
 
    ![ADF-webactiviteit On-Demand SSIS-IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
 
-5. De beheerde identiteit toewijzen voor uw ADF een **Inzender** rol zelf en dus webactiviteiten in de pijplijnen REST-API voor het starten/stoppen ingericht in het Azure-SSIS-IR. kunnen aanroepen.  Klik op de pagina ADF in Azure portal op **toegangsbeheer (IAM)**, klikt u op **+ roltoewijzing toevoegen**, en klik vervolgens op **roltoewijzing toevoegen** blade de volgende acties uitvoeren.
+5. De beheerde identiteit toewijzen voor uw ADF een **Inzender** rol zelf en dus webactiviteiten in de pijplijnen REST-API voor het starten/stoppen ingericht in het Azure-SSIS-IR. kunnen aanroepen.  Klik op de pagina ADF in Azure portal op **toegangsbeheer (IAM)** , klikt u op **+ roltoewijzing toevoegen**, en klik vervolgens op **roltoewijzing toevoegen** blade de volgende acties uitvoeren.
 
     1. Voor **rol**, selecteer **Inzender**. 
     2. Voor **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of service-principal**. 
@@ -131,7 +131,7 @@ Als u een derde trigger die is gepland voor uitvoering elke dag om middernacht m
 2. Als u wilt de derde pijplijn testen, start u SQL Server Management Studio (SSMS). In **verbinding maken met Server** venster de volgende acties uitvoeren. 
 
     1. Voor **servernaam**, voer  **&lt;de naam van uw Azure SQL Database-server&gt;. database.windows.net**.
-    2. Selecteer **opties >>**.
+    2. Selecteer **opties >>** .
     3. Voor **verbinding maken met database**, selecteer **SSISDB**.
     4. Selecteer **Verbinden**. 
     5. Vouw **Integration Services-catalogussen** -> **SSISDB** -> uw map -> **projecten** -> uw SSIS-project -> **pakketten** . 
@@ -156,7 +156,7 @@ Nu uw pijplijnen werken als u verwacht, kunt u triggers om ze uit te voeren op d
 
     1. Voor **naam**, voer een naam voor de trigger. In het volgende voorbeeld **uitvoeren dagelijks** is de naam van de trigger. 
     2. Voor **Type**, selecteer **planning**. 
-    3. Voor **Start datum (UTC)**, voert u een datum en tijd in UTC. 
+    3. Voor **Start datum (UTC)** , voert u een datum en tijd in UTC. 
     4. Voor **terugkeerpatroon**, voer een uitgebracht voor de trigger. In het volgende voorbeeld is het **dagelijkse** zodra. 
     5. Voor **End**, selecteer **geen End** of voer een datum en tijd na het selecteren van **op datum**. 
     6. Selecteer **geactiveerd** activeren van de trigger onmiddellijk nadat u de hele ADF-instellingen hebt gepubliceerd. 
@@ -340,11 +340,11 @@ De volgende sectie bevat stappen voor het maken van een PowerShell-runbook. Het 
 
    ![Runbook startvenster](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    
-6. Selecteer in het venster taak **uitvoer** tegel. Wachttijd voor een bericht in het uitvoervenster **### voltooid ###** nadat u hebt gezien **### vanaf ###**. Vanaf Azure-SSIS IR duurt ongeveer 20 minuten. Sluiten **taak** venster aan en ontvang back-ups maken op **Runbook** venster.
+6. Selecteer in het venster taak **uitvoer** tegel. Wachttijd voor een bericht in het uitvoervenster **### voltooid ###** nadat u hebt gezien **### vanaf ###** . Vanaf Azure-SSIS IR duurt ongeveer 20 minuten. Sluiten **taak** venster aan en ontvang back-ups maken op **Runbook** venster.
 
    ![Azure SSIS-IR - aan de slag](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
-7. Herhaal de vorige twee stappen met behulp van **stoppen** als de waarde voor **bewerking**. Start uw runbook opnieuw door te selecteren **Start** op de werkbalk. Voer uw resourcegroep, de ADF en de Azure-SSIS IR namen. Voor **bewerking**, voer **stoppen**. Wachttijd voor een bericht in het uitvoervenster **### voltooid ###** nadat u hebt gezien **### stoppen ###**. Azure-SSIS IR stopt neemt zo lang gestart. Sluiten **taak** venster aan en ontvang back-ups maken op **Runbook** venster.
+7. Herhaal de vorige twee stappen met behulp van **stoppen** als de waarde voor **bewerking**. Start uw runbook opnieuw door te selecteren **Start** op de werkbalk. Voer uw resourcegroep, de ADF en de Azure-SSIS IR namen. Voor **bewerking**, voer **stoppen**. Wachttijd voor een bericht in het uitvoervenster **### voltooid ###** nadat u hebt gezien **### stoppen ###** . Azure-SSIS IR stopt neemt zo lang gestart. Sluiten **taak** venster aan en ontvang back-ups maken op **Runbook** venster.
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Schema's voor uw runbook starten/stoppen Azure-SSIS IR maken
 

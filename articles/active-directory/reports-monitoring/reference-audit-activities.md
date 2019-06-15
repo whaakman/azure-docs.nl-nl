@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285493"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referentie voor auditactiviteiten van Azure AD
@@ -66,10 +66,10 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Toegangsbeoordelingen|Toegangsbeoordeling bijwerken|
 |Toegangsbeoordelingen|De status van Azure AD Access beoordelingen Onboarding bijwerken|
 |Toegangsbeoordelingen|Instellingen voor de e-mailmelding van de toegangsbeoordeling bijwerken|
-|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van aantal terugkeerpatronen bijwerken|
-|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van duur van terugkeerpatroon in dagen bijwerken|
-|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van eindtype van terugkeerpatroon bijwerken|
-|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van type terugkeerpatroon bijwerken|
+|Toegangsbeoordelingen|Update toegang controleren aantal herhalingen instellen|
+|Toegangsbeoordelingen|Bijwerken van de duur van terugkeerpatroon van de toegangsbeoordeling in dagen instellen|
+|Toegangsbeoordelingen|Toegang controleren terugkeerpatroon end updatetype instellen|
+|Toegangsbeoordelingen|Toegang controleren terugkeerpatroon updatetype instellen|
 |Toegangsbeoordelingen|Herinneringsinstellingen toegangsbeoordeling bijwerken|
 |Toegangsbeoordelingen|Programma bijwerken|
 |Toegangsbeoordelingen|Aanvraaggoedkeuring bijwerken|
@@ -518,10 +518,10 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Groepsbeheer|Aanvraag voor goedkeuring aanvraag beoordelen|
 |Groepsbeheer|Toegangsbeoordeling bijwerken|
 |Groepsbeheer|Instellingen voor de e-mailmelding van de toegangsbeoordeling bijwerken|
-|Groepsbeheer|Instelling voor toegangsbeoordeling van aantal terugkeerpatronen bijwerken|
-|Groepsbeheer|Instelling voor toegangsbeoordeling van duur van terugkeerpatroon in dagen bijwerken|
-|Gebruikersbeheer|Instelling voor toegangsbeoordeling van eindtype van terugkeerpatroon bijwerken|
-|Gebruikersbeheer|Instelling voor toegangsbeoordeling van type terugkeerpatroon bijwerken|
+|Groepsbeheer|Update toegang controleren aantal herhalingen instellen|
+|Groepsbeheer|Bijwerken van de duur van terugkeerpatroon van de toegangsbeoordeling in dagen instellen|
+|Gebruikersbeheer|Toegang controleren terugkeerpatroon end updatetype instellen|
+|Gebruikersbeheer|Toegang controleren terugkeerpatroon updatetype instellen|
 
 
 

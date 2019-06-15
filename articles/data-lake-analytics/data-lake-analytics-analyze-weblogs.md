@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334075"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Websitelogboeken analyseren met Azure Data Lake Analytics
@@ -21,7 +21,7 @@ Leer hoe u websitelogboeken analyseren met Data Lake Analytics, met name op cont
 
 ## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2015 of Visual Studio 2013**.
-* **[Data Lake Tools voor Visual Studio](https://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools voor Visual Studio](https://aka.ms/adltoolsvs)** .
 
     Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een **Data Lake** item in de **extra** menu van Visual Studio:
 

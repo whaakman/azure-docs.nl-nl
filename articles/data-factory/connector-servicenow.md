@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60203411"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Gegevens kopiëren van ServiceNow met Azure Data Factory
@@ -117,7 +117,7 @@ Let op het volgende bij het opgeven van het schema en de kolom voor ServiceNow i
 - **Schema:** Geef het schema als `Actual` of `Display` in de ServiceNow-query die u kunt dat nu als de parameter van `sysparm_display_value` als waar of onwaar bij het aanroepen van [ServiceNow restful-API's](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Kolom:** voor de werkelijke waarde onder de naam van de kolom `Actual` schema is `[column name]_value`, terwijl voor de weergegeven waarde onder `Display` schema is `[column name]_display_value`. Houd er rekening mee de kolomnaam moet toewijzen aan het schema wordt gebruikt in de query.
 
-**Voorbeeldquery:**
+**Voorbeeldquery:** 
 `SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 

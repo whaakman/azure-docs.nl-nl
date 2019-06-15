@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
 ms.openlocfilehash: 314d121e8964ba1cdbb457260826d85bf8505fbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60494871"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bouw een LUIS-app via een programma met behulp van Node.js

@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306303"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiel productie-apps in Azure met Application Insights
@@ -75,7 +75,7 @@ Als **clr! ThePreStub** duurt lang voordat een aanvraag, de aanvraag is het eers
 
 ### <a id="ngencold"></a>Het laden van code ([KOUD])
 
-Als de methodenaam van de bevat **[koude]**, zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van .NET Framework runtime is code voor de eerste keer is dat niet is geoptimaliseerd door [profiel begeleide optimalisatie](/cpp/build/profile-guided-optimizations). Voor elke methode moet die worden weergegeven maximaal één keer tijdens het proces.
+Als de methodenaam van de bevat **[koude]** , zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van .NET Framework runtime is code voor de eerste keer is dat niet is geoptimaliseerd door [profiel begeleide optimalisatie](/cpp/build/profile-guided-optimizations). Voor elke methode moet die worden weergegeven maximaal één keer tijdens het proces.
 
 Als het laden van de code een aanzienlijke hoeveelheid tijd voor een aanvraag duurt, is de aanvraag voor het eerste item voor het uitvoeren van de niet-geoptimaliseerde gedeelte van de methode. Overweeg het gebruik van een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang krijgen deze tot.
 
@@ -95,7 +95,7 @@ Methoden, zoals **SqlCommand.Execute** aangeven dat de code wordt gewacht tot ee
 
 **BLOCKED_TIME** geeft aan dat de code wordt gewacht tot een andere bron beschikbaar zijn. Het kan bijvoorbeeld worden wachten voor een synchronisatieobject, een thread beschikbaar zijn of een verzoek om te voltooien.
 
-### <a name="unmanaged-async"></a>Niet-beheerd asynchroon
+### <a name="unmanaged-async"></a>Niet-beheerde asynchrone
 
 .NET framework verzendt ETW-gebeurtenissen en doorgegeven activiteit-ID's tussen threads zodat asynchrone aanroepen threads kunnen worden gevolgd. Niet-beheerde code (systeemeigen code) en sommige oudere stijlen van asynchrone code ontbreken deze gebeurtenissen en activiteit-ID's, zodat de profiler weet niet welke thread en welke functies worden uitgevoerd op de thread. Dit heet 'Niet-beheerde asynchrone' in de aanroepstack. Als u de ETW-bestand hebt gedownload, kunt u mogelijk kunnen gebruiken [voorbeeld](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) om meer inzicht in wat er gebeurt.
 

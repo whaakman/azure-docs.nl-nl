@@ -2,17 +2,17 @@
 title: Beveiliging-eindpunten in IoT Device Provisioning Service | Microsoft Docs
 description: Concepten - toegang tot IoT Device Provisioning Service voor back-end-apps beheren. Bevat informatie over beveiligingstokens.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626647"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Toegang tot Azure IoT Hub Device Provisioning Service beheren

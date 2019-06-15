@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647359"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-architectuur
@@ -49,8 +49,8 @@ Recovery Services-kluizen hebben de volgende kenmerken:
 - U kunt een back-up items in een kluis, met inbegrip van virtuele machines van Azure en on-premises machines bewaken.
 - U kunt de toegang van de kluis met Azure beheren [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - U opgeven hoe de gegevens in de kluis worden gerepliceerd voor redundantie:
-    - **Lokaal redundante opslag (LRS)**: Als u wilt beveiligen tegen fouten in een datacenter, kunt u LRS. LRS worden gegevens gerepliceerd naar een opslagschaaleenheid. [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-    - **Geografisch redundante opslag (GRS)**: Ter bescherming tegen regiobrede storingen, kunt u GRS. GRS worden uw gegevens gerepliceerd naar een secundaire regio. [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
+    - **Lokaal redundante opslag (LRS)** : Als u wilt beveiligen tegen fouten in een datacenter, kunt u LRS. LRS worden gegevens gerepliceerd naar een opslagschaaleenheid. [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+    - **Geografisch redundante opslag (GRS)** : Ter bescherming tegen regiobrede storingen, kunt u GRS. GRS worden uw gegevens gerepliceerd naar een secundaire regio. [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - Recovery Services-kluizen gebruiken standaard GRS. 
 
 ## <a name="backup-agents"></a>Backup-agents
@@ -178,7 +178,7 @@ Zie de volgende artikelen voor meer informatie over disk-opslag en de typen besc
 
 U kunt een back-up van virtuele Azure-machines maken met behulp van premium-opslag met Azure Backup:
 
-- Tijdens het proces van het back-ups van VM's met premium storage, maakt de Backup-service een tijdelijke faseringslocatie met de naam *AzureBackup -*, in de storage-account. De grootte van de faseringslocatie is gelijk aan de grootte van de momentopname herstellen.
+- Tijdens het proces van het back-ups van VM's met premium storage, maakt de Backup-service een tijdelijke faseringslocatie met de naam *AzureBackup -* , in de storage-account. De grootte van de faseringslocatie is gelijk aan de grootte van de momentopname herstellen.
 - Zorg ervoor dat de premium storage-account voldoende vrije ruimte heeft voor de tijdelijke faseringslocatie. [Meer informatie](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Wijzig de faseringslocatie niet.
 - Nadat de back-uptaak is voltooid, wordt de faseringslocatie verwijderd.
 - De prijs van opslag die wordt gebruikt voor de faseringslocatie is consistent met [prijzen voor premium storage](../virtual-machines/windows/disks-types.md#billing).

@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326319"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Een individuele tenant met een database-per-tenant SaaS-toepassing terugzetten
@@ -76,7 +76,7 @@ Wanneer een database wordt gemaakt, duurt het 10 tot 15 minuten voordat de eerst
 
 1. Open in de PowerShell ISE... \\Learning Modules\\zakelijke continuïteit en herstel na noodgevallen\\RestoreTenant\\*Demo-RestoreTenant.ps1*, en stel de volgende waarde:
 
-   * **$DemoScenario** = **1**, *laatste gebeurtenis van verwijderen (waarbij geen kaartverkoop)*.
+   * **$DemoScenario** = **1**, *laatste gebeurtenis van verwijderen (waarbij geen kaartverkoop)* .
 2. Druk op F5 op het script uitvoert en de laatste gebeurtenis verwijderen. Het volgende bevestigingsbericht wordt weergegeven:
 
    ```Console

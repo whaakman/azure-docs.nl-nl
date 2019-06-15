@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289148"
 ---
 # <a name="email-notifications-in-pim"></a>E-mailmeldingen in PIM
@@ -68,7 +68,7 @@ Een wekelijkse samenvatting PIM-e-mail voor Azure AD-rollen wordt verzonden Priv
 
 De e-mailbericht bevat vier tegels:
 
-| Naast elkaar | Description |
+| tegel | Description |
 | --- | --- |
 | **Gebruikers die zijn geactiveerd** | Aantal keren dat gebruikers hun in aanmerking komende rol binnen de tenant geactiveerd. |
 | **Gebruikers permanent gemaakt** | Aantal keren dat gebruikers met een in aanmerking komende toewijzing is permanent gemaakt worden. |

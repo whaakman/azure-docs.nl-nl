@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615178"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Service Fabric application upgrade zelfstudie met Visual Studio
@@ -43,12 +43,12 @@ Selecteren **publiceren** wordt een pop-upvenster en u kunt de **doelprofiel** n
 
 Nu kunt u klikken op **publiceren** in het dialoogvenster. U kunt [Service Fabric Explorer om het cluster en de toepassing weer te geven](service-fabric-visualizing-your-cluster.md). De toepassing Visual objecten heeft een webservice die u kunt naar door te typen [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) in de adresbalk van uw browser.  Hier ziet u 10 zwevende visual objecten verplaatsen op het scherm.
 
-**OPMERKING:** Als naar implementeert `Cloud.xml` profiel (Azure Service Fabric), moet beschikbaar zijn op de toepassing vervolgens **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Zorg ervoor dat u hebt `8081/TCP` geconfigureerd in de Load Balancer (zoeken naar de Load Balancer in dezelfde resourcegroep bevinden als de Service Fabric-instantie).
+**OPMERKING:** Als naar implementeert `Cloud.xml` profiel (Azure Service Fabric), moet beschikbaar zijn op de toepassing vervolgens **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/** . Zorg ervoor dat u hebt `8081/TCP` geconfigureerd in de Load Balancer (zoeken naar de Load Balancer in dezelfde resourcegroep bevinden als de Service Fabric-instantie).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Stap 2: Het voorbeeld Visual objecten bijwerken
 U zult merken dat met de versie die is geïmplementeerd in stap 1, de visual objecten niet draaien. Laten we deze toepassing op een waar de visual objecten ook draaien upgraden.
 
-Selecteer het project VisualObjects.ActorService binnen de oplossing VisualObjects en open de **VisualObjectActor.cs** bestand. In dat bestand, gaat u naar de methode `MoveObject`, commentaar `visualObject.Move(false)`, en verwijder het commentaarteken `visualObject.Move(true)`. Deze gewijzigde code worden de objecten na de upgrade van de service.  **Nu u de oplossing kunt bouwen voor (niet opnieuw opbouwen)**, die de gewijzigde projecten bouwt. Als u selecteert *alles opnieuw opbouwen*, hebt u de versies voor alle projecten bijwerken.
+Selecteer het project VisualObjects.ActorService binnen de oplossing VisualObjects en open de **VisualObjectActor.cs** bestand. In dat bestand, gaat u naar de methode `MoveObject`, commentaar `visualObject.Move(false)`, en verwijder het commentaarteken `visualObject.Move(true)`. Deze gewijzigde code worden de objecten na de upgrade van de service.  **Nu u de oplossing kunt bouwen voor (niet opnieuw opbouwen)** , die de gewijzigde projecten bouwt. Als u selecteert *alles opnieuw opbouwen*, hebt u de versies voor alle projecten bijwerken.
 
 Er moet ook versie onze toepassing. De versiewijzigingen aanbrengen nadat u met de rechtermuisknop op de **VisualObjects** project, kunt u de Visual Studio **Edit Manifest Versions** optie. Deze optie selecteert, wordt het dialoogvenster voor edition-versies als volgt:
 

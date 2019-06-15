@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198168"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Het beveiligen van gegevens die zijn opgeslagen in Azure Data Lake Storage Gen1
@@ -55,7 +55,7 @@ Wanneer u gebruikers of beveiligingsgroepen aan Gen1 van Data Lake Storage-accou
 
 1. Open een Gen1 van Data Lake Storage-account. Klik in het linkerdeelvenster op **alle resources**, en klik in de blade alle resources op de accountnaam die u wilt toewijzen van een gebruiker of gebruikersgroep.
 
-2. Klik in de blade van het Data Lake Storage Gen1-account op **Access Control (IAM)**. De blade standaard bevat de eigenaars van abonnementen als de eigenaar.
+2. Klik in de blade van het Data Lake Storage Gen1-account op **Access Control (IAM)** . De blade standaard bevat de eigenaars van abonnementen als de eigenaar.
    
     ![Beveiligingsgroep toewijzen aan Azure Data Lake Storage Gen1 account](./media/data-lake-store-secure-data/adl.select.user.icon1.png "beveiligingsgroep toewijzen aan Azure Data Lake Storage Gen1-account")
 
@@ -127,7 +127,7 @@ Wanneer u beveiligingsgroepen van Data Lake Storage Gen1 accounts verwijdert, wi
 
 Toegang tot gegevens is niet gewijzigd en wordt nog steeds beheerd door de toegang tot de ACL's.  De uitzondering hierop zijn de gebruikers/groepen in de rol van eigenaar.  Gebruikers/groepen verwijderd uit de rol eigenaar zijn niet langer Supergebruikers en hun toegang terugvalt op toegang ACL-instellingen. 
 
-1. Klik in de blade van het Data Lake Storage Gen1-account op **Access Control (IAM)**. 
+1. Klik in de blade van het Data Lake Storage Gen1-account op **Access Control (IAM)** . 
    
     ![Beveiligingsgroep toewijzen aan Gen1 van Data Lake Storage-account](./media/data-lake-store-secure-data/adl.select.user.icon.png "beveiligingsgroep toewijzen aan Gen1 van Data Lake Storage-account")
 2. In de **Access Control (IAM)** blade, klikt u op de beveiliging-groepen die u wilt verwijderen. Klik op **Verwijderen**.

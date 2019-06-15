@@ -15,10 +15,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288159"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Azure-resources te beheren in PIM detecteren
@@ -27,7 +27,7 @@ Met behulp van Azure Active Directory (Azure AD) Privileged Identity Management 
 
 Wanneer u eerst ingesteld PIM voor Azure-resources, moet u om te detecteren en selecteer de resources met PIM moeten worden beveiligd. Er is geen limiet voor het aantal resources die u met PIM kunt beheren. We raden echter aan beginnen met uw meest kritieke (productie)-resources.
 
-## <a name="discover-resources"></a>Services detecteren
+## <a name="discover-resources"></a>Detecteren van bronnen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 

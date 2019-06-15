@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
 ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610137"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor Australië beveiligd
@@ -102,7 +102,7 @@ Gebruik van App Service-omgevingen voor deze architectuur toestaan voor de volge
 
 **Azure-Web-App**: [Azure App Service](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps Services of een willekeurige Git-repo.
 
-### <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtueel netwerk
 De architectuur definieert een particulier virtueel netwerk met een adresruimte van 10.200.0.0/16.
 
 **Netwerkbeveiligingsgroepen**: [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) bevatten toegangsbeheerlijsten die verkeer binnen een virtueel netwerk toestaan of weigeren. Netwerkbeveiligingsgroepen kunnen worden gebruikt om verkeer een subnet of afzonderlijke virtuele machine te beveiligen. De volgende netwerkbeveiligingsgroepen bestaan:
@@ -122,14 +122,14 @@ Elk van de netwerkbeveiligingsgroepen specifieke poorten en protocollen openen, 
 
 **Azure Load Balancer**: [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) kunnen klanten hun toepassingen schalen en hoge beschikbaarheid voor services. Load Balancer ondersteunt zowel binnenkomende als uitgaande-scenario's, en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen.
 
-### <a name="data-in-transit"></a>Gegevens die onderweg zijn
+### <a name="data-in-transit"></a>Actieve gegevens
 Alle communicatie naar en van Azure-datacenters versleutelt Azure standaard. 
 
 Voor beveiligde gegevens tijdens de overdracht van netwerken van klanten, de architectuur maakt gebruik van Azure Internet of een ExpressRoute met een VPN-Gateway zijn geconfigureerd met IPSEC.
 
 Bovendien worden alle transacties naar Azure via de Azure management portal via HTTPS met behulp van TLS 1.2 optreden.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 
 **Azure Storage**: Om versleutelde data-at-rest-vereisten te voldoen aan alle [Azure Storage](https://azure.microsoft.com/services/storage/) maakt gebruik van [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Dit helpt te beschermen en beveiligen van gegevens ter ondersteuning van de organisatie beveiligingsverplichtingen en nalevingsvereisten zijn gedefinieerd door de Australische overheid ISM.

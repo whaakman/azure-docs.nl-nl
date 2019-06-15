@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318949"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Extern bureaublad-licentieserver niet beschikbaar wanneer u verbinding met een Azure-VM maakt
@@ -63,7 +63,7 @@ Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](.
 
     Als u geen verbinding met de virtuele machine maken met behulp van een beheersessie, kunt u de [seriële Console van de virtuele Machine op Azure](serial-console-windows.md) toegang krijgen tot de virtuele machine als volgt:
 
-    1. Toegang tot de seriële Console door te selecteren **ondersteuning en probleemoplossing** > **(Preview) van de seriële console**. Als de functie is ingeschakeld op de virtuele machine, kunt u de virtuele machine is verbinden.
+    1. Toegang tot de seriële Console door te selecteren **ondersteuning en probleemoplossing** >  **(Preview) van de seriële console**. Als de functie is ingeschakeld op de virtuele machine, kunt u de virtuele machine is verbinden.
 
     2. Maak een nieuw kanaal voor een CMD-exemplaar. Voer **CMD** naar het kanaal begint en naam van het kanaal.
 
@@ -127,6 +127,6 @@ Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](.
 
 4. Als een extern bureaublad-licentieserver geconfigureerd en in orde is is, controleert u dat de extern bureaublad-licentieserver is geactiveerd met CAL's.
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem is opgelost.

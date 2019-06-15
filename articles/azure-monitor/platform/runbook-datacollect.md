@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454107"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
@@ -67,7 +67,7 @@ De PowerShell Gallery kunt u echter een snelle optie voor het implementeren van 
 |:--|:--|:--|
 | Name | WorkspaceId | WorkspaceKey |
 | Type | String | String |
-| Waarde | Plak in de werkruimte-ID van uw Log Analytics-werkruimte. | Plakken aan met de primaire of secundaire sleutel van uw Log Analytics-werkruimte. |
+| Value | Plak in de werkruimte-ID van uw Log Analytics-werkruimte. | Plakken aan met de primaire of secundaire sleutel van uw Log Analytics-werkruimte. |
 | Versleuteld | Nee | Ja |
 
 ## <a name="3-create-runbook"></a>3. Runbook maken
@@ -179,10 +179,10 @@ De meest voorkomende manier om een runbook die worden verzameld van bewakingsgeg
 2. Klik op **toevoegen van een schema** > **een planning koppelen aan uw runbook** > **maakt u een nieuwe planning**.
 5. Typ de volgende waarden voor de planning en klik op **maken**.
 
-| Eigenschap | Waarde |
+| Eigenschap | Value |
 |:--|:--|
 | Name | AutomationJobs-Hourly |
-| Start | Selecteer altijd ten minste 5 minuten na de huidige tijd. |
+| Wordt gestart | Selecteer altijd ten minste 5 minuten na de huidige tijd. |
 | Terugkeerpatroon | Terugkerend |
 | Herhalen elke | 1 uur |
 | Vervaldatum instellen | Nee |

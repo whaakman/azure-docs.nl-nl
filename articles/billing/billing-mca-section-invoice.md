@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371575"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Secties maken op uw factuur voor het ordenen van uw kosten
@@ -57,6 +57,6 @@ Voor het maken van een gedeelte van de factuur, moet u een **facturering profiel
 - [Geef anderen toestemming voor het maken van Azure-abonnement](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
 - [Eigendom van Azure-abonnementen ophalen van gebruikers in andere facturering-accounts](billing-mca-request-billing-ownership.md)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

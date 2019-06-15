@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335363"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Data Warehouse met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versie 2 (huidige versie)](../connector-azure-sql-data-warehouse.md)
 
@@ -278,7 +278,7 @@ De volgende tabel bevat voorbeelden om op te geven over de **tableName** eigensc
 | --- | --- | --- |
 | dbo |MyTable |MyTable of dbo.MyTable of [dbo].[MyTable] |
 | dbo1 |MyTable |dbo1.MyTable of [dbo1].[MyTable] |
-| dbo |My.Table |[My.Table] of [dbo].[My.Table]  |
+| dbo |My.Table |[My.Table] of [dbo].[My.Table] |
 | dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden voor de eigenschap tableName JSON op te geven.
@@ -361,7 +361,7 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numerieke |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -369,12 +369,12 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
-| tekst |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

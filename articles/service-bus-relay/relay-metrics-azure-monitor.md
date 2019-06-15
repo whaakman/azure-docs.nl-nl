@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
 ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60421795"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Relay in Azure Monitor (preview)
@@ -41,7 +41,7 @@ U kunt metrische gegevens controleren na verloop van tijd in de [Azure-portal](h
 
 ![][1]
 
-U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Preview)**. 
+U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Preview)** . 
 
 Voor metrische gegevens voor ondersteuning van dimensies, moet u filteren met de gewenste dimensiewaarde.
 

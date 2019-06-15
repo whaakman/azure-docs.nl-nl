@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60277038"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Zelfstudie: G Suite configureren voor het automatisch inrichten van gebruikers
@@ -40,10 +40,10 @@ Als u Azure AD-integratie wilt configureren met G Suite, hebt u de volgende item
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assign-users-to-g-suite"></a>Gebruikers toewijzen aan G Suite
 
@@ -89,7 +89,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
     b. Selecteer **domeinnaam** in het navigatiedeelvenster links in en selecteer vervolgens **toevoegen**.
 
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
+    ![Domein](./media/google-apps-provisioning-tutorial/domain_1.png)
 
     ![Domein toevoegen](./media/google-apps-provisioning-tutorial/domain_2.png)
 
@@ -101,7 +101,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
     Zie voor meer uitgebreide instructies voor het controleren van domeinnamen met Azure AD [uw eigen domeinnaam toevoegen aan Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
 
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
+    ![Domein](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Herhaal de voorgaande stappen voor alle domeinen die u van plan bent om toe te voegen aan uw directory.
 

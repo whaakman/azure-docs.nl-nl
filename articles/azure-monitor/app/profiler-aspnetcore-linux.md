@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
 ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306485"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profileren van ASP.NET Core Azure Linux-web-apps met Application Insights Profiler
@@ -27,7 +27,7 @@ Ontdek hoeveel tijd is besteed in elke methode van uw live webtoepassing wanneer
 
 Nadat u alle stappen hebt voltooid, kan uw app Profiler-traceringen, zoals de traceringen die worden weergegeven in de afbeelding te verzamelen. In dit voorbeeld wordt de Profiler-tracering geeft aan dat een bepaalde webaanvraag trage vanwege tijd wachten. De *snelpad* in de code die de app wordt traag is gemarkeerd met een pictogram vuur. De **over** methode in de **HomeController** sectie de web-app is vertraagd omdat het aanroepen van de methode de **Thread.Sleep** functie.
 
-![Profilertraces](./media/profiler-aspnetcore-linux/profiler-traces.png)
+![Profiler-traceringen](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
 ## <a name="prerequisites"></a>Vereisten
 De volgende instructies zijn van toepassing op alle omgevingen voor Windows, Linux en Mac-ontwikkeling:

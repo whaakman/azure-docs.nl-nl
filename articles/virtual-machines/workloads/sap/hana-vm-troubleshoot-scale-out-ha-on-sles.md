@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477050"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Controleren en problemen oplossen van SAP HANA scale-out hoge beschikbaarheid instellen op SLES 12 SP3 
@@ -473,7 +473,7 @@ Nadat u alles juist is ingesteld, kunt u de volgende opdracht uitvoeren op elk k
 systemctl status pacemaker
 </code></pre>
 
-De bovenkant van de uitvoer moet eruitzien als in het volgende voorbeeld. Het is belangrijk dat de status na **Active** wordt weergegeven als **geladen** en **actief (actief)**. De status na **geladen** moet worden weergegeven als **ingeschakeld**.
+De bovenkant van de uitvoer moet eruitzien als in het volgende voorbeeld. Het is belangrijk dat de status na **Active** wordt weergegeven als **geladen** en **actief (actief)** . De status na **geladen** moet worden weergegeven als **ingeschakeld**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -802,7 +802,7 @@ De opdrachten **SAPHanaSR showAttr** en **crm status** geven over de beperkingen
 crm configure show
 </code></pre>
 
-In de configuratie van het cluster, moet u een nieuwe locatiebeperking veroorzaakt door de voormalige handmatige Resourcemigratie vinden. In dit voorbeeld begint met **locatie cli -**:
+In de configuratie van het cluster, moet u een nieuwe locatiebeperking veroorzaakt door de voormalige handmatige Resourcemigratie vinden. In dit voorbeeld begint met **locatie cli -** :
 
 <pre><code>
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0

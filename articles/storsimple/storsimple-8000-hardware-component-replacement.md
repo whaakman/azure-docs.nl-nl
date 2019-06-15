@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321735"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Vervangen door een hardware-onderdeel op de StorSimple 8000-apparaat

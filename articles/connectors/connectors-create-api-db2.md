@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60314073"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>IBM DB2-resources beheren met Azure Logic Apps
@@ -234,7 +234,7 @@ Als u wilt één record toevoegen aan een DB2-database-tabel, gebruikt u de **ri
 
    Dit zijn de eigenschappen voor dit voorbeeld:
 
-   | Eigenschap | Vereist | Beschrijving |
+   | Eigenschap | Vereist | Description |
    |----------|----------|-------------|
    | **Tabelnaam** | Ja | De tabel waar de record, zoals 'Gebied' toe te voegen |
    | **Gebied-ID** | Ja | De ID voor het gebied toe te voegen, zoals "99999" |

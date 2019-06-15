@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 6a8f0ddcfe6de904219059c6e761ead4c004732d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461447"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Gebeurtenissen te verzenden of ontvangen van gebeurtenissen van Event Hubs met behulp van Python
@@ -31,7 +31,7 @@ Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden vol
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 - Python 3.4 of hoger.
-- Gebruik de [Azure-portal](https://portal.azure.com) voor het maken van een naamruimte van het type Event Hubs en de beheerreferenties die de toepassing nodig heeft om te communiceren met de event hub te verkrijgen. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en een Event Hub te maken. Haal vervolgens de waarde van de toegangssleutel voor de event hub met de instructies in het artikel: [Verbindingstekenreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U gebruikt de toegangssleutel in de code die u verderop in deze zelfstudie schrijft. De naam van de standaard-sleutel is: **RootManageSharedAccessKey**.
+- Gebruik de [Azure-portal](https://portal.azure.com) voor het maken van een naamruimte van het type Event Hubs en de beheerreferenties die de toepassing nodig heeft om te communiceren met de event hub te verkrijgen. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md). Haal vervolgens de waarde van de toegangssleutel voor de event hub met de instructies in het artikel: [Verbindingstekenreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U gebruikt de toegangssleutel in de code die u verderop in deze zelfstudie schrijft. De naam van de standaard-sleutel is: **RootManageSharedAccessKey**.
 
 ## <a name="install-python-package"></a>Python-pakket installeren
 

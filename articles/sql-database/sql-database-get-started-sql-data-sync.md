@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60342090"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync tussen Azure SQL Database en SQL Server instellen met on-premises
@@ -49,7 +49,7 @@ Zie voor voorbeelden van PowerShell voor het configureren van SQL Data Sync [syn
 
    Op de **Gegevenssynchronisatiegroep maken** pagina, wijzigt u de volgende instellingen:
 
-   | Instelling                        | Beschrijving |
+   | Instelling                        | Description |
    | ------------------------------ | ------------------------------------------------- |
    | **Naam van Synchronisatiegroep** | Voer een naam voor de nieuwe groep voor synchronisatie. Deze naam is niet hetzelfde als van de naam van de database zelf. |
    | **Metagegevensdatabase voor synchronisatie** | Kies een database (aanbevolen) te maken of een bestaande database wilt gebruiken.<br/><br/>Als u ervoor kiest **nieuwe database**, selecteer **nieuwe database maken.** Klik op de **SQL-Database** pagina, een naam en het configureren van de nieuwe database en selecteer **OK**.<br/><br/>Als u ervoor kiest **bestaande database gebruiken**, selecteert u de database uit de lijst. |
@@ -172,16 +172,16 @@ De minimale duur tussen synchronisaties is vijf minuten.
 
 **SQL Data Sync volledig tabellen maken?**
 
-Als synchronisatie schema tabellen in de doeldatabase ontbreken, worden deze in SQL Data Sync gemaakt met de kolommen die u hebt geselecteerd. Dit wordt niet echter resulteren in een hoogwaardige-schema voor de volgende redenen:
+Als synchronisatieschematabellen ontbreken in de doeldatabase, worden ze in SQL Data Sync gemaakt met de kolommen die u hebt geselecteerd. Dit wordt niet echter resulteren in een hoogwaardige-schema voor de volgende redenen:
 
-- Alleen de geselecteerde kolommen worden gemaakt in de doeltabel. Kolommen die niet is ingeschakeld, worden genegeerd.
-- Alleen geselecteerde kolom indexen worden gemaakt in de doeltabel. Voor kolommen die niet is ingeschakeld, worden deze indexen worden genegeerd.
+- Alleen kolommen die u selecteert, worden gemaakt in de doeltabel. Kolommen die niet zijn geselecteerd, worden genegeerd.
+- Alleen geselecteerde kolomindexen worden gemaakt in de doeltabel. Voor niet geselecteerde kolommen worden deze indexen genegeerd.
 - Indexen voor kolommen van het XML-gegevenstype worden niet gemaakt.
 - CHECK-beperkingen zijn niet gemaakt.
 - Triggers op de brontabellen worden niet gemaakt.
 - Weergaven en opgeslagen procedures worden niet gemaakt.
 
-Vanwege deze beperkingen raden we aan de volgende zaken:
+Vanwege deze beperkingen raden we u het volgend aan:
 
 - Voor productieomgevingen het schema hoogwaardige zelf maken.
 - Bij het experimenteren met de service, gebruikt u de functie voor automatische inrichting.

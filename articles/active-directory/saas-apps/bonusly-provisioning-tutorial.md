@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60282311"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Zelfstudie: Bonusly configureren voor het automatisch inrichten van gebruikers
@@ -47,7 +47,7 @@ Voordat u Bonusly configureert voor het automatisch gebruikers inrichten met Azu
 
 **Als u wilt toevoegen Bonusly uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 

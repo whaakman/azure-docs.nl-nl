@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347952"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synchronisatie: Uitbreidingen van de directory
@@ -62,7 +62,7 @@ Deze kenmerken zijn nu beschikbaar via de Azure AD Graph API. U kunt query's voo
 Of u kunt de kenmerken via de Microsoft Graph API opvragen met behulp van [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> U moet vragen om de kenmerken die moeten worden geretourneerd. Selecteer expliciet de kenmerken die u als volgt: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
+> U moet vragen om de kenmerken die moeten worden geretourneerd. Selecteer expliciet de kenmerken die u als volgt: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Zie voor meer informatie, [Microsoft Graph: Gebruik queryparameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

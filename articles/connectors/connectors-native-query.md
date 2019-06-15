@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538217"
 ---
 # <a name="get-started-with-the-query-action"></a>Aan de slag met de queryactie
@@ -60,26 +60,26 @@ Hier volgen de details voor de actie die ondersteuning biedt voor deze connector
 | --- | --- |
 | Matrix filteren |Evalueert een voorwaarde voor elk item in een matrix en retourneert de resultaten |
 
-## <a name="action-details"></a>Actiedetails
+## <a name="action-details"></a>Actiegegevens
 De queryactie wordt geleverd met een mogelijke actie. De volgende tabellen beschrijven de vereiste en optionele velden voor de actie en de bijbehorende uitvoergegevens die zijn gekoppeld met de actie.
 
 ### <a name="filter-array"></a>Matrix filteren
 Hier volgen de invoervelden voor de actie, waardoor een uitgaande HTTP-aanvraag.
 Een * betekent dat het een verplicht veld.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| `Display name` | Naam van eigenschap | Description |
 | --- | --- | --- |
-| Van * |uit |De matrix om te filteren |
-| Voorwaarde * |waarbij |De voorwaarde om te evalueren voor elk item |
+| Van * |from |De matrix om te filteren |
+| Voorwaarde * |waar |De voorwaarde om te evalueren voor elk item |
 
 <br>
 
 ### <a name="output-details"></a>Uitvoergegevens
 Hier volgen de uitvoerdetails van het HTTP-antwoord.
 
-| Naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Description |
 | --- | --- | --- |
-| Gefilterde matrix |matrix |Een matrix met een object voor elk gefilterde resultaat |
+| Gefilterde matrix |array |Een matrix met een object voor elk gefilterde resultaat |
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu uitproberen van het platform en [maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). U kunt de beschikbare connectors in logic apps verkennen door te kijken onze [lijst van API's](apis-list.md).

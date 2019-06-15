@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254068"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Aangepaste metrische gegevens in Azure Monitor
@@ -29,7 +29,7 @@ Aangepaste metrische gegevens kunnen worden verzonden naar Azure Monitor via ver
 
 Wanneer u aangepaste metrische gegevens verzenden naar Azure Monitor, elk gegevenspunt of waarde, die wordt gerapporteerd, moeten de volgende informatie bevatten.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 Om in te dienen aangepaste metrische gegevens naar Azure Monitor, de entiteit die is ingediend door de metrische gegevens moet een geldig Azure Active Directory (Azure AD)-token in de **Bearer** -header van de aanvraag. Er zijn enkele ondersteunde manieren om een geldige bearer-token verkrijgen:
 1. [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Geeft een identiteit die tot een Azure-resource zelf, zoals een virtuele machine. Beheerde Service Identity (MSI) is ontworpen om u te machtigen voor resources bepaalde bewerkingen uitvoeren. Een voorbeeld toe dat er een resource om te verzenden van metrische gegevens over zelf. Een resource of het MSI-bestand, kan worden verleend **bewaking metrische gegevens Publisher** machtigingen op een andere resource. Met deze machtiging beschikt, kan het MSI-bestand metrische gegevens voor andere resources ook verzenden.
 2. [Azure AD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In dit scenario, een Azure AD-toepassing of service, kunnen machtigingen worden toegewezen om te verzenden van metrische gegevens over een Azure-resource.

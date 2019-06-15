@@ -16,10 +16,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350565"
 ---
 # <a name="risky-ip-report-public-preview"></a>Rapport voor riskante IP-adres (openbare preview)
@@ -40,7 +40,7 @@ Daarnaast is het mogelijk dat vanaf één IP-adres meerdere aanmeldpogingen voor
 ## <a name="what-is-in-the-report"></a>Wat is er in het rapport?
 De mislukte aanmelding activiteit client-IP-adressen worden samengevoegd tot en met Web Application Proxy-servers. Elk item in het rapport Riskant IP-adres toont verzamelde informatie over mislukte AD FS-aanmeldactiviteiten die de aangewezen drempelwaarde overschrijden. Het rapport bevat de volgende informatie: ![Portal voor Azure Active Directory Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
-| Rapportitem | Beschrijving |
+| Rapportitem | Description |
 | ------- | ----------- |
 | Tijdstempel | Geeft het tijdstempel weer op basis van de lokale tijd in Azure Portal wanneer de detectieperiode start.<br /> Alle gebeurtenissen per dag worden gegenereerd om 24:00 uur UTC-tijd. <br />Bij gebeurtenissen per uur is het tijdstempel afgerond naar het begin van het uur. U vindt de begintijd van de eerste activiteit vanaf firstAuditTimestamp in het geëxporteerde bestand. |
 | Triggertype | Geeft het type tijdvenster voor detectie weer. De triggertypen voor aggregatie zijn per uur of per dag. Dit is handig voor het detecteren van een beveiligingsaanval met hoge frequentie en een trage beveiligingsaanval waarbij het aantal pogingen over de dag is verdeeld. |
@@ -67,7 +67,7 @@ Load balancer verzamelt mislukte aanmeldactiviteiten en bereikt de drempelwaarde
 ## <a name="download-risky-ip-report"></a>Rapport voor riskante IP-adres downloaden 
 Met behulp van de functie **Downloaden** kan de volledige lijst met riskante IP-adressen van de afgelopen 30 dagen worden geëxporteerd vanuit de Connect Health-portal. De export bevat alle mislukte AD FS-aanmeldactiviteiten in elke detectieperiode, zodat u de filters na het exporteren kunt aanpassen. De export geeft naast de gemarkeerde aggregaties in de portal ook meer informatie over mislukte aanmeldactiviteiten per IP-adres weer:
 
-|  Rapportitem  |  Beschrijving  | 
+|  Rapportitem  |  Description  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Geeft de eerste tijdstempel weer voor de start van de mislukte activiteiten tijdens de detectieperiode.  | 
 | lastAuditTimestamp | Geeft de laatste tijdstempel weer voor het einde van de mislukte activiteiten tijdens de detectieperiode.  | 

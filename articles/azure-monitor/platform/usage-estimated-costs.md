@@ -10,10 +10,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453763"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Gebruik en geschatte kosten in Azure Monitor bewaken
@@ -68,7 +68,7 @@ De pagina bevat ook een andere set meters die met het nieuwe prijsmodel overeenk
 
 Het nieuwe prijsmodel geen toewijzing voor inbegrepen gegevens op basis van een knooppunt. Daarom deze gegevensopname meters worden gecombineerd tot een nieuwe algemene gegevensopname meter met de naam **gedeeld Services\Data opname**. 
 
-Er is een andere wijziging aan gegevens die zijn opgenomen in Log Analytics of Application Insights in regio's met een hogere kosten. Gegevens voor deze regio's van hoge kosten worden weergegeven met de nieuwe regionale meters. Een voorbeeld is **gegevensopname (VS-West-Centraal)**.
+Er is een andere wijziging aan gegevens die zijn opgenomen in Log Analytics of Application Insights in regio's met een hogere kosten. Gegevens voor deze regio's van hoge kosten worden weergegeven met de nieuwe regionale meters. Een voorbeeld is **gegevensopname (VS-West-Centraal)** .
 
 > [!NOTE]
 > De geschatte kosten doen geen factor in het accountniveau per knooppunt rechten van de Operations Management Suite (OMS)-abonnement per abonnement. Raadpleeg in dat geval vertegenwoordiger voor uw account voor een uitgebreidere bespreking van het nieuwe prijsmodel.

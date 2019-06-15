@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8199f106c234e216a0982dc9e51413ccf30ae93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60268830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Zelfstudie: Azure Active Directory-integratie met Jobscience
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Jobscience, moet u de volgende
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u hier een gratis proefversie van één maand krijgen: [Proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,17 +60,17 @@ Voor het configureren van de integratie van Jobscience in Azure AD, moet u Jobsc
 
 **Als u wilt toevoegen Jobscience uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Applicaties][2]
+    ![Toepassingen][2]
     
 1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Applicaties][3]
+    ![Toepassingen][3]
 
 1. Typ in het zoekvak **Jobscience**.
 
@@ -122,7 +122,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
-1. Klik op de knop **Save**.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_general_400.png)
 

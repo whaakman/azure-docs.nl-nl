@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554495"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache voor Redis configureren
@@ -263,7 +263,7 @@ De **Geo-replicatie** blade biedt een mechanisme voor het koppelen van twee Prem
 > 
 > 
 
-### <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtueel netwerk
 De **Virtueelnetwerk** sectie kunt u de instellingen van het virtuele netwerk voor uw cache kunt configureren. Voor informatie over het maken van een premium-cache met VNET ondersteunen en de instellingen worden bijgewerkt, Zie [ondersteuning voor het virtuele netwerk configureren voor een Premium Azure Cache voor Redis](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -294,7 +294,7 @@ Klik op **eigenschappen** om informatie over de cache, met inbegrip van de cache
 ### <a name="locks"></a>Vergrendelingen
 De **Hiermee vergrendelt u** sectie kunt u een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of aanpassen van kritieke resources vergrendelen. Zie voor meer informatie [Resources vergrendelen met Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
-### <a name="automation-script"></a>Automation-script
+### <a name="automation-script"></a>Automatiseringsscript
 
 Klik op **automatiseringsscript** te exporteren van een sjabloon van uw geïmplementeerde resources voor toekomstige implementaties. Zie voor meer informatie over het werken met sjablonen [resources implementeren met Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -347,7 +347,7 @@ De **bewaking** sectie kunt u configureren diagnose en controle voor uw Azure-Ca
 * [Waarschuwingsregels](#alert-rules)
 * [Diagnostics](#diagnostics)
 
-### <a name="redis-metrics"></a>Metrische Redis-gegevens
+### <a name="redis-metrics"></a>Metrische redis-gegevens
 Klik op **metrische Redis** naar [Bekijk metrische gegevens](cache-how-to-monitor.md#view-cache-metrics) voor uw cache.
 
 ### <a name="alert-rules"></a>Waarschuwingsregels
@@ -404,7 +404,7 @@ Nieuwe Azure-Cache voor Redis-exemplaren zijn geconfigureerd met de volgende waa
 | `maxclients` |Afhankelijk van de prijscategorie<sup>2</sup> |Deze waarde is het maximum aantal verbonden clients toegestaan op hetzelfde moment. Zodra de limiet is bereikt gesloten Redis alle nieuwe verbindingen, een 'maximum aantal clients bereikt'-fout. |
 | `maxmemory-policy` |`volatile-lru` |Maxmemory-beleid is de instelling voor hoe Redis wat u selecteert wilt verwijderen wanneer `maxmemory` (de grootte van de cache die u hebt geselecteerd tijdens het maken van de cache-aanbieding) is bereikt. Met Azure Cache voor Redis de standaardinstelling is `volatile-lru`, waarbij de sleutels worden verwijderd met een vervaldatum instellen met behulp van een LRU-algoritme. Deze instelling kan worden geconfigureerd in Azure portal. Zie voor meer informatie, [geheugen beleid](#memory-policies). |
 | `maxmemory-samples` |3 |Zijn redelijk algoritmen in plaats van exacte algoritmen te besparen, LRU- en minimale TTL-algoritmen. Redis standaard drie sleutels controles en aanbiedingen die minder recent is gebruikt. |
-| `lua-time-limit` |5.000 |Maximale uitvoeringstijd van een Lua-script in milliseconden. Als de maximum uitvoeringstijd is bereikt, wordt Redis registreert dat een script nog steeds uitgevoerd na de maximale toegestane tijd wordt, en begint met de antwoorden op query's met een fout. |
+| `lua-time-limit` |5,000 |Maximale uitvoeringstijd van een Lua-script in milliseconden. Als de maximum uitvoeringstijd is bereikt, wordt Redis registreert dat een script nog steeds uitgevoerd na de maximale toegestane tijd wordt, en begint met de antwoorden op query's met een fout. |
 | `lua-event-limit` |500 |Maximale grootte van de wachtrij script. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |De limieten van client uitvoer buffer kunnen worden gebruikt om af te dwingen ontkoppeling van clients die niet van gegevens van de server snel genoeg om een bepaalde reden lezen zijn (een veelvoorkomende reden is dat een Pub/Sub-client zo snel mogelijk de publisher kunt maken ze berichten kan niet gebruiken). Zie voor meer informatie, [ https://redis.io/topics/clients ](https://redis.io/topics/clients). |
 

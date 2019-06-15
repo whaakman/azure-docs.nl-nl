@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609469"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Virtual Machines van Azure
@@ -113,7 +113,7 @@ De volgende tabel geeft een overzicht van de geïnstalleerd op de algemene Micro
 ## <a name="example-deployment-topologies"></a>Voorbeeld van de implementatietopologieën
 Hieronder vindt u Voorbeeldimplementaties die gebruikmaken van Microsoft Azure Virtual Machines. De topologieën in deze diagrammen zijn slechts enkele van de mogelijke topologieën die kunt u met de functies van SQL Server BI en Microsoft Azure Virtual Machines.
 
-### <a name="single-virtual-machine"></a>Eén virtuele machine
+### <a name="single-virtual-machine"></a>Eén virtuele Machine
 Analysis Services, Reporting Services, SQL Server Database Engine en gegevensbronnen op een enkele virtuele machine.
 
 ![BI iaas-scenario met 1 virtuele machine](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
@@ -174,7 +174,7 @@ In **Windows Server 2008 R2**:
 
 Of:
 
-1. Klik op **Start**.
+1. Klik op **Starten**.
 2. In de **programma's en bestanden zoeken** type dialoogvenster **reporting services**. Als de virtuele machine wordt uitgevoerd Windows Server 2012, typt u **reporting services** op het scherm Start van Windows Server 2012.
 3. Met de rechtermuisknop op **Reporting Services Configuration Manager** en klikt u op **als Administrator uitvoeren**.
    

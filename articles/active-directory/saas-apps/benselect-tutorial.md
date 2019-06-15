@@ -16,10 +16,10 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60282702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Zelfstudie: Azure Active Directory-integratie met BenSelect
@@ -44,7 +44,7 @@ Voor het configureren van Azure AD-integratie met BenSelect, moet u de volgende 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
@@ -60,17 +60,17 @@ Voor het configureren van de integratie van BenSelect in Azure AD, moet u BenSel
 
 **Als u wilt toevoegen BenSelect uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Applicaties][2]
+    ![Toepassingen][2]
     
 1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Applicaties][3]
+    ![Toepassingen][3]
 
 1. Typ in het zoekvak **BenSelect**.
 
@@ -113,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_benselect_url.png)
 
-    In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
+    In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
     > [!NOTE] 
     > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke antwoord-URL. Neem contact op met [BenSelect ondersteuningsteam](mailto:support@selerix.com) deze waarde op te halen.
@@ -132,7 +132,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. In de **e-Mail** vervolgkeuzelijst **user.userprincipalname**.
 
-1. Klik op de knop **Save**.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_general_400.png)
 

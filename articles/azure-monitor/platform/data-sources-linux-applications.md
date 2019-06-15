@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628911"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Azure Monitor 
@@ -52,7 +52,7 @@ De vermeldingen in het verificatiebestand worden beschreven in de volgende tabel
 |:--|:--|
 | Poort | Hiermee geeft u de huidige poort op de MySQL-exemplaar luistert. Poort 0 geeft aan dat de volgende eigenschappen worden gebruikt voor het standaardexemplaar. |
 | Bind-Address| Huidige MySQL-bind-adres. |
-| gebruikersnaam| De MySQL-gebruiker is gebruikt om te gebruiken voor het bewaken van de MySQL-server-exemplaar. |
+| username| De MySQL-gebruiker is gebruikt om te gebruiken voor het bewaken van de MySQL-server-exemplaar. |
 | Base64-gecodeerd wachtwoord| Het wachtwoord van de MySQL-gebruiker bewaking gecodeerd in Base64. |
 | AutoUpdate| Hiermee geeft u op of u wilt opnieuw scannen op wijzigingen in het bestand my.cnf en het verificatiebestand van MySQL OMI overschreven wanneer de MySQL-OMI-Provider is bijgewerkt. |
 
@@ -116,26 +116,26 @@ Deze rechten kunnen worden verleend door het uitvoeren van de volgende opdrachte
 
 Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Azure Monitor configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor](data-sources-performance-counters.md) met de items in de volgende tabel.
 
-| Objectnaam | Naam van teller |
+| Objectnaam | Naam van het prestatiemeteritem |
 |:--|:--|
 | MySQL-database | Schijfruimte in Bytes |
 | MySQL-database | Tabellen |
-| MySQL-server | Afgebroken verbinding Pct |
-| MySQL-server | Pct voor verbinding gebruiken |
-| MySQL-server | Gebruik van de schijf in Bytes |
-| MySQL-server | Volledige tabel Scan Pct |
-| MySQL-server | InnoDB buffergroep bereikt Pct |
-| MySQL-server | InnoDB Pool gebruik bufferpercentage |
-| MySQL-server | InnoDB Pool gebruik bufferpercentage |
-| MySQL-server | Belangrijkste cachetreffers Pct |
-| MySQL-server | Belangrijkste Cache gebruik Pct |
-| MySQL-server | Cache voor Write Pct |
-| MySQL-server | Query Cache treffers Pct |
-| MySQL-server | Query Cache Prunes Pct |
-| MySQL-server | Query-Cache gebruiken Pct |
-| MySQL-server | Tabel cachetreffers Pct |
-| MySQL-server | Tabel Cache gebruik Pct |
-| MySQL-server | Tabel vergrendelen conflicten Pct |
+| MySQL Server | Afgebroken verbinding Pct |
+| MySQL Server | Pct voor verbinding gebruiken |
+| MySQL Server | Gebruik van de schijf in Bytes |
+| MySQL Server | Volledige tabel Scan Pct |
+| MySQL Server | InnoDB buffergroep bereikt Pct |
+| MySQL Server | InnoDB Pool gebruik bufferpercentage |
+| MySQL Server | InnoDB Pool gebruik bufferpercentage |
+| MySQL Server | Belangrijkste cachetreffers Pct |
+| MySQL Server | Belangrijkste Cache gebruik Pct |
+| MySQL Server | Cache voor Write Pct |
+| MySQL Server | Query Cache treffers Pct |
+| MySQL Server | Query Cache Prunes Pct |
+| MySQL Server | Query-Cache gebruiken Pct |
+| MySQL Server | Tabel cachetreffers Pct |
+| MySQL Server | Tabel Cache gebruik Pct |
+| MySQL Server | Tabel vergrendelen conflicten Pct |
 
 ## <a name="apache-http-server"></a>Apache HTTP-Server 
 Als Apache HTTP-Server op de computer wordt gedetecteerd wanneer de omsagent-bundel is geïnstalleerd, wordt een provider voor de Apache HTTP Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider, is afhankelijk van een Apache-module die moet worden geladen in de Apache HTTP-Server voor toegang tot prestatiegegevens. De module kan worden geladen met de volgende opdracht:
@@ -152,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Azure Monitor configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor](data-sources-performance-counters.md) met de items in de volgende tabel.
 
-| Objectnaam | Naam van teller |
+| Objectnaam | Naam van het prestatiemeteritem |
 |:--|:--|
 | Apache HTTP-Server | Werknemers bezet |
 | Apache HTTP-Server | Niet-actieve werknemers |

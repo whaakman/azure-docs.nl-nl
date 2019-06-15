@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/26/2019
 ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387424"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Het maken en gebruiken van actieve geo-replicatie
@@ -182,7 +182,7 @@ Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een pr
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST-API: Failover van één en gepoolde databases beheren
 
-| API | Beschrijving |
+| API | Description |
 | --- | --- |
 | [Maken of bijwerken-Database (createMode = herstellen)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Gemaakt, bijgewerkt of hersteld van een primaire of secundaire database. |
 | [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retourneert de status tijdens een bewerking voor maken. |

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325812"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Maak kennis met SQL Server Always On-beschikbaarheidsgroepen op Azure virtual machines #
@@ -34,7 +34,7 @@ Het diagram illustreert de onderdelen van een volledige SQL Server-beschikbaarhe
 
 Het belangrijkste verschil voor een beschikbaarheidsgroep in Azure Virtual Machines is dat de virtuele Azure-machines, vereist een [netwerktaakverdeler](../../../load-balancer/load-balancer-overview.md). De load balancer bevat de IP-adressen voor de beschikbaarheidsgroep-listener. Als u meer dan één beschikbaarheidsgroep hebt moet elke groep een listener. Een load balancer biedt ondersteuning voor meerdere listeners.
 
-Bovendien op een failovercluster voor Azure IaaS VM-Gast wordt aangeraden één NIC per server (clusterknooppunt) en één subnet. Azure-netwerken heeft fysieke redundantie extra NIC's en subnetten onnodige maakt op een Azure IaaS VM-gastcluster. Hoewel het clustervalidatierapport wordt een waarschuwing dat de knooppunten alleen bereikbaar is op één netwerk zijn uitgeeft, kan deze waarschuwing veilig worden genegeerd op Azure IaaS VM-gastclusters voor failover. 
+Bovendien op een failovercluster voor Azure IaaS VM-Gast wordt aangeraden één NIC per server (clusterknooppunt) en één subnet. Een Azure-netwerk maakt gebruikt van fysieke redundantie, waardoor extra NIC's en subnetten overbodig zijn voor een gastcluster voor een Azure IaaS-VM. Hoewel het clustervalidatierapport een waarschuwing zal bevatten dat de knooppunten alleen bereikbaar zijn in één netwerk, kan deze waarschuwing zonder problemen worden genegeerd in het geval van failover-gastclusters voor een Azure IaaS-VM. 
 
 |  | Windows Server-versie | SQL Server-versie | SQL Server-editie | WSFC Quorum Config | Herstel na Noodgevallen met meerdere regio 's | Ondersteuning voor meerdere subnetten | Ondersteuning voor een bestaande AD-Tenant | Herstel na Noodgevallen met meerdere zones dezelfde regio | Ondersteuning voor dist AG er is geen AD-domein | Dist AG-ondersteuning met niet-cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|

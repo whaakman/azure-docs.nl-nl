@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564144"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Aan de slag met Azure CDN-ontwikkeling
@@ -86,7 +86,7 @@ Met *app.js* openen in de editor, laten we nu de basisstructuur van ons programm
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. We moeten sommige constanten die onze methoden gebruikt definiëren.  Voeg het volgende toe.  Zorg ervoor dat u de plaatsaanduidingen vervangt, met inbegrip van de  **&lt;punthaken&gt;**, door uw eigen waarden indien nodig.
+2. We moeten sommige constanten die onze methoden gebruikt definiëren.  Voeg het volgende toe.  Zorg ervoor dat u de plaatsaanduidingen vervangt, met inbegrip van de  **&lt;punthaken&gt;** , door uw eigen waarden indien nodig.
    
     ``` javascript
     //Tenant app constants

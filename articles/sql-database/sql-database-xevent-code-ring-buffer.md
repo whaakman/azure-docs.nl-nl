@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331023"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Doelcode ringbuffer voor uitgebreide gebeurtenissen in SQL-Database
@@ -30,7 +30,7 @@ In dit onderwerp wordt een voorbeeld van de Transact-SQL-code die:
 1. Maakt een tabel met gegevens om te demonstreren met.
 2. Hiermee maakt u een sessie voor een bestaande uitgebreide gebeurtenis, namelijk **sqlserver.sql_statement_starting**.
    
-   * De gebeurtenis is beperkt tot de SQL-instructies met een bepaalde Update-tekenreeks: **instructie als '% UPDATE tabEmployee %'**.
+   * De gebeurtenis is beperkt tot de SQL-instructies met een bepaalde Update-tekenreeks: **instructie als '% UPDATE tabEmployee %'** .
    * De uitvoer van de gebeurtenis verzenden naar een doel van het type ringbuffer, namelijk wil **package0.ring_buffer**.
 3. Start de gebeurtenissessie.
 4. Problemen met een aantal eenvoudige UPDATE van de SQL-instructies.
@@ -43,7 +43,7 @@ In dit onderwerp wordt een voorbeeld van de Transact-SQL-code die:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-account en -abonnement. U  kunt zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). 
+* Een Azure-account en -abonnement. U  kunt zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 * Elke database die kunt u een tabel in.
   
   * U kunt eventueel [maken een **AdventureWorksLT** demonstratiedatabase](sql-database-get-started.md) in minuten.

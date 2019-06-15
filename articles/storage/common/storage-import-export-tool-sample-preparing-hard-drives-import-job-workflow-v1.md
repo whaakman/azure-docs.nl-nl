@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320581"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
@@ -20,7 +20,7 @@ In dit onderwerp begeleidt u bij het complete proces van schijven voorbereiden v
   
 In dit voorbeeld de volgende gegevens worden geïmporteerd in een Windows Azure storage-account met de naam `mystorageaccount`:  
   
-|Location|Description|  
+|Locatie|Description|  
 |--------------|-----------------|  
 |H:\Video|Een verzameling van video's, 5 TB in totaal.|  
 |H:\Photo|Een verzameling van foto's, 30 GB in totaal.|  
@@ -29,7 +29,7 @@ In dit voorbeeld de volgende gegevens worden geïmporteerd in een Windows Azure 
   
 De import-taak importeert deze gegevens in de volgende bestemmingen in de storage-account:  
   
-|Bron|De virtuele doelmap of de blob|  
+|source|De virtuele doelmap of de blob|  
 |------------|-------------------------------------------|  
 |H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
@@ -44,7 +44,7 @@ Compute vervolgens om te bepalen hoeveel harde schijven nodig zijn, de grootte v
   
 In dit voorbeeld moet twee 3 TB harde schijven voldoende. Echter, omdat de bronmap `H:\Video` 5 TB aan gegevens heeft en de capaciteit van uw één harde schijf is alleen 3 TB, is het nodig zijn om te doorbreken `H:\Video` in twee kleinere mappen: `H:\Video1` en `H:\Video2`, voordat u de Microsoft Azure Import/Export-hulpprogramma. Deze stap levert de volgende bron-mappen:  
   
-|Location|Grootte|De virtuele doelmap of de blob|  
+|Locatie|Grootte|De virtuele doelmap of de blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

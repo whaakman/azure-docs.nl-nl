@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199394"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Azure Log Analytics-pijp voor Cloud Foundry systeemcontrole implementeren
@@ -194,7 +194,7 @@ De *"Cloud Foundry.omsview"* is een preview-versie van de sjabloon van de Cloud 
 
 U kunt [maken van de waarschuwingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), en aanpassen van de query's en drempelwaarden, indien nodig. De volgende worden waarschuwingen aanbevolen:
 
-| Zoekquery                                                                  | Waarschuwing genereren is gebaseerd op | Beschrijving                                                                       |
+| Zoekquery                                                                  | Waarschuwing op basis van genereren | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Aantal resultaten < 1   | **BBS. Domain.cf-apps** geeft aan of het domein cf-apps up-to-date is. Dit betekent dat aanvragen van Cloud-netwerkcontroller CF-App zijn gesynchroniseerd naar bbs. LRPsDesired (AIs Diego gewenst) voor de uitvoering. Er zijn geen gegevens ontvangen betekent dat CF-apps-domein is niet bijgewerkt in de opgegeven periode. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Aantal resultaten > 0   | Voor cellen Diego, 0 betekent dat in orde en 1 betekent dat niet in orde. Stel de waarschuwing als er meerdere slecht Diego cellen zijn gedetecteerd in de opgegeven periode. |

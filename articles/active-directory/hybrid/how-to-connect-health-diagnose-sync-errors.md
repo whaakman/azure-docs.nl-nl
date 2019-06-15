@@ -15,10 +15,10 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349987"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Vaststellen en herstellen van de synchronisatiefouten dubbel kenmerk
@@ -71,7 +71,7 @@ Uitvoeren vanuit de Azure-portal, een paar stappen voor het identificeren van sp
 | ------------------ | -----------------|
 | Niet gestart | U kunt dit proces diagnose nog niet hebt bezocht. Afhankelijk van het diagnostisch resultaat is er een mogelijke manier om op te lossen de synchronisatiefout rechtstreeks vanuit de portal. |
 | Handmatige oplossing vereist | De fout niet aanpassen aan de criteria van de beschikbare oplossingen in de portal. Een van beide conflicterende objecttypen zijn niet-gebruikers, of u al de diagnostische stappen doorlopen en geen oplossing die oplossing is beschikbaar via de portal. In dat laatste geval is een oplossing vanaf de on-premises nog steeds een van de oplossingen. [Meer informatie over on-premises oplossingen](https://support.microsoft.com/help/2647098). | 
-| In afwachting van synchronisatie | Een oplossing is toegepast. De portal wacht op de volgende synchronisatiecyclus om te wissen van de fout. |
+| Synchronisatie in behandeling | Een oplossing is toegepast. De portal wacht op de volgende synchronisatiecyclus om te wissen van de fout. |
 
   >[!IMPORTANT]
   > De statuskolom van de diagnostische worden opnieuw ingesteld na elke synchronisatiecyclus. 

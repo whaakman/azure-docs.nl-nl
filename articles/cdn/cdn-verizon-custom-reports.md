@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323572"
 ---
 # <a name="custom-reports-from-verizon"></a>Aangepaste Verizon-rapporten
@@ -68,18 +68,18 @@ U kunt de gegevens in Excel-indeling exporteren door te klikken op het Excel-sym
 
 ## <a name="edge-cnames-custom-report-fields"></a>Edge CNAME-records aangepaste rapportvelden
 
-| Veld                     | Beschrijving   |
+| Veld                     | Description   |
 |---------------------------|---------------|
 | 2xx                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een 2xx HTTP-statuscode resulteert (bijvoorbeeld 200 OK). |
 | 3xx                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een 3xx HTTP-statuscode resulteert (bijvoorbeeld 302 gevonden of 304 niet gewijzigd. |
 | 4XX                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een HTTP-statuscode 4xx resulteert (bijvoorbeeld 400 Ongeldige aanvraag, 403 verboden of 404 niet gevonden). |
 | 5xx                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een 5xx HTTP-statuscode (bijvoorbeeld 500 Interne serverfout of 502 Ongeldige Gateway resulteert). |
 | Percentage treffers in cache               | Geeft het percentage van gecachet kan worden aanvragen die zijn behandeld rechtstreeks uit de cache aan de aanvrager. |
-| Cachetreffers                | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een cache-hits (bijvoorbeeld TCP_EXPIRED_HIT, TCP_HIT of TCP_PARTIAL_HIT resulteert). Een cache-hits treedt op wanneer de versie van een cache van de aangevraagde inhoud is gevonden. |
+| Treffers in cache                | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een cache-hits (bijvoorbeeld TCP_EXPIRED_HIT, TCP_HIT of TCP_PARTIAL_HIT resulteert). Een cache-hits treedt op wanneer de versie van een cache van de aangevraagde inhoud is gevonden. |
 | Data Transferred (MB)     | Geeft de totale hoeveelheid gegevens overgedragen (MB) van het edge-servers naar HTTP-clients (webbrowsers) voor de CNAME van de rand aan. De hoeveelheid overgedragen gegevens wordt berekend door de HTTP-antwoordheaders toe te voegen aan de antwoordtekst. Als gevolg hiervan is de hoeveelheid gegevens die worden overgedragen voor elke asset groter is dan de werkelijke bestandsgrootte. |
-| Beschrijving               | Identificeert een rand CNAME door de hostnaam |
-| Treffers                      | Geeft het totale aantal aanvragen naar de rand CNAME |
-| Missers                    | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een cache ontbreekt (bijvoorbeeld TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS of TCP_MISS resulteert). Een cache ontbreekt treedt op wanneer de aangevraagde inhoud is niet in de cache opgeslagen op het edge-server die de aanvraag gehonoreerd. | 
+| Description               | Identificeert een rand CNAME door de hostnaam |
+| Aantal treffers                      | Geeft het totale aantal aanvragen naar de rand CNAME |
+| Missers in                    | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een cache ontbreekt (bijvoorbeeld TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS of TCP_MISS resulteert). Een cache ontbreekt treedt op wanneer de aangevraagde inhoud is niet in de cache opgeslagen op het edge-server die de aanvraag gehonoreerd. | 
 | Geen Cache                  | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een CONFIG_NOCACHE cache-statuscode resulteert.  |
 | Overige                     | Geeft het totale aantal aanvragen of gegevens die worden overgedragen (MB) voor de rand CNAME aangegeven die resulteert in een HTTP-statuscode die buiten het 2xx - bereik 5xx valt. |
 | Platform                  | Geeft aan dat het platform die verantwoordelijk is voor de edge-CNAME-verkeer. |

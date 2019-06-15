@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482258"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Beveiligingsgegevens (preview) instellen voor het gebruik van SMS-berichten verzenden
@@ -86,11 +86,11 @@ Als u wilt dat SMS-berichten om de standaard-methode gebruikt wanneer u zich aan
 
     ![Koppeling voor de aanmeldingsmethode standaard wijzigen](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecteer **telefoon - tekst (*_your_phone_number_*)** uit de vervolgkeuzelijst met beschikbare methoden en selecteer vervolgens **bevestigen**.
+2. Selecteer **telefoon - tekst ( *_your_phone_number_* )** uit de vervolgkeuzelijst met beschikbare methoden en selecteer vervolgens **bevestigen**.
 
     ![Methode voor aanmelding bij de standaard kiezen](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    De standaardmethode die wordt gebruikt voor aanmelding bij wijzigingen in **telefoon - tekst (*_your_phone_number_*)**.
+    De standaardmethode die wordt gebruikt voor aanmelding bij wijzigingen in **telefoon - tekst ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Aanvullende informatie voor beveiligingsmethoden
 Hebt u extra opties voor hoe uw organisatie contactpersonen u om te controleren of uw identiteit, afhankelijk van wat u probeert te doen. De opties zijn:

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286935"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Azure AD-rollen beveiligingswizard in PIM
@@ -53,7 +53,7 @@ De tweede stap van de wizard hebt u de mogelijkheid om te wijzigen van roltoewij
 
 1. Klik op **volgende** om te selecteren van de leden die u wilt maken die in aanmerking komen.
 
-    ![Status van gebruikers wijzigen naar in aanmerking komend](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Leden converteren naar in aanmerking komende](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Nadat u de leden hebt geselecteerd, klikt u op **volgende**.
 

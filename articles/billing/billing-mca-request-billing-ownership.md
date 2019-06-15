@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371927"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Ophalen van eigendom van Azure-abonnementen van andere gebruikers
@@ -80,21 +80,21 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
    |Kolom|Definitie|
    |---------|---------|
    |Aanvraagdatum|De datum waarop de overdrachtsaanvraag is verzonden|
-   |Geadresseerde|Het e-mailadres van de gebruiker die u hebt verzonden de aanvraag voor het abonnement overdragen|
-   |Verloopdatum|De datum waarop de aanvraag verloopt|
+   |Ontvanger|Het e-mailadres van de gebruiker die u hebt verzonden de aanvraag voor het abonnement overdragen|
+   |Vervaldatum|De datum waarop de aanvraag verloopt|
    |Status|De status van aanvraag|
 
     De overdrachtsaanvraag kan een van de volgende statussen hebben:
 
    |Status|Definitie|
    |---------|---------|
-   |Wordt uitgevoerd|De overdrachtsaanvraag is niet geaccepteerd door de gebruiker|
+   |Bezig|De overdrachtsaanvraag is niet geaccepteerd door de gebruiker|
    |Verwerken|De gebruiker goedgekeurd de aanvraag. Facturering voor abonnementen die de gebruiker heeft geselecteerd wordt overgedragen naar de sectie van uw factuur|
    |Voltooid| De facturering voor abonnementen die de gebruiker heeft geselecteerd wordt overgebracht naar het gedeelte van uw factuur|
    |Voltooid met fouten|De aanvraag is voltooid, maar de facturering voor sommige abonnementen die de gebruiker heeft geselecteerd kan niet worden overgedragen|
    |Vervallen|De gebruiker de aanvraag niet accepteren op tijd en deze is verlopen|
    |Geannuleerd|Iemand met toegang tot de overdrachtsaanvraag de aanvraag geannuleerd|
-   |Geweigerd|De gebruiker heeft de aanvraag geweigerd|
+   |Afgewezen|De gebruiker heeft de aanvraag geweigerd|
 
 6. Selecteer een aanvraag om details weer te geven. De pagina met details van overdracht bevat de volgende informatie:
    <!-- Todo - Add a screenshot -->
@@ -159,7 +159,7 @@ SaaS-producten worden niet overgedragen aan de abonnementen. Vraag de gebruiker 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 

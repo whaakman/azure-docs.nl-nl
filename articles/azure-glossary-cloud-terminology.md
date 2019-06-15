@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325422"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Verklarende woordenlijst voor Microsoft Azure: Een woordenlijst met cloud-terminologie op het Azure-platform
@@ -39,7 +39,7 @@ Een andere naam voor [App Service-app](#app-service-app).
 ## <a name="app-service-app"></a>App Service-app
 De rekenresources die [Azure App Service](app-service/overview.md) biedt voor het hosten van een website of web-toepassing, web-API of [mobiele back-end](app-service-mobile/app-service-mobile-value-prop.md). App Service-apps worden ook aangeduid als *App Services*, *web-apps*, *API apps*, en *mobiele apps*.
 
-## <a name="availability-set"></a>beschikbaarheidsset
+## <a name="availability-set"></a>Beschikbaarheidsset
 Een verzameling van virtuele machines die samen worden beheerd voor toepassing redundantie en betrouwbaarheid. Het gebruik van een beschikbaarheidsset zorgt ervoor dat tijdens een geplande of onvoorziene onderhoudsgebeurtenis ten minste één virtuele machine beschikbaar is.  
 Zie [de beschikbaarheid van virtuele machines van Windows beheren](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [de beschikbaarheid van virtuele Linux-machines beheren](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -77,10 +77,10 @@ Zie [navigeren door en selecteren installatiekopieën van Windows-machines in Az
 Het aantal resources dat kunnen worden gemaakt of de benchmark-prestaties die kan worden bereikt. Grenzen zijn meestal gekoppeld aan abonnementen, services en aanbiedingen.  
 Zie [Azure-abonnement en Servicelimieten, quotums en beperkingen](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>load balancer
+## <a name="load-balancer"></a>Load balancer
 Een resource die inkomend verkeer tussen de computers in een netwerk distribueert. In Azure verdeelt een load balancer het verkeer naar virtuele machines die zijn gedefinieerd in een load balancer-set. Een [netwerktaakverdeler](load-balancer/load-balancer-overview.md) kan internet gerichte of interne kan zijn.  
 
-## <a name="mobile-app"></a>mobiele app
+## <a name="mobile-app"></a>Mobiele app
 Een andere naam voor [App Service-App](#app-service-app).
 
 ## <a name="offer"></a>aanbieding
@@ -94,7 +94,7 @@ De beveiligde web-portal gebruikt om te implementeren en beheren van Azure-servi
 Een gebied in een geografisch gebied dat niet overschrijdend nationale randen en bevat een of meer datacenters. Prijzen, regionale services en typen worden weergegeven op het regioniveau van de. Een regio is doorgaans gekoppeld aan een andere regio gekoppeld, dit mag maximaal enkele honderden mijl weg. Regioparen kunnen worden gebruikt als een mechanisme voor herstel na noodgevallen en scenario's voor hoge beschikbaarheid. Ook wel *locatie*.  
 Zie [Azure-regio's](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>Bron
+## <a name="resource"></a>resource
 Een item die deel uitmaakt van uw Azure-oplossing. Elke Azure-service kunt u verschillende soorten resources, zoals databases of virtuele machines te implementeren.   
 Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 

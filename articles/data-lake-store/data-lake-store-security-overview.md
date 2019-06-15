@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195247"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Beveiliging in Azure Data Lake Storage Gen1
 Veel ondernemingen profiteren van big data-analyses voor zakelijke inzichten zodat ze slimme besluiten. Een organisatie kan een complexe en gereguleerde omgeving, met een toenemend aantal diverse gebruikers hebben. Het is essentieel voor een onderneming om ervoor te zorgen dat kritieke bedrijfsgegevens veiliger, worden opgeslagen met het juiste niveau van toegang verleend aan individuele gebruikers. Azure Data Lake Storage Gen1 is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel leert u over de beveiligingsfuncties van Data Lake Storage Gen1, met inbegrip van:
 
-* Authentication
+* Verificatie
 * Autorisatie
 * Netwerkisolatie
-* Gegevensbeveiliging
+* Gegevensbescherming
 * Controleren
 
 ## <a name="authentication-and-identity-management"></a>Verificatie en identiteitsbeheer
@@ -73,7 +73,7 @@ Data Lake Storage Gen1 om de toegang beheren tot uw gegevensopslag op het niveau
 
 ![Firewall-instellingen en IP-toegang hebben tot](./media/data-lake-store-security-overview/firewall-ip-access.png "Firewall-instellingen en IP-adres")
 
-## <a name="data-protection"></a>Gegevensbeveiliging
+## <a name="data-protection"></a>Gegevensbescherming
 Data Lake Storage Gen1 beschermt uw gegevens in de gehele levenscyclus. Voor gegevens die onderweg zijn, Data Lake Storage Gen1 de industriestandaard Transport Layer Security (TLS 1.2)-protocol gebruikt voor het beveiligen van gegevens via het netwerk.
 
 ![Versleuteling in Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "versleuteling in Data Lake Storage Gen1")

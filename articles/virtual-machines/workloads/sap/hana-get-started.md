@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
 ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60204628"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Quickstart: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual Machines
@@ -189,7 +189,7 @@ Meest gebruikte waarden voor incidenten met ernst zijn:
 - Belangrijk
 - Gemiddeld
 - Laag
-- Niet opgegeven
+- Niet-opgegeven
 
 De **zypper** opdracht zoekt alleen naar de updates die de geïnstalleerde pakketten nodig hebt. U kunt bijvoorbeeld deze opdracht gebruiken:
 

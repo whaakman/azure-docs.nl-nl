@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: cf1dc352068747ab2f77beec8802407d15699d17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607151"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Taalondersteuning voor Content Moderator-API
@@ -30,30 +30,30 @@ ms.locfileid: "60607151"
 | Arabisch (Romanized)   | Afrikaans   | Arabisch   | Arabisch | |
 | Balinese | Albanees | Chinees (vereenvoudigd)    | Deens | |
 | Bengaals | Amhaars | Chinees (traditioneel)     | Nederlands | |
-| Buginees | Arabisch | Tsjechisch                     | Engels | |
+| Buginees | Arabisch | Tsjechisch                     | Nederlands | |
 | Buhid | Armeens | Deens                     | Fins | |
-| Carian | Assamees | Nederlands                     | Frans | |
-| Chinees (vereenvoudigd) | Azerbeidzjaans | Engels  | Greek (modern) | |
+| Carian | Assamese | Nederlands                     | Frans | |
+| Chinees (vereenvoudigd) | Azerbeidjaanse | Nederlands  | Greek (modern) | |
 | Chinees (traditioneel) | Bengalees - Bangladesh | Fins  | Italiaans | |
 | Kerk (Slavisch) | Bangla - India | Frans     | Koreaans | |
 | Koptisch | Baskisch | Duits                      | Noors | |
-| Tsjechisch |  Belarussisch | Greek (modern)         | Pools | |
+| Tsjechisch |  Wit-Russisch | Greek (modern)         | Pools | |
 | Dhivehi | Bosnisch - Cyrillisch | Hongaars      | Portugees | |
 | Nederlands | Bosnisch - Latijns | Italiaans             | Roemeens | |
-| Engels | (Creole) | Bretons [niet GeoPol] | Japans  | Russisch |
+| Nederlands | (Creole) | Bretons [niet GeoPol] | Japans  | Russisch |
 | Farsi | Bulgaars | Koreaans                        | Slowaaks | |
 | Frans | Catalaans | Noors                        | Spaans ||
 | Duits | Centraal-Koerdisch | Pools        | Turks | |
 | Grieks | Cherokee | Portugees | | |
-| Haïtiaans | Chinees (vereenvoudigd) | Roemeens | | |
+| Haïtiaanse | Chinees (vereenvoudigd) | Roemeens | | |
 | Hebreeuws | Chinees (Traditioneel) - Hongkong SAR | Russisch | | |
 | Hindi | Chinees (Traditioneel) - Taiwan | Cyrillisch Servisch | | |
-| Hmong | Kroatisch | Servisch (Latijn) | | |
+| Hmong | Kroatisch | Servisch Latijns | | |
 | Hongaars | Tsjechisch | Slowaaks | | |
 | Italiaans | Deens | Spaans | | |
 | Japans | Dari | Zweeds | | |
 | Koreaans | Nederlands | Turks | | |
-| Koerdisch (Arabisch) | Engels | | | |
+| Koerdisch (Arabisch) | Nederlands | | | |
 | Koerdisch (Latijns) | Estisch | | | |
 | Lepcha | Filipijns | | | |
 | Limbu | Fins | | | |
@@ -62,8 +62,8 @@ ms.locfileid: "60607151"
 | Lydian | Georgisch | | | |
 | Mycenaean (Grieks) | Duits | | | |
 | Nko | Grieks | | | |
-| Noors (Bokmål) | Gujarati | | | |
-| Noors (Nynorsk) |  Hausa | | | |
+| Noors (Bokmal) | Gujarati | | | |
+| Norwegian (Nynorsk) |  Hausa | | | |
 | Oude (Perzisch) | Hebreeuws | | | |
 | Pashto | Hindi | | | |
 | Pools | Hongaars | | | |
@@ -72,12 +72,12 @@ ms.locfileid: "60607151"
 | Rejang | Indonesisch | | | |
 | Russisch | Inuktitut | | | |
 | Santali | Iers | | | |
-| Sasak | Xhosa | | | |
-| Saurashtra | Zoeloe | | | |
+| Sasak | isiXhosa | | | |
+| Saurashtra | isiZulu | | | |
 | Servisch (Cyrillisch) | Italiaans | | | |
 | Servisch (Latijns) | Japans | | | |
 | Sinhala | Kanarees | | | |
-| Sloveens | Kazachs | | | |
+| Sloveens | Kazachstaans | | | |
 | Spaans | Khmer | | | |
 | Zweeds | K'iche | | | |
 | Sylheti | Kinyarwanda | | | |
@@ -85,7 +85,7 @@ ms.locfileid: "60607151"
 | Tagbanwa | Konkani | | | |
 | Tai (Nua) | Koreaans | | | |
 | Tamashek | Kirgizisch | | | |
-| Turks | Laotiaans | | | |
+| Turks | Lao | | | |
 | Ugaritic | Lets | | | |
 | Oezbeeks (Cyrillisch) | Litouws | | | |
 | Oezbeeks (Latijns) | Luxemburgs | | | |
@@ -94,11 +94,11 @@ ms.locfileid: "60607151"
 | Zhuang, Chuang | Malayalam | | | |
 | | Maltees | | | |
 | | Maori | | | |
-| | Mahratti | | | |
+| | Marathi | | | |
 | | Mongools | | | |
-| | Nepalees | | | |
+| | Nepali | | | |
 | | Norwegian (Bokmål) | | | |
-| | Noors (Nynorsk) | | | |
+| | Norwegian (Nynorsk) | | | |
 | | Odia | | | |
 | | Pashto | | | |
 | | Perzisch | | | |
@@ -117,24 +117,24 @@ ms.locfileid: "60607151"
 | | Servisch (Latijns) | | | |
 | | Sesotho | | | |
 | | Noord-Sotho | | | |
-| | Tswana | | | |
+| | Setswana | | | |
 | | Sindhi | | | |
 | | Sinhala | | | |
 | | Slowaaks | | | |
 | | Sloveens | | | |
 | | Spaans | | | |
 | | Zweeds | | | |
-| | Tadzjieks | | | |
+| | Tajik | | | |
 | | Tamil | | | |
-| | Tataars | | | |
+| | Tatar | | | |
 | | Telugu | | | |
 | | Thais | | | |
 | | Tigrinya | | | |
 | | Turks | | | |
-| | Turkmeens | | | |
+| | Turkmen | | | |
 | | Oekraïens | | | |
 | | Urdu | | | |
-| | Uyghur | | | |
+| | Oeigoers | | | |
 | | Oezbeeks | | | |
 | | Valenciaans | | | |
 | | Vietnamees | | | |

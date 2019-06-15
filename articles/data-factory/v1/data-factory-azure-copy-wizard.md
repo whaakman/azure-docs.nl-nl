@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567670"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory-Wizard kopiëren
@@ -66,7 +66,7 @@ De volgende schermafbeelding ziet u een SQL-query met de `Text.Format` functie e
 ![Valideren van expressies](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Het filteren van gegevens in een Azure blob-map
-U kunt variabelen gebruiken in het pad naar het kopiëren van gegevens uit een map die is bepaald tijdens uitvoering op basis van [systeemvariabelen](data-factory-functions-variables.md#data-factory-system-variables). De variabelen die ondersteund zijn: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}**, en **{aangepaste}**. Bijvoorbeeld: inputfolder / {year} / {month} / {day}.
+U kunt variabelen gebruiken in het pad naar het kopiëren van gegevens uit een map die is bepaald tijdens uitvoering op basis van [systeemvariabelen](data-factory-functions-variables.md#data-factory-system-variables). De variabelen die ondersteund zijn: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** , en **{aangepaste}** . Bijvoorbeeld: inputfolder / {year} / {month} / {day}.
 
 Stel dat u hebt opgegeven dat mappen in de volgende indeling:
 
@@ -75,11 +75,11 @@ Stel dat u hebt opgegeven dat mappen in de volgende indeling:
     2016/03/01/03
     ...
 
-Klik op de **Bladeren** knop voor **bestand of map**, blader naar een van deze mappen (bijvoorbeeld: 2016-03 > -> 01-02 >), en klikt u op **kiezen**. U ziet `2016/03/01/02` in het tekstvak in. Vervang nu, **2016** met **{year}**, **03** met **{month}**, **01** met **{day}** , en **02** met **{hour}**, en druk op de **tabblad** sleutel. Hier ziet u vervolgkeuzelijsten om de indeling voor deze vier variabelen te selecteren:
+Klik op de **Bladeren** knop voor **bestand of map**, blader naar een van deze mappen (bijvoorbeeld: 2016-03 > -> 01-02 >), en klikt u op **kiezen**. U ziet `2016/03/01/02` in het tekstvak in. Vervang nu, **2016** met **{year}** , **03** met **{month}** , **01** met **{day}** , en **02** met **{hour}** , en druk op de **tabblad** sleutel. Hier ziet u vervolgkeuzelijsten om de indeling voor deze vier variabelen te selecteren:
 
 ![Met behulp van de systeemvariabelen](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Zoals weergegeven in de volgende schermafbeelding, u kunt ook een **aangepaste** variabele en een [opmaaktekenreeksen ondersteund](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Selecteer een map met die structuur, gebruikt u de **Bladeren** eerst knop. Vervang vervolgens een waarde met **{aangepaste}**, en druk op de **tabblad** sleutel om te zien van het tekstvak u de opmaaktekenreeks typt.     
+Zoals weergegeven in de volgende schermafbeelding, u kunt ook een **aangepaste** variabele en een [opmaaktekenreeksen ondersteund](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Selecteer een map met die structuur, gebruikt u de **Bladeren** eerst knop. Vervang vervolgens een waarde met **{aangepaste}** , en druk op de **tabblad** sleutel om te zien van het tekstvak u de opmaaktekenreeks typt.     
 
 ![Met behulp van aangepaste variabele](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

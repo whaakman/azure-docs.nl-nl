@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534274"
 ---
 # <a name="alias-server-names"></a>De namen van de alias
@@ -34,7 +34,7 @@ Wanneer u verbinding maakt vanaf een client, de naam van de alias wordt ingevoer
 
 ![Power BI Desktop verbinding](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
-## <a name="create-an-alias"></a>Alias maken
+## <a name="create-an-alias"></a>Een alias maken
 
 Voor het maken van een alias-eindpunt, kunt u een methode die een geldige naam voor de Azure Analysis Services-server retourneert. Bijvoorbeeld, een verwijzing naar een bestand in Azure Blob Storage is de echte-server met een naam geven, of maken en publiceren van een ASP.NET Web Forms-toepassing.
 

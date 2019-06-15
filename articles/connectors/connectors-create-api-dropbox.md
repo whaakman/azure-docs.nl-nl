@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312536"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Uploaden en beheren van bestanden in Dropbox met behulp van Azure Logic Apps
@@ -57,7 +57,7 @@ Selecteer deze actie uit de lijst met acties: **Bestandsinhoud ophalen via pad**
 
 1. Als u dit nog niet hebt al Azure Logic Apps voor toegang tot Dropbox gemachtigd, verleent u nu toegang.
 
-1. Om te bladeren naar het bestandspad dat u gebruiken wilt, naast de **bestandspad** Kies het beletselteken (**...** ) knop. 
+1. Om te bladeren naar het bestandspad dat u gebruiken wilt, naast de **bestandspad** Kies het beletselteken ( **...** ) knop. 
 
    U kunt ook klikken op in de **bestandspad** vak en selecteer in de lijst met dynamische inhoud, **bestandspad**, waarvan de waarde is beschikbaar als uitvoer van de trigger die u in de vorige sectie hebt toegevoegd.
 

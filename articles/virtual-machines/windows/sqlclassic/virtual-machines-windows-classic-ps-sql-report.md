@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609857"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus
@@ -86,7 +86,7 @@ In dit onderwerp wordt beschreven en begeleidt u bij de implementatie en configu
 
 ## <a name="step-2-create-a-server-certificate"></a>Stap 2: Een certificaat maken
 > [!NOTE]
-> Als u geen HTTPS op de rapportserver vereist, kunt u **slaat u stap 2** en gaat u naar de sectie **script gebruiken voor het configureren van de report server- en HTTP-**. De HTTP-script gebruiken om te snel configureren van de rapportserver en de rapportserver is klaar voor gebruik.
+> Als u geen HTTPS op de rapportserver vereist, kunt u **slaat u stap 2** en gaat u naar de sectie **script gebruiken voor het configureren van de report server- en HTTP-** . De HTTP-script gebruiken om te snel configureren van de rapportserver en de rapportserver is klaar voor gebruik.
 
 Gebruik van HTTPS op de virtuele machine, moet u een vertrouwd SSL-certificaat. Afhankelijk van uw scenario, kunt u een van de volgende twee methoden gebruiken:
 
@@ -94,7 +94,7 @@ Gebruik van HTTPS op de virtuele machine, moet u een vertrouwd SSL-certificaat. 
 * Een zelfondertekend certificaat. Zelfondertekende certificaten worden niet aanbevolen voor productie-omgevingen.
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>Een certificaat dat is gemaakt door een vertrouwde certificeringsinstantie (CA) te gebruiken
-1. **Vraag een servercertificaat voor de website van een certificeringsinstantie (CA)**. 
+1. **Vraag een servercertificaat voor de website van een certificeringsinstantie (CA)** . 
    
     U kunt de Wizard Web Server-certificaat gebruiken voor het genereren van een aanvraag certificaatbestand (Certreq.txt) die u naar een certificeringsinstantie (CA verzendt) of voor het genereren van een aanvraag voor een online-certificeringsinstantie (CA). Bijvoorbeeld Microsoft Certificate Services in Windows Server 2012. Afhankelijk van het niveau van identificatie assurance die worden aangeboden door het certificaat van uw server, is het aantal dagen tot enkele maanden duren voor de certificeringsinstantie (CA) voor het goedkeuren van uw aanvraag en stuurt u een certificaatbestand. 
    
@@ -125,7 +125,7 @@ Een zelfondertekend certificaat is gemaakt op de virtuele machine wanneer de vir
        Bijvoorbeeld, in de volgende afbeelding, de naam van de virtuele machine is **ssrsnativecloud** en de gebruikersnaam van de is **testuser**.
       
        ![aanmelding bevat vm-naam](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Mmc.exe worden uitgevoerd. Zie voor meer informatie [Procedure: Certificaten met de MMC-module weergeven](https://msdn.microsoft.com/library/ms788967.aspx).
+   2. Mmc.exe worden uitgevoerd. Zie voor meer informatie, [het: Certificaten met de MMC-module weergeven](https://msdn.microsoft.com/library/ms788967.aspx).
    3. In de consoletoepassing **bestand** in het menu toevoegen de **certificaten** -module, selecteer **computeraccount** wanneer u hierom wordt gevraagd en klik vervolgens op **volgende**.
    4. Selecteer **lokale Computer** beheren en klik vervolgens op **voltooien**.
    5. Klik op **Ok** en vouw vervolgens de **certificaten - persoonlijke** knooppunten en klik vervolgens op **certificaten**. Het certificaat is de naam van de DNS-naam van de virtuele machine en eindigt met **cloudapp.net**. Met de rechtermuisknop op de naam van het certificaat en klik op **kopie**.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f79ba9ae60454d4e73c914fc1c8af675a6d07d5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608829"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure-beveiliging en naleving blauwdruk - gegevensanalyse voor SP NIST 800-171
@@ -85,10 +85,10 @@ Elk van de nsg's heeft specifieke poorten en protocollen open zodat de oplossing
 
 **Subnetten**: Elk subnet is gekoppeld aan de bijbehorende NSG.
 
-### <a name="data-in-transit"></a>Gegevens die onderweg zijn
+### <a name="data-in-transit"></a>Actieve gegevens
 Alle communicatie naar en vanuit Azure-datacenters versleutelt Azure standaard. Alle transacties naar de opslag via de Azure-portal plaatsvinden via HTTPS.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 

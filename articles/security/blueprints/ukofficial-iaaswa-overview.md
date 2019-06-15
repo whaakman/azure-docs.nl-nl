@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609504"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-beveiliging en naleving blauwdruk - webtoepassing IaaS met drie lagen voor UK-OFFICIAL
@@ -109,7 +109,7 @@ Load Balancer
 - (1) biz laag Load Balancer
 - (1) gegevens laag Load Balancer
 
-Storage
+Opslag
 - (14) het totaal Storage-Accounts
   - Active Directory Domain Controller Availability Set
     - (2) primaire lokaal redundante opslag (LRS)-accounts: 1 voor elke virtuele machine  
@@ -154,7 +154,7 @@ Deze VNets worden nog steeds beheerd als afzonderlijke resources, maar worden we
 
 **Netwerkbeveiligingsgroepen**: [Nsg's](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) bevatten Access Control Lists toestaan of weigeren van verkeer binnen een VNet. Nsg's kunnen worden gebruikt om verkeer een subnet of afzonderlijke virtuele machine te beveiligen.
 
-**Active Directory Domain Services (AD DS)**: Deze architectuur biedt een toegewezen [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) implementatie.
+**Active Directory Domain Services (AD DS)** : Deze architectuur biedt een toegewezen [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) implementatie.
 
 **Logboekregistratie en controle**: [Azure-activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) van schermopnamen worden bewerkingen uitgevoerd voor de resources in uw abonnement, zoals die de bewerking heeft gestart wanneer de bewerking is uitgevoerd, de status van de bewerking en de waarden van andere eigenschappen die u kunnen helpen bij onderzoek de de bewerking. Azure-activiteitenlogboek is een Azure-platform-service waarmee alle acties op een abonnement wordt vastgelegd. Logboeken kunnen worden gearchiveerd of geëxporteerd indien nodig.
 

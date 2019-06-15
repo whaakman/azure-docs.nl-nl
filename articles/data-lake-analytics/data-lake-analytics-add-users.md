@@ -10,10 +10,10 @@ ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629319"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Een gebruiker toe te voegen in de Azure-portal
@@ -34,7 +34,7 @@ Verlenen van 'L' of "LSU", indien nodig, op mappen met invoergegevens- en uitvoe
 ## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>(Optioneel) de gebruiker toevoegen aan de rol van Azure Data Lake Storage Gen1 **lezer** rol.
 1.  De account van uw Azure Data Lake Storage Gen1 vinden.
 2.  Klik op **gebruikers**.
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 4.  Selecteer een Azure RBAC-rol aan deze groep worden toegewezen.
 5.  Toewijzen aan de rol van lezer. Deze rol heeft het minimale aantal vereiste machtigingen voor gegevens die zijn opgeslagen in ADLSGen1 Bladeren/beheren. Toewijzen aan deze rol als de groep is niet bedoeld voor het beheren van Azure-services.
 6.  Typ de naam van de groep.

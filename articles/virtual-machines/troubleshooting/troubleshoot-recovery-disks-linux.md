@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: dfb85b0f9f1dda611c613cb296177cf28391adc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318847"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met de Azure CLI voor herstel
@@ -62,7 +62,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-De URI is vergelijkbaar met **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
+De URI is vergelijkbaar met **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** .
 
 ## <a name="delete-existing-vm"></a>Bestaande virtuele machine verwijderen
 Virtuele harde schijven en virtuele machines zijn twee verschillende resources in Azure. Een virtuele harde schijf is waar het besturingssysteem zelf, toepassingen en configuraties worden opgeslagen. De virtuele machine zelf bestaat uit metagegevens die definieert de grootte of locatie en verwijst naar resources, zoals een virtuele harde schijf of virtuele netwerkinterfacekaart (NIC). Elke virtuele harde schijf heeft een lease toegewezen wanneer die zijn gekoppeld aan een virtuele machine. Hoewel gegevensschijven zelfs wanneer de virtuele machine wordt uitgevoerd, kunnen worden gekoppeld en losgekoppeld, kan de besturingssysteemschijf niet worden losgekoppeld tenzij de VM-resource wordt verwijderd. De lease blijft de besturingssysteemschijf koppelen aan een virtuele machine, zelfs wanneer die virtuele machine in een status gestopt en toewijzing ongedaan gemaakt.

@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515325"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protocol
@@ -78,7 +78,7 @@ Content-Length: 0
 
 De volgende headerinformatie is vereist voor token-toegang.
 
-| Name | Indeling | Beschrijving |
+| Name | Indeling | Description |
 |----|----|----|
 | OCP-Apim-Subscription-Key | ASCII | Uw abonnementssleutel |
 
@@ -172,7 +172,7 @@ Spraakservice moet de kenmerken van uw toepassing voor de best mogelijke spraakh
 
 Clients *moet* verzendt een `speech.config` bericht zodra ze maken van de verbinding met Spraakservice en voordat ze een verzenden `audio` berichten. U moet voor het verzenden van een `speech.config` bericht slechts één keer per verbinding.
 
-| Veld | Beschrijving |
+| Veld | Description |
 |----|----|
 | WebSocket-bericht coderen | Text |
 | Hoofdtekst | De nettolading als een JSON-structuur |
@@ -241,7 +241,7 @@ Clients worden verzonden (optioneel) een `audio` bericht met een lengte van nul-
 
 Speech Service maakt gebruik van de eerste `audio` -mailbericht met een unieke aanvraag-id op om door te geven het begin van een nieuwe aanvraag/antwoord-cyclus of *inschakelen*. Nadat de service ontvangt een `audio` bericht met een nieuwe aanvraag-id, het in de wachtrij of niet-verzonden berichten die gekoppeld aan alle vorige inschakelen zijn wordt verwijderd.
 
-| Veld | Beschrijving |
+| Veld | Description |
 |-------------|----------------|
 | WebSocket-bericht coderen | Binair bestand |
 | Hoofdtekst | De binaire gegevens voor de audio chunk. Maximale grootte is 8192 bytes. |
@@ -305,7 +305,7 @@ Clienttoepassingen *moet* bevestigen van het einde van elke inschakelen door te 
 
 Clients het einde van een inschakelen door te sturen moeten bevestigen een `telemetry` bericht snel na ontvangst een `turn.end` bericht. Clients om te bevestigen moeten proberen de `turn.end` zo snel mogelijk. Als een clienttoepassing mislukt voor het bevestigen van het einde inschakelen, mogelijk Speech Service de verbinding met een fout te beëindigen. Clients kunnen slechts één moeten verzenden `telemetry` bericht voor elke aanvraag en reactie geïdentificeerd door de *X-RequestId* waarde.
 
-| Veld | Beschrijving |
+| Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
 | Pad | `telemetry` |
@@ -384,7 +384,7 @@ Clients moeten niet veronderstellingen over de frequentie, timing of tekst in ee
 
 Wanneer Spraakservice bepaalt dat er voldoende informatie voor het produceren van een herkenningsresultaat dat niet verandert, de service-produceert een `speech.phrase` bericht. Speech Service levert deze resultaten nadat gedetecteerd dat de gebruiker een zin of woordgroep is voltooid.
 
-| Veld | Beschrijving |
+| Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
 | Pad | `speech.phrase` |
@@ -437,7 +437,7 @@ De *Offset* element geeft de verschuiving (in eenheden van 100 nanoseconden) wan
 
 De `turn.start` geeft aan het begin van een inschakelen vanuit het perspectief van de service. De `turn.start` bericht is altijd het eerste antwoordbericht u voor elke aanvraag ontvangt. Als u niet hebt ontvangen een `turn.start` ontvangt, wordt ervan uitgegaan dat de status van de serviceverbinding is ongeldig.
 
-| Veld | Beschrijving |
+| Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
 | Pad | `turn.start` |
@@ -510,8 +510,8 @@ De `Connection` metrische waarde geeft meer informatie over verbindingspogingen 
 | ----- | ----------- | ----- |
 | Name | `Connection` | Vereist |
 | Id | De verbinding id-waarde die is gebruikt in de *X ConnectionId* -header voor deze aanvraag | Vereist |
-| Starten | Het tijdstip waarop de client de verbindingsaanvraag verzonden | Vereist |
-| Beëindigen | De tijd bij het ontvangen van de client de verbinding is tot stand is gebracht of, in foutgevallen, afgewezen, geweigerd of is mislukt | Vereist |
+| Start | Het tijdstip waarop de client de verbindingsaanvraag verzonden | Vereist |
+| einde | De tijd bij het ontvangen van de client de verbinding is tot stand is gebracht of, in foutgevallen, afgewezen, geweigerd of is mislukt | Vereist |
 | Fout | Een beschrijving van de fout is opgetreden, indien van toepassing. Als de verbinding geslaagd is, moeten clients laat dit veld weg. De maximale lengte van dit veld is 50 tekens. | Vereist voor foutgevallen, anders wordt weggelaten |
 
 De beschrijving van de fout moet maximaal 50 tekens lang zijn en in het ideale geval moet een van de waarden die worden vermeld in de volgende tabel. Als het probleem komt niet overeen met een van deze waarden, clients een beknopte beschrijving van de fout kunnen gebruiken met behulp van [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) zonder spaties bevatten. De mogelijkheid voor het verzenden van een *telemetrie* bericht moet worden verbonden met de service, zodat alleen tijdelijke of tijdelijke fouten kunnen worden gerapporteerd de *telemetrie* bericht. Foutsituaties die *permanent* blok een client van een verbinding te maken met de service te voorkomen dat de client een bericht verzenden naar de service, met inbegrip van *telemetrie* berichten.
@@ -549,8 +549,8 @@ De *End* tijd-waarde voor de `Microphone` metriek legt de tijd wanneer het strea
 | Veld | Description | Gebruik |
 | ----- | ----------- | ----- |
 | Name | Microfoon | Vereist |
-| Starten | De tijd wanneer de client aan de slag met audio-invoer van de microfoon of andere audiostream of een trigger hebt ontvangen van het sleutelwoord spotter | Vereist |
-| Beëindigen | De tijd wanneer de client is gestopt met behulp van de microfoon of audio-stream | Vereist |
+| Start | De tijd wanneer de client aan de slag met audio-invoer van de microfoon of andere audiostream of een trigger hebt ontvangen van het sleutelwoord spotter | Vereist |
+| einde | De tijd wanneer de client is gestopt met behulp van de microfoon of audio-stream | Vereist |
 | Fout | Een beschrijving van de fout is opgetreden, indien van toepassing. Als de bewerkingen van de microfoon gelukt is, moeten clients laat dit veld weg. De maximale lengte van dit veld is 50 tekens. | Vereist voor foutgevallen, anders wordt weggelaten |
 
 ### <a name="metric-listeningtrigger"></a>Metrische gegevens `ListeningTrigger`
@@ -566,11 +566,11 @@ Gebruik de volgende voorbeelden als richtlijnen voor de opname *Start* en *End* 
 
 * Een clienttoepassing wordt verwerkt door de tweede inschakelen van een aanvraag meerdere inschakelen en op de hoogte gesteld door een antwoordbericht service om in te schakelen op de microfoon voor het verzamelen van invoer voor de tweede inschakelen. De clienttoepassing moet *niet* bevatten een `ListeningTrigger` metrische gegevens voor deze inschakelen.
 
-| Veld | Beschrijving | Gebruik |
+| Veld | Description | Gebruik |
 | ----- | ----------- | ----- |
 | Name | ListeningTrigger | Optioneel |
-| Starten | Het tijdstip waarop de luisterende client-trigger is gestart | Vereist |
-| Beëindigen | De tijd waarop de luisterende client-trigger is beëindigd | Vereist |
+| Start | Het tijdstip waarop de luisterende client-trigger is gestart | Vereist |
+| einde | De tijd waarop de luisterende client-trigger is beëindigd | Vereist |
 | Fout | Een beschrijving van de fout is opgetreden, indien van toepassing. Als de triggerbewerking voltooid is, moeten clients laat dit veld weg. De maximale lengte van dit veld is 50 tekens. | Vereist voor foutgevallen, anders wordt weggelaten |
 
 #### <a name="sample-message"></a>Voorbeeldbericht
@@ -687,7 +687,7 @@ Als een ander voorbeeld: Stel dat een gebruiker spreekt het sleutelwoord-trigger
 
 ### <a name="http-status-codes"></a>HTTP-statuscodes
 
-| HTTP-statuscode | Beschrijving | Problemen oplossen |
+| HTTP-statuscode | Description | Problemen oplossen |
 | - | - | - |
 | 400-Ongeldige aanvraag | De client verzonden een WebSocket-verbindingsaanvraag onjuist is. | Controleer dat u alle vereiste parameters en HTTP-headers opgegeven en of de waarden correct zijn. |
 | 401-niet toegestaan | De client bevat niet de vereiste autorisatie-informatie. | Controleer of u het bericht verzendt de *autorisatie* -header in de WebSocket-verbinding. |

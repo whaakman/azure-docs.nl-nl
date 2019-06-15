@@ -15,10 +15,10 @@ ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60202930"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installeren en configureren van SAP HANA (grote instanties) op Azure
@@ -141,7 +141,7 @@ Er zijn enkele details over de netwerken van de afzonderlijke eenheden opgemerkt
 
 Zie voor meer informatie over Ethernet-details voor uw architectuur, de [HLI scenario's ondersteund](hana-supported-scenario.md).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure-service-beheer via SAP aanbevolen richtlijnen. Deze richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. 
 

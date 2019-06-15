@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
 ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336861"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>De stroom van een Cloud Services-toepassing met Azure Diagnostics traceren
@@ -29,7 +29,7 @@ De tracering implementeren in uw Cloud Services-toepassing door toe te voegen de
 
 Zie voor informatie over het plaatsen van trace-instructies, [het: Trace-instructies toevoegen aan toepassingscode](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 
-Door te plaatsen [Trace Switches](/dotnet/framework/debug-trace-profile/trace-switches) in uw code kunt u bepalen of de tracering plaatsvindt en hoe uitgebreide is. Hiermee kunt u de status bewaken van uw toepassing in een productieomgeving. Dit is vooral belangrijk in een zakelijke toepassing die gebruikmaakt van meerdere onderdelen die worden uitgevoerd op meerdere computers. Zie voor meer informatie [Procedure: Tracering Switches configureren](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
+Door te plaatsen [Trace Switches](/dotnet/framework/debug-trace-profile/trace-switches) in uw code kunt u bepalen of de tracering plaatsvindt en hoe uitgebreide is. Hiermee kunt u de status bewaken van uw toepassing in een productieomgeving. Dit is vooral belangrijk in een zakelijke toepassing die gebruikmaakt van meerdere onderdelen die worden uitgevoerd op meerdere computers. Zie voor meer informatie, [het: Tracering Switches configureren](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
 
 ## <a name="configure-the-trace-listener-in-an-azure-application"></a>De traceringslistener in een Azure-toepassing configureren
 Tracering, foutopsporing en TraceSource, moet u instellen "listeners' voor het verzamelen en registreren van de berichten die worden verzonden. Listeners verzamelen, opslaan en doorsturen van berichten voor tracering. Deze geeft u de traceringsuitvoer naar een geschikte doel, zoals een logboek, venster of tekstbestand. Maakt gebruik van Azure Diagnostics de [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) klasse.
@@ -74,6 +74,6 @@ Nadat u de stappen voor het toevoegen van de listener hebt voltooid, kunt u de t
     ```
         using System.Diagnostics;
     ```
-3. Trace-instructies waar u wilt vastleggen van informatie over de status van uw toepassing toevoegen. U kunt verschillende methoden gebruiken om de uitvoer van de Trace-instructie. Zie voor meer informatie [Procedure: Trace-instructies toevoegen aan toepassingscode](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+3. Trace-instructies waar u wilt vastleggen van informatie over de status van uw toepassing toevoegen. U kunt verschillende methoden gebruiken om de uitvoer van de Trace-instructie. Zie voor meer informatie, [het: Trace-instructies toevoegen aan toepassingscode](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 4. Sla het bronbestand.
 

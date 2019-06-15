@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611522"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric best practices voor beveiliging
@@ -139,10 +139,10 @@ Het certificaat moet voldoen aan de volgende vereisten voor SSL-certificaten in 
 -   Naam van het onderwerp van het certificaat moet overeenkomen met de domeinnaam die wordt gebruikt voor toegang tot uw cloudservice.
 
     - Een aangepaste domeinnaam te gebruiken voor toegang tot uw cloudservice aan te schaffen.
-    - Een certificaat aanvragen van een CA met een onderwerpnaam die overeenkomt met de aangepaste domeinnaam van uw service. Bijvoorbeeld, als uw aangepaste domeinnaam is __contoso__**.com**, het certificaat van uw Certificeringsinstantie moet de onderwerpnaam **. contoso.com** of __www__ **. contoso.com**.
+    - Een certificaat aanvragen van een CA met een onderwerpnaam die overeenkomt met de aangepaste domeinnaam van uw service. Bijvoorbeeld, als uw aangepaste domeinnaam is __contoso__ **.com**, het certificaat van uw Certificeringsinstantie moet de onderwerpnaam **. contoso.com** of __www__ **. contoso.com**.
 
     >[!NOTE]
-    >U kunt een SSL-certificaat kan niet verkrijgen van een Certificeringsinstantie voor de __cloudapp__**.net** domein.
+    >U kunt een SSL-certificaat kan niet verkrijgen van een Certificeringsinstantie voor de __cloudapp__ **.net** domein.
 
 -   Het certificaat moet minimaal 2048-bits versleuteling gebruiken.
 

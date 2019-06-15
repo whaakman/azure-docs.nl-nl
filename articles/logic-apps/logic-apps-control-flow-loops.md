@@ -11,10 +11,10 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683963"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
@@ -54,7 +54,7 @@ In dit voorbeeld van logische app verzendt een dagelijks overzicht voor de RSS-f
 2. Tussen de RSS-trigger en verzenden van e-mailactie, Voeg een lus 'Foreach'. 
 
    1. Als u wilt toevoegen een lus tussen fasen, de aanwijzer over de pijl tussen deze stappen. 
-   Kies de **plusteken** (**+**) die wordt weergegeven, schakelt u **een actie toevoegen**.
+   Kies de **plusteken** ( **+** ) die wordt weergegeven, schakelt u **een actie toevoegen**.
 
       ![Selecteer 'Een actie toevoegen'](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -122,11 +122,11 @@ Als u in de codeweergave voor uw logische app werkt, kunt u definiëren de `Fore
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>'Foreach'-lus: Sequentieel
+## <a name="foreach-loop-sequential"></a>'Foreach'-lus: Sequentiële
 
 Standaard cycli in een lus 'Foreach' parallel worden uitgevoerd. Als u wilt uitvoeren elke cyclus sequentieel worden verwerkt, instellen van de lus **sequentieel** optie. Lussen "Foreach" moeten worden opeenvolgend uitgevoerd wanneer u geneste lussen of variabelen in lussen waar u voorspelbare resultaten verwacht. 
 
-1. Kies in de rechterbovenhoek van de lus **weglatingstekens** (**...** ) > **Instellingen**.
+1. Kies in de rechterbovenhoek van de lus **weglatingstekens** ( **...** ) > **Instellingen**.
 
    ![Kies '...' op 'Foreach'-lus, > 'Instellingen'](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 

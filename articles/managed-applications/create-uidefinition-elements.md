@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: tomfitz
 ms.openlocfilehash: 41a583a77f85bb1524112fa20d9098e18bc4f431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587935"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition-elementen
@@ -47,7 +47,7 @@ Het schema voor de meeste elementen is als volgt:
 | toolTip | Nee | De tekst die moet worden weergegeven in de knopinfo van het element. Vergelijkbaar met `label`, bepaalde onderdelen van de ondersteuning van meerdere hulpprogramma tip tekenreeksen. Inlinelinks kan worden ingesloten Markdown-syntaxis gebruiken.
 | constraints | Nee | Een of meer eigenschappen die worden gebruikt voor het aanpassen van de werking van de validatie van het element. De ondersteunde eigenschappen voor beperkingen variëren per elementtype. Sommige elementtypen geen ondersteuning voor aanpassing van het validatiegedrag, en dus er is geen eigenschap beperkingen hebben. |
 | opties | Nee | Extra eigenschappen die het gedrag van het element aanpassen. Vergelijkbaar met `constraints`, de ondersteunde eigenschappen variëren per elementtype. |
-| visible | Nee | Geeft aan of het element wordt weergegeven. Als `true`, het element en de betreffende onderliggende elementen worden weergegeven. De standaardwaarde is `true`. Gebruik [logische functies](create-uidefinition-functions.md#logical-functions) dynamisch beheren de waarde van deze eigenschap.
+| Zichtbaar | Nee | Geeft aan of het element wordt weergegeven. Als `true`, het element en de betreffende onderliggende elementen worden weergegeven. De standaardwaarde is `true`. Gebruik [logische functies](create-uidefinition-functions.md#logical-functions) dynamisch beheren de waarde van deze eigenschap.
 
 ## <a name="elements"></a>Elementen
 

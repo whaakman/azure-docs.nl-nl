@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323660"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Oplossen van problemen met Azure CDN-eindpunten die 404-statuscode retourneren
@@ -97,7 +97,7 @@ Gaan we terug naar ons voorbeeld hypothetische met http:\//www.contoso.com:8080/
 #### <a name="origin-host-header"></a>Host-header van oorsprong
 De **host-header van oorsprong** is de waarde van de host-header verzonden naar de oorsprong elke aanvraag.  In de meeste gevallen dit moet hetzelfde zijn als de **hostnaam van oorsprong** we eerder hebt geverifieerd.  Een onjuiste waarde in dit veld wordt niet in het algemeen 404-statusberichten veroorzaken, maar andere 4xx-statussen, afhankelijk van wat de oorsprong wordt verwacht dat leidt waarschijnlijk tot.
 
-#### <a name="origin-path"></a>Oorsprongpad
+#### <a name="origin-path"></a>Pad voor de oorsprong
 Ten slotte moet controleren we onze **oorsprongpad**.  Dit is standaard leeg.  U moet dit veld alleen gebruiken als u wilt beperken tot het bereik van de oorsprong gehoste bronnen die u beschikbaar wilt maken op het CDN.  
 
 In het voorbeeld-eindpunt, wilden we alle resources in de storage-account beschikbaar, zodat **oorsprongpad** is leeg.  Dit betekent dat een aanvraag naar https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt resulteert in een verbinding van het eindpunt met cdndocdemo.core.windows.net die worden aangevraagd */publicblob/lorem.txt*.  Ook kan een aanvraag voor https:\//cdndocdemo.azureedge.net/donotcache/status.png resulteert in het aanvragen van het eindpunt */donotcache/status.png* bij de oorsprong.

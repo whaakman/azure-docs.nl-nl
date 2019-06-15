@@ -15,10 +15,10 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595771"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Het maken van een oplossingsbestand management in Azure (Preview)
@@ -129,7 +129,7 @@ Hieronder volgt de structuur van de standaard parameters die u kunt kopiëren en
     }
 
 
-U verwijst naar de parameterwaarden in andere elementen van de oplossing met de syntaxis van de **parameters ('parameternaam ')**.  Bijvoorbeeld, voor toegang tot de naam van de werkruimte, zou u **parameters('workspaceName')**
+U verwijst naar de parameterwaarden in andere elementen van de oplossing met de syntaxis van de **parameters ('parameternaam ')** .  Bijvoorbeeld, voor toegang tot de naam van de werkruimte, zou u **parameters('workspaceName')**
 
 ## <a name="variables"></a>Variabelen
 [Variabelen](../../azure-resource-manager/resource-group-authoring-templates.md#variables) zijn waarden die u in de rest van de oplossing voor beheer gebruiken wilt.  Deze waarden worden niet blootgesteld aan de gebruiker installeren van de oplossing.  Ze zijn bedoeld om te voorzien van de auteur van één locatie waar ze de waarden die mogelijk meerdere keren wordt gebruikt in de oplossing kunnen beheren. U geen waarden specifieke moet plaatsen voor uw oplossing in de variabelen in plaats van code in de **resources** element.  Dit maakt de code beter leesbare en kunt u eenvoudig wijzigen van deze waarden in latere versies.
@@ -144,7 +144,7 @@ Hieronder volgt een voorbeeld van een **variabelen** element met normale paramet
         "AutomationApiVersion": "2015-10-31"
     },
 
-U kunt verwijzen naar waarden van variabelen met de oplossing met de syntaxis van de **variabelen ('variabele naam')**.  Bijvoorbeeld, voor toegang tot de SolutionName-variabele, zou u **variables('SolutionName')**.
+U kunt verwijzen naar waarden van variabelen met de oplossing met de syntaxis van de **variabelen ('variabele naam')** .  Bijvoorbeeld, voor toegang tot de SolutionName-variabele, zou u **variables('SolutionName')** .
 
 U kunt ook complexe variabelen definiëren die meerdere sets met waarden.  Dit zijn vooral nuttig in oplossingen voor het beheer wanneer u meerdere eigenschappen voor verschillende soorten resources wilt definiëren.  Bijvoorbeeld, kan u de oplossing voor variabelen die wordt weergegeven boven aan de volgende herstructureren.
 
@@ -213,7 +213,7 @@ De resource van de oplossing heeft de eigenschappen in de volgende tabel.  Dit o
 
 | Eigenschap | Description |
 |:--- |:--- |
-| workspaceResourceId |ID van de Log Analytics-werkruimte in de vorm  *\<resourcegroep-ID > /providers/Microsoft.OperationalInsights/workspaces/\<Werkruimtenaam\>*. |
+| workspaceResourceId |ID van de Log Analytics-werkruimte in de vorm  *\<resourcegroep-ID > /providers/Microsoft.OperationalInsights/workspaces/\<Werkruimtenaam\>* . |
 | referencedResources |Lijst met resources in de oplossing die mogen niet worden verwijderd wanneer de oplossing wordt verwijderd. |
 | containedResources |Lijst met resources in de oplossing die moeten worden verwijderd wanneer de oplossing wordt verwijderd. |
 
@@ -224,10 +224,10 @@ De **plan** entiteit van de resource van de oplossing heeft de eigenschappen in 
 
 | Eigenschap | Description |
 |:--- |:--- |
-| naam |Naam van de oplossing. |
-| versie |De versie van de oplossing zoals wordt bepaald door de auteur. |
+| name |Naam van de oplossing. |
+| version |De versie van de oplossing zoals wordt bepaald door de auteur. |
 | product |De unieke tekenreeks voor het identificeren van de oplossing. |
-| Uitgever |Uitgever van de oplossing. |
+| publisher |Uitgever van de oplossing. |
 
 
 

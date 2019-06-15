@@ -11,10 +11,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543554"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium Storage met behulp van Azure Site Recovery
@@ -77,7 +77,7 @@ U kunt Site Recovery gebruiken voor het migreren van Azure IaaS VM's tussen regi
 ### <a name="step-1-create-a-recovery-services-vault"></a>Stap 1: Een Recovery Services-kluis maken
 
 1. Open de [Azure Portal](https://portal.azure.com).
-2. Selecteer **een resource maken** > **Management** > **back-up** en **Site Recovery (OMS)**. U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**. 
+2. Selecteer **een resource maken** > **Management** > **back-up** en **Site Recovery (OMS)** . U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**. 
 3. Een regio die virtuele machines worden gerepliceerd naar opgeven. Selecteer de regio waar uw bron-VM's en de bron-opslagaccounts zijn voor migratie in dezelfde regio. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Stap 2: Uw beveiligingsdoelstellingen kiezen 
@@ -142,7 +142,7 @@ Om te bevestigen dat uw configuratieserver is gekoppeld aan het replicatiebeleid
 ### <a name="step-6-plan-capacity"></a>Stap 6: Capaciteit plannen
 
 1. Gebruik de [Capaciteitsplanner](../../site-recovery/site-recovery-capacity-planner.md) nauwkeurig te schatten netwerkbandbreedte, opslag en andere vereisten voor uw behoeften. 
-2. Wanneer u klaar bent, selecteert u **Ja, heb ik gedaan** in **hebt u plannen van capaciteit?**.
+2. Wanneer u klaar bent, selecteert u **Ja, heb ik gedaan** in **hebt u plannen van capaciteit?** .
 
    ![Vak voor het bevestigen dat u voltooid capaciteitsplanning][11]
 
