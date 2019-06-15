@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d2c587129f9f9f09c8f3871748449dc7b1755b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 9ce9c0c6d4f9002b061afd2ad09f02266d452979
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109268"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migreren van Federatie naar wachtwoord-hashsynchronisatie voor Azure Active Directory
 
@@ -139,7 +139,7 @@ Voordat u van federatieve identiteiten naar beheerde identiteit converteren, nau
 |-|-|
 | U wilt AD FS met andere toepassingen blijven gebruiken (anders dan Azure AD en Office 365). | Nadat u uw domeinen converteren, gebruikt u zowel AD FS en Azure AD. Houd rekening met de gebruikerservaring. In sommige scenario's mogelijk gebruikers worden gevraagd zich twee keer verifiëren: één keer naar Azure AD (waarbij een gebruiker opgehaald voor toegang via eenmalige aanmelding voor andere toepassingen, zoals Office 365) en voor alle toepassingen die nog steeds zijn gebonden aan de AD FS als een relying party. |
 | Uw exemplaar van AD FS kan sterk worden aangepast en is afhankelijk van aanpassingsinstellingen voor specifieke in het bestand OnLoad.js (bijvoorbeeld, als u de aanmeldingsprocedure hebt gewijzigd, zodat gebruikers met alleen een **SamAccountName** indeling voor hun gebruikersnaam in plaats van een gebruiker heeft Principal Name (UPN) of uw organisatie sterk merkproducten van de aanmeldingservaring). Het bestand OnLoad.js kan niet worden gedupliceerd in Azure AD. | Voordat u doorgaat, moet u controleren of Azure AD kunt voldoen aan de aanpassingsvereisten van uw huidige. Voor meer informatie en richtlijnen, Zie de secties van de huisstijl van de AD FS en AD FS-aanpassing.|
-| AD FS kunt u eerdere versies van verificatieclients blokkeren.| Houd rekening met het vervangen van AD FS-besturingselementen die blokkeren van eerdere versies van verificatieclients op basis van een combinatie van [besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) en [toegangsregels voor Exchange Online clients](https://aka.ms/EXOCAR). |
+| AD FS kunt u eerdere versies van verificatieclients blokkeren.| Houd rekening met het vervangen van AD FS-besturingselementen die blokkeren van eerdere versies van verificatieclients op basis van een combinatie van [Hiermee bepaalt u voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) en [toegangsregels voor Exchange Online clients](https://aka.ms/EXOCAR). |
 | U vereisen dat gebruikers multi-factor authentication tegen een on-premises multi-factor authentication server-oplossing uitvoeren wanneer gebruikers bij AD FS authenticeren.| In een domein beheerde identiteit kan niet u een vraag met meervoudige verificatie via de on-premises multi-factor authentication-oplossing invoeren in de verificatie-stroom. U kunt echter de Azure multi-factor Authentication-service voor meervoudige verificatie gebruiken nadat het domein is geconverteerd.<br /><br /> Als uw gebruikers geen momenteel van Azure multi-factor Authentication gebruikmaakt, is een eenmalige gebruiker registratiestap vereist. U moet voorbereiden en de registratie van de geplande aan uw gebruikers communiceren. |
 | U gebruikt momenteel beleid voor toegangsbeheer (AuthZ-regels) in AD FS voor het beheren van toegang tot Office 365.| Houd rekening met het beleid vervangen door de equivalente Azure AD [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) en [toegangsregels voor Exchange Online clients](https://aka.ms/EXOCAR).|
 
@@ -155,7 +155,7 @@ De **InsideCorporateNetwork** claim is niet beschikbaar nadat u uw domeinen word
 
 Nadat u benoemde locaties hebt geconfigureerd, moet u alle beleidsregels voor voorwaardelijke toegang die zijn geconfigureerd als u wilt opnemen of uitsluiten van het netwerk bijwerken **alle vertrouwde locaties** of **MFA goedgekeurde IP-adressen** moeten worden zijn de nieuwe benoemde locaties.
 
-Voor meer informatie over de **locatie** voorwaarde in voor voorwaardelijke toegang, Zie [Active Directory-locaties voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Voor meer informatie over de **locatie** voorwaarde in voor voorwaardelijke toegang, Zie [voorwaardelijke toegang voor Active Directory-locaties](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Hybride Azure AD join-apparaten
 

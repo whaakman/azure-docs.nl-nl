@@ -7,17 +7,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
-ms.date: 04/09/2018
+ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5aa2616bfbfd4b31d3e5e5aeee71da8fd511faed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60762099"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066725"
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Zelfstudie: Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
 U kunt Azure Functions uitvoeren vanuit Azure Stream Analytics door Azure Functions te configureren als een van de uitvoerlocaties naar de Stream Analytics-taak. Azure Functions is een gebeurtenisafhankelijke, compute-on-demand-ervaring waarmee u code kunt implementeren die wordt geactiveerd door gebeurtenissen in Azure of services van derden. Door deze mogelijkheid van Azure Functions om op triggers te reageren, is het een natuurlijke uitvoer naar Stream Analytics-taken.
 
@@ -26,9 +26,10 @@ Stream Analytics activeert Azure Functions via HTTP-triggers. De uitvoeradapter 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Stream Analytics-taak maken
+> * Maken en uitvoeren van een Stream Analytics-taak
+> * Een instantie van Azure Cache voor Redis maken
 > * Een Azure-functie maken
-> * Azure-functie configureren als uitvoer naar uw taak
+> * Azure Cache voor Redis controleren op resultaten
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -38,16 +39,9 @@ In deze sectie ziet u hoe u een Stream Analytics-taak configureert om een functi
 
 ![Diagram van de relaties tussen de Azure-services](./media/stream-analytics-with-azure-functions/image1.png)
 
-Voor deze taak moeten de volgende stappen worden gezet:
-* [Een Stream Analytics-taak maken met Event Hubs als invoer](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* Een instantie van Azure Cache voor Redis maken  
-* Een functie in Azure Functions maken die gegevens naar de Azure Cache voor Redis schrijft    
-* [De Stream Analytics-taak bijwerken met de functie als uitvoer](#update-the-stream-analytics-job-with-the-function-as-output)  
-* Azure Cache voor Redis controleren op resultaten  
-
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Een Stream Analytics-taak maken met Event Hubs als invoer
 
-Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-detection.md) om een Event Hub te maken, de gebeurtenisgenerator te starten en een Stream Analytics-taak te maken. (Sla de stappen voor het maken van de query en de uitvoer over. Raadpleeg in plaats daarvan de volgende secties voor het instellen van Functions-uitvoer.)
+Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-detection.md) om een Event Hub te maken, de gebeurtenisgenerator te starten en een Stream Analytics-taak te maken. Sla de stappen voor het maken van de query en de uitvoer. In plaats daarvan, Zie de volgende secties voor het instellen van een Azure Functions-uitvoer.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Een instantie van Azure Cache voor Redis maken
 
@@ -61,7 +55,7 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
 
 1. Zie de sectie [Een functie-app maken](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) van de Azure Functions-documentatie. Hiermee wordt u begeleid bij het maken van een functie-app en een [HTTP-geactiveerde functie in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function). Hiervoor wordt de taal C# gebruikt.  
 
-2. Blader naar de functie **run.csx**. Werk deze bij met de volgende code. (Vervang '\<your Azure Cache for Redis connection string goes here\>' door de verbindingsreeks van de Azure Cache voor Redis die u in de vorige sectie hebt opgehaald.)  
+2. Blader naar de functie **run.csx**. Werk deze bij met de volgende code. Vervang **"\<uw Azure-Cache voor Redis-verbindingsreeks hier\>"** met de Azure-Cache voor Redis primaire verbindingsreeks die u hebt opgehaald in de vorige sectie. 
 
     ```csharp
     using System;
@@ -112,7 +106,7 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
 
    ```
 
-   Wanneer Stream Analytics de uitzondering 'HTTP Request Entity Too Large' (HTTP-aanvraagentiteit te groot) van de functie ontvangt, worden de batches die naar Azure Functions worden gestuurd, verkleind. Gebruik de volgende code in uw functie om te controleren of Stream Analytics geen te grote batches verzendt. Zorg dat het maximum aantal batches en de grootten die in de functie worden gebruikt, consistent zijn met de waarden die zijn ingevoerd in de Stream Analytics-portal.
+   Wanneer Stream Analytics de uitzondering 'HTTP Request Entity Too Large' (HTTP-aanvraagentiteit te groot) van de functie ontvangt, worden de batches die naar Azure Functions worden gestuurd, verkleind. De volgende code zorgt ervoor dat Stream Analytics geen te grote batches niet verzenden. Zorg dat het maximum aantal batches en de grootten die in de functie worden gebruikt, consistent zijn met de waarden die zijn ingevoerd in de Stream Analytics-portal.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -121,7 +115,7 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
         }
    ```
 
-3. Maak in een teksteditor een JSON-bestand met de naam **project.json**. Gebruik de volgende code en sla het bestand op uw lokale computer op. Dit bestand bevat de NuGet-pakketafhankelijkheden die de C#-functie nodig heeft.  
+3. Maak in een teksteditor een JSON-bestand met de naam **project.json**. Plak de volgende code en sla deze op uw lokale computer. Dit bestand bevat de NuGet-pakketafhankelijkheden die de C#-functie nodig heeft.  
    
     ```json
     {
@@ -145,8 +139,6 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
 
    ![Schermopname van App Service-editor](./media/stream-analytics-with-azure-functions/image4.png)
 
- 
-
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>De Stream Analytics-taak bijwerken met de functie als uitvoer
 
 1. Open uw Stream Analytics-taak in Azure Portal.  
@@ -163,9 +155,9 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
    |Maximum aantal batches|Hiermee geeft u het maximum aantal gebeurtenissen in elke batch op die naar de functie worden verzonden. De standaardwaarde is 100. Deze eigenschap is optioneel.|
    |Sleutel|Hiermee kunt u een functie uit een ander abonnement gebruiken. Geef de waarde op van de sleutel die toegang geeft tot uw functie. Deze eigenschap is optioneel.|
 
-3. Geef een naam op voor de uitvoeralias. In deze zelfstudie hebben we deze **saop1** genoemd. U kunt elke willekeurige andere naam kiezen. Vul de andere details in.  
+3. Geef een naam op voor de uitvoeralias. In deze zelfstudie de naam ervan is **saop1**, maar u kunt een willekeurige naam van uw keuze gebruiken. Vul de andere details in.
 
-4. Open uw Stream Analytics-taak en werk de query als volgt bij. (Verander de tekst 'saop1' als u uw uitvoerlocatie een andere naam hebt gegeven.)  
+4. Open uw Stream Analytics-taak en werk de query als volgt bij. Als u uw uitvoerlocatie heeft niet de naam **saop1**, houd er rekening mee te wijzigen in de query.  
 
    ```sql
     SELECT
@@ -178,9 +170,11 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Start de toepassing telcodatagen.exe door de volgende opdracht uit te voeren op de opdrachtregel (gebruik de notatie `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
+5. Start de toepassing telcodatagen.exe door het uitvoeren van de volgende opdracht in vanaf de opdrachtregel. De opdracht maakt gebruik van de indeling `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
-   **telcodatagen.exe 1000 .2 2**
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
     
 6.  Start de Stream Analytics-taak.
 

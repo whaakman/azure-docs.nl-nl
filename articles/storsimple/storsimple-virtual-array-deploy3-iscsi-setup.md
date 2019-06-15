@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417032"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementeren StorSimple Virtual Array – Set up als een iSCSI-server via Azure portal
@@ -90,7 +90,7 @@ Gebruik de volgende stapsgewijze instructies voor het instellen en configureren 
       > 
    4. Een dialoogvenster wordt weergegeven. Voer de domeinreferenties van uw in de indeling die is opgegeven. Klik op het vinkje ![vinkje](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). De domeinreferenties worden gecontroleerd. U ziet een foutbericht weergegeven als de referenties onjuist zijn.
       
-       ![referenties](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
+       ![Referenties](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Klik op **Toepassen**. Dit zal toepassen en valideren van de instellingen voor apparaten.
 7. (Optioneel) Configureer uw webproxyserver. Hoewel webproxyconfiguratie optioneel is, er rekening mee dat als u een webproxy gebruikt, u alleen deze hier configureren kunt.
    

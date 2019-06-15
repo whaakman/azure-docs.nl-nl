@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 30ac6a94142c9b9d987fb3fd32b3483cc6dc130c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867599"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Uw inhoud versleutelen met opslagversleuteling 
@@ -120,7 +120,7 @@ Hier volgen de algemene stappen voor het genereren van inhoudssleutels dat u kop
     EncryptedContentKey | We maken een nieuwe inhoud sleutelwaarde die een waarde is 256-bits (32 bytes). De sleutel is gecodeerd met behulp van de storage-versleuteling X.509-certificaat dat door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden van Microsoft Azure Media Services worden opgehaald. Een voorbeeld: Zie de volgende .NET-code: de **EncryptSymmetricKeyData** methode die is gedefinieerd [hier](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Dit is de beveiliging sleutel-ID voor de opslag versleuteling X.509-certificaat dat is gebruikt om onze inhoud sleutel te versleutelen.
     ProtectionKeyType | Dit is het versleutelingstype voor de beveiliging-sleutel die is gebruikt voor het versleutelen van de inhoudssleutel. Deze waarde is StorageEncryption(1) in ons voorbeeld.
-    Checksum |De controlesom voor berekende MD5 voor de inhoudssleutel. Deze wordt berekend door het versleutelen van de inhoud-ID met de inhoudssleutel. De voorbeeldcode ziet u hoe u de controlesom berekenen.
+    Controlesom |De controlesom voor berekende MD5 voor de inhoudssleutel. Deze wordt berekend door het versleutelen van de inhoud-ID met de inhoudssleutel. De voorbeeldcode ziet u hoe u de controlesom berekenen.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>De ProtectionKeyId ophalen

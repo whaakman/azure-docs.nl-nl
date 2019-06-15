@@ -10,10 +10,10 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 35f1f359b44af00000ccd9047673b80ca541d376
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61243865"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Maak korte clips met Azure Media Clipper 
@@ -57,7 +57,7 @@ De widget Clipper is beschikbaar in de volgende 18 talen:
 - Chinees (traditioneel)
 - Tsjechisch
 - Nederlands, Vlaams
-- Engels
+- Nederlands
 - Frans
 - Duits
 - Hongaars

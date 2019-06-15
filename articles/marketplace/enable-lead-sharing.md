@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938675"
 ---
 # <a name="enable-lead-sharing"></a>Schakel het delen van leads
@@ -39,7 +39,7 @@ Leads demonstreren interesse van klanten in de volgende aanbiedingen:
 
 | Storefront | Aanbieding |
 |:--- |:--- |
-| AppSource | <table> <tr><td>App</td></tr> <tr><td>Adviesdiensten</td></tr> </table> |
+| AppSource | <table> <tr><td>App</td></tr> <tr><td>Adviesservices</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Aanbieding</td></tr> <tr><td>Technologie</td></tr> </table> |
 
 U hebt een proces om te volgen met uw leads zoals beschreven in de volgende tabel:

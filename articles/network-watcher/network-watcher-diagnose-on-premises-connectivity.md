@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754059"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnose van on-premises connectiviteit via VPN-gateways
@@ -52,7 +52,7 @@ Een van de kritieke configuratiestappen configureert u de communicatie IPSec-par
 | Verificatiemethode |Vooraf gedeelde sleutel |Vooraf gedeelde sleutel |
 | Versleutelingsalgoritmen |AES256 AES128 3DES |AES256 3DES |
 | Hash-algoritme |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Levensduur (tijd) van beveiligingskoppeling (SA) fase 1 |28.800 seconden |10.800 seconden |
+| Levensduur (tijd) van beveiligingskoppeling (SA) fase 1 |28\.800 seconden |10\.800 seconden |
 
 Als een gebruiker is vereist voor het configureren van uw FortiGate, een voorbeeldconfiguratie kan worden gevonden op [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). U hebt geconfigureerd onbewust uw FortiGate voor het gebruik van SHA-512 als hash-algoritme. Als dit algoritme niet een ondersteunde algoritme voor verbindingen op basis van beleid is, worden uw VPN-verbinding werkt.
 

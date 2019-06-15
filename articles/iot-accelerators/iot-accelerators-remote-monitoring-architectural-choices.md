@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447167"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Architectuurkeuzes voor externe bewaking
@@ -59,7 +59,7 @@ Voor de connectiviteit van IoT-apparaten, kunt u het volgende gebruiken:
 
 De oplossing voor externe controle wordt voor de verwerking, Azure Stream Analytics gebruikt voor de regelverwerking van complexe. Als u gebruiken eenvoudiger regels wilt, is er een aangepaste microservice met ondersteuning voor de verwerking van eenvoudige regel, hoewel deze configuratie geen deel uit van de out-of-the-box-implementatie. De referentiearchitectuur raadt Azure Functions voor eenvoudige regelverwerking en Azure Stream Analytics voor de regelverwerking van complexe.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 Voor opslag gebruikt de oplossingsverbetering voor externe controle zowel Azure Time Series Insights en Azure Cosmos DB. Azure Time Series Insights slaat de berichten van uw verbonden apparaten via IoT Hub. De oplossingsversnellers maakt gebruik van Azure Cosmos DB voor alle andere opslag zoals koude opslag, definities van regels, waarschuwingen en configuratie-instellingen.
 

@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137079"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Een as-omgeving maken met behulp van een Azure Resource Manager-sjabloon
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 Het duurt ongeveer een uur voor de as-omgeving moet worden gemaakt. De as-omgeving wordt vervolgens weergegeven in de portal in de lijst van de as-omgevingen voor het abonnement waarmee de implementatie is geactiveerd.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Uploaden en de 'standaard' SSL-certificaat configureren
-Een SSL-certificaat moet worden gekoppeld aan de as-omgeving als de 'standaard' SSL-certificaat dat wordt gebruikt voor SSL-verbindingen met apps. Als de standaard DNS-achtervoegsel van de as-omgeving is *interne contoso.com*, een verbinding met https://some-random-app.internal-contoso.com vereist een SSL-certificaat is geldig voor **.internal contoso.com*. 
+Een SSL-certificaat moet worden gekoppeld aan de as-omgeving als de 'standaard' SSL-certificaat dat wordt gebruikt voor SSL-verbindingen met apps. Als de standaard DNS-achtervoegsel van de as-omgeving is *interne contoso.com*, een verbinding met https://some-random-app.internal-contoso.com vereist een SSL-certificaat is geldig voor * *.internal contoso.com*. 
 
 Een geldig SSL-certificaat met behulp van interne certificeringsinstanties, aanschaffen van een certificaat van een externe gebruiker of een zelfondertekend certificaat verkrijgen. De volgende certificaatkenmerken moeten correct worden geconfigureerd, ongeacht de bron van het SSL-certificaat:
 
-* **Onderwerp**: Dit kenmerk moet worden ingesteld op **.uw-root-domein-here.com*.
-* **Alternatieve naam voor onderwerp**: Dit kenmerk moet bevatten zowel **.uw-root-domein-here.com* en **.Hier-root-domein-here.com*. SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app gebruiken een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
+* **Onderwerp**: Dit kenmerk moet worden ingesteld op * *.uw-root-domein-here.com*.
+* **Alternatieve naam voor onderwerp**: Dit kenmerk moet bevatten zowel * *.uw-root-domein-here.com* en * *.Hier-root-domein-here.com*. SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app gebruiken een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
 
 Met een geldig SSL-certificaat in voorraad, zijn twee aanvullende voorbereidende stappen nodig. Converteer het SSL-certificaat naar een .pfx-bestand of sla het certificaat in deze indeling op. Houd er rekening mee dat het pfx-bestand moet alle tussenliggende opnemen en basiscertificaten. Beveilig het bestand met een wachtwoord.
 
@@ -111,7 +111,7 @@ De parameters in de *azuredeploy.parameters.json* bestand worden hier weergegeve
 * *existingAseLocation*: De tekenreeks met de Azure-regio waar de ILB as-omgeving is geïmplementeerd.  Bijvoorbeeld: 'Zuid-centraal VS'.
 * *pfxBlobString*: De weergave based64-gecodeerde tekenreeks van het pfx-bestand. Gebruik het bovenstaande codefragment en kopieer de tekenreeks in 'exportedcert.pfx.b64'. Plak deze in als de waarde van de *pfxBlobString* kenmerk.
 * *wachtwoord*: Het wachtwoord dat wordt gebruikt voor het beveiligen van het pfx-bestand.
-* *certificateThumbprint*: De vingerafdruk voor het certificaat. Als u deze waarde wordt opgehaald vanuit PowerShell (bijvoorbeeld *$certificate. Vingerafdruk* uit het vorige codefragment), kunt u de waarde is. Als u de waarde in het dialoogvenster Windows-certificaat kopieert, vergeet niet het verwijderen van de overbodige spaties. De *certificateThumbprint* ziet er ongeveer als AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *certificateThumbprint*: Vingerafdruk van het certificaat. Als u deze waarde wordt opgehaald vanuit PowerShell (bijvoorbeeld *$certificate. Vingerafdruk* uit het vorige codefragment), kunt u de waarde is. Als u de waarde in het dialoogvenster Windows-certificaat kopieert, vergeet niet het verwijderen van de overbodige spaties. De *certificateThumbprint* ziet er ongeveer als AF3143EB61D43F6727842115BB7F17BBCECAECAE.
 * *certificateName*: Een beschrijvende tekenreeks-id van uw eigen kiezen die aan identiteit het certificaat wordt gebruikt. De naam wordt gebruikt als onderdeel van de unieke id van de Resource Manager voor de *Microsoft.Web/certificates* entiteit die het SSL-certificaat aangeeft. De naam van de *moet* eindigen met het volgende achtervoegsel: \_yourASENameHere_InternalLoadBalancingASE. De Azure portal maakt gebruik van dit achtervoegsel als een indicator dat het certificaat wordt gebruikt voor het beveiligen van een ASE met ILB ingeschakeld.
 
 Een verkorte voorbeeld van *azuredeploy.parameters.json* wordt hier weergegeven:
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 Het duurt ongeveer 40 minuten per ASE-front-end de wijziging toepassen. Bijvoorbeeld, voor een standaardformaat as-omgeving die gebruikmaakt van twee front-ends, duurt het sjabloon ongeveer één uur en 20 minuten om te voltooien. Terwijl de sjabloon wordt uitgevoerd, wordt de as-omgeving kan niet schalen.  
 
-Nadat de sjabloon is voltooid, zijn de apps op de ILB as-omgeving toegankelijk via HTTPS. De verbindingen zijn beveiligd met behulp van het standaard SSL-certificaat. Het standaard SSL-certificaat wordt gebruikt wanneer de apps op de ILB as-omgeving met behulp van een combinatie van naam van de toepassing, plus de standaardnaam van de host worden behandeld. Bijvoorbeeld, https://mycustomapp.internal-contoso.com maakt gebruik van de standaard-SSL-certificaat voor **.internal contoso.com*.
+Nadat de sjabloon is voltooid, zijn de apps op de ILB as-omgeving toegankelijk via HTTPS. De verbindingen zijn beveiligd met behulp van het standaard SSL-certificaat. Het standaard SSL-certificaat wordt gebruikt wanneer de apps op de ILB as-omgeving met behulp van een combinatie van naam van de toepassing, plus de standaardnaam van de host worden behandeld. Bijvoorbeeld, https://mycustomapp.internal-contoso.com maakt gebruik van de standaard-SSL-certificaat voor * *.internal contoso.com*.
 
 Echter, net als bij apps die worden uitgevoerd op de openbare multitenant-service, kunnen configureren ontwikkelaars aangepaste hostnamen voor afzonderlijke apps. Ze kunnen ook unieke SNI SSL-certificaatbindingen voor afzonderlijke apps configureren.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305061"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informatie over gebeurtenis voor Event Grid-abonnementen filteren
@@ -117,7 +117,7 @@ Gebruik de volgende waarden voor de sleutel voor gebeurtenissen in het schema vo
 Gebeurtenissen in de Cloud het gebeurtenissenschema, de volgende waarden voor de sleutel te gebruiken:
 
 * Gebeurtenis-id
-* Source
+* source
 * EventType
 * EventTypeVersion
 * Event data (like Data.key1)
@@ -131,7 +131,7 @@ De waarden zijn:
 * getal
 * string
 * booleaans
-* matrix
+* array
 
 ### <a name="limitations"></a>Beperkingen
 

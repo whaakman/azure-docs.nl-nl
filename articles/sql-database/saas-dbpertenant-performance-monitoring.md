@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388589"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
@@ -178,7 +178,7 @@ In plaats van de pool omhoog te schalen, kunt u ook een tweede pool maken en dat
    1. Klik op **databases toevoegen** voor een overzicht van databases op de server die kan worden toegevoegd aan *Pool2*.
    1. Selecteer elke 10 databases die deze verplaatsen naar de nieuwe groep en klik vervolgens op **Selecteer**. Als u de load-generator uitvoert hebt, wordt de service al weet dat uw prestatieprofiel een grotere groep dan de standaardgrootte voor de 50 edtu's vereist en raadt aan te beginnen met een 100 eDTU-instelling.
 
-      ![aanbeveling](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Aanbeveling](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
    1. Voor deze zelfstudie laat u de standaard op 50 edtu's en klikt u op **Selecteer** opnieuw.
    1. Selecteer **OK** om de nieuwe pool te maken en aan de geselecteerde databases hiernaartoe verplaatsen.

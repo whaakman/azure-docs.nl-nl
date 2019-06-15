@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 6dbaa24df8b2917dd3f68d3851ca4662554ad00a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053271"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>LUIS resultaten aan met een Bot in Application Insights toevoegenC#
 
 In deze zelfstudie voegt LUIS antwoord informatie [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
 
-De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot. Een [Bot Framework 4.x met LUIS zelfstudie](luis-csharp-tutorial-bf-v4.md) is ook beschikbaar.
+De bot is gebouwd met Bot Framework 4.x en de Azure-Web-app-bot. Een [Bot Framework 4.x met LUIS zelfstudie](luis-csharp-tutorial-bf-v4.md) is ook beschikbaar.
 
 In deze zelfstudie leert u het volgende:
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Uw LUIS web app-bot uit de **[vorige zelfstudie](luis-csharp-tutorial-build-bot-framework-sample.md)** met Application Insights is ingeschakeld.
+* Een LUIS web app-bot uit de **tutorial](luis-csharp-tutorial-bf-v4.md)** met Application Insights is ingeschakeld.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) lokaal op uw computer geïnstalleerd.
 
 > [!Tip]
@@ -43,7 +43,7 @@ Alle code in deze zelfstudie vindt u op de [Azure-Samples-GitHub-opslagplaats](h
 
 ## <a name="review-luis-web-app-bot"></a>LUIS web app-bot bekijken
 
-In deze zelfstudie wordt ervan uitgegaan dat u hebt code dat er als volgt of dat u hebt voltooid de [andere zelfstudie](luis-csharp-tutorial-build-bot-framework-sample.md):
+In deze zelfstudie wordt ervan uitgegaan dat u hebt code dat er als volgt of dat u hebt voltooid de [andere zelfstudie](luis-csharp-tutorial-bf-v4.md):
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: e35e86bee4dfee21d0a98867c3e0d1d7850ed0ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761996"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Excel verbinden met Apache Hadoop met Power Query
@@ -41,7 +41,7 @@ De Power Query-invoegtoepassing voor Excel kunt u eenvoudig gegevens importeren 
 
    - Excel 2016
 
-     - Klik op de **gegevens** menu, klikt u op **gegevens ophalen** uit de **gegevens ophalen en transformeren** lint, klikt u op **van Azure**, en klik vervolgens op **Uit Azure HDInsight(HDFS)**.
+     - Klik op de **gegevens** menu, klikt u op **gegevens ophalen** uit de **gegevens ophalen en transformeren** lint, klikt u op **van Azure**, en klik vervolgens op **Uit Azure HDInsight(HDFS)** .
 
        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
@@ -51,13 +51,13 @@ De Power Query-invoegtoepassing voor Excel kunt u eenvoudig gegevens importeren 
    
        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-       **Opmerking:** Als er geen de **Power Query** menu, gaat u naar **bestand** > **opties** > **-invoegtoepassingen**, en selecteer  **COM-invoegtoepassingen** in de vervolgkeuzelijst **beheren** vak aan de onderkant van de pagina. Selecteer de **gaan...**  knop en controleer of het selectievakje in voor de Power Query voor Excel-invoegtoepassing is ingeschakeld.
+       **Opmerking:** Als er geen de **Power Query** menu, gaat u naar **bestand** > **opties** >  **-invoegtoepassingen**, en selecteer  **COM-invoegtoepassingen** in de vervolgkeuzelijst **beheren** vak aan de onderkant van de pagina. Selecteer de **gaan...**  knop en controleer of het selectievakje in voor de Power Query voor Excel-invoegtoepassing is ingeschakeld.
        
        **Opmerking:** Power Query kunt u gegevens importeren uit HDFS door te klikken op ook **van andere bronnen**.
-4. Voor **accountnaam**, voer de naam van de Azure Blob storage-account dat is gekoppeld aan het cluster en klik vervolgens op **OK**. Dit account kan worden het standaardaccount voor opslag of een gekoppelde storage-account.  De indeling is *https://&lt;StorageAccountName >.blob.core.windows.net/*.
+4. Voor **accountnaam**, voer de naam van de Azure Blob storage-account dat is gekoppeld aan het cluster en klik vervolgens op **OK**. Dit account kan worden het standaardaccount voor opslag of een gekoppelde storage-account.  De indeling is *https://&lt;StorageAccountName >.blob.core.windows.net/* .
 5. Voor **Accountsleutel**, voer de sleutel voor de Blob storage-account en klik vervolgens op **opslaan**. (U moet de account informatie alleen de eerste keer dat u toegang dit archief tot invoeren.)
 6. In de **Navigator** in het linkerdeelvenster van de Query-Editor, dubbelklikt u op de naam van de Blob storage-container. Standaard is de naam van dezelfde naam als de naam van het cluster.
-7. Zoek **HiveSampleData.txt** in de **naam** kolom (pad naar de map is **... / hive/datawarehouse/hivesampletable/**), en klik vervolgens op **binaire** aan de linkerkant van HiveSampleData.txt. HiveSampleData.txt wordt geleverd met alle het cluster. Desgewenst kunt u uw eigen-bestand.
+7. Zoek **HiveSampleData.txt** in de **naam** kolom (pad naar de map is **... / hive/datawarehouse/hivesampletable/** ), en klik vervolgens op **binaire** aan de linkerkant van HiveSampleData.txt. HiveSampleData.txt wordt geleverd met alle het cluster. Desgewenst kunt u uw eigen-bestand.
    
     ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. Als u wilt, kunt u de namen van kolommen wijzigen. Wanneer u klaar bent, klikt u op **sluiten en laden**.  De gegevens zijn geladen in uw werkmap:

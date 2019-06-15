@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831828"
 ---
 # <a name="application-gateway-components"></a>Application gateway-onderdelen
@@ -118,7 +118,7 @@ Dit onderdeel wordt ook gebruikt voor:
 
 - Een aangepaste test om te controleren van de back endstatus, de time-outinterval van aanvraag instellen, onderdrukken van hostnaam en het pad in de aanvraag en één klik gemakkelijk instellingen opgeven voor de back-end van de App Service bieden koppelen.
 
-## <a name="backend-pools"></a>Back-end-pools
+## <a name="backend-pools"></a>Back-endpools
 
 Een back-endpool stuurt aanvraag door naar de back-endservers, die de aanvraag dienen. Back-endpools kunnen bevatten:
 
@@ -126,7 +126,7 @@ Een back-endpool stuurt aanvraag door naar de back-endservers, die de aanvraag d
 - Virtuele-machineschaalsets
 - Openbare IP-adressen
 - Interne IP-adressen
-- FQDN
+- FQDN-NAAM
 - Back-ends voor meerdere tenants (zoals App Service)
 
 Back-endpoolleden voor Application Gateway zijn niet gekoppeld aan een beschikbaarheidsset. Een application gateway kan communiceren met instanties buiten het virtuele netwerk dat deel uitmaakt. Als gevolg hiervan kunnen de leden van de back endadresgroepen zijn in meerdere computerclusters, in datacenters of buiten Azure, zolang er een IP-verbinding is.

@@ -12,10 +12,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 05/22/2019
 ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66016377"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tijdzones in Azure SQL Database Managed Instance
@@ -100,144 +100,144 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 
 | **Tijdzone-ID** | **Weergavenaam van de tijdzone** |
 | --- | --- |
-| Datumgrens (standaardtijd) | (UTC-12:00) Internationale Datumgrens West |
+| Dateline Standard Time | (UTC-12:00) Internationale Datumgrens West |
 | UTC-11 | (UTC-11:00) Coordinated Universal Time-11 |
-| Aleoeten (standaardtijd) | (UTC-10:00) Aleoeten |
-| Hawaï (standaardtijd) | (UTC-10:00) Hawaii |
-| Marquesas (standaardtijd) | (UTC-09:30) Marquesaseilanden |
-| Alaska (standaardtijd) | (UTC-09:00) Alaska |
+| Aleutian Standard Time | (UTC-10:00) Aleoeten |
+| Hawaï (standaardtijd) | (UTC-10:00) Hawaï |
+| Marquesas Standard Time | (UTC-09:30) Marquesaseilanden |
+| Alaskan Standard Time | (UTC-09:00) Alaska |
 | UTC-09 | (UTC-09:00) Coordinated Universal Time-09 |
-| Pacific (standaardtijd, Mexico) | (UTC-08:00) Baja California |
+| Pacific (standaardtijd) (Mexico) | (UTC-08:00) Baja California |
 | UTC-08 | (UTC-08:00) Coordinated Universal Time-08 |
-| Pacific (standaardtijd) | (UTC-08:00) Pacific Time (VS en Canada) |
-| US Mountain (standaardtijd) | (UTC-07:00) Arizona |
-| Mountain (standaardtijd, Mexico) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Mountain (standaardtijd) | (UTC-07:00) Mountain Time (VS en Canada) |
-| Centraal-Amerika (stnd. tijd) | (UTC-06:00) Centraal-Amerika |
-| Central (standaardtijd) | (UTC-06:00) Central Time (VS en Canada) |
+| Pacific (standaardtijd) | (UTC-08:00) Pacific Time (VS & Canada) |
+| U.S. Mountain (standaardtijd) | (UTC-07:00) Arizona |
+| Mountain (standaardtijd) (Mexico) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
+| Mountain (standaardtijd) | (UTC-07:00) Mountain Time (VS & Canada) |
+| Central America Standard Time | (UTC-06:00) Centraal-Amerika |
+| Central (standaardtijd) | (UTC-06:00) Central Time (US & Canada) |
 | Paaseiland (standaardtijd) | (UTC-06:00) Paaseiland |
-| Central (standaardtijd, Mexico) | (UTC-06:00) Guadalajara, Mexico, Monterrey |
-| Canada - centraal (standaardtijd) | (UTC-06:00) Saskatchewan |
+| Central (standaardtijd) (Mexico) | (UTC-06:00) Guadalajara, Mexico-stad, Monterrey |
+| Canada Central (standaardtijd) | (UTC-06:00) Saskatchewan |
 | SA Pacific (standaardtijd) | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
-| Eastern (standaardtijd, Mexico) | (UTC-05:00) Chetumal |
-| Eastern (standaardtijd) | (UTC-05:00) Eastern Time (VS en Canada) |
-| Haïti (standaardtijd) | (UTC-05:00) Haïti |
-| Cuba (standaardtijd) | (UTC-05:00) Havana |
-| US - oost (standaardtijd) | (UTC-05:00) Indiana (East) |
+| Eastern (standaardtijd) (Mexico) | (UTC-05:00) Chetumal |
+| Eastern (standaardtijd) | (UTC-05:00) Eastern Time (VS & Canada) |
+| Haiti Standard Time | (UTC-05:00) Haïti |
+| Cuba Standard Time | (UTC-05:00) Havana |
+| U.S. Eastern (standaardtijd) | (UTC-05:00) Indiana (Oost) |
 | Turks- en Caicoseilanden (standaardtijd) | (UTC-05:00) Turks- en Caicoseilanden |
-| Paraguay (standaardtijd) | (UTC-04:00) Asuncion |
+| Paraguay Standard Time | (UTC-04:00) Asuncion |
 | Atlantic (standaardtijd) | (UTC-04:00) Atlantic Time (Canada) |
-| Venezuela (standaardtijd) | (UTC-04:00) Caracas |
+| Venezuela Standard Time | (UTC-04:00) Caracas |
 | Centraal Brazilië (standaardtijd) | (UTC-04:00) Cuiaba |
-| SA Western (standaardtijd) | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
+| SA Western Standard Time | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
 | Pacific SA (standaardtijd) | (UTC-04:00) Santiago |
-| Newfoundland (standaardtijd) | (UTC-03:30) Newfoundland |
+| Newfoundland Standard Time | (UTC-03:30) Newfoundland |
 | Tocantins (standaardtijd) | (UTC-03:00) Araguaina |
 | E. Zuid-Amerika (standaardtijd) | (UTC-03:00) Brasilia |
 | SA Eastern (standaardtijd) | (UTC-03:00) Cayenne, Fortaleza |
-| Argentinië (standaardtijd) | (UTC-03:00) Buenos Aires |
-| Groenland (standaardtijd) | (UTC-03:00) Groenland |
-| Montevideo (standaardtijd) | (UTC-03:00) Montevideo |
-| Magallanes (standaardtijd) | (UTC-03:00) Punta Arenas |
-| Saint-Pierre (standaardtijd) | (UTC-03:00) Saint-Pierre en Miquelon |
-| Bahia standaardtijd | (UTC-03:00) Salvador |
+| Argentina Standard Time | (UTC-03:00) Buenos Aires |
+| Greenland Standard Time | (UTC-03:00) Groenland |
+| Montevideo Standard Time | (UTC-03:00) Montevideo |
+| Magallanes Standard Time | (UTC-03:00) Punta Arenas |
+| Saint Pierre Standard Time | (UTC-03:00) Saint-Pierre en Miquelon |
+| Bahia Standard Time | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Coordinated Universal Time-02 |
-| Mid-Atlantic (standaardtijd) | (UTC-02:00) Mid-Atlantic - verouderd |
+| Mid-Atlantic Standard Time | (UTC-02:00) Mid-Atlantic - Oud |
 | Azoren (standaardtijd) | (UTC-01:00) Azoren |
 | Cape Verde Standard Time | (UTC-01:00) Cabo Verde |
 | UTC | (UTC) Coordinated Universal Time |
 | GMT (standaardtijd) | (UTC+00:00) Dublin, Edinburgh, Lissabon, Londen |
 | Greenwich (standaardtijd) | (UTC+00:00) Monrovia, Reykjavik |
 | W. Europa (standaardtijd) | (UTC+01:00) Amsterdam, Berlijn, Bern, Rome, Stockholm, Wenen |
-| Centraal-Europa (standaardtijd) | (UTC+01:00) Belgrado, Bratislava, Boedapest, Ljubljana, Praag |
+| Centraal Europa (standaardtijd) | (UTC+01:00) Belgrado, Bratislava, Boedapest, Ljubljana, Praag |
 | Romance (standaardtijd) | (UTC+01:00) Brussel, Kopenhagen, Madrid, Parijs |
-| Marokko (standaardtijd) | (UTC +01:00) Casablanca |
-| Standaardtijd van Sao Tomé | (UTC+01:00) Sao Tomé |
-| Europa centraal (standaardtijd) | (UTC+01:00) Sarajevo, Skopje, Warschau, Zagreb |
-| W. Centraal-Afrika (standaardtijd) | (UTC+01:00) West Central Africa |
+| Marokko (standaardtijd) | (UTC+01:00) Casablanca |
+| Sao Tomé (standaardtijd) | (UTC + 01:00) Sao Tomé |
+| Centraal Europa (standaardtijd) | (UTC+01:00) Sarajevo, Skopje, Warschau, Zagreb |
+| W. Centraal-Afrika (standaardtijd) | (UTC+01:00) Centraal-Afrika - West |
 | Jordanië (standaardtijd) | (UTC+02:00) Amman |
-| GTB (standaardtijd) | (UTC+02:00) Athene, Boekarest |
+| GTB Standard Time | (UTC+02:00) Athene, Boekarest |
 | Midden-Oosten (standaardtijd) | (UTC+02:00) Beiroet |
 | Egypte (standaardtijd) | (UTC+02:00) Caïro |
 | E. Europa (standaardtijd) | (UTC+02:00) Chisinau |
 | Syrië standaardtijd | (UTC+02:00) Damascus |
 | Westelijke Jordaanoever (standaardtijd) | (UTC+02:00) Gaza, Hebron |
 | Zuid-Afrika (standaardtijd) | (UTC+02:00) Harare, Pretoria |
-| FLE (standaardtijd) | (UTC+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
+| FLE Standard Time | (UTC+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
 | Israël (standaardtijd) | (UTC+02:00) Jeruzalem |
 | Kaliningrad Standard Time | (UTC+02:00) Kaliningrad |
-| Soedan (standaardtijd) | (UTC + 02:00) Khartoem |
-| Libië standaardtijd | (UTC+02:00) Tripoli |
-| Namibië (standaardtijd) | (UTC + 02:00) Windhoek |
-| Arab. schiereiland (st. tijd) | (UTC+03:00) Bagdad |
-| Turkije standaardtijd | (UTC+03:00) Istanboel |
-| Arabisch schiereiland (st.tijd) | (UTC+03:00) Koeweit, Riyad |
+| Sudan Standard Time | (UTC + 02:00) Khartoem |
+| Libya Standard Time | (UTC+02:00) Tripoli |
+| Namibia Standard Time | (UTC+02:00) Windhoek |
+| Arabisch (standaardtijd) | (UTC+03:00) Bagdad |
+| Turkey Standard Time | (UTC + 03:00) Istanboel |
+| Arab Standard Time | (UTC+03:00) Koeweit, Riyad |
 | Belarus (standaardtijd) | (UTC+03:00) Minsk |
-| Rusland (standaardtijd) | (UTC+03:00) Moskou, Sint-Petersburg |
+| Rusland (standaardtijd) | (UTC + 03:00) Moskou, Sint-Petersburg |
 | E. Afrika (standaardtijd) | (UTC+03:00) Nairobi |
 | Iran (standaardtijd) | (UTC+03:30) Teheran |
-| Arabisch schiereiland (st.tijd) | (UTC+04:00) Abu Dhabi, Muscat |
-| Astrachan (standaardtijd) | (UTC+04:00) Astrachan, Oeljanovsk |
+| Arabian Standard Time | (UTC+04:00) Abu Dhabi, Muscat |
+| Astrakhan Standard Time | (UTC+04:00) Astrachan, Oeljanovsk |
 | Azerbeidzjan (standaardtijd) | (UTC+04:00) Bakoe |
-| Rusland Time Zone 3 | (UTC+04:00) Izhevsk, Samara |
-| Mauritius (standaardtijd) | (UTC+04:00) Port Louis |
+| Rusland Time Zone 3 | (UTC+04:00) Izjevsk, Samara |
+| Mauritius Standard Time | (UTC+04:00) Port Louis |
 | Saratov (standaardtijd) | (UTC+04:00) Saratov |
-| Georgië (standaardtijd) | (UTC+04:00) Tbilisi |
-| Volgograd (standaardtijd) | (UTC+04:00) Volgograd |
-| Kaukasus (standaardtijd) | (UTC+04:00) Jerevan  |
-| Afghanistan (standaardtijd) | (UTC+04:30) Kaboel |
+| Georgian Standard Time | (UTC+04:00) Tbilisi |
+| Volgograd (standaardtijd) | (UTC + 04:00) Volgograd |
+| Kaukasus (standaardtijd) | (UTC+04:00) Jerevan |
+| Afghanistan Standard Time | (UTC+04:30) Kabul |
 | West Asia (standaardtijd) | (UTC+05:00) Asjchabad, Tasjkent |
-| Ekaterinburg (standaardtijd) | (UTC+05:00) Jekaterinenburg |
+| Ekaterinburg (standaardtijd) | (UTC+05:00) Ekaterinenburg |
 | Pakistan (standaardtijd) | (UTC+05:00) Islamabad, Karachi |
-| India (standaardtijd) | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
-| Sri Lanka (standaardtijd) | (UTC+05:30) Sri Jayawardenepura |
+| India Standard Time | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
+| Sri Lanka Standard Time | (UTC+05:30) Sri Jayawardenepura |
 | Nepal (standaardtijd) | (UTC+05:45) Kathmandu |
 | Central Asia (standaardtijd) | (UTC+06:00) Astana |
-| Bangladesh standaardtijd | (UTC+06:00) Dhaka |
-| Omsk (standaardtijd) | (UTC+06:00) Omsk |
+| Bangladesh Standard Time | (UTC+06:00) Dhaka |
+| Omsk Standard Time | (UTC+06:00) Omsk |
 | Myanmar (standaardtijd) | (UTC+06:30) Yangon (Rangoon) |
-| Zuidoost-Azië (standaardtijd) | (UTC+07:00) Bangkok, Hanoi, Jakarta |
-| Altaj (standaardtijd) | (UTC+07:00) Barnaoel, Gorno-Altajsk |
+| SE Asia Standard Time | (UTC+07:00) Bangkok, Hanoi, Jakarta |
+| Altai Standard Time | (UTC+07:00) Barnaul, Gorno-Altajsk |
 | W. Mongolia Standard Time | (UTC+07:00) Hovd |
 | North Asia (standaardtijd) | (UTC+07:00) Krasnoyarsk |
-| N. Central Asia (standaardtijd) | (UTC+07:00) Novosibirsk |
+| N. Central Asia (standaardtijd) | (UTC + 07:00) Novosibirsk |
 | Tomsk (standaardtijd) | (UTC+07:00) Tomsk |
-| China (standaardtijd) | (UTC+08:00) Beijing, Chongqing, Hongkong SAR, Urumqi |
+| China Standard Time | (UTC+08:00) Beijing, Chongqing, Hongkong, Urumqi |
 | North Asia East (standaardtijd) | (UTC+08:00) Irkoetsk |
 | Singapore (standaardtijd) | (UTC+08:00) Kuala Lumpur, Singapore |
 | W. Australië (standaardtijd) | (UTC+08:00) Perth |
-| Taipei (standaardtijd) | (UTC+08:00) Taipei |
-| Ulaanbaatar standaardtijd | (UTC+08:00) Ulaanbaatar |
-| Australië - centraal-west (standaardtijd) | (UTC+08:45) Eucla |
-| Transbaikal (standaardtijd) | (UTC+09:00) Chita |
+| Taipei Standard Time | (UTC+08:00) Taipei |
+| Ulaanbaatar Standard Time | (UTC+08:00) Ulaanbaatar |
+| Aus Central W. Standard Time | (UTC+08:45) Eucla |
+| Transbaikal Standard Time | (UTC+09:00) Chita |
 | Tokio (standaardtijd) | (UTC+09:00) Osaka, Sapporo, Tokio |
-| Noord-Korea (standaardtijd) | (UTC + 09:00) Pyongyang |
-| Korea (standaardtijd) | (UTC+09:00) Seoul |
+| North Korea Standard Time | (UTC+09:00) Pyongyang |
+| Korea Standard Time | (UTC+09:00) Seoul |
 | Yakutsk Standard Time | (UTC+09:00) Jakoetsk |
 | Cen. Australië (standaardtijd) | (UTC+09:30) Adelaide |
-| Australië - centraal (standaardtijd) | (UTC+09:30) Darwin |
+| AUS Central (standaardtijd) | (UTC+09:30) Darwin |
 | E. Australië (standaardtijd) | (UTC+10:00) Brisbane |
-| Australië - oost (standaardtijd) | (UTC+10:00) Canberra, Melbourne, Sydney |
+| AUS Eastern (standaardtijd) | (UTC+10:00) Canberra, Melbourne, Sydney |
 | West Pacific (standaardtijd) | (UTC+10:00) Guam, Port Moresby |
-| Tasmanië (standaardtijd) | (UTC+10:00) Hobart |
+| Tasmania Standard Time | (UTC+10:00) Hobart |
 | Wladiwostok (standaardtijd) | (UTC+10:00) Vladivostok |
-| Lord Howe Island (standaardtijd) | (UTC+10:30) Lord Howe Island |
-| Bougainville (standaardtijd) | (UTC+11:00) Bougainville |
+| Lord Howe (standaardtijd) | (UTC+10:30) Lord Howe Island |
+| Bougainville Standard Time | (UTC+11:00) Bougainville |
 | Rusland-tijdzone 10 | (UTC+11:00) Chokurdakh |
-| Magadan standaardtijd | (UTC+10:00) Magadan |
-| Norfolk (standaardtijd) | (UTC+11:00) Norfolk |
-| Sachalin (standaardtijd) | (UTC+10:00) Sakhalin |
+| Magadan Standard Time | (UTC+11:00) Magadan |
+| Norfolk Standard Time | (UTC+11:00) Norfolk |
+| Sakhalin Standard Time | (UTC+11:00) Sachalin |
 | Central Pacific (standaardtijd) | (UTC+11:00) Salomonseilanden, Nieuw-Caledonië |
 | Rusland-tijdzone 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamtsjatski |
 | Nieuw-Zeeland (standaardtijd) | (UTC+12:00) Auckland, Wellington |
 | UTC+12 | (UTC+12:00) Coordinated Universal Time+12 |
 | Fiji (standaardtijd) | (UTC+12:00) Fiji |
-| Kamtsjatka (standaardtijd) | (UTC+12:00) Petropavlovsk-Kamtsjatski - verouderd |
+| Kamchatka Standard Time | (UTC+12:00) Petropavlovsk-Kamtsjatski - Oud |
 | Chathameilanden (standaardtijd) | (UTC+12:45) Chathameilanden |
-| UTC+13 | (UTC+13:00) Coordinated Universal Time+13 |
-| Tonga (standaardtijd) | (UTC+13:00) Nuku'alofa |
-| Samoa (standaardtijd) | (UTC+13:00) Samoa |
-| Line-eilanden (standaardtijd) | (UTC+14:00) Kiritimati-eiland |
+| UTC+13 | (UTC + 13:00) Gecoördineerde universele tijd + 13 |
+| Tonga Standard Time | (UTC+13:00) Nuku'alofa |
+| Samoa Standard Time | (UTC+13:00) Samoa |
+| Line-eilanden (standaardtijd) | (UTC+14:00) Kiritimati |
 
 ## <a name="see-also"></a>Zie ook 
 

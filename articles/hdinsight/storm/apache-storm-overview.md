@@ -6,21 +6,19 @@ ms.reviewer: jasonh
 keywords: apache storm use cases,storm cluster,wat is apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/24/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 97083142066e59acbefe60181743e5aa32541bac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115829"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Wat is Apache Storm in Azure HDInsight?
 
 [Apache Storm](https://storm.apache.org/) is een gedistribueerd, fouttolerant en open-source computingsysteem. U kunt Storm gebruiken om te verwerken gegevensstromen in realtime met [Apache Hadoop](https://hadoop.apache.org/). Dankzij de mogelijkheid om gegevens die de eerste keer niet zijn verwerkt, opnieuw te verwerken, bieden Storm-oplossingen u de garantie dat de gegevens worden verwerkt.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>Waarom Apache Storm op HDInsight gebruiken?
 
@@ -38,8 +36,7 @@ Storm op HDInsight biedt de volgende functies:
 
 * **Dynamische schaalbaarheid**: U kunt werkknooppunten toevoegen of verwijderen zonder de actieve Storm-topologieën te beïnvloeden.
 
-    > [!NOTE]  
-    > U moet de lopende topologieën deactiveren en reactiveren om te profiteren van de nieuwe knooppunten die zijn toegevoegd via vergroten/verkleinen.
+    * U moet de lopende topologieën deactiveren en reactiveren om te profiteren van de nieuwe knooppunten die zijn toegevoegd via vergroten/verkleinen.
 
 * **Streaming-pijplijnen met meerdere Azure-services maken**: Storm op HDInsight kan worden geïntegreerd met andere Azure-services zoals Event Hubs, SQL-Database, Azure Storage en Azure Data Lake-opslag.
 
@@ -149,7 +146,9 @@ Hoe gegevensstromen worden gekoppeld, varieert per toepassing. U kunt bijvoorbee
 
 In het volgende Java-voorbeeld wordt fieldsGrouping gebruikt om tuples die afkomstig zijn uit de onderdelen 1, 2 en 3, te routeren naar de MyJoiner-bolt:
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>Batches
 

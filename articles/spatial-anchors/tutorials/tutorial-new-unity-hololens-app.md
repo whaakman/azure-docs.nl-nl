@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3c125c54c1e0a70cdec19af912b17759d82a9936
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c831e8fdacf5103619374605dd980ab1f6735047
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969466"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135304"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Zelfstudie: Stapsgewijze instructies voor het maken van een nieuwe HoloLens Unity-app met behulp van Azure ruimtelijke ankers
 
@@ -38,7 +38,7 @@ Eerst stellen we onze project en Unity scène:
 7. Sla de scène leeg standaard een nieuw bestand met: **Bestand** > **opslaan als**.
 8. Naam van de nieuwe scène **Main** en druk op de **opslaan** knop.
 
-**de instellingen van het Project instellen**
+**De instellingen van het project instellen**
 
 Nu stellen we de instellingen van sommige Unity-project die ons helpen bij de Windows Holographic-SDK voor de ontwikkeling van doel. 
 
@@ -77,7 +77,7 @@ We moeten om te laten weten dat de app die we willen exporteren moet worden gebr
 
 **ons script maken**
 1. In de **Project** deelvenster, maak een nieuwe map **Scripts**onder de **activa** map. 
-2. Klik met de rechtermuisknop op de map en selecteer vervolgens **maken >**,  **C# Script**. Titel **AzureSpatialAnchorsScript**. 
+2. Klik met de rechtermuisknop op de map en selecteer vervolgens **maken >** ,  **C# Script**. Titel **AzureSpatialAnchorsScript**. 
 3. Ga naar **GameObject** -> **maken leeg**. 
 4. Selecteer deze, en klik in de **Inspector** Wijzig de naam van **GameObject** naar **MixedRealityCloud**. Selecteer **onderdeel toevoegen** en zoeken en toevoegen de **AzureSpatialAnchorsScript**.
 

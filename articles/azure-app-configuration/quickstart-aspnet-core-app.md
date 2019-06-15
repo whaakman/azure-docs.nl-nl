@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 19e0814f6e4da364a70c41e1d99fb6f1897bf0c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052077"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
@@ -41,7 +41,7 @@ Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotn
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **configuratie Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** >  **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
 
     | Sleutel | Value |
     |---|---|
@@ -131,8 +131,6 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
-    <!DOCTYPE html>
-    <html lang="en">
     <style>
         body {
             background-color: @Configuration["TestApp:Settings:BackgroundColor"]
@@ -142,13 +140,8 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
             font-size: @Configuration["TestApp:Settings:FontSize"];
         }
     </style>
-    <head>
-        <title>Index View</title>
-    </head>
-    <body>
-        <h1>@Configuration["TestApp:Settings:Message"]</h1>
-    </body>
-    </html>
+
+    <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
 7. Open *_Layout.cshtml* in de weergaven > gedeelde map en vervang de inhoud ervan door de volgende code:

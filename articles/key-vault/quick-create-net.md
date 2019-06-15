@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872542"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052783"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
@@ -174,7 +174,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgehaald. In de voorgaande opdracht, bent u de identiteit van de app service-machtigingen wilt geven **ophalen** en **lijst** bewerkingen op uw key vault.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Verwijder de resourcegroep, de virtuele machine en alle gerelateerde resources wanneer u ze niet meer nodig hebt. Om dit te doen, selecteert u de resourcegroep voor de VM en selecteert u **Verwijderen**.
+Verwijder de resourcegroep, de virtuele machine en alle gerelateerde resources wanneer u ze niet meer nodig hebt. Om dit te doen, selecteert u de resourcegroep voor de key vault en selecteer **verwijderen**.
 
 Verwijder de sleutelkluis met behulp van de opdracht [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
 ms.openlocfilehash: 88c40021ff2e974ba16b3b3506ee54b45de90fda
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427592"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
@@ -137,7 +137,7 @@ De volgende beperkingen gelden wanneer u Azure Resource Manager en Azure-resourc
 Er zijn limieten per abonnement, voor het implementeren van resources met behulp van gedeelde Afbeeldingsgalerieën:
 - 100 gedeelde afbeeldingsgalerieën per abonnement per regio
 - 1000 definities van de installatiekopie, per abonnement per regio
-- 10.000 versies van een installatiekopie, per abonnement per regio
+- 10\.000 versies van een installatiekopie, per abonnement per regio
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limieten voor virtuele-machineschaalsets
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

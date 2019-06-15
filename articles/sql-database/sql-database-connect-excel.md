@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e0adc6b4abbb58504b6f56c8def72440ad370d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61414302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061400"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Excel verbinden met een individuele database in Azure SQL-database en een rapport maken
 
@@ -37,9 +37,9 @@ U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016
    ![Selecteer gegevensbron: Excel verbinden met SQL-database.](./media/sql-database-connect-excel/excel_data_source.png)
 
    De wizard Gegevensverbinding wordt geopend.
-3. In het dialoogvenster **Verbinding maken met databaseserver** typt u de **servernaam** van de SQL Database die u wilt verbinden in het formulier <*servername*>**. database.windows.net**. Bijvoorbeeld, **msftestserver.database.windows.net**. Geef eventueel de naam van uw database. Selecteer **OK** om de referenties-venster te openen. 
+3. In het dialoogvenster **Verbinding maken met databaseserver** typt u de **servernaam** van de SQL Database die u wilt verbinden in het formulier <*servername*> **. database.windows.net**. Bijvoorbeeld, **msftestserver.database.windows.net**. Geef eventueel de naam van uw database. Selecteer **OK** om de referenties-venster te openen. 
 
-   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![Verbinding maken met Database-Server-dialoogvenster](media/sql-database-connect-excel/server-name.png)
 
 4. In de **SQL Server-Database** in het dialoogvenster, selecteer **Database** aan de linkerkant zijde en voer vervolgens uw **gebruikersnaam** en **wachtwoord** voor de U verbinding maken wilt met SQL Database-server. Selecteer **Connect** openen de **Navigator**. 
 
@@ -68,7 +68,7 @@ Nu dat u de verbinding tot stand hebt gebracht, hebt u diverse opties met het la
 
 > [!TIP]
 > Als u andere Excel-werkmappen en werkbladen voor het verbinden met de database wilt, selecteert u de **gegevens** tabblad, en selecteer **recente bronnen** starten de **recente bronnen** in het dialoogvenster. Van daaruit, kiest u de verbinding die u hebt gemaakt in de lijst en klik vervolgens op **Open**.
-> ![Recente verbindingen](media/sql-database-connect-excel/recent-connections.png)
+> ![In het dialoogvenster van recente bronnen](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Een permanente verbinding maken met behulp .odc-bestand
 
@@ -78,7 +78,7 @@ Om de verbindingsgegevens permanent opgeslagen, kunt u een ODC-bestand maken en 
    1. Selecteer **laderen naar meer** openen de **gegevensbron selecteren** in het dialoogvenster.   
    2. Selecteer de **+NewSqlServerConnection.odc** -bestand en selecteer vervolgens **Open** openen de **Wizard Gegevensverbinding**.
 
-      ![Nieuwe verbinding](media/sql-database-connect-excel/new-connection.png)
+      ![Dialoogvenster Nieuwe verbinding](media/sql-database-connect-excel/new-connection.png)
 
 2. In de **Wizard Gegevensverbinding**, typ de servernaam van uw en de referenties van uw SQL-Database. Selecteer **Next**. 
    1. Selecteer de database met uw gegevens uit de vervolgkeuzelijst. 

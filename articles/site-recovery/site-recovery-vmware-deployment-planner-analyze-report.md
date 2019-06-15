@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472491"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Rapport van de Azure Site Recovery-Implementatieplanner voor VMware naar Azure een noodgeval analyseren
@@ -32,13 +32,13 @@ Het werkblad Samenvatting on-premises biedt een overzicht van de geprofileerde V
 
 **Gemiddeld aantal schijven per compatibele virtuele machine**: Het gemiddelde aantal schijven voor alle compatibele virtuele machines is berekend.
 
-**Gemiddelde schijfgrootte (GB)**: De gemiddelde schijfgrootte die voor alle compatibele virtuele machines is berekend.
+**Gemiddelde schijfgrootte (GB)** : De gemiddelde schijfgrootte die voor alle compatibele virtuele machines is berekend.
 
-**Gewenste RPO (minuten)**: Ofwel de standaard herstelpunt of de waarde die de tijd van het rapport kunt u schatten van de vereiste bandbreedte voor de parameter 'DesiredRPO' wordt doorgegeven.
+**Gewenste RPO (minuten)** : Ofwel de standaard herstelpunt of de waarde die de tijd van het rapport kunt u schatten van de vereiste bandbreedte voor de parameter 'DesiredRPO' wordt doorgegeven.
 
-**Gewenste bandbreedte (Mbps)**: De waarde die u voor de parameter 'Bandwidth' hebt doorgegeven op het moment van het rapport haalbare RPO in te schatten.
+**Gewenste bandbreedte (Mbps)** : De waarde die u voor de parameter 'Bandwidth' hebt doorgegeven op het moment van het rapport haalbare RPO in te schatten.
 
-**Waargenomen typisch gegevensverloop per dag (GB)**: Het gemiddelde gegevensverloop dat voor alle profileringsdagen is vastgesteld. Dit aantal wordt gebruikt als een van de invoerwaarden om het aantal configuratieservers en aanvullende processenservers te bepalen dat in de implementatie moet worden gebruikt.
+**Waargenomen typisch gegevensverloop per dag (GB)** : Het gemiddelde gegevensverloop dat voor alle profileringsdagen is vastgesteld. Dit aantal wordt gebruikt als een van de invoerwaarden om het aantal configuratieservers en aanvullende processenservers te bepalen dat in de implementatie moet worden gebruikt.
 
 ## <a name="recommendations"></a>Aanbevelingen
 
@@ -201,17 +201,17 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **R/W IOPS (met groeifactor) pieken**: De piek werkbelasting IOPS voor lezen/schrijven op de schijf (de standaardwaarde is 95e percentiel), met inbegrip van de toekomstige groeifactor (standaard is 30 procent). De totale IOPS voor lezen/schrijven van een virtuele machine is niet altijd de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven van de virtuele machine. De piek-IOPS voor lezen/schrijven van de virtuele machine is namelijk de piek van de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven voor elke minuut van de profileringsperiode.
 
-**Piek voor Gegevensverloop in Mbps (met groeifactor)**: Het piekverloop op de schijf (de standaardwaarde is 95e percentiel), met inbegrip van de toekomstige groeifactor (standaard is 30 procent). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
+**Piek voor Gegevensverloop in Mbps (met groeifactor)** : Het piekverloop op de schijf (de standaardwaarde is 95e percentiel), met inbegrip van de toekomstige groeifactor (standaard is 30 procent). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
 
 **Azure VM-grootte**: De ideale toegewezen grootte voor virtuele machines van Azure Cloud Services voor deze on-premises virtuele machine. De toewijzing is gebaseerd op het geheugen, het aantal schijven/kerngeheugens/NIC’s en de IOPS voor lezen/schrijven van de on-premises virtuele machine. De aanbeveling is altijd de laagste Azure VM-grootte die overeenkomt met alle kenmerken van de on-premises virtuele machine.
 
 **Aantal schijven**: Het totale aantal schijven (vmdk's) van virtuele machines op de virtuele machine.
 
-**Schijfgrootte (GB)**: De totale ingestelde grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
+**Schijfgrootte (GB)** : De totale ingestelde grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
 
 **Kernen**: Het aantal CPU-kernen op de virtuele machine.
 
-**Geheugen (MB)**: Het RAM-geheugen op de virtuele machine.
+**Geheugen (MB)** : Het RAM-geheugen op de virtuele machine.
 
 **NIC's**: Het aantal NIC's op de virtuele machine.
 
@@ -253,15 +253,15 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **R/W IOPS (met groeifactor) pieken**: De piekworkload-IOPS op de schijf (de standaardwaarde is 95e percentiel), met inbegrip van de toekomstige groeifactor (standaard is 30 procent). De totale IOPS voor lezen/schrijven van een virtuele machine is niet altijd de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven van de virtuele machine. De piek-IOPS voor lezen/schrijven van de virtuele machine is namelijk de piek van de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven voor elke minuut van de profileringsperiode.
 
-**Piek voor Gegevensverloop in Mbps (met groeifactor)**: Het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
+**Piek voor Gegevensverloop in Mbps (met groeifactor)** : Het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
 
 **Aantal schijven**: Het totale aantal vmdk's op de virtuele machine.
 
-**Schijfgrootte (GB)**: De totale ingestelde grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
+**Schijfgrootte (GB)** : De totale ingestelde grootte van alle schijven van de virtuele machine. Het hulpprogramma toont ook de schijfgrootte voor de afzonderlijke schijven in de virtuele machine.
 
 **Kernen**: Het aantal CPU-kernen op de virtuele machine.
 
-**Geheugen (MB)**: De hoeveelheid RAM-geheugen op de virtuele machine.
+**Geheugen (MB)** : De hoeveelheid RAM-geheugen op de virtuele machine.
 
 **NIC's**: Het aantal NIC's op de virtuele machine.
 

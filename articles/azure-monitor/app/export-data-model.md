@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053304"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights Export Data Model
 Deze tabel bevat de eigenschappen van telemetrie verzonden vanaf de [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK's aan de portal.
@@ -158,7 +158,7 @@ Alle typen telemetrie wordt gecombineerd met een sectie context. Niet al deze ve
 | internal.data.documentVersion |string | |
 | Internal.Data.id |string | Unieke id die wordt toegewezen wanneer een item wordt opgenomen naar Application Insights |
 
-## <a name="events"></a>Gebeurtenissen
+## <a name="events"></a>Events
 Aangepaste gebeurtenissen die worden gegenereerd door [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 | Pad | Type | Opmerkingen |

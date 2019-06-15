@@ -1,8 +1,8 @@
 ---
-title: Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang? | Microsoft Docs
-description: Meer informatie over hoe access beheert in Azure Active Directory voor voorwaardelijke toegang tot werk.
+title: Wat zijn de besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang? | Microsoft Docs
+description: Meer informatie over hoe access beheert in Azure Active Directory voor voorwaardelijke toegang voor werk.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: dd1ea7665daa6fd93a755cbdb20ebc63e3d63a94
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112546"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn de besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
 
 Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), u kunt bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('Doe dit') met de reden voor het activeren van uw beleid ('als dit gebeurt').
 
@@ -72,7 +72,7 @@ Met multi-factor authentication beschermt resources toegankelijk zijn via een ni
 
 ### <a name="compliant-device"></a>Compatibel apparaat
 
-U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. Het doel van beleid voor voorwaardelijke toegang op basis van het apparaat is alleen toegang verlenen tot de geselecteerde cloud-apps van [beheerde apparaten](require-managed-devices.md). Vereisen van een apparaat moet worden gemarkeerd als compatibel is een optie die u hebt toegang tot beheerde apparaten wilt beperken. Een apparaat kan worden gemarkeerd als compatibel met Intune (voor elk apparaat OS) of met uw externe MDM-systeem voor Windows 10-apparaten. MDM-systemen van derden voor apparaattypen besturingssysteem dan Windows 10 worden niet ondersteund. 
+U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. Het doel van een beleid voor voorwaardelijke toegang op basis van het apparaat is alleen toegang verlenen tot de geselecteerde cloud-apps van [beheerde apparaten](require-managed-devices.md). Vereisen van een apparaat moet worden gemarkeerd als compatibel is een optie die u hebt toegang tot beheerde apparaten wilt beperken. Een apparaat kan worden gemarkeerd als compatibel met Intune (voor elk apparaat OS) of met uw externe MDM-systeem voor Windows 10-apparaten. MDM-systemen van derden voor apparaattypen besturingssysteem dan Windows 10 worden niet ondersteund. 
 
 Het apparaat moet worden geregistreerd bij Azure AD voordat deze kan worden gemarkeerd als compatibel. Voor het registreren van een apparaat, hebt u drie opties: 
 
@@ -86,7 +86,7 @@ Zie voor meer informatie, [hoe u beheerde apparaten vereist voor toegang tot clo
 
 Vereist dat een hybride Azure AD gekoppelde apparaat is een andere optie die u moet configureren van beleid voor voorwaardelijke toegang op basis van het apparaat. Deze vereiste verwijst naar de Windows-desktops, laptops en tablets enterprise die zijn gekoppeld aan een on-premises Active Directory. Als deze optie is geselecteerd, geeft uw beleid voor voorwaardelijke toegang op toegang aanmeldpogingen met apparaten die zijn gekoppeld aan uw on-premises Active Directory en uw Azure Active Directory.  
 
-Zie voor meer informatie, [instellen van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](require-managed-devices.md).
+Zie voor meer informatie, [instellen van beleid voor voorwaardelijke toegang van Azure Active Directory op basis van apparaat](require-managed-devices.md).
 
 ### <a name="approved-client-app"></a>Goedgekeurde client-app
 
@@ -100,7 +100,7 @@ Met goedgekeurde client-apps, u kunt vereisen dat een client-app die u probeert 
 Omdat uw werknemers mobiele apparaten voor zowel privé- en werktaken gebruiken, kunt u de mogelijkheid om bedrijfsgegevens toegankelijk zijn via apparaten, zelfs in het geval wanneer ze niet worden beheerd door u te beschermen.
 U kunt [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy) ter bescherming van gegevens van uw bedrijf onafhankelijk van een oplossing voor mobile device management (MDM).
 
-Met app-beveiligingsbeleid, kunt u toegang tot clienttoepassingen die zijn gerapporteerd aan Azure beperken AD heeft ontvangst [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy). U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app met Intune app-beveiligingsbeleid. Beleid voor voorwaardelijke toegang waarvoor app-beveiligingsbeleid wordt ook wel bekend als [app-beveiliging op basis van het voorwaardelijke toegangsbeleid](app-protection-based-conditional-access.md). 
+Met app-beveiligingsbeleid, kunt u toegang tot clienttoepassingen die zijn gerapporteerd aan Azure beperken AD heeft ontvangst [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy). U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app met Intune app-beveiligingsbeleid. Beleid voor voorwaardelijke toegang waarvoor app-beveiligingsbeleid wordt ook wel bekend als [app-beveiliging op basis van beleid voor voorwaardelijke toegang](app-protection-based-conditional-access.md). 
 
 Het apparaat moet worden geregistreerd bij Azure AD voordat een toepassing kan worden gemarkeerd als beleid beveiligd.
 
@@ -136,7 +136,7 @@ Voor meer informatie over deze services rechtstreeks contact op met de providers
 
 ### <a name="creating-custom-controls"></a>Het maken van aangepaste besturingselementen
 
-Voor het maken van een aangepast besturingselement, moet u eerst contact op met de provider die u wilt gebruiken. Elke niet-Microsoft-provider heeft een eigen proces en de vereisten om te registreren, abonnement of anders wordt een onderdeel van de service, en om aan te geven dat u wilt integreren met voorwaardelijke toegang. Op dat moment geeft de provider u een blok van gegevens in JSON-indeling. Deze gegevens kunnen de provider en voorwaardelijke toegang om samen te werken voor uw tenant, wordt het nieuwe besturingselement gemaakt en wordt gedefinieerd hoe voorwaardelijke toegang kan zien als uw gebruikers verifiëren met de provider hebt uitgevoerd.
+Voor het maken van een aangepast besturingselement, moet u eerst contact op met de provider die u wilt gebruiken. Elke niet-Microsoft-provider heeft een eigen proces en de vereisten om te registreren, abonnement of anders wordt een onderdeel van de service, en om aan te geven dat u wilt integreren met voorwaardelijke toegang. Op dat moment geeft de provider u een blok van gegevens in JSON-indeling. Deze gegevens kunnen de provider en voorwaardelijke toegang om samen te werken voor uw tenant, maakt u het nieuwe besturingselement en definieert hoe voorwaardelijke toegang kan zien als uw gebruikers hebt uitgevoerd met verificatie met de provider.
 
 Aangepaste besturingselementen kunnen niet worden gebruikt met Identity Protection van automation meervoudige verificatie vereisen of rollen in Privileged Identity Manager (PIM).
 
@@ -182,6 +182,6 @@ Voor meer informatie zie:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
 
-- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren.
+- Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).

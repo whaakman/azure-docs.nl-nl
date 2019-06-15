@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078330"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Apache Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van REST
 
@@ -24,9 +24,6 @@ Informatie over het gebruik van de REST-API van WebHCat Apache Hive-query's uitv
 ## <a name="prerequisites"></a>Vereisten
 
 * Een op Linux gebaseerde Hadoop op HDInsight-clusterversie 3.4 of hoger.
-
-  > [!IMPORTANT]  
-  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een REST-client. Dit document maakt gebruik van Windows PowerShell en [Curl](https://curl.haxx.se/) voorbeelden.
 
@@ -141,7 +138,7 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
 
    * `ROW FORMAT` -Hoe de gegevens zijn opgemaakt. De velden in elk logboek worden gescheiden door een spatie.
    * `STORED AS TEXTFILE LOCATION` -Waar de gegevens worden opgeslagen (de voorbeeldgegevens/map) en dat deze wordt opgeslagen als tekst.
-   * `SELECT` : Hiermee kunt u een aantal van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Deze instructie retourneert een waarde van **3** als er drie rijen die deze waarde bevatten.
+   * `SELECT` : Hiermee kunt u een aantal van alle rijen waar kolom **t4** bevat de waarde **[fout]** . Deze instructie retourneert een waarde van **3** als er drie rijen die deze waarde bevatten.
 
      > [!NOTE]  
      > U ziet dat de adresruimten tussen HiveQL-instructies zijn vervangen door de `+` gebruikt in combinatie met Curl teken. Genoteerde waarden met een spatie, zoals het scheidingsteken, moeten niet worden vervangen door `+`.

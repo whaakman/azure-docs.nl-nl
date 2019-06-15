@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60950102"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
@@ -42,7 +42,7 @@ Installeer Eclipse Neon of hoger vanaf de [Eclipse-site](https://www.eclipse.org
 
 Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse naar **Help** > **Install New Software**.
 1. In de **werken met** voert u https:\//dl.microsoft.com/eclipse.
-2. Klik op **Add**.
+2. Klik op **Toevoegen**.
 
    ![De Service Fabric-invoegtoepassing voor Eclipse][sf-eclipse-plugin-install]
 3. Selecteer de Fabric Service-invoegtoepassing en klik op **Next**.

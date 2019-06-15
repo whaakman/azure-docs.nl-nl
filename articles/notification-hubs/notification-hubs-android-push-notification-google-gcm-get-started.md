@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 929977913fdbf0c6f59d69ec536a2638bca7b97c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 341f5a30fe03de4c69b5a7e18703931988d2d185
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063634"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Zelfstudie: Pushmeldingen verzenden naar Android-apparaten met behulp van Azure Notification Hubs en Google Cloud Messaging (afgeschaft)
 
@@ -110,7 +110,7 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
 
 ### <a name="updating-the-projects-androidmanifestxml"></a>De AndroidManifest.xml van het project bijwerken
 
-1. Als u GCM wilt ondersteunen, implementeert u een exemplaar-id listenerservice in de code die wordt gebruikt voor het [verkrijgen van registratietokens](https://developers.google.com/cloud-messaging/android/client#sample-register) met de [API-exemplaar-id van Google](https://developers.google.com/instance-id/). In deze zelfstudie is de naam van de klasse `MyInstanceIDService`.
+1. Als u GCM wilt ondersteunen, implementeert u een exemplaar-id listenerservice in de code die wordt gebruikt voor het [verkrijgen van registratietokens](https://developers.google.com/cloud-messaging/) met de [API-exemplaar-id van Google](https://developers.google.com/instance-id/). In deze zelfstudie is de naam van de klasse `MyInstanceIDService`.
 
     Voeg de volgende servicedefinitie toe aan het bestand AndroidManifest.xml in de `<application>`-tag. Vervang de tijdelijke aanduiding `<your package>` door de werkelijke pakketnaam die bovenaan het bestand `AndroidManifest.xml` wordt weergegeven.
   
@@ -144,7 +144,7 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
     ```
 4. Voeg de volgende vereiste GCM-machtigingen toe onder de `</application>`-tag. Vervang `<your package>` door de pakketnaam die boven in het bestand `AndroidManifest.xml` wordt weergegeven.
 
-    Zie [Een GCM Client-app instellen voor Android](https://developers.google.com/cloud-messaging/android/client#manifest) voor meer informatie over deze machtigingen.
+    Zie [Een GCM Client-app instellen voor Android](https://developers.google.com/cloud-messaging/) voor meer informatie over deze machtigingen.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130456"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>De status van uw virtuele Azure-machines begrijpen
@@ -34,7 +34,7 @@ Zie voor meer informatie over het configureren van Azure Monitor voor virtuele m
 
 In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd voor het bewaken van Azure Windows en Linux-machines. Alle health criteria zijn vooraf geconfigureerd voor een waarschuwing wanneer het niet in orde voorwaarde wordt voldaan. 
 
-### <a name="windows-vms"></a>Windows-VM's
+### <a name="windows-vms"></a>Virtuele Windows-machines
 
 - Beschikbaar geheugen in Megabytes 
 - Gemiddelde seconden Per schrijfbewerking (logische schijf)
@@ -65,7 +65,7 @@ In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd
 - Status van Windows Firewall-Service
 - Status van Windows Remote Management-Service
 
-### <a name="linux-vms"></a>Linux VM's
+### <a name="linux-vms"></a>Virtuele Linux-machines
 - Gemiddelde van de schijf Schijfoverdrachten per seconde 
 - Gemiddelde van de schijf Schijf sec/lezen 
 - Gemiddelde van de schijf Schijf sec/schrijven 
@@ -120,7 +120,7 @@ Bij het openen van status van een Azure-VM met het Windows-besturingssysteem, de
 
 ### <a name="aggregate-virtual-machine-perspective"></a>Totale virtuele-machine-perspectief
 
-Als u wilt weergeven voor verzamelen van statussen voor al uw virtuele machines in een resourcegroep in de navigatielijst in de portal, selecteert u **Azure Monitor** en selecteer vervolgens **virtuele Machines (preview)**.  
+Als u wilt weergeven voor verzamelen van statussen voor al uw virtuele machines in een resourcegroep in de navigatielijst in de portal, selecteert u **Azure Monitor** en selecteer vervolgens **virtuele Machines (preview)** .  
 
 ![VM-inzichten bewakingsweergave van Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
 
@@ -187,7 +187,7 @@ Status van een health-criteria wordt gedefinieerd door een van de vier statussen
 
 Diagnostische gegevens statuspagina heeft drie belangrijkste secties:
 
-* Componentmodel 
+* Onderdeelmodel 
 * Statuscriteria
 * Statuswijzigingen 
 
@@ -239,7 +239,7 @@ De drie kolommen zijn onderling met elkaar verbonden. Wanneer u de instantie van
 
 ![Voorbeeld van het bewaakte exemplaar en de resultaten selecteren](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-In het bovenstaande voorbeeld, wanneer u selecteert **schijf - 1 D:**, de structuur van de Criteria voor servicestatus wordt gefilterd op **schijf - 1 D:**. De **van Statuswijzigingsgebeurtenissen voor** kolom ziet u de wijziging in de status op basis van de beschikbaarheid van **schijf - 1 D:**. 
+In het bovenstaande voorbeeld, wanneer u selecteert **schijf - 1 D:** , de structuur van de Criteria voor servicestatus wordt gefilterd op **schijf - 1 D:** . De **van Statuswijzigingsgebeurtenissen voor** kolom ziet u de wijziging in de status op basis van de beschikbaarheid van **schijf - 1 D:** . 
 
 Als u wilt een bijgewerkte status zien, kunt u de diagnostische gegevens van Health-pagina vernieuwen door te klikken op de **vernieuwen** koppeling.  Als er een update aan de status van de health-criterium op basis van het vooraf gedefinieerde polling-interval, wordt deze taak kunt u om te voorkomen dat de wachtrij en geeft de status van de meest recente.  De **Criteria status** een filter is zodat u kunt het bereik van de resultaten op basis van de geselecteerde status - *orde*, *waarschuwing*, *kritieke*, *Onbekende*, en *alle*.  De **laatst bijgewerkt** tijd in de rechterbovenhoek vertegenwoordigt de laatste tijd wanneer de diagnostische gegevens van Health-pagina is vernieuwd.  
 
@@ -266,9 +266,9 @@ U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aa
 |Resourcetype |Selecteer een of meer resourcetypen. Standaard worden alleen waarschuwingen van de doel- **virtuele machines** is geselecteerd en opgenomen in deze weergave. Deze kolom is alleen beschikbaar nadat u een resourcegroep is opgegeven. | 
 |Resource |Selecteer een resource. Alleen waarschuwingen met die bron als doel zijn opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcetype is opgegeven. | 
 |Severity |aangeven of u de ernst van een waarschuwing of selecteer *alle* om op te nemen van waarschuwingen van alle ernstcategorieën. | 
-|Monitorconditie |Selecteer een controleconditie voor het filteren van waarschuwingen als ze zijn *Fired* door het systeem of *opgelost* door het systeem als de voorwaarde niet langer actief is. Of selecteer *alle* om op te nemen van waarschuwingen van alle voorwaarden. | 
+|Bewakingsvoorwaarde |Selecteer een controleconditie voor het filteren van waarschuwingen als ze zijn *Fired* door het systeem of *opgelost* door het systeem als de voorwaarde niet langer actief is. Of selecteer *alle* om op te nemen van waarschuwingen van alle voorwaarden. | 
 |Waarschuwingsstatus |Selecteer een waarschuwingsstatus *nieuw*, *bevestigen*, *gesloten*, of selecteer *alle* om op te nemen van waarschuwingen van alle Staten. | 
-|Service bewaken |Selecteer een service of selecteer *alle* om op te nemen alle services. Alleen waarschuwingen uit *VM Insights* worden ondersteund voor deze functie.| 
+|Bewakingsservice |Selecteer een service of selecteer *alle* om op te nemen alle services. Alleen waarschuwingen uit *VM Insights* worden ondersteund voor deze functie.| 
 |Tijdsbereik| Alleen waarschuwingen geactiveerd in het geselecteerde tijdvenster zijn opgenomen in de weergave. Ondersteunde waarden zijn het afgelopen uur, de afgelopen 24 uur, de afgelopen 7 dagen en de afgelopen 30 dagen. | 
 
 De **waarschuwen details** pagina wordt weergegeven wanneer u een waarschuwing geven details van de waarschuwing en zodat u kunt de status te veranderen. Zie voor meer informatie over het beheren van waarschuwingen, [maken, weergeven en beheren van waarschuwingen via Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  

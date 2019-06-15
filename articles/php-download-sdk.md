@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411580"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>De Azure SDK voor PHP downloaden
@@ -28,9 +28,9 @@ ms.locfileid: "65411580"
 De Azure SDK voor PHP bevat onderdelen waarmee u kunt ontwikkelen, implementeren en beheren van PHP-toepassingen voor Azure. Met name omvat de Azure SDK voor PHP het volgende:
 
 * **De PHP-clientbibliotheken voor Azure**. Deze klassenbibliotheken bieden een interface voor toegang tot Azure-functies, zoals gegevensbeheerservices en cloudservices.
-* **De Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)**. Dit is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en virtuele Machines van Azure. De Azure CLI-werkzaamheden op elk platform, met inbegrip van de Mac, Linux en Windows.
-* **Azure PowerShell (alleen Windows)**. Dit is een set PowerShell-cmdlets voor het implementeren en beheren van Azure-Services, zoals Cloudservices en virtuele Machines.
-* **De Azure-Emulators (alleen Windows)**. De reken- en emulators zijn lokale emulators van cloudservices en gegevensbeheerservices waarmee u kunt een toepassing lokaal testen. De Azure-Emulators alleen op Windows worden uitgevoerd.
+* **De Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)** . Dit is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en virtuele Machines van Azure. De Azure CLI-werkzaamheden op elk platform, met inbegrip van de Mac, Linux en Windows.
+* **Azure PowerShell (alleen Windows)** . Dit is een set PowerShell-cmdlets voor het implementeren en beheren van Azure-Services, zoals Cloudservices en virtuele Machines.
+* **De Azure-Emulators (alleen Windows)** . De reken- en emulators zijn lokale emulators van cloudservices en gegevensbeheerservices waarmee u kunt een toepassing lokaal testen. De Azure-Emulators alleen op Windows worden uitgevoerd.
 
 De volgende secties wordt beschreven hoe u downloaden en installeren van de onderdelen die hierboven worden beschreven.
 

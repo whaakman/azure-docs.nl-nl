@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60868450"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Een aangepaste installatiekopie van een virtuele machine maken
@@ -39,7 +39,7 @@ U kunt een aangepaste installatiekopie van een ingerichte virtuele machine maken
  
 1. Op de **mijn virtuele machines** deelvenster, selecteert u de virtuele machine van waaruit u wilt maken van de aangepaste installatiekopie.
 
-1. Selecteer op de VM beheer in het deelvenster **maken aangepaste installatiekopie (VHD)**.
+1. Selecteer op de VM beheer in het deelvenster **maken aangepaste installatiekopie (VHD)** .
 
     ![Aangepaste installatiekopie menu-item maken](./media/devtest-lab-create-template/create-custom-image.png)
 

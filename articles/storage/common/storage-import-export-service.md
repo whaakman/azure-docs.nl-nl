@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603104"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
@@ -112,7 +112,7 @@ Op hoog niveau omvat een exporttaak bekijken in de volgende stappen:
 
 Ga voor stapsgewijze instructies voor het exporteren van gegevens naar [gegevens exporteren uit Azure Blobs](storage-import-export-data-from-blobs.md).
 
-## <a name="region-availability"></a>Beschikbaarheid voor de regio 
+## <a name="region-availability"></a>Beschikbaarheid in regio’s 
 
 De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van alle Azure storage-accounts. U kunt schijven naar een van de vermelde locaties verzenden. Als uw storage-account zich in een Azure-locatie die hier niet is opgegeven, wordt de locatie van een alternatieve verzending volgen bij het maken van de taak.
 
@@ -122,13 +122,13 @@ De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van al
 |Land/regio  |Land/regio  |Land/regio  |Land/regio  |
 |---------|---------|---------|---------|
 |US - oost    | Europa - noord        | India - centraal        |US Gov - Iowa         |
-|US - west     |Europa -west         | India - zuid        | VS DoD Oost        |
-|US - oost 2    | Azië - oost        |  India - west        | VS DoD Centraal        |
-|US - west 2     | Azië - zuidoost        | Canada - midden        | China - oost         |
-|US - centraal     | Australië - oost        | Canada Oost        | China - noord        |
+|US - west     |Europa -west         | India - zuid        | US DoD - oost        |
+|US - oost 2    | Azië - oost        |  India - west        | US DoD - centraal        |
+|US - west 2     | Azië - zuidoost        | Canada - midden        | China East         |
+|US - centraal     | Australië - oost        | Canada - oost        | China - noord        |
 |US - noord-centraal     |  Australië - zuidoost       | Brazilië - zuid        | Verenigd Koninkrijk Zuid        |
-|US - zuid-centraal     | Japan - west        |Korea Centraal         | Duitsland - centraal        |
-|US - west-centraal     |  Japan - oost       | US Gov - Virginia        | Duitsland - noordoost        |
+|US - zuid-centraal     | Japan - west        |Korea - centraal         | Duitsland - centraal        |
+|US - west-centraal     |  Japan - oost       | VS (overheid) - Virginia        | Duitsland - noordoost        |
 
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen
@@ -148,7 +148,7 @@ Nadat uw gegevens worden gekopieerd naar de stations, versleutelt de service voo
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 
-### <a name="pricing"></a>Prijs
+### <a name="pricing"></a>Prijzen
 
 **Station verzendkosten**
 

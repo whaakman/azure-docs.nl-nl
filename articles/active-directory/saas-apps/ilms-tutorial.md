@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee12bfc8a79b6abcfdf2978d4e640c34f801e346
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7b2e012a4ce8ac4a9a5afb895d545beb0a0b8946
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100618"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Zelfstudie: ILMS integreren met Azure Active Directory
 
@@ -63,8 +63,8 @@ Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met iLMS, vo
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van eenmalige aanmelding iLMS](#configure-ilms-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker iLMS](#create-ilms-test-user)**  : als u wilt een equivalent van Britta Simon in iLMS die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 

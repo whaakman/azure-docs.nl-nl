@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 450e3b0a25f4be90aea26adfd4c35efc3077af57
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071392"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Inleiding tot Azure Blob-opslag
 
@@ -29,7 +29,7 @@ Er zijn drie typen resources voor blobopslag:
 
 Het volgende diagram geeft de relatie tussen deze resources weer.
 
-![Diagram van de blobopslagarchitectuur](./media/storage-blob-introduction/blob1.png)
+![relatie tussen de Logboekopslagaccount-Blob en Container-resource](./media/storage-blob-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Opslagaccounts
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110115"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Met behulp van markeringen decoration markeren van tekst
@@ -31,7 +31,7 @@ Bing biedt de mogelijkheid van het gebruik van Unicode-tekens of HTML-codes als 
   
 Als `textDecorations` is **waar**, Bing omvat mogelijk de volgende markeringen in tekenreeksen voor weergave van antwoorden. Als er geen HTML-equivalent, moet de cel in de HTML-tabel is leeg.
 
-|Unicode|HTML|Description
+|Unicode|HTML-CODE|Description
 |-|-|-
 |U+E000|\<b>|Het markeert het begin van de queryterm die (treffers markeren)
 |U+E001|\</b>|Het markeert het einde van de queryterm

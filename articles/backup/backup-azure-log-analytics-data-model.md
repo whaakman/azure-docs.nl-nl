@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
 ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61234911"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-gegevensmodel voor Azure backup-gegevens
@@ -257,7 +257,7 @@ Deze tabel bevat de algemene velden over beveiligde Containers. (ProtectedServer
 | ProtectedContainerLocation_s |Text |De Container beveiligd kan zich On-premises of in Azure |
 | ProtectedContainerType_s |Text |Of de beveiligde Container is een server of een container |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 Deze tabel bevat details over velden met betrekking tot opslag.
 

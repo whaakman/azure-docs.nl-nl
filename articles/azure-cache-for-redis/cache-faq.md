@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6b27b27fedf622908fa5c06bd2562d9049a4366b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052051"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
 Informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis.
@@ -136,10 +136,10 @@ We kunnen de volgende conclusies te trekken uit deze tabel:
 | Prijscategorie | Grootte | CPU-kernen | Beschikbare bandbreedte | De grootte van 1 KB | De grootte van 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / MB per seconde (MB/s)** |**Aanvragen per seconde (RPS) niet-SSL** |**Aanvragen per seconde (RPS) SSL** |
-| C0 | 250 MB | Gedeeld | 100 / 12.5  |  15.000 |   7,500 |
+| C0 | 250 MB | Gedeeld | 100 / 12.5  |  15\.000 |   7,500 |
 | C1 |   1 GB | 1      | 500 / 62.5  |  38,000 |  20,720 |
 | C2 | 2,5 GB | 2      | 500 / 62.5  |  41,000 |  37,000 |
-| C3 |   6 GB | 4      | 1000 / 125  | 100.000 |  90,000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100\.000 |  90,000 |
 | C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55,000 |
 | C5 |  26 GB | 4      | 1,000 / 125 | 102,000 |  93,000 |
 | C6 |  53 GB | 8      | 2,000 / 250 | 126,000 | 120,000 |
@@ -167,8 +167,8 @@ Ja, is Azure Redis Cache beschikbaar in Azure Government-Cloud, Azure China 21Vi
 
 | Cloud   | DNS-achtervoegsel voor Redis            |
 |---------|---------------------------------|
-| Openbaar  | *.redis.cache.windows.net       |
-| VS (overheid)  | *.redis.cache.usgovcloudapi.net |
+| Public  | *.redis.cache.windows.net       |
+| Amerikaanse overheid  | *.redis.cache.usgovcloudapi.net |
 | Duitsland | *.redis.cache.cloudapi.de       |
 | China   | *.redis.cache.chinacloudapi.cn  |
 
@@ -251,7 +251,7 @@ U kunt de opdrachten die wordt vermeld op [Redis-opdrachten](https://redis.io/co
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> De Redis-opdrachtregelprogramma's werken niet met de SSL-poort, maar u kunt een hulpprogramma zoals `stunnel` veilig verbinden met de hulpprogramma's voor de SSL-poort door de aanwijzingen in de [aankondiging van ASP.NET-Sessiestatusprovider voor Redis-Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht.
+> De Redis-opdrachtregelprogramma's werken niet met de SSL-poort, maar u kunt een hulpprogramma zoals `stunnel` veilig verbinden met de hulpprogramma's voor de SSL-poort door de aanwijzingen in de [het opdrachtregelprogramma Redis gebruiken met Azure Cache voor Redis ](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) artikel.
 >
 >
 
@@ -403,7 +403,7 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > De waarde gespecificeerd door deze methode is een algemene instelling, die betrekking hebben op het hele AppDomain. Bijvoorbeeld, als u een 4-core-machine hebt en wilt instellen *minWorkerThreads* en *minIoThreads* tot 50 per CPU tijdens runtime, zou u **ThreadPool.SetMinThreads (200, 200)**.
+  > De waarde gespecificeerd door deze methode is een algemene instelling, die betrekking hebben op het hele AppDomain. Bijvoorbeeld, als u een 4-core-machine hebt en wilt instellen *minWorkerThreads* en *minIoThreads* tot 50 per CPU tijdens runtime, zou u **ThreadPool.SetMinThreads (200, 200)** .
 
 * Het is ook mogelijk om op te geven van het minimumaantal threads instellen met behulp van de [ *minIoThreads* of *minWorkerThreads* configuratie-instelling](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) onder de `<processModel>` configuratie-element in `Machine.config`, zich meestal in `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Het aantal minimumthreads instellen op deze manier wordt in het algemeen niet aanbevolen, omdat het een instelling voor het hele systeem.**
 
@@ -469,7 +469,7 @@ Hier volgen enkele veelvoorkomende reden voor een cache-verbinding verbreken.
 >
 >
 
-### <a name="azure-cache-for-redis"></a>Azure-cache voor Redis
+### <a name="azure-cache-for-redis"></a>Azure Cache voor Redis
 Azure Redis-Cache is algemeen beschikbaar in groottes tot 53 GB en is voor een beschikbaarheids-SLA van 99,9%. De nieuwe [premium-laag](cache-premium-tier-intro.md) biedt groottes tot 530 GB en ondersteuning voor clustering, VNET en persistentie, met een SLA van 99,9%.
 
 Azure Redis-Cache geeft klanten de mogelijkheid om te gebruiken van een beveiligde, toegewezen Cache van Azure voor Redis, beheerd door Microsoft. Met deze aanbieding krijgt u gebruikmaken van de uitgebreide reeks functies en het ecosysteem geleverd door Redis en betrouwbare hosting en controle van Microsoft.

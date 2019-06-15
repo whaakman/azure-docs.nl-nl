@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190072"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
@@ -23,7 +23,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 1. Het gedeelte met opmerkingen van dit artikel.
 2. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
+4. Microsoft ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
 
 ## <a name="general"></a>Algemeen
 * <a id="why-files-useful"></a>
@@ -360,7 +360,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Nee. De maximale grootte van een Azure-bestandsshare is 5 TiB. Dit is momenteel een vaste limiet die we niet aanpassen. Er wordt gewerkt aan een oplossing voor het verhogen van de grootte van de bestandsshare in 100 TiB, maar er zijn geen tijdlijnen om te delen op dit moment.
 
 * <a id="open-handles-quota"></a>
-**Hoeveel clients kunnen tegelijkertijd toegang krijgen tot hetzelfde bestand?**   
+**Hoeveel clients kunnen tegelijkertijd toegang krijgen tot hetzelfde bestand?**    
     Er is een quotum van 2000 open ingangen in één bestand. Wanneer u 2000 open ingangen hebt, wordt een foutbericht weergegeven met de tekst dat is bereikt.
 
 * <a id="zip-slow-performance"></a>

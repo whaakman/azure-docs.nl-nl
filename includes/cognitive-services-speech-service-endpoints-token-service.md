@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 0d0ebe57c26f5cc5b42fb449ffb10b444a03f734
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145388"
 ---
 Regio| Token service-eindpunt
@@ -22,7 +22,7 @@ US - oost 2 | `https://eastus2.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Frankrijk - centraal | `https://francecentral.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 India - centraal | `https://centralindia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Japan - oost | `https://japaneast.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Korea Centraal | `https://koreacentral.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+Korea - centraal | `https://koreacentral.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 US - noord-centraal | `https://northcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Europa - noord | `https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 US - zuid-centraal | `https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
