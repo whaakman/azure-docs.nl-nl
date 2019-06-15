@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6723adb3fb8987a127eee419c9ac188c7a33d50b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129880"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076046"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hoe u een Windows SQL Server-machine inrichten in Azure portal
 
@@ -37,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Als u een SQL Server-machine maakt, selecteert u een van verschillende vooraf geconfigureerde installatiekopieën uit de galerie met virtuele machines. De volgende stappen laten zien hoe u een van de SQL Server 2017-installatiekopieën selecteren.
 
-1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met uw account.
 
 1. Klik in Azure Portal op **Een resource maken**. In de portal wordt het venster **Nieuw** geopend.
 
@@ -141,10 +141,10 @@ Op de **netwerken** tabblad, configureer dan uw netwerkopties.
 
 #### <a name="monitoring"></a>Bewaking
 
-Op de **bewaking** tabblad, configureer dan controleren en automatisch afsluiten. 
+Op de **bewaking** tabblad, configureer dan bewakings- en autoshutdown. 
 
 * Met Azure kunnen **opstarten bewaking** aangewezen standaard met hetzelfde opslagaccount voor de virtuele machine. U kunt deze instellingen hier, evenals inschakelen wijzigen **besturingssysteem Gast diagnostics**. 
-* U kunt inschakelen **door het systeem toegewezen beheerde identiteit** en **automatisch afsluiten** op dit tabblad ook. 
+* U kunt inschakelen **door het systeem toegewezen beheerde identiteit** en **autoshutdown** op dit tabblad ook. 
 
 ![Instellingen voor SQL-VM](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
@@ -188,7 +188,7 @@ In het algemeen kunt u de beveiliging verbeteren door te kiezen voor de meest be
 
 ### <a name="authentication"></a>Verificatie
 
-Als u SQL Server-verificatie vereist, klikt u onder **SQL-verificatie** op **Inschakelen**.
+Als u SQL Server-verificatie vereist, klikt u op **inschakelen** onder **SQL-verificatie** op de **SQL Server-instellingen** tabblad.
 
 ![SQL Server-verificatie](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
@@ -199,13 +199,12 @@ Als u SQL Server-verificatie inschakelt, geeft u een **Aanmeldingsnaam** en een 
 
 Als u SQL Server-verificatie niet inschakelt, kunt u het lokale beheerdersaccount op de virtuele machine gebruiken om verbinding te maken met het SQL Server-exemplaar.
 
-![SQL Server-verificatie](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 ### <a name="azure-key-vault-integration"></a>Integratie van Azure Sleutelkluis
 
-Voor het opslaan van beveiligingsgeheimen in Azure voor versleuteling klikt u op **Integratie van Azure Sleutelkluis**. Klik vervolgens op **Inschakelen**.
+Voor het opslaan van beveiligingsgeheimen in Azure voor versleuteling, selecteer **SQL Server-instellingen**, en schuif omlaag naar **Azure key vault-integratie**. Selecteer **inschakelen** en vul de aangevraagde gegevens. 
 
-![Integratie van Azure Sleutelkluis](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![Integratie van Azure Sleutelkluis](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
 De volgende tabel bevat de vereiste parameters voor het configureren van de Azure Sleutelkluis-integratie.
 
@@ -220,7 +219,7 @@ Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQ
 
 ### <a name="storage-configuration"></a>Opslagconfiguratie
 
-Onder **opslagconfiguratie**, selecteer **-configuratie wijzigen** om op te geven van de opslagvereisten.
+Op de **SQL Server-instellingen** tabblad onder **opslagconfiguratie**, selecteer **-configuratie wijzigen** om op te geven van de opslagvereisten.
 
 
 > [!NOTE]
@@ -239,7 +238,7 @@ Selecteer onder **Opslag geoptimaliseerd voor** een van de volgende opties:
 
 ![Configuratie van SQL VM-opslag](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
 
-### <a name="sql-server-license"></a>SQL Server-licentie
+### <a name="sql-server-license"></a>SQL Server License
 Als u een Software Assurance-klant bent, u kunt gebruikmaken van de [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) aan uw eigen SQL Server-licentie meenemen en sla op resources. 
 
 ![SQL VM-licentie](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
@@ -264,14 +263,16 @@ Als u automatische back-up van SQL inschakelt, kunt u de volgende instellingen c
 * Back-up maken van systeemdatabases
 * Back-upschema configureren
 
-Voor het versleutelen van de back-up klikt u op **Inschakelen**. Geef het **Wachtwoord** op. Azure maakt een certificaat voor het versleutelen van de back-ups en gebruikt het opgegeven wachtwoord om dit certificaat te beschermen.
+Voor het versleutelen van de back-up klikt u op **Inschakelen**. Geef het **Wachtwoord** op. Azure maakt een certificaat voor het versleutelen van de back-ups en gebruikt het opgegeven wachtwoord om dit certificaat te beschermen. Standaard wordt het schema automatisch ingesteld, maar u kunt een handmatige schema maken door te selecteren **handmatige**. 
+
+![Geautomatiseerde back-ups van SQL-VM](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
 Zie voor meer informatie [Automatische back-up voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 
 ### <a name="r-services-advanced-analytics"></a>R Services (Advanced Analytics)
 
-U hebt de mogelijkheid om in te schakelen [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). Deze optie kunt u geavanceerde analyses gebruiken met SQL Server 2017. Klik op **Inschakelen** in het venster **SQL Server-instellingen**.
+U hebt de mogelijkheid om in te schakelen [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). Deze optie kunt u geavanceerde analyses gebruiken met SQL Server 2017. Selecteer **inschakelen** op de **SQL Server-instellingen** venster.
 
 
 ## <a name="4-review--create"></a>4. Beoordelen en maken

@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 33ef65f09a4e7513738a6cc6b277d06cd4cb4da8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235424"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052395"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: De portal gebruiken om een Azure AD-toepassing en service-principal die toegang hebben tot resources te maken
 
@@ -98,7 +98,7 @@ Wanneer u zich programmatisch aanmeldt, moet u de tenant-ID met uw verificatieaa
    ![Client-id](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>Certificaten en geheimen
-Deamon toepassingen kunnen twee soorten referenties gebruiken om te verifiëren met Azure AD: certificaten en toepassingsgeheimen.  Wordt geadviseerd om een certificaat, maar u kunt ook een nieuwe toepassingsgeheim maken.
+Daemon-toepassingen kunnen twee soorten referenties gebruiken om te verifiëren met Azure AD: certificaten en toepassingsgeheimen.  Wordt geadviseerd om een certificaat, maar u kunt ook een nieuwe toepassingsgeheim maken.
 
 ### <a name="upload-a-certificate"></a>Een certificaat uploaden
 

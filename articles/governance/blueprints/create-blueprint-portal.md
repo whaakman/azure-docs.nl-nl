@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 97d0615fcc4f86c295441ec6a0eb8b86ba6b11b5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059694"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Definiëren en toewijzen van een blauwdruk in de portal
 
@@ -70,11 +70,11 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
    1. Wijziging **Type** naar **ingebouwde**. In **zoeken**, voer **tag**.
 
-   1. Klik buiten het veld **Zoeken** om de filtering weer te geven. Selecteer **tag en bijbehorende standaardwaarde toepassen op resourcegroepen**.
+   1. Klik buiten het veld **Zoeken** om de filtering weer te geven. Selecteer **toevoeg-tag en de standaardwaarde aan resourcegroepen**.
 
    1. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
 
-1. Selecteer de rij van de beleidstoewijzing **tag en bijbehorende standaardwaarde toepassen op resourcegroepen**.
+1. Selecteer de rij van de beleidstoewijzing **toevoeg-tag en de standaardwaarde aan resourcegroepen**.
 
 1. Het venster voor de parameters voor het artefact als onderdeel van de blauwdrukdefinitie wordt geopend en kunt instellen dat de parameters voor alle toewijzingen (statische parameters) op basis van deze blauwdruk in plaats van tijdens de toewijzing (dynamische parameters). In dit voorbeeld maakt gebruik van dynamische parameters tijdens de blauwdruktoewijzing, dus laat de standaardwaarden en selecteer **annuleren**.
 

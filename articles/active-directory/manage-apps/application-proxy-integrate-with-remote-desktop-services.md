@@ -16,12 +16,12 @@ ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233711"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108468"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD Application Proxy publiceren
 
@@ -57,6 +57,8 @@ In de implementatie van een extern bureaublad-services uitvoeren de RD-Webrol en
 - Bij het publiceren van RD-Web, wordt het aanbevolen gebruik van dezelfde interne en externe FQDN-naam. Als de interne en externe FQDN's verschillen moet u Header vertaling aanvragen om te voorkomen dat de client ontvangt ongeldige koppelingen uitschakelen. 
 
 - In Internet Explorer, schakelt u de extern bureaublad-services ActiveX-invoegtoepassing.
+
+- Voor de stroom van de Azure AD-verificatie vooraf, gebruikers kunnen alleen verbinding maken met resources die zijn gepubliceerd naar ze op in de **RemoteApp- en bureaubladen** deelvenster. Gebruikers geen verbinding maken met een bureaublad met de **verbinding maken met een externe computer** deelvenster.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Het gezamenlijke extern bureaublad-services en Application Proxy-scenario implementeren
 
@@ -127,7 +129,7 @@ De configuratie zoals beschreven in dit artikel is bedoeld voor gebruikers op Wi
 | Pre-authenticatie    | Windows 7/10 met behulp van Internet Explorer + RDS ActiveX-invoegtoepassing |
 | Passthrough | Een ander besturingssysteem die ondersteuning biedt voor de Microsoft Extern bureaublad-toepassing |
 
-De stroom voor pre-authenticatie biedt de voordelen van meer beveiliging dan de passthrough-stroom. Met vooraf-verificatie kunt u Azure AD-verificatie-functies, zoals eenmalige aanmelding, voorwaardelijke toegang en verificatie in twee stappen voor uw on-premises resources. U ook voor zorgen dat alleen geverifieerd verkeer bereikt uw netwerk.
+De stroom voor pre-authenticatie biedt de voordelen van meer beveiliging dan de passthrough-stroom. Met vooraf-verificatie kunt u Azure AD-verificatie-functies, zoals eenmalige aanmelding voor voorwaardelijke toegang en verificatie in twee stappen verificatie voor uw on-premises resources. U ook voor zorgen dat alleen geverifieerd verkeer bereikt uw netwerk.
 
 Voor het gebruik van passthrough-verificatie, moet u er slechts twee wijzigingen in de stappen in dit artikel zijn:
 1. In [publiceren van het eindpunt van de extern bureaublad-Sessiehost host](#publish-the-rd-host-endpoint) stap 1, stelt u de methode voor verificatie vooraf op **Passthrough**.

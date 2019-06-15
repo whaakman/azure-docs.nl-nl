@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711905"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Pakketopname gebruiken voor proactieve netwerkbewaking met waarschuwingen en Azure Functions
@@ -81,10 +81,10 @@ De eerste stap is het maken van een Azure-functie voor het verwerken van de waar
     |**Abonnement**|[Uw abonnement] Het abonnement waarvoor u wilt maken van de functie-app.||
     |**Resourcegroep**|PacketCaptureRG|De resourcegroep bevat de functie-app.|
     |**Hostingabonnement**|Verbruiksabonnement| Het type van plan bent uw functie-app gebruikt. Opties zijn verbruik of Azure App Service-plan. |
-    |**Locatie**|US - centraal| De regio waarin u wilt maken van de functie-app.|
+    |**Location**|US - centraal| De regio waarin u wilt maken van de functie-app.|
     |**Opslagaccount**|{automatisch gegenereerde}| Het opslagaccount dat Azure Functions nodig voor de opslag voor algemeen gebruik heeft.|
 
-3. Op de **PacketCaptureExample functie-Apps** Selecteer **functies** > **aangepaste functie**  >  **+**.
+3. Op de **PacketCaptureExample functie-Apps** Selecteer **functies** > **aangepaste functie**  >  **+** .
 
 4. Selecteer **HttpTrigger-Powershell**, en voer vervolgens de resterende gegevens. Selecteer ten slotte voor het maken van de functie **maken**.
 
@@ -208,7 +208,7 @@ De client-ID is de toepassings-ID van een toepassing in Azure Active Directory.
    > [!NOTE]
    > Het wachtwoord dat u gebruikt bij het maken van de toepassing moet hetzelfde wachtwoord dat u eerder hebt gemaakt bij het opslaan van het sleutelbestand.
 
-1. Selecteer in de Azure portal, **abonnementen**. Selecteer het abonnement wilt gebruiken, en selecteer vervolgens **toegangsbeheer (IAM)**.
+1. Selecteer in de Azure portal, **abonnementen**. Selecteer het abonnement wilt gebruiken, en selecteer vervolgens **toegangsbeheer (IAM)** .
 
     ![Functions IAM][functions9]
 

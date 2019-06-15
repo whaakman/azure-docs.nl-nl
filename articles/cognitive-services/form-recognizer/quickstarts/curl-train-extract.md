@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: aed18cd33078d6af65e749cf9dd4950087b6b72c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475262"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063901"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en ophalen van gegevens met behulp van de REST-API met cURL
 
@@ -36,7 +36,7 @@ Wanneer u toegang tot het gebruik van formulier herkenning zijn verleend, ontvan
 |--|--|
 | **Naam** | Een beschrijvende naam voor uw resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyNameFormRecognizer*. |
 | **Abonnement** | Selecteer het Azure-abonnement dat toegang heeft gekregen. |
-| **Locatie** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
+| **Location** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
 | **Prijscategorie** | De kosten van uw resource is afhankelijk van de prijscategorie die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
 | **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) die uw resource bevat. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
 
@@ -52,7 +52,7 @@ Eerst moet u een set trainingsgegevens in een Azure Storage-blob. U moet minimaa
 Als u wilt een formulier herkenning-model te trainen met behulp van de documenten in uw Azure blob-container, Roep de **trainen** API door het uitvoeren van de cURL-opdracht die volgt. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
 
 1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
-1. Vervang `<SAS URL>` met een Azure Blob storage-container gedeelde toegang krijgen tot signature (SAS)-URL van de locatie van de trainingsgegevens.  
+1. Vervang `<SAS URL>` met een Azure Blob storage-container gedeelde toegang krijgen tot signature (SAS)-URL van de locatie van de trainingsgegevens. (Uw SAS-URL ophalen door te klikken op 'Shared Access Signature' onder het instellingenmenu in de storage-account en 'SAS genereren en de verbindingsreeks'. Hiermee wordt de SAS-URL van de Blob-service weergegeven. Deze url aanpassen door de containername toe te voegen na .net / en vóór? sv = in de url, bijvoorbeeld:.blob.core.windows.net/ < name_of_your_container > /? sv =... Dit is de SAS-URL moet worden gebruikt.)
 1. Vervang `<subscription key>` met de abonnementssleutel die u hebt gekopieerd uit de vorige stap.
 
 ```bash
@@ -108,7 +108,7 @@ Vervolgens u een document analyseren en extraheren van sleutel / waarde-paren en
 
 1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
 1. Vervang `<modelID>` met de model-ID die u in de vorige sectie hebt ontvangen.
-1. Vervang `<path to your form>` met het pad van het formulier. Bijvoorbeeld c:\temp\file.pdf. 
+1. Vervang `<path to your form>` met het pad van het formulier (bijvoorbeeld C:\temp\file.pdf).
 1. Vervang `<file type>` met het bestandstype. Ondersteunde typen: pdf-, afbeelding/jpeg, afbeelding/png.
 1. Vervang `<subscription key>` door uw abonnementssleutel.
 

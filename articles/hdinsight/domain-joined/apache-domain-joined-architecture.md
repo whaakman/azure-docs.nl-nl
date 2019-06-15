@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 168a73ced039b9bced9a6aae6a138468b345b19d
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 46eb90d2ec9902a9b5b7830063d0a6164ae948dd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391685"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061122"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Enterprise-beveiligingspakket gebruiken in HDInsight
 
@@ -63,9 +63,9 @@ Met behulp van on-premises Active Directory of Active Directory op IaaS-VM's all
 
 Als federation wordt gebruikt en wachtwoord-hashes juist zijn gesynchroniseerd, maar u verificatiefouten ontvangt, controleert u of cloud-wachtwoordverificatie is ingeschakeld voor de PowerShell-service-principal. Als u niet het geval is, moet u instellen een [start Realm detectie (HRD) beleid](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) voor uw Azure AD-tenant. Om te controleren en stelt u het HRD-beleid:
 
-1. Installeer de Azure AD PowerShell-module.
+1. De Preview-versie installeren [Azure AD PowerShell-module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
-   ```
+   ```powershell
    Install-Module AzureADPreview
    ```
 
@@ -73,22 +73,36 @@ Als federation wordt gebruikt en wachtwoord-hashes juist zijn gesynchroniseerd, 
 
 3. Controleer als de Microsoft Azure PowerShell service-principal is al gemaakt.
 
-   ```
-   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```powershell
+   Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. Als deze niet bestaat (dat wil zeggen als `($powershellSPN -eq $null)`), klikt u vervolgens de service-principal te maken.
+4. Als deze nog niet bestaat, maakt u de service-principal.
 
-   ```
+   ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
    ```
 
 5. Maken en koppelen van het beleid aan deze service-principal.
 
-   ```
-   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```powershell
+    # Determine whether policy exists
+    Get-AzureADPolicy | Where {$_.DisplayName -eq "EnableDirectAuth"}
 
-   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+    # Create if not exists
+    $policy = New-AzureADPolicy `
+        -Definition @('{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}') `
+        -DisplayName "EnableDirectAuth" `
+        -Type "HomeRealmDiscoveryPolicy"
+
+    # Determine whether a policy for the service principal exist
+    Get-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId
+    
+    # Add a service principal policy if not exist
+    Add-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId `
+        -refObjectID $policy.ID
    ```
 
 ## <a name="next-steps"></a>Volgende stappen

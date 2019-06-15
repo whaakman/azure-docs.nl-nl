@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: c1e74efa9cf99e8510ea17aedc840ce3b0731c3b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7ff036fbdf3ae9360bed8d728b9bec3a1937b70a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808242"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Een artefactopslagplaats toevoegen aan uw lab in DevTest Labs
-DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een virtuele machine op het moment van de VM is gemaakt of nadat de virtuele machine is gemaakt. Dit artefact is mogelijk een hulpprogramma of een toepassing die u wilt installeren op de virtuele machine. Artefacten worden gedefinieerd in een JSON-bestand geladen vanuit een GitHub- of VSTS Git-opslagplaats. 
+DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een virtuele machine op het moment van de VM is gemaakt of nadat de virtuele machine is gemaakt. Dit artefact is mogelijk een hulpprogramma of een toepassing die u wilt installeren op de virtuele machine. Artefacten worden gedefinieerd in een JSON-bestand geladen vanuit een GitHub- of Azure DevOps Git-opslagplaats. 
 
 De [openbare artefactenopslag](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), onderhouden door DevTest Labs, biedt veel algemene hulpprogramma's voor zowel Windows als Linux. Een koppeling naar deze opslagplaats wordt automatisch toegevoegd aan uw testomgeving. U kunt uw eigen artefactopslagplaats maken met specifieke hulpprogramma's die niet beschikbaar zijn in de openbare artefactenopslag. Zie voor meer informatie over het maken van aangepaste artefacten, [maken van aangepaste artefacten](devtest-lab-artifact-author.md).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133644"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Inschakelt en implementeert Azure ultra SSD's (preview)
 
@@ -35,9 +35,10 @@ Behoud de **Zones** waarde staat voor de beschikbaarheidszone en u deze nodig he
 
 |ResourceType  |Name  |Locatie  |Zones  |Beperking  |Mogelijkheid  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
-|schijven     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|Schijven     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-Als er geen reactie van de opdracht is, wordt uw registratie voor de functie nog steeds is in behandeling of niet goedgekeurd nog.
+> [!NOTE]
+> Als er geen reactie van de opdracht is, wordt uw registratie voor de functie nog steeds is in behandeling of niet goedgekeurd nog.
 
 Nu dat u weet welke zone om in te implementeren, volgt u de implementatiestappen in dit artikel om op te halen van uw eerste virtuele machines geïmplementeerd met de ultra SSD.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118791"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Bewaking in Azure, digitale dubbels configureren
 
@@ -68,11 +68,11 @@ Voorbeelden van het vastleggen van diagnostische gegevens zijn:
 Diagnostische logboeken voor een exemplaar inschakelen:
 
 1. Open de resource in Azure portal.
-1. Klik op **diagnostische instellingen**:
+1. Selecteer **diagnostische instellingen**:
 
     [![Diagnostische instellingen](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. Klik op **diagnostische gegevens inschakelen** voor het verzamelen van gegevens (indien niet eerder ingeschakeld).
+1. Selecteer **diagnostische gegevens inschakelen** voor het verzamelen van gegevens (indien niet eerder ingeschakeld).
 1. Vul de vereiste velden in en selecteer hoe en waar gegevens worden opgeslagen:
 
     [![Diagnostische instellingen twee](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -101,7 +101,7 @@ Volledige logboek uitvoeren van query's wordt geboden via [logboeken van Azure M
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. Als u nog geen een **Log Analytics-werkruimte** exemplaar, kunt u een werkruimte maken door te klikken op de **toevoegen** knop:
+1. Als u nog geen een **Log Analytics-werkruimte** exemplaar, kunt u een werkruimte maken door het selecteren van de **toevoegen** knop:
 
     [![OMS maken](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -114,7 +114,7 @@ Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query'
 > [!NOTE]
 > Een vertraging van 5 minuten kunnen optreden bij het verzenden van gebeurtenissen naar **Log Analytics-werkruimte** voor de eerste keer.
 
-Azure Monitor-logboeken bieden ook krachtige fout en waarschuwingsmeldingen services, dat kunnen worden weergegeven door te klikken op **vaststellen en oplossen van problemen met**:
+Azure Monitor-logboeken bieden ook krachtige fout en waarschuwingsmeldingen services die kunnen worden bekeken door het selecteren van **vaststellen en oplossen van problemen met**:
 
    [![Waarschuwing en fout-meldingen](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 

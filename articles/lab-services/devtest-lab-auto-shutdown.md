@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9adf8dd4a5a3c469ed130b29308a0d828aee40bf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873988"
 ---
 # <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Autoshutdown beleidsregels beheren voor een lab in Azure DevTest Labs
@@ -166,7 +166,7 @@ Als u wilt beginnen, moet u een logische app maken in uw Azure-abonnement met be
     }
     ```
     
-    ![Hoofdtekst van aanvraag voor JSON-schema](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Hoofdtekst van de JSON-Schema aanvragen](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Selecteer **+ nieuwe stap** in de ontwerpfunctie voor, en als volgt te werk:
     1. Zoeken naar **Office 365 Outlook - een e-mail verzenden**. 
     2. Selecteer **een e-mailbericht verzenden** van **acties**. 
@@ -177,7 +177,7 @@ Als u wilt beginnen, moet u een logische app maken in uw Azure-abonnement met be
     5. Selecteer **onderwerp**, en voert u een onderwerp van het e-mailbericht. Bijvoorbeeld: "Afsluiten van de machine vmName voor testomgeving: labName."
     6. Selecteer **hoofdtekst**, en de hoofdtekst voor e-mailmelding te definiëren. Bijvoorbeeld: 'vmName is gepland om binnen 15 minuten af te sluiten. Dit afsluiten door te klikken op Overslaan: URL. Afsluiten een uur vertraging: delayUrl60. Afsluiten gedurende 2 uur vertraging: delayUrl120. "
 
-        ![Hoofdtekst van aanvraag voor JSON-schema](./media/devtest-lab-auto-shutdown/email-options.png)
+        ![Hoofdtekst van de JSON-Schema aanvragen](./media/devtest-lab-auto-shutdown/email-options.png)
 1. Selecteer **Opslaan** op de werkbalk. Nu kunt u de **URL voor HTTP POST**. Selecteer de knop kopiëren aan de URL naar het Klembord kopiëren. 
 
     ![WebHook URL](./media/devtest-lab-auto-shutdown/webhook-url.png)

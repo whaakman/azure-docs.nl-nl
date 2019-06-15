@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/27/2019
 ms.author: anuragm
 ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306956"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
@@ -82,7 +82,7 @@ Beveiliging voor een SQL Server-database configureren op een virtuele machine, d
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
-| Herstellen is mislukt omdat de database niet offline kan worden gebracht. | Bij het uitvoeren van een herstelpunt, moet de doeldatabase moet offline worden gezet. Azure Backup kan niet deze gegevens offline te brengen. | Aan de hand van de aanvullende gegevens in het menu van Azure portal fout om de belangrijkste oorzaken vast te stellen. Zie voor meer informatie de [documentatie bij SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| Herstellen is mislukt, omdat de database niet offline kan worden gezet. | Bij het uitvoeren van een herstelpunt, moet de doeldatabase moet offline worden gezet. Azure Backup kan niet deze gegevens offline te brengen. | Aan de hand van de aanvullende gegevens in het menu van Azure portal fout om de belangrijkste oorzaken vast te stellen. Zie voor meer informatie de [documentatie bij SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ##  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
@@ -94,14 +94,14 @@ Beveiliging voor een SQL Server-database configureren op een virtuele machine, d
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
-| De logboekback-up die is gebruikt voor herstel bevat bulksgewijs geregistreerde wijzigingen. Het kan niet worden gebruikt om te stoppen op een willekeurig tijdstip aan de hand van de SQL-richtlijnen. | Wanneer een database in de modus voor bulksgewijs geregistreerde herstel is, kan de gegevens tussen een bulksgewijs geregistreerde transactie en de volgende log-transactie kan niet worden hersteld. | Kies een ander punt in tijd voor herstel. [Meer informatie](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| De logboekback-up die is gebruikt voor herstel bevat bulksgewijs geregistreerde wijzigingen. Deze kan niet worden gebruikt om op een willekeurig tijdstip te stoppen volgens de SQL-richtlijnen. | Wanneer een database in de modus voor bulksgewijs geregistreerde herstel is, kan de gegevens tussen een bulksgewijs geregistreerde transactie en de volgende log-transactie kan niet worden hersteld. | Kies een ander punt in tijd voor herstel. [Meer informatie](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
-| Back-upvoorkeur voor de SQL AlwaysOn-beschikbaarheidsgroep kan niet worden voldaan omdat bepaalde knooppunten van de beschikbaarheidsgroep niet zijn geregistreerd. | Knooppunten die nodig zijn om uit te voeren van de back-ups worden niet geregistreerd of niet bereikbaar zijn. | <ul><li>Zorg ervoor dat alle knooppunten die nodig zijn om uit te voeren van de back-ups van deze database geregistreerd en die in orde is zijn en probeer het vervolgens opnieuw.</li><li>Back-upvoorkeur wijziging SQL AlwaysOn-beschikbaarheidsgroep.</li></ul> |
+| Er kan niet worden voldaan aan de voorkeur van Backup voor de SQL AlwaysOn-beschikbaarheidsgroep omdat bepaalde knooppunten van de beschikbaarheidsgroep niet zijn geregistreerd. | Knooppunten die nodig zijn om uit te voeren van de back-ups worden niet geregistreerd of niet bereikbaar zijn. | <ul><li>Zorg ervoor dat alle knooppunten die nodig zijn om uit te voeren van de back-ups van deze database geregistreerd en die in orde is zijn en probeer het vervolgens opnieuw.</li><li>Back-upvoorkeur wijziging SQL AlwaysOn-beschikbaarheidsgroep.</li></ul> |
 
 ## <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706091"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybrid Connections-protocol
 
@@ -144,7 +144,7 @@ De `namespace-address` is de volledig gekwalificeerde domeinnaam van de Azure Re
 
 De opties voor queryreeksen parameter zijn als volgt.
 
-| Parameter        | Vereist | Beschrijving
+| Parameter        | Vereist | Description
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Ja      | Voor de listener-rol, de parameter moet **sb-hc-action = luisteren**
 | `{path}`         | Ja      | Het naamruimtepad van de URL-gecodeerde van de vooraf geconfigureerde hybride verbinding met het registreren van deze listener op. Deze expressie wordt toegevoegd aan de vaste `$hc/` padgedeelte.
@@ -221,7 +221,7 @@ Als er een fout is, kunt de service als volgt beantwoorden:
 
 | Code | Fout          | Description
 | ---- | -------------- | -----------------------------------
-| 403  | Verboden      | De URL is ongeldig.
+| 403  | Verboden      | De URL is niet geldig.
 | 500  | Interne fout | Er is iets misgegaan in de service
 
  Nadat de verbinding is tot stand is gebracht, de server wordt afgesloten WebSocket wanneer de afzender WebSocket wordt afgesloten omlaag of met de volgende status:
@@ -241,7 +241,7 @@ Als er een fout is, kunt de service als volgt beantwoorden:
 
  Voor het weigeren van de socket, de client wordt verricht de URI-adres van de `accept` bericht- en twee queryreeksparameters als volgt, toegevoegd:
 
-| Param                   | Vereist | Beschrijving                              |
+| Param                   | Vereist | Description                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | SB-hc-statusCode        | Ja      | Numerieke HTTP-statuscode.                |
 | SB-hc-statusbeschrijving | Ja      | Mens leesbaar reden voor de afwijzing. |
@@ -252,7 +252,7 @@ Als het goed is voltooid, wordt deze handshake opzettelijk mislukt met een HTTP-
 
 | Code | Fout          | Description                          |
 | ---- | -------------- | ------------------------------------ |
-| 403  | Verboden      | De URL is ongeldig.                |
+| 403  | Verboden      | De URL is niet geldig.                |
 | 500  | Interne fout | Er is iets misgegaan in de service. |
 
 #### <a name="request-message"></a>Aanvraagbericht
@@ -382,9 +382,9 @@ De `address` in de URL van de `request` moeten worden gebruikt als-is voor het t
 
 Als er een fout is, kunt de service als volgt beantwoorden:
 
-| Code | Fout           | Beschrijving
+| Code | Fout           | Description
 | ---- | --------------- | -----------------------------------
-| 400  | De aanvraag is ongeldig | Niet-herkende actie of de URL is ongeldig.
+| 400  | Ongeldige aanvraag | Niet-herkende actie of de URL is ongeldig.
 | 403  | Verboden       | De URL is verlopen.
 | 500  | Interne fout  | Er is iets misgegaan in de service
 
@@ -415,7 +415,7 @@ Wanneer de listener-token bijna verlopen is, kan het deze vervangen door een fra
 
 Als de validatie van het token is mislukt, de toegang is geweigerd en de cloudservice wordt gesloten voor het besturingskanaal WebSocket met een fout. Anders wordt is er geen antwoord ontvangen.
 
-| WS-Status | Beschrijving                                                                     |
+| WS-Status | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1008      | Het beveiligingstoken is verlopen, dus het autorisatiebeleid wordt geschonden. |
 
@@ -482,7 +482,7 @@ De aanvraag kan willekeurige extra HTTP-headers, met inbegrip van de toepassing 
 
 De opties voor queryreeksen parameter zijn als volgt:
 
-| Param          | Vereist? | Beschrijving
+| Param          | Vereist? | Description
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Ja\*     | De listener van een geldige, door de URL-gecodeerde Service Bus gedeeld toegangstoken moet opgeven voor de naamruimte of een hybride verbinding biedt de **verzenden** rechts.
 
@@ -491,7 +491,7 @@ Het token kan ook worden uitgevoerd in ofwel de `ServiceBusAuthorization` of `Au
 Omdat de service daadwerkelijk als een proxy, fungeert zelfs als niet als een ' True ' HTTP-proxy, ofwel wordt toegevoegd een `Via` header of de bestaande annotates `Via` header die compatibel zijn met [RFC7230, sectie 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 De service wordt de hostnaam van de Relay-naamruimte aan `Via`.
 
-| Code | Bericht  | Description                    |
+| Code | Message  | Description                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | De aanvraag is verwerkt door ten minste één listener.  |
 | 202  | Geaccepteerd | De aanvraag is goedgekeurd door ten minste één listener. |
@@ -505,7 +505,7 @@ Als er een fout is, kunt de service als volgt beantwoorden. Of het antwoord afko
 | 403  | Verboden       | Het beveiligingstoken is niet geldig voor dit pad en voor deze actie.
 | 500  | Interne fout  | Er is iets misgegaan in de service.
 | 503  | Ongeldige gateway     | De aanvraag kan niet worden doorgestuurd naar een listener.
-| 504  | Time-out voor gateway | De aanvraag is doorgestuurd naar een listener, maar de listener erkent ontvangst in de tijd die nodig is.
+| 504  | Time-out van gateway | De aanvraag is doorgestuurd naar een listener, maar de listener erkent ontvangst in de tijd die nodig is.
 
 ## <a name="next-steps"></a>Volgende stappen
 

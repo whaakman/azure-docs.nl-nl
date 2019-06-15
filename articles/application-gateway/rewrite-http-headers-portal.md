@@ -9,10 +9,10 @@ ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64947169"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Herschrijf de HTTP-aanvraag- en reactieheaders met Azure Application Gateway - Azure portal
@@ -97,7 +97,7 @@ In dit voorbeeld wijzigen we een Omleidings-URL door de location-header in het H
 
    - Onder **hoofdlettergevoelig**, selecteer **Nee**.
 
-   - In de **Operator** in de lijst met **gelijkteken (=)**.
+   - In de **Operator** in de lijst met **gelijkteken (=)** .
 
    - Voer een reguliere-expressiepatroon. In dit voorbeeld gebruiken we het patroon `(https?):\/\/.*azurewebsites\.net(.*)$`.
 

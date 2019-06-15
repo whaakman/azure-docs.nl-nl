@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109578"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Wat is Azure AD Identity Governance?
 
@@ -68,7 +68,7 @@ In het verleden heeft uitgebreide toegang is beschreven door andere leveranciers
 
 ![Levenscyclus van bevoorrechte toegang](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-Azure AD Privileged Identity Management (PIM) biedt extra besturingselementen die zijn afgestemd op het beveiligen van toegang rechten voor bronnen in Azure AD, Azure en andere Microsoft Online Services.  De just-in-time-toegang en het wijzigen van een rol waarschuwingsfuncties geleverd door Azure AD PIM, naast de meervoudige verificatie en voorwaardelijke toegang, bieden dat een uitgebreide set governance besturingselementen voor de beveiligde resources van uw bedrijf (directory Office 365 en Azure-resourcerollen). Organisaties kunnen toegangsbeoordelingen gebruiken voor het configureren van terugkerende toegang certificering voor alle gebruikers in beheerdersrollen net als bij andere vormen van toegang.
+Azure AD Privileged Identity Management (PIM) biedt extra besturingselementen die zijn afgestemd op het beveiligen van toegang rechten voor bronnen in Azure AD, Azure en andere Microsoft Online Services.  De just-in-time-toegang en de rol wijzigen waarschuwingsfuncties geleverd door Azure AD PIM, naast de meervoudige verificatie en voorwaardelijke toegang, bieden dat een uitgebreide set governance besturingselementen voor de beveiligde resources van uw bedrijf (directory Office 365 en Azure-resourcerollen). Organisaties kunnen toegangsbeoordelingen gebruiken voor het configureren van terugkerende toegang certificering voor alle gebruikers in beheerdersrollen net als bij andere vormen van toegang.
 
 ## <a name="getting-started"></a>Aan de slag
 

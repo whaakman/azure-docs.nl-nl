@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449345"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>De oplossing voor externe controle integreren met Azure Data Lake Store
@@ -103,7 +103,7 @@ Maak een Azure Stream Analytics-taak voor het streamen van de gegevens van uw Io
 
 1. Selecteer het Data Lake Store-account dat u in de vorige stappen hebt gemaakt en geef mapstructuur om gegevens te streamen naar de store.
 
-1. Voer in het veld van de indeling datum **/streaming/ {date} / {time}**. Laat de standaarddatumnotatie jjjj/MM/DD- en tijdnotatie, uu.
+1. Voer in het veld van de indeling datum **/streaming/ {date} / {time}** . Laat de standaarddatumnotatie jjjj/MM/DD- en tijdnotatie, uu.
 
     ![Mapstructuur bieden](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
@@ -154,7 +154,7 @@ Azure Stream Analytics maakt gebruik van een SQL-achtige querytaal voor het opge
 
 1. Aangepaste tijd om een paar uur terug om op te halen gegevens uit wanneer het apparaat is gestart streaming instellen.
 
-1. Klik op **Start**.
+1. Klik op **Starten**.
 
     ![Aangepaste datum kiezen](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

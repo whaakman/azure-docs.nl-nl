@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477141"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Azure Storage gebruiken voor SQL Server-back-up en herstel
@@ -51,14 +51,14 @@ De volgende Azure-onderdelen worden gebruikt wanneer de back-up op de Azure Blob
 | --- | --- |
 | **Opslagaccount** |Het opslagaccount dat is het beginpunt voor alle storage-services. Voor toegang tot een Azure Blob Storage-service, moet u eerst een Azure Storage-account maken. Zie voor meer informatie over Azure Blob storage-service, [over het gebruik van de Azure Blob Storage-Service](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Container** |Een container kan is een groepering van een reeks blobs en een onbeperkt aantal Blobs. Voor het schrijven van een SQL-Server back-up naar een Azure Blob-service, u hebt ten minste het root-container gemaakt. |
-| **Blob** |Een bestand van willekeurig type en grootte. BLOBs kunnen worden opgevraagd met de volgende URL-indeling: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Zie voor meer informatie over pagina-Blobs, [inzicht in blok- en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |Een bestand van willekeurig type en grootte. BLOBs kunnen worden opgevraagd met de volgende URL-indeling: **https://[storage account].blob.core.windows.net/[container]/[blob]** . Zie voor meer informatie over pagina-Blobs, [inzicht in blok- en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server-onderdelen
 De volgende SQL Server-onderdelen worden gebruikt wanneer de back-up op de Azure Blob storage-service.
 
 | Onderdeel | Description |
 | --- | --- |
-| **URL** |De URL bevat een URI Uniform Resource Identifier () een unieke back-upbestand. De URL wordt gebruikt voor de locatie en naam van de back-upbestand van de SQL Server. De URL moet verwijzen naar een werkelijke blob, niet alleen een container. Als de blob niet bestaat, wordt dit gemaakt. Als een bestaande blob die is opgegeven, back-up mislukt, tenzij de > WITH FORMAT-optie is opgegeven. Hieronder volgt een voorbeeld van de URL die u in de back-up-opdracht opgeven wilt: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS wordt aanbevolen maar niet vereist. |
+| **URL** |De URL bevat een URI Uniform Resource Identifier () een unieke back-upbestand. De URL wordt gebruikt voor de locatie en naam van de back-upbestand van de SQL Server. De URL moet verwijzen naar een werkelijke blob, niet alleen een container. Als de blob niet bestaat, wordt dit gemaakt. Als een bestaande blob die is opgegeven, back-up mislukt, tenzij de > WITH FORMAT-optie is opgegeven. Hieronder volgt een voorbeeld van de URL die u in de back-up-opdracht opgeven wilt: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . HTTPS wordt aanbevolen maar niet vereist. |
 | **Referentie** |De informatie die is vereist voor het verbinding maken en verifiëren met Azure Blob storage-service wordt opgeslagen als een referentie.  In de volgorde voor SQL Server back-ups schrijven naar een Azure Blob of herstellen uit moet een SQL Server-referentie worden gemaakt. Zie voor meer informatie, [SQL Server-referentie](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14dcb5f5af971b10c83ea7fd9064a08cde3ab35
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1858b3e8d659d8810c54cab96566d03c24c92adf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111285"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory-codevoorbeelden (v1.0 eindpunt)
 
@@ -46,7 +46,7 @@ In dit voorbeeld laat zien hoe het schrijven van een toepassing één pagina die
 
  Platform | Een eigen API-aanroepen | Een andere Web-API-aanroepen
  -------- |  --------------------- | ------------------ 
-![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+![Javascript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## <a name="web-applications"></a>Webtoepassingen
@@ -88,7 +88,7 @@ Mobile (Android)           | ![Android / Java](media/sample-v2-code/logo_Android
 Mobile (iOS)           | ![iOS / Objective-C of swift.](media/sample-v2-code/logo_iOS.png) | Interactief |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
 Bureaublad (Console)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Gebruikersnaam / wachtwoord </p>  Geïntegreerde Windows-verificatie | | [DotNet native headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Bureaublad (Console)          | ![Java-console](media/sample-v2-code/logo_Java.png) | Gebruikersnaam / wachtwoord | | [Java native headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Bureaublad (Console)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Stroom voor apparaatcode | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Bureaublad (Console)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | De stroom van apparaat | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Daemon-toepassingen (toegang tot Web-API's met de identiteit van de toepassing)
 

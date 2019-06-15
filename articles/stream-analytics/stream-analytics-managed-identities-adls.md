@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148579"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten verifiëren
@@ -180,7 +180,7 @@ Deze functie biedt geen ondersteuning voor het volgende:
 
 1. **Toegang voor meerdere tenants**: De Service-principal gemaakt voor een bepaalde Stream Analytics-taak wordt opgeslagen op de Azure Active Directory-tenant waarvoor de taak is gemaakt en kan niet worden gebruikt voor een resource die zich op een andere Azure Active Directory-tenant bevinden. U kunt daarom alleen MSI gebruiken voor ADLS Gen 1-resources die zich binnen dezelfde Azure Active Directory-tenant als uw Azure Stream Analytics-taak. 
 
-2. **[Gebruiker toegewezen identiteit](../active-directory/managed-identities-azure-resources/overview.md)**: wordt niet ondersteund. Dit betekent dat de gebruiker is niet de eigen service-principal moet worden gebruikt door de Stream Analytics-taak invoeren. De service-principal wordt gegenereerd door Azure Stream Analytics.
+2. **[Gebruiker toegewezen identiteit](../active-directory/managed-identities-azure-resources/overview.md)** : wordt niet ondersteund. Dit betekent dat de gebruiker is niet de eigen service-principal moet worden gebruikt door de Stream Analytics-taak invoeren. De service-principal wordt gegenereerd door Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Volgende stappen
 

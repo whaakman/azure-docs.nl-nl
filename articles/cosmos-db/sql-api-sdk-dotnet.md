@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
 ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510725"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: Download en opmerkingen bij de release
@@ -212,7 +212,7 @@ ms.locfileid: "65510725"
 * Problemen aan te brengen SDK beter bestand is tegen automatische failover onder bepaalde omstandigheden.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Oplossing voor een probleem waardoor af en toe een WebException: Kan de externe naam niet omzetten.
+* Oplossing voor een probleem waardoor af en toe een WebException: De externe naam kan niet worden omgezet.
 * De ondersteuning voor het lezen van een getypte document rechtstreeks door toe te voegen nieuwe overloads naar ReadDocumentAsync API toegevoegd.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -373,7 +373,7 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 <br/>
 
-| Versie | Releasedatum | Vervaldatum |
+| Version | Releasedatum | Vervaldatum |
 | --- | --- | --- |
 | [2.4.0](#2.4.0) |05 mei 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |

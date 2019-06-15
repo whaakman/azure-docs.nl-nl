@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3ef5362c4d97b8d805212f9cf813c7bc9c8c18c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687237"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059440"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aangepaste Apache Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster
 
@@ -39,9 +39,6 @@ Voor **Linux gebaseerde clusters**: [https://hdiconfigactions.blob.core.windows.
 
 Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
-
 **Vereisten**
 
 * De scripts moeten worden toegepast op zowel de **hoofdknooppunten** en **Worker-knooppunten**.
@@ -50,7 +47,7 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
 * Het opslagaccount met de bibliotheek met jar-bestanden **moet** tijdens het maken worden gekoppeld aan het HDInsight-cluster. Dit moet het standaardopslagaccount of een account toegevoegd via __optionele configuratie__.
 
-* Het WASB-pad naar de container moet worden opgegeven als parameter voor de scriptactie. Bijvoorbeeld, als de JAR-bestanden worden opgeslagen in een container met de naam **bibliotheken** op een storage-account met de naam **mijnopslag**, zou de parameter **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
+* Het WASB-pad naar de container moet worden opgegeven als parameter voor de scriptactie. Bijvoorbeeld, als de JAR-bestanden worden opgeslagen in een container met de naam **bibliotheken** op een storage-account met de naam **mijnopslag**, zou de parameter **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/** .
 
   > [!NOTE]  
   > Dit document wordt ervan uitgegaan dat u hebt al een storage-account, blob-container gemaakt en de bestanden geüpload naar deze.
@@ -78,7 +75,7 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
    * **ZOOKEEPER**: Laat dit leeg.
 
-   * **PARAMETERS**: Voer het adres WASB naar de container en de opslag rekening met het JAR-bestanden. Bijvoorbeeld, **wasb://libs\@mystorage.blob.core.windows.net/**.
+   * **PARAMETERS**: Voer het adres WASB naar de container en de opslag rekening met het JAR-bestanden. Bijvoorbeeld, **wasb://libs\@mystorage.blob.core.windows.net/** .
 
 3. Aan de onderkant van de **scriptacties**, gebruikt u de **selecteren** om de configuratie op te slaan.
 

@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
 ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258937"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS vervulling API's versie 1 (afgeschaft)
@@ -56,7 +56,7 @@ Wanneer een gebruiker wordt omgeleid naar de website van een ISV, bevat de URL e
 
 |  **Parameternaam** |     **Beschrijving**                                      |
 |  ------------------ |     ---------------------------------------------------- |
-|  API-versie        |  De versie van de bewerking te gebruiken voor deze aanvraag.   |
+|  api-version        |  De versie van de bewerking te gebruiken voor deze aanvraag.   |
 |  |  |
 
 
@@ -67,7 +67,7 @@ Wanneer een gebruiker wordt omgeleid naar de website van een ISV, bevat de URL e
 | x-ms-requestid     | Nee           | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Dit veld overeenkomt met alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | inhoudstype       | Ja          | `application/json`                                        |
-| Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
+| authorization      | Ja          | De JSON web token (JWT) bearer-token.                    |
 | x-ms-marketplace-token| Ja| De token queryparameter in de URL in wanneer de gebruiker wordt omgeleid naar de website SaaS ISV's van Azure. **Opmerking:** Dit token is alleen geldig voor één uur. Bovendien decoderen URL van de token waarde vanuit de browser voordat u deze gebruikt.|
 |  |  |  |
   
@@ -126,7 +126,7 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Unieke ID van de SaaS-abonnement dat is verkregen na het oplossen van het token via API oplossen.                              |
-| API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
+| api-version         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
 *Headers*
@@ -137,7 +137,7 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 | x-ms-correlationid     |   Nee         | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als dit niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | If-Match/If-None-Match |   Nee         |   Validatie van sterke ETag-waarde.                                                          |
 | inhoudstype           |   Ja        |    `application/json`                                                                   |
-|  Autorisatie         |   Ja        |    De JSON web token (JWT) bearer-token.                                               |
+|  authorization         |   Ja        |    De JSON web token (JWT) bearer-token.                                               |
 | x-ms-marketplace-session-mode| Nee | De vlag om in te schakelen testmodus terwijl u zich abonneert op een SaaS-aanbod. Als is ingesteld, het abonnement wordt niet in rekening gebracht. Dit is handig voor ISV-scenario's te testen. Stel deze in op **'is een'**|
 |  |  |  |
 
@@ -191,7 +191,7 @@ Het eindpunt van de wijziging kan de gebruiker van een plan op dat moment geabon
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID van de SaaS-abonnement.                              |
-| API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
+| api-version         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
 *Headers*
@@ -202,7 +202,7 @@ Het eindpunt van de wijziging kan de gebruiker van een plan op dat moment geabon
 | x-ms-correlationid      | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als dit niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | If-None-Match /If-None-Match | Nee           | Validatie van sterke ETag-waarde.                              |
 | inhoudstype            | Ja          | `application/json`                                        |
-| Autorisatie           | Ja          | De JSON web token (JWT) bearer-token.                    |
+| authorization           | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  |
 
 *Hoofdtekst*
@@ -255,7 +255,7 @@ De Delete-bewerking op het eindpunt abonneren kan een gebruiker verwijderen van 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID van de SaaS-abonnement.                              |
-| API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
+| api-version         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
 *Headers*
@@ -264,7 +264,7 @@ De Delete-bewerking op het eindpunt abonneren kan een gebruiker verwijderen van 
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Nee           | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client. Het beste een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.                                                           |
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als dit niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-| Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
+| authorization      | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  |
 
 *Responscodes*
@@ -305,7 +305,7 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
 | operationId         | Unieke ID voor de bewerking die wordt geactiveerd.                |
-| API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
+| api-version         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
 *Headers*
@@ -314,7 +314,7 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Nee           | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client. Het beste een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.   |
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-| Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
+| authorization      | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  | 
 
 *De hoofdtekst van antwoord*
@@ -373,7 +373,7 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID van de SaaS-abonnement.                              |
-| API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
+| api-version         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
 *Headers*
@@ -382,7 +382,7 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Nee           | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.                                                           |
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-| Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                                                                    |
+| authorization      | Ja          | De JSON web token (JWT) bearer-token.                                                                    |
 |  |  |  |
 
 *De hoofdtekst van antwoord*
@@ -445,7 +445,7 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
-| API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
+| api-version         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
 *Headers*
@@ -454,7 +454,7 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Nee           | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client. Het beste een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.             |
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-| Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
+| authorization      | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  |
 
 *De hoofdtekst van antwoord*
@@ -529,7 +529,7 @@ Een SaaS-webhook wordt gebruikt voor het melden van wijzigingen proactief in de 
 | offerId                | String        | Aanbiedings-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.        |
 | publisherId                | String        | Uitgevers-ID van de SaaS-aanbieding         |
 | planId                 | String        | Plan-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.          |
-| Actie                 | String        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
+| action                 | String        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
 | timeStamp                 | String        | De waarde van de tijdstempel in UTC waarop deze melding is geactiveerd.          |
 |  |  |  |
 

@@ -9,10 +9,10 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254669"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Verbeter de beschikbaarheid van uw toepassing met Azure Advisor
@@ -30,7 +30,7 @@ U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset 
 
 U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset te groeperen, om uw toepassing van redundantie te voorzien. Advisor identificeert beschikbaarheidssets met een enkele virtuele machine en beveelt een of meer virtuele machines toe te voegen. Deze configuratie zorgt ervoor dat ten minste één virtuele machine tijdens een gepland of ongepland onderhoud, beschikbaar is en voldoet aan de virtuele machine van Azure SLA. U kunt kiezen om te maken van een virtuele machine of een bestaande virtuele machine toevoegen aan de beschikbaarheidsset.  
 
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Beheerde schijven gebruiken voor verbeterde betrouwbaarheid van gegevens
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Managed Disks gebruiken voor verbeterde betrouwbaarheid van gegevens
 
 Virtuele machines die zich in een beschikbaarheidsset met schijven die opslagaccounts of opslagschaaleenheden delen zijn niet ongevoelig voor één eenheid schalingsfouten tijdens onderbrekingen. Advisor worden geïdentificeerd deze beschikbaarheidssets, en het beste migreren naar Azure Managed Disks. Dit zorgt ervoor dat de schijven van de verschillende virtuele machines in de beschikbaarheidsset voldoende geïsoleerd zijn om te voorkomen dat een single point of failure. 
 
@@ -60,7 +60,7 @@ Als een Traffic Manager-profiel is geconfigureerd voor de geografische routering
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Voorlopig verwijderen gebruiken in uw Azure Storage-Account te bewaren en herstellen van gegevens na het per ongeluk overschrijven of verwijderen
 
-Schakel [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) op uw storage-account zodat de blobs overgang naar een voorlopig verwijderde status in plaats van definitief verwijderd verwijderd. Wanneer gegevens worden overschreven, wordt een voorlopig verwijderde momentopname is gegenereerd om op te slaan de status van de gegevens overschreven. Voorlopig verwijderen gebruiken, kunt u om te herstellen als er onbedoeld verwijderen of worden overschreven. Advisor identificeert Azure Storage-accounts waarvoor geen voorlopig verwijderen zijn ingeschakeld en stelt dat u dit inschakelen.
+Schakel [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) op uw storage-account zodat de blobs overgang naar een voorlopig verwijderde status in plaats van definitief verwijderd verwijderd. Als gegevens worden overschreven, wordt er een voorlopig verwijderde momentopname gegenereerd waarin de status van de overschreven gegevens wordt opgeslagen. Voorlopig verwijderen gebruiken, kunt u om te herstellen als er onbedoeld verwijderen of worden overschreven. Advisor identificeert Azure Storage-accounts waarvoor geen voorlopig verwijderen zijn ingeschakeld en stelt dat u dit inschakelen.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>De actief / actief VPN-gateway configureren voor verbindingstolerantie
 
@@ -72,25 +72,25 @@ Azure Advisor controleert alle VPN-gateways die zijn van een basis-SKU en kunt h
 
 ## <a name="repair-invalid-log-alert-rules"></a>Ongeldige logboekwaarschuwingsregels herstellen
 
-Azure Advisor detecteert waarschuwingsregels die ongeldige query's die zijn opgegeven in de sectie van de voorwaarde. Waarschuwingsregels worden gemaakt in Azure Monitor en worden gebruikt voor het analytics-query's uitvoeren met opgegeven tussenpozen. De resultaten van de query te bepalen of een waarschuwing moet worden geactiveerd. Analytics-query's mogelijk ongeldig overuren vanwege wijzigingen in waarnaar wordt verwezen, resources, -tabellen of opdrachten. Advisor wordt aanbevolen dat u de query in de waarschuwingsregel om te voorkomen dat het ophalen van automatisch uitgeschakeld en zorg ervoor dat controle dekking van uw resources in Azure oplossen. [Meer informatie over het oplossen van regels voor waarschuwingen](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor detecteert waarschuwingsregels die ongeldige query's die zijn opgegeven in de sectie van de voorwaarde. De logboekwaarschuwingsregels worden gemaakt in Azure Monitor en worden gebruikt om analytische query's met bepaalde intervallen uit te voeren. De resultaten van de query bepalen of er een waarschuwing moet worden gegeven. Analytics-query’s kunnen ongeldig worden als gevolg van wijzigingen in bronnen, tabellen of opdrachten waarnaar wordt verwezen. Advisor wordt aanbevolen dat u de query in de waarschuwingsregel om te voorkomen dat het ophalen van automatisch uitgeschakeld en zorg ervoor dat controle dekking van uw resources in Azure oplossen. [Meer informatie over het oplossen van regels voor waarschuwingen](https://aka.ms/aa_logalerts_queryrepair)
 
 ## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Consistente indexering modus op uw Cosmos DB-verzameling configureren
 
 Azure Cosmos DB-containers geconfigureerd met de vertraagde indexering modus mogelijk van invloed op de actualiteit van de resultaten van query. Advisor detecteert containers op deze manier geconfigureerd en kunt het beste overschakelen naar consistente modus. [Meer informatie over het beleid in Cosmos DB indexeren](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
 
-## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configureren van uw Azure Cosmos DB-containers met een partitiesleutel
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Uw Azure Cosmos DB-containers met een partitiesleutel configureren
 
 Azure Advisor identificeert Azure Cosmos DB niet-gepartitioneerde verzamelingen die hun quota ingerichte opslag nadert. Het wordt aangeraden deze verzamelingen migreren naar nieuwe verzamelingen met de definitie van een partitie, zodat ze kunnen automatisch worden uitgebreid door de service. [Meer informatie over het kiezen van een partitiesleutel](https://aka.ms/cosmosdb/choose-partitionkey)
 
-## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Uw Azure Cosmos DB .NET SDK upgraden naar de meest recente versie van Nuget
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Uw Azure Cosmos DB .NET SDK bijwerken naar de nieuwste versie van Nuget
 
 Azure Advisor identificeert Azure Cosmos DB-accounts die met een oude versie van de .NET SDK en aan te bevelen upgraden naar de nieuwste versie van Nuget voor de nieuwste oplossingen, verbeterde prestaties en nieuwe mogelijkheden. [Meer informatie over Cosmos DB .NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Upgrade van uw Azure Cosmos DB Java SDK naar de nieuwste versie van Maven
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Uw Azure Cosmos DB Java SDK bijwerken naar de nieuwste versie van Maven
 
 Azure Advisor identificeert Azure Cosmos DB-accounts die met een oude versie van de Java-SDK en aan te bevelen upgraden naar de meest recente versie van Maven voor de nieuwste oplossingen, verbeterde prestaties en nieuwe mogelijkheden. [Meer informatie over Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uw Azure Cosmos DB Spark-Connector een upgrade uitvoert naar de nieuwste versie van Maven
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uw Azure Cosmos DB Spark-connector bijwerken naar de nieuwste versie van Maven
 
 Azure Advisor identificeert Azure Cosmos DB-accounts die met een oude versie van de Cosmos DB Spark-connector en kunt het beste een upgrade naar de meest recente versie van Maven voor de nieuwste oplossingen, verbeterde prestaties en nieuwe mogelijkheden. [Meer informatie over Cosmos DB Spark-connector](https://aka.ms/cosmosdb/spark-connector)
 

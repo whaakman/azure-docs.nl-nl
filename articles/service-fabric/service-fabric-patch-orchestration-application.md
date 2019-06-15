@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951973"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
@@ -293,7 +293,7 @@ Hiermee maakt u de NodeAgentNTService [herstellen taken](https://docs.microsoft.
 
    Als er nog steeds meer vervolgens worden gevonden, meld u aan specifieke VM/virtuele machines voor meer informatie over het probleem met behulp van Windows-gebeurtenislogboeken. De hierboven genoemde hersteltaak kan alleen deze onderliggende executor-statussen hebben:
 
-      ExecutorSubState | Detail
+      ExecutorSubState | Details
     -- | -- 
       None=1 |  Geeft aan dat er is een bewerking uitgevoerd waarmee op het knooppunt niet. Mogelijke statusovergangen.
       DownloadCompleted=2 | Downloaden is voltooid met de bewerking is geslaagd, gedeeltelijke impliceert mislukt of fout.

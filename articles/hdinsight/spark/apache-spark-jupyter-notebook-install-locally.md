@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5e9cd4c2a14f94c39c7058f45bf727df8198c053
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 489685485af4e3c8868f7e0281d2f81464a166f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066179"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter-notebook op uw computer installeren en verbinden met Apache Spark in HDInsight
 
@@ -28,48 +28,69 @@ Er zijn vier belangrijke stappen die betrokken zijn bij het installeren van Jupy
 
 Zie voor meer informatie over de aangepaste kernels en de Spark-magic beschikbaar voor de Jupyter-notebooks met HDInsight-cluster [beschikbare Kernels voor Jupyter-notebooks met Apache Spark Linux-clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-> [!IMPORTANT]  
-> De stappen in het artikel werken alleen met Spark versie 2.1.0 omhoog.
-
 ## <a name="prerequisites"></a>Vereisten
+
 De vereisten die hier worden vermeld, zijn niet voor het installeren van Jupyter. Dit zijn voor de Jupyter-notebook verbinding met een HDInsight-cluster nadat het notitieblok is geïnstalleerd.
 
-* Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Een Apache Spark-cluster (versie 2.1.0 of lager) in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
-
-
+* Een Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Jupyter-notebook op uw computer installeren
 
-Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. Zowel Python als Jupyter zijn beschikbaar als onderdeel van de [Anaconda distributie](https://www.anaconda.com/download/). Als u Anaconda installeert, installeert u een Python-distributie. Wanneer Anaconda is geïnstalleerd, kunt u de Jupyter-installatie toevoegen door het uitvoeren van opdrachten.
+Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. De [Anaconda distributie](https://www.anaconda.com/download/) installeert, Python, en de Jupyter-Notebook.
 
-1. Download de [Anaconda installatieprogramma](https://www.anaconda.com/download/) voor uw platform en voer de installatie. Tijdens het uitvoeren van de wizard setup, zorg ervoor dat u selecteert de optie voor het Anaconda toevoegen aan de variabele PATH.
+Download de [Anaconda installatieprogramma](https://www.anaconda.com/download/) voor uw platform en voer de installatie. Tijdens het uitvoeren van de wizard setup, zorg ervoor dat u selecteert de optie voor het Anaconda toevoegen aan de variabele PATH.  Zie ook [installeren Jupyter met behulp van Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
-2. Voer de volgende opdracht voor het installeren van Jupyter.
+## <a name="install-spark-magic"></a>Spark Magic-pakket installeren
 
-        conda install jupyter
+1. Voer een van de onderstaande opdrachten voor het installeren van Spark-magic. Zie ook [sparkmagic documentatie](https://github.com/jupyter-incubator/sparkmagic#installation).
 
-    Zie voor meer informatie over het installeren van Jupyter [installeren Jupyter met behulp van Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
+    |Clusterversie | Installatieopdracht |
+    |---|---|
+    |V3.6 en v3.5 |`pip install sparkmagic==0.12.7`|
+    |v3.4|`pip install sparkmagic==0.2.3`|
 
-## <a name="install-the-kernels-and-spark-magic"></a>De kernels en Spark Magic-pakket installeren
+1. Zorg ervoor dat `ipywidgets` juist is geïnstalleerd met de volgende opdracht:
 
-Voor instructies over het installeren van de Spark-magic, volgt u de PySpark- en Spark-kernels, de installatie-instructies in de [sparkmagic documentatie](https://github.com/jupyter-incubator/sparkmagic#installation) op GitHub. De eerste stap in de documentatie van de Spark-magic, vraagt u Spark Magic-pakket te installeren. Deze eerste stap in de koppeling vervangen door de volgende opdrachten, afhankelijk van de versie van het HDInsight-cluster dat maakt u verbinding met. Volg daarna de resterende stappen in de documentatie van de Spark-magic. Als u installeren van de verschillende kernels wilt, voert u stap 3 in de sectie Spark magic-installatie-instructies.
+    ```cmd
+    jupyter nbextension enable --py --sys-prefix widgetsnbextension
+    ```
 
-* Voor clusters v3.5 en v3.6, installeert u sparkmagic 0.11.2 door uit te voeren `pip install sparkmagic==0.11.2`
+## <a name="install-pyspark-and-spark-kernels"></a>PySpark en Spark-kernels installeren
 
-* Voor clusters v3.4, installeert u sparkmagic 0.2.3 door uit te voeren `pip install sparkmagic==0.2.3`
+1. Identificeer waar de `sparkmagic` is geïnstalleerd met de volgende opdracht:
+
+    ```cmd
+    pip show sparkmagic
+    ```
+
+    Wijzig uw werkmap naar de locatie die is aangeduid met de bovenstaande opdracht.
+
+1. Geef een of meer van de onderstaande opdrachten voor het installeren van de gewenste kernel(s) van uw nieuwe werkmap:
+
+    |Kernel | Opdracht |
+    |---|---|
+    |Spark|`jupyter-kernelspec install sparkmagic/kernels/sparkkernel`|
+    |SparkR|`jupyter-kernelspec install sparkmagic/kernels/sparkrkernel`|
+    |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
+    |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
+
+1. Optioneel. Voer de onderstaande opdracht uit om de server-extensie:
+
+    ```cmd
+    jupyter serverextension enable --py sparkmagic
+    ```
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark magic verbinding maken met HDInsight Spark-cluster configureren
 
-In deze sectie configureert u de Spark-magic die u eerder hebt geïnstalleerd als u wilt verbinding maken met een Apache Spark-cluster moet u al hebt gemaakt in Azure HDInsight.
+In deze sectie configureert u de Spark-magic die u eerder hebt geïnstalleerd als u wilt verbinding maken met een Apache Spark-cluster.
 
 1. Start de Python-shell met de volgende opdracht uit:
 
-    ```
+    ```cmd
     python
     ```
 
-2. De Jupyter-configuratiegegevens worden meestal opgeslagen in de basismap van gebruikers. Voer de volgende opdracht om te identificeren van de basismap en het maken van een map met de naam **.sparkmagic**.  Kan het volledige pad wordt gegenereerd.
+2. De Jupyter-configuratiegegevens worden meestal opgeslagen in de basismap van gebruikers. Voer de volgende opdracht om te identificeren van de oorspronkelijke directory en maak een map genaamd **.sparkmagic**.  Kan het volledige pad wordt gegenereerd.
 
     ```python
     import os
@@ -100,14 +121,15 @@ In deze sectie configureert u de Spark-magic die u eerder hebt geïnstalleerd al
       "heartbeat_retry_seconds": 1
     }
     ```
+
 4. De volgende wijzigingen aanbrengen in het bestand:
 
     |Waarde van de sjabloon | Nieuwe waarde |
     |---|---|
-    |{USERNAME}|Aanmelding bij cluster, standaard is de beheerder.|
+    |{USERNAME}|Aanmelding bij het cluster, standaard is `admin`.|
     |{CLUSTERDNSNAME}|Clusternaam|
     |{BASE64ENCODEDPASSWORD}|Een met base64 gecodeerde wachtwoord voor uw huidige wachtwoord.  U kunt een base64-wachtwoord op genereren [ https://www.url-encode-decode.com/base64-encode-decode/ ](https://www.url-encode-decode.com/base64-encode-decode/).|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Behouden als `sparkmagic 0.11.23` (clusters v3.5 en v3.6).  Als u `sparkmagic 0.2.3` (clusters met v3.4) vervangen door `"should_heartbeat": true`.|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Behouden als `sparkmagic 0.12.7` (clusters v3.5 en v3.6).  Als u `sparkmagic 0.2.3` (clusters met v3.4) vervangen door `"should_heartbeat": true`.|
 
     Ziet u een volledig voorbeeld van het bestand tijdens [voorbeeld config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
@@ -116,7 +138,9 @@ In deze sectie configureert u de Spark-magic die u eerder hebt geïnstalleerd al
 
 5. Jupyter starten. Gebruik de volgende opdracht uit vanaf de opdrachtprompt.
 
-        jupyter notebook
+    ```cmd
+    jupyter notebook
+    ```
 
 6. Controleer of dat u de Spark-magic beschikbaar met de kernels kunt gebruiken. Voer de volgende stappen uit.
 
@@ -151,26 +175,8 @@ Er is een aantal redenen waarom u wilt mogelijk Jupyter op uw computer installer
 > [!WARNING]  
 > Jupyter op uw lokale computer is geïnstalleerd, kunnen meerdere gebruikers kunnen de dezelfde notebook op de dezelfde Spark-cluster uitvoeren op hetzelfde moment. In een dergelijke situatie worden meerdere Livy-sessies gemaakt. Als u een probleem ondervindt en daarop foutopsporing uitvoeren wilt, is dit een complexe taak om bij te houden welke Livy-sessie behoort tot welke gebruiker.  
 
-## <a name="seealso"></a>Zie ook
-* [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
+## <a name="next-steps"></a>Volgende stappen
 
-### <a name="scenarios"></a>Scenario's
+* [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 * [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
 * [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
-* [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Tools en uitbreidingen
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op te sporen Apache Spark-toepassingen op afstand](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
-* [Beschikbare kernels voor Jupyter-notebook in Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Externe pakketten gebruiken met Jupyter-notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
-
-### <a name="manage-resources"></a>Resources beheren
-* [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](apache-spark-resource-manager.md)
-* [Taken die worden uitgevoerd in een Apache Spark-cluster in HDInsight, traceren en er fouten in oplossen](apache-spark-job-debugging.md)

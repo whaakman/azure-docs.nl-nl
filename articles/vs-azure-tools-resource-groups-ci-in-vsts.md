@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019776"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continue integratie in Azure DevOps-Services met behulp van Azure Resource Group deployment projecten
@@ -79,10 +79,10 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
    5. Voeg de informatie over uw Azure-abonnement toe de **Azure-abonnement toevoegen** in het dialoogvenster. U moet opgeven van de volgende items:
       
       * Abonnements-id
-      * Abonnementsnaam
-      * Service-principal-id
+      * De naam van abonnement
+      * Service-Principal-Id
       * Service-Principal-sleutel
-      * Tenant-id
+      * Tenant-Id
    6. Toevoegen van een naam van uw keuze op de **abonnement** naamvak. Deze waarde wordt later in de **Azure-abonnement** vervolgkeuzelijst in Azure DevOps-Services. 
 
    7. Als u uw Azure-abonnement-ID niet weet, kunt u een van de volgende opdrachten te halen.
@@ -111,7 +111,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
    
    | Parameter | Description |
    | --- | --- |
-   | -ResourceGroupLocation |De waarde van de geo-locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'**. (Enkele aanhalingstekens toevoegen als er een ruimte in de naam). Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor meer informatie. |
+   | -ResourceGroupLocation |De waarde van de geo-locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'** . (Enkele aanhalingstekens toevoegen als er een ruimte in de naam). Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor meer informatie. |
    | -ResourceGroupName |De naam van de resourcegroep die is gebruikt voor deze implementatie. |
    | -UploadArtifacts |Deze parameter, indien aanwezig, geeft aan dat artefacten die moeten worden geüpload naar Azure uit het lokale systeem. U hoeft in te stellen deze switch als uw sjabloonimplementatie vereist extra artefacten die u wilt om te zetten met behulp van de PowerShell-script (zoals configuratiescripts of geneste sjablonen). |
    | -StorageAccountName |De naam van het opslagaccount dat wordt gebruikt voor de fase artefacten voor deze implementatie. Deze parameter wordt alleen gebruikt als u bij het Faseren van artefacten voor implementatie. Als deze parameter is opgegeven, wordt een nieuw opslagaccount gemaakt als het script niet tijdens een eerdere implementatie gemaakt is. Als de parameter is opgegeven, worden de storage-account moet al bestaan. |
@@ -172,8 +172,8 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
    * Actie - Selecteer **maken of bijwerken-resourcegroep**
    * Resourcegroep: Selecteer een resourcegroep of Voer de naam van een nieuwe resourcegroep voor de implementatie
    * Locatie: Selecteer de locatie voor de resourcegroep
-   * Sjabloon: Geef het pad en de naam van de sjabloon moet worden geïmplementeerd voorafgaand **$(Build.StagingDirectory)**, bijvoorbeeld: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
-   * Sjabloonparameters - Geef het pad en de naam van de parameters moet worden gebruikt: toevoeging **$(Build.StagingDirectory)**, bijvoorbeeld: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
+   * Sjabloon: Geef het pad en de naam van de sjabloon moet worden geïmplementeerd voorafgaand **$(Build.StagingDirectory)** , bijvoorbeeld: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
+   * Sjabloonparameters - Geef het pad en de naam van de parameters moet worden gebruikt: toevoeging **$(Build.StagingDirectory)** , bijvoorbeeld: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
    * Sjabloonparameters overschrijven - opgeven of kopieer en plak de volgende code:
      
      ```    

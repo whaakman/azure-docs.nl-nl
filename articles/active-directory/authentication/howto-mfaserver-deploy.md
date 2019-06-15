@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 15900758945fd5c97198caf47ff01fcfb5a6a794
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057401"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 
@@ -24,7 +24,10 @@ ms.locfileid: "65956572"
 
 ![Aan de slag met MFA-Server on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
 
-Nu u hebt vastgesteld dat on-premises Multi-Factor Authentication-server moet worden gebruikt, gaat u aan de slag. Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als u de MFA-server hebt geïnstalleerd en op zoek bent naar een upgrade, raadpleegt u [Upgraden naar de meest recente Azure Multi-Factor Authentication-server](howto-mfaserver-deploy-upgrade.md). Zie [De webservice voor de mobiele app van de Azure Multi-Factor Authentication-server implementeren](howto-mfaserver-deploy-mobileapp.md) voor meer informatie over het installeren van de webservice.
+Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als u de MFA-server hebt geïnstalleerd en op zoek bent naar een upgrade, raadpleegt u [Upgraden naar de meest recente Azure Multi-Factor Authentication-server](howto-mfaserver-deploy-upgrade.md). Zie [De webservice voor de mobiele app van de Azure Multi-Factor Authentication-server implementeren](howto-mfaserver-deploy-mobileapp.md) voor meer informatie over het installeren van de webservice.
+
+> [!IMPORTANT]
+> Vanaf 1 juli 2019, zal Microsoft MFA-Server niet meer bieden voor nieuwe implementaties. Nieuwe klanten die willen graag meervoudige verificatie van gebruikers vereisen moeten cloud-gebaseerde Azure multi-factor Authentication gebruiken. Bestaande klanten die vóór 1 juli MFA-Server hebben geactiveerd, worden kunnen de nieuwste versie downloaden door toekomstige updates en zoals gebruikelijk activeringsreferenties genereren.
 
 ## <a name="plan-your-deployment"></a>Uw implementatie plannen
 
@@ -38,10 +41,10 @@ Een goede richtlijn voor de hoeveelheid geheugen die u nodig hebt, is het aantal
 | Gebruikers | RAM |
 | ----- | --- |
 | 1-10.000 | 4 GB |
-| 10.001-50.000 | 8 GB |
-| 50.001-100.000 | 12 GB |
-| 100.000-200.001 | 16 GB |
-| 200.001+ | 32 GB |
+| 10\.001-50.000 | 8 GB |
+| 50\.001-100.000 | 12 GB |
+| 100\.000-200.001 | 16 GB |
+| 200\.001+ | 32 GB |
 
 Moet u meerdere servers voor hoge beschikbaarheid of taakverdeling instellen? Er zijn een aantal manieren voor het instellen van deze configuratie met Azure MFA-server. Wanneer u uw eerste Azure MFA-server installeert, wordt die uw master. Extra servers worden ondergeschikt en synchroniseren automatisch gebruikers en configuratie met de master. Vervolgens kunt u één primaire server configureren en de rest als back-up laten fungeren, of u kunt een taakverdeling tussen alle servers instellen.
 

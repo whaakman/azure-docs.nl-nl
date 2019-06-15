@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bd4899374c06246ddd4d5fa81d0f6e3a6a1e7017
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322281"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075009"
 ---
 # <a name="live-event-types-comparison"></a>Vergelijking van de typen Live gebeurtenis
 
@@ -26,9 +26,9 @@ In Azure Media Services, een [Live gebeurtenis](https://docs.microsoft.com/rest/
 
 ## <a name="types-comparison"></a>Typen vergelijking 
 
-De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurtenis.
+De volgende tabel vergelijkt de functies van de Live gebeurtenis typen.
 
-| Functie | Pass Through-Live-gebeurtenis | Standaard Live gebeurtenis |
+| Functie | Pass Through-Live-gebeurtenis | Standard of Premium1080p Live-gebeurtenis |
 | --- | --- | --- |
 | Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
 | Maximale beeldschermresolutie voor bijdrage feed |4K (4096 x 2160 op 60 frames per seconde) |1080p (1920 x 1088 op 30 frames per seconde)|
@@ -42,7 +42,8 @@ De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurten
 | Ondersteunde diepte van de video bits, invoer en uitvoer|Maximaal 10-bits inclusief Kopregel 10/HLG|8-bit|
 | Ondersteunde invoer audio-codecs|AAC-LC, hij AAC v1, v2 HE-AAC|AAC-LC, hij AAC v1, v2 HE-AAC|
 | Ondersteunde uitvoer audio-codecs|Hetzelfde als invoer|AAC-LC|
-| Maximale beeldschermresolutie van uitvoervideo|Hetzelfde als invoer|720p (op 30 frames per seconde)|
+| Maximale beeldschermresolutie van uitvoervideo|Hetzelfde als invoer|Standard - 720p, Premium1080p - 1080p|
+| Maximale framesnelheid van invoervideo|60 frames per seconde|Standard of Premium1080p - 30 frames per seconde|
 | Invoer-protocollen|RTMP, gefragmenteerde MP4 (Smooth Streaming)|RTMP, gefragmenteerde MP4 (Smooth Streaming)|
 | Prijs|Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad "Live Video"|Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad "Live Video"|
 | Maximale uitvoeringstijd| 24 uur x 365 dagen live lineaire | Maximaal 24 uur|
@@ -50,18 +51,18 @@ De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurten
 | Ondersteuning voor slates invoegen|Nee|Nee|
 | Ondersteuning voor ad via de API-signalering| Nee|Nee|
 | Ondersteuning voor ad-signalering via SCTE 35 in-band-berichten|Ja|Ja|
-| Mogelijkheid om te herstellen van korte vertragingen in bijdrage feed|Ja|Nee (Live gebeurtenis begint slating na 6 + seconden zonder invoergegevens)|
+| Mogelijkheid om te herstellen van korte vertragingen in bijdrage feed|Ja|Gedeeltelijke|
 | Ondersteuning voor niet-uniforme invoer GOPs|Ja|Nee – invoer GOP duur moet opgelost|
-| Ondersteuning voor variabele frame tarief invoer|Ja|Nee – moet dat invoer framesnelheid worden opgelost. Kleine variaties zijn toegestaan, bijvoorbeeld tijdens hoge beweging schermen. Maar de feed bijdrage kan de framesnelheid (bijvoorbeeld om 15 frames per seconde) niet verwijderen.|
+| Ondersteuning voor variabele frame tarief invoer|Ja|Nee – moet dat invoer framesnelheid worden opgelost. Kleine variaties zijn toegestaan, bijvoorbeeld tijdens hoge beweging schermen. Maar de feed bijdrage kan de framesnelheid niet verwijderen (bijvoorbeeld tot en met 15 frames per seconde).|
 | Automatisch-signalen van Live gebeurtenis als invoer-kanaal is verbroken|Nee|Na 12 uur, als er geen LiveOutput uitgevoerd|
 
 ## <a name="system-presets"></a>Systeemwaarden
 
-Bij gebruik van live codering (livegebeurtenis ingesteld op **Standard**), bepaalt de vooraf ingestelde codering hoe de binnenkomende stream in meerdere bitrates of lagen wordt gecodeerd. Op dit moment de enige toegestane waarde voor de vooraf ingestelde is *Default720p* (standaard).
+De oplossingen en bitrates die is opgenomen in de uitvoer van het live coderingsprogramma wordt bepaald door de [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Als een **Standard** live coderingsprogramma (LiveEventEncodingType.Standard), dan zal de *Default720p* vooraf ingestelde geeft een reeks van 6 resolutie/bits tarief paren die hieronder worden beschreven. Als u met behulp van een **Premium1080p** live coderingsprogramma (LiveEventEncodingType.Premium1080p), dan zal de *Default1080p* vooraf ingestelde specifiesthe uitvoer set paren van oplossing/bits-tarief. 
 
-**Default720p** wordt de video coderen in de volgende 6 lagen.
+### <a name="output-video-streams-for-default720p"></a>Video aan de uitvoerstromen voor Default720p
 
-### <a name="output-video-stream"></a>Uitvoer Video Stream
+**Default720p** wordt de invoervideo coderen in de volgende 6 lagen.
 
 | BitRate | Breedte | Hoogte | MaxFPS | Profiel | Naam van de uitvoer-Stream |
 | --- | --- | --- | --- | --- | --- |
@@ -73,11 +74,27 @@ Bij gebruik van live codering (livegebeurtenis ingesteld op **Standard**), bepaa
 | 200 |340 |192 |30 |Hoog |Video_340x192_200kbps |
 
 > [!NOTE]
-> Als u een aangepaste vooraf ingestelde waarde voor live codering wilt gebruiken, neemt u contact op met amshelp@microsoft.com. Geef de gewenste tabel met resoluties en bitrates op. Controleer of er slechts één laag is op 720 p, en maximaal zes lagen.
+> Als u nodig hebt om aan te passen van de live voorinstelling voor encoding, opent u een ondersteuningsticket via Azure Portal. Geef de gewenste tabel met resoluties en bitrates op. Controleer of er slechts één laag is op 720 p, en maximaal zes lagen. Ook moet u opgeven dat u hebt een vooraf ingestelde aangevraagd voor een live codering-standaard.
 
-### <a name="output-audio-stream"></a>Uitvoer Audio Stream
+### <a name="output-video-streams-for-default1080p"></a>Video aan de uitvoerstromen voor Default1080p
 
-Audio is naar stereo AAC-LC op 128 k, samplefrequentie van 48 kHz gecodeerd.
+**Default1080p** wordt de invoervideo coderen in de volgende 6 lagen.
+
+| BitRate | Breedte | Hoogte | MaxFPS | Profiel | Naam van de uitvoer-Stream |
+| --- | --- | --- | --- | --- | --- |
+| 5500 |1920 |1080 |30 |Hoog |Video_1920x1080_5500kbps |
+| 3000 |1280 |720 |30 |Hoog |Video_1280x720_3000kbps |
+| 1600 |960 |540 |30 |Hoog |Video_960x540_1600kbps |
+| 800 |640 |360 |30 |Hoog |Video_640x360_800kbps |
+| 400 |480 |270 |30 |Hoog |Video_480x270_400kbps |
+| 200 |320 |180 |30 |Hoog |Video_320x180_200kbps |
+
+> [!NOTE]
+> Als u nodig hebt om aan te passen van de live voorinstelling voor encoding, opent u een ondersteuningsticket via Azure Portal. Geef de gewenste tabel met resoluties en bitrates op. Controleer of er slechts één laag bij 1080p en maximaal 6 lagen. Ook moet u opgeven dat u een definitie voor een live coderingsprogramma Premium1080p aanvraagt.
+
+### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Uitvoer Audio Stream voor Default720p en Default1080p
+
+Voor beide *Default720p* en *Default1080p* presets, audio wordt gecodeerd naar stereo AAC-LC op 128 k frequentie van 48 kHz steekproeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

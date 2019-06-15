@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116207"
 ---
 # <a name="understand-azure-policy-effects"></a>Informatie over Azure Policy-effecten
@@ -88,7 +88,7 @@ Voorbeeld 2: Twee **veld/waarde** paren toe te voegen een set van labels.
 }
 ```
 
-Voorbeeld 3: Één **veld/waarde** worden gekoppeld met behulp van een niet -**[\*]** [alias](definition-structure.md#aliases) met een matrix **waarde** IP-regels instellen op een storage-account. Wanneer het niet -**[\*]** alias is een matrix, het effect voegt de **waarde** als de volledige matrix. Als de matrix al bestaat, treedt een gebeurtenis weigeren op van het conflict.
+Voorbeeld 3: Één **veld/waarde** worden gekoppeld met behulp van een niet - **[\*]** [alias](definition-structure.md#aliases) met een matrix **waarde** IP-regels instellen op een storage-account. Wanneer het niet - **[\*]** alias is een matrix, het effect voegt de **waarde** als de volledige matrix. Als de matrix al bestaat, treedt een gebeurtenis weigeren op van het conflict.
 
 ```json
 "then": {

@@ -17,10 +17,10 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160248"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
@@ -62,7 +62,7 @@ Als u wilt de best mogelijke ervaring bieden, zijn er minimaal vereiste versies 
 De Windows Guest-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensions een limiet voor de besturingssystemen die uitbreidingen heeft. Raadpleeg [dit artikel](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ) voor meer informatie.
 
-Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteund besturingssysteem'*. Raadpleeg de documentatie van de afzonderlijke-extensie voor ondersteuning.
+Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteund besturingssysteem'* . Raadpleeg de documentatie van de afzonderlijke-extensie voor ondersteuning.
 
 #### <a name="network-access"></a>Netwerktoegang
 
@@ -260,7 +260,7 @@ De Agents en -extensies delen de dezelfde updatemechanisme. Sommige updates vere
 Wanneer een update beschikbaar is, is deze alleen geïnstalleerd op de virtuele machine wanneer er een wijziging naar uitbreidingen en andere wijzigingen in het gegevensmodel van de virtuele machine, zoals:
 
 - Gegevensschijven
-- Uitbreidingen
+- Extensies
 - Boot diagnostics container
 - Gast-OS-geheimen
 - VM-grootte
@@ -291,7 +291,7 @@ Als u wilt controleren welke versie u gebruikt, Zie [opsporen Windows-Gastagent 
 
 #### <a name="extension-updates"></a>Extensie-updates
 
-Wanneer een extensie-update beschikbaar is, wordt de Windows Guest Agent downloadt en de extensie wordt bijgewerkt. Automatische verlenging updates zijn *kleine* of *Hotfix*. U kunt aanmelden of afmelden voor extensies *kleine* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch upgraden van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': ' True ','*:
+Wanneer een extensie-update beschikbaar is, wordt de Windows Guest Agent downloadt en de extensie wordt bijgewerkt. Automatische verlenging updates zijn *kleine* of *Hotfix*. U kunt aanmelden of afmelden voor extensies *kleine* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch upgraden van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': ' True ','* :
 
 ```json
     "properties": {
@@ -368,7 +368,7 @@ De volgende stappen voor probleemoplossing van toepassing op alle VM-extensies.
 
 ### <a name="view-extension-status"></a>Status van de extensie weergeven
 
-Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Extensiestatus moet worden geretourneerd. *Substatus [0]* laat zien dat de extensie wordt ingericht is voltooid, wat betekent dat deze succesvolle geïmplementeerd op de VM, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]*.
+Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Extensiestatus moet worden geretourneerd. *Substatus [0]* laat zien dat de extensie wordt ingericht is voltooid, wat betekent dat deze succesvolle geïmplementeerd op de VM, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]* .
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

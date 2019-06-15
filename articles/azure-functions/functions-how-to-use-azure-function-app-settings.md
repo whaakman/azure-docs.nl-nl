@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957386"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Over het beheren van een functie-app in Azure portal 
@@ -26,7 +26,7 @@ Als u wilt beginnen, gaat u naar de [Azure-portal](https://portal.azure.com) en 
 
 ![Overzicht van de functie-app in Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-U kunt navigeren naar alles wat u nodig hebt voor het beheren van uw functie-app in het bijzonder op de overzichtspagina de **[toepassingsinstellingen](#settings)** en **[platformfuncties](#platform-features)**.
+U kunt navigeren naar alles wat u nodig hebt voor het beheren van uw functie-app in het bijzonder op de overzichtspagina de **[toepassingsinstellingen](#settings)** en **[platformfuncties](#platform-features)** .
 
 ## <a name="settings"></a>Toepassingsinstellingen
 
@@ -42,7 +42,7 @@ Selecteer om een instelling toe **nieuwe toepassingsinstelling** en de nieuwe sl
 
 Wanneer u een functie-app lokaal ontwikkelt, worden deze waarden worden bijgehouden in het bestand local.settings.json project.
 
-## <a name="platform-features"></a>Platformfuncties
+## <a name="platform-features"></a>Functies van het platform
 
 ![Tabblad voor functie-app-platform-functies.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 

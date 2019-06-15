@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540965"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67122217"
 ---
 * Als u Azure SQL Database gebruikt, volgt u de stappen onder [verbinding maken met Azure SQL Database](#connect-azure-sql-db). 
 
@@ -49,7 +49,7 @@ ms.locfileid: "60540965"
    |----------|-------|---------| 
    | Verbindingsnaam | <*my-sql-connection*> | De naam voor de verbinding | 
    | SQL Server-naam | <*my-sql-server*> | De naam voor uw SQL-server |
-   | SQL-databasenaam | <*my-sql-database*>  | De naam voor uw SQL-database | 
+   | SQL Database Name | <*my-sql-database*>  | De naam voor uw SQL-database | 
    | Gebruikersnaam | <*my-sql-username*> | De naam van de gebruiker voor toegang tot uw database |
    | Wachtwoord | <*my-sql-password*> | Het wachtwoord voor toegang tot uw database | 
    |||| 
@@ -101,7 +101,7 @@ Voordat u uw gateway selecteren kunt, zorg ervoor dat u al [instellen van uw dat
    | Verbinding maken via on-premises gateway | Selecteer deze optie eerst voor SQL Server-instellingen. | | 
    | Verbindingsnaam | <*my-sql-connection*> | De naam voor de verbinding | 
    | SQL Server-naam | <*my-sql-server*> | De naam voor uw SQL-server |
-   | SQL-databasenaam | <*my-sql-database*>  | De naam voor uw SQL-database |
+   | SQL Database Name | <*my-sql-database*>  | De naam voor uw SQL-database |
    | Gebruikersnaam | <*my-sql-username*> | De naam van de gebruiker voor toegang tot uw database |
    | Wachtwoord | <*my-sql-password*> | Het wachtwoord voor toegang tot uw database | 
    | Authenticatietype | Windows- of Basic | Optioneel: Het verificatietype dat wordt gebruikt door uw SQL-server | 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: spelluru
 ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66307315"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Serverzijde geo-noodherstel in Azure Event Grid
@@ -26,7 +26,7 @@ Automatische failover van Event Grid heeft verschillende RPO's en RTO's voor uw 
 
 ## <a name="recovery-point-objective-rpo"></a>Recovery Point Objective (RPO)
 - **Metadata RPO**: nul minuten. Telkens wanneer een resource wordt gemaakt in Event Grid, wordt deze onmiddellijk gerepliceerd tussen regio's. Wanneer er een failover optreedt, is er geen metagegevens verloren gaan.
-- **Data RPO**: Als uw systeem in orde is en bijgewerkt op bestaande verkeer op het moment van regionale failover, het RPO voor gebeurtenissen is ongeveer 5 minuten.
+- **Data RPO**: Als de status van uw systeem goed is en bestaand verkeer op het moment van de regionale failover is opgevangen, is de RPO voor gebeurtenissen circa 5 minuten.
 
 ## <a name="recovery-time-objective-rto"></a>Beoogde hersteltijd (RTO)
 - **Metadata RTO**: Hoewel in het algemeen het veel sneller, binnen 60 minuten gebeurt begint Event Grid te accepteert de aanroepen maken/bijwerken/verwijderen van onderwerpen en abonnementen.

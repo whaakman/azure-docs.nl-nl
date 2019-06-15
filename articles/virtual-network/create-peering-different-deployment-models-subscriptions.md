@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud;anavin
 ms.openlocfilehash: 2cdf136a01678f7fb2e594b325cd78e8e0240c70
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683407"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel-netwerkpeering - verschillende implementatiemodellen en -abonnementen
@@ -28,7 +28,7 @@ De stappen voor het maken van een virtueel netwerk-peering zijn verschillend, af
 |Azure-implementatiemodel  | Azure-abonnement  |
 |--------- |---------|
 |[Beide in Resource Manager](tutorial-connect-virtual-networks-portal.md) |Dezelfde|
-|[Beide in Resource Manager](create-peering-different-subscriptions.md) |Verschil|
+|[Beide in Resource Manager](create-peering-different-subscriptions.md) |Verschillende|
 |[Een Resource Manager, één klassiek](create-peering-different-deployment-models.md) |Dezelfde|
 
 Peering op virtueel netwerk kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. In deze zelfstudie maakt gebruik van virtuele netwerken die bestaan in dezelfde regio. Virtuele netwerken in dezelfde regio van deze zelfstudie collega's. U kunt ook virtuele netwerken in verschillende koppelen [ondersteunde regio's](virtual-network-manage-peering.md#cross-region). Het wordt aanbevolen dat u bekend zijn met de [peering vereisten en beperkingen](virtual-network-manage-peering.md#requirements-and-constraints) voor peering van virtuele netwerken.

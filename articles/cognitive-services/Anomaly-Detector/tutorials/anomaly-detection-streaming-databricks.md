@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080792"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Zelfstudie: Detectie van afwijkingen in streaming-gegevens met behulp van Azure Databricks
 
@@ -74,7 +74,7 @@ In deze sectie maakt u een Azure Databricks-werkruimte met de [Azure-portal](htt
     |**Werkruimtenaam**     | Geef een naam op voor uw Databricks-werkruimte.        |
     |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
     |**Resourcegroep**     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) voor meer informatie. |
-    |**Locatie**     | Selecteer **VS-Oost 2** of een van de andere beschikbare regio's. Zie [producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor beschikbaarheid in regio's.        |
+    |**Location**     | Selecteer **VS-Oost 2** of een van de andere beschikbare regio's. Zie [producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor beschikbaarheid in regio's.        |
     |**Prijscategorie**     |  U kunt kiezen tussen **Standard** en **Premium**. Kies niet **proefversie**. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.       |
 
     Selecteer **Maken**.
@@ -670,22 +670,22 @@ Resultaat zoals hieronder:
 +--------------------+-------+
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
+```
 
+Dat is alles. Met behulp van Azure Databricks hebt u gegevens gestreamd naar Azure Event Hubs, de streaming-gegevens met behulp van de Event Hubs-connector gebruikt en voer de detectie van afwijkingen voor streaming-gegevens in bijna realtime.
+Hoewel in deze zelfstudie de granulatie per uur is, kunt u altijd de granulatie om te voldoen aan uw behoeften te wijzigen. 
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
-Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
+## <a name="clean-up-resources"></a>Resources opschonen
 
-## Clean up resources
+Nadat u de zelfstudie hebt voltooid, kunt u het cluster beëindigen. Om dit te doen, in de Azure Databricks-werkruimte, selecteert u **Clusters** in het linkerdeelvenster. Voor het cluster dat u wilt beëindigen, plaatst u de cursor op het weglatingsteken onder **acties** kolom en selecteert u de **beëindigen** pictogram en selecteer vervolgens **bevestigen**.
 
-After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
+![Een Databricks-cluster stopzetten](../media/tutorials/terminate-databricks-cluster.png "Een Databricks-cluster stopzetten")
 
-![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
+Als u niet handmatig het cluster automatisch stopt beëindigt, die u hebt geselecteerd de **beëindigen na \_ \_ minuten van inactiviteit** selectievakje tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
 
-If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+## <a name="next-steps"></a>Volgende stappen
 
-## Next steps
-
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
+In deze zelfstudie hebt u geleerd hoe u Azure Databricks kunt gebruiken om gegevens naar Azure Event Hubs te streamen, waarna u de streaming-gegevens vanuit Event Hubs in realtime hebt gelezen. Ga naar de volgende zelfstudie voor meer informatie over het aanroepen van de detectie van afwijkingen API en afwijkingen met behulp van Power BI desktop te visualiseren. 
 
 > [!div class="nextstepaction"]
->[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)
+>[Batch-afwijkingsdetectie met Power BI desktop](batch-anomaly-detection-powerbi.md)

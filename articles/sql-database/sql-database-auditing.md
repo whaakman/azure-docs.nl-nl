@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827774"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
@@ -207,7 +207,7 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 3. Ga terug naar de configuratiepagina van controle, schakelen de toegangssleutel voor opslag van de secundaire naar primaire en klik vervolgens op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de configuratiepagina van de controle.
 4. Ga terug naar de configuratiepagina van de opslag en genereer de secundaire toegangssleutel (ter voorbereiding op de volgende sleutel vernieuwingscyclus) opnieuw.
 
-## <a name="additional-information"></a>Aanvullende gegevens
+## <a name="additional-information"></a>Aanvullende informatie
 
 - Voor meer informatie over het logboek-indeling, hiërarchie van de map storage en naamconventies, Zie de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -231,7 +231,7 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 
 ## <a id="subheading-7"></a>SQL database auditing met behulp van Azure PowerShell beheren
 
-**PowerShell-cmdlets (met inbegrip van WHERE-component ondersteuning voor het filteren van aanvullende)**:
+**PowerShell-cmdlets (met inbegrip van WHERE-component ondersteuning voor het filteren van aanvullende)** :
 
 - [Maken of bijwerken van de Database controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Maken of bijwerken van controlebeleid van Server (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)

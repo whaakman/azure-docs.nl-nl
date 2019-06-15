@@ -4,16 +4,15 @@ description: In deze snelstart wordt getoond hoe u aan de slag kunt door een Str
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 12/20/2018
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303004"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076209"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Quickstart: Een Stream Analytics-taak maken met behulp van de Azure Stream Analytics-tools voor Visual Studio
 
@@ -113,7 +112,7 @@ Let op de elementen die zijn opgenomen in een Azure Stream Analytics-project.
    |---------|---------|---------|
    |Invoeralias  |  Invoer   |  Voer een unieke naam in voor de invoer van de taak.   |
    |Brontype   |  Gegevensstroom |  Kies de juiste invoerbron: Gegevensstroom of Verwijzingsgegevens.   |
-   |Source  |  IoT Hub |  Kies de juiste invoerbron.   |
+   |source  |  IoT Hub |  Kies de juiste invoerbron.   |
    |Resource  | Kies gegevensbron van het huidige account | Kies ervoor om gegevens handmatig in te voeren of selecteer een bestaand account.   |
    |Abonnement  |  \<Uw abonnement\>   | Selecteer het Azure-abonnement met de IoT-hub die u hebt gemaakt.   |
    |IoT Hub  |  MyASAIoTHub   |  Kies uw IoT-hub, of voer de naam ervan in. Namen van IoT-hubs worden automatisch gedetecteerd als ze worden gemaakt in hetzelfde abonnement.   |

@@ -3,18 +3,18 @@ title: Installeren en uitvoeren van containers - Anomaliedetectie detector
 titleSuffix: Azure Cognitive Services
 description: Gebruik geavanceerde algoritmen afwijkingen Detector-API's om te identificeren van afwijkingen in uw time series-gegevens.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: aahi
-ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 0369e27e7a260c50fc4de690dd3261421356799a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306985"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073332"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installeren en uitvoeren van containers voor de detectie van afwijkingen
 
@@ -169,7 +169,7 @@ Gebruikmaken van de host https://localhost:5000, voor de container met API's.
 
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](anomaly-detector-container-configuration.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 De detectie van afwijkingen containers verzenden factuurgegevens naar Azure, met behulp van een _Anomaliedetectie Detector_ resource voor uw Azure-account. 
 

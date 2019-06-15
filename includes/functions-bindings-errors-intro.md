@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132467"
 ---
 Azure Functions [triggers en bindingen](../articles/azure-functions/functions-triggers-bindings.md) communiceren met verschillende Azure-services. Bij het integreren met deze services, er fouten gegenereerd die afkomstig van de API's van de onderliggende Azure-services zijn. Fouten kunnen ook optreden wanneer u probeert te communiceren met andere services van uw functiecode aan te geven met behulp van REST of clientbibliotheken. Als u wilt voorkomen dat gegevens en ervoor te zorgen goede werking van uw functies, is het belangrijk voor het afhandelen van fouten van de bron.

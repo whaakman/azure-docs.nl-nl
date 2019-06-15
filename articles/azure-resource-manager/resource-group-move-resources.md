@@ -4,14 +4,14 @@ description: Azure Resource Manager gebruiken voor resources verplaatsen naar ee
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083529"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -88,7 +88,6 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Logic Apps
 * Machine Learning - Machine Learning Studio-webservices kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet een ander abonnement. Andere Machine Learning-resources kunnen worden uitgewisseld tussen abonnementen.
 * Managed Disks: beheerde schijven in Beschikbaarheidszones kunnen niet worden verplaatst naar een ander abonnement
-* Beheerde identiteit - gebruiker toegewezen
 * Media Services
 * Monitor - Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#monitor-limits)
 * Notification Hubs
@@ -141,6 +140,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * ExpressRoute
 * Lab-Services - Leslokaallabs kunnen niet worden verplaatst naar een nieuwe resourcegroep of abonnement. DevTest Labs kunnen worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
 * Managed Applications
+* Beheerde identiteit - gebruiker toegewezen
 * Microsoft Genomics
 * Beveiliging
 * Site Recovery

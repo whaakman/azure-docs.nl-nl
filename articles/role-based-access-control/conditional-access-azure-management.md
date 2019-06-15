@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ee58835a5055f5382cefa3a049424ffe97a01c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709256"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122947"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Toegang tot Azure-beheer met voorwaardelijke toegang beheren
 
 Voorwaardelijke toegang in Azure Active Directory (Azure AD) beheert de toegang voor cloud-apps op basis van specifieke voorwaarden die u opgeeft. Voor toegang, u het beleid voor voorwaardelijke toegang die toegang op basis van of de vereisten in het beleid wordt voldaan toestaan of blokkeren. 
 
-Meestal gebruikt u voorwaardelijke toegang om toegang te beheren voor uw cloud-apps. U kunt ook beleidsregels instellen voor het beheren van toegang tot Azure-beheer op basis van bepaalde voorwaarden (zoals aanmeldingsrisico, locatie of een apparaat) en om af te dwingen vereisten zoals multi-factor authentication.
+Normaal gesproken gebruikt u voorwaardelijke toegang voor toegang tot uw cloud-apps beheren. U kunt ook beleidsregels instellen voor het beheren van toegang tot Azure-beheer op basis van bepaalde voorwaarden (zoals aanmeldingsrisico, locatie of een apparaat) en om af te dwingen vereisten zoals multi-factor authentication.
 
 Voor het maken van een beleid voor het beheer van Azure die u selecteert **Microsoft Azure Management** onder **Cloud-apps** bij het kiezen van de app in waarvoor het beleid wordt toegepast.
 

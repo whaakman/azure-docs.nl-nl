@@ -12,10 +12,10 @@ ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573764"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
@@ -291,7 +291,7 @@ De vraag hier is: "Wat is de kans dat een asset niet wordt in de volgende _nZ_ t
 
 ![Afbeelding 5. Fout tijd voorspelling labels voor multiklassen classificatie](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) afbeelding 5. Labels voor classificatie ROC voor fout tijd voorspelling
 
-De vraag hier is: "Wat is de kans dat de asset niet wordt in de volgende X-tijdseenheid vanwege hoofdmap oorzaak/probleem _P<sub>ik</sub>_?" waar _ik_ is het aantal mogelijke oorzaken. Beantwoord deze vraag, label X records vóór de fout van een asset als ' over mislukken vanwege hoofdoorzaak _P<sub>ik</sub>_' (label = _P<sub>ik</sub>_). Label alle records als zijnde "normale" (label = 0). In deze methode zijn labels ook categorische (Zie afbeelding 6).
+De vraag hier is: "Wat is de kans dat de asset niet wordt in de volgende X-tijdseenheid vanwege hoofdmap oorzaak/probleem _P<sub>ik</sub>_ ?" waar _ik_ is het aantal mogelijke oorzaken. Beantwoord deze vraag, label X records vóór de fout van een asset als ' over mislukken vanwege hoofdoorzaak _P<sub>ik</sub>_ ' (label = _P<sub>ik</sub>_ ). Label alle records als zijnde "normale" (label = 0). In deze methode zijn labels ook categorische (Zie afbeelding 6).
 
 ![Afbeelding 6. Hoofdoorzaak voorspelling labels voor multiklassen classificatie](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) afbeelding 6. Labels voor classificatie ROC voor hoofdmap oorzaak voorspelling
 

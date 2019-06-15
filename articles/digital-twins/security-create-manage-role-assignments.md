@@ -10,10 +10,10 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66162130"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Maken en beheren van roltoewijzingen in Azure, digitale dubbels
@@ -44,7 +44,7 @@ De onderstaande tabel wordt elk kenmerk beschreven:
 | roleId | Rol-id | Ja | String | De unieke ID van de gewenste roltoewijzing. Definities van gebruikersrollen en hun-id vinden door de systeem-API uitvoeren van query's of controleren van de onderstaande tabel. |
 | object-id | Object-id | Ja | String | Een Azure Active Directory-ID, service-principal-object-ID of domeinnaam. Wat of wie de toewijzing van rol is toegewezen aan. De roltoewijzing moet zijn geformatteerd volgens het bijbehorende type. Voor de `DomainName` objectIdType, object-id moet beginnen met de `“@”` teken. |
 | objectIdType | Object-id-type | Ja | String | Het soort Object-id die wordt gebruikt. Zie **ObjectIdTypes ondersteund** hieronder. |
-| path | Pad van de ruimte | Ja | String | De volledige toegang tot het pad naar de `Space` object. Een voorbeeld is `/{Guid}/{Guid}`. Als een id de roltoewijzing voor de hele grafiek moet, geef `"/"`. Dit teken wordt aangegeven dat de hoofdmap, maar het gebruik ervan wordt afgeraden. Voer altijd het principe van minimale bevoegdheden. |
+| pad | Pad van de ruimte | Ja | String | De volledige toegang tot het pad naar de `Space` object. Een voorbeeld is `/{Guid}/{Guid}`. Als een id de roltoewijzing voor de hele grafiek moet, geef `"/"`. Dit teken wordt aangegeven dat de hoofdmap, maar het gebruik ervan wordt afgeraden. Voer altijd het principe van minimale bevoegdheden. |
 | tenantId | Tenant-id | Varieert | String | In de meeste gevallen een Azure Active Directory-tenant-id. Niet toegestaan voor `DeviceId` en `TenantId` ObjectIdTypes. Vereist voor `UserId` en `ServicePrincipalId` ObjectIdTypes. Dit is optioneel voor de domeinnaam ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Ondersteunde rol definitie-id 's

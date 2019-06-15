@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235357"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Woordenlijst voor Microsoft identity-platform-ontwikkelaars
@@ -54,7 +54,7 @@ Wanneer u registreren/update een toepassing in de [Azure-portal][AZURE-portal], 
 
 Zie voor meer informatie, [toepassing en Service-Principal-objecten][AAD-App-SP-Objects].
 
-## <a name="application-registration"></a>Toepassing registreren
+## <a name="application-registration"></a>toepassingsregistratie
 
 Als u wilt toestaan dat een toepassing integreren met en het delegeren van identiteits- en toegangsbeheer voor Azure AD-functies, moet deze worden geregistreerd met een Azure AD [tenant](#tenant). Wanneer u uw toepassing bij Azure AD registreren, zijn u de configuratie van een identiteit bieden voor uw toepassing, zodat het kan integreren met Azure AD en functies gebruiken zoals is:
 
@@ -64,11 +64,11 @@ Als u wilt toestaan dat een toepassing integreren met en het delegeren van ident
 
 Zie [toepassingen integreren met Azure Active Directory] [ AAD-Integrating-Apps] voor meer informatie.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>verificatie
 
 De handeling van een partij voor legitieme referenties, die de basis voor het maken van een beveiligingsprincipal moet worden gebruikt voor identiteits- en toegangsbeheer lastig. Tijdens een [autorisatie voor oauth2](#authorization-grant) bijvoorbeeld de partij die verificatie van de rol van een van beide raakt [resource-eigenaar](#resource-owner) of [clienttoepassing](#client-application), afhankelijk van de Verleen gebruikt.
 
-## <a name="authorization"></a>Autorisatie
+## <a name="authorization"></a>authorization
 
 De handeling van een geverifieerde security principal machtiging verlenen aan iets doen. Er zijn twee primaire gebruiksscenario's in het Azure AD-programmeermodel:
 
@@ -156,7 +156,7 @@ Een resource-server API's en dwingt de toegang tot de beveiligde bronnen via af 
 
 Net als een clienttoepassing configuratie van de identiteit van de resourcetoepassing wordt tot stand gebracht [registratie](#application-registration) bieden zowel de toepassing en service-principal-object in een Azure AD-tenant. Sommige Microsoft geleverde API's, zoals de Azure AD Graph-API hebt beschikbaar gesteld in alle tenants tijdens het inrichten van service-principals vooraf geregistreerd.
 
-## <a name="roles"></a>rolls
+## <a name="roles"></a>roles
 
 Zoals [scopes](#scopes), rollen bieden een manier om een [bronserver](#resource-server) om te bepalen van de toegang tot de beveiligde bronnen. Er zijn twee typen: een rol 'gebruiker' wordt geïmplementeerd op rollen gebaseerd toegangsbeheer voor gebruikers/groepen waarvoor toegang tot de resource, terwijl een rol 'application' wordt geïmplementeerd voor dezelfde [clienttoepassingen](#client-application) die toegang nodig hebben.
 

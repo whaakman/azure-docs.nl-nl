@@ -17,10 +17,10 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 18d10afc9132c81c2dcfbb1aa17ded81a21336ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780035"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-ondersteuning voor Azure App Service on Linux
@@ -51,7 +51,7 @@ Met behulp van TCP tunneling u kunt een netwerkverbinding tussen uw ontwikkelcom
 
 Als u wilt beginnen, moet u installeren [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Als u wilt zien hoe dit werkt zonder de Azure CLI installeren, opent u [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Open een externe verbinding met uw app met de [az webapp extern verbinding maken](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) opdracht. Geef  _\<abonnement-id >_,  _\<group-name >_ en \_< app-naam > _ voor uw app.
+Open een externe verbinding met uw app met de [az webapp extern verbinding maken](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) opdracht. Geef  _\<abonnement-id >_ ,  _\<group-name >_ en \_< app-naam > _ voor uw app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

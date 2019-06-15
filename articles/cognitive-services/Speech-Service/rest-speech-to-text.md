@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072515"
 ---
 # <a name="speech-to-text-rest-api"></a>Spraak-naar-tekst REST-API
 
@@ -164,7 +164,7 @@ De `RecognitionStatus` veld bevat deze waarden mogelijk:
 > [!NOTE]
 > Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd.
 
-De `detailed` indeling bevat dezelfde gegevens als de `simple` opmaken, samen met `NBest`, een lijst met alternatieve interpretatie van het herkenningsresultaat dezelfde. Deze resultaten worden geclassificeerd van meest waarschijnlijke te minste waarschijnlijk de eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat.  Wanneer u de `detailed` indeling `DisplayText` wordt geleverd als `Display` voor elk resultaat in de `NBest` lijst.
+De `detailed` indeling bevat dezelfde gegevens als de `simple` opmaken, samen met `NBest`, een lijst met alternatieve interpretatie van het herkenningsresultaat dezelfde. Deze resultaten worden geclassificeerd van meest waarschijnlijke naar ontwerpkenmerken. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat.  Wanneer u de `detailed` indeling `DisplayText` wordt geleverd als `Display` voor elk resultaat in de `NBest` lijst.
 
 Elk object in de `NBest` lijst bevat:
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Python en REST-API's - Azure Search"
 description: Maken, laden en query uitvoeren in een index met behulp van Python, Jupyter-Notebooks en de Azure Search REST-API.
-ms.date: 05/23/2019
+ms.date: 06/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056623"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Quickstart: Maken van een Azure Search-index met behulp van Python voor Jupyter notebooks
 > [!div class="op_single_selector"]
@@ -88,22 +88,19 @@ In deze taak een Jupyter-notebook start en controleer of dat u verbinding met Az
 
    Een verzameling leeg index wordt daarentegen dit antwoord geretourneerd: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
-> [!Tip]
-> Op een gratis service bent u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen. In deze quickstart maakt u één van elk. Zorg ervoor dat er voldoende ruimte is het maken van nieuwe objecten voordat u doorgaat een.
-
 ## <a name="1---create-an-index"></a>1 - Een index maken
 
 Tenzij u de portal, wordt een index moet bestaan op de service voordat u gegevens kunt laden. Deze stap maakt gebruik van de [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index) een indexschema naar de service te pushen.
 
 Vereiste elementen van een index bevatten een naam, een verzameling van velden en een sleutel. De Veldenverzameling definieert u de structuur van een *document*. Elk veld heeft een naam, type en kenmerken die bepalen hoe het veld wordt gebruikt (bijvoorbeeld, of het volledige-tekstindex is kan worden doorzocht, gefilterd of worden opgehaald in de zoekresultaten). In een index, een van de velden van het type `Edm.String` moet worden aangemerkt als de *sleutel* voor de id van het document.
 
-Deze index met de naam "hotels-py" en heeft de velddefinities u hieronder ziet. Dit is een subset van een grotere [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) gebruikt in andere scenario's. We stelling in deze Quick Start voor kort te houden.
+Deze index met de naam "hotels-quickstart" en heeft de velddefinities u hieronder ziet. Dit is een subset van een grotere [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) gebruikt in andere scenario's. We stelling in deze Quick Start voor kort te houden.
 
 1. Plak het volgende voorbeeld in een cel voor het schema in de volgende cel. 
 
     ```python
     index_schema = {
-       "name": "hotels-py",  
+       "name": "hotels-quickstart",  
        "fields": [
          {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
          {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
@@ -236,10 +233,10 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
     }
     ```   
 
-2. In een andere cel formuleren van de aanvraag. Deze POST-aanvraag is gericht op de docs-verzameling van de index hotels py en duwt de documenten die zijn opgegeven in de vorige stap.
+2. In een andere cel formuleren van de aanvraag. Deze POST-aanvraag is gericht op de docs-verzameling van de index hotels-quickstart en duwt de documenten die zijn opgegeven in de vorige stap.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
    response  = requests.post(url, headers=headers, json=documents)
    index_content = response.json()
    pprint(index_content)
@@ -253,56 +250,63 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
 
 In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Search-documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
+1. In een cel, Geef een queryexpressie die een lege zoekopdracht wordt uitgevoerd (search = *), retourneert een lijst met geen positie (zoeken naar score = 1,0) van willekeurige documenten. Standaard retourneert Azure Search de 50 overeenkomsten op een tijdstip. Deze query retourneert als gestructureerde, de structuur van een hele document en waarden. Toevoegen van $count = true voor een telling van alle documenten in de resultaten.
 
-1. Geef een query-expressie in een nieuwe cel. Het volgende voorbeeld wordt gezocht in de termen "hotels" en 'Wi-Fi'. Retourneert ook een *aantal* van documenten die overeenkomen met, en *selecteert* welke velden u wilt opnemen in de lijst met zoekresultaten.
+   ```python
+   searchstring = '&search=*&$count=true'
+   ```
+
+1. Geef in het volgende voorbeeld om te zoeken op de termen "hotels" en "Wi-Fi" in een nieuwe cel. Voeg $select om op te geven welke velden u wilt opnemen in de lijst met zoekresultaten.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Formuleer een aanvraag in een andere cel. Deze GET-aanvraag is gericht op de docs-verzameling van de index hotels py, en koppelt u de query die u hebt opgegeven in de vorige stap.
+1. Formuleer een aanvraag in een andere cel. Deze GET-aanvraag is gericht op de docs-verzameling van de index hotels-quickstart, en koppelt u de query die u hebt opgegeven in de vorige stap.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-3. Elke stap uitvoeren. Resultaten zijn vergelijkbaar zijn met de volgende uitvoer. 
+1. Elke stap uitvoeren. Resultaten zijn vergelijkbaar zijn met de volgende uitvoer. 
 
     ![Een index doorzoeken](media/search-get-started-python/search-index.png "een index doorzoeken")
 
-4. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt de zoekreeks vervangen door de volgende voorbeelden en voer de zoekaanvraag. 
+1. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt de zoekreeks vervangen door de volgende voorbeelden en voer de zoekaanvraag. 
 
    Een filter toepassen: 
 
    ```python
-   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
    De twee bovenste resultaten nemen:
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
     Sorteren op een bepaald veld:
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
 ## <a name="clean-up"></a>Opruimen 
 
-Als u deze niet meer nodig hebt, moet u de index verwijderen. Er is een gratis service beperkt tot drie indexen. Het is raadzaam om te verwijderen van alle indexen die u niet actief gebruikt om ruimte voor andere zelfstudies te maken.
+Als u deze niet meer nodig hebt, moet u de index verwijderen. Er is een gratis service beperkt tot drie indexen. Geen indexen die u niet actief gebruikt om ruimte voor andere zelfstudies te maken, moet u verwijderen.
+
+De eenvoudigste manier om objecten te verwijderen is via de portal, maar omdat dit een Python-quickstart, de volgende syntaxis levert hetzelfde resultaat:
 
    ```python
-  url = endpoint + "indexes/hotels-py" + api_version
+  url = endpoint + "indexes/hotels-quickstart" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-Index verwijderen kunt u controleren door te retourneren van een lijst met bestaande indexen. Als hotels py verdwenen is, weet u uw aanvraag is voltooid.
+Index verwijderen kunt u controleren door aan te vragen van een lijst met bestaande indexen. Als hotels-quickstart verdwenen is, weet u uw aanvraag is voltooid.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"

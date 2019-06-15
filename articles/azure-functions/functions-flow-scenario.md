@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787676"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Een functie van Microsoft Flow aanroepen
@@ -122,13 +122,13 @@ U eerst een stroom maken met een leeg (zonder een sjabloon) en voegt een *trigge
 
 2. Klik op de SharePoint-trigger **wanneer een item wordt gemaakt**.
 
-    ![Kies een trigger](media/functions-flow-scenario/choose-trigger.png)
+    ![Een trigger kiezen](media/functions-flow-scenario/choose-trigger.png)
 
     Als u niet al bent aangemeld bij SharePoint, wordt u gevraagd om dit te doen.
 
 3. Voor **siteadres**, voer de naam van uw SharePoint-site, en voor **lijstnaam**, voert u de lijst die de turbine gegevens bevat.
 
-    ![Kies een trigger](media/functions-flow-scenario/site-list.png)
+    ![Een trigger kiezen](media/functions-flow-scenario/site-list.png)
 
 4. Klik op **nieuwe stap**, klikt u vervolgens **een voorwaarde toevoegen**.
 

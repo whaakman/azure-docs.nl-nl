@@ -13,10 +13,10 @@ ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160866"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Verbinding maken met Azure SQL Database met Azure multi-factor Authentication
@@ -122,7 +122,7 @@ Voor de C# programma moeten worden uitgevoerd, moet u de juiste waarden toewijze
 | AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **gebruiker** > **nieuwe gastgebruiker** |
 | Initial_DatabaseName | "myDatabase" | **SQL-servers** > **SQL-databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App-registraties** > **zoeken op naam** > **toepassings-ID** |
-| RedirectUri | nieuwe Uri ("https://mywebserver.com/") | **Azure Active Directory** > **App-registraties** > **zoeken op naam** > *[uw App-registratie]*  >  **Instellingen** > **RedirectURIs**<br /><br />In dit artikel is geldige waarde is prima voor RedirectUri, omdat het hier niet wordt gebruikt. |
+| RedirectUri | nieuwe Uri ("https://mywebserver.com/") | **Azure Active Directory** > **App-registraties** > **zoeken op naam** >  *[uw App-registratie]*  >  **Instellingen** > **RedirectURIs**<br /><br />In dit artikel is geldige waarde is prima voor RedirectUri, omdat het hier niet wordt gebruikt. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>Verifiëren met SQL Server Management Studio

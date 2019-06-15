@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61434068"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>SSL configureren voor een toepassing in Azure
@@ -40,7 +40,7 @@ Het certificaat moet voldoen aan de volgende vereisten voor SSL-certificaten in 
 
 * Het certificaat moet een persoonlijke sleutel bevatten.
 * Het certificaat moet worden gemaakt voor sleuteluitwisseling, exporteerbaar naar een Personal Information Exchange (PFX)-bestand.
-* Naam van het onderwerp van het certificaat moet overeenkomen met het domein dat wordt gebruikt voor toegang tot de service in de cloud. U kunt een SSL-certificaat kan niet verkrijgen van een certificeringsinstantie (CA) voor het domein cloudapp.net. Moet u een aangepaste domeinnaam moeten worden gebruikt wanneer verkrijgen toegang tot uw service. Wanneer u een certificaat van een CA aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam gebruikt voor toegang tot uw toepassing. Bijvoorbeeld, als uw aangepaste domeinnaam is **contoso.com** zou u een certificaat aanvragen bij uw CA voor ***. contoso.com** of **www\.contoso.com**.
+* Naam van het onderwerp van het certificaat moet overeenkomen met het domein dat wordt gebruikt voor toegang tot de service in de cloud. U kunt een SSL-certificaat kan niet verkrijgen van een certificeringsinstantie (CA) voor het domein cloudapp.net. Moet u een aangepaste domeinnaam moeten worden gebruikt wanneer verkrijgen toegang tot uw service. Wanneer u een certificaat van een CA aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam gebruikt voor toegang tot uw toepassing. Bijvoorbeeld, als uw aangepaste domeinnaam is **contoso.com** zou u een certificaat aanvragen bij uw CA voor * **. contoso.com** of **www\.contoso.com**.
 * Het certificaat moet minimaal 2048-bits versleuteling gebruiken.
 
 Voor test-doeleinden, kunt u [maken](cloud-services-certs-create.md) een zelf-ondertekend certificaat gebruiken. Een zelfondertekend certificaat is niet geverifieerd via een CA en het domein cloudapp.net kunt gebruiken als de website-URL. De volgende taak gebruikt bijvoorbeeld een zelfondertekend certificaat waarin de algemene naam (CN) die wordt gebruikt in het certificaat is **sslexample.cloudapp.net**.

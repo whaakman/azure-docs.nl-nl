@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132466"
 ---
 ## <a name="trigger"></a>Trigger
@@ -387,8 +387,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op `eventHubTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode aan te geven. |
-|**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
-|**eventHubName** |**EventHubName** | 2.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
+|**Pad** |**EventHubName** | 1\.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
+|**eventHubName** |**EventHubName** | 2\.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
 |**consumerGroup** |**ConsumerGroup** | Een optionele eigenschap die Hiermee stelt u de [consumergroep](../articles/event-hubs/event-hubs-features.md)#event-consumenten) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. |
 |**de kardinaliteit** | N.v.t. | Voor Javascript. Ingesteld op `many` om in te schakelen via batchverwerking uitvoeren.  Als weggelaten of ingesteld op `one`, één bericht dat wordt doorgegeven aan functie. |
 |**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../articles/event-hubs/event-hubs-create.md)#create-een-event-hubs-naamruimte), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen heeft voor de trigger wordt geactiveerd.|
@@ -677,8 +677,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op 'eventHub'. |
 |**direction** | N.v.t. | Moet worden ingesteld op 'out'. Deze parameter wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |
 |**name** | N.v.t. | De naam van de variabele die wordt gebruikt in de functiecode waarmee de gebeurtenis. |
-|**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
-|**eventHubName** |**EventHubName** | 2.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
+|**Pad** |**EventHubName** | 1\.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
+|**eventHubName** |**EventHubName** | 2\.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
 |**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet machtigingen voor verzenden zijn het bericht te verzenden naar de gebeurtenisstroom.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]

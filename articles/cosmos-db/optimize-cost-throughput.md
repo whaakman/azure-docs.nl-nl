@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967300"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Kosten van de ingerichte doorvoer in Azure Cosmos DB optimaliseren
@@ -58,7 +58,7 @@ Zoals wordt weergegeven in de volgende tabel, afhankelijk van de keuze van de AP
 |SQL-API|Database|Container|
 |Azure Cosmos DB-API voor MongoDB|Database|Verzameling|
 |Cassandra-API|Keyspace|Tabel|
-|Gremlin-API|Databaseaccount|Grafiek|
+|Gremlin-API|Databaseaccount|Graph|
 |Tabel-API|Databaseaccount|Tabel|
 
 Door inrichting doorvoer op verschillende niveaus, kunt u uw kosten op basis van de kenmerken van uw workload kunt optimaliseren. Zoals eerder vermeld, u kunt via een programma, en een toename van de tijd of verkleinen van de ingerichte doorvoer voor een afzonderlijke container (s) of gezamenlijk over een verzameling van containers. Met elastisch schalen doorvoer als uw workload wordt gewijzigd, betaalt u alleen voor de doorvoer die u hebt geconfigureerd. Als uw container of een set van containers wordt verdeeld over meerdere regio's, de doorvoer u configureert u vervolgens op de container of een set van containers wordt gegarandeerd in alle regio's beschikbaar worden gesteld.

@@ -9,10 +9,10 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113393"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Beleid: Voor gebruikers in uw directory
@@ -69,7 +69,7 @@ Volg deze stappen als u wilt dat uw beleid wilt omzeilen toegangsaanvragen en ku
 
 1. Ga omlaag naar de [beleid: Vervaldatum](#policy-expiration) sectie.
 
-### <a name="policy-request"></a>Beleid: Aanvragen
+### <a name="policy-request"></a>Beleid: Aanvraag
 
 In de sectie aanvraag geeft u instellingen voor goedkeuring wanneer gebruikers het pakket toegang aanvraagt.
 
@@ -95,7 +95,7 @@ In de sectie aanvraag geeft u instellingen voor goedkeuring wanneer gebruikers h
 
 1. In de **time-out van aanvraag voor goedkeuring (dagen)** , geeft u de hoeveelheid tijd die de goedkeurders een aanvraag bekijken. Als u geen fiatteurs bekijken in dit aantal dagen, de aanvraag is verlopen en de gebruiker heeft een andere aanvraag voor het pakket toegang indienen.
 
-### <a name="policy-expiration"></a>Beleid: Verlooptijd
+### <a name="policy-expiration"></a>Beleid: vervaldatum
 
 In de sectie verlopen, kunt u opgeven wanneer de toewijzing van een gebruiker aan het pakket toegang is verlopen.
 

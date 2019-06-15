@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058557"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - motivatie en voordelen
 
@@ -21,7 +21,7 @@ In dit artikel wordt de eerste in een reeks over aanbevolen procedures voor het 
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Reden voor het migreren naar Azure HDInsight
 
-Azure HDInsight is een cloud-distributie van Hadoop-onderdelen uit de [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight maakt het eenvoudig, snel en kosteneffectief om enorme hoeveelheden gegevens te verwerken. HDInsight bevat de meest populaire open-source frameworks zoals:
+Azure HDInsight is een cloud-distributie van Hadoop-onderdelen. Azure HDInsight maakt het eenvoudig, snel en kosteneffectief om enorme hoeveelheden gegevens te verwerken. HDInsight bevat de meest populaire open-source frameworks zoals:
 
 - Apache Hadoop
 - Apache Spark
@@ -82,7 +82,7 @@ De volgende stappen worden aanbevolen voor het plannen van een migratie van on-p
 Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen over:
 
 - De on-premises implementatie
-- Projectgegevens
+- Projectdetails
 - Azure-vereisten
 
 ### <a name="on-premises-deployment-questionnaire"></a>On-Premises implementatie vragenlijst
@@ -90,14 +90,13 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 | **Vraag** | **Voorbeeld** | **Antwoord** |
 |---|---|---|
 |**onderwerp**: **Omgeving**|||
-|Distributietype van cluster|Hortonworks, Cloudera, MapR| |
 |Clusterversie distributie|HDP 2.6.5, CDH 5.7|
 |Onderdelen van big Data-ecosysteem|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Clustertypen|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Aantal clusters|4|
-|Aantal Master-knooppunten|2|
-|Het aantal Worker-knooppunten|100|
-|Aantal Edge-knooppunten| 5|
+|Aantal hoofdknooppunten|2|
+|Het aantal worker-knooppunten|100|
+|Aantal edge-knooppunten| 5|
 |Totale schijfruimte|100 TB|
 |Master-knooppuntconfiguratie|m/y, cpu, schijf, enzovoort.|
 |Configuratie voor opslagknooppunten gegevens|m/y, cpu, schijf, enzovoort.|
@@ -150,7 +149,7 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 |**onderwerp**: **Clustergebruik**|||
 |Gemiddeld CPU-percentage gebruikt|60%||
 |Gemiddeld geheugen percentage gebruikt|75%||
-|Gebruikte schijfruimte|75%||
+|Schijfruimte die wordt gebruikt|75%||
 |Gemiddelde netwerk % gebruikt|25%
 |**onderwerp**: **Personeel**|||
 |Nee. Beheerders|2||
@@ -167,7 +166,7 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 |**onderwerp**: **Infrastructuur** |||
 |---|---|---|
 |**Vraag**|**Voorbeeld**|**Antwoord**|
-| Voorkeursregio|US - oost||
+| De Voorkeursregio|US - oost||
 |VNet de voorkeur?|Ja||
 |Hoge beschikbaarheid / herstel na Noodgevallen nodig?|Ja||
 |Integratie met andere cloudservices?|ADF, CosmosDB||
@@ -199,7 +198,6 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 |Metastores tussen verschillende clusters delen?|Ja||
 |Ontleden werkbelastingen?|Hive-taken vervangen door de Spark-taken||
 |ADF gebruiken voor het indelen van?|Nee||
-|HDInsight Visual Studio Hortonworks Data Platform op IaaS?|HDInsight||
 
 ## <a name="next-steps"></a>Volgende stappen
 

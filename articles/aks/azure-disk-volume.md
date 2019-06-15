@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072162"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van een volume met de Azure-schijven in Azure Kubernetes Service (AKS)
@@ -41,12 +41,12 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Maak nu een schijf met de [az schijf maken] [ az-disk-create] opdracht. Geef de Resourcegroepnaam van knooppunt hebt verkregen in de vorige opdracht, en vervolgens een naam voor de resource van de schijf, zoals *myAKSDisk*. Het volgende voorbeeld wordt een *20*GiB schijf- en uitvoer de ID van de schijf eenmaal hebt gemaakt:
+Maak nu een schijf met de [az schijf maken] [ az-disk-create] opdracht. Geef de Resourcegroepnaam van knooppunt hebt verkregen in de vorige opdracht, en vervolgens een naam voor de resource van de schijf, zoals *myAKSDisk*. Het volgende voorbeeld wordt een *20*GiB schijf- en uitvoer de ID van de schijf eenmaal hebt gemaakt. Als u wilt maken van een schijf voor gebruik met Windows Server-containers (momenteel in preview in AKS), voegt u toe de `--os-type windows` parameter juist de schijf wilt formatteren.
 
 ```azurecli-interactive
 az disk create \
   --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-  --name myAKSDisk  \
+  --name myAKSDisk \
   --size-gb 20 \
   --query id --output tsv
 ```
@@ -62,7 +62,7 @@ De schijf resource-ID wordt weergegeven wanneer de opdracht is voltooid, zoals w
 
 ## <a name="mount-disk-as-volume"></a>Schijf als een volume koppelen
 
-Voor het koppelen van de Azure-schijf in uw schil, configureert u het volume in de container-specificaties. Maak een nieuw bestand met de naam `azure-disk-pod.yaml` met de volgende inhoud. Update `diskName` met de naam van de schijf in de vorige stap hebt gemaakt en `diskURI` -opdracht met de ID van de schijf die wordt weergegeven in de uitvoer van de schijf te maken. Als gewenst is, werkt u de `mountPath`, dit is het pad waar de Azure-schijf in de schil is gekoppeld.
+Voor het koppelen van de Azure-schijf in uw schil, configureert u het volume in de container-specificaties. Maak een nieuw bestand met de naam `azure-disk-pod.yaml` met de volgende inhoud. Update `diskName` met de naam van de schijf in de vorige stap hebt gemaakt en `diskURI` -opdracht met de ID van de schijf die wordt weergegeven in de uitvoer van de schijf te maken. Als gewenst is, werkt u de `mountPath`, dit is het pad waar de Azure-schijf in de schil is gekoppeld. Voor Windows Server-containers (momenteel in preview in AKS), Geef een *mountpath is opgegeven* met behulp van de Windows-pad-overeenkomst, zoals *'D:'* .
 
 ```yaml
 apiVersion: v1

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072376"
 ---
 # <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
 
@@ -83,7 +83,7 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 Voorbeelden zijn vaak geplaatst als open source. Voor vragen en problemen, maakt u een *probleem* in de respectieve GitHub-opslagplaats. U kunt een pull-aanvraag te verzenden. De volgende lijst bevat koppelingen naar de voorbeeld-opslagplaatsen:
 
 * [Speech-SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Apparaten SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Spraak apparaten SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 U kunt een foutenrapport, functie-aanvraag maken of een algemene vraag en aanbevolen procedures te delen. Voor bugrapporten, volgt u de opgegeven sjabloon:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541752"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure-pijplijnen te bouwen en implementeren van HPC-oplossingen gebruiken
@@ -361,7 +361,7 @@ In dit voorbeeld wordt de nadruk op de **hpc-toepassing** map. De **hpc-toepassi
 > [!NOTE]
 > Als u een clienttoepassing voor het uitvoeren van uw HPC-Batch-toepassing gebruikt, moet u een afzonderlijke build-definitie voor de toepassing maken. U vindt een aantal handleidingen in de [Azure pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops) documentatie.
 
-## <a name="continuous-deployment"></a>Continue implementatie
+## <a name="continuous-deployment"></a>Doorlopende implementatie
 
 Azure pijplijnen wordt ook gebruikt voor het implementeren van uw toepassing en de onderliggende infrastructuur. [Pipelines vrijgeven](https://docs.microsoft.com/azure/devops/pipelines/release) is het onderdeel dat wordt continue implementatie ingeschakeld en uw release-proces wordt geautomatiseerd.
 
@@ -418,13 +418,13 @@ Er zijn een aantal stappen die betrokken zijn bij het implementeren van de infra
     * **Actie**: Resourcegroep maken of bijwerken
     * **Resource Group**: $(resourceGroupName)
     * **Locatie**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
     * **Sjabloonparameters overschrijven**: $(storageAccountName) - accountnaam
 
 1. Upload de artefacten vanuit broncodebeheer naar het Opslagaccount. Er is een pijplijn van Azure-taak uitvoeren. Als onderdeel van deze taak, worden de URL van de opslag Account-Container en de SAS-Token output naar een variabele in Azure-pijplijnen. Dit betekent dat deze tijdens deze fase van de agent opnieuw kan worden gebruikt.
 
     Voeg de **bestandskopie Azure** taak en stel de volgende eigenschappen:
-    * **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
+    * **Source:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
     * **Azure-verbindingstype**: Azure Resource Manager
     * **Azure-abonnement:** Selecteer het juiste Azure-abonnement
     * **Het doeltype**: Azure-blob
@@ -441,7 +441,7 @@ Er zijn een aantal stappen die betrokken zijn bij het implementeren van de infra
     * **Actie**: Resourcegroep maken of bijwerken
     * **Resource Group**: $(resourceGroupName)
     * **Locatie**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **Sjabloonparameters overschrijven**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Een algemene praktijk is het gebruik van Azure Key Vault-taken. Als de Service-Principal (verbinding met uw Azure-abonnement) een juiste toegangsbeleid instelt heeft, geheimen kunnen downloaden van een Azure Key Vault en worden gebruikt als variabelen in de pijplijn. De naam van het geheim worden met de gekoppelde waarde ingesteld. Een geheim van sshPassword kan bijvoorbeeld naar worden verwezen met $(sshPassword) in de release-definitie.

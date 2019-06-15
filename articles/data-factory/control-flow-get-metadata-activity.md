@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346847"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activiteit metagegevens ophalen in Azure Data Factory
@@ -43,11 +43,11 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 
 **Opslag van bestanden:**
 
-| Connector/Metadata | itemName<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | lastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | columnCount<br>(bestand) | Er bestaat<br>(bestand/map) |
+| Connector/Metadata | itemName<br>(bestand/map) | itemType<br>(bestand/map) | size<br>(bestand) | Gemaakt<br>(bestand/map) | lastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structure<br/>(bestand) | columnCount<br>(bestand) | Er bestaat<br>(bestand/map) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| Azure-blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -60,7 +60,7 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 
 **Relationele database:**
 
-| Connector/Metadata | structuur | columnCount | Er bestaat |
+| Connector/Metadata | structure | columnCount | Er bestaat |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
 | Azure SQL Database Managed Instance | √ | √ | √ |
@@ -75,12 +75,12 @@ De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met ve
 |:--- |:--- |
 | itemName | De naam van het bestand of map. |
 | itemType | Het type van het bestand of map. Uitvoerwaarde `File` of `Folder`. |
-| grootte | Grootte van het bestand in bytes. Van toepassing op het bestand alleen. |
-| gemaakt | Gemaakte datum en tijd van het bestand of map. |
+| size | Grootte van het bestand in bytes. Van toepassing op het bestand alleen. |
+| Gemaakt | Gemaakte datum en tijd van het bestand of map. |
 | lastModified | Datum/tijd van het bestand of map het laatst is gewijzigd. |
 | childItems | Lijst met bestanden in de opgegeven map en submappen. Van toepassing op de map alleen. Waarde voor uitvoer is een lijst met naam en type van elk onderliggend item. |
 | contentMD5 | MD5-algoritme van het bestand. Van toepassing op het bestand alleen. |
-| structuur | De gegevensstructuur in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en het type van kolom. |
+| structure | De gegevensstructuur in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en het type van kolom. |
 | columnCount | Het aantal kolommen in het bestand of een relationele tabel. |
 | Er bestaat| Of een bestand/map/table of niet bestaat. Houd er rekening mee dat als 'bestaat' is opgegeven in de veldenlijst GetaMetadata, de activiteit wordt niet mislukt, zelfs wanneer het item (bestand/map/table) niet bestaat. in plaats daarvan het resultaat `exists: false` in de uitvoer. |
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228181"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
@@ -61,7 +61,7 @@ In Canada Microsoft maakt gebruik van de volgende SMS korte codes:
 
 Microsoft garandeert niet consistent, SMS of spraak op basis van multi-factor Authentication vragen levering met hetzelfde getal. Uit oogpunt van onze gebruikers, kan Microsoft toevoegen of verwijderen van korte-codes op elk gewenst moment wanneer we aanpassingen van de route voor het verbeteren van de SMS-mailbezorging. Microsoft biedt geen ondersteuning voor korte-codes voor landen/regio's behalve de Verenigde Staten en Canada.
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 De meeste vragen over facturering kunnen worden beantwoord door te verwijzen naar een de [pagina met prijzen van multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) of de documentatie over [over het verkrijgen van Azure multi-factor Authentication](concept-mfa-licensing.md).
 

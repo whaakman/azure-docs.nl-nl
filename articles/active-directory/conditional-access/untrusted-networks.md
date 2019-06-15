@@ -2,7 +2,7 @@
 title: Hoe u multi-factor authentication (MFA) vereist voor toegang van niet-vertrouwde netwerken met voorwaardelijke toegang van Azure Active Directory (Azure AD) | Microsoft Docs
 description: Informatie over het configureren van beleid voor voorwaardelijke toegang in Azure Active Directory (Azure AD) aan voor toegang tot pogingen van niet-vertrouwde netwerken.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 12/10/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf8cb1c3b49975356389c7c9444aff319326f74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: fa9760c44df13c33687c279478935600325dd085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60301101"
+ms.locfileid: "67111866"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedure: MFA vereisen voor toegang van niet-vertrouwde netwerken met voorwaardelijke toegang   
 
@@ -35,7 +35,7 @@ Dit artikel vindt u de informatie die u wilt configureren van beleid voor voorwa
 
 In dit artikel wordt ervan uitgegaan dat u bekend met bent: 
 
-- De [basisconcepten](overview.md) van voorwaardelijke toegang van Azure AD 
+- De [basisconcepten](overview.md) van Azure AD voor voorwaardelijke toegang 
 - De [aanbevolen procedures](best-practices.md) voor het configureren van beleid voor voorwaardelijke toegang in Azure portal
 
 

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66125979"
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
 U kunt met diagnostische logboeken in Azure, core analytics bekijken en sla deze in een of meer doelen, met inbegrip van:
 
- - Azure-opslagaccount
+ - Azure Storage-account
  - Azure Event Hubs
  - [Log Analytics-werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
@@ -73,7 +73,7 @@ Als u een opslagaccount wilt opslaan van de logboeken, de volgende stappen uit:
  
 2. Selecteer **archiveren naar een opslagaccount**en selecteer vervolgens **CoreAnalytics**. 
 
-2. Voor **bewaarperiode (dagen)**, kiest u het aantal dagen bewaren. Een bewaarperiode van nul dagen worden de logboeken voor onbepaalde tijd opgeslagen. 
+2. Voor **bewaarperiode (dagen)** , kiest u het aantal dagen bewaren. Een bewaarperiode van nul dagen worden de logboeken voor onbepaalde tijd opgeslagen. 
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
@@ -176,7 +176,7 @@ Voordat u krijgt de core analytics-gegevens uit een Azure storage-account tot to
 2.  Zoek het opslagaccount
 3.  Vouw de **Blobcontainers** knooppunt onder dit storage-account.
 4.  Selecteer de container met de naam *insights-logs-coreanalytics*.
-5.  Weergeven van resultaten in het rechter deelvenster, beginnen met het eerste niveau als *resourceId =*. Doorgaan met het selecteren van elk niveau totdat u het bestand *PT1H.json*. Zie voor een uitleg van het pad [Blob padindeling](cdn-azure-diagnostic-logs.md#blob-path-format).
+5.  Weergeven van resultaten in het rechter deelvenster, beginnen met het eerste niveau als *resourceId =* . Doorgaan met het selecteren van elk niveau totdat u het bestand *PT1H.json*. Zie voor een uitleg van het pad [Blob padindeling](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Elke blob *PT1H.json* bestand vertegenwoordigt de analytics-logboeken voor één uur voor een specifieke CDN-eindpunt of het aangepaste domein.
 7.  Het schema van de inhoud van dit JSON-bestand wordt beschreven in de sectie schema van de core analytics-Logboeken.
 
@@ -192,7 +192,7 @@ Core analytics logboeken worden elk uur gegenereerd en de gegevens worden verzam
 |Value|Description|
 |-------|---------|
 |Abonnements-id    |ID van de Azure-abonnement in Guid-indeling.|
-|Naam van brongroep |De naam van de resourcegroep waartoe de CDN-resources behoren.|
+|Naam resourcegroep |De naam van de resourcegroep waartoe de CDN-resources behoren.|
 |Profielnaam |Naam van het CDN-profiel|
 |De naam van eindpunt |Naam van het CDN-eindpunt|
 |Jaar|  Weergave van vier cijfers van het jaar, bijvoorbeeld 2017|
@@ -242,55 +242,55 @@ Volg deze stappen voor het toevoegen van een Azure-Monitor voor controle:
 
 3. In de **bewaking en beheer** weergeeft, schakelt **alle**.
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. Zoeken naar CDN in het zoekvak in.
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Selecteer **basisanalyse van Azure CDN**. 
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. Nadat u hebt geselecteerd **maken**, wordt u gevraagd een nieuwe Log Analytics-werkruimte maken of gebruik een bestaande resourcegroep. 
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. Selecteer de werkruimte die u eerder hebt gemaakt. Vervolgens moet u een automation-account toevoegen.
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. Het volgende scherm ziet u het formulier van de automation-account dat moet invullen. 
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. Als u het automation-account hebt gemaakt, bent u gereed voor het toevoegen van uw oplossing. Selecteer de knop **Create** (Maken).
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Uw oplossing is nu is toegevoegd aan uw werkruimte. Ga terug naar uw Azure portal-dashboard.
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Selecteer de Log Analytics-werkruimte die u gaat u naar uw werkruimte hebt gemaakt. 
 
 11. Selecteer de **OMS-Portal** tegel voor uw nieuwe oplossing.
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. De portal moet er nu uitzien zoals het volgende scherm:
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Selecteer een van de tegels om te zien van verschillende weergaven in uw gegevens.
 
-    ![Alles weergeven](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Alles bekijken](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     U kunt bladeren links of rechts om te zien van verdere tegels voor afzonderlijke weergaven in de gegevens. 
 
     Selecteer een van de tegels voor meer informatie over uw gegevens.
 
-     ![Alles weergeven](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Alles bekijken](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Aanbiedingen en Prijscategorieën
 
@@ -300,11 +300,11 @@ U kunt zien, aanbiedingen en Prijscategorieën voor oplossingen voor het beheer 
 
 U kunt de weergave aanpassen in uw gegevens met behulp van de **Weergaveontwerper**. Om te beginnen met het ontwerpen, gaat u naar uw Log Analytics-werkruimte en selecteer de **Weergaveontwerper** tegel.
 
-![Ontwerper weergeven](./media/cdn-diagnostics-log/27_Designer.png)
+![Designer weergeven](./media/cdn-diagnostics-log/27_Designer.png)
 
 Slepen en neerzetten om de typen van grafieken en vul de gegevens details u wilt analyseren.
 
-![Ontwerper weergeven](./media/cdn-diagnostics-log/28_Designer.png)
+![Designer weergeven](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Logboek gegevens vertragingen
@@ -323,7 +323,7 @@ Microsoft biedt momenteel core analytics Logboeken alleen die metrische gegevens
 De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in de core analytics-logboeken voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**. Niet alle metrische gegevens zijn beschikbaar van alle providers, hoewel deze verschillen minimaal zijn. De tabel geeft ook aan of een bepaalde meetwaarde beschikbaar via een provider is. De metrische gegevens zijn beschikbaar voor de CDN-eindpunten die verkeer op deze hebben.
 
 
-|Metric                     | Description | Microsoft | Verizon | Akamai |
+|Gegevens                     | Description | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Totaal aantal treffers in de aanvraag tijdens deze periode. | Ja | Ja |Ja |
 | RequestCountHttpStatus2xx | Telling van alle aanvragen dat heeft geresulteerd in een 2xx HTTP-code (bijvoorbeeld 200, 202). | Ja | Ja |Ja |
@@ -353,7 +353,7 @@ De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in
 | EgressCacheUncacheable | Uitgaande gegevensoverdracht voor activa die voorkomen in de cache wordt opgeslagen door van de asset Cache-Control en/of Expires-koppen. Geeft aan dat deze moet niet worden opgeslagen in de cache op een pop-server of door de HTTP-client. | Ja | Ja | Nee |
 | EgressCacheOthers | Uitgaande gegevensoverdracht voor andere scenario's met cache. | Nee | Ja | Nee |
 
-* Uitgaande gegevensoverdracht verwijst naar verkeer van CDN POP-servers aan de client wordt geleverd.
+\* Uitgaande gegevensoverdracht verwijst naar verkeer van CDN POP-servers aan de client wordt geleverd.
 
 
 ### <a name="schema-of-the-core-analytics-logs"></a>Schema van de core analytics-Logboeken 

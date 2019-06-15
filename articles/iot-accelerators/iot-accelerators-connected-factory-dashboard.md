@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 05befc72f512f502456f798f25b6c72571451363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067938"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Gebruik de functies in het dashboard van Connected Factory solution accelerator
 
@@ -42,7 +42,7 @@ U kunt de informatie die wordt weergegeven op het dashboard ofwel filteren in de
 
 ## <a name="browse-an-opc-ua-server"></a>Door een OPC UA-server bladeren
 
-Wanneer u de oplossingsversneller implementeert, voorziet u automatisch een set gesimuleerde OPC UA-servers die u vanuit het dashboard kunt bladeren. Gesimuleerde servers maken het gemakkelijk om te experimenteren met de oplossingsversnellers zonder de noodzaak voor het implementeren echte servers. Als u een echte OPC UA-server koppelen aan de oplossing wilt, raadpleegt u de [uw OPC UA-apparaat koppelen aan de oplossingsverbetering voor verbonden Factory](iot-accelerators-connected-factory-gateway-deployment.md) zelfstudie.
+Wanneer u de oplossingsversneller implementeert, voorziet u automatisch een set gesimuleerde OPC UA-servers die u vanuit het dashboard kunt bladeren. Gesimuleerde servers maken het gemakkelijk om te experimenteren met de oplossingsversnellers zonder de noodzaak voor het implementeren echte servers.
 
 1. Klik op de **browserpictogram** in de navigatiebalk dashboard:
 
@@ -111,6 +111,5 @@ Wanneer u klaar bent, kunt u de oplossingsversneller verwijderen uit uw Azure-ab
 
 Nu u een werkende oplossingsversneller hebt geïmplementeerd, kunt u gaan werken met de IoT-oplossingsversnellers door de volgende artikelen te lezen:
 
-* [Verbonden Factory-oplossing accelerator-overzicht](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Uw apparaat aansluiten op de oplossingsverbetering voor verbonden Factory](iot-accelerators-connected-factory-gateway-deployment.md)
+* [De oplossingsversneller voor verbonden Factory configureren](iot-accelerators-connected-factory-configure.md)
 * [Machtigingen op de site azureiotsolutions.com](iot-accelerators-permissions.md)

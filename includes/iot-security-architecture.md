@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166343"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Internet of Things (IoT)-beveiligingsarchitectuur
@@ -169,28 +169,28 @@ Deze sectie gaat in op de architectuur die worden beschreven eerder het gaat om 
 
 In elk van de categorieën die worden beschreven in de Azure IoT-architectuur is in dit voorbeeld probeert om een aantal verschillende bedreigingen in de verschillende fasen bestaat gegevens/informatie in: proces, communicatie en opslag. Hieronder volgt een overzicht van de meest voorkomende voor de categorie 'proces', gevolgd door een overzicht van hoe deze bedreigingen beste kan mogelijk worden verholpen:
 
-**Adresvervalsing (spoofing) (S)**: Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
+**Adresvervalsing (spoofing) (S)** : Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
 
-**Denial of Service (D)**: Een apparaat kan onbruikbaar worden gemaakt of niet in staat om te communiceren door verstoring van radiofrequenties of het doorknippen van draden. Een bewakingscamera die met opzet van voeding of het netwerk is afgesloten, kan bijvoorbeeld helemaal geen gegevens doorgeven.
+**Denial of Service (D)** : Een apparaat kan onbruikbaar worden gemaakt of niet in staat om te communiceren door verstoring van radiofrequenties of het doorknippen van draden. Een bewakingscamera die met opzet van voeding of het netwerk is afgesloten, kan bijvoorbeeld helemaal geen gegevens doorgeven.
 
 **(T) knoeien**: Een aanvaller kan de software op het apparaat deels of volledig vervangen, waardoor in potentie de vervangen software gebruik kan maken van de werkelijke identiteit van het apparaat, als de sleutels of cryptografische faciliteiten met sleutels beschikbaar zouden zijn voor het illegale programma. Een aanvaller kan bijvoorbeeld gebruikmaken van uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door de waarde false gegevens die met de gestolen sleutelmateriaal is geverifieerd.
 
-**Openbaarmaking van informatie (I)**: Als het apparaat gezelschapsdieren software wordt uitgevoerd, kan deze gezelschapsdieren software gegevens naar niet-geautoriseerde partijen mogelijk lekken. Een aanvaller kan bijvoorbeeld gebruikmaken van geëxtraheerde sleutelmateriaal zelf invoeren in het communicatiepad tussen het apparaat en een veld of controller gateway of cloudgateway naar siphon uit informatie.
+**Openbaarmaking van informatie (I)** : Als het apparaat gezelschapsdieren software wordt uitgevoerd, kan deze gezelschapsdieren software gegevens naar niet-geautoriseerde partijen mogelijk lekken. Een aanvaller kan bijvoorbeeld gebruikmaken van geëxtraheerde sleutelmateriaal zelf invoeren in het communicatiepad tussen het apparaat en een veld of controller gateway of cloudgateway naar siphon uit informatie.
 
-**Misbruik van bevoegdheden (E)**: Een apparaat met een specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
+**Misbruik van bevoegdheden (E)** : Een apparaat met een specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
 
 | **Onderdeel** | **Threat** | **Risicobeperking** | **Risk** | **Implementatie** |
 | --- | --- | --- | --- | --- |
-| Apparaat |Z |Identiteit toewijzen aan het apparaat en het apparaat te verifiëren |Apparaat of een deel van het apparaat vervangen door een ander apparaat. Hoe weet u dat het nu op het juiste apparaat? |Het apparaat, met behulp van Transport Layer Security (TLS) of IPSec-verificatie. Infrastructuur moet ondersteunen met behulp van vooraf gedeelde sleutel (PSK) op apparaten die volledige asymmetrische cryptografische kunnen niet worden verwerkt. Gebruikmaken van Azure AD [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Apparaat |S |Identiteit toewijzen aan het apparaat en het apparaat te verifiëren |Apparaat of een deel van het apparaat vervangen door een ander apparaat. Hoe weet u dat het nu op het juiste apparaat? |Het apparaat, met behulp van Transport Layer Security (TLS) of IPSec-verificatie. Infrastructuur moet ondersteunen met behulp van vooraf gedeelde sleutel (PSK) op apparaten die volledige asymmetrische cryptografische kunnen niet worden verwerkt. Gebruikmaken van Azure AD [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Toepassen tamperproof mechanismen waarmee u kunt het apparaat, bijvoorbeeld door waardoor het moeilijk is zelfs onmogelijk om op te halen van sleutels en andere cryptografische materiaal van het apparaat. |Het risico is als iemand het apparaat (fysieke interferentie) is geknoeid. Hoe weet u zeker dat, dat het apparaat is niet geknoeid met. |De meest effectieve oplossing is een vertrouwd platform module (TPM)-functie waarmee het opslaan van sleutels in speciale op-chip circuits van waaruit de sleutels kunnen niet worden gelezen, maar kunnen alleen worden gebruikt voor cryptografische bewerkingen die de sleutel gebruiken maar nooit vrijgeven van de sleutel. Geheugen-versleuteling van het apparaat. Sleutelbeheer voor het apparaat. Ondertekening van de code. |
 || E |Toegangsbeheer van het apparaat hebben. Het autorisatieschema voor. |Als het apparaat kunt u afzonderlijke acties worden uitgevoerd op basis van de opdrachten van een externe bron, of zelfs waarmee is geknoeid sensoren, kan de aanval voor het uitvoeren van bewerkingen niet toegankelijk is. |Autorisatieschema voor het apparaat hebben |
-| Veldgateway |Z |Verificatie van de gateway van het veld naar de Cloud-Gateway (zoals certificaat, PSK, of Claim.) |Als iemand Veldgateway vervalsen kan, klikt u vervolgens deze kan worden weergegeven als een apparaat. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Dezelfde sleutel problemen voor de opslag en attestation van apparaten in het algemeen – aanbevolen case is TPM gebruiken. 6LowPAN-extensie voor IPSec-ter ondersteuning van draadloze Sensor netwerken (WSN). |
+| Veldgateway |S |Verificatie van de gateway van het veld naar de Cloud-Gateway (zoals certificaat, PSK, of Claim.) |Als iemand Veldgateway vervalsen kan, klikt u vervolgens deze kan worden weergegeven als een apparaat. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Dezelfde sleutel problemen voor de opslag en attestation van apparaten in het algemeen – aanbevolen case is TPM gebruiken. 6LowPAN-extensie voor IPSec-ter ondersteuning van draadloze Sensor netwerken (WSN). |
 || TRID |Beveiligen van de Veldgateway tegen knoeien (TPM)? |Spoofing aanvallen die verleiden om de cloud gateway denken dat deze met een veldgateway communiceert kan leiden tot vrijgeven van informatie en geknoei met gegevens |Geheugen versleuteling, TPM van, verificatie. |
 || E |Mechanisme voor toegangsbeheer voor Veldgateway | | |
 
 Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
-**Adresvervalsing (spoofing)**: Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van.
+**Adresvervalsing (spoofing)** : Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van.
 
 **Denial of Service**: Een apparaat kan onbruikbaar worden gemaakt of niet in staat om te communiceren door verstoring van radiofrequenties of het doorknippen van draden. Een bewakingscamera die met opzet van voeding of het netwerk is afgesloten, kan bijvoorbeeld helemaal geen gegevens doorgeven.
 
@@ -236,13 +236,13 @@ Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
 **Vervalsing, openbaarmaking van informatie**: Beperkte apparaten en apparaten voor speciale doeleinden hebben vaak een voor alle zekerheid faciliteiten, zoals wachtwoord of PINCODE beveiliging, of dat ze geheel afhankelijk zijn van het vertrouwen van het netwerk, wat betekent dat ze toegang verlenen tot gegevens wanneer een apparaat zich op hetzelfde netwerk, en dat het netwerk is vaak alleen beveiligd met een gedeelde sleutel. Dit betekent dat wanneer het gedeelde geheim op het apparaat of het netwerk wordt vermeld, is het mogelijk voor het beheren van het apparaat of gegevens die afkomstig zijn van het apparaat te observeren.  
 
-**Adresvervalsing (spoofing)**: een aanvaller kan worden onderschept gedeeltelijk overschrijven de uitzending en vervalsen de oorspronkelijke aanvrager (man in het midden)
+**Adresvervalsing (spoofing)** : een aanvaller kan worden onderschept gedeeltelijk overschrijven de uitzending en vervalsen de oorspronkelijke aanvrager (man in het midden)
 
 **Knoeien**: een aanvaller kan onderscheppen gedeeltelijk overschrijven de uitzending en onjuiste gegevens verzenden 
 
 **Vrijgeven van informatie:** een aanvaller kan op een broadcast afluisteren en informatie zonder toestemming te verkrijgen **denial of Service:** een aanvaller kan het signaal jam en informatie distributie weigeren
 
-#### <a name="storage"></a>Storage
+#### <a name="storage"></a>Opslag
 
 Elke gateway-apparaat en elk veld heeft een vorm van opslag (tijdelijke voor de gegevens, het besturingssysteem (OS) afbeeldingopslag queuing).
 

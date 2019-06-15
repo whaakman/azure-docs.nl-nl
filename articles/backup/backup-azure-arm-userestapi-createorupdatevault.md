@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646704"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Met behulp van REST-API van Azure Recovery Services-kluis maken
@@ -36,7 +36,7 @@ De volgende headers zijn vereist:
 | Aanvraagheader   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | Vereist. Ingesteld op `application/json`. |
-| *Autorisatie:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Zie voor meer informatie over het maken van de aanvraag [onderdelen van een REST-API-aanvraag/antwoord](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -50,7 +50,7 @@ De volgende algemene definities worden gebruikt voor het bouwen van een aanvraag
 |location     |  true       |String         |   Resourcelocatie      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Eigenschappen van de kluis       |
 |sku     |         |  [SKU](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    De unieke systeem-id voor elke Azure-resource     |
-|tags     |         | Object        |     Resourcetags    |
+|codes     |         | Object        |     Resourcetags    |
 
 Houd er rekening mee dat de kluisnaam van de en de naam van resourcegroep u in de URI plaatsen vindt. De aanvraagtekst definieert de locatie.
 
@@ -68,7 +68,7 @@ De hoofdtekst van het volgende voorbeeld wordt gebruikt voor het maken van een k
 }
 ```
 
-## <a name="responses"></a>Antwoorden
+## <a name="responses"></a>Responses
 
 Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van een Recovery Services-kluis:
 

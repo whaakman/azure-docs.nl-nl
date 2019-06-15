@@ -9,18 +9,18 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074950"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen 
 
-Met Azure Machine Learning-service, kunt u uw model op een groot aantal bronnen of omgevingen, gezamenlijk aangeduid als trainen [ __compute-doelen__](concept-azure-machine-learning-architecture.md#compute-target). Een compute-doel is een lokale computer of een cloudresource, zoals een Azure Machine Learning-Computing, Azure HDInsight of een externe virtuele machine.  U kunt ook compute-doelen voor de implementatie van model maken zoals beschreven in ["waar en hoe u uw modellen implementeren '](how-to-deploy-and-where.md).
+Met Azure Machine Learning-service, kunt u uw model op een groot aantal bronnen of omgevingen, gezamenlijk aangeduid als trainen [ __compute-doelen__](concept-azure-machine-learning-architecture.md#compute-targets). Een compute-doel is een lokale computer of een cloudresource, zoals een Azure Machine Learning-Computing, Azure HDInsight of een externe virtuele machine.  U kunt ook compute-doelen voor de implementatie van model maken zoals beschreven in ["waar en hoe u uw modellen implementeren '](how-to-deploy-and-where.md).
 
 U kunt maken en beheren van een compute-doel met behulp van de SDK van Azure Machine Learning, Azure-portal, Azure CLI of Azure Machine Learning VS Code-extensie. Als u de compute-doelen die zijn gemaakt via een andere service (bijvoorbeeld: een HDInsight-cluster) hebt, kunt u ze kunt gebruiken door ze te koppelen aan uw werkruimte van Azure Machine Learning-service.
  
@@ -75,7 +75,7 @@ De volgende code toont een voorbeeld van het configureren van trainingsuitvoerin
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>Instellen van compute-doelen met Python
+## <a name="set-up-in-python"></a>Instellen in Python
 
 Gebruik de onderstaande secties voor het configureren van deze compute-doelen:
 
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Compute in Azure portal instellen
+## <a name="set-up-in-azure-portal"></a>Instellen in Azure portal
 
 U kunt toegang tot de compute-doelen die gekoppeld aan uw werkruimte in de Azure-portal zijn.  U kunt de portal om te gebruiken:
 
@@ -357,7 +357,7 @@ Volg de stappen hierboven om de lijst met compute-doelen weer te geven. Gebruik 
 1. Selecteer __koppelen__. 
 1. Bekijk de status van de koppelingsbewerking door het selecteren van de compute-doel in de lijst.
 
-## <a name="set-up-compute-with-the-cli"></a>Computing met de CLI instellen
+## <a name="set-up-with-cli"></a>Met CLI instellen
 
 U hebt toegang tot de compute-doelen die gekoppeld aan uw werkruimte met zijn de [CLI-extensie](reference-azure-machine-learning-cli.md) voor Azure Machine Learning-service.  U kunt de CLI te gebruiken:
 
@@ -367,7 +367,7 @@ U hebt toegang tot de compute-doelen die gekoppeld aan uw werkruimte met zijn de
 
 Zie voor meer informatie, [resourcebeheer](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-compute-with-vs-code"></a>Instellen van Computing met VS Code
+## <a name="set-up-with-vs-code"></a>Met VS Code instellen
 
 U kunt toegang krijgen tot, maken en beheren van de compute-doelen die gekoppeld aan uw werkruimte met zijn de [VS Code-extensie](how-to-vscode-tools.md#create-and-manage-compute-targets) voor Azure Machine Learning-service.
 
@@ -384,7 +384,7 @@ Nadat u een uitvoerconfiguratieprofiel gemaakt, kunt u deze gebruiken om uit te 
 >
 > Om te voorkomen dat bestanden worden opgenomen in de momentopname maken van een [.gitignore](https://git-scm.com/docs/gitignore) of `.amlignore` -bestand in de map en de bestanden toevoegen. De `.amlignore` bestand maakt gebruik van dezelfde syntaxis en patronen als de [.gitignore](https://git-scm.com/docs/gitignore) bestand. Als beide bestanden bestaat, de `.amlignore` bestand heeft voorrang.
 > 
-> Zie voor meer informatie, [momentopnamen](concept-azure-machine-learning-architecture.md#snapshot).
+> Zie voor meer informatie, [momentopnamen](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Een experiment maken
 

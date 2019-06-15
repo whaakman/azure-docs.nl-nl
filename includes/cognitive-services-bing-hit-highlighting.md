@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66124773"
 ---
 Bing ondersteunt die querytermen markeert markeren van treffers (of andere voorwaarden die Bing vindt relevante) in de tekenreeksen voor weergave van een aantal van de antwoorden. Bijvoorbeeld een webpagina van `name`, `displayUrl`, en `snippet` velden de querytermen kunnen markeren.
@@ -23,7 +23,7 @@ Bing biedt de mogelijkheid van het gebruik van Unicode-tekens of HTML-codes als 
   
 Als `textDecorations` is **waar**, Bing omvat mogelijk de volgende markeringen in tekenreeksen voor weergave van antwoorden. Als er geen HTML-equivalent, moet de cel in de HTML-tabel is leeg.
 
-|Unicode|HTML|Description
+|Unicode|HTML-CODE|Description
 |-|-|-
 |U+E000|\<b>|Het markeert het begin van de queryterm die (treffers markeren)
 |U+E001|\</b>|Het markeert het einde van de queryterm

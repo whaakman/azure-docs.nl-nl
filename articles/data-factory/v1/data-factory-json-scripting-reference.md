@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156535"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-scriptverwerking van verwijzing
@@ -288,7 +288,7 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 | --- | --- | --- | --- |
 | name | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](data-factory-naming-rules.md) voor naamgevingsregels. |Ja |N.V.T. |
 | type | Het type van de gegevensset. Geef een van de typen die worden ondersteund door Azure Data Factory (bijvoorbeeld: AzureBlob, AzureSqlTable). Zie [GEGEVENSARCHIEVEN](#data-stores) sectie voor alle gegevensarchieven en de gegevensset die worden ondersteund door Data Factory. |
-| structuur | Het schema van de gegevensset. Het bevat kolommen, de typen, enzovoort. | Nee |N.V.T. |
+| structure | Het schema van de gegevensset. Het bevat kolommen, de typen, enzovoort. | Nee |N.V.T. |
 | typeProperties | Eigenschappen die overeenkomen met het geselecteerde type. Zie [GEGEVENSARCHIEVEN](#data-stores) sectie voor de ondersteunde typen en de bijbehorende eigenschappen. |Ja |N.V.T. |
 | external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. |Nee |false |
 | availability | Definieert het segmenteringsmodel of het segmenteringshulplijnen model voor de gegevensset voor productie. Zie voor meer informatie over de gegevensset voor het verwerkingsvenster, [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.V.T. |
@@ -320,7 +320,7 @@ De volgende tabel beschrijft de eigenschappen die u kunt gebruiken in de **besch
 | --- | --- | --- | --- |
 | frequency |Hiermee geeft u de tijdseenheid voor de gegevensset segment productie.<br/><br/><b>Ondersteunde frequentie</b>: Minuut, uur, dag, Week, maand |Ja |N.V.T. |
 | interval |Hiermee geeft u een vermenigvuldiger voor de frequentie<br/><br/>"X Synchronisatiefrequentie-interval" bepaalt hoe vaak het segment wordt geproduceerd.<br/><br/>Als u de gegevensset om te worden gesegmenteerd op uurbasis, stelt u <b>frequentie</b> naar <b>uur</b>, en <b>interval</b> naar <b>1</b>.<br/><br/><b>Opmerking</b>: Als u de frequentie als minuut opgeeft, wordt aangeraden dat u het interval ingesteld op niet kleiner zijn dan 15 |Ja |N.V.T. |
-| stijl |Hiermee geeft u op of het segment aan het begin/einde van het interval moet worden gemaakt.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Als Frequency wordt ingesteld op maand en stijl is ingesteld op EndOfInterval, wordt het segment op de laatste dag van maand geproduceerd. Als de stijl is ingesteld op StartOfInterval, wordt het segment op de eerste dag van maand geproduceerd.<br/><br/>Als Frequency wordt ingesteld op de dag en stijl is ingesteld op EndOfInterval, kan het segment in het afgelopen uur van de dag wordt geproduceerd.<br/><br/>Als Frequency wordt ingesteld op uur en stijl is ingesteld op EndOfInterval, wordt het segment wordt geproduceerd aan het einde van het uur. Het segment wordt bijvoorbeeld voor een segment voor 1-2 uur periode worden geproduceerd om 2 uur. |Nee |EndOfInterval |
+| style |Hiermee geeft u op of het segment aan het begin/einde van het interval moet worden gemaakt.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Als Frequency wordt ingesteld op maand en stijl is ingesteld op EndOfInterval, wordt het segment op de laatste dag van maand geproduceerd. Als de stijl is ingesteld op StartOfInterval, wordt het segment op de eerste dag van maand geproduceerd.<br/><br/>Als Frequency wordt ingesteld op de dag en stijl is ingesteld op EndOfInterval, kan het segment in het afgelopen uur van de dag wordt geproduceerd.<br/><br/>Als Frequency wordt ingesteld op uur en stijl is ingesteld op EndOfInterval, wordt het segment wordt geproduceerd aan het einde van het uur. Het segment wordt bijvoorbeeld voor een segment voor 1-2 uur periode worden geproduceerd om 2 uur. |Nee |EndOfInterval |
 | anchorDateTime |Hiermee definieert u de absolute positie in de tijd die door de scheduler wordt gebruikt voor het berekenen van de grenzen van de gegevensset-segment. <br/><br/><b>Opmerking</b>: De gedetailleerdere onderdelen worden genegeerd als de AnchorDateTime heeft de datumonderdelen die gedetailleerder zijn dan de frequentie zijn. <br/><br/>Bijvoorbeeld, als de <b>interval</b> is <b>per uur</b> (frequentie: uur en interval: (1) en de <b>AnchorDateTime</b> bevat <b>minuten en seconden</b> dan zal de <b>minuten en seconden</b> onderdelen van de AnchorDateTime worden genegeerd. |Nee |01/01/0001 |
 | offset |TimeSpan waarmee het begin en einde van alle segmenten van de gegevensset worden verschoven. <br/><br/><b>Opmerking</b>: Als zowel anchorDateTime en offset zijn opgegeven, is het resultaat van de gecombineerde verschuiving. |Nee |N.V.T. |
 
@@ -599,7 +599,7 @@ Voor het definiëren van een Azure Data Lake Store gekoppelde service, stelt u h
 | servicePrincipalId | Opgeven van de toepassing client-ID. | Ja (voor service-principal verificatie) |
 | servicePrincipalKey | Geef de sleutel van de toepassing. | Ja (voor service-principal verificatie) |
 | tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. U kunt het ophalen van de muis in de rechterbovenhoek van de Azure-portal. | Ja (voor service-principal verificatie) |
-| Autorisatie | Klik op **autoriseren** knop in de **Data Factory-Editor** en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja (voor verificatie van referentie)|
+| authorization | Klik op **autoriseren** knop in de **Data Factory-Editor** en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja (voor verificatie van referentie)|
 | sessionId | OAuth-sessie-id van de OAuth-autorisatie-sessie. Elke sessie-id is uniek en kan slechts eenmaal worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u Data Factory-Editor gebruiken. | Ja (voor verificatie van referentie) |
 
 #### <a name="example-using-service-principal-authentication"></a>Voorbeeld: met behulp van service-principal verificatie
@@ -1826,7 +1826,7 @@ Gekoppelde service voor het definiëren van een MySQL, stelt u de **type** van d
 | database |De naam van de MySQL-database. |Ja |
 | schema |De naam van het schema in de database. |Nee |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de MySQL-database. Mogelijke waarden zijn: `Basic`. |Ja |
-| username |Geef de naam van de gebruiker verbinding maken met de MySQL-database. |Ja |
+| userName |Geef de naam van de gebruiker verbinding maken met de MySQL-database. |Ja |
 | password |Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. |Ja |
 | gatewayName |De naam van de gateway die de Data Factory-service wordt gebruikt om verbinding met de on-premises MySQL-database te maken. |Ja |
 
@@ -4442,7 +4442,7 @@ Gekoppelde service voor het definiëren van een ODBC, stelt u de **type** van de
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | connectionString |Het niet-access-referentie-gedeelte van de verbindingsreeks en een optionele versleutelde referentie. Zie de voorbeelden in de volgende secties. |Ja |
-| referentie |De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Nee |
+| credential |De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Nee |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de ODBC-gegevensopslag. Mogelijke waarden zijn: Anonieme en Basic. |Ja |
 | username |Geef de gebruikersnaam op als u basisverificatie gebruikt. |Nee |
 | password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
@@ -4595,7 +4595,7 @@ Gekoppelde service voor het definiëren van een Salesforce, stelt u de **type** 
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| environmentUrl | Geef de URL van de Salesforce-exemplaar. <br><br> -De standaardwaarde is ' https:\//login.salesforce.com '. <br> -Om gegevens te kopiëren van sandbox, Geef 'https://test.salesforce.com'. <br> -Om gegevens te kopiëren uit aangepaste domein, opgeven, bijvoorbeeld 'https://[domain].my.salesforce.com'. |Nee |
+| environmentUrl | Geef de URL van de Salesforce-exemplaar. <br><br> -De standaardwaarde is ' https:\//login.salesforce.com '. <br> -Om gegevens te kopiëren van sandbox, Geef 'https://test.salesforce.com '. <br> -Om gegevens te kopiëren uit aangepaste domein, opgeven, bijvoorbeeld 'https://[domain].my.salesforce.com'. |Nee |
 | username |Geef een gebruikersnaam voor het gebruikersaccount. |Ja |
 | password |Geef een wachtwoord voor het gebruikersaccount. |Ja |
 | securityToken |Geef een beveiligingstoken voor het gebruikersaccount. Zie [security-token ophalen](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) voor instructies over het opnieuw instellen/ophalen van een beveiligingstoken. Zie voor meer informatie over beveiligingstokens het in het algemeen, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
@@ -4972,7 +4972,7 @@ De volgende tabel bevat beschrijvingen voor de eigenschappen die worden gebruikt
 | Type |De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. |Ja |
 | accountName |Azure Data Lake Analytics-accountnaam. |Ja |
 | dataLakeAnalyticsUri |Azure Data Lake Analytics-URI. |Nee |
-| Autorisatie |Autorisatiecode wordt automatisch opgehaald nadat u hebt geklikt **autoriseren** knop in de Data Factory-Editor en de OAuth-aanmelding te voltooien. |Ja |
+| authorization |Autorisatiecode wordt automatisch opgehaald nadat u hebt geklikt **autoriseren** knop in de Data Factory-Editor en de OAuth-aanmelding te voltooien. |Ja |
 | subscriptionId |Azure-abonnement-id |Geen (indien niet opgegeven, abonnement van de data factory wordt gebruikt). |
 | resourceGroupName |Naam van Azure-resourcegroep |Geen (indien niet opgegeven, de resourcegroep van de data factory wordt gebruikt). |
 | sessionId |sessie-id van de OAuth-autorisatie-sessie. Elke sessie-id is uniek en kan slechts eenmaal worden gebruikt. Wanneer u de Data Factory-Editor gebruikt, wordt deze ID wordt automatisch gegenereerd. |Ja |
@@ -5130,8 +5130,8 @@ U kunt de volgende eigenschappen opgeven in een Hive-activiteit JSON-definitie. 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | Script |Geef de inline Hive-script |Nee |
-| pad naar script |Het Hive-script Store in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
-| Hiermee worden gedefinieerd |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script met behulp van 'hiveconf' |Nee |
+| scriptPath |Het Hive-script Store in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
+| defines |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script met behulp van 'hiveconf' |Nee |
 
 Deze eigenschappen zijn specifiek voor de Hive-activiteit. Andere eigenschappen (buiten de sectie typeProperties) worden ondersteund voor alle activiteiten.
 
@@ -5176,8 +5176,8 @@ U kunt de volgende eigenschappen opgeven in een Pig-activiteit JSON-definitie. D
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | Script |Geef de inline Pig-script |Nee |
-| pad naar script |Store de Pig-script in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
-| Hiermee worden gedefinieerd |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen de Pig-script |Nee |
+| scriptPath |Store de Pig-script in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
+| defines |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen de Pig-script |Nee |
 
 Deze eigenschappen zijn specifiek voor de Pig-activiteit. Andere eigenschappen (buiten de sectie typeProperties) worden ondersteund voor alle activiteiten.
 
@@ -5230,7 +5230,7 @@ U kunt de volgende eigenschappen opgeven in een MapReduce-activiteit JSON-defini
 | jarLinkedService | De naam van de gekoppelde service voor de Azure-opslag die het JAR-bestand bevat. | Ja |
 | jarFilePath | Pad naar het JAR-bestand in Azure Storage. | Ja |
 | className | De naam van de main-klasse in het JAR-bestand. | Ja |
-| argumenten | Een lijst met door komma's gescheiden argumenten voor de MapReduce-programma. Tijdens runtime, ziet u een paar extra argumenten (bijvoorbeeld: mapreduce.job.tags) van de MapReduce-framework. Overweeg het gebruik van optie en de waarde als argumenten, zoals wordt weergegeven in het volgende voorbeeld om te onderscheiden van de argumenten met de argumenten MapReduce, (- s,--input,--output enz., zijn opties onmiddellijk wordt gevolgd door hun waarden) | Nee |
+| arguments | Een lijst met door komma's gescheiden argumenten voor de MapReduce-programma. Tijdens runtime, ziet u een paar extra argumenten (bijvoorbeeld: mapreduce.job.tags) van de MapReduce-framework. Overweeg het gebruik van optie en de waarde als argumenten, zoals wordt weergegeven in het volgende voorbeeld om te onderscheiden van de argumenten met de argumenten MapReduce, (- s,--input,--output enz., zijn opties onmiddellijk wordt gevolgd door hun waarden) | Nee |
 
 ### <a name="json-example"></a>Voorbeeld van JSON
 
@@ -5291,7 +5291,7 @@ U kunt de volgende eigenschappen opgeven in de definitie van een Hadoop Streamin
 | uitvoer | Bestand voor uitvoer (met inbegrip van locatie) voor de reducer. De uitvoer van de Hadoop-Streaming-taak is geschreven naar de locatie die is opgegeven voor deze eigenschap. |
 | filePaths | Paden voor de toewijzing en reducer uitvoerbare bestanden. In het voorbeeld: "adfsample/example/apps/wc.exe" adfsample wordt de blob-container, voorbeeld-apps is de map en wc.exe is het uitvoerbare bestand. |
 | fileLinkedService | Gekoppelde Azure Storage-service die de Azure-opslag met de bestanden die zijn opgegeven in de sectie filePaths vertegenwoordigt. |
-| argumenten | Een lijst met door komma's gescheiden argumenten voor de MapReduce-programma. Tijdens runtime, ziet u een paar extra argumenten (bijvoorbeeld: mapreduce.job.tags) van de MapReduce-framework. Overweeg het gebruik van optie en de waarde als argumenten, zoals wordt weergegeven in het volgende voorbeeld om te onderscheiden van de argumenten met de argumenten MapReduce, (- s,--input,--output enz., zijn opties onmiddellijk wordt gevolgd door hun waarden) |
+| arguments | Een lijst met door komma's gescheiden argumenten voor de MapReduce-programma. Tijdens runtime, ziet u een paar extra argumenten (bijvoorbeeld: mapreduce.job.tags) van de MapReduce-framework. Overweeg het gebruik van optie en de waarde als argumenten, zoals wordt weergegeven in het volgende voorbeeld om te onderscheiden van de argumenten met de argumenten MapReduce, (- s,--input,--output enz., zijn opties onmiddellijk wordt gevolgd door hun waarden) |
 | getDebugInfo | Een optioneel element. Wanneer deze is ingesteld op mislukt, worden de logboeken alleen bij fout gedownload. Wanneer deze is ingesteld op Alles, worden logboeken worden altijd gedownload, ongeacht de uitvoeringsstatus van de. |
 
 > [!NOTE]
@@ -5352,7 +5352,7 @@ U kunt de volgende eigenschappen opgeven in een Spark-activiteit JSON-definitie.
 | rootPath | Het Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. | Ja |
 | entryFilePath | Relatief pad naar de hoofdmap van de Spark-code of pakket. | Ja |
 | className | Java/Spark-hoofdklasse van de toepassing | Nee |
-| argumenten | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee |
+| arguments | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee |
 | proxyUser | De account van de gebruiker te imiteren voor het uitvoeren van het Spark-programma | Nee |
 | sparkConfig | Spark-configuratie-eigenschappen. | Nee |
 | getDebugInfo | Hiermee geeft u aan bij de Spark-logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door sparkJobLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee |

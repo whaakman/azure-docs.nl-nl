@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922788"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)
@@ -46,7 +46,7 @@ Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met d
 |:--- |:--- |
 | Methode |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| Inhoudstype |application/json |
+| Type inhoud |application/json |
 
 ### <a name="request-uri-parameters"></a>Aanvraag-URI-parameters
 | Parameter | Description |
@@ -139,7 +139,7 @@ Elke aanvraag aan de Data Collector-API moet bevatten een **Logboektype** -heade
 
 Voor het identificeren van het gegevenstype van een eigenschap, voegt Azure Monitor het achtervoegsel aan de naam van de eigenschap. Als een eigenschap een null-waarde bevat, wordt de eigenschap is niet opgenomen in die record. Deze tabel bevat de eigenschap gegevenstype en de bijbehorende achtervoegsel:
 
-| Eigenschap gegevenstype | Achtervoegsel |
+| Eigenschap gegevenstype | Suffix |
 |:--- |:--- |
 | String |_s |
 | Boolean |_b |
@@ -202,8 +202,8 @@ Deze tabel bevat de volledige reeks statuscodes die de service kan worden gereto
 | 403 |Verboden |InvalidAuthorization |De service kan niet verifiëren van de aanvraag. Controleer of de sleutel van de werkruimte-ID en verbinding geldig zijn. |
 | 404 |Niet gevonden | | De opgegeven URL is onjuist, of de aanvraag is te groot. |
 | 429 |Te veel aanvragen | | De service ondervindt een groot aantal gegevens uit uw account. Probeer de aanvraag later opnieuw. |
-| 500 |Interne serverfout |UnspecifiedError |De service heeft een interne fout aangetroffen. Probeer de aanvraag. |
-| 503 |Service niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
+| 500 |Interne serverfout |UnspecifiedError |De service is een interne fout opgetreden. Probeer de aanvraag. |
+| 503 |Service is niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
 
 ## <a name="query-data"></a>Querygegevens
 Query uitvoeren op gegevens verzonden door de Azure Monitor HTTP Data Collector-API, zoeken naar records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, met het achtervoegsel **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records geretourneerd `MyCustomLog_CL`.

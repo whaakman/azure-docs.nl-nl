@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075368"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app die web-API's - roept een token verkrijgen
@@ -65,7 +65,7 @@ Het bereik dat wordt gebruikt voor de clientreferenties moet altijd resourceId +
 
 > [!IMPORTANT]
 > Azure AD wordt de gewenste doelgroep van het aangevraagde bereik voor MSAL (v2.0-eindpunt) waarin wordt gevraagd een toegangstoken voor een resource een toegangstoken v1.0 accepteren, geparseerd door te nemen alles vóór de laatste slash en als de resource-id gebruiken.
-> Dus als, zoals Azure SQL (**https://database.windows.net**) de resource wordt verwacht dat een doelgroep die eindigen met een slash (voor Azure SQL: `https://database.windows.net/`), moet u een bereik van aanvragen `https://database.windows.net//.default` (Houd er rekening mee de dubbele slash). Zie ook MSAL.NET probleem [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Bron-url afsluitende schuine streep wordt weggelaten, waardoor sql-verificatie mislukt.
+> Dus als, zoals Azure SQL ( **https://database.windows.net** ) de resource wordt verwacht dat een doelgroep die eindigen met een slash (voor Azure SQL: `https://database.windows.net/` ), moet u een bereik van aanvragen `https://database.windows.net//.default` (Houd er rekening mee de dubbele slash). Zie ook MSAL.NET probleem [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Bron-url afsluitende schuine streep wordt weggelaten, waardoor sql-verificatie mislukt.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 

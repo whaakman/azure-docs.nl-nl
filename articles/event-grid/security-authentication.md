@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117011"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
@@ -35,9 +35,9 @@ Net als vele andere services die webhooks ondersteunen, moet u eigenaar van de W
 
 Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger, moet de code van uw eindpunt om deel te nemen in een validatie-handshake met Event Grid. Event Grid ondersteunt twee manieren voor het valideren van het abonnement.
 
-1. **ValidationCode handshake (programmatisch)**: Als u de broncode voor het eindpunt voor beheert, wordt deze methode wordt aanbevolen. Op het moment van de event-abonnement maken verzendt Event Grid een gebeurtenis van de validatie van abonnement aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere Event Grid-gebeurtenis. Het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Uw toepassing gecontroleerd of de aanvraag voor de validatie voor een verwachte gebeurtenisabonnement, en kan de validatiecode naar Event Grid. Dit mechanisme handshake wordt ondersteund in alle versies van Event Grid.
+1. **ValidationCode handshake (programmatisch)** : Als u de broncode voor het eindpunt voor beheert, wordt deze methode wordt aanbevolen. Op het moment van de event-abonnement maken verzendt Event Grid een gebeurtenis van de validatie van abonnement aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere Event Grid-gebeurtenis. Het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Uw toepassing gecontroleerd of de aanvraag voor de validatie voor een verwachte gebeurtenisabonnement, en kan de validatiecode naar Event Grid. Dit mechanisme handshake wordt ondersteund in alle versies van Event Grid.
 
-2. **ValidationURL handshake (handmatig)**: In bepaalde gevallen geen u toegang tot de broncode van het eindpunt voor het implementeren van de handshake ValidationCode. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), u via een programma kan niet reageren met de code voor validatie.
+2. **ValidationURL handshake (handmatig)** : In bepaalde gevallen geen u toegang tot de broncode van het eindpunt voor het implementeren van de handshake ValidationCode. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), u via een programma kan niet reageren met de code voor validatie.
 
    Beginnen met 2018-05-01-preview-versie, ondersteunt Event Grid een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement maakt met een SDK of een hulpprogramma dat gebruikmaakt van API-versie 2018-05-01-preview of hoger, Event Grid verzendt een `validationUrl` eigenschap in het gegevensgedeelte van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake vinden die URL in de gebeurtenisgegevens en handmatig een GET-aanvraag te verzenden. U kunt een REST-client of uw webbrowser.
 
@@ -204,7 +204,7 @@ Event Grid biedt twee ingebouwde rollen voor het beheren van abonnementen. Ze zi
 
 U kunt [deze rollen toewijzen aan een gebruiker of groep](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Inzender (Preview)**: bewerkingen voor Event Grid-abonnement beheren
+**EventGrid EventSubscription Inzender (Preview)** : bewerkingen voor Event Grid-abonnement beheren
 
 ```json
 [
@@ -240,7 +240,7 @@ U kunt [deze rollen toewijzen aan een gebruiker of groep](../role-based-access-c
 ]
 ```
 
-**EventGrid EventSubscription Reader (Preview)**: lezen van Event Grid-abonnementen
+**EventGrid EventSubscription Reader (Preview)** : lezen van Event Grid-abonnementen
 
 ```json
 [

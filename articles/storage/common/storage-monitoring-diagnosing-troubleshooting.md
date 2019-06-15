@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912324"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
@@ -467,7 +467,7 @@ De meest voorkomende oorzaak van deze fout is een client verbinding verbreken vo
 ### <a name="the-client-is-receiving-403-messages"></a>De client ontvangt berichten van HTTP 403 (verboden)
 Als de clienttoepassing een HTTP 403-fout (verboden) weergeeft, is een vermoedelijke oorzaak dat de client gebruikmaakt van een verlopen Shared Access Signature (SAS) bij het verzenden van een opslagaanvraag (hoewel andere mogelijke oorzaken een tijdverschil, ongeldige sleutels of lege headers kunnen zijn). Als een verlopen SAS-sleutel de oorzaak is, ziet u geen vermeldingen in de logboekgegevens voor logboekregistratie voor opslag aan de serverzijde. De volgende tabel ziet u een voorbeeld van de client-side-logboekbestanden die worden gegenereerd door de Storage-clientbibliotheek die laat dit probleem optreedt zien:
 
-| Source | Uitgebreidheid | Uitgebreidheid | Clientaanvraag-id | Bewerking tekst |
+| source | Detailniveau | Detailniveau | Clientaanvraag-id | Bewerking tekst |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Informatie |3 |85d077ab-… |Bewerking met de primaire locatie per locatiemodus PrimaryOnly starten. |
 | Microsoft.Azure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
@@ -505,7 +505,7 @@ U kunt het client-side-logboek van de Storage-clientbibliotheek gebruiken krijge
 
 De volgende client-side-logboekbestanden die worden gegenereerd door de Storage-clientbibliotheek ziet u het probleem wanneer de client kan de container niet vinden voor de blob die wordt gemaakt. Dit logboek bevat details van de volgende opslagbewerkingen:
 
-| Aanvraag-id | Bewerking |
+| Aanvraag-ID | Bewerking |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** methode voor het verwijderen van de blob-container. Houd er rekening mee dat deze bewerking bevat een **HEAD** verzoek om te controleren of er sprake van de container. |
 | e2d06d78… |**CreateIfNotExists** methode voor het maken van de blob-container. Houd er rekening mee dat deze bewerking bevat een **HEAD** aanvraag waarmee wordt gecontroleerd of de aanwezigheid van de container. De **HEAD** retourneert een 404-bericht, maar blijft. |
@@ -513,7 +513,7 @@ De volgende client-side-logboekbestanden die worden gegenereerd door de Storage-
 
 Logboekvermeldingen:
 
-| Aanvraag-id | Bewerking tekst |
+| Aanvraag-ID | Bewerking tekst |
 | --- | --- |
 | 07b26a5d-... |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
@@ -521,14 +521,14 @@ Logboekvermeldingen:
 | 07b26a5d-... |Antwoord ontvangen. Statuscode 200, aanvraag-ID = = eeead849... Inhoud MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Antwoordheaders zijn voltooid, verwerkt u doorgaat met de rest van de bewerking. |
 | 07b26a5d-... |Het downloaden van de hoofdtekst van antwoord. |
-| 07b26a5d-... |De bewerking is voltooid. |
+| 07b26a5d-... |Bewerking is voltooid. |
 | 07b26a5d-... |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Wachten op antwoord. |
 | 07b26a5d-... |Antwoord ontvangen. Statuscode 202, aanvraag-ID = = 6ab2a4cf..., inhoud MD5 =, ETag =. |
 | 07b26a5d-... |Antwoordheaders zijn voltooid, verwerkt u doorgaat met de rest van de bewerking. |
 | 07b26a5d-... |Het downloaden van de hoofdtekst van antwoord. |
-| 07b26a5d-... |De bewerking is voltooid. |
+| 07b26a5d-... |Bewerking is voltooid. |
 | e2d06d78-... |Asynchrone aanvraag om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op antwoord. |
@@ -539,7 +539,7 @@ Logboekvermeldingen:
 | e2d06d78-... |Antwoord ontvangen. Statuscode 404, aanvraag-ID = = 353ae3bc..., inhoud MD5 =, ETag =. |
 | e2d06d78-... |Antwoordheaders zijn voltooid, verwerkt u doorgaat met de rest van de bewerking. |
 | e2d06d78-... |Het downloaden van de hoofdtekst van antwoord. |
-| e2d06d78-... |De bewerking is voltooid. |
+| e2d06d78-... |Bewerking is voltooid. |
 | e2d06d78-... |Asynchrone aanvraag om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op antwoord. |
@@ -565,7 +565,7 @@ De volgende tabel ziet u een voorbeeld serverzijde log-bericht van het logboekbe
 | --- | --- |
 | Begintijd van de aanvraag | 2014-05-30T06:17:48.4473697Z |
 | Bewerkingstype     | GetBlobProperties            |
-| Aanvraagstatus     | SASAuthorizationError        |
+| De status van aanvraag     | SASAuthorizationError        |
 | HTTP-statuscode   | 404                          |
 | Verificatietype| SAS                          |
 | Servicetype       | Blob                         |
@@ -626,7 +626,7 @@ Als dit probleem regelmatig optreedt, moet u onderzoeken waarom de client is mis
 ### <a name="the-client-is-receiving-409-messages"></a>De client ontvangt berichten van HTTP 409 (Conflict)
 De volgende tabel ziet u een extraheren uit het logboek serverzijde voor twee clientbewerkingen: **DeleteIfExists** gevolgd door onmiddellijk **CreateIfNotExists** met behulp van de naam van de dezelfde blob-container. Elke clientbewerking resulteert in twee aanvragen verzonden naar de server eerst een **GetContainerProperties** verzoek om te controleren of de container bestaat, gevolgd door de **DeleteContainer** of  **CreateContainer** aanvraag.
 
-| Timestamp | Bewerking | Resultaat | Containernaam | Clientaanvraag-id |
+| Tijdstempel | Bewerking | Resultaat | Containernaam | Clientaanvraag-id |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
