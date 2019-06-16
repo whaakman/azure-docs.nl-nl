@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935139"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Beheren van gebruikers in de cloud partner-portal
@@ -22,7 +22,7 @@ De Cloud Partner-Portal kunt u gebruikers met toegang op basis van rollen toevoe
 
 Naar **gebruikers toevoegen en toewijzen van rollen** voor aanbieding publiceren, volgt u de volgende stappen uit:
 
-<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>Step 1. Gebruikers toevoegen en rollen toewijzen, klikt u op het tabblad gebruikers in het navigatiedeelvenster links.
+<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>Stap 1. Gebruikers toevoegen en rollen toewijzen, klikt u op het tabblad gebruikers in het navigatiedeelvenster links.
 --------------------------------------------------------------------------------------------
 
 ![Tabblad gebruikers](./media/cloud-partner-portal-how-to-manage-users/userstab.png)

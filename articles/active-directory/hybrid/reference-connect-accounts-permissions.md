@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919173"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
@@ -46,7 +46,7 @@ Naast deze drie accounts gebruikt voor het uitvoeren van Azure AD Connect, moet 
 
 - **Account van Azure AD-hoofdbeheerder**: gebruikt voor het maken van de Azure AD-Connector-account en Azure AD configureren.
 
-- **SQL-SA-account (optioneel)**: gebruikt voor het maken van de ADSync-database bij het gebruik van de volledige versie van SQL Server.  Deze SQL-Server kan lokaal of extern zijn aan de Azure AD Connect-installatie zijn.  Dit account is mogelijk niet hetzelfde account als de Enterprise-beheerder.  Inrichten van de database kan nu worden uitgevoerd buiten-band door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten van de database.  Voor meer informatie over deze Zie [Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen](how-to-connect-install-sql-delegation.md)
+- **SQL-SA-account (optioneel)** : gebruikt voor het maken van de ADSync-database bij het gebruik van de volledige versie van SQL Server.  Deze SQL-Server kan lokaal of extern zijn aan de Azure AD Connect-installatie zijn.  Dit account is mogelijk niet hetzelfde account als de Enterprise-beheerder.  Inrichten van de database kan nu worden uitgevoerd buiten-band door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten van de database.  Voor meer informatie over deze Zie [Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen](how-to-connect-install-sql-delegation.md)
 
 ## <a name="installing-azure-ad-connect"></a>Azure AD Connect installeren
 De installatiewizard van Azure AD Connect biedt twee verschillende paden:
@@ -146,7 +146,7 @@ Wanneer u een upgrade van één versie van Azure AD Connect naar een nieuwe vers
 >Beginnen met bouwen 1.1.484, Azure AD Connect een bug regressie waarvoor sysadmin-machtigingen voor het bijwerken van de SQL-database ingevoerd.  Deze fout is verholpen in build 1.1.647.  Als u een naar deze versie upgrade, moet u sysadmin-bevoegdheden.  Dbo-machtigingen zijn niet voldoende.  Als u probeert te Azure AD Connect upgraden zonder sysadmin-bevoegdheden, mislukt de upgrade en Azure AD Connect wordt niet meer correct werkt daarna.  Microsoft is hiervan op de hoogte en werkt om dit te corrigeren.
 
 
-| Hoofd | Machtigingen die vereist zijn | Gebruikt voor |
+| Principal | Machtigingen die vereist zijn | Gebruikt voor |
 | --- | --- | --- |
 | Gebruiker met de installatiewizard |Beheerder van de lokale server |Binaire bestanden worden bijgewerkt. |
 | Gebruiker met de installatiewizard |Lid van de ADSyncAdmins |Breng wijzigingen in synchronisatieregels en andere configuratie. |
@@ -154,7 +154,7 @@ Wanneer u een upgrade van één versie van Azure AD Connect naar een nieuwe vers
 
 ## <a name="more-about-the-created-accounts"></a>Meer informatie over de gemaakte accounts
 ### <a name="ad-ds-connector-account"></a>AD DS-Connector-account
-Als u express-instellingen, wordt klikt u vervolgens een account gemaakt in Active Directory die wordt gebruikt voor synchronisatie. Het account bevindt zich in het foresthoofddomein in de container gebruikers en heeft de naam ervan voorafgegaan door **MSOL_**. Het account is gemaakt met een lange complex wachtwoord in dat niet verloopt. Als u een wachtwoordbeleid in uw domein hebt, zorg ervoor dat lange en complexe wachtwoorden is toegestaan voor dit account.
+Als u express-instellingen, wordt klikt u vervolgens een account gemaakt in Active Directory die wordt gebruikt voor synchronisatie. Het account bevindt zich in het foresthoofddomein in de container gebruikers en heeft de naam ervan voorafgegaan door **MSOL_** . Het account is gemaakt met een lange complex wachtwoord in dat niet verloopt. Als u een wachtwoordbeleid in uw domein hebt, zorg ervoor dat lange en complexe wachtwoorden is toegestaan voor dit account.
 
 ![AD-account](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 

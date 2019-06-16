@@ -9,10 +9,10 @@ ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60921904"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Schijven uitsluiten van replicatie van virtuele VMware-machines naar Azure
@@ -107,7 +107,7 @@ Er zijn twee manieren om dit pad maken:
 
 1. Noteer de paden van SQL-tempdb.mdf en tempdb.ldf voordat de failover wordt uitgevoerd.
 2. Voeg via Azure Portal een nieuwe schijf toe aan de virtuele failover-machine met hetzelfde of een groter formaat dan de SQL-tempdb-bronschijf (Disk3).
-3. Meld u aan bij de virtuele Azure-machine. Initialiseer en formatteer de nieuw toegevoegde schijf via de schijfbeheerconsole (diskmgmt.msc). 
+3. Meld u aan bij de virtuele Azure-machine. Initialiseer en formatteer de nieuw toegevoegde schijf via de schijfbeheerconsole (diskmgmt.msc).
 4. Wijs dezelfde stationsletter toe die is gebruikt door de SQL-tempdb-schijf (F:).
 5. Maak een tempdb-map op de F:-schijf (F:\MSSQL\Data).
 6. Start de SQL-service via de serviceconsole.

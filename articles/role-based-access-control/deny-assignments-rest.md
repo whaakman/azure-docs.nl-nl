@@ -1,6 +1,6 @@
 ---
 title: Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API - Azure | Microsoft Docs
-description: Meer informatie over het lijst weigeren toewijzingen voor gebruikers, groepen en toepassingen met behulp van op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources en de REST-API.
+description: Meer informatie over het lijst weigeren toewijzingen voor gebruikers, groepen en toepassingen die gebruikmaken van op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources en de REST-API.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,22 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194664"
+ms.locfileid: "67118287"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API
 
-[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. In dit artikel wordt beschreven hoe u de REST-API aan lijst met toewijzingen weigeren.
+[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. In dit artikel wordt beschreven hoe u aan de lijst weigeren toewijzingen met behulp van de REST-API.
 
 > [!NOTE]
-> Op dit moment de enige manier waarop u kunt toevoegen uw eigen weigeren toewijzingen met behulp van Azure blauwdrukken is. Zie voor meer informatie, [nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen](../governance/blueprints/tutorials/protect-new-resources.md).
+> U kunt geen rechtstreeks maken uw eigen toewijzingen weigeren. Zie voor informatie over hoe u weigeren toewijzingen worden gemaakt, [weigeren toewijzingen](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Vereisten
 

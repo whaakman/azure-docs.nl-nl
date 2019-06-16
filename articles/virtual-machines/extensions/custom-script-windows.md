@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: gwallace
 ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408278"
 ---
 # <a name="custom-script-extension-for-windows"></a>Aangepaste Scriptextensie voor Windows
@@ -105,10 +105,10 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 | Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Uitgever | Microsoft.Compute | string |
+| publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (bijvoorbeeld) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matrix |
+| fileUris (bijvoorbeeld) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | tijdstempel (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
 | commandToExecute (bijvoorbeeld) | PowerShell - ExecutionPolicy Unrestricted - File configureren muziek app.ps1 | string |
 | storageAccountName (bijvoorbeeld) | examplestorageacct | string |

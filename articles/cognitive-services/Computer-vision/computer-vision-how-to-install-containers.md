@@ -3,20 +3,20 @@ title: Over het installeren en uitvoeren van containers - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: Het downloaden, installeren en uitvoeren van containers voor Computer Vision in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
+ms.date: 06/10/2019
+ms.author: IEvangelist
 ms.custom: seodec18
-ms.openlocfilehash: 10e5060c06e1ebc591c7245ae588b5352a3328ca
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 49e3af546ffcf5be47c73bfe633223a4d968d887
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060929"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installeren en te herkennen tekst containers uitvoeren
 
@@ -149,7 +149,7 @@ U kunt de `POST /vision/v2.0/recognizeTextDirect` bewerking is synchroon gedrukt
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](./computer-vision-resource-container-config.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 De tekst herkennen containers verzenden factuurgegevens naar Azure, met behulp van een _tekst herkennen_ resource voor uw Azure-account. 
 

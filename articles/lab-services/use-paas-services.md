@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833916"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Platform-as-a-Service (PaaS)-services gebruiken in Azure DevTest Labs
@@ -57,7 +57,7 @@ DevTest Labs ondersteunt het gebruik van [geneste Resource Manager-sjablonen](..
 
 ## <a name="user-experience"></a>Gebruikerservaring
 
-## <a name="developer"></a>Ontwikkelaar
+## <a name="developer"></a>Developer
 Ontwikkelaars voor het gebruik van dezelfde werkstroom voor het maken van een virtuele machine te maken van een specifieke omgeving. Ze selecteert u de omgeving en de installatiekopie van de machine en voer de vereiste informatie in de sjabloon. Iedere ontwikkelaar met een omgeving kunt voor de implementatie van wijzigingen en verbeterde binnenste lus foutopsporing. De omgeving kan op elk gewenst moment met behulp van de meest recente sjabloon worden gemaakt.  Deze functie kunt de omgevingen worden vernietigd en opnieuw worden gemaakt om te reduceren de downtime opheft handmatig maken van het systeem of het herstellen van het testen van fouten.  
 
 ### <a name="testing"></a>Testen

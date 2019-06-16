@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877101"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 met behulp van REST-API
@@ -32,7 +32,7 @@ In dit artikel leert u hoe u kunt uitvoeren van accountbeheerbewerkingen in Azur
 ## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](https://curl.haxx.se/)**. In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
+* **[cURL](https://curl.haxx.se/)** . In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
 Er zijn twee benaderingen voor verificatie met Azure Active Directory.

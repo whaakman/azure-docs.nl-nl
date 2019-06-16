@@ -9,17 +9,17 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148966"
 ---
-| Resource | Basis | Standard | Premium |
+| Resource | Basic | Standard | Premium |
 |---|---|---|---|
 | Storage<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Maximale afbeeldingsgrootte van laag | 200 GiB | 200 GiB | 200 GiB |
-| ReadOps per minuut<sup>2, 3</sup> | 1000 | 3,000 | 10.000 |
+| ReadOps per minuut<sup>2, 3</sup> | 1000 | 3,000 | 10\.000 |
 | WriteOps per minuut<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Downloaden van bandbreedte MBps<sup>2</sup> | 30 | 60 | 100 |
 | Uploaden van bandbreedte MBps<sup>2</sup> | 10 | 20 | 50 |

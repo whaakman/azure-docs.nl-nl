@@ -10,10 +10,10 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153665"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Azure Storage gebruiken met een Jenkins CI-oplossing
@@ -118,7 +118,7 @@ De volgende stappen laten zien voor het configureren van een build-stap om items
 1. In de **bouwen** sectie van de taakconfiguratie, selecteert u **build-stap toevoegen** en selecteer **downloaden uit Azure Blob storage**.
 2. Voor **opslagaccountnaam**, selecteer het opslagaccount te gebruiken.
 3. Voor **containernaam**, geef de naam van de container met de blobs die u wilt downloaden. U kunt omgevingsvariabelen gebruiken.
-4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\\*** geeft alle blobs waarvan de namen met beginnen **project**.
+4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\\** * geeft alle blobs waarvan de namen met beginnen **project**.
 5. [Optioneel] Voor **downloadpad**, geef het pad op de Jenkins-machine waar u bestanden wilt downloaden uit Azure blob-opslag. Omgevingsvariabelen kunnen ook worden gebruikt. (Als u een waarde op voor geen opgeeft **downloadpad**, de bestanden vanuit Azure blob storage naar de werkruimte van de taak zal worden gedownload.)
 
 Als u extra items die u wilt downloaden uit Azure blob-opslag hebt, kunt u extra build-stappen kunt maken.
@@ -137,7 +137,7 @@ Deze sectie bevat een overzicht van de onderdelen van de Blob-service.
   
     (De bovenstaande indeling van toepassing op de wereldwijde Azure-cloud. Als u van een andere Azure-cloud gebruikmaakt, gebruikt u het eindpunt in de [Azure Portal](https://portal.azure.com) om te bepalen van uw URL-eindpunt.)
   
-    In de bovenstaande indeling `storageaccount` vertegenwoordigt de naam van uw opslagaccount `container_name` vertegenwoordigt de naam van uw container en `blob_name` vertegenwoordigt de naam van de blob, respectievelijk. In de containernaam van de, kunt u meerdere paden, gescheiden door een slash hebben **/**. De naam van het voorbeeld gebruikt voor deze zelfstudie is **MyJob**, en **${bouwen\_ID} / ${bouwen\_getal}** is gebruikt voor het algemene virtueel pad, wat resulteert in de blob met een URL de volgende vorm:
+    In de bovenstaande indeling `storageaccount` vertegenwoordigt de naam van uw opslagaccount `container_name` vertegenwoordigt de naam van uw container en `blob_name` vertegenwoordigt de naam van de blob, respectievelijk. In de containernaam van de, kunt u meerdere paden, gescheiden door een slash hebben **/** . De naam van het voorbeeld gebruikt voor deze zelfstudie is **MyJob**, en **${bouwen\_ID} / ${bouwen\_getal}** is gebruikt voor het algemene virtueel pad, wat resulteert in de blob met een URL de volgende vorm:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

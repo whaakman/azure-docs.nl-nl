@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
 ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297096"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken met uw toepassing naar Azure SQL Database Managed Instance
@@ -138,7 +138,7 @@ Voor het oplossen van problemen met de netwerkverbinding, controleert u het volg
 
 De volgende minimale versies van de hulpprogramma's en stuurprogramma's worden aanbevolen als u wilt verbinding maken met Managed Instance:
 
-| Stuurprogramma/hulpprogramma | Versie |
+| Stuurprogramma/hulpprogramma | Version |
 | --- | --- |
 |.NET Framework | 4.6.1 (of .NET Core) |
 |ODBC-stuurprogramma| v17 |

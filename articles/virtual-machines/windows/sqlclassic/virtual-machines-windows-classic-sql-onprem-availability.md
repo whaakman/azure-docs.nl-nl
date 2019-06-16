@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481585"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>On-premises AlwaysOn-beschikbaarheidsgroepen uitbreiden naar Azure
@@ -42,7 +42,7 @@ Deze sectie leest u hoe u de **Wizard Azure Replica toevoegen** om uit te breide
 > [!IMPORTANT]
 > De **Wizard Azure Replica toevoegen** biedt alleen ondersteuning voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel. Nieuwe VM-implementaties moeten het nieuwere model van Resource Manager gebruiken. Als u virtuele machines met Resource Manager, moet u de secundaire Azure-replica met behulp van Transact-SQL-commmands (hier niet weergegeven) handmatig toevoegen. Met deze wizard werkt niet in het Resource Manager-scenario.
 
-1. Uit SQL Server Management Studio, vouw **Always On hoge beschikbaarheid** > **beschikbaarheidsgroepen** > **[naam van de beschikbaarheidsgroep]**.
+1. Uit SQL Server Management Studio, vouw **Always On hoge beschikbaarheid** > **beschikbaarheidsgroepen** >  **[naam van de beschikbaarheidsgroep]** .
 2. Met de rechtermuisknop op **Beschikbaarheidsreplica**, klikt u vervolgens op **Replica toevoegen**.
 3. Standaard de **Replica toevoegen aan de Wizard beschikbaarheidsgroep** wordt weergegeven. Klik op **volgende**.  Als u hebt geselecteerd de **deze pagina niet meer weergeven** optie aan de onderkant van de pagina tijdens een eerdere starten van deze wizard, in dit scherm niet wordt weergegeven.
    

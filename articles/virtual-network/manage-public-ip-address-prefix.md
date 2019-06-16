@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
 ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952677"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Maken, wijzigen of verwijderen van een openbare IP-adresvoorvoegsel
@@ -51,7 +51,7 @@ Openbare IP-adresvoorvoegsels hebben een kosten in rekening gebracht. Zie voor m
    |Resourcegroep|Ja|Kan bestaan in de dezelfde of verschillende, [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) als de resource die u wilt koppelen aan het openbare IP-adres.|
    |Name|Ja|De naam moet uniek zijn binnen de resourcegroep die u selecteert.|
    |Regio|Ja|Moet bestaan in dezelfde [regio](https://azure.microsoft.com/regions)als het openbare IP-adressen u adressen uit het bereik moet toewijzen.|
-   |Grootte voorvoegsel|Ja| De grootte van het voorvoegsel dat u nodig hebt. Een/28 of 16 IP-adressen is de standaardinstelling.
+   |Voorvoegselgrootte|Ja| De grootte van het voorvoegsel dat u nodig hebt. Een/28 of 16 IP-adressen is de standaardinstelling.
 
 **Opdrachten**
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814485"
 ---
 # <a name="semantic-interpretation"></a>Semantische interpretatie
@@ -115,7 +115,7 @@ written in the 90s
 
 `query = Composite(innerQuery);`
 
-Retourneert een query die wordt ingekapseld een *innerQuery* bestaat van overeenkomsten op basis van onderliggende kenmerken van een gemeenschappelijk samengestelde kenmerk *%{attr/*.  De inkapseling moet het samengestelde kenmerk *%{attr/* van een overeenkomende gegevensobject dat ten minste één waarde die afzonderlijk voldoet aan de *innerQuery*.  Houd er rekening mee dat een query op onderliggende kenmerken van een samengestelde kenmerk heeft te integreren met behulp van de functie Composite() voordat deze kan worden gecombineerd met andere query's.
+Retourneert een query die wordt ingekapseld een *innerQuery* bestaat van overeenkomsten op basis van onderliggende kenmerken van een gemeenschappelijk samengestelde kenmerk *%{attr/* .  De inkapseling moet het samengestelde kenmerk *%{attr/* van een overeenkomende gegevensobject dat ten minste één waarde die afzonderlijk voldoet aan de *innerQuery*.  Houd er rekening mee dat een query op onderliggende kenmerken van een samengestelde kenmerk heeft te integreren met behulp van de functie Composite() voordat deze kan worden gecombineerd met andere query's.
 
 De volgende query retourneert bijvoorbeeld academische publicaties door "harry shum" terwijl hij op 'microsoft is':
 ```

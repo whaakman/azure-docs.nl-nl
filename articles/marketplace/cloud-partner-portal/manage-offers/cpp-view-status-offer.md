@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
-ms.openlocfilehash: b8113552edf9dd2f886b5752b2ebc69afc0fda08
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: fff89dd8a17aaf6d45462edeaa22f1d2efc8d02b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942423"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064305"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>De publicatiestatus van aanbiedingen voor Azure Marketplace en AppSource weergeven
 
@@ -39,7 +39,7 @@ Het volgende voorbeeld **Status** tabblad voor een consulting services, met een 
 
 ![Tabblad van de status voor consulting servicefout weergeven](./media/consulting-service-error.png)
 
-De status van het laatste voorbeeld van een Azure-toepassing bevat een cruciaal voor beoordeling van Microsoft.  Het bevat een hot koppeling naar het VSTS-item dat gedetailleerde informatie over dit probleem controleren bevat.  Zie voor meer informatie, [Azure publiceren toepassingsbieding](cpp-publish-offer.md).
+De status van het laatste voorbeeld van een Azure-toepassing bevat een cruciaal voor beoordeling van Microsoft.  Deze bevat een koppeling ' hot ' naar het Azure DevOps-item waarvoor gedetailleerde informatie over dit probleem controleren bevat.  Zie voor meer informatie, [Azure publiceren toepassingsbieding](cpp-publish-offer.md).
 
 ![Tabblad van de status voor Azure-app controleren probleem weergeven](../azure-applications/media/status-tab-ms-review.png)
 

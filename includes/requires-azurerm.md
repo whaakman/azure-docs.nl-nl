@@ -2,19 +2,23 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/11/2018
+ms.date: 06/05/2019
 ms.topic: include
-ms.openlocfilehash: a956cd1e029371fa7031d262206b0ce10aa8dbff
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 550ace93479278df2a592a87ee34d10f8763d2f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133413"
 ---
 > [!IMPORTANT]
 >
-> Gebruik deze functie van Azure PowerShell vereist dat u hebt de `AzureRM` -module geïnstalleerd. Dit is een oudere module alleen beschikbaar voor Windows PowerShell 5.x die essentiële ontvangt updates, maar niet meer nieuwe functies opgehaald. Als u hebt de `Az` module zijn geïnstalleerd, moet u installeren `AzureRM` ook. Voor het installeren van `AzureRM`:
-> 
-> 1. Uitschakelen van de AzureRM-aliassen in `Az` (indien ingeschakeld) met `Disable-AzAlias`. Met deze opdracht zonder `Az` geïnstalleerd of is onschadelijk met aliassen uitgeschakeld.
-> 2. Ga als volgt de [meest recente installatie-instructies voor AzureRM](/powershell/azure/install-az-ps). Zelfs als u over `AzureRM` geïnstalleerd, bijgewerkt naar de nieuwste versie.
+> Het gebruik van deze functie van Azure PowerShell vereist de `AzureRM` -module geïnstalleerd. Dit is een oudere module alleen beschikbaar voor Windows PowerShell 5.1 die nieuwe functies niet meer ontvangt.
+> De `Az` en `AzureRM` modules zijn __niet__ compatibel wanneer voor de dezelfde versies van PowerShell is geïnstalleerd.
+> Als u beide versies moet:
+>
+> 1. [De Az-module verwijderen](/powershell/azure/uninstall-az-ps) vanuit een PowerShell 5.1-sessie.
+> 2. [De AzureRM-module installeren](/powershell/azure/azurerm/install-azurerm-ps) vanuit een PowerShell 5.1-sessie.
+> 3. [Download en installeer PowerShell Core 6.x of hoger](/powershell/scripting/install/installing-powershell-core-on-windows).
+> 4. [Installeer de Az-module](/powershell/azure/install-az-ps) in een PowerShell Core-sessie.
 

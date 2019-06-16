@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108488"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Een Azure AD Application Proxy-implementatie plannen
 
@@ -64,7 +64,7 @@ De volgende belangrijke vereisten moeten worden voldaan om te configureren en im
 
 *  **Azure onboarding**: Voordat u implementeert toepassingsproxy, moeten gebruikers-id's worden gesynchroniseerd vanuit een on-premises directory of die rechtstreeks in uw Azure AD-tenants zijn gemaakt. Identiteitssynchronisatie kunt vooraf om gebruikers te verifiëren voordat ze toegang verlenen tot de App Proxy toepassingen gepubliceerde en dat de id-gegevens van de gebruiker nodig om uit te voeren eenmalige aanmelding (SSO) met Azure AD.
 
-* **Vereisten voor voorwaardelijke toegang**: We raden niet toepassingsproxy gebruiken voor toegang tot het intranet omdat deze wordt toegevoegd latentie die is van invloed op gebruikers. U wordt aangeraden met Application Proxy met vooraf-verificatie en voorwaardelijke toegangsbeleid voor externe toegang via internet.  Een benadering voor voorwaardelijke toegang voor gebruik van het intranet is het moderniseren van toepassingen zodat ze diretly kunnen worden geverifieerd met AAD. Raadpleeg [Resources voor het migreren van toepassingen voor AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) voor meer informatie. 
+* **Vereisten voor voorwaardelijke toegang**: We raden niet toepassingsproxy gebruiken voor toegang tot het intranet omdat deze wordt toegevoegd latentie die is van invloed op gebruikers. U wordt aangeraden met Application Proxy met vooraf-verificatie en beleid voor voorwaardelijke toegang voor externe toegang via internet.  Een methode om u te bieden voor voorwaardelijke toegang voor gebruik van het intranet is het moderniseren van toepassingen zodat ze diretly kunnen worden geverifieerd met AAD. Raadpleeg [Resources voor het migreren van toepassingen voor AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) voor meer informatie. 
 
 * **Servicelimieten**: Ter bescherming tegen zijn overmatig van resources door er afzonderlijke tenants bandbreedtebeperking limieten instellen per toepassing en tenant. Om te zien van deze limieten die verwijzen naar [limieten en beperkingen voor Azure AD-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Deze beperkingslimieten zijn gebaseerd op een benchmark tot nu toe boven de typische gebruiksvolume en ruime buffer biedt voor een meerderheid van implementaties.
 

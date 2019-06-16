@@ -12,10 +12,10 @@ ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65020842"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Ondersteuning voor de spraakservices taal en regio
@@ -179,7 +179,7 @@ zh-TW | Chinees (Taiwan) | Vrouw | "Microsoft Server spraak tekst en spraak, spr
 > [!NOTE]
 > U kunt de toewijzing van de volledige service of de naam van de korte spraak gebruiken in uw spraakherkenning synthese aanvragen.
 
-### <a name="customization"></a>Aanpassen
+### <a name="customization"></a>Aanpassing
 
 Stem aanpassing is beschikbaar voor de-DE, en-GB, nl-IN, en-US, es-MX, fr-FR, it-IT, pt-BR en zh-CN. Selecteer de juiste landinstelling die overeenkomt met het trainen van gegevens moet u een aangepaste spraak-model te trainen. Als de gegevens die u hebt voor het vastleggen van gegevens wordt gezegd in het Engels met een Britse accent, selecteert u bijvoorbeeld en-GB.  
 

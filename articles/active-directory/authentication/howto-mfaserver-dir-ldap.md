@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093849e10e9776327a54ea3a9ae22b863a528d37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057363"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP-verificatie en Azure multi-factor Authentication-Server
 
 Standaard is de Azure Multi-Factor Authentication-server geconfigureerd om de gebruikers van Active Directory te importeren of te synchroniseren. Deze kan echter worden geconfigureerd om verbinding te maken met verschillende LDAP-adreslijsten, zoals een ADAM-adreslijst of een specifieke Active Directory-domeincontroller. Wanneer verbonden met een directory via LDAP, wordt de Azure multi-factor Authentication-Server kan fungeren als een LDAP-proxy om uit te voeren van verificaties. Daarnaast kunt u de LDAP-binding gebruiken als een RADIUS-doel voor het uitvoeren van pre-verificaties van gebruikers met IIS-verificatie, of voor het uitvoeren van primaire verificaties in de Azure MFA-gebruikersportal.
 
 Voor het gebruik van Azure multi-factor Authentication als een LDAP-proxy, voegt u de Azure multi-factor Authentication-Server tussen de LDAP-client (bijvoorbeeld VPN-apparaat, toepassing) en de LDAP-adreslijstserver. De Azure Multi-Factor Authentication-server moet worden geconfigureerd om te kunnen communiceren met zowel de clientservers als de LDAP-directory. In deze configuratie accepteert de Azure Multi-Factor Authentication-server LDAP-aanvragen van clientservers en toepassingen, en stuurt deze door naar de doel-LDAP-adreslijstserver om de primaire referenties te valideren. Als de LDAP-directory wordt de primaire referenties gevalideerd, wordt Azure multi-factor Authentication wordt uitgevoerd een tweede identiteit te verifiëren en stuurt een antwoord terug naar de LDAP-client. De volledige verificatie slaagt alleen als de LDAP-serververificatie en de verificatie in de tweede stap zijn gelukt.
+
+> [!IMPORTANT]
+> Vanaf 1 juli 2019, zal Microsoft MFA-Server niet meer bieden voor nieuwe implementaties. Nieuwe klanten die willen graag meervoudige verificatie van gebruikers vereisen moeten cloud-gebaseerde Azure multi-factor Authentication gebruiken. Bestaande klanten die vóór 1 juli MFA-Server hebben geactiveerd, worden kunnen de nieuwste versie downloaden door toekomstige updates en zoals gebruikelijk activeringsreferenties genereren.
 
 ## <a name="configure-ldap-authentication"></a>LDAP-verificatie configureren
 
@@ -37,7 +40,7 @@ Als u LDAP-verificatie wilt configureren, moet u de Azure Multi-Factor Authentic
 
 3. Wijzig op het tabblad Clients de TCP-poort en de SSL-poort als de LDAP-service van Azure Multi-Factor Authentication verbinding moet maken met niet-standaardpoorten om te luisteren naar LDAP-aanvragen.
 4. Als u van plan bent LDAPS te gebruiken van de client naar de Azure multi-factor Authentication-Server, moet een SSL-certificaat worden geïnstalleerd op dezelfde server als de MFA-Server. Klik op **Bladeren** naast de SSL-certificaat vak en selecteert u een certificaat voor de beveiligde verbinding.
-5. Klik op **Add**.
+5. Klik op **Toevoegen**.
 6. Voer in het dialoogvenster LDAP-Client toevoegen het IP-adres van het apparaat, server of toepassing die wordt geverifieerd met de Server en een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
 7. Schakel het selectievakje **Overeenkomende Azure Multi-Factor Authentication-gebruiker** vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan verificatie in twee stappen onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de Server en/of vrijgesteld van verificatie in twee stappen zijn, laat u het vakje uitgeschakeld. Zie de help-bestand voor meer informatie over deze functie MFA-Server.
 

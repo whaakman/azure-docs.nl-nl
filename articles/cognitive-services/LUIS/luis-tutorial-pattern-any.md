@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495246"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069252"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Zelfstudie: Vrije vorm-gegevens ophalen met Pattern.any-entiteit
 
@@ -65,24 +65,20 @@ De lengte varieert en er zijn woorden die verwarrend kunnen zijn voor LUIS om te
 |Is {FormName} gepubliceerd in het Frans[?]|
 
 ## <a name="import-example-app"></a>Voorbeeld-app importeren
-Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Voer de volgende stappen uit:
+1. Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json) en sla het op.
 
-1.  Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json) en sla het op.
+1. In de [LUIS portal](https://www.luis.ai)op de **mijn apps** pagina, de JSON in een nieuwe app te importeren.
 
-2. Importeer de JSON in een nieuwe app.
-
-3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `patt-any`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
+1. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `patt-any`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
 
 ## <a name="add-example-utterances"></a>Voorbeelden van utterances toevoegen 
-Verwijder de vooraf gemaakte entiteit keyPhrase als het moeilijk is de entiteit FormName te maken en labelen. 
 
 1. Selecteer **Build** in de bovenste navigatiebalk en selecteer vervolgens **Intenties** in de linkernavigatiebalk.
 
-2. Selecteer **FindForm** in de lijst met intenties.
+1. Selecteer **FindForm** in de lijst met intenties.
 
-3. Voeg enkele voorbeelden van utterances toe:
+1. Voeg enkele voorbeelden van utterances toe:
 
     |Voorbeeld van een utterance|
     |--|
@@ -94,13 +90,13 @@ Verwijder de vooraf gemaakte entiteit keyPhrase als het moeilijk is de entiteit 
     Zonder een entiteit Pattern.any kan het lastig zijn voor LUIS om te begrijpen waar de titel van het formulier eindigt vanwege de vele variaties van de namen van formulieren.
 
 ## <a name="create-a-patternany-entity"></a>Een Pattern.any-entiteit maken
-De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit werkt alleen in een patroon omdat het patroon het begin en einde van de entiteit markeert. Als u merkt dat het patroon, wanneer dit een Pattern.any bevat, entiteiten onjuist extraheert, gebruikt u een [expliciete lijst](luis-concept-patterns.md#explicit-lists) om dit probleem te verhelpen. 
+De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit werkt alleen in een patroon omdat het patroon het begin en einde van de entiteit markeert.  
 
 1. Selecteer **Entiteiten** in de linkernavigatiebalk.
 
-2. Selecteer **Nieuwe entiteit maken**, voer de naam `FormName` in en selecteer **Pattern.any** als type. Selecteer **Done**. 
+1. Selecteer **Nieuwe entiteit maken**, voer de naam `FormName` in en selecteer **Pattern.any** als type. Selecteer **Done**. 
 
-    U kunt de entiteit in de intentie niet labelen, omdat een Pattern.any alleen geldig is in een patroon. 
+    U kunt de entiteit in de voorbeeld-uitingen van een doel kan niet label, omdat een Pattern.any alleen geldig in een patroon is. 
 
     Als u wilt dat de opgehaalde gegevens ook andere entiteiten bevatten, zoals number of datetimeV2, moet u een samengestelde entiteit maken met daarin zowel de Pattern.any als number en datetimeV2.
 
@@ -108,9 +104,9 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 
 1. Selecteer **Patronen** in de linkernavigatiebalk.
 
-2. Selecteer de intentie **FindForm**.
+1. Selecteer de intentie **FindForm**.
 
-3. Voer de volgende sjabloon-utterances in die gebruikmaken van de nieuwe entiteit:
+1. Voer de volgende sjabloon-utterances in die gebruikmaken van de nieuwe entiteit:
 
     |Sjabloon-utterances|
     |--|
@@ -121,8 +117,6 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 
     Als u rekening wilt houden met variaties voor het formulier, zoals enkele aanhalingstekens in plaats van dubbele aanhalingstekens of een punt in plaats van een vraagteken, moet u voor elke variatie een nieuw patroon maken.
 
-4. Als u de entiteit keyPhrase hebt verwijderd, voegt u deze weer toe aan de app. 
-
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -130,15 +124,20 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Het nieuwe patroon voor extractie van vrije gegevens testen
 1. Selecteer **Testen** in de bovenste balk om het testdeelvenster te openen. 
 
-2. Voer de volgende utterance in: 
+1. Voer de volgende utterance in: 
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-3. Selecteer **Inspecteren** onder het resultaat om de testresultaten voor de entiteit en intentie te zien.
+1. Selecteer **Inspecteren** onder het resultaat om de testresultaten voor de entiteit en intentie te zien.
 
     De entiteit `FormName` is als eerste gevonden en vervolgens het patroon waarmee de intentie wordt bepaald. Als u een testresultaat hebt waar de entiteiten niet zijn gedetecteerd en daarom het patroon niet is gevonden, moet u meer voorbeeld- utterances toevoegen aan de intentie (niet het patroon).
 
-4. Sluit het testdeelvenster met de knop **Testen** in de bovenste navigatiebalk.
+1. Sluit het testdeelvenster met de knop **Testen** in de bovenste navigatiebalk.
+
+## <a name="using-an-explicit-list"></a>Met behulp van een expliciete lijst
+
+Als u merkt dat het patroon, wanneer dit een Pattern.any bevat, entiteiten onjuist extraheert, gebruikt u een [expliciete lijst](luis-concept-patterns.md#explicit-lists) om dit probleem te verhelpen.
+
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: szark
 ms.openlocfilehash: a1be0b6870882d3c7b0281dec7933e87c50e49de
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834557"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Linux-distributies op Azure
@@ -33,7 +33,7 @@ De Linux Integration Services (LIS) stuurprogramma's voor Hyper-V en Azure zijn 
 De Azure Linux Agent al vooraf is geïnstalleerd op de Azure Marketplace-installatiekopieën en is meestal beschikbaar vanuit de distributie van pakket-opslagplaats. Broncode is te vinden in [GitHub](https://github.com/azure/walinuxagent).
 
 
-| Distributie | Versie | Stuurprogramma's | Agent |
+| Distributie | Version | Stuurprogramma's | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [LIS downloaden](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Pakket: In [opslagplaats](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) onder "WALinuxAgent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |In kernel |Broncode: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |

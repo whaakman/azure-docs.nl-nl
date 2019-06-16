@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff5ff12f18d1f85b3ca53adb42fee41e19fb4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865796"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Zelfstudie: Azure Active Directory-integratie met Trello
 
@@ -93,7 +93,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Trello, moet 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
 > [!NOTE]
-> U krijgt de **\<enterprise\>**-slug van Trello. Als u de waarde van de tijdelijke-aanduidingsveld geen hebt, neem dan contact op met de [Trello-ondersteuningsteam](mailto:support@trello.com) om op te halen van het tijdelijke-aanduidingsveld voor uw onderneming.
+> U krijgt de **\<enterprise\>** -slug van Trello. Als u de waarde van de tijdelijke-aanduidingsveld geen hebt, neem dan contact op met de [Trello-ondersteuningsteam](mailto:support@trello.com) om op te halen van het tijdelijke-aanduidingsveld voor uw onderneming.
 
 Voor het configureren van Azure AD eenmalige aanmelding met Trello, voert u de volgende stappen uit:
 

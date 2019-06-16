@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799822"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717806"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-opdrachten in Resource Manager-modus
 Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opdrachten u doorgaans gebruikt maken en beheren van Azure-resources in het Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door het uitvoeren van de CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en de CLI-versie kan enigszins opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -969,7 +969,8 @@ De parameteropties:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    Network lb address-pool verwijderen [opties] < resource-group >< lb-name > <name>
+
+    network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Hiermee verwijdert u de back-end-IP-adresgroep bereik resource uit de load balancer.
 
@@ -1333,7 +1334,9 @@ De parameteropties:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    lijst met openbare ip-netwerken [opties] < resource-group > geeft een lijst van alle openbare IP-resources binnen een resourcegroep.
+
+    network public-ip list [options] <resource-group>
+Geeft een lijst van alle openbare IP-resources binnen een resourcegroep.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1353,8 +1356,10 @@ De parameteropties:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
-    Network public-IP-weergeven [opties] < resource-group > <name>
+
+    network public-ip show [options] <resource-group> <name>
 
 Hiermee worden eigenschappen van openbaar IP-adres voor een openbaar IP-resource binnen een resourcegroep.
 

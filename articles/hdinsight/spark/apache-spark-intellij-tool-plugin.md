@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 57a3ea73783af1edaee069bf2770d5c58f81772a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94cc41890778e842cb2e4bd6e06b90361cbef1cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066458"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 
@@ -183,7 +183,7 @@ U kunt een HDInsight-cluster koppelen met behulp van de gebruikersnaam van de Ap
         |Gebruikersnaam| Voer de naam van de cluster-gebruiker, standaard is de beheerder.|
         |Wachtwoord| Wachtwoord opgeven voor de gebruikersnaam van de.|
     
-        ![dialoogvenster voor Hdinsight-cluster koppelen](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![dialoogvenster voor HdInsight-cluster koppelen](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy-Service**  
   
@@ -457,12 +457,12 @@ Als het cluster bezet is, kunt u de onderstaande foutmelding krijgen.
 
 ![Intellij de foutmelding wanneer cluster bezet](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
-## <a name="feedback-and-known-issues"></a>Feedback en bekende problemen
+## <a name="known-issues"></a>Bekende problemen
+
 Op dit moment wordt bekijken Spark uitvoer rechtstreeks niet ondersteund.
 
-Als u suggesties of feedback hebt, of als u problemen ondervindt wanneer u deze invoegtoepassing gebruikt, een e-mail verzenden naar hdivstool@microsoft.com.
-
 ## <a name="seealso"></a>Volgende stappen
+
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
@@ -482,7 +482,6 @@ Als u suggesties of feedback hebt, of als u problemen ondervindt wanneer u deze 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [Azure Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand via VPN-verbinding gebruiken](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Azure Toolkit voor IntelliJ gebruiken voor foutopsporing van Apache Spark-toepassingen op afstand via SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen](apache-spark-eclipse-tool-plugin.md)
 * [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)

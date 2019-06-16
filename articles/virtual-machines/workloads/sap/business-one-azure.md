@@ -17,10 +17,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835624"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One in virtuele Azure-machines
@@ -130,7 +130,7 @@ Ga voor SQL Server implementeren als DBMS-systemen voor Business One, aan het do
 
 Er zijn geen schattingen ruwe grootte voor de DBMS-zijde voor SQL Server:
 
-| Aantal gebruikers | vCPU's | Geheugen | Voorbeeld van de VM-typen |
+| Aantal gebruikers | vcpu 's | Geheugen | Voorbeeld van de VM-typen |
 | --- | --- | --- | --- |
 | maximaal 20 | 4 | 16 GB | D4s_v3, E4s_v3 |
 | maximaal 40 | 8 | 32 GB | D8s_v3, E8s_v3 |
@@ -150,7 +150,7 @@ Voor SAP HANA back-up en herstellen van strategieën, moet u het document lezen 
 ### <a name="business-one-client-server"></a>Business één client-server
 Voor deze onderdelen zijn opslagoverwegingen niet het belangrijkste aandachtspunt. echter, wilt u beschikken over een betrouwbaar platform. Daarom moet u Azure Premium Storage gebruiken voor deze virtuele machine, zelfs voor de basis-VHD. Grootte van de virtuele machine, met de gegevens die zijn opgegeven in [SAP Business één Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Voor Azure moet u zich concentreren en aan de vereisten vermeld in het hoofdstuk 2.4 van het document te berekenen. Als u de vereisten voor berekenen, moet u ze te vergelijken met de volgende documenten kunnen de ideale VM zoeken:
 
-- [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- [Grootten voor Windows Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP-notitie 1928533 #](https://launchpad.support.sap.com/#/notes/1928533)
 
 Vergelijk aantal CPU's en geheugen die nodig zijn voor wat wordt beschreven door Microsoft. Ook de netwerkdoorvoer in waarmee u rekening moet houden bij het kiezen van de virtuele machines.

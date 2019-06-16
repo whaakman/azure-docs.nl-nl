@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4893076da47528cb6765efc32f46e76819a915b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4f0d681c93ab7ac7fef941892a95282a2fd59b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075724"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching voor SQL Server in virtuele machines van Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -81,20 +81,20 @@ De Azure-portal kunt u automatisch patchen tijdens het inrichten of voor bestaan
 ### <a name="new-vms"></a>Nieuwe virtuele machines
 De Azure portal gebruiken voor het automatisch patchen te configureren wanneer u een nieuwe SQL Server-Machine in het Resource Manager-implementatiemodel maakt.
 
-In de **SQL Server-instellingen** Selecteer **Automated patching**. De volgende schermafbeelding van Azure portal bevat de **SQL automatisch patchen** blade.
+In de **SQL Server-instellingen** tabblad **-configuratie wijzigen** onder **Automated patching**. De volgende schermafbeelding van Azure portal bevat de **SQL automatisch patchen** blade.
 
 ![SQL automatisch patchen in Azure portal](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
 Zie de volledige onderwerp op voor de context, [inrichten van een virtuele machine van SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Bestaande VM 's
-Voor bestaande SQL Server virtuele machines, selecteert u uw virtuele machine van SQL Server. Selecteer vervolgens de **SQL Server-configuratie** sectie van de **instellingen** blade.
+
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Voor bestaande SQL Server virtuele machines, opent u uw [SQL-resource voor virtuele machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) en selecteer **Patching** onder **instellingen**. 
 
 ![Automatisch patchen van SQL voor bestaande VM 's](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
-In de **SQL Server-configuratie** blade, klikt u op de **bewerken** knop in de sectie patches automatisch.
-
-![SQL automatisch patchen voor bestaande VM's configureren](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
 
 Wanneer u klaar bent, klikt u op de **OK** knop aan de onderkant van de **SQL Server-configuratie** blade uw wijzigingen op te slaan.
 
@@ -108,8 +108,7 @@ In het volgende voorbeeld wordt PowerShell gebruikt voor het configureren van au
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
     $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-
-    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+s Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Als de extensie niet al is geïnstalleerd, opnieuw installeren van de extensie de SQL Server-service.

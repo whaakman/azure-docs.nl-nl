@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151721"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808862"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>De Azure IoT Edge-runtime installeren op Windows
 
@@ -86,7 +86,7 @@ In dit voorbeeld ziet u een handmatige installatie met Windows-containers:
 3. De **implementeren IoTEdge** opdracht controleert of uw Windows-machine op een ondersteunde versie is, schakelt de functie voor containers en downloadt vervolgens de moby-runtime en de IoT Edge-runtime. De opdracht standaard gebruik van Windows-containers. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -95,7 +95,7 @@ In dit voorbeeld ziet u een handmatige installatie met Windows-containers:
 5. De **initialiseren IoTEdge** opdracht configureert de IoT Edge-runtime op uw computer. De standaardinstellingen van de opdracht voor het inrichten van handmatige met Windows-containers. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
@@ -135,7 +135,7 @@ Het volgende voorbeeld ziet u een automatische installatie met Windows-container
 3. De **implementeren IoTEdge** opdracht controleert of uw Windows-machine op een ondersteunde versie is, schakelt de functie voor containers en downloadt vervolgens de moby-runtime en de IoT Edge-runtime. De opdracht standaard gebruik van Windows-containers. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -144,7 +144,7 @@ Het volgende voorbeeld ziet u een automatische installatie met Windows-container
 6. De **initialiseren IoTEdge** opdracht configureert de IoT Edge-runtime op uw computer. De standaardinstellingen van de opdracht voor het inrichten van handmatige met Windows-containers. Gebruik de `-Dps` vlag gebruiken van de Device Provisioning Service in plaats van handmatige inrichting.
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
@@ -172,7 +172,7 @@ Zie voor de meest recente IoT Edge-installatiebestanden, samen met eerdere versi
 Als u wilt installeren met offline-onderdelen, gebruikt u de `-OfflineInstallationPath` parameter als onderdeel van de implementatie-IoTEdge opdracht en geeft u het absolute pad naar de map. Bijvoorbeeld:
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
@@ -189,7 +189,7 @@ Get-Service iotedge
 Bekijk Logboeken van de laatste 5 minuten. Als u alleen de installatie voltooid IoT Edge-runtime, ziet u mogelijk een lijst van fouten van de tijd tussen actieve **implementeren IoTEdge** en **initialiseren IoTEdge**. Deze fouten worden verwacht, omdat de service probeert te starten voordat het wordt geconfigureerd. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 Lijst met modules. Na een nieuwe installatie, de enige module ziet u het uitvoeren is **edgeAgent**. Nadat u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md), ziet u anderen. 
@@ -233,7 +233,7 @@ Zie voor meer informatie, [bijwerken van de IoT Edge security-daemon en de runti
 In dit voorbeeld ziet u een installatie die verwijst naar een bestaand configuratiebestand en maakt gebruik van Windows-containers: 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Update-IoTEdge
 ```
 
@@ -269,10 +269,10 @@ De opdracht implementeren IoTEdge downloadt en implementeert het IoT Edge Securi
 | Parameter | Geaccepteerde waarden | Opmerkingen |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** of **Linux** | Als er geen besturingssysteem van de container is opgegeven, is Windows de standaardwaarde.<br><br>IoT Edge gebruikt voor Windows-containers, opgenomen in de installatie van moby-container-engine. Voor Linux-containers moet u een container-engine installeren voordat u begint de installatie. |
-| **Proxy** | URL van proxy | Deze parameter opgeeft als het apparaat via een proxyserver moet te bereiken van het internet. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
-| **OfflineInstallationPath** | Adreslijstpad | Als deze parameter opgenomen is, wordt het installatieprogramma de genoemde map voor de IoT Edge CAB-bestand en VC Runtime MSI-bestanden die zijn vereist voor de installatie gecontroleerd. Alle bestanden die niet is gevonden in de map worden gedownload. Als beide bestanden zich in de directory, kunt u IoT Edge kunt installeren zonder internetverbinding. Gebruik deze parameter kunt u ook een specifieke versie te gebruiken. |
+| **Proxy** | Proxy-URL | Deze parameter opgeeft als het apparaat via een proxyserver moet te bereiken van het internet. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
+| **OfflineInstallationPath** | Pad naar map | Als deze parameter opgenomen is, wordt het installatieprogramma de genoemde map voor de IoT Edge CAB-bestand en VC Runtime MSI-bestanden die zijn vereist voor de installatie gecontroleerd. Alle bestanden die niet is gevonden in de map worden gedownload. Als beide bestanden zich in de directory, kunt u IoT Edge kunt installeren zonder internetverbinding. Gebruik deze parameter kunt u ook een specifieke versie te gebruiken. |
 | **InvokeWebRequestParameters** | Hash-tabel van de parameters en waarden | Tijdens de installatie van de verschillende webaanvragen worden gedaan. Dit veld gebruiken om in te stellen van parameters voor deze webaanvragen. Deze parameter is handig om de referenties voor de proxy-servers configureren. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | geen | Met deze markering kan het implementatiescript de machine opnieuw te starten zonder te vragen, indien nodig. |
+| **RestartIfNeeded** | Geen | Met deze markering kan het implementatiescript de machine opnieuw te starten zonder te vragen, indien nodig. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -296,18 +296,18 @@ De opdracht initialiseren IoTEdge configureert IoT Edge met de apparaatverbindin
 | Parameter | Geaccepteerde waarden | Opmerkingen |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** of **Linux** | Als er geen container die besturingssysteem is opgegeven, is Windows de standaardwaarde. Voor Windows-containers, wordt een container-engine worden opgenomen in de installatie. Voor Linux-containers moet u een container-engine installeren voordat u begint de installatie. |
-| **Proxy** | URL van proxy | Deze parameter opgeeft als het apparaat via een proxyserver moet te bereiken van het internet. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
+| **Proxy** | Proxy-URL | Deze parameter opgeeft als het apparaat via een proxyserver moet te bereiken van het internet. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Hash-tabel van de parameters en waarden | Tijdens de installatie van de verschillende webaanvragen worden gedaan. Dit veld gebruiken om in te stellen van parameters voor deze webaanvragen. Deze parameter is handig om de referenties voor de proxy-servers configureren. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
-| **OfflineInstallationPath** | Adreslijstpad | Als deze parameter opgenomen is, wordt het installatieprogramma de genoemde map voor de IoT Edge CAB-bestand en VC Runtime MSI-bestanden die zijn vereist voor de installatie gecontroleerd. Alle bestanden die niet is gevonden in de map worden gedownload. Als beide bestanden zich in de directory, kunt u IoT Edge kunt installeren zonder internetverbinding. Gebruik deze parameter kunt u ook een specifieke versie te gebruiken. |
-| **RestartIfNeeded** | geen | Met deze markering kan het implementatiescript de machine opnieuw te starten zonder te vragen, indien nodig. |
+| **OfflineInstallationPath** | Pad naar map | Als deze parameter opgenomen is, wordt het installatieprogramma de genoemde map voor de IoT Edge CAB-bestand en VC Runtime MSI-bestanden die zijn vereist voor de installatie gecontroleerd. Alle bestanden die niet is gevonden in de map worden gedownload. Als beide bestanden zich in de directory, kunt u IoT Edge kunt installeren zonder internetverbinding. Gebruik deze parameter kunt u ook een specifieke versie te gebruiken. |
+| **RestartIfNeeded** | Geen | Met deze markering kan het implementatiescript de machine opnieuw te starten zonder te vragen, indien nodig. |
 
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Parameter | Geaccepteerde waarden | Opmerkingen |
 | --------- | --------------- | -------- |
-| **Force** | geen | Met deze vlag wordt het verwijderen in het geval de eerdere poging om te verwijderen mislukt is. 
-| **RestartIfNeeded** | geen | Met deze markering kan het uninstall-script dat de machine opnieuw te starten zonder te vragen, indien nodig. |
+| **Force** | Geen | Met deze vlag wordt het verwijderen in het geval de eerdere poging om te verwijderen mislukt is. 
+| **RestartIfNeeded** | Geen | Met deze markering kan het uninstall-script dat de machine opnieuw te starten zonder te vragen, indien nodig. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

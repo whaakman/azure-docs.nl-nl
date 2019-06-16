@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833474"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
@@ -41,7 +41,7 @@ Azure Functions biedt een andere manier om uit te voeren programma's en scripts.
 De volgende tabel beschrijft de verschillen tussen *continue* en *geactiveerd* WebJobs.
 
 
-|Continu  |Geactiveerd  |
+|Continu  |Triggered  |
 |---------|---------|
 | Begint onmiddellijk wanneer de webtaak wordt gemaakt. Het programma of script, doet om te voorkomen dat de taak beëindigen, gewoonlijk zijn werk binnen een oneindige lus. Als de taak eindigt, kunt u deze opnieuw starten. | Wordt alleen gestart als geactiveerd handmatig of volgens een schema. |
 | Wordt uitgevoerd op alle exemplaren die de web-app wordt uitgevoerd op. U kunt eventueel de webtaak beperken tot één exemplaar. |Wordt uitgevoerd op een enkele instantie die door Azure wordt geselecteerd voor de taakverdeling.|
@@ -124,7 +124,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Naam** | myTriggeredWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'.|
    | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Geactiveerd | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Type** | Triggered | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
    | **Triggers** | Handmatig | |
 
 4. Klik op **OK**.
@@ -162,7 +162,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Naam** | myScheduledWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
    | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Geactiveerd | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Type** | Triggered | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
    | **Triggers** | Gepland | Voor de planning betrouwbaar werkt, moet u de functie altijd op inschakelen. Altijd beschikbaar is alleen beschikbaar in de Basic, Standard en Premium-Prijscategorieën.|
    | **CRON-expressie** | 0 0/20 * * * * | [CRON-expressies](#cron-expressions) worden beschreven in de volgende sectie. |
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341824"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Azure Monitor
@@ -213,7 +213,7 @@ De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. D
 | Label |De tekst die wordt weergegeven in de header. |
 | **Header** |**> Link** |
 | Label |De tekst van de koppeling. |
-| URL |De Url voor de koppeling. |
+| Url |De Url voor de koppeling. |
 | **Informatie-items** | |
 | Titel |De tekst die wordt weergegeven voor de titel van elk item. |
 | Inhoud |De tekst die wordt weergegeven voor elk item. |
@@ -331,8 +331,8 @@ De volgende tabel beschrijft de instellingen voor navigatie via klikken.
 
 | Instelling           | Description |
 |:--|:--|
-| Zoeken in logboeken (automatisch) | Query voor worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde logboekquery die het item is gebaseerd op.
-| Zoeken in logboeken        | Query voor worden uitgevoerd wanneer u een item in een lijst selecteert.  Typ de query in de **navigatiequery** vak.   Gebruik *{geselecteerde item}* om op te nemen van de syntaxis voor het item dat de gebruiker heeft geselecteerd.  Bijvoorbeeld, als de query heeft een kolom met de naam *Computer* en de navigatiequery is *{geselecteerde item}*, een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatiequery is *Type = Event {geselecteerde item}*, de query *Type = Event Computer = 'Computer'* wordt uitgevoerd. |
+| Zoeken in Logboeken (automatisch) | Query voor worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde logboekquery die het item is gebaseerd op.
+| Zoeken in logboeken        | Query voor worden uitgevoerd wanneer u een item in een lijst selecteert.  Typ de query in de **navigatiequery** vak.   Gebruik *{geselecteerde item}* om op te nemen van de syntaxis voor het item dat de gebruiker heeft geselecteerd.  Bijvoorbeeld, als de query heeft een kolom met de naam *Computer* en de navigatiequery is *{geselecteerde item}* , een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatiequery is *Type = Event {geselecteerde item}* , de query *Type = Event Computer = 'Computer'* wordt uitgevoerd. |
 | Weergave              | De weergave wilt openen wanneer u een header-item of een item in een lijst selecteert.  Selecteer de naam van een weergave in uw werkruimte in de **weergavenaam** vak. |
 
 

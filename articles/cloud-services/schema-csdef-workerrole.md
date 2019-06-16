@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095401"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services Definition WorkerRole Schema
@@ -151,7 +151,7 @@ De volgende tabel beschrijft de kenmerken van de `WorkerRole` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. De naam voor de werkrol. De naam van de rol moet uniek zijn.|
+|name|string|Vereist. De naam voor de werkrol. De naam van de rol moet uniek zijn.|
 |enableNativeCodeExecution|booleaans|Optioneel. De standaardwaarde is `true`; systeemeigen uitvoering van code en volledig vertrouwen zijn standaard ingeschakeld. Dit kenmerk instelt op `false` systeemeigen code uitvoeren voor de werkrol uitschakelen, en gebruik in plaats daarvan Azure gedeeltelijk vertrouwen.|
 |vmsize|string|Optioneel. Stel deze waarde wijzigen van de grootte van de virtuele machine die wordt toegewezen aan deze rol. De standaardwaarde is `Small`. Zie voor een lijst van mogelijke VM-grootten en hun kenmerken, [VM-groottes voor Cloud Services](cloud-services-sizes-specs.md).|
 
@@ -165,7 +165,7 @@ De volgende tabel beschrijft de kenmerken van de `Setting` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. Een unieke naam voor de configuratie-instelling.|
+|name|string|Vereist. Een unieke naam voor de configuratie-instelling.|
 
 De configuratie-instellingen voor een rol zijn naam / waarde-paren die zijn gedeclareerd in het servicedefinitiebestand en stel in het configuratiebestand van de service.
 
@@ -182,7 +182,7 @@ De volgende tabel beschrijft de kenmerken van de `LocalStorage` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. Een unieke naam voor het lokale archief.|
+|name|string|Vereist. Een unieke naam voor het lokale archief.|
 |cleanOnRoleRecycle|booleaans|Optioneel. Geeft aan of het lokale archief moet worden verwijderd wanneer de rol opnieuw wordt opgestart. Standaardwaarde is `true`.|
 |sizeInMb|int|Optioneel. De gewenste hoeveelheid opslagruimte om toe te wijzen voor het lokale archief, in MB. Indien niet opgegeven, is de standaard-opslagruimte toegewezen 100 MB. De minimale hoeveelheid opslagruimte die kan worden toegewezen is 1 MB.<br /><br /> De maximale grootte van de lokale bronnen is afhankelijk van de grootte van de virtuele machine. Zie voor meer informatie, [VM-groottes voor Cloud Services](cloud-services-sizes-specs.md).|
 
@@ -205,9 +205,9 @@ De volgende tabel beschrijft de kenmerken van de `InputEndpoint` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. Een unieke naam voor het externe eindpunt.|
+|name|string|Vereist. Een unieke naam voor het externe eindpunt.|
 |protocol|string|Vereist. Het transportprotocol voor het externe eindpunt. Mogelijke waarden zijn voor een werkrol `HTTP`, `HTTPS`, `UDP`, of `TCP`.|
-|poort|int|Vereist. De poort voor het externe eindpunt. U kunt opgeven dat een ander poortnummer die u kiest, maar de poortnummers die is opgegeven voor elke rol in de service moet uniek zijn.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
+|port|int|Vereist. De poort voor het externe eindpunt. U kunt opgeven dat een ander poortnummer die u kiest, maar de poortnummers die is opgegeven voor elke rol in de service moet uniek zijn.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
 |certificaat|string|Vereist voor een HTTPS-eindpunt. De naam van een certificaat dat is gedefinieerd door een `Certificate` element.|
 |localPort|int|Optioneel. Hiermee geeft u een poort die wordt gebruikt voor interne verbindingen op het eindpunt. De `localPort` kenmerk wijst de externe poort op het eindpunt met een interne poort op een rol. Dit is handig in scenario's waarin een rol met een interne onderdeel op een andere poort communiceren moet dat verschilt van de naam die wordt blootgesteld extern.<br /><br /> Indien niet opgegeven, de waarde van `localPort` is hetzelfde als de `port` kenmerk. Stel de waarde van `localPort` naar ' * ' voor het automatisch toewijzen van een niet-toegewezen poort die kan worden gedetecteerd met behulp van de runtime-API.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).<br /><br /> De `localPort` kenmerk is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.|
 |ignoreRoleInstanceStatus|booleaans|Optioneel. Als de waarde van dit kenmerk is ingesteld op `true`, de status van een service wordt genegeerd en het eindpunt niet worden verwijderd door de load balancer. De waarde instelt op `true` handig voor foutopsporing bezet exemplaren van een service. De standaardwaarde is `false`. **Opmerking:** Een eindpunt kan nog steeds verkeer ontvangen, zelfs wanneer de rol niet gereed is.|
@@ -220,9 +220,9 @@ De volgende tabel beschrijft de kenmerken van de `InternalEndpoint` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. Een unieke naam voor het interne eindpunt.|
+|name|string|Vereist. Een unieke naam voor het interne eindpunt.|
 |protocol|string|Vereist. Het transportprotocol voor het interne eindpunt. Mogelijke waarden zijn `HTTP`, `TCP`, `UDP`, of `ANY`.<br /><br /> Een waarde van `ANY` geeft aan dat elk protocol, een willekeurige poort is toegestaan.|
-|poort|int|Optioneel. De poort die wordt gebruikt voor interne taakverdeling verbindingen op het eindpunt. Een gelijke taakverdeling eindpunt maakt gebruik van twee poorten. De poort die wordt gebruikt voor het openbare IP-adres en de poort die wordt gebruikt op het privé IP-adres. Deze zijn meestal worden ze ingesteld op dezelfde, maar u kunt kiezen voor het gebruik van verschillende poorten.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).<br /><br /> De `Port` kenmerk is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.|
+|port|int|Optioneel. De poort die wordt gebruikt voor interne taakverdeling verbindingen op het eindpunt. Een gelijke taakverdeling eindpunt maakt gebruik van twee poorten. De poort die wordt gebruikt voor het openbare IP-adres en de poort die wordt gebruikt op het privé IP-adres. Deze zijn meestal worden ze ingesteld op dezelfde, maar u kunt kiezen voor het gebruik van verschillende poorten.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).<br /><br /> De `Port` kenmerk is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.|
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
 De `InstanceInputEndpoint` -element een invoereindpunt exemplaar naar een werkrol worden beschreven. Een invoereindpunt exemplaar is gekoppeld aan een specifieke rol-exemplaar met behulp van doorsturen via poort in de load balancer. Een invoereindpunt voor elke instantie wordt toegewezen aan een specifieke poort uit een verscheidenheid aan mogelijke poorten. Dit element is het bovenliggende lid van de `AllocatePublicPortFrom` element.
@@ -233,7 +233,7 @@ De volgende tabel beschrijft de kenmerken van de `InstanceInputEndpoint` element
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. Een unieke naam voor het eindpunt.|
+|name|string|Vereist. Een unieke naam voor het eindpunt.|
 |localPort|int|Vereist. Hiermee geeft u de interne poort die door alle rolinstanties aan om te kunnen ontvangen van binnenkomend verkeer doorgestuurd van de load balancer luistert. Mogelijke waarden liggen tussen 1 en 65535 op.|
 |protocol|string|Vereist. Het transportprotocol voor het interne eindpunt. Mogelijke waarden zijn `udp` en `tcp`. Gebruik `tcp` voor http/https op basis van verkeer.|
 
@@ -251,7 +251,7 @@ De volgende tabel beschrijft de kenmerken van de `FixedPort` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|poort|int|Vereist. De poort voor het interne eindpunt. Dit heeft hetzelfde effect als de instelling de `FixedPortRange` min en max op dezelfde poort.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
+|port|int|Vereist. De poort voor het interne eindpunt. Dit heeft hetzelfde effect als de instelling de `FixedPortRange` min en max op dezelfde poort.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
 
 ##  <a name="FixedPortRange"></a> FixedPortRange
 De `FixedPortRange` element Hiermee geeft u het bereik van poorten die zijn toegewezen aan de interne eindpunt of een invoereindpunt exemplaar en stelt de poort die wordt gebruikt voor load balanced verbindingen op het eindpunt.
@@ -278,7 +278,7 @@ De volgende tabel beschrijft de kenmerken van de `Certificate` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. Een naam op voor dit certificaat, dat wordt gebruikt om te verwijzen naar deze wanneer deze gekoppeld aan een HTTPS is `InputEndpoint` element.|
+|name|string|Vereist. Een naam op voor dit certificaat, dat wordt gebruikt om te verwijzen naar deze wanneer deze gekoppeld aan een HTTPS is `InputEndpoint` element.|
 |storeLocation|string|Vereist. De locatie van het certificaatarchief waar dit certificaat kan worden gevonden op de lokale computer. Mogelijke waarden zijn `CurrentUser` en `LocalMachine`.|
 |storeName|string|Vereist. De naam van het certificaatarchief waar dit certificaat bevindt zich op de lokale computer. Mogelijke waarden zijn onder andere de namen van de ingebouwde store `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, of de naam van een aangepast archief. Als de naam van een aangepast archief is opgegeven, wordt de store automatisch gemaakt.|
 |permissionLevel|string|Optioneel. Hiermee geeft u de machtigingen voor toegang krijgen tot de rol-processen. Als u wilt dat alleen met verhoogde bevoegdheden processen kunnen toegang tot de persoonlijke sleutel, geeft u vervolgens `elevated` machtiging. `limitedOrElevated` machtiging is mogelijk alle rol processen voor toegang tot de persoonlijke sleutel. Mogelijke waarden zijn `limitedOrElevated` en `elevated`. De standaardwaarde is `limitedOrElevated`.|
@@ -322,7 +322,7 @@ De volgende tabel beschrijft de kenmerken van de `Variable` element:
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|naam|string|Vereist. De naam van de omgevingsvariabele om in te stellen.|
+|name|string|Vereist. De naam van de omgevingsvariabele om in te stellen.|
 |value|string|Optioneel. De waarde om in te stellen voor de omgevingsvariabele. U moet een waardekenmerk bevatten of een `RoleInstanceValue` element.|
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue
@@ -372,7 +372,7 @@ De volgende tabel beschrijft het kenmerk van de `Startup` element.
 
 | Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
-|priority|int|Alleen voor intern gebruik.|
+|prioriteit|int|Alleen voor intern gebruik.|
 
 ##  <a name="Task"></a> Taak
 De `Task` element Hiermee geeft u de opstarttaak die plaatsvindt wanneer de rol wordt gestart. Opstarttaken kunnen worden gebruikt om de taken uitvoeren die voorbereiden van de rol voor deze installatie van software-onderdelen of andere toepassingen worden uitgevoerd. Taken uitvoeren in de volgorde waarin ze worden weergegeven in de `Startup` element blokkeren.

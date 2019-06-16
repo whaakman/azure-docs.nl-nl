@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 79e9952aefc44b7c490bb9fe375487c1a3335fc8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Zelfstudie: Azure Active Directory-integratie met Predictix bestellen
 
@@ -155,7 +155,7 @@ In deze sectie maakt u een testgebruiker Britta Simon met de naam in Azure porta
 
     1. Voer in het vak **Naam** **Britta Simon**in.
   
-    1. In de **gebruikersnaam** Voer **BrittaSimon @\<uwbedrijfsdomein >.\< extensie >**. (Bijvoorbeeld BrittaSimon@contoso.com.)
+    1. In de **gebruikersnaam** Voer **BrittaSimon @\<uwbedrijfsdomein >.\< extensie >** . (Bijvoorbeeld BrittaSimon@contoso.com.)
 
     1. Selecteer **wachtwoord weergeven**, en noteer de waarde in de **wachtwoord** vak.
 

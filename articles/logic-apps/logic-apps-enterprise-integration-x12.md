@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
 ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728758"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12 berichten voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
@@ -69,9 +69,9 @@ Nadat u [maken van een integratieaccount](../logic-apps/logic-apps-enterprise-in
     | Eigenschap | Description |
     | --- | --- |
     | Name |Naam van de overeenkomst |
-    | Overeenkomsttype | Moet X12 |
+    | Overeenkomsttype selecteren | Moet X12 |
     | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De hostpartner vertegenwoordigt de organisatie die Hiermee configureert u de overeenkomst. |
-    | Hostidentiteit |Een id voor de hostpartner |
+    | Identiteit van de host |Een id voor de hostpartner |
     | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De gastpartner vertegenwoordigt de organisatie die wordt zakendoen met de hostpartner. |
     | Gastidentiteit |Een id voor de gastpartner |
     | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
@@ -99,9 +99,9 @@ De overeenkomst is nu gereed voor het afhandelen van berichten die aan de gesele
 
 | Eigenschap | Description |
 | --- | --- |
-| ISA1 (autorisatiekwalificatie) |Selecteer de waarde van de kwalificatie van de autorisatie uit de vervolgkeuzelijst. |
+| ISA1 (Autorisatiekwalificatie) |Selecteer de waarde van de kwalificatie van de autorisatie uit de vervolgkeuzelijst. |
 | ISA2 |Optioneel. Autorisatie-informatie waarde invoeren. Als de waarde die u hebt ingevoerd voor ISA1 dan 00 is, voert u minimaal één alfanumeriek teken en maximaal 10. |
-| ISA3 (beveiligingskwalificatie) |Selecteer de waarde van de kwalificatie van de beveiliging van de vervolgkeuzelijst. |
+| ISA3 (Beveiligingskwalificatie) |Selecteer de waarde van de kwalificatie van de beveiliging van de vervolgkeuzelijst. |
 | ISA4 |Optioneel. Voer de waarde voor informatie. Als de waarde die u hebt ingevoerd voor ISA3 dan 00 is, voert u minimaal één alfanumeriek teken en maximaal 10. |
 
 ### <a name="acknowledgment"></a>Acknowledgment
@@ -122,7 +122,7 @@ Selecteer een schema voor elke transactietype (ST1) en Zendtoepassing (GS2). De 
 
 | Eigenschap | Description |
 | --- | --- |
-| Versie |Selecteer de X12 versie |
+| Version |Selecteer de X12 versie |
 | Transactietype (ST01) |Selecteer het transactietype |
 | Zendtoepassing (GS02) |Selecteer de afzender-toepassing |
 | Schema |Selecteer het schema dat u wilt gebruiken. Schema's worden toegevoegd aan uw integratie-account. |
@@ -144,11 +144,11 @@ Selecteer een schema voor elke transactietype (ST1) en Zendtoepassing (GS2). De 
 
 | Eigenschap | Description |
 | --- | --- |
-| Uitwisselingscontrolenummer duplicaten weigeren |Dubbele uitwisselingen blokkeren. Controleert of het controlenummer uitwisseling (ISA13) voor het controlenummer ontvangen uitwisseling. Als een overeenkomst wordt gedetecteerd, kan de pijplijn ontvangen de uitwisseling niet verwerken. U kunt opgeven dat het aantal dagen voor het uitvoeren van de controle door middel van een waarde voor *controleren op dubbele ISA13 elke (dagen)*. |
-| Dubbele groepscontrolenummers niet toestaan |Blok uitwisselingen met dubbele groep controlenummers. |
-| Dubbele transactiereekscontrolenummers niet toestaan |Blok uitwisselingen met dubbele transactie set controlenummers. |
+| Uitwisselingscontrolenummer duplicaten weigeren |Dubbele uitwisselingen blokkeren. Controleert of het controlenummer uitwisseling (ISA13) voor het controlenummer ontvangen uitwisseling. Als een overeenkomst wordt gedetecteerd, kan de pijplijn ontvangen de uitwisseling niet verwerken. U kunt opgeven dat het aantal dagen voor het uitvoeren van de controle door middel van een waarde voor *controleren op dubbele ISA13 elke (dagen)* . |
+| Dubbele weigeren |Blok uitwisselingen met dubbele groep controlenummers. |
+| Transactie dubbele weigeren |Blok uitwisselingen met dubbele transactie set controlenummers. |
 
-### <a name="validations"></a>Validaties
+### <a name="validations"></a>Bevestigingen
 
 ![Validatie-eigenschappen instellen voor de ontvangen berichten](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
@@ -159,8 +159,8 @@ Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toeg
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie op gegevenstypen zoals gedefinieerd door de schema's EDI eigenschappen, beperkingen voor de lengte, lege gegevenselementen en volgscheidingstekens uitvoeren. |
 | Uitgebreide validatie |Als het gegevenstype niet EDI, valideren is op de gegevensvereiste-element en herhaling, opsommingen en element lengte gegevensvalidatie (min./Max.) toegestaan. |
-| Voorloop-/volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
-| Voorloop-/volgnullen knippen |Voorloop- of volgspaties nul en spaties verwijderen. |
+| Voorloop-/ volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
+| Voorloop-/ volgnullen knippen |Voorloop- of volgspaties nul en spaties verwijderen. |
 | Beleid voor volgscheidingstekens |Navolgende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt navolgende scheidingstekens en scheidingstekens in de uitwisseling ontvangen. Als de uitwisseling navolgende scheidingstekens en scheidingstekens heeft, is de uitwisseling gedeclareerd niet geldig. <p>Selecteer **optioneel** uitwisselingen met of zonder afsluitende scheidingstekens en scheidingstekens accepteren. <p>Selecteer **verplichte** wanneer de uitwisseling moet hebben navolgende scheidingstekens en scheidingstekens. |
 
 ### <a name="internal-settings"></a>Interne instellingen
@@ -171,10 +171,10 @@ Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toeg
 | --- | --- |
 | Geïmpliceerde decimale notatie 'Nn' converteren naar een base 10 numerieke waarde |Converteert een getal EDI die is opgegeven met de indeling 'Nn' in een numerieke waarde grondtal 10 |
 | Lege XML-tags maken als volgscheidingstekens zijn toegestaan |Schakel dit selectievakje in om de uitwisseling afzender lege XML-tags voor navolgende scheidingstekens bevatten. |
-| Uitwisseling splitsen in transactiereeksen - transactiereeksen onderbreken bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toe te passen op de transactieset worden geparseerd. Wordt alleen de transacties onderbroken wanneer de validatie is mislukt. |
-| Uitwisseling splitsen in transactiereeksen - uitwisseling onderbreken bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document door toe te passen van de juiste envelop worden geparseerd. Onderbreekt de gehele uitwisseling wanneer een of meer transactiesets in de uitwisseling validatie is mislukt. | 
+| Uitwisseling splitsen in transactiereeksen - onderbreken transactiereeksen bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toe te passen op de transactieset worden geparseerd. Wordt alleen de transacties onderbroken wanneer de validatie is mislukt. |
+| Uitwisseling splitsen in transactiereeksen - onderbreken uitwisseling bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document door toe te passen van de juiste envelop worden geparseerd. Onderbreekt de gehele uitwisseling wanneer een of meer transactiesets in de uitwisseling validatie is mislukt. | 
 | Uitwisseling bewaren-transactiereeksen onderbreken bij fout |De uitwisseling intact blijven, maakt u een XML-document voor de gehele uitwisseling van de batch. Wordt alleen de transactiesets die de validatie, terwijl u verdergaat met het verwerken van alle andere transactiesets niet onderbroken. |
-| Uitwisseling bewaren - uitwisseling onderbreken bij fout |De uitwisseling intact blijven, maakt u een XML-document voor de gehele uitwisseling van de batch. Onderbreekt de gehele uitwisseling wanneer een of meer transactiesets in de uitwisseling validatie is mislukt. |
+| Uitwisseling bewaren-uitwisseling onderbreken bij fout |De uitwisseling intact blijven, maakt u een XML-document voor de gehele uitwisseling van de batch. Onderbreekt de gehele uitwisseling wanneer een of meer transactiesets in de uitwisseling validatie is mislukt. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configureren hoe berichten worden verzonden door uw overeenkomst
 
@@ -216,7 +216,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 
 | Eigenschap | Description |
 | --- | --- |
-| Versie |Selecteer de X12 versie |
+| Version |Selecteer de X12 versie |
 | Transactietype (ST01) |Selecteer het transactietype |
 | SCHEMA |Selecteer het schema moet worden gebruikt. Schema's vindt u in uw integratie-account. Als u eerst schema selecteert, wordt automatisch geconfigureerd versie en transactie type  |
 
@@ -251,7 +251,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 | Groepscontrolenummer (GS06) |Vereist, voer een bereik van de getallen voor het groepscontrolenummer. Voer een numerieke waarde met een minimaal 1 en 999999999 maximaal |
 | Transactiereekscontrolenummer (ST02) |Vereist, voer een bereik van de getallen voor het controlenummer transactie instellen. Voer een bereik met numerieke waarden met een minimaal 1 en 999999999 maximaal |
 | Voorvoegsel |Optioneel; de aangewezen voor het bereik van de transactie set-controlenummers in bevestiging gebruikt. Voer een numerieke waarde voor de middelste twee velden, en een alfanumerieke waarde (indien gewenst) voor de voor- en achtervoegsel velden. De middelste velden zijn vereist en bevatten de minimale en maximale waarden voor het controlenummer |
-| Achtervoegsel |Optioneel; de aangewezen voor het bereik van de controlenummers die transactie set die wordt gebruikt in een bevestiging. Voer een numerieke waarde voor de middelste twee velden en een alfanumerieke waarde (indien gewenst) voor de voor- en achtervoegsel velden. De middelste velden zijn vereist en bevatten de minimale en maximale waarden voor het controlenummer |
+| Suffix |Optioneel; de aangewezen voor het bereik van de controlenummers die transactie set die wordt gebruikt in een bevestiging. Voer een numerieke waarde voor de middelste twee velden en een alfanumerieke waarde (indien gewenst) voor de voor- en achtervoegsel velden. De middelste velden zijn vereist en bevatten de minimale en maximale waarden voor het controlenummer |
 
 ### <a name="character-sets-and-separators"></a>Tekensets en scheidingstekens
 
@@ -268,7 +268,7 @@ Anders dan het teken is ingesteld, kunt u een andere set scheidingstekens voor e
 | Scheidingsteken voor gegevenselementen |Afzonderlijke eenvoudige gegevenselementen in samengestelde elementen, voer één teken. |
 | Vervangingsteken |Voer een vervangende teken dat wordt gebruikt voor het vervangen van alle scheidingstekens in de nettolading van gegevens bij het genereren van de uitgaande X12 bericht. |
 | Segmenteindteken |Geeft een enkel teken aan het einde van een EDI-segment. |
-| Achtervoegsel |Selecteer het teken dat wordt gebruikt met de segment-id. Als u een achtervoegsel opgeeft, kan klikt u vervolgens het segmenteindteken element niet leeg zijn. Als de segmenteindteken leeg wordt gelaten, moet u een achtervoegsel opgeven. |
+| Suffix |Selecteer het teken dat wordt gebruikt met de segment-id. Als u een achtervoegsel opgeeft, kan klikt u vervolgens het segmenteindteken element niet leeg zijn. Als de segmenteindteken leeg wordt gelaten, moet u een achtervoegsel opgeven. |
 
 > [!TIP]
 > Voor speciaal tekenwaarden, de overeenkomst als JSON bewerken en geef de ASCII-waarde voor de speciale tekens.
@@ -284,8 +284,8 @@ Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toeg
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie op gegevenstypen zoals gedefinieerd door de schema's EDI eigenschappen, beperkingen voor de lengte, lege gegevenselementen en volgscheidingstekens uitvoeren. |
 | Uitgebreide validatie |Als het gegevenstype niet EDI, valideren is op de gegevensvereiste-element en herhaling, opsommingen en element lengte gegevensvalidatie (min./Max.) toegestaan. |
-| Voorloop-/volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
-| Voorloop-/volgnullen knippen |Voorloop- of afsluitende nul tekens verwijderen. |
+| Voorloop-/ volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Niet deze tekens te verwijderen. |
+| Voorloop-/ volgnullen knippen |Voorloop- of afsluitende nul tekens verwijderen. |
 | Beleid voor volgscheidingstekens |Navolgende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt navolgende scheidingstekens en scheidingstekens in de uitwisseling verzonden. Als de uitwisseling navolgende scheidingstekens en scheidingstekens heeft, is de uitwisseling gedeclareerd niet geldig. <p>Selecteer **optioneel** uitwisselingen met of zonder afsluitende scheidingstekens en scheidingstekens verzenden. <p>Selecteer **verplichte** als de verzonden uitwisseling moet navolgende scheidingstekens en scheidingstekens bevatten. |
 
 ## <a name="find-your-created-agreement"></a>Uw overeenkomst gevonden

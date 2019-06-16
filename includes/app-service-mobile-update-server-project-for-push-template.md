@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140088"
 ---
 In deze sectie kunt u code bijwerken in uw bestaande Mobile Apps-back-end project voor het verzenden van een pushmelding ontvangen wanneer een nieuw item wordt toegevoegd. Dit proces wordt aangestuurd door de [sjabloon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) functie van Azure Notification Hubs, waarmee platformoverschrijdende pushes. De verschillende clients zijn geregistreerd voor pushmeldingen te verzenden met behulp van sjablonen en een enkele universal push toegang krijgen tot alle clientplatforms.

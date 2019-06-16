@@ -19,10 +19,10 @@ ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540268"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Over het verkrijgen van AppSource-gecertificeerd voor Azure Active Directory
@@ -40,7 +40,7 @@ Als u wilt meer informatie over het integreren van uw toepassing met Azure AD me
 Een *toepassing met meerdere tenants* is een toepassing die aanmeldingen van gebruikers van een bedrijf of organisatie die Azure AD hebben zonder een afzonderlijk exemplaar, de configuratie of de implementatie accepteert. AppSource raadt aan dat de multitenancy om in te schakelen voor het implementeren van toepassingen de *met één klik* gratis proefversie.
 
 Om in te schakelen multitenancy op uw toepassing, de volgende stappen uit:
-1. Instellen `Multi-Tenanted` eigenschap `Yes` op de informatie van de registratie van uw toepassing in de [Azure-portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Toepassingen die zijn gemaakt in Azure portal zijn standaard geconfigureerd als  *[één tenant](#single-tenant-applications)*.
+1. Instellen `Multi-Tenanted` eigenschap `Yes` op de informatie van de registratie van uw toepassing in de [Azure-portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Toepassingen die zijn gemaakt in Azure portal zijn standaard geconfigureerd als  *[één tenant](#single-tenant-applications)* .
 1. Werk uw code voor het verzenden van aanvragen voor de `common` eindpunt. U doet dit door bijwerken van het eindpunt van `https://login.microsoftonline.com/{yourtenant}` naar `https://login.microsoftonline.com/common*`.
 1. Voor sommige platformen, zoals ASP .NET, moet u ook uw code voor het accepteren van meerdere certificaatverleners bijwerken.
 

@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205609"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Aanbevolen procedures voor het gebruik van Azure Maps Search-Service
@@ -66,7 +66,7 @@ Zie [dekking voor geocodering](https://docs.microsoft.com/azure/azure-maps/geoco
        * `Geo` - **Geographies**: Gebieden op een kaart die staan voor administratieve indeling van een land, dat wil zeggen, land, status, plaats.
        * `PAD` - **Adres Point**:  Punten op een kaart waar specifiek adres met een straatnaam en een nummer kan worden gevonden in een index, bijvoorbeeld Soquel Dr 2501. Het is de hoogste mate van nauwkeurigheid is beschikbaar voor adressen.  
        * `POI` - **Punten van belang**: Punten op een kaart die zijn het noemen waard aandacht en die van belang zijn.  [Search-adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) koeriersbedrijven niet als resultaat.  
-       * `Str` - **Streets (straten)**: Weergave van Streets (straten) op de kaart.
+       * `Str` - **Streets (straten)** : Weergave van Streets (straten) op de kaart.
        * `XStr` - **Cross-Streets (straten) / snijpunten**:  Weergave van koppelingen; de locaties waar twee Streets (straten) elkaar overlappen.
 
 

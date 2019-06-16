@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/13/2019
+ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070377"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL-Database beheerd exemplaar resourcebeperkingen
 
@@ -32,40 +32,39 @@ Beheerd exemplaar bevat kenmerken en resourcelimieten die afhankelijk van de ond
 
 ### <a name="hardware-generation-characteristics"></a>Hardwarekenmerken genereren
 
-Beheerd exemplaar voor Azure SQL-Database kan worden geïmplementeerd op twee hardwaregeneraties van: Gen4 als Gen5. Hardwaregeneraties hebben andere kenmerken die worden beschreven in de volgende tabel:
+Beheerd exemplaar voor Azure SQL-Database kan worden geïmplementeerd op twee hardwaregeneraties van: Gen4 als Gen5. Hardwaregeneraties hebben andere kenmerken, zoals beschreven in de volgende tabel:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3-processors 2,4 GHz (Haswell) gekoppeld SSD vCore = 1 PP (fysieke kernen) | Intel E5-2673 v4-processors 2,3 GHz (Broadwell) snel NVMe SSD, vCore = 1 LP (hyper-thread) |
-| vCores | 8, 16, 24 vCores | 8, 16, 24 uur per dag, 32, 40, 64, 80 vCores |
+| vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Geheugen (geheugen/core-verhouding) | 7 GB per vCore | 5.1 GB per vCore |
-| Maximum aantal In-Memory OLTP-geheugen | Limiet voor exemplaar: 3 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 8GB per database<br/> -16-core: 20GB per database<br/> -24-core: 36GB per database | Limiet voor exemplaar: 2,5 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 13GB per database<br/> -16-core: 32GB per database |
+| Maximum aantal In-Memory OLTP-geheugen | Limiet voor exemplaar: 3 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 8 GB per database<br/> -16-core: 20 GB per database<br/> -24-core: 36 GB per database | Limiet voor exemplaar: 2,5 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 13 GB per database<br/> -16-core: 32 GB per database |
 | Max instance storage (Algemeen) |  8 TB | 8 TB |
 | Maximale exemplaar opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
 
 ### <a name="service-tier-characteristics"></a>Service tier kenmerken
 
-Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. Deze versies bieden verschillende mogelijkheden, zoals beschreven in de onderstaande tabel:
+Beheerd exemplaar heeft twee Servicelagen: Algemeen gebruik en bedrijfskritiek. Deze versies bieden verschillende mogelijkheden, zoals beschreven in de onderstaande tabel:
 
 | **Functie** | **Algemeen gebruik** | **Bedrijfskritiek** |
 | --- | --- | --- |
-| Het aantal vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Geheugen (geheugen/core-verhouding) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
-| Maximumgrootte van het exemplaar-opslag | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>-1 TB voor 8, 16 vcores uitvoert<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
+| Het aantal vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
+| Geheugen | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
+| Maximumgrootte van het exemplaar-opslag | -2 TB voor 4 vCores (alleen Gen5)<br/>-8 TB voor andere grootten | Gen4: 1 TB <br/> Gen5: <br/>-1 TB voor 4, 8, 16 vCores<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
-| Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
+| Maximum aantal bestanden per exemplaar | Maximaal 280 | 32\.767 bestanden per database |
 | Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
 | Logboek-doorvoer | 3 MB/s per vCore<br/>Max 22 MB/s per exemplaar | 4 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
 | Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
 | Maximumgrootte van tempDB | 192 - 1,920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |
-| Maximum aantal sessies | 30.000 | 30.000 |
+| Maximum aantal sessies | 30\.000 | 30\.000 |
 
-**Opmerkingen bij de**:
-
-- Gegevens- en logboekbestanden bestandsgrootte in de gebruiker en de systeemdatabases zijn opgenomen in de grootte van de instantie die wordt vergeleken met de maximale grootte opslaglimiet. Gebruik <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> door het systeemweergave om te bepalen het totale aantal gebruikte ruimte door databases. Foutenlogboeken zijn niet permanent en worden niet opgenomen in de grootte. Back-ups zijn niet opgenomen in de opslagruimte.
-- Doorvoer en IOPS ook afhankelijk van het formaat van de pagina die niet expliciet is beperkt door een beheerd exemplaar.
+> [!NOTE]
+> - Gegevens- en logboekbestanden bestandsgrootte in de gebruiker en de systeemdatabases zijn opgenomen in de grootte van de instantie die wordt vergeleken met de maximale grootte opslaglimiet. Gebruik <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> door het systeemweergave om te bepalen het totale aantal gebruikte ruimte door databases. Foutenlogboeken zijn niet permanent en worden niet opgenomen in de grootte. Back-ups zijn niet opgenomen in de opslagruimte.
+> - Doorvoer en IOPS ook afhankelijk van het formaat van de pagina die niet expliciet is beperkt door een beheerd exemplaar.
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
@@ -80,55 +79,33 @@ Beheerd exemplaar ondersteunt momenteel implementatie alleen op de volgende type
 - [Cloud serviceprovider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
-
-> [!NOTE]
-> Deze beperking is tijdelijk. Typen voor nieuwe abonnementen worden in de toekomst ingeschakeld.
+- [Abonnementen met maandelijkse Azure-tegoed voor Visual Studio-abonnees](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
 ## <a name="regional-resource-limitations"></a>Regionale resourcebeperkingen
 
 Ondersteunde abonnementstypen mag een beperkt aantal resources per regio. Beheerd exemplaar heeft twee standaardlimieten per Azure-regio, afhankelijk van een type van het abonnementstype:
 
 - **Subnet limiet**: Het maximale aantal subnetten waarop beheerde exemplaren zijn geïmplementeerd in een enkele regio.
-- **Maximumaantal exemplaar**: Het maximum aantal instanties dat kan worden geïmplementeerd in een enkele regio.
+- **vCore limiet**: Het maximale aantal vCores op dat kan worden geïmplementeerd voor alle instanties in één regio.
 
 > [!Note]
 > Deze limieten zijn de standaardinstellingen en geen technische beperkingen. De limieten meer op aanvraag kunnen worden door het maken van een speciale [verzoek tot ondersteuning in Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) als u meer beheerde exemplaren in de huidige regio. Als alternatief kunt u nieuwe beheerde exemplaren in een andere Azure-regio maken zonder te verzenden aanvragen voor ondersteuning.
 
 De volgende tabel ziet u de regionale standaardlimieten voor ondersteunde abonnementen:
 
-|Abonnementstype| Maximumaantal beheerd exemplaar subnetten | Maximumaantal exemplaren |Maximumaantal GP beheerde exemplaren *|Maximumaantal BC beheerde exemplaren *|
-| :---| :--- | :--- |:--- |:--- |
-|Betalen naar gebruik|1*|4*|4*|1*|
-|CSP |1*|4*|4*|1*|
-|Pay-as-you-go Dev/Test|1*|4*|4*|1*|
-|Enterprise Dev/Test|1*|4*|4*|1*|
-|EA|3**|12**|12**|3**|
+|Abonnementstype| Maximumaantal beheerd exemplaar subnetten | Maximumaantal eenheden vCore * |
+| :---| :--- | :--- |
+|Betalen naar gebruik|3|320|
+|CSP |8 (en met 15 in sommige regio's **)|960 (1440 in sommige regio's **)|
+|Pay-as-you-go Dev/Test|3|320|
+|Enterprise Dev/Test|3|320|
+|EA|8 (en met 15 in sommige regio's **)|960 (1440 in sommige regio's **)|
+|Visual Studio Enterprise|2 |64|
+|Visual Studio Professional en MSDN Platforms|2|32|
 
-\* U kunt ofwel 1 BC of 4 GP-exemplaren in één subnet implementeren, zodat het totaal aantal 'exemplaar eenheden' in het subnet nooit meer dan 4.
+\* Wanneer u uw implementatie plant, houd rekening met dat een vCore Business kritieke (BC) (als gevolg van toegevoegde redundantie) 4 x meer capaciteit dan een vCore voor algemeen gebruik (GP) in beslag neemt. Ja, voor de berekeningen, 1 GP vCore = 1 vCore-eenheid en BC 1 vCore = 4 vCore-eenheden. Ter vereenvoudiging van uw verbruik analyse op basis van de standaardlimieten vatten het vCore-eenheden via alle subnetten in de regio waar beheerde exemplaren zijn geïmplementeerd en de resultaten vergelijken met de exemplaar-eenheid-limieten voor uw abonnementstype. **Maximumaantal eenheden vCore** geldt een limiet aan elk abonnement in een regio. Er is geen limiet per afzonderlijke subnetten, behalve dat de som van alle vCores geïmplementeerd in meerdere subnetten moet kleiner of gelijk aan **maximum aantal eenheden vCore**.
 
-** Maximum aantal exemplaren in een servicelaag van toepassing als er geen exemplaren in een andere servicelaag zijn. Als u van plan bent om GP- en BC-instanties binnen hetzelfde subnet bevinden, maken gebruik van de volgende sectie als uitgangspunt voor toegestane combinaties. Als een eenvoudige regel, het totale aantal subnetten niet langer zijn dan 3 en het totale aantal eenheden van de sessie mag niet meer dan 12.
-
-
-> [!IMPORTANT]
-> Wanneer u uw implementatie plant, houd rekening met dat een kritieke zakelijke (BC)-exemplaar (als gevolg van toegevoegde redundantie) in het algemeen 4 x meer capaciteit dan een algemeen doel (GP)-exemplaar worden verbruikt. Ja, voor de berekeningen, 1 exemplaar van de GP = 1 exemplaar eenheid en 1 BC instantie = 4 eenheden van het exemplaar. Samenvatten ter vereenvoudiging van uw verbruik analyse op basis van de standaardlimieten, de exemplaar-eenheden via alle subnetten in de regio waar beheerde exemplaren zijn geïmplementeerd en de resultaten vergelijken met de exemplaar-eenheid-limieten voor uw abonnementstype.
-
-## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>Strategieën voor het implementeren van gemengde exemplaren voor algemeen gebruik en bedrijfskritiek
-
-[Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) abonnementen kunnen hebben combinaties van BC- en GP-instanties. Er zijn echter enkele beperkingen met betrekking tot de plaatsing van de exemplaren in de subnetten.
-
-> [!Note]
-> [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) en [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) abonnementstypen kunnen hebben beide één bedrijfskritiek of omhoog naar 4 exemplaren voor algemeen gebruik.
-
-De volgende voorbeelden betrekking op implementatie gevallen met niet-lege subnetten en GP- en BC gemengde service-lagen.
-
-|Aantal subnetten|subnet 1|Subnet 2|Subnet 3|
-|:---|:---|:---|:---|
-|1|BC 1 en maximaal 8 GP<br>BC 2 en maximaal 4 GP|N/A| N/A|
-|2|0 BC, tot 4 GP|1 BC, tot 4 GP<br>2 BC, 0 GP|N/A|
-|2|1 BC, 0 GP|0 BC, tot maximaal 8 GP<br>1 BC, tot 4 GP|N/A|
-|2|2 BC, 0 GP|0 BC, tot 4 GP|N/A|
-|3|1 BC, 0 GP|1 BC, 0 GP|0 BC, tot 4 GP|
-|3|1 BC, 0 GP|0 BC, tot 4 GP|0 BC, tot 4 GP|
+** Groter subnet en vCore-limieten zijn beschikbaar in de volgende regio's: Australië-Oost, VS-Oost, VS-Oost 2, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, UK-Zuid, West-Europa, VS-West 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor SQL beheerd exemplaar
 
@@ -147,7 +124,7 @@ Het proces voor het verkrijgen van een grotere quotum initiëren:
      ![Probleem type quotum](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
 3. Klik op **volgende**.
-4. Op het tabblad probleem voor de nieuwe ondersteuningsaanvraag:
+4. Op de **probleem tabblad** voor de nieuwe ondersteuningsaanvraag:
    - Voor **ernst**, selecteert u de ernst van het probleem.
    - Voor **Details**, bieden aanvullende informatie over uw probleem, met inbegrip van foutberichten.
    - Voor **uploaden van het bestand**, koppelt u een bestand met meer informatie (maximaal 4 MB).
@@ -156,9 +133,9 @@ Het proces voor het verkrijgen van een grotere quotum initiëren:
 
      > [!IMPORTANT]
      > Er moet een geldige aanvraag omvatten:
-     > - Regio in welk abonnement u limiet moet worden verhoogd
-     > - Vereiste aantal exemplaren per servicelaag in bestaande subnetten na het quotum (als een van de bestaande subnetten moet worden uitgebreid verhogen
-     > - Aantal nieuwe subnetten en totaal aantal exemplaren per servicelaag in de nieuwe subnetten vereist (als u implementeren van beheerde exemplaren in de nieuwe subnetten wilt).
+     > - De regio in welk abonnement u limiet moet worden verhoogd.
+     > - Vereiste aantal vCores per servicelaag in bestaande subnetten na het quotum verhogen (als een van de bestaande subnetten moet worden uitgebreid.
+     > - Aantal nieuwe subnetten en totaal aantal vCores per servicelaag in de nieuwe subnetten vereist (als u implementeren van beheerde exemplaren in de nieuwe subnetten wilt).
 
 5. Klik op **volgende**.
 6. Voer op het tabblad contact opnemen met informatie voor de nieuwe ondersteuningsaanvraag contactwijze (bijvoorbeeld e-mail of telefoon) en de gegevens van de contactpersoon.

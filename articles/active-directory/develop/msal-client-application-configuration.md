@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430805"
 ---
 # <a name="application-configuration-options"></a>Opties voor toepassingsconfiguraties
@@ -38,7 +38,7 @@ In uw code kunt u een nieuwe openbare of vertrouwelijke client (of gebruikersage
 ## <a name="authority"></a>Instantie
 De instantie is een URL die een map met MSAL tokens van vragen kan aangeeft. Algemene instanties zijn:
 
-- https://login.microsoftonline.com/&lt; tenant&gt;/ waar &lt;tenant&gt; is de tenant-ID van de tenant Azure Active Directory (Azure AD) of een domein dat is gekoppeld aan deze Azure AD-tenant. Alleen aan te melden bij de gebruikers van een specifieke organisatie gebruikt.
+- https://login.microsoftonline.com/&lt ; tenant&gt; / waar &lt; tenant&gt; is de tenant-ID van de tenant Azure Active Directory (Azure AD) of een domein dat is gekoppeld aan deze Azure AD-tenant. Alleen aan te melden bij de gebruikers van een specifieke organisatie gebruikt.
 - https://login.microsoftonline.com/common/. Gebruikt voor het aanmelden van gebruikers met werk en schoolaccounts of persoonlijke Microsoft-accounts.
 - https://login.microsoftonline.com/organizations/. Gebruikt voor het aanmelden van gebruikers met een werk-en schoolaccounts.
 - https://login.microsoftonline.com/consumers/. Gebruikt voor het aanmelden van gebruikers met alleen persoonlijke Microsoft-accounts (voorheen bekend als Windows Live ID-accounts).
