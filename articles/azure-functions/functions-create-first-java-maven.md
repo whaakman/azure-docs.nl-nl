@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: e4aa5314811ceac9e1f9d1136fc8ae5557a3d71d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063252"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Uw eerste functie maken met Java en Maven
 
-In dit artikel wordt uitgelegd hoe u met behulp van het opdrachtregelprogramma Maven een Java-functie voor Azure Functions kunt bouwen en publiceren. Wanneer u klaar bent, wordt uw functiecode uitgevoerd in het [Verbruiksabonnement](functions-scale.md#consumption-plan) in Azure en kan deze worden geactiveerd met behulp van een HTTP-aanvraag.
+In dit artikel begeleidt u door met het Maven-opdrachtregelprogramma bouwen en publiceren van een Java-functie naar Azure Functions. Wanneer u klaar bent, wordt uw functiecode uitgevoerd in het [Verbruiksabonnement](functions-scale.md#consumption-plan) in Azure en kan deze worden geactiveerd met behulp van een HTTP-aanvraag.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -79,7 +79,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_; in dit voorbeeld `fabrikam-functions`. De gegenereerde code in het project kan meteen worden uitgevoerd en is een eenvoudige, [door HTTP getriggerde](/azure/azure-functions/functions-bindings-http-webhook) functie die de hoofdtekst van de aanvraag weergeeft:
+Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_; in dit voorbeeld `fabrikam-functions`. De gereed voor het uitvoeren van de gegenereerde code in het project is een [HTTP-geactiveerde](/azure/azure-functions/functions-bindings-http-webhook) -functie die de hoofdtekst van de aanvraag weergeeft:
 
 ```java
 public class Function {
@@ -150,13 +150,13 @@ Gebruik `Ctrl-C` in de terminal om de functiecode te stoppen.
 
 ## <a name="deploy-the-function-to-azure"></a>De functie implementeren in Azure
 
-Bij het implementeren naar Azure Functions worden accountreferenties uit de Azure CLI gebruikt. [Meld u aan met Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voordat u doorgaat.
+Bij het implementeren naar Azure Functions worden accountreferenties uit de Azure CLI gebruikt. [Meld u aan met de Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voordat u doorgaat.
 
 ```azurecli
 az login
 ```
 
-Implementeer de code in een nieuwe functie-app met behulp van de Maven-target `azure-functions:deploy`.
+Implementeer de code in een nieuwe functie-app met behulp van de Maven-target `azure-functions:deploy`. Dit wordt uitgevoerd een [Zip implementeren met het uitvoeren van pakket](functions-deployment-technologies.md#zip-deploy) -modus is ingeschakeld.
 
 > [!NOTE]
 > Wanneer u Visual Studio Code gebruikt om uw functie-app te implementeren, moet u een niet-gratis abonnement kiezen of u krijgt een foutmelding. U kunt uw abonnement aan de linkerkant van de IDE kunt bekijken.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341628"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in Azure Functions (preview)
@@ -36,7 +36,7 @@ U kunt alle OpenAPI-instellingen configureren op de **API-definitie** pagina in 
 > [!NOTE]
 > API-definitie-functie van de functie is momenteel niet ondersteund voor Bèta-runtime.
 
-Instellen zodat de generatie van een gehoste OpenAPI-definitie en de definitie van een snelstartgids **bron van API-definitie** naar **functie (Preview)**. **Externe URL** Hiermee staat u de functie te gebruiken van een OpenAPI-definitie die ergens anders is gehost.
+Instellen zodat de generatie van een gehoste OpenAPI-definitie en de definitie van een snelstartgids **bron van API-definitie** naar **functie (Preview)** . **Externe URL** Hiermee staat u de functie te gebruiken van een OpenAPI-definitie die ergens anders is gehost.
 
 ## <a name="generate-definition"></a>Het geraamte Swagger uit uw functie metagegevens genereren
 Aan de hand van een sjabloon kunt u beginnen met het schrijven van uw eerste OpenAPI-definitie. De functie voor definitie-sjabloon maakt een eenvoudige OpenAPI-definitie met behulp van alle metagegevens in het bestand function.json voor elk van de functies van uw HTTP-trigger. U moet invullen meer informatie over uw API van de [OpenAPI-specificatie](https://swagger.io/specification/), zoals aanvraag- en -sjablonen.

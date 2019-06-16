@@ -13,10 +13,10 @@ ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
 ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978529"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Een shard multitenant-toepassing implementeren en verkennen
@@ -58,7 +58,7 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 ### <a name="plan-the-names"></a>De namen van plan bent
 
 In de stappen van deze sectie bieden u een *gebruiker* waarde die wordt gebruikt om ervoor te zorgen resourcenamen wereldwijd uniek zijn en een naam voor de *resourcegroep* waarin alle resources die zijn gemaakt door een implementatie van de app. Voor een persoon met de naam *Anne Finley*, wordt aangeraden:
-- *Gebruiker:* **af1***(hun initialen plus een cijfer.   Gebruik een andere waarde (bijvoorbeeld af2) als u de app een tweede keer implementeren.)*
+- *Gebruiker:* **af1** *(hun initialen plus een cijfer. Gebruik een andere waarde (bijvoorbeeld af2) als u de app een tweede keer implementeren.)*
 - *Resourcegroep:* **wingtip-mt-af1** *(wingtip-mt geeft aan dat dit is de shard multitenant-app. Toevoegen van de gebruiker de naam af1 overeenkomt met de naam van de resourcegroep met de namen van de resources die deze bevat.)*
 
 Kies de namen van de nu en schrijf ze op. 
@@ -125,19 +125,19 @@ Elke venue krijgt een eigen web-app te vermelden van hun evenementen en tickets 
 Een centraal **Events Hub** webpagina bevat een lijst met koppelingen naar de tenants in uw specifieke implementatie. Gebruik de volgende stappen om de **Events Hub** webpagina en een afzonderlijke web-app:
 
 1. Open de **Events Hub** in uw webbrowser:
-   - http://events.wingtip-mt.&lt; gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
+   - http://events.wingtip-mt.&lt ; gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt; gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
 
      ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Klik in de **Events Hub** op **Fabrikam Jazz Club**.
 
-   ![Gebeurtenissen](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
 Voor het beheren van de distributie van inkomende aanvragen, de Wingtip-app gebruikt [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). De pagina gebeurtenissen voor elke tenant bevat de naam van de tenant in de URL. Elke URL bevat ook de waarde van uw specifieke gebruiker. Elke URL gehoorzaamt aan de indeling weergegeven met behulp van de volgende stappen uit:
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. De app parseert de tenantnaam van de URL. Naam van de tenant is *fabrikamjazzclub* in het voorgaande voorbeeld-URL.
 2. De app vervolgens de naam van de tenant te maken van een sleutel voor toegang tot een catalogus met hashes [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md).

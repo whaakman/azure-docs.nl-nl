@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597281"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062384"
 ---
 # <a name="filters-in-azure-search"></a>Filters in Azure Search 
 
@@ -158,11 +158,11 @@ Tekenreeksen zijn hoofdlettergevoelig. Er is geen kleine-hoofdlettergebruik van 
 
 ### <a name="approaches-for-filtering-on-text"></a>Methoden voor het filteren op tekst
 
-| Methode | Description | Wanneer gebruikt u dit? | 
+| Methode | Description | Wanneer gebruikt u dit? |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | Een functie die overeenkomt met een veld op basis van een door tekens gescheiden lijst met tekenreeksen. | Aanbevolen voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor eventuele filters waar veel waarden voor onbewerkte tekst moeten worden vergeleken met een tekenreeksveld. De **search.in** functie is ontworpen voor snelheid en is veel sneller dan het vergelijken van het veld op basis van elke tekenreeks met behulp expliciet `eq` en `or`. | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | Een functie waarmee u kunt zoeken in volledige tekst bewerkingen met strikt Boolean-filter bewerkingen in de dezelfde filterexpressie combineren. | Gebruik **search.ismatch** (of het scoring-equivalent, **search.ismatchscoring**) als u wilt dat meerdere zoekfilter combinaties in één aanvraag. U kunt ook gebruiken voor een *bevat* om te filteren op een gedeeltelijke tekenreeks binnen een grotere tekenreeks. |
-| [$filter = veld operatortekenreeks](query-odata-filter-orderby-syntax.md) | De expressie voor een gebruiker gedefinieerde bestaat uit velden, operators en waarden. | Gebruik deze optie als u wilt zoeken naar exacte overeenkomsten tussen een tekenreeksveld en een string-waarde. |
+| [`search.in`](search-query-odata-search-in-function.md) | Een functie die overeenkomt met een veld op basis van een door tekens gescheiden lijst met tekenreeksen. | Aanbevolen voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor eventuele filters waar veel waarden voor onbewerkte tekst moeten worden vergeleken met een tekenreeksveld. De **search.in** functie is ontworpen voor snelheid en is veel sneller dan het vergelijken van het veld op basis van elke tekenreeks met behulp expliciet `eq` en `or`. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Een functie waarmee u kunt zoeken in volledige tekst bewerkingen met strikt Boolean-filter bewerkingen in de dezelfde filterexpressie combineren. | Gebruik **search.ismatch** (of het scoring-equivalent, **search.ismatchscoring**) als u wilt dat meerdere zoekfilter combinaties in één aanvraag. U kunt ook gebruiken voor een *bevat* om te filteren op een gedeeltelijke tekenreeks binnen een grotere tekenreeks. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | De expressie voor een gebruiker gedefinieerde bestaat uit velden, operators en waarden. | Gebruik deze optie als u wilt zoeken naar exacte overeenkomsten tussen een tekenreeksveld en een string-waarde. |
 
 ## <a name="numeric-filter-fundamentals"></a>Grondbeginselen van numerieke filter
 

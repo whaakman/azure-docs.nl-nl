@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001094"
 ---
 # <a name="security-attributes-for-api-management"></a>Beveiligingskenmerken voor API Management
@@ -72,6 +72,6 @@ In dit artikel worden de beveiligingskenmerken die is ingebouwd in API Managemen
 
 In deze sectie worden algemene beveiligingsproblemen, dat niet van invloed zijn op de Azure API Management.
 
-| Beveiligingsprobleem               | Description                                                                                                                                                                                                                                                                                                               |
+| Beveiligingslek in               | Description                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed is door een beveiligingslek in de implementatie van de gevonden in sommige producten F5 SessionTicket TLS-extensie. Hierdoor kan het lekken van gegevens ('uiterst') van de tot 31 bytes van gegevens uit het geheugen niet geïnitialiseerd. Dit wordt veroorzaakt door de TLS-stack opvulling van een sessie-ID van de client, met de gegevens gemakkelijk 32-bits lang is doorgegeven. |

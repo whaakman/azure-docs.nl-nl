@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 57ba55ce284030a4103077553b0dcfce01a93678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125758"
 ---
 De Azure File Sync-agent wordt bijgewerkt regelmatig nieuwe functionaliteit toe te voegen en om problemen te verhelpen. Het is raadzaam om dat u bij het configureren van Microsoft Update om updates voor de Azure File Sync-agent als ze beschikbaar.
 
@@ -31,7 +31,7 @@ Er zijn vier goedgekeurd en getest manieren om de Azure File Sync-agent-updates 
 #### <a name="automatic-agent-lifecycle-management"></a>Levenscyclusbeheer voor automatisch agentbeheer
 Met de agent-versie 6, heeft het bestand sync-team een functie van de automatische upgrade agent geïntroduceerd. U kunt een van twee modi selecteren en opgeven van een onderhoudsvenster waarin de upgrade wordt uitgevoerd op de server. Deze functie is ontworpen voor hulp bij het levenscyclusbeheer van de agent door het aanbieden van een guardrail zo wordt voorkomen dat de agent van verlopen of waardoor het een zonder gedoe, blijf op de huidige instelling.
 1. De **standaardinstelling** wordt geprobeerd om te voorkomen dat de agent van verlopen. Binnen 21 dagen van de geplaatste vervaldatum van een agent probeert de agent zelf bijwerken. Een poging om te upgraden van één keer per week in 21 dagen vóór de vervaldatum en in het geselecteerde onderhoudsvenster wordt gestart. **Deze optie heeft geen elimineert de noodzaak voor het nemen van reguliere Microsoft Update-patches.**
-2. U kunt eventueel selecteren dat de agent automatisch zelf bijgewerkt, als een nieuwe agentversie beschikbaar. Dit wordt ook optreden tijdens het geselecteerde onderhoudsvenster en toestaan dat de server om te profiteren van nieuwe functies en verbeteringen zodra deze algemeen beschikbaar komen. Dit is de aanbevolen, zorgeloos instelling dat belangrijke agent-versies, evenals reguliere update patches voor uw server.
+2. (Optioneel) u kunt selecteren dat de agent automatisch zelf bijgewerkt, als een nieuwe agentversie beschikbaar (op dit moment niet van toepassing op geclusterde servers). Deze update zal optreden tijdens het geselecteerde onderhoudsvenster en toestaan dat de server om te profiteren van nieuwe functies en verbeteringen zodra ze algemeen beschikbaar. Dit is de aanbevolen, zorgeloos instelling dat belangrijke agent-versies, evenals reguliere update patches voor uw server. Elke agent die zijn uitgebracht is op de kwaliteit van de algemene beschikbaarheid. Als u deze optie selecteert, wordt de nieuwste agentversie aan u flight in Microsoft. Geclusterde servers zijn uitgesloten. Zodra flighting voltooid is, de agent ook beschikbaar op [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257) aka.ms/AFS/agent.
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Agent garanties voor levenscyclus en wijzigen
 Azure File Sync is een cloudservice, die voortdurend nieuwe functies en verbeteringen worden. Dit betekent dat een specifieke versie van de Azure File Sync-agent kan alleen worden ondersteund voor een beperkte periode. Het kader van uw implementatie, garanderen de volgende regels dat u voldoende tijd en de melding voor agent-updates of upgrades worden uitgevoerd in een proces voor het beheren van uw wijziging:

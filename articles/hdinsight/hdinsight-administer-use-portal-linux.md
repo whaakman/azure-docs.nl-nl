@@ -6,24 +6,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068908"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Met behulp van de [Azure-portal][azure-portal], kunt u beheren [Apache Hadoop](https://hadoop.apache.org/) -clusters in Azure HDInsight. Gebruik de tabselector boven voor informatie over het beheren van Hadoop-clusters in HDInsight met andere hulpprogramma's.
+Met behulp van de [Azure-portal](https://portal.azure.com), kunt u beheren [Apache Hadoop](https://hadoop.apache.org/) -clusters in Azure HDInsight. Gebruik de tabselector boven voor informatie over het beheren van Hadoop-clusters in HDInsight met andere hulpprogramma's.
 
 ## <a name="prerequisites"></a>Vereisten
-- Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Een bestaande Apache Hadoop-cluster in HDInsight.  Zie [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).
+
+Een bestaande Apache Hadoop-cluster in HDInsight.  Zie [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="getting-started"></a>Aan de slag
 Meld u aan bij [https://portal.azure.com](https://portal.azure.com).
@@ -56,15 +56,15 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
     |Toegangsbeheer (IAM)|Roltoewijzingen gebruiken.  Zie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).|
     |Tags|Hiermee kunt u instellen van sleutel/waarde-paren voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en vervolgens een overeenkomende waarde gebruiken voor alle services die zijn gekoppeld aan een bepaald project.|
     |Problemen vaststellen en oplossen|Probleemoplossingsinformatie weergeven.|
-    |Quick Start|Geeft informatie weer die u helpt aan de slag met HDInsight.|
-    |Hulpmiddelen|Help-informatie voor HDInsight gerelateerde hulpprogramma's.|
+    |Snel starten|Geeft informatie weer die u helpt aan de slag met HDInsight.|
+    |Hulpprogramma's|Help-informatie voor HDInsight gerelateerde hulpprogramma's.|
 
   - **Instellingenmenu**  
 
     | Item| Description |
     |---|---|
     |Grootte van cluster|Controleren, verhogen en verlagen van het aantal worker-clusterknooppunten. Zie [schalen van clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
-    |Quotumlimieten|De gebruikte en beschikbare cores voor uw abonnement worden weergegeven.|
+    |De quotalimieten|De gebruikte en beschikbare cores voor uw abonnement worden weergegeven.|
     |SSH en clusteraanmelding|Ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH)-verbinding. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.|
     |Data Lake Storage Gen1|Toegang tot Data Lake Storage Gen1 configureren.  Zie [Quickstart: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Opslagaccounts|De storage-accounts en de sleutels weergeven. De storage-accounts zijn geconfigureerd tijdens het maken van het cluster.|
@@ -74,7 +74,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
     |HDInsight-partner|De huidige HDInsight-Partner toevoegen/verwijderen.|
     |Properties|Weergave de [eigenschappen van het cluster](#properties).|
     |Vergrendelingen|Voeg een vergrendeling om te voorkomen dat het cluster worden gewijzigd of verwijderd.|
-    |Automation-script|Weergeven en exporteren van het Azure Resource Manager-sjabloon voor het cluster. U kunt op dit moment alleen het afhankelijke Azure storage-account exporteren. Zie [Linux maken op basis van Apache Hadoop-clusters in HDInsight met behulp van Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
+    |Sjabloon exporteren|Weergeven en exporteren van het Azure Resource Manager-sjabloon voor het cluster. U kunt op dit moment alleen het afhankelijke Azure storage-account exporteren. Zie [Linux maken op basis van Apache Hadoop-clusters in HDInsight met behulp van Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Bewaking van menu**
 
@@ -89,8 +89,8 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
     | Item| Description |
     |---|---|
-    |Resourcestatus|Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).|
-    |Nieuwe ondersteuningsaanvraag|Hiermee kunt u een ondersteuningsticket maken met Microsoft ondersteuning.|
+    |Status van resources|Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).|
+    |Nieuw ondersteuningsverzoek|Hiermee kunt u een ondersteuningsticket maken met Microsoft ondersteuning.|
 
 ## <a name="properties"></a> Eigenschappen van cluster
 
@@ -98,18 +98,19 @@ Uit de [cluster startpagina](#homePage)onder **instellingen** Selecteer **eigens
 
 |Item | Description |
 |---|---|
-|Hostnaam|De naam van het cluster.|
-|Cluster-URL|De URL van de Ambari-webinterface.|
+|HOSTNAAM|De naam van het cluster.|
+|CLUSTER-URL|De URL van de Ambari-webinterface.|
+|Privé-eindpunt|De persoonlijke eindpunt voor het cluster.|
 |Secure shell (SSH)|De gebruikersnaam en het host-naam moet worden gebruikt bij het openen van het cluster via SSH.|
-|Status|Een van: Afgebroken, geaccepteerd, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, operationeel is, wordt uitgevoerd, fout, te verwijderen, verwijderd, time-out, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, of ClusterCustomization.|
-|Regio|Azure-locatie. Zie voor een lijst van ondersteunde Azure-locaties, de **regio** vervolgkeuzelijst vak op [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).|
-|Gemaakt op|De datum waarop die het cluster is geïmplementeerd.|
-|Besturingssysteem|Een van beide **Windows** of **Linux**.|
-|Type|Hadoop, HBase, Storm, Spark.|
-|Versie|Zie [HDInsight-versies](hdinsight-component-versioning.md).|
-|Abonnement|Abonnementsnaam.|
-|Standaardgegevensbron|Het standaardbestandssysteem cluster.|
-|Grootte van de worker-knooppunten|De geselecteerde VM-grootte van de worker-knooppunten.|
+|STATUS|Een van: Afgebroken, geaccepteerd, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, operationeel is, wordt uitgevoerd, fout, te verwijderen, verwijderd, time-out, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, of ClusterCustomization.|
+|REGIO|Azure-locatie. Zie voor een lijst van ondersteunde Azure-locaties, de **regio** vervolgkeuzelijst vak op [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).|
+|DATUM GEMAAKT|De datum waarop die het cluster is geïmplementeerd.|
+|BESTURINGSSYSTEEM|Een van beide **Windows** of **Linux**.|
+|TYPE|Hadoop, HBase, Storm, Spark.|
+|Version|Zie [HDInsight-versies](hdinsight-component-versioning.md).|
+|ABONNEMENT|De naam van het abonnement.|
+|STANDAARDGEGEVENSBRON|Het standaardbestandssysteem cluster.|
+|Grootten voor worker-knooppunten|De geselecteerde VM-grootte van de worker-knooppunten.|
 |De grootte van de hoofd-knooppunt|De geselecteerde VM-grootte van de hoofdknooppunten.|
 |Virtueel netwerk|De naam van het Virtueelnetwerk, waardoor het cluster wordt geïmplementeerd als een is geselecteerd tijdens de implementatie.|
 
@@ -138,62 +139,10 @@ Zie ook [onderbreken/clusters afsluiten](#pauseshut-down-clusters).
 U kunt aanvullende Azure Storage-accounts en Azure Data Lake Storage-accounts toevoegen nadat een cluster is gemaakt. Zie [Extra opslagaccounts toevoegen aan HDInsight](./hdinsight-hadoop-add-storage.md) voor meer informatie.
 
 ## <a name="scale-clusters"></a>Clusters schalen
+
 Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebruikt door een Azure HDInsight-cluster, zonder te hoeven maken van het cluster opnieuw wijzigen.
 
-> [!NOTE]  
-> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Overzicht en weergeven van clusters.
-
-Uit de [cluster startpagina](#homePage):
-
-1. Onder **instellingen**, selecteer **clustergrootte**.
-2. Voer **nummer van de Worker-knooppunten** in het vak numerieke tekst. De limiet voor het aantal clusterknooppunten verschilt tussen Azure-abonnementen. U kunt contact opnemen met ondersteuning voor facturering om de limiet te verhogen.  De kostengegevens weerspiegelt de wijzigingen die u hebt aangebracht in het aantal knooppunten.
-3. Selecteer **Opslaan**.
-
-    ![HDInsight hadoop hbase, storm spark schaal](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster2.png)
-
-De gevolgen van het wijzigen van het aantal gegevensknooppunten varieert voor elk type cluster die door HDInsight worden ondersteund:
-
-* Apache Hadoop
-
-    Het aantal worker-knooppunten in een Hadoop-cluster dat wordt uitgevoerd zonder gevolgen voor alle taken die in behandeling of wordt uitgevoerd, kunt u naadloos verhogen. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor vergroten/verkleinen probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
-
-    Wanneer een Hadoop-cluster is omlaag geschaald door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw opgestart. Dit gedrag zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking vergroten/verkleinen. U kunt echter de taken opnieuw zodra de bewerking voltooid is.
-* Apache HBase
-
-    U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de vergroten/verkleinen bewerking. U kunt echter ook handmatig de regionale servers verdelen door te melden bij het hoofdknooppunt van het cluster en de volgende opdrachten uitvoert vanuit een opdrachtpromptvenster:
-
-    ```bash
-    pushd %HBASE_HOME%\bin
-    hbase shell
-    balancer
-    ```
-
-    Zie voor meer informatie over het gebruik van de HBase-shell [aan de slag met een voorbeeld voor Apache HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
-
-* Apache Storm
-
-    U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Na een geslaagde bewerking vergroten/verkleinen is voltooid moet u wordt echter opnieuw verdelen van de topologie.
-
-    Herverdelen kan worden uitgevoerd op twee manieren:
-
-  * Storm-Webgebruikersinterface
-  * Opdrachtregelinterface (CLI)-hulpprogramma
-
-    Raadpleeg de [Apache Storm documentatie](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
-
-    De Storm-webgebruikersinterface is beschikbaar op het HDInsight-cluster:
-
-    ![HDInsight Storm schaal opnieuw verdelen](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
-
-    Hier volgt een voorbeeld van de CLI-opdracht voor het opnieuw verdelen van de Storm-topologie:
-
-    ```cli
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
-
+Zie [schaal HDInsight-clusters](./hdinsight-scaling-best-practices.md) voor volledige informatie.
 
 ## <a name="pauseshut-down-clusters"></a>Onderbreken/clusters afsluiten
 
@@ -208,8 +157,6 @@ Er zijn veel manieren waarop u het proces kunt programmeren:
 * HDInsight .NET SDK gebruiken. Zie [indienen Apache Hadoop-taken](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Zie voor informatie over de prijzen, [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/). Als een cluster verwijderen uit de Portal, Zie [clusters verwijderen](#delete-clusters)
-
-
 
 ## <a name="upgrade-clusters"></a>Bijwerken van clusters
 
@@ -226,7 +173,7 @@ Uit de [cluster startpagina](#homePage):
     ![Menu van HDInsight Hadoop-cluster](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
 1. Selecteer **Ambari home** vanuit de nieuwe pagina.
-2. Voer de cluster-gebruikersnaam en wachtwoord.  De gebruikersnaam van het standaard-cluster is _admin_. De Ambari web UI ziet eruit zoals:
+1. Voer de cluster-gebruikersnaam en wachtwoord.  De gebruikersnaam van het standaard-cluster is _admin_.
 
 Zie voor meer informatie, [beheren HDInsight-clusters met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
 
@@ -261,8 +208,8 @@ Het wachtwoord is gewijzigd op alle knooppunten in het cluster.
 
 2. Upload het bestand naar een opslaglocatie bevinden die toegankelijk is vanuit HDInsight met behulp van een HTTP of HTTPS-adres. Bijvoorbeeld een bestand met de openbare opslaan, zoals OneDrive of Azure Blob storage. Sla de URI (HTTP of HTTPS-adres) naar het bestand, zoals deze URI is vereist in de volgende stap.
 3. Uit de [cluster startpagina](#homePage), selecteer **scriptacties** onder **instellingen**.
-4. Uit de **scriptacties** Selecteer **nieuwe verzenden**. 
-5. Uit de **scriptactie verzenden** blade, voer de volgende informatie:
+4. Uit de **scriptacties** weergeeft, schakelt **indienen nieuwe**.
+5. Uit de **scriptactie verzenden** pagina, voer de volgende informatie:
 
    | Veld | Value |
    | --- | --- |
@@ -295,13 +242,12 @@ In de modus Azure Resource Manager wordt elke HDInsight-cluster gemaakt met een 
 ## <a name="find-the-storage-accounts"></a>De storage-accounts vinden
 HDInsight-clusters maken gebruik van een Azure Storage-account of een Azure Data Lake Storage voor het opslaan van gegevens. Elke HDInsight-cluster kan één standaard-opslagaccount en een aantal gekoppelde storage-accounts hebben. Om de storage-accounts van weer te geven de [cluster startpagina](#homePage) onder **instellingen**, selecteer **opslagaccounts**.
 
-
 ## <a name="monitor-jobs"></a>Taken controleren
 Zie [beheren HDInsight-clusters met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md#monitoring).
 
+## <a name="cluster-size"></a>Grootte van cluster
 
-## <a name="monitor-cluster-usage"></a>Cluster-gebruik bewaken
-De **gebruik** sectie van de HDInsight-cluster-blade vindt u informatie over het aantal kernen beschikbaar voor uw abonnement voor gebruik met HDInsight, evenals het aantal kernen dat is toegewezen aan dit cluster en hoe ze worden toegewezen voor de knooppunten in dit cluster. Overzicht en weergeven van clusters.
+De **clustergrootte** tegel van de [cluster startpagina](#homePage) geeft het aantal kernen dat is toegewezen aan dit cluster en hoe ze worden toegewezen voor de knooppunten in dit cluster.
 
 > [!IMPORTANT]  
 > Voor het controleren van de services die worden geleverd door het HDInsight-cluster, moet u de Ambari Web- of de Ambari REST-API gebruiken. Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md)
@@ -318,13 +264,8 @@ In dit artikel hebt u enkele eenvoudige beheerfuncties geleerd. Zie de volgende 
 * [HDInsight met behulp van Azure PowerShell beheren](hdinsight-administer-use-powershell.md)
 * [HDInsight met behulp van Azure CLI beheren](hdinsight-administer-use-command-line.md)
 * [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md)
-* [Meer informatie over het gebruik van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
 * [Informatie over het gebruik van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Apache Hive in HDInsight gebruiken](hadoop/hdinsight-use-hive.md)
-* [Apache Pig in HDInsight gebruiken](hadoop/hdinsight-use-pig.md)
 * [Apache Sqoop gebruiken in HDInsight](hadoop/hdinsight-use-sqoop.md)
-* [Aan de slag met Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Gebruik Python-gebruiker gedefinieerde functies (UDF's) met Apache Hive en Apache Pig in HDInsight](hadoop/python-udf-hdinsight.md)
 * [Welke versie van Apache Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
-
-[azure-portal]: https://portal.azure.com
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Hadoop-opdrachtregel"

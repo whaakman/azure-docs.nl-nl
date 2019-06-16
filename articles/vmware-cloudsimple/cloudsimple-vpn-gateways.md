@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496868"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083406"
 ---
 # <a name="vpn-gateways-overview"></a>Overzicht van VPN-gateways
 
@@ -52,8 +52,8 @@ Een site-naar-site VPN-verbinding maakt gebruik van de volgende standaard crypto
 | IKE-versie | IKEv1 | IKEv1 | IKEv1 |
 | Versleuteling | AES 128 | AES 256 | AES 256 |
 | Hash-algoritme| SHA 256 | SHA 256 | SHA 1 |
-| Diffie-Hellman-groep (DH-groep) | 1 | 1 | 1 |
-| Levensduur | 28.800 seconden | 28.800 seconden | 28.800 seconden |
+| Diffie-Hellman-groep (DH-groep) | 2 | 2 | 2 |
+| Levensduur | 28\.800 seconden | 28\.800 seconden | 28\.800 seconden |
 | Gegevensgrootte | 4 GB | 4 GB | 4 GB |
 
 
@@ -64,7 +64,7 @@ Een site-naar-site VPN-verbinding maakt gebruik van de volgende standaard crypto
 | Versleuteling | AES 128 | AES 256 | AES 256 |
 | Hash-algoritme| SHA 256 | SHA 256 | SHA 1 |
 | Perfect Forward Secrecy groep (PFS-groep) | Geen | Geen | Geen |
-| Levensduur | 1.800 seconden | 1.800 seconden | 1.800 seconden |
+| Levensduur | 1\.800 seconden | 1\.800 seconden | 1\.800 seconden |
 | Gegevensgrootte | 4 GB | 4 GB | 4 GB |
 
 ## <a name="point-to-site-vpn-gateway"></a>Punt-naar-site VPN-gateway

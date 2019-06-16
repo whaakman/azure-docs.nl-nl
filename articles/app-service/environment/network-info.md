@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b29dec76fb6b1f9883c5c594d4719c9f3032089e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069385"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Aandachtspunten voor netwerken voor een App Service Environment #
 
@@ -58,24 +58,32 @@ Als u omhoog of omlaag schalen, nieuwe rollen van de juiste grootte heeft toegev
 
 ### <a name="ase-inbound-dependencies"></a>As-omgeving inkomende afhankelijkheden ###
 
-De as-omgeving binnenkomende toegang afhankelijkheden zijn:
+Alleen voor de as-omgeving werkt, is de as-omgeving vereist de volgende poorten geopend te zijn:
 
 | Gebruiken | Van | Naar |
 |-----|------|----|
 | Beheer | Beheeradressen van App Service | ASE-subnet: 454, 455 |
 |  Interne communicatie as-omgeving | ASE-subnet: Alle poorten | ASE-subnet: Alle poorten
-|  Azure load balancer toegestaan binnenkomend verkeer | Azure Load Balancer | ASE-subnet: Alle poorten
-|  App toegewezen IP-adressen | App toegewezen adressen | ASE-subnet: Alle poorten
+|  Azure load balancer toegestaan binnenkomend verkeer | Azure Load Balancer | ASE-subnet: 16001
 
-Het inkomend managementverkeer biedt opdracht en controle van de ASE naast het controleren van het systeem. De bronadressen voor dit verkeer worden vermeld in de [ASE Management adressen] [ ASEManagement] document. De netwerkconfiguratie van de beveiliging moet toegang vanaf alle IP-adressen op de poorten 454 en 455 is toegestaan. Als u toegang vanaf deze adressen blokkeert, wordt de as-omgeving wordt niet in orde en vervolgens worden onderbroken.
+Er zijn 2 andere poorten op een poort-scan, 7654 en 1221 als open kunnen weergeven. Ze reageren met een IP-adres en niets meer. Ze kunnen worden geblokkeerd als gewenst. 
+
+Het inkomend managementverkeer biedt opdracht en controle van de ASE naast het controleren van het systeem. De bronadressen voor dit verkeer worden vermeld in de [ASE Management adressen] [ ASEManagement] document. De netwerkconfiguratie van de beveiliging moet zodat toegang vanaf de beheeradressen as-omgeving via poorten 454 en 455. Als u toegang vanaf deze adressen blokkeert, wordt de as-omgeving wordt niet in orde en vervolgens worden onderbroken. De TCP-verkeer binnen via poorten 454 en 455 komt moet gaan van de dezelfde VIP of hebt u een probleem met asymmetrische routering. 
 
 Binnen de ASE-subnet, zijn er veel poorten die worden gebruikt voor communicatie met interne onderdelen en ze kunnen wijzigen. Hiervoor moet alle poorten in de ASE-subnet voor toegang vanuit het ASE-subnet. 
 
-Voor de communicatie tussen de Azure load balancer en het ASE-subnet zijn de poorten die moeten open zijn minimaal 454 en 455 van 16001. De 16001 poort wordt gebruikt voor keep alive verkeer tussen de load balancer als de as-omgeving. Als u een ILB as-omgeving gebruikt, dan kunt u verkeer tot alleen de 454, 455, 16001 vergrendelen poorten.  Als u van een externe as-omgeving gebruikmaakt, moet u rekening mee dat de poorten van de toegang tot normale app.  Als u adressen toegewezen app zijn gebruikt, moet u deze naar alle poorten openen.  Als u een adres wordt toegewezen aan een specifieke app, gebruikt de load balancer poorten die niet bekend zijn van tevoren HTTP en HTTPS-verkeer verzenden naar de as-omgeving.
+Voor de communicatie tussen de Azure load balancer en het ASE-subnet zijn de poorten die moeten open zijn minimaal 454 en 455 van 16001. De 16001 poort wordt gebruikt voor keep alive verkeer tussen de load balancer als de as-omgeving. Als u een ILB as-omgeving gebruikt, dan kunt u verkeer tot alleen de 454, 455, 16001 vergrendelen poorten.  Als u van een externe as-omgeving gebruikmaakt, moet u rekening mee dat de poorten van de toegang tot normale app.  
 
-Als u app toegewezen IP-adressen gebruikt, moet u om verkeer van de IP-adressen toegewezen aan uw apps op het ASE-subnet.
+De andere poorten moet u uzelf met betrekking op zijn de toepassingspoorten:
 
-De TCP-verkeer binnen via poorten 454 en 455 komt moet gaan van de dezelfde VIP of hebt u een probleem met asymmetrische routering. 
+| Gebruiken | Poorten |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio fouten opsporen op afstand  |  4020, 4022, 4024 |
+|  Webservice implementeren | 8172 |
+
+Als u de toepassingspoorten te blokkeren, de as-omgeving kan nog steeds werken, maar uw app kan al dan niet.  Als u van app toegewezen IP-adressen met een externe as-omgeving gebruikmaakt, moet u om verkeer van de IP-adressen toegewezen aan uw apps aan de ASE-subnet op de poorten die worden weergegeven in de portal voor as-omgeving > IP-adressen-pagina.
 
 ### <a name="ase-outbound-dependencies"></a>Uitgaande ASE-afhankelijkheden ###
 
@@ -83,15 +91,15 @@ Voor uitgaande toegang is een as-omgeving afhankelijk van meerdere externe syste
 
 De as-omgeving communiceert van op internet toegankelijk adressen op de volgende poorten:
 
-| Poort | Gebruik |
+| Gebruik | Poorten |
 |-----|------|
-| 53 | DNS |
-| 123 | NTP |
-| 80/443 | CRL-, Windows-updates, Linux-afhankelijkheden, Azure-services |
-| 1433 | Azure SQL | 
-| 12000 | Bewaking |
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL, updates van Windows, Linux-afhankelijkheden, Azure-services | 80/443 |
+| Azure SQL | 1433 | 
+| Bewaking | 12000 |
 
-De volledige lijst van de uitgaande afhankelijkheden worden weergegeven in het document dat wordt beschreven [uitgaand verkeer van App Service-omgeving te vergrendelen](./firewall-integration.md). Als de as-omgeving de toegang tot de afhankelijkheden ervan verliest, werkt niet. In dat geval lang genoeg, wordt de as-omgeving is onderbroken. 
+De uitgaande afhankelijkheden worden weergegeven in het document dat wordt beschreven [uitgaand verkeer van App Service-omgeving te vergrendelen](./firewall-integration.md). Als de as-omgeving de toegang tot de afhankelijkheden ervan verliest, werkt niet. In dat geval lang genoeg, wordt de as-omgeving is onderbroken. 
 
 ### <a name="customer-dns"></a>Klant DNS ###
 
@@ -165,12 +173,12 @@ De vereiste items in een NSG, voor een as-omgeving aan functie zijn om verkeer t
 
 De DNS-poort hoeft niet te worden toegevoegd omdat het verkeer naar DNS wordt niet beïnvloed door NSG-regels. Deze poorten omvatten niet de poorten die door uw apps voor geslaagde gebruik vereist. De normale app-poorten zijn:
 
-| Gebruiken | Van | Naar |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | Gebruiker worden geconfigureerd |  80, 443 |
-|  FTP/FTPS    | Gebruiker worden geconfigureerd |  21, 990, 10001-10020 |
-|  Visual Studio fouten opsporen op afstand  |  Gebruiker worden geconfigureerd |  4020, 4022, 4024 |
-|  Webservice implementeren | Gebruiker worden geconfigureerd | 8172 |
+| Gebruiken | Poorten |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio fouten opsporen op afstand  |  4020, 4022, 4024 |
+|  Webservice implementeren | 8172 |
 
 Wanneer rekening met de vereisten voor binnenkomend en uitgaand gehouden, zijn de nsg's vergelijkbaar met de nsg's in dit voorbeeld wordt getoond. 
 

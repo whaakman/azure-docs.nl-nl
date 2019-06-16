@@ -16,10 +16,10 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827293"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
@@ -474,7 +474,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
    * Voorbeeld: Bereik voor gebruikers met werknemer-id's tussen 1000000 en 2000000 (met uitzondering van 2000000)
 
-      * Kenmerk: WorkerID
+      * kenmerk: WorkerID
 
       * Operator: REGEX-overeenkomst
 
@@ -482,7 +482,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
    * Voorbeeld: Alleen werknemers en niet voorwaardelijke werknemers
 
-      * Kenmerk: EmployeeID
+      * kenmerk: EmployeeID
 
       * Operator: IS NIET NULL
 
@@ -614,7 +614,7 @@ In deze sectie configureert u hoe de gebruikersgegevens wordt stromen van Workda
 
    * Voorbeeld: Bereik voor gebruikers met werknemer-id's tussen 1000000 en 2000000
 
-      * Kenmerk: WorkerID
+      * kenmerk: WorkerID
 
       * Operator: REGEX-overeenkomst
 
@@ -622,7 +622,7 @@ In deze sectie configureert u hoe de gebruikersgegevens wordt stromen van Workda
 
    * Voorbeeld: Alleen werknemers voorwaardelijke en niet regelmatig werknemers
 
-      * Kenmerk: ContingentID
+      * kenmerk: ContingentID
 
       * Operator: IS NIET NULL
 
@@ -871,7 +871,7 @@ U kunt ook controleren of u beschikt over alle vereiste poorten door het openen 
 Als u wilt controleren of dat het hulpprogramma biedt u de juiste resultaten, moet u:
 
 * Open het hulpprogramma op een browser van de server waar u de inrichting-Agent hebt geïnstalleerd.
-* Zorg ervoor dat alle proxy's of firewalls van toepassing zijn op uw Provisioning-Agent ook worden toegepast op deze pagina. Dit kan in Internet Explorer worden gedaan door te gaan naar **instellingen -> Internet-opties -> verbindingen LAN-instellingen ->**. Op deze pagina ziet u het veld 'Met een Proxy-Server voor uw LAN'. Schakel dit selectievakje in en plaats het proxyadres in het veld "Adres".
+* Zorg ervoor dat alle proxy's of firewalls van toepassing zijn op uw Provisioning-Agent ook worden toegepast op deze pagina. Dit kan in Internet Explorer worden gedaan door te gaan naar **instellingen -> Internet-opties -> verbindingen LAN-instellingen ->** . Op deze pagina ziet u het veld 'Met een Proxy-Server voor uw LAN'. Schakel dit selectievakje in en plaats het proxyadres in het veld "Adres".
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Kan één inrichting Agent worden geconfigureerd voor het inrichten van meerdere AD-domeinen?
 
@@ -959,11 +959,11 @@ De oplossing op dit moment biedt geen ondersteuning voor binaire kenmerken zoals
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Hoe maak ik weergavenamen in AD op basis van de kenmerken van de afdeling/land/plaats en regionale verschillen ingang van de gebruiker?
 
-Het is een algemene vereiste voor het configureren van de *displayName* kenmerk in AD, zodat het bevat ook informatie over de afdeling en het land/de regio van de gebruiker. Voor bijvoorbeeld als John Smith in de marketingafdeling in Verenigde Staten werkt, kunt u zijn *displayName* als *Smith, John (Marketing-US)*.
+Het is een algemene vereiste voor het configureren van de *displayName* kenmerk in AD, zodat het bevat ook informatie over de afdeling en het land/de regio van de gebruiker. Voor bijvoorbeeld als John Smith in de marketingafdeling in Verenigde Staten werkt, kunt u zijn *displayName* als *Smith, John (Marketing-US)* .
 
 Hier volgt hoe kunt u deze vereisten voor het maken van verwerken *CN* of *displayName* om op te nemen van kenmerken, zoals het bedrijf, bedrijfseenheid, plaats of land/regio.
 
-* Elk kenmerk Workday wordt opgehaald met behulp van een onderliggende API XPATH-expressie, die kan worden geconfigureerd in **kenmerk Mapping -> geavanceerde sectie kenmerkenlijst bewerken voor Workday ->**. Dit is de standaard-API XPATH-expressie voor Workday *PreferredFirstName*, *PreferredLastName*, *bedrijf* en *SupervisoryOrganization* kenmerken.
+* Elk kenmerk Workday wordt opgehaald met behulp van een onderliggende API XPATH-expressie, die kan worden geconfigureerd in **kenmerk Mapping -> geavanceerde sectie kenmerkenlijst bewerken voor Workday ->** . Dit is de standaard-API XPATH-expressie voor Workday *PreferredFirstName*, *PreferredLastName*, *bedrijf* en *SupervisoryOrganization* kenmerken.
 
      | WorkDay kenmerk | API-XPATH-expressie |
      | ----------------- | -------------------- |
@@ -988,14 +988,14 @@ Hier volgt hoe kunt u deze vereisten voor het maken van verwerken *CN* of *displ
 
   Controleer of met uw Workday-team dat de bovenstaande API-expressies geldig voor de configuratie van uw Workday-tenant zijn. Indien nodig, u deze bewerken kunt zoals beschreven in de sectie [aanpassen van de lijst met gebruikerskenmerken Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Voor het bouwen van de expressie van de toewijzing van juiste kenmerk identificeren welke Workday-kenmerk 'bindend' vertegenwoordigt van de gebruiker de voornaam, laatste naam land/regio en afdeling. Stel dat de kenmerken zijn *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* en *SupervisoryOrganization* respectievelijk. U kunt dit gebruiken om te maken van een expressie voor de AD *displayName* kenmerk als volgt om een weergavenaam, zoals *Smith, John (Marketing-US)*.
+* Voor het bouwen van de expressie van de toewijzing van juiste kenmerk identificeren welke Workday-kenmerk 'bindend' vertegenwoordigt van de gebruiker de voornaam, laatste naam land/regio en afdeling. Stel dat de kenmerken zijn *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* en *SupervisoryOrganization* respectievelijk. U kunt dit gebruiken om te maken van een expressie voor de AD *displayName* kenmerk als volgt om een weergavenaam, zoals *Smith, John (Marketing-US)* .
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
     Zodra u de expressie voor rechts hebt, in de tabel kenmerktoewijzingen bewerken en wijzigen de *displayName* kenmerktoewijzing zoals hieronder wordt weergegeven:   ![DisplayName-toewijzing](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
-* Het bovenstaande voorbeeld is uitgebreid, laten we zeggen dat u wilt converteren die afkomstig zijn van Workday in verkorte versie van waarden plaatsnamen en vervolgens worden gebruikt om te bouwen weergavenamen zoals *Smith, John (CHI)* of *Doe, ANS (NYC)*, vervolgens dit resultaat kan worden bereikt met behulp van een Switch-expressie met de Workday *gemeenteraad* kenmerk, zoals de bepalende variabele.
+* Het bovenstaande voorbeeld is uitgebreid, laten we zeggen dat u wilt converteren die afkomstig zijn van Workday in verkorte versie van waarden plaatsnamen en vervolgens worden gebruikt om te bouwen weergavenamen zoals *Smith, John (CHI)* of *Doe, ANS (NYC)* , vervolgens dit resultaat kan worden bereikt met behulp van een Switch-expressie met de Workday *gemeenteraad* kenmerk, zoals de bepalende variabele.
 
      ```
     Switch
@@ -1099,7 +1099,7 @@ Wanneer u een van de records in auditlogboeken, op de **activiteitendetails** pa
 
   Agent ingericht logboekrecords overeenkomt met deze importbewerking AD vindt de Windows-Logboeken openen en gebruiken de **zoeken...** menu-optie te vinden van vermeldingen in het logboek met de ID/toevoegen-eigenschap die overeenkomt met kenmerk-waarde (in dit geval *21023*).
 
-  ![Zoeken](media/workday-inbound-tutorial/wd_event_viewer_02.png)
+  ![Find](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
   Zoek de vermelding met *gebeurtenis-ID = 9*, die wordt bieden u de LDAP filter gebruikt door de agent voor het ophalen van de AD-account zoeken. U kunt controleren als dit is de juiste zoekfilter om op te halen van unieke gebruikersvermeldingen.
 

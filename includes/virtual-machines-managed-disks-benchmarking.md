@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147914"
 ---
 *Opwarmen van de Cache*  
@@ -21,7 +21,7 @@ De schijf met alleen-lezentoegang opslaan in cache zijn kunnen bieden hogere IOP
 > [!IMPORTANT]
 > U moet de cache opgewarmd voordat benchmarking, wordt uitgevoerd telkens wanneer de virtuele machine opnieuw is opgestart.
 
-## <a name="tools"></a>Hulpmiddelen
+## <a name="tools"></a>Hulpprogramma's
 
 ### <a name="iometer"></a>Iometer
 
@@ -68,12 +68,12 @@ Voer de stappen hieronder om te oefenen cache uit
    | RandomReads\_1 MB |1 MB |100 |100 |
 1. Voer de test Iometer voor het initialiseren van cacheschijf met de volgende parameters. Drie werkthreads gebruiken voor het doelvolume en een wachtrijdiepte van 128. De duur 'Uitvoeringstijd' van de test ingesteld op 2 uur op het tabblad 'Testen instellen'.
 
-   | Scenario | Doelvolume | Name | Duur |
+   | Scenario | Doelvolume | Name | Duration |
    | --- | --- | --- | --- |
    | Cacheschijf initialiseren |CacheReads |RandomWrites\_1 MB |2 uur |
 1. Voer de test Iometer voor het opwarmen van cacheschijf met de volgende parameters. Drie werkthreads gebruiken voor het doelvolume en een wachtrijdiepte van 128. De duur 'Uitvoeringstijd' van de test ingesteld op 2 uur op het tabblad 'Testen instellen'.
 
-   | Scenario | Doelvolume | Name | Duur |
+   | Scenario | Doelvolume | Name | Duration |
    | --- | --- | --- | --- |
    | Warme van Cache-schijf |CacheReads |RandomReads\_1 MB |2 uur |
 
@@ -83,7 +83,7 @@ Nadat de cacheschijf is opgewarmd, gaat u verder met de test-scenario's die hier
 | --- | --- | --- | --- |
 | Met maximaal Gelezen IOP 's |CacheReads |RandomWrites\_8 kB |MAAR LIEFST 50.000 IOPS |
 | Met maximaal IOPS-schrijfbewerkingen |NoCacheWrites |RandomReads\_8 kB |MAAR LIEFST 64.000 IOPS |
-| Met maximaal Gecombineerde IOPS |CacheReads |RandomWrites\_8 kB |100.000 IOPS |
+| Met maximaal Gecombineerde IOPS |CacheReads |RandomWrites\_8 kB |100\.000 IOPS |
 | NoCacheWrites |RandomReads\_8 kB | &nbsp; | &nbsp; |
 | Met maximaal Read MB/sec |CacheReads |RandomWrites\_64 kB |524 MB/sec |
 | Met maximaal MB per seconde schrijven |NoCacheWrites |RandomReads\_64 kB |524 MB/sec |

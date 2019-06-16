@@ -10,12 +10,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069690"
 ---
 # <a name="introduction-to-azure-advisor"></a>Inleiding tot Azure Advisor
 
@@ -61,7 +61,9 @@ U hebt toegang tot de aanbevelingen van Advisor als *eigenaar*, *Inzender*, of *
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Welke bronnen biedt Advisor aanbevelingen voor?
 
-Advisor bevat aanbevelingen voor virtuele machines, beschikbaarheidssets, Toepassingsgateways, App Services, SQL-servers en Azure-Cache voor Redis.
+Advisor-aanbevelingen voor Application Gateway, App-Services, beschikbaarheidssets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database voor MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure openbaar IP-adressen, SQL Data Warehouse, SQL-servers, opslagaccounts, Traffic Manager-profielen en virtuele machines.
+
+Azure Advisor bevat ook de aanbevelingen van [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) waaronder aanbevelingen voor extra resourcetypen.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Kan ik uitstellen of een aanbeveling negeren?
 

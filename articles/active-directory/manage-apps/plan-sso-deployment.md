@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29569302d20e23c95b6508a5b58c7ed96e005885
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66499247"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108203"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Een eenmalige aanmelding-implementatie plannen
 
@@ -146,7 +146,7 @@ Zie voor meer informatie over MCAS de [Microsoft Cloud App Security-overzicht](h
 
 U kunt toegangsbeheer op basis van de criteria voor uw cloud-apps automatiseren met voorwaardelijke toegang.
 
-Beleid voor voorwaardelijke toegang wordt afgedwongen nadat de verificatie van de eerste factor is voltooid. Voorwaardelijke toegang is daarom niet bedoeld als een eerste regel defense voor scenario's, zoals denial-of-service (DoS) aanvallen, maar signalen van deze gebeurtenissen kunt gebruiken om toegang te bepalen. Het niveau van aanmeldingsrisico bijvoorbeeld kan locatie van de aanvraag, enzovoort worden gebruikt. Zie voor meer informatie over voorwaardelijke toegang [het overzicht](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) en de [implementatieplan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Beleid voor voorwaardelijke toegang worden afgedwongen nadat de eerste factor-verificatie is voltooid. Voorwaardelijke toegang is daarom niet bedoeld als een eerste regel defense voor scenario's, zoals denial-of-service (DoS) aanvallen, maar signalen van deze gebeurtenissen kunt gebruiken om toegang te bepalen. Het niveau van aanmeldingsrisico bijvoorbeeld kan locatie van de aanvraag, enzovoort worden gebruikt. Zie voor meer informatie over voorwaardelijke toegang [het overzicht](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) en de [implementatieplan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## <a name="azure-sso-technical-requirements"></a>Technische vereisten voor Azure eenmalige aanmelding
 

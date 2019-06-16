@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113520"
 ---
 # <a name="combined-security-information-registration-preview"></a>Gecombineerde security informatie registratie (preview)
 
@@ -49,7 +49,7 @@ Registratie ondersteunt de volgende verificatiemethoden en de acties gecombineer
 | Microsoft Authenticator | Ja (maximaal 5) | Nee | Ja |
 | Andere verificator-app | Ja (maximaal 5) | Nee | Ja |
 | Hardware-token | Nee | Nee | Ja |
-| Phone | Ja | Ja | Ja |
+| Telefoon | Ja | Ja | Ja |
 | Alternatief telefoonnummer | Ja | Ja | Ja |
 | Telefoon (werk) | Nee | Nee | Nee |
 | Email | Ja | Ja | Ja |

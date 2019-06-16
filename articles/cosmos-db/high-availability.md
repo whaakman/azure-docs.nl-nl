@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063559"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
@@ -76,7 +76,7 @@ Deze functie is beschikbaar in de volgende Azure-regio's:
 
 De volgende tabel geeft een overzicht van de functionaliteit voor hoge beschikbaarheid van verschillende accountconfiguraties: 
 
-|KPI  |Één regio zonder Beschikbaarheidszones (niet-z)  |Eén regio met Beschikbaarheidszones (AZ)  |Meerdere regio's met Beschikbaarheidszones (AZ, 2 regio's) – meest aanbevolen instelling |
+|KPI  |Één regio zonder Beschikbaarheidszones (niet-z)  |Eén regio met Availability Zones (AZ)  |Meerdere regio's met Beschikbaarheidszones (2 regio's, AZ) schrijft: de meeste aanbevolen instelling |
 |---------|---------|---------|---------|
 |Beschikbaarheids-SLA schrijven     |   99,99%      |    99,99%     |  99.999%  |
 |Beschikbaarheids-SLA lezen   |   99,99%      |   99,99%      |  99.999%       |

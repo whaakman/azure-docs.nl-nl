@@ -14,20 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573602"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview)
 
 In dit scenario laat zien hoe het aanpassen van OS-configuratie worden uitgevoerd in Azure Security Center.
 
+> [!NOTE]
+> De mogelijkheid om aan te passen van OS-beveiligingsconfiguraties stopgezet op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+
 ## <a name="what-are-os-security-configurations"></a>Wat zijn de OS-beveiligingsconfiguraties?
 
-Azure Security Center bewaakt beveiligingsconfiguraties door het toepassen van een set [meer dan 150 aanbevolen regels](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) voor het beperken van het besturingssysteem, met inbegrip van regels die betrekking hebben op firewalls, controle, wachtwoordbeleid en meer. Als een virtuele machine hebben een kwetsbare configuratie wordt gevonden, wordt door Security Center een beveiligingsaanbeveling gegenereerd.
+Azure Security Center controleert beveiligingsconfiguraties door een set van [meer dan 150 aanbevolen regels](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) toe te passen voor beveiliging van het besturingssysteem, met inbegrip van regels voor firewalls, controle, wachtwoordbeleid en meer. Als er wordt geconstateerd dat een computer een kwetsbare configuratie heeft, wordt er door Security Center een beveiligingsaanbeveling gegenereerd.
 
 Aanpassen van de regels, kunnen organisaties bepalen welke opties zijn meer geschikt is voor hun omgeving. U kunt een evaluatie van aangepaste beleid instellen en vervolgens toepassen op alle computers die van toepassing in het abonnement.
 
@@ -209,7 +212,7 @@ Nieuwe aangepaste regels worden gemarkeerd met een nieuwe aangepaste bron (! = "
 -   **regValueType**: (Selecteer een optie) Int, Long, String en MultipleString.
 
 > [!NOTE]
-> Hive moet *LocalMachine /*.
+> Hive moet *LocalMachine /* .
 >
 >
 
@@ -275,13 +278,13 @@ Alle mogelijke fouten worden weergegeven in de volgende tabel:
 
 | **Fout**                                | **Beschrijving**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | De eigenschap *schemaVersion* is ongeldig of leeg zijn gevonden. De waarde moet worden ingesteld op *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | De eigenschap *schemaVersion* is ongeldig of leeg zijn gevonden. De waarde moet worden ingesteld op *{0}* .                                                         |
 | BaselineInvalidStringError               | De eigenschap *{0}* mag niet  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | Lijst met de regels van de basislijn-configuratie bevat een regel met de waarde *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | De CCE-ID *{0}* is niet uniek.                                                                                                                  |
 | BaselineRuleEmptyProperty                | De eigenschap *{0}* is ongeldig of ontbreekt.                                                                                                       |
 | BaselineRuleIdNotInDefault               | De regel is een broneigenschap *Microsoft* , maar het is niet gevonden in de regelset van de standaard Microsoft.                                                   |
-| BaselineRuleIdNotUniqueError             | De regel-ID is niet uniek.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | De regel-id is niet uniek.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | De eigenschap *{0}* ongeldig is gevonden. De waarde is geen geldige GUID.                                                                             |
 | BaselineRuleInvalidHive                  | De component moet LocalMachine /.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | Naam van de regel is niet uniek.                                                                                                                 |
@@ -290,12 +293,12 @@ Alle mogelijke fouten worden weergegeven in de volgende tabel:
 | BaselineRuleNotInPlace                   | De regel komt overeen met een standaard-regel met het type {0} en wordt vermeld in {1} lijst.                                                                       |
 | BaselineRulePropertyTooLong              | De eigenschap *{0}* is te lang. Maximaal toegestane lengte: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | De verwachte waarde *{0}* komt niet overeen met het type van registerwaarde die is gedefinieerd.                                                              |
-| BaselineRulesetAdded                     | Het ruleset met de ID *{0}* is niet gevonden in de standaardconfiguratie. Het ruleset kan niet worden toegevoegd.                                               |
+| BaselineRulesetAdded                     | Het ruleset met de id *{0}* is niet gevonden in de standaardconfiguratie. Het ruleset kan niet worden toegevoegd.                                               |
 | BaselineRulesetIdMustBeUnique            | Het ruleset basislijn *{0}* moet uniek zijn.                                                                                           |
 | BaselineRulesetNotFound                  | Het ruleset met id *{0}* en de naam *{1}* is niet gevonden in de opgegeven configuratie. Het ruleset kan niet worden verwijderd.                                |
-| BaselineRuleSourceNotMatch               | De regel met de ID *{0}* is al gedefinieerd.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Het regeltype is *{0}*.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | Het werkelijke type van de regel is *{0}*, maar de *ruleType* eigenschap *{1}*.                                                                          |
+| BaselineRuleSourceNotMatch               | De regel met de id *{0}* is al gedefinieerd.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | Het regeltype is *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | Het werkelijke type van de regel is *{0}* , maar de *ruleType* eigenschap *{1}* .                                                                          |
 | BaselineRuleUnpermittedChangesError      | Alleen *expectedValue* en *status* eigenschappen kunnen worden gewijzigd.                                                                       |
 | BaselineTooManyRules                     | Het maximum aantal toegestane aangepaste regels is {0} regels. De opgegeven configuratie bevat {1} regels, {2} standaardregels, en {3} aangepaste regels. |
 | ErrorNoConfigurationStatus               | Er is geen configuratie-status is gevonden. Status van de van gewenste configuratiestatus: *Standaard* of *aangepaste*.                                    |

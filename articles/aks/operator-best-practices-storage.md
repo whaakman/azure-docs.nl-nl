@@ -5,13 +5,13 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072655"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor opslag en back-ups in Azure Kubernetes Service (AKS)
@@ -34,12 +34,12 @@ Toepassingen vereisen vaak verschillende typen en snelheid van opslag. Moeten uw
 
 De volgende tabel geeft een overzicht van de typen beschikbare opslag en de bijbehorende mogelijkheden:
 
-| Use-case | Volume-invoegtoepassing | Eenmaal lezen/schrijven | Alleen-lezen veel | Lezen/schrijven veel |
-|----------|---------------|-----------------|----------------|-----------------|
-| Gedeelde configuratie       | Azure Files   | Ja | Ja | Ja |
-| Gestructureerde app-gegevens        | Azure-schijven   | Ja | Nee  | Nee  |
-| App-gegevens, alleen-lezen-shares | [Dysk (preview)][dysk] | Ja | Ja | Nee  |
-| Niet-gestructureerde gegevens, bewerkingen in het bestandssysteem | [BlobFuse (preview)][blobfuse] | Ja | Ja | Ja |
+| Use-case | Volume-invoegtoepassing | Eenmaal lezen/schrijven | Alleen-lezen veel | Lezen/schrijven veel | Ondersteuning voor Windows Server-containers |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| Gedeelde configuratie       | Azure Files   | Ja | Ja | Ja | Ja |
+| Gestructureerde app-gegevens        | Azure-schijven   | Ja | Nee  | Nee  | Ja |
+| App-gegevens, alleen-lezen-shares | [Dysk (preview)][dysk] | Ja | Ja | Nee  | Nee |
+| Niet-gestructureerde gegevens, bewerkingen in het bestandssysteem | [BlobFuse (preview)][blobfuse] | Ja | Ja | Ja | Nee |
 
 De twee belangrijkste typen opslag die is geleverd voor volumes in AKS worden ondersteund door Azure-schijven of Azure Files. Voor een betere beveiliging beide soorten opslag Azure Storage Service Encryption (SSE) gebruiken standaard die gegevens in rust worden versleuteld. Schijven kunnen niet op dit moment worden versleuteld met Azure Disk Encryption op het niveau van het AKS-knooppunten.
 

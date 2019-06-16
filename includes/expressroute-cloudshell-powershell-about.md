@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f446ec6bce138a072a214a9e9cd7880ad215ad3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ba6673b5fda6af8c9bd3ef53dff33fe63f41e26d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133455"
 ---
 In dit artikel maakt gebruik van PowerShell-cmdlets. Als u wilt de cmdlets uitvoert, kunt u Azure Cloud Shell. Azure Cloud Shell is een gratis interactieve shell die algemene Azure-hulpprogramma's vooraf geïnstalleerd en is geconfigureerd voor gebruik met uw account. Klik op **Kopiëren** om de code te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren. U kunt Cloud Shell op verschillende manieren starten:
 
@@ -24,6 +24,6 @@ In dit artikel maakt gebruik van PowerShell-cmdlets. Als u wilt de cmdlets uitvo
 | Klik op de knop **Cloud Shell** in het menu rechtsboven in Azure Portal. | [![Cloud Shell in de portal](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-**PowerShell lokaal uitvoert**
+**Azure PowerShell lokaal uitvoeren**
 
-U kunt ook installeren en lokaal uitvoeren van de Azure PowerShell-cmdlets op uw computer. PowerShell-cmdlets worden regelmatig bijgewerkt. Als u de meest recente versie niet worden uitgevoerd, mislukken de waarden die zijn opgegeven in de volgende instructies. Als u wilt zien welke versie van PowerShell die u lokaal uitvoert, gebruikt u de `Get-Module -ListAvailable Az` cmdlet. Als u wilt installeren of bijwerken, Zie [installeren van de Azure PowerShell-module](/powershell/azure/install-az-ps).
+U kunt ook installeren en lokaal uitvoeren van de Azure PowerShell-cmdlets op uw computer. PowerShell-cmdlets worden regelmatig bijgewerkt. Als u de meest recente versie niet worden uitgevoerd, mislukken de waarden die zijn opgegeven in de volgende instructies. Als u de geïnstalleerde versies van PowerShell op uw systeem zoekt, gebruikt u de `Get-Module -ListAvailable Az` cmdlet. Als u wilt installeren of bijwerken, Zie [installeren van de Azure PowerShell-module](/powershell/azure/install-az-ps).

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991782"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
@@ -47,7 +47,7 @@ Maak een C#-consoletoepassing met Visual Studio om berichten naar het onderwerp 
 
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
-Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)**.
+Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)** .
 
 ### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
 
@@ -390,7 +390,7 @@ Voor het ontvangen van de berichten die u hebt verzonden, maakt u een andere .NE
     ```
 9. Voer het programma uit en controleer de portal opnieuw. De waarden voor **Aantal berichten** en **Huidige** moeten nu **0** zijn.
    
-    ![Lengte van onderwerp][topic-message-receive]
+    ![Lengte van het onderwerp][topic-message-receive]
 
 Gefeliciteerd! Met de standaard .NET-bibliotheek, hebt u nu een onderwerp en abonnement gemaakt, 10 berichten verzonden en die berichten ontvangen.
 

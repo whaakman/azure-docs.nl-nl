@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 79ffb31dd41e600344d341d17e07ad13d5fcd7f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111086"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Meld u aan gebruikers en de Microsoft Graph aanroepen vanuit een Android-app
 
@@ -50,11 +50,11 @@ In dit voorbeeld maakt gebruik van de Microsoft Authentication library voor Andr
 * Android Studio maakt gebruik van deze Begeleide installatie.
 * Android 16 of hoger is vereist (19 + wordt aanbevolen).
 
-## <a name="library"></a>Tapewisselaar
+## <a name="library"></a>Bibliotheek
 
 Deze handleiding worden de volgende verificatiebibliotheek gebruikt:
 
-|Tapewisselaar|Description|
+|Bibliotheek|Description|
 |---|---|
 |[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
 
@@ -178,7 +178,7 @@ U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgen
 
 ### <a name="add-msal-to-your-project"></a>MSAL toevoegen aan uw project
 
-1. Selecteer in Android Studio **Gradle-Scripts** > **build.gradle (Module: app)**.
+1. Selecteer in Android Studio **Gradle-Scripts** > **build.gradle (Module: app)** .
 2. Onder **afhankelijkheden**, plak de volgende code:
 
     ```gradle  

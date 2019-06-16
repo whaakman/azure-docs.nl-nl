@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996349"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Aangepaste logboeken in Azure Monitor
@@ -53,7 +53,7 @@ De logboekbestanden te verzamelen, moeten overeenkomen met de volgende criteria 
 ## <a name="defining-a-custom-log"></a>Een aangepast logboek definiëren
 Gebruik de volgende procedure voor het definiëren van een aangepaste logboekbestand.  Ga naar het einde van dit artikel voor een overzicht van een voorbeeld van het toevoegen van een aangepast logboek.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>Step 1. Open de Wizard aangepaste logboek
+### <a name="step-1-open-the-custom-log-wizard"></a>Stap 1. Open de Wizard aangepaste logboek
 De Wizard voor aangepaste logboek wordt uitgevoerd in Azure portal en kunt u een nieuw aangepast logboek voor het verzamelen van definiëren.
 
 1. Selecteer in de Azure portal, **Log Analytics-werkruimten** > uw werkruimte > **geavanceerde instellingen**.

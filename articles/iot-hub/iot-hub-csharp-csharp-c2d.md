@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864450"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Berichten verzenden vanuit de cloud naar uw apparaat met IoT Hub (.NET)
@@ -113,7 +113,7 @@ Eerst de IoT Hub-verbindingsreeks ophalen vanuit de portal.
 
 Nu schrijven u een .NET-consoletoepassing die cloud-naar-apparaat-berichten naar de apparaat-app verzendt.
 
-1. In de huidige Visual Studio-oplossing met de rechtermuisknop op de oplossing en selecteer toevoegen > Nieuw Project. Selecteer **Windows Desktop** en vervolgens **consoletoepassing (.NET Framework)**. Noem het project **SendCloudToDevice** en selecteert u de meest recente versie van .NET Framework en vervolgens **OK** om het project te maken.
+1. In de huidige Visual Studio-oplossing met de rechtermuisknop op de oplossing en selecteer toevoegen > Nieuw Project. Selecteer **Windows Desktop** en vervolgens **consoletoepassing (.NET Framework)** . Noem het project **SendCloudToDevice** en selecteert u de meest recente versie van .NET Framework en vervolgens **OK** om het project te maken.
 
    ![Nieuw project in Visual Studio](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 

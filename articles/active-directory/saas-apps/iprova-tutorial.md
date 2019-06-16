@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa5b66b3cf2ec038107293da7a821fcb75273fc9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bf685919879a9ee82cbaa3863826c891422d3013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718353"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099821"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Zelfstudie: Azure Active Directory-integratie met iProva
 
@@ -54,7 +54,7 @@ Om de integratie van iProva in Azure AD te configureren, moet u iProva vanuit de
 
 **Ga als volgt te werk om iProva vanuit de galerie toe te voegen:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 Als u eenmalige aanmelding van Azure AD wilt configureren en testen met iProva, moet u de volgende procedures uitvoeren:
 
 1. **[Configuratie-informatie ophalen uit iProva](#retrieve-configuration-information-from-iprova)**  als een voorbereiding voor de volgende stappen.
-2. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-3. **[Eenmalige aanmelding voor iProva configureren](#configure-iprova-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
-4. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-6. **[Testgebruiker voor iProva maken](#create-iprova-test-user)**: een tegenhanger voor Britta Simon maken in iProva die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
-7. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+3. **[Eenmalige aanmelding voor iProva configureren](#configure-iprova-single-sign-on)** : de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+4. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+6. **[Testgebruiker voor iProva maken](#create-iprova-test-user)** : een tegenhanger voor Britta Simon maken in iProva die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+7. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="retrieve-configuration-information-from-iprova"></a>Configuratiegegevens ophalen uit iProva
 
@@ -269,7 +269,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 7. In de **volledige naam** voert u een volledige naam van gebruiker, zoals **BrittaSimon**.
 
-8. Selecteer de optie **No password (use single sign-on)**.
+8. Selecteer de optie **No password (use single sign-on)** .
 
 9. In de **e-mailadres** voert u het e-mailadres van gebruiker, zoals `BrittaSimon@contoso.com`.
 

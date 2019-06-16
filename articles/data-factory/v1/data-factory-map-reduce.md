@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824215"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>MapReduce-programma's van Data Factory aanroepen
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Activiteiten voor gegevenstransformatie"]
 > * [Hive-activiteit](data-factory-hive-activity.md) 
 > * [Pig-activiteit](data-factory-pig-activity.md)
 > * [MapReduce-activiteit](data-factory-map-reduce.md)
@@ -188,7 +188,7 @@ De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type:
 | className |Naam van de klasse is: **wordcount** |
 | jarFilePath |Pad naar het jar-bestand met de klasse. Vergeet niet de naam van het cluster te wijzigen als kopiëren/plakken van de volgende code. |
 | jarLinkedService |Gekoppelde Azure Storage-service die het jar-bestand bevat. Deze gekoppelde service verwijst naar de opslag die is gekoppeld aan het HDInsight-cluster. |
-| argumenten |Het wordcount-programma neemt twee argumenten, invoer en uitvoer. Het invoerbestand is het bestand davinci.txt. |
+| arguments |Het wordcount-programma neemt twee argumenten, invoer en uitvoer. Het invoerbestand is het bestand davinci.txt. |
 | frequency/interval |De waarden voor deze eigenschappen overeenkomen met de uitvoergegevensset. |
 | linkedServiceName |verwijst naar de gekoppelde HDInsight-service die u eerder hebt gemaakt. |
 

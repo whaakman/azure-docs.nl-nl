@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
 ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65922184"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-service in de Azure-naar-Azure-replicatie
@@ -57,7 +57,7 @@ Wanneer u replicatie inschakelt voor een virtuele machine te beginnen [uit de VM
 2. Onder **voor Azure Virtual Machines** > **extensie Update-instellingen**, schakel de **toestaan van Site Recovery voor het beheren van** in-/ uitschakelen. Voor het beheren van handmatig, schakel u deze uit. 
 3. Selecteer **Opslaan**.
 
-![Instellingen voor extensie-updates](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Extensie-update-instellingen](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
 > Als u ervoor kiest **toestaan van Site Recovery voor het beheren van**, de instelling wordt toegepast op alle virtuele machines in de betreffende kluis.
@@ -520,7 +520,7 @@ Als er een probleem met de automatische updates is, ziet u een foutmelding onder
 
 Als u automatische updates kan niet worden ingeschakeld, ziet u de volgende veelvoorkomende fouten en de aanbevolen acties:
 
-- **Fout**: U hebt geen machtigingen om een Uitvoeren als-account voor Azure (service-principal) te maken en de rol Inzender aan de service-principal toe te wijzen.
+- **Fout**: U bent niet gemachtigd voor het maken van een Azure uitvoeren als-account (service-principal) en de rol Inzender aan de service-principal te verlenen.
 
    **Aanbevolen actie**: Zorg ervoor dat het account aangemeld als Inzender is toegewezen en probeer het opnieuw. Raadpleeg het gedeelte van de vereiste machtigingen in [gebruikt de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) voor meer informatie over het toewijzen van machtigingen.
  

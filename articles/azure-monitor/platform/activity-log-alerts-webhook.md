@@ -9,10 +9,10 @@ ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
 ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66477914"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor waarschuwingen voor activiteitenlogboeken van Azure
@@ -184,7 +184,7 @@ Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboek
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource. |
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen, `Dictionary<String, String>`) die vindt u informatie over de gebeurtenis. |
 | gebeurtenis |Element met metagegevens van de gebeurtenis. |
-| Autorisatie |De Role-Based Access Control-eigenschappen van de gebeurtenis. Deze eigenschappen zijn meestal de actie, de rol en het bereik. |
+| authorization |De Role-Based Access Control-eigenschappen van de gebeurtenis. Deze eigenschappen zijn meestal de actie, de rol en het bereik. |
 | category |Categorie van de gebeurtenis. Ondersteunde waarden omvatten Beheersjablonen, waarschuwing, beveiliging, ServiceHealth en aanbevelingen. |
 | Beller |E-mailadres van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen. |
 | correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde grotere actie en meestal een correlationId delen. |

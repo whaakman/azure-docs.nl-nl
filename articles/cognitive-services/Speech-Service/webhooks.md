@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072297"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks voor spraakservices
 
@@ -39,7 +39,7 @@ Vervolgens maken we een webhook.
 
 Laten we een webhook voor een offline transcriptie maken. Het scenario: een gebruiker heeft een lange actief audiobestand die ze graag asynchroon met de Batch-API voor transcriptie transcriberen. 
 
-Het maken van een web-hook POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+Webhooks kunnen worden gemaakt met het maken van een POST-aanvraag naar https://\<regio\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
 Parameters voor de configuratie voor de aanvraag worden gegeven als JSON:
 
@@ -136,7 +136,7 @@ Een POST-aanvraag verzendt naar de geregistreerde URL als een entiteit voor het 
 
 Een snelle test kan worden gedaan met behulp van de website https://bin.webhookrelay.com. Van daaruit kunt u aanroep back-URL's worden doorgegeven als parameter aan de HTTP-POST voor het maken van een webhook die eerder in het document wordt beschreven.
 
-Klik op 'Bucket maken' en volg de aanwijzingen op het scherm instructies voor het verkrijgen van een hook. Gebruik vervolgens de informatie in deze pagina de hook registreren met de Speech-service. De nettolading van een relay berichten - reactie op de voltooiing van een transcriptie-ziet er als volgt:
+Klik op 'Bucket maken' en volg de aanwijzingen op het scherm instructies voor het verkrijgen van een hook. Gebruik vervolgens de informatie in deze pagina de hook registreren met de Speech-service. De nettolading van een bericht relay – in reactie op de voltooiing van een transcriptie – ziet er als volgt uit:
 
 ```json
 {

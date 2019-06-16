@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522951"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Een lab-gebruiker toe te voegen aan een lab in Azure DevTest Labs automatiseren
@@ -121,7 +121,7 @@ De rol-ID is gedefinieerd in de sectie met variabelen en met de naam `devTestLab
 "devTestLabUserRoleId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/111111111-0000-0000-11111111111111111')]",
 ```
 
-### <a name="principal-id"></a>Principal-id
+### <a name="principal-id"></a>Principal-ID
 Principal-ID is de object-ID van de Active Directory-gebruiker, groep of service-principal die u wilt toevoegen als een lab-gebruiker aan het lab. De sjabloon maakt gebruik van de `ObjectId` als parameter.
 
 U kunt de object-id ophalen met behulp van de [Get-AzureRMADUser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0), [Get-AzureRMADGroup of [Get-AzureRMADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0) PowerShell-cmdlets. Deze cmdlets retourneren een enkele of lijsten met Active Directory-objecten die een ID-eigenschap, de object-ID die u nodig hebt. Het volgende voorbeeld ziet u hoe u aan de object-ID van een enkele gebruiker bij een bedrijf.

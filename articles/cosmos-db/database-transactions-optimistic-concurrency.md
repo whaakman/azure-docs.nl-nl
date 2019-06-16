@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978989"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacties en optimistisch beheer van gelijktijdigheid
@@ -30,7 +30,7 @@ De database-engine in Azure Cosmos DB ondersteunt volledige ACID (atomisch, cons
 | Upsert (met een vooraf/post-trigger) | Lezen en schrijven | Meerdere item transactie |
 | Verwijderen (zonder een vooraf/post-trigger) | Schrijven | Één item transactie |
 | Verwijderen (met een vooraf/post-trigger) | Lezen en schrijven | Meerdere item transactie |
-| Opgeslagen procedures uitvoeren | Lezen en schrijven | Meerdere item transactie |
+| Opgeslagen procedure uitvoeren | Lezen en schrijven | Meerdere item transactie |
 | Systeem gestart uitvoering van een procedure samenvoegen | Schrijven | Meerdere item transactie |
 | Systeem gestart uitvoering van de items op basis van verlopen (TTL) van een item verwijderen | Schrijven | Meerdere item transactie |
 | Lezen | Lezen | Één item transactie |

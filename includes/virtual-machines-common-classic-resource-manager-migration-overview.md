@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
 ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158271"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager
@@ -31,7 +31,7 @@ Deze klassieke IaaS-resources worden ondersteund tijdens de migratie
 * Cloudservices met virtuele machines
 * Opslagaccounts
 * Virtuele netwerken
-* VPN Gateways
+* VPN-gateways
 * Express Route-Gateways _(in hetzelfde abonnement als het Virtueelnetwerk alleen)_
 * Netwerkbeveiligingsgroepen
 * Routetabellen
@@ -107,7 +107,7 @@ De volgende functies worden momenteel niet ondersteund. U kunt ervoor kiezen om 
 | Compute | Niet-gekoppelde virtuele-machineschijven. | De VHD-blobs achter deze schijven worden gemigreerd als het Opslagaccount dat wordt gemigreerd |
 | Compute | Installatiekopieën van virtuele machines. | De VHD-blobs achter deze schijven worden gemigreerd als het Opslagaccount dat wordt gemigreerd |
 | Netwerk | Eindpunt-ACL's. | Verwijderen van de eindpunt-ACL's en probeer opnieuw de migratie. |
-| Netwerk | Toepassingsgateway | De toepassingsgateway verwijderen voordat u begint met migratie en maakt de toepassingsgateway opnieuw zodra de migratie is voltooid. |
+| Netwerk | Application Gateway | De toepassingsgateway verwijderen voordat u begint met migratie en maakt de toepassingsgateway opnieuw zodra de migratie is voltooid. |
 | Netwerk | Virtuele netwerken met behulp van VNet-Peering. | Virtuele netwerken migreren naar Resource Manager en klik vervolgens op hetzelfde niveau. Meer informatie over [VNet-Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Niet-ondersteunde configuraties

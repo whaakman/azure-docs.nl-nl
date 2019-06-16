@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abae0a454e17e8f633f68bc5853bfb4a4b24d14
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112136"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory-gebruiksvoorwaarden
 
@@ -125,13 +125,13 @@ Nadat u uw document met gebruiksrechtovereenkomst hebt voltooid, gebruikt u de v
    | **Het voorwaardelijke toegangsbeleid later maken** | Deze gebruiksrechtovereenkomst wordt weergegeven in de lijst voor beheer verlenen bij het maken van een beleid voor voorwaardelijke toegang. |
 
    >[!IMPORTANT]
-   >Controlemechanismen voor het beleid voor voorwaardelijk toegang (waaronder de gebruiksvoorwaarden) bieden geen ondersteuning voor handhaving op serviceaccounts. Het is raadzaam om alle serviceaccounts uit te sluiten van het beleid voor voorwaardelijke toegang.
+   >Voorwaardelijke toegang beleid besturingselementen (met inbegrip van de gebruiksvoorwaarden) bieden geen ondersteuning voor handhaving op serviceaccounts. Het is raadzaam om alle serviceaccounts uitsluiten van het beleid voor voorwaardelijke toegang.
 
-    Beleid voor aangepaste voorwaardelijke toegang inschakelen gedetailleerde gebruiksrechtovereenkomst, naar een specifieke cloudtoepassing of groep gebruikers. Zie voor meer informatie [Snelstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen](require-tou.md).
+    Aangepaste beleidsregels voor voorwaardelijke toegang inschakelen gedetailleerde gebruiksrechtovereenkomst, naar een specifieke cloudtoepassing of groep gebruikers. Zie voor meer informatie [Snelstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen](require-tou.md).
 
 1. Klik op **Create**.
 
-   Als u een sjabloon voor aangepaste voorwaardelijke toegang hebt geselecteerd, klikt u vervolgens weergegeven een nieuw scherm waarin kunt u het beleid voor aangepaste voorwaardelijke toegang maken.
+   Als u een aangepaste sjabloon voor voorwaardelijke toegang hebt geselecteerd, klikt u vervolgens weergegeven een nieuw scherm waarin kunt u het aangepaste beleid voor voorwaardelijke toegang maken.
 
    ![Aangepast beleid](./media/terms-of-use/custom-policy.png)
 
@@ -302,12 +302,12 @@ Standaard blijft een verwijderde gebruiker gedurende 30 dagen in Azure AD aanwez
 
 ## <a name="policy-changes"></a>Beleidswijzigingen
 
-Beleid voor voorwaardelijke toegang wordt onmiddellijk van kracht. Als dit gebeurt, gaan de beheerder 'verdrietige clouds' of 'Token problemen met Azure AD'. De beheerder moet zich afmelden en opnieuw aanmelden om te voldoen aan het nieuwe beleid.
+Beleid voor voorwaardelijke toegang zijn onmiddellijk van kracht. Als dit gebeurt, gaan de beheerder 'verdrietige clouds' of 'Token problemen met Azure AD'. De beheerder moet zich afmelden en opnieuw aanmelden om te voldoen aan het nieuwe beleid.
 
 > [!IMPORTANT]
 > Gebruikers in het bereik moeten zich af- en aanmelden om te voldoen aan een nieuw beleid:
 >
-> - als een beleid voor voorwaardelijke toegang is ingeschakeld in een gebruiksrechtovereenkomst
+> - beleid voor voorwaardelijke toegang is ingeschakeld op een gebruiksrechtovereenkomst
 > - of als er een tweede gebruiksrechtovereenkomst is gemaakt
 
 ## <a name="b2b-guests-preview"></a>B2B-gasten (Preview)
@@ -384,4 +384,4 @@ A: Gebruiksvoorwaarden maakt gebruik van de volgende eindpunten voor verificatie
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Snelstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen](require-tou.md)
-- [Best practices for conditional access in Azure Active Directory](best-practices.md) (Best practices voor voorwaardelijke toegang in Azure Active Directory)
+- [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md)

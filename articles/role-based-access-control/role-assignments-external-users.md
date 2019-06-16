@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952203"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Toegang tot Azure-resources voor externe gebruikers met RBAC beheren
@@ -44,7 +44,7 @@ RBAC-rollen kunnen alleen worden verleend **eigenaren** van het abonnement. Daar
 Selecteer 'Abonnementen' in en kies het gewenste abonnement in Azure portal, nadat u zich hebt aangemeld als beheerder.
 ![abonnementsblade in Azure portal](./media/role-assignments-external-users/0.png) standaard, als de gebruiker met beheerdersrechten heeft aangeschaft het Azure-abonnement, de gebruiker wordt weergegeven als **accountbeheerder**, dit wordt het abonnement de rol. Zie voor meer informatie over de functies van de Azure-abonnement, [toevoegen of wijzigen Azure-abonnementbeheerders](../billing/billing-add-change-azure-subscription-administrator.md).
 
-In dit voorbeeld wordt de gebruiker "alflanigan@outlook.com" is de **eigenaar** van de 'gratis' abonnement in de AAD-tenant 'tenant Azure Default'. Omdat deze gebruiker de maker van het Azure-abonnement met de eerste 'Outlook' van de Microsoft-Account is (Microsoft-Account = Outlook, etc. Live) de standaarddomeinnaam voor alle andere gebruikers die zijn toegevoegd in deze tenant worden **"\@ alflaniganuoutlook.onmicrosoft.com"**. Standaard de syntaxis van het nieuwe domein wordt gevormd door het samenstellen van de naam van de gebruikersnaam en het domein van de gebruiker die de tenant gemaakt en het toevoegen van de extensie **'. onmicrosoft.com "**.
+In dit voorbeeld wordt de gebruiker "alflanigan@outlook.com" is de **eigenaar** van de 'gratis' abonnement in de AAD-tenant 'tenant Azure Default'. Omdat deze gebruiker de maker van het Azure-abonnement met de eerste 'Outlook' van de Microsoft-Account is (Microsoft-Account = Outlook, etc. Live) de standaarddomeinnaam voor alle andere gebruikers die zijn toegevoegd in deze tenant worden **"\@ alflaniganuoutlook.onmicrosoft.com"** . Standaard de syntaxis van het nieuwe domein wordt gevormd door het samenstellen van de naam van de gebruikersnaam en het domein van de gebruiker die de tenant gemaakt en het toevoegen van de extensie **'. onmicrosoft.com "** .
 Daarnaast wordt kunnen gebruikers zich aanmelden met een aangepaste domeinnaam in de tenant na het toevoegen van en controle van de voor de nieuwe tenant. Zie voor meer informatie over het controleren van een aangepaste domeinnaam in een Azure Active Directory-tenant [een aangepaste domeinnaam toevoegen aan uw directory](../active-directory/fundamentals/add-custom-domain.md).
 
 In dit voorbeeld bevat de map 'Standaardtenant Azure' alleen gebruikers met de naam van het domein '\@alflanigan.onmicrosoft.com '.

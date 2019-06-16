@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 2001b849e9c43d552889475ca237c52b141f3f04
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122966"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift Veelgestelde vragen
 
@@ -49,7 +49,11 @@ Zie [grootten van virtuele machines van Azure Red Hat OpenShift](supported-resou
 
 Er is versleuteling-at-rest standaard. Het Azure Storage-platform codeert uw gegevens automatisch voordat het permanent worden gemaakt en ontsleutelt de gegevens voor het ophalen van. Zie [Azure Storage-Serviceversleuteling voor data-at-rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) voor meer informatie.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>Kan ik Prometheus/Grafana gebruiken voor het bewaken van containers en capaciteit beheren?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>Kan ik Prometheus/Grafana gebruiken voor het bewaken van mijn toepassingen?
+
+Ja, kunt u Prometheus in uw naamruimte en de monitor-toepassingen implementeren in uw naamruimte.
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Kan ik Prometheus/Grafana gebruiken voor het bewaken van metrische gegevens met betrekking tot de clusterstatus en -capaciteit
 
 Nee, niet op de huidige tijd.
 
@@ -80,3 +84,7 @@ Nee. Alle resources, met inbegrip van de cluster-master, worden uitgevoerd in uw
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>Is Open Service Broker for Azure (OSBA) ondersteund?
 
 Ja. U kunt OSBA gebruiken met Azure Red Hat OpenShift. Zie [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) voor meer informatie.
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Ik ben probeert te koppelen in een virtueel netwerk in een ander abonnement maar ophalen van `Failed to get vnet CIDR` fout.
+
+In het abonnement dat het virtuele netwerk heeft, zorg ervoor dat u registreren `Microsoft.ContainerService` provider met `az provider register -n Microsoft.ContainerService --wait` 

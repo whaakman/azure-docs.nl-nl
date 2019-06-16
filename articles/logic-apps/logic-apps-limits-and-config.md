@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/23/2019
 ms.openlocfilehash: e824ac81f1336644fa70cc24539284feacee3199
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244539"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
@@ -34,8 +34,8 @@ Hier zijn de limieten voor een definitie van één logische app:
 | Triggers per werkstroom | 10 | Als u werkt in de weergave van code, niet de ontwerper |
 | Switch bereik gevallen beperken | 25 | |
 | Variabelen per werkstroom | 250 | |
-| Tekens per expressie | 8.192 | |
-| Maximale grootte voor `trackedProperties` | 16.000 tekens |
+| Tekens per expressie | 8\.192 | |
+| Maximale grootte voor `trackedProperties` | 16\.000 tekens |
 | Geef de naam voor `action` of `trigger` | 80 tekens | |
 | Lengte van `description` | 256 tekens | |
 | Maximaal `parameters` | 50 | |
@@ -79,9 +79,9 @@ Hier zijn de limieten voor een enkele logische app:
 | ---- | ----- | ----- |
 | Trigger gelijktijdigheid | * Onbeperkt wanneer gelijktijdigheidsbeheer is uitgeschakeld <p><p>* 25 is de standaardlimiet wanneer gelijktijdigheidsbeheer is ingeschakeld, die kan niet ongedaan worden gemaakt nadat u op het besturingselement. U kunt de standaardinstelling wijzigen op een waarde tussen 1 en 50 liggen. | Deze limiet beschrijving van het hoogste aantal logic app-exemplaren die op hetzelfde moment of parallel kunnen worden uitgevoerd. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [limiet voor gelijktijdigheid van wijziging trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) of [exemplaren sequentieel activeren](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximale wachttijd wordt uitgevoerd | Wanneer de gelijktijdigheidsbeheer is ingeschakeld, wordt het minimum aantal uitvoeringen van de wachtrij is 10 plus het aantal gelijktijdige uitvoeringen (trigger gelijktijdigheid). Kunt u het maximum aantal maximaal 100 liggen. | Deze limiet beschrijving van het hoogste aantal logic app-exemplaren die worden uitgevoerd wanneer u uw logische app wordt al uitgevoerd voor het maximum aantal gelijktijdige exemplaren kan wachten. <p><p>De standaardlimiet Zie [wijziging wachten uitvoeringen beperken](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Foreach-matrix-items | 100.000 | Deze limiet beschrijving van het hoogste aantal matrixitems waarmee een lus 'voor elke' kan worden verwerkt. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). |
+| Foreach-matrix-items | 100\.000 | Deze limiet beschrijving van het hoogste aantal matrixitems waarmee een lus 'voor elke' kan worden verwerkt. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). |
 | Foreach-gelijktijdigheid | 20 is de standaardlimiet wanneer gelijktijdigheidsbeheer is uitgeschakeld. U kunt de standaardinstelling wijzigen op een waarde tussen 1 en 50 liggen. | Deze limiet is hoogste aantal 'voor elke' iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijzigen 'voor elke' gelijktijdigheid limiet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn-items | 100.000 | Voor triggers die een matrix retourneert, kunt u een expressie die gebruikmaakt van een 'SplitOn'-eigenschap die [splitst of matrixitems in meerdere werkstroomexemplaren debatches](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) voor verwerking, in plaats van gebruik in een 'Foreach"een lus. Deze expressie verwijst naar de matrix moet worden gebruikt voor het maken en uitvoeren van een werkstroomexemplaar dat voor elk matrixitem. |
+| SplitOn-items | 100\.000 | Voor triggers die een matrix retourneert, kunt u een expressie die gebruikmaakt van een 'SplitOn'-eigenschap die [splitst of matrixitems in meerdere werkstroomexemplaren debatches](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) voor verwerking, in plaats van gebruik in een 'Foreach"een lus. Deze expressie verwijst naar de matrix moet worden gebruikt voor het maken en uitvoeren van een werkstroomexemplaar dat voor elk matrixitem. |
 | UNTIL-iteraties | 5,000 | |
 ||||
 
@@ -95,7 +95,7 @@ Hier zijn de limieten voor een enkele logische app:
 
 | Name | Limiet | Opmerkingen |
 | ---- | ----- | ----- |
-| Actie: Uitvoeringen per vijf minuten | 100.000 de standaardlimiet is, maar 300.000 is de maximale limiet. | De standaardlimiet Zie [uw logische app uitvoeren in de modus "hoge doorvoer"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), deze bevindt zich in preview. Of u kunt de workload gedistribueerd over meer dan één logische app zo nodig. |
+| Actie: Uitvoeringen per vijf minuten | 100\.000 de standaardlimiet is, maar 300.000 is de maximale limiet. | De standaardlimiet Zie [uw logische app uitvoeren in de modus "hoge doorvoer"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), deze bevindt zich in preview. Of u kunt de workload gedistribueerd over meer dan één logische app zo nodig. |
 | Actie: Gelijktijdige uitgaande oproepen | ~2,500 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. |
 | Runtime-eindpunt: Gelijktijdige binnenkomende oproepen | ~1,000 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. |
 | Runtime-eindpunt: Aanroepen per vijf minuten lezen  | 60,000 | U kunt werklast verdelen over meer dan één app zo nodig. |
@@ -136,7 +136,7 @@ Bepaalde bewerkingen connector asynchrone aanroepen of luisteren naar aanvragen 
 |------|--------------------|---------------------------------------|-------|
 | Berichtgrootte | 100 MB | 200 MB | Als tijdelijke oplossing voor deze limiet, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. |
 | Grootte van het bericht met logische groepen te verdelen | 1 GB | 5 GB | Deze limiet geldt voor acties die systeemeigen ondersteuning voor logische groepen te verdelen of kunnen u inschakelen opdelen in hun runtime-configuratie. <p>Voor de integratie van service-omgeving, de Logic Apps-engine ondersteunt deze limiet, maar connectors hebben hun eigen chunking beperkt tot de engine is bereikt, bijvoorbeeld, Zie [Azure Blob Storage-connector](/connectors/azureblob/). Zie voor meer informatie logische groepen te verdelen, [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). |
-| Limiet voor evaluatie van expressie | 131.072 tekens | 131.072 tekens | De `@concat()`, `@base64()`, `@string()` expressies mag niet langer zijn dan deze limiet. |
+| Limiet voor evaluatie van expressie | 131\.072 tekens | 131\.072 tekens | De `@concat()`, `@base64()`, `@string()` expressies mag niet langer zijn dan deze limiet. |
 |||||
 
 #### <a name="retry-policy"></a>Beleid voor opnieuw proberen

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061480"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Veelgestelde vragen over Azure-web application firewall
 
@@ -31,9 +31,6 @@ Een Azure-WAF-beleid kan worden toegepast voor webtoepassingen die worden gehost
 ## <a name="what-is-waf-for-azure-front-door-service"></a>Wat is de WAF voor Azure voordeur Service? 
 
 Azure voordeur is een zeer schaalbare, wereldwijd gedistribueerde toepassing en het netwerk voor contentlevering. Azure WAF, wanneer geïntegreerd met de voordeur, denial-of-service wordt gestopt en gerichte aanvallen van de toepassing aan de rand van de Azure-netwerk, dicht bij de bronnen van de aanval voordat uw virtuele netwerk binnenkomt biedt beveiliging zonder verlies van prestaties.
-
-## <a name="how-will-i-be-charged-for-azure-waf-for-front-door"></a>Hoe moet ik betalen voor Azure WAF voor voordeur?
-Tijdens de openbare preview WAF gebruik aan voordeur gratis zijn. Houd er rekening mee dat de voordeur kosten in rekening gebracht extra is. Zie de voordeur Service prijzen [hier](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## <a name="does-azure-waf-support-https"></a>Biedt ondersteuning voor Azure WAF HTTPS?
 

@@ -16,10 +16,10 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591323"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Gebruik Azure-Snelstartsjablonen voor AlwaysOn-beschikbaarheidsgroep configureren voor SQL Server op een Azure VM
@@ -105,7 +105,7 @@ De Always On (AG) beschikbaarheidsgroeplistener is een interne Azure Load Balanc
    | **Privé IP-adres** | Geef een beschikbaar IP-adres van het subnet. |
    | **Abonnement** |Als u meerdere abonnementen hebt, kan dit veld weergegeven. Selecteer het abonnement dat u wilt koppelen aan deze resource. Het is normaal hetzelfde abonnement als alle resources voor de beschikbaarheidsgroep. |
    | **Resourcegroep** |Selecteer de resourcegroep die de SQL Server-exemplaren in. |
-   | **Locatie** |Selecteer de Azure-locatie hebben als de SQL Server-exemplaren. |
+   | **Location** |Selecteer de Azure-locatie hebben als de SQL Server-exemplaren. |
    | &nbsp; | &nbsp; |
 
 6. Selecteer **Maken**. 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Zelfstudie: Azure Active Directory-integratie met Alibaba Cloud Service (Role-based SSO)
 
@@ -54,7 +54,7 @@ Voor het configureren van de integratie van Alibaba Cloud Service (Role-based SS
 
 **Als u wilt toevoegen Alibaba Cloud Service (Role-based SSO) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -66,7 +66,7 @@ Voor het configureren van de integratie van Alibaba Cloud Service (Role-based SS
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Alibaba Cloud Service (Role-based SSO)**, selecteer **Alibaba Cloud Service (Role-based SSO)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
+4. Typ in het zoekvak **Alibaba Cloud Service (Role-based SSO)** , selecteer **Alibaba Cloud Service (Role-based SSO)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
 
     ![Alibaba-Cloudservice (Role-based SSO) in de lijst met resultaten](common/search-new-app.png)
 
@@ -81,13 +81,13 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Als u wilt configureren en Azure AD eenmalige aanmelding met Alibaba Cloud Service (Role-based SSO) testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Role-Based Single Sign-On configureren in de Cloudservice Alibaba](#configure-role-based-single-sign-on-in-alibaba-cloud-service)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van eenmalige aanmelding Alibaba Cloud Service (Role-based SSO)](#configure-alibaba-cloud-service-role-based-sso-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker Alibaba Cloud Service (Role-based SSO)](#create-alibaba-cloud-service-role-based-sso-test-user)**  : als u wilt een equivalent van Britta Simon Alibaba Cloud Service (Role-based SSO) die is gekoppeld aan de Azure AD-weergave van de gebruiker nodig hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -282,11 +282,11 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Alibaba Cloud Service (Role-based SSO).
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Alibaba Cloud Service (Role-based SSO)**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Alibaba Cloud Service (Role-based SSO)** .
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Alibaba Cloud Service (Role-based SSO)**.
+2. Selecteer in de lijst met toepassingen, **Alibaba Cloud Service (Role-based SSO)** .
 
     ![De koppeling Alibaba Cloud Service (Role-based SSO) in de lijst met toepassingen](common/all-applications.png)
 

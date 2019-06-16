@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129845"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van de database geo-replicatie
@@ -90,7 +90,7 @@ Later, in een afzonderlijke repatriëring stap maakt u een failover de catalogus
 ## <a name="review-the-healthy-state-of-the-application"></a>Controleer de status in orde van de toepassing
 
 Voordat u het herstelproces start, controleert u de normale, gezonde status van de toepassing.
-1. Open in uw webbrowser de Wingtip Tickets Events Hub (http://events.wingtip-dpt.&lt; gebruiker&gt;. trafficmanager.net - vervangen &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie).
+1. Open in uw webbrowser de Wingtip Tickets Events Hub (http://events.wingtip-dpt.&lt ; gebruiker&gt;. trafficmanager.net - vervangen &lt; gebruiker&gt; met de waarde van de gebruiker van uw implementatie).
     * Ga naar de onderkant van de pagina en ziet u de naam van de catalogus-server en de locatie in de voettekst. De locatie is de regio waarin u de app hebt geïmplementeerd.
     *TIP: Beweeg de muisaanwijzer over de locatie voor het vergroten van de weergave. * 
      ![Gebeurtenissen hub in orde in oorspronkelijke regio](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -207,7 +207,7 @@ Terwijl het toepassingseindpunt van de is uitgeschakeld in Traffic Manager, word
  
      ![Gebeurtenissen hub offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Als u de pagina van de tenant van een offline-gebeurtenissen rechtstreeks opent, wordt een melding offline tenant. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline pagina](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Als u de pagina van de tenant van een offline-gebeurtenissen rechtstreeks opent, wordt een melding offline tenant. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt ; gebruiker&gt;.trafficmanager.net/contosoconcerthall ![ Contoso Offline pagina](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Een nieuwe tenant in de herstelregio inrichten
 Voordat de bestaande tenantdatabases failover hebt uitgevoerd, kunt u nieuwe tenants in de herstelregio inrichten.  
@@ -256,7 +256,7 @@ In deze taak werkt u een van de tenant-databases.
 2. In de *PowerShell ISE*, stel de volgende waarde in de ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 script:
     * **$DemoScenario = 5** een gebeurtenis verwijderen uit een tenant in de herstelregio
 3. Druk op **F5** om uit te voeren van het script
-4. Vernieuw de pagina van de gebeurtenissen Contoso Concert Hall (http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall - vervangen &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie) en u ziet dat de laatste gebeurtenis is verwijderd.
+4. Vernieuw de pagina van de gebeurtenissen Contoso Concert Hall (http://events.wingtip-dpt.&lt ; gebruiker&gt;.trafficmanager.net/contosoconcerthall - vervangen &lt; gebruiker&gt; met de waarde van de gebruiker van uw implementatie) en u ziet dat de laatste gebeurtenis is verwijderd.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>De toepassing naar de oorspronkelijke productieregio repatriëren
 
@@ -289,7 +289,7 @@ Nu gaan we imagine de onderbreking is opgelost en voer het script repatriëring.
     * Druk op **F5** herstelscript uitvoeren in een nieuwe PowerShell-venster.  Repatriëring kan enkele minuten duren en kan worden gecontroleerd in het PowerShell-venster.
     ![Repatriëring proces](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Terwijl het script wordt uitgevoerd, vernieuw de Events Hub-pagina (http://events.wingtip-dpt.&lt; gebruiker&gt;. trafficmanager.net)
+4. Terwijl het script wordt uitgevoerd, vernieuw de Events Hub-pagina (http://events.wingtip-dpt.&lt ; gebruiker&gt;. trafficmanager.net)
     * U ziet dat de Wizardoptie online en toegankelijk tijdens dit proces.
 
 5. Nadat de repatriëring voltooid is, vernieuw de Events hub en open de pagina gebeurtenissen voor Hawthorn Hall. U ziet dat deze database is is besluit zijn verricht naar de oorspronkelijke regio.

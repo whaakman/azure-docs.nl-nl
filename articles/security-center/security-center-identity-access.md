@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: monhaber
-ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: a30bc55c564f852a5fef6e71aad9e607e6aa1065
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083678"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
@@ -114,7 +114,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 |Abonnement|40|MFA moet worden ingeschakeld voor uw abonnementsaccounts met schrijfmachtigingen|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
 |Abonnement|30|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd van uw abonnement|Externe accounts met eigenaarsmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.|
 |Abonnement|30|MFA moet worden ingeschakeld voor uw abonnementsaccounts met leesmachtigingen|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
-|Abonnement|25|Externe accounts met schrijven machtigingen moeten worden verwijderd van uw abonnement|Externe accounts met schrijfmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
+|Abonnement|25|Externe accounts met schrijfmachtigingen moeten worden verwijderd uit uw abonnement|Externe accounts met schrijfmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
 |Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen.|
 |Abonnement|5|Afgeschafte accounts moeten worden verwijderd uit uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. |
 |Abonnement|5|Er moet meer dan één eigenaar toegewezen aan uw abonnement|Meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie.|

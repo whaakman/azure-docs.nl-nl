@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: df7866d4f87f55523e8139232e48d81cb17c80e4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62117321"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Een StorSimple-cloudapparaat implementeren en beheren in Azure (Update 3 en hoger)
@@ -62,7 +62,7 @@ In de volgende tabel ziet u enkele belangrijke verschillen tussen het StorSimple
 
 |  | Fysiek apparaat | Cloudapparaat |
 | --- | --- | --- |
-| **Locatie** |Bevindt zich in het datacenter. |Wordt uitgevoerd in Azure. |
+| **Location** |Bevindt zich in het datacenter. |Wordt uitgevoerd in Azure. |
 | **Netwerkinterfaces** |Heeft zes netwerkinterfaces: DATA 0 t/m DATA 5. |Heeft slechts één netwerkinterface: DATA 0. |
 | **Registratie** |Geregistreerd tijdens de initiële configuratiestap. |Registratie is een afzonderlijke taak. |
 | **Gegevensversleutelingssleutel van service** |Genereer de sleutel opnieuw op het fysieke apparaat en werk het cloudapparaat daarna bij met de nieuwe sleutel. |Het is niet mogelijk om sleutels opnieuw te genereren op het cloudapparaat. |

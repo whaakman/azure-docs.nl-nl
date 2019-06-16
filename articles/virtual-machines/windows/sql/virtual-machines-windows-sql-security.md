@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5d10562a70b7d37908bc272bf555fd967831009
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477513"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076955"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Veiligheidsoverwegingen voor SQL Server in Azure Virtual Machines
 
@@ -42,7 +42,7 @@ De volgende secties vindt u suggesties op denken via deze punten.
 
 ## <a name="secure-connections"></a>Beveiligde verbindingen
 
-Wanneer u een SQL Server-machine met een afbeelding maken, de **SQL Server-connectiviteit** optie geeft u de keuze van **lokaal (binnen VM)**, **privé (binnen Virtueelnetwerk)**, of **openbaar (Internet)**.
+Wanneer u een SQL Server-machine met een afbeelding maken, de **SQL Server-connectiviteit** optie geeft u de keuze van **lokaal (binnen VM)** , **privé (binnen Virtueelnetwerk)** , of **openbaar (Internet)** .
 
 ![SQL Server-verbinding](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -62,9 +62,11 @@ Ten slotte, overweeg in te schakelen versleutelde verbindingen voor het exemplaa
 
 Standaard luistert SQL Server op een bekende poort 1433. Voor een betere beveiliging, SQL Server om te luisteren naar een niet-standaard-poort, zoals 1401 te configureren. Als u een installatiekopie van de galerie met SQL Server in Azure portal inricht, kunt u deze poort in de **SQL Server-instellingen** blade.
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Als u wilt dit na het inrichten configureren, hebt u twee opties:
 
-- Voor virtuele machines van Resource Manager, kunt u selecteren **SQL Server-configuratie** vanuit de overzichtsblade van de virtuele machine. Dit biedt een optie voor het wijzigen van de poort.
+- Voor virtuele machines van Resource Manager, kunt u selecteren **Security** uit de [SQL-resource voor virtuele machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource). Dit biedt een optie voor het wijzigen van de poort.
 
   ![TCP-poort in de portal wijzigen](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 

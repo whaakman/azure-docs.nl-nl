@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 456eac4a8d3a6cb8cbaca13ad4e4f3b2ae0309bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110267"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125600"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric-netwerkpatronen
 U kunt uw Azure Service Fabric-cluster integreren met andere Azure-netwerkfuncties. In dit artikel hebben we laten zien hoe u het maken van clusters die gebruikmaken van de volgende functies:
@@ -268,7 +268,7 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
                     ],
     ```
 
-7. In de `Microsoft.ServiceFabric/clusters` resource, wijziging `managementEndpoint` op de DNS-FQDN van het statische IP-adres. Als u een beveiligd cluster gebruikt, controleert u of u kunt wijzigen *http://* naar *https://*. (Houd er rekening mee dat deze stap alleen voor Service Fabric-clusters geldt. Als u van een virtuele-machineschaalset gebruikmaakt, deze stap overslaan.)
+7. In de `Microsoft.ServiceFabric/clusters` resource, wijziging `managementEndpoint` op de DNS-FQDN van het statische IP-adres. Als u een beveiligd cluster gebruikt, controleert u of u kunt wijzigen *http://* naar *https://* . (Houd er rekening mee dat deze stap alleen voor Service Fabric-clusters geldt. Als u van een virtuele-machineschaalset gebruikmaakt, deze stap overslaan.)
 
     ```json
                     "fabricSettings": [],
@@ -370,7 +370,7 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
                     ],
     ```
 
-6. In de `Microsoft.ServiceFabric/clusters` resource, wijziging `managementEndpoint` om te verwijzen naar een adres voor de interne load balancer. Als u een beveiligd cluster gebruikt, zorg ervoor dat u *http://* naar *https://*. (Houd er rekening mee dat deze stap alleen voor Service Fabric-clusters geldt. Als u van een virtuele-machineschaalset gebruikmaakt, deze stap overslaan.)
+6. In de `Microsoft.ServiceFabric/clusters` resource, wijziging `managementEndpoint` om te verwijzen naar een adres voor de interne load balancer. Als u een beveiligd cluster gebruikt, zorg ervoor dat u *http://* naar *https://* . (Houd er rekening mee dat deze stap alleen voor Service Fabric-clusters geldt. Als u van een virtuele-machineschaalset gebruikmaakt, deze stap overslaan.)
 
     ```json
                     "fabricSettings": [],
@@ -606,10 +606,7 @@ In een cluster met twee knooppunttype, wordt één knooppunttype is op de extern
 Na de implementatie ziet u twee load balancers in de resourcegroep. Als u de load balancers bladert, ziet u het openbare IP-adres en het beheer eindpunten (poorten 19000 en 19080) toegewezen aan het openbare IP-adres. Ook ziet u de statische interne IP-adres en de toepassing-eindpunt (poort 80) toegewezen aan de interne load balancer. Beide functies voor taakverdeling gebruiken de dezelfde VM scale set back-endgroep.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Create a cluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
-    ```
+[Een cluster maken](service-fabric-cluster-creation-via-arm.md)
 
 Na de implementatie ziet u twee load balancers in de resourcegroep. Als u de load balancers bladert, ziet u het openbare IP-adres en het beheer eindpunten (poorten 19000 en 19080) toegewezen aan het openbare IP-adres. Ook ziet u de statische interne IP-adres en de toepassing-eindpunt (poort 80) toegewezen aan de interne load balancer. Beide functies voor taakverdeling gebruiken de dezelfde VM scale set back-endgroep.
 
-## <a name="next-steps"></a>Volgende stappen
-[Een cluster maken](service-fabric-cluster-creation-via-arm.md)

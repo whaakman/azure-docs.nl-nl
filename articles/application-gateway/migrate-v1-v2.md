@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 44d5ce3e194c873a564039934f518cb3a0e142e3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053326"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure Application Gateway migreren en Web Application Firewall van v1 in v2
 
@@ -96,7 +96,7 @@ Het script uitvoeren:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:  Vereiste** -dit is de IP-adresruimte die u hebt toegewezen (of u wilt toewijzen) voor een nieuw subnet met uw nieuwe v2-gateway. Dit moet worden opgegeven in de CIDR-notatie. Bijvoorbeeld: 10.0.0.0/24. U hoeft niet te dit subnet vooraf maken. Het script maakt het voor u, als deze niet bestaat.
+   * **subnetAddressRange: [String]:  Vereiste** -dit is de IP-adresruimte die u hebt toegewezen (of u wilt toewijzen) voor een nieuw subnet met uw nieuwe v2-gateway. Dit moet worden opgegeven in de CIDR-notatie. Bijvoorbeeld: 10.0.0.0/24. U hoeft te maken van dit subnet vooraf. Het script maakt het voor u, als deze niet bestaat.
    * **appgwName: [String]: Optioneel**. Dit is een tekenreeks die u opgeeft als u wilt gebruiken als de naam voor de nieuwe Standard_v2 of WAF_v2-gateway. Als deze parameter niet is opgegeven, de naam van uw bestaande v1-gateway wordt gebruikt met het achtervoegsel *_v2* toegevoegd.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optioneel**.  Een door komma's gescheiden lijst PSApplicationGatewaySslCertificate-objecten die u maakt om weer te geven van de SSL-certificaten van uw v1-gateway moet worden geüpload naar de nieuwe gateway voor v2. Voor elk van uw SSL-certificaten geconfigureerd voor uw Standard v1- of v1-gateway WAF, kunt u een nieuw PSApplicationGatewaySslCertificate-object via de `New-AzApplicationGatewaySslCertificate` opdracht die hier worden weergegeven. U moet het pad naar het bestand een SSL-certificaat en het wachtwoord.
 
@@ -117,11 +117,11 @@ Het script uitvoeren:
 
       Zie voor het maken van een lijst met objecten PSApplicationGatewayTrustedRootCertificate [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [String]: Optioneel**. Een specifiek privé IP-adres dat u wilt koppelen aan uw nieuwe v2-gateway.  Dit moet zijn van het hetzelfde VNet dat u voor uw nieuwe v2-gateway toewijzen. Als dit niet is opgegeven, wordt het script een privé IP-adres toegewezen voor uw v2-gateway.
-    * **publicIpResourceId: [String]: Optioneel**. De resourceId van een openbare IP-adresresource in uw abonnement die u wilt toewijzen aan de nieuwe v2-gateway. Als dit niet is opgegeven, wordt een nieuwe openbare IP-adres in dezelfde resourcegroep toegewezen door het script. De naam is van de v2-gateway met *- IP-* toegevoegd.
+    * **publicIpResourceId: [String]: Optioneel**. De resourceId van een openbare IP-adres (standaard-SKU)-bron in uw abonnement die u wilt toewijzen aan de nieuwe v2-gateway. Als dit niet is opgegeven, wordt een nieuwe openbare IP-adres in dezelfde resourcegroep toegewezen door het script. De naam is van de v2-gateway met *- IP-* toegevoegd.
    * **validateMigration: [overschakelen]: Optioneel**. Gebruik deze parameter als u wilt dat het script moet een eenvoudige configuratie vergelijking validaties uitvoeren na het maken van de v2-gateway en de configuratiekopie. Standaard wordt geen validatie uitgevoerd.
-   * **enableAutoScale: [overschakelen]: Optioneel**. Gebruik deze parameter als u wilt dat het script voor automatisch schalen op de nieuwe v2-gateway inschakelen nadat deze is gemaakt. Automatisch schalen is standaard uitgeschakeld. U kunt altijd handmatig inschakelen dit later op de zojuist gemaakte v2-gateway.
+   * **enableAutoScale: [overschakelen]: Optioneel**. Gebruik deze parameter als u wilt dat het script voor automatisch schalen op de nieuwe v2-gateway inschakelen nadat deze gemaakt. Automatisch schalen is standaard uitgeschakeld. U kunt altijd handmatig inschakelen dit later op de zojuist gemaakte v2-gateway.
 
-1. Voer het script met de juiste parameters.
+1. Voer het script met de juiste parameters. Het duurt vijf tot zeven minuten om te voltooien.
 
     **Voorbeeld**
 
@@ -176,7 +176,11 @@ Nee. De Azure PowerShell-script wordt alleen de configuratie migreert. Migratie 
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Is de nieuwe v2-gateway die zijn gemaakt door de Azure PowerShell-script juiste grootte krijgen voor het afhandelen van al het verkeer dat momenteel wordt bediend door mijn v1-gateway?
 
-De Azure PowerShell-script maakt een nieuwe v2-gateway met een geschikte grootte voor het afhandelen van het verkeer op uw bestaande V1-gateway. Automatisch schalen is standaard uitgeschakeld, maar u kunt automatisch schalen inschakelen wanneer u het script uitvoert.
+De Azure PowerShell-script maakt een nieuwe v2-gateway met een geschikte grootte voor het afhandelen van het verkeer op uw bestaande v1-gateway. Automatisch schalen is standaard uitgeschakeld, maar u kunt automatisch schalen inschakelen wanneer u het script uitvoert.
+
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Heb ik mijn v1-gateway om Logboeken te zenden naar Azure-opslag hebt geconfigureerd. Wordt deze configuratie voor v2 ook gerepliceerd door het script?
+
+Nee. Het script repliceren niet van deze configuratie voor v2. U moet de configuratie van afzonderlijk toevoegen aan de gemigreerde v2-gateway.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ik is bij enkele problemen met het gebruik van dit script. Hoe kan ik hulp krijgen?
   

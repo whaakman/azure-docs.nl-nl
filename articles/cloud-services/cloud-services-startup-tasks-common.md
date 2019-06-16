@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d78ab917589af0eae72eb70e3cdc2cc751072eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076444"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Veelvoorkomende opstarttaken voor Cloud-Service
 Dit artikel bevat enkele voorbeelden van veelvoorkomende opstarttaken die u wilt uitvoeren in uw cloudservice. U kunt opstarttaken gebruiken bewerkingen uit te voeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren zijn onder meer een onderdeel installeren, het registreren van COM-onderdelen, registersleutels instellen of starten van een langlopende proces. 
@@ -73,7 +73,7 @@ De errorlevel geretourneerd door *AppCmd.exe* worden weergegeven in het bestand 
 ### <a name="example-of-managing-the-error-level"></a>Voorbeeld van het beheer van het foutniveau van de
 In dit voorbeeld voegt u een sectie compressie en een vermelding compressie voor JSON naar de *Web.config* bestand met de foutafhandeling en logboekregistratie.
 
-De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weergegeven, waaronder instelling de [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) kenmerk `elevated` geven *AppCmd.exe* voldoende machtigingen om te wijzigen van de instellingen in de *Web.config* bestand:
+De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weergegeven, waaronder instelling de [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) kenmerk `elevated` geven *AppCmd.exe* voldoende machtigingen om te wijzigen van de instellingen in de *Web.config* bestand:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

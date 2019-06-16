@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246687"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisatie in een Azure AD Domain Services beheerde domein
@@ -60,7 +60,7 @@ De volgende kenmerken of objecten zijn niet gesynchroniseerd naar uw Azure AD-te
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Hoe specifieke kenmerken worden gesynchroniseerd met uw beheerde domein
 De volgende tabel bevat enkele algemene kenmerken en wordt beschreven hoe ze zijn gesynchroniseerd met uw beheerde domein.
 
-| Kenmerk in uw beheerde domein | Source | Opmerkingen |
+| Kenmerk in uw beheerde domein | source | Opmerkingen |
 |:--- |:--- |:--- |
 | UPN |UPN-kenmerk van de gebruiker in uw Azure AD-tenant |Het UPN-kenmerk uit uw Azure AD-tenant is gesynchroniseerd met uw beheerde domein is. Daarom is de meest betrouwbare manier om te melden bij uw beheerde domein met behulp van de UPN. |
 | SAMAccountName |MailNickname van de gebruiker in uw Azure AD-tenant van het kenmerk of automatisch gegenereerde |Het kenmerk SAMAccountName afkomstig is uit het kenmerk mailNickname in uw Azure AD-tenant. Als meerdere gebruikersaccounts het kenmerk mailNickname van dezelfde hebben, wordt de SAMAccountName automatisch gegenereerd. Als de mailNickname of de UPN-voorvoegsel van de gebruiker meer dan 20 tekens is, is de SAMAccountName automatisch gegenereerde om te voldoen aan de limiet van 20 tekens op SAMAccountName kenmerken. |

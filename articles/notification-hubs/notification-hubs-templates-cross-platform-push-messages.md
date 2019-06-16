@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872093"
 ---
 # <a name="templates"></a>Sjablonen
@@ -131,7 +131,7 @@ Sjablonen zijn beperkt tot XML of JSON-document-indelingen. Ook, u alleen expres
 
 De volgende tabel ziet u de taal die is toegestaan in sjablonen:
 
-| Expressie       | Description |
+| expressie       | Description |
 | ---------------- | --- |
 | $(prop)          | Verwijzing naar de gebeurteniseigenschap van een met de opgegeven naam. Eigenschapnamen zijn niet hoofdlettergevoelig. Deze expressie wordt omgezet naar de waarde van de tekst of een lege tekenreeks als de eigenschap niet aanwezig is. |
 | $(prop, n)       | Zoals hierboven, maar de tekst expliciet is afgekapt op n tekens, bijvoorbeeld $(titel, 20) clips de inhoud van de titeleigenschap 20 tekens. |

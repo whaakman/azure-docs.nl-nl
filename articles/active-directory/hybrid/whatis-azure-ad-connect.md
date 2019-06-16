@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784462"
 ---
 # <a name="what-is-azure-ad-connect"></a>Wat is Azure AD Connect?
@@ -55,7 +55,7 @@ Azure AD Connect Health voor AD FS biedt ondersteuning voor AD FS 2.0 in Windows
 
 Belangrijkste voordelen en aanbevolen procedures:
 
-|Belangrijkste voordelen|Aanbevolen procedures|
+|Belangrijkste voordelen|Beste praktijken|
 |-----|-----|
 |Verbeterde beveiliging|[Trends voor vergrendeling van extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport over mislukte aanmeldingen](how-to-connect-health-adfs-risky-ip.md)</br>[In de privacy die voldoen aan het beleid](reference-connect-health-user-privacy.md)|
 |De hoogte worden gebracht op [alle kritieke problemen voor AD FS-systeem](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Serverconfiguratie en -beschikbaarheid</br>[Prestaties en connectiviteit](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regelmatig onderhoud|

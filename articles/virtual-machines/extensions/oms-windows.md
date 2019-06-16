@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064431"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor-virtuele machine-extensie voor Windows
 
@@ -38,23 +38,24 @@ De Log Analytics-agent-extensie voor Windows ondersteunt de volgende versies van
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, versie 1709 en 1803
 
 ### <a name="agent-and-vm-extension-version"></a>Versie agent en VM-extensie
-De volgende tabel bevat een toewijzing van de versie van de Azure Monitor VM-extensie en bundel van Log Analytics-agent voor elke versie. 
+De volgende tabel bevat een toewijzing van de versie van de Windows Azure Monitor VM-extensie en bundel van Log Analytics-agent voor elke versie. 
 
-| Versie van de extensie Azure Monitor virtuele Linux-machine | Log Analytics-Agent bundelversie krijgt | Releasedatum | Releaseopmerkingen |
+| Log Analytics-Windows-agent bundelversie krijgt | Versie van Azure Monitor Windows VM-uitbreiding | Releasedatum | Releaseopmerkingen |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | Februari 2017 | |
-| 8.0.11072.0 | 1.0.11072.1 | September 2017 | |
-| 8.0.11081.0 | 1.0.11081.5 | Nov 2017 | | 
-| 8.0.11103.0 | N.v.t. |  April 2018 | |
-| 8.0.11136.0 | N.v.t. | September 2018 |  <ul><li> Er is ondersteuning toegevoegd voor het detecteren van resource-ID wijzigen op de virtuele machine verplaatsen </li><li> Er is ondersteuning toegevoegd voor het melden van resource-ID bij het gebruik van niet-extensie installeren </li></ul>| 
-| 10.19.10006.0 | N.v.t. | December 2018 | <ul><li> Secundaire stabilization-oplossingen </li></ul> | 
-| 10.19.13515.0 | 1.0.13515.1 | Maart 2019 | <ul><li>Secundaire stabilization-oplossingen </li></ul> |
+| 10.20.18001 | 1.0.18001 | Juni 2019 | <ul><li> Kleine correcties en stabilization-verbeteringen </li><li> De mogelijkheid om uit te schakelen van standaardreferenties bij het maken van een proxyverbinding (ondersteuning voor WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) is toegevoegd </li></ul>|
+| 10.19.13515 | 1.0.13515 | Maart 2019 | <ul><li>Secundaire stabilization-oplossingen </li></ul> |
+| 10.19.10006 | N.v.t. | December 2018 | <ul><li> Secundaire stabilization-oplossingen </li></ul> | 
+| 8.0.11136 | N.v.t. | September 2018 |  <ul><li> Er is ondersteuning toegevoegd voor het detecteren van resource-ID wijzigen op de virtuele machine verplaatsen </li><li> Er is ondersteuning toegevoegd voor het melden van resource-ID bij het gebruik van niet-extensie installeren </li></ul>| 
+| 8.0.11103 | N.v.t. |  April 2018 | |
+| 8.0.11081 | 1.0.11081 | Nov 2017 | | 
+| 8.0.11072 | 1.0.11072 | September 2017 | |
+| 8.0.11049 | 1.0.11049 | Februari 2017 | |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
 Azure Security Center wordt automatisch bepalingen van de Log Analytics-agent en verbindt u deze met de standaard Log Analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval wordt de geconfigureerde werkruimte en het einde van de verbinding met Azure Security Center overschreven.
 
-### <a name="internet-connectivity"></a>Internetverbinding
+### <a name="internet-connectivity"></a>Internetconnectiviteit
 De Log Analytics-agent-extensie voor Windows is vereist dat de virtuele doelmachine is verbonden met internet. 
 
 ## <a name="extension-schema"></a>Extensieschema
@@ -89,7 +90,7 @@ De volgende JSON ziet u het schema voor de Log Analytics-agent-extensie. De exte
 | Name | Waarde / voorbeeld |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Uitgever | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | werkruimte-id (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |

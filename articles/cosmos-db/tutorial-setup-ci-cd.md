@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242564"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069229"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Een CI/CD-pijplijn instellen met de build-taak van Azure Cosmos DB Emulator in Azure DevOps
 
@@ -39,7 +39,7 @@ Kies vervolgens de organisatie waarin u de extensie installeren.
 
 Nu de extensie is geïnstalleerd, meldt u zich aan bij uw Azure DevOps-account en vindt u uw project vanuit het projectendashboard. U kunt een [build-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) aan uw project toevoegen of een bestaande build-pipeline wijzigen. Als u al een build-pipeline hebt, kunt u verdergaan met[Build-taak van de emulator toevoegen aan een build-definitie](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Om een nieuwe build-definitie te maken, gaat u naar het tabblad **Builds** in Azure DevOps. Selecteer **+New.**  \> **Nieuwe build-pijplijn**
+1. Om een nieuwe build-definitie te maken, gaat u naar het tabblad **Builds** in Azure DevOps. Selecteer **+New.** \> **Nieuwe build-pijplijn**
 
    ![Een nieuwe build-pipeline maken](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -48,6 +48,9 @@ Nu de extensie is geïnstalleerd, meldt u zich aan bij uw Azure DevOps-account e
    ![Selecteer het teamproject, de opslagplaats en de vertakking voor de build-pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Selecteer ten slotte de gewenste sjabloon voor de build-pipeline. We selecteren de sjabloon **ASP.NET** voor deze zelfstudie. 
+
+> [!NOTE]
+> De agent-pool worden geselecteerd voor dit CI moet Docker voor Windows, tenzij de installatie handmatig in een eerdere taak wordt uitgevoerd als onderdeel van de CI geïnstalleerd hebben. Zie [Microsoft gehoste agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) artikel voor een selectie van agentpools; het wordt aangeraden te beginnen met `Hosted VS2017` of `Hosted VS2019`. 
 
 We hebben nu een build-pipeline die we kunnen instellen voor gebruik van de build-taak van Azure Cosmos DB Emulator. 
 

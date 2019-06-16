@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64736980"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67113542"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
 
@@ -98,7 +98,7 @@ Meet vervolgens de maximale prestatie-eisen van uw toepassing gedurende hun leve
 | Min. Latentie | | | |
 | Gemiddelde latentie | | | |
 | Met maximaal CPU | | | |
-| Gemiddeld CPU-gebruik | | | |
+| Gemiddeld CPU | | | |
 | Met maximaal Geheugen | | | |
 | Gemiddeld geheugen | | | |
 | Wachtrijdiepte | | | |
@@ -178,10 +178,10 @@ Hier volgt een voorbeeld van hoe u de IOPS en doorvoer/bandbreedte voor uw toepa
 
 | Vereisten voor toepassingsimplementatie | I/o-grootte | IOPS | Doorvoer/bandbreedte |
 | --- | --- | --- | --- |
-| Max. IOP's |8 kB |5.000 |40 MB per seconde |
-| Max. doorvoer |1024 kB |200 |200 MB per seconde |
+| Max. aantal IOP 's |8 kB |5,000 |40 MB per seconde |
+| Max. doorvoer |1024 KB |200 |200 MB per seconde |
 | Maximale Throughput + hoge IOPS |64 kB |3,200 |200 MB per seconde |
-| Maximale IOPS en hoge doorvoer |32 KB |5.000 |160 MB per seconde |
+| Maximale IOPS en hoge doorvoer |32 KB |5,000 |160 MB per seconde |
 
 Voor IOPS en bandbreedte die hoger is dan de maximale waarde van een enkele premium-opslagschijf, gebruikt u meerdere premium-schijven striped samen. Bijvoorbeeld, stripe twee P30 schijven voor het verkrijgen van een gecombineerde IOPS van 10.000 IOP's of een gecombineerde doorvoer van 400 MB per seconde. Zoals uitgelegd in de volgende sectie, moet u een VM-grootte die ondersteuning biedt voor de gecombineerde schijf-IOPS en doorvoer.
 
@@ -199,7 +199,7 @@ Hoge schaal VM's zijn beschikbaar in verschillende grootten met een verschillend
 | VM-grootte | CPU-kernen | Geheugen | Schijf-VM-grootten | Met maximaal Gegevensschijven | Cachegrootte | IOPS | Bandbreedte Cache i/o-limieten |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokale SSD 224 GB = |32 |576 GB |MAAR LIEFST 50.000 IOPS <br> 512 MB per seconde |4000 IOPS en 33 MB per seconde |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD 896 GB = |64 |4224 GB |80.000 IOP 'S <br> 2.000 MB per seconde |5000 IOP's en 50 MB per seconde |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD 896 GB = |64 |4224 GB |80\.000 IOP 'S <br> 2\.000 MB per seconde |5000 IOP's en 50 MB per seconde |
 
 Als u wilt weergeven van een volledige lijst van alle beschikbare Azure-VM-grootten, verwijzen naar [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md) of [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md). Kies een VM-grootte die kan voldoen en aanpassen aan uw prestatievereisten van de gewenste toepassing. Daarnaast rekening mee dat volgende belangrijke overwegingen bij het kiezen van VM-grootten.
 
@@ -235,8 +235,8 @@ Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en
 
 | Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
-| IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20,000              |
+| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
+| IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12\.500              | 15\.000              | 20,000              |
 | Doorvoer per schijf | 25 MiB per seconde  | 50 MiB per seconde  | 100 MiB per seconde |125 MiB per seconde | 150 MiB per seconde | 200 MiB per seconde | 250 MiB per seconde | 250 MiB per seconde | 480 MiB per seconde | 750 MiB per seconde | 750 MiB per seconde |
 
 Het aantal schijven die u kiest is afhankelijk van de schijf het formaat van de gekozen. U kunt één P50 schijf of meerdere P10-schijven gebruiken om te voldoen aan de vereisten van uw toepassing. Aandachtspunten voor gebruikersaccounts die hieronder worden vermeld bij het maken van de keuze rekening.
@@ -313,7 +313,7 @@ De volgende Linux-distributies zijn gevalideerd voor premium SSD's. Voor betere 
 
 Voor sommige van de versies van moet de meest recente Linux Integration Services (LIS), v4.0, voor Azure. Als u wilt downloaden en installeren van een distributiepunt, volgt u de koppeling in de volgende tabel weergegeven. We toevoegen afbeeldingen aan de lijst als we klaar zijn met validatie. Onze validaties laten zien dat de prestaties wisselend voor elke afbeelding. Prestaties zijn afhankelijk van uw installatiekopie-instellingen en kenmerken van de werkbelasting. Verschillende afbeeldingen zijn afgesteld voor verschillende soorten workloads.
 
-| Distributie | Versie | Ondersteunde kernel | Details |
+| Distributie | Version | Ondersteunde kernel | Details |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

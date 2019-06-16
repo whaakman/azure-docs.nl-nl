@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4185e9f5e1b411f95afacb80499db048769ea27b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Zelfstudie: Integratie van Microsoft Azure Active Directory met Evernote
 
@@ -76,12 +76,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Micros
 
 Om eenmalige aanmelding van Microsoft Azure Active Directory met Evernote te configureren en te testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Evernote-eenmalige aanmelding configureren](#configure-evernote-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Testgebruiker voor Evernote maken](#create-evernote-test-user)**: als u een tegenhanger van Britta Simon in Evernote wilt hebben die is gekoppeld aan de Microsoft Azure Active Directory-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Evernote-eenmalige aanmelding configureren](#configure-evernote-single-sign-on)** : als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Evernote maken](#create-evernote-test-user)** : als u een tegenhanger van Britta Simon in Evernote wilt hebben die is gekoppeld aan de Microsoft Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -125,7 +125,7 @@ Om eenmalige aanmelding van Microsoft Azure Active Directory met Evernote te con
 
     a. Selecteer de **aanmelding SAML-antwoord en -bewering** optie voor **ondertekening optie**.
 
-    b. Klik op **Opslaan**.
+    b. Klik op **Opslaan**
 
 8. In de sectie **Evernote instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
@@ -220,17 +220,17 @@ In het geval van Evernote is inrichten een handmatige taak.
 
 1. Meld u bij uw Evernote-bedrijfssite als beheerder aan.
 
-2. Klik op de **'Admin Console'**.
+2. Klik op de **'Admin Console'** .
 
     ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. Ga vanuit de **'Admin Console'** naar **‘Add users’**.
+3. Ga vanuit de **'Admin Console'** naar **‘Add users’** .
 
-    ![Testgebruiker toevoegen](./media/evernote-tutorial/create_aaduser_0001.png)
+    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
 
 4. **Voeg teamleden toe** in het tekstvak **Email**, typ het e-mailadres van het gebruikersaccount en klik op **Invite.**
 
-    ![Testgebruiker toevoegen](./media/evernote-tutorial/create_aaduser_0002.png)
+    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0002.png)
     
 5. Nadat de uitnodiging is verzonden, ontvangt de houder van het Microsoft Azure Active Directory-account een e-mail om de uitnodiging te accepteren.
 
