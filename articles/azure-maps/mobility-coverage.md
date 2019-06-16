@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735614"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps Mobility dekking
@@ -47,7 +47,7 @@ De volgende tabel bevat de informatie dekking voor Azure Maps Mobility-service.
 | Puerto Rico | San Juan |
 | Uruguay | Montevideo, Punta del Este |
 | Verenigde Staten van Amerika | <p>Haarlem (NY), Stuttgart (NM), bevestigingspunt (AK), Appleton Oshkosh Neenah (WI), Asheville (NC), (OH) Athene, Atlanta (GA), Austin (TX), Bakersfield (CA), Baltimore), Bellevue (WA), Berkshire County (MA), Birmingham (AL), Bloomington (IN), Boise (ID), () Boston MA), Boulder (CO) Brevard County (FL), Buffalo (NY), Butte (MT), Cabo Cod), centrum County (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), Cheyenne (WY), Chicago, (IL), Cincinnati (OH) Citrus County (FL), Cleveland (OH), Coachella dal (CA), Colorado veren (CO), Columbia (TN), Columbus (OH), Sacramentsdag (TX), Dallas/ze waard (TX), Dayton (OH), Delaware, Denver (CO), Des Moines (IA), Detroit (MI), Duluth (MN), El Paso (TX), Eugene (of ), Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), Flint (MI) Fort Collins (CO), Fort Wayne (IN), Fresno (CA), Gainesville (FL), Grand splitsingen (ND), Grand Rapids (MI), groen Bay (WI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton wegen (evaluatie van beveiligingsproblemen ), Hanford (CA), Hartford (CT), Hernando provincie (FL), toevoegen (High), Houston (TX), Humboldt provincie (CA), Huntsville (AL), Indianapolis (IN), Ithaca (NY), Jackson (MS), Jackson (TN), Jacksonville - St. John van County (FL), Johnson plaats (TN), Jonesboro (AR) Joplin (maand), Juneau (AK), Verweggistan (MI), Kansas City (maand), Kauai (High), Ketchum (ID), Knoxville (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Las Vegas (NV), Lawrence (koppelingen), Lee County (FL), gebied Lexington (KY), Lincoln County (of), Little Rock (AR), Los Angeles ( CA), Louisville (KY), Madison (WI), McAllen (TX), Memphis (TN), Miami (FL), Milwaukee/Waukesha (WI), Minneapolis St. Paul (MN), Missoula (MT), Modesto (VS), Moline (IL), Monroe County (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), Navajo natie), Nieuwe Haven (CT), New Orleans (LA), NYC NJ) Ocala (FL), Okaloosa County (FL), Oklahoma plaats (OK), Omaha (NE), Orlando (FL), Panama plaats (FL), Pensacola (FL), geen Rekenmachine te gebruiken (IL), Philadelphia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (ME), Portland (of), Racine (WI) Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Roanoke dal (VA - Lynchburg), waarbij (NY), Rocky Mountains Mountain National Park), Rogue dal (of), Roseburg (of), Roseville (CA), Sacramento (CA), Salem (of), Salt Lake City (UT), San Antonio (TX), San Diego ( CA), San Luis Obispo (CA), Santa Barbara (CA), Rome (NM), Sarasota (FL), Savannah (GA), Seacoast regio (NH), Seattle Tacoma Bellevue (WA), SF Bay gebied (CA), Sioux plaats (IA), Sioux valt (SD), Sitka (AK), Spokane (WA), Springfield (IL), Springfield (massa) St. George (UT), St. Louis (maand), Stockton (CA), Syracuse-Utica (NY), Tallahassee (FL), Tampa-Sint-Petersburg (FL), Terre Haute (IN), Toledo (OH), Topeka (koppelingen), bladeren plaats (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia County (FL), Waco (TX) Washington (DC), Waterbury (CT), Wichita (koppelingen), Wilmington (NC), Yakima (WA), York County (PA), Yuma County (AZ)</p>|
-| + VS Britse Maagdeneilanden | V.S. Britse Maagdeneilanden * |
+| \+ VS Britse Maagdeneilanden | V.S. Britse Maagdeneilanden * |
 
 
 ## <a name="asia-pacific"></a>Azië en Stille Oceaan
@@ -90,8 +90,8 @@ De volgende tabel bevat de informatie dekking voor Azure Maps Mobility-service.
 | Estland   | Estland * |   
 | Finland   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
 | Frankrijk    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur samenvoegen, Brest, Briançon, cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Seignette, Le Mans Lens, Lille, Lorient, Lyon, MACS, Marseille & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy Nantes, mooi, Nimes, Normandy, Nyons, Parijs, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Straatsburg, Tarbes, Toulouse, toeren</P> | 
-| + Frans-Guyana | Cayenne |
-| + Nieuw-Caledonië | Nouméa  |
+| \+ Frans-Guyana | Cayenne |
+| \+ Nieuw-Caledonië | Nouméa  |
 | Georgië | Tbilisi | 
 | Duitsland | <p>Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburg, Karlsruhe, Mainz, München - Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
 | Griekenland | <p>Athene, Arta, Amorgos, Chania, Korfoe, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanti </P> |

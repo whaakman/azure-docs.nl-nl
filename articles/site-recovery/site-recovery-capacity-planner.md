@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036647"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Capaciteit plannen voor noodherstel van Hyper-V-VM 
@@ -54,7 +54,7 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
    a. In **selecteert u uw scenario**, kiest u **Hyper-V naar Azure** of **VMware/fysieke machines naar Azure**.
 
-   b. In **gemiddelde dagelijkse gegevenswijzigingssnelheid (%)**, voert u de gegevens die u via verzamelt de [Hyper-V-hulpprogramma voor capaciteitsplanning](site-recovery-capacity-planning-for-hyper-v-replication.md) of [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
+   b. In **gemiddelde dagelijkse gegevenswijzigingssnelheid (%)** , voert u de gegevens die u via verzamelt de [Hyper-V-hulpprogramma voor capaciteitsplanning](site-recovery-capacity-planning-for-hyper-v-replication.md) of [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. De **compressie** instelling wordt niet gebruikt wanneer u Hyper-V-machines naar Azure repliceren. Voor compressie, gebruikt u een apparaat van derden, bijvoorbeeld middels Riverbed.
 
@@ -66,9 +66,9 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
 4. Nadat u de waarden voor de bronomgeving hebt ingevoerd, bevat de uitvoer weergegeven:
 
-   * **Bandbreedte die is vereist voor replicatie van verschillen (in Megabits per seconde)**: Netwerkbandbreedte voor replicatie van verschillen wordt voor de gemiddelde dagelijkse veranderingssnelheid van gegevens berekend.
-   * **Bandbreedte die is vereist voor de initiële replicatie (in Megabits per seconde)**: Netwerkbandbreedte voor de initiële replicatie wordt berekend op basis van de initiële replicatie waarden die u invoert.
-   * **Opslag die is vereist (in GB)**: De totale Azure opslagruimte vereist.
+   * **Bandbreedte die is vereist voor replicatie van verschillen (in Megabits per seconde)** : Netwerkbandbreedte voor replicatie van verschillen wordt voor de gemiddelde dagelijkse veranderingssnelheid van gegevens berekend.
+   * **Bandbreedte die is vereist voor de initiële replicatie (in Megabits per seconde)** : Netwerkbandbreedte voor de initiële replicatie wordt berekend op basis van de initiële replicatie waarden die u invoert.
+   * **Opslag die is vereist (in GB)** : De totale Azure opslagruimte vereist.
    * **Totaal aantal IOP's op Standard-opslag**: Het getal wordt berekend op basis van de grootte van 8 kB IOPS op de totale standard storage-accounts. Het getal wordt berekend op basis van de schijven voor de virtuele machine bron en de dagelijkse gegevenswijzigingssnelheid voor de snelle Planner. Voor de gedetailleerde Planner, het getal wordt berekend op basis van het totale aantal virtuele machines die zijn toegewezen aan de standaard Azure-VM's en de gegevenswijzigingssnelheid op deze virtuele machines.
    * **Aantal vereiste accounts voor standaardopslag**: Het totale aantal standard storage-accounts nodig voor het beveiligen van de virtuele machines. Een standard storage-account kan maximaal 20.000 IOP's bevatten voor alle virtuele machines in de standard-opslag. Maximaal 500 IOP's wordt per schijf ondersteund.
    * **Aantal vereiste schijven voor Blob**: Het aantal schijven die zijn gemaakt op Azure-opslag.
@@ -92,17 +92,17 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
    a. In **processorkernen**, het totale aantal kernen op een bronserver opgeven.
 
-   b. In **toewijzing van geheugen (in MB/s)**, de grootte van het RAM-geheugen van een bronserver opgeven.
+   b. In **toewijzing van geheugen (in MB/s)** , de grootte van het RAM-geheugen van een bronserver opgeven.
 
    c. In **nummer van de NIC's**, geef het aantal netwerkadapters op een bronserver.
 
-   d. In **totale opslag (in GB)**, geef de totale grootte van de VM-opslag. Bijvoorbeeld, als de bronserver drie schijven met 500 GB heeft, is de grootte van de totale opslag 1500 GB.
+   d. In **totale opslag (in GB)** , geef de totale grootte van de VM-opslag. Bijvoorbeeld, als de bronserver drie schijven met 500 GB heeft, is de grootte van de totale opslag 1500 GB.
 
    e. In **aantal schijven die zijn gekoppeld**, geeft u het totale aantal schijven van een bronserver.
 
    f. In **schijf verbruik (%) van de opslagcapaciteit**, geef het gemiddelde gebruik.
 
-   g. In **dagelijkse gegevenswijzigingssnelheid (%)**, veranderingssnelheid van de dagelijkse gegevens van een bronserver opgeven.
+   g. In **dagelijkse gegevenswijzigingssnelheid (%)** , veranderingssnelheid van de dagelijkse gegevens van een bronserver opgeven.
 
    h. In **toewijzing van Azure VM-grootte**, geef de Azure-VM-grootte die u wilt toewijzen. Als u niet dat dit handmatig doen wilt, selecteert u **IaaS-VM's Compute**. Als u een handmatige instelling invoer en selecteer vervolgens **IaaS-VM's Compute**, de instelling van de handmatige, kan worden overschreven. Het proces compute identificeert automatisch de beste overeenkomst op Azure VM-grootte.
 

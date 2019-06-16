@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237000"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Spraak apparaten SDK microfoon matrix aanbevelingen
@@ -50,7 +50,7 @@ De aanbevolen eigenschappen bij het selecteren van de microfoons zijn:
 | Bitrate                          | Minimale 24-bits                    |
 | Samplefrequentie                     | Ten minste 16 kHz\*                   |
 | Directivity                       | Omnidirectioneel                   |
-| Frequentie-antwoord                | + 3 dB, 200 8000 Hz drijvende-masker\*|
+| Frequentie-antwoord                | \+ 3 dB, 200 8000 Hz drijvende-masker\*|
 | Betrouwbaarheid                       | Opslag temperatuurbereik GC-40 tot 70 ° C<br />Operationele temperatuurbereik 20 ° C tot 55 ° C  |
 
 *\*Hogere sampling-frequenties of "breder" frequentiebereiken kunnen het nodig zijn voor communicatietoepassingen van hoge kwaliteit (VoIP)*
@@ -68,7 +68,7 @@ De prestaties van de matrices wanneer geïntegreerd in een apparaat voor en na d
 |  Amplitude die overeenkomt met  | ± 2 dB, 200-8000 Hz |
 |  Fase die overeenkomt met      | ± 5°, 200-8000 Hz |
 | THD %                 | Niet meer dan 1%, 200 8000 Hz, 94 dBSPL, 5 volgorde |
-|  Frequentie-antwoord  | + 6 dB, 200 8000 Hz drijvende-masker\* |
+|  Frequentie-antwoord  | \+ 6 dB, 200 8000 Hz drijvende-masker\* |
 
 *\*"Breder" frequentiebereiken kunnen het nodig zijn voor communicatietoepassingen van hoge kwaliteit (VoIP) zijn*
 

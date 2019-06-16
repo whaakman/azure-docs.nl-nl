@@ -1,8 +1,8 @@
 ---
-title: Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? | Microsoft Docs
+title: Wat zijn de voorwaarden in Azure Active Directory voor voorwaardelijke toegang? | Microsoft Docs
 description: Meer informatie over hoe voorwaarden worden gebruikt in Azure Active Directory voor voorwaardelijke toegang voor het activeren van een beleid.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 83263b3536100ce16819002c833754d18ac12816
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112599"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory?
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden in Azure Active Directory voor voorwaardelijke toegang?
 
 U kunt bepalen hoe gebruikers toegang tot uw cloud-apps met behulp van [voorwaardelijke toegang van Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In een beleid voor voorwaardelijke toegang, definieert u het antwoord ("Voer dit") met de reden voor het activeren van uw beleid ('als dit gebeurt').
 
@@ -125,7 +125,7 @@ Algemene scenario's voor deze voorwaarde zijn beleid met de volgende goed:
 
 - Toegang blokkeren voor gebruikers met toegang tot een service van specifieke landen of regio's. 
 
-Zie voor meer informatie, [wat is er met de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Zie voor meer informatie, [wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 
 ## <a name="client-apps"></a>Client-apps
@@ -168,7 +168,7 @@ U kunt alleen selecteren **Exchange ActiveSync-clients** als:
 
 - U hebt geen andere bepalingen die zijn geconfigureerd in een beleid. Echter, u het bereik van dit probleem is alleen van toepassing kunt verfijnen [ondersteunde platforms](technical-reference.md#device-platform-condition).
  
-    ![Het beleid toepassen op ondersteunde platformen](./media/conditions/33.png)
+    ![Beleid toepassen op ondersteunde platformen](./media/conditions/33.png)
 
 
 Wanneer toegang is geblokkeerd omdat een [beheerd apparaat](require-managed-devices.md) is vereist, de betrokken gebruikers een enkel een e-mail ontvangt die bevat stappen waarmee ze om Intune te gebruiken. 
@@ -182,7 +182,7 @@ U kunt deze instelling om gebruikers en groepen alleen richten. Het biedt geen o
 
  Zie voor meer informatie:
 
-- [SharePoint Online en Exchange Online instellen voor voorwaardelijke toegang van Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
+- [SharePoint Online en Exchange Online instellen voor Azure Active Directory voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
 - [Azure Active Directory op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
@@ -190,7 +190,7 @@ U kunt deze instelling om gebruikers en groepen alleen richten. Het biedt geen o
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt weten hoe u een beleid voor voorwaardelijke toegang configureren, Zie [Quick Start: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+- Als u wilt weten hoe u een beleid voor voorwaardelijke toegang configureren, Zie [Quick Start: MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
 
 - Voor het configureren van beleid voor voorwaardelijke toegang voor uw omgeving, Zie de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 
 

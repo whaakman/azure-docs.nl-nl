@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726529"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Aan de slag met de programmeertaal in Azure Machine Learning Studio R
@@ -930,7 +930,7 @@ outframe
 
 De eerste coderegel is enigszins moeilijk en een verklaring kunt u begrijpt. Werken op basis van binnenuit hebben we het volgende:
 
-1. De '**[[**'operator met het argument'**1**' de vector van correlaties op de lag uit het eerste element van de lijst met ccf objecten geselecteerd.
+1. De ' **[[** 'operator met het argument'**1**' de vector van correlaties op de lag uit het eerste element van de lijst met ccf objecten geselecteerd.
 2. De `do.call()` functie is van toepassing de `rbind()` functie via de elementen van de lijst wordt geretourneerd door `lapply()`.
 3. De `data.frame()` functie converteert het resultaat is geproduceerd door `do.call()` naar een dataframe.
 

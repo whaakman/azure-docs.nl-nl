@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
 ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129056"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Een ondersteuningsaanvraag maken voor Azure
@@ -76,7 +76,7 @@ U doorgaat met het voorbeeld van de virtuele machine verbinding hierboven, zou u
 ## <a name="related-help"></a>Verwante Help-onderwerpen
 Op basis van probleemtype en de categorie die u selecteert, bieden wij een oplossing waarmee het probleem kunt oplossen.
 
-![Gerelateerde help](./media/how-to-create-azure-support-request/RelatedHelp.png)
+![Verwante Help-onderwerpen](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
 We bieden ook contextuele zelfhulp-oplossingen op basis van de beschrijving van uw probleem.
 

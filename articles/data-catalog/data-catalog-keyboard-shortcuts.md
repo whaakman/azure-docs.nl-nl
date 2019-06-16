@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998794"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Sneltoetsen voor Azure Data Catalog
@@ -20,7 +20,7 @@ ms.locfileid: "60998794"
 ### <a name="general-keyboard-shortcuts"></a>Algemene sneltoetsen
 | Bewerking | Druk op |
 | --- | --- |
-| Tab naar elk besturingselement in op een pagina |Tab |
+| Tab naar elk besturingselement in op een pagina |tabblad |
 | Kies een optie |Opgeven of de SPATIEBALK |
 | Pagina maximaliseren |WIN+UP |
 | Pagina herstellen/minimaliseren |WIN+DOWN |

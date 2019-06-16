@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790042"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Een on-premises-WCF REST-service voor externe client zichtbaar te maken met behulp van Azure WCF Relay
@@ -68,7 +68,7 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
 
 3. Installeer het Service Bus-pakket NuGet. Met dit pakket worden automatisch verwijzingen naar de Service Bus-bibliotheken en naar het **System.ServiceModel** van WCF toegevoegd. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. Service Bus maakt gebruik van veel van de objecten en kenmerken van WCF om servicecontracten te definiëren.
 
-    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)** . Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
     ![Service Bus-pakket][3]
 4. Dubbelklik in Solution Explorer op het bestand Program.cs om het in de editor te openen, als het bestand nog niet was geopend.

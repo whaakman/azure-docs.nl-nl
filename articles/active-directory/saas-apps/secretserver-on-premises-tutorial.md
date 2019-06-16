@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Zelfstudie: Azure Active Directory-integratie met Secret Server (On-Premises)
@@ -45,9 +45,9 @@ Voor het configureren van Azure AD-integratie met Secret Server (On-Premises), m
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -61,7 +61,7 @@ Als u wilt de integratie van geheim-Server (On-Premises) in Azure AD configureer
 
 **Als u wilt toevoegen geheim Server (On-Premises) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -73,7 +73,7 @@ Als u wilt de integratie van geheim-Server (On-Premises) in Azure AD configureer
 
     ![De knop Nieuwe toepassing][3]
 
-1. Typ in het zoekvak **geheim Server (On-Premises)**, selecteer **geheim Server (On-Premises)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **geheim Server (On-Premises)** , selecteer **geheim Server (On-Premises)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Geheime Server (On-Premises) in de lijst met resultaten](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
@@ -85,11 +85,11 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Secret Server (On-Premises), moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker geheim Server (On-Premises)](#create-a-secret-server-on-premises-test-user)**  : als u wilt een equivalent van Britta Simon hebt in een geheim Server (On-Premises) die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -111,7 +111,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. In de **id** tekstvak, voert u de gebruiker gekozen waarde als een voorbeeld: `https://secretserveronpremises.azure`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > De entiteit-ID die hierboven is slechts een voorbeeld en u bent kiezen van een unieke waarde die uw geheim Server-exemplaar in Azure AD. U wilt verzenden van deze entiteit-ID aan [geheim Server (On-Premises)-Client-ondersteuningsteam](https://thycotic.force.com/support/s/) en configureer ze deze op hun kant. Lees voor meer informatie, [in dit artikel](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -120,7 +120,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Geheime Server (On-Premises)-domein en URL's eenmalige aanmelding informatie](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<SecretServerURL>/login.aspx`
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SecretServerURL>/login.aspx`
      
     > [!NOTE] 
     > Dit zijn geen echte waarden. Werk deze waarden bij met de echte antwoord-URL en aanmeldings-URL. Neem contact op met [geheim Server (On-Premises)-Client-ondersteuningsteam](https://thycotic.force.com/support/s/) om deze waarden te verkrijgen.
@@ -133,9 +133,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Opties voor ondertekening](./media/secretserver-on-premises-tutorial/signing.png)
 
-1. Klik op de knop **Save**.
+1. Klik op **opslaan** knop.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
     
 1. Op de **geheim-serverconfiguratie (On-Premises)** sectie, klikt u op **geheim Server (On-Premises) configureren** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
@@ -191,7 +191,7 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
 
     ![Gebruiker toewijzen][201]
 
-1. Selecteer in de lijst met toepassingen, **geheim Server (On-Premises)**.
+1. Selecteer in de lijst met toepassingen, **geheim Server (On-Premises)** .
 
     ![De koppeling geheim Server (On-Premises) in de lijst met toepassingen](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 

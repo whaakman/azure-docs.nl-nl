@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pabutler
 ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938294"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Een VM implementeren vanaf uw VHD 's
@@ -62,7 +62,7 @@ Nadat de virtuele machine is geïmplementeerd, bent u klaar om [certificeren van
    | DNS-naam voor het openbare IP-adres      | Openbare IP-DNS-naam                                                           |
    | De naam van de gebruiker met beheerdersrechten             | Gebruikersnaam van de Administrator-account voor de nieuwe virtuele machine                                  |
    | Beheerderswachtwoord              | Wachtwoord van de Administrator-account voor de nieuwe virtuele machine                                  |
-   | Het type besturingssysteem                     | VM-besturingssysteem: `Windows` \| `Linux`                                    |
+   | Type besturingssysteem                     | VM-besturingssysteem: `Windows` \| `Linux`                                    |
    | Abonnements-id             | Id van het geselecteerde abonnement                                      |
    | Locatie                    | Geografische locatie van de implementatie                                        |
    | VM-grootte                     | [Azure VM-grootte](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), bijvoorbeeld `Standard_A2` |

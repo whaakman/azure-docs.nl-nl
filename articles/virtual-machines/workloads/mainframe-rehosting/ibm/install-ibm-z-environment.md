@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859338"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>IBM zD & T dev/test-omgeving op Azure installeren
@@ -58,7 +58,7 @@ In dit artikel leest u hoe het instellen van Z ontwikkelings- en testomgeving (z
 
 3. Ophalen van de SSH-referenties die worden weergegeven op de **overzicht** blade van de virtuele machine via de **Connect** knop. Selecteer de **SSH** tabblad en de SSH-aanmelding-opdracht naar het Klembord kopiëren.
 
-4. Meld u aan bij een [Bash-shell](/azure/cloud-shell/quickstart) vanuit uw lokale PC en plak de opdracht. Dit is in het formulier **ssh\<gebruikers-id\>\@\<IP-adres\>**. Wanneer u hierom wordt gevraagd uw referenties op te geven, voert u zodat ze geen verbinding maken met de basismap van de.
+4. Meld u aan bij een [Bash-shell](/azure/cloud-shell/quickstart) vanuit uw lokale PC en plak de opdracht. Dit is in het formulier **ssh\<gebruikers-id\>\@\<IP-adres\>** . Wanneer u hierom wordt gevraagd uw referenties op te geven, voert u zodat ze geen verbinding maken met de basismap van de.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopieer het installatiebestand naar de server
 

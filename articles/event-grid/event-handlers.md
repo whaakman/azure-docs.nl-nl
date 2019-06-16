@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080561"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gebeurtenis-handlers in Azure Event Grid
 
@@ -78,9 +78,45 @@ Service Bus gebruiken als een gebeurtenis-handler voor het routeren van de gebeu
 
 Opmerking: tijdens het Service Bus een handler is in openbare preview, moet u de CLI of PowerShell uitbreiding installeren wanneer u deze Gebeurtenisabonnementen maken.
 
-### <a name="using-cli"></a>CLI gebruiken
+### <a name="install-extension-for-azure-cli"></a>Extensie voor Azure CLI installeren
 
-Voor Azure CLI het volgende voorbeeld is geabonneerd een verbinding maakt en Event Grid-onderwerp in een Service Bus-wachtrij:
+Voor Azure CLI, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list).
+
+In [CloudShell](/azure/cloud-shell/quickstart):
+
+* Als u de uitbreiding eerder hebt geïnstalleerd, werk deze bij met `az extension update -n eventgrid`.
+* Als u de uitbreiding eerder nog niet hebt geïnstalleerd, installeert u deze met behulp van `az extension add -n eventgrid`.
+
+Voor een lokale installatie:
+
+1. [De Azure CLI installeren](/cli/azure/install-azure-cli). Zorg ervoor dat u de meest recente versie hebt door te controleren met `az --version`.
+1. Verwijder eerdere versies van de uitbreiding met de `az extension remove -n eventgrid`.
+1. Installeer de `eventgrid` uitbreiding met `az extension add -n eventgrid`.
+
+### <a name="install-module-for-powershell"></a>Module voor PowerShell installeren
+
+Voor PowerShell, moet u de [AzureRM.EventGrid module](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+In [CloudShell](/azure/cloud-shell/quickstart-powershell):
+
+* Installeren van de module met `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Voor een lokale installatie:
+
+1. Open de PowerShell-console als beheerder.
+1. Installeren van de module met `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Als de `-AllowPrerelease` parameter is niet beschikbaar, gebruikt u de volgende stappen uit:
+
+1. Voer `Install-Module PowerShellGet -Force` uit.
+1. Voer `Update-Module PowerShellGet` uit.
+1. Sluit de PowerShell-console.
+1. Start opnieuw op PowerShell als beheerder.
+1. Installeren van de module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>Een Service Bus-handler toevoegen met behulp van CLI
+
+Voor Azure CLI het volgende voorbeeld is geabonneerd en een Event Grid-onderwerp verbindt met een Service Bus-wachtrij:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

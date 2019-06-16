@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755131"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge technische specificaties
@@ -95,7 +95,7 @@ In deze sectie bevat de specificaties die betrekking hebben op de behuizing-omge
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Luchtstroom                              |    Systeem luchtstroom is voor naar achteren. Systeem moet worden gebruikt met een low-pressure, achterzijde uitlaatgas installatie. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
 |    Maximale hoogte, operationele        |    3048 meters (10.000 voet) met hoogste temperatuur ongedaan maken geclassificeerd bepaald door [temperatuur ongedaan maken waardering specificaties](#operating-temperature-de-rating-specifications).                                                                                |
-|    Maximale hoogte, niet-operationeel    |    12.000 meters (39,370 voet)                                                                                                                                                                                         |
+|    Maximale hoogte, niet-operationeel    |    12\.000 meters (39,370 voet)                                                                                                                                                                                         |
 |    Schudt, operationele                   |    6 G voor 11 milliseconden in 6 richtingen                                                                                                                                                                         |
 |    Schudt, niet-operationeel               |    71 G voor 2 milliseconden in 6 richtingen                                                                                                                                                                           |
 |    Trillingen, operationele               |    0,26 G<sub>RMS</sub> 5 Hz tot 350 Hz willekeurige                                                                                                                                                                                     |

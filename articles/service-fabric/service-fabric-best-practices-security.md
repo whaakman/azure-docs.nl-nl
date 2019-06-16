@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074348"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-beveiliging 
 
@@ -205,7 +205,13 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Het is raadzaam dat u een industriestandaard-configuratie die is grotendeels bekende en goed geteste, zoals Microsoft basisbeveiliging, in plaats van het maken van een basislijn zelf implementeren](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); een optie voor het inrichten van deze op uw virtuele Machine Scale Sets is het gebruik van handler voor de extensie Azure Desired State Configuration (DSC), het configureren van de virtuele machines als ze weer online komt, zodat ze de productie-software worden uitgevoerd.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice die worden beveiligd met uw Azure Virtual Network-resources. Er is een volledig stateful firewall als een service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. ](https://docs.microsoft.com/azure/firewall/overview); dit is het mogelijk om te beperken van uitgaand HTTP/S-verkeer naar een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), met inbegrip van jokertekens. Deze functie vereist geen SSL-beëindiging. Het aanbevolen dat u gebruikmaken van [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) voor Windows-Updates en waarmee netwerkverkeer naar Microsoft Windows Update eindpunten door uw firewall kunnen stromen. [Firewall van Azure met behulp van een sjabloon implementeren](https://docs.microsoft.com/azure/firewall/deploy-template) bevat een voorbeeld dat voor de resourcedefinitie sjabloon Microsoft.Network/azureFirewalls. Twee firewallregels voor Service Fabric-toepassingen is om uw netwerk clusters om te communiceren met * download.microsoft.com, en * servicefabric.azure.com; voor het ophalen van Windows-Updates en Service Fabric-Compute-VM extensiecode.
+[Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice die worden beveiligd met uw Azure Virtual Network-resources. Er is een volledig stateful firewall als een service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. ](https://docs.microsoft.com/azure/firewall/overview); dit is het mogelijk om te beperken van uitgaand HTTP/S-verkeer naar een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), met inbegrip van jokertekens. Deze functie vereist geen SSL-beëindiging. Het aanbevolen dat u gebruikmaken van [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) voor Windows-Updates en waarmee netwerkverkeer naar Microsoft Windows Update eindpunten door uw firewall kunnen stromen. [Firewall van Azure met behulp van een sjabloon implementeren](https://docs.microsoft.com/azure/firewall/deploy-template) bevat een voorbeeld dat voor de resourcedefinitie sjabloon Microsoft.Network/azureFirewalls. Firewall-regels voor Service Fabric-toepassingen is om het volgende voor het virtuele netwerk van clusters:
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+De toegestane uitgaande Netwerkbeveiligingsgroepen met Service fabric en opslag, als toegestane bestemmingen van uw virtuele netwerk zou een aanvulling op deze firewallregels.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -243,6 +249,18 @@ Windows Defender antivirus is standaard geïnstalleerd op Windows Server 2016. Z
 
 > [!NOTE]
 > Raadpleeg de documentatie van uw anti-malware voor configuratieregels als u geen van Windows Defender gebruikmaakt. Windows Defender wordt niet ondersteund op Linux.
+
+## <a name="platform-isolation"></a>Platform-isolatie
+Standaard, Service Fabric-toepassingen krijgen toegang tot de Service Fabric-runtime zelf, die zich in verschillende vormen: [omgevingsvariabelen](service-fabric-environment-variables-reference.md) die verwijst naar paden op de host die overeenkomt met de toepassing en Fabric-bestanden, een eindpunt voor communicatie tussen processen die toepassingsspecifieke aanvragen en de client accepteert van het certificaat die Fabric wordt verwacht dat de toepassing te gebruiken om zichzelf te verifiëren. In de deze de service host zelf niet-vertrouwde code, is het raadzaam om uit te schakelen toegang biedt tot de runtime SF - tenzij expliciet nodig. Toegang tot de runtime is verwijderd met behulp van de volgende declaratie in de sectie beleid van het toepassingsmanifest: 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123139"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Controleren en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
@@ -49,7 +49,7 @@ Deze sectie beschrijft ook hoe een segment van de gegevensset van een status sta
 
 ### <a name="navigate-to-your-data-factory"></a>Navigeer naar uw data factory
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **Data Factory's** in het menu aan de linkerkant. Als u dit niet ziet, klikt u op **meer services >**, en klik vervolgens op **Data Factory's** onder de **INTELLIGENCE en analyse** categorie.
+2. Klik op **Data Factory's** in het menu aan de linkerkant. Als u dit niet ziet, klikt u op **meer services >** , en klik vervolgens op **Data Factory's** onder de **INTELLIGENCE en analyse** categorie.
 
    ![Door alles bladeren > Data Factory's](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Op de **Data Factory's** blade, selecteert u de data factory waarin u geïnteresseerd bent.
@@ -92,7 +92,7 @@ De segmenten van de gegevensset in de data factory kunnen een van de volgende st
     <th align="left">Status</th><th align="left">Substatus</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">In behandeling</td><td>ScheduleTime</td><td>De tijd is niet afkomstig zijn van het segment uit te voeren.</td>
+    <td rowspan="8">Wachten op</td><td>ScheduleTime</td><td>De tijd is niet afkomstig zijn van het segment uit te voeren.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>De upstream-afhankelijkheden zijn niet gereed.</td>
@@ -129,7 +129,7 @@ De segmenten van de gegevensset in de data factory kunnen een van de volgende st
 <td>Geannuleerd</td><td>Het segment is geannuleerd door gebruikersactie.</td>
 </tr>
 <tr>
-<td>Validatie</td><td>De validatie is mislukt.</td>
+<td>Validatie</td><td>Validatie is mislukt.</td>
 </tr>
 <tr>
 <td>-</td><td>Het segment de status kan niet worden gegenereerd en/of gevalideerd.</td>
@@ -156,7 +156,7 @@ Als het segment is meerdere keren uitgevoerd, ziet u meerdere rijen in de **uitv
 
 Als het segment de status niet de **gereed** staat, ziet u de upstreamsegmenten die nog niet klaar bent en blokkeert de huidige status wordt uitgevoerd de **upstreamsegmenten die niet gereed** lijst. Deze functie is handig wanneer het segment de status **wachten** staat en u wilt weten over de upstream-afhankelijkheden die voor het segment ondernemen.
 
-![Upstreamsegmenten die niet gereed zijn](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+![Upstreamsegmenten die niet gereed](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
 ### <a name="dataset-state-diagram"></a>Gegevensset staat diagram
 Nadat u een data factory implementeert en de pijplijnen een ongeldige actieve periode hebben, segmenten de gegevensset overgang naar de andere van de ene staat. Hier volgt het de segmentstatus op dit moment in het volgende diagram van de status:

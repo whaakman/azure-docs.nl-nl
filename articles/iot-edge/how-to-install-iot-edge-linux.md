@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 86ca3080229f2a286e8aa4725fe13c40e2a38549
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054289"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>De Azure IoT Edge-runtime installeren in Linux (x64)
 
@@ -82,6 +82,18 @@ Installeer de Moby-opdrachtregelinterface (CLI). De CLI is handig voor het ontwi
    ```bash
    sudo apt-get install moby-cli
    ```
+
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Controleer of uw Linux-kernel voor Moby compatibiliteit
+
+Veel fabrikanten van ingesloten apparaten verzenden apparaat-installatiekopieën die bevatten van aangepaste Linux kernels die functies die vereist zijn voor container runtime compatibiliteit ontbreekt. Als u problemen ondervindt bij het installeren van de aanbevolen [Moby](https://github.com/moby/moby) container-runtime, kunt u mogelijk om op te lossen uw Linux kernel configuratie met de [controle-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) script opgegeven de officiële [Moby Github-opslagplaats](https://github.com/moby/moby) door het uitvoeren van de volgende opdrachten op het apparaat.
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+Dit biedt een gedetailleerde uitvoer die de status van de kernel-functies die worden gebruikt door de runtime Moby bevat. Wilt u ervoor te zorgen dat alle items onder `Generally Necessary` en `Network Drivers` om ervoor te zorgen dat de kernel volledig compatibel met de runtime Moby is zijn ingeschakeld.  Als u eventuele ontbrekende functies hebt geïdentificeerd, kunt u eerst inschakelen door het opnieuw opbouwen van de kernel van bron en de bijbehorende modules voor opname in de juiste kernel .config te selecteren.  Op dezelfde manier als u van een generator kernel-configuratie, zoals defconfig of menuconfig gebruikmaakt, wordt u om te zoeken en de desbetreffende functies inschakelt en de kernel dienovereenkomstig opnieuw.  Nadat u uw zojuist gewijzigde kernel hebt geïmplementeerd, moet u het script selectievakje-configuratie opnieuw uit om te controleren dat de geïdentificeerde functies zijn ingeschakeld uitvoeren.
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging met Azure IoT Edge installeren
 

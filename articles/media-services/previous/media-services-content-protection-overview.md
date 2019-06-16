@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8259b58c7f30b63084e970bd9aed99642a43226f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216166"
 ---
 # <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud 
@@ -75,7 +75,7 @@ De inhoudssleutel wordt met een autorisatiebeleid tokenbeperking voor, alleen aa
 
 Wanneer u beleid met de tokenbeperking configureert, moet u de primaire verificatiesleutel, uitgever en doelgroep parameters opgeven. De primaire verificatiesleutel bevat de sleutel die het token is ondertekend. De uitgever wordt de secure token service die de token uitgeeft. De doelgroep, ook wel genoemd bereik, het doel van het token wordt beschreven of de resource voor het token wordt toegang tot geautoriseerd. De Media Services-sleutelleveringsservice valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
-## <a name="streaming-urls"></a>Streaming-URL's
+## <a name="streaming-urls"></a>Streaming-URL 's
 Als uw asset is versleuteld met meer dan één DRM, gebruikt u een tag versleuteling in de streaming-URL: (format = 'm3u8-aapl' codering = 'xxx').
 
 De volgende overwegingen zijn van toepassing:

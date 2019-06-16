@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646761"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Maak een back-up van een Azure-VM met behulp van Azure Backup via REST-API
@@ -41,7 +41,7 @@ De POST-URI heeft `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`,
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Antwoorden
+#### <a name="responses"></a>Responses
 
 De vernieuwingsbewerking is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
@@ -108,7 +108,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 De *ophalen* URI heeft de vereiste parameters. Er zijn geen extra aanvraagtekst nodig is.
 
-#### <a name="responses"></a>Antwoorden
+#### <a name="responses"></a>Responses
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -208,7 +208,7 @@ De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vere
 
 De `{sourceResourceId}` is de `{virtualMachineId}` hierboven is vermeld in de [respons van de lijst met beveiligbare items](#example-responses-1).
 
-#### <a name="responses"></a>Antwoorden
+#### <a name="responses"></a>Responses
 
 Het maken van een beveiligd item is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
@@ -319,7 +319,7 @@ De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vere
 }
 ```
 
-### <a name="responses"></a>Antwoorden
+### <a name="responses"></a>Responses
 
 Activeren van een on-demand back-up is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
@@ -439,7 +439,7 @@ De `{containerName}` en `{protectedItemName}` zijn samengesteld [hierboven](#res
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Antwoorden
+### <a name="responses"></a>Responses
 
 *Verwijder* beveiliging is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 

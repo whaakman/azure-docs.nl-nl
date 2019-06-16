@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
 ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125133"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Azure Active Directory instellen voor clientverificatie
@@ -85,7 +85,7 @@ Nadat u zich hebt aangemeld met succes aan Azure AD in Service Fabric Explorer, 
 
 ![Dialoogvenster SFX-certificaat][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Reden
+#### <a name="reason"></a>Reason
 De gebruiker is niet een rol in de Azure AD-toepassing voor cluster toegewezen. Azure AD-verificatie mislukt dus op Service Fabric-cluster. Service Fabric Explorer gebruikgemaakt van verificatie via certificaat.
 
 #### <a name="solution"></a>Oplossing
@@ -104,7 +104,7 @@ Wanneer u zich aanmeldt bij Azure AD in Service Fabric Explorer, wordt een fout 
 
 ![Antwoordadres op dat u SFX komt niet overeen met][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Reden
+#### <a name="reason"></a>Reason
 Het (web)-clustertoepassing met Service Fabric Explorer probeert te verifiëren bij Azure AD en biedt als onderdeel van de aanvraag de geretourneerde Omleidings-URL. Maar de URL is niet opgenomen in de Azure AD-toepassing **antwoord-URL** lijst.
 
 #### <a name="solution"></a>Oplossing

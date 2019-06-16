@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110380"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -339,7 +339,7 @@ Zie voor meer informatie, [het oplossen van fouten tijdens synchronisatie](https
 
 ---
 
-### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Verbeterde beveiliging met behulp van het appbeleid-beveiliging op basis van voorwaardelijke toegang in Azure AD (openbare preview)
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Verbeterde beveiliging met behulp van het beleid voor app-beveiliging op basis van voorwaardelijke toegang in Azure AD (openbare preview)
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Voorwaardelijke toegang  
@@ -363,7 +363,7 @@ Zie voor meer informatie, [hoe u beveiligingsbeleid voor apps vereist voor toega
 **Categorie van de service:** Voorwaardelijke toegang  
 **Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
 
-We hebben onze Azure AD-ondersteuning voor Microsoft Edge, met inbegrip van nieuwe ondersteuning voor eenmalige aanmelding en voorwaardelijke toegang voor Azure AD verbeterd. Als u Microsoft Intune Managed Browser eerder hebt gebruikt, kunt u Microsoft Edge in plaats daarvan nu gebruiken.
+We hebt onze Azure AD-ondersteuning voor Microsoft Edge, met inbegrip van nieuwe ondersteuning voor Azure AD eenmalige aanmelding en voorwaardelijke toegang uitgebreid. Als u Microsoft Intune Managed Browser eerder hebt gebruikt, kunt u Microsoft Edge in plaats daarvan nu gebruiken.
 
 Zie voor meer informatie over het instellen en beheren van uw apparaten en apps met behulp van voorwaardelijke toegang, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) en [vereisen goedgekeurde client-apps voor de cloud apptoegang met voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Zie voor meer informatie over het beheren van toegang met behulp van Microsoft Edge met Microsoft Intune-beleid [internettoegang beheren met een Microsoft Intune-beleid beveiligd browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
@@ -477,7 +477,7 @@ Voor meer informatie over de nieuwe **auditlogboeken** pagina, Zie [Controleacti
 **Categorie van de service:** Voorwaardelijke toegang  
 **Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
 
-We hebben om te voorkomen dat beheerders per ongeluk zichzelf buitensluiten buiten hun eigen tenants via onjuist geconfigureerde beleid voor voorwaardelijke toegang, nieuwe waarschuwingen en bijgewerkte richtlijnen gemaakt in Azure portal. Zie voor meer informatie over de nieuwe richtlijnen [wat serviceafhankelijkheden in Azure Active Directory voor voorwaardelijke toegang zijn](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+We hebben om te voorkomen dat beheerders per ongeluk zichzelf buitensluiten buiten hun eigen tenants via onjuist geconfigureerde beleid voor voorwaardelijke toegang, nieuwe waarschuwingen en bijgewerkte richtlijnen gemaakt in Azure portal. Zie voor meer informatie over de nieuwe richtlijnen [wat zijn serviceafhankelijkheden in Azure Active Directory voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 

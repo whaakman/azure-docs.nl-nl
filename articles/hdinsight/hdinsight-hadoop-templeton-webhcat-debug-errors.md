@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 683580ba65ad775ccec105c78cc1af66fbb63c37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cfbd42a67f9c9d6c66df3787b53575dc9e918e35
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067977"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Begrijpen en oplossen van fouten die zijn ontvangen van WebHCat op HDInsight
 
@@ -32,8 +32,6 @@ Meer informatie over fouten die zijn ontvangen als u de WebHCat voor HDInsight, 
 
 * Voor **Linux** clusters: Gebruik Apache Ambari (web- of REST-API) om de waarde te wijzigen. Zie voor meer informatie, [beheren HDInsight met Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]  
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ### <a name="default-configuration"></a>Standaardconfiguratie
 
@@ -41,7 +39,7 @@ Als de volgende standaardwaarden zijn overschreden, kan WebHCat prestaties versl
 
 | Instelling | Wat het doet | Standaardwaarde |
 | --- | --- | --- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Het maximale aantal taken dat gelijktijdig actief kan zijn (in behandeling of wordt uitgevoerd) |10.000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Het maximale aantal taken dat gelijktijdig actief kan zijn (in behandeling of wordt uitgevoerd) |10\.000 |
 | [templeton.exec.max-procs][max-procs] |Het maximale aantal aanvragen die gelijktijdig kunnen worden weergegeven |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |Het aantal dagen dat u de taakgeschiedenis worden bewaard |7 dagen |
 
@@ -53,7 +51,7 @@ Als de volgende standaardwaarden zijn overschreden, kan WebHCat prestaties versl
 | --- | --- |
 | U hebt het maximum aantal gelijktijdige aanvragen bediend door WebHCat per minuut (standaard 20) overschreden |Verlaag uw workload om ervoor te zorgen dat u niet verzenden van meer dan het maximum aantal gelijktijdige aanvragen of de limiet voor gelijktijdige aanvraag verhogen door het wijzigen van `templeton.exec.max-procs`. Zie voor meer informatie, [configuratie wijzigen](#modifying-configuration) |
 
-## <a name="server-unavailable"></a>De server is niet beschikbaar
+## <a name="server-unavailable"></a>Server is niet beschikbaar
 
 **HTTP-statuscode**: 503
 

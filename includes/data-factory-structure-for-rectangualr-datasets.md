@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122528"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Structuurdefinitie opgeven voor rechthoekige gegevenssets
@@ -18,7 +18,7 @@ Elke kolom bevat de volgende eigenschappen:
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| naam |Naam van de kolom. |Ja |
+| name |Naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom. Zie type conversies hieronder voor meer informatie met betrekking tot wanneer moet u informatie opgeven |Nee |
 | culture |.NET gebaseerde cultuur moet worden gebruikt wanneer het type is opgegeven en .NET-type datum/tijd- of Datetimeoffset. De standaardwaarde is "en-us '. |Nee |
 | format |Tekenreeks die moet worden gebruikt bij het type is opgegeven en .NET-type datum/tijd- of Datetimeoffset-indeling. |Nee |
@@ -58,7 +58,7 @@ Data factory ondersteunt de volgende CLS compatibele .NET op basis van typewaard
 * Guid
 * Datetime
 * Datetimeoffset
-* Timespan 
+* Periode 
 
 U kunt eventueel ook 'Cultuur' & '-indeling'-tekenreeks in het kader van uw aangepaste datum/tijd-tekenreeks parseren voor datum/tijd & Datetimeoffset opgeven. Zie het voorbeeld voor conversie van onderstaande.
 

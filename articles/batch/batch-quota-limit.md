@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080906"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -32,12 +32,13 @@ U kunt in één Batch-account meerdere Batch-workloads uitvoeren of uw workloads
 
 Als u van plan bent om uit te voeren van productieworkloads in Batch, moet u mogelijk een of meer van de quota boven de standaardwaarde verhogen. Als u een quotum te verhogen wilt, kunt u openen een online [ondersteuningsverzoek](#increase-a-quota) gratis.
 
-> [!NOTE]
-> Een quotum is een tegoed is besteed, niet een capaciteit gegarandeerd. Als u grootschalige capaciteit nodig hebt, neem contact op met ondersteuning van Azure.
-
 ## <a name="resource-quotas"></a>Resourcequota
-[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+Een quotum is een tegoed is besteed, niet een capaciteit gegarandeerd. Als u grootschalige capaciteit nodig hebt, neem contact op met ondersteuning van Azure.
+
+Houd er rekening mee dat quota niet zijn gegarandeerd ook waarden. Quota kunnen variëren op basis van wijzigingen van de gebruikersaanvraag voor een een quotumwaarde te wijzigen of de Batch-service.
+
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Kernquota's in de gebruikersabonnementmodus
 
@@ -45,18 +46,22 @@ Als u een Batch-account met de pooltoewijzingsmodus is ingesteld gemaakt op **ge
 
 ## <a name="pool-size-limits"></a>De maximale grootte van toepassingen
 
+De maximale grootte van toepassingen zijn ingesteld door de Batch-service. In tegenstelling tot [resourcequota](#resource-quotas), deze waarden kunnen niet worden gewijzigd. Alleen toepassingen met de communicatie tussen knooppunten en aangepaste installatiekopieën zijn beperkingen verschillen van de standaardquota.
+
 | **Resource** | **Maximumaantal** |
 | --- | --- |
 | **Rekenknooppunten in [pool communicatie tussen knooppunten is ingeschakeld](batch-mpi.md)**  ||
 | Groepstoewijzingsmodus is ingesteld op batch-service | 100 |
 | Groepstoewijzingsmodus is ingesteld op batch-abonnement | 80 |
-| **Rekenknooppunten in [groep van toepassingen die zijn gemaakt met aangepaste VM-installatiekopie](batch-custom-images.md)**<sup>1</sup> ||
+| **Rekenknooppunten in [groep van toepassingen die zijn gemaakt met aangepaste VM-installatiekopie](batch-custom-images.md)** <sup>1</sup> ||
 | Toegewezen knooppunten | 2000 |
-| Knooppunten met een lage prioriteit | 1000 |
+| Knooppunten met lage prioriteit | 1000 |
 
 <sup>1</sup> voor pools die niet de communicatie tussen knooppunten is ingeschakeld.
 
 ## <a name="other-limits"></a>Andere limieten
+
+Aanvullende beperkingen instellen door de Batch-service. In tegenstelling tot [resourcequota](#resource-quotas), deze waarden kunnen niet worden gewijzigd.
 
 | **Resource** | **Maximumaantal** |
 | --- | --- |
@@ -84,7 +89,7 @@ Volg deze stappen om aan te vragen van een quotum voor uw Batch-account of uw ab
 
 ### <a name="increase-cores-quota-in-batch"></a>Vergroot het quotum voor kerngeheugens in Batch 
 
-1. Selecteer de **Help en ondersteuning** tegel op uw portal-dashboard of het vraagteken (**?**) in de rechterbovenhoek van de portal.
+1. Selecteer de **Help en ondersteuning** tegel op uw portal-dashboard of het vraagteken ( **?** ) in de rechterbovenhoek van de portal.
 1. Selecteer **nieuwe ondersteuningsaanvraag** > **basisbeginselen**.
 1. In **basisbeginselen**:
    

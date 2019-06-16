@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60750460"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Hoe modelprestaties evalueren in Azure Machine Learning Studio
@@ -48,7 +48,7 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 
 * Auto's prijs data (Raw)
 * [Lineaire regressie][linear-regression]
-* [Trainingsmodel][train-model]
+* [Train Model][train-model]
 * [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 
@@ -90,7 +90,7 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 
 * Volwassenen telling inkomsten binaire classificatie-gegevensset
 * [Two-Class Logistic Regression][two-class-logistic-regression]
-* [Trainingsmodel][train-model]
+* [Train Model][train-model]
 * [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 
@@ -140,8 +140,8 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 
 * [Gegevens importeren][import-data]
 * [Beslissingsforest met multiklasse][multiclass-decision-forest]
-* [Gesplitste gegevens][split]
-* [Trainingsmodel][train-model]
+* [Split Data][split]
+* [Train Model][train-model]
 * [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 

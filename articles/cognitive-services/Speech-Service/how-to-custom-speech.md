@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511127"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060881"
 ---
 # <a name="what-is-custom-speech"></a>Wat is aangepaste spraak?
 
@@ -29,7 +29,7 @@ Dit diagram ziet u de onderdelen van de aangepaste spraak-portal. Gebruik de ond
 
 ![Ziet u de verschillende onderdelen die gezamenlijk de Custom Speech-portal.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Abonneren en maak een project](#set-up-your-azure-account) : Maak een Azure-account en abonnement van de spraakservices. Deze geïntegreerde abonnement hebt u toegang tot de spraak-naar-tekst, Text to Speech, spraakomzetting en de aangepaste spraak-portal. Met behulp van uw abonnement Speech Services, maak vervolgens uw eerste aangepaste spraak-project.
+1. [Abonneren en maak een project](#set-up-your-azure-account) : Maak een Azure-account en abonnement van de spraakservices. Deze geïntegreerde abonnement geeft u toegang tot spraak-naar-tekst, Text to Speech, spraakomzetting en de aangepaste spraak-portal. Met behulp van uw abonnement Speech Services, maak vervolgens uw eerste aangepaste spraak-project.
 
 2. [Testgegevens uploaden](how-to-custom-speech-test-data.md) -Upload-testgegevens (audio-bestanden) van Microsoft spraak-naar-tekst biedt voor uw toepassingen, hulpprogramma's en -producten te evalueren.
 
@@ -52,7 +52,7 @@ Als u een Azure-account en een Speech Services-abonnement hebt gemaakt, moet u z
 
 1. Uw abonnementssleutel Speech Services ophalen uit de Azure portal.
 2. Aanmelden bij de [aangepaste spraak portal](https://aka.ms/custom-speech).
-3. Selecteer het abonnement dat u werken wilt op en Verkrijg een spraak-project.
+3. Selecteer het abonnement dat u wilt werken en een spraak-project maken.
 4. Als u uw abonnement niet wijzigen wilt, gebruikt u de **tandwiel** pictogram zich bevindt in de bovenste navigatiebalk.
 
 ## <a name="how-to-create-a-project"></a>Een project maken

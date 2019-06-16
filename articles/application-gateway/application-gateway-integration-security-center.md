@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: victorh
 ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122290"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Overzicht van de integratie van Application Gateway en Azure Security Center
@@ -38,7 +38,7 @@ Geen aanbevelingen met betrekking tot de web application firewall opent een nieu
 
 Navigeer naar **alle services** > **beveiliging en identiteit** > **Security Center** en klik op **Security Center - overzicht**, klikt u op **toepassingen**. Op **Security Center - toepassingen**, de tabel bevat een lijst met toepassingen die Security Center gedetecteerd in uw abonnement.
 
-![webtoepassingen][3]
+![Web-Apps][3]
 
 Door te klikken op een webtoepassing met een belangrijk probleem, u krijgt de **beveiligingsstatus van de toepassing** pagina. In de onderstaande afbeelding, de web-App die niet wordt beveiligd door een firewall voor webtoepassingen. 
 

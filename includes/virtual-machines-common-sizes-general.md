@@ -9,10 +9,10 @@ ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 98e0732ece3d046b7c073ac075b7eae89d36c125
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391253"
 ---
 VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslagdoorvoer voor grootten die in deze groepering. 
@@ -126,9 +126,9 @@ Premium Storage opslaan in cache:  Niet ondersteund
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4 x 500            | 2 / 750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8 x 500            | 2 / 1500                                     |
-| Standard_D3_v2 | 4    | 14          | 200                    | 12.000 / 187 / 93                                           | 16             | 16 x 500           | 4 / 3000                                       |
-| Standard_D4_v2 | 8    | 28          | 400                    | 24.000 / 375 / 187                                          | 32             | 32 x 500           | 8 / 6000                                       |
-| Standard_D5_v2 | 16   | 56          | 800                    | 48.000 / 750 / 375                                          | 64             | 64 x 500           | 8 / 12000                                    |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12\.000 / 187 / 93                                           | 16             | 16 x 500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24\.000 / 375 / 187                                          | 32             | 32 x 500           | 8 / 6000                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48\.000 / 750 / 375                                          | 64             | 64 x 500           | 8 / 12000                                    |
 
 ## <a name="av2-series"></a>Av2-serie
 

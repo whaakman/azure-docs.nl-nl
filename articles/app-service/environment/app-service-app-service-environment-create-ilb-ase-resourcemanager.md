@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130752"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Een ILB ASE maken met behulp van Azure Resource Manager-sjablonen
@@ -58,12 +58,12 @@ Zodra de *azuredeploy.parameters.json* bestand is ingevuld voor een ILB as-omgev
 Nadat de Azure Resource Manager sjabloon wordt ingediend duurt een paar uur voor de ILB as-omgeving moet worden gemaakt.  Nadat het maken is voltooid, wordt de ILB as-omgeving weergegeven in de UX-portal in de lijst met App Service-omgevingen voor het abonnement waarmee de implementatie is geactiveerd.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Uploaden en het 'Standaard' SSL-certificaat configureren
-Zodra de ILB as-omgeving is gemaakt, moet een SSL-certificaat worden gekoppeld aan de as-omgeving als de 'standaard' SSL-certificaat gebruiken voor het tot stand brengen van SSL-verbindingen met apps.  Verder met het voorbeeld hypothetische Contoso Corporation als van de as-omgeving standaard DNS-achtervoegsel is *interne contoso.com*, klikt u vervolgens een verbinding met *https://some-random-app.internal-contoso.com* een SSL-certificaat dat is vereist geldig voor **.internal contoso.com*. 
+Zodra de ILB as-omgeving is gemaakt, moet een SSL-certificaat worden gekoppeld aan de as-omgeving als de 'standaard' SSL-certificaat gebruiken voor het tot stand brengen van SSL-verbindingen met apps.  Verder met het voorbeeld hypothetische Contoso Corporation als van de as-omgeving standaard DNS-achtervoegsel is *interne contoso.com*, klikt u vervolgens een verbinding met *https://some-random-app.internal-contoso.com* een SSL-certificaat dat is vereist geldig voor * *.internal contoso.com*. 
 
 Er zijn tal van manieren om een geldig SSL-certificaat met inbegrip van de interne CA's, aanschaffen van een certificaat van een externe gebruiker en het gebruik van een zelfondertekend certificaat verkrijgen.  De volgende certificaatkenmerken moeten juist zijn geconfigureerd, ongeacht wat de bron van het SSL-certificaat is:
 
-* *Onderwerp*:  Dit kenmerk moet worden ingesteld op **.uw-root-domein-here.com*
-* *Alternatieve naam voor onderwerp*:  Dit kenmerk moet bevatten zowel **.uw-root-domein-here.com*, en **.Hier-root-domein-here.com*.  De reden voor de tweede vermelding is dat SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app worden uitgevoerd met een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
+* *Onderwerp*:  Dit kenmerk moet worden ingesteld op * *.uw-root-domein-here.com*
+* *Alternatieve naam voor onderwerp*:  Dit kenmerk moet bevatten zowel * *.uw-root-domein-here.com*, en * *.Hier-root-domein-here.com*.  De reden voor de tweede vermelding is dat SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app worden uitgevoerd met een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
 
 Met een geldig SSL-certificaat in voorraad, zijn twee aanvullende voorbereidende stappen nodig.  Het SSL-certificaat moet worden geconverteerd/opgeslagen als een pfx-bestand.  Houd er rekening mee dat het pfx-bestand moet alle tussenliggende opnemen en basiscertificaten en moet ook zijn beveiligd met een wachtwoord.
 
@@ -91,7 +91,7 @@ De parameters in de *azuredeploy.parameters.json* bestand worden hieronder verme
 * *existingAseLocation*:  De tekenreeks met de Azure-regio waar de ILB as-omgeving is geïmplementeerd.  Bijvoorbeeld:  'Zuid-centraal VS'.
 * *pfxBlobString*:  De based64 gecodeerd tekenreeksweergave van het pfx-bestand.  Met behulp van het bovenstaande codefragment, zou u de tekenreeks in 'exportedcert.pfx.b64' kopiëren en plak deze in als de waarde van de *pfxBlobString* kenmerk.
 * *wachtwoord*:  Het wachtwoord dat wordt gebruikt voor het beveiligen van het pfx-bestand.
-* *certificateThumbprint*:  De vingerafdruk voor het certificaat.  Als u deze waarde wordt opgehaald vanuit Powershell (bijvoorbeeld *$certificate. Vingerafdruk* uit het vorige codefragment), kunt u de waarde-is.  Echter als u de waarde in het dialoogvenster Windows-certificaat kopieert, vergeet niet het verwijderen van de overbodige spaties.  De *certificateThumbprint* moet er ongeveer zo uitzien:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateThumbprint*:  Vingerafdruk van het certificaat.  Als u deze waarde wordt opgehaald vanuit Powershell (bijvoorbeeld *$certificate. Vingerafdruk* uit het vorige codefragment), kunt u de waarde-is.  Echter als u de waarde in het dialoogvenster Windows-certificaat kopieert, vergeet niet het verwijderen van de overbodige spaties.  De *certificateThumbprint* moet er ongeveer zo uitzien:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
 * *certificateName*:  Een beschrijvende tekenreeks-id van uw eigen kiezen die aan identiteit het certificaat wordt gebruikt.  De naam wordt gebruikt als onderdeel van de unieke id van de Azure Resource Manager voor de *Microsoft.Web/certificates* entiteit voor het SSL-certificaat.  De naam van de **moet** eindigen met het volgende achtervoegsel: \_yourASENameHere_InternalLoadBalancingASE.  Dit achtervoegsel wordt gebruikt door de portal als een indicator dat het certificaat wordt gebruikt voor het beveiligen van een ASE met ILB ingeschakeld.
 
 Een verkorte voorbeeld van *azuredeploy.parameters.json* wordt hieronder weergegeven:
@@ -130,7 +130,7 @@ Zodra de *azuredeploy.parameters.json* bestand zijn ingevuld, wordt het standaar
 
 Nadat de Azure Resource Manager sjabloon wordt ingediend duurt het ongeveer 40 minuten per ASE front-end de wijziging toepassen.  Bijvoorbeeld, met een standaard aangepast as-omgeving met behulp van twee front-ends, duurt de sjabloon ongeveer één uur en 20 minuten om te voltooien.  Terwijl de sjabloon wordt uitgevoerd kunnen de as-omgeving worden niet geschaald.  
 
-Nadat de sjabloon is voltooid, apps van de ILB as-omgeving is toegankelijk via HTTPS en de verbindingen worden beveiligd met behulp van het standaard SSL-certificaat.  Het standaard SSL-certificaat wordt gebruikt wanneer de apps op de ILB as-omgeving worden aangepakt met behulp van een combinatie van naam van de toepassing, plus de standaardhostnaam.  Bijvoorbeeld *https://mycustomapp.internal-contoso.com* zou gebruiken de standaard-SSL-certificaat voor **.internal contoso.com*.
+Nadat de sjabloon is voltooid, apps van de ILB as-omgeving is toegankelijk via HTTPS en de verbindingen worden beveiligd met behulp van het standaard SSL-certificaat.  Het standaard SSL-certificaat wordt gebruikt wanneer de apps op de ILB as-omgeving worden aangepakt met behulp van een combinatie van naam van de toepassing, plus de standaardhostnaam.  Bijvoorbeeld *https://mycustomapp.internal-contoso.com* zou gebruiken de standaard-SSL-certificaat voor * *.internal contoso.com*.
 
 Echter, net als bij apps die worden uitgevoerd op de openbare multitenant-service, ontwikkelaars kunnen ook zo configureren dat aangepaste hostnamen voor afzonderlijke apps, en configureer vervolgens unieke SNI SSL-certificaatbindingen voor afzonderlijke apps.  
 

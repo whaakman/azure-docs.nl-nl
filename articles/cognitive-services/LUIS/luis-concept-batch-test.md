@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813288"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch testen met 1000 uitingen in LUIS-portal
@@ -32,10 +32,10 @@ Indienen van een batch-bestand van uitingen, ook wel een *gegevensset*, voor het
 
 |**Regels**|
 |--|
-|* Er zijn geen dubbele uitingen|
+|\* Er zijn geen dubbele uitingen|
 |uitingen van 1000 of minder|
 
-* Dubbele waarden worden beschouwd als de exacte tekenreeks komt overeen met, niet overeenkomt met die eerst worden getokeniseerd. 
+\* Dubbele waarden worden beschouwd als de exacte tekenreeks komt overeen met, niet overeenkomt met die eerst worden getokeniseerd. 
 
 ## <a name="entities-allowed-in-batch-tests"></a>Entiteiten die zijn toegestaan in de batchtests
 

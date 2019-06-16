@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139846"
 ---
 Standaard worden-API's in een back-end van Mobile Apps anoniem aangeroepen. Vervolgens moet u de toegang beperken tot alleen geverifieerde clients.  
@@ -16,7 +16,7 @@ Standaard worden-API's in een back-end van Mobile Apps anoniem aangeroepen. Verv
 * **Node.js terug beëindigen (via de Azure portal)** :  
 
     Klik in de instellingen voor mobiele Apps op **eenvoudige tabellen** en selecteer de tabel. Klik op **machtigingen wijzigen**, selecteer **geverifieerde toegang alleen** voor alle machtigingen, en klik vervolgens op **opslaan**.
-* **.NET-back-end (C#)**:  
+* **.NET-back-end (C#)** :  
 
     In het serverproject, gaat u naar **Controllers** > **TodoItemController.cs**. Toevoegen de `[Authorize]` kenmerk aan de **TodoItemController** klasse, als volgt. Om toegang te beperken tot specifieke methoden, kunt u dit kenmerk ook van toepassing alleen op deze methoden in plaats van de klasse. Het serverproject publiceren.
 

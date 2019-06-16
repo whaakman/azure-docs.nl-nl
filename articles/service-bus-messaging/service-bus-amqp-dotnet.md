@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60749254"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Gebruik Servicebus van .NET met AMQP 1.0
@@ -81,17 +81,17 @@ Interoperabiliteit met niet-.NET-clients in het kader, alleen .NET-typen die kun
 | byte[] |binary |AMQP-waarde |
 | string |string |AMQP-waarde |
 | System.Collections.IList |list |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
-| System.Array |matrix |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
+| System.Array |array |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
 | System.Collections.IDictionary |map |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. Opmerking: alleen tekenreekssleutels worden ondersteund. |
-| URI |Tekenreeks die wordt beschreven (Zie de volgende tabel) |AMQP-waarde |
+| Uri |Tekenreeks die wordt beschreven (Zie de volgende tabel) |AMQP-waarde |
 | DateTimeOffset |Lange beschreven (Zie de volgende tabel) |AMQP-waarde |
 | TimeSpan |Lange beschreven (Zie hieronder) |AMQP-waarde |
-| Streamen |binary |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit de Stream-object. |
+| Stream |binary |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit de Stream-object. |
 | Andere Object |binary |AMQP-gegevens (mogelijk meerdere). Het geserialiseerde binaire bestand van het object dat gebruikmaakt van de DataContractSerializer of een serializer geleverd door de toepassing bevat. |
 
 | .NET-type | Toegewezen AMQP beschreven Type | Opmerkingen |
 | --- | --- | --- |
-| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
+| Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>` |TimeSpan.Ticks |
 
@@ -107,10 +107,10 @@ Er zijn enkele kleine verschillen in het gedrag van de Service Bus .NET API bij 
 
 De [.NET-API's](/dotnet/api/) verschillende instellingen voor het beheren van het gedrag van het AMQP-protocol doorgeven:
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Hiermee bepaalt u het eerste tegoed toegepast op een koppeling. De standaardwaarde is 0.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: Besturingselementen voor de maximale grootte van de AMQP-frame tijdens de onderhandelingen bij de verbinding aangeboden opnieuw wordt geopend. De standaardwaarde is 65.536 bytes.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Als overdrachten batchable, bepaalt deze waarde de maximale vertraging voor het verzenden van dispositions. Overgenomen door afzenders/ontvangers standaard. Afzonderlijke afzender/ontvanger kan de standaardwaarde 20 milliseconden is overschrijven.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Hiermee bepaalt u of AMQP-verbindingen tot stand via een SSL-verbinding gebracht worden. De standaardwaarde is **waar**.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)** : Hiermee bepaalt u het eerste tegoed toegepast op een koppeling. De standaardwaarde is 0.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)** : Besturingselementen voor de maximale grootte van de AMQP-frame tijdens de onderhandelingen bij de verbinding aangeboden opnieuw wordt geopend. De standaardwaarde is 65.536 bytes.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)** : Als overdrachten batchable, bepaalt deze waarde de maximale vertraging voor het verzenden van dispositions. Overgenomen door afzenders/ontvangers standaard. Afzonderlijke afzender/ontvanger kan de standaardwaarde 20 milliseconden is overschrijven.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)** : Hiermee bepaalt u of AMQP-verbindingen tot stand via een SSL-verbinding gebracht worden. De standaardwaarde is **waar**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

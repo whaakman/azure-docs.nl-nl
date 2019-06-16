@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071943"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management-beleid voor meerdere domeinen
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -127,7 +127,7 @@ In dit voorbeeld ziet u hoe u vooraf flight ondersteuningsaanvragen, zoals die m
 |----------|-----------------|--------------|-------------|
 |cors|Root-element.|Ja|N/A|
 |toegestane oorsprongen|Bevat `origin` elementen die worden beschreven van de toegestane oorsprongen voor interdomein-aanvragen. `allowed-origins` Eén mag `origin` element waarmee `*` om toe te staan een oorsprong, of één of meer `origin` -elementen die een URI bevatten.|Ja|N/A|
-|oorsprong|De waarde kan zijn `*` om toe te staan alle oorsprongen of een URI die Hiermee geeft u een één oorsprong. De URI moet bevatten een schema, host en poort.|Ja|Als de poort in een URI wordt weggelaten, wordt poort 80 wordt gebruikt voor HTTP en poort 443 voor HTTPS wordt gebruikt.|
+|Oorsprong|De waarde kan zijn `*` om toe te staan alle oorsprongen of een URI die Hiermee geeft u een één oorsprong. De URI moet bevatten een schema, host en poort.|Ja|Als de poort in een URI wordt weggelaten, wordt poort 80 wordt gebruikt voor HTTP en poort 443 voor HTTPS wordt gebruikt.|
 |toegestane methoden|Dit element is vereist als methoden dan ophalen of boeken zijn toegestaan. Bevat `method` elementen die de ondersteunde HTTP-termen opgeeft.|Nee|Als deze sectie niet aanwezig zijn is, worden GET en POST worden ondersteund.|
 |method|Hiermee geeft u een HTTP-term.|Ten minste één `method` element is vereist als de `allowed-methods` sectie aanwezig is.|N/A|
 |toegestane kopteksten|Dit element bevat `header` elementen namen van de headers die kunnen worden opgenomen in de aanvraag op te geven.|Nee|N/A|
@@ -145,7 +145,7 @@ In dit voorbeeld ziet u hoe u vooraf flight ondersteuningsaanvragen, zoals die m
 Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Beleid secties:** inkomend
-- **Beleid bereiken:** globale, API, bewerking
+- **Beleid bereiken:** wereldwijd, product, API, bewerking
 
 ## <a name="JSONP"></a> JSONP
 De `jsonp` beleid wordt JSON met ondersteuning voor opvulling (JSONP) toegevoegd aan een bewerking of een API voor het toestaan van aanroepen tussen domeinen van de browser gebaseerde JavaScript-clients. JSONP is een methode in JavaScript-programma's voor gegevens van aanvragen van een server in een ander domein. JSONP omzeilt de beperking die wordt afgedwongen door de meeste webbrowsers waar toegang tot de webpagina's moet zich in hetzelfde domein bevinden.

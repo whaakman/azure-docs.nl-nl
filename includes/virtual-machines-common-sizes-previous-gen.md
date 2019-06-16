@@ -9,10 +9,10 @@ ms.date: 05/16/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
 ms.openlocfilehash: 464c7bcb510a2f6ab80fb11d722c241ec51a1b16
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391298"
 ---
 In deze sectie bevat informatie over eerdere generaties groottes van virtuele machines. Met deze grootten zijn nog steeds kunnen worden gebruikt, maar er zijn nieuwere generaties beschikbaar. 
@@ -33,9 +33,9 @@ Premium Storage opslaan in cache:  Niet ondersteund
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
-| Standard_F4  | 4         | 8           | 64             | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
-| Standard_F8  | 8         | 16          | 128            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standard_F16 | 16        | 32          | 256            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000           |
+| Standard_F4  | 4         | 8           | 64             | 12\.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
+| Standard_F8  | 8         | 16          | 128            | 24\.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
+| Standard_F16 | 16        | 32          | 256            | 48\.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000           |
 
 ## <a name="fs-series-sup1sup"></a>Fs-series <sup>1</sup>
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 72ec3080658b98376952f72f746c1b53fdf7de77
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704329"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Handleiding voor ontwikkelaars van Azure Key Vault
@@ -104,7 +104,7 @@ In Node.js zijn de API voor Key Vault-beheer en de Key Vault-object API afzonder
 
 [Azure PowerShell voor Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>Aan de slag
+### <a name="quick-start-guides"></a>Quick start-handleidingen
 
 - [Key Vault maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Aan de slag met Key Vault in Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)

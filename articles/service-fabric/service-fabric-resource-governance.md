@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
 ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772532"
 ---
 # <a name="resource-governance"></a>Resourcebeheer
@@ -58,7 +58,7 @@ Er zijn echter twee situaties waarin andere processen om CPU wedijveren mogelijk
 
 * *Met een combinatie van beheerde en niet-beheerde services en containers*: Als een gebruiker een service zonder een resourcebeheer die is opgegeven maken, wordt de runtime ziet als er geen bronnen verbruikt en kunt plaatsen op het knooppunt in ons voorbeeld. In dit geval, verbruikt dit nieuwe proces effectief sommige CPU ten koste van de services die al op het knooppunt worden uitgevoerd. Er zijn twee oplossing voor dit probleem. Niet combineren bestuurbaar en niet-beheerde services in hetzelfde cluster of gebruik [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) zodat deze twee soorten services niet op dezelfde set knooppunten terechtkomen.
 
-* *Wanneer een ander proces wordt gestart op het knooppunt buiten een Service Fabric (bijvoorbeeld een OS-service)*: In dit geval marketingafdeling het proces buiten de Service Fabric ook voor CPU met bestaande services. De oplossing voor dit probleem is het instellen van knooppuntcapaciteiten correct aan het account voor OS-overhead, zoals wordt weergegeven in de volgende sectie.
+* *Wanneer een ander proces wordt gestart op het knooppunt buiten een Service Fabric (bijvoorbeeld een OS-service)* : In dit geval marketingafdeling het proces buiten de Service Fabric ook voor CPU met bestaande services. De oplossing voor dit probleem is het instellen van knooppuntcapaciteiten correct aan het account voor OS-overhead, zoals wordt weergegeven in de volgende sectie.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuratie voor het inschakelen van resourcebeheer van een cluster
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f31361dc3d7e24092677f1a78b2c405ae84578ed
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086070"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Zelfstudie: Integratie van Azure Active Directory met Zscaler Beta
 
@@ -71,7 +71,7 @@ Volg deze stappen om toe te voegen Zscaler bèta van de Azure Marketplace.
 
      ![Zscaler Beta in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie configureert u en test Azure AD eenmalige aanmelding met Zscaler Beta op basis van de testgebruiker Britta Simon.
 Voor eenmalige aanmelding in om te werken, tot stand brengen van een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker Zscaler bètaversies.
@@ -85,7 +85,7 @@ Als u wilt configureren en Azure AD eenmalige aanmelding met Zscaler bètaversie
 - [Maak een testgebruiker Zscaler Bèta](#create-a-zscaler-beta-test-user) hebben een equivalent van Britta Simon Zscaler bètaversies die gekoppeld aan de Azure AD-weergave van de gebruiker.
 - [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
@@ -153,7 +153,7 @@ Volg deze stappen voor het configureren van Azure AD eenmalige aanmelding met Zs
 
     - Aanmeldings-URL
     - Azure AD-id
-    - URL voor afmelden
+    - Afmeldings-URL
 
 ### <a name="configure-zscaler-beta-single-sign-on"></a>Configureren van eenmalige aanmelding Zscaler Beta
 
@@ -234,7 +234,7 @@ Volg deze stappen voor het configureren van de proxy-instellingen in Internet Ex
 
 6. Selecteer **OK** sluiten de **Internetopties** in het dialoogvenster.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
 Maak een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -242,7 +242,7 @@ Maak een testgebruiker in Azure portal Britta Simon genoemd.
 
     ![Gebruikers en alle gebruikerskoppelingen](common/users.png)
 
-2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
     ![De knop Nieuwe gebruiker](common/new-user.png)
 
@@ -303,7 +303,7 @@ Test uw Azure AD eenmalige aanmelding-configuratie met behulp van het toegangsve
 
 Wanneer u de Zscaler bèta-tegel in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de Zscaler-bètaversie waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 - [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

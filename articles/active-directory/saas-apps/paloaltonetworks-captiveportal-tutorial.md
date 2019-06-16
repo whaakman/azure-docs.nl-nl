@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Zelfstudie: Azure Active Directory-integratie met Palo Alto Networks Captive Portal
 
@@ -78,12 +78,12 @@ U configureert en test eenmalige aanmelding van Azure AD met Palo Alto Networks 
 
 Om eenmalige aanmelding van Azure AD met Palo Alto Networks Captive Portal te configureren en testen, moet u de volgende taken uitvoeren:
 
-1. **[Azure AD configureren voor eenmalige aanmelding](#configure-azure-ad-single-sign-on)**: Stel de gebruiker in staat deze functie te gebruiken.
-2. **[Eenmalige aanmelding configureren voor Palo Alto Networks Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Configureer de instellingen voor eenmalige aanmelding in de toepassing.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: Test Azure AD-eenmalige aanmelding met de gebruiker *Britta Simon*.
-4. **[De Azure AD-testgebruiker toewijzen](#assign-the-azure-ad-test-user)**: Stel Britta Simon in om gebruik te maken van Azure AD-eenmalige aanmelding.
+1. **[Azure AD configureren voor eenmalige aanmelding](#configure-azure-ad-single-sign-on)** : Stel de gebruiker in staat deze functie te gebruiken.
+2. **[Eenmalige aanmelding configureren voor Palo Alto Networks Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)** : Configureer de instellingen voor eenmalige aanmelding in de toepassing.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : Test Azure AD-eenmalige aanmelding met de gebruiker *Britta Simon*.
+4. **[De Azure AD-testgebruiker toewijzen](#assign-the-azure-ad-test-user)** : Stel Britta Simon in om gebruik te maken van Azure AD-eenmalige aanmelding.
 5. **Een testgebruiker maken voor Palo Alto Networks Captive Portal**: Maak een tegenhanger van de gebruiker *Britta Simon* in Palo Alto Networks Captive Portal die gekoppeld is aan de Azure AD-gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: Controleer of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : Controleer of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -158,7 +158,7 @@ Maak vervolgens een testgebruiker met de naam *Britta Simon* in de Azure-portal:
 
     1. Voer **BrittaSimon** in bij **Naam**.
   
-    2. Voor **gebruikersnaam**, voer **BrittaSimon\@\<your_company_domain\>**. Bijvoorbeeld, **BrittaSimon\@contoso.com**.
+    2. Voor **gebruikersnaam**, voer **BrittaSimon\@\<your_company_domain\>** . Bijvoorbeeld, **BrittaSimon\@contoso.com**.
 
     3. Voer bij **Wachtwoord** een wachtwoord in. Wij raden u aan het wachtwoord dat u invoert te noteren. U kunt het selectievakje **Wachtwoord weergeven** inschakelen om het wachtwoord weer te geven.
 

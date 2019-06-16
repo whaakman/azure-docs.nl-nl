@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
 ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701376"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Netwerkinterfaces toevoegen of verwijderen van netwerkinterfaces van virtuele machines
@@ -56,7 +56,7 @@ Voordat u de virtuele machine maakt, maakt u een netwerkinterface met behulp van
 
 1. Meld u aan bij Azure Portal.
 2. Typ de naam van de virtuele machine die u wilt de netwerkinterface toevoegen of bladert u naar de virtuele machine door te selecteren in het zoekvak boven aan de portal, **alle services**, en vervolgens **virtuele machines**. Nadat u de virtuele machine hebt gevonden, selecteert u dit. De virtuele machine moet ondersteuning voor het aantal netwerkinterfaces dat u wilt toevoegen. Om erachter te komen hoeveel netwerkinterfaces elke VM-grootte ondersteunt, Zie [grootten voor virtuele Linux-machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [grootten voor Windows virtuele machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Selecteer **overzicht**onder **instellingen**. Selecteer **stoppen**, en wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)**.
+3. Selecteer **overzicht**onder **instellingen**. Selecteer **stoppen**, en wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)** .
 4. Selecteer **netwerken**onder **instellingen**.
 5. Selecteer **koppelen aan de netwerkinterface**. Selecteer in de lijst met netwerkinterfaces die momenteel niet worden gekoppeld aan een andere virtuele machine, die u wilt koppelen.
 
@@ -95,7 +95,7 @@ U kunt de netwerkinterfaces die momenteel is gekoppeld aan een virtuele machine 
 
 1. Meld u aan bij Azure Portal.
 2. Zoek in het zoekvak boven aan de portal, de naam van de virtuele machine die u wilt verwijderen (loskoppelen) de netwerkinterface van, of blader voor de virtuele machine door het selecteren van **alle services**, en vervolgens **virtuele machines**. Nadat u de virtuele machine hebt gevonden, selecteert u dit.
-3. Selecteer **overzicht**onder **instellingen**, en vervolgens **stoppen**. Wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)**.
+3. Selecteer **overzicht**onder **instellingen**, en vervolgens **stoppen**. Wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)** .
 4. Selecteer **netwerken**onder **instellingen**.
 5. Selecteer **netwerkinterface ontkoppelen**. Selecteer in de lijst met netwerkinterfaces die momenteel zijn gekoppeld aan de virtuele machine, de netwerkinterface die u wilt loskoppelen.
 

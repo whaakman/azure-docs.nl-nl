@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
 ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61219089"
 ---
 # <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
@@ -132,7 +132,7 @@ Beveiliging voor een virtuele machine hervatten:
 
     ![Dat aangeeft dat een is beveiligde virtuele machine](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>back-upgegevens verwijderen
+## <a name="delete-backup-data"></a>Back-upgegevens verwijderen
 
 U kunt verwijderen van een virtuele machine back-upgegevens tijdens de **back-up stoppen** taak of nadat de back-uptaak is voltooid. Voordat u back-upgegevens verwijderen, houd rekening met deze details:
 

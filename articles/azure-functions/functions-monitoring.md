@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922970"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
@@ -97,7 +97,7 @@ Zie voor meer informatie over het gebruik van Application Insights de [documenta
 
 De volgende gebieden van Application Insights kunnen nuttig zijn bij het evalueren van het gedrag, prestaties en fouten in uw functies:
 
-| Tab | Description |
+| tabblad | Description |
 | ---- | ----------- |
 | **[fouten](../azure-monitor/app/asp-net-exceptions.md)** |  Maak grafieken en waarschuwingen op basis van functie fouten en uitzonderingen voor servers. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren. |
 | **[Performance](../azure-monitor/app/performance-counters.md)** | Prestatieproblemen analyseren. |
@@ -163,7 +163,7 @@ Het Azure Functions-logboek bevat ook een *melden niveau* met elk logboek. [LogL
 |LogLevel    |Code|
 |------------|---|
 |Tracering       | 0 |
-|Fouten opsporen       | 1 |
+|fouten opsporen       | 1 |
 |Informatie | 2 |
 |Waarschuwing     | 3 |
 |Fout       | 4 |

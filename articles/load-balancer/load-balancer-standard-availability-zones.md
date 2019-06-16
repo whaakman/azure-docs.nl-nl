@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
 ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734453"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer van het type Standard en beschikbaarheidszones
@@ -39,7 +39,7 @@ Zone-redundante en zonegebonden scenario's voor ondersteuning van openbare en in
 
 Een Load Balancer-resource zelf is regionale en nooit zonegebonden.  En een VNet en subnet zijn altijd regionale en nooit zonegebonden.
 
-### <a name="frontend"></a>Front-end
+### <a name="frontend"></a>Frontend
 
 Een Load Balancer-frontend is een Frontend-IP-configuratie verwijst naar een openbare IP-adresresource of een privé IP-adres binnen het subnet van een virtueel netwerk-resource.  Dit vormt het eindpunt met gelijke waar uw service beschikbaar is gemaakt.
 
