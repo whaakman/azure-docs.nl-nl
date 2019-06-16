@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073245"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -35,7 +35,7 @@ Elke uitgaande bewerking, zoals een HTTP-aanroep naar een ander onderdeel, wordt
 
 U kunt een weergave van de gedistribueerde logische bewerking bouwen met behulp van `operation_Id`, `operation_parentId`, en `request.id` met `dependency.id`. Deze velden worden ook de volgorde oorzakelijke van telemetrie aanroepen definiëren.
 
-In een omgeving met microservices gaat traceringen van onderdelen u naar de andere opslag-items. Elk onderdeel hebben een eigen instrumentatiesleutel in Application Insights. Als u telemetrie voor de logische werking, moet u gegevens van elk opslagitem op te vragen. Wanneer het aantal items van de opslag enorm is, moet u een hint over waar u het volgende bekijken. Het gegevensmodel van Application Insights definieert twee velden om op te lossen dit probleem: `request.source` en `dependency.target`. Het eerste veld de component aangeduid die de aanvraag afhankelijkheid gestart en de tweede wordt aangegeven welk component geretourneerd het antwoord van de afhankelijkheidsaanroep.
+In een omgeving met microservices gaat traceringen van onderdelen u naar de andere opslag-items. Elk onderdeel hebben een eigen instrumentatiesleutel in Application Insights. Als u telemetrie voor de logische werking, vraagt de Application Insights-UX gegevens van elk opslagitem. Wanneer het aantal items van de opslag enorm is, moet u een hint over waar u het volgende bekijken. Het gegevensmodel van Application Insights definieert twee velden om op te lossen dit probleem: `request.source` en `dependency.target`. Het eerste veld de component aangeduid die de aanvraag afhankelijkheid gestart en de tweede wordt aangegeven welk component geretourneerd het antwoord van de afhankelijkheidsaanroep.
 
 ## <a name="example"></a>Voorbeeld
 
@@ -51,12 +51,12 @@ U kunt de resulterende telemetrie analyseren door een query uit te voeren:
 
 Merk op dat de hoofdmap wordt gedeeld door alle telemetrie-items in de resultaten `operation_Id`. Wanneer een Ajax-aanroep wordt uitgevoerd vanaf de pagina, een nieuwe unieke ID (`qJSXU`) is toegewezen aan de afhankelijkheidstelemetrie en de ID van de paginaweergave wordt gebruikt als `operation_ParentId`. Vervolgens gebruikt de Ajax-ID als de serveraanvraag `operation_ParentId`.
 
-| itemType   | naam                      | Id           | operation_ParentId | operation_Id |
+| itemType   | name                      | Id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Aandelen pagina                |              | STYz               | STYz         |
-| afhankelijkheid | GET-/Home/voorraad           | qJSXU        | STYz               | STYz         |
-| aanvraag    | GET Home/voorraad            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| afhankelijkheid | /Api/stock/value ophalen      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| Afhankelijkheid | GET-/Home/voorraad           | qJSXU        | STYz               | STYz         |
+| request    | GET Home/voorraad            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| Afhankelijkheid | /Api/stock/value ophalen      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 Wanneer de aanroep `GET /api/stock/value` wordt gemaakt met een externe service, die u wilt weten wat de identiteit van die server zodat u kunt instellen de `dependency.target` veld op de juiste wijze. Wanneer de externe service biedt geen ondersteuning voor bewaking, `target` is ingesteld op de hostnaam van de service (bijvoorbeeld `stock-prices-api.com`). Echter, als de service zichzelf identificeert door te retourneren een vooraf gedefinieerde HTTP-header `target` bevat van de service-identiteit waarmee Application Insights aan het bouwen van een gedistribueerde tracering door het opvragen van telemetrie van die service.
 

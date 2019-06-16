@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935782"
 ---
 <a name="retrieve-operations"></a>Bewerkingen ophalen
@@ -37,7 +37,7 @@ Hiermee haalt u alle bewerkingen op de aanbieding of het opvragen van een bepaal
 |  offerId           |  Aanbiedings-id                                                                                              |  String       |
 |  operationId       |  De GUID die de bewerking op de aanbieding wordt aangeduid. De bewerkings-id met behulp van deze API kan worden opgehaald en wordt ook geretourneerd als de HTTP-header van het antwoord voor langlopende bewerkingen, zoals de [aanbieding publiceren](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
 |  filteredStatus    | Optionele query-parameter die wordt gebruikt om te filteren op status (bijvoorbeeld `running`) op de verzameling die wordt geretourneerd door deze API.  |   String |
-|  API-versie       | Meest recente versie van de API                                                                                           |    Date      |
+|  api-version       | Meest recente versie van de API                                                                                           |    Date      |
 |  |  |  |
 
 

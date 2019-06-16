@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077855"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>U kunt MPIO configureren op een StorSimple-host waarop CentOS wordt uitgevoerd
 In dit artikel worden de stappen beschreven die vereist voor het configureren van multipath i/o-(MPIO) op uw Centos 6.6 host-server. De host-server is verbonden met uw Microsoft Azure StorSimple-apparaat voor hoge beschikbaarheid via iSCSI-initiators. Er wordt in detail beschreven de automatische detectie van multipath-apparaten en de specifieke instellingen alleen van StorSimple-volumes.
@@ -56,11 +56,11 @@ Het configuratiebestand `/etc/multipath.conf` maakt veel van de functies van mee
 
 De multipath.conf heeft vijf secties:
 
-- **Niveau standaardwaarden van het systeem** *(standaard ingesteld)*: U kunt op standaardwaarden van het systeem onderdrukken.
-- **Op de blokkeringslijst apparaten** *(blacklist)*: U kunt de lijst met apparaten die niet moeten worden beheerd door apparaat toewijzen.
-- **Uitzonderingen zwarte** *(blacklist_exceptions)*: U kunt specifieke apparaten moet worden behandeld als multipath-apparaten, zelfs als die worden vermeld in de zwarte lijst identificeren.
-- **Specifieke Opslaginstellingen controller** *(apparaten)*: U kunt configuratie-instellingen die worden toegepast op apparaten met de leverancier en productinformatie opgeven.
-- **Specifieke instellingen voor apparaten** *(multipaths)*: U kunt in deze sectie gebruiken voor het afstemmen van de configuratie-instellingen voor afzonderlijke LUN's.
+- **Niveau standaardwaarden van het systeem** *(standaard ingesteld)* : U kunt op standaardwaarden van het systeem onderdrukken.
+- **Op de blokkeringslijst apparaten** *(blacklist)* : U kunt de lijst met apparaten die niet moeten worden beheerd door apparaat toewijzen.
+- **Uitzonderingen zwarte** *(blacklist_exceptions)* : U kunt specifieke apparaten moet worden behandeld als multipath-apparaten, zelfs als die worden vermeld in de zwarte lijst identificeren.
+- **Specifieke Opslaginstellingen controller** *(apparaten)* : U kunt configuratie-instellingen die worden toegepast op apparaten met de leverancier en productinformatie opgeven.
+- **Specifieke instellingen voor apparaten** *(multipaths)* : U kunt in deze sectie gebruiken voor het afstemmen van de configuratie-instellingen voor afzonderlijke LUN's.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Meerdere paden op StorSimple die zijn verbonden met Linux-host configureren
 Een StorSimple-apparaat dat is verbonden met een Linux-host kan worden geconfigureerd voor hoge beschikbaarheid en taakverdeling. Bijvoorbeeld, als de Linux-host twee interfaces met de SAN verbonden heeft en het apparaat heeft twee interfaces zijn verbonden met de SAN zodanig dat deze interfaces op hetzelfde subnet bevinden worden, worden klikt u vervolgens er 4 paden beschikbaar zijn. Echter, als elke interface gegevens op het apparaat en de host-interface op een ander IP-subnet (en niet routeerbaar), klikt u vervolgens alleen 2 paden zijn beschikbaar. U kunt meerdere paden voor het automatisch detecteren van de beschikbare paden, kiest u een algoritme voor taakverdeling voor deze paden, toepassen van specifieke configuratie-instellingen voor alleen-StorSimple-volumes, en vervolgens inschakelen en controleer of Multipath configureren.
@@ -417,7 +417,7 @@ A. Als u wilt controleren of uw apparaat in de whitelist opgenomen, gebruik de v
     dm-3 devnode blacklisted, unmonitored
 
 
-Ga voor meer informatie naar [gebruiken het oplossen van interactieve opdracht voor meerdere paden](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Ga voor meer informatie naar [voor probleemoplossing voor Multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lijst met nuttige opdrachten
 | Type | Opdracht | Description |
@@ -444,6 +444,6 @@ Ga voor meer informatie naar [gebruiken het oplossen van interactieve opdracht v
 ## <a name="next-steps"></a>Volgende stappen
 Voordat u MPIO op Linux-host configureert, moet u ook om te verwijzen naar de volgende CentoS 6.6 documenten:
 
-* [MPIO op CentOS instellen](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [MPIO op CentOS instellen](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Handleiding voor Linux-Training](http://linux-training.be/linuxsys.pdf)
 

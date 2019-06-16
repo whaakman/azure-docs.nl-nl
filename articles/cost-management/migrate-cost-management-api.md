@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967234"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migreren van Enterprise Agreement naar de klant van Microsoft-overeenkomst API 's
@@ -91,7 +91,7 @@ De [saldo-overzicht ophalen](/rest/api/billing/enterprise/billing-enterprise-api
 - Nieuwe aankopen
 - Azure Marketplace-kosten voor service
 - Aanpassingen
-- Serviceoverschrijdingskosten
+- Service-overschrijdingskosten
 
 Alle API's voor verbruik worden vervangen door systeemeigen Azure-API's die gebruikmaken van Azure AD voor verificatie en autorisatie. Zie voor meer informatie over de aanroepende Azure REST API's, [aan de slag met REST](/rest/api/azure/#create-the-request).
 
@@ -129,7 +129,7 @@ De Usage-Details-API, is net als bij alle kosten Management-API's, beschikbaar o
 | Type | De indeling-ID |
 | --- | --- |
 | Factureringsaccount | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
-| Factureringsprofiel | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
+| Facturering-profiel | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
 | Abonnement | `/subscriptions/{subscriptionId}` |
 | Resourcegroep | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
@@ -172,52 +172,52 @@ De naam van de eigenschap die de matrix van gebruiksrecords gewijzigd van gegeve
 
 | Oude eigenschap | Nieuwe eigenschap | Opmerkingen |
 | --- | --- | --- |
-| Account-id | N/A | De maker van het abonnement wordt niet bijgehouden. Gebruik invoiceSectionId (hetzelfde als DepartmentID gemeenschappelijk hebben). |
+| AccountId | N/A | De maker van het abonnement wordt niet bijgehouden. Gebruik invoiceSectionId (hetzelfde als DepartmentID gemeenschappelijk hebben). |
 | AccountNameAccountOwnerId en AccountOwnerEmail | N/A | De maker van het abonnement wordt niet bijgehouden. Gebruik invoiceSectionName (hetzelfde als departmentName). |
-| Extra informatie | additionalInfo | &nbsp;  |
+| Aanvullende informatie | Aanvullende informatie | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Houd er rekening mee dat deze eigenschappen opposites zijn. Als isAzureCreditEnabled true is, zou ChargesBilledSeparately ONWAAR zijn. |
-| Verbruikte hoeveelheid | quantity | &nbsp; |
-| Verbruikte service | consumedService | Exacte tekenreekswaarden verschillen. |
-| Id van de verbruikte service | Geen | &nbsp; |
-| Kostenplaats | costCenter | &nbsp; |
+| ConsumedQuantity | Hoeveelheid | &nbsp; |
+| ConsumedService | consumedService | Exacte tekenreekswaarden verschillen. |
+| ConsumedServiceId | Geen | &nbsp; |
+| CostCenter | costCenter | &nbsp; |
 | De datum en het usageStartDate | date | &nbsp;  |
 | Dag | Geen | Dag vanaf datum worden geparseerd. |
-| Afdelings-id | invoiceSectionId | Exacte waarden verschillen. |
+| DepartmentId | invoiceSectionId | Exacte waarden verschillen. |
 | Naam van de afdeling | invoiceSectionName | Exacte tekenreekswaarden verschillen. Configureer factuur secties zodat deze overeenkomt met de afdelingen, indien nodig. |
 | ExtendedCost en kosten | costInBillingCurrency | &nbsp;  |
-| Instantie-id | resourceId | &nbsp;  |
+| InstanceId | resourceId | &nbsp;  |
 | Terugkerende kosten | Geen | &nbsp;  |
 | Locatie | location | &nbsp;  |
-| Metercategorie | meterCategory | Exacte tekenreekswaarden verschillen. |
+| MeterCategory | meterCategory | Exacte tekenreekswaarden verschillen. |
 | Meter-id | meterId | Exacte tekenreekswaarden verschillen. |
-| Meternaam | meterName | Exacte tekenreekswaarden verschillen. |
-| Meterregio | meterRegion | Exacte tekenreekswaarden verschillen. |
-| Metersubcategorie | meterSubCategory | Exacte tekenreekswaarden verschillen. |
+| MeterName | meterName | Exacte tekenreekswaarden verschillen. |
+| MeterRegion | meterRegion | Exacte tekenreekswaarden verschillen. |
+| MeterSubCategory | meterSubCategory | Exacte tekenreekswaarden verschillen. |
 | Maand | Geen | Maand van datum worden geparseerd. |
-| Naam van aanbieding | Geen | PublisherName en productOrderName gebruiken. |
+| Naam van aanbieding: | Geen | PublisherName en productOrderName gebruiken. |
 | OfferId | Geen | &nbsp;  |
 | Ordernummer | Geen | &nbsp;  |
 | PartNumber | Geen | MeterId en productOrderName gebruiken voor het aanduiden van prijzen. |
 | Naam van het plan | productOrderName | &nbsp;  |
 | Product | Product |   |
-| Product-id | productId | Exacte tekenreekswaarden verschillen. |
-| Naam van de uitgever | publisherName | &nbsp;  |
+| ProductId | productId | Exacte tekenreekswaarden verschillen. |
+| De naam van uitgever | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
-| ResourceGuid | meterId | Exacte tekenreekswaarden verschillen. |
-| Resourcelocatie | resourceLocation | &nbsp;  |
-| Id van de resourcelocatie | Geen | &nbsp;  |
-| Resourcetarief | effectivePrice | &nbsp;  |
-| Id van de servicebeheerder | N/A | &nbsp;  |
-| Servicegegevens 1 | serviceInfo1 | &nbsp;  |
-| Servicegegevens 2 | serviceInfo2 | &nbsp;  |
+| Resource-GUID | meterId | Exacte tekenreekswaarden verschillen. |
+| resourceLocation | resourceLocation | &nbsp;  |
+| ResourceLocationId | Geen | &nbsp;  |
+| ResourceRate | effectivePrice | &nbsp;  |
+| ServiceAdministratorId | N/A | &nbsp;  |
+| ServiceInfo1 | serviceInfo1 | &nbsp;  |
+| ServiceInfo2 | serviceInfo2 | &nbsp;  |
 | ServiceName | meterCategory | Exacte tekenreekswaarden verschillen. |
 | ServiceTier | meterSubCategory | Exacte tekenreekswaarden verschillen. |
-| Service-id voor de store | N/A | &nbsp;  |
-| GUID van het abonnement | subscriptionId | &nbsp;  |
+| StoreServiceIdentifier | N/A | &nbsp;  |
+| subscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| Abonnementsnaam | subscriptionName | &nbsp;  |
+| subscriptionName | subscriptionName | &nbsp;  |
 | Tags | codes | De eigenschap tags is van toepassing op hoofdobject, niet aan de eigenschappen van geneste eigenschap. |
-| Maateenheid | unitOfMeasure | Exacte tekenreekswaarden verschillen. |
+| unitOfMeasure | unitOfMeasure | Exacte tekenreekswaarden verschillen. |
 | usageEndDate | date | &nbsp;  |
 | Jaar | Geen | Jaar na de aanmaakdatum worden geparseerd. |
 | (nieuw) | billingCurrency | Valuta die wordt gebruikt voor de kosten in rekening gebracht. |
@@ -430,18 +430,18 @@ De oudere eigenschappen voor [API's van Azure Resource Manager prijs blad](/rest
 
 | Oude Azure Resource Manager-prijs blad API-eigenschap  | Nieuwe Microsoft Customer overeenkomst prijs blad API-eigenschap   | Description |
 | --- | --- | --- |
-| Meter-id | _meterId_ | De unieke id voor de meter. Hetzelfde als meterId. |
+| Id van de meter | _meterId_ | De unieke id voor de meter. Hetzelfde als meterId. |
 | Meternaam | meterName | De naam van de meter. Meter vertegenwoordigt het implementeerbare resource zorgen Azure-service. |
 | Metercategorie  | service | De naam van de classificatiecategorie voor de meter. Hetzelfde als de service in de Microsoft Customer Agreement-prijslijst. Exacte tekenreekswaarden verschillen. |
 | Subcategorie van de meter | meterSubCategory | De naam van de meter subclassificatie categorie. Op basis van de indeling van de functies op hoog niveau set differentiatie in de service. Bijvoorbeeld: Basic SQL DB vs standaard SQL-database. |
 | Meterregio | meterRegion | &nbsp;  |
 | Eenheid | _Niet van toepassing_ | Kan worden geparseerd uit unitOfMeasure. |
-| Maateenheid | unitOfMeasure | &nbsp;  |
+| Meeteenheid | unitOfMeasure | &nbsp;  |
 | Onderdeelnummer | _Niet van toepassing_ | Gebruik in plaats van partNumber, productOrderName en MeterId voor het aanduiden van de prijs voor een profiel voor facturering. Velden worden weergegeven op de factuur MCA in plaats van de partNumber in MCA facturen. |
-| Eenheidsprijs | unitPrice | Prijs per eenheid KLANTOVEREENKOMST van Microsoft. |
+| Prijs per eenheid | unitPrice | Prijs per eenheid KLANTOVEREENKOMST van Microsoft. |
 | Valutacode | pricingCurrency | Microsoft Customer overeenkomsten vertegenwoordigen de prijzen in de valuta-prijzen en facturering valuta. Valutacode is hetzelfde als de pricingCurrency in Microsoft-klant-overeenkomsten. |
 | Inbegrepen hoeveelheid | includedQuantity | Niet van toepassing op services in de Microsoft-klant-overeenkomsten. Weergeven met de waarden gelijk is aan nul. |
-|  Aanbiedings-id  | productOrderName | Gebruik in plaats van OfferId, productOrderName. Niet gelijk zijn aan OfferId, maar de productOrderName en meter bepalen prijzen in de Microsoft-klant-overeenkomsten. Met betrekking tot meterId en Offerid in verouderde inschrijvingen. |
+|  Aanbiedings-Id  | productOrderName | Gebruik in plaats van OfferId, productOrderName. Niet gelijk zijn aan OfferId, maar de productOrderName en meter bepalen prijzen in de Microsoft-klant-overeenkomsten. Met betrekking tot meterId en Offerid in verouderde inschrijvingen. |
 
 De prijs voor overeenkomsten voor Microsoft-klanten is anders dan Enterprise agreements gedefinieerd. De prijs voor services in de Enterprise-inschrijving is uniek voor product, PartNumber, meter en aanbieding. De PartNumber niet wordt gebruikt in Microsoft-klant-overeenkomsten.
 
@@ -462,7 +462,7 @@ De volgende velden zijn niet beschikbaar in API's van Microsoft klanten overeenk
 | billingPeriodId | Niet van toepassing. Komt overeen met InvoiceId voor MCA. |
 | offerId | Niet van toepassing. Komt overeen met productOrderName in MCA. |
 | meterCategory  | Niet van toepassing. Komt overeen met de Service in MCA. |
-| eenheid | Niet van toepassing. Kan worden geparseerd uit unitOfMeasure. |
+| Eenheid | Niet van toepassing. Kan worden geparseerd uit unitOfMeasure. |
 | currencyCode | Hetzelfde als de pricingCurrency in MCA. |
 | meterLocation | Hetzelfde als de meterRegion in MCA. |
 | partNumber partnumber | Niet van toepassing omdat het onderdeelnummer niet wordt weergegeven in MCA facturen. In plaats van partnumber, gebruikt u de combinatie van meterId en productOrderName voor het aanduiden van prijzen. |

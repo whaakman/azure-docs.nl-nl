@@ -5,14 +5,13 @@ author: shizn
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 01/07/2018
-ms.date: 05/06/2019
+ms.date: 01/07/2018
 ms.author: xshi
 ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440627"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Cloud Explorer voor Visual Studio gebruiken om te verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub
@@ -49,12 +48,16 @@ Het onderdeel Cloud Explorer van Visual Studio Installer biedt alleen ondersteun
 
     ![Klik op Account beheren](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. Klik op **Accounts beheren** in Cloud Explorer.
-1. Klik op **een account toevoegen...**  in het nieuwe venster voor de eerste keer aanmelden bij Azure.
-1. Nadat u zich hebt aangemeld, wordt de lijst met uw Azure-abonnement worden weergegeven. Selecteer het Azure-abonnementen weergeven en klik op het gewenste **toepassen**.
-1. Vouw **uw abonnement** > **IoT-Hubs** > **uw IoT-Hub**, de lijst met apparaten worden weergegeven onder het knooppunt van uw IoT-Hub.
 
-    ![Apparatenlijst](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
+2. Klik op **Accounts beheren** in Cloud Explorer.
+
+3. Klik op **een account toevoegen...**  in het nieuwe venster voor de eerste keer aanmelden bij Azure.
+
+4. Nadat u zich hebt aangemeld, wordt de lijst met uw Azure-abonnement worden weergegeven. Selecteer het Azure-abonnementen weergeven en klik op het gewenste **toepassen**.
+
+5. Vouw **uw abonnement** > **IoT-Hubs** > **uw IoT-Hub**, de lijst met apparaten worden weergegeven onder het knooppunt van uw IoT-Hub.
+
+    ![Lijst met apparaten](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
 ## <a name="monitor-device-to-cloud-messages"></a>Bewaken van apparaat-naar-cloud-berichten
 
@@ -64,11 +67,11 @@ Volg deze stappen voor het bewaken van berichten die van uw apparaat worden verz
 
     ![Start Monitoring D2C Message](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. De bewaakte berichten worden weergegeven de **IoT-Hub** deelvenster Uitvoer.
+2. De bewaakte berichten worden weergegeven de **IoT-Hub** deelvenster Uitvoer.
 
     ![Monitoring D2C Message resultaat](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. Om te stoppen bewaking, met de rechtermuisknop op elk IoT-Hub of het apparaat en selecteer **Stop Monitoring D2C Message**.
+3. Om te stoppen bewaking, met de rechtermuisknop op elk IoT-Hub of het apparaat en selecteer **Stop Monitoring D2C Message**.
 
 ## <a name="send-cloud-to-device-messages"></a>Cloud-naar-apparaat-berichten verzenden
 
@@ -78,8 +81,9 @@ Berichten van uw IoT-Hub worden verzonden naar uw apparaat, de volgende stappen 
 
     ![C2D-bericht verzenden](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. Geef het bericht in het invoervak.
-1. Resultaten worden weergegeven de **IoT-Hub** deelvenster Uitvoer.
+2. Geef het bericht in het invoervak.
+
+3. Resultaten worden weergegeven de **IoT-Hub** deelvenster Uitvoer.
 
     ![Resultaat van C2D-bericht verzenden](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

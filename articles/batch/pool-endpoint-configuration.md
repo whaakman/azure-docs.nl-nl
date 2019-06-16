@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071518"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configureren of uitschakelen van externe toegang tot rekenknooppunten in een Azure Batch-pool
 
@@ -27,7 +27,7 @@ De endpoint-configuratie bestaat uit een of meer [network address translation (N
 De configuratie van elke NAT-pool bevat één of meer [regels voor de netwerkbeveiligingsgroep (NSG) netwerk](/rest/api/batchservice/pool/add#networksecuritygrouprule). Elke NSG-regel toestaat of weigert bepaald netwerkverkeer naar het eindpunt. U kunt toestaan of weigeren van al het verkeer, verkeer geïdentificeerd door een [servicetag](../virtual-network/security-overview.md#service-tags) (zoals 'Internet'), of verkeer van specifieke IP-adressen of subnetten.
 
 ### <a name="considerations"></a>Overwegingen
-* De configuratie van de pool-eindpunt maakt deel uit van een van de pool [netwerkconfiguratie](/rest/api/batchservice/pool/add#NetworkConfiguration). De netwerkconfiguratie kan desgewenst instellingen voor deelname aan de groep van een [virtueel Azure-netwerk](batch-virtual-network.md). Als u de pool in een virtueel netwerk hebt ingesteld, kunt u NSG-regels die gebruikmaken van adresinstellingen in het virtuele netwerk maken.
+* De configuratie van de pool-eindpunt maakt deel uit van een van de pool [netwerkconfiguratie](/rest/api/batchservice/pool/add#networkconfiguration). De netwerkconfiguratie kan desgewenst instellingen voor deelname aan de groep van een [virtueel Azure-netwerk](batch-virtual-network.md). Als u de pool in een virtueel netwerk hebt ingesteld, kunt u NSG-regels die gebruikmaken van adresinstellingen in het virtuele netwerk maken.
 * U kunt meerdere NSG-regels configureren wanneer u een NAT-pool configureren. De regels worden in volgorde van prioriteit gecontroleerd. Zodra een regel van toepassing is, worden geen andere regels meer getest.
 
 

@@ -10,10 +10,10 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881131"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integratie van broncodebeheer in Azure Automation - verouderd
@@ -45,7 +45,7 @@ Als u al hebt een GitHub-account en een opslagplaats die u wilt koppelen aan Azu
    | Bron kiezen |Selecteer de gegevensbron. Op dit moment alleen **GitHub** wordt ondersteund. |
    | Autorisatie |Klik op de **autoriseren** knop Azure Automation toegang verlenen tot uw GitHub-opslagplaats. Als u al bent aangemeld bij uw GitHub-account in een ander venster, klikt u vervolgens de referenties van dat account gebruikt. Wanneer autorisatie voltooid is, de pagina ziet u uw GitHub-gebruikersnaam onder **autorisatie-eigenschap**. |
    | Bibliotheek kiezen |Selecteer een GitHub-opslagplaats in de lijst met beschikbare opslagplaatsen. |
-   | Kies vertakking |Selecteer een vertakking in de lijst met beschikbare vertakkingen wilt bekijken. Alleen de **master** vertakking wordt weergegeven als u vertakkingen nog niet hebt gemaakt. |
+   | Vertakking kiezen |Selecteer een vertakking in de lijst met beschikbare vertakkingen wilt bekijken. Alleen de **master** vertakking wordt weergegeven als u vertakkingen nog niet hebt gemaakt. |
    | Pad naar de Runbookmap |Het pad naar de runbookmap geeft het pad in de GitHub-opslagplaats van waaruit u wilt push of pull uw code. Dit moet worden ingevoerd in de indeling **/mapnaam/submapnaam**. Alleen runbooks in het pad naar de runbookmap zal worden gesynchroniseerd met uw Automation-account. Runbooks in submappen van het pad naar de runbookmap wordt, **niet** worden gesynchroniseerd. Gebruik **/** om te synchroniseren van alle runbooks in de opslagplaats. |
 3. Bijvoorbeeld, hebt u een opslagplaats met de naam **PowerShellScripts** die een map met de naam bevat **RootFolder**, die een map met de naam bevat **submap**. U kunt de volgende tekenreeksen gebruiken om te synchroniseren van elk niveau van de map:
 

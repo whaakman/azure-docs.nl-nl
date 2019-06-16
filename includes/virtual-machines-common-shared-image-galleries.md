@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3ea41a16f79f903b5ff7d2b93f74f7d3d2a0dd83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133551"
 ---
 Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw beheerde installatiekopieën maken. Gedeelde Afbeeldingsgalerieën bieden:
 
 - Beheerde globale replicatie van afbeeldingen.
 - Versiebeheer en groepering van beelden voor eenvoudiger beheer.
-- Maximaal beschikbare installatiekopieën met Zone-redundante opslag (ZRS) accounts in regio's die ondersteuning voor Beschikbaarheidszones. ZRS biedt betere tolerantie tegen fouten in de zonegebonden.
+- Maximaal beschikbare installatiekopieën met Zone-redundante opslag (ZRS) accounts in regio's die ondersteuning voor Beschikbaarheidszones. ZRS biedt een betere veerkracht tegen zonegebonden fouten.
 - Delen tussen abonnementen en zelfs tussen Active Directory (AD)-tenants, met RBAC.
 - Schaal uw implementaties met de installatiekopie van replica's in elke regio.
 
@@ -78,15 +78,15 @@ Bron-regio's worden weergegeven in de onderstaande tabel. Alle openbare regio's 
 
 | Bron-regio 's |
 |---------------------|-----------------|------------------|-----------------|
-| Australië - centraal   | VS-midden EUAP | Korea - centraal    | VK, zuid 2      |
-| Australië - centraal 2 | Azië - oost       | Korea - zuid      | Verenigd Koninkrijk West         |
-| Australië - oost      | US - oost         | US - noord-centraal | US - west-centraal |
-| Australië - zuidoost | US - oost 2       | Europa - noord     | Europa -west     |
-| Brazilië - zuid        | VS-Oost 2 EUAP  | US - zuid-centraal | India - west      |
-| Canada - midden      | Frankrijk - centraal  | India - zuid      | US - west         |
-| Canada - oost         | Frankrijk - zuid    | Azië - zuidoost   | US - west         |
-| India - centraal       | Japan - oost      | VK, noord         | US - west 2       |
-| US - centraal          | Japan - west      | Verenigd Koninkrijk Zuid         |                 |
+| Australië - centraal   | VS-midden EUAP | Korea - centraal    | US - west-centraal |
+| Australië - centraal 2 | Azië - oost       | Korea - zuid      | Europa -west     |
+| Australië - oost      | US - oost         | US - noord-centraal | India - west      |
+| Australië - zuidoost | US - oost 2       | Europa - noord     | US - west         |
+| Brazilië - zuid        | VS-Oost 2 EUAP  | US - zuid-centraal | US - west 2       |
+| Canada - midden      | Frankrijk - centraal  | India - zuid      |                 |
+| Canada - oost         | Frankrijk - zuid    | Azië - zuidoost   |                 |
+| India - centraal       | Japan - oost      | Verenigd Koninkrijk Zuid         |                 |
+| US - centraal          | Japan - west      | Verenigd Koninkrijk West          |                 |
 
 
 
@@ -95,7 +95,7 @@ Bron-regio's worden weergegeven in de onderstaande tabel. Alle openbare regio's 
 Er zijn limieten per abonnement, voor het implementeren van resources met behulp van gedeelde Afbeeldingsgalerieën:
 - 100 gedeelde afbeeldingsgalerieën per abonnement per regio
 - 1000 definities van de installatiekopie, per abonnement per regio
-- 10.000 versies van een installatiekopie, per abonnement per regio
+- 10\.000 versies van een installatiekopie, per abonnement per regio
 
 Zie voor meer informatie, [brongebruik op basis van limieten controleren](https://docs.microsoft.com/azure/networking/check-usage-against-limits) voor voorbeelden over het controleren van uw huidige gebruik.
  

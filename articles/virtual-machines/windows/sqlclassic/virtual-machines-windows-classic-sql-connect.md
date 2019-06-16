@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62111524"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Verbinding maken met een virtuele SQL Server-machine op Azure (klassieke implementatie)
@@ -58,7 +58,7 @@ In dit scenario kunt u verbinding maken met behulp van de virtuele machine **naa
 ### <a name="connect-to-sql-server-over-the-internet"></a>Verbinding maken met SQL Server via Internet
 Als u verbinding maken met uw SQL Server-database-engine van het Internet wilt, moet u het eindpunt van een virtuele machine voor de binnenkomende TCP-communicatie. Deze configuratiestap van Azure zorgt ervoor dat binnenkomend TCP-poortverkeer naar een TCP-poort wordt geleid die toegankelijk is voor de virtuele machine.
 
-Als u wilt verbinden via het internet, moet u de DNS-naam van de virtuele machine en het poortnummer van de VM-eindpunt (geconfigureerd verderop in dit artikel). Als u de DNS-naam zoekt, gaat u naar de Azure-portal en selecteer **virtuele machines (klassiek)**. Selecteer vervolgens uw virtuele machine. De **DNS-naam** wordt weergegeven in de **overzicht** sectie.
+Als u wilt verbinden via het internet, moet u de DNS-naam van de virtuele machine en het poortnummer van de VM-eindpunt (geconfigureerd verderop in dit artikel). Als u de DNS-naam zoekt, gaat u naar de Azure-portal en selecteer **virtuele machines (klassiek)** . Selecteer vervolgens uw virtuele machine. De **DNS-naam** wordt weergegeven in de **overzicht** sectie.
 
 Neem bijvoorbeeld een klassieke virtuele machine met de naam **mysqlvm** met een DNS-naam van **mysqlvm7777.cloudapp.net** en een VM-eindpunt van **57500**. Ervan uitgaande dat correct geconfigureerde connectiviteit, de volgende verbindingsreeks kan worden gebruikt voor toegang tot de virtuele machine vanaf elke locatie op internet:
 

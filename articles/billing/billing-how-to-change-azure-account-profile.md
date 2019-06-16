@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850769"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>De profielinformatie voor uw Azure-account wijzigen
@@ -76,7 +76,7 @@ U kunt uw e-mailadres wijzigen met behulp van een van de volgende methoden:
 
 * Ga naar de [contactgegevens](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) gebied in de Azure portal en voer een e-mailadres. Het adres dat u ontvangt service- en marketingcommunicatie. Het e-mailadres in het profiel van de Azure Account Center wordt zodat deze overeenkomt met automatisch bijgewerkt. Bijwerken van uw e-mailadres van het profiel bijwerken niet uw aanmelding bij e-mailadres.
 
-* In de [Azure-portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), selecteer het pictogram met uw initialen of een afbeelding. Selecteer het contextmenu (**...** ). Selecteer vervolgens **Mijn contactgegevens** in het menu en voert u een e-mailadres. Het adres dat u ontvangt service- en marketingcommunicatie. Het e-mailadres in uw Azure Account Center profiel wordt zodat deze overeenkomt met automatisch bijgewerkt. Bijwerken van uw e-mailadres van het profiel bijwerken niet uw aanmelding bij e-mailadres.
+* In de [Azure-portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), selecteer het pictogram met uw initialen of een afbeelding. Selecteer het contextmenu ( **...** ). Selecteer vervolgens **Mijn contactgegevens** in het menu en voert u een e-mailadres. Het adres dat u ontvangt service- en marketingcommunicatie. Het e-mailadres in uw Azure Account Center profiel wordt zodat deze overeenkomt met automatisch bijgewerkt. Bijwerken van uw e-mailadres van het profiel bijwerken niet uw aanmelding bij e-mailadres.
 
 ![Voorbeeld van het bijwerken van een e-mailadres in Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 

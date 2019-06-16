@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150022"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Initieer een failover van storage-account (preview)
@@ -55,7 +55,7 @@ Volg deze stappen voor het starten van een failover van de account van de Azure-
 
 3. Controleren of uw storage-account is geconfigureerd voor geografisch redundante opslag (GRS) of geo-redundante opslag met leestoegang (RA-GRS). Als dit niet het geval is, selecteert u **configuratie** onder **instellingen** om bij te werken van uw account kan geografisch redundant. 
 4. De **tijd van laatste synchronisatie** eigenschap geeft aan hoe ver de secundaire achter van de primaire. **Laatste synchronisatietijd** biedt een schatting van de omvang van gegevensverlies die u ondervindt nadat de failover is voltooid.
-5. Selecteer **voorbereiden voor failover (preview)**. 
+5. Selecteer **voorbereiden voor failover (preview)** . 
 6. Bekijk het bevestigingsvenster. Wanneer u klaar bent, voert u **Ja** om te bevestigen en start de failover.
 
     ![Schermopname die laat zien bevestigingsvenster voor een account-failover](media/storage-initiate-account-failover/portal-failover-confirm.png)

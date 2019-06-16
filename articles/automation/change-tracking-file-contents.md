@@ -10,10 +10,10 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304221"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Inhoud van een bestand dat wordt bijgehouden met wijzigingen bijhouden weergeven
@@ -34,7 +34,7 @@ Inhoud bijhouden bestand kunt u de inhoud van een bestand weergeven voor en na e
 2. Selecteer op het bovenste menu **instellingen bewerken**.
 3. Selecteer **bestandsinhoud** en klikt u op **koppeling**. Hiermee opent u de **Inhoudslocatie toevoegen voor wijzigingen bijhouden** deelvenster.
 
-   ![inschakelen](./media/change-tracking-file-contents/enable.png)
+   ![Inschakelen](./media/change-tracking-file-contents/enable.png)
 
 4. Selecteer het abonnement en de storage-account te gebruiken voor het opslaan van de inhoud van het bestand op. Als u wilt een bestand inhoud bijhouden voor alle bestaande bijgehouden bestanden inschakelen, selecteert u **op** voor **bestandsinhoud voor alle instellingen uploaden**. U kunt dit wijzigen voor elk pad daarna.
 

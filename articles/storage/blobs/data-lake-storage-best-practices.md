@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061322"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen2 biedt besturingselementen voor POSIX-toegang voor g
 
 ### <a name="use-security-groups-versus-individual-users"></a>Beveiligingsgroepen ten opzichte van afzonderlijke gebruikers gebruiken
 
-Met Radiotuner werken met big data in Data Lake Storage Gen2, is het waarschijnlijk dat een service-principal wordt gebruikt om toe te staan van services zoals Azure HDInsight om te werken met de gegevens. Maar mogelijk zijn er gevallen waarbij afzonderlijke gebruikers toegang hebben tot de gegevens ook moeten. In alle gevallen moet overwegen om met behulp van Azure Active Directory [beveiligingsgroepen](../common/storage-auth-aad.md) in plaats van afzonderlijke gebruikers toewijzen aan mappen en bestanden.
+Als u werkt met big data in Data Lake Storage Gen2, is het waarschijnlijk dat een service-principal wordt gebruikt om toe te staan van services zoals Azure HDInsight om te werken met de gegevens. Maar mogelijk zijn er gevallen waarbij afzonderlijke gebruikers toegang hebben tot de gegevens ook moeten. In alle gevallen moet overwegen om met behulp van Azure Active Directory [beveiligingsgroepen](../common/storage-auth-aad.md) in plaats van afzonderlijke gebruikers toewijzen aan mappen en bestanden.
 
 Nadat een beveiligingsgroep is toegewezen machtigingen, toevoegen of verwijderen van gebruikers uit de groep zijn vereist om updates voor Data Lake Storage Gen2. Hierdoor kunnen ook Zorg ervoor dat u niet langer zijn dan het maximum aantal vermeldingen voor toegangsbeheer per toegangsbeheerlijst (ACL). Dit nummer is momenteel 32 (met inbegrip van de vier POSIX-stijl ACL's die altijd gekoppeld aan elk bestand en map zijn): de gebruiker die eigenaar is, de groep die eigenaar is, het masker en andere. Elke directory kan hebben twee typen ACL, de toegang tot de ACL en de standaard-ACL voor een totaal van 64 vermeldingen voor toegangsbeheer. Zie voor meer informatie over deze ACL's, [toegangsbeheer in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -40,7 +40,7 @@ Azure Active Directory-service-principals worden meestal gebruikt voor services 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>De firewall van de Data Lake Storage Gen2 met toegang tot Azure-service inschakelen
 
-Data Lake Storage Gen2 ondersteunt de mogelijkheid om een firewall inschakelen en alleen toegang tot Azure-services, dit wordt aanbevolen om te beperken de vector van externe aanvallen te beperken. Firewall kan worden ingeschakeld op een storage-account in Azure portal via de **Firewall** > **Firewall inschakelen (aan)** > **toegang tot Azure-servicestoestaan** opties.
+Data Lake Storage Gen2 ondersteunt de mogelijkheid om een firewall inschakelen en alleen toegang tot Azure-services, dit wordt aanbevolen om te beperken de vector van externe aanvallen te beperken. Firewall kan worden ingeschakeld op een storage-account in Azure portal via de **Firewall** > **Firewall inschakelen (aan)**  > **toegang tot Azure-servicestoestaan** opties.
 
 Azure Databricks-clusters toevoegen aan een virtueel netwerk dat toegang via de Firewall van de opslag kan worden toegestaan, vereist het gebruik van een preview-functie van Databricks. Als u wilt deze functie inschakelt, moet u een ondersteuningsaanvraag in plaats.
 

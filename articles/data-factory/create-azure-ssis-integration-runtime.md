@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155212"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure-SSIS Integratieruntime in Azure Data Factory maken
@@ -51,7 +51,7 @@ Als u Azure-SSIS IR inricht, worden ook Azure Feature Pack voor SSIS en de Acces
 
     Zorg ervoor dat uw Azure SQL Database-server/beheerd exemplaar nog geen een SSISDB. Het inrichten van Azure-SSIS-IR biedt geen ondersteuning met behulp van een bestaande SSISDB.
 
-- **Azure Resource Manager-netwerk (optioneel)**. U hebt een virtueel netwerk van Azure Resource Manager als ten minste één van de volgende voorwaarden voldaan wordt:
+- **Azure Resource Manager-netwerk (optioneel)** . U hebt een virtueel netwerk van Azure Resource Manager als ten minste één van de volgende voorwaarden voldaan wordt:
 
   - U kunt SSISDB worden gehost in Azure SQL Database-server met service-eindpunten voor virtueel netwerk of in het beheerde exemplaar in een virtueel netwerk.
   - U wilt verbinding maken met on-premises gegevens gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd op uw Azure-SSIS-IR.

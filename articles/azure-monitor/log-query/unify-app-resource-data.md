@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424637"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Lever een geïntegreerde ervaring meerdere Azure Monitor Application Insights-resources 
@@ -103,11 +103,11 @@ De volgende tabel ziet u de schemaverschillen tussen Log Analytics en Applicatio
 | ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | duur |
+| AvailabilityDuration | Duur |
 | AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | naam |
+| AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
 | Plaats | client_city |
@@ -116,7 +116,7 @@ De volgende tabel ziet u de schemaverschillen tussen Log Analytics en Applicatio
 | Land/regio | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | naam | 
+| CustomEventName | name | 
 | DeviceModel | client_Model | 
 | Apparaattype | client_Type | 
 | ExceptionCount | itemCount | 
@@ -127,13 +127,13 @@ De volgende tabel ziet u de schemaverschillen tussen Log Analytics en Applicatio
 | OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | duur | 
-| PageViewName | naam | 
+| PageViewDuration | Duur | 
+| PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | duur | 
+| RequestDuration | Duur | 
 | Aanvraag-id | id | 
-| RequestName | naam | 
+| RequestName | name | 
 | RequestSuccess | voltooid | 
 | ResponseCode | resultCode | 
 | Rol | cloud_RoleName |

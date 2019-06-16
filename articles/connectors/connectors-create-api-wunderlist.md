@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105663"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Controleren en Wunderlist beheren met behulp van Azure Logic Apps
@@ -61,7 +61,7 @@ Met Azure Logic Apps en de Wunderlist-connector, kunt u geautomatiseerde taken e
        -of-
 
      * Tussen de stappen waar u een actie toevoegen, de aanwijzer over de pijl tussen fasen. 
-     Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+     Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
      
        Typ 'wunderlist' als filter in het zoekvak. 
        Selecteer de actie die u wilt onder de lijst met acties.

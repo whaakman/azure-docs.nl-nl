@@ -1,21 +1,21 @@
 ---
-title: Configureren en logboeken van de access-server voor Azure Database voor MySQL in Azure Portal
-description: Dit artikel wordt beschreven hoe u configureert en toegang tot de serverlogboeken in Azure Database for MySQL via de Azure-Portal.
+title: Configureren en toegang tot van Logboeken voor langzame query's voor Azure Database voor MySQL in Azure portal
+description: Dit artikel wordt beschreven hoe u configureert en toegang krijgen tot de trage Logboeken in Azure Database voor MySQL in Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052714"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configureren en access-server beschikbaar zijn in Azure portal
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configureren en toegang langzame query's beschikbaar zijn in Azure portal
 
-U kunt configureren, weergeven en downloaden de [Azure Database for MySQL-server-logs](concepts-server-logs.md) vanuit Azure portal.
+U kunt configureren, weergeven en downloaden de [Azure Database for MySQL langzame-querylogboeken](concepts-server-logs.md) vanuit Azure portal.
 
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
@@ -42,7 +42,7 @@ Configureer de toegang tot het MySQL-logboek voor langzame query's.
 6. Ga terug naar de lijst met Logboeken door te klikken op de **knop Sluiten** (het pictogram X) op de **serverparameters** pagina.
 
 ## <a name="view-list-and-download-logs"></a>Weergeven en logboeken downloaden
-Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare logboeken weergeven en downloaden van afzonderlijke logboekbestanden op de Server Logs-deelvenster. 
+Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare langzame-querylogboeken weergeven en downloaden van afzonderlijke logboekbestanden op de Server Logs-deelvenster.
 
 1. Open Azure Portal.
 
@@ -61,9 +61,7 @@ Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare logboek
 
    ![Klik op het downloadpictogram](./media/howto-configure-server-logs-in-portal/5-download.png)
 
-
 ## <a name="next-steps"></a>Volgende stappen
-- Zie [serverlogboeken openen in de CLI](howto-configure-server-logs-in-cli.md) voor meer informatie over hoe u kunt Logboeken downloaden die u via een programma.
-- Meer informatie over [serverlogboeken](concepts-server-logs.md) in Azure Database for MySQL. 
+- Zie [langzame query's voor toegang tot logboeken in CLI](howto-configure-server-logs-in-cli.md) voor meer informatie over het downloaden van Logboeken voor langzame query's via een programma.
+- Meer informatie over [langzame-querylogboeken](concepts-server-logs.md) in Azure Database for MySQL.
 - Zie voor meer informatie over de parameterdefinities en MySQL-logboekregistratie, de MySQL-documentatie op [logboeken](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-

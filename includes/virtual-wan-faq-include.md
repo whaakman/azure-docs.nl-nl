@@ -5,19 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150777"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077495"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Wat is het verschil tussen een gateway van een virtueel Azure-netwerk (VPN Gateway) en een Azure Virtual WAN-VPN-gateway?
 
 Virtual WAN biedt grootschalige site-naar-site-connectiviteit en is ontworpen met het oog op doorvoer, schaalbaarheid en gebruiksgemak. ExpressRoute en punt-naar-siteconnectiviteit is momenteel in de preview-fase. CPE apparaten autoprovision vertakking en verbinding maken met Azure virtuele WAN. Deze apparaten zijn beschikbaar binnen een groeiend ecosysteem van SD-WAN- en VPN-partners. Zie de [lijst met partners van voorkeur](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Wat is een filiaal verbinding met Azure virtuele WAN?
+
+Een verbinding van een vertakking-apparaat in Azure virtuele WAN, bestaat uit twee actief/actief-IPsec-tunnels.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Welke apparaatproviders (virtuele WAN-partners) worden bij de introductie ondersteund?
 
@@ -45,7 +49,7 @@ Ja, met Virtual WAN worden nieuwe Resource Manager-resources geïntroduceert. Zi
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Hoeveel VPN-apparaten kunnen verbinding maken met één hub?
 
-Per virtuele hub worden maximaal 1000 verbindingen ondersteund. Elke verbinding bestaat uit twee tunnels die zich in een actief/actief-configuratie bevinden. De tunnels eindigen in een Azure Virtual Hub-VPN-gateway.
+Maximaal 1000 verbindingen worden per virtuele hub ondersteund. Elke verbinding bestaat uit twee tunnels die zich in een actief/actief-configuratie bevinden. De tunnels eindigen in een Azure Virtual Hub-VPN-gateway.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Kan het on-premises VPN-apparaat verbinding maken met meerdere hubs?
 
@@ -105,7 +109,7 @@ Ja.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Waarin verschilt Virtual WAN van de bestaande Azure Virtual Network-gateway?
 
-VPN in een Virtual Network-gateway is beperkt tot 30 tunnels. U moet Virtual WAN gebruiken voor grootschalige VPN-verbindingen. Voor vertakkingen kunt u maximaal 1000 verbindingen van 2 Gbps maken in de hub. Dit geldt voor alle regio's behalve de regio West Central. Voor de regio West Central is 20 Gbps beschikbaar. In de toekomst gaan we 20 Gbps uitrollen in andere regio's. Een verbinding is een actief-actief-tunnel van het on-premises VPN-apparaat naar de virtuele hub. Per regio kan er één hub zijn. Dit betekent dat u meer dan 1000 vertakkingen kunt verbinden via de hubs.
+VPN in een Virtual Network-gateway is beperkt tot 30 tunnels. U moet Virtual WAN gebruiken voor grootschalige VPN-verbindingen. U kunt maximaal 1000 verbindingen voor filialen verbinden met 2 Gbps in de hub voor alle regio's behalve de regio West-Centraal. Voor de regio West Central is 20 Gbps beschikbaar. In de toekomst gaan we 20 Gbps uitrollen in andere regio's. Een verbinding is een actief-actief-tunnel van het on-premises VPN-apparaat naar de virtuele hub. U kunt een hub per regio, wat betekent dat u meer dan 1000 vertakkingen verbinding kunt maken voor hubs hebben.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Hoe virtuele WAN ondersteunt SD-WAN-apparaten?
 
@@ -118,6 +122,14 @@ Nee, Virtual WAN heeft niet vanaf elke locatie ExpressRoute nodig. Standaard wor
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Is er een doorvoerlimiet in het netwerk bij gebruik van Azure Virtual WAN?
 
 Het aantal vertakkingen is beperkt tot 1000 verbindingen per hub/regio tot een totaal van 2 G in de hub. De uitzondering is US - west-centraal, met een totaal van 20 Gbps. In de toekomst gaan we 20 Gbps uitrollen in andere regio's.
+
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Het aantal VPN-verbindingen biedt ondersteuning voor een virtueel WAN hub?
+
+Een Azure virtuele WAN hub kan tegelijkertijd ondersteunen maximaal 1000 S2S-verbindingen en 10.000 P2S-verbindingen.
+
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Wat is het totaal aantal VPN-doorvoer van een VPN-tunnel en een verbinding?
+
+Het totaal aantal VPN-doorvoer van een hub is maximaal 20 Gbps op basis van de gekozen schaaleenheid. Doorvoer wordt gedeeld door alle bestaande verbindingen.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Kan het on-premises apparaat in Virtual WAN meerde ISP's parallel gebruiken of is er altijd sprake van één VPN-tunnel?
 

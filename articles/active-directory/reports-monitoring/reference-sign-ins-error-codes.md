@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107627"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Foutcodes voor aanmeldingsactiviteiten rapport 
 
@@ -107,7 +107,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |50128|De domeinnaam is ongeldig: Er is geen tenant-identificatiegegevens gevonden in een van de aanvraag of impliciet door een opgegeven referenties.|
 |50129|Apparaat is niet aan de werkplek gekoppeld - **Workplace join** is vereist voor de registratie van het apparaat.|
 |50130|Waarde van de claim kan niet worden geïnterpreteerd als bekende auth-methode.|
-|50131|Wordt gebruikt voor verschillende fouten voor voorwaardelijke toegang. Bijvoorbeeld Een slechte Windows-apparaatstatus, geblokkeerde aanvraag vanwege verdachte activiteit, beslissingen voor toegangsbeleid en beveiligingsbeleid.|
+|50131|In verschillende fouten voor voorwaardelijke toegang gebruikt. Bijvoorbeeld Een slechte Windows-apparaatstatus, geblokkeerde aanvraag vanwege verdachte activiteit, beslissingen voor toegangsbeleid en beveiligingsbeleid.|
 |50132|Referenties zijn om de volgende redenen ingetrokken:<ul><li>SSO-artefact is ongeldig of verlopen</li><li>Sessie is niet actueel genoeg voor toepassing</li><li>Een aanvraag voor stille aanmelding is verzonden, maar de gebruikerssessie met Azure AD is ongeldig of verlopen.</li></ul>|
 |50133|Sessie is ongeldig omdat het wachtwoord is verlopen of recent is gewijzigd.|
 |50135|Wachtwoordwijziging is vereist om account gevaar.|
@@ -133,8 +133,8 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |52004|Gebruiker heeft geen toestemming gegeven voor toegang tot LinkedIn-resources. |
 |53000|Voor beleid voor voorwaardelijke toegang is een compatibel apparaat vereist. Het apparaat is niet compatibel. Laat de gebruiker die hun apparaat inschrijven bij een goedgekeurde MDM-provider, zoals Intune.|
 |53001|Voor beleid voor voorwaardelijke toegang is een domeindeelname-apparaat vereist en het apparaat neemt niet deel. Apparaat lid zijn van de gebruiker gebruikt een domein.|
-|53002|Gebruikte toepassing is niet goedgekeurd voor voorwaardelijke toegang. Gebruiker moet een van de apps uit de lijst met goedgekeurde toepassingen gebruiken om toegang te krijgen.|
-|53003|Toegang is geblokkeerd vanwege beleid voor voorwaardelijke toegang.|
+|53002|Toepassing die wordt gebruikt, is niet een goedgekeurde toepassing voor voorwaardelijke toegang. Gebruiker moet een van de apps uit de lijst met goedgekeurde toepassingen gebruiken om toegang te krijgen.|
+|53003|Toegang is geblokkeerd vanwege een beleid voor voorwaardelijke toegang.|
 |53004|Gebruiker moet multi-factor authentication-registratieproces voltooien om toegang te krijgen tot deze inhoud. Gebruiker moet zich registreren voor multi-factor authentication.|
 |65001|Toepassing X heeft geen toegangsmachtiging voor toepassing Y of de machtiging is ingetrokken. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een interactieve autorisatieaanvraag voor deze gebruiker en resource. Of de gebruiker of beheerder heeft niet toegestaan voor het gebruik van de toepassing met ID X. Send een autorisatieaanvraag naar uw tenant-beheerder om te handelen namens de App: Y voor Resource: Z.|
 |65004|Gebruiker heeft geweigerd toestemming te geven app-toegang. Laat de gebruiker zich opnieuw aanmelden en toestemming geven voor de app|

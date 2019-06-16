@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fde10da8d46a3aa5d0163a89d1212911701c4b60
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: b8507bdbf66dc003b6f54317eb526c0e468b9f2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064375"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 De [kennisdatabase ontwikkelingscyclus](../Concepts/development-lifecycle-knowledge-base.md) helpt u over het beheren van uw KB van begin tot einde. Gebruik deze aanbevolen procedures te verbeteren van uw knowledge base en biedt betere resultaten van uw toepassing/chat bot-eindgebruikers.
@@ -46,7 +46,7 @@ Chit chat wordt ondersteund voor verschillende vooraf gedefinieerde persoonlijkh
 
 |Persoonlijkheid |QnA Maker-gegevensset-bestand |
 |---------|-----|
-|Professioneel |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Professional |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
 |Beschrijvende |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
 |Witty |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
 |Caring |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
@@ -113,7 +113,7 @@ QnA Maker kunnen gebruikers [samenwerken](../How-to/collaborate-knowledge-base.m
 
 ## <a name="active-learning"></a>Actief leren
 
-[Actief leren](../How-to/improve-knowledge-base.md) biedt de beste taak van het alternatieve vragen stellen wanneer er een breed scala aan kwaliteit en kwantiteit van query's op basis van gebruikers. Het is belangrijk om toe te staan van client-toepassingen gebruikersquery's om deel te nemen in de actieve feedback-lus zonder censuur leren. Als u vragen worden voorgesteld in de QnA Maker portal, kunt u **[filteren op suggesties](../How-To/improve-knowledge-base.md)** vervolgens beoordeelt en accepteert of weigert die suggesties. 
+[Actief leren](../How-to/improve-knowledge-base.md) biedt de beste taak van het alternatieve vragen stellen wanneer er een breed scala aan kwaliteit en kwantiteit van query's op basis van gebruikers. Het is belangrijk om toe te staan van client-toepassingen gebruikersquery's om deel te nemen in de actieve feedback-lus zonder censuur leren. Als u vragen worden voorgesteld in de QnA Maker portal, kunt u **[filteren op suggesties](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** vervolgens beoordeelt en accepteert of weigert die suggesties. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

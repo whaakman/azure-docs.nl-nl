@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b657d54c3ebbe5afc20fc98c1348bb783410df60
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150324"
 ---
 Wanneer u een clientcertificaat genereert, wordt deze automatisch geïnstalleerd op de computer die u hebt gebruikt voor het genereren. Als u het clientcertificaat installeren op een andere clientcomputer wilt, moet u voor het exporteren van het clientcertificaat dat u hebt gegenereerd.
@@ -37,4 +37,4 @@ Wanneer u een clientcertificaat genereert, wordt deze automatisch geïnstalleerd
    ![te exporteren bestand](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
 7. Klik op **Voltooien** om het certificaat te exporteren.
 
-   ![voltooien](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
+   ![Einddatum](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)

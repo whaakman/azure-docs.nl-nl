@@ -16,14 +16,14 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832466"
 ---
 # <a name="restore-an-app-in-azure"></a>Een app in Azure herstellen
-Dit artikel leest u hoe u een app in herstellen [Azure App Service](../app-service/overview.md) die u eerder hebt back-up (Zie [maakt u een Back-up van uw app in Azure](manage-backup.md)). U kunt uw app met de daaraan gekoppelde databases op verzoek herstellen naar een vorige versie, of een nieuwe app maken op basis van back-ups van uw oorspronkelijke app. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
+Dit artikel leest u hoe u een app in herstellen [Azure App Service](../app-service/overview.md) die u eerder hebt back-up (Zie [maakt u een Back-up van uw app in Azure](manage-backup.md)). U kunt uw app met de gekoppelde databases op verzoek herstellen naar een eerdere status of maak een nieuwe app op basis van een back-ups van uw oorspronkelijke app. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)

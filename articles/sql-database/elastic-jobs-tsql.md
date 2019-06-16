@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475810"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
@@ -456,7 +456,7 @@ De beschrijving van de taak. de beschrijving is nvarchar(512), met een standaard
 [  **\@ingeschakeld =** ] ingeschakeld  
 Of de planning van de taak is ingeschakeld. Ingeschakeld is bits, met een standaardwaarde van 0 (uitgeschakeld). Als u 0 opgeeft, wordt de taak is niet ingeschakeld en wordt niet uitgevoerd volgens schema; maar kan deze handmatig worden uitgevoerd. Als 1, wordt de taak wordt uitgevoerd volgens schema, en kan ook handmatig worden uitgevoerd.
 
-[ **\@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =** ] schedule_interval_type  
 De waarde geeft aan wanneer de taak wordt uitgevoerd. schedule_interval_type kan is nvarchar(50), met een standaardwaarde van één keer, en een van de volgende waarden:
 - 'Eenmaal'
 - 'Minutes',
@@ -1244,7 +1244,7 @@ Geeft alle taken.
 |**job_name**|  nvarchar(128)   |Naam van de taak.|
 |**job_id**|    uniqueidentifier    |De unieke ID van de taak.|
 |**job_version**    |int    |De versie van de taak (automatisch bijgewerkt telkens wanneer die de taak is gewijzigd).|
-|**Beschrijving**    |nvarchar(512)| Beschrijving voor de taak. ingeschakelde bit geeft aan of de taak is ingeschakeld of uitgeschakeld. 1 geeft aan dat de ingeschakelde taken en 0 geeft aan dat de uitgeschakelde taken.|
+|**description**    |nvarchar(512)| Beschrijving voor de taak. ingeschakelde bit geeft aan of de taak is ingeschakeld of uitgeschakeld. 1 geeft aan dat de ingeschakelde taken en 0 geeft aan dat de uitgeschakelde taken.|
 |**schedule_interval_type** |nvarchar(50)   |Waarde die aangeeft wanneer de taak wordt uitgevoerd: 'Eenmaal', 'Minuten', 'Uur', ' dagen', 'Weken', 'Maanden'
 |**schedule_interval_count**|   int|    Het aantal perioden schedule_interval_type optreden tussen elke uitvoering van de taak.|
 |**schedule_start_time**    |datetime2(7)|  De datum en tijd waarop die de taak is de laatste uitvoering is gestart.|

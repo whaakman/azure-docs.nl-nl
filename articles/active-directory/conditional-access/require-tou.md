@@ -1,6 +1,6 @@
 ---
-title: Snelstartgids - gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps die zijn beveiligd met voorwaardelijke toegang van Azure Active Directory vereisen | Microsoft Docs
-description: In deze snelstartgids leert u hoe u kunt vereisen dat de gebruiksrechtovereenkomst worden geaccepteerd voordat de toegang tot de geselecteerde cloud-apps wordt verleend voor voorwaardelijke toegang van Azure Active Directory.
+title: Snelstartgids - gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps die zijn beveiligd met Azure Active Directory voor voorwaardelijke toegang vereisen | Microsoft Docs
+description: In deze snelstartgids leert u hoe u kunt vereisen dat de gebruiksrechtovereenkomst worden geaccepteerd voordat de toegang tot de geselecteerde cloud-apps met Azure Active Directory voor voorwaardelijke toegang wordt verleend.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a3523a050a021f3a98c144efe14d692704fba63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112218"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Quickstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen
 
@@ -25,7 +25,7 @@ Voordat u toegang tot bepaalde cloud-apps in uw omgeving, is het raadzaam om op 
 - Een eenvoudige methode voor het configureren van gebruiksvoorwaarden
 - De optie voor het accepteren van de gebruiksrechtovereenkomst via beleid voor voorwaardelijke toegang vereisen  
 
-Deze quickstart laat zien hoe u configureert een [beleid voor voorwaardelijke toegang van Azure AD](../active-directory-conditional-access-azure-portal.md) waarvoor een gebruiksrechtovereenkomst kunnen worden geaccepteerd voor een geselecteerde cloud-app in uw omgeving is vereist.
+Deze quickstart laat zien hoe u configureert een [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md) waarvoor een gebruiksrechtovereenkomst kunnen worden geaccepteerd voor een geselecteerde cloud-app in uw omgeving is vereist.
 
 ![Beleid maken](./media/require-tou/5555.png)
 
@@ -35,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Als u wilt het scenario in deze snelstartgids hebt voltooid, hebt u het volgende nodig:
 
-- **Toegang tot een Azure AD Premium-editie** -voorwaardelijke toegang van Azure AD is een Azure AD Premium-capaciteit.
+- **Toegang tot een Azure AD Premium-editie** -Azure AD voor voorwaardelijke toegang is een Azure AD Premium-capaciteit.
 - **Een testaccount met de naam Isabella Simonsen** : als u niet hoe ik een testaccount maakt weet, Zie [cloudgebruikers toevoegen](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Test de aanmelding
@@ -57,7 +57,7 @@ In deze sectie biedt u de stappen voor het maken van een voorbeeld van een gebru
 
 1. Type **mijn gebruiksvoorwaarden**, en sla het document op uw computer als **mytou.pdf**.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of beheerder voor voorwaardelijke toegang.
+1. Aanmelden bij uw [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of een beheerder van voorwaardelijke toegang.
 
 1. Klik in de Azure-portal op de navigatiebalk links op **Azure Active Directory**.
 
@@ -95,7 +95,7 @@ In deze sectie biedt u de stappen voor het maken van een voorbeeld van een gebru
 
 ## <a name="create-your-conditional-access-policy"></a>Uw beleid voor voorwaardelijke toegang maken
 
-Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid maken. Maakt gebruik van het scenario in deze Quick Start:
+Deze sectie wordt beschreven hoe u het vereiste beleid voor voorwaardelijke toegang maken. Maakt gebruik van het scenario in deze Quick Start:
 
 - De Azure-portal als tijdelijke aanduiding voor een cloud-app waarvoor uw gebruiksvoorwaarden worden geaccepteerd. 
 - De voorbeeldgebruiker in voor het testen van het beleid voor voorwaardelijke toegang.  
@@ -170,7 +170,7 @@ Stel in het beleid:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Een gesimuleerde aanmelding evalueren
 
-Nu u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u weten of het werkt zoals u wilt. Gebruik als een eerste stap de voorwaardelijke toegang beleid hulpprogramma what-if om te simuleren een aanmelding van uw testgebruiker. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport.  
+Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waarschijnlijk weet of deze werkt zoals verwacht. Gebruik als een eerste stap de voorwaardelijke toegang beleid hulpprogramma what-if om te simuleren een aanmelding van uw testgebruiker. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport.  
 
 Initialiseren van de wat als hulpprogramma voor het evalueren van beleid is ingesteld:
 
@@ -188,7 +188,7 @@ Te klikken op **wat gebeurt er als** maakt u een simulatierapport waarin wordt w
 
 1. Op de [voorwaardelijke toegang - beleid](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) in het menu bovenaan op de pagina, klikt u op **wat gebeurt er als**.  
 
-   ![What If](./media/require-tou/14.png)
+   ![Wat als](./media/require-tou/14.png)
 
 1. Klik op **gebruikers**, selecteer **Isabella Simonsen**, en klik vervolgens op **Selecteer**.
 
@@ -210,7 +210,7 @@ Te klikken op **wat gebeurt er als** maakt u een simulatierapport waarin wordt w
 
 1. Klik op **wat gebeurt er als**.
 
-## <a name="test-your-conditional-access-policy"></a>Uw voorwaardelijke toegangsbeleid testen
+## <a name="test-your-conditional-access-policy"></a>Testen van uw beleid voor voorwaardelijke toegang
 
 In de vorige sectie hebt u geleerd hoe u een gesimuleerde aanmelding evalueren. Naast een simulatie, moet u ook testen van uw beleid voor voorwaardelijke toegang om ervoor te zorgen dat deze naar verwachting werkt.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472032"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Instellen van herstel na noodgevallen voor een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery
@@ -65,7 +65,7 @@ Voor het maken van dit artikel, zijn VMware-machines met Windows Server 2012 R2 
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysieke server** | Ja | Ja
-**Azure** | N.v.t. | Ja
+**Azure** | N.V.T. | Ja
 
 ### <a name="sharepoint-versions"></a>SharePoint-versies
 De volgende versies van de SharePoint-server worden ondersteund.

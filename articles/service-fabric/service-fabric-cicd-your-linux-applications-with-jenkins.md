@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
 ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038685"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins gebruiken om te bouwen en implementeren van uw Linux-toepassingen
@@ -298,7 +298,7 @@ Voor ontwikkel- en testomgevingen, kunt u Azure-referenties of het eindpunt voor
 
 1. Volg de stappen in een Azure Active Directory service-principal maken en toewijzen van machtigingen in uw Azure-abonnement, [gebruikt de portal voor het maken van een Azure Active Directory-toepassing en service-principal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Let op het volgende:
 
-   * Tijdens de stappen in het onderwerp te volgen, moet kopiëren en opslaan van de volgende waarden: *Toepassings-ID*, *Toepassingssleutel*, *map-ID (Tenant-ID)*, en *abonnements-ID*. U moet de Azure-referenties in Jenkins worden geconfigureerd.
+   * Tijdens de stappen in het onderwerp te volgen, moet kopiëren en opslaan van de volgende waarden: *Toepassings-ID*, *Toepassingssleutel*, *map-ID (Tenant-ID)* , en *abonnements-ID*. U moet de Azure-referenties in Jenkins worden geconfigureerd.
    * Als u geen de [vereiste machtigingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) op uw directory gebruikt, moet u vraag een beheerder maken van de service-principal voor u of u de machtigingen te verlenen, of moet u het configureren van het eindpunt voor uw -cluster in de **acties na bouwen** voor uw Jenkins-taak.
    * In de [maken van een Azure Active Directory-toepassing](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) sectie, kunt u een goed ingedeelde URL voor de **aanmeldings-URL**.
    * In de [toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) sectie, kunt u uw toepassing de *lezer* -rol op de resourcegroep voor uw cluster.

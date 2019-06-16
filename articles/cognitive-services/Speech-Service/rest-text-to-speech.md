@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 59155b41906ffd401b971bee1248a225d0c33657
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237071"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072457"
 ---
 # <a name="text-to-speech-rest-api"></a>Text to Speech REST-API
 
@@ -54,12 +54,12 @@ De `voices/list` eindpunt kunt u een volledige lijst van stemmen voor een specif
 | Frankrijk - centraal | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India - centraal | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Japan - oost | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Korea Centraal | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Korea - centraal | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | US - noord-centraal | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa - noord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | US - zuid-centraal | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Azië - zuidoost | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| VK Zuid | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Verenigd Koninkrijk Zuid | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa -west | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | US - west | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | US - west 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -68,11 +68,11 @@ De `voices/list` eindpunt kunt u een volledige lijst van stemmen voor een specif
 
 Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
 
-| Koptekst | Description | Vereiste / optioneel |
+| Header | Description | Vereiste / optioneel |
 |--------|-------------|---------------------|
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Vereist |
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Aanvraagbody
 
 Er is een instantie niet vereist voor `GET` aanvragen naar dit eindpunt.
 
@@ -159,7 +159,7 @@ Deze regio's worden ondersteund voor tekst naar spraak met behulp van de REST-AP
 
 Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
 
-| Koptekst | Description | Vereiste / optioneel |
+| Header | Description | Vereiste / optioneel |
 |--------|-------------|---------------------|
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Vereist |
 | `Content-Type` | Hiermee geeft u het type inhoud voor de opgegeven tekst. Waarde geaccepteerd: `application/ssml+xml`. | Vereist |
@@ -168,7 +168,7 @@ Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
 
 ### <a name="audio-outputs"></a>Audio-uitvoer
 
-Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke aanvraag als de `X-Microsoft-OutputFormat` header. Elk omvat een bitrate en type codering. De Speech Services biedt ondersteuning voor 24 KHz, 16 KHz en 8 KHz audio weergeeft.
+Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke aanvraag als de `X-Microsoft-OutputFormat` header. Elk omvat een bitrate en type codering. De Speech Services biedt ondersteuning voor 24 kHz, 16 kHz en 8 kHz audio weergeeft.
 
 |||
 |-|-|
@@ -181,9 +181,9 @@ Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke 
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen.
+> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24 kHz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen.
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van elk `POST` aanvraag wordt verzonden als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md). SSML kunt u de spraak- en taal van de kunstmatige spraak geretourneerd door de Text to Speech-service kiezen. Zie voor een volledige lijst van ondersteunde stemmen, [taalondersteuning](language-support.md#text-to-speech).
 

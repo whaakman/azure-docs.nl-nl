@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067395"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Serverlogboeken in Azure Database for PostgreSQL - één Server
@@ -50,9 +50,9 @@ De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van het ui
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Logboekregistratie op, bijvoorbeeld: U ZIET DAT LOGBOEK, FOUT: |
-| Bericht | Primaire logboekbericht | 
-| Domain | Server-versie, voorbeeld: postgres-10 |
-| Detail | Secundaire logboekbericht (indien van toepassing) |
+| Message | Primaire logboekbericht | 
+| Domein | Server-versie, voorbeeld: postgres-10 |
+| Details | Secundaire logboekbericht (indien van toepassing) |
 | Kolomnaam | Naam van de kolom (indien van toepassing) |
 | SchemaName | Naam van het schema (indien van toepassing) |
 | DatatypeName | Naam van het gegevenstype (indien van toepassing) |

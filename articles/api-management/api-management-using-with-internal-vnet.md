@@ -14,19 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5d8a724a0b4dd6899a71187176b9d444e5fe19c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051690"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
 * Extern
 * Intern
 
-Wanneer er wordt een API Management geïmplementeerd in de modus voor intern virtueel netwerk, zijn alle service-eindpunten (gateway, de portal voor ontwikkelaars, de Azure portal, direct beheer en Git) alleen zichtbaar binnen een virtueel netwerk dat u de toegang tot beheert. Geen van de service-eindpunten zijn geregistreerd op de openbare DNS-server.
+Wanneer er wordt een API Management geïmplementeerd in de modus voor intern virtueel netwerk, zijn alle service-eindpunten (de proxygateway, de Developer-portal, direct beheer en Git) alleen zichtbaar binnen een virtueel netwerk dat u de toegang tot beheren. Geen van de service-eindpunten zijn geregistreerd op de openbare DNS-server.
+
+> [!NOTE]
+> Omdat er geen DNS-vermeldingen voor de service-eindpunten, deze eindpunten zijn niet meer toegankelijk tot [DNS-server is geconfigureerd](#apim-dns-configuration) voor het virtuele netwerk.
 
 U kunt de volgende scenario's met behulp van API Management in de modus voor interne, bereiken:
 
@@ -116,10 +119,12 @@ Als u een aangepaste DNS-server in een virtueel netwerk gebruikt, kunt u ook een
 2. Vervolgens maakt u records in de DNS-server toegang hebben tot de eindpunten die alleen toegankelijk vanuit uw virtuele netwerk zijn.
 
 ## <a name="routing"> </a> Routing
-+ Een gelijke persoonlijke virtuele IP-adres uit het subnetbereik wordt gereserveerd en gebruikt voor toegang tot de API Management service-eindpunten van binnen het vnet.
-+ Een gelijke openbare IP-adres (VIP) wordt ook worden gereserveerd voor toegang tot het beheer van service-eindpunt alleen via poort 3443.
-+ Een IP-adres van een subnet-IP-adresbereik (DIP) wordt gebruikt voor toegang tot resources binnen het vnet en een openbare IP-adres (VIP) wordt gebruikt voor toegang tot bronnen buiten het vnet.
-+ Met Load Balancing openbare en privé-IP-adressen kunnen worden gevonden op de blade overzicht/Essentials in Azure portal.
+
+* Een gelijke *persoonlijke* virtuele IP-adres uit het subnetbereik worden gereserveerd en gebruikt voor toegang tot de API Management service-eindpunten van binnen het virtuele netwerk. Dit *persoonlijke* IP-adres kan worden gevonden op de blade overzicht van de service in Azure portal. Dit adres moet worden geregistreerd bij de DNS-servers die worden gebruikt door het virtuele netwerk.
+* Een gelijke *openbare* IP-adres (VIP) wordt ook worden gereserveerd voor toegang tot het beheer van service-eindpunt via poort 3443. Dit *openbare* IP-adres kan worden gevonden op de blade overzicht van de service in Azure portal. De *openbare* IP-adres wordt alleen gebruikt voor besturingselement vlak van het verkeer naar de `management` eindpunt meer dan poort 3443 en kan worden vergrendeld omlaag naar de [ApiManagement] [ ServiceTags] servicetag .
+* IP-adressen uit het subnetbereik van IP (DIP) wordt toegewezen aan elke virtuele machine in de service en wordt gebruikt voor toegang tot resources binnen het virtuele netwerk. Een openbaar IP-adres (VIP) wordt gebruikt voor toegang tot bronnen buiten het virtuele netwerk. Als een lijst met IP-beperking worden gebruikt om resources binnen het virtuele netwerk te beveiligen, wordt het volledige bereik voor het subnet waarin de API Management-service is geïmplementeerd moet opgegeven als u wilt toestaan of beperken van toegang van de service.
+* De met gelijke taakverdeling openbare en privé-IP-adressen kunnen worden gevonden op de blade overzicht in Azure portal.
+* De IP-adressen die zijn toegewezen voor openbare en persoonlijke toegang kunnen veranderen als de service is verwijderd uit en vervolgens weer in het virtuele netwerk toegevoegd. Als dit gebeurt, kan het nodig zijn om bij te werken van DNS-registraties, routeringsregels en IP-beperkingslijsten binnen het virtuele netwerk zijn.
 
 ## <a name="related-content"> </a>Gerelateerde inhoud
 Zie de volgende artikelen voor meer informatie:

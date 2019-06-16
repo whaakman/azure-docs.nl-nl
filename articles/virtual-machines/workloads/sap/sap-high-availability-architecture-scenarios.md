@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936222"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architectuur voor hoge beschikbaarheid en scenario's voor SAP NetWeaver
@@ -369,7 +369,7 @@ Het aantal update- en foutdomeinen domeinen die kunnen worden gebruikt door een 
 Als u een paar SAP application server-exemplaren in hun toegewezen virtuele machines implementeert, ervan uitgaande dat we beschikken over vijf updatedomeinen, in de volgende afbeelding dan ontstaat. De werkelijke maximumaantal update- en foutdomeinen domeinen binnen een beschikbaarheidsset in de toekomst mogelijk wijzigen:
 
 ![Afbeelding 2: Hoge beschikbaarheid van SAP-toepassingsservers in een Azure-beschikbaarheidsset][planning-guide-figure-3000]
-_**afbeelding 2:** Hoge beschikbaarheid van SAP-toepassingsservers in een Azure-beschikbaarheidsset instellen_
+ _**afbeelding 2:** Hoge beschikbaarheid van SAP-toepassingsservers in een Azure-beschikbaarheidsset instellen_
 
 Zie voor meer informatie, [de beschikbaarheid van Windows virtuele machines in Azure beheren][azure-virtual-machines-manage-availability].
 

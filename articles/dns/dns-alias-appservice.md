@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790739"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Met load balancing Azure-web-apps hosten in de apex van de zone
@@ -84,10 +84,10 @@ U kunt nu de eindpunten voor de twee web-apps maken.
 
 1. Open de resourcegroep en klikt u op uw Traffic Manager-profiel.
 2. Klik in de linkerkolom op **eindpunten**.
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 4. Gebruik de volgende tabel de eindpunten configureren:
 
-   |Type  |Name  |Doel  |Locatie  |Instellingen voor aangepaste headers|
+   |Type  |Name  |Doel  |Locatie  |Aangepaste Header-instellingen|
    |---------|---------|---------|---------|---------|
    |Extern eindpunt     |End-01|IP-adres dat u hebt genoteerd voor App-01|US - oost|host:\<de URL die u hebt genoteerd voor App-01\><br>Voorbeeld: **host: de app-01.azurewebsites.net**|
    |Extern eindpunt     |End-02|U hebt genoteerd voor App-02 IP-adres|US - centraal|host:\<de URL die u hebt genoteerd voor App-02\><br>Voorbeeld: **host: de app-02.azurewebsites.net**

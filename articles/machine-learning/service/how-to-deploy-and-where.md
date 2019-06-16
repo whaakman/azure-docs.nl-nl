@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2c54f7192827376bb157915738ee781f45433267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753088"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059233"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -108,6 +108,16 @@ Het script bevat twee functies die worden geladen en het model uitvoeren:
 * `init()`: Deze functie worden doorgaans het model in een globale objecttoegang geladen. Deze functie wordt uitgevoerd slechts eenmaal wanneer de Docker-container voor uw webservice wordt gestart.
 
 * `run(input_data)`: Deze functie maakt gebruik van het model om te voorspellen van een waarde op basis van de ingevoerde gegevens. Invoer en uitvoer aan het run maken doorgaans gebruik van JSON voor serialisatie en het deserialiseren. Ook kunt u werken met onbewerkte binaire gegevens. U kunt de gegevens te transformeren voordat ze worden verzonden naar het model of voordat u terugkeert naar de client.
+
+#### <a name="what-is-getmodelpath"></a>Wat is get_model_path?
+Als u een model registreert, kunt u een modelnaam die wordt gebruikt voor het beheren van het model in het register opgeven. U gebruikt deze naam in de get_model_path API die resulteert in het pad van de model-bestanden op het lokale bestandssysteem. Als u zich registreert voor een map of een verzameling van bestanden, retourneert deze API het pad naar de map waarin de bestanden.
+
+Als u een model registreert, geeft u deze een naam die overeenkomt met waar het model is geplaatst, lokaal of tijdens de implementatie van service.
+
+Het onderstaande voorbeeld retourneert een pad naar een enkel bestand met de naam 'sklearn_mnist_model.pkl' (die is geregistreerd met de naam 'sklearn_mnist')
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>(Optioneel) Automatisch genereren van Swagger-schema
 
@@ -248,7 +258,9 @@ In dit voorbeeld bevat de configuratie van de volgende items:
 * De [vermelding script](#script), die wordt gebruikt voor het verwerken van webaanvragen naar de geïmplementeerde service verzonden
 * Het conda-bestand met een beschrijving van de Python-pakketten die nodig zijn voor Deductie
 
-Zie voor meer informatie over InferenceConfig functionaliteit de [geavanceerde configuratie](#advanced-config) sectie.
+Zie voor meer informatie over InferenceConfig functionaliteit de [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) klasse verwijzing.
+
+Zie voor meer informatie over het gebruik van een aangepaste Docker-installatiekopie met Deductie configuratie [over het implementeren van een model met behulp van een aangepaste Docker-installatiekopie](how-to-deploy-custom-docker-image.md).
 
 ### <a name="3-define-your-deployment-configuration"></a>3. De configuratie van implementatie definiëren
 
@@ -265,6 +277,15 @@ De volgende tabel geeft een voorbeeld van het maken van een implementatieconfigu
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 De volgende secties laten zien hoe u de configuratie van de implementatie te maken en vervolgens worden gebruikt om de webservice te implementeren.
+
+### <a name="optional-profile-your-model"></a>Optioneel: Het model van uw profiel
+Voordat u uw modellen vervolgens als een service implementeert, kunt u profielen om te controleren van de optimale CPU en geheugen nodig.
+U kunt dit doen via de SDK of de CLI.
+
+U kunt onze SDK-documentatie bekijken voor meer informatie: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+Model profilering resultaten worden verzonden als een object uitvoeren.
+Details van het schema Model profiel vindt u hier: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## <a name="deploy-to-target"></a>Implementeren naar doel
 
@@ -492,54 +513,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## <a name="advanced-settings"></a>Geavanceerde instellingen 
-
-**<a id="customimage"></a> Een aangepaste basisinstallatiekopie gebruiken**
-
-Intern, InferenceConfig Hiermee maakt u een Docker-installatiekopie met het model en andere items die nodig zijn voor de service. Als niet is opgegeven, wordt de basisinstallatiekopie van een standaard gebruikt.
-
-Bij het maken van een installatiekopie moet worden gebruikt met de configuratie van Deductie, moet de volgende vereisten voldoen aan de installatiekopie:
-
-* Ubuntu 16.04 of hoger.
-* Conda 4.5. # of hoger.
-* Python 3.5. # of 3.6. #.
-
-Als u wilt gebruiken een aangepaste installatiekopie, het `base_image` eigenschap van de configuratie Deductie naar het adres van de installatiekopie. Het volgende voorbeeld ziet u hoe u een installatiekopie op beide een openbare en persoonlijke Azure Container Registry gebruiken:
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-De volgende afbeelding URI's voor installatiekopieën die worden aangeboden door Microsoft zijn, en kan worden gebruikt zonder op te geven van een waarde voor de naam of het wachtwoord van gebruiker:
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-Voor het gebruik van deze installatiekopieën, stel de `base_image` naar de URI in de bovenstaande lijst. Stel `base_image_registry.address` naar `mcr.microsoft.com`.
-
-> [!IMPORTANT]
-> Microsoft-installatiekopieën die gebruikmaken van CUDA of TensorRT moeten alleen worden gebruikt op Microsoft Azure-Services.
-
-Zie voor meer informatie over het uploaden van uw eigen installatiekopieën naar een Azure Container Registry [uw eerste installatiekopie naar een persoonlijk Docker-containerregister pushen](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-Als uw model wordt getraind op Azure Machine Learning-Computing, __versie 1.0.22 of hoger__ van de SDK van Azure Machine Learning, een installatiekopie is gemaakt tijdens de training. Het volgende voorbeeld ziet u hoe u deze installatiekopie te gebruiken:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 Als u wilt verwijderen van een geïmplementeerde webservice, gebruikt u `service.delete()`.
 Als u wilt een geregistreerde model verwijderen, gebruikt u `model.delete()`.
@@ -547,6 +520,7 @@ Als u wilt een geregistreerde model verwijderen, gebruikt u `model.delete()`.
 Zie voor meer informatie de documentatie bij [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), en [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Volgende stappen
+* [Over het implementeren van een model met behulp van een aangepaste Docker-installatiekopie](how-to-deploy-custom-docker-image.md)
 * [Problemen met implementatie oplossen](how-to-troubleshoot-deployment.md)
 * [Azure Machine Learning-webservices met SSL beveiligde](how-to-secure-web-service.md)
 * [Een ML-Model dat is geïmplementeerd als een webservice gebruiken](how-to-consume-web-service.md)

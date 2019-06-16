@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298820"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Speciale overwegingen voor exemplaren
@@ -33,7 +33,7 @@ De [Microsoft Cloud Duitsland](https://www.microsoft.de/cloud-deutschland) is ee
 | --- |
 | \*.microsoftonline.de |
 | \*.windows.net |
-| + Intrekkingslijsten voor certificaten |
+| \+ Intrekkingslijsten voor certificaten |
 
 Wanneer u zich bij uw Azure AD-tenant aanmelden, moet u een account in het domein onmicrosoft.de gebruiken.
 
@@ -53,7 +53,7 @@ Deze cloud werd ondersteund door eerdere releases van DirSync. Van build 1.1.180
 | \*.microsoftonline.us |
 | \*. windows.net (vereist voor automatische detectie van Azure Government-tenant) |
 | \*.gov.us.microsoftonline.com |
-| + Intrekkingslijsten voor certificaten |
+| \+ Intrekkingslijsten voor certificaten |
 
 > [!NOTE]
 > Vanaf Azure AD Connect versie 1.1.647.0, als de waarde AzureInstance in het register is niet langer vereist, mits *. windows.net is geopend op uw proxy-server (s). Voor klanten die geen internetverbinding vanaf hun Azure AD Connect-server (s) toestaan, kan de volgende handmatige configuratie worden gebruikt.

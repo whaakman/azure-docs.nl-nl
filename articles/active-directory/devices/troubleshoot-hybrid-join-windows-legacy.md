@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a68e5a12333e1ee9e920b69599796164534e3c25
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110531"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory gekoppelde downlevel-apparaten 
 
@@ -38,7 +38,7 @@ Zie voor Windows 10 of Windows Server 2016, [probleemoplossing hybride Azure Act
 
 In dit artikel wordt ervan uitgegaan dat u hebt [geconfigureerde hybride Azure Active Directory gekoppelde apparaten](hybrid-azuread-join-plan.md) ter ondersteuning van de volgende scenario's:
 
-- Conditional access op basis van apparaten
+- Voorwaardelijke toegang op basis van apparaat
 
 
 In dit artikel biedt hulp bij probleemoplossing voor het oplossen van problemen.  

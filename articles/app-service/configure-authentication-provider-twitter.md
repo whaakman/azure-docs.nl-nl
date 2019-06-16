@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851535"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Uw App Service-toepassing voor het gebruik Twitter-aanmelding configureren
@@ -35,7 +35,7 @@ U moet een Twitter-account met een geverifieerde e-mailadres en telefoonnummer g
 3. Typ in het **naam** en een **beschrijving** voor uw nieuwe app. Plakken in van uw toepassing **URL** voor de **Website** waarde. Vervolgens voor de **URL voor terugbellen**, plak de **URL voor terugbellen** u eerder hebt gekopieerd. Dit is de gateway van uw mobiele App toegevoegd aan het pad */.auth/login/twitter/callback*. Bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Zorg ervoor dat u van het HTTPS-schema gebruikmaakt.
 4. Aan de onderkant van de pagina, lees en accepteer de voorwaarden. Klik vervolgens op **uw Twitter-toepassing maken**. Dit wordt weergegeven als de app de details van de toepassing geregistreerd.
 5. Klik op de **instellingen** tabblad controle **toestaan dat deze toepassing worden gebruikt voor het aanmelden met Twitter**, klikt u vervolgens op **Update-instellingen**.
-6. Selecteer de **Keys and Access Tokens** tabblad. Noteer de waarden van **Consumer Key (API-sleutel)** en **Consumer secret (API-geheim)**.
+6. Selecteer de **Keys and Access Tokens** tabblad. Noteer de waarden van **Consumer Key (API-sleutel)** en **Consumer secret (API-geheim)** .
    
    > [!NOTE]
    > De consumentgeheim is een belangrijke beveiligingsreferentie. Dit geheim met iedereen delen en distribueren met uw app niet.

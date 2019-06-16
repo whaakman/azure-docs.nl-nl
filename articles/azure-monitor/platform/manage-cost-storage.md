@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061050"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Het gebruik en kosten met Azure Monitor logboeken beheren
 
@@ -108,10 +108,12 @@ De volgende stappen wordt beschreven hoe u configureren hoe lang logboek gegeven
 
 ## <a name="legacy-pricing-tiers"></a>Oudere Prijscategorieën
 
-Abonnementen die een Log Analytics-werkruimte of Application Insights-resource in het had vóór 2 April 2018, of zijn gekoppeld aan een Enterprise Agreement die is gestart op 1 februari 2019, blijven toegang hebben tot de oudere Prijscategorieën: Gratis, zelfstandig (Per GB) en Per knooppunt (OMS).  Toegang tot werkruimten in de prijscategorie gratis heeft de dagelijkse opname van gegevens beperkt tot 500 MB (met uitzondering van de gegevenstypen die worden verzameld door Azure Security Center) en het bewaren van gegevens is beperkt tot 7 dagen. De prijscategorie gratis is alleen bedoeld voor evaluatiedoeleinden. Toegang tot werkruimten in de zelfstandige of Per Prijscategorieën van knooppunten hebben toegang tot het bewaren van gegevens van 2 jaar. 
+Abonnementen die een Log Analytics-werkruimte of Application Insights-resource in het had vóór 2 April 2018, of zijn gekoppeld aan een Enterprise Agreement die is gestart op 1 februari 2019, blijven toegang hebben tot de oudere Prijscategorieën: **Gratis**, **zelfstandig (Per GB)** en **Per knooppunt (OMS)** .  Toegang tot werkruimten in de prijscategorie gratis heeft de dagelijkse opname van gegevens beperkt tot 500 MB (met uitzondering van de gegevenstypen die worden verzameld door Azure Security Center) en het bewaren van gegevens is beperkt tot 7 dagen. De prijscategorie gratis is alleen bedoeld voor evaluatiedoeleinden. Toegang tot werkruimten in de zelfstandige of Per Prijscategorieën van knooppunten hebben gebruiker configureerbare retentie van maximaal 2 jaar. 
 
 > [!NOTE]
 > Kies de Log Analytics voor het gebruik van de rechten die horen bij de aanschaf van OMS E1-Suite, OMS E2 Suite of OMS-invoegtoepassing voor System Center, *Per knooppunt* prijscategorie.
+
+De eerste gebruikers van Log Analytics hebt ook toegang tot de oorspronkelijke Prijscategorieën **Standard** en **Premium**, die het bewaren van gegevens van 30 en 365 dagen respectievelijk hebt opgelost. 
 
 ## <a name="changing-pricing-tier"></a>Prijscategorie wijzigen
 
@@ -410,6 +412,11 @@ Bij het maken van de waarschuwing voor de tweede query - wanneer wordt voorspeld
 Maak een nieuwe [Actiegroep](action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
 
 Wanneer u een waarschuwing ontvangt, gebruikt u de stappen in de volgende sectie om te bepalen waarom het-gebruik is hoger dan verwacht.
+
+## <a name="limits-summary"></a>Samenvatting van limieten
+
+Er zijn enkele aanvullende beperkingen voor Log Analytics, sommige hiervan afhankelijk zijn van de prijscategorie met Log Analytics. Deze worden beschreven [hier](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

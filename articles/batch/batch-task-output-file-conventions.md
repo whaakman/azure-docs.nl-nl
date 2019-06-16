@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791562"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Behoud van de taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET
@@ -59,7 +59,7 @@ Als u wilt zich blijven voordoen uitvoergegevens naar Azure Storage met behulp v
 
 1. Ga in Azure Portal naar uw Batch-account.
 1. Onder **instellingen**, selecteer **Opslagaccount**.
-1. Als u nog geen een Storage-account dat is gekoppeld aan uw Batch-account, klikt u op **Storage-Account (geen)**.
+1. Als u nog geen een Storage-account dat is gekoppeld aan uw Batch-account, klikt u op **Storage-Account (geen)** .
 1. Selecteer een opslagaccount in de lijst voor uw abonnement. Gebruik een Azure Storage-account dat in dezelfde regio als het Batch-account waar uw taken worden uitgevoerd voor de beste prestaties.
 
 ## <a name="persist-output-data"></a>Uitvoergegevens die worden behouden

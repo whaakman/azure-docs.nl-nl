@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
 ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485745"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ad-hoc analytics-query's uitvoeren voor meerdere Azure SQL-databases
@@ -96,7 +96,7 @@ In deze oefening wordt schema (de externe gegevensbron en definities van de exte
 
     ![externe gegevensbron maken](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   De externe tabellen die verwijzen naar tenanttabellen zijn gedefinieerd met **distributie = SHARDED(VenueId)**. Deze stuurt een query voor een bepaalde *VenueId* met de juiste database en verbetert de prestaties voor veel scenario's zoals weergegeven in de volgende sectie.
+   De externe tabellen die verwijzen naar tenanttabellen zijn gedefinieerd met **distributie = SHARDED(VenueId)** . Deze stuurt een query voor een bepaalde *VenueId* met de juiste database en verbetert de prestaties voor veel scenario's zoals weergegeven in de volgende sectie.
 
     ![externe tabellen maken](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 

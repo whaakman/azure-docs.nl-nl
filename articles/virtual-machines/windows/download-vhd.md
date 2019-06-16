@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076297"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Een Windows VHD vanuit Azure downloaden
@@ -36,7 +36,7 @@ Voor het gebruik van de VHD als een installatiekopie van een andere virtuele mac
 2.  [Verbinding maken met de virtuele machine](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3.  Open op de virtuele machine, het opdrachtpromptvenster als beheerder.
 4.  Wijzig de map in *%windir%\system32\sysprep* en sysprep.exe uitvoeren.
-5.  Selecteer in het dialoogvenster hulpprogramma voor systeemvoorbereiding **Voer System Out-of-Box Experience (OOBE)**, en zorg ervoor dat **Generalize** is geselecteerd.
+5.  Selecteer in het dialoogvenster hulpprogramma voor systeemvoorbereiding **Voer System Out-of-Box Experience (OOBE)** , en zorg ervoor dat **Generalize** is geselecteerd.
 6.  Selecteer in de opties voor afsluiten, **afsluiten**, en klik vervolgens op **OK**. 
 
 Voor het gebruik van de VHD als een schijf voor een nieuw exemplaar van een bestaande virtuele machine of een gegevensschijf, de volgende stappen uit:

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: nitinme
 ms.openlocfilehash: d5a3226050901f6feb17c4d9d6a6582cb622618b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65020192"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat is Azure Cognitive Services?
@@ -22,7 +22,7 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 
 ## <a name="vision-apis"></a>Vision API's
 
-|Servicenaam|Servicebeschrijving|
+|Servicenaam|Beschrijving van de service|
 |:-----------|:------------------|
 |[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")|De Computer Vision-service biedt u toegang tot geavanceerde algoritmen voor het verwerken van afbeeldingen en -informatie wordt geretourneerd.|
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|De Custom Vision Service kunt u aangepaste beeldclassificeerders te bouwen.|
@@ -33,7 +33,7 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 
 ## <a name="speech-apis"></a>Speech API's
 
-|Servicenaam|Servicebeschrijving|
+|Servicenaam|Beschrijving van de service|
 |:-----------|:------------------|
 |[Spraakservices](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "spraakservices")|Speech Service voegt spraak ingeschakeld voor toepassingen.|
 |[Sprekerherkenning-API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Sprekerherkenning-API") (Preview)|De Sprekerherkenning-API biedt algoritmen voor sprekeridentificatie en verificatie.|
@@ -42,7 +42,7 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 
 ## <a name="language-apis"></a>Taal-API 's
 
-|Servicenaam|Servicebeschrijving|
+|Servicenaam|Beschrijving van de service|
 |:-----------|:------------------|
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding service (LUIS) kunt uw toepassing om te begrijpen wat een persoon wil in hun eigen woorden.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker kunt u voor het bouwen van een vraag en antwoord service van uw semi-gestructureerde inhoud.|
@@ -50,9 +50,9 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator tekst")|Translator tekst biedt voor op basis van machine tekstomzetting in bijna-realtime.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer kunt u voor het extraheren van inzichten uit uw video.|
 
-## <a name="search-apis"></a>Zoek-API's
+## <a name="search-apis"></a>Zoeken-API 's
 
-|Servicenaam|Servicebeschrijving|
+|Servicenaam|Beschrijving van de service|
 |:-----------|:------------------|
 |[Zoeken in Bing nieuws](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "zoeken in Bing nieuws")|Zoeken in Bing nieuws retourneert een lijst van nieuwsartikelen blijkt dat relevant is voor query van de gebruiker.|
 |[Zoeken in Bing Video](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "zoeken in Bing Video")|Bing video's zoeken retourneert een lijst met video's blijkt dat relevant is voor query van de gebruiker.|
@@ -67,7 +67,7 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 
 ## <a name="decision-apis"></a>Besluit API 's
 
-|Servicenaam|Servicebeschrijving|
+|Servicenaam|Beschrijving van de service|
 |:-----------|:------------------|
 |[Detectie van afwijkingen](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaliedetectie Detector") (Preview)|Detectie van afwijkingen kunt u om te controleren en afwijkingen in uw tijdreeksgegevens detecteren.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator biedt bewaking voor de inhoud van mogelijk aanstootgevende, ongewenste en riskant.|

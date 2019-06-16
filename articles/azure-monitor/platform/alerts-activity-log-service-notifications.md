@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3157cef6952f01d689d3cb4a30c9d7c843095809
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405701"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071701"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Waarschuwingen voor activiteitenlogboek maken voor servicemeldingen
 ## <a name="overview"></a>Overzicht
@@ -92,7 +92,7 @@ Meer informatie over het [configureren van de webhook-meldingen voor bestaande b
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Waarschuwing met bestaande actiegroep met behulp van Azure portal
 
-1. Volg de stappen 1 tot en met 7 in de vorige sectie om te maken van de melding van de health service. 
+1. Volg de stappen 1 t/m 6 in de vorige sectie om te maken van de melding van de health service. 
 
 1. Onder **actiegroep definiëren**, klikt u op de **actie selecteren groep** knop. Selecteer de juiste actie.
 
@@ -196,7 +196,7 @@ Nadat u een waarschuwing gemaakt, wordt het weergegeven in de **waarschuwingen**
 
 * Deze bewerken.
 * Het verwijderen.
-* - Of uitschakelen, als u wilt tijdelijk stoppen of doorgaan met het ontvangen van meldingen voor de waarschuwing.
+* \- Of uitschakelen, als u wilt tijdelijk stoppen of doorgaan met het ontvangen van meldingen voor de waarschuwing.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [aanbevolen procedures voor het instellen van waarschuwingen van Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).

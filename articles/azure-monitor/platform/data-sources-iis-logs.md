@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604356"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Verzamelen van IIS-logboeken in Azure Monitor
@@ -33,7 +33,7 @@ Azure Monitor alleen ondersteuning biedt voor IIS-logboekbestanden opgeslagen in
 Configureren van IIS-logboeken in Azure Monitor uit de [geavanceerde instellingen menu](agent-data-sources.md#configuring-data-sources).  Er is geen configuratie vereist dan selecteren **verzamelen W3C-indeling IIS-logboekbestanden**.
 
 
-## <a name="data-collection"></a>Gegevens verzamelen
+## <a name="data-collection"></a>Gegevensverzameling
 Azure Monitor verzamelt IIS-logboekvermeldingen van elke agent die telkens wanneer het logboek wordt gesloten en er wordt een nieuwe gemaakt. Deze frequentie wordt bepaald door de **schema voor logboekregistraties bestand Rollover** instellen voor de IIS-site die één keer per dag standaard is. Bijvoorbeeld, als de instellingen is **per uur**, en vervolgens Azure Monitor het logboek voor elk uur verzamelt.  Als de instelling **dagelijkse**, en vervolgens Azure Monitor het logboek elke 24 uur verzamelt.
 
 
@@ -67,7 +67,7 @@ IIS-logboekrecords zijn een type **W3CIISLog** en hebben de eigenschappen in de 
 ## <a name="log-queries-with-iis-logs"></a>Logboeken-query's met IIS-logboeken
 De volgende tabel bevat voorbeelden van Logboeken-query's die IIS logboekrecords ophalen.
 
-| Query | Description |
+| Query’s uitvoeren | Description |
 |:--- |:--- |
 | W3CIISLog |Alle IIS-logboek records. |
 | W3CIISLog &#124; where scStatus==500 |Alle IIS-logboek records met een status van het resultaat van 500. |

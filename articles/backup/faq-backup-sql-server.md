@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: sachdevaswati
 ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700173"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Veelgestelde vragen over SQL Server-databases die worden uitgevoerd op een Azure-VM back-up
@@ -37,7 +37,7 @@ Onder bepaalde omstandigheden, wordt de Azure Backup-service geactiveerd corrige
 Automatisch-herstel knooppuntservice als een functie is ingeschakeld voor alle gebruikers standaard; Maar als u kiest voor opt-out van it, voert u de onderstaande:
 
   * Op de SQL Server-exemplaar in de *C:\Program Files\Azure werkbelasting Backup\bin* map maken of bewerken van de **ExtensionSettingsOverrides.json** bestand.
-  * In de **ExtensionSettingsOverrides.json**, stel *{"EnableAutoHealer": false}*.
+  * In de **ExtensionSettingsOverrides.json**, stel *{"EnableAutoHealer": false}* .
   * Sla uw wijzigingen op en sluit het bestand.
   * Open op de SQL Server-exemplaar **taak beheren** en start vervolgens opnieuw de **AzureWLBackupCoordinatorSvc** service.  
 

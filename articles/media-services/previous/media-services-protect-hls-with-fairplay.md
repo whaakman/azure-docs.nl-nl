@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c30a32466cbac795ef037a3295816e87995ad749
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8d5683cb060b63aebad7c68672c78f5b350a25d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073586"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Beveiligen van uw inhoud met Apple FairPlay of Microsoft PlayReady HLS
 
@@ -59,7 +59,7 @@ Het volgende is vereist als u Media Services leveren HLS versleuteld met FairPla
 
 De volgende dingen moeten worden ingesteld op Media Services sleutellevering aan clientzijde:
 
-  * **App-certificaat (AC)**: Dit is een pfx-bestand dat de persoonlijke sleutel bevat. U kunt dit bestand maken en versleutelen met een wachtwoord.
+  * **App-certificaat (AC)** : Dit is een pfx-bestand dat de persoonlijke sleutel bevat. U kunt dit bestand maken en versleutelen met een wachtwoord.
 
        Wanneer u een sleutel leveringsbeleid configureert, moet u opgeven dat wachtwoord en het pfx-bestand in Base 64-indeling.
 
@@ -82,7 +82,7 @@ De volgende dingen moeten worden ingesteld op Media Services sleutellevering aan
 
 De volgende dingen moeten zijn ingesteld door de client FPS:
 
-  * **App-certificaat (AC)**: Dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het, omdat deze is vereist voor de speler. De sleutelleveringsservice ontsleutelt deze met behulp van de bijbehorende persoonlijke sleutel.
+  * **App-certificaat (AC)** : Dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het, omdat deze is vereist voor de speler. De sleutelleveringsservice ontsleutelt deze met behulp van de bijbehorende persoonlijke sleutel.
 
 Als u wilt afspelen van een versleutelde FairPlay-stream een echte vraag eerste ophalen en genereer vervolgens een echt certificaat zijn. Dit proces wordt gemaakt van alle drie onderdelen:
 
@@ -134,7 +134,7 @@ U kunt player-apps ontwikkelen met behulp van de iOS SDK. Als u FairPlay inhoud 
 >
 >
 
-## <a name="streaming-urls"></a>Streaming-URL's
+## <a name="streaming-urls"></a>Streaming-URL 's
 Als uw asset is versleuteld met meer dan één DRM, moet u een tag versleuteling in de streaming-URL: (format = 'm3u8-aapl' codering = 'xxx').
 
 De volgende overwegingen zijn van toepassing:
@@ -513,7 +513,7 @@ namespace DynamicEncryptionWithFairPlay
             // Get a reference to the streaming manifest file from the  
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.LoList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 

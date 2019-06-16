@@ -3,7 +3,7 @@ title: Traffic Manager-Eindpunttypen | Microsoft Docs
 description: Dit artikel wordt uitgelegd voor verschillende soorten eindpunten die kunnen worden gebruikt met Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,18 +11,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: kumud
-ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.author: allensu
+ms.openlocfilehash: 469b6543b380cb6b3b10c3def8484bed944f8556
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071208"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
+
 Microsoft Azure Traffic Manager kunt u bepalen hoe netwerkverkeer wordt gedistribueerd naar implementaties van toepassingen die worden uitgevoerd in verschillende datacenters. U configureren elke implementatie van toepassing als een 'eindpunt' in Traffic Manager. Bij het Traffic Manager een DNS-aanvraag ontvangt, kiest deze een eindpunt beschikbaar om te retourneren in de DNS-antwoord. Traffic manager wordt de basis van de keuze van de huidige status van endpoint en de verkeersrouteringsmethode. Zie voor meer informatie, [hoe Traffic Manager werkt](traffic-manager-how-it-works.md).
 
 Er zijn drie typen van ondersteund door Traffic Manager-eindpunt:
+
 * **Azure-eindpunten** worden gebruikt voor services die worden gehost in Azure.
 * **Externe eindpunten** worden gebruikt voor IPv4/IPv6-adressen, FQDN's, of voor services die worden gehost buiten Azure waarmee u kunt on-premises zijn of met een andere hosting provider.
 * **Geneste eindpunten** worden gebruikt voor het combineren van Traffic Manager-profielen voor het maken van meer flexibele routering van verkeer schema's voor de ondersteuning van de behoeften van grotere, complexere implementaties.
@@ -42,14 +44,14 @@ Azure-eindpunten worden gebruikt voor services op basis van Azure in Traffic Man
 
 PublicIPAddress-resources zijn Azure Resource Manager-resources. Ze bestaan niet in het klassieke implementatiemodel. Dus zijn ze alleen ondersteund in Traffic Manager van Azure Resource Manager-ervaringen. Het andere eindpunttypen worden ondersteund via zowel Resource Manager en het klassieke implementatiemodel.
 
-Wanneer u Azure-eindpunten, detecteert de Traffic Manager als een 'Classic' IaaS-VM, cloudservice of een Web-App is gestopt en gestart. Deze status wordt weergegeven in de Eindpuntstatus. Zie [eindpuntcontrole van Traffic Manager](traffic-manager-monitoring.md#endpoint-and-profile-status) voor meer informatie. Wanneer de onderliggende service is gestopt, wordt Traffic Manager niet uitvoeren van eindpunten of verkeer naar het eindpunt. Er zijn geen facturering Traffic Manager-gebeurtenissen optreden voor het exemplaar gestopt. Wanneer de service opnieuw wordt opgestart, komt hervat facturering en het eindpunt in aanmerking om verkeer te ontvangen. Deze detectie is niet van toepassing op PublicIpAddress-eindpunten.
+Wanneer u Azure-eindpunten, detecteert de Traffic Manager als een Web-App is gestopt en gestart. Deze status wordt weergegeven in de Eindpuntstatus. Zie [eindpuntcontrole van Traffic Manager](traffic-manager-monitoring.md#endpoint-and-profile-status) voor meer informatie. Wanneer de onderliggende service is gestopt, wordt Traffic Manager niet uitvoeren van eindpunten of verkeer naar het eindpunt. Er zijn geen facturering Traffic Manager-gebeurtenissen optreden voor het exemplaar gestopt. Wanneer de service opnieuw wordt opgestart, komt hervat facturering en het eindpunt in aanmerking om verkeer te ontvangen. Deze detectie is niet van toepassing op PublicIpAddress-eindpunten.
 
 ## <a name="external-endpoints"></a>Externe eindpunten
 
 Externe eindpunten worden gebruikt voor beide IPv4/IPv6-adressen, FQDN's, of voor services die buiten Azure. Gebruik van IPv4/IPv6-adres-eindpunten kunt traffic manager om te controleren of de status van de eindpunten van zonder een DNS-naam voor deze. Traffic Manager kan als gevolg hiervan, reageren op query's met A/AAAA-records wanneer dat eindpunt in een antwoord geretourneerd. Services buiten Azure zijn bijvoorbeeld een service die wordt gehost on-premises of aan een andere provider. Externe eindpunten kunnen afzonderlijk worden gebruikt of in combinatie met Azure-eindpunten in dezelfde Traffic Manager-profiel, met uitzondering van eindpunten die zijn opgegeven als IPv4 of IPv6-adressen die alleen externe eindpunten kunnen worden. Azure-eindpunten met externe eindpunten combineren, kunt verschillende scenario's:
 
 * Verbeterde redundantie bieden voor een bestaande on-premises toepassing in beide een actief-actief of actief-passief-failover-model met behulp van Azure. 
-* Verkeer routeren naar eindpunten waarop geen een DNS-naam die is gekoppeld. Bovendien de algehele DNS-lookup-latentie verminderen door het verwijderen van de noodzaak om uit te voeren van een tweede DNS-query om een IP-adres van een DNS-naam die wordt geretourneerd. 
+* Verkeer routeren naar eindpunten waarop geen een DNS-naam die is gekoppeld. Bovendien de algehele DNS-lookup-latentie verminderen door het verwijderen van de noodzaak om uit te voeren van een tweede DNS-query om een IP-adres van een DNS-naam die wordt geretourneerd.
 * Verminder de latentie van de toepassing voor gebruikers over de hele wereld, een bestaande on-premises toepassing naar extra geografische locaties in Azure uit te breiden. Zie voor meer informatie, [Traffic Manager 'Prestaties' Routering van verkeer in](traffic-manager-routing-methods.md#performance).
 * Geef extra capaciteit voor een bestaande on-premises toepassing, continu of als een 'burst-to-cloud'-oplossing om te voldoen aan een piek in de vraag met behulp van Azure.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: c731919baf3acc8cedfb31c088f9a0a12791251c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a37789e7c7efeb71770ff0e8061d57e6603b6c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717984"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Zelfstudie: Azure Active Directory-integratie met één Zoho
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van één Zoho in Azure AD, moet u één
 
 **Als u wilt één Zoho uit de galerie toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met één Zoho, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureer Zoho een Single Sign-On](#configure-zoho-one-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Zoho een testgebruiker maken](#create-zoho-one-test-user)**  : als u wilt een equivalent van Britta Simon in Zoho één die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -107,7 +107,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met één Zoho, moet u d
 
     a. In het tekstvak **Id** typt u een URL: `one.zoho.com`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
     > [!NOTE]
     > De voorgaande **antwoord-URL** waarde is niet echt. U krijgt de `<saml-identifier>` waarde van #step4 van **configureren Zoho een Single Sign-On** sectie, die later in de zelfstudie wordt uitgelegd.
@@ -174,7 +174,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met één Zoho, moet u d
 
     a. In de **domeinnaam** tekstvak, typ het domein, zoals contoso.com.
 
-    b. Klik op **Add**.
+    b. Klik op **Toevoegen**.
 
     >[!Note]
     >Na het toevoegen van het domein volgen [deze](https://www.zoho.com/one/help/admin-guide/domain-verification.html) stappen om uw domein te verifiëren. Zodra het domein is geverifieerd, gebruikt u de naam van uw domein in **aanmeldings-URL** in **SAML-basisconfiguratie** sectie in Azure portal.
@@ -252,7 +252,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij een Zoho, moeten ze
     >[!Note]
     >Selecteer uw geverifieerde domein in de lijst met domeinen.
 
-    c. Klik op **Add**.
+    c. Klik op **Toevoegen**.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

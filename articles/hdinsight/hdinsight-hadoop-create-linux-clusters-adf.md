@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.openlocfilehash: 37c9a11b806ff49fce27120d03f67182037dc693
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726883"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: Op aanvraag Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
@@ -192,7 +192,7 @@ In dit artikel configureert u de Hive-activiteit voor het maken van een on-deman
     |Name | Voer een naam voor de data factory. Deze naam moet wereldwijd uniek zijn.|
     |Abonnement | Selecteer uw Azure-abonnement. |
     |Resourcegroep | Selecteer **gebruik bestaande** en selecteer vervolgens de resourcegroep die u hebt gemaakt met de PowerShell-script. |
-    |Versie | Laat op **V2**. |
+    |Version | Laat op **V2**. |
     |Locatie | De locatie is automatisch ingesteld op de locatie die u hebt opgegeven tijdens het maken van de resourcegroep eerder. Voor deze zelfstudie, de locatie is ingesteld op **VS-Oost**. |
 
     ![Azure Data Factory maken met Azure portal](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "maken Azure Data Factory met behulp van Azure portal")
@@ -257,7 +257,7 @@ In deze sectie maakt maken u twee gekoppelde services in uw data factory.
     | Een gekoppelde Azure Storage-service | Selecteer `HDIStorageLinkedService`. |
     | Clustertype | Selecteer **hadoop** |
     | Time To Live | Geef de duur die u het HDInsight-cluster wilt moet beschikbaar zijn voordat het wordt automatisch verwijderd.|
-    | Service-principal-id | Geef de toepassings-ID van de service-principal voor Azure Active Directory die u hebt gemaakt als onderdeel van de vereisten. |
+    | Service-principal-ID | Geef de toepassings-ID van de service-principal voor Azure Active Directory die u hebt gemaakt als onderdeel van de vereisten. |
     | Sleutel van service-principal | Geef de verificatiesleutel voor de Azure Active Directory service-principal. |
     | Het voorvoegsel van cluster | Geef een waarde die wordt voorafgegaan aan de clustertypen die zijn gemaakt door de data factory. |
     |Abonnement |Selecteer uw abonnement in de vervolgkeuzelijst.|

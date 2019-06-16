@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: aa3c942448be6444044981eacc2bbc3214b9c1b4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939391"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Richtlijnen voor Storm op HDInsight en Azure Data Lake Storage Gen2 afstemmen van prestaties
@@ -111,7 +111,7 @@ Als u de grenzen van de bandbreedte die door Data Lake Storage Gen2 bereikt, zie
 
 Inschakelen om te controleren als u ophalen beperkt, logboekregistratie aan de clientzijde voor de foutopsporing:
 
-1. In **Ambari** > **Storm** > **Config** > **geavanceerde storm-worker-log4j**, wijzigen **&lt;hoofd-niveau = 'info'&gt;** naar  **&lt;hoofd-niveau = "debug"&gt;**. Alle knooppunten/start de service opnieuw voor de configuratie van kracht te laten worden.
+1. In **Ambari** > **Storm** > **Config** > **geavanceerde storm-worker-log4j**, wijzigen **&lt;hoofd-niveau = 'info'&gt;** naar  **&lt;hoofd-niveau = "debug"&gt;** . Alle knooppunten/start de service opnieuw voor de configuratie van kracht te laten worden.
 2. Monitor voor de Storm-topologie-op de worker-knooppunten Logboeken (onder /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;poort&gt;/worker.log) voor Data Lake Storage Gen2 beperking uitzonderingen.
 
 ## <a name="next-steps"></a>Volgende stappen

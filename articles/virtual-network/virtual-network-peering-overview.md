@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919314"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077629"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -90,7 +90,7 @@ Zie [Machtigingen voor peering op een virtueel netwerk](virtual-network-manage-p
 
 Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een verbinding voor virtueel netwerk-peering. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie over prijzen voor VNet-peering en wereldwijde VNet-peering.
 
-Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk een VPN-gateway in een als peer ingesteld virtuele netwerk kan gebruiken voor cross-premises- of VNet-naar-VNet-connectiviteit. Verkeer dat in dit scenario via een externe gateway passeert, is onderworpen aan [VPN-gateway kosten](https://azure.microsoft.com/pricing/details/vpn-gateway/) en hiervoor worden geen kosten in rekening gebracht voor [VNet-peering.](https://azure.microsoft.com/pricing/details/virtual-network) Bijvoorbeeld, als VNetA een VPN-gateway voor on-premises connectiviteit is en als VNetB is gekoppeld aan VNetA met de gewenste eigenschappen die zijn geconfigureerd, verkeer van VNetB naar on-premises wordt alleen in rekening gebracht uitgaande prijzen voor VPN-gateway. Er zijn geen kosten voor VNet-peering van toepassing. Lees hoe u [VPN-gatewayoverdracht kunt configureren voor peering voor virtuele netwerken.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Gateway-doorvoer is een peering eigenschap waarmee een virtueel netwerk gebruiken een VPN/ExpressRoute-gateway in een gekoppeld virtueel netwerk voor cross-premises of in de VNet-naar-VNet-connectiviteit. Verkeer dat via een externe gateway in dit scenario is onderworpen aan [VPN-gateway kosten](https://azure.microsoft.com/pricing/details/vpn-gateway/) of ExpressRoute-gateway in rekening gebracht en leidt niet tot de [VNet peering kosten in rekening gebracht.](https://azure.microsoft.com/pricing/details/virtual-network) Bijvoorbeeld, als VNetA een VPN-gateway voor on-premises connectiviteit is en als VNetB is gekoppeld aan VNetA met de gewenste eigenschappen die zijn geconfigureerd, verkeer van VNetB naar on-premises wordt alleen in rekening gebracht uitgaand verkeer per prijzen voor VPN-gateway of ExpressRoute-prijzen. Er zijn geen kosten voor VNet-peering van toepassing. Lees hoe u [VPN-gatewayoverdracht kunt configureren voor peering voor virtuele netwerken.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Volgende stappen
 

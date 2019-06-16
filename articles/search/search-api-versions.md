@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.openlocfilehash: d72901653e995e811a1d3e89cef8a5f77a9ea8bd
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523810"
 ---
 # <a name="api-versions-in-azure-search"></a>API-versies in Azure Search
@@ -35,7 +35,7 @@ Hieronder wordt een momentopname van de huidige versies van alle interfaces voor
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |In het algemeen beschikbaar, die zijn uitgebracht mei 2019 |
 | [Preview-versie van .NET SDK](https://aka.ms/search-sdk-preview) |8.0-preview |Preview-versie, die zijn uitgebracht April 2019 |
 | [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Algemeen verkrijgbaar |
-| [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-preview |Voorbeeld |
+| [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-preview |Preview |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Algemeen verkrijgbaar |
 | [REST-API voor beheer](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Algemeen verkrijgbaar |
 

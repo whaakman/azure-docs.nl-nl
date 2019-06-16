@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110920"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Extern verbinding maken met een instantie van virtuele-machineschaalset of een clusterknooppunt
@@ -28,7 +28,7 @@ Als u wilt zoeken in een IP-adres en poort die u gebruiken kunt voor externe ver
 
 1. De binnenkomende NAT-regels voor Remote Desktop Protocol (RDP) ophalen.
 
-    Elk knooppunttype gedefinieerd in het cluster is meestal een eigen virtuele IP-adres en een specifieke load balancer. De load balancer voor een knooppunttype heet standaard, met de volgende indeling: *LB-{clusternaam}-{knooppunttype}*, bijvoorbeeld *LB-mijncluster-FrontEnd*. 
+    Elk knooppunttype gedefinieerd in het cluster is meestal een eigen virtuele IP-adres en een specifieke load balancer. De load balancer voor een knooppunttype heet standaard, met de volgende indeling: *LB-{clusternaam}-{knooppunttype}* , bijvoorbeeld *LB-mijncluster-FrontEnd*. 
     
     Selecteer op de pagina voor de load balancer in Azure portal, **instellingen** > **binnenkomende NAT-regels**: 
 

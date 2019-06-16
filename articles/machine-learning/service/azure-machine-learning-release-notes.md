@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298490"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065772"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -24,6 +24,51 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
 
 Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
+
+## <a name="2019-06-10"></a>2019-06-10
+
+### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine Learning-SDK voor Python v1.0.43
+
++ **Nieuwe functies**
+  + Azure Machine Learning nu biedt eersteklas ondersteuning voor populaire machine learning en analyse framework Scikit-informatie. Met behulp van [ `SKLearn` estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), gebruikers kunnen eenvoudig trainen en Scikit meer modellen te implementeren.
+    + Meer informatie over het [hyperparameter afstemmen met Scikit meer uitvoeren met behulp van HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
+  + Er is ondersteuning toegevoegd voor het maken van ModuleStep in pijplijnen, samen met de Module en ModuleVersion klassen voor het beheren van herbruikbare rekeneenheden.
+  + ACI-webservices bieden nu ondersteuning voor permanente scoring_uri door middel van updates. De scoring_uri wordt gewijzigd van IP in FQDN-naam. Het Label van DNS-naam voor de FQDN-naam kan worden geconfigureerd door in te stellen de dns_name_label op deploy_configuration. 
+  + Geautomatiseerde machine learning-nieuwe functies:
+    + STL featurizer voor het maken van prognoses
+    + KMeans clustering is ingeschakeld voor de functie sweeping
+  + AmlCompute quotum goedkeuringen werd alleen sneller! We hebben nu het proces voor het goedkeuren van uw quotumaanvragen binnen een drempelwaarde geautomatiseerde. Lees voor meer informatie over de werking van quota [over het beheren van quota](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+ 
+
++ **Preview-functies**
+    + Integratie met [MLflow](https://mlflow.org) 1.0.0 bijhouden door middel van azureml-mlflow-pakket ([voorbeeld notitieblokken](https://aka.ms/azureml-mlflow-examples)).
+    + Jupyter-notebook verzenden als een uitvoeringsbewerking. [API-referentiedocumentatie](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + Openbare Preview van [gegevens Drift Detector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) via azureml-contrib-datadrift-pakket ([voorbeeld notitieblokken](https://aka.ms/azureml-datadrift-example)). Afwijking van gegevens is een van de belangrijkste redenen waar de nauwkeurigheid van model vermindert na verloop van tijd. Dit gebeurt wanneer gegevens worden geleverd om modellen te maken in productie wijkt af van de gegevens die het model is getraind op. AML gegevens Drift detector helpt klanten voor het bewaken van gegevens drift en verstuurt waarschuwing wanneer er afwijking wordt gedetecteerd. 
+
++ **Belangrijke wijzigingen**
+
++ **Fouten opgelost en verbeteringen**
+  + RunConfiguration laden en ondersteunt een volledige pad op te geven met volledige back-compat voor het gedrag van het vorige opslaan.
+  + Toegevoegd opslaan in cache in ServicePrincipalAuthentication, standaard uitgeschakeld.
+  + Activeer de logboekregistratie van meerdere grafieken onder de naam van de dezelfde metrische gegevens.
+  + De modelklasse is nu correct importeerbare van azureml.core (`from azureml.core import Model`).
+  + In stappen van de pijplijn, `hash_path` parameter is nu verouderd. Nieuw gedrag is het volledige bronmap, met uitzondering van bestanden die vermeld staan in .amlignore of .gitignore-hash.
+  + In de pijplijn-pakketten, verschillende `get_all` en `get_all_*` methoden zijn afgeschaft voor `list` en `list_*`, respectievelijk.
+  + azureml.Core.get_run vereist niet langer klassen moeten worden geïmporteerd voordat het oorspronkelijke uitvoeren dat wordt geretourneerd.
+  + Een probleem opgelost waarbij sommige aanroepen naar de WebService-Update een update niet is geactiveerd.
+  + Time-out van beoordelingen op AKS webservices moet tussen 5 MS en 300000ms. Maximaal toegestane scoring_timeout_ms scoring-aanvragen is 5 minuten van 1 minuut zijn tegenaan.
+  + LocalWebservice objecten hebben nu `scoring_uri` en `swagger_uri` eigenschappen.
+  + Uitvoer directory maken en uploaden van de uitvoer directory buiten het gebruikersproces verplaatst. Uitvoeringsgeschiedenis SDK om uit te voeren in het gebruikersproces van elke ingeschakeld. Dit moet worden omgezet enkele problemen met de ervaren door gedistribueerde training synchronisatie wordt uitgevoerd.
+  + De naam van de azureml-logboek geschreven van de gebruikersnaam van het proces bevat nu procesnaam (voor gedistribueerde training alleen) en Pincode.
+
+### <a name="azure-machine-learning-data-prep-sdk-v115"></a>Azure Machine Learning Data Prep SDK v1.1.5
+
++ **Fouten opgelost en verbeteringen**
+  + Voor geïnterpreteerde datum / tijdwaarden die de indeling van een jaar in 2 cijfers hebben, is het bereik van geldige jaar bijgewerkt zodat deze overeenkomt met de Release van Windows kan. Het bereik is gewijzigd van 1930 2029 in 1950 2049.
+  + Bij het lezen van een bestand en de instelling `handleQuotedLineBreaks=True`, `\r` wordt beschouwd als een nieuwe regel.
+  + Een bug opgelost waardoor `read_pandas_dataframe` in sommige gevallen mislukken.
+  + Verbeterde prestaties van `get_profile`.
+  + Verbeterde foutberichten.
 
 ## <a name="2019-05-28"></a>2019-05-28
 
@@ -513,7 +558,7 @@ De Azure-portal voor de Azure Machine Learning-service heeft de volgende updates
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK voor Python v0.1.74
 
 + **Belangrijke wijzigingen** 
-  * * Workspace.compute_targets, gegevensopslag, experimenten, afbeeldingen, modellen en *webservices* zijn eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
+  * \* Workspace.compute_targets, gegevensopslag, experimenten, afbeeldingen, modellen en *webservices* zijn eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
   * *Run.get_context* Hiermee wordt vervangen *Run.get_submitted_run*. De laatste methode wordt verwijderd in toekomstige releases.
   * *PipelineData* klasse verwacht nu een datastore-object als een parameter in plaats van datastore_name. Op deze manier *pijplijn* default_datastore in plaats van default_datastore_name accepteert.
 

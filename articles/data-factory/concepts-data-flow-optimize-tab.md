@@ -1,20 +1,19 @@
 ---
 title: Gegevensstroom van Azure Data Factory toewijzing tabblad optimaliseren
-description: Azure Data Factory gegevensstromen met optimaliseren tabblad partitie-instellingen toewijzen optimaliseren
+description: Optimaliseren met Azure Data Factory toewijzing gegevens stromen met behulp van het tabblad optimaliseren met partitie-instellingen
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075090"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>Toewijzing van Flow gegevenstransformatie tabblad optimaliseren
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>Toewijzing van gegevens stroom transformatie tabblad optimaliseren
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +50,8 @@ U moet een expressie waarmee een vaste bereik van waarden in de kolommen geparti
 ### <a name="key"></a>Sleutel
 
 Hebt u een goed begrip van de kardinaliteit van uw gegevens, kan het partitioneren van sleutels een strategie voor een goede partitie zijn. Belangrijkste partitioneren om partities voor elke unieke waarde in de kolom te maken. U kunt het aantal partities niet instellen omdat het nummer wordt gebaseerd op unieke waarden in de gegevens.
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Toewijzing gegevensstroom prestatiehandleiding](concepts-data-flow-performance.md)
+[gegevensstroom controleren](concepts-data-flow-monitoring.md)

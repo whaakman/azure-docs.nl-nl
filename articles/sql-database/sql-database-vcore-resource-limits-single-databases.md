@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118070"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van de vCore-aanschafmodel
 
@@ -52,8 +52,8 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|500|1000|1500|2000|2500|3000|
 |Meld u frequentielimieten (MBps)|3.75|7.5|11.25|15|18.75|22.5|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|1|1|1|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -75,8 +75,8 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|3500|4000|4500|5000|7000|7000|
 |Meld u frequentielimieten (MBps)|26.25|30|30|30|30|30|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|1|1|1|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -98,8 +98,8 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|1000|2000|3000|4000|5000|6000|7000|
 |Meld u frequentielimieten (MBps)|3.75|7.5|11.25|15|18.75|22.5|26.25|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|1|1|1|1|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -121,8 +121,8 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|7000|7000|7000|7000|7000|7000|7000|
 |Meld u frequentielimieten (MBps)|30|30|30|30|30|30|30|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|1|1|1|1|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -146,11 +146,11 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |TempDB-grootte (GB)|32|64|128|
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
-|Doel-IOPS (van 64 KB)|250|500|1000|
+|Doel-IOPS (van 64 KB)|500|1000|2000|
 |Meld u frequentielimieten (MBps)|2.5|5.6|10|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|75|150|300|
-|Maximaal toegestane sessies|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|
+|Aantal replica 's|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -171,12 +171,12 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Maximale logboekgrootte (GB)|195|195|195|195|195|195|
 |TempDB-grootte (GB)|32|64|96|128|160|192|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
-|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30.000|
+|Doel-IOPS (van 64 KB)|5000|10\.000|15\.000|20000|25000|30\.000|
 |Meld u frequentielimieten (MBps)|8|16|24|32|40|48|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
 |Maximaal aantal gelijktijdige aanmeldingen|200|400|600|800|1000|1200|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|4|4|4|4|4|4|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -199,8 +199,8 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Meld u frequentielimieten (MBps)|56|64|64|64|64|64|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
 |Maximaal aantal gelijktijdige aanmeldingen (aanvragen)|1400|1600|1800|2000|3200|4800|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|4|4|4|4|4|4|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -223,8 +223,8 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Meld u frequentielimieten (MBps)|12|24|36|48|60|72|84|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
 |Maximaal aantal gelijktijdige aanmeldingen|200|400|600|800|1000|1200|1400|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|4|4|4|4|4|4|4|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -247,8 +247,8 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Meld u frequentielimieten (MBps)|96|96|96|96|96|96|96|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
 |Maximaal aantal gelijktijdige aanmeldingen|1600|1800|2000|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|4|4|4|4|4|4|4|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -271,8 +271,8 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Doel-IOPS (van 64 KB)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|2|2|2|2|2|2|2|2|
+|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Aantal replica 's|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen |7|7|7|7|7|7|7|7|

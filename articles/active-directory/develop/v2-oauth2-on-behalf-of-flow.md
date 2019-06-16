@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110847"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-platform en OAuth 2.0 namens-stroom
 
@@ -205,7 +205,7 @@ Op dit moment gecombineerde toestemming biedt geen ondersteuning voor het persoo
 
 Een functie van de portal van de toepassing is 'vooraf gemachtigde toepassingen'. Op deze manier kan een resource geeft aan dat een bepaalde toepassing altijd gemachtigd is voor het ontvangen van bepaalde bereiken. Dit is vooral handig om verbindingen te maken tussen een front-end-client en een back-end-bron biedt een naadloze ervaring. Een resource kan meerdere vooraf gemachtigde toepassingen declareren - een dergelijke toepassing kan aanvragen deze machtigingen in een OBO flow en ontvangt zonder dat de gebruiker die toestemming verleent.
 
-#### <a name="admin-consent"></a>Toestemming van de beheerder
+#### <a name="admin-consent"></a>toestemming van de beheerder
 
 Een tenantbeheerder kan garanderen dat toepassingen kan worden gemachtigd om aan te roepen hun vereist API's door te geven van toestemming van een beheerder voor de middelste laag-toepassing. U doet dit door de beheerder de middelste laag-toepassing in hun tenant niet vinden, opent u de pagina van de vereiste machtigingen en wilt machtigen voor de app. Zie voor meer informatie over de toestemming van een beheerder, de [machtigingen en toestemming documentatie](v2-permissions-and-consent.md).
 

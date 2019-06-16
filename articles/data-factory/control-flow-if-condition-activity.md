@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153465"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Als de activiteit in Azure Data Factory-voorwaarde
@@ -66,7 +66,7 @@ De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de activiteit als-voorwaarde. | String | Ja
+name | Naam van de activiteit als-voorwaarde. | String | Ja
 type | Moet worden ingesteld op **IfCondition** | String | Ja
 expressie | Expressie die moet worden geëvalueerd op waar of ONWAAR | Expressie met een resultaat van het type boolean | Ja
 ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `true`. | Matrix | Ja

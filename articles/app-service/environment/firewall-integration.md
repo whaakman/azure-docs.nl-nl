@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058061"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Vergrendelen van een App Service Environment
 
@@ -30,6 +30,21 @@ Er zijn een aantal binnenkomende afhankelijkheden met een as-omgeving. Het inkom
 De uitgaande ASE-afhankelijkheden zijn bijna volledig gedefinieerd met FQDN's, die geen statische adressen achter ze hebben. Het ontbreken van statische adressen betekent dat Netwerkbeveiligingsgroepen (nsg's) kan niet worden gebruikt voor het vergrendelen van het uitgaande verkeer van een as-omgeving. De adressen wijzigen vaak genoeg dat kan niet een regels op basis van de huidige oplossing instellen en maakt u nsg's. 
 
 De oplossing voor beveiliging van de uitgaande adressen ligt in het gebruik van een firewall-apparaat dat uitgaand verkeer op basis van domeinnamen kunt beheren. Firewall van Azure kunt beperken uitgaande HTTP en HTTPS-verkeer op basis van de FQDN-naam van de bestemming.  
+
+## <a name="system-architecture"></a>Systeemarchitectuur
+
+Implementeren van een ASE met uitgaande verkeer dat via een firewall-apparaat moet wijzigen routes op de ASE-subnet. Routes werken op een IP-niveau. Als u geen voorzichtig bij het definiëren van uw routes bent, kunt u TCP-antwoordverkeer vanaf een ander adres van bron dwingen. Dit heet asymmetrische Routering en het TCP wordt verbroken.
+
+Er moet routes die zijn gedefinieerd, zodat inkomend verkeer op de as-omgeving kunt antwoorden weer dat dezelfde manier als het verkeer afkomstig zijn. Dit geldt voor beheer van binnenkomende aanvragen en is de waarde true voor binnenkomende aanvragen.
+
+Het verkeer van en naar een as-omgeving moet de volgende conventies ontmoeten
+
+* Het verkeer naar Azure SQL-, opslag- en Event Hub worden niet ondersteund met gebruik van een firewall-apparaat. Dit verkeer moet rechtstreeks aan deze services worden verzonden. De manier om te maken die ontstaan is naar het service-eindpunten voor de drie services configureren. 
+* Route tabel regels moeten die binnenkomend beheerverkeer verzenden van waar het afkomstig is gedefinieerd.
+* Route tabel regels moeten die inkomende toepassingsverkeer verzenden van waar het afkomstig is gedefinieerd. 
+* Alle andere uitgaand verkeer van de as-omgeving kan worden verzonden naar uw firewall-apparaat met een route-table-regel.
+
+![As-omgeving met Azure-Firewall-verbindingsprocedure][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Firewall voor Azure configureren met de as-omgeving 
 
@@ -68,8 +83,6 @@ De bovenstaande stappen kunt uw as-omgeving om te werken zonder problemen. U moe
 Als uw toepassingen afhankelijkheden hebt, moeten ze worden toegevoegd aan uw Azure-Firewall. Sta HTTP/HTTPS-verkeer en het netwerk van regels voor alle andere regels toepassing maken. 
 
 Als u het adresbereik dat uw toepassing-verkeer voor paginaweergaven, zijn afkomstig van weet, kunt u toevoegen dat aan de routetabel die is toegewezen aan uw ASE-subnet. Als het adresbereik grote of niet opgegeven is, kunt u een netwerkapparaat, zoals de Application Gateway gebruiken om u te bieden één adres toe te voegen aan uw routetabel. Lees voor meer informatie over het configureren van een toepassingsgateway met uw ILB as-omgeving [uw ILD ASE integreren met een Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
-
-![As-omgeving met Azure-Firewall-verbindingsprocedure][5]
 
 Deze gebruik van de toepassingsgateway is slechts één voorbeeld van het configureren van uw systeem. Als u dit pad volgt, moet u zou een route toevoegen aan de routetabel van de ASE-subnet, dus het op antwoordverkeer dat wordt verzonden naar de toepassingsgateway zou er rechtstreeks. 
 

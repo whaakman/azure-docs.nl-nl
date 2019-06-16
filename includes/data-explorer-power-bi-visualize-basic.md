@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: mblythe
 ms.openlocfilehash: 9624856841ec7473543575c31928c6eefd1404c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66120589"
 ---
 Nu u gegevens in Power BI Desktop hebt, kunt u rapporten maken op basis van die gegevens. U maakt een eenvoudig rapport met een kolomdiagram dat de schade aan het gewas per staat laat zien.

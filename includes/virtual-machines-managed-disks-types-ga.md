@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133143"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
@@ -45,7 +45,7 @@ Voor standard SSD's, elke i/o bewerking kleiner dan of gelijk zijn aan 256 KiB v
 
 ## <a name="standard-hdd"></a>Standard HDD
 
-Azure standard HDD's leveren betrouwbare, voordelige schijfondersteuning voor virtuele machines waarop niet gevoelig werkbelastingen worden uitgevoerd. Met de standard-opslag, worden de gegevens worden opgeslagen op hardeschijfstations (HDD's). Latentie, IOPS en doorvoer van standaard harde schijven kunnen meer aanzienlijk verschillen in vergelijking met schijven op basis van SSD. Als u werkt met virtuele machines, kunt u standaard harde schijven kunt gebruiken voor scenario's voor ontwikkelen/testen en minder kritieke werkbelastingen. Standard HDD's zijn beschikbaar in alle Azure-regio's en kunnen worden gebruikt met alle Azure-VM's.
+Azure standard HDD's leveren betrouwbare, voordelige schijfondersteuning voor virtuele machines waarop niet gevoelig werkbelastingen worden uitgevoerd. Met de standard-opslag, worden de gegevens worden opgeslagen op hardeschijfstations (HDD's). Latentie, IOPS en doorvoer van standaard harde schijven kunnen meer aanzienlijk verschillen in vergelijking met schijven op basis van SSD. Standaard harde schijven zijn ontworpen voor schrijven latenties onder 10ms leveren en lezen-latenties onder 20 ms voor de meeste i/o-bewerkingen, maar de werkelijke prestaties, afhankelijk van het patroon voor i/o-grootte en belasting variëren kunnen. Als u werkt met virtuele machines, kunt u standaard harde schijven kunt gebruiken voor scenario's voor ontwikkelen/testen en minder kritieke werkbelastingen. Standard HDD's zijn beschikbaar in alle Azure-regio's en kunnen worden gebruikt met alle Azure-VM's.
 
 ### <a name="disk-size"></a>Schijfgrootte
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

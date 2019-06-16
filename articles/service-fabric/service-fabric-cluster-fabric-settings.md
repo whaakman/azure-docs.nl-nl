@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2019
+ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: e992aae17f1217803b411a49c5d942efc501fbdc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: fed991193e8d4a1f8e4e2fcf75ef8e2bf0d0a8d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074299"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -121,18 +121,23 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, is standaard ingesteld op geen|Dynamisch|Bepaalt het aantal gratis knooppunten die nodig zijn om te overwegen cluster gedefragmenteerd door een van beide procent op te geven in bereik [0.0-1.0) of het nummer van lege knooppunten als getal > = 1,0 |
 
-## <a name="diagnostics"></a>Diagnostische gegevens
+## <a name="diagnostics"></a>Diagnostiek
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
+|AdminOnlyHttpAudit |BOOL, de standaardinstelling is true | Dynamisch | HTTP-aanvragen die niet van invloed op de status van het cluster op basis van controle uitsluiten. Op dit moment; alleen aanvragen van het type 'Ophalen' worden uitgesloten. maar dit is onderhevig aan wijzigingen. |
 |AppDiagnosticStoreAccessRequiresImpersonation |BOOL, de standaardinstelling is true | Dynamisch |Imitatie is wel of niet vereist wanneer toegang tot diagnostische namens de toepassing opslaat. |
 |AppEtwTraceDeletionAgeInDays |Int, de standaardwaarde is 3 | Dynamisch |Aantal dagen waarna we oude ETL-bestanden met toepassing ETW-traceringen wilt verwijderen. |
 |ApplicationLogsFormatVersion |int, standaard is 0 | Dynamisch |Versie voor de toepassing registreert indeling. Ondersteunde waarden zijn 0 en 1. Versie 1 bevat meer velden uit de record van de ETW-gebeurtenis dan de versie van 0. |
+|AuditHttpRequests |BOOL, de standaardinstelling is false | Dynamisch | Schakel controle van HTTP-in- of uitschakelen. Het doel van de controle is om te zien van de activiteiten die zijn uitgevoerd op basis van het cluster. met inbegrip van wie de aanvraag heeft gestart. Houd er rekening mee dat dit een aanbevolen poging logboekregistratie is; en tracering verloren kunnen gaan. HTTP-aanvragen met 'Gebruiker'-verificatie is niet geregistreerd. |
+|CaptureHttpTelemetry|BOOL, de standaardinstelling is false | Dynamisch | Schakel HTTP-telemetrie in of uit. Het doel van telemetrie is voor Service Fabric kunnen voor het vastleggen van telemetriegegevens om u te helpen bij het plannen van toekomstige werk en probleemgebieden identificeren. Telemetrie vastgelegd geen persoonlijke gegevens of de aanvraagtekst. Telemetrie bevat alle HTTP-aanvragen, tenzij anders is geconfigureerd. |
 |ClusterId |String | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
 |ConsumerInstances |String | Dynamisch |De lijst van DCA consumentexemplaren. |
 |DiskFullSafetySpaceInMB |Int, standaard is 1024 | Dynamisch |Resterende schijfruimte in MB te beschermen tegen door DCA worden gebruikt. |
 |EnableCircularTraceSession |BOOL, de standaardinstelling is false | Statisch |Vlag geeft aan of cirkelvormige trace-sessies moeten worden gebruikt. |
 |EnableTelemetry |BOOL, de standaardinstelling is true | Dynamisch |Dit gaat in- of uitschakelen telemetrie. |
+|FailuresOnlyHttpTelemetry | BOOL, de standaardinstelling is true | Dynamisch | Als de HTTP-telemetrie vastleggen is ingeschakeld; alleen mislukte aanvragen vastleggen. Dit is om te beperken van het aantal gebeurtenissen die worden gegenereerd voor telemetrie. |
+|HttpTelemetryCapturePercentage | Int, de standaardwaarde is 50 | Dynamisch | Als de HTTP-telemetrie vastleggen is ingeschakeld; vastleggen van een willekeurige hoeveelheid aanvragen. Dit is om te beperken van het aantal gebeurtenissen die worden gegenereerd voor telemetrie. |
 |MaxDiskQuotaInMB |Int, de standaardwaarde is 65536 | Dynamisch |Schijfquotum in MB voor Windows Fabric-logboekbestanden. |
 |ProducerInstances |String | Dynamisch |De lijst met instanties van DCA-producent. |
 
@@ -246,7 +251,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |StoredChaosEventCleanupIntervalInSeconds | Int, de standaardwaarde is 3600 |Statisch|Dit is hoe vaak de store wordt gecontroleerd om op te schonen; Als het aantal gebeurtenissen meer dan 30000 is; het opruimen van de wordt gestart. |
 |TargetReplicaSetSize |int, standaard is 0 |Statisch|De TargetReplicaSetSize voor FaultAnalysisService NOT_PLATFORM_UNIX_START. |
 
-## <a name="federation"></a>Federation
+## <a name="federation"></a>Federatie
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -313,7 +318,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |MaxPercentDeltaUnhealthyNodes|Int, de standaardwaarde is 10|Statisch|Upgrade statusbeleid voor evaluatie van cluster: maximale percentage van knooppunten met slechte deltastatus toegestaan voor het cluster in orde zijn |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, de standaardwaarde is 15|Statisch|Upgrade statusbeleid voor evaluatie van cluster: maximale percentage van de delta van beschadigde knooppunten in een upgradedomein is toegestaan voor het cluster in orde zijn |
 
-## <a name="hosting"></a>Hosten
+## <a name="hosting"></a>Die als host fungeert
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -724,7 +729,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |PropertyWriteBatch |tekenreeks, standaard is 'Admin' |Dynamisch|Beveiligingsconfiguraties voor naamgeving voor eigenschap schrijfbewerkingen. |
 |ProvisionApplicationType |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het inrichten van de toepassing-type. |
 |ProvisionFabric |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het Manifest inrichten MSI en/of -Cluster. |
-|Query |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
+|Query’s uitvoeren |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
 |RecoverPartition |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van een partitie. |
 |RecoverPartitions |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van partities. |
 |RecoverServicePartitions |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het herstellen van servicepartities. |

@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60853060"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure App Service-Windows
@@ -262,7 +262,7 @@ De `cnodeconstants` [bronbestand](https://github.com/Azure/iisnode/blob/master/s
 
 FREB voor uw toepassing om te zien van de win32-foutcode inschakelen (Zorg ervoor dat u FREB alleen op niet-productiesites Prestatieoverwegingen inschakelen).
 
-| HTTP-status | HTTP-Substatus | Mogelijke reden? |
+| HTTP-Status | HTTP-Substatus | Mogelijke reden? |
 | --- | --- | --- |
 | 500 |1000 |Er is een probleem opgetreden tijdens het verzenden van de aanvraag voor IISNODE – controleert als node.exe is gestart. Node.exe kan zijn vastgelopen bij het starten. Controleer de configuratie van uw web.config op fouten. |
 | 500 |1001 |-Win32Error 0x2 - App reageert niet op de URL. Controleer de herschrijvingsregels voor URL's of het selectievakje als de express-app de juiste routes zijn gedefinieerd heeft. -Win32Error 0x6d – benoemde pipe is bezet – Node.exe geen aanvragen worden geaccepteerd omdat de pipe bezet is. Hoog cpu-gebruik controleren. -Andere fouten – controleren als node.exe is vastgelopen. |

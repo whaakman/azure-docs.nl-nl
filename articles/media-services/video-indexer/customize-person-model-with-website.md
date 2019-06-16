@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800118"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Een model van de persoon met de Video Indexer-website aanpassen
@@ -28,14 +28,14 @@ De website Video Indexer kunt u gezichten die zijn gedetecteerd in een video bew
 1. Als u wilt weergeven, bewerken, en de modellen persoon in uw account verwijdert, bladert u naar de Video Indexer-website en meld u aan.
 2. Klik op de knop voor het aanpassen van het inhoudsmodel in de rechterbovenhoek van de pagina.
 
-    ![Aanpassing van inhoudsmodel](./media/customize-face-model/content-model-customization.png)
+    ![Inhoud modelaanpassing](./media/customize-face-model/content-model-customization.png)
 3. Selecteer het tabblad gebruikers.
 
     Het model van de persoon die standaard ziet u in uw account. De persoon die standaard-model bevat gezichten die u mogelijk hebt bewerkt of gewijzigd in het inzicht van uw video's waarvoor dat u een aangepast model van de persoon niet hebt opgegeven tijdens het indexeren. 
 
     Als u een andere persoon modellen gemaakt, worden deze weergegeven op deze pagina ook. 
 
-    ![Aanpassing van inhoudsmodel](./media/customize-face-model/content-model-customization-people-tab.png)
+    ![Inhoud modelaanpassing](./media/customize-face-model/content-model-customization-people-tab.png)
 
 ## <a name="create-a-new-person-model"></a>Een nieuwe persoon-model maken
 

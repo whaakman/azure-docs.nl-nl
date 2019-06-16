@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112328"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Sessiebeheer voor verificatie met voorwaardelijke toegang configureren
 
@@ -53,7 +53,7 @@ De standaard Azure AD voor sessiepersistentie browser kan gebruikers op persoonl
 Voorwaardelijke toegang is een Azure AD Premium-capaciteit en is een premium-licentie vereist. Als u meer informatie over voorwaardelijke toegang wilt, raadpleegt u [wat is voorwaardelijke toegang in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Als u de [configureerbare levensduur van vernieuwingstoken](../develop/active-directory-configurable-token-lifetimes.md) functie momenteel in openbare preview, houd er rekening mee dat we bieden geen ondersteuning voor het maken van twee verschillende beleidsregels voor dezelfde gebruiker of app combinatie: met deze functie en een ander subnet met de functie configureerbare levensduur van tokens. Microsoft wil buiten gebruik stellen van de functie configureerbare levensduur van vernieuwingstoken op 15 oktober en vervang deze door de functie voor beheer van voorwaardelijke toegang verificatie-sessie.  
+> Als u de [configureerbare levensduur van vernieuwingstoken](../develop/active-directory-configurable-token-lifetimes.md) functie momenteel in openbare preview, houd er rekening mee dat we bieden geen ondersteuning voor het maken van twee verschillende beleidsregels voor dezelfde gebruiker of app combinatie: met deze functie en een ander subnet met de functie configureerbare levensduur van tokens. Microsoft wil buiten gebruik stellen van de functie configureerbare levensduur van vernieuwingstoken op 1 November en vervang deze door de functie voor beheer van voorwaardelijke toegang verificatie-sessie.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Beleid 1: Frequentie-aanmelden-besturingselement
 
@@ -68,7 +68,7 @@ Voorwaardelijke toegang is een Azure AD Premium-capaciteit en is een premium-lic
 1. Selecteer een waarde van **uur** of **dagen** in vervolgkeuzelijst
 1. Sla het beleid
 
-![Beleid voor voorwaardelijke toegang is geconfigureerd voor aanmelding in frequentie](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Beleid voor voorwaardelijke toegang geconfigureerd voor aanmelding in frequentie](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 In Azure AD ingeschreven Windows-apparaten aanmelden bij het apparaat wordt beschouwd als een prompt. Als u het teken in frequentie tot 24 uur voor Office-apps hebt geconfigureerd, geregistreerde gebruikers van Azure AD Windows-apparaten, voldoen aan de aanmeldingspagina in frequentie beleid door het aanmelden bij het apparaat en wordt niet gevraagd opnieuw bij het openen van Office-apps.
 
@@ -86,7 +86,7 @@ Als u andere aanmelden frequentie voor verschillende web-apps die worden uitgevo
 1. Selecteer een waarde in de vervolgkeuzelijst
 1. U beleid opslaan
 
-![Beleid voor voorwaardelijke toegang is geconfigureerd voor permanente browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Beleid voor voorwaardelijke toegang geconfigureerd voor permanente browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
 > Permanente browsersessie configuratie in Azure AD voor voorwaardelijke toegang wordt overschreven de "blijven zich aangemeld?" instellen in de huisstijl van de deelvenster in de Azure-portal voor dezelfde gebruiker als u beide beleidsregels hebt geconfigureerd.
@@ -95,7 +95,7 @@ Als u andere aanmelden frequentie voor verschillende web-apps die worden uitgevo
 
 Het hulpprogramma What-If gebruiken voor het simuleren van een aanmelding van de gebruiker de doeltoepassing en andere voorwaarden op basis van hoe u uw beleid hebt geconfigureerd. De besturingselementen voor verificatie sessie beheer weergegeven in het resultaat van het hulpprogramma.
 
-![Voorwaardelijke toegang, wat gebeurt er als hulpprogramma resultaten](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Voorwaardelijke toegang What If hulpprogramma resultaten](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Implementatie van beleid
 
@@ -103,5 +103,5 @@ Om ervoor te zorgen dat uw beleid werkt zoals verwacht, is het aanbevolen om dez
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie het artikel [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+* Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie het artikel [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
 * Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, Zie het artikel [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).

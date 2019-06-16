@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99439c2b6bd4fdd271dda7a49850c5b6f44330b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075822"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatische back-up voor virtuele Machines (Resource Manager) voor SQL Server 2014
 
@@ -77,21 +77,19 @@ U kunt de Azure-portal gebruiken voor het configureren van automatische back-up 
 
 De Azure portal gebruiken voor het configureren van automatische back-up wanneer u een nieuwe virtuele Machine voor SQL Server 2014 in het Resource Manager-implementatiemodel maakt.
 
-In de **SQL Server-instellingen** venster **automatische back-up**. De volgende schermafbeelding van Azure portal bevat de **SQL automatische back-up** instellingen.
+In de **SQL Server-instellingen** tabblad, schuif omlaag naar **automatische back-up** en selecteer **inschakelen**. U kunt ook de bewaarperiode liggen, en storage-account, evenals inschakelen van versleuteling, back-ups van systeem en het configureren van een back-upschema opgeven.  De volgende schermafbeelding van Azure portal bevat de **SQL automatische back-up** instellingen.
 
 ![Configuratie van SQL geautomatiseerde back-ups in Azure portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 ## <a name="configure-existing-vms"></a>Bestaande virtuele machines configureren
 
-Voor bestaande SQL Server virtuele machines, selecteert u uw virtuele machine van SQL Server. Selecteer vervolgens de **SQL Server-configuratie** sectie van de virtuele machine **instellingen**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Voor bestaande SQL Server virtuele machines, gaat u naar de [SQL-resource voor virtuele machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) en selecteer vervolgens **back-ups**. 
 
 ![SQL automatische back-up voor bestaande VM 's](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-In de **SQL Server-configuratie** deelvenster, klikt u op de **bewerken** knop in de automatische back-sectie.
-
-![SQL automatische back-up voor bestaande VM's configureren](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
-
-Wanneer u klaar bent, klikt u op de **OK** knop aan de onderkant van de **SQL Server-configuratie** instellingen van uw wijzigingen op te slaan.
+Wanneer u klaar bent, selecteert u de **toepassen** knop aan de onderkant van de **back-ups** pagina uw wijzigingen op te slaan.
 
 Als u automatische back-up voor de eerste keer inschakelt, configureert Azure de SQL Server IaaS Agent op de achtergrond. Gedurende deze tijd de Azure-portal mogelijk niet weergegeven of automatische back-up is geconfigureerd. Wacht enkele minuten voor de agent moet worden geïnstalleerd of geconfigureerd. Daarna wordt de Azure-portal de nieuwe instellingen weergegeven.
 
@@ -119,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 Als de SQL Server IaaS Agent-extensie is geïnstalleerd, ziet u dat deze als 'SqlIaaSAgent' of 'SQLIaaSExtension' weergegeven. **ProvisioningState** voor de extensie moet ook "Geslaagd" weergegeven.
 
-Als het is niet geïnstalleerd of kan niet worden ingericht, kunt u deze installeren met de volgende opdracht. Naast de groep van de naam en resourcegroep voor virtuele machine, moet u ook de regio opgeven (**$region**) die uw virtuele machine bevindt zich in.
+Als het is niet geïnstalleerd of kan niet worden ingericht, kunt u deze installeren met de volgende opdracht. Naast de groep van de naam en resourcegroep voor virtuele machine, moet u ook de regio opgeven ( **$region**) die uw virtuele machine bevindt zich in.
 
 ```powershell
 $region = "EASTUS2"

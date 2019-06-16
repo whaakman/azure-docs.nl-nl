@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/16/2019
-ms.openlocfilehash: 05961f8dd2788179a15e6bfe094484cf4770067b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052034"
 ---
 Query's naar de container in rekening gebracht volgens de prijscategorie van de Azure-resource die wordt gebruikt voor de `<ApiKey>`.
 
@@ -21,12 +21,12 @@ De container moet de facturering argumentwaarden om uit te voeren. Deze waarden 
 
 ### <a name="billing-arguments"></a>Facturering-argumenten
 
-Alle drie van de volgende opties moet worden opgegeven met geldige waarden voor de `docker run` opdracht om te beginnen de container.
+Voor de `docker run` opdracht om te beginnen de container, moeten alle drie van de volgende opties worden opgegeven met geldige waarden:
 
 | Optie | Description |
 |--------|-------------|
-| `ApiKey` | De API-sleutel van de Cognitive Services-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte resource die is opgegeven `Billing`. |
-| `Billing` | Het eindpunt van de Cognitive Services-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte Azure-resource van het eindpunt.|
-| `Eula` | Geeft aan dat u de licentie voor de container hebt geaccepteerd.<br/>De waarde van deze optie moet worden ingesteld op `accept`. |
+| `ApiKey` | De API-sleutel van de Cognitive Services-resource die wordt gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte resource die opgegeven in `Billing`. |
+| `Billing` | Het eindpunt van de Cognitive Services-resource die wordt gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte Azure-resource van het eindpunt.|
+| `Eula` | Geeft aan dat u de licentie voor de container hebt geaccepteerd.<br/>De waarde van deze optie moet worden ingesteld op **accepteren**. |
 
 

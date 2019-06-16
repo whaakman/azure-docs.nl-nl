@@ -9,10 +9,10 @@ ms.date: 04/30/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: e0f93b0a95a228b26fae266129aea4b595b05e0f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148353"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Anonieme leestoegang tot containers en blobs beheren
@@ -143,7 +143,7 @@ De volgende tabel ziet u welke bewerkingen kunnen worden aangeroepen anoniem wan
 | Blob ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
 | Blobeigenschappen ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
 | Blobeigenschappen instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| De metagegevens van de blob ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
+| De Blobmetagegevens van de ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
 | Instellen van de metagegevens van de Blob | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Blok plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Lijst met geblokkeerde websites (alleen toegezegde blokken) ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
@@ -155,7 +155,7 @@ De volgende tabel ziet u welke bewerkingen kunnen worden aangeroepen anoniem wan
 | Lease-Blob | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Pagina plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Get Page-bereiken | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
-| Blob toevoegen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Toevoeg-Blob | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 
 ## <a name="next-steps"></a>Volgende stappen
 
