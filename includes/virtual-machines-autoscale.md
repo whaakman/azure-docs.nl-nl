@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8d10c3edcf64ccc66b0599d064e91270a4ad8202
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160063"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814824"
 ---
 U kunt eenvoudig [automatisch schalen](../articles/azure-monitor/platform/autoscale-best-practices.md) uw [virtuele machines (VM's)](../articles/virtual-machines/windows/overview.md) bij het gebruik [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) en de [functie voor automatisch schalen van Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Uw virtuele machines moeten lid zijn van een schaalset automatisch worden geschaald. In dit artikel bevat informatie waarmee u beter te begrijpen hoe u uw virtuele machines met behulp van automatische en handmatige methoden verticaal en horizontaal schalen.
 
@@ -53,7 +53,7 @@ U kunt [activeerbare](../articles/azure-monitor/platform/autoscale-webhook-email
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Handmatig schalen van virtuele machines in een schaalset
 
-### <a name="horizontal"></a>Horizontaal
+### <a name="horizontal"></a>Horizontale
 
 U kunt toevoegen of verwijderen van virtuele machines door het wijzigen van de capaciteit van de schaalset. In de Azure-portal, kunt u verkleinen of verhoog het aantal virtuele machines (weergegeven als **aantal instanties**) in de schaalset door te schuiven de onderdrukking voorwaarde-balk op het scherm schalen naar links of rechts.
 

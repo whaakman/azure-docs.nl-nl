@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
 ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989868"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Maken en het verkennen van geautomatiseerde experimenten voor machine learning in Azure portal (Preview)
@@ -60,7 +60,7 @@ Selecteer de knop Experiment maken voor het vullen van de volgende notatie.
 
     Veld|Description
     ---|---
-    Compute-naam| Voer een unieke naam ter identificatie van uw compute-context.
+    COMPUTE-naam| Voer een unieke naam ter identificatie van uw compute-context.
     Grootte virtuele machine| Selecteer de grootte van de virtuele machine voor Computing.
     Aanvullende instellingen| *Min knooppunt*: Voer het minimum aantal knooppunten voor Computing. Het minimum aantal knooppunten voor AML compute is 0. Om in te schakelen data profileren, moet u 1 of meer knooppunten hebben. <br> *Max knooppunt*: Geef het maximum aantal knooppunten voor Computing. De standaardwaarde is 6 knooppunten voor een AML-Computing.
 
@@ -213,7 +213,7 @@ Geautomatiseerde ML helpt u bij het implementeren van het model zonder code te s
 
     U kunt het model identificeren door de omschrijving, waaronder de run-ID, het aantal herhalingen, in de volgende indeling: *< Run_ID > _ < Iteration_number > _Model*
 
-    ![Modellen: Installatiekopie maken](media/how-to-create-portal-experiments/model-create-image.png)
+    ![Models: Installatiekopie maken](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. Voer een naam voor de installatiekopie. 
 1. Selecteer de **Bladeren** knop naast het vak 'File scoren' voor het uploaden van het scoring-bestand (scoring.py) u eerder hebt gedownload.

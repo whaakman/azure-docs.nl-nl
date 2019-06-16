@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161312"
 ---
 U kunt ook de metrische gegevens voor het controleren van de prestaties van het apparaat en in sommige gevallen voor het oplossen van problemen met het apparaat weergeven.
@@ -17,7 +17,7 @@ De volgende stappen uitvoeren in Azure portal een grafiek voor metrische gegeven
 
 1. Voor uw resource in Azure portal, gaat u naar **bewaking > metrische gegevens** en selecteer **metrische waarde toevoegen**.
 
-    ![Metrische waarde toevoegen](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
+    ![Waarde toevoegen](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
 2. De resource wordt automatisch ingevuld.  
 
@@ -53,11 +53,11 @@ De volgende stappen uitvoeren in Azure portal een grafiek voor metrische gegeven
 
 5. Als de metrische gegevens die u hebt geselecteerd, meerdere exemplaren heeft, zijn de splitsen optie is beschikbaar. Selecteer **toepassen splitsen** en selecteer vervolgens de waarde waarmee u wilt zien van de verdeling.
 
-    ![Splitsing toepassen](media/data-box-edge-gateway-view-metrics/view-metrics-5.png)
+    ![Toepassing splitsen](media/data-box-edge-gateway-view-metrics/view-metrics-5.png)
 
 6. Als u nu wilt om te zien van de uitsplitsing van slechts voor enkele exemplaren, kunt u de gegevens kunt filteren. Bijvoorbeeld: in dit geval, als u zien van de netwerkdoorvoer alleen voor de twee verbonden netwerkinterfaces op uw apparaat wilt, u kunt filteren die interfaces. Selecteer **filter toevoegen** en geeft u de naam van de netwerk-interface voor het filteren.
 
-    ![Filter toevoegen](media/data-box-edge-gateway-view-metrics/view-metrics-6.png)
+    ![filter toevoegen](media/data-box-edge-gateway-view-metrics/view-metrics-6.png)
 
 7. U kunt ook de grafiek vastmaken aan dashboard voor eenvoudige toegang.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 00393395745ca96ae14269ae80e4f3d25673fbfa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723007"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Virtueel apparaat netwerkproblemen in Azure
 
@@ -74,13 +74,20 @@ PowerShell gebruiken
 3. Controleer de **EnableIPForwarding** eigenschap.
 4. Als doorsturen via IP is niet ingeschakeld, moet u de volgende opdrachten te kunnen uitvoeren:
 
-   $nic2 = Get-AzNetworkInterface - ResourceGroupName <ResourceGroupName> -naam <NicName> $nic2. EnableIPForwarding = 1 ingesteld AzNetworkInterface - NetworkInterface $nic2 uitvoeren: $nic2 #and controleren op een verwachte uitvoer: EnableIPForwarding: True NetworkSecurityGroup : null
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
 
 **Controleer voor NSG bij het gebruik van standaard SKU Pubilc IP** wanneer u een standaard-SKU en openbare IP-adressen, moet er een NSG die is gemaakt en een expliciete regel het verkeer naar de NVA toe te staan.
 
 **Controleer of het verkeer kan worden gerouteerd naar de NVA**
 
-1. Op [Azure-portal](https://portal.azure.com)Open **Network Watcher**, selecteer **' volgende hop '**.
+1. Op [Azure-portal](https://portal.azure.com)Open **Network Watcher**, selecteer **' volgende hop '** .
 2. Geef een virtuele machine die is geconfigureerd voor het verkeer omleiden naar de NVA en een doel-IP-adres waarop om de volgende hop weer te geven. 
 3. Als de NVA niet wordt vermeld als de **volgende hop**, controleren en bijwerken van de Azure-routetabellen.
 

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569820"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Incidenten en waarschuwingen onderzoeken in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
+
+> [!NOTE]
+> De ervaring voor het onderzoeken waarschuwingen en incidenten wordt beëindigd op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Wat is onderzoek in Security Center?
 Met de onderzoeksfunctie in Security Center kunt u potentiële [beveiligingsincidenten](https://docs.microsoft.com/azure/security-center/security-center-incident) sorteren, kijken wat voor gevolgen ze hebben en de hoofdoorzaak van een probleem opsporen.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
 ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66688913"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
@@ -101,7 +101,7 @@ Standaard worden alle gegevens, met uitzondering van **tijd laatste keer voorgek
 * Back-upitem
 * Beveiligde Server
 * Severity
-* Duur
+* Duration
 * Aanmaaktijd
 * Status
 * Tijd laatste keer voorgekomen

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411363"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
@@ -88,15 +88,15 @@ De standaard Windows-DNS-client heeft een ingebouwde DNS-cache. Sommige Linux-di
 
 Er zijn een aantal verschillende DNS-caching pakketten beschikbaar zijn (zoals dnsmasq). Dit is het dnsmasq installeren op de meest voorkomende distributies:
 
-* **Ubuntu (maakt gebruik van resolvconf)**:
+* **Ubuntu (maakt gebruik van resolvconf)** :
   * Installeer het pakket dnsmasq met `sudo apt-get install dnsmasq`.
-* **SUSE (maakt gebruik van netconf)**:
+* **SUSE (maakt gebruik van netconf)** :
   * Installeer het pakket dnsmasq met `sudo zypper install dnsmasq`.
   * Schakel de service dnsmasq met `systemctl enable dnsmasq.service`. 
   * Start de service dnsmasq met `systemctl start dnsmasq.service`. 
   * Bewerken **/etc/sysconfig/network/config**, en wijzig *NETCONFIG_DNS_FORWARDER = ""* naar *dnsmasq*.
   * Bijwerken van resolv.conf met `netconfig update`om in te stellen de cache als de lokale DNS-resolver.
-* **CentOS (uses NetworkManager)**:
+* **CentOS (uses NetworkManager)** :
   * Installeer het pakket dnsmasq met `sudo yum install dnsmasq`.
   * Schakel de service dnsmasq met `systemctl enable dnsmasq.service`.
   * Start de service dnsmasq met `systemctl start dnsmasq.service`.
@@ -154,7 +154,7 @@ Doorsturen van de DNS ook kan DNS-omzetting tussen virtuele netwerken en kunt uw
 
 ![Diagram van DNS tussen virtuele netwerken](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Wanneer u van Azure geleverd naamomzetting gebruikmaakt, Azure Dynamic Host Configuration Protocol (DHCP) biedt een interne DNS-achtervoegsel (**. internal.cloudapp.net**) aan elke virtuele machine. Dit achtervoegsel kan omzetten van de hostnaam, omdat de host naamrecords in de **internal.cloudapp.net** zone. Wanneer u uw eigen naam resolutie-oplossing gebruikt, wordt dit achtervoegsel aan virtuele machines niet geleverd, omdat deze een conflict met andere DNS-architecturen (zoals scenario's voor het domein veroorzaakt). In plaats daarvan Azure biedt een tijdelijke aanduiding voor niet-functionerende (*reddog.microsoft.com*).
+Wanneer u van Azure geleverd naamomzetting gebruikmaakt, Azure Dynamic Host Configuration Protocol (DHCP) biedt een interne DNS-achtervoegsel ( **. internal.cloudapp.net**) aan elke virtuele machine. Dit achtervoegsel kan omzetten van de hostnaam, omdat de host naamrecords in de **internal.cloudapp.net** zone. Wanneer u uw eigen naam resolutie-oplossing gebruikt, wordt dit achtervoegsel aan virtuele machines niet geleverd, omdat deze een conflict met andere DNS-architecturen (zoals scenario's voor het domein veroorzaakt). In plaats daarvan Azure biedt een tijdelijke aanduiding voor niet-functionerende (*reddog.microsoft.com*).
 
 Indien nodig, kunt u de interne DNS-achtervoegsel bepalen met behulp van PowerShell of de API.
 
@@ -173,7 +173,7 @@ Als het doorsturen van query's naar Azure niet passen aan uw behoeften, kunt u u
 > 
 > 
 
-### <a name="web-apps"></a>Web Apps
+### <a name="web-apps"></a>Web-apps
 Stel dat u wilt uitvoeren van naamomzetting van uw web-app gebouwd met behulp van App Service is gekoppeld aan een virtueel netwerk, op virtuele machines in hetzelfde virtuele netwerk. Naast het instellen van een aangepaste DNS-server die een DNS-doorstuurserver waarmee query's worden doorgestuurd naar Azure (virtueel IP-adres 168.63.129.16), heeft de volgende stappen uitvoeren:
 1. Integratie van virtuele netwerken voor uw web-app inschakelen als nog niet gedaan, zoals beschreven in [uw app integreren met een virtueel netwerk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. In de Azure-portal voor het App Service-plan die als host fungeert voor de web-app, selecteer **netwerk synchroniseren** onder **netwerken**, **Virtual Network-integratie**.

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
-ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073955"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor ontwikkelaars van toepassingen voor het beheren van resources in Azure Kubernetes Service (AKS)
 
 Als u toepassingen ontwikkelen en in Azure Kubernetes Service (AKS uitvoeren), zijn er enkele belangrijke gebieden te houden. Het beheren van uw implementaties van toepassingen kunnen een negatieve invloed hebben op de gebruikerservaring van services die u opgeeft. Als u wilt gebruiken om te laten slagen, houd er rekening mee enkele aanbevolen procedures kunt u volgen als u toepassingen ontwikkelen en in AKS uitvoeren.
 
-Deze aanbevolen procedures voor richt zich voor het uitvoeren van uw cluster en de werkbelasting van een toepassing developer-perspectief. Zie voor meer informatie over best practices administratieve [operator aanbevolen procedures voor het beheer van isolatie en resource in Azure Kubernetes Service (AKS)-Cluster][operator-best-practices-isolation]. In dit artikel leert u het volgende:
+Deze aanbevolen procedures voor richt zich voor het uitvoeren van uw cluster en de werkbelasting van een toepassing developer-perspectief. Zie voor meer informatie over best practices administratieve [operator aanbevolen procedures voor het beheer van isolatie en resource in Azure Kubernetes Service (AKS)-Cluster][operator-best-practices-isolation]. In dit artikel leert u:
 
 > [!div class="checklist"]
 > * Wat zijn de resourceaanvragen pod en limieten
@@ -74,6 +74,8 @@ Met Azure Dev spaties, ontwikkelen, fouten opsporen en testen van toepassingen r
 
 Deze geïntegreerde ontwikkelings- en verwerken met Dev spaties vermindert de noodzaak voor lokale testomgevingen, zoals [minikube][minikube]. In plaats daarvan ontwikkelen en testen op basis van een AKS-cluster. Dit cluster kan worden beveiligd en dat staat vermeld in de vorige sectie over het gebruik van naamruimten voor het isoleren van een cluster logisch geïsoleerd. Als uw apps klaar om te implementeren naar productie zijn, kunt u vol vertrouwen omdat het ontwikkelen van apps is uitgevoerd op basis van een echte AKS-cluster implementeren.
 
+Azure Dev opslagruimten is bedoeld voor gebruik met toepassingen die worden uitgevoerd op Linux-schillen en knooppunten.
+
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Gebruik de Visual Studio Code-extensie voor Kubernetes
 
 **Aanbevolen procedurerichtlijn** -installeren en gebruiken de VS Code-extensie voor Kubernetes bij het schrijven van YAML-manifesten. U kunt ook de extensie voor geïntegreerde implementatieoplossing waarmee toepassingseigenaren die minder vaak communiceren met het AKS-cluster.
@@ -87,6 +89,8 @@ De [Visual Studio Code-extensie voor Kubernetes] [ vscode-kubernetes] helpt u bi
 **Aanbevolen procedurerichtlijn** -Voer regelmatig de nieuwste versie van `kube-advisor` open source-hulpprogramma om problemen te detecteren in uw cluster. Als u resourcequota op een bestaand AKS-cluster toepast, voert u `kube-advisor` eerst te vinden schillen waarvoor geen resourceaanvragen en -limieten die zijn gedefinieerd.
 
 De [kube-advisor] [ kube-advisor] hulpprogramma is een bijbehorende AKS open source-project, die een Kubernetes-cluster wordt gescand en rapporten weergeven over problemen die worden gevonden. Een nuttige controle is het identificeren van schillen die niet over een bron aanvragen en -limieten in plaats.
+
+Het hulpprogramma kube-advisor kunt rapporteren resourceaanvraag en limieten ontbreekt in de PodSpecs voor Windows-toepassingen, evenals de Linux-toepassingen, maar het hulpprogramma kube-advisor zelf moet worden gepland op een Linux-schil. U kunt plannen dat een schil om uit te voeren op een knooppunt van toepassingen met een specifiek besturingssysteem met een [knooppunt selector] [ k8s-node-selector] in de configuratie van de schil.
 
 In een AKS-cluster die als host fungeert voor veel development-teams en toepassingen, kan het lastig zijn om bij te houden van schillen zonder deze resource-aanvragen en set beperkt. Als een best practice regelmatig uitgevoerd `kube-advisor` op uw AKS-clusters.
 
@@ -110,3 +114,4 @@ Voor het implementeren van sommige van deze aanbevolen procedures, Zie de volgen
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

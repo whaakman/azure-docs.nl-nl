@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811610"
 ---
 # <a name="u-sql-programmability-guide"></a>Handleiding voor het programmeren van U-SQL
@@ -1067,11 +1067,11 @@ UDO wordt doorgaans expliciet genoemd in U-SQL-script als onderdeel van de volge
 ## <a name="use-user-defined-extractors"></a>Gebruik van de gebruiker gedefinieerde extractors
 U-SQL kunt u externe gegevens importeren met behulp van een instructie EXTRAHEREN. Een instructie EXTRACT kunt ingebouwde UDO extractors gebruiken:  
 
-* *Extractors.Text()*: Extractie van tekstbestanden met scheidingstekens van verschillende coderingen biedt.
+* *Extractors.Text()* : Extractie van tekstbestanden met scheidingstekens van verschillende coderingen biedt.
 
-* *Extractors.Csv()*: Extractie uit met door komma's gescheiden waarden biedt (CSV)-bestanden van verschillende coderingen.
+* *Extractors.Csv()* : Extractie uit met door komma's gescheiden waarden biedt (CSV)-bestanden van verschillende coderingen.
 
-* *Extractors.Tsv()*: Extractie van tabblad gescheiden waarden biedt (TSV)-bestanden van verschillende coderingen.
+* *Extractors.Tsv()* : Extractie van tabblad gescheiden waarden biedt (TSV)-bestanden van verschillende coderingen.
 
 Kan het nuttig zijn voor het ontwikkelen van een aangepaste extractor. Dit kan nuttig zijn tijdens het importeren van gegevens als we willen een van de volgende taken:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Gebruik van de gebruiker gedefinieerde outputters
 Gebruiker gedefinieerde outputter is nog een U-SQL-UDO waarmee u de ingebouwde U-SQL-functionaliteit uitbreiden. Net als bij de extractor, er zijn verschillende ingebouwde outputters.
 
-* *Outputters.Text()*: Schrijft gegevens naar tekstbestanden met scheidingstekens van verschillende coderingen.
-* *Outputters.Csv()*: Schrijft gegevens naar een door komma's gescheiden waarden (CSV)-bestanden van verschillende coderingen.
-* *Outputters.Tsv()*: Schrijft gegevens naar het tabblad gescheiden waarden (TSV)-bestanden van verschillende coderingen.
+* *Outputters.Text()* : Schrijft gegevens naar tekstbestanden met scheidingstekens van verschillende coderingen.
+* *Outputters.Csv()* : Schrijft gegevens naar een door komma's gescheiden waarden (CSV)-bestanden van verschillende coderingen.
+* *Outputters.Tsv()* : Schrijft gegevens naar het tabblad gescheiden waarden (TSV)-bestanden van verschillende coderingen.
 
 Aangepaste outputter kunt u gegevens in een aangepaste gedefinieerde indeling wilt schrijven. Dit kan nuttig zijn voor de volgende taken zijn:
 

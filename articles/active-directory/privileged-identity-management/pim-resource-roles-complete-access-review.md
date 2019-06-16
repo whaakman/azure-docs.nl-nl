@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602305"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Een toegangscontrole van Azure-resource-rollen in PIM voltooien
@@ -44,7 +44,7 @@ Op de blade details van de toegangsbeoordeling en zijn er een aantal opties voor
 ### <a name="stop"></a>Stoppen
 Alle beoordelingen voor toegang tot een einddatum hebben, maar u kunt de **stoppen** knop vroeg voltooid. Alle gebruikers die nog niet klaar met de beoordeling op dit moment niet mogelijk om deze te voltooien nadat u de beoordeling stoppen. U kunt een evaluatie kan niet opnieuw starten nadat deze gestopt.
 
-### <a name="reset"></a>opnieuw instellen
+### <a name="reset"></a>Opnieuw instellen
 U kunt een toegangsbeoordeling als u wilt verwijderen van alle beslissingen die worden aangebracht op het opnieuw. Nadat u hebt een toegangsbeoordeling opnieuw ingesteld, alle gebruikers zijn gemarkeerd als niet-gecontroleerde opnieuw. 
 
 ### <a name="apply"></a>Toepassen
@@ -57,7 +57,7 @@ Als u worden niet meer geïnteresseerd in de beoordeling, het verwijderen. De **
 Op de **resultaten** tabblad, weergeven en downloaden van een lijst van de resultaten bekijken. 
 ![Tabblad resultaten](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
-## <a name="reviewers"></a>Revisor
+## <a name="reviewers"></a>Revisoren
 Bekijk en revisoren toevoegen aan uw bestaande toegangsbeoordeling. Herinner revisoren hun beoordelingen te voltooien.
 ![Revisoren toevoegen](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 

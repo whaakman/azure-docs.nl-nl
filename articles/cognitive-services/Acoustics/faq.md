@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1f2b4d25b39e9b3ebc6659e736d47640964251dc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61335327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693885"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Veelgestelde vragen over project akoestische
 
@@ -27,7 +27,7 @@ De suite Project akoestische van invoegtoepassingen is een akoestische-systeem d
 
 U kunt downloaden de [Project akoestische Unity-invoegtoepassing](https://www.microsoft.com/download/details.aspx?id=57346) of de [Project akoestische Unreal invoegtoepassing](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-x-platform"></a>Biedt ondersteuning voor Project akoestische <x> platform?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Biedt ondersteuning voor Project akoestische &lt;x&gt; platform?
 
 Ondersteuning voor project akoestische platform zich verder ontwikkelt op basis van de behoeften van klanten. Neem contact op met ons op de [Project akoestische forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) om u te informeren over de ondersteuning voor extra platforms.
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070663"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Zelfstudie: Een hostpool voor het valideren van service-updates maken
 
@@ -71,7 +71,7 @@ In de Preview-versie optreden service-updates ongeveer een maandelijkse uitgebra
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een pool van de host validatie hebt gemaakt, kunt u eventueel de adresgroep van de host validatie met RemoteApps invullen. Zie voor meer informatie over het beheren van apps in een virtuele Windows-bureaublad, de zelfstudie voor groepen beheren-Apps.
+Nu dat u een pool van de host validatie hebt gemaakt, leert u over het implementeren en verbinding maken met een hulpprogramma voor het beheren van virtuele bureaublad van Microsoft-resources.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor app-groepen beheren](./manage-app-groups.md)
+> [Zelfstudie: een hulpprogramma management implementeren](./manage-resources-using-ui.md)

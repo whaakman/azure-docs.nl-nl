@@ -19,12 +19,12 @@ ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110670"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming-instellingen in Azure Active Directory oplossen
 
@@ -85,7 +85,7 @@ Onder bepaalde omstandigheden, kan Enterprise State Roaming niet kunnen synchron
 
 **Potentiële problemen**: Als uw apparaat is geconfigureerd voor meervoudige verificatie vereisen in de Azure Active Directory-portal, moet u mislukken instellingen synchroniseren tijdens het aanmelden bij een Windows 10-apparaat met een wachtwoord. Dit type configuratie van multi-factor Authentication is bedoeld voor het beveiligen van een Azure-beheerdersaccount. Beheerder gebruikers nog steeds mogelijk om te synchroniseren met het aanmelden bij hun Windows 10-apparaten met hun Microsoft Passport voor Work PINCODE of door te voeren van multi-factor Authentication bij het openen van andere Azure-services zoals Office 365.
 
-**Potentiële problemen**: Synchronisatie kan mislukken als de beheerder het voorwaardelijke toegangsbeleid van Active Directory Federation Services multi-factor Authentication configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u zich aanmelden en meld u af met de Microsoft Passport for Work-PINCODE of multi-Factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
+**Potentiële problemen**: Synchronisatie kan mislukken als de beheerder de Active Directory Federation Services multi-Factor Authentication beleid voor voorwaardelijke toegang configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u zich aanmelden en meld u af met de Microsoft Passport for Work-PINCODE of multi-Factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
 
 ### <a name="event-viewer"></a>Logboeken
 

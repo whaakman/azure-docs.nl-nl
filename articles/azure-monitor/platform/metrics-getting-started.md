@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595453"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Aan de slag met Azure Metrics Explorer
@@ -38,14 +38,14 @@ Voor het maken van een grafiek met metrische gegevens van uw resource, resourceg
 
 3. Selecteer een metrische waarde uit een lijst met beschikbare metrische gegevens.
 
-    > ![Een metrische waarde selecteren](./media/metrics-getting-started/metric-picker.png)
+    > ![Selecteer een metrische waarde](./media/metrics-getting-started/metric-picker.png)
 
 4. U kunt eventueel de metrische aggregatie wijzigen. Bijvoorbeeld, kunt u de grafiek om minimale, maximale en gemiddelde waarden van de metrische gegevens weer te geven.
 
 > [!NOTE]
 > Gebruik de **metrische waarde toevoegen** knop en Herhaal deze stappen als u wilt zien van meerdere metrische gegevens in dezelfde grafiek getekend. Voor meerdere diagrammen in één weergave, selecteert u de **toevoegen grafiek** bovenaan op de knop.
 
-## <a name="select-a-time-range"></a>Een tijdsbereik selecteren
+## <a name="select-a-time-range"></a>Selecteer een tijdsbereik
 
 De grafiek toont standaard de meest recente 24 uur van metrische gegevens. Gebruik de **tijdkiezer** Configuratiescherm om het tijdsbereik wijzigen, Inzoomen of uitzoomen op uw grafiek. 
 

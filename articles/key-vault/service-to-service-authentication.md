@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722466"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
@@ -177,7 +177,7 @@ Een certificaat aan te melden bij Azure AD gebruiken:
           CertificateStoreLocation={CertificateStore}
     ```
  
-    Vervang *{AppId}*, *{tenant-id}*, en *{Thumbprint}* met waarden die in stap 1 is gegenereerd. Vervang *{CertificateStore}* in beide gevallen `LocalMachine` of `CurrentUser`, op basis van uw implementatieplan.
+    Vervang *{AppId}* , *{tenant-id}* , en *{Thumbprint}* met waarden die in stap 1 is gegenereerd. Vervang *{CertificateStore}* in beide gevallen `LocalMachine` of `CurrentUser`, op basis van uw implementatieplan.
 
 4. Voer de toepassing uit. 
 
@@ -191,7 +191,7 @@ Om aan te melden met behulp van een Azure gedeelde AD geheime referentie:
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
-    Vervang _{AppId}_, _{tenant-id}_, en _{ClientSecret}_ met waarden die in stap 1 is gegenereerd.
+    Vervang _{AppId}_ , _{tenant-id}_ , en _{ClientSecret}_ met waarden die in stap 1 is gegenereerd.
 
 3. Voer de toepassing uit. 
 

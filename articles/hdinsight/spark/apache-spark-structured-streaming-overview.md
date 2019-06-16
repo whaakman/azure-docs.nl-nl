@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
 ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711322"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Overzicht van Apache Spark Structured Streaming
@@ -38,7 +38,7 @@ In de Structured Streaming gegevens aankomt op het systeem en onmiddellijk in ee
 
 De gegevens in de resultaten van tabellen bevatten mag alleen de gegevens die nieuw zijn sinds de laatste keer dat de query is verwerkt (*toevoeg-modus*), of de tabel worden volledig vernieuwd telkens wanneer er nieuwe gegevens is, zodat de tabel alle van de uitvoergegevens omvat sinds het begin van de streaming-query (*volledige modus*).
 
-### <a name="append-mode"></a>Toevoegmodus
+### <a name="append-mode"></a>Toevoeg-modus
 
 Toevoeg-modus, alleen de rijen toegevoegd aan de tabel met resultaten sinds de laatste uitvoering van query's zijn aanwezig in de tabel met resultaten en geschreven naar de externe opslag in. Bijvoorbeeld, de meest eenvoudige query alleen alle worden gegevens gekopieerd van de invoertabel aan de tabel met resultaten ongewijzigd. Telkens wanneer die een trigger-interval is verstreken, de nieuwe gegevens zijn verwerkt en de rijen die aangeeft dat nieuwe gegevens worden weergegeven in de tabel met resultaten. 
 

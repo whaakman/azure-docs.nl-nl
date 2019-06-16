@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: f5fc778ee4d8f91232bc732cc276f642f748b29d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297562"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Maken, plannen en uitvoeren van terugkerende taken en werkstromen met de trigger terugkeerpatroon in Azure Logic Apps
@@ -57,7 +57,7 @@ Zie voor verschillen tussen deze trigger en de trigger venster schuiven of voor 
 
    | Eigenschap | Vereist | JSON-naam | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Interval** | Ja | interval | Integer | Een positief geheel getal dat wordt beschreven hoe vaak de werkstroom wordt uitgevoerd, is afhankelijk van de frequentie. Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uur: 1-12.000-uur </br>-Minuut: 1-72,000 minuten </br>-Seconde: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval 6 is en de frequency 'Maand' is, is klikt u vervolgens het terugkeerpatroon elke 6 maanden. |
+   | **Interval** | Ja | interval | Geheel getal | Een positief geheel getal dat wordt beschreven hoe vaak de werkstroom wordt uitgevoerd, is afhankelijk van de frequentie. Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uur: 1-12.000-uur </br>-Minuut: 1-72,000 minuten </br>-Seconde: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval 6 is en de frequency 'Maand' is, is klikt u vervolgens het terugkeerpatroon elke 6 maanden. |
    | **Frequentie** | Ja | frequency | String | De tijdseenheid voor het terugkeerpatroon: **Tweede**, **minuut**, **uur**, **dag**, **Week**, of **maand** |
    ||||||
 

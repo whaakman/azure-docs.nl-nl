@@ -12,10 +12,10 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232630"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Computer Vision-functies gebruiken met de REST-API en Java
@@ -60,11 +60,11 @@ Het is niet nodig om de inhoud van het ZIP-bestand uit te pakken omdat NetBeans 
 
 Importeer het bestand **cognitive-services-java-computer-vision-tutorial-master.zip** in NetBeans.
 
-1. Klik in NetBeans op **Bestand** > **Project importeren** > **Vanuit ZIP...**. Het dialoogvenster **Project(en) importeren vanuit ZIP** verschijnt.
+1. Klik in NetBeans op **Bestand** > **Project importeren** > **Vanuit ZIP...** . Het dialoogvenster **Project(en) importeren vanuit ZIP** verschijnt.
 1. Klik in het veld **ZIP-bestand** op de knop **Bladeren** om het bestand **cognitive-services-java-computer-vision-tutorial-master.zip** te zoeken, en klik vervolgens op **Openen**.
 1. Klik op **Importeren** in het dialoogvenster **Project(en) importeren vanuit ZIP**.
-1. Vouw in het venster **Projecten** het item **ComputerVision** > **Bronpakketten** > **&lt;standaardpakket&gt;** uit. 
-   Sommige versies van NetBeans gebruiken **src** in plaats van **Bronpakketten** > **&lt;standaardpakket&gt;**. Vouw in dat geval **src** uit.
+1. Vouw in het venster **Projecten** het item **ComputerVision** > **Bronpakketten** >  **&lt;standaardpakket&gt;** uit. 
+   Sommige versies van NetBeans gebruiken **src** in plaats van **Bronpakketten** >  **&lt;standaardpakket&gt;** . Vouw in dat geval **src** uit.
 1. Dubbelklik op **MainFrame.java** om het bestand in de NetBeans-editor te laden. Het tabblad **Ontwerpen** van het bestand **MainFrame.java** verschijnt.
 1. Klik op het tabblad **Bron** om de Java-broncode te bekijken.
 

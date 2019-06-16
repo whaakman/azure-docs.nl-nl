@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458464"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Maken en beheren van Azure Database voor MySQL-firewallregels met behulp van de Azure CLI
@@ -29,7 +29,7 @@ De **az mysql server firewall-rule** opdracht van de Azure CLI wordt gebruikt vo
 Opdrachten:
 - **Maak**: Maak een Azure MySQL server firewall-regel.
 - **Verwijder**: Een Azure MySQL server firewall-regel verwijderen.
-- **Lijst met**: Lijst met de Azure MySQL server firewall-regels.
+- **lijst met**: Lijst met de Azure MySQL server firewall-regels.
 - **weergeven**: De details van een Azure MySQL server firewall-regel weergeven.
 - **Update**: Een firewallregel voor Azure MySQL-server bijwerken.
 

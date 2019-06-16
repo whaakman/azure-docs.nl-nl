@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: ebdc1e1c100329e95bd19359408cb138d233b1c2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66385442"
 ---
 # <a name="default-values-and-boundaries"></a>Standaardwaarden en -grenzen
@@ -33,7 +33,7 @@ Parameter | Limiet
 --- | --- 
 API ontwerpen, max HTTP-aanroepen per maand | 5 MIN.
 API ontwerpen, max HTTP-aanroepen per seconde | 25
-Sessie-API, max HTTP-aanroepen per maand | 500.000
+Sessie-API, max HTTP-aanroepen per maand | 500\.000
 Sessie-API, max HTTP-aanroepen per seconde | 10
 Maximumaantal aangepaste (niet-programmatische) entiteiten per model | Zie [LUIS grenzen doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); in de praktijk werkelijke nummer is mogelijk iets kleinere
 Maximumaantal vooraf gemaakte entiteiten per model | Zie [LUIS grenzen doc-bestand](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)

@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076298"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: Web-app of web-API's aanroepen
+# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: Web-app die web-API's aanroept
 
 Meer informatie over het bouwen van een web-app aanmelden gebruikers op het Microsoft identity-platform en dat aanroepen van web-API's namens de aangemelde gebruiker.
 
@@ -39,7 +39,7 @@ In dit scenario ver-onderstelt dat u het volgende scenario hebt doorlopen:
 
 U toevoegen verificatie aan uw Web-App, die daarom gebruikers kunnen aanmelden en namens de aangemelde gebruiker een web-API aanroept.
 
-![Web-app of web-API's aanroepen](./media/scenario-webapp/web-app.svg)
+![Web-app die web-API's aanroept](./media/scenario-webapp/web-app.svg)
 
 Web-Apps die worden aangeroepen web-API's:
 

@@ -17,10 +17,10 @@ ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d71bfd5e560bb1509337ac371fbe101b4c6d63b5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540647"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Inzicht in ervaringen met Azure AD-toepassingtoestemming
@@ -49,7 +49,7 @@ Het volgende diagram en de tabel bevatten informatie over de bouwstenen bij het 
 | 1 | Gebruikers-id | Deze id vertegenwoordigt de gebruiker die toegang krijgen tot beveiligde bronnen namens de clienttoepassing vraagt. |
 | 2 | Titel | De titel wordt gewijzigd op basis van of de gebruikers gaan door de gebruiker of beheerder toestemming-stroom. In een gebruikersstroom toestemming zijn de titel 'Machtigingen aangevraagd' in de beheerstroom toestemming van de titel moet een extra regel 'Accepteren voor uw organisatie'. |
 | 3 | App-logo | Deze afbeelding kunt gebruikers hebben een visuele aanwijzing van of deze app de app is ze bedoeld voor toegang tot. Deze installatiekopie wordt geleverd door de ontwikkelaars van toepassingen en het eigendom van deze installatiekopie is niet gevalideerd. |
-| 4 | App-naam | Deze waarde moet in kennis stellen gebruikers welke toepassing toegang tot hun gegevens aanvraagt. Noteer deze naam wordt geleverd door de ontwikkelaars en het eigendom van de naam van deze app is niet gevalideerd. |
+| 4 | Naam van app | Deze waarde moet in kennis stellen gebruikers welke toepassing toegang tot hun gegevens aanvraagt. Noteer deze naam wordt geleverd door de ontwikkelaars en het eigendom van de naam van deze app is niet gevalideerd. |
 | 5 | Uitgeversdomein | Deze waarde moet aangeboden aan gebruikers met een domein dat ze mogelijk is om te evalueren voor betrouwbaarheid. Dit domein wordt geleverd door de ontwikkelaars en het eigendom van dit domein publisher is gevalideerd. |
 | 6 | Machtigingen | Deze lijst bevat de machtigingen die zijn aangevraagd door de clienttoepassing. Gebruikers moeten altijd evalueren voor de typen machtigingen worden aangevraagd om te begrijpen welke gegevens de clienttoepassing wordt worden gemachtigd voor toegang tot namens hen als ze accepteren. Als toepassingsontwikkelaar in een is het raadzaam om toegang te vragen, met de machtigingen met minimale bevoegdheden. |
 | 7 | Beschrijving van machtiging | Deze waarde is opgegeven door de service de machtigingen om vrij te geven. Als u wilt zien van de beschrijving van de machtigingen, moet u de pijl-omlaag naast de machtiging schakelen. |

@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158489"
 ---
 Sommige workloads van databases, zoals SQL Server of Oracle vereisen hoge geheugen-, opslag, en i/o-bandbreedte, maar niet een aantal hoge kernen. Veel databaseworkloads zijn niet CPU-intensief. Azure biedt een bepaalde VM-grootten waar u het aantal VM vCPU's te verminderen de kosten voor softwarelicenties, behoud van de dezelfde geheugen-, opslag- en i/o-bandbreedte kunt beperken.
@@ -21,7 +21,7 @@ Het aantal vCPU's kan worden beperkt tot één of een halve kwartaal van de oors
 
 Bijvoorbeeld, de huidige VM-grootte Standard_GS5 wordt geleverd met 32 vcpu's en 448 GB RAM-geheugen, 64 schijven (tot 256 TB), en 80.000 IOP's of 2 GB/s van i/o-bandbreedte. De nieuwe VM-grootten Standard_GS5-16 en Standard_GS5-8 wordt geleverd met 16 en 8 active vcpu's, terwijl de rest van de specificaties van de Standard_GS5 voor geheugen-, opslag- en i/o-bandbreedte.
 
-De licentie kosten in rekening gebracht voor SQL Server of Oracle zijn beperkt tot het nieuwe aantal vCPU's en andere producten moeten in rekening gebracht op basis van de nieuwe vCPU aantal. Dit resulteert in een toename van 50% tot 75% in de verhouding van de specificaties van de virtuele machine aan active (factureerbare) vcpu's. Deze nieuwe VM-grootten kunnen klanten workloads gebruikmaken van dezelfde geheugen-, opslag- en i/o-bandbreedte tijdens het optimaliseren van hun kosten voor softwarelicenties. Op dit moment blijft de compute-kosten, zoals de OS-licentieverlening, de dezelfde versie als de oorspronkelijke grootte. Zie voor meer informatie, [Azure VM-grootten voor meer rendabele databaseworkloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+De licentie kosten in rekening gebracht voor SQL Server of Oracle zijn beperkt tot het nieuwe aantal vCPU's en andere producten moeten in rekening gebracht op basis van de nieuwe vCPU aantal. Dit resulteert in een toename van 50% tot 75% in de verhouding van de specificaties van de virtuele machine aan active (factureerbare) vcpu's. Deze nieuwe VM-grootten zorgen ervoor dat workloads van klanten hetzelfde geheugen en dezelfde opslag en I/O -bandbreedte kunnen gebruiken, waarbij de kosten voor softwarelicenties worden geoptimaliseerd. Op dit moment blijft de compute-kosten, zoals de OS-licentieverlening, de dezelfde versie als de oorspronkelijke grootte. Zie voor meer informatie, [Azure VM-grootten voor meer rendabele databaseworkloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
 | Name                | vCPU | Specificaties           |

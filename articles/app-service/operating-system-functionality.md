@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808405"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>De functionaliteit van het besturingssysteem op Azure App Service
 In dit artikel beschrijft de functionaliteit van algemene basislijn besturingssysteem dat beschikbaar is voor alle Windows-apps die worden uitgevoerd op [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit bevat de bestands-, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -65,7 +65,7 @@ Het is belangrijk voor het bewaken van uw schijfgebruik wanneer uw toepassing gr
 
 - De app mogelijk een foutbericht dat aangeeft niet genoeg ruimte op de schijf genereert.
 - Mogelijk ziet u schijffouten optreden bij het bladeren naar de Kudu-console.
-- Implementatie van VSTS of Visual Studio kan mislukken met `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Implementatie van Azure DevOps- of Visual Studio kan mislukken met `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Trage prestaties kan worden beïnvloed door uw app.
 
 <a id="NetworkDrives"></a>

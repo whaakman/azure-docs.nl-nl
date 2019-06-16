@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572383"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Zoeken naar een adres met behulp van de search-service van Azure Maps
@@ -60,7 +60,7 @@ De meeste zoekopdrachten standaard `maxFuzzyLevel=1` om prestaties en onvoorspel
 
     | Sleutel | Value |
     |------------------|-------------------------|
-    | API-versie | 1.0 |
+    | api-version | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
     | query | pizza |
 
@@ -110,7 +110,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
   
     | Sleutel | Value |
     |------------------|-------------------------|
-    | API-versie | 1.0 |
+    | api-version | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
     | query | 400 Broad St, Seattle, WA 98109 |
   
@@ -151,7 +151,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
   
     | Sleutel | Value |
     |------------------|-------------------------|
-    | API-versie | 1.0 |
+    | api-version | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
     | query | 47.591180,-122.332700 |
   
@@ -209,7 +209,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
   
     | Sleutel | Value |
     |------------------|-------------------------|
-    | API-versie | 1.0 |
+    | api-version | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
     | query | 47.591180,-122.332700 |
   

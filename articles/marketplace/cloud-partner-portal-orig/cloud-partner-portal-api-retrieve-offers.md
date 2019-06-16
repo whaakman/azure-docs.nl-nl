@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935336"
 ---
 <a name="retrieve-offers"></a>Aanbiedingen ophalen
@@ -28,7 +28,7 @@ Hiermee haalt een overzicht van aanbiedingen onder een publisher-naamruimte.
 | **Naam**         |  **Beschrijving**                         |  **Gegevenstype** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Uitgever-ID, bijvoorbeeld `contoso` |   String    |
-|  API-versie     | Meest recente versie van de API                    |    Date        |
+|  api-version     | Meest recente versie van de API                    |    Date        |
 |  |  |
 
 
@@ -72,8 +72,8 @@ Hiermee haalt een overzicht van aanbiedingen onder een publisher-naamruimte.
 |  publisherId    | ID die een unieke identificatie van de uitgever                                                                      |
 |  status         | De status van de aanbieding. Zie voor een lijst van mogelijke waarden, [status van het voorstel](#offer-status) hieronder.                         |
 |  id             | De GUID die de aanbieding in de naamruimte van de uitgever wordt aangeduid.                                                    |
-|  versie        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren. |
-|  definitie     | Bevat een overzichtsweergave van de werkelijke definitie van de werkbelasting. Als u een uitgebreide definitie, gebruikt de [ophalen specifieke aanbiedings](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
+|  version        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren. |
+|  Definitie     | Bevat een overzichtsweergave van de werkelijke definitie van de werkbelasting. Als u een uitgebreide definitie, gebruikt de [ophalen specifieke aanbiedings](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | UTC-tijd waarop de aanbieding voor het laatst is gewijzigd                                                                              |
 |  |  |
 

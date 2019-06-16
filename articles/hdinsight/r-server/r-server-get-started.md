@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 465b53e1c5f56c5c05c860ebd69a825141f7e703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706076"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Aan de slag met ML Services in Azure HDInsight
@@ -22,7 +22,7 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-s
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**: Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Get Microsoft Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Gratis proefversie van Microsoft Azure downloaden) voor meer informatie.
-* **Een SSH-client (Secure Shell)**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* **Een SSH-client (Secure Shell)** : Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>

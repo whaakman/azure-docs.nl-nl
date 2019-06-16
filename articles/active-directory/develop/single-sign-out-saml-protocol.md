@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545963"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Eenmalige afmelding SAML-Protocol
@@ -50,7 +50,7 @@ De `LogoutRequest` verzonden naar Azure AD-element vereist de volgende kenmerken
 * `Version` -Hiermee stelt u de waarde van dit element aan **2.0**. Deze waarde is verplicht.
 * `IssueInstant` -Dit is een `DateTime` tekenreeks met een waarde voor de coördinatie van Universal Time (UTC) en [traject indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar deze niet afdwingen.
 
-### <a name="issuer"></a>Certificaatverlener
+### <a name="issuer"></a>Verlener
 De `Issuer` -element in een `LogoutRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Meestal dit is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
 ### <a name="nameid"></a>NameID
@@ -71,7 +71,7 @@ Azure AD-verzendt een `LogoutResponse` in reactie op een `LogoutRequest` element
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD-stelt de `ID`, `Version` en `IssueInstant` waarden in de `LogoutResponse` element. Stelt ook het `InResponseTo` element aan de waarde van de `ID` kenmerk van de `LogoutRequest` die opgewekt door het antwoord.
 
-### <a name="issuer"></a>Certificaatverlener
+### <a name="issuer"></a>Verlener
 Azure AD wordt deze waarde ingesteld op `https://login.microsoftonline.com/<TenantIdGUID>/` waar \<TenantIdGUID > is de tenant-ID van de Azure AD-tenant.
 
 Om te evalueren van de waarde van de `Issuer` -element, gebruikt u de waarde van de **App ID URI** opgegeven tijdens de toepassingsregistratie.

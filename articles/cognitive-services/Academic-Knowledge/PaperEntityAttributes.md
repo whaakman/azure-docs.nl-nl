@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875740"
 ---
 # <a name="paper-entity"></a>Document-entiteit
@@ -24,13 +24,13 @@ ms.locfileid: "64875740"
 
 Name    |Description                                        |Type       | Bewerkingen
 ------- | ------------------------------------------------- | --------- | ----------------------------
-Id      |Entiteits-id                                          |Int64      |Is gelijk aan
+Id      |Entiteit-ID                                          |Int64      |Is gelijk aan
 Ti      |Titel van document                                        |String     |Is gelijk aan,<br/>StartsWith
 L       |Taalcode papier gescheiden door '\@\@\@"          |String     |Is gelijk aan
 J       |Papier jaar                                         |Int32      |Is gelijk aan,<br/>IsBetween
 D       |Papier datum                                         |Date       |Is gelijk aan,<br/>IsBetween
-CC      |Aantal citaat                                     |Int32      |geen  
-ECC     |Geschatte citaat tellen                           |Int32      |geen
+CC      |Aantal citaat                                     |Int32      |Geen  
+ECC     |Geschatte citaat tellen                           |Int32      |Geen
 AA.AuN  |Naam van auteur                                        |String     |Is gelijk aan,<br/>StartsWith
 AA.AuId |Auteur-ID                                          |Int64      |Is gelijk aan
 AA. AfN  |Relatie is de naam van auteur                            |String     |Is gelijk aan,<br/>StartsWith
@@ -44,7 +44,7 @@ C.CN    |De naam van de vergadering-serie                             |String   
 C.CId   |Conferentie reeks-ID                               |Int64      |Is gelijk aan
 RId     |Waarnaar wordt verwezen, documenten-ID                              |Int64]    |Is gelijk aan
 W       |Woorden uit papier titel en samenvatting                |String[]   |Is gelijk aan
-E       |Uitgebreide metagegevens (Zie onderstaande tabel)                |String     |geen  
+E       |Uitgebreide metagegevens (Zie onderstaande tabel)                |String     |Geen  
         
 
 
@@ -52,7 +52,7 @@ E       |Uitgebreide metagegevens (Zie onderstaande tabel)                |Strin
 
 Name    | Description               
 --------|---------------------------    
-DN      | Weergavenaam van het document 
+DN-NAAM      | Weergavenaam van het document 
 S       | Bronnen - lijst van webbronnen van het document, gesorteerd op basis van statische positie
 S.Ty    | Brontype (1:HTML, 2:Text, 3:PDF, 4:DOC, 5:PPT, 6:XLS, 7:PS)
 S.U     | Bron-URL

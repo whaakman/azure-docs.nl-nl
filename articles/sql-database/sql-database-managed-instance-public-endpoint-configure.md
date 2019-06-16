@@ -12,10 +12,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 05/07/2019
 ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65465185"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Openbare eindpunt in beheerd exemplaar voor Azure SQL Database configureren
@@ -97,7 +97,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Bron**     |IP-adres of servicetag         |<ul><li>Voor Azure-services zoals Power BI, selecteert u de Tag Azure Cloud Service</li> <li>Gebruik NAT IP-adres voor uw computer of virtuele machine van Azure</li></ul> |
     |**Poortbereiken van bron**     |*         |Laat deze * (alle) zoals bronpoorten meestal dynamisch toegewezen en als dergelijke onvoorspelbare zijn |
-    |**Destination**     |Elk         |Als alle verkeer toe te staan in het subnet van het beheerde exemplaar bestemming verlaten |
+    |**Destination**     |Alle         |Als alle verkeer toe te staan in het subnet van het beheerde exemplaar bestemming verlaten |
     |**Poortbereiken van doel**     |3342         |Bereik doelpoort voor 3342, dit de openbare TDS-eindpunt voor beheerd exemplaar is |
     |**Protocol**     |TCP         |Beheerd exemplaar maakt gebruik van TCP-protocol voor TDS |
     |**Actie**     |Toestaan         |Binnenkomend verkeer naar beheerd exemplaar via het openbare eindpunt toestaan |

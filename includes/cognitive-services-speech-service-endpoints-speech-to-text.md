@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 6b64d8ea32e0c99c6f9468b84ea02c377c7441f5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146029"
 ---
 | Regio | Eindpunt |
@@ -22,7 +22,7 @@ ms.locfileid: "66146029"
 | Frankrijk - centraal | `https://francecentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | India - centraal | `https://centralindia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Japan - oost | `https://japaneast.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| Korea Centraal | `https://koreacentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| Korea - centraal | `https://koreacentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | US - noord-centraal | `https://northcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Europa - noord | `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | US - zuid-centraal | `https://southcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |

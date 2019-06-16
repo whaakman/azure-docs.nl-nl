@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708788"
 ---
 # <a name="api-management-authentication-policies"></a>API Management-verificatiebeleid
@@ -57,7 +57,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 |Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|gebruikersnaam|Hiermee geeft u de gebruikersnaam van de Basic-referentie.|Ja|N/A|  
+|username|Hiermee geeft u de gebruikersnaam van de Basic-referentie.|Ja|N/A|  
 |password|Hiermee geeft u het wachtwoord van de Basic-referentie.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
@@ -132,7 +132,7 @@ In dit voorbeeld wordt clientcertificaat aangeduid met de resourcenaam van de.
   
 |Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|Bron|tekenreeks. De App-ID-URI van de doel-web-API (beveiligde resource) in Azure Active Directory.|Ja|N/A|  
+|resource|tekenreeks. De App-ID-URI van de doel-web-API (beveiligde resource) in Azure Active Directory.|Ja|N/A|  
 |uitvoer-token-variabele-naam|tekenreeks. Naam van de contextvariabele die token waarde als een objecttype ontvangt `string`.|Nee|N/A|  
 |ignore-error|Booleaanse waarde. Indien ingesteld op `true`, de pijplijn beleid blijft om uit te voeren, zelfs als een toegangstoken is niet opgehaald.|Nee|false|  
   

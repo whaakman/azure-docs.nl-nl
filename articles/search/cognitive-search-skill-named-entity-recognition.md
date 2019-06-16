@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952033"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Met de naam entiteit erkenning cognitieve vaardigheden
@@ -49,19 +49,19 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Naam invoeren      | Description                   |
+| Voer een naam in      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
-| text          | De tekst die moet worden geanalyseerd.          |
+| text          | De tekst te analyseren.          |
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
 | Naam van de uitvoer     | Description                   |
 |---------------|-------------------------------|
 | personen      | Een matrix met tekenreeksen waarbij elke tekenreeks de naam van een persoon vertegenwoordigt. |
-| locaties  | Een matrix met tekenreeksen waarbij elke tekenreeks een locatie vertegenwoordigt. |
+| locations  | Een matrix met tekenreeksen waarbij elke tekenreeks een locatie vertegenwoordigt. |
 | organizations  | Een matrix met tekenreeksen waarbij elke tekenreeks een organisatie vertegenwoordigt. |
-| entiteiten | Een matrix met complexe typen. Elk complexe type bevat de volgende velden: <ul><li>categorie (`"person"`, `"organization"`, of `"location"`)</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (een waarde tussen 0 en 1 die aangeeft dat vertrouwen dat de waarde een feitelijke entiteit is)</li></ul> |
+| Entiteiten | Een matrix met complexe typen. Elk complexe type bevat de volgende velden: <ul><li>categorie (`"person"`, `"organization"`, of `"location"`)</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (een waarde tussen 0 en 1 die aangeeft dat vertrouwen dat de waarde een feitelijke entiteit is)</li></ul> |
 
 ##  <a name="sample-definition"></a>Van voorbeelddefinitie
 

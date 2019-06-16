@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
 ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035982"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Waarschuwingen maken voor Azure SQL Database en Data Warehouse met behulp van Azure portal
@@ -79,7 +79,7 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 | --- | --- | --- | --- | --- |
 | SQL-database | cpu_percent | CPU-percentage | Gemiddeld | 5 minuten |
 | SQL-database | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 5 minuten |
-| SQL-database | log_write_percent | Percentage logboek-IO | Gemiddeld | 5 minuten |
+| SQL-database | log_write_percent | Logboek-IO-percentage | Gemiddeld | 5 minuten |
 | SQL-database | dtu_consumption_percent | DTU-percentage | Gemiddeld | 5 minuten |
 | SQL-database | opslag | Totale databasegrootte | Maximum | 30 minuten |
 | SQL-database | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
@@ -88,31 +88,31 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 | SQL-database | Impasse | Deadlocks | Totaal | 10 minuten |
 | SQL-database | storage_percent | Databaseomvangpercentage | Maximum | 30 minuten |
 | SQL-database | xtp_storage_percent | In-Memory OLTP-opslag percent(Preview) | Gemiddeld | 5 minuten |
-| SQL-database | workers_percent | Werknemerspercentage | Gemiddeld | 5 minuten |
+| SQL-database | workers_percent | Percentage van de werknemers | Gemiddeld | 5 minuten |
 | SQL-database | sessions_percent | Sessies procent | Gemiddeld | 5 minuten |
 | SQL-database | dtu_limit | DTU-limiet | Gemiddeld | 5 minuten |
 | SQL-database | dtu_used | DTU gebruikt | Gemiddeld | 5 minuten |
 ||||||
 | Elastische pool | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
 | Elastische pool | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
-| Elastische pool | log_write_percent | Percentage logboek-IO | Gemiddeld | 10 minuten |
+| Elastische pool | log_write_percent | Logboek-IO-percentage | Gemiddeld | 10 minuten |
 | Elastische pool | dtu_consumption_percent | DTU-percentage | Gemiddeld | 10 minuten |
 | Elastische pool | storage_percent | Opslagpercentage | Gemiddeld | 10 minuten |
-| Elastische pool | workers_percent | Werknemerspercentage | Gemiddeld | 10 minuten |
+| Elastische pool | workers_percent | Percentage van de werknemers | Gemiddeld | 10 minuten |
 | Elastische pool | eDTU_limit | eDTU-limiet | Gemiddeld | 10 minuten |
 | Elastische pool | storage_limit | Limiet voor opslag | Gemiddeld | 10 minuten |
 | Elastische pool | eDTU_used | eDTU gebruikt | Gemiddeld | 10 minuten |
 | Elastische pool | storage_used | Gebruikte opslag | Gemiddeld | 10 minuten |
 ||||||               
-| SQL data warehouse | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
-| SQL data warehouse | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
-| SQL data warehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
-| SQL data warehouse | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
-| SQL data warehouse | blocked_by_firewall | Geblokkeerd door Firewall | Totaal | 10 minuten |
-| SQL data warehouse | service_level_objective | De servicelaag van de database | Totaal | 10 minuten |
-| SQL data warehouse | dwu_limit | dwu-limiet | Maximum | 10 minuten |
-| SQL data warehouse | dwu_consumption_percent | DWU-percentage | Gemiddeld | 10 minuten |
-| SQL data warehouse | dwu_used | Gebruikte DWU | Gemiddeld | 10 minuten |
+| SQL datawarehouse | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
+| SQL datawarehouse | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
+| SQL datawarehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
+| SQL datawarehouse | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
+| SQL datawarehouse | blocked_by_firewall | Geblokkeerd door Firewall | Totaal | 10 minuten |
+| SQL datawarehouse | service_level_objective | De servicelaag van de database | Totaal | 10 minuten |
+| SQL datawarehouse | dwu_limit | dwu-limiet | Maximum | 10 minuten |
+| SQL datawarehouse | dwu_consumption_percent | DWU-percentage | Gemiddeld | 10 minuten |
+| SQL datawarehouse | dwu_used | Gebruikte DWU | Gemiddeld | 10 minuten |
 ||||||
 
 

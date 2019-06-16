@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704939"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight
@@ -33,7 +33,7 @@ Knooppunten in een HDInsight-cluster worden geïmplementeerd met behulp van Azur
 
 HDInsight biedt voor hoge beschikbaarheid van Hadoop-services, twee hoofdknooppunten. Beide hoofdknooppunten zijn tegelijkertijd actief en wordt uitgevoerd binnen het HDInsight-cluster. Sommige services, zoals Apache HDFS of Apache Hadoop YARN, zijn alleen 'active' op één hoofdknooppunt op een bepaald moment. Andere services zoals HiveServer2 of Hive-MetaStore zijn actief op beide hoofdknooppunten op hetzelfde moment.
 
-Hoofdknooppunten (en andere knooppunten in HDInsight) hebt een numerieke waarde als onderdeel van de hostnaam van het knooppunt. Bijvoorbeeld `hn0-CLUSTERNAME` of `hn4-CLUSTERNAME`.
+Hoofdknooppunten (en andere knooppunten in HDInsight) hebt een numerieke waarde als onderdeel van de hostnaam van het knooppunt. Bijvoorbeeld, `hn0-CLUSTERNAME` of `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]  
 > Koppelt de numerieke waarde aan of een knooppunt is een primaire of secundaire. De numerieke waarde is alleen aanwezig is een unieke naam voor elk knooppunt op te geven.
@@ -46,7 +46,7 @@ Nimbus-knooppunten zijn beschikbaar met Apache Storm-clusters. Het Nimbus-knoopp
 
 [ZooKeeper](https://zookeeper.apache.org/) knooppunten worden gebruikt voor de selectie van leider van master services op de hoofdknooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevensknooppunten (worker) en gateways weet welke hoofdknooppunt een hoofd-service is actief op. HDInsight biedt standaard drie ZooKeeper-knooppunten.
 
-### <a name="worker-nodes"></a>Werkknooppunten
+### <a name="worker-nodes"></a>Worker-knooppunten
 
 Worker-knooppunten worden de werkelijke gegevensanalyses uitvoeren wanneer een job wordt verzonden naar het cluster. Als een worker-knooppunt mislukt, wordt de taak uitgevoerde verzonden naar een andere worker-knooppunt. HDInsight maakt standaard vier worker-knooppunten. U kunt deze waarde aan uw behoeften, zowel tijdens als na het maken van een cluster wijzigen.
 
@@ -112,7 +112,7 @@ Er zijn een reeks pictogrammen die worden weergegeven naast een service om statu
 
 De volgende waarschuwingen helpen bij het beheren van de beschikbaarheid van een cluster:
 
-| Naam van de waarschuwing                               | Description                                                                                                                                                                                  |
+| Naam van waarschuwing                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status van metrische gegevens controleren                    | Deze waarschuwing geeft aan dat de status van het proces van de metrische gegevens bewaken zoals wordt bepaald door het script van de status monitor.                                                                                   |
 | Ambari Agent Heartbeat                   | Deze waarschuwing wordt geactiveerd als de server contact met een agent is verbroken.                                                                                                                        |

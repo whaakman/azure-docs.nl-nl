@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707969"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen
@@ -69,7 +69,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 | Eigenschap | Value |
 |----------|-------|
 | Locatie | US - west |
-| VNET-naam | &lt;ClusterNamePrevix>-vnet1 |
+| VNet-naam | &lt;ClusterNamePrevix>-vnet1 |
 | Adresruimtevoorvoegsel | 10.1.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.1.0.0/24 |
@@ -86,7 +86,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 | Eigenschap | Value |
 |----------|-------|
 | Locatie | US - oost |
-| VNET-naam | &lt;ClusterNamePrevix>-vnet2 |
+| VNet-naam | &lt;ClusterNamePrevix>-vnet2 |
 | Adresruimtevoorvoegsel | 10.2.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.2.0.0/24 |
@@ -105,7 +105,7 @@ In de laatste sectie maakt de sjabloon u een virtuele Ubuntu-machine in elk van 
 Voor het installeren van de binding moet yon vinden van het openbare IP-adres van de twee DNS-virtuele machines.
 
 1. Open de [Azure Portal](https://portal.azure.com).
-2. Open de DNS-virtuele machine en selecteer **resourcegroepen > [Resourcegroepnaam] > [vnet1DNS]**.  Naam van de resourcegroep is degene die u in de laatste procedure maakt. De namen van de standaard DNS-virtuele machine zijn *vnet1DNS* en *vnet2NDS*.
+2. Open de DNS-virtuele machine en selecteer **resourcegroepen > [Resourcegroepnaam] > [vnet1DNS]** .  Naam van de resourcegroep is degene die u in de laatste procedure maakt. De namen van de standaard DNS-virtuele machine zijn *vnet1DNS* en *vnet2NDS*.
 3. Selecteer **eigenschappen** om de eigenschappenpagina van het virtuele netwerk te openen.
 4. Noteer de **openbaar IP-adres**, en Controleer ook of de **privé IP-adres**.  Het privé IP-adres worden **10.1.0.4** voor vnet1DNS en **10.2.0.4** voor vnet2DNS.  
 5. Wijzig de DNS-Servers voor beide virtuele netwerken voor het gebruik van standaard (door Azure geleverd) DNS-servers voor binnenkomende en uitgaande toegang tot het downloaden van pakketten voor het installeren van de binding in de volgende stappen uit.
@@ -288,7 +288,7 @@ De volgende stappen wordt beschreven hoe u het script van de actie script aanroe
 5. Selecteer of Voer de volgende informatie:
 
    1. **Naam**: Voer **inschakelen replicatie**.
-   2. **Bash-Script-URL**: Voer **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   2. **Bash-Script-URL**: Voer **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **HEAD**: Zorg ervoor dat deze optie is geselecteerd. Schakel de andere typen.
    4. **Parameters**: Het volgende voorbeeldparameters replicatie inschakelen voor alle bestaande tabellen en alle gegevens van het broncluster naar het doelcluster kopiëren:
 
@@ -360,7 +360,7 @@ De `print_usage()` sectie van de [script](https://github.com/Azure/hbase-utils/b
 
 ### <a name="scenarios"></a>Scenario's
 
-- **Specifieke tabellen (test1, test2 en test3) voor alle rijen bewerkt tot op heden kopiëren (huidige tijdstempel)**:
+- **Specifieke tabellen (test1, test2 en test3) voor alle rijen bewerkt tot op heden kopiëren (huidige tijdstempel)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   Of:
@@ -390,7 +390,7 @@ De `print_usage()` sectie van de [script](https://raw.githubusercontent.com/Azur
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
-- **Schakel de replicatie op de opgegeven tabellen (table1, table2 en Tabel3)**:
+- **Schakel de replicatie op de opgegeven tabellen (table1, table2 en Tabel3)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 

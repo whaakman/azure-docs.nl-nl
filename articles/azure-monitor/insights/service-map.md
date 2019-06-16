@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606504"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
@@ -146,7 +146,7 @@ Bepaalde processen bepaalde functies op machines bedienen: web-servers, toepassi
 |:--|:--|
 | ![Webserver](media/service-map/role-web-server.png) | Webserver |
 | ![App-server](media/service-map/role-application-server.png) | Toepassingsserver |
-| ![Databaseserver](media/service-map/role-database.png) | Databaseserver |
+| ![Database-server](media/service-map/role-database.png) | Database-server |
 | ![LDAP-server](media/service-map/role-ldap.png) | LDAP-server |
 | ![SMB-server](media/service-map/role-smb.png) | SMB-server |
 
@@ -352,7 +352,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 | `RemoteLatitude` |De breedtegraad geolocatie.  Bijvoorbeeld, *47.68* |
 | `RemoteLongitude` |De lengtegraad geolocatie.  Bijvoorbeeld, *-122.12* |
 
-#### <a name="malicious-ip"></a>Schadelijk IP
+#### <a name="malicious-ip"></a>Schadelijk IP-adres
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
 | Eigenschap | Description |

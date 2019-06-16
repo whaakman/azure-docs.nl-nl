@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069400"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service
 
@@ -68,7 +68,7 @@ Selecteer in het linkermenu **App Services** en selecteer de naam van uw app.
 
 U ziet de beheerpagina van de App Service-app.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Controleer de prijscategorie
 
@@ -82,7 +82,7 @@ De huidige laag van de app wordt gemarkeerd door een blauwe rand. Controleer of 
 
 Als het App Service-plan zich niet in de **F1**-laag bevindt, sluit u de pagina **Omhoog schalen** en gaat u door met [Een CNAME-record toewijzen](#cname).
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Het App Service-plan opschalen
 
@@ -96,7 +96,7 @@ Wanneer u de volgende melding ziet, is de schaalbewerking voltooid.
 
 ![Schaalbewerking bevestigen](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Uw domein toewijzen
 
@@ -162,7 +162,7 @@ Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u ee
 
 ![Verificatiefout](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>Toewijzen van een A-record
 
@@ -213,7 +213,7 @@ Wanneer de records worden toegevoegd, lijkt de pagina met DNS-records op het vol
 
 ![Pagina met DNS-records](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>De toewijzing van de A-record in de app inschakelen
 
@@ -246,7 +246,7 @@ Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u ee
 
 ![Verificatiefout](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Een wildcard-domein toewijzen
 
@@ -310,7 +310,7 @@ Als u een HTTP 404 (niet gevonden)-fout ontvangt bij het bladeren naar de URL va
 - Bij het geconfigureerde aangepaste domein ontbreekt een A-record en/of een CNAME-record.
 - De browserclient heeft het oude IP-adres van uw domein in de cache. Leeg de cache en test DNS-omzetting opnieuw. Op een Windows-computer, leegt u de cache met `ipconfig /flushdns`.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Een actief domein migreren
 
@@ -326,7 +326,7 @@ Aan de onderkant van de pagina verwijst de virtuele hoofdmap `/` standaard naar 
 
 ![Virtuele map aanpassen](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Nadat de bewerking is voltooid, moet uw app de juiste pagina op het hoofdpad (bijvoorbeeld http://contoso.com)) retourneren.
+Nadat de bewerking is voltooid, moet uw app de juiste pagina op het hoofdpad (bijvoorbeeld http://contoso.com) ) retourneren.
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 

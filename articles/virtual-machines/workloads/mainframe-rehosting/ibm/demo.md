@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925691"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Instellen van een toepassing ontwikkelaars beheerd distributie (ADCD) in de IBM zD & T v1
@@ -165,7 +165,7 @@ Als de vorige stap in de configuratie voltooid is, de **maken van een installati
 
 7. Geef uw referenties voor de virtuele machine (dat wil zeggen, niet de ztadmin referentie) in het volgende scherm.
 
-8. Voer in het deelvenster met eigenschappen van het aantal **centrale processors (CPs)**, de hoeveelheid **systeemgeheugen (GB)**, en de **Implementatiemap** voor de installatiekopie die wordt uitgevoerd. Omdat dit een demo, houd u klein.
+8. Voer in het deelvenster met eigenschappen van het aantal **centrale processors (CPs)** , de hoeveelheid **systeemgeheugen (GB)** , en de **Implementatiemap** voor de installatiekopie die wordt uitgevoerd. Omdat dit een demo, houd u klein.
 
 9. Zorg ervoor dat het selectievakje is ingeschakeld voor **automatisch probleem IPL opdracht z/OS na implementeren**.
 

@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569604"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Interactieve rapporten maken met Azure Monitor-werkmappen
@@ -166,7 +166,7 @@ Er zijn vier typen parameters die momenteel worden ondersteund:
 
 ### <a name="using-a-text-parameter"></a>Met behulp van een tekstparameter
 
-De waarde van een gebruiker typt in het tekstvak wordt vervangen rechtstreeks in de query, zonder aanhalingstekens of aanhalingstekens voor. Als de waarde die u moet een tekenreeks is de query aanhalingstekens rond de parameter moet hebben (zoals **{parameter}**).
+De waarde van een gebruiker typt in het tekstvak wordt vervangen rechtstreeks in de query, zonder aanhalingstekens of aanhalingstekens voor. Als de waarde die u moet een tekenreeks is de query aanhalingstekens rond de parameter moet hebben (zoals **{parameter}** ).
 
 Hiermee wordt de waarde in een tekstvak in op overal worden gebruikt. Mag een tabelnaam, kolomnaam, naam van de functie, operator, enzovoort.
 
@@ -229,7 +229,7 @@ Terwijl u uw eigen aangepaste tijd bereik parameter via het parametertype van de
 
 Time range parametertypen hebben 15 standaard bereiken die naar de laatste 90 dagen gaan van vijf minuten. Er is ook een optie om toe te staan selectie aangepast tijdsbereik, waardoor de operator van het rapport om te kiezen expliciete starten en stoppen van de waarden voor het tijdsbereik.
 
-### <a name="resource-picker"></a>Resourcekiezer
+### <a name="resource-picker"></a>Bronkiezer
 
 Het parametertype van de resource-kiezer biedt u de mogelijkheid om het bereik van uw rapport voor bepaalde typen resources te. Een voorbeeld van vooraf gedefinieerde werkmap die gebruikmaakt van het type resource datumkiezer is de **fout Insights** werkmap.
 

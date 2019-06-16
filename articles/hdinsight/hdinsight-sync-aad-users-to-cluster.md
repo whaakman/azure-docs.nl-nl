@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64688551"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory-gebruikers synchroniseren met een HDInsight-cluster
@@ -127,7 +127,7 @@ De volgende methode maakt gebruik van POST met de Ambari REST-API. Zie voor meer
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Controleer of het zojuist toegevoegde Azure AD-gebruiker
 
-Open de [Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) om te controleren of de nieuwe Azure AD-gebruiker is toegevoegd. Toegang tot de Ambari-Webgebruikersinterface door te bladeren naar **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Voer de gebruikersnaam van de cluster-beheerder en het wachtwoord.
+Open de [Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) om te controleren of de nieuwe Azure AD-gebruiker is toegevoegd. Toegang tot de Ambari-Webgebruikersinterface door te bladeren naar **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Voer de gebruikersnaam van de cluster-beheerder en het wachtwoord.
 
 1. Selecteer in het dashboard Ambari **beheren Ambari** onder de **admin** menu.
 

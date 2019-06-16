@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 06/07/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807520"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Het oplossen van Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten 
 
@@ -47,7 +47,7 @@ In dit artikel vindt u informatie over de mogelijke oorzaken en over het oplosse
 | Oorzaak | Voor het oplossen van |
 | ---   | ---        |
 | Fout bij fouten kunnen worden veroorzaakt wanneer de referenties van de gebruikers die verbinding maken met het inhoudspakket is opnieuw ingesteld, maar niet bijgewerkt in de instellingen van het inhoudspakket vernieuwen. | In Power BI, zoek de gegevensset die overeenkomt met het dashboard activiteitenlogboeken van Azure AD (**Azure Active Directory-activiteitenlogboek registreert**), kies planning vernieuwen en voer vervolgens uw Azure AD-referenties. |
-| Vernieuwen kan mislukken vanwege problemen met de gegevens in het onderliggende inhoudspakket. | [Een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| Vernieuwen kan mislukken door grote gegevenssets. | Het Azure AD-inhoudspakket met Power BI kan op dit moment alleen kleine gegevenssets (minder dan 500,00 rijen) ondersteunen vanwege bepaalde beperkingen voor de time-outs in Power BI-Service. Als er beperkingsfouten optreden of als het vernieuwen is mislukt vanwege een time-outproblemen, is dit mogelijk doordat u probeert een grote gegevensset ophalen. Verklein de periode in de query en probeer het opnieuw.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>Gegevensbronreferenties bijwerken is mislukt 

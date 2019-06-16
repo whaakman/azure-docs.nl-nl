@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 85832abeb9908dd891e3f35a0368bc35c7816a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66168008"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob Storage met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-azure-blob-connector.md)
 > * [Versie 2 (huidige versie)](../connector-azure-blob-storage.md)
 
@@ -252,7 +252,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     4. Selecteer uw Azure storage-account.
     5. Klik op **volgende**.
 10. Op de **uitvoerbestand of uitvoermap kiezen** pagina:  
-    1. Geef **mappad** als **adfblobconnector/output / {year} / {month} / {day}**. Enter **TAB**.
+    1. Geef **mappad** als **adfblobconnector/output / {year} / {month} / {day}** . Enter **TAB**.
     1. Voor de **jaar**, selecteer **jjjj**.
     1. Voor de **maand**, controleert u dat deze is ingesteld op **MM**.
     1. Voor de **dag**, controleert u dat deze is ingesteld op **dd**.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935425"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cloud Partner Portal GDPR-naleving
@@ -31,7 +31,7 @@ Cloud Partner-Portal biedt toegang tot al uw gegevens op het tabblad gebruikers.
 
 U kunt uw persoonlijke gegevens beheren door delete drukken voor uw gebruikersaccount in het tabblad gebruikers. We hebben rollen van een **eigenaar** en een **Inzender** die kunnen worden toegewezen aan elke specifieke gebruiker, en beide kunnen worden toegewezen/kopiëren/bijgewerkt/verwijderd.
 
-<a name="consent"></a>Akkoord
+<a name="consent"></a>Toestemming geven
 -------
 
 Voor het beheren van toestemming in de Cloud Partner-Portal, krijgt u altijd in eerste instantie zien van de uitgever overeenkomst, waarmee u moet akkoord gaan aan om te worden van een uitgever met Microsoft. Als u geen toestemming aan de overeenkomst voor uitgevers geven, beperken we de publisher niet om te kunnen verkopen met Microsoft.

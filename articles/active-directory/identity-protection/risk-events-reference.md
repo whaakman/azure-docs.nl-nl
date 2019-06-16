@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191531"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory Identity Protection risicogebeurtenissen verwijzen naar
@@ -28,7 +28,7 @@ ms.locfileid: "65191531"
 De meeste van de beveiliging terugdringen plaatsvinden als aanvallers toegang krijgen tot een omgeving door het stelen van de identiteit van een gebruiker. Verdachte identiteiten detecteren, is geen eenvoudige taak. Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodieken voor het detecteren van verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Elke gedetecteerde verdachte actie wordt opgeslagen in een record met de naam risicogebeurtenis.
 
 
-## <a name="anonymous-ip-address"></a>Anoniem IP-adres
+## <a name="anonymous-ip-address"></a>Anonieme IP-adres
 
 **Detectietype:** Realtime  
 **Oude naam:** Aanmeldingen vanaf anonieme IP-adres
@@ -38,7 +38,7 @@ Dit type risicogebeurtenis geeft aanmeldingen vanaf anonieme IP-adres (bijvoorbe
 Deze IP-adressen worden meestal gebruikt door actoren die hun aanmelding-telemetrie (IP-adres, locatie, apparaat, enzovoort) voor mogelijk kwade bedoelingen te verbergen.
 
 
-## <a name="atypical-travel"></a>Ongewoon traject
+## <a name="atypical-travel"></a>Ongewone reizen
 
 **Detectietype:** Offline  
 **Oude naam:** Onmogelijke reis naar ongewone locaties
@@ -69,7 +69,7 @@ Bij cybercriminelen geldige wachtwoorden van legitieme gebruikers binnendringen,
 Wanneer de service gebruikersreferenties van de web-donker, plakken sites of de bovenstaande bronnen verkrijgt, worden ze gecontroleerd op basis van Azure AD-gebruikers huidige geldige referenties naar geldige overeenkomsten worden gevonden.
 
 
-## <a name="malware-linked-ip-address"></a>Aan malware gekoppeld IP-adres
+## <a name="malware-linked-ip-address"></a>Malware gekoppelde IP-adres
 
 **Detectietype:** Offline  
 **Oude naam:** Aanmeldingen vanaf geïnfecteerde apparaten
@@ -78,7 +78,7 @@ Wanneer de service gebruikersreferenties van de web-donker, plakken sites of de 
 Dit type risicogebeurtenis geeft aanmeldingen vanaf IP-adressen die zijn geïnfecteerd met malware die bekend is actief communiceren met een bot-server. Dit wordt bepaald door de IP-adressen van het apparaat van de gebruiker op basis van IP-adressen die verbonden met een bot-server, zijn terwijl de bot-server actief is.
 
 
-## <a name="unfamiliar-sign-in-properties"></a>Onbekende aanmeldingseigenschappen
+## <a name="unfamiliar-sign-in-properties"></a>Onbekende eigenschappen voor aanmelden
 
 **Detectietype:** Realtime  
 **Oude naam:** Aanmeldingen vanaf onbekende locaties

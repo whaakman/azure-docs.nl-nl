@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942777"
 ---
 # <a name="offer-settings-tab"></a>Tabblad voor aanbiedingsinstellingen
@@ -36,7 +36,7 @@ Zoals wordt weergegeven in het voorbeeld wordt de **aanbiedings-ID** wordt toege
 Deze id is gerelateerd aan uw account. Nadat u zich aanmelden met uw organisatieaccount, uw **uitgevers-ID** wordt weergegeven in de vervolgkeuzelijst.
 
 
-### <a name="name"></a>Naam*
+### <a name="name"></a>De naam *
 
 Deze tekenreeks wordt weergegeven als de aanbiedingsnaam van de op AppSource of in de Azure Marketplace. De **naam** vak is beperkt tot 50 tekens. De revisor mogelijk om de titel voor het toevoegen van de duur en bieden dat u wilt de aanbiedingsnaam van uw te bewerken.
 

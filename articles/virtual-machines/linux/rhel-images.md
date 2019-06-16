@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/18/2019
+ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b40f62a90dbe7c822b95476abe6ec25cf3fb21d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070037"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux-installatiekopieën in Azure
 Dit artikel beschrijft de beschikbare installatiekopieën van Red Hat Enterprise Linux (RHEL) in de Azure Marketplace, samen met beleid voor hun namen en retentie.
@@ -63,9 +63,9 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 > In het algemeen de vergelijking van versies om te bepalen van de meest recente volgt de regels van de [CompareTo methode](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
 
 ### <a name="current-naming-convention"></a>Huidige naamconventie
-Alle momenteel gepubliceerde RHEL-installatiekopieën gebruiken het betalen per gebruik-model en zijn verbonden met [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Vanwege een beperking van het ontwerp van RHUI, heeft een nieuwe naamgeving voor RHEL 7 familie installatiekopieën zijn vastgesteld. Op dit moment is niet de RHEL-6-familie naamgeving gewijzigd.
+Alle momenteel gepubliceerde RHEL-installatiekopieën gebruiken het betalen per gebruik-model en zijn verbonden met [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Een nieuwe naamconventie is vastgesteld voor RHEL 7 familie installatiekopieën waarin de schijf partitioneren scheme (onbewerkte gegevens, LVM) is opgegeven in de SKU in plaats van de versie. De versie van de RHEL-installatiekopie bevat een 7-RAW of 7 LVM. Op dit moment is niet de RHEL-6-familie naamgeving gewijzigd.
 
-De beperking is in het feit dat wanneer een niet-selectieve `yum update` wordt uitgevoerd op een virtuele machine verbonden met RHUI, de RHEL-versie wordt bijgewerkt naar de nieuwste versie in de huidige familie. Zie voor meer informatie, [deze koppeling](https://aka.ms/rhui-update). Dit kan verwarring leiden wanneer een ingerichte RHEL 7.2-installatiekopie RHEL 7.6 nadat deze is bijgewerkt wordt. U kunt nog steeds inrichten vanaf een oudere installatiekopie zoals wordt geïllustreerd in de bovenstaande voorbeelden door expliciet op te geven de vereiste versie. Als de vereiste versie niet opgegeven is tijdens het inrichten van een nieuwe installatiekopie van de RHEL 7, wordt de meest recente installatiekopie worden ingericht.
+Er zijn 2 typen RHEL 7 installatiekopie SKU's in deze naamconventie: SKU's met de secundaire versie en SKU's die niet. Als u gebruiken een ONBEWERKTE 7 of 7 LVM-SKU wilt, kunt u de RHEL secundaire versie die u wilt implementeren in de versie opgeven. Als u ervoor de 'laatste' versie kiest, moet u de nieuwste secundaire versie van RHEL ingericht.
 
 >[!NOTE]
 > In de RHEL for SAP reeks afbeeldingen blijft de RHEL-versie vast. De naamconventie bevat daarom een bepaalde versie in de SKU.
@@ -73,28 +73,65 @@ De beperking is in het feit dat wanneer een niet-selectieve `yum update` wordt u
 >[!NOTE]
 > RHEL 6 reeks afbeeldingen zijn niet verplaatst naar de nieuwe naamgeving.
 
+## <a name="extended-update-support-eus"></a>Uitgebreide ondersteuning (EUS)
+Aangezien van April 2019, RHEL-installatiekopieën beschikbaar zijn die gekoppeld aan de opslagplaatsen uitgebreid Update ondersteuning (EUS) standaard. Meer informatie over RHEL EUS zijn beschikbaar in [van Red Hat documentatie](https://access.redhat.com/articles/rhel-eus).
+
+Vindt u instructies over het overschakelen van uw virtuele machine naar EUS en meer informatie over het einde van de levenscyclus datums EUS [hier](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+
+>[!NOTE]
+> EUS wordt niet ondersteund op RHEL extra's. Dit betekent dat als u een pakket dat is gewoonlijk beschikbaar in het kanaal RHEL extra's installeert, kunt u niet zich om dit te doen terwijl op EUS. De levenscyclus van Red Hat extra's wordt toegelicht [hier](https://access.redhat.com/support/policy/updates/extras/).
+
+### <a name="for-customers-that-want-to-use-eus-images"></a>Voor klanten die willen EUS installatiekopieën gebruiken:
+Klanten die de installatiekopieën die zijn gekoppeld aan EUS opslagplaatsen gebruiken, moeten de RHEL-installatiekopie die een aantal van de secundaire versie van RHEL in de SKU bevat gebruiken. Deze installatiekopieën worden onbewerkte gepartitioneerd (dat wil zeggen niet LVM).
+
+Bijvoorbeeld, ziet u mogelijk de volgende 2 7.4 RHEL-installatiekopieën die beschikbaar:
+```bash
+RedHat:RHEL:7-RAW:7.4.2018010506
+RedHat:RHEL:7.4:7.4.2019041718
+```
+In dit geval `RedHat:RHEL:7.4:7.4.2019041718` wordt standaard gekoppeld aan EUS opslagplaatsen en `RedHat:RHEL:7-RAW:7.4.2018010506` wordt standaard gekoppeld aan niet-EUS opslagplaatsen.
+
+### <a name="for-customers-that-dont-want-to-use-eus-images"></a>Voor klanten die niet wilt dat EUS installatiekopieën kunt gebruiken:
+Als u niet dat een installatiekopie gebruikt die is verbonden met EUS standaard wilt, implementeren met behulp van een installatiekopie die een secundaire versienummer in de SKU niet bevat.
+
+#### <a name="rhel-images-with-eus"></a>RHEL-installatiekopieën met EUS
+De volgende tabel is van toepassing voor RHEL-installatiekopieën met een secundaire versie in de SKU.
+
+>[!NOTE]
+> Op het moment van schrijven hebben alleen RHEL 7.4 en later secundaire versies EUS ondersteunen. EUS wordt niet meer ondersteund voor RHEL < = 7.3.
+
+Secundaire versie |Voorbeeld van de installatiekopie van EUS              |EUS status                                                   |
+:-------------|:------------------------------|:------------------------------------------------------------|
+RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Installatiekopieën van April 2019 gepubliceerd en later worden EUS standaard|
+RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Installatiekopieën van juni 2019 gepubliceerd en later worden EUS standaard |
+RHEL 7,6      |RedHat:RHEL:7.6:7.6.2019052206 | Installatiekopieën mei 2019 gepubliceerd en later worden EUS standaard  |
+RHEL 8.0      |N/A                            | Er is geen EUS afbeeldingen momenteel die momenteel beschikbaar                 |
+
+
+## <a name="list-of-rhel-images-available"></a>Lijst met RHEL-installatiekopieën beschikbaar
 De volgende aanbiedingen zijn dat SKU 's zijn momenteel beschikbaar voor algemeen gebruik:
 
 Aanbieding| SKU | Partitionering | Inrichten | Opmerkingen
 :----|:----|:-------------|:-------------|:-----
-RHEL | 7-ONBEWERKTE | RAW | Linux-agent | RHEL 7-familie van afbeeldingen
-| | 7-LVM | LVM | Linux-agent | RHEL 7-familie van afbeeldingen
-| | 7-RAW-CI | RAW-CI | Cloud-init | RHEL 7-familie van afbeeldingen
-| | 6.7 | RAW | Linux-agent | RHEL 6.7 afbeeldingen, oude naamgevingsconventie
-| | 6.8 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 6,8
-| | 6.9 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 6,9
-| | 6.10 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 6.10
-| | 7.2 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.2
-| | 7.3 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.3
-| | 7.4 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.4
-| | 7.5 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.5
-RHEL-SAP | 7.4 | LVM | Linux-agent | RHEL 7.4 voor SAP HANA- en Business-Apps
-| | 7.5 | LVM | Linux-agent | RHEL 7.5 voor SAP HANA- en Business-Apps
-RHEL-SAP-HANA | 6.7 | RAW | Linux-agent | RHEL 6.7 voor SAP HANA
-| | 7.2 | LVM | Linux-agent | RHEL 7.2 voor SAP HANA
-| | 7.3 | LVM | Linux-agent | 7.3 RHEL for SAP HANA
-RHEL-SAP-APPS | 6.8 | RAW | Linux-agent | 6,8 RHEL for SAP Business Applications
-| | 7.3 | LVM | Linux-agent | 7.3 RHEL for SAP Business Applications
+RHEL          | 7-ONBEWERKTE    | RAW    | Linux-agent | RHEL 7-familie van afbeeldingen. <br> Niet gekoppeld aan EUS opslagplaatsen standaard.
+|             | 7-LVM    | LVM    | Linux-agent | RHEL 7-familie van afbeeldingen. <br> Niet gekoppeld aan EUS opslagplaatsen standaard.
+|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7-familie van afbeeldingen. <br> Niet gekoppeld aan EUS opslagplaatsen standaard.
+|             | 6.7      | RAW    | Linux-agent | RHEL 6.7 afbeeldingen, oude naamgevingsconventie
+|             | 6.8      | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 6,8
+|             | 6.9      | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 6,9
+|             | 6.10     | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 6.10
+|             | 7.2      | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 7.2
+|             | 7.3      | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 7.3
+|             | 7.4      | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 7.4. <br> Gekoppeld aan EUS opslagplaatsen standaard vanaf April 2019
+|             | 7.5      | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 7.5. <br> Gekoppeld aan EUS opslagplaatsen standaard vanaf juni 2019
+|             | 7.6      | RAW    | Linux-agent | Hetzelfde als hierboven voor RHEL 7.6. <br> Gekoppeld aan EUS opslagplaatsen standaard vanaf mei 2019
+RHEL-SAP      | 7.4      | LVM    | Linux-agent | RHEL 7.4 voor SAP HANA- en Business-Apps
+|             | 7.5      | LVM    | Linux-agent | RHEL 7.5 voor SAP HANA- en Business-Apps
+RHEL-SAP-HANA | 6.7      | RAW    | Linux-agent | RHEL 6.7 voor SAP HANA
+|             | 7.2      | LVM    | Linux-agent | RHEL 7.2 voor SAP HANA
+|             | 7.3      | LVM    | Linux-agent | 7\.3 RHEL for SAP HANA
+RHEL-SAP-APPS | 6.8      | RAW    | Linux-agent | 6,8 RHEL for SAP Business Applications
+|             | 7.3      | LVM    | Linux-agent | 7\.3 RHEL for SAP Business Applications
 
 ### <a name="old-naming-convention"></a>Oude naamgeving
 Installatiekopieën van de RHEL 7-familie en de RHEL-6-familie van installatiekopieën gebruikt specifieke versies in hun SKU's omhoog totdat de naming convention wijziging hierboven is uitgelegd.

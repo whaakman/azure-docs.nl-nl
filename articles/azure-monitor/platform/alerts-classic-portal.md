@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129795"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
@@ -21,7 +21,7 @@ Klassieke metrische waarschuwingen in Azure Monitor biedt een manier om te worde
 
 1. In de [portal](https://portal.azure.com/), zoek de resource die u wilt bewaken, en selecteer dit.
 
-2. In de **bewaking** sectie, selecteer **waarschuwingen (klassiek)**. De tekst en het pictogram kunnen enigszins verschillen voor verschillende resources. Als u niet kunt vinden **waarschuwingen (klassiek)** hier is het wellicht in **waarschuwingen** of **waarschuwingsregels**.
+2. In de **bewaking** sectie, selecteer **waarschuwingen (klassiek)** . De tekst en het pictogram kunnen enigszins verschillen voor verschillende resources. Als u niet kunt vinden **waarschuwingen (klassiek)** hier is het wellicht in **waarschuwingen** of **waarschuwingsregels**.
 
     ![Bewaking](media/alerts-classic-portal/AlertRulesButton.png)
 

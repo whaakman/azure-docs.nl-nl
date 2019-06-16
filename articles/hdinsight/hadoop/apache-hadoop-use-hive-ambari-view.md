@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
 ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719579"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Apache Ambari Hive-weergave gebruiken met Apache Hadoop in HDInsight
@@ -112,7 +112,7 @@ U kunt de __tabellen__ tabblad om te werken met tabellen in een Hive-database.
 
 ![Afbeelding van het tabblad tabellen](./media/apache-hadoop-use-hive-ambari-view/tables.png)
 
-## <a name="saved-queries"></a>Opgeslagen query's
+## <a name="saved-queries"></a>Opgeslagen query 's
 
 Uit de **Query** tabblad kunt u eventueel query's opslaan. Nadat u een query hebt opgeslagen, kunt u het hergebruik van de __opgeslagen query's__ tabblad.
 

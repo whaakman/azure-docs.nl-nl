@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66455709"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
@@ -316,7 +316,7 @@ De volgende tabel worden enkele van de overwegingen voor uitvoer batchverwerking
 | Uitvoertype | Maximale berichtlengte | Optimalisatie van de grootte van batch |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Zie [Data Lake-opslag beperkt](../azure-subscription-service-limits.md#data-lake-store-limits). | Gebruik maximaal 4 MB per schrijfbewerking. |
-| Azure SQL Database | 10.000 maximum aantal rijen per één bulksgewijs invoegen.<br />minimaal 100 rijen per één bulksgewijs invoegen. <br />Zie [limieten van Azure SQL](../sql-database/sql-database-resource-limits.md). |  Elke batch is in eerste instantie bulksgewijs invoegen met maximale batchgrootte. U kunt de batch in de helft (totdat u de minimale batchgrootte) op basis van herstelbare fouten uit SQL splitsen. |
+| Azure SQL Database | 10\.000 maximum aantal rijen per één bulksgewijs invoegen.<br />minimaal 100 rijen per één bulksgewijs invoegen. <br />Zie [limieten van Azure SQL](../sql-database/sql-database-resource-limits.md). |  Elke batch is in eerste instantie bulksgewijs invoegen met maximale batchgrootte. U kunt de batch in de helft (totdat u de minimale batchgrootte) op basis van herstelbare fouten uit SQL splitsen. |
 | Azure Blob Storage | Zie [Azure Storage beperkt](../azure-subscription-service-limits.md#storage-limits). | De grootte van het maximum aantal blob-blok is 4 MB.<br />Het maximum aantal blob bock aantal is 50.000. |
 | Azure Event Hubs  | 256 KB per bericht. <br />Zie [Event Hubs beperkt](../event-hubs/event-hubs-quotas.md). |  Als het partitioneren van invoer/uitvoer is niet uitgelijnd, elke gebeurtenis afzonderlijk in is verpakt **EventData** en verzonden in een batch van maximaal de maximale berichtgrootte (1 MB voor de Premium-SKU). <br /><br />  Als het partitioneren van invoer/uitvoer wordt uitgelijnd, meerdere gebeurtenissen zijn verpakt in een enkele **EventData** exemplaar, tot de maximale berichtgrootte en verzonden.  |
 | Power BI | Zie [Power BI Rest-API-limieten](https://msdn.microsoft.com/library/dn950053.aspx). |

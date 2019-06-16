@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157950"
 ---
 ## <a name="update-resources"></a>Resources bijwerken
@@ -30,7 +30,7 @@ de definitie van de installatiekopie:
 
 Installatiekopieversie:
 - Aantal regionale replica 's
-- Doelregio's
+- Doelregio 's
 - Uitsluiting van de meest recente
 - Einde van de levensduur van datum
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: f12d7f1a7dfcaf80df9a71a0bfc598d72db63a2e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024415"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Api-sleutels voor Azure Search-service maken en beheren
@@ -33,7 +33,7 @@ Twee typen sleutels worden gebruikt voor toegang tot uw search-service: beheerde
 
 |Sleutel|Description|Limits|  
 |---------|-----------------|------------|  
-|Gemeente|De volledige rechten verleent voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen.<br /><br /> Twee beheersleutels, aangeduid als *primaire* en *secundaire* sleutels in de portal worden gegenereerd wanneer de service wordt gemaakt en kan afzonderlijk worden gegenereerd op aanvraag. Twee sleutels betekent dat, kunt u één sleutel tijdens het gebruik van de tweede sleutel voor blijvende toegang tot de service worden meegenomen.<br /><br /> Beheersleutels zijn alleen opgegeven in de HTTP-aanvraagheaders. U kunt een admin api-sleutel in een URL plaatsen.|Maximaal 2 per service|  
+|beheerder|De volledige rechten verleent voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen.<br /><br /> Twee beheersleutels, aangeduid als *primaire* en *secundaire* sleutels in de portal worden gegenereerd wanneer de service wordt gemaakt en kan afzonderlijk worden gegenereerd op aanvraag. Twee sleutels betekent dat, kunt u één sleutel tijdens het gebruik van de tweede sleutel voor blijvende toegang tot de service worden meegenomen.<br /><br /> Beheersleutels zijn alleen opgegeven in de HTTP-aanvraagheaders. U kunt een admin api-sleutel in een URL plaatsen.|Maximaal 2 per service|  
 |Query’s uitvoeren|Geeft het alleen-lezentoegang tot indexen en documenten, en worden doorgaans verleend aan clienttoepassingen die zoekaanvragen.<br /><br /> Querysleutels worden op aanvraag gemaakt. U kunt ze handmatig maken in de portal of programmatisch via de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Querysleutels kunnen worden opgegeven in de header van een HTTP-aanvraag voor zoeken, suggesties of zoekbewerking is. U kunt ook een querysleutel als een parameter doorgeven op een URL. Afhankelijk van hoe uw clienttoepassing formuleert voor de aanvraag, is het misschien gemakkelijker om door te geven van de sleutel als een queryparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|50 per service|  
 
  Visueel, is er geen onderscheid tussen een beheersleutel en querysleutel. Beide sleutels zijn tekenreeksen die bestaat uit 32 willekeurig gegenereerde alfanumerieke tekens. Als u het bijhouden van welk type sleutel is opgegeven in uw toepassing verliest, kunt u [controleren van de belangrijkste waarden in de portal](https://portal.azure.com) of gebruik de [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/) om de waarde en het type sleutel te retourneren.  

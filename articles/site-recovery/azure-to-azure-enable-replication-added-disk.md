@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
 ms.openlocfilehash: 69122ffe9cefa3e1b9c6c8fbadfa80492ebebbde
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64928060"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Replicatie inschakelen voor een schijf die is toegevoegd aan een Azure-VM
@@ -36,7 +36,7 @@ Wanneer u een nieuwe schijf aan een Azure-VM die wordt gerepliceerd naar een and
 
 In dit artikel wordt ervan uitgegaan dat u al hebt ingesteld u herstel na noodgevallen voor de virtuele machine waarop u de schijf wilt toevoegen. Als u nog niet hebt, volgt u de [zelfstudie voor herstel na noodgevallen van Azure naar Azure](azure-to-azure-tutorial-enable-replication.md). 
 
-## <a name="enable-replication-for-an-added-disk"></a>Replicatie inschakelen voor een extra schijf 
+## <a name="enable-replication-for-an-added-disk"></a>Replicatie inschakelen voor een toegevoegde schijf 
 
 U schakelt replicatie voor een extra schijf, het volgende doen:
 

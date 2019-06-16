@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692473"
 ---
 # <a name="scp-programming-guide"></a>SCP-programmeergids
@@ -354,12 +354,12 @@ SCP.NET heeft de volgende functies voor het definiëren van transactionele topol
 | **Nieuwe functies** | **Parameters** | **Beschrijving** |
 | --- | --- | --- |
 | **tx-topolopy** |naam van de topologie<br />spout-map<br />bolt-map |Definieer een transactionele topologie met de topologienaam van de &nbsp;spouts definitie kaart en de bolts definition-kaart |
-| **scp-tx-spout** |exec-name<br />argumenten<br />Velden |Een transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout |
-| **scp-tx-batch-bolt** |exec-name<br />argumenten<br />Velden |Definieer een transactionele Batch-Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten.***<br /><br />De velden is de uitvoer-velden voor bolt. |
-| **scp-tx-commit-bolt** |exec-name<br />argumenten<br />Velden |Definieer een transactionele commit-bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt |
+| **scp-tx-spout** |exec-name<br />args<br />Velden |Een transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout |
+| **scp-tx-batch-bolt** |exec-name<br />args<br />Velden |Definieer een transactionele Batch-Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten.***<br /><br />De velden is de uitvoer-velden voor bolt. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />Velden |Definieer een transactionele commit-bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt |
 | **nontx-topolopy** |naam van de topologie<br />spout-map<br />bolt-map |Definieer een niet-transactionele-topologie met de topologienaam van de&nbsp; spouts definitie kaart en de toewijzing van de definitie bolts |
-| **scp-spout** |exec-name<br />argumenten<br />Velden<br />parameters |Een niet-transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
-| **scp-bolt** |exec-name<br />argumenten<br />Velden<br />parameters |Definieer een niet-transactionele Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
+| **scp-spout** |exec-name<br />args<br />Velden<br />parameters |Een niet-transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
+| **scp-bolt** |exec-name<br />args<br />Velden<br />parameters |Definieer een niet-transactionele Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
 
 SCP.NET heeft de volgende trefwoorden gedefinieerd:
 

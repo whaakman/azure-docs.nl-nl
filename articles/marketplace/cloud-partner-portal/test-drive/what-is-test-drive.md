@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938461"
 ---
 <a name="what-is-test-drive"></a>Wat is Test Drive?
@@ -47,8 +47,8 @@ En hier Hieronder volgt een voorbeeld van hoe een aanbieding eruitziet wanneer d
 
 Ongeacht hoe complex uw toepassing, uw Microsoft-Test Drive helpt u bij uw product tot leven brengen voor de klant. Momenteel bieden we drie verschillende typen Test Drives op basis van het type van het product, scenario en u zich op marketplace.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Een Azure Resource Manager Test Drive is een sjabloon voor de implementatie met alle Azure-resources die deel uitmaken van een oplossing wordt gemaakt door de uitgever. Producten die geschikt zijn voor dit scenario zijn die alleen Azure-bronnen.
-- **[Logische App](./logic-app-test-drive.md)**: Een logische App Test Drive is een sjabloon voor de implementatie die is bedoeld om alle complexe architecturen omvatten. Alle Dynamics-toepassingen of aangepaste producten moeten gebruiken voor dit type Test Drive.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Een Azure Resource Manager Test Drive is een sjabloon voor de implementatie met alle Azure-resources die deel uitmaken van een oplossing wordt gemaakt door de uitgever. Producten die geschikt zijn voor dit scenario zijn die alleen Azure-bronnen.
+- **[Logische App](./logic-app-test-drive.md)** : Een logische App Test Drive is een sjabloon voor de implementatie die is bedoeld om alle complexe architecturen omvatten. Alle Dynamics-toepassingen of aangepaste producten moeten gebruiken voor dit type Test Drive.
 - **Power BI**: Een Power BI uitproberen is gewoon een ingesloten koppeling naar een dashboard maat gemaakte. Alle producten die wil alleen gedemonstreerd hoe u dat een interactieve Power BI-visualisatie dit type Test Drive moet gebruiken.
     U moet hier uploaden, is de URL van uw ingesloten Power BI.
 

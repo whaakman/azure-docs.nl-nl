@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024536"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Met behulp van de zoeksyntaxis 'eenvoudige' in Azure Search-queryvoorbeelden
@@ -63,7 +63,7 @@ Plak deze URL in een REST-client als validatiestap en weer te geven van de docum
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-De queryreeks **`search=*`**, is een niet-opgegeven zoekopdracht gelijk is aan null of leeg zijn zoeken. Het is niet met name nuttig, maar is de eenvoudigste zoeken die u kunt doen.
+De queryreeks **`search=*`** , is een niet-opgegeven zoekopdracht gelijk is aan null of leeg zijn zoeken. Het is niet met name nuttig, maar is de eenvoudigste zoeken die u kunt doen.
 
 U kunt desgewenst toevoegen **`$count=true`** naar de URL om een telling van de documenten die voldoen aan de zoekcriteria te retourneren. Op een lege zoekopdracht tekenreeks is is dat alle documenten in de index (ongeveer 2800 in het geval van NYC-Jobs).
 

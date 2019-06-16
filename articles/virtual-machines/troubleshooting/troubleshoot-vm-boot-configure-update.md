@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64684012"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Opstarten van de virtuele machine is vastgelopen op 'gereed aan Windows. Zet uw computer uit' in Azure
 
@@ -121,7 +121,7 @@ Volg de stappen in voor het maken van een momentopname, [momentopname maken van 
 
 Gebruik de stappen in de [verzamelen os dump](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) sectie voor het verzamelen van een besturingssysteem dump wanneer de virtuele machine is vastgelopen bij de configuratie.
 
-## <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft Ondersteuning
+## <a name="contact-microsoft-support"></a>Neem contact op met Microsoft ondersteuning
 
 Nadat u het dumpbestand verzameld, neem dan contact op met [Microsoft ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) voor het analyseren van de hoofdoorzaak te achterhalen.
 

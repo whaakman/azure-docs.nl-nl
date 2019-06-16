@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
 ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400181"
 ---
 # <a name="azure-backup-support-matrix"></a>Ondersteuningsmatrix voor Azure Backup
@@ -46,7 +46,7 @@ De volgende tabel beschrijft de functies van Recovery Services-kluizen:
 
 Dit is wat wordt ondersteund als u wilt back-up van on-premises computers:
 
-**Machine** | **Wat de back-up** | **Locatie** | **Functies**
+**Machine** | **Wat de back-up** | **Location** | **Functies**
 --- | --- | --- | ---
 **Directe back-ups van Windows-machine met de MARS-agent** | Bestanden, mappen, systeemstatus | Back-up naar de Recovery Services-kluis. | Back-up van drie keer per dag<br/><br/> Geen app-bewuste back-up<br/><br/> Bestand, map, volume herstellen
 **Directe back-ups van Linux-machine met de MARS-agent** | Back-up niet ondersteund
@@ -66,7 +66,7 @@ Dit is wat wordt ondersteund als u wilt back-up van on-premises computers:
 
 Dit is wat wordt ondersteund als u wilt back-up van virtuele Azure-machines:
 
-**Machine** | **Wat de back-up** | **Locatie** | **Functies**
+**Machine** | **Wat de back-up** | **Location** | **Functies**
 --- | --- | --- | ---
 **Azure VM backup met behulp van de VM-extensie** | Hele virtuele machine | Back-up naar de kluis. | De extensie wordt geïnstalleerd wanneer u een back-up voor een virtuele machine inschakelen.<br/><br/> Back-up eenmaal per dag.<br/><br/> App-bewuste back-up voor virtuele Windows-machines; bestandsconsistente back-up voor virtuele Linux-machines. U kunt app-consistentie voor Linux-machines configureren met behulp van aangepaste scripts.<br/><br/> VM of schijf herstellen.<br/><br/> Kan geen back-up van een Azure-VM naar een on-premises locatie.
 **Azure VM backup met behulp van de MARS-agent** | Bestanden, mappen, systeemstatus | Back-up naar de kluis. | Back-up drie keer per dag.<br/><br/> Als u back-up van specifieke bestanden of mappen in plaats van de hele virtuele machine wilt, worden de MARS-agent kunt uitvoeren samen met de VM-extensie.

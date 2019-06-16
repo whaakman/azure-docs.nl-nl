@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061387"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
-Transparante gegevensversleuteling (TDE) helpt Azure SQL Database, Azure SQL Managed Instance en Azure Data Warehouse beveiligen tegen de dreiging van schadelijke activiteiten. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing. TDE is standaard ingeschakeld voor alle geïmplementeerde Azure SQL-databases. TDE kan niet worden gebruikt voor het versleutelen van de logische **master** database in SQL-Database.  De **master** -database bevat objecten die nodig zijn om uit te voeren van de TDE-bewerkingen op de gebruikersdatabases.
+Transparante gegevensversleuteling (TDE) helpt Azure SQL Database, Azure SQL Managed Instance en Azure Data Warehouse beveiligen tegen de dreiging van schadelijke offline activiteiten door het versleutelen van data-at-rest. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing. TDE is standaard ingeschakeld voor alle geïmplementeerde Azure SQL-databases. TDE kan niet worden gebruikt voor het versleutelen van de logische **master** database in SQL-Database.  De **master** -database bevat objecten die nodig zijn om uit te voeren van de TDE-bewerkingen op de gebruikersdatabases.
 
 TDE moet handmatig worden ingeschakeld voor Azure SQL Managed Instance, oudere databases van Azure SQL Database of Azure SQL Data Warehouse.  
 

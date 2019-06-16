@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231422"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Herkenning van entiteit met de naam in Text Analytics gebruiken
@@ -41,27 +41,27 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 
 | Type  | SubType | Voorbeeld |
 |:-----------   |:------------- |:---------|
-| Persoon        | N.V.T.\*         | "Jeff", "Bill Gates"     |
-| Locatie      | N.V.T.\*         | "Redmond, Washington", "Paris"  |
+| Person        | N.V.T.\*         | "Jeff", "Bill Gates"     |
+| Locatie      | N.V.T.\*         | Redmond, Washington; Parijs  |
 | Organisatie  | N.V.T.\*         | "Microsoft"   |
-| Hoeveelheid      | Aantal        | "6", "six"     | 
-| Hoeveelheid      | Percentage    | "50%", "50%"| 
-| Hoeveelheid      | Volgnummer       | "2", "tweede"     | 
-| Hoeveelheid      | NumberRange   | "4-8"     | 
-| Hoeveelheid      | Leeftijd           | "90 dagen oud is", "30 jaar oude"    | 
-| Hoeveelheid      | Valuta      | "$10.99"     | 
-| Hoeveelheid      | Dimensie     | "10 mijl", "40 cm"     | 
-| Hoeveelheid      | Temperatuur   | "32 degrees"    |
-| DateTime      | N.V.T.\*         | "6:30 PM 4 februari 2012"      | 
-| DateTime      | Date          | "Mei 2e 2017", "05/02/2017"   | 
+| Aantal      | Aantal        | "6", "six"     | 
+| Aantal      | Percentage    | 50%, vijftig procent| 
+| Aantal      | Rangtelwoord       | 2e, tweede     | 
+| Aantal      | Nummerbereik   | 4 tot 8     | 
+| Aantal      | Leeftijd           | "90 dagen oud is", "30 jaar oude"    | 
+| Aantal      | Valuta      | $ 10,99     | 
+| Aantal      | Dimensie     | 10 mijl, 40 cm     | 
+| Aantal      | Temperatuur   | 32 graden    |
+| DateTime      | N.V.T.\*         | 18:30 uur, 4 februari 2012      | 
+| DateTime      | Date          | 2 mei 2017, 05-02-2017   | 
 | DateTime      | Time          | "8 am", "8:00"  | 
-| DateTime      | DateRange     | "Mei 2e op 5 mei"    | 
-| DateTime      | TimeRange     | "18: 00 uur tot 19: 00"     | 
-| DateTime      | Duur      | '1 minuut en 45 seconden'   | 
-| DateTime      | Set           | "elke dinsdag"     | 
-| DateTime      | TimeZone      |    | 
+| DateTime      | DateRange     | 2 mei tot 5 mei    | 
+| DateTime      | TimeRange     | 18\.00 uur tot 19.00 uur     | 
+| DateTime      | Duration      | 1 minuut en 45 seconden   | 
+| DateTime      | Set           | elke dinsdag     | 
+| DateTime      | Tijdzone      |    | 
 | URL           | N.V.T.\*         | "https:\//www.bing.com"    |
-| E-mailen         | N.V.T.\*         | "support@contoso.com" |
+| Email         | N.V.T.\*         | "support@contoso.com" |
 
 \* Afhankelijk van de invoer- en uitgepakte entiteiten, bepaalde entiteiten kunnen laat de `SubType`.  Alle ondersteunde Entiteitstypen die worden vermeld, zijn alleen beschikbaar voor de Engelse, vereenvoudigd Chinees, Frans, Duits en Spaans-talen.
 
