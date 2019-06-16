@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60838074"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migreren van uw MySQL-database met behulp van importeren en exporteren
@@ -90,7 +90,7 @@ Het volgende voorbeeld worden geïmporteerd in de tabel uit een CSV-bestand:
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL-gegevens exporteren en importeren van wizards in het deelvenster Navigator
 Een wizard exporteert of importeert SQL gegenereerd op basis van MySQL Workbench of gegenereerd op basis van de opdracht mysqldump gebruiken. Toegang tot deze wizards in de **Navigator** deelvenster of door te selecteren **Server** in het hoofdmenu. Selecteer vervolgens **gegevensexport** of **gegevensimport**. 
 
-#### <a name="data-export"></a>Gegevensexport
+#### <a name="data-export"></a>Gegevens exporteren
 ![MySQL Workbench-gegevens exporteren met behulp van het navigatievenster](./media/concepts-migrate-import-export/p2.png)
 
 U kunt de **gegevensexport** tabblad om uw MySQL-gegevens te exporteren. 

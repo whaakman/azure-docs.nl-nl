@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824011"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory Copy-activiteit
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-onprem-db2-connector.md)
 > * [Versie 2 (huidige versie)](../connector-db2.md)
 
@@ -319,19 +319,19 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Numeric |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
-| Tijdstempel |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
 | Binair bestand |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Afbeelding |String |
+| Graphic |String |
 | VarGraphic |String |
 | LongVarGraphic |String |
-| CLOB |String |
+| Clob |String |
 | Blob |Byte[] |
 | DbClob |String |
 | SmallInt |Int16 |
@@ -345,9 +345,9 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Numeric |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
-| Tijdstempel |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).

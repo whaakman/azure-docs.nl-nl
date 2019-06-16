@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b9bc3ef0cf5dd54802d32058afb904800c364c19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64725244"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>De versie 2 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 De Custom Script Extension versie 2 downloads en scripts uitvoeren op Azure virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden via Azure Storage of een andere toegankelijke internetlocatie of u ze aan de extensie-runtime kunt leveren. 
@@ -110,12 +110,12 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 | Name | Waarde / voorbeeld | Gegevenstype | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Uitgever | Microsoft.Compute.Extensions | string |
+| publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | matrix |
-| commandToExecute (bijvoorbeeld) | python MyPythonScript.py <my-param1> | string |
-| Script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| commandToExecute (bijvoorbeeld) | python MyPythonScript.py \<my-param1> | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (bijvoorbeeld) | false | booleaans |
 | tijdstempel (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
 | storageAccountName (bijvoorbeeld) | examplestorageacct | string |

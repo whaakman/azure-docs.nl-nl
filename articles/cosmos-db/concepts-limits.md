@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969490"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Limieten in Azure Cosmos DB
@@ -23,9 +23,9 @@ Nadat u een Azure Cosmos-account in uw abonnement maken, kunt u gegevens beheren
 
 | Resource | Standaardlimiet |
 | --- | --- |
-| Maximum aantal ru's per container ([speciaal toegewezen doorvoer ingerichte modus](databases-containers-items.md#azure-cosmos-containers)) | 1.000.000 standaard. U kunt verhogen door [via een Azure-ondersteuningsticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) of contact opnemen met ons op via [vragen Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| Maximum aantal ru's per database ([gedeelde ingerichte doorvoermodus](databases-containers-items.md#azure-cosmos-containers)) | 1.000.000 standaard. U kunt verhogen door [via een Azure-ondersteuningsticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) of contact opnemen met ons op via [vragen Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| Maximum aantal ru's per partitiesleutel (logische) | 10.000 |
+| Maximum aantal ru's per container ([speciaal toegewezen doorvoer ingerichte modus](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 standaard. U kunt verhogen door [via een Azure-ondersteuningsticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) of contact opnemen met ons op via [vragen Cosmos DB](mailto:askcosmosdb@microsoft.com) |
+| Maximum aantal ru's per database ([gedeelde ingerichte doorvoermodus](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 standaard. U kunt verhogen door [via een Azure-ondersteuningsticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) of contact opnemen met ons op via [vragen Cosmos DB](mailto:askcosmosdb@microsoft.com) |
+| Maximum aantal ru's per partitiesleutel (logische) | 10\.000 |
 | Maximale opslag voor alle items per partitiesleutel (logische)| 10 GB |
 | Maximum aantal afzonderlijke (logische) partitiesleutels | Onbeperkt |
 | Maximale opslag per container | Onbeperkt |

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127086"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opties voor DNS-naamomzetting voor virtuele Linux-machines in Azure
@@ -72,7 +72,7 @@ Er zijn diverse verschillende DNS-caching van pakketten, zoals dnsmasq, beschikb
 **Ubuntu (maakt gebruik van resolvconf)**
   * Installeer het pakket dnsmasq ('sudo apt-get install dnsmasq').
 
-**SUSE (maakt gebruik van netconf)**:
+**SUSE (maakt gebruik van netconf)** :
 1. Installeer het pakket dnsmasq ('sudo zypper installeren dnsmasq').
 2. De service dnsmasq ("systemctl inschakelen dnsmasq.service') inschakelen.
 3. Start de service dnsmasq ("systemctl start dnsmasq.service').

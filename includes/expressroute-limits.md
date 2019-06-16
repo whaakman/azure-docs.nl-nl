@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299704"
 ---
 | Resource | Standaard-/ maximumlimiet |
@@ -20,7 +20,7 @@ ms.locfileid: "66299704"
 | ExpressRoute-circuits per abonnement |10 |
 | ExpressRoute-circuits per regio per abonnement, met Azure Resource Manager |10 |
 | Maximum aantal routes geadverteerd naar persoonlijke Azure-peering met ExpressRoute Standard |4,000 |
-| Maximum aantal routes geadverteerd naar persoonlijke Azure-peering met ExpressRoute Premium-invoegonderdeel |10.000 |
+| Maximum aantal routes geadverteerd naar persoonlijke Azure-peering met ExpressRoute Premium-invoegonderdeel |10\.000 |
 | Maximum aantal routes geadverteerd van persoonlijke Azure-peering van de VNet-adresruimte voor een ExpressRoute-verbinding |200 |
 | Maximum aantal routes die zijn geadverteerd aan Microsoft-peering met ExpressRoute Standard |200 |
 | Maximum aantal routes geadverteerd aan Microsoft-peering met ExpressRoute Premium-invoegonderdeel |200 |
@@ -42,4 +42,4 @@ ms.locfileid: "66299704"
 | 40 Gbps* |10 |100 |
 | 100 Gbps* |10 |100 |
 
-* Alleen Direct ExpressRoute
+\* Alleen Direct ExpressRoute

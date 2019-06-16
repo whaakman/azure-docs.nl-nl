@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545099"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-platform en de OAuth 2.0-clientreferentiestroom
@@ -61,14 +61,14 @@ Een gebruikelijk is het gebruik van een ACL testen voor een web-App of voor een 
 
 Dit type autorisatie is gebruikelijk voor daemons en service-accounts die toegang moeten krijgen tot gegevens die eigendom zijn van consumenten-gebruikers met persoonlijke Microsoft-accounts. Voor gegevens die eigendom zijn van organisaties, wordt u aangeraden dat u de benodigde machtiging via machtigingen van de toepassing krijgt.
 
-### <a name="application-permissions"></a>Toepassingsmachtigingen
+### <a name="application-permissions"></a>Machtigingen van de toepassing
 
 U kunt in plaats van ACL's, API's gebruiken om een set machtigingen van de toepassing zichtbaar te maken. De machtiging voor een toepassing te krijgen tot een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt voor toegang tot gegevens die eigendom zijn van die organisatie en haar medewerkers. Microsoft Graph beschrijft bijvoorbeeld verschillende machtigingen van de toepassing het volgende doen:
 
 * E-mail in alle postvakken lezen
-* E-mail in alle postvakken lezen en schrijven
-* E-mail met elke willekeurige gebruiker als afzender verzenden
-* Adreslijstgegevens lezen
+* Lezen en schrijven van e-mail in alle postvakken
+* E-mail verzenden als een willekeurige gebruiker
+* Mapgegevens lezen
 
 Voor meer informatie over de machtigingen van de toepassing, gaat u naar [Microsoft Graph](https://developer.microsoft.com/graph).
 

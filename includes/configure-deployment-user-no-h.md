@@ -5,19 +5,19 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ebea8bfd69a4df605142ab82f3efbc7d97d34529
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133170"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143980"
 ---
-In de Azure Cloud Shell, configureert u referenties voor implementatie met de [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) opdracht. Deze implementatiegebruiker is vereist voor FTP- en lokale Git-implementatie naar een webtoepassing. De gebruikersnaam en het wachtwoord staan op accountniveau. _Ze verschillen van de referenties van uw Azure-abonnement._
+In de Azure Cloud Shell, configureert u referenties voor implementatie met de [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) opdracht. U gebruikt deze implementatiegebruiker voor FTP en lokale Git-implementatie naar een web-app. De gebruikersnaam en het wachtwoord staan op accountniveau. _Ze verschillen van de referenties van uw Azure-abonnement._
 
-Vervang in het volgende voorbeeld  *\<gebruikersnaam >* en  *\<wachtwoord >*, met inbegrip van de vierkante haken, met een nieuwe gebruikersnaam en wachtwoord. De gebruikersnaam moet uniek zijn binnen Azure. Het wachtwoord moet ten minste acht tekens lang zijn, met twee van de volgende drie elementen: letters, cijfers en symbolen. 
+Vervang in het volgende voorbeeld  *\<gebruikersnaam >* en  *\<wachtwoord >* , met inbegrip van de vierkante haken, met een nieuwe gebruikersnaam en wachtwoord. De gebruikersnaam moet uniek zijn binnen Azure. Het wachtwoord moet ten minste acht tekens lang zijn, met twee van de volgende drie elementen: letters, cijfers en symbolen.
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

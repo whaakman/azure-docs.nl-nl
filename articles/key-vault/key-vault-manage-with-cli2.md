@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713847"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
@@ -147,7 +147,7 @@ Als u een bestaande sleutel in een PEM-bestand hebt, kunt u deze kunt uploaden n
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-U kunt nu verwijzen naar de sleutel die u hebt gemaakt of geüpload naar Azure Key Vault met behulp van de URI. Gebruik **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** naar altijd kunnen genieten van de huidige versie. Gebruik https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] voor deze specifieke versie. Bijvoorbeeld **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+U kunt nu verwijzen naar de sleutel die u hebt gemaakt of geüpload naar Azure Key Vault met behulp van de URI. Gebruik **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** naar altijd kunnen genieten van de huidige versie. Gebruik https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] voor deze specifieke versie. Bijvoorbeeld **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** . 
 
 Een geheim toevoegen aan de kluis, dit is een wachtwoord met de naam SQLPassword en waarvoor de waarde van "hVFkk965BuUv" aan Sleutelkluizen van Azure. 
 
@@ -155,7 +155,7 @@ Een geheim toevoegen aan de kluis, dit is een wachtwoord met de naam SQLPassword
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Verwijzen naar dit wachtwoord met behulp van de URI. Gebruik **https://ContosoVault.vault.azure.net/secrets/SQLPassword** naar altijd kunnen genieten van de huidige versie en https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] voor deze specifieke versie. Bijvoorbeeld **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Verwijzen naar dit wachtwoord met behulp van de URI. Gebruik **https://ContosoVault.vault.azure.net/secrets/SQLPassword** naar altijd kunnen genieten van de huidige versie en https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] voor deze specifieke versie. Bijvoorbeeld **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** .
 
 Een certificaat importeren naar de kluis met behulp van een PEM- of .pfx.
 

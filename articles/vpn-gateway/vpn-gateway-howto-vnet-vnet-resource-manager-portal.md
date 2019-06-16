@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
 ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128378"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Een VPN-gatewayverbinding tussen VNet's configureren met behulp van Azure Portal
@@ -190,7 +190,7 @@ Wanneer de virtuele netwerkgateways voor TestVNet1 en TestVNet4 zijn voltooid, k
 
      - Selecteer de virtuele netwerkgateway waarmee u verbinding wilt maken.
 
-     - **Gedeelde sleutel (PSK)**: Geef een gedeelde sleutel voor de verbinding op in dit veld. U kunt deze sleutel ook zelf maken of genereren. In een verbinding tussen sites is de sleutel gelijk aan de sleutel voor het on-premises apparaat en uw virtuele netwerkgatewayverbinding. Het concept is hier vergelijkbaar, maar in plaats van een verbinding te maken met een VPN-apparaat, maakt u verbinding met een andere virtuele netwerkgateway.
+     - **Gedeelde sleutel (PSK)** : Geef een gedeelde sleutel voor de verbinding op in dit veld. U kunt deze sleutel ook zelf maken of genereren. In een verbinding tussen sites is de sleutel gelijk aan de sleutel voor het on-premises apparaat en uw virtuele netwerkgatewayverbinding. Het concept is hier vergelijkbaar, maar in plaats van een verbinding te maken met een VPN-apparaat, maakt u verbinding met een andere virtuele netwerkgateway.
     
 4. Selecteer **OK** om uw wijzigingen op te slaan.
 

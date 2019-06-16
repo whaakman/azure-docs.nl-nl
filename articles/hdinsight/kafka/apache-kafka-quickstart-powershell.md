@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/02/2019
-ms.openlocfilehash: 8a0397440e2b10bf1ad6b4f1be999888e09bad8f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 06/12/2019
+ms.openlocfilehash: a1ccfd23338e2ee18c335fe8bd9869ecdf9c2f08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148130"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120803"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Quickstart: een Apache Kafka-cluster maken in HDInsight
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Quickstart: Apache Kafka-cluster maken in Azure HDInsight met behulp van PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) is een open-source, gedistribueerd streamingplatform. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten. 
 
@@ -23,14 +23,11 @@ In deze snelstartgids leert u hoe u met Azure PowerShell een [Apache Kafka](http
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]  
-> De Kafka-API is alleen toegankelijk voor resources binnen hetzelfde virtuele netwerk. In deze snelstart benadert u het cluster rechtstreeks via SSH. Als u andere services, netwerken of virtuele machines wilt verbinden met Kafka, moet u eerst een virtueel netwerk maken en vervolgens de resources maken in het netwerk.
->
-> Zie het document [Verbinding maken met Apache Kafka via een virtueel netwerk](apache-kafka-connect-vpn-gateway.md) voor meer informatie.
+De Kafka-API is alleen toegankelijk voor resources binnen hetzelfde virtuele netwerk. In deze snelstart benadert u het cluster rechtstreeks via SSH. Als u andere services, netwerken of virtuele machines wilt verbinden met Kafka, moet u eerst een virtueel netwerk maken en vervolgens de resources maken in het netwerk. Zie het document [Verbinding maken met Apache Kafka via een virtueel netwerk](apache-kafka-connect-vpn-gateway.md) voor meer informatie.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-
-* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 * De PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) geïnstalleerd.
 
@@ -132,19 +129,13 @@ New-AzHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]  
-> Het kan tot 20 minuten duren om het HDInsight-cluster te maken.
+Het kan tot 20 minuten duren om het HDInsight-cluster te maken.
 
-> [!TIP]  
-> Met de parameter `-DisksPerWorkerNode` configureert u de schaalbaarheid van Kafka in HDInsight. Kafka in HDInsight gebruikt de lokale schijf van de virtuele machines in het cluster voor het opslaan van gegevens. Omdat Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt. 
->
-> Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Het type schijf is afhankelijk van de VM-grootte die wordt gebruikt door de werkknooppunten (Kafka-brokers). Premium-schijven worden automatisch gebruikt met VM's uit de DS- en GS-serie. Alle andere VM-typen gebruiken standaardschijven. U kunt het type VM instellen met de parameter `-WorkerNodeSize`. Zie voor meer informatie over de parameters voor de [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentatie.
+Met de parameter `-DisksPerWorkerNode` configureert u de schaalbaarheid van Kafka in HDInsight. Kafka in HDInsight gebruikt de lokale schijf van de virtuele machines in het cluster voor het opslaan van gegevens. Omdat Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt.
 
+Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Het type schijf is afhankelijk van de VM-grootte die wordt gebruikt door de werkknooppunten (Kafka-brokers). Premium-schijven worden automatisch gebruikt met VM's uit de DS- en GS-serie. Alle andere VM-typen gebruiken standaardschijven. U kunt het type VM instellen met de parameter `-WorkerNodeSize`. Zie voor meer informatie over de parameters voor de [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentatie.
 
-> [!IMPORTANT]  
-> Als u van plan bent om meer dan 32 werkknooppunten te gebruiken (bij het maken van het cluster of bij het omhoog schalen van het cluster nadat dit is gemaakt), moet u de parameter `-HeadNodeSize` gebruiken om een VM-grootte op te geven met ten minste 8 kerngeheugens en 14 GB RAM-geheugen.
->
-> Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
+Als u van plan bent om meer dan 32 werkknooppunten te gebruiken (bij het maken van het cluster of bij het omhoog schalen van het cluster nadat dit is gemaakt), moet u de parameter `-HeadNodeSize` gebruiken om een VM-grootte op te geven met ten minste 8 kerngeheugens en 14 GB RAM-geheugen. Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
@@ -202,16 +193,13 @@ In deze sectie vraagt u de hostgegevens op uit de Apache Ambari REST API in het 
 
     Wanneer u daarom wordt gevraagd, typt u de naam van het Kafka-cluster.
 
-3. Gebruik de volgende opdracht om een omgevingsvariabele in te stellen met hostinformatie van Zookeeper:
+3. Gebruik de onderstaande opdracht om een omgevingsvariabele met hostinformatie van Zookeeper. De opdracht haalt alle Zookeeper-hosts en retourneert alleen de eerste twee vermeldingen. De reden hiervoor is dat u een bepaalde mate van redundantie wilt voor het geval één host onbereikbaar is.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Geef desgevraagd het wachtwoord voor het account voor clusteraanmelding op (niet het SSH-account).
-
-    > [!NOTE]  
-    > Met deze opdracht worden alle Zookeeper-hosts opgehaald, waarna alleen de eerste twee vermeldingen worden geretourneerd. De reden hiervoor is dat u een bepaalde mate van redundantie wilt voor het geval één host onbereikbaar is.
 
 4. Gebruik de volgende opdracht om te controleren of de omgevingsvariabele juist is ingesteld:
 
@@ -243,7 +231,7 @@ In deze sectie vraagt u de hostgegevens op uit de Apache Ambari REST API in het 
 
 ## <a name="manage-apache-kafka-topics"></a>Apache Kafka-onderwerpen beheren
 
-Kafka slaat gegevensstromen op in zogenaamde *onderwerpen (topics)*. U kunt het hulpprogramma `kafka-topics.sh` gebruiken om onderwerpen te beheren.
+Kafka slaat gegevensstromen op in zogenaamde *onderwerpen (topics)* . U kunt het hulpprogramma `kafka-topics.sh` gebruiken om onderwerpen te beheren.
 
 * **Als u een onderwerp wilt maken**, gebruikt u de volgende opdracht in de SSH-verbinding:
 
@@ -257,15 +245,13 @@ Kafka slaat gegevensstromen op in zogenaamde *onderwerpen (topics)*. U kunt het 
 
     * Elke partitie wordt gerepliceerd naar drie werkknooppunten in het cluster.
 
-        > [!IMPORTANT]  
-        > Als u het cluster hebt gemaakt in een Azure-regio met drie foutdomeinen, gebruikt u een replicatiefactor van drie. Gebruik anders een replicatiefactor van vier.
+        Als u het cluster hebt gemaakt in een Azure-regio met drie foutdomeinen, gebruikt u een replicatiefactor van drie. Gebruik anders een replicatiefactor van vier.
         
         In regio's met drie foutdomeinen zorgt een replicatiefactor van drie ervoor dat replica's worden verdeeld over de foutdomeinen. In regio's met twee foutdomeinen zorgt een replicatiefactor van vier ervoor dat replica's worden verdeeld over de domeinen.
         
         Raadpleeg het document [Beschikbaarheid van virtuele Linux-machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voor informatie over het aantal foutdomeinen in een regio.
 
-        > [!IMPORTANT]   
-        > Kafka kan niet overweg met Azure-foutdomeinen. Bij het maken van partitiereplica's voor onderwerpen worden replica's mogelijk niet goed gedistribueerd voor hoge beschikbaarheid.
+        Kafka kan niet overweg met Azure-foutdomeinen. Bij het maken van partitiereplica's voor onderwerpen worden replica's mogelijk niet goed gedistribueerd voor hoge beschikbaarheid.
 
         Gebruik het [partitieherverdelingsprogramma van Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) voor gegarandeerde hoge beschikbaarheid. Dit hulpprogramma moet vanuit een SSH-verbinding naar het hoofdknooppunt van het Kafka-cluster worden uitgevoerd.
 
@@ -324,8 +310,7 @@ Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u ee
    
     Met deze opdracht haalt u de records van het onderwerp op en geeft u deze weer. Met `--from-beginning` wordt de consument gevraagd om bij het begin van de stream te beginnen, zodat alle records worden opgehaald.
 
-    > [!NOTE]  
-    > Vervang `--bootstrap-server $KAFKABROKERS` door `--zookeeper $KAFKAZKHOSTS` als u een oudere versie van Kafka gebruikt.
+    Vervang `--bootstrap-server $KAFKABROKERS` door `--zookeeper $KAFKAZKHOSTS` als u een oudere versie van Kafka gebruikt.
 
 4. Gebruik __Ctrl+C__ om de consument te stoppen.
 

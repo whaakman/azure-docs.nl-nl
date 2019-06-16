@@ -9,14 +9,13 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-origin.date: 06/20/2018
-ms.date: 12/31/2018
-ms.author: v-yiso
+ms.date: 06/20/2018
+ms.author: apimpm
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123464"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Automatisch schalen van een Azure API Management-exemplaar  
@@ -84,7 +83,7 @@ Volg de stappen hieronder om automatisch schalen configureren voor een Azure API
     | Duur (in minuten) | 30                | Het interval aan de capaciteit metrische gegevens gemiddelde is specifiek voor gebruikspatronen. Hoe langer de periode is, worden de soepeler de reactie - onregelmatige pieken hebben minder invloed op de beslissing van de scale-out. Het wordt echter ook de scale-out-trigger vertragen. |
     | *Actie*              |                   |                                                                                                                                                                                                                                                                                 |
     | Bewerking             | Aantal verhogen met |                                                                                                                                                                                                                                                                                 |
-    | Aantal instanties        | 1                 | De Azure API Management-exemplaar per 1 eenheid uitschalen.                                                                                                                                                                                                                          |
+    | Aantal exemplaren        | 1                 | De Azure API Management-exemplaar per 1 eenheid uitschalen.                                                                                                                                                                                                                          |
     | Afkoelen (minuten)   | 60                | Het duurt minimaal 20 minuten voor de Azure API Management-service om uit te schalen. In de meeste gevallen de afkoelperiode bevindt van 60 minuten wordt voorkomen dat veel schaal-outs wordt geactiveerd.                                                                                                  |
 
 8. Klik op **toevoegen** op de regel niet opslaan.
@@ -111,7 +110,7 @@ Volg de stappen hieronder om automatisch schalen configureren voor een Azure API
     | Duur (in minuten) | 30                | Dezelfde waarde als het account dat wordt gebruikt voor de scale-out regel.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Actie*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Bewerking             | Aantal verlagen met | In de wat is gebruikt voor de scale-out regel.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | Aantal instanties        | 1                 | Dezelfde waarde als het account dat wordt gebruikt voor de scale-out regel.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+    | Aantal exemplaren        | 1                 | Dezelfde waarde als het account dat wordt gebruikt voor de scale-out regel.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Afkoelen (minuten)   | 90                | Inschalen moet meer dan een scale-out, conservatieve, zodat de afkoelperiode bevindt mag niet langer zijn.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 11. Klik op **toevoegen** op de regel niet opslaan.

@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126678"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks implementeren in uw virtuele netwerk (Preview)
@@ -121,15 +121,15 @@ Als u deze sjabloon gebruiken zonder de sjabloon netwerk groepen ook gebruik te 
 
 Als u geen gebruik maakt de [Azure-portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) of [Azure Resource Manager-sjablonen](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) voor het maken van uw netwerk-beveiligingsgroepen, moet u handmatig het verkeer naar de volgende lijst met toegestane adressen in uw subnetten.
 
-|Direction|Protocol|Bron|Bronpoort|Doel|Doelpoort|
+|Direction|Protocol|source|Bronpoort|Doel|Doelpoort|
 |---------|--------|------|-----------|-----------|----------------|
 |Inkomend|\*|VirtualNetwork|\*|\*|\*|
 |Inkomend|\*|Besturingselement vlak NAT IP|\*|\*|22|
 |Inkomend|\*|Besturingselement vlak NAT IP|\*|\*|5557|
-|Uitgaand|\*|\*|\*|IP-Web-App|\*|
-|Uitgaand|\*|\*|\*|SQL (service tag)|\*|
-|Uitgaand|\*|\*|\*|Opslag (servicetag)|\*|
-|Uitgaand|\*|\*|\*|VirtualNetwork|\*|
+|Uitgaande|\*|\*|\*|IP-Web-App|\*|
+|Uitgaande|\*|\*|\*|SQL (service tag)|\*|
+|Uitgaande|\*|\*|\*|Opslag (servicetag)|\*|
+|Uitgaande|\*|\*|\*|VirtualNetwork|\*|
 
 Lijst met toegestane adressen subnetverkeer dat gebruikmaakt van de volgende IP-adressen. Voor SQL (metastore) en Storage (opslag van artefacten en logboekbestanden), moet u de Sql- en opslagcapaciteit [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

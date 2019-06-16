@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859389"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Het gebruik van de Azure Mobile Apps SDK voor Android
@@ -161,7 +161,7 @@ De kern van de Azure Mobile Apps SDK is voor toegang tot gegevens die zijn opges
 Voor toegang tot gegevens uit SQL Azure-tabellen, client gegevensklassen die overeenkomen met de tabellen in de mobiele App back-end te definiëren. Voorbeelden in dit onderwerp wordt ervan uitgegaan dat een tabel met de naam **MyDataTable**, heeft de volgende kolommen:
 
 * id
-* tekst
+* text
 * Voltooien
 
 Het bijbehorende getypte client-side-object zich bevindt in een bestand met de naam **MyDataTable.java**:
@@ -1112,7 +1112,7 @@ Gebruikers aanmelden bij uw toepassing met behulp van Azure Active Directory kun
     * Vervang **INSERT-instantie-HERE** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Vervang **INSERT-RESOURCE-ID-HERE** met de client-ID voor de back-end van uw mobiele app. U vindt de client-ID van de **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in de portal.
     * Vervang **INSERT-CLIENT-ID-HERE** met de client-ID die u hebt gekopieerd uit de toepassing native client.
-    * Vervang **INSERT-OMLEIDINGS-URI-HERE** met van uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Vervang **INSERT-OMLEIDINGS-URI-HERE** met van uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;

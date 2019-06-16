@@ -12,15 +12,15 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511835"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Azure Functions-runtime die u gebruikt: "]
 > * [Versie 1:](functions-bindings-cosmosdb.md)
 > * [Versie 2](functions-bindings-cosmosdb-v2.md)
 

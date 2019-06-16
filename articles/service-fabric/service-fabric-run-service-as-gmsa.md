@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837739"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Een service uitvoeren als door een groep beheerd serviceaccount
 Op een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een groep beheerd-serviceaccount (gMSA) met behulp van een RunAs-beleid.  Standaard wordt Service Fabric-toepassingen uitvoeren onder het account dat de Fabric.exe-proces wordt uitgevoerd onder. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde omgeving, zorgt ervoor dat ze beter te beveiligen van elkaar. Houd er rekening mee dat dit maakt gebruik van on-premises Active Directory in uw domein en niet Azure Active Directory (Azure AD). Met behulp van een gMSA, is er geen wachtwoord of het versleutelde wachtwoord opgeslagen in het toepassingsmanifest.  U kunt ook uitvoeren met een service als een [Active Directory-gebruiker of groep](service-fabric-run-service-as-ad-user-or-group.md).
 
-In het volgende voorbeeld laat zien hoe u een gMSA-account met de naam *svc Test$*; over het implementeren van het beheerde serviceaccount voor de clusterknooppunten; en het configureren van de principal van gebruiker.
+In het volgende voorbeeld laat zien hoe u een gMSA-account met de naam *svc Test$* ; over het implementeren van het beheerde serviceaccount voor de clusterknooppunten; en het configureren van de principal van gebruiker.
 
 Vereisten:
 - Het domein moet een KDS-hoofdsleutel.

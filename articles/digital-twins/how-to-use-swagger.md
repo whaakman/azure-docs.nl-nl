@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116442"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Digitale dubbele Swagger referentiedocumentatie voor Azure
 
@@ -112,7 +112,7 @@ Zie voor meer informatie over het testen van interactief aanvragen die zijn beve
 
     ![Azure AD-app-registraties toevoegen api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
-4. Configureer het toepassingsmanifest voor OAuth 2.0-impliciete stroom toestaan. Klik op **Manifest** manifest voor de toepassing voor uw app te openen. Stel *oauth2AllowImplicitFlow* naar `true`.
+4. Configureer het toepassingsmanifest voor OAuth 2.0-impliciete stroom toestaan. Selecteer **Manifest** manifest voor de toepassing voor uw app te openen. Stel *oauth2AllowImplicitFlow* naar `true`.
 
     ![Azure AD-impliciete stroom](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
 
@@ -120,9 +120,9 @@ Zie voor meer informatie over het testen van interactief aanvragen die zijn beve
 
 Na het voltooien van de registratie van de Azure Active Directory:
 
-6. Klik op de **autoriseren** knop op de pagina van uw swagger.
+6. Selecteer de **autoriseren** knop op de pagina van uw swagger.
 
-    [![Klik op de Swagger knop autoriseren](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Selecteer de Swagger autoriseren knop](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 7. Plak de toepassings-ID in de **client_id** veld.
 

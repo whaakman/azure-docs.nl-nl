@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 5f7f9641e8fc7cd4c0e8dd153b350b9dd876b004
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62115428"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Azure-beveiliging en naleving blauwdruk: IaaS-webtoepassing voor UK NHS
@@ -95,10 +95,10 @@ Elk van de subnetten heeft een speciale beveiligingsgroep:
 - 1 netwerkbeveiligingsgroep voor de SQL-Servers en Cloud-Witness (SQLNSG)
 - 1 netwerkbeveiligingsgroep voor de weblaag (WEBNSG)
 
-### <a name="data-in-transit"></a>Gegevens die onderweg zijn
+### <a name="data-in-transit"></a>Actieve gegevens
 Alle communicatie naar en van Azure-datacenters versleutelt Azure standaard. Bovendien worden alle transacties met Azure Storage via Azure portal via HTTPS optreden.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 

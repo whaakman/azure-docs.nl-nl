@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
 ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966320"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen-Back-up van virtuele Azure-machines
@@ -20,7 +20,7 @@ ms.locfileid: "65966320"
 In dit artikel vindt u antwoorden op veelgestelde vragen over back-ups van virtuele Azure-machines met de [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 
-## <a name="backup"></a>Back-up
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Welke VM-installatiekopieën kunnen worden ingeschakeld voor back-up wanneer ik ze maken?
 Wanneer u een virtuele machine maakt, kunt u back-up inschakelen voor virtuele machines met [ondersteunde besturingssystemen](backup-support-matrix-iaas.md#supported-backup-actions)
@@ -59,7 +59,7 @@ Machtigingen voor Azure Backup toegang tot Key Vault opgeven. De machtigingen op
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Ik VM-schijven gemigreerd naar managed disks. Worden mijn back-ups gewoon uitgevoerd?
 Ja, back-ups werken naadloos. Er is niet nodig om alles opnieuw te configureren.
 
-### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Waarom zie ik niet mijn virtuele machine in de wizard Back-up configureren?
+### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Waarom zie ik mijn VM niet in de wizard Back-up configureren?
 De wizard worden alleen virtuele machines in dezelfde regio bevinden als de kluis en die niet worden al back-up.
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mijn virtuele machine wordt afgesloten. Maakt een on-demand of een geplande back-werk?
@@ -108,7 +108,7 @@ Ja, kunt u back-ups uitgevoerd voordat de schijven zijn gemigreerd vanuit niet-b
 - Een hersteltaak van de virtuele machine maakt standaard een niet-beheerde virtuele machine.
 - U kunt echter herstel de schijven en gebruiken voor het maken van een beheerde virtuele machine.
 
-### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Hoe kan ik een virtuele machine herstellen naar een herstelpunt voordat de virtuele machine is gemigreerd naar managed disks?
+### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Hoe herstel ik een VM naar een herstelpunt vóór de migratie van de VM naar beheerde schijven?
 Een hersteltaak van de virtuele machine maakt standaard een virtuele machine met niet-beheerde schijven. Een virtuele machine maken met beheerde schijven:
 1. [Herstellen naar niet-beheerde schijven](tutorial-restore-disk.md#restore-a-vm-disk).
 2. [De herstelde schijven converteren naar managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).

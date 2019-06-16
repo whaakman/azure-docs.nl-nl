@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442591"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569272"
 ---
 # <a name="get-started-with-device-twins-python"></a>Aan de slag met apparaatdubbels (Python)
 
@@ -55,7 +55,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="create-the-service-app"></a>De service-app maken
 
-In deze sectie maakt u een Python-consoletoepassing die metagegevens van de locatie toegevoegd aan het dubbele apparaat dat is gekoppeld aan uw **{apparaat-ID}**. Deze vervolgens de dubbele apparaten die zijn opgeslagen in de IoT-hub selecteren van de apparaten die zich in Redmond, en vervolgens de virtuele machines die zijn melden van een mobiele verbinding een query.
+In deze sectie maakt u een Python-consoletoepassing die metagegevens van de locatie toegevoegd aan het dubbele apparaat dat is gekoppeld aan uw **{apparaat-ID}** . Deze vervolgens de dubbele apparaten die zijn opgeslagen in de IoT-hub selecteren van de apparaten die zich in Redmond, en vervolgens de virtuele machines die zijn melden van een mobiele verbinding een query.
 
 1. Open een opdrachtprompt en installeer de **SDK voor de Azure IoT Hub-service voor Python**. Sluit de opdrachtprompt na de installatie van de SDK.
 
@@ -157,7 +157,7 @@ In de volgende sectie maakt u een apparaat-app die de gegevens van hostconnectiv
 
 ## <a name="create-the-device-app"></a>De apparaat-app maken
 
-In deze sectie maakt u een Python-console-app die is verbonden met uw hub als uw **{apparaat-ID}**, en vervolgens de updates die de apparaatdubbel de gerapporteerde eigenschappen bevat de informatie die is verbonden met een mobiel netwerk.
+In deze sectie maakt u een Python-console-app die is verbonden met uw hub als uw **{apparaat-ID}** , en vervolgens de updates die de apparaatdubbel de gerapporteerde eigenschappen bevat de informatie die is verbonden met een mobiel netwerk.
 
 1. Open een opdrachtprompt en installeer de **SDK voor de Azure IoT Hub-service voor Python**. Sluit de opdrachtprompt na de installatie van de SDK.
 

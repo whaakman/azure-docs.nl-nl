@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 1229ff3221deb49601dec3cd40b556ea367fc4c9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/14/2019
+ms.openlocfilehash: 4e45251147561f2376ac4b044ebdf3a599092dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126093"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Zelfstudie: SQL Server migreren naar een beheerd exemplaar voor Azure SQL Database online met behulp van DMS
 
@@ -72,6 +72,10 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * Zorg ervoor dat het serviceaccount van het bronexemplaar van SQL Server schrijfbevoegdheid heeft voor de netwerkshare die u hebt gemaakt en dat het computeraccount voor de bronserver lees-/schrijftoegang heeft tot de share.
 * Maak een notitie van een Windows-gebruiker (en wachtwoord) die volledig beheer heeft over de netwerkshare die u eerder hebt gemaakt. De Azure Database Migration Service imiteert de gebruikersreferenties voor het uploaden van de back-upbestanden naar een Azure-opslagcontainer voor herstelbewerkingen.
 * Maak een Azure Active Directory-toepassings-id die de toepassings-id-sleutel genereert die de DMS-service kan gebruiken genereert om verbinding te maken met het beheerde doelexemplaar voor Azure SQL Database en Azure Storage Container. Zie het artikel [Portal gebruiken voor het maken van een Azure Active Directory-toepassing en een -service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) voor meer informatie.
+
+  > [!NOTE]
+  > DMS vereist de machtiging Inzender voor het abonnement voor de opgegeven toepassings-ID. We werken actief om te beperken van de vereisten van deze machtigingen.
+
 * Maak of noteer een Azure Storage-account in de **Standard-prestatielaag** waarmee de DMS-service de back-upbestanden van de database kan uploaden en gebruiken voor het migreren van databases.  Zorg ervoor dat u het Azure Storage-account maakt in de regio van de DMS-service.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registreer de Microsoft.DataMigration-resourceprovider
@@ -179,11 +183,11 @@ Nadat er een exemplaar van de service is gemaakt, zoekt u het exemplaar in de Az
 
 4. Selecteer **Opslaan**.
 
-## <a name="select-source-databases"></a>De brondatabases selecteren
+## <a name="select-source-databases"></a>Brondatabases selecteren
 
 1. Selecteer in het scherm **Brondatabases selecteren** de brondatabase die u wilt migreren.
 
-    ![De brondatabases selecteren](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
+    ![Brondatabases selecteren](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. Selecteer **Opslaan**.
 

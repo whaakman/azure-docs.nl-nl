@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825524"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure Media Video Thumbnails gebruiken voor het maken van een Video-overzicht  
@@ -63,7 +63,7 @@ De volgende tabel beschrijft de standaardduur wanneer **maxMotionThumbnailInSecs
 
 |  |  |  |
 | --- | --- | --- |
-| Videoduur |d < 3 min |3 minuten < d < 15 minuten |
+| Duur van video |d < 3 min |3 minuten < d < 15 minuten |
 | Duur van de miniatuur |15 sec (2-3 scenes) |30 seconden (3-5-scènes) |
 
 Beschikbare parameters Hiermee stelt u de volgende JSON.

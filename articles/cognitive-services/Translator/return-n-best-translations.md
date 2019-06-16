@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-pawal
 ms.openlocfilehash: 27138fc82515983bb07df845e1204fe04dff915a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389675"
 ---
 # <a name="how-to-return-n-best-translations"></a>Hoe N-beste vertalingen worden geretourneerd
@@ -42,7 +42,7 @@ De handtekening is:
 | from | **Vereiste** een tekenreeks voor de taalcode van de tekst te vertalen. |
 | tot | **Vereiste** een tekenreeks voor de taalcode voor de omzetting van de tekst in. |
 | maxTranslations | **Vereiste** een int het maximale aantal vertalingen om terug te keren. |
-| Opties | **Optionele** A TranslateOptions-object met de onderstaande waarden. Ze zijn optioneel en standaard naar de meest voorkomende instellingen.
+| opties | **Optionele** A TranslateOptions-object met de onderstaande waarden. Ze zijn optioneel en standaard naar de meest voorkomende instellingen.
 
 * Categorie: De enige ondersteunde, en de standaard, optie 'Algemeen'.
 * ContentType: De enige ondersteunde, en de standaard, optie ' text/plain'.

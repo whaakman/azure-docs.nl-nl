@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922810"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming van Azure Diagnostics-gegevens in het dynamische pad met behulp van Event Hubs
@@ -45,7 +45,7 @@ Eventhubs ontvangst van gegevens van Azure Diagnostics wordt ondersteund in de C
 * Event Hubs-naamruimte is ingericht per artikel [aan de slag met Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Verbinding maken met Azure Diagnostics naar Event Hubs-sink
-Standaard verzendt Azure Diagnostics altijd logboeken en metrische gegevens naar een Azure Storage-account. Een toepassing kan ook gegevens naar Event Hubs verzenden door toe te voegen een nieuwe **Sinks** sectie onder de **PublicConfig** / **WadCfg** element van de *. wadcfgx* bestand. In Visual Studio, de *.wadcfgx* bestand wordt opgeslagen in het volgende pad: **Service-Project in de cloud** > **rollen** > **(RoleName)** > **diagnostics.wadcfgx** bestand.
+Standaard verzendt Azure Diagnostics altijd logboeken en metrische gegevens naar een Azure Storage-account. Een toepassing kan ook gegevens naar Event Hubs verzenden door toe te voegen een nieuwe **Sinks** sectie onder de **PublicConfig** / **WadCfg** element van de *. wadcfgx* bestand. In Visual Studio, de *.wadcfgx* bestand wordt opgeslagen in het volgende pad: **Service-Project in de cloud** > **rollen** >  **(RoleName)**  > **diagnostics.wadcfgx** bestand.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ Het volgende voorbeeld laat zien hoe een ontwikkelaar de hoeveelheid verzonden g
 In dit voorbeeld wordt de sink wordt toegepast op Logboeken en alleen te fout serviceniveau traceren is gefilterd.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implementeren en bijwerken van een toepassings- en diagnostische gegevens over configuratie voor Cloud Services
-Visual Studio biedt de eenvoudigste manier voor het implementeren van de toepassing en de configuratie van de Event Hubs-sink. Als u wilt weergeven en bewerken van het bestand, open de *.wadcfgx* -bestand in Visual Studio, bewerken en opslaan. Het pad is **Cloudserviceproject** > **rollen** > **(RoleName)** > **diagnostics.wadcfgx**.  
+Visual Studio biedt de eenvoudigste manier voor het implementeren van de toepassing en de configuratie van de Event Hubs-sink. Als u wilt weergeven en bewerken van het bestand, open de *.wadcfgx* -bestand in Visual Studio, bewerken en opslaan. Het pad is **Cloudserviceproject** > **rollen** >  **(RoleName)**  > **diagnostics.wadcfgx**.  
 
 Op dit moment alle implementatie en implementatie bijwerken acties in Visual Studio, Visual Studio Team System, en alle opdrachten of scripts die zijn gebaseerd op MSBuild en gebruik de **/t: publiceren** doel bevatten de *.wadcfgx* tijdens het verpakken. Bovendien, implementeren updates en implementaties het bestand in Azure met behulp van de juiste Azure Diagnostics-agent-extensie op uw virtuele machines.
 

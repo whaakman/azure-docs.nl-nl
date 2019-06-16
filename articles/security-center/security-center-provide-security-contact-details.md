@@ -15,24 +15,24 @@ ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
 ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909281"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Geef de contactgegevens voor beveiliging in Azure Security Center
 Azure Security Center wordt aanbevolen dat u contactgegevens voor beveiliging voor uw Azure-abonnement, bieden als u dat nog niet gedaan hebt. Deze informatie wordt gebruikt door Microsoft om contact met u op te nemen als door Microsoft Security Response Center (MSRC) wordt gedetecteerd dat uw klantgegevens zijn geopend door een illegale of niet-geautoriseerde derde. MSRC voert selecteert u beveiligingsbewaking van de Azure-netwerk en de infrastructuur en threat intelligence en misbruik klachten ontvangt van een derde partij.
 
-Een e-mailmelding wordt verzonden op de eerste dagelijkse uitvoering van een waarschuwing en alleen voor waarschuwingen met hoge urgentie. E-mailvoorkeuren kunnen alleen worden geconfigureerd voor abonnementsbeleid. Resourcegroepen binnen een abonnement neemt over deze instellingen. 
+Er wordt een melding per e-mail verzonden de eerste keer dat een waarschuwing plaatsvindt en alleen voor waarschuwingen met een hoge urgentie. E-mailvoorkeuren kunnen alleen worden geconfigureerd voor abonnementsbeleid. Resourcegroepen binnen een abonnement nemen deze instellingen over. 
 
-Waarschuwings-e-mailmeldingen worden verzonden:
+E-mailmeldingen voor waarschuwingen worden verzonden volgens de volgende richtlijnen:
 - Alleen voor waarschuwingen met hoge urgentie
-- Aan een ontvanger één e-mailbericht per type waarschuwing per dag  
+- Aan één e-mailontvanger per type waarschuwing, per dag  
 - Niet meer dan 3 e-mailberichten worden verzonden naar een enkele ontvanger in één dag
-- Elk e-mailbericht bevat een afzonderlijke waarschuwing, niet een samenloop van waarschuwingen
+- Elk e-mailbericht bevat een afzonderlijke waarschuwing, geen verzameling waarschuwingen
  
-Bijvoorbeeld, als een e-mailbericht om u te waarschuwen over een RDP-aanval is al hebt verzonden, ontvangt niet u een ander e-mailbericht over een RDP-aanval op dezelfde dag, zelfs als een nieuwe waarschuwing wordt geactiveerd. 
+Als er bijvoorbeeld al een e-mailbericht is verstuurd om u te waarschuwen voor een RDP-aanval, krijgt u op dezelfde dag niet nog een e-mailbericht over een RDP-aanval, zelfs niet als hierdoor een nieuwe waarschuwing wordt geactiveerd. 
  
 
 > [!NOTE]

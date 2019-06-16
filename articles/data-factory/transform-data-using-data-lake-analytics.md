@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
 ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888432"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Gegevens transformeren met U-SQL-scripts uitgevoerd op Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-usql-activity.md)
 > * [Huidige versie](transform-data-using-data-lake-analytics.md)
 
@@ -119,14 +119,14 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 
 | Eigenschap            | Description                              | Vereist |
 | :------------------ | :--------------------------------------- | :------- |
-| naam                | Naam van de activiteit in de pijplijn     | Ja      |
+| name                | Naam van de activiteit in de pijplijn     | Ja      |
 | description         | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                | Voor Data Lake Analytics U-SQL-activiteit, het activiteitstype is **DataLakeAnalyticsU SQL**. | Ja      |
 | linkedServiceName   | Azure Data Lake Analytics gekoppelde Service. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.  |Ja       |
 | scriptPath          | Pad naar map met de U-SQL-script. Naam van het bestand is hoofdlettergevoelig. | Ja      |
 | scriptLinkedService | Gekoppelde service die is gekoppeld aan de **Azure Data Lake Store** of **Azure Storage** waarin het script aan de data factory | Ja      |
 | degreeOfParallelism | Het maximale aantal knooppunten dat tegelijk wordt gebruikt voor het uitvoeren van de taak. | Nee       |
-| priority            | Hiermee bepaalt u welke taken uit in de wachtrij moeten worden geselecteerd moeten eerst worden uitgevoerd. Des te lager het nummer, hoe hoger de prioriteit. | Nee       |
+| prioriteit            | Hiermee bepaalt u welke taken uit in de wachtrij moeten worden geselecteerd moeten eerst worden uitgevoerd. Des te lager het nummer, hoe hoger de prioriteit. | Nee       |
 | parameters          | Parameters moeten worden doorgegeven in de U-SQL-script.    | Nee       |
 | runtimeVersion      | Runtime-versie van de U-SQL-engine te gebruiken. | Nee       |
 | compilationMode     | <p>Compilatiemodus van U-SQL. Moet een van deze waarden: **Semantische:** Alleen uitvoeren semantische controles en nodig bevestigingen, **volledige:** Uitvoeren van de volledige compilatie, met inbegrip van syntaxiscontrole, optimalisatie, genereren van code, enz., **SingleBox:** De volledige compilatie, met TargetType instelling SingleBox uitvoeren. Als u een waarde voor deze eigenschap niet opgeeft, betekent dit dat de server de optimale compilatiemodus bepaalt. | Nee |

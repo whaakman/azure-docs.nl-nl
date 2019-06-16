@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61321199"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Automatische IoT-Apparaatbeheer op schaal met behulp van de Azure CLI
@@ -105,7 +105,7 @@ Gebruik de volgende opdracht om een configuratie te maken:
 
 * --**naam van de hub** -naam van de IoT-hub waarin de configuratie wordt gemaakt. De hub moet zich in het huidige abonnement. Schakel over naar het gewenste abonnement met de opdracht `az account set -s [subscription name]`
 
-* --**doelvoorwaarde** -Geef een doelvoorwaarde om te bepalen welke apparaten wordt met deze configuratie worden toegepast. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gewenste eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld `tags.environment='test'` of `properties.desired.devicemodel='4000x'`. 
+* --**doelvoorwaarde** -Geef een doelvoorwaarde om te bepalen welke apparaten wordt met deze configuratie worden toegepast. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gewenste eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.desired.devicemodel='4000x'`. 
 
 * --**prioriteit** -een positief geheel getal zijn. In het geval dat twee of meer configuraties zijn gericht op hetzelfde apparaat, geldt de configuratie met de hoogste numerieke waarde voor de prioriteit.
 
@@ -176,7 +176,7 @@ az iot hub configuration update --config-id [configuration id] \
 
     * labels 
 
-    * priority
+    * prioriteit
 
 ## <a name="delete-a-configuration"></a>Een configuratie verwijderen
 

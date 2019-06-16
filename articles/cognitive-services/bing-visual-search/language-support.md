@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866233"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Ondersteuning voor taal en regio voor de Bing visuele zoekopdrachten-API
@@ -34,7 +34,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 > - Recept, aankopen en pagina's, inclusief inzichten zijn beschikbaar in de Amerikaanse markt.
 
 
-## <a name="countriesregions"></a>Landen/regio's
+## <a name="countriesregions"></a>Landen/regio 's
 
 |Land/regio|Code|
 |-------|----|
@@ -81,12 +81,12 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Engels|en-AU|
+|Australië|Nederlands|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
 |België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
-|Canada|Engels|NL-CA|
+|Canada|Nederlands|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -94,28 +94,28 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Engels|NL-IN|
-|Indonesië|Engels|NL-ID|
+|India|Nederlands|NL-IN|
+|Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
 |Korea|Koreaans|ko-KR|
-|Maleisië|Engels|en Mijn|
+|Maleisië|Nederlands|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Engels|NL-NZ|
+|Nieuw-Zeeland|Nederlands|NL-NZ|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Engels|NL-PH|
+|Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Engels|en-ZA|
+|Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Engels|en-GB|
-|Verenigde Staten|Engels|en-US|
+|Verenigd Koninkrijk|Nederlands|en-GB|
+|Verenigde Staten|Nederlands|en-US|
 |Verenigde Staten|Spaans|es-US|

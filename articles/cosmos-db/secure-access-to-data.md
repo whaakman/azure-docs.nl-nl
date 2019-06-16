@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: 6ccb9afb528edf67b29c781217ca1de97b81e017
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969219"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Beveiligde toegang tot gegevens in Azure Cosmos DB
@@ -19,7 +19,7 @@ In dit artikel biedt een overzicht van het beveiligen van toegang tot gegevens d
 
 Azure Cosmos DB gebruikt twee typen sleutels bij het verifiëren van gebruikers en toegang bieden tot de gegevens en resources. 
 
-|Sleuteltype|Resources|
+|Type sleutel|Resources|
 |---|---|
 |[Hoofdsleutels](#master-keys) |Gebruikt voor administratieve resources: database-accounts, databases, gebruikers en machtigingen|
 |[Resource-tokens](#resource-tokens)|Gebruikt voor toepassingsresources: containers, documenten, bijlagen, opgeslagen procedures, triggers en UDF's|

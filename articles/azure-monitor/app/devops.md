@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899637"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
@@ -133,7 +133,7 @@ Bijvoorbeeld, is het eenvoudig:
 * Bijhouden van sessies en reactietijden voor specifieke gebruikers om in te schakelen, ondersteuning en uitvoerende teams instant klantenondersteuning te bieden.
 * Bepaal functies veelgebruikte Apps om functie prioriteitsaanduiding vragen te beantwoorden.
 
-Klant DNN zei: "Application Insights is opgegeven met ons op via het ontbrekende onderdeel van de vergelijking voor kunnen te combineren, sorteren en filteren van gegevens naar behoefte. Zodat ons team van hun eigen draaien en de ervaring gebruiken om te vinden is, gegevens met een krachtige querytaal hadden we inzichten en oplossen van problemen we niet weten zelfs niet hadden we. Een groot aantal interessante antwoorden afkomstig zijn van de vragen die beginnen met *' ik wonder als...'.*"
+Klant DNN zei: "Application Insights is opgegeven met ons op via het ontbrekende onderdeel van de vergelijking voor kunnen te combineren, sorteren en filteren van gegevens naar behoefte. Zodat ons team van hun eigen draaien en de ervaring gebruiken om te vinden is, gegevens met een krachtige querytaal hadden we inzichten en oplossen van problemen we niet weten zelfs niet hadden we. Een groot aantal interessante antwoorden afkomstig zijn van de vragen die beginnen met *' ik wonder als...'.* "
 
 ## <a name="development-tools-integration"></a>Integratie van de hulpprogramma's voor ontwikkeling
 ### <a name="configuring-application-insights"></a>Application Insights configureren

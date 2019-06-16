@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707103"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Verifiëren en autoriseren met Power BI-Werkruimteverzamelingen
@@ -92,7 +92,7 @@ Wanneer u insluittokens gebruikt, kunt u slechts beperkt gebruik van de resource
 
 Hieronder vindt u de beschikbare bereiken voor Power BI Workspace Collections.
 
-|Bereik|Description|
+|Scope|Description|
 |---|---|
 |Dataset.Read|Machtiging voor het lezen van de opgegeven gegevensset bevat.|
 |Dataset.Write|Machtigingen voor schrijven naar de opgegeven gegevensset bevat.|

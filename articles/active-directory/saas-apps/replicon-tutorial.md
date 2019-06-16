@@ -13,123 +13,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be006cd49041a33c13b5cc5c459a1d54c46c3b47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092773"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Zelfstudie: Azure Active Directory-integratie met Replicon
+# <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Zelfstudie: Replicon integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u Replicon integreren met Azure Active Directory (Azure AD).
-Replicon integreren met Azure AD biedt u de volgende voordelen:
+In deze zelfstudie leert u hoe u Replicon integreert met Azure Active Directory (Azure AD). Wanneer u Replicon met Azure AD integreert, kunt u het volgende doen:
 
-* U kunt beheren in Azure AD die toegang tot Replicon heeft.
-* U kunt uw gebruikers worden automatisch aangemeld Replicon (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* Beheren in Azure AD die toegang tot Replicon heeft.
+* Kunnen uw gebruikers worden automatisch aangemeld Replicon met hun Azure AD-accounts.
+* Beheer uw accounts in één centrale locatie - Azure portal.
 
-Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Replicon, moet u de volgende items:
+Om te beginnen, hebt u de volgende items nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
-* Eenmalige aanmelding replicon ingeschakeld abonnement
+* Een Azure AD-abonnement Als u geen abonnement hebt, krijgt u de gratis proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Ingeschakeld abonnement replicon eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
-
-* Biedt ondersteuning voor replicon **SP** gestart door SSO
+In deze zelfstudie hebt u configureren en testen van Azure AD-eenmalige aanmelding in een testomgeving. Biedt ondersteuning voor replicon **SP** gestart door SSO.
 
 ## <a name="adding-replicon-from-the-gallery"></a>Replicon uit de galerie toe te voegen
 
 Voor het configureren van de integratie van Replicon in Azure AD, moet u Replicon uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Replicon uit de galerie, moet u de volgende stappen uitvoeren:**
-
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
-
-    ![De knop Azure Active Directory](common/select-azuread.png)
-
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
-
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
-
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
-
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
-
-4. Typ in het zoekvak **Replicon**, selecteer **Replicon** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
-
-    ![Replicon in de lijst met resultaten](common/search-new-app.png)
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer in het navigatiedeelvenster links in de **Azure Active Directory** service.
+1. Navigeer naar **bedrijfstoepassingen** en selecteer vervolgens **alle toepassingen**.
+1. Nieuwe toepassing toevoegen, selecteert u **nieuwe toepassing**.
+1. In de **toevoegen vanuit de galerie** sectie, typt u **Replicon** in het zoekvak in.
+1. Selecteer **Replicon** van resultaten van het deelvenster en vervolgens de app toevoegen. Wacht een paar seconden terwijl de app wordt toegevoegd aan uw tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Replicon op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Replicon tot stand worden gebracht.
+Configureren en testen van Azure AD-eenmalige aanmelding met Replicon met behulp van een testgebruiker met de naam **B.Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Replicon vast te stellen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Replicon, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met Replicon, voert u de volgende bouwstenen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureren van eenmalige aanmelding Replicon](#configure-replicon-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker Replicon](#create-replicon-test-user)**  : als u wilt een equivalent van Britta Simon in Replicon die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Configureren van eenmalige aanmelding Replicon](#configure-replicon-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met B.Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - B.Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maken van de testgebruiker Replicon](#create-replicon-test-user)**  : als u wilt een equivalent van B.Simon in Replicon die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+### <a name="configure-azure-ad-sso"></a>Azure AD-eenmalige aanmelding configureren
 
-In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
+Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de Azure-portal.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Replicon, moet u de volgende stappen uitvoeren:
+1. In de [Azure-portal](https://portal.azure.com/)op de **Replicon** toepassingspagina integratie, vinden de **beheren** sectie en selecteer **eenmalige aanmelding**.
+1. Op de **selecteert u een methode voor eenmalige aanmelding** pagina, selecteert u **SAML**.
+1. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op het pictogram voor bewerken/pen voor **SAML-basisconfiguratie** om de instellingen te bewerken.
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Replicon** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+1. Op de **SAML-basisconfiguratie** pagina, voert u de waarden voor de volgende velden:
 
-2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
+    1. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://global.replicon.com/!/saml2/<client name>/sp-sso/post`
 
-    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
+    1. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://global.replicon.com/!/saml2/<client name>`
 
-3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
-
-    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
-
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
-
-    ![Replicon domein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
-
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
-
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://global.replicon.com/<companyname>`
-
-    c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
+    1. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://global.replicon.com/!/saml2/<client name>/sso/post`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [Replicon Client ondersteuningsteam](https://www.replicon.com/customerzone/contact-support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met [Replicon Client ondersteuningsteam](https://www.replicon.com/customerzone/contact-support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+1. Klik op het pictogram voor bewerken/pen voor **SAML-handtekeningcertificaat** om de instellingen te bewerken.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![Handtekeningalgoritme](common/signing-algorithm.png)
 
-6. Op de **Replicon instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+    1. Selecteer **aanmelding SAML-verklaring** als de **ondertekening optie**.
 
-    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+    1. Selecteer **SHA-256** als de **handtekeningalgoritme**.
 
-    a. Aanmeldings-URL
+1. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, zoeken **federatieve metagegevens-XML** en selecteer **downloaden** voor het downloaden van het certificaat en sla deze op uw computer.
 
-    b. Azure AD-id
+   ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-    c. Afmeldings-URL
-
-### <a name="configure-replicon-single-sign-on"></a>Configureer Replicon Single Sign-On
+### <a name="configure-replicon-sso"></a>Replicon eenmalige aanmelding configureren
 
 1. In een ander browservenster, meld u aan bij uw bedrijf Replicon site als beheerder.
 
@@ -145,61 +117,43 @@ Voor het configureren van Azure AD eenmalige aanmelding met Replicon, moet u de 
 
    c. Klik op de **+** om uit te breiden de **metaDataConfiguration** sectie.
 
-   d. Klik op **bestand kiezen**, voor het selecteren van uw id-provider metagegevens XML-bestand en klik op **indienen**.
+   d. Selecteer **SHA256** voor xmlSignatureAlgorithm
+
+   e. Klik op **bestand kiezen**, voor het selecteren van uw id-provider metagegevens XML-bestand en klik op **indienen**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+In deze sectie maakt u een testgebruiker in Azure portal B.Simon genoemd.
 
-1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
-
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
-
-2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
-
-    ![Knop Nieuwe gebruiker](common/new-user.png)
-
-3. In Gebruikerseigenschappen voert u de volgende stappen uit.
-
-    ![Het dialoogvenster Gebruiker](common/user-properties.png)
-
-    a. Voer in het veld **Naam** **Britta Simon**in.
-  
-    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`. Bijvoorbeeld: BrittaSimon@contoso.com
-
-    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
-
-    d. Klik op **Create**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **Nieuwe gebruiker** boven aan het scherm.
+1. In de **gebruiker** eigenschappen als volgt te werk:
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `BrittaSimon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Replicon.
+In deze sectie schakelt u B.Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Replicon.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Replicon**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst met toepassingen, **Replicon**.
+1. Zoek in de pagina overzicht van de app, de **beheren** sectie en selecteer **gebruikers en groepen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+   ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-2. Selecteer in de lijst met toepassingen, **Replicon**.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
-    ![De koppeling Replicon in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
-
-    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
-
-4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
-
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
-
-5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
-
-6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
-
-7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+1. In de **gebruikers en groepen** dialoogvenster, selecteer **B.Simon** uit de lijst met gebruikers, klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Als u een waarde voor de rol in het SAML-verklaring verwacht de **rol selecteren** dialoogvenster, selecteer de juiste rol voor de gebruiker in de lijst en klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
 ### <a name="create-replicon-test-user"></a>Replicon testgebruiker maken
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Replicon.
+Het doel van deze sectie is het maken van een gebruiker met de naam van B.Simon in Replicon.
 
 **Als u de gebruiker handmatig moet maken, voert u de volgende stappen uit:**
 
@@ -217,24 +171,27 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
     ![Gebruikersprofiel](./media/replicon-tutorial/ic777808.png "gebruikersprofiel")
 
-    a. In de **aanmeldingsnaam** tekstvak, typ de Azure AD e-mailadres van de Azure AD-gebruiker die u inrichten wilt, zoals `BrittaSimon\@contoso.com`.
+    a. In de **aanmeldingsnaam** tekstvak, typ de Azure AD e-mailadres van de Azure AD-gebruiker die u inrichten wilt, zoals `B.Simon@contoso.com`.
+
+    > [!NOTE]
+    > Aanmeldingsnaam moet overeenkomen met de e-mailadres van de gebruiker in Azure AD
 
     b. Als **verificatietype**, selecteer **SSO**.
 
-    c. In de **afdeling** tekstvak, typ de afdeling van de gebruiker.
+    c. Verificatie-ID ingesteld op dezelfde waarde als aanmeldingsnaam (de Azure AD e-mailadres van de gebruiker)
 
-    d. Als **werknemerstype**, selecteer **beheerder**.
+    d. In de **afdeling** tekstvak, typ de afdeling van de gebruiker.
 
-    e. Klik op **gebruikersprofiel opslaan**.
+    e. Als **werknemerstype**, selecteer **beheerder**.
+
+    f. Klik op **gebruikersprofiel opslaan**.
 
 > [!NOTE]
 > U kunt alle andere Replicon gebruiker-account maken van hulpprogramma's of API's geleverd door Replicon voor het inrichten van gebruikersaccounts van de Azure AD.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-sso"></a>Test eenmalige aanmelding
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel Replicon in het toegangsvenster, moet u worden automatisch aangemeld bij de Replicon waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u de tegel Replicon in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de Replicon waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

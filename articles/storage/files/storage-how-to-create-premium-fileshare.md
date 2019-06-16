@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190099"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Over het maken van een premium Azure-bestandsshare
@@ -47,8 +47,8 @@ Elk opslagaccount moet behoren tot een Azure-resourcegroep. Een resourcegroep is
 1. Voer vervolgens een naam in voor het opslagaccount. De naam die u kiest, moet uniek zijn binnen Azure. Verder moet de naam 3 tot 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
 1. Selecteer een locatie voor uw opslagaccount of gebruik de standaardlocatie.
 1. Voor **prestaties** Selecteer **Premium**.
-1. Selecteer **soort Account** en kies **FileStorage (preview)**.
-1. Laat **replicatie** ingesteld op de standaardwaarde van **lokaal redundante opslag (LRS)**.
+1. Selecteer **soort Account** en kies **FileStorage (preview)** .
+1. Laat **replicatie** ingesteld op de standaardwaarde van **lokaal redundante opslag (LRS)** .
 
     ![Over het maken van een storage-account voor een premium-bestandsshare](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
@@ -59,7 +59,7 @@ Wanneer de resource van uw opslagaccount is gemaakt, navigeert u naar deze.
 
 ### <a name="create-a-premium-file-share"></a>Een Premium-bestandsshare maken
 
-1. Schuif in het menu links voor het opslagaccount naar de **File-service** sectie en selecteer vervolgens **Files (preview)**.
+1. Schuif in het menu links voor het opslagaccount naar de **File-service** sectie en selecteer vervolgens **Files (preview)** .
 1. Selecteer **+ bestandsshare** om een premium-bestandsshare te maken.
 1. Voer een naam en een gewenst quotum voor de bestandsshare en selecteer vervolgens **maken**.
 

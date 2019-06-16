@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878780"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met behulp van REST-API
@@ -34,7 +34,7 @@ In dit artikel leert u hoe u WebHDFS REST-API's en Data Lake Storage Gen1 REST A
 
 * **Azure Data Lake Storage Gen1 account**. Volg de instructies op [aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure-portal](data-lake-store-get-started-portal.md).
 
-* **[cURL](https://curl.haxx.se/)**. In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
+* **[cURL](https://curl.haxx.se/)** . In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
 Er zijn twee benaderingen voor verificatie met Azure Active Directory.

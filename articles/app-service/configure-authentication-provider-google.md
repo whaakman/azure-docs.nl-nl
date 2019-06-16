@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 50905b86924e0f564eaf4867c2906ad8740ddbaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851172"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Uw App Service-toepassing voor het gebruik van Google-aanmelding configureren
@@ -33,7 +33,7 @@ Voor de procedure in dit onderwerp, moet u een Google-account met een geverifiee
 1. Meld u aan bij de [Azure Portal], en navigeer naar uw toepassing. Kopieer uw **URL**, die u later gebruiken om uw Google-app te configureren.
 2. Navigeer naar de [Google API's](https://go.microsoft.com/fwlink/p/?LinkId=268303) website, meld u aan met de referenties van uw Google-account, klikt u op **Project maken**, bieden een **projectnaam**, klikt u vervolgens op  **Maak**.
 3. Zodra het project is gemaakt, selecteert u deze. Klik in het projectdashboard op **gaat u naar de API's-overzicht**.
-4. Selecteer **inschakelen API's en services**. Zoeken naar **API voor Google +**, en selecteer deze. Klik vervolgens op **inschakelen**.
+4. Selecteer **inschakelen API's en services**. Zoeken naar **API voor Google +** , en selecteer deze. Klik vervolgens op **inschakelen**.
 5. In het linkernavigatievenster **referenties** > **OAuth instemmingsscherm**en selecteer vervolgens uw **e-mailadres**, voer een **Productnaam**, en klikt u op **opslaan**.
 6. In de **referenties** tabblad **referenties maken** > **OAuth-Clientidentiteit**.
 7. Selecteer op het scherm 'Client-ID maken' **webtoepassing**.

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305260"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event Grid
 
 In dit artikel beschrijft de belangrijkste concepten in Azure Event Grid.
 
-## <a name="events"></a>Gebeurtenissen
+## <a name="events"></a>Events
 
 Een gebeurtenis is de kleinste hoeveelheid informatie die wordt iets volledig beschreven die hebben plaatsgevonden in het systeem. Elke gebeurtenis bevat algemene informatie, zoals: bron van de gebeurtenis wanneer de gebeurtenis plaatsgevonden en de unieke id heeft. Elke gebeurtenis heeft ook specifieke informatie die is alleen relevant zijn voor het specifieke type gebeurtenis. Bijvoorbeeld, een gebeurtenis over een nieuw bestand wordt gemaakt in Azure Storage vindt u informatie over het bestand, zoals de `lastTimeModified` waarde. Of een gebeurtenis van Event Hubs is de URL van de Capture-bestand. 
 

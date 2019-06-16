@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118373"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Gebeurtenissen van de service Fabric Linux-cluster in Syslog
@@ -32,9 +32,9 @@ Service Fabric wordt aangegeven dat een reeks gebeurtenissen platform om u belan
 In de 6.4 release is de SyslogConsumer geïntroduceerd voor het verzenden van de Service Fabric-platformgebeurtenissen tot Syslog voor Linux-clusters. Eenmaal ingeschakeld, wordt automatisch gebeurtenissen overgebracht naar Syslog dat kan worden verzameld en verzonden door de Log Analytics-Agent.
 
 Alle Syslog-gebeurtenis is 4-onderdelen
-* Faciliteit
+* Opslagruimte
 * Identiteit
-* Bericht
+* Message
 * Severity
 
 De SyslogConsumer schrijft alle platform-gebeurtenissen met behulp van functie `Local0`. U kunt bijwerken naar een geldige faciliteitnaam door het veranderen van de configuratie van de configuratie. De identiteit die wordt gebruikt is `ServiceFabric`. Het veld bericht bevat de volledige gebeurtenis geserialiseerd in JSON, zodat deze kan worden opgevraagd of die worden gebruikt door verschillende hulpprogramma's. 

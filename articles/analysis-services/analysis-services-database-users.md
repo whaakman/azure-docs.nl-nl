@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023613"
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
@@ -134,7 +134,7 @@ Rijfilters definiëren welke rijen in een tabel door leden van een bepaalde rol 
   
 Rijfilters kunnen worden gedefinieerd alleen voor rollen met lees- en lezen en machtigingen voor proces. Standaard als een rijfilter is niet gedefinieerd voor een bepaalde tabel, leden kunnen een query alle rijen in de tabel, tenzij kruislings filteren is van toepassing van een andere tabel.
   
- Rijfilters vereisen een DAX-formule in een TRUE/FALSE-waarde resulteren moet, voor het definiëren van de rijen die door leden van die bepaalde rol kunnen worden doorzocht. Rijen die niet zijn opgenomen in de DAX-formule kunnen niet worden opgevraagd. Bijvoorbeeld, de tabel Klanten inschakelen met de volgende rij expressie filters *= klanten [Country] = "VS"*, leden van de rol Sales ziet alleen de klanten in de Verenigde Staten.  
+ Rijfilters vereisen een DAX-formule in een TRUE/FALSE-waarde resulteren moet, voor het definiëren van de rijen die door leden van die bepaalde rol kunnen worden doorzocht. Rijen die niet zijn opgenomen in de DAX-formule kunnen niet worden opgevraagd. Bijvoorbeeld, de tabel Klanten inschakelen met de volgende rij expressie filters *= klanten [Country] = "VS"* , leden van de rol Sales ziet alleen de klanten in de Verenigde Staten.  
   
 Rijfilters van toepassing op de opgegeven rijen en de gerelateerde rijen. Wanneer een tabel meerdere relaties heeft, filters beveiliging toe te passen voor de relatie die actief is. Rijfilters beginnen en eindigen met een andere rij-filter gedefinieerd voor gerelateerde tabellen, bijvoorbeeld:  
   
@@ -146,7 +146,7 @@ Rijfilters van toepassing op de opgegeven rijen en de gerelateerde rijen. Wannee
   
  Het uiteindelijke resultaat is leden kunnen rijen met gegevens waar de klant zich in de Verenigde Staten, de productcategorie fietsen is en het jaar 2016 wordt een query. Gebruikers kunnen geen query uitvoeren op transacties buiten de Verenigde Staten, transacties die niet fietsen of transacties niet in 2016 tenzij ze lid zijn van een andere rol die machtigingen verleent.
   
- U kunt het filter, *=FALSE()*, voor het weigeren van toegang tot alle rijen voor een hele tabel.
+ U kunt het filter, *=FALSE()* , voor het weigeren van toegang tot alle rijen voor een hele tabel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

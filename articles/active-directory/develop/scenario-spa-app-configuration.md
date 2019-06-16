@@ -16,10 +16,10 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71454fc553a0f81c26426a6a9588f15d5311e38
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65406423"
 ---
 # <a name="single-page-application---code-configuration"></a>Toepassing van één pagina - code configureren
@@ -41,7 +41,7 @@ De bibliotheken ondersteunende de impliciete stroom zijn:
 
 De registratiegegevens van de toepassing wordt in de bibliotheek met MSAL doorgegeven als configuratie tijdens de initialisatie van de bibliotheek.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 ```javascript
 // Configuration object constructed.

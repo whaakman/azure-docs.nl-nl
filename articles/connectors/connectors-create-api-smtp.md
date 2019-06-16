@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106147"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>E-mail verzenden vanuit uw SMTP-account met Azure Logic Apps
@@ -47,7 +47,7 @@ Met Azure Logic Apps en de Simple Mail Transfer Protocol (SMTP)-connector, kunt 
 1. Kies onder de laatste stap waar u een SMTP-actie toevoegen, **nieuwe stap**. 
 
    Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
-   Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+   Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
 1. Typ 'smtp' als filter in het zoekvak. Selecteer de actie die u wilt onder de lijst met acties.
 

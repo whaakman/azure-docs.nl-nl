@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-origin.date: 08/03/2017
-ms.date: 02/26/2019
-ms.author: v-junlch
+ms.date: 08/03/2017
+ms.author: amsriva
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122231"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Overzicht van Application Gateway SSL-beleid
@@ -65,9 +64,9 @@ Als een vooraf gedefinieerde SSL-beleid worden geconfigureerd voor uw vereisten 
  
 ### <a name="ssl-protocol-versions"></a>SSL-protocolversies
 
-- SSL 2.0 en 3.0 zijn standaard uitgeschakeld voor alle Toepassingsgateways. Deze protocolversies zijn niet configureerbaar.
-- Een aangepast SSL-beleid biedt u de optie voor het selecteren van een van de volgende drie protocollen als de minimale versie van SSL-protocol voor uw gateway: TLSv1_0, TLSv1_1 en TLSv1_2.
-- Als er geen SSL-beleid is gedefinieerd, worden alle drie protocollen (TLSv1_0, TLSv1_1 en TLSv1_2) ingeschakeld.
+* SSL 2.0 en 3.0 zijn standaard uitgeschakeld voor alle Toepassingsgateways. Deze protocolversies zijn niet configureerbaar.
+* Een aangepast SSL-beleid biedt u de optie voor het selecteren van een van de volgende drie protocollen als de minimale versie van SSL-protocol voor uw gateway: TLSv1_0, TLSv1_1 en TLSv1_2.
+* Als er geen SSL-beleid is gedefinieerd, worden alle drie protocollen (TLSv1_0, TLSv1_1 en TLSv1_2) ingeschakeld.
 
 ### <a name="cipher-suites"></a>-Coderingssuites
 
@@ -106,5 +105,3 @@ Application Gateway ondersteunt de volgende cipher suites van waaruit u het aang
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u meer informatie over het configureren van een SSL-beleid wilt, Zie [configureren van SSL-beleid in een toepassingsgateway](application-gateway-configure-ssl-policy-powershell.md).
-
-<!-- Update_Description: wording update -->

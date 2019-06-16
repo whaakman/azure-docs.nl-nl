@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685330"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Een HDInsight-toepassing publiceren in de Azure Marketplace
@@ -91,8 +91,8 @@ Een HDInsight-toepassing publiceren:
 3. Voer een titel in en selecteer vervolgens **maken van een nieuwe oplossingssjabloon**.
 4. Als u uw organisatie nog niet hebt geregistreerd, selecteert u **ontwikkelaarscentrumaccount maken en deelnemen aan het programma Azure**.  Zie voor meer informatie, [maken van een Microsoft Developer-account](../marketplace/marketplace-publishers-guide.md).
 5. Selecteer **topologieën aan de slag definiëren**. Een oplossingssjabloon is een "ouder" voor alle bijbehorende topologieën. U kunt meerdere topologieën definiëren in één aanbieding of oplossing sjabloon. Wanneer een aanbieding wordt doorgestuurd voor fasering, wordt deze doorgestuurd met alle bijbehorende topologieën. 
-6. Voer een topologienaam in en selecteer vervolgens **+**.
-7. Voer een nieuwe versie, en selecteer vervolgens **+**.
+6. Voer een topologienaam in en selecteer vervolgens **+** .
+7. Voer een nieuwe versie, en selecteer vervolgens **+** .
 8. Upload het ZIP-bestand dat u hebt gemaakt toen u de toepassing.  
 9. Selecteer **certificering aanvragen**. Het team van Microsoft-certificering controleert de bestanden en certificeert de topologie.
 

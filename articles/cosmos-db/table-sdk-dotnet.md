@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: db7cc556525ab57f14984232bf1797764865fca3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606251"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabel-API van .NET: Download en opmerkingen bij de release
@@ -84,7 +84,7 @@ De [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzu
 De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 <br/>
 
-| Versie | Releasedatum | Vervaldatum |
+| Version | Releasedatum | Vervaldatum |
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |22 januari 2019|01 april 2020 |
 | [2.0.0](#2.0.0) |26 september 2018|01 maart 2020 |

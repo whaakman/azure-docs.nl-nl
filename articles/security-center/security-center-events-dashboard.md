@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573520"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Controle en het verwerken van beveiligingsgebeurtenissen in Azure Security Center
 Het dashboard gebeurtenissen bevat een overzicht van het aantal beveiligingsgebeurtenissen verzameld voor tijd en een lijst van gebeurtenissen die aandacht vereisen die uw aandacht nodig hebben.  
 
 > [!NOTE]
-> Deze functie wilt gebruiken, moet uw werkruimte Log Analytics versie 2 actief zijn en moet op Security Center Standard-laag. Zie het Security Center [pagina met prijzen](security-center-pricing.md) voor meer informatie over de Standard-laag.
->
->
+> Gebeurtenissen-Security-dashboard wordt beëindigd op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Wat is een beveiligingsgebeurtenis?
 Security Center maakt gebruik van de Microsoft Monitoring Agent voor het verzamelen van verschillende aan beveiliging gerelateerde configuraties en gebeurtenissen van uw machines en slaat deze gebeurtenissen in uw werkruimte(n). Voorbeelden van dergelijke gegevens zijn: besturingssysteemlogboeken (Windows-gebeurtenislogboeken), uitvoeren van processen en gebeurtenissen van beveiligingsoplossingen die zijn geïntegreerd met Security Center. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte(n).
+
+## <a name="requirements"></a>Vereisten
+Deze functie wilt gebruiken, moet uw werkruimte Log Analytics versie 2 actief zijn en moet op Security Center Standard-laag. Zie het Security Center [pagina met prijzen](security-center-pricing.md) voor meer informatie over de Standard-laag.
 
 ## <a name="events-processed-dashboard"></a>Verwerkte gebeurtenissen-dashboard
 U hebt tot de **gebeurtenissen** dashboard van de in het hoofdmenu van Security Center of de Security Center **overzicht** blade.  

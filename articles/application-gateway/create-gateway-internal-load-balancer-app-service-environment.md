@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831092"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Back-end-servercertificaat is niet whitelisted voor een toepassingsgateway met behulp van een interne Load Balancer met een App Service Environment
@@ -31,14 +31,14 @@ Wanneer u een toepassingsgateway met behulp van een ILB met een as-omgeving op d
 
 **Application Gateway-configuratie:**
 
-- **Listener:** Meerdere locaties
+- **Listener:** Meerdere sites
 - **Poort:** 443
 - **Hostnaam:** test.appgwtestase.com
 - **SSL-certificaat:** CN=test.appgwtestase.com
-- **Back-end-groep:** IP-adres of FQDN
-- **IP-adres:**: 10.1.5.11
+- **Back-end-groep:** IP-adres of FQDN-naam
+- **IP-adres:** : 10.1.5.11
 - **HTTP-instellingen:** HTTPS
-- **Poort:**: 443
+- **Poort:** : 443
 - **Aangepaste test:** Hostname – test.appgwtestase.com
 - **Certificaat voor clientverificatie:** .cer van test.appgwtestase.com
 - **Back-Endstatus:** Niet in orde – back-end-servercertificaat is niet opgenomen in de whitelist met Application Gateway.
@@ -70,6 +70,6 @@ Wanneer u een volledig gekwalificeerde domeinnaam (FQDN) gebruiken voor toegang 
 
 Als u wilt overhead verminderen, kunt u het ILB-certificaat in de HTTP-instellingen waardoor het testpad werken uploaden. (Deze stap is alleen voor opname in de whitelist. Optie wordt niet gebruikt voor SSL-communicatie.) U kunt het ILB-certificaat ophalen door het openen van de ILB met het IP-adres van uw browser op HTTPS en CER-indeling en uploaden van het certificaat op de desbetreffende HTTP-instellingen exporteren van het SSL-certificaat in een met Base-64 gecodeerd.
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

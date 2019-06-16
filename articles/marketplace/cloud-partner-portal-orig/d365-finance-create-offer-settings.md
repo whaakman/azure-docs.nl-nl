@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: d29b17e1a109b37a51a0e6bd2af2a7bb02b977a9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64934912"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Het invullen van het formulier instellingen bieden
@@ -20,7 +20,7 @@ ms.locfileid: "64934912"
 Het formulier van de instellingen voor aanbieding is een eenvoudige methode om de instellingen van de aanbieding te geven.
 De vereiste velden worden hieronder beschreven.
 
-### <a name="offer-id"></a>Aanbiedings-id
+### <a name="offer-id"></a>Aanbiedings-ID
 
 `OfferId` is een unieke id voor de aanbieding binnen een publisher-profiel.
 Deze ID zijn in URL's voor product zichtbaar. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De ID kan mag niet eindigen met een streepje en een maximum van 50 tekens. Dit veld is vergrendeld zodra een aanbieding live meteen.

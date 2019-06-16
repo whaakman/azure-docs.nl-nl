@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142513"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Zelfstudie: Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
@@ -53,7 +53,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
 * Controleer de [overzicht van de beveiliging van inhoud](content-protection-overview.md) artikel
 * Visual Studio Code of Visual Studio installeren
-* [Een Azure Media Services-account maken](create-account-cli-quickstart.md)
+* [Een Media Services-account maken](create-account-cli-quickstart.md)
 * Zorg dat u referenties hebt die nodig zijn om Media Services-API's te kunnen gebruiken via [toegangs-API's](access-api-cli-how-to.md)
 
 ## <a name="download-code"></a>Code downloaden

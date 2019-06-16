@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 06/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077547"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Wat is Azure Virtual WAN?
 
-Azure virtuele WAN is een netwerkservice, dat geoptimaliseerde en geautomatiseerde vertakking connectiviteit voor, en via Azure biedt. Azure-regio's fungeren als hubs die u kunt verbinding maken met uw vertakkingen. Zodra de filialen zijn verbonden, kunt u gebruikmaken van de Azure-backbone voor het maken van branch-naar-VNet- en vertakking op vertakking-connectiviteit. Zie voor een lijst met partners en de locaties die ondersteuning bieden voor virtuele WAN-VPN, de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) artikel.
+Azure virtuele WAN is een netwerkservice, dat geoptimaliseerde en geautomatiseerde vertakking connectiviteit voor, en via Azure biedt. Azure-regio's fungeren als hubs die u kunt verbinding maken met uw vertakkingen. U kunt gebruikmaken van de Azure-backbone voor ook verbinding maken met vertakkingen en profiteer van branch-naar-VNet-connectiviteit. Er is een lijst met partners die ondersteuning bieden voor automatisering van connectiviteit met Azure virtuele WAN-VPN. Zie voor meer informatie de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) artikel.
 
 Azure virtuele WAN combineert veel Azure-cloud-connectiviteit-services zoals site-naar-site VPN (algemeen beschikbaar), ExpressRoute (Preview), punt-naar-site gebruiker VPN (Preview) in één operationele interface. Verbinding met Azure vnet's met behulp van virtueel netwerkverbindingen tot stand is gebracht.
 

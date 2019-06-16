@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417385"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database-Audit-logboekindeling
@@ -70,12 +70,12 @@ Auditgebeurtenissen worden geschreven naar Log Analytics-werkruimte gedefinieerd
 | response_rows | response_rows_d | Aantal rijen in de resultatenset geretourneerd | bigint | int |
 | schema_name | schema_name_s | De schemacontext waarin de actie is opgetreden. Null zijn voor controles plaatsvinden buiten een schema | Sysname | string |
 | N/A | securable_class_type_s | Beveiligbaar object dat is toegewezen aan de class_type wordt gecontroleerd | N/A | string |
-| sequence_group_id | sequence_group_id_g | Unieke id | Varbinary | GUID |
+| sequence_group_id | sequence_group_id_g | Unieke id | varbinary | GUID |
 | sequence_number | sequence_number_d | De volgorde van de records in een enkele audit-record die te groot is voor in de schrijfbuffer voor controles passen wordt bijgehouden | int | int |
 | server_instance_name | server_instance_name_s | Naam van het serverexemplaar waarop de controle is opgetreden | Sysname | string |
 | server_principal_id | server_principal_id_d | ID van de aanmeldingscontext waarin de actie wordt uitgevoerd | int | int |
 | server_principal_name | server_principal_name_s | Huidige aanmelding | Sysname | string |
-| server_principal_sid | server_principal_sid_s | Huidige aanmeldings-SID | Varbinary | string |
+| server_principal_sid | server_principal_sid_s | Huidige aanmeldings-SID | varbinary | string |
 | session_id | session_id_d | ID van de sessie waarop de gebeurtenis heeft plaatsgevonden | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Server-principal voor sessie | Sysname | string |
 | Instructie | statement_s | T-SQL-instructie die is uitgevoerd (indien aanwezig) | nvarchar(4000) | string |
@@ -84,7 +84,7 @@ Auditgebeurtenissen worden geschreven naar Log Analytics-werkruimte gedefinieerd
 | target_database_principal_name | target_database_principal_name_s | Doelgebruiker van de actie. NULL als niet van toepassing | string | string |
 | target_server_principal_id | target_server_principal_id_d | Server-principal die de bewerking weigeren-GRANT/REVOKE is uitgevoerd op. Retourneert 0 als niet van toepassing | int | int |
 | target_server_principal_name | target_server_principal_name_s | Doel-aanmelding van de actie. NULL als niet van toepassing | Sysname | string |
-| target_server_principal_sid | target_server_principal_sid_s | De SID van de doel-aanmelding. NULL als niet van toepassing | Varbinary | string |
+| target_server_principal_sid | target_server_principal_sid_s | De SID van de doel-aanmelding. NULL als niet van toepassing | varbinary | string |
 | transaction_id | transaction_id_d | Alleen SQL Server (vanaf 2016) - 0 voor Azure SQL DB | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | Door gebruiker gedefinieerde gebeurtenis-id als een argument doorgegeven aan sp_audit_write. NULL voor systeemgebeurtenissen (standaard) en niet-nul voor de gebruiker gedefinieerde gebeurtenis. Zie voor meer informatie, [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Door gebruiker gedefinieerde gegevens als een argument doorgegeven aan sp_audit_write. NULL voor systeemgebeurtenissen (standaard) en niet-nul voor de gebruiker gedefinieerde gebeurtenis. Zie voor meer informatie, [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |

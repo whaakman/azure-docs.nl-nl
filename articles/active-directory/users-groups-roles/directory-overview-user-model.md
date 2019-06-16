@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775a03a82c1fc432e65ce45309a5af3febb448a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2053ad07e555cc04cea714524141068f1404796
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472278"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083897"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Gebruikers, groepen, licentieverlening en rollen voor grote organisaties
 
@@ -52,7 +52,7 @@ Veel grote organisaties willen opties om hun gebruikers voldoende bevoegdheden t
 
  Rolnaam | Overzicht van bevoegdheden
  --------- | -------------------
- **Toepassingsbeheerder** | Kan bedrijfstoepassingen en toepassingsregistraties toevoegen en beheren en de proxyinstellingen van een toepassing configureren. Toepassingsbeheerders kunnen beleid voor voorwaardelijke toegang en apparaten weergeven, maar kunnen ze niet beheren.
+ **Toepassingsbeheerder** | Kan bedrijfstoepassingen en toepassingsregistraties toevoegen en beheren en de proxyinstellingen van een toepassing configureren. Beheerders kunnen beleid voor voorwaardelijke toegang en apparaten weergeven, maar ze niet te beheren.
  **Beheerder van de cloudtoepassing** | Kan bedrijfstoepassingen en bedrijfsapp-registraties toevoegen en beheren. Deze rol heeft alle bevoegdheden van de toepassingsbeheerder behalve dat een gebruiker met deze rol geen instellingen van de toepassingsproxy kan beheren.
 **Toepassingsontwikkelaar** | Kan toepassingsregistraties toevoegen en beheren maar kan geen bedrijfstoepassingen beheren of de proxyinstellingen van een toepassing configureren.
 

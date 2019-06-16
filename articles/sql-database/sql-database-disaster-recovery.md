@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075809"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Herstellen van een Azure SQL Database of een failover naar een secundaire
@@ -98,7 +98,7 @@ Zie voor meer informatie over het wijzigen van tekenreeksen voor databaseverbind
 
 ### <a name="configure-firewall-rules"></a>Firewall-regels configureren
 
-U moet ervoor zorgen dat de firewallregels op server en op de database geconfigureerd overeenkomen met die die zijn geconfigureerd op de primaire server en de primaire database. Zie voor meer informatie [Procedure: Configureer Firewall-instellingen (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+U moet ervoor zorgen dat de firewallregels op server en op de database geconfigureerd overeenkomen met die die zijn geconfigureerd op de primaire server en de primaire database. Zie voor meer informatie, [het: Configureer Firewall-instellingen (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Aanmeldingen en databasegebruikers configureren
 

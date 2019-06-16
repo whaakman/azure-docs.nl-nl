@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882194"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Herconfiguratie in Azure Service Fabric
 Een *configuratie* wordt gedefinieerd als de replica's en hun rollen voor een partitie van een stateful service.
 
-Een *herconfiguratie* is het proces van het verplaatsen van één configuratie naar een andere configuratie. Wordt een wijziging aan de replicaset voor een partitie van een stateful service verzonden. De oude configuratie heet de *vorige configuratie (PC)*, en de nieuwe configuratie heet de *huidige configuratie (CC)*. Het protocol herconfiguratie in Azure Service Fabric behoudt consistentie en beschikbaarheid tijdens alle wijzigingen aan de replicaset onderhoudt.
+Een *herconfiguratie* is het proces van het verplaatsen van één configuratie naar een andere configuratie. Wordt een wijziging aan de replicaset voor een partitie van een stateful service verzonden. De oude configuratie heet de *vorige configuratie (PC)* , en de nieuwe configuratie heet de *huidige configuratie (CC)* . Het protocol herconfiguratie in Azure Service Fabric behoudt consistentie en beschikbaarheid tijdens alle wijzigingen aan de replicaset onderhoudt.
 
 Failover Manager initieert wanneer in reactie op verschillende gebeurtenissen in het systeem. Bijvoorbeeld, als de primaire vervolgens een nieuwe configuratie mislukt wordt gestart als u wilt promoveren van een actieve secundaire aan een primaire. Een ander voorbeeld is in reactie op upgrades van toepassingen kan het nodig zijn om te verplaatsen van de primaire naar een ander knooppunt om bij te werken van het knooppunt zijn.
 

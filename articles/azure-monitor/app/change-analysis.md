@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor-toepassing wijzigen analysis - detecteren wijzigingen die mogelijk van invloed op live site problemen/storingen met Azure Monitor-toepassing wijzigen analyse | Microsoft Docs
-description: Toepassing live siteproblemen oplossen in Azure App Services met Azure Monitor wijzigen toepassingsanalyse
+title: Analyse van de toepassing wijzigen in Azure Monitor gebruiken om te vinden van problemen met web-app | Microsoft Docs
+description: Analyse van de toepassing wijzigen in Azure Monitor om problemen van toepassing op live sites op Azure App Service te gebruiken.
 services: application-insights
 author: cawams
 manager: carmonm
@@ -10,131 +10,134 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 5bd3816e65398283de85b4551a137b3f97db4cc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2a31131b662d01f9841a3f1c5b0a6c459a117e77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075367"
 ---
-# <a name="application-change-analysis-public-preview"></a>Analyse van de wijziging toepassing (openbare preview)
+# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Analyse (preview) van de toepassing wijzigen in Azure Monitor gebruiken
 
-Wanneer er een probleem live site/uitval optreedt, is het essentieel dat u snel bepalen van de hoofdoorzaak te achterhalen. Standard bewakingsoplossingen kunt u snel vaststellen dat er een probleem is, en vaak ook welk onderdeel is mislukt. Maar dit wordt niet altijd leiden tot een onmiddellijke uitleg waarom de fout zich voordoet. Uw site gewerkt vijf minuten geleden, nu deze is verbroken. Wat er in de afgelopen vijf minuten gewijzigd? Dit is de vraag die de nieuwe functie van Azure Monitor-analyse voor wijziging van toepassing is ontworpen om te beantwoorden. Met het bouwen van op de kracht van de [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) wijziging toepassingsanalyse biedt inzicht in uw Azure-toepassingswijzigingen aan observability verhogen en verlagen MTTR (Mean Time-herstel).
+Wanneer er een probleem voor live site of een storing optreedt, is het essentieel dat u snel de hoofdoorzaak vaststellen. Standard bewakingsoplossingen mogelijk u te waarschuwen voor een probleem. Ze kunnen zelfs aangeven welk onderdeel is mislukt. Maar deze waarschuwing wordt niet altijd onmiddellijk wordt uitgelegd van de fout veroorzaakt. U weet dat uw site vijf minuten geleden gewerkt en nu deze is verbroken. Wat er in de afgelopen vijf minuten gewijzigd? Dit is de vraag die analyse voor wijziging van toepassing is ontworpen om te beantwoorden in Azure Monitor. 
+
+Voortbouwend op de kracht van [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), analyse van de wijziging geeft inzicht in uw Azure-toepassingswijzigingen aan observability verhogen en verlagen MTTR (gemiddelde tijd om te herstellen).
 
 > [!IMPORTANT]
-> Analyse van Azure Monitor toepassing wijzigen is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+> Analyse van de wijziging is momenteel in preview. Deze preview-versie wordt geleverd zonder een service level agreement. Deze versie wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund of mogelijk beperkt. Zie voor meer informatie, [aanvullende gebruiksvoorwaarden voor Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview-of-change-analysis-service"></a>Overzicht van de wijziging Analysis-service
-De wijziging analysis-service detecteert de verschillende soorten wijzigingen uit infrastructuur laag helemaal tot aan de implementatie van toepassing. Het is een abonnement op Azure-resourceprovider waarmee gezocht naar wijzigingen van resources in het abonnement en gegevens voor verschillende diagnostische hulpprogramma's om te begrijpen welke wijzigingen gebruikers er de oorzaak van problemen.
+## <a name="overview"></a>Overzicht
 
-Het volgende diagram illustreert de architectuur van wijziging analysis-service: ![Architectuurdiagram voor hoe wijziging analysis-service verkrijgt wijzigen van gegevens en gegevens beschikbaar stellen voor clienthulpprogramma 's](./media/change-analysis/overview.png)
+Analyse van de wijziging detecteert verschillende soorten wijzigingen uit de laag infrastructuur helemaal tot aan de implementatie van toepassing. Het is een abonnement op Azure-resourceprovider waarmee wordt gecontroleerd of de wijzigingen van resources in het abonnement. Wijziging analyse levert gegevens voor verschillende diagnostische hulpprogramma's waarmee gebruikers te begrijpen wat verandert er de oorzaak van problemen.
 
-Het hulpprogramma is momenteel geïntegreerd in de App-Services-web-app vaststellen en oplossen van problemen ervaring. Zie *wijziging Analysis service voor Web-App van App Services* sectie over het inschakelen en weergeven van wijzigingen in een web-app.
+Het volgende diagram illustreert de architectuur van de analyse van wijziging:
+
+![Architectuurdiagram van hoe analyse wijzigen wijzigingsgegevens worden opgehaald en geeft de client-hulpprogramma 's](./media/change-analysis/overview.png)
+
+Op dit moment wijziging analyse is geïntegreerd in de **vaststellen en oplossen van problemen met** -ervaring in de App Service-web-app. Als u wilt wijzigen zodat en wijzigingen in de web-app weergeven, Zie de *analyse wijzigen voor de functie Web Apps* verderop in dit artikel.
 
 ### <a name="azure-resource-manager-deployment-changes"></a>Wijzigingen van Azure Resource Manager-implementatie
-Gebruik te maken van [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) de wijziging analyseprogramma biedt een historisch overzicht van hoe de Azure-resources die uw toepassing wordt gehost na verloop van tijd zijn veranderd. Bijvoorbeeld, als een web-app een tag toegevoegd heeft, de wijziging wordt doorgevoerd in het hulpmiddel wijzigen.
-Deze informatie is altijd beschikbaar zolang de `Microsoft.ChangeAnalysis` resourceprovider is toegevoegd aan Azure-abonnement.
 
-### <a name="web-application-deployment-and-configuration-changes"></a>Web-implementatie en configuratie wijzigingen in de toepassing
-Implementatie en configuratie van de status van een toepassing elke 4 uur vastgelegd wijziging analyseprogramma voor het berekenen van de verschillen en presenteren wat is gewijzigd. Voorbeelden van dergelijke wijzigingen zijn variabele wijzigingen in de omgeving voor de toepassing, wijzigingen in IP-configuratie-regel, wijzigingen van de beheerde Service-identiteit, wijzigingen in de SSL, enzovoort.
-In tegenstelling tot Resource Manager-wijzigingen, dit type gegevens over wijziging mogelijk niet beschikbaar onmiddellijk in het hulpprogramma. Als u wilt weergeven van de meest recente wijzigingen, gebruikt u de knop 'Scan verandert nu' in het hulpprogramma.
+Met behulp van [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), wijziging analyse levert een historisch overzicht van hoe de Azure-resources die uw toepassing wordt gehost na verloop van tijd zijn veranderd. Wijziging analyse kunt detecteren, bijvoorbeeld: wijzigingen in IP-configuratie van regels, beheerde identiteiten en SSL-instellingen. Dus als een label wordt toegevoegd aan een web-app, analyse wijzigen de wijziging wordt weergegeven. Deze informatie is beschikbaar als de `Microsoft.ChangeAnalysis` resourceprovider is ingeschakeld in het Azure-abonnement.
 
-![Schermafbeelding van de scan voor wijzigingen nu knop in vaststellen en oplossen van problemen hulpprogramma met de analysis-integratie wijzigen voor app service web-app](./media/change-analysis/scan-changes.png)
+### <a name="changes-in-web-app-deployment-and-configuration"></a>Wijzigingen in de web-app-implementatie en configuratie
+
+Analyse van de wijziging wordt de status van de implementatie en configuratie van een toepassing elke 4 uur vastgelegd. Deze kan worden gedetecteerd, bijvoorbeeld: wijzigingen in de omgevingsvariabelen van de toepassing. Het hulpprogramma berekent de verschillen en geeft op wat er is gewijzigd. In tegenstelling tot Resource Manager-wijzigingen, informatie over de wijziging van de code implementatie mogelijk niet beschikbaar onmiddellijk in het hulpprogramma. Als u wilt de meest recente wijzigingen in analyse van de wijziging weergeven, selecteert u **Scan verandert nu**.
+
+![Schermopname van de knop 'Scan verandert nu'](./media/change-analysis/scan-changes.png)
 
 ### <a name="dependency-changes"></a>Wijzigingen van de afhankelijkheid
-Afhankelijkheden resource kan ook worden de oorzaak van problemen. Bijvoorbeeld, als een web-app naar een Redis-cache aanroepen, kan de prestaties van de web-apps kan worden beïnvloed door Redis-cache SKU. Wijzig analysis service toont ook de afhankelijkheden informatie over wijzigingen in alle onderdelen van een app die kan zijn veroorzaakt problemen identificeren door te kijken naar de DNS-record van de web-app.
+
+Wijzigingen in de afhankelijkheden van resources kunnen ook problemen veroorzaken in een web-app. Bijvoorbeeld, als een web-app naar een Redis-cache aanroepen, de Redis-cache SKU kan van invloed zijn op de prestaties van de web-apps. Voor het detecteren van wijzigingen in de afhankelijkheden, controleert de wijziging Analysis DNS-record voor de web-app. Op deze manier verwijst naar wijzigingen in alle app-componenten die problemen kunnen veroorzaken.
+
+## <a name="change-analysis-for-the-web-apps-feature"></a>Analyse van de functie Web Apps wijzigen
+
+In Azure Monitor, analyse van de wijziging op dit moment is ingebouwd in de self-service **vaststellen en oplossen van problemen** optreden. Toegang tot deze ervaring van de **overzicht** pagina van uw App Service-toepassing.
+
+![Schermopname van de knop 'Overzicht' en ' vaststellen en oplossen van problemen ' knop](./media/change-analysis/change-analysis.png)
+
+### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Inschakelen van de analyse van de wijziging in de vaststellen en oplossen van problemen met hulpprogramma
+
+1. Selecteer **beschikbaarheid en prestaties**.
+
+    ![Schermafbeelding van de 'beschikbaarheid en prestaties' opties voor probleemoplossing](./media/change-analysis/availability-and-performance.png)
+
+1. Selecteer **vastlopen van de toepassing**.
+
+   ![Schermopname van de knop "Toepassing vastloopt"](./media/change-analysis/application-crashes-tile.png)
+
+1. Als u Analysis wijzigen, schakelt **nu inschakelen**.
+
+   ![Schermafbeelding van de opties "Toepassing vastloopt"](./media/change-analysis/application-crashes.png)
+
+1. Inschakelen om te profiteren van de volledige functionaliteit van de analyse van de wijziging, **wijziging Analysis**, **scannen op wijzigingen in de code**, en **altijd op**. Selecteer vervolgens **Opslaan**.
+
+    ![Schermafbeelding van de gebruikersinterface "Wijziging analyse inschakelen"](./media/change-analysis/change-analysis-on.png)
+
+    - Inschakelen **wijziging Analysis** op resourceniveau wijzigingen worden gedetecteerd. 
+    - Schakel **scannen op wijzigingen in de code** implementatiebestanden zien en wijzigingen in de configuratie van site. 
+    - Schakel **altijd op** het optimaliseren van de wijziging worden gescand. Maar houd er rekening mee dat deze instelling tot extra kosten leiden kan.
+
+1. Voor toegang tot analyse wijzigen, selecteert u **vaststellen en oplossen van problemen met** > **beschikbaarheid en prestaties** > **toepassing vastloopt**. Hier ziet u een grafiek met een overzicht van het type van wijzigingen na verloop van tijd, samen met details over deze wijzigingen:
+
+     ![Schermafbeelding van de wijziging diff-weergave](./media/change-analysis/change-view.png)
 
 
-## <a name="change-analysis-service-for-app-services-web-app"></a>Analyseservice voor App Services-Web-App wijzigen
+### <a name="enable-change-analysis-at-scale"></a>Analyse van de wijziging op schaal inschakelen
 
-Analyse van Azure Monitor toepassing wijzigen is momenteel gratis ingebouwd in de self-service **vaststellen en oplossen van problemen met** ondervindt, die kunnen worden benaderd vanaf de **overzicht** sectie van uw Azure App Service toepassing:
+Als uw abonnement veel web-apps bevat, is het inschakelen van de service op het niveau van de web-app is inefficiënt. In dit geval, volgt u deze alternatieve instructies.
 
-![Schermopname van Azure App Service-Overzicht pagina met rode vakken om de knop Overzicht en vaststellen en oplossen van problemen met knop](./media/change-analysis/change-analysis.png)
+### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registreer de resourceprovider Analysis wijzigen voor uw abonnement
 
-### <a name="enable-change-analysis-in-diagnose-and-solve-problems-tool"></a>Inschakelen van de analyse van de wijziging in vaststellen en oplossen van problemen met hulpprogramma
+1. Registreer de functievlag wijziging analyse (preview). Omdat de functievlag in preview is, moet u registreren, zodat deze zichtbaar is voor uw abonnement:
 
-1. Selecteer **beschikbaarheid en prestaties**
+   1. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
 
-    ![Schermafbeelding van de beschikbaarheid en prestaties opties voor probleemoplossing](./media/change-analysis/availability-and-performance.png)
+      ![Schermafbeelding van Cloud Shell wijzigen](./media/change-analysis/cloud-shell.png)
 
-2. Klik op de **toepassing vastloopt** tegel.
+   1. Wijzigen van de shell type **PowerShell**.
 
-   ![Schermafbeelding met de toepassing vastloopt tegel](./media/change-analysis/application-crashes-tile.png)
+      ![Schermafbeelding van Cloud Shell wijzigen](./media/change-analysis/choose-powershell.png)
 
-3. Om in te schakelen **wijziging Analysis** Selecteer **nu inschakelen**.
+   1. Voer de volgende PowerShell-opdracht uit:
 
-   ![Schermafbeelding van de beschikbaarheid en prestaties opties voor probleemoplossing](./media/change-analysis/application-crashes.png)
+        ``` PowerShell
+        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
+        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
+        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
+        ```
+    
+1. Registreer de resourceprovider Analysis wijzigen voor het abonnement.
 
-4. Om te profiteren van de volledige analysis functionaliteit set wijzigen **analyse wijzigen**, **scannen op wijzigingen in de code**, en **altijd op** naar **op** en selecteer **opslaan**.
+   - Ga naar **abonnementen**, en selecteer het abonnement dat u wilt inschakelen in de service wijzigen. Selecteer vervolgens de resourceproviders:
 
-    ![Schermafbeelding van de wijziging analysis-gebruikersinterface van Azure App Service inschakelen](./media/change-analysis/change-analysis-on.png)
+        ![Schermopname die laat zien hoe u om de wijziging Analysis-resourceprovider te registreren](./media/change-analysis/register-rp.png)
 
-    Als **wijziging Analysis** is ingeschakeld, kunt u zich voor het detecteren van niveau wijzigingen van resources. Als **scannen op wijzigingen in de code** is ingeschakeld, u ook implementatiebestanden te zien en wijzigingen in de configuratie van site. Inschakelen van **altijd op** optimaliseert de prestaties scannen wijzigen, maar mogelijk extra kosten vanuit het oogpunt van de facturering.
+       - Select **Microsoft.ChangeAnalysis**. Selecteer vervolgens aan de bovenkant van de pagina **registreren**.
 
-5.  Als alles is ingeschakeld, selecteren **vaststellen en oplossen van problemen met** > **beschikbaarheid en prestaties** > **toepassing vastloopt** kunt u toegang tot de ervaring van de analyse wijzigen. De grafiek wordt het type van de wijzigingen die hebben plaatsgevonden na verloop van tijd, samen met details over deze wijzigingen worden samengevat:
+       - Nadat de resourceprovider is ingeschakeld, kunt u een verborgen label instellen op de web-app voor het detecteren van wijzigingen op het niveau van de implementatie. Om in te stellen een verborgen code, volg de instructies onder **kan niet worden opgehaald van de wijziging analysegegevens**.
 
-     ![Schermafbeelding van wijzigen diff weergeven](./media/change-analysis/change-view.png)
+   - U kunt ook een PowerShell-script gebruiken om de resourceprovider te registreren:
 
+        ```PowerShell
+        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
+    
+        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
+        ```
 
-### <a name="enable-change-analysis-service-at-scale"></a>Wijziging Analysis-service op schaal inschakelen
-Als u veel web-apps in uw abonnement hebt, worden de service per niveau van de web-app inschakelen inefficiënt. Hier volgen enkele andere onboarding-instructies.
+        Voor het gebruik van PowerShell een verborgen label instellen voor een web-app, voer de volgende opdracht:
+    
+        ```powershell
+        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
+        $tags = $webapp.Tags
+        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
+        ```
 
-#### <a name="registering-change-analysis-resource-provider-for-your-subscription"></a>De resourceprovider Analysis wijzigen voor uw abonnement registreren
-
-1. Wijziging Analysis preview functievlag registreren
-
-    Aangezien deze functie in preview is, moet u eerst registreren functievlag voor deze zichtbaar zijn voor uw abonnement.
-    - Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
-
-    ![Schermopname van Azure Cloud Shell wijzigen](./media/change-analysis/cloud-shell.png)
-
-    - Wijzig het type shell in PowerShell:
-
-    ![Schermopname van Azure Cloud Shell wijzigen](./media/change-analysis/choose-powershell.png)
-
-    - Voer de volgende PowerShell-opdracht uit:
-
-    ``` PowerShell
-
-    Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to onboard
-    Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-    Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-
-    ```
-
-2. Wijziging Analysis-Resourceprovider registreren voor het abonnement
-
-    - Navigeer naar de abonnementen, selecteer het abonnement dat u vrijgeven de service wijzigen wilt en klik vervolgens op van resourceproviders:
-
-        ![Schermafbeelding voor het registreren van wijziging Analysis RP van blade abonnementen](./media/change-analysis/register-rp.png)
-
-    - Selecteer *Microsoft.ChangeAnalysis* en klikt u op *registreren* boven aan de pagina.
-
-    - Zodra de Resource Provider is geïmplementeerd, volg de instructies uit *kan niet worden opgehaald van analysegegevens wijzigen* hieronder verborgen tag instellen voor de web-app voor implementatie inschakelen het niveau van detectie te wijzigen op de web-app.
-
-3. U kunt ook kunt u naar stap 2 hierboven, ook registreren voor de Resourceprovider via PowerShell-script:
-
-    ```PowerShell
-    Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-    ```
-
-4. Als u wilt een verborgen-tag is ingesteld op een web-app met behulp van PowerShell, voer de volgende opdracht:
-
-    ```powershell
-    $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-    $tags = $webapp.Tags
-    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-    Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-    ```
-
-> [!NOTE]
-> Zodra de verborgen tag wordt toegevoegd, moet u mogelijk nog steeds in eerste instantie wachten tot 4 uur als u eerst om wijzigingen te bekijken. Dit komt door de freqeuncy 4 uur dat de wijziging analysis-service gebruikt voor het scannen van uw web-app tijdens de invloed op de prestaties van de scan te beperken.
+     > [!NOTE]
+     > Nadat u de verborgen tag toevoegt, moet u mogelijk nog steeds te wachten tot 4 uur voordat u wijzigingen zien. Resultaten worden vertraagd omdat wijziging Analysis uw web-app alleen elke 4 uur scant. De planning van 4 uur beperkt de gevolgen voor de prestaties van de scan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Verbetering van de bewaking van Azure App Services [door de Application Insights-functies ingeschakeld](azure-web-apps.md) van Azure Monitor.
-- Vergroot u uw kennis van de [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) waarmee power Azure Monitor-toepassing wijzigen analyse.
+- App Service bewaken effectiever door [Application Insights-functies inschakelen](azure-web-apps.md) in Azure Monitor.
+- Meer informatie over [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), die helpt power wijziging analyse.

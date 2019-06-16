@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
 ms.openlocfilehash: da23b90e44869dcbd21acf9b2c4e04f30153ae09
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66751772"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS vervulling API's versie 2 
@@ -107,7 +107,7 @@ Het eindpunt oplossen kunt de uitgever een marketplace-token omzetten in een per
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |  De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid |  De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  authorization     |  [JSON web token (JWT) bearer-token ophalen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 |  x-ms-marketplace-token  |  Token queryparameter in de URL in wanneer de gebruiker wordt omgeleid naar de SaaS-ISV-website van Azure (bijvoorbeeld: `https://contoso.com/signup?token=..`). *Opmerking:* Het wordt door URL gedecodeerd waarde vanuit de browser voor het token voordat u deze gebruikt.  |
 
 *Responscodes:*
@@ -171,7 +171,7 @@ Geeft een lijst van de SaaS-abonnementen voor een uitgever.
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | x-ms-correlationid |  De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-| Autorisatie      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| authorization      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Responscodes:*
 
@@ -241,7 +241,7 @@ Hiermee haalt u het opgegeven SaaS-abonnement. Gebruik deze aanroep voor het oph
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid |  De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Responscodes:*
 
@@ -305,7 +305,7 @@ Gebruik deze aanroep om erachter te komen of er geen persoonlijke/openbare aanbi
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid  | De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  authorization     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Responscodes:*
 
@@ -359,7 +359,7 @@ Interne serverfout<br>
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid  | De waarde van de unieke tekenreeks voor de bewerking op de client. Deze tekenreeks correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  authorization     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Aanvraag:*
 
@@ -416,7 +416,7 @@ Werk de planning van het abonnement.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.    |
-| Autorisatie      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| authorization      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *De nettolading van de aanvraag:*
 
@@ -482,7 +482,7 @@ Werk de hoeveelheid van het abonnement.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.    |
-| Autorisatie      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| authorization      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *De nettolading van de aanvraag:*
 
@@ -548,7 +548,7 @@ Afmelden en verwijderen van het opgegeven abonnement.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.   |
 |  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.   |
-|  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Responscodes:*
 
@@ -601,7 +601,7 @@ Geeft een lijst van de openstaande bewerkingen voor de huidige uitgever.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Responscodes:*
 
@@ -664,7 +664,7 @@ Hiermee kunt u de uitgever om bij te houden van de status van de opgegeven geact
 |  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  Autorisatie     |[JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |[JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Responscodes:* Code: 200<br> Met deze eigenschap wordt de opgegeven SaaS-bewerking in behandeling<br>
 Payload van he antwoord:
@@ -727,7 +727,7 @@ De status van een bewerking om aan te geven geslaagd/mislukt met de opgegeven wa
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *De nettolading van de aanvraag:*
 

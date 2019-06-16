@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 27439758c9e2b909bb7179b69c7aade81429f502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070497"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Quickstart: Een beheerd exemplaar van Azure SQL Database maken
 
@@ -52,7 +52,7 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
    |**Wachtwoord**|Een geldig wachtwoord.|Het wachtwoord moet minstens 16 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Tijdzone**|De tijdzone die moet worden gevolgd door uw beheerde exemplaar.|Zie voor meer informatie, [tijdzones](sql-database-managed-instance-timezone.md).|
    |**Sortering**|De sortering die u wilt gebruiken voor uw beheerde exemplaar.|Als u databases van SQL Server migreert, controleert u de sortering van de gegevensbron met behulp van `SELECT SERVERPROPERTY(N'Collation')` en die waarde gebruiken. Zie voor meer informatie over sorteringen [instellen of wijzigen van de server-sortering](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
-   |**Locatie**|De locatie waarin u wilt maken van het beheerde exemplaar.|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
+   |**Location**|De locatie waarin u wilt maken van het beheerde exemplaar.|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
    |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een geldig virtueel netwerk en subnet.| Als een netwerk of subnet niet beschikbaar is, moet dit [gewijzigd om te voldoen aan de netwerkvereisten](sql-database-managed-instance-configure-vnet-subnet.md) voordat u deze als een doel voor de nieuwe beheerde exemplaar selecteren. Zie voor meer informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar [configureren van een virtueel netwerk voor een beheerd exemplaar](sql-database-managed-instance-connectivity-architecture.md). |
    |**Openbare eindpunt inschakelen**   |Schakel deze optie in op het openbare eindpunt inschakelen   |Voor het beheerde exemplaar moeten toegankelijk zijn via het eindpunt openbare gegevens **openbare eindpunt inschakelen** moet worden gecontroleerd.| 
    |**Toegang toestaan**   |Selecteer een van de opties: <ul> <li>**Azure-services**</li> <li>**Internet**</li> <li>**Geen toegang**</li></ul>   |Portal-ervaring kunt configureren beveiligingsgroep met openbaar eindpunt. </br> </br> Op basis van uw scenario, selecteer een van de volgende opties: </br> <ul> <li>Azure-services - aanbevolen bij het verbinden met Power BI of andere service met meerdere tenants. </li> <li> Internet - gebruik voor test-doeleinden als u wilt tuig snel een beheerd exemplaar. Het wordt niet aanbevolen voor gebruik in productieomgevingen. </li> <li> Geen toegang: deze optie maakt een regel voor weigeren. U moet deze regel wijzigen om het beheerde exemplaar toegankelijk zijn via openbare eindpunt maken. </li> </ul> </br> Zie voor meer informatie over de beveiliging van de openbare eindpunt [met behulp van Azure SQL-Database beheerd exemplaar veilig met een openbaar eindpunt](sql-database-managed-instance-public-endpoint-securely.md).|
@@ -73,7 +73,7 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
 11. Selecteer **Implementatie wordt uitgevoerd** om het venster Beheerd exemplaar te openen. Hier kunt u details van de voortgang van de implementatie controleren. 
 
 > [!IMPORTANT]
-> Het eerste exemplaar in een subnet kent doorgaans een veel langere implementatietijd dan volgende exemplaren. Annuleer de implementatiebewerking niet omdat deze langer duurt dan verwacht. Het maken van de tweede beheerd exemplaar in het subnet duurt slechts enkele minuten.
+> Het eerste exemplaar in een subnet kent doorgaans een veel langere implementatietijd dan volgende exemplaren. Annuleer de implementatiebewerking niet omdat deze langer duurt dan verwacht.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Resources controleren en de volledig gekwalificeerde servernaam ophalen
 
@@ -81,7 +81,7 @@ Wanneer de implementatie geslaagd is, bekijk de resources die zijn gemaakt en de
 
 1. Open de resourcegroep voor uw beheerde exemplaar. Weergeven van de resources die zijn gemaakt voor u in de [een beheerd exemplaar maken](#create-a-managed-instance) Quick Start.
 
-   ![Resources van beheerd exemplaar](./media/sql-database-managed-instance-get-started/resources.png)
+   ![Resources voor beheerd exemplaar](./media/sql-database-managed-instance-get-started/resources.png)
 
 2. Selecteer de routetabel om te controleren van de gebruiker gedefinieerde route (UDR) tabel die voor u is gemaakt.
 

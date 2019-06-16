@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258952"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
@@ -20,7 +20,7 @@ ms.locfileid: "66258952"
 In dit artikel bevat informatie over registreren als een cloud-marketplace-uitgever. Afhankelijk van uw geselecteerde publicatieoptie en uw huidige lidmaatschap voor Microsoft Partner Network sommige van de volgende stappen mogelijk niet vereist. Eenmaal geregistreerde kunt maken van marketplace-aanbiedingen voor Azure Marketplace of AppSource.
 
 
-|  | Registratiestap | Duur | Details |  
+|  | Registratiestap | Duration | Details |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Registreren in Microsoft Partner Network | 15 min | [Registreren in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Een Microsoft-Account maken <ul>(vereist voor Azure Marketplace biedt transact; aanbevolen voor anderen)</ul> | 15 min | [Maken van een Microsoft-ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  

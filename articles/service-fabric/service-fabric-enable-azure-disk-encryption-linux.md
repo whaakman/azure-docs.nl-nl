@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 47b07188d1757708fb494c6a66e93379657e806a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258768"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Inschakelen van disk encryption voor Azure Service Fabric-clusterknooppunten in Linux 
@@ -65,7 +65,7 @@ De preview van de schijf versleuteling voor de virtuele-machineschaalset is vere
 3. Installeer de nieuwste versie van de [Azure-SDK van Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Hieronder vindt u de Azure Disk Encryption-cmdlets voor virtuele-machineschaalset ([ingesteld](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) codering ophalen ([ophalen](/powershell/module/az.compute/get-azvmssvmdiskencryption)) status voor schijfversleuteling en verwijderen ([uitschakelen](/powershell/module/az.compute/disable-azvmssdiskencryption)) versleuteling op schaal exemplaar instellen.
 
 
-| Opdracht | Versie |  Source  |
+| Opdracht | Version |  source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 of hoger | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 of hoger | Az.Compute |

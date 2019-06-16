@@ -12,10 +12,10 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 6a84ecff04381b6dcc9706105df92ecc96dc8b1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61389265"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Tips voor probleemoplossing voor de ondersteuning van de QnA Maker-service en runtime
@@ -36,7 +36,7 @@ QnAMaker runtime maakt deel uit van de Azure App Service geïmplementeerd wannee
     ![QnAMaker appservice-opnieuw opstarten](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
 ## <a name="how-to-get-the-qnamaker-service-hostname"></a>Over het verkrijgen van de hostnaam van de service QnAMaker
-Hostnaam van de QnAMaker-service is handig voor de foutopsporing als u contact op met ondersteuning voor QnAMaker of UserVoice. De hostnaam is een URL met deze indeling: https://*{hostnaam}*. azurewebsites.net.
+Hostnaam van de QnAMaker-service is handig voor de foutopsporing als u contact op met ondersteuning voor QnAMaker of UserVoice. De hostnaam is een URL met deze indeling: https:// *{hostnaam}* . azurewebsites.net.
     
 1. Ga naar uw QnAMaker-service (resourcegroep) in de [Azure-portal](https://portal.azure.com)
 

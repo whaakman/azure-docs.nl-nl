@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130599"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Met behulp van een interne Load Balancer met een App Service Environment
@@ -97,7 +97,7 @@ Als u wilt proberen de stroom met uw eigen certificaten en testen van HTTP en HT
 
 1. Ga naar de gebruikersinterface van de as-omgeving nadat de as-omgeving is gemaakt **ASE -> Instellingen -> ILB certificaten**.
 2. ILB-certificaat ingesteld door het pfx-certificaatbestand selecteren en wachtwoord opgeven. Deze stap neemt enige tijd om te verwerken en het bericht dat een bewerking voor vergroten/verkleinen uitgevoerd wordt wordt weergegeven.
-3. Ophalen van het ILB-adres voor de as-omgeving (**ASE -> Eigenschappen van virtuele IP-adres ->**).
+3. Ophalen van het ILB-adres voor de as-omgeving (**ASE -> Eigenschappen van virtuele IP-adres ->** ).
 4. Een web-app maken in as-omgeving nadat is gemaakt. 
 5. Een virtuele machine maken als u geen in dit VNET (niet in hetzelfde subnet bevindt als het einde van de ASE of things).
 6. DNS instellen voor het subdomein. U kunt een jokerteken gebruiken bij uw subdomein in DNS of als u wilt doen enkele eenvoudige tests uit, bewerkt u het hosts-bestand op de virtuele machine de naam van de web-app instellen op IP-adres. Als de as-omgeving heeft de naam van het subdomein. ilbase.com en u de web-app mytestapp gemaakt zodat deze kan worden opgelost op mytestapp.ilbase.com, stelt u die in het hosts-bestand. (Op Windows, het hosts-bestand is op C:\Windows\System32\drivers\etc\)
@@ -108,7 +108,7 @@ Het IP-adres voor uw ILB wordt vermeld in de eigenschappen van uw als het virtue
 
 ![][4]
 
-## <a name="using-an-ilb-ase"></a>Een App Service Environment met interne Load Balancer gebruiken
+## <a name="using-an-ilb-ase"></a>Met behulp van een ILB as-omgeving
 #### <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
 Een ILB as-omgeving kunt netwerkisolatie voor uw apps. De apps zijn niet toegankelijk of zelfs bekend zijn met het internet. Deze aanpak is uitermate geschikt voor het hosten van intranetsites, zoals line-of-business-toepassingen. Wanneer u nodig hebt om toegang nog verder te beperken, kunt u Network Security Groups(NSGs) nog steeds gebruiken voor het beheren van toegang op het niveau van het netwerk. 
 

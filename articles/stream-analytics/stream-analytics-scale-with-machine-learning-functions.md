@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479111"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Schalen van uw Stream Analytics-taak met Azure Machine Learning-functies
@@ -72,16 +72,16 @@ Wordt ervan uitgegaan dat de latentie van de sentimentanalyse Machine Learning-w
 
 Hieronder vindt u een tabel voor de doorvoer van de Stream Analytics-taak voor verschillende su's en -batch-grootten (in het aantal gebeurtenissen per seconde).
 
-| Batchgrootte (ML latentie) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
+| Batchgrootte (ML latentie) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10\.000 (300 ms) | 25\.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 su 's** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 su 's** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 su 's** |5.000 |10.000 |40,000 |60,000 |100.000 |
-| **18 su 's** |7.500 |15,000 |60,000 |90,000 |150,000 |
-| **24 su 's** |10.000 |20,000 |80,000 |120,000 |200.000 |
+| **12 su 's** |5,000 |10\.000 |40,000 |60,000 |100\.000 |
+| **18 su 's** |7,500 |15,000 |60,000 |90,000 |150,000 |
+| **24 su 's** |10\.000 |20,000 |80,000 |120,000 |200\.000 |
 | **…** |… |… |… |… |… |
-| **60 su 's** |25,000 |50,000 |200.000 |300,000 |500,000 |
+| **60 su 's** |25,000 |50,000 |200\.000 |300,000 |500,000 |
 
 Nu moet u al een goed begrip van de werking van Machine Learning-functies in Stream Analytics hebt. U waarschijnlijk weten ook dat Stream Analytics-taken 'pull' gegevens van gegevensbronnen en elke 'pull' retourneert een reeks gebeurtenissen voor de Stream Analytics-taak te verwerken. Hoe deze pull-model impact de Machine Learning web-aanvragen van een service?
 

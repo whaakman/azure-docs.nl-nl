@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121688"
 ---
 # <a name="azure-database-security-checklist"></a>Controlelijst voor de beveiliging van Azure-database
@@ -34,7 +34,7 @@ Deze omvatten:
 -   Access management gebruiken
 -   Gegevensversleuteling
 -   SQL Database Auditing
--   Detectie van bedreigingen voor SQL Database
+-   Detectie van bedreigingen voor SQL-Database
 
 ## <a name="introduction"></a>Inleiding
 Cloud computing vereist nieuwe beveiliging paradigma's die niet veel gebruikers van de toepassing, databasebeheerders en programmeurs bekend zijn. Als gevolg hiervan zijn sommige organisaties willen implementeren van een cloud-infrastructuur voor gegevensbeheer vanwege waargenomen beveiligingsrisico's. Veel van dit probleem kan echter worden verholpen door een beter begrip van de beveiligingsfuncties die is ingebouwd in Microsoft Azure en Microsoft Azure SQL Database.

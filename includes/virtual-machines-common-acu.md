@@ -9,10 +9,10 @@ ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160092"
 ---
 Het concept van de Azure Compute Unit (ACU) biedt een manier om (CPU)-computerprestaties in Azure-SKU's vergelijken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
@@ -52,7 +52,7 @@ Het concept van de Azure Compute Unit (ACU) biedt een manier om (CPU)-computerpr
 | [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160 - 180 | 2:1\*\*\* |
 
-* ACU gebruik Intel® Turbo-technologie te vergroten van de CPU-frequentie geven een toename van de prestaties.  Het bedrag van de prestatieverhoging kan variëren op basis van de VM-grootte, werkbelasting en andere werkbelastingen die worden uitgevoerd op dezelfde host.
+\* ACU gebruik Intel® Turbo-technologie te vergroten van de CPU-frequentie geven een toename van de prestaties.  Het bedrag van de prestatieverhoging kan variëren op basis van de VM-grootte, werkbelasting en andere werkbelastingen die worden uitgevoerd op dezelfde host.
 
 ** ACU gebruik AMD® Boost technologie te vergroten van de CPU-frequentie geven een toename van de prestaties.  Het bedrag van de prestatieverhoging kan variëren op basis van de VM-grootte, werkbelasting en andere werkbelastingen die worden uitgevoerd op dezelfde host.
 

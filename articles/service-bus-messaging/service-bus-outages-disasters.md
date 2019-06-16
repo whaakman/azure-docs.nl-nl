@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589719"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Aanbevolen procedures voor de isolatie van toepassingen op basis van Service Bus-uitval en noodgevallen afhandelen
@@ -27,7 +27,7 @@ Na een noodgeval is gedefinieerd als het permanente verlies van gegevens van een
 ## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Bescherming tegen uitval en noodgevallen - Service Bus Premium
 Hoge beschikbaarheid en herstel na noodgevallen concepten zijn standaard ingebouwd in de Azure Service Bus Premium-laag, zowel binnen dezelfde regio (via Beschikbaarheidszones) en in verschillende regio's (via Geo-noodherstel).
 
-### <a name="geo-disaster-recovery"></a>Geo-herstel na noodgeval
+### <a name="geo-disaster-recovery"></a>Geo-noodherstel
 
 Service Bus Premium biedt ondersteuning voor Geo-noodherstel, op het niveau van de naamruimte. Zie voor meer informatie, [Geo-noodherstel van Azure Service Bus](service-bus-geo-dr.md). De functie disaster recovery, beschikbaar voor de [Premium-SKU](service-bus-premium-messaging.md) alleen metagegevens noodherstel implementeert, en is afhankelijk van primaire en secundaire disaster recovery-naamruimten.
 

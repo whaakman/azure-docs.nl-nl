@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574119"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
@@ -51,7 +51,7 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |Opslagplaats     | De naam van de opslagplaats of het project. De eerste 200 opslagplaatsen worden geretourneerd. Als u wilt zoeken naar een opslagplaats, typ de naam in het veld en klikt u op **zoeken op GitHub**.|
 |Branch     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
-|Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks </br>*Alleen runbooks in de map die is opgegeven, worden gesynchroniseerd. Recursie wordt niet ondersteund.*        |
+|Het pad naar map     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks </br>*Alleen runbooks in de map die is opgegeven, worden gesynchroniseerd. Recursie wordt niet ondersteund.*        |
 |Automatische synchronisatie<sup>1</sup>     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
 |Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch moeten worden gepubliceerd.         |
 |Description     | Een tekstveld om meer duidelijkheid te geven        |
@@ -93,7 +93,7 @@ Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. D
 
 Ga voor meer informatie over het maken van een persoonlijk toegangstoken in GitHub naar [het maken van een persoonlijk toegangstoken voor de opdrachtregel](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Bereik  |Description  |
+|Scope  |Description  |
 |---------|---------|
 |**opslagplaats**     |         |
 |status van-opslagplaats:     | Commit-toegangsstatus         |
@@ -107,7 +107,7 @@ Ga voor meer informatie over het maken van een persoonlijk toegangstoken in GitH
 
 Voor meer informatie over het maken van een persoonlijk toegangstoken in de Azure-opslagplaatsen, gaat u naar [verifiëren van toegang met persoonlijke toegangstokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|Bereik  |
+|Scope  |
 |---------|
 |Code (lezen)     |
 |Project en team (lezen)|
@@ -118,7 +118,7 @@ Voor meer informatie over het maken van een persoonlijk toegangstoken in de Azur
 
 <sup>1</sup> machtiging voor de verbindingen met de Service is alleen vereist als u automatische synchronisatie hebt ingeschakeld.
 
-## <a name="syncing"></a>Synchroniseren...
+## <a name="syncing"></a>Synchroniseren
 
 Selecteer de gegevensbron uit de tabel op de **broncodebeheer** pagina. Klik op **synchronisatie starten** om de synchronisatieproces te starten.
 

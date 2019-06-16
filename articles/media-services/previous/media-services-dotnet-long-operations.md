@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464977"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Live streamen met Azure mediaservices leveren
@@ -30,7 +30,7 @@ Microsoft Azure Media Services biedt API's die aanvragen verzenden naar Media Se
 De Media Services .NET SDK biedt API's die de aanvraag verzenden en wacht totdat de bewerking is voltooid (intern, de API's zijn polling voor de bewerking wordt uitgevoerd met bepaalde intervallen). Bijvoorbeeld, wanneer u kanaal aanroepen. Start(), retourneert de methode nadat het kanaal wordt gestart. U kunt ook de asynchrone versie: wachten op een kanaal. StartAsync() (Zie voor meer informatie over het asynchrone patroon op basis van een taak [tik](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API's die regelmatig wordt bevraagd voor de status totdat de bewerking voltooid is en verzenden van een aanvraag opnieuw worden 'methoden polling' genoemd. Deze methoden (met name de asynchrone versie) worden aanbevolen voor interactieve toepassingen en/of stateful services.
 
 Er zijn scenario's waarin een toepassing niet kunt wachten op een langdurige http-aanvraag en wil te pollen voor de bewerkingsvoortgang van de handmatig. Een typisch voorbeeld zou een browser interactie met een stateless webservice: wanneer de browser vraagt om een kanaal te maken, de webservice initieert een langdurige bewerking en de bewerkings-ID geretourneerd naar de browser. De browser kan vervolgens vraagt u de web-service om op te halen van de status van de bewerking op basis van de ID. De Media Services .NET SDK biedt API's die nuttig voor dit scenario zijn. Deze API's worden 'methoden niet polling' genoemd.
-De 'niet-polling-methoden' hebben een naamgevingspatroon uit het volgende: Verzenden*OperationName*bewerking (bijvoorbeeld SendCreateOperation). Verzenden*OperationName*bewerking methoden retourneren de **IOperation** object; het geretourneerde object bevat informatie die kan worden gebruikt voor het bijhouden van de bewerking. De verzenden*OperationName*OperationAsync methoden retourneren **taak\<IOperation >**.
+De 'niet-polling-methoden' hebben een naamgevingspatroon uit het volgende: Verzenden*OperationName*bewerking (bijvoorbeeld SendCreateOperation). Verzenden*OperationName*bewerking methoden retourneren de **IOperation** object; het geretourneerde object bevat informatie die kan worden gebruikt voor het bijhouden van de bewerking. De verzenden*OperationName*OperationAsync methoden retourneren **taak\<IOperation >** .
 
 Op dit moment ondersteunen de volgende klassen niet polling methoden:  **Kanaal**, **streamingendpoint zo**, en **programma**.
 

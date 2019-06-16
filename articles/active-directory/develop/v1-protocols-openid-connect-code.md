@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121546"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen met OpenID Connect en Azure Active Directory
@@ -40,7 +40,7 @@ De meest eenvoudige stroom aanmelden bevat de volgende stappen uit: elk van deze
 
 ![OpenId Connect-Verificatiestroom](./media/v1-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
-## <a name="openid-connect-metadata-document"></a>OpenID Connect-document met metagegevens
+## <a name="openid-connect-metadata-document"></a>Metagegevensdocument voor OpenID Connect
 
 OpenID Connect beschrijving van een document met metagegevens die de meeste van de informatie die nodig zijn voor een app uit te voeren aanmelden bevat. Dit omvat gegevens zoals de URL's te gebruiken en de locatie van de openbare ondersteuningssleutels van de service. Het metagegevensdocument voor OpenID Connect kan worden gevonden op:
 
@@ -92,16 +92,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
-| client_id |vereist |De toepassings-ID die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in Azure portal. Klik op **Azure Active Directory**, klikt u op **App-registraties**, kiest u de toepassing en zoekt u de ID op de pagina van de toepassing. |
-| response_type |vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook andere response_types zoals `code` of `token`. |
+| tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
+| client_id |Vereist |De toepassings-ID die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in Azure portal. Klik op **Azure Active Directory**, klikt u op **App-registraties**, kiest u de toepassing en zoekt u de ID op de pagina van de toepassing. |
+| response_type |Vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook andere response_types zoals `code` of `token`. |
 | scope | Aanbevolen | De OpenID Connect-specificatie is vereist voor het bereik `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. Deze en andere OIDC-scopes op het eindpunt v1.0 worden genegeerd, maar is nog steeds een aanbevolen procedure voor standaarden-compatibele clients. |
-| nonce |vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in de resulterende `id_token` als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks of GUID die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
+| nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in de resulterende `id_token` als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks of GUID die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
 | redirect_uri | Aanbevolen |De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Als ontbreekt, wordt de gebruikersagent worden verzonden naar een van de omleidings-URI's in willekeurige volgorde voor de app is geregistreerd. De maximale lengte is 255 bytes |
-| response_mode |optioneel |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende authorization_code terug naar de app. Ondersteunde waarden zijn `form_post` voor *HTTP formulier post* en `fragment` voor *URL-fragment*. Voor webtoepassingen, wordt u aangeraden `response_mode=form_post` om te controleren of de meest veilige overdracht van tokens aan uw toepassing. De standaardwaarde voor een stroom met inbegrip van een id_token `fragment`.|
+| response_mode |Optioneel |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende authorization_code terug naar de app. Ondersteunde waarden zijn `form_post` voor *HTTP formulier post* en `fragment` voor *URL-fragment*. Voor webtoepassingen, wordt u aangeraden `response_mode=form_post` om te controleren of de meest veilige overdracht van tokens aan uw toepassing. De standaardwaarde voor een stroom met inbegrip van een id_token `fragment`.|
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
-| prompt |optioneel |Geeft het type tussenkomst van de gebruiker die is vereist. Op dit moment de enige geldige waarden zijn 'aanmelding', 'none', ' toestemming geven '. `prompt=login` Hiermee wordt de gebruiker zijn referenties invoeren voor deze aanvraag, zodat eenmalige aanmelding. `prompt=none` is het tegenovergestelde - Hiermee zorgt u ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet op de achtergrond via eenmalige aanmelding worden voltooid, wordt in het eindpunt een fout geretourneerd. `prompt=consent` de OAuth-triggers toestemming dialoogvenster nadat de gebruiker zich heeft aangemeld, waarin de gebruiker wordt om de app-machtigingen te verlenen. |
-| login_hint |optioneel |Kan worden gebruikt om het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten. Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden geëxtraheerd uit een vorige aanmelden met behulp van de `preferred_username` claim. |
+| prompt |Optioneel |Geeft het type tussenkomst van de gebruiker die is vereist. Op dit moment de enige geldige waarden zijn 'aanmelding', 'none', ' toestemming geven '. `prompt=login` Hiermee wordt de gebruiker zijn referenties invoeren voor deze aanvraag, zodat eenmalige aanmelding. `prompt=none` is het tegenovergestelde - Hiermee zorgt u ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet op de achtergrond via eenmalige aanmelding worden voltooid, wordt in het eindpunt een fout geretourneerd. `prompt=consent` de OAuth-triggers toestemming dialoogvenster nadat de gebruiker zich heeft aangemeld, waarin de gebruiker wordt om de app-machtigingen te verlenen. |
+| login_hint |Optioneel |Kan worden gebruikt om het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten. Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden geëxtraheerd uit een vorige aanmelden met behulp van de `preferred_username` claim. |
 
 Op dit moment wordt de gebruiker gevraagd zijn referenties invoeren en de verificatie voltooien.
 
@@ -136,7 +136,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parameter | Description |
 | --- | --- |
-| fout |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
+| error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Foutcodes voor endpoint-verificatiefouten
@@ -246,7 +246,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parameter | Description |
 | --- | --- |
-| fout |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
+| error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 
 Zie voor een beschrijving van de mogelijke foutcodes en de aanbevolen clientactie [foutcodes voor endpoint-verificatiefouten](#error-codes-for-authorization-endpoint-errors).

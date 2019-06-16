@@ -4,21 +4,21 @@ description: Begrijp hoe IoT Edge-apparaten en -modules kunnen werken zonder int
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/30/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4f3e5c1566271573b43e24a1749b42daa7530555
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051950"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten
 
-Azure IoT Edge biedt ondersteuning voor uitgebreide offline bewerkingen op uw IoT Edge-apparaten en offline-bewerkingen op onderliggende van niet-Microsoft Edge-apparaten te kunnen. Als een IoT Edge-apparaat een mogelijkheid om te verbinden met IoT Hub heeft, kunnen het en eventuele onderliggende-apparaten blijven functie met onregelmatige of geen verbinding met internet. 
+Azure IoT Edge biedt ondersteuning voor uitgebreide offline bewerkingen op uw IoT Edge-apparaten en offline-bewerkingen op IoT Edge onderliggende apparaten te kunnen. Als een IoT Edge-apparaat een mogelijkheid om te verbinden met IoT Hub heeft, kunnen het en eventuele onderliggende-apparaten blijven functie met onregelmatige of geen verbinding met internet. 
 
 
 ## <a name="how-it-works"></a>Hoe werkt het?
@@ -27,19 +27,19 @@ Wanneer een IoT Edge-apparaat in de offlinemodus bevindt gaat, neemt de IoT Edge
 
 Het volgende voorbeeld ziet u de werking van een IoT Edge-scenario in de offlinemodus:
 
-1. **Een IoT Edge-apparaat configureren.**
+1. **Apparaten configureren**
 
-   IoT Edge-apparaten hebben automatisch offline-mogelijkheden ingeschakeld. Om uit te breiden die mogelijkheid met andere IoT-apparaten, moet u een bovenliggende / onderliggende relatie tussen de apparaten in IoT Hub declareren. 
+   IoT Edge-apparaten hebben automatisch offline-mogelijkheden ingeschakeld. Om uit te breiden die mogelijkheid met andere IoT-apparaten, moet u een bovenliggende / onderliggende relatie tussen de apparaten in IoT Hub declareren. Vervolgens configureert u de onderliggende apparaten hun apparaat toegewezen bovenliggende vertrouwen en de apparaat-naar-cloud-communicatie via de bovenliggende als een gateway routeren. 
 
-2. **Synchronisatie met IoT Hub.**
+2. **Synchronisatie met IoT Hub**
 
    Ten minste eenmaal na de installatie van de IoT Edge-runtime, de IoT Edge-apparaat moet online zijn om te synchroniseren met IoT Hub. In deze synchronisatie haalt de IoT Edge-apparaat meer informatie over alle onderliggende apparaten zijn toegewezen. De IoT Edge-apparaat wordt ook veilig updates van de lokale cache om in te schakelen van offline-bewerkingen en worden instellingen voor lokale opslag van berichten over telemetrie opgehaald. 
 
-3. **Offline gaan.**
+3. **Offline gaan**
 
    Terwijl niet verbonden met IoT Hub, kunnen de IoT Edge-apparaat, de geïmplementeerde modules en alle onderliggende items IoT-apparaten werken voor onbepaalde tijd. Modules en onderliggende apparaten kunnen starten en opnieuw opstarten door te verifiëren bij de IoT Edge hub tijdens offline. Telemetrie upstream gebonden aan IoT Hub worden lokaal opgeslagen. Communicatie tussen modules of onderliggende IoT-apparaten wordt onderhouden door directe methoden of berichten. 
 
-4. **Opnieuw verbinding maken met en synchroniseren met IoT Hub.**
+4. **Opnieuw verbinding maken met en synchroniseren met IoT Hub**
 
    Zodra de verbinding met IoT Hub is hersteld, wordt de IoT Edge-apparaat weer wordt gesynchroniseerd. Lokaal opgeslagen berichten worden bezorgd in dezelfde volgorde als waarin ze zijn opgeslagen. Eventuele verschillen tussen de gewenste en gerapporteerde eigenschappen van de modules en -apparaten zijn afgestemd. De IoT Edge-apparaat bijwerken eventuele wijzigingen in een set toegewezen onderliggende IoT-apparaten.
 
@@ -49,28 +49,30 @@ De uitgebreide offline-mogelijkheden die worden beschreven in dit artikel zijn b
 
 Uitgebreide offline ondersteuning is beschikbaar in alle regio's waar de IoT Hub verkrijgbaar is, **behalve** VS-Oost.
 
-Alleen niet - Microsoft Edge-IoT-apparaten kunnen worden toegevoegd als onderliggende apparaten. 
+Alleen niet - IoT-Edge-apparaten kunnen worden toegevoegd als onderliggende apparaten. 
 
 IoT Edge-apparaten en hun apparaten toegewezen onderliggende kunnen worden gebruikt voor onbepaalde tijd offline na de initiële, eenmalige-synchronisatie. Opslag van berichten is afhankelijk van time to live (TTL) instelling en de beschikbare schijfruimte voor het opslaan van de berichten. 
 
-## <a name="set-up-an-iot-edge-device"></a>Een IoT Edge-apparaat instellen
+## <a name="set-up-parent-and-child-devices"></a>Bovenliggende en onderliggende apparaten instellen
 
-Voor een IoT Edge-apparaat uit te breiden zijn uitgebreide offline mogelijkheden voor het onderliggende IoT-apparaten, moet u op te geven van de bovenliggende / onderliggende relatie in Azure portal.
+Voor een IoT Edge-apparaat uit te breiden zijn uitgebreide offline mogelijkheden voor het onderliggende IoT-apparaten, moet u twee stappen uit te voeren. Eerst declareert de bovenliggende / onderliggende relaties in de Azure-portal. Ten tweede een vertrouwensrelatie tussen het apparaat van de bovenliggende en onderliggende apparaten maken en configureren van apparaat-naar-cloud-communicatie naar de bovenliggende als een gateway doorlopen. 
 
 ### <a name="assign-child-devices"></a>Onderliggende apparaten toewijzen
 
-Onderliggende apparaten mag niet-Edge-apparaat dat is geregistreerd bij dezelfde IoT Hub. Bovenliggende apparaten kunnen meerdere onderliggende apparaten hebben, maar een onderliggend apparaat kan slechts één bovenliggend object hebben. Er zijn drie opties voor het onderliggende apparaten ingesteld op een edge-apparaat:
+Onderliggende apparaten kunnen elk IoT Edge-apparaat dat is geregistreerd bij dezelfde IoT Hub zijn. Bovenliggende apparaten kunnen meerdere onderliggende apparaten hebben, maar een onderliggend apparaat heeft slechts één bovenliggend object. Er zijn drie opties voor het onderliggende apparaten ingesteld op een edge-apparaat: via de Azure-portal, met behulp van de Azure CLI of met behulp van de IoT Hub-service-SDK. 
+
+De volgende secties vindt u voorbeelden van hoe u de bovenliggende/onderliggende relatie in IoT Hub voor bestaande IoT-apparaten kunt declareren. Als u nieuwe apparaat-id's voor uw kind apparaten maakt, Zie [verifiëren van een downstream-apparaat met Azure IoT Hub](how-to-authenticate-downstream-device.md) voor meer informatie.
 
 #### <a name="option-1-iot-hub-portal"></a>Optie 1: IoT Hub-Portal
 
- U kunt de bovenliggende / onderliggende relatie voor het maken van een nieuw apparaat of vanuit de detailpagina van het apparaat van de bovenliggende IoT Edge-apparaat of de onderliggende IoT-apparaat kunt beheren. 
+U kunt de bovenliggende / onderliggende relatie aangeven bij het maken van een nieuw apparaat. Of voor bestaande apparaten, kunt u de relatie van de detailpagina van het apparaat van de bovenliggende IoT Edge-apparaat of de onderliggende IoT-apparaat declareren. 
 
    ![Onderliggende apparaten beheren vanaf de pagina met details van IoT Edge-apparaat](./media/offline-capabilities/manage-child-devices.png)
 
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Optie 2: Gebruik de `az` opdrachtregel-hulpprogramma
 
-Met behulp van de [Azure-opdrachtregelinterface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) met [IoT-extensie](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 of hoger), kunt u relaties tussen bovenliggende-onderliggende met beheren de [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) onderliggende opdrachten. In het onderstaande voorbeeld wordt een query voor het toewijzen van alle niet-IoT-Edge-apparaten in de hub als onderliggende apparaten van een IoT Edge-apparaat uitvoeren. 
+Met behulp van de [Azure-opdrachtregelinterface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) met [IoT-extensie](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 of hoger), kunt u relaties tussen bovenliggende-onderliggende met beheren de [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) subopdrachten. Het volgende voorbeeld wordt een query om toe te wijzen alle IoT Edge-apparaten in de hub zijn onderliggende apparaten van een IoT Edge-apparaat. 
 
 ```shell
 # Set IoT Edge parent device
@@ -99,19 +101,29 @@ U kunt de [query](../iot-hub/iot-hub-devguide-query-language.md) om een andere s
 
 Ten slotte kunt u beheren via een programma met behulp van relaties tussen bovenliggende onderliggende C#, Java of Service-SDK voor Node.js IoT-Hub. Hier volgt een [voorbeeld van het toewijzen van een onderliggend apparaat](https://aka.ms/set-child-iot-device-c-sharp) met behulp van de C# SDK.
 
-### <a name="specifying-dns-servers"></a>DNS-servers op te geven 
+### <a name="set-up-the-parent-device-as-a-gateway"></a>Het bovenliggende apparaat instellen als een gateway
 
-Voor een betere stabiliteit, is het raadzaam opgeven van de adressen van de DNS-server in uw omgeving gebruikt. Raadpleeg de [twee opties om dit te doen in het artikel over probleemoplossing](troubleshoot.md#resolution-7).
+U kunt zien van een bovenliggende/onderliggende relatie als een transparante gateway, waarbij de onderliggende apparaat heeft een eigen identiteit in IoT Hub, maar communiceert via de cloud via het bovenliggende object. Voor veilige communicatie moet het apparaat van de onderliggende kunnen verifiëren dat het apparaat van de bovenliggende afkomstig van een vertrouwde bron is. Anders instellen derden van schadelijke apparaten ouders imiteren en communicatie wordt onderschept. 
+
+Eén manier om u te maken van de vertrouwensrelatie wordt beschreven in de volgende artikelen: 
+* [Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren](how-to-create-transparent-gateway.md)
+* [Een downstream (onderliggend)-apparaat verbinden met Azure IoT Edge-gateway](how-to-connect-downstream-device.md)
+
+## <a name="specify-dns-servers"></a>DNS-servers opgeven 
+
+Voor een betere stabiliteit, is het raadzaam opgeven van de adressen van de DNS-server in uw omgeving gebruikt. Twee opties om te zien [instellen van de DNS-server in het artikel over probleemoplossing](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Optionele offline-instellingen
 
-Als u verwacht voor het verzamelen van alle berichten die uw apparaten tijdens lange offline perioden genereren, de IoT Edge hub configureren zodat deze alle berichten kunt opslaan. Er zijn twee wijzigingen die u kunt aanbrengen op IoT Edge hub langetermijnopslag bericht inschakelt. Eerst, het time to live van instelling. Vervolgens voegt u extra schijfruimte voor de berichtopslag. 
+Als uw apparaten naar offline gaat, worden alle apparaat-naar-cloud-berichten in de bovenliggende IoT Edge-apparaat opgeslagen totdat de verbinding is hersteld. De IoT Edge hub-module beheert de opslag en het doorsturen van offline-berichten. Voor apparaten die gedurende langere tijd offline kunnen gaan, prestaties te optimaliseren door twee IoT Edge hub-instellingen configureren. 
+
+Eerst, verhoogt de tijd aan het live instellen zodat de IoT Edge hub berichten lang genoeg is voor uw apparaat blijven te herstellen. Vervolgens voegt u extra schijfruimte voor de berichtopslag. 
 
 ### <a name="time-to-live"></a>Time To Live
 
 Time to live-instelling is de hoeveelheid tijd (in seconden) die een bericht wachten kunt moet worden geleverd voordat deze verloopt. De standaardwaarde is 7200 seconden (twee uur). De maximale waarde wordt alleen beperkt door de maximale waarde van een geheel getal variabele ongeveer 2 miljard is. 
 
-Deze instelling is een gewenste eigenschap van de IoT Edge-hub die is opgeslagen in de moduledubbel. U kunt deze configureren in Azure portal, in de **geavanceerde instellingen voor Edge-Runtime configureren** sectie of rechtstreeks in de implementatie van het manifest. 
+Deze instelling is een gewenste eigenschap van de IoT Edge-hub die is opgeslagen in de moduledubbel. U kunt deze configureren in Azure portal of rechtstreeks in het manifest van de implementatie. 
 
 ```json
 "$edgeHub": {
@@ -165,4 +177,8 @@ U vindt ook meer informatie over het maken van opties van [docker docs](https://
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Inschakelen van uitgebreide offline bewerkingen in uw [transparante gateway](how-to-create-transparent-gateway.md) scenario's.
+Meer informatie over het instellen van een transparante gateway voor uw apparaat bovenliggend/onderliggend verbindingen: 
+
+* [Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren](how-to-create-transparent-gateway.md)
+* [Verifiëren met Azure IoT Hub een downstream-apparaat](how-to-authenticate-downstream-device.md)
+* [Een downstream-apparaat verbinden met Azure IoT Edge-gateway](how-to-connect-downstream-device.md)

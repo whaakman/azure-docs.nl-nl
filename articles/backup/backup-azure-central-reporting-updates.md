@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60641873"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>De Azure Backup-centrale rapportage inhoudspakket bijwerken 
@@ -46,9 +46,9 @@ De vooraf geconfigureerde rapporten die worden geleverd met de Azure Backup-inho
 
 ![Naleving](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
-![Storage](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
+![Opslag](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Back-upitems
 ![Back-upitems](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)

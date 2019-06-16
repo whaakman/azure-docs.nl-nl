@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991385"
 ---
 # <a name="understand-and-work-with-scopes"></a>Bereiken begrijpen en gebruiken
@@ -154,14 +154,14 @@ Alle weergaven van Cost Management in Azure portal zijn onder meer een **bereik*
 
 Als u werkt met Cost Management-API's, weet dat het bereik is van essentieel belang. Gebruik de volgende informatie om het juiste bereik URI voor Cost Management-API's.
 
-### <a name="billing-accounts"></a>Factureringsaccounts
+### <a name="billing-accounts"></a>Facturering-accounts
 
 1. Open de Azure-portal en navigeer vervolgens naar **kostenbeheer en facturering** in de lijst met services.
 2. Selecteer **eigenschappen** in de facturering menu van het account.
 3. Kopieer de facturering account-ID.
 4. Uw bereik is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
 
-### <a name="billing-profiles"></a>Factureringsprofielen
+### <a name="billing-profiles"></a>Facturering-profielen
 
 1. Open de Azure-portal en navigeer vervolgens naar **kostenbeheer en facturering** in de lijst met services.
 2. Selecteer **facturering profielen** in de facturering menu van het account.
@@ -170,7 +170,7 @@ Als u werkt met Cost Management-API's, weet dat het bereik is van essentieel bel
 5. Kopieer de factureringsaccount en facturering profiel-id.
 6. Uw bereik is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
-### <a name="invoice-sections"></a>Factuursecties
+### <a name="invoice-sections"></a>Factuur secties
 
 1. Open de Azure-portal en navigeer vervolgens naar **kostenbeheer en facturering** in de lijst met services.
 2. Selecteer **factuur secties** in de facturering menu van het account.
@@ -218,7 +218,7 @@ Als u werkt met Cost Management-API's, weet dat het bereik is van essentieel bel
 4. Kopieer de waarde van het resource-ID-veld.
 5. Uw bereik is: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management is momenteel niet ondersteund in [Azure Global](https://management.azure.com) en [Azure Government](https://management.usgovcloudapi.net). Zie voor meer informatie over Azure Government [Azure Global en overheid API-eindpunten](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Cost Management is momenteel niet ondersteund in [Azure Global](https://management.azure.com) en [Azure Government](https://management.usgovcloudapi.net). Zie voor meer informatie over Azure Government [Azure Global en overheid API-eindpunten](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Volgende stappen
 

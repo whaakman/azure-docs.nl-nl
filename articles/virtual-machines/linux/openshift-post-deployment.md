@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771340"
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
@@ -83,7 +83,7 @@ In Azure Portal:
 
    ![App-registratie](media/openshift-post-deployment/app-registration.png)
 
-6. Klik op stap 1: API selecteren en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
+6. Klik op stap 1: API selecteren en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** . Klik op **Selecteer** aan de onderkant.
 
    ![Selecteer API App-registratie](media/openshift-post-deployment/app-registration-select-api.png)
 

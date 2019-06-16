@@ -11,10 +11,10 @@ ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61077695"
 ---
 # <a name="my-first-graphical-runbook"></a>Mijn eerste grafische runbook
@@ -209,13 +209,13 @@ U gaat het runbook nu wijzigen zodat alleen wordt geprobeerd de virtuele machine
 
 1. Maak een koppeling van **Status ophalen** naar **Start-AzureRmVM**.<br> ![Runbook met codemodule](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 1. Selecteer de koppeling en wijzig in het deelvenster Configuratie **Voorwaarde toepassen** in **Ja**. De koppeling wordt een gestreepte lijn waarmee wordt aangegeven dat de doelactiviteit alleen wordt uitgevoerd als de voorwaarde 'waar' is.  
-1. Voor **Expressie van voorwaarde** typt u *$ActivityOutput['Get Status'] -eq "Stopped"*. **Start-AzureRmVM** wordt nu alleen uitgevoerd als de virtuele machine is gestopt.
+1. Voor **Expressie van voorwaarde** typt u *$ActivityOutput['Get Status'] -eq "Stopped"* . **Start-AzureRmVM** wordt nu alleen uitgevoerd als de virtuele machine is gestopt.
 1. Vouw in het besturingselement Bibliotheek **Cmdlets** uit en vervolgens **Microsoft.PowerShell.Utility**.
 1. Voeg **Write-Output** tweemaal aan het papier toe.
 1. In het eerste besturingselement **Write-Output** klikt u op **Parameters** en wijzigt u de waarde voor **Label** in *VM gestart melden*.
-1. Voor **InputObject** wijzigt u **Gegevensbron** in **PowerShell-expressie** en typt u de expressie *"$VMName successfully started."*.
+1. Voor **InputObject** wijzigt u **Gegevensbron** in **PowerShell-expressie** en typt u de expressie *"$VMName successfully started."* .
 1. In het tweede besturingselement **Write-Output** klikt u op **Parameters** en wijzigt u de waarde voor **Label** in *Starten VM mislukt melden*.
-1. Voor **InputObject** wijzigt u **Gegevensbron** in **PowerShell-expressie** en typt u de expressie *"$VMName could not start."*.
+1. Voor **InputObject** wijzigt u **Gegevensbron** in **PowerShell-expressie** en typt u de expressie *"$VMName could not start."* .
 1. Maak een koppeling van **Start-AzureRmVM** naar **VM gestart melden** en **Starten VM mislukt melden**.
 1. Selecteer de koppeling naar **VM gestart melden** en wijzig **Voorwaarde toepassen** in **Waar**.
 1. Voor **Expressie van voorwaarde** typt u *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*. Dit besturingselement Write-Output wordt nu alleen uitgevoerd als de virtuele machine is gestart.

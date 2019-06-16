@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363150"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
@@ -186,10 +186,10 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 | deviceId |vereist, alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |vereist, alleen-lezen |Een IoT hub is gegenereerd, hoofdlettergevoelig tekenreeks van maximaal 128 tekens lang. Deze waarde wordt gebruikt om u te onderscheiden van apparaten met dezelfde **deviceId**, wanneer ze zijn verwijderd en opnieuw gemaakt. |
 | etag |vereist, alleen-lezen |Een tekenreeks voor een zwakke ETag voor de apparaat-id als per [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| auth |optioneel |Een samengestelde-object met verificatie-informatie en beveiliging materiaal. |
-| auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, die zijn opgeslagen in Base 64-indeling. |
-| status |vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat is toegestaan om verbinding te maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig apparaat gerichte-eindpunt. |
-| statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id. Alle UTF-8 tekens zijn toegestaan. |
+| auth |Optioneel |Een samengestelde-object met verificatie-informatie en beveiliging materiaal. |
+| auth.symkey |Optioneel |Een samengestelde-object met een primaire en secundaire sleutel, die zijn opgeslagen in Base 64-indeling. |
+| status |Vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat is toegestaan om verbinding te maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig apparaat gerichte-eindpunt. |
+| statusReason |Optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id. Alle UTF-8 tekens zijn toegestaan. |
 | statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
 | connectionState |alleen-lezen |Een veld verbindingsstatus aangeeft: beide **verbonden** of **verbroken**. Dit veld geeft de IoT Hub-weergave van de status van het apparaat verbinding. **Belangrijke**: Dit veld moet alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. Status van de verbinding wordt alleen voor apparaten die gebruikmaken van MQTT- of AMQP bijgewerkt. Bovendien is gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts vijf minuten. Daarom kunnen er fout-positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
 | connectionStateUpdatedTime |alleen-lezen |Een tijdelijke indicator, met de datum en tijd van laatste status van de verbinding is bijgewerkt. |
@@ -211,10 +211,10 @@ Module-id's worden weergegeven als JSON-documenten met de volgende eigenschappen
 | moduleId |vereist, alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |vereist, alleen-lezen |Een IoT hub is gegenereerd, hoofdlettergevoelig tekenreeks van maximaal 128 tekens lang. Deze waarde wordt gebruikt om u te onderscheiden van apparaten met dezelfde **deviceId**, wanneer ze zijn verwijderd en opnieuw gemaakt. |
 | etag |vereist, alleen-lezen |Een tekenreeks voor een zwakke ETag voor de apparaat-id als per [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| auth |optioneel |Een samengestelde-object met verificatie-informatie en beveiliging materiaal. |
-| auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, die zijn opgeslagen in Base 64-indeling. |
-| status |vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat is toegestaan om verbinding te maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig apparaat gerichte-eindpunt. |
-| statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id. Alle UTF-8 tekens zijn toegestaan. |
+| auth |Optioneel |Een samengestelde-object met verificatie-informatie en beveiliging materiaal. |
+| auth.symkey |Optioneel |Een samengestelde-object met een primaire en secundaire sleutel, die zijn opgeslagen in Base 64-indeling. |
+| status |Vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat is toegestaan om verbinding te maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig apparaat gerichte-eindpunt. |
+| statusReason |Optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id. Alle UTF-8 tekens zijn toegestaan. |
 | statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
 | connectionState |alleen-lezen |Een veld verbindingsstatus aangeeft: beide **verbonden** of **verbroken**. Dit veld geeft de IoT Hub-weergave van de status van het apparaat verbinding. **Belangrijke**: Dit veld moet alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. Status van de verbinding wordt alleen voor apparaten die gebruikmaken van MQTT- of AMQP bijgewerkt. Bovendien is gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts vijf minuten. Daarom kunnen er fout-positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
 | connectionStateUpdatedTime |alleen-lezen |Een tijdelijke indicator, met de datum en tijd van laatste status van de verbinding is bijgewerkt. |

@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 061b8a9f16396841c3f0d650ccc2f2c4a907aab3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65543963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111314"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Met behulp van webbrowsers in MSAL.NET
 Webbrowsers zijn vereist voor interactieve verificatie. Standaard MSAL.NET ondersteunt de [system-webbrowser](#system-web-browser-on-xamarinios-and-xamarinandroid) op Xamarin.iOS en [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Maar [kunt u ook de ingesloten webbrowser](#enable-embedded-webviews) afhankelijk van uw vereisten (UX, eenmalige aanmelding (SSO), beveiliging nodig) in [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) en [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) Apps. En u kunt zelfs [dynamisch Kies](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) webbrowser te gebruiken op basis van de aanwezigheid van Chrome of een browser Chrome aangepaste tabbladen in Android ondersteunen.
@@ -33,7 +33,7 @@ Het is belangrijk om te begrijpen dat interactief te werk om een token te verkri
 
 - Het wachtwoord (als een is opgegeven) is nooit worden opgeslagen door de toepassing, noch de verificatiebibliotheek.
 - Hiermee kunt omleidingen naar andere id-providers (bijvoorbeeld aanmelding-in met een werk of school-account of een persoonlijk account met MSAL of met een sociaalnetwerkaccount met Azure AD B2C).
-- Hiermee kunt de STS bepalen voor voorwaardelijke toegang, bijvoorbeeld door de gebruiker wilt meerdere factor authentication (MFA) tijdens de verificatiefase (een Windows Hello-pincode of die wordt aangeroepen op hun telefoon, of op een authentication-app op hun telefoon). In gevallen waar de vereiste multi-factor authentication is niet ingesteld het nog, kunt de gebruiker instellen het just-in-tijd in het dialoogvenster voor dezelfde.  De gebruiker voert het mobiele telefoonnummer en geleid voor het installeren van een toepassing voor verificatie en scan een QR-code als hun account wilt toevoegen. Deze interactie aangedreven server is een fantastische ervaring!
+- Hiermee kunt u die de STS voor voorwaardelijke toegang, bijvoorbeeld bepalen door de gebruiker wilt meerdere factor authentication (MFA) tijdens de verificatiefase (een Windows Hello-pincode of die wordt aangeroepen op hun telefoon, of op een authentication-app op hun telefoon). In gevallen waar de vereiste multi-factor authentication is niet ingesteld het nog, kunt de gebruiker instellen het just-in-tijd in het dialoogvenster voor dezelfde.  De gebruiker voert het mobiele telefoonnummer en geleid voor het installeren van een toepassing voor verificatie en scan een QR-code als hun account wilt toevoegen. Deze interactie aangedreven server is een fantastische ervaring!
 - Kan de gebruiker het wachtwoord in dit dialoogvenster dezelfde wijzigen wanneer het wachtwoord is verlopen (inclusief extra velden voor het oude wachtwoord en het nieuwe wachtwoord).
 - Hiermee huisstijl van de tenant, of de toepassing (installatiekopieën) wordt beheerd door de Azure AD-tenant-beheerder / toepassingseigenaar van de.
 - Hiermee kunnen de gebruikers toestemming geven zodat de toepassing toegang krijgen tot bronnen / scopes in hun naam direct na de verificatie.

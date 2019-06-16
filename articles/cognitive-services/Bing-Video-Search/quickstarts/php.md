@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb02e569cb764405abc1e69f3ca0c8c3710860ed
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473328"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "67134937"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Quickstart: Video's zoeken met de Bing Video's zoeken-REST API en PHP
 
 Gebruik deze quickstart om voor het eerst de Bing Video's zoeken-API aan te roepen en een zoekresultaat van het JSON-antwoord te bekijken. Deze eenvoudige JavaScript-toepassing stuurt een HTTP-videozoekquery naar de API en geeft het antwoord weer. Hoewel deze toepassing in JavaScript is geschreven en maakt gebruik van Node.js, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 De voorbeeldcode is geschreven om te werken met PHP 5.6.
 
-Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) voor technische informatie over de API's.
+Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) voor technische informatie over de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,7 +32,7 @@ Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservi
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-Met de [Bing Video Search-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) worden videoresultaten geretourneerd uit de zoekmachine van Bing.
+Met de [Bing Video Search-API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) worden videoresultaten geretourneerd uit de zoekmachine van Bing.
 
 1. Zorg ervoor dat beveiligde HTTP-ondersteuning is ingeschakeld in uw `php.ini` zoals beschreven in het commentaar bij de code.
 2. Maak een nieuw PHP-project in uw favoriete IDE of editor.

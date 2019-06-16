@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61070014"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Prestaties van edge nod analyseren in Microsoft Azure CDN
@@ -73,7 +73,7 @@ Het dashboard bevat een grafiek die een metrische waarde houdt gedurende de peri
 * Tijdsbereik: Voer een van de volgende opties:
   * Selecteer de gewenste regio in de tijdlijn. De grafiek wordt bijgewerkt met gegevens die overeenkomt met de geselecteerde periode.
   * Dubbelklik op de grafiek om alle beschikbare historische gegevens tot een maximum van twee jaar weer te geven.
-* Meetwaarde: Klik op het pictogram dat wordt weergegeven naast de gewenste metrische gegevens. De grafiek en in de tijdlijn wordt vernieuwd op basis van gegevens voor de bijbehorende metrische gegevens.
+* Metriek: Klik op het pictogram dat wordt weergegeven naast de gewenste metrische gegevens. De grafiek en in de tijdlijn wordt vernieuwd op basis van gegevens voor de bijbehorende metrische gegevens.
 
 ### <a name="key-metrics-and-statistics"></a>Belangrijke metrische gegevens en statistieken
 #### <a name="efficiency-metrics"></a>Efficiëntie van metrische gegevens
@@ -117,11 +117,11 @@ Het doel van deze metrische gegevens is om bij te houden van de algehele prestat
 | Veld | Description |
 | --- | --- |
 | Overdrachtssnelheid |Geeft aan dat de gemiddelde frequentie van die inhoud van het CDN is overgedragen voor een aanvrager. |
-| Duur |Geeft aan dat de gemiddelde tijd in milliseconden, die nodig was voor het leveren van een asset voor een aanvrager (bijvoorbeeld webbrowser). |
+| Duration |Geeft aan dat de gemiddelde tijd in milliseconden, die nodig was voor het leveren van een asset voor een aanvrager (bijvoorbeeld webbrowser). |
 | Gecomprimeerde aanvraagsnelheid |Geeft het percentage treffers in die werden geleverd uit het CDN (edge-servers) voor de aanvrager (bijvoorbeeld webbrowser) in een gecomprimeerde indeling. |
 | Frequentie van 4XX-fouten |Geeft het percentage treffers en die een statuscode 4xx gegenereerd. |
 | Frequentie van 5xx-fouten |Geeft het percentage treffers en die een statuscode 5xx gegenereerd. |
-| Treffers |Geeft het aantal aanvragen voor CDN-inhoud. |
+| Aantal treffers |Geeft het aantal aanvragen voor CDN-inhoud. |
 
 #### <a name="secure-traffic-metrics"></a>Beveiligd verkeer metrische gegevens
 Het doel van deze metrische gegevens is om bij te houden van CDN-prestaties voor HTTPS-verkeer.

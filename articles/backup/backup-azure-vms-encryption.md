@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216977"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Back-up en herstel van versleutelde virtuele Azure-machine
@@ -134,7 +134,7 @@ Machtigingen instellen:
 
     ![Selectie van de Backup-service](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. In **toegangsbeleid toevoegen** > **configureren met sjabloon (optioneel)**, selecteer **Azure Backup**.
+6. In **toegangsbeleid toevoegen** > **configureren met sjabloon (optioneel)** , selecteer **Azure Backup**.
     - De vereiste machtigingen zijn ingevuld voor **sleutelmachtigingen** en **geheime machtigingen**.
     - Als uw virtuele machine is versleuteld met behulp van **BEK alleen**, verwijdert u de selectie voor **sleutelmachtigingen** omdat u alleen machtigingen voor geheimen nodig hebt.
 

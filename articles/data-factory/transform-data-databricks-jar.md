@@ -13,10 +13,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860981"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Gegevens transformeren met behulp van een Jar-activiteit in Azure Databricks
@@ -58,7 +58,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebr
 
 |Eigenschap|Description|Vereist|
 |:--|---|:-:|
-|naam|Naam van de activiteit in de pijplijn.|Ja|
+|name|Naam van de activiteit in de pijplijn.|Ja|
 |description|Tekst die beschrijft wat de activiteit doet.|Nee|
 |type|Voor Databricks Jar-activiteit is het activiteitstype DatabricksSparkJar.|Ja|
 |linkedServiceName|De naam van de Databricks gekoppelde Service waarop de Jar-activiteit wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.|Ja|

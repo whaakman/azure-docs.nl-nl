@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.openlocfilehash: 7a3d9a5f87a565625052fc54e3ecccc99fd928a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61386801"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB-stuurprogramma's en beheerprogramma's compatibel zijn met Azure Database voor MariaDB
@@ -29,7 +29,7 @@ PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | Voor PHP 7.0-
 .NET | [MySqlConnector op GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installatiepakket van Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0,27 en na | 0.26.5 en vóór |
 MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | Een bug codering kan ertoe leiden dat de verbindingen niet op sommige UTF8-Windows-systemen.
 Node.js |  [MySQLjs op GitHub](https://github.com/mysqljs/mysql/) <br> Installatiepakket van NPM:<br> Voer `npm install mysql` vanuit NPM | 2.15 | 2.14.1 en vóór
-GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 en vóór | Gebruik `allowNativePasswords=true` in de verbindingsreeks voor versie 1.3. Versie 1.4 bevat een oplossing en `allowNativePasswords=true` is niet langer vereist.
+GA NAAR | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 en vóór | Gebruik `allowNativePasswords=true` in de verbindingsreeks voor versie 1.3. Versie 1.4 bevat een oplossing en `allowNativePasswords=true` is niet langer vereist.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 en vóór |
 Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 en vóór |
 
@@ -50,4 +50,4 @@ Clientverbindingen weergeven | X | X | X
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Oplossen van verbindingsproblemen met Azure Database voor MariaDB](howto-troubleshoot-common-connection-issues.md)
+- [Verbindingsproblemen met Azure Database for MariaDB oplossen](howto-troubleshoot-common-connection-issues.md)

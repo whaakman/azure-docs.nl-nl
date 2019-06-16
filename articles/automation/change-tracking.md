@@ -11,10 +11,10 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4f917c45030ad70a2ab76fed877bd822d1902f82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927280"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
@@ -36,7 +36,7 @@ De volgende versies van het Windows-besturingssysteem worden officieel ondersteu
 
 De volgende Linux-distributies zijn officieel ondersteund. De Linux-agent kan echter ook uitvoeren in een andere distributie niet wordt vermeld. Tenzij anders vermeld, worden alle secundaire versies worden ondersteund voor elke primaire versie weergegeven.  
 
-### <a name="64-bit"></a>64-bits
+### <a name="64-bit"></a>64-bit
 
 * CentOS 6 en 7
 * Amazon Linux 2017.09
@@ -46,7 +46,7 @@ De volgende Linux-distributies zijn officieel ondersteund. De Linux-agent kan ec
 * Ubuntu Linux 14.04 LTS, 16.04 LTS en 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
-### <a name="32-bit"></a>32-bits
+### <a name="32-bit"></a>32-bit
 
 * CentOS 6
 * Oracle Linux 6
@@ -263,7 +263,7 @@ De gedetailleerde informatie over deze wijziging wordt te klikken op een wijzigi
 
 ![afbeelding van het bijhouden van informatie](./media/change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Logboeken zoeken
+## <a name="search-logs"></a>Zoeken in Logboeken
 
 Naast de informatie die beschikbaar zijn in de portal kunnen zoekopdrachten worden gedaan op basis van de logboeken. Met de **bijhouden** pagina openen, klikt u op **Log Analytics**, Hiermee opent u de **logboeken** pagina.
 

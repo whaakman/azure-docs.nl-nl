@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
 ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126849"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kosten voor Enterprise Agreement-reservering en gebruiksgegevens ophalen
@@ -94,7 +94,7 @@ In de Azure-portal, gaat u naar [kostenbeheer en facturering](https://portal.azu
 2. Klik op **gebruik en kosten**.
 3. Klik op **Downloaden**.  
 ![Voorbeeld van het downloaden van het bestand met CSV-gebruiksgegevens in Azure portal](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. In **Download Usage + kosten** onder **gebruik Details versie 2** , selecteer **alle kosten (gebruik en aankopen)** en klik op downloaden. Herhaal dit voor **afgeschreven kosten in rekening gebracht (gebruik en aankopen)**.
+4. In **Download Usage + kosten** onder **gebruik Details versie 2** , selecteer **alle kosten (gebruik en aankopen)** en klik op downloaden. Herhaal dit voor **afgeschreven kosten in rekening gebracht (gebruik en aankopen)** .
 
 De CSV-bestanden die u downloadt bevatten werkelijke kosten en de afgeschreven kosten.
 
@@ -108,7 +108,7 @@ Reservering kopen kosten zijn beschikbaar in de werkelijke kosten van gegevens. 
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>Weinig gebruikte reserveringshoeveelheid en kosten
 
-Afgeschreven kosten-gegevens ophalen en filteren op _ChargeType_ _UnusedReservation =_. U profiteert van de dagelijkse ongebruikte gereserveerde hoeveelheid en de kosten. U kunt de gegevens voor een reservering of een order met behulp van reservering filteren _ReservationId_ en _ProductOrderId_ velden, respectievelijk. Als een reservering 100 is % gebruikt, heeft de record een aantal van 0.
+Afgeschreven kosten-gegevens ophalen en filteren op _ChargeType_ _UnusedReservation =_ . U profiteert van de dagelijkse ongebruikte gereserveerde hoeveelheid en de kosten. U kunt de gegevens voor een reservering of een order met behulp van reservering filteren _ReservationId_ en _ProductOrderId_ velden, respectievelijk. Als een reservering 100 is % gebruikt, heeft de record een aantal van 0.
 
 ### <a name="amortize-reservation-costs"></a>Afgeschreven kosten voor reservering
 

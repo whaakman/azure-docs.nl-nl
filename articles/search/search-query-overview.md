@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595976"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
@@ -51,7 +51,7 @@ Voorbeelden zijn handig voor de introductie van nieuwe concepten. Als een repres
 
 + **`queryType`** Hiermee stelt u de parser, die in Azure Search kan de [standaard de eenvoudige queryparser](search-query-simple-examples.md) (geoptimaliseerd voor het zoeken in volledige tekst), of de [volledige Lucene-queryparser](search-query-lucene-examples.md) gebruikt voor geavanceerde query-constructs, zoals reguliere expressies , zoeken op nabijheid, fuzzy en zoeken met jokertekens, een paar te noemen.
 
-+ **`search`** biedt de overeenkomende criteria, meestal tekst, maar vaak vergezeld van Booleaanse operators. Termen van één zelfstandige *term* query's. Meerdelige query's tussen aanhalingstekens is geplaatst zijn *sleuteluitdrukkingen* query's. Zoeken is niet gedefinieerd, zoals in **`search=*`**, maar waarschijnlijk bestaat uit de termen en zinnen operators die vergelijkbaar is met wat wordt weergegeven in het voorbeeld.
++ **`search`** biedt de overeenkomende criteria, meestal tekst, maar vaak vergezeld van Booleaanse operators. Termen van één zelfstandige *term* query's. Meerdelige query's tussen aanhalingstekens is geplaatst zijn *sleuteluitdrukkingen* query's. Zoeken is niet gedefinieerd, zoals in **`search=*`** , maar waarschijnlijk bestaat uit de termen en zinnen operators die vergelijkbaar is met wat wordt weergegeven in het voorbeeld.
 
 + **`searchFields`** is optioneel, gebruikt voor het beperken van queryuitvoering op bepaalde velden.
 
@@ -86,8 +86,8 @@ Vereiste elementen voor een queryaanvraag zijn onder andere de volgende onderdel
 
 + Service-eindpunt en index documenten verzameling, uitgedrukt als een URL naar vaste- en -onderdelen: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Alleen REST) is nodig omdat meer dan één versie van de API te allen tijde beschikbaar is. 
-+ **`api-key`**, een query of de admin api-sleutel, verifieert de aanvraag voor uw service.
-+ **`queryType`**, eenvoudig of volledig, die kan worden genegeerd als u van de ingebouwde standaard eenvoudige syntaxis gebruikmaakt.
++ **`api-key`** , een query of de admin api-sleutel, verifieert de aanvraag voor uw service.
++ **`queryType`** , eenvoudig of volledig, die kan worden genegeerd als u van de ingebouwde standaard eenvoudige syntaxis gebruikmaakt.
 + **`search`** of **`filter`** biedt de overeenkomen met criteria die niet nader omschreven worden kunnen als u wilt uitvoeren van een lege zoekopdracht. Beide typen query's worden besproken in termen van de eenvoudige parser, maar ook geavanceerde query's moeten de search-parameter voor het doorgeven van complexe query-expressies.
 
 Alle andere zoekparameters zijn optioneel. Zie voor de volledige lijst van kenmerken, [Index maken (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Zie voor een nog eens kijken hoe parameters worden gebruikt tijdens de verwerking, [hoe zoeken in volledige tekst in Azure Search werkt](search-lucene-query-architecture.md).
@@ -160,7 +160,7 @@ Als u wilt dat Azure Search om terug te keren uw resultaten gesorteerd op een an
 
 
 ### <a name="hit-highlighting"></a>Markeren
-In Azure Search, waarbij de nadruk ligt het exacte aantal zoekresultaten die overeenkomen met de zoekopdracht is eenvoudig met behulp van de **`highlight`**, **`highlightPreTag`**, en **`highlightPostTag`** parameters. U kunt aangeven in welke *doorzoekbare* velden de tekst moet worden benadrukt. Ook kunt u de exacte tekenreekslabels opgeven die moeten worden toegevoegd aan het begin en einde van de overeenkomstige tekst die Azure Search retourneert.
+In Azure Search, waarbij de nadruk ligt het exacte aantal zoekresultaten die overeenkomen met de zoekopdracht is eenvoudig met behulp van de **`highlight`** , **`highlightPreTag`** , en **`highlightPostTag`** parameters. U kunt aangeven in welke *doorzoekbare* velden de tekst moet worden benadrukt. Ook kunt u de exacte tekenreekslabels opgeven die moeten worden toegevoegd aan het begin en einde van de overeenkomstige tekst die Azure Search retourneert.
 
 ## <a name="see-also"></a>Zie ook
 

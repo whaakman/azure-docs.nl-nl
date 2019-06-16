@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564310"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704442"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Foutafhandeling in API Management-beleidsregels
 
@@ -77,13 +77,13 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-uitgevers kun
 
  Wanneer er een fout optreedt en besturingselement gaat u naar de `on-error` beleidssectie de fout wordt opgeslagen in [context. LastError](api-management-policy-expressions.md#ContextVariables) eigenschap, die kan worden geopend door een beleid in de `on-error` sectie. LastError heeft de volgende eigenschappen.  
   
-| Name     | Type   | Description                                                                                               | Vereist |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | string | De naam van het element waar de fout is opgetreden. Mogelijk beleid of de naam van een ingebouwde pijplijn-stap.     | Ja      |
-| Reason   | string | Machine-vriendelijk foutcode die kan worden gebruikt in foutafhandeling.                                       | Nee       |
-| Message  | string | Leesbare foutbeschrijving.                                                                         | Ja      |
-| Scope    | string | Naam van het bereik waarin de fout is opgetreden en een van de 'global', 'product', "api" of 'bewerking' | Nee       |
-| Section  | string | De naam van sectie waarin fout is opgetreden. Mogelijke waarden: "inkomende", 'back-end', "uitgaande" of "on error".       | Nee       |
+| Name       | Type   | Description                                                                                               | Vereist |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | De naam van het element waar de fout is opgetreden. Mogelijk beleid of de naam van een ingebouwde pijplijn-stap.     | Ja      |
+| `Reason`   | string | Machine-vriendelijk foutcode die kan worden gebruikt in foutafhandeling.                                       | Nee       |
+| `Message`  | string | Leesbare foutbeschrijving.                                                                         | Ja      |
+| `Scope`    | string | Naam van het bereik waarin de fout is opgetreden en een van de 'global', 'product', "api" of 'bewerking' | Nee       |
+| `Section`  | string | De naam van sectie waarin fout is opgetreden. Mogelijke waarden: "inkomende", 'back-end', "uitgaande" of "on error".       | Nee       |
 | `Path`     | string | Hiermee geeft u geneste beleid, bijvoorbeeld ' kiezen [3] / wanneer [2] '.                                                        | Nee       |
 | `PolicyId` | string | De waarde van de `id` kenmerk als opgegeven door de klant, in het beleid dat is waar de fout is opgetreden             | Nee       |
 
@@ -99,8 +99,8 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-uitgevers kun
 | Source        | Voorwaarde                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | configuratie | URI komt niet overeen met elke API of bewerking | OperationNotFound       | Kan niet overeen met de binnenkomende aanvraag voor een bewerking.                                                                      |
-| Autorisatie | De abonnementssleutel is niet opgegeven             | SubscriptionKeyNotFound | Toegang is geweigerd vanwege een ontbrekende abonnementssleutel. Zorg ervoor dat de abonnementssleutel bij aanvragen voor deze API. |
-| Autorisatie | De sleutelwaarde abonnement is ongeldig         | SubscriptionKeyInvalid  | De toegang is geweigerd vanwege ongeldige abonnements-sleutel. Zorg ervoor dat u een geldige sleutel opgeven voor een actief abonnement.            |
+| authorization | De abonnementssleutel is niet opgegeven             | SubscriptionKeyNotFound | Toegang is geweigerd vanwege een ontbrekende abonnementssleutel. Zorg ervoor dat de abonnementssleutel bij aanvragen voor deze API. |
+| authorization | De sleutelwaarde abonnement is ongeldig         | SubscriptionKeyInvalid  | De toegang is geweigerd vanwege ongeldige abonnements-sleutel. Zorg ervoor dat u een geldige sleutel opgeven voor een actief abonnement.            |
   
 ## <a name="predefined-errors-for-policies"></a>Vooraf gedefinieerde fouten voor beleid  
  De volgende fouten zijn vooraf gedefinieerd voor fouten die zich tijdens de evaluatie van het beleid voordoen kunnen.  
@@ -108,7 +108,7 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-uitgevers kun
 | Source       | Voorwaarde                                                       | Reason                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Frequentielimiet   | Limiet overschreden                                             | RateLimitExceeded         | Limiet wordt overschreden                                                                                                               |
-| quota        | Quotum overschreden                                                  | QuotaExceeded             | Volumequotum buiten bereik. Quotum wordt aangevuld in xx:xx:xx. - of - Out van quota voor bandbreedte. Quotum wordt aangevuld in xx:xx:xx. |
+| quota        | Quotum overschreden                                                  | QuotaExceeded             | Volumequotum buiten bereik. Quotum wordt aangevuld in xx:xx:xx. \- of - Out van quota voor bandbreedte. Quotum wordt aangevuld in xx:xx:xx. |
 | jsonp        | Waarde van de callback-parameter is ongeldig (bevat verkeerde tekens) | CallbackParameterInvalid  | Waarde van parameter callback {retouraanroep-parameter-name} is niet een geldige JavaScript-id.                                          |
 | IP-filter    | Het parseren van de beller-IP-adres uit de aanvraag is mislukt                          | FailedToParseCallerIP     | Kan geen IP-adres instellen voor de oproepende functie. Toegang geweigerd.                                                                        |
 | IP-filter    | Aanroeper IP staat niet in lijst met toegestane                                | CallerIpNotAllowed        | Aanroeper IP-adres {ip-adres} is niet toegestaan. Toegang geweigerd.                                                                        |

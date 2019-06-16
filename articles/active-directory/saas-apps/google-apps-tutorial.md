@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8196576c4b419fdfc8f7e3adf5c474ef128ebbf6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -95,7 +95,7 @@ Als u de integratie van G Suite in Azure AD wilt configureren, moet u G Suite va
 
 **Voer de volgende stappen uit om G Suite toe te voegen vanuit de galerie:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -118,12 +118,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tot stand is gebr
 
 Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voltooit u de volgende bouwstenen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[G Suite-eenmalige aanmelding configureren](#configure-g-suite-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[G Suite-testgebruiker maken](#create-g-suite-test-user)**: als u een tegenhanger van Britta Simon wilt in G Suite die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[G Suite-eenmalige aanmelding configureren](#configure-g-suite-single-sign-on)** : als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[G Suite-testgebruiker maken](#create-g-suite-test-user)** : als u een tegenhanger van Britta Simon wilt in G Suite die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

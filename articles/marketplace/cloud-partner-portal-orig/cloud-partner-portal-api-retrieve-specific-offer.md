@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935444"
 ---
 <a name="retrieve-a-specific-offer"></a>Een specifieke aanbiedings ophalen
@@ -42,9 +42,9 @@ U kunt ook ophalen van een bepaalde versie van de aanbieding of de aanbieding in
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId. Bijvoorbeeld: Contoso                                                        | String        |
 | offerId     | De GUID die de aanbieding wordt aangeduid.                                                 | String        |
-| versie     | De versie van de aanbieding wordt opgehaald. Standaard zijn de meest recente versie van de aanbieding wordt opgehaald. | Geheel getal       |
+| version     | De versie van de aanbieding wordt opgehaald. Standaard zijn de meest recente versie van de aanbieding wordt opgehaald. | Geheel getal       |
 | slotId      | De sleuf van waaruit de aanbieding moet worden opgehaald, is mogelijk een van:      <br/>  - `Draft` (standaard) Hiermee haalt u de versie van de aanbieding op dit moment in concept.  <br/>  -  `Preview` Hiermee haalt u de versie van de aanbieding die momenteel in preview.     <br/>  -  `Production` Hiermee haalt u de versie van de aanbieding op dit moment in productie.          |      enum |
-| API-versie | Meest recente versie van de API                                                                    | Date          |
+| api-version | Meest recente versie van de API                                                                    | Date          |
 |  |  |  |
 
 
@@ -174,8 +174,8 @@ U kunt ook ophalen van een bepaalde versie van de aanbieding of de aanbieding in
 |  publisherId    | De unieke id van de uitgever                                                                                              |
 |  status         | De status van de aanbieding. Zie voor een lijst van mogelijke waarden, [status van het voorstel](#offer-status) hieronder.                                  |
 |  Id             | GUID die de unieke identificatie van de aanbieding                                                                                         |
-|  versie        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren.    |
-|  definitie     | Werkelijke definitie van de werkbelasting                                                                                               |
+|  version        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren.    |
+|  Definitie     | Werkelijke definitie van de werkbelasting                                                                                               |
 |  changedTime    | UTC datum/tijd waarop de aanbieding voor het laatst is gewijzigd                                                                                   |
 |  |  |
 

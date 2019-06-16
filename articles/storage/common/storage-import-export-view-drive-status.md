@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478018"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>De status van de Azure Import/Export-taken weergeven
@@ -28,12 +28,12 @@ U kunt de status van de importbewerking volgen of taken exporteren vanuit Azure 
 
 U ziet een van de volgende status van een taak, afhankelijk van waar de schijf zich in het proces bevindt.
 
-| Taakstatus | Description |
+| De Status van taak | Description |
 |:--- |:--- |
 | Maken | Nadat een taak is gemaakt, de status is ingesteld op **maken**. Terwijl de taak wordt de **maken** staat, wordt de Import/Export-service wordt ervan uitgegaan dat de schijven niet zijn verzonden naar het datacenter. Een taak kan in deze status blijven tot twee weken, waarna deze worden automatisch verwijderd door de service. |
-| Verzenden | Nadat u het pakket te verzenden, moet u de controle-informatie in de Azure-portal bijwerken.  Hiermee schakelt u de taak in **verzending** staat. De taak blijft in de **verzending** staat voor maximaal twee weken. 
+| Verzending | Nadat u het pakket te verzenden, moet u de controle-informatie in de Azure-portal bijwerken.  Hiermee schakelt u de taak in **verzending** staat. De taak blijft in de **verzending** staat voor maximaal twee weken. 
 | Ontvangen | Nadat alle stations zijn ontvangen in het datacenter, de taakstatus is ingesteld op **ontvangen**. |
-| Overbrengen | Nadat ten minste één station is begonnen verwerking, de taakstatus is ingesteld op **overdragen**. Ga voor meer informatie naar [station Staten](#view-drive-status). |
+| Overdragen | Nadat ten minste één station is begonnen verwerking, de taakstatus is ingesteld op **overdragen**. Ga voor meer informatie naar [station Staten](#view-drive-status). |
 | Verpakking | Nadat alle stations verwerking is voltooid, de taak wordt geplaatst **verpakking** status totdat de schijven terug naar u worden verzonden. |
 | Voltooid | Nadat alle stations worden verzonden naar u, als de taak is voltooid zonder fouten, wordt de taak ingesteld op **voltooid**. De taak wordt automatisch verwijderd na 90 dagen in de **voltooid** staat. |
 | Gesloten | Nadat alle stations worden verzonden naar u, als er fouten tijdens de verwerking van de taak zijn, de taak is ingesteld op **gesloten**. De taak wordt automatisch verwijderd na 90 dagen in de **gesloten** staat. |
@@ -49,7 +49,7 @@ De volgende tabel beschrijft elke status die elke schijf in een taak kan passere
 | Opgegeven | Voor een importtaak wanneer de taak wordt gemaakt in Azure portal, wordt de initiële status voor een station is **opgegeven**. Voor een exporttaak bekijken, omdat er geen station is opgegeven wanneer de taak is gemaakt, wordt de status van de eerste schijf is **ontvangen**. |
 | Ontvangen | Het station verandert in de **ontvangen** status wanneer de Import/Export-service de stations die zijn ontvangen van het transportbedrijf voor een importtaak heeft verwerkt. Voor een exporttaak bekijken, de status van de eerste schijf is de **ontvangen** staat. |
 | NeverReceived | Het station wordt verplaatst naar de **NeverReceived** status wanneer het pakket voor een taak wordt ontvangen, maar het pakket niet het station bevat. Een station wordt ook in deze staat verplaatst als dit twee weken is, omdat de service heeft de verzendinformatie ontvangen, maar het pakket nog niet in het datacenter ontvangen is. |
-| Overbrengen | Een station wordt verplaatst naar de **overdragen** status wanneer begint de service gegevens uit het station overdragen naar Azure Storage. |
+| Overdragen | Een station wordt verplaatst naar de **overdragen** status wanneer begint de service gegevens uit het station overdragen naar Azure Storage. |
 | Voltooid | Een station wordt verplaatst naar de **voltooid** status wanneer de service is de gegevens zonder fouten is overgedragen.
 | CompletedMoreInfo | Een station wordt verplaatst naar de **CompletedMoreInfo** status wanneer de service enkele problemen is opgetreden tijdens het kopiëren van gegevens van of naar het station. De informatie kan bestaan uit fouten, waarschuwingen of informatieve berichten over het overschrijven van blobs.
 | ShippedBack | Een station wordt verplaatst naar de **ShippedBack** status wanneer deze vanuit het datacenter terug naar het retouradres is verzonden. |

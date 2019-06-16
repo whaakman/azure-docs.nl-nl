@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
 ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696736"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory B2C in Azure API Management

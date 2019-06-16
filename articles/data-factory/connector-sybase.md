@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473056"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Gegevens kopiëren van Sybase met Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-onprem-sybase-connector.md)
 > * [Huidige versie](connector-sybase.md)
 

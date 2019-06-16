@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
 ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835573"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
@@ -132,7 +132,7 @@ Kies deze optie als u hoeft verificatie en autorisatie, of als u wilt uw eigen v
 
 ### <a name="allow-only-authenticated-requests"></a>Alleen geverifieerde aanvragen toestaan
 
-De optie **Meld u aan met \<provider >**. App Service alle anonieme aanvragen om te worden omgeleid `/.auth/login/<provider>` voor de provider die u kiest. Als de anonieme aanvraag afkomstig zijn uit een systeemeigen mobiele app, het geretourneerde antwoord is een `HTTP 401 Unauthorized`.
+De optie **Meld u aan met \<provider >** . App Service alle anonieme aanvragen om te worden omgeleid `/.auth/login/<provider>` voor de provider die u kiest. Als de anonieme aanvraag afkomstig zijn uit een systeemeigen mobiele app, het geretourneerde antwoord is een `HTTP 401 Unauthorized`.
 
 Met deze optie moet u niet een verificatiecode op te geven in uw app in te schrijven. Hoe fijner autorisatie, zoals rolspecifieke autorisatie, kan worden verwerkt door het inspecteren van de gebruiker claims (Zie [toegang tot gebruikersclaims](app-service-authentication-how-to.md#access-user-claims)).
 

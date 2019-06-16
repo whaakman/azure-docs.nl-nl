@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790992"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption ingeschakeld virtuele machines naar een andere Azure-regio repliceren
@@ -98,8 +98,8 @@ In dit voorbeeld de primaire Azure-regio is Oost-Azië en de secundaire regio is
     - **Doelabonnement**: Het doelabonnement dat wordt gebruikt voor herstel na noodgevallen. Het doelabonnement is standaard hetzelfde als de bronabonnement.
     - **Doelresourcegroep**: De resourcegroep waarin alle uw gerepliceerde virtuele machines behoren. Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio. De naam van de haalt het achtervoegsel 'asr'. Als er al een resourcegroep die is gemaakt door Azure Site Recovery bestaat, wordt dit opnieuw gebruikt. U kunt ook om aan te passen, zoals wordt weergegeven in de volgende sectie. De locatie van de doelresourcegroep kan zijn van andere Azure-regio's met uitzondering van de regio waar de virtuele bronmachines worden gehost.
     - **Virtueel doelnetwerk**: Site Recovery maakt standaard een nieuw virtueel netwerk in de doelregio. De naam van de haalt het achtervoegsel 'asr'. Deze is toegewezen aan de bron-netwerk en gebruikt voor eventuele toekomstige beveiliging. [Meer informatie](site-recovery-network-mapping-azure-to-azure.md) over netwerktoewijzing.
-    - **Doelopslagaccounts (als de bron-VM geen gebruik maakt van schijven beheerde)**: Site Recovery maakt standaard een nieuw doel-opslagaccount door mimicking de opslagconfiguratie van de bron-VM. Als een storage-account al bestaat, wordt dit opnieuw gebruikt.
-    - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt nieuwe beheerde replicaschijven in de doelregio voor het spiegelen van beheerde schijven van de hetzelfde opslagtype (standard of premium) als de bron-VM-beheerde schijven van de bron-VM.
+    - **Doelopslagaccounts (als de bron-VM geen gebruik maakt van schijven beheerde)** : Site Recovery maakt standaard een nieuw doel-opslagaccount door mimicking de opslagconfiguratie van de bron-VM. Als een storage-account al bestaat, wordt dit opnieuw gebruikt.
+    - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)** : Site Recovery maakt nieuwe beheerde replicaschijven in de doelregio voor het spiegelen van beheerde schijven van de hetzelfde opslagtype (standard of premium) als de bron-VM-beheerde schijven van de bron-VM.
     - **Cacheopslagaccounts**: Site Recovery moet een extra opslagaccount met de naam *opslag in de cache* in de bronregio. De wijzigingen op de bron-VM's worden bijgehouden en verzonden naar het cacheopslagaccount. Ze worden vervolgens gerepliceerd naar de doellocatie.
     - **Beschikbaarheidsset**: Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio. De naam van de heeft het achtervoegsel 'asr'. Als een beschikbaarheidsset die is gemaakt door Site Recovery al bestaat, wordt dit opnieuw gebruikt.
     - **Sleutelkluizen voor schijfversleuteling**: Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio. Heeft het achtervoegsel 'asr' die gebaseerd op de versleutelingssleutels voor bron VM-schijf. Als een key vault die is gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b481030c5d2d8e7d5e7061cdf256a202e08d6cbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108793"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory Identity Protection
 
@@ -32,16 +32,16 @@ Dit beveiligingsprobleem helpt bij het beoordelen van de implementatie van Azure
 
 Azure multi-factor Authentication biedt een tweede beveiligingslaag voor verificatie van de gebruiker. Deze om de toegang tot gegevens en toepassingen beveiligen terwijl aan de wensen van gebruikers voor een eenvoudige aanmeldprocedure. Azure multi-factor Authentication biedt verificatieopties voor van eenvoudig te gebruiken, zoals:
 
-* Telefoonoproep
+* Telefonische oproep
 * Sms-bericht
-* Melding van een mobiele app
+* Meldingen via mobiele app
 * OTP-verificatiecode
 
-Het is raadzaam dat u Azure multi-factor Authentication voor gebruikersaanmeldingen nodig hebt. Meervoudige verificatie speelt een belangrijke rol in het beleid voor voorwaardelijke toegang op basis van risico beschikbaar via Identity Protection.
+Het is raadzaam dat u Azure multi-factor Authentication voor gebruikersaanmeldingen nodig hebt. Meervoudige verificatie speelt een belangrijke rol in de risico's gebaseerd beleid voor voorwaardelijke toegang beschikbaar via Identity Protection.
 
 Voor meer informatie raadpleegt u [Wat is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
-## <a name="unmanaged-cloud-apps"></a>Onbeheerde cloud-apps
+## <a name="unmanaged-cloud-apps"></a>Niet-beheerde cloud-apps
 
 Hierdoor kunt u niet-beheerde cloud-apps in uw organisatie identificeren.
 

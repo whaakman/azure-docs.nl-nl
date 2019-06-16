@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
 ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851149"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
@@ -34,7 +34,7 @@ Azure maakt automatisch systeemroutes en wijst de routes toe aan elk subnet in e
 
 Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand verkeer van een subnet wordt verzonden naar een IP-adres binnen het adresvoorvoegsel van een route, is de route met het voorvoegsel de route die door Azure wordt gebruikt. Lees [hoe Azure een route selecteert](#how-azure-selects-a-route) wanneer meerdere routes dezelfde voorvoegsels bevatten, of overlappende voorvoegsels. Wanneer er een virtueel netwerk wordt gemaakt, maakt Azure automatisch de volgende standaardsysteemroutes voor elk subnet in het virtuele netwerk:
 
-|Source |Adresvoorvoegsels                                        |Volgend hoptype  |
+|source |Adresvoorvoegsels                                        |Volgend hoptype  |
 |-------|---------                                               |---------      |
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
@@ -58,13 +58,13 @@ De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routee
 
 Azure voegt aanvullende standaardsysteemroutes toe voor verschillende mogelijkheden van Azure, maar alleen als u de mogelijkheden inschakelt. Afhankelijk van de mogelijkheid, voegt Azure optionele standaardroutes toe naar specifieke subnetten in het virtuele netwerk of naar alle subnetten in een virtueel netwerk. Dit zijn de aanvullende systeemroutes en 'volgende hoptypen' die Azure kan toevoegen wanneer u verschillende mogelijkheden inschakelt:
 
-|Source                 |Adresvoorvoegsels                       |Volgend hoptype|Subnet binnen het virtuele netwerk waarnaar een route wordt toegevoegd|
+|source                 |Adresvoorvoegsels                       |Volgend hoptype|Subnet binnen het virtuele netwerk waarnaar een route wordt toegevoegd|
 |-----                  |----                                   |---------                    |--------|
 |Standaard                |Uniek voor het virtuele netwerk, bijvoorbeeld: 10.1.0.0/16|VNet-peering                 |Alle|
-|Virtuele netwerkgateway|Voorvoegsels geadverteerd van on-premises via BGP of geconfigureerd in de lokale netwerkgateway     |Virtuele netwerkgateway      |Alle|
+|Gateway van een virtueel netwerk|Voorvoegsels geadverteerd van on-premises via BGP of geconfigureerd in de lokale netwerkgateway     |Gateway van een virtueel netwerk      |Alle|
 |Standaard                |Meerdere                               |VirtualNetworkServiceEndpoint|Alleen het subnet waarvoor een service-eindpunt is ingeschakeld.|
 
-* **VNet-peering (virtueel netwerk)**: Wanneer u een VNet-peering maakt tussen twee virtuele netwerken, wordt er een route toegevoegd voor elk adresbereik in de adresruimte van elk virtueel netwerk waarvoor een peering wordt gemaakt. Meer informatie over [peering van virtuele netwerken](virtual-network-peering-overview.md).<br>
+* **VNet-peering (virtueel netwerk)** : Wanneer u een VNet-peering maakt tussen twee virtuele netwerken, wordt er een route toegevoegd voor elk adresbereik in de adresruimte van elk virtueel netwerk waarvoor een peering wordt gemaakt. Meer informatie over [peering van virtuele netwerken](virtual-network-peering-overview.md).<br>
 * **Gateway voor een virtueel netwerk**: Er worden een of meer routes met *Gateway van een virtueel netwerk* vermeld als het volgende hoptype wanneer er een gateway van een virtueel netwerk wordt toegevoegd aan een virtueel netwerk. De bron is ook *Gateway van virtueel netwerk* omdat de gateway de routes naar het subnet toevoegt. Als de gateway van uw on-premises netwerk BGP-routes ([Border Gateway Protocol](#border-gateway-protocol)) met een gateway van een virtueel Azure-netwerk uitwisselt, wordt er een route toegevoegd voor elke route die wordt doorgegeven vanaf de gateway van het on-premises netwerk. Het is raadzaam dat u on-premises routes samenvat tot de grootst mogelijke adresbereiken, zodat het kleinste aantal routes wordt doorgegeven aan de gateway van een virtueel Azure-netwerk. Er gelden beperkingen voor het aantal routes dat kan worden doorgegeven aan de gateway van een virtueel Azure-netwerk. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) voor meer informatie.<br>
 * **VirtualNetworkServiceEndpoint**: De openbare IP-adressen voor bepaalde services worden met Azure aan de routetabel toegevoegd wanneer u een service-eindpunt voor de service inschakelt. Service-eindpunten worden ingeschakeld voor afzonderlijke subnetten in een virtueel netwerk, zodat de route alleen wordt toegevoegd aan de routetabel van een subnet waarvoor een service-eindpunt is ingeschakeld. De openbare IP-adressen van Azure-services worden periodiek gewijzigd. Azure beheert de adressen in de routetabel automatisch als de adressen worden gewijzigd. Lees hier meer over [service-eindpunten van virtuele netwerken](virtual-network-service-endpoints-overview.md), en de services waarvoor u service-eindpunten kunt maken.<br>
 
@@ -105,7 +105,7 @@ De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen
 
 |Volgend hoptype                   |Azure CLI en PowerShell (Resource Manager) |Azure CLI (klassiek) en PowerShell (klassiek)|
 |-------------                   |---------                                       |-----|
-|Virtuele netwerkgateway         |VirtualNetworkGateway                           |VPNGateway|
+|Gateway van een virtueel netwerk         |VirtualNetworkGateway                           |VPNGateway|
 |Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in de klassieke CLI in de asm-modus)|
 |Internet                        |Internet                                        |Internet (niet beschikbaar in de klassieke CLI in de asm-modus)|
 |Virtueel apparaat               |VirtualAppliance                                |VirtualAppliance|
@@ -140,10 +140,10 @@ Als meerdere routes hetzelfde adresvoorvoegsel bevatten, selecteert Azure het ro
 Een routetabel bevat bijvoorbeeld de volgende routes:
 
 
-|Source   |Adresvoorvoegsels  |Volgend hoptype           |
+|source   |Adresvoorvoegsels  |Volgend hoptype           |
 |---------|---------         |-------                 |
 |Standaard  | 0.0.0.0/0        |Internet                |
-|Gebruiker     | 0.0.0.0/0        |Virtuele netwerkgateway |
+|Gebruiker     | 0.0.0.0/0        |Gateway van een virtueel netwerk |
 
 Wanneer verkeer bestemd is voor een IP-adres buiten de adresvoorvoegsels van alle andere routes in de routetabel, selecteert Azure de route met de bron **Gebruiker** omdat door de gebruiker gedefinieerde routes een hogere prioriteit hebben dan standaardsysteemroutes.
 
@@ -210,7 +210,7 @@ De pijlen geven de richting van het verkeer aan.
 
 De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 
-|Id  |Source |Status  |Adresvoorvoegsels    |Volgend hoptype          |IP-adres van volgende hop|Naam van door gebruiker gedefinieerde route| 
+|Id  |source |Status  |Adresvoorvoegsels    |Volgend hoptype          |IP-adres van volgende hop|Naam van door gebruiker gedefinieerde route| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Standaard|Ongeldig|10.0.0.0/16         |Virtueel netwerk        |                   |              |
 |2   |Gebruiker   |Actief |10.0.0.0/16         |Virtueel apparaat      |10.0.100.4         |Within-VNet1  |
@@ -219,7 +219,7 @@ De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 |5   |Standaard|Ongeldig|10.2.0.0/16         |VNet-peering           |                   |              |
 |6   |Gebruiker   |Actief |10.1.0.0/16         |Geen                   |                   |ToVNet2-1-Drop|
 |7   |Gebruiker   |Actief |10.2.0.0/16         |Geen                   |                   |ToVNet2-2-Drop|
-|8   |Standaard|Ongeldig|10.10.0.0/16        |Virtuele netwerkgateway|[X.X.X.X]          |              |
+|8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
 |9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
 |10  |Standaard|Actief |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Standaard|Ongeldig|0.0.0.0/0           |Internet               |                   |              |
@@ -244,12 +244,12 @@ Hier volgt een uitleg van elke route-id:
 
 De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 
-|Source  |Status  |Adresvoorvoegsels    |Volgend hoptype             |IP-adres van volgende hop|
+|source  |Status  |Adresvoorvoegsels    |Volgend hoptype             |IP-adres van volgende hop|
 |------- |-------|------              |-------                   |--------           
 |Standaard |Actief |10.0.0.0/16         |Virtueel netwerk           |                   |
 |Standaard |Actief |10.1.0.0/16         |VNet-peering              |                   |
 |Standaard |Actief |10.2.0.0/16         |VNet-peering              |                   |
-|Standaard |Actief |10.10.0.0/16        |Virtuele netwerkgateway   |[X.X.X.X]          |
+|Standaard |Actief |10.10.0.0/16        |Gateway van een virtueel netwerk   |[X.X.X.X]          |
 |Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
 |Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
 |Standaard |Actief |100.64.0.0/10       |Geen                      |                   |

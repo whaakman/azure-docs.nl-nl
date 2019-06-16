@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711572"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
@@ -66,7 +66,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
 1. Downloaden, installeren en starten [Azure Storage Explorer](https://storageexplorer.com/).
 
-   1. Onder **(lokaal en gekoppeld)**, selecteer met de rechtermuisknop **Opslagaccounts** en selecteer **verbinding maken met Azure storage**.
+   1. Onder **(lokaal en gekoppeld)** , selecteer met de rechtermuisknop **Opslagaccounts** en selecteer **verbinding maken met Azure storage**.
 
       ![Verbinding maken met Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
@@ -122,7 +122,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
 1. Andere aangepaste installatie om voorbeelden te bekijken, verbinding maken met de openbare Preview-container met Azure Storage Explorer.
 
-   a.  Onder **(lokaal en gekoppeld)**, met de rechtermuisknop op **Opslagaccounts**, selecteer **verbinding maken met Azure storage**, selecteer **een verbindingsreeks of een gedeelde toegang gebruiken handtekening URI**, en selecteer vervolgens **volgende**.
+   a.  Onder **(lokaal en gekoppeld)** , met de rechtermuisknop op **Opslagaccounts**, selecteer **verbinding maken met Azure storage**, selecteer **een verbindingsreeks of een gedeelde toegang gebruiken handtekening URI**, en selecteer vervolgens **volgende**.
 
       ![Verbinding maken met Azure storage met de handtekening voor gedeelde toegang](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 

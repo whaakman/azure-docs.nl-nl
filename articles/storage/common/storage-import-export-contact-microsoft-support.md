@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604220"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Open een ondersteuningsticket voor een taak voor importeren/exporteren
@@ -22,7 +22,7 @@ Als u problemen ondervindt met uw Import/Export-service, kunt u een serviceaanvr
 * Het maken van een ondersteuningsaanvraag.
 * Over het beheren van een aanvraag ondersteuningslevenscyclus uit in de portal.
 
-## <a name="create-a-support-request"></a>Maak een ondersteuningsaanvraag
+## <a name="create-a-support-request"></a>Een ondersteuningsaanvraag maken
 
 De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
 

@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911265"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
@@ -31,7 +31,7 @@ Voordat het voltooien van alle stappen in deze zelfstudie, meld u aan bij Azure 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="create-a-ddos-protection-plan"></a>Een DDoS-beschermingsplan maken
+## <a name="create-a-ddos-protection-plan"></a>Maken van een DDoS-beschermingsplan
 
 Een DDoS-beschermingsplan definieert een set van virtuele netwerken waarvoor DDoS-bescherming standaard ingeschakeld voor abonnementen. U kunt één DDoS-beschermingsplan voor uw organisatie en de koppeling virtuele netwerken van meerdere abonnementen naar hetzelfde abonnement. DDoS-beschermingsplan zelf is ook gekoppeld aan een abonnement, die u hebt geselecteerd tijdens het maken van het plan. De DDoS Protection-Plan werkt in regio's en abonnementen. Voorbeeld: u kunt het plan maken in de regio Oost-VS en koppelen aan abonnement #1 in uw tenant. Hetzelfde abonnement kan worden gekoppeld aan virtuele netwerken van andere abonnementen in verschillende regio's binnen uw tenant. Het abonnement dat het abonnement is gekoppeld aan de maandelijkse terugkerende factuur voor het abonnement, evenals de overschrijdingskosten, worden in rekening gebracht als het aantal beveiligde openbare IP-adressen meer dan 100. Zie voor meer informatie over prijzen voor DDoS [prijsinformatie](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -102,7 +102,7 @@ Kunt u een van de beschikbare DDoS protection metrische gegevens om u te waarsch
     |Abonnement             | Selecteer het abonnement dat u meldingen wilt ontvangen voor het openbare IP-adres bevat.        |
     |Resourcegroep           | Selecteer de resourcegroep die u meldingen wilt ontvangen voor het openbare IP-adres bevat.      |
     |Resource                 | Selecteer het openbare IP-adres dat u meldingen wilt ontvangen voor het openbare IP-adres bevat. DDoS bewaakt openbare IP-adressen toegewezen aan bronnen binnen een virtueel netwerk. Als u niet alle resources met openbare IP-adressen in het virtuele netwerk hebt, moet u eerst een resource maken met een openbaar IP-adres. U kunt het openbare IP-adres van alle resources die zijn geïmplementeerd via Resource Manager (niet klassiek) die worden vermeld in bewaken [virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), met uitzondering van Azure App Service-omgevingen en Azure VPN-Gateway. Als u wilt doorgaan met deze zelfstudie, kunt u snel maken een [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine.                   |
-    |Metric                   | Bij DDoS-aanvallen, of niet                                                                            |
+    |Gegevens                   | Bij DDoS-aanvallen, of niet                                                                            |
     |Drempelwaarde                | 1 - **1** betekent dat u bij een aanval. **0** betekent dat u bent geen aangevallen.                         |
     |Periode                   | Selecteer de waarde die u kiest.                                                                   |
     |Een melding via E-mail         | Schakel het selectievakje in                                                                                  |

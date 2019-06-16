@@ -9,12 +9,12 @@ ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41a6b040c04c3a212a7ee89897b29f5ec96048d7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072179"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Overzicht van Azure Digital Twins
 
@@ -34,7 +34,7 @@ Azure Digital Twins is van toepassing op allerlei typen omgevingen. Magazijnen, 
 - Analyseren van de bezettingsgraad van een gebouw.
 - Vinden van de meestgebruikte kassa in uw winkel.
 
-Wat uw bedrijfsscenario ook is, er kan een overeenkomstig digitaal exemplaar worden ingericht via Azure Digital Twins.
+Wat uw praktijk bedrijfsscenario is, is het zeer waarschijnlijk dat een bijbehorende digitale exemplaar via Azure digitale dubbels kan worden ingericht.
 
 In de volgende video wordt nader ingegaan op Azure Digital Twins.
 

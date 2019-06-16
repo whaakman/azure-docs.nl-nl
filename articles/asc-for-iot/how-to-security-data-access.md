@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 1ec6a174d05f8707bbffcc9fb013a98c2eb9196c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200548"
 ---
 # <a name="access-your-security-data"></a>Toegang tot uw beveiligingsgegevens 
@@ -95,9 +95,9 @@ SecurityAlert
 | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Brute force-aanval is geslaagd           | 9   |   
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | Poging van de lokale aanmelding die op het apparaat is mislukt  | 242 |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Gemiddeld        | Poging van de lokale aanmelding die op het apparaat is mislukt  | 242 |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Lokale aanmelding die is voltooid op apparaat      | 31  |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | Crypto Coin Miner                     | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Gemiddeld        | Crypto Coin Miner                     | 4   |
 
 ### <a name="iot-hub-summary"></a>IoT hub-overzicht
 
@@ -119,9 +119,9 @@ SecurityAlert
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Hoog          | Brute force-aanval is geslaagd           | 1          |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Middelgroot        | Poging van de lokale aanmelding die op het apparaat is mislukt  | 1          | 
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Gemiddeld        | Poging van de lokale aanmelding die op het apparaat is mislukt  | 1          | 
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Hoog          | Lokale aanmelding die is voltooid op apparaat      | 1          |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Middelgroot        | Crypto Coin Miner                     | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Gemiddeld        | Crypto Coin Miner                     | 1          |
 
 ## <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
 
@@ -151,8 +151,8 @@ SecurityRecommendation
     
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Gemiddeld | Actief | Strikte firewallregel in de invoer keten is gevonden | Een regel in de firewall is gevonden dat bevat een strikte patroon voor een breed scala aan IP-adressen of -poorten | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Gemiddeld | Actief | Strikte firewallregel in de invoer keten is gevonden | Een regel in de firewall is gevonden dat bevat een strikte patroon voor een breed scala aan IP-adressen of -poorten | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
 
 ### <a name="device-summary"></a>Apparaatsamenvatting
 
@@ -172,9 +172,9 @@ SecurityRecommendation
 | IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | 2   |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Gemiddeld        | 1 |  
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | 1  |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Gemiddeld        | 4   |
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712391"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Deep dive - geavanceerde analyses
@@ -23,7 +23,7 @@ HDInsight biedt de mogelijkheid om waardevolle inzichten van grote hoeveelheden 
 
 ## <a name="advanced-analytics-process"></a>Geavanceerde analyse-proces
 
-![Verwerken](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 Nadat u het zakelijke probleem hebt geïdentificeerd en zijn begonnen met het verzamelen en verwerken van uw gegevens, die u wilt maken van een model dat staat voor de vraag die u wilt voorspellen. Uw model gebruikt een of meer machine learning-algoritmen voor het maken van het type voorspelling die het beste past bij de behoeften van uw bedrijf.  Het merendeel van uw gegevens moet worden gebruikt om uw model te trainen met de rest gebruikt om te testen of evalueren ervan. 
 

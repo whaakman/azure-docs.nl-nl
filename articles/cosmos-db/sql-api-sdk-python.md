@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
 ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626788"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python-SDK voor SQL-API: Opmerkingen bij de release en resources
@@ -151,7 +151,7 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 <br/>
 
-| Versie | Releasedatum | Vervaldatum |
+| Version | Releasedatum | Vervaldatum |
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |15 november 2018 |--- |
 | [3.0.1](#3.0.1) |04 oktober 2018 |--- |

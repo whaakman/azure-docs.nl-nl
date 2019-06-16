@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64934988"
 ---
 <a name="get-customer-leads"></a>Leads klant ophalen
@@ -85,7 +85,7 @@ De velden in het volgende voorbeeld worden de klantgegevens die opgenomen in een
 - Voornaam: John
 - Achternaam: Smith
 - E-mailadres: jsmith\@microsoft.com
-- Telefoonnummer: 1234567890
+- Telefoon: 1234567890
 - Land/regio: VS
 - Bedrijf: Microsoft
 - Titel: CTO
@@ -112,7 +112,7 @@ We kunnen schrijven leads in tal van CRM-systemen of rechtstreeks naar een Azure
 
 Nadat u de bestemming lead configureren en publiceren van uw aanbieding, we valideren van de verbinding en sturen u een lead test. Wanneer u de aanbieding bekijken voordat u live gaan, kunt u ook de potentiële klant verbinding testen door bij het ophalen van de aanbieding zelf in de preview-omgeving. Het is belangrijk om ervoor te zorgen dat uw recente lead instellingen blijven zodat u toch nog de leads, dus zorg ervoor dat u deze verbindingen bijwerken wanneer er iets is gewijzigd op uw eindgebruikers.
 
-<a name="what-next"></a>Wat zijn de volgende stappen?
+<a name="what-next"></a>Wat nu?
 ----------
 
 Zodra de technische instellen ingesteld is, moet u deze leads opnemen in uw huidige verkoop en marketing strategie en operationele processen. Er zijn we zeer geïnteresseerd in uw inzicht in uw totale verkoop worden verwerkt en u wilt werken nauw samen met u op het bieden van leads van hoge kwaliteit en voldoende gegevens bijdragen aan uw succes. We stellen uw feedback over hoe we kunt optimaliseren en verbeteren van de leads sturen we u met extra gegevens om u te helpen deze klanten geslaagd. Laat het ons weten als u geïnteresseerd bent in [feedback geven](mailto:AzureMarketOnboard@microsoft.com) en suggesties om in te schakelen van uw verkoopteam meer successen te behalen met Marketplace leidt.

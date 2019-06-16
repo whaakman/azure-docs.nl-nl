@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-pawal
 ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389834"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text-API v2.0
@@ -85,7 +85,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description    |Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id  |(leeg)    |Vereist. Als de autorisatie of Ocp-Apim-Subscription-Key-header wordt gebruikt, laat de toepassings-id-veld leeg anders voegt u een tekenreeks met 'Bearer' + ' ' + 'access_token'.|query|string|
+|appid  |(leeg)    |Vereist. Als de autorisatie of Ocp-Apim-Subscription-Key-header wordt gebruikt, laat de toepassings-id-veld leeg anders voegt u een tekenreeks met 'Bearer' + ' ' + 'access_token'.|query|string|
 |text|(leeg)   |Vereist. Een tekenreeks die de tekst te vertalen vertegenwoordigt. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
 |from|(leeg)   |Optioneel. Een tekenreeks die de taalcode van de vertaalde tekst. Bijvoorbeeld, en voor Engels.|query|string|
 |tot|(leeg) |Vereist. Een tekenreeks die de taalcode voor de omzetting van de tekst in.|query|string|
@@ -231,7 +231,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Landinstelling|(leeg) |Vereist. Een tekenreeks die een combinatie van een ISO 639 kleine cultuur van twee letters-code die is gekoppeld aan een taal en een code van de twee letters, hoofdletters subcultuur ISO 3166 voor lokalisatie van de taalnamen van de of een ISO 639-code in kleine letters cultuur op zichzelf.|query|string|
 |Autorisatie|(leeg)  |Vereist als het veld appid of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als het veld appid of `Authorization` -header is niet opgegeven.|koptekst|string|
@@ -265,7 +265,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Autorisatie|(leeg)  |Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
 
@@ -298,7 +298,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
  
@@ -330,11 +330,11 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |text|(leeg)   |Vereist. Een tekenreeks met een zin of zinnen van de opgegeven taal worden uitgesproken voor de wave-stream. De grootte van de tekst te spreken mag niet groter zijn dan 2000 tekens.|query|string|
 |language|(leeg)   |Vereist. Een tekenreeks voor de ondersteunde taalcode die moet worden de tekst in te spreken. De code moet aanwezig zijn in de lijst van codes die zijn geretourneerd door de methode `GetLanguagesForSpeak`.|query|string|
 |format|(leeg)|Optioneel. Een tekenreeks die de inhoud van het type id op te geven Op dit moment `audio/wav` en `audio/mp3` beschikbaar zijn. De standaardwaarde is `audio/wav`.|query|string|
-|Opties|(leeg)    |<ul><li>Optioneel. Een tekenreeks op te geven eigenschappen van de kunstmatige spraak:<li>`MaxQuality` en `MinSize` zijn beschikbaar om op te geven van de kwaliteit van de audio signalen. Met `MaxQuality`, krijgt u stemmen met de hoogste kwaliteit en met `MinSize`, krijgt u de stemmen met de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` zijn beschikbaar om op te geven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk <code>\|</code> naar meerdere opties bevatten. Bijvoorbeeld `MaxQuality|Male`.</li></li></ul> |query|string|
+|opties|(leeg)    |<ul><li>Optioneel. Een tekenreeks op te geven eigenschappen van de kunstmatige spraak:<li>`MaxQuality` en `MinSize` zijn beschikbaar om op te geven van de kwaliteit van de audio signalen. Met `MaxQuality`, krijgt u stemmen met de hoogste kwaliteit en met `MinSize`, krijgt u de stemmen met de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` zijn beschikbaar om op te geven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk <code>\|</code> naar meerdere opties bevatten. Bijvoorbeeld `MaxQuality|Male`.</li></li></ul> |query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
 
@@ -366,7 +366,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)  |Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)  |Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |text|(leeg)|Vereist. Een tekenreeks met tekst waarvan de taal is kan worden geïdentificeerd. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query| string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key  |(leeg)    |Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
@@ -421,7 +421,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als de `appid` veld of de autorisatie-header is niet opgegeven.|koptekst|string|
 
@@ -455,7 +455,7 @@ Type van de inhoud van de reactie: aanvraag: xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype   |
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |originalText|(leeg)|Vereist. Een tekenreeks met de tekst voor de omzetting van. De tekenreeks heeft een maximale lengte van 1000 tekens.|query|string|
 |translatedText|(leeg) |Vereist. Een tekenreeks met vertaald tekst in de doel-taal. De tekenreeks heeft een maximale lengte van 2000 tekens.|query|string|
 |from|(leeg)   |Vereist. Een tekenreeks die de taalcode van de vertaalde tekst. NL = Engels, de Duitse enzovoort =...|query|string|
@@ -565,7 +565,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)  |Vereist. Als de autorisatie of Ocp-Apim-Subscription-Key-header wordt gebruikt, laat de toepassings-id-veld leeg anders voegt u een tekenreeks met 'Bearer' + ' ' + 'access_token'.|query| string|
+|appid|(leeg)  |Vereist. Als de autorisatie of Ocp-Apim-Subscription-Key-header wordt gebruikt, laat de toepassings-id-veld leeg anders voegt u een tekenreeks met 'Bearer' + ' ' + 'access_token'.|query| string|
 |text|(leeg)   |Vereist. Een tekenreeks die de tekst om te splitsen in zinnen aangeeft. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
 |language   |(leeg)    |Vereist. Een tekenreeks die de taalcode van invoertekst vertegenwoordigt.|query|string|
 |Autorisatie|(leeg)|Vereist als de toepassings-id-veld of de Ocp-Apim-Subscription-Key-header niet is opgegeven. Autorisatietoken:  "Bearer" + " " + "access_token".    |koptekst|string|
@@ -659,7 +659,7 @@ Type van de inhoud van de reactie: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
+|appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |text|(leeg)|Vereist. Een tekenreeks die de tekst te vertalen vertegenwoordigt. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
 |from|(leeg)|Vereist. Een tekenreeks die de taalcode van de vertaalde tekst.|query|string|
 |tot |(leeg)    |Vereist. Een tekenreeks die de taalcode voor de omzetting van de tekst in.|query|string|

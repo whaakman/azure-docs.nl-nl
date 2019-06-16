@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce51f4df50de50cef06bba699ca7c6f76bc5d166
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833327"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Bewerken en beheren van een bestaand pakket toegang in Azure AD waar u recht op beheer (Preview)
@@ -146,7 +146,7 @@ Azure AD kan automatisch toewijzen gebruikers toegang aan een SharePoint Online-
 
 1. Zoek in de lijst van de resource-rollen, de functie van de resource die u wilt verwijderen.
 
-1. Klik op het weglatingsteken (**...** ) en klik vervolgens op **verwijderen resourcerol**.
+1. Klik op het weglatingsteken ( **...** ) en klik vervolgens op **verwijderen resourcerol**.
 
     Alle gebruikers met bestaande toewijzingen aan het pakket toegang heeft automatisch de toegang ingetrokken voor de resourcerol van deze wordt verwijderd.
 

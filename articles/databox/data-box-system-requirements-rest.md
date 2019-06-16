@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436491"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Vereisten voor Azure Data Box-Blob-opslag
@@ -57,7 +57,7 @@ Voor gegevens in Blob-opslag zijn er specifieke-clientbibliotheken en vereisten 
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Nuget-pakket:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Release van GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    bestand App.config                 |
 |    Java                |    7.0.0                                           |    Maven-pakket:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Release van GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Verbindingsinstellingen voor tekenreeks         |
-|    Node.js             |    2.8.3                                           |    Koppeling van NPM:   https://www.npmjs.com/package/azure-storage   (Voer: `npm install azure-storage@2.7.0`)   <br>Release van GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    De declaratie van de service-exemplaar    |
+|    Node.js             |    2.8.3                                           |    Koppeling van NPM:   https://www.npmjs.com/package/azure-storage   (Voer: `npm install azure-storage@2.7.0` )   <br>Release van GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    De declaratie van de service-exemplaar    |
 |    C++                 |    5.2.0                                           |    Nuget-pakket:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Release van GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Verbindingsinstellingen voor tekenreeks         |
 |    PHP                 |    1.2.0                                           |    Release van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Installeren via de Composer (voor meer informatie, Zie de onderstaande details.)                                                                                                             |    Verbindingsinstellingen voor tekenreeks         |
 |    Python              |    1.1.0                                           |    Release van GitHub:<br>Algemene:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    De declaratie van de service-exemplaar    |

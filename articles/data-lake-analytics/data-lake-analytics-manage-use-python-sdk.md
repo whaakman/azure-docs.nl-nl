@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811704"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Azure Data Lake Analytics met behulp van Python beheren
@@ -24,8 +24,8 @@ In dit artikel wordt beschreven hoe u Azure Data Lake Analytics-accounts, gegeve
 ## <a name="supported-python-versions"></a>Ondersteunde versies van Python
 
 * Gebruik een 64-bits versie van Python.
-* U kunt de standaard Python-distributie die is gevonden op  **[Python.org downloads](https://www.python.org/downloads/)**. 
-* Veel ontwikkelaars vindt u het gemakkelijk te gebruiken de  **[Anaconda Python-distributie](https://www.anaconda.com/download/)**.  
+* U kunt de standaard Python-distributie die is gevonden op  **[Python.org downloads](https://www.python.org/downloads/)** . 
+* Veel ontwikkelaars vindt u het gemakkelijk te gebruiken de  **[Anaconda Python-distributie](https://www.anaconda.com/download/)** .  
 * In dit artikel is geschreven met behulp van Python 3.6-versie van de standaard Python-distributie
 
 ## <a name="install-azure-python-sdk"></a>Azure Python-SDK installeren

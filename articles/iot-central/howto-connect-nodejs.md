@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888911"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
@@ -38,7 +38,7 @@ Voeg de volgende telemetrie toe op de **metingen** pagina:
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatuur  | temperatuur | F     | 60  | 110 | 0              |
 | Vochtigheid     | vochtigheid    | %     | 0   | 100 | 0              |
-| Druk     | pressure    | kPa   | 80  | 110 | 0              |
+| Druk te verlichten     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
 > Het gegevenstype van de meting telemetrie is een drijvende-kommagetal zijn.
@@ -49,7 +49,7 @@ Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat
 
 Voeg de volgende status hebben op de **metingen** pagina:
 
-| Weergavenaam | Veldnaam  | Waarde 1 | Weergavenaam | Waarde 2 | Weergavenaam |
+| Weergavenaam | Veldnaam  | Waarde 1 | Weergavenaam | De waarde 2 | Weergavenaam |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Ventilatormodus     | ventilatormodus     | 1       | In uitvoering      | 0       | Gestopt      |
 
@@ -75,8 +75,8 @@ Voeg de volgende apparaateigenschappen toe op de **eigenschappen** pagina:
 
 | Weergavenaam        | Veldnaam        | Gegevenstype |
 | ------------------- | ----------------- | --------- |
-| Serienummer       | Serienummer      | tekst      |
-| De fabrikant van apparaat | fabrikant      | tekst      |
+| Serienummer       | Serienummer      | text      |
+| De fabrikant van apparaat | fabrikant      | text      |
 
 Voer de veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomt met de namen van eigenschappen in de bijbehorende apparaatcode, kan de eigenschappen kunnen niet worden weergegeven in de toepassing.
 

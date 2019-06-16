@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
 ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938415"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Technische assets voor een virtuele machine-aanbieding maken
 
 In deze sectie helpt u bij het maken en configureren van de technische assets voor een virtuele machine (VM)-aanbieding voor Azure Marketplace.  Een virtuele machine bevat twee onderdelen: de oplossing voor virtuele harde schijf (VHD) en de optionele gekoppelde gegevensschijven.  
 
-- *Virtuele harde schijven (VHD's)*, met het besturingssysteem en uw oplossing, die u in uw Azure Marketplace-aanbieding implementeren wilt. Het proces van het voorbereiden van de VHD is afhankelijk van of het is een op Linux gebaseerde, op basis van Windows of een VM op basis van een aangepast.
+- *Virtuele harde schijven (VHD's)* , met het besturingssysteem en uw oplossing, die u in uw Azure Marketplace-aanbieding implementeren wilt. Het proces van het voorbereiden van de VHD is afhankelijk van of het is een op Linux gebaseerde, op basis van Windows of een VM op basis van een aangepast.
 - *Gegevensschijven* vertegenwoordigen exclusieve, permanente opslag voor een virtuele machine. Voer *niet* gebruikt u de VHD-oplossing (bijvoorbeeld de `C:` station) permanente gegevens op te slaan.
 
 Een VM-installatiekopie bevat een besturingssysteemschijf en nul of meer gegevensschijven. Één VHD is per schijf nodig. Even zelfs lege gegevensschijven vereisen dat u een VHD moet worden gemaakt.
@@ -52,9 +52,9 @@ Bovendien is het raadzaam de volgende hulpprogramma's toe te voegen aan uw ontwi
 
 -   [Azure-opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Toestel: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Toestel: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Toestel: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Extensie: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Extensie: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Extensie: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 We raden ook controleren van de beschikbare hulpprogramma's in de [Azure-ontwikkelhulpprogramma's](https://azure.microsoft.com/tools/) pagina en, als u Visual Studio, de [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

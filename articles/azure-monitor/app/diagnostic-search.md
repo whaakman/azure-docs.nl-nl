@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900063"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
@@ -114,7 +114,7 @@ Zoeken naar volledige woorden, niet subtekenreeksen. Gebruik aanhalingstekens tu
 
 | string | is *niet* gevonden | maar deze vinden |
 | --- | --- | --- |
-| HomeController.About |start<br/>controller<br/>out | homecontroller<br/>info<br/>"homecontroller.about"|
+| HomeController.About |startpagina<br/>controller<br/>out | homecontroller<br/>over<br/>"homecontroller.about"|
 |Verenigde Staten|Uni<br/>Ted|Verenigde<br/>statussen<br/>Verenigde Staten en<br/>"VS"
 
 Hier volgen de uitdrukkingen zoeken die u kunt gebruiken:

@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484451"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-patronen voor databases-tenants
@@ -33,8 +33,8 @@ Elke tenant krijgt toegang tot de onderdelen van uw SaaS-toepassing tegen betale
 
 De term *tenants model* verwijst naar hoe tenants opgeslagen gegevens zijn onderverdeeld:
 
-- *Single-tenants:*&nbsp; Elke database slaat de gegevens van slechts één tenant.
-- *Multitenancy:*&nbsp; Elke database slaat de gegevens van meerdere afzonderlijke tenants (met mechanismen voor het beveiligen van de privacy van gegevens).
+- *Single-tenants:* &nbsp; Elke database slaat de gegevens van slechts één tenant.
+- *Multitenancy:* &nbsp; Elke database slaat de gegevens van meerdere afzonderlijke tenants (met mechanismen voor het beveiligen van de privacy van gegevens).
 - Hybride tenants modellen zijn ook beschikbaar.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. De juiste tenants-model kiezen
@@ -47,9 +47,9 @@ In het algemeen de tenants-model heeft geen invloed op de functie van een toepas
     - Opslag in geaggregeerde vorm.
     - Workload.
 
-- **Isolatie van tenants:**&nbsp; Gegevensisolatie en prestaties (of workload van één tenant heeft gevolgen voor anderen).
+- **Isolatie van tenants:** &nbsp; Gegevensisolatie en prestaties (of workload van één tenant heeft gevolgen voor anderen).
 
-- **Kosten per tenant:**&nbsp; Databasekosten.
+- **Kosten per tenant:** &nbsp; Databasekosten.
 
 - **Ontwikkeling van complexiteit:**
     - Wijzigingen in schema.
@@ -61,7 +61,7 @@ In het algemeen de tenants-model heeft geen invloed op de functie van een toepas
     - Herstellen van een tenant.
     - Herstel na noodgevallen.
 
-- **Aanpasbaarheid:**&nbsp; Gebruiksgemak schema aanpassingen die zijn ondersteunende tenantspecifieke of klasse-specifieke tenant.
+- **Aanpasbaarheid:** &nbsp; Gebruiksgemak schema aanpassingen die zijn ondersteunende tenantspecifieke of klasse-specifieke tenant.
 
 De discussie tenants is gericht op de *gegevens* laag.  Maar kijk eens naar de *toepassing* laag.  Niveau van de toepassing wordt beschouwd als een monolithische entiteit.  Als u de toepassing in veel kleine onderdelen deelt, wijzigen uw eigen keuze aan tenants model.  U kunt sommige onderdelen anders dan andere behandelen met betrekking tot zowel tenants en de technologie voor gegevensopslag of platform dat wordt gebruikt.
 
@@ -126,9 +126,9 @@ Patroon voor een ander beschikbaar is voor het opslaan van veel tenants in een m
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Isolatie van tenants is gedood
 
-*Gegevens:*&nbsp; Een multitenant-database offert per se isolatie van tenants.  De gegevens van meerdere tenants worden samen in één database opgeslagen.  Tijdens de ontwikkeling, moet u ervoor zorgen dat query's nooit gegevens van meer dan één tenant maken.  SQL Database ondersteunt [beveiliging op rijniveau][docu-sql-svr-db-row-level-security-947w], die kan worden afgedwongen dat gegevens die worden geretourneerd door een query worden afgestemd op één tenant.
+*Gegevens:* &nbsp; Een multitenant-database offert per se isolatie van tenants.  De gegevens van meerdere tenants worden samen in één database opgeslagen.  Tijdens de ontwikkeling, moet u ervoor zorgen dat query's nooit gegevens van meer dan één tenant maken.  SQL Database ondersteunt [beveiliging op rijniveau][docu-sql-svr-db-row-level-security-947w], die kan worden afgedwongen dat gegevens die worden geretourneerd door een query worden afgestemd op één tenant.
 
-*Verwerken:*&nbsp; Een multitenant-database deelt reken- en opslagresources voor alle van de tenants.  De database als geheel kan worden gecontroleerd om te controleren of dat deze acceptabel presteert.  De Azure-systeem heeft echter geen ingebouwde manier om te controleren of het gebruik van deze resources door een afzonderlijke tenant beheren.  Daarom wordt de multitenant-database een verhoogd risico op luidruchtige buren, waarbij de workload van één overactive tenant heeft gevolgen voor de prestaties van andere tenants in dezelfde database worden aangetroffen.  Aanvullende controle op toepassingsniveau, kan op tenantniveau prestaties bewaken.
+*Verwerken:* &nbsp; Een multitenant-database deelt reken- en opslagresources voor alle van de tenants.  De database als geheel kan worden gecontroleerd om te controleren of dat deze acceptabel presteert.  De Azure-systeem heeft echter geen ingebouwde manier om te controleren of het gebruik van deze resources door een afzonderlijke tenant beheren.  Daarom wordt de multitenant-database een verhoogd risico op luidruchtige buren, waarbij de workload van één overactive tenant heeft gevolgen voor de prestaties van andere tenants in dezelfde database worden aangetroffen.  Aanvullende controle op toepassingsniveau, kan op tenantniveau prestaties bewaken.
 
 #### <a name="lower-cost"></a>Lagere kosten
 
@@ -186,7 +186,7 @@ De volgende tabel geeft een overzicht van de verschillen tussen de belangrijkste
 
 | Meting | Zelfstandige app | Database-per-tenant | Een shard met meerdere tenants |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Schalen | Middelgroot<br />1-100s | Zeer hoog<br />1-100.000 | Onbeperkt<br />1-1.000.000 |
+| Schalen | Gemiddeld<br />1-100s | Zeer hoog<br />1-100.000 | Onbeperkt<br />1-1.000.000 |
 | Isolatie van tenants | Zeer hoog | Hoog | Laag; met uitzondering van een enkele tenant (dat wil zeggen alleen in een db MT). |
 | Databasekosten per tenant | Hoge; wordt de grootte van pieken. | Laag; toepassingen die worden gebruikt. | Laagste, voor kleine tenants in MT-databases. |
 | Prestaties controleren en beheren | Per-tenant alleen | Statistische functie + per tenant | Aggregaat. Hoewel per-tenant alleen voor fungeert. |

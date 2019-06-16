@@ -19,10 +19,10 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546099"
 ---
 # <a name="app-registration-reference"></a>Naslaginformatie over app-registratie
@@ -49,7 +49,7 @@ Op dit moment zijn slechts twee typen van toepassingsgeheimen toegestaan in de p
 U moet een certificaat met een openbare sleutel uploaden.
 
 ## <a name="profile"></a>Profiel
-De profielsectie van de portal van de registratie van de app kan worden gebruikt voor het aanpassen van de aanmeldingspagina voor uw toepassing. Op dit moment kunt u de aanmeldingspagina van toepassing logo, alter voorwaarden van de service-URL en de URL voor de privacyverklaring. Het logo moet een transparante afbeelding van 48 x 48 of 50 x 50 pixels in een GIF-, PNG- of JPEG-bestand van 15 kB of kleiner zijn. Probeer te wijzigen van de waarden en het bekijken van de resulterende aanmeldingspagina!
+De profielsectie van de portal van de registratie van de app kan worden gebruikt voor het aanpassen van de aanmeldingspagina voor uw toepassing. Op dit moment kunt u de aanmeldingspagina van toepassing logo, alter voorwaarden van de service-URL en de URL voor de privacyverklaring. Het logo moet een transparante 48 x 48 of 50 x 50 pixels afbeelding in een GIF, PNG of JPEG-bestand dat is 15 KB of kleiner. Probeer te wijzigen van de waarden en het bekijken van de resulterende aanmeldingspagina!
 
 ## <a name="live-sdk-support"></a>Live SDK-ondersteuning
 Wanneer u 'Live SDK Support' inschakelt, een toepassingsgeheimen die u maakt in zowel de Azure AD worden ingericht en Microsoft-Account data-archieven. Hiermee wordt uw toepassing integreren rechtstreeks met de service Microsoft-Account (login.live.com). Als u wilt een app bouwen met Microsoft-Account rechtstreeks (in plaats van met behulp van de Azure AD v2.0-eindpunt), moet u ervoor zorgen dat Live SDK-ondersteuning is ingeschakeld.

@@ -10,12 +10,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: 24640c9013f7a5b81cd5b1b6f45de49c5baad0e6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 1fc541f1236d17e1c2ffbf64ddb0340dcf5c0b9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473272"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063477"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>Uw eerste PowerShell-functie maken in Azure (preview)
 
@@ -36,7 +36,7 @@ De volgende stappen uit worden op macOS, Windows en Linux-besturingssystemen ond
 
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
-* Installeer [PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
+* Installeer [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * Installeer [Visual Studio Code](https://code.visualstudio.com/) op een van de [ondersteunde platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 

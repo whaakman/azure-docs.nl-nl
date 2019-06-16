@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: barclayn
 ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467722"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
@@ -74,10 +74,10 @@ Vanaf eind maart 2019, toegewezen HSM is beschikbaar in de 14 regio's die hieron
 * Azië - oost
 * Europa - noord
 * Europa -west
-* VK Zuid
-* VK West
+* Verenigd Koninkrijk Zuid
+* Verenigd Koninkrijk West
 * Canada - midden
-* Canada Oost
+* Canada - oost
 * Australië - oost
 * Australië - zuidoost
 

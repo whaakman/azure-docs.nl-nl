@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438178"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs-Uitvoerbinding voor Azure Functions
@@ -257,7 +257,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** |N.v.t.| Moet worden ingesteld op 'notificationHub'. |
 |**direction** |N.v.t.| Moet worden ingesteld op 'out'. | 
-|**De naam** |N.v.t.| Naam van de variabele in functiecode gebruikt voor de notification hub-bericht. |
+|**name** |N.v.t.| Naam van de variabele in functiecode gebruikt voor de notification hub-bericht. |
 |**tagExpression** |**TagExpression** | Code-expressies kunnen u opgeven dat meldingen worden geleverd aan een set met apparaten die zijn geregistreerd voor het ontvangen van meldingen die overeenkomen met de tagexpressie.  Zie voor meer informatie, [Routering en tag expressies](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | De naam van de resource voor notification hub in Azure portal. |
 |**verbinding** | **connectionStringSetting** | De naam van een app-instelling met een verbindingsreeks Notification Hubs.  De verbindingsreeks moet worden ingesteld op de *DefaultFullSharedAccessSignature* waarde voor de notification hub. Zie [verbindingsinstellingen voor tekenreeks](#connection-string-setup) verderop in dit artikel.|

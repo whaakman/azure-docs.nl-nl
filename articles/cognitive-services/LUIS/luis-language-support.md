@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072379"
 ---
 # <a name="language-and-region-support-for-luis"></a>Ondersteuning voor LUIS taal en regio
@@ -49,14 +49,14 @@ LUIS begrijpt uitingen in de volgende talen:
 
 Taalondersteuning varieert voor [vooraf gemaakte entiteiten](luis-reference-prebuilt-entities.md) en [vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md).
 
-### <a name="chinese-support-notes"></a>* Opmerkingen bij de ondersteuning voor Chinees
+### <a name="chinese-support-notes"></a>\* Opmerkingen bij de ondersteuning voor Chinees
 
  - In de `zh-cn` cultuur, LUIS wordt verwacht dat de vereenvoudigd Chinees tekenset in plaats van de traditionele tekenset.
  - De namen van de intenties, entiteiten, functies en reguliere expressies mogelijk Chinese of Romeins tekens.
  - Zie de [vooraf gemaakte domeinen verwijzing](luis-reference-prebuilt-domains.md) voor meer informatie waarop vooraf gemaakte domeinen worden ondersteund in de `zh-cn` cultuur.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
-### <a name="japanese-support-notes"></a>* Opmerkingen bij de Japanse ondersteuning
+### <a name="japanese-support-notes"></a>\* Opmerkingen bij de Japanse ondersteuning
 
  - Omdat LUIS geen syntactische analyse biedt en het verschil tussen Keigo en informele Japans niet begrijpt, moet u gebruikmaken van de verschillende niveaus van formaliteit als voorbeelden van training voor uw toepassingen.
      - でございます is niet gelijk zijn aan です.
@@ -99,7 +99,7 @@ Als u machine learning, LUIS een utterance opgesplitst in [tokens](luis-glossary
 
 De volgende culturen zijn aangepaste tokenizer-versies:
 
-|Culture|Versie|Doel|
+|Culture|Version|Doel|
 |--|--|--|
 |Duits<br>`de-de`|1.0.0|Basis van woorden woordgrenzen door op te splitsen met behulp van een machine learning gebaseerde tokenizer waarmee wordt geprobeerd om op te splitsen samengestelde woorden in hun afzonderlijke onderdelen.<br>Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance is ingeschakeld op `Ich fahre einen kranken wagen`. De markering van zodat `kranken` en `wagen` onafhankelijk als andere entiteiten.|
 |Duits<br>`de-de`|1.0.2|Basis van woorden woordgrenzen door ze op opslagruimten worden gesplitst.<br> Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance blijft een specifiek token. Dus `krankenwagen` is gemarkeerd als één entiteit. |

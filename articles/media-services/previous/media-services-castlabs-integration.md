@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232575"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>castLabs gebruiken om Widevine-licenties te leveren aan Azure Media Services 
@@ -71,7 +71,7 @@ De volgende tabel beschrijft de JWT-token in castLabs.
 | --- | --- |
 | optData |Een JSON-tekenreeks met informatie over u. |
 | crt |Een JSON-tekenreeks met informatie over de asset de licentierechten info en afspelen. |
-| IAT |De huidige datum en tijd in epoche. |
+| iat |De huidige datum en tijd in epoche. |
 | jti |Een unieke id over dit token (elke token kan alleen worden één keer gebruikt in het systeem castLabs). |
 
 ## <a name="sample-solution-setup"></a>Voorbeeld-oplossing instellen
