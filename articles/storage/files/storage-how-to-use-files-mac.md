@@ -9,10 +9,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715949"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Een Azure-bestandsshare koppelen via SMB met macOS
@@ -38,7 +38,7 @@ ms.locfileid: "64715949"
 1. **Open Finder**: Finder is standaard geopend op MacOS, maar u kunt controleren of het de geselecteerde toepassing is door te klikken op het 'gezichtspictogram van MacOS' op de dock:  
     ![Het gezichtspictogram van Mac OS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selecteer 'Verbinding maken met Server' in het Menu 'Ga'**: Gebruik het UNC-pad in de vereisten en converteer de eerste twee backslashes (`\\`) naar `smb://` en alle andere backslashes (`\`) naar slashes (`/`). Uw link moet er als volgt uitzien: Het dialoogvenster !['Verbinding maken met server'](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selecteer 'Verbinding maken met Server' in het Menu 'Ga'** : Gebruik het UNC-pad in de vereisten en converteer de eerste twee backslashes (`\\`) naar `smb://` en alle andere backslashes (`\`) naar slashes (`/`). Uw link moet er als volgt uitzien: Het dialoogvenster !['Verbinding maken met server'](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Gebruik de naam en sleutel van het opslagaccount wanneer u wordt gevraagd om een gebruikersnaam en wachtwoord**: Wanneer u klikt op 'Verbinden' in het dialoogvenster 'Verbinden met server', wordt u gevraagd om de gebruikersnaam en het wachtwoord (hier wordt uw MacOS-gebruikersnaam automatisch ingevuld). U hebt de mogelijkheid om de naam/sleutel van het opslagaccount in uw macOS-sleutelhanger op te slaan.
 

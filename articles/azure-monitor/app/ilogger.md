@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: fd5a16334fff0319d7993fb2403a48d1777f6bce
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058590"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider voor .NET Core ILogger Logboeken
 
@@ -106,6 +106,9 @@ public class ValuesController : ControllerBase
 ```
 
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Vastleggen van Logboeken van de ILogger van Startup.cs en Program.cs in ASP.NET Core-apps
+
+> [!NOTE]
+> ASP.NET Core 3.0 en hoger, is het niet meer mogelijk om te ' injecteren ' `ILogger` in Startup.cs en Program.cs. Zie https://github.com/aspnet/Announcements/issues/353 voor meer informatie.
 
 De nieuwe ApplicationInsightsLoggerProvider kunt vastleggen van Logboeken van al vroeg in de pijplijn starten van de toepassing. Hoewel ApplicationInsightsLoggerProvider automatisch in Application Insights (vanaf versie 2.7.0-beta3) is ingeschakeld, heeft deze een instrumentatiesleutel instellen tot verderop in de pijplijn geen. Dus alleen logboeken van **Controller**/ andere klassen wordt vastgelegd. Om vast te leggen van elke log beginnen met **Program.cs** en **Startup.cs** zelf, moet u expliciet inschakelen een instrumentatiesleutel voor ApplicationInsightsLoggerProvider. Bovendien *TelemetryConfiguration* is niet volledig ingesteld wanneer u zich vanaf aanmeldt **Program.cs** of **Startup.cs** zelf. Deze logboeken moet dus een minimale configuratie die gebruikmaakt van InMemoryChannel, geen steekproeven te nemen, en er is geen standaardtelemetrie voor initializers of de processors.
 
@@ -450,7 +453,7 @@ Als u liever TraceTelemetry altijd verzenden, gebruikt u dit fragment: ```builde
 
 De extensie Application Insights in Azure Web Apps maakt gebruik van de oude provider. U kunt de filters gebruiken om regels in de *appsettings.json* -bestand voor uw toepassing. Gebruiken om te profiteren van de nieuwe provider, build-runtime-instrumentatiesleutel door middel van een NuGet-afhankelijkheid volgens de SDK. In dit artikel wordt bijgewerkt wanneer de extensie overschakelt naar de nieuwe provider gebruiken.
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Ik ben met behulp van het zelfstandige pakket Microsoft.Extensions.Logging.ApplicationInsights en Application Insights-provider in te schakelen door het aanroepen van **builder. AddApplicationInsights("ikey")**. Is er een optie om op te halen van een instrumentatiesleutel van configuratie?
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Ik ben met behulp van het zelfstandige pakket Microsoft.Extensions.Logging.ApplicationInsights en Application Insights-provider in te schakelen door het aanroepen van **builder. AddApplicationInsights("ikey")** . Is er een optie om op te halen van een instrumentatiesleutel van configuratie?
 
 
 Program.cs en appsettings.json als volgt wijzigen:

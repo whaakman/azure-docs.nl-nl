@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075803"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Verbinding maken met een SQL Server-Machine in Azure
 
@@ -94,13 +94,15 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a> SQL-verbindingsinstellingen wijzigen
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 U kunt de connectiviteitsinstellingen voor uw virtuele machine van SQL Server in Azure portal.
 
-1. Selecteer in de Azure portal, **virtuele Machines**.
+1. Selecteer in de Azure portal, **SQL virtuele machines**.
 
 2. Selecteer uw SQL Server-machine.
 
-3. Onder **instellingen**, klikt u op **SQL Server-configuratie**.
+3. Onder **instellingen**, selecteer **Security**.
 
 4. Wijzig de **SQL-verbindingsniveau** naar de vereiste instelling. U kunt dit gebied (optioneel) gebruiken om de SQL Server-poort of de SQL-verificatie-instellingen te wijzigen.
 

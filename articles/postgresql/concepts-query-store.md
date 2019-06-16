@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067187"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
@@ -86,7 +86,7 @@ De volgende opties zijn beschikbaar voor Query Store-parameters configureren.
 
 | **Parameter** | **Beschrijving** | **Standaard** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Hiermee stelt u welke instructies worden bijgehouden. | geen | None, top, alle |
+| pg_qs.query_capture_mode | Hiermee stelt u welke instructies worden bijgehouden. | Geen | None, top, alle |
 | pg_qs.max_query_text_length | Hiermee stelt u de maximale lengte die kan worden opgeslagen. Meer query's worden afgekapt. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Hiermee stelt u de bewaarperiode. | 7 | 1 - 30 |
 | pg_qs.track_utility | Wordt ingesteld of hulpprogramma opdrachten worden bijgehouden | op | op uitgeschakeld |
@@ -95,7 +95,7 @@ De volgende opties gelden specifiek voor het wachten van statistieken.
 
 | **Parameter** | **Beschrijving** | **Standaard** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Sets die instructies worden bijgehouden voor wachten statistieken. | geen | geen, alle|
+| pgms_wait_sampling.query_capture_mode | Sets die instructies worden bijgehouden voor wachten statistieken. | Geen | geen, alle|
 | Pgms_wait_sampling.history_period | Stel de frequentie, in milliseconden, op welke wacht gebeurtenissen worden vastgelegd. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -115,14 +115,14 @@ In deze weergave retourneert alle gegevens in Query Store. Er is één rij voor 
 |**Naam**   |**Type** | **Verwijzingen**  | **Beschrijving**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID van de tabel runtime_stats_entries|
-|user_id    |OID    |pg_authid.oid  |OID van de gebruiker heeft de instructie uitgevoerd|
-|db_id  |OID    |pg_database.oid    |OID van database waarin de instructie is uitgevoerd|
+|user_id    |oid    |pg_authid.oid  |OID van de gebruiker heeft de instructie uitgevoerd|
+|db_id  |oid    |pg_database.oid    |OID van database waarin de instructie is uitgevoerd|
 |query_id   |bigint  || Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
 |query_sql_text |Varchar(10000)  || Tekst van een representatieve instructie. Verschillende query's met dezelfde structuur zijn samen; geclusterd Deze tekst is de tekst voor de eerste dag van de query's in het cluster.|
 |plan_id    |bigint |   |ID van het abonnement nog overeenkomt met deze query is niet beschikbaar|
 |start_time |timestamp  ||  Query's worden samengevoegd per keer buckets - de tijdsduur van een bucket is 15 minuten standaard. Dit is de begintijd die overeenkomt met het tijdsinterval voor deze vermelding.|
 |end_time   |timestamp  ||  De eindtijd die overeenkomt met het tijdsinterval voor deze vermelding.|
-|oproepen  |bigint  || Aantal keren dat de query wordt uitgevoerd|
+|aanroepen  |bigint  || Aantal keren dat de query wordt uitgevoerd|
 |total_time |dubbele precisie   ||  Totaal aantal query uitvoeringstijd, in milliseconden|
 |min_time   |dubbele precisie   ||  Minimale query uitvoeringstijd, in milliseconden|
 |max_time   |dubbele precisie   ||  Maximale uitvoeringstijd, in milliseconden|
@@ -155,12 +155,12 @@ In deze weergave retourneert gegevens van statuswijzigingsgebeurtenissen in Quer
 
 |**Naam**|  **Type**|   **Verwijzingen**| **Beschrijving**|
 |---|---|---|---|
-|user_id    |OID    |pg_authid.oid  |OID van de gebruiker heeft de instructie uitgevoerd|
-|db_id  |OID    |pg_database.oid    |OID van database waarin de instructie is uitgevoerd|
+|user_id    |oid    |pg_authid.oid  |OID van de gebruiker heeft de instructie uitgevoerd|
+|db_id  |oid    |pg_database.oid    |OID van database waarin de instructie is uitgevoerd|
 |query_id   |bigint     ||Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
-|event_type |tekst       ||Het type gebeurtenis waarvoor de back-end is in afwachting|
-|gebeurtenis  |tekst       ||De naam van de wachttijd als back-end is momenteel in afwachting|
-|oproepen  |Geheel getal        ||Aantal dezelfde gebeurtenis vastgelegd|
+|event_type |text       ||Het type gebeurtenis waarvoor de back-end is in afwachting|
+|gebeurtenis  |text       ||De naam van de wachttijd als back-end is momenteel in afwachting|
+|aanroepen  |Geheel getal        ||Aantal dezelfde gebeurtenis vastgelegd|
 
 
 ### <a name="functions"></a>Functions

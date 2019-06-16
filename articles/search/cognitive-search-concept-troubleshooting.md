@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334876"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696598"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Tips voor probleemoplossing voor cognitief zoeken
 
@@ -84,7 +84,7 @@ Voeg een ```enriched``` veld als onderdeel van de definitie van de index voor fo
 
 Inhoud ontbreekt mogelijk het gevolg van documenten geplaatst tijdens het indexeren. Gratis en Basic-lagen hebben lage beperkingen op de documentgrootte van het. Elk bestand overschrijdt de limiet is verwijderd tijdens het indexeren. U kunt verwijderde documenten in Azure portal controleren. Dubbelklik in het dashboard van de zoekopdracht, op de tegel indexeerfuncties. Bekijk de verhouding van geslaagde geïndexeerde documenten. Als deze niet 100% is, kunt u de verhouding als u meer informatie. 
 
-Als het probleem is gerelateerd aan de grootte, ziet u mogelijk een fout als volgt: "De blob < bestandsnaam >' heeft de grootte van < bestandsgrootte > bytes, die groter is dan de maximale grootte voor het ophalen van het document voor uw huidige servicelaag." Zie voor meer informatie over limieten van de indexeerfunctie [Servicelimieten](search-limits-quotas-capacity.md).
+Als het probleem is gerelateerd aan de grootte, ziet u mogelijk een fout als volgt: "De blob \<-bestandsnaam > ' heeft de grootte van \<grootte van het bestand > bytes, die groter is dan de maximale grootte voor het ophalen van het document voor uw huidige servicelaag." Zie voor meer informatie over limieten van de indexeerfunctie [Servicelimieten](search-limits-quotas-capacity.md).
 
 Een tweede reden voor de inhoud niet kan worden weergegeven mogelijk gerelateerde van i/o-toewijzingsfouten. Bijvoorbeeld de naam van een uitvoer-doel is 'Gebruikers', maar het veldnaam van de index is kleine 'gebruikers'. Het systeem kan 201 bericht voor de hele pijplijn retourneren, zodat u denkt indexering zijn voltooid dat, voordat er in feite een veld leeg is. 
 

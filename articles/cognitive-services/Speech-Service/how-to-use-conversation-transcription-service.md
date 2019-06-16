@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jhakulin
-ms.openlocfilehash: 80ec606fee30c239d47bca94188d3b9cbb7c82d5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: f0838d345abfcfdf69ca6ea44d3206c23010b457
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073091"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcriberen meerdere deelnemers gesprekken met de spraak-SDK
 
@@ -43,7 +43,7 @@ De eerste stap is het maken van spraak handtekeningen voor de conversatie-deelne
 * Het wavebestand audio-invoer voor het maken van spraak handtekeningen worden in voorbeelden van 16-bits, 16 kHz samplefrequentie en een één-(Mono)-kanaalindeling.
 * De lengte van de aanbevolen voor elk audio voorbeeld ligt tussen 30 seconden en twee minuten.
 
-Het volgende voorbeeld ziet u twee verschillende manieren voor het maken van spraak handtekening [met de REST-API.] (https://aka.ms/cts/signaturegenservice) van C#:
+Het volgende voorbeeld ziet u twee verschillende manieren om te maken van stem-ondertekening door [met behulp van de REST-API](https://aka.ms/cts/signaturegenservice) van C#:
 
 ```csharp
 class Program

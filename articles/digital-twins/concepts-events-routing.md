@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080660"
 ---
 # <a name="routing-events-and-messages"></a>Routering van gebeurtenissen en berichten
 
@@ -21,7 +21,7 @@ IoT-oplossingen aandragen vaak verschillende krachtige services met opslag, anal
 
 ## <a name="route-types"></a>Route-typen  
 
-Azure van digitale dubbels biedt twee manieren IoT-gebeurtenissen integreren met andere Azure-services of -business-toepassingen:
+Azure van digitale dubbels biedt twee manieren aansluiten van IoT-gebeurtenissen met andere Azure-services of -business-toepassingen:
 
 * **Routering Azure digitale dubbels gebeurtenissen**: Een object in de ruimtelijke grafiek die wijzigingen, telemetrische gegevens die worden ontvangen, of een gebruiker gedefinieerde functie waarmee een melding op basis van vooraf gedefinieerde voorwaarden Azure digitale dubbels gebeurtenissen kunt activeren. Gebruikers kunnen deze gebeurtenissen te verzenden [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus-onderwerpen](https://azure.microsoft.com/services/service-bus/), of [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) voor verdere verwerking.
 

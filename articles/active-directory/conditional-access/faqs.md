@@ -1,5 +1,5 @@
 ---
-title: Voorwaardelijke toegang van Azure Active Directory Veelgestelde vragen | Microsoft Docs
+title: Veelgestelde vragen over Azure Active Directory-voorwaardelijke toegang | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over voorwaardelijke toegang in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21c89d9d686c4af594aa7a0fd921471105669e02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112401"
 ---
-# <a name="azure-active-directory-conditional-access-faqs"></a>Voorwaardelijke toegang van Azure Active Directory Veelgestelde vragen
+# <a name="azure-active-directory-conditional-access-faqs"></a>Veelgestelde vragen over Azure Active Directory-voorwaardelijke toegang
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>Welke toepassingen werken met beleid voor voorwaardelijke toegang?
 
@@ -61,6 +61,6 @@ Beleid voor voorwaardelijke toegang worden op dit moment selectief toegepast op 
 
 Microsoft Teams is sterk afhankelijk van Exchange Online en SharePoint Online voor core productiviteit scenario's, zoals vergaderingen, agenda's en het delen van bestanden. Beleid voor voorwaardelijke toegang die zijn ingesteld voor deze cloud-apps van toepassing op Microsoft Teams-wanneer een gebruiker zich rechtstreeks in Microsoft Teams.
 
-Microsoft Teams wordt ook ondersteund afzonderlijk als een cloud-app in Azure Active Directory-beleid voor voorwaardelijke toegang. Beleid voor voorwaardelijke toegang die zijn ingesteld voor een cloud-app van toepassing op Microsoft Teams-wanneer een gebruiker zich aanmeldt. Echter, zonder de juiste beleidsregels op andere apps, zoals Exchange Online en SharePoint Online gebruikers nog steeds mogelijk rechtstreeks toegang hebben tot deze resources.
+Microsoft Teams wordt ook ondersteund afzonderlijk als een cloud-app in Azure Active Directory voorwaardelijk beleid. Beleid voor voorwaardelijke toegang die zijn ingesteld voor een cloud-app van toepassing op Microsoft Teams-wanneer een gebruiker zich aanmeldt. Echter, zonder de juiste beleidsregels op andere apps, zoals Exchange Online en SharePoint Online gebruikers nog steeds mogelijk rechtstreeks toegang hebben tot deze resources.
 
 Microsoft Teams-bureaublad-clients voor Windows en Mac ondersteuning voor moderne verificatie. Moderne verificatie maakt aanmelding op basis van de Azure Active Directory Authentication Library (ADAL) voor Microsoft Office-clienttoepassingen verschillende platforms.

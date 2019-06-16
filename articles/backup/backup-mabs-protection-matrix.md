@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427360"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
@@ -22,7 +22,7 @@ In dit artikel bevat de verschillende servers en werkbelastingen die u met Azure
 
 ## <a name="protection-support-matrix"></a>Ondersteuningsmatrix voor beveiliging
 
-|Workload|Versie|Azure Backup-server</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Beveiliging en herstel|
+|Workload|Version|Azure Backup-server</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Beveiliging en herstel|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |Client-computers (64-bits en 32-bits)|Windows 10|Fysieke server<br /><br />Virtuele Hyper-V-machine<br /><br />Virtuele VMware-machine|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
 |Client-computers (64-bits en 32-bits)|Windows 8.1|Fysieke server<br /><br />Virtuele Hyper-V-machine|J|J|Bestanden<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|

@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcafa3e2f2665e84856b80cc0911d2e83df1aa65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358324"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057336"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Een upgrade uitvoert naar de meest recente Azure multi-factor Authentication-Server
 
 Dit artikel helpt u bij het verwerken van het upgraden van Azure multi-factor Authentication (MFA)-Server versie 6.0 of hoger. Als u een oude versie van de PhoneFactor-Agent upgraden wilt, raadpleegt u [de PhoneFactor Agent bijwerken naar Azure multi-factor Authentication-Server](howto-mfaserver-deploy-upgrade-pf.md).
 
 Als u een van versie 6.x of naar v7.x oudere of nieuwere upgrade uitvoert, wordt de status van alle onderdelen gewijzigd van .NET 2.0 in .NET 4.5. Alle onderdelen moeten ook Microsoft Visual C++ 2015 Redistributable Update 1 of hoger. Het installatieprogramma van de MFA-Server installeert zowel de x86 x64-versies van deze onderdelen als ze niet al zijn geïnstalleerd. Als de Gebruikersportal en de webservice voor mobiele Apps worden uitgevoerd op afzonderlijke servers, moet u deze om pakketten te installeren vóór de upgrade van deze onderdelen. U kunt zoeken naar de nieuwste update van Microsoft Visual C++ 2015 Redistributable op de [Microsoft Download Center](https://www.microsoft.com/download/). 
+
+> [!IMPORTANT]
+> Vanaf 1 juli 2019, zal Microsoft MFA-Server niet meer bieden voor nieuwe implementaties. Nieuwe klanten die willen graag meervoudige verificatie van gebruikers vereisen moeten cloud-gebaseerde Azure multi-factor Authentication gebruiken. Bestaande klanten die vóór 1 juli MFA-Server hebben geactiveerd, worden kunnen de nieuwste versie downloaden door toekomstige updates en zoals gebruikelijk activeringsreferenties genereren.
 
 Upgradestappen in één oogopslag:
 

@@ -16,11 +16,11 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1191fb5c9aefb55896d5c44714f1061ff2674a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64415209"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Servicelimieten en -beperkingen voor Azure AD
 In dit artikel bevat de beperkingen voor gebruik en andere Servicelimieten voor de service Azure Active Directory (Azure AD). Als u de volledige set met Microsoft Azure-Servicelimieten zoekt, raadpleegt u [Azure-abonnement en Servicelimieten, Quotums en beperkingen](../../azure-subscription-service-limits.md).

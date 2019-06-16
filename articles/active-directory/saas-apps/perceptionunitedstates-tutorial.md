@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Zelfstudie: Azure Active Directory-integratie met perceptie Verenigde Staten (niet-UltiPro)
 
@@ -53,7 +53,7 @@ Als u wilt de integratie van perceptie Verenigde Staten (niet-UltiPro) in Azure 
 
 **Als u wilt toevoegen perceptie Verenigde Staten (niet-UltiPro) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Als u wilt de integratie van perceptie Verenigde Staten (niet-UltiPro) in Azure 
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **perceptie Verenigde Staten (niet-UltiPro)**, selecteer **perceptie Verenigde Staten (niet-UltiPro)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
+4. Typ in het zoekvak **perceptie Verenigde Staten (niet-UltiPro)** , selecteer **perceptie Verenigde Staten (niet-UltiPro)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
 
      ![Perceptie Verenigde Staten (niet-UltiPro) in de lijst met resultaten](common/search-new-app.png)
 
@@ -76,12 +76,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met perceptie Verenigde Staten (niet-UltiPro), moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding perceptie Verenigde Staten (niet-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Perceptie Verenigde Staten (niet-UltiPro) testgebruiker maken](#create-perception-united-states-non-ultipro-test-user)**  - hebben een equivalent van Britta Simon in perceptie Verenigde Staten (niet-UltiPro) die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met perceptie Verenigde 
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. De **perceptie Verenigde Staten (niet-UltiPro)** toepassing vereist de **Azure AD-id** waarde als < entity_id >, u van ontvangt de **perceptie Verenigde Staten (instellen Non-UltiPro)** sectie URI-codering krijgen. Als u de uri-gecodeerde waarde, gebruikt u de volgende koppeling: **http://www.url-encode-decode.com/**.
+    c. De **perceptie Verenigde Staten (niet-UltiPro)** toepassing vereist de **Azure AD-id** waarde als < entity_id >, u van ontvangt de **perceptie Verenigde Staten (instellen Non-UltiPro)** sectie URI-codering krijgen. Als u de uri-gecodeerde waarde, gebruikt u de volgende koppeling: **http://www.url-encode-decode.com/** .
 
     d. Nadat u de uri gecodeerde waarde combineren met de **antwoord-URL** zoals vermeld hieronder:
 
@@ -195,11 +195,11 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan perceptie Verenigde Staten (niet-UltiPro).
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **perceptie Verenigde Staten (niet-UltiPro)**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **perceptie Verenigde Staten (niet-UltiPro)** .
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **perceptie Verenigde Staten (niet-UltiPro)**.
+2. Selecteer in de lijst met toepassingen, **perceptie Verenigde Staten (niet-UltiPro)** .
 
     ![De koppeling perceptie Verenigde Staten (niet-UltiPro) in de lijst met toepassingen](common/all-applications.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 9d872a6d753a206dcfb03761e50e5854db4f146e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071596"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informatie over de werking van het hulpprogramma voor migratie
 
@@ -55,10 +55,11 @@ Alle klassieke waarschuwingen op storage-accounts kunnen worden gemigreerd, met 
 - PercentTimeoutError
 - AnonymousThrottlingError
 - SASThrottlingError
+- ThrottlingError
 
 Klassieke waarschuwing in de regels voor percentage metrische gegevens moeten worden gemigreerd op basis van [de toewijzing tussen metrische gegevens van oude en nieuwe storage](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Drempelwaarden moet op de juiste wijze worden gewijzigd omdat de nieuwe metrische gegevens die beschikbaar een absolute is.
 
-Klassieke waarschuwingsregels op AnonymousThrottlingError en SASThrottlingError moeten worden gesplitst in twee nieuwe waarschuwingen, omdat er geen gecombineerde metric die dezelfde functionaliteit biedt. Drempelwaarden moet op de juiste wijze worden aangepast.
+Klassieke waarschuwingsregels op AnonymousThrottlingError, SASThrottlingError en ThrottlingError moeten worden gesplitst in twee nieuwe waarschuwingen, omdat er geen gecombineerde metric die dezelfde functionaliteit biedt. Drempelwaarden moet op de juiste wijze worden aangepast.
 
 ## <a name="rollout-phases"></a>Implementatiefasen
 
@@ -97,7 +98,7 @@ Een subset van abonnementen is momenteel gemarkeerd als gereed voor migratie. De
 
 Elke gebruiker die de ingebouwde rol van Inzender controleren op het abonnementsniveau van het kan de migratie te activeren. De migratie kunnen ook worden geactiveerd door gebruikers die een aangepaste rol met de volgende machtigingen hebben:
 
-- * / lezen
+- \* / lezen
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
@@ -106,7 +107,7 @@ Elke gebruiker die de ingebouwde rol van Inzender controleren op het abonnements
 
 Nadat u [activeren van de migratie](alerts-using-migration-tool.md), ontvangt u e-mailadres op de adressen die u hebt opgegeven om u te waarschuwen dat de migratie voltooid is of als geen actie te ondernemen. Deze sectie beschrijft enkele veelvoorkomende problemen en hoe u omgaat met hen.
 
-### <a name="validation-failed"></a>Validatie is mislukt
+### <a name="validation-failed"></a>De validatie is mislukt
 
 Door een recente wijzigingen in de klassieke waarschuwingsregels in uw abonnement, kan niet het abonnement worden gemigreerd. Dit probleem is tijdelijk. U kunt de migratie opnieuw opstarten nadat de migratiestatus van de wordt teruggeplaatst **gereed voor migratie** in een paar dagen.
 

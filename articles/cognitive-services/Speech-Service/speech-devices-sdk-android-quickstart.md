@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072393"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Quickstart: De voorbeeld-app SDK voor spraak-apparaten worden uitgevoerd op Android
 
@@ -37,7 +37,7 @@ Voordat u met de SDK van de apparaten spraak begint, moet u naar:
 
 * Om op te halen een [sleutel van de Azure-abonnement voor spraakservices](get-started.md)
 
-* Als u van plan bent te gebruiken van de conversatie transcriptie moet u een [circulaire microfoon apparaat](get-speech-devices-sdk.md) en de service is momenteel alleen beschikbaar voor 'en-US' en 'zh-CN' in de regio's, "centralus" en 'Oost-Aziatische'. U moet een spraak-sleutel in een van deze regio's te gebruiken van de conversatie transcriptie hebben.
+* Als u van plan bent te gebruiken van de conversatie transcriptie moet u een [circulaire microfoon apparaat](get-speech-devices-sdk.md) en deze functie is momenteel alleen beschikbaar voor 'en-US' en 'zh-CN' in de regio's, "centralus" en 'Oost-Aziatische'. U moet een spraak-sleutel in een van deze regio's te gebruiken van de conversatie transcriptie hebben.
 
 * Als u van plan bent de Speech Services gebruiken om te identificeren van intents (of acties) van de gebruiker uitingen, moet u een [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) abonnement. Zie voor meer informatie over LUIS en intentieherkenning [spraak intents met LUIS, herkent C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 

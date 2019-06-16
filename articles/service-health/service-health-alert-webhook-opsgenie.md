@@ -1,20 +1,19 @@
 ---
-title: Azure service health waarschuwingen configureren met OpsGenie | Microsoft Docs
+title: Azure service health waarschuwingen verzenden met OpsGenie met behulp van webhooks
 description: Ophalen persoonlijke meldingen over service health-gebeurtenissen naar uw OpsGenie-exemplaar.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/14/2017
-ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782186"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067170"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>Service health waarschuwingen configureren met OpsGenie
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Azure service health waarschuwingen verzenden met OpsGenie met behulp van webhooks
 
 Dit artikel ziet u hoe u Azure service health waarschuwingen met OpsGenie instelt met behulp van een webhook. Met behulp van [OpsGenie](https://www.opsgenie.com/)van Azure Service Health-integratie, kunt u Azure Service Health waarschuwingen doorsturen naar OpsGenie. OpsGenie kunt bepalen de juiste mensen op de hoogte stellen op basis van schema's op oproep, met behulp van e-mailbericht, tekstberichten (SMS), telefonische oproepen, iOS en Android pushmeldingen te verzenden, en de waarschuwingen totdat de waarschuwing is bevestigd of gesloten.
 

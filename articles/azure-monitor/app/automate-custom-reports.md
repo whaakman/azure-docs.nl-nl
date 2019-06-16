@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067663"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Aangepaste rapporten met Azure Application Insights-gegevens automatiseren
 
@@ -92,7 +92,7 @@ availabilityResults
 
    ![Maak een nieuwe functie-schermafbeelding](./media/automate-custom-reports/function-app-03.png)
 
-5. Selecteer de  **_Application Insights geplande samenvatting sjabloon_**.
+5. Selecteer de  **_Application Insights geplande samenvatting sjabloon_** .
 
      > [!NOTE]
      > Functie-apps worden standaard gemaakt met de runtime-versie 2.x. U moet [doelversie van Azure Functions runtime](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x met de Application Insights gepland digest-sjabloon.
@@ -120,7 +120,7 @@ availabilityResults
      > [!NOTE]
      > Als u geen een SendGrid-account hebt, kunt u een kunt maken. Van SendGrid-documentatie voor Azure Functions is [hier](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Als alleen kunt u een minimale uitleg over hoe u SendGrid instellen en genereren van een API-sleutel een aan het einde van dit artikel is opgegeven. 
 
-9. Selecteer **integreren** en onder uitvoer **SendGrid ($return)**.
+9. Selecteer **integreren** en onder uitvoer **SendGrid ($return)** .
 
      ![Schermopname van uitvoer](./media/automate-custom-reports/function-app-09.png)
 

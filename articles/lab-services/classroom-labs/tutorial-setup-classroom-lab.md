@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: bdcc4349f84a35b312ecb3ad6205273b62c2e989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722730"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123274"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -48,7 +48,7 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
         ![Een leslokaallab maken](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Voer op de pagina **Specificaties van virtuele machines selecteren** de volgende stappen uit:
-    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Op dit moment **kleine**, **gemiddeld**, **grote**, en **GPU** grootten zijn toegestaan.
+    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Op dit moment **kleine**, **gemiddeld**, **Gemiddeld (virtualisatie)** , **grote**, en **GPU** grootten zijn toegestaan.
     3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. Als u een installatiekopie van Linux selecteert, ziet u een optie voor het inschakelen van de verbinding met extern bureaublad voor. Zie voor meer informatie, [verbinding met extern bureaublad voor Linux inschakelen](how-to-enable-remote-desktop-linux.md).
     4. Selecteer **Next**.
 
@@ -69,9 +69,11 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
     ![Sjabloonpagina configureren nadat deze is voltooid](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Voer de volgende stappen uit op de pagina **Sjabloon configureren**: Deze stappen zijn **optioneel** voor de zelfstudie.
-    1. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. Als het een basis van Linux virtuele machine, kunt u kiezen of u verbinding maken met SSH of RDP wilt (als RDP is ingeschakeld).
-    2. Software installeren en configureren op uw sjabloon-VM.     
-    3. Een **Beschrijving** voor de sjabloon invoeren
+    2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. Als het een basis van Linux virtuele machine, kunt u kiezen of u verbinding maken met SSH of RDP wilt (als RDP is ingeschakeld).
+    1. Selecteer **wachtwoord opnieuw instellen** het wachtwoord opnieuw instellen voor de virtuele machine. 
+    1. Software installeren en configureren op uw sjabloon-VM. 
+    1. **Stop** de virtuele machine.  
+    1. Een **Beschrijving** voor de sjabloon invoeren
 9. Selecteer **Volgende** op de sjabloonpagina. 
 10. Voer op de pagina **De sjabloon publiceren** de volgende acties uit. 
     1. Als u de sjabloon onmiddellijk publiceren, selecteert u **publiceren**.  
@@ -107,6 +109,40 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
     ![Lijst met gebruikers](../media/how-to-configure-student-usage/users-list-new.png)
 
+## <a name="set-quotas-for-users"></a>Quota instellen voor gebruikers
+U kunt quota's per gebruiker instellen met behulp van de volgende stappen uit: 
+
+1. Selecteer **gebruikers** in het menu links, als de pagina al actief is. 
+2. Selecteer **quotum per gebruiker:** op de werkbalk. 
+3. Op de **quotum per gebruiker** pagina, geef het aantal uren dat u wilt verlenen aan elke gebruiker (studenten): 
+    1. **0 uur (alleen schedule)** . Alleen tijdens het geplande tijdstip, of wanneer u als de eigenaar van het lab voor deze virtuele machines inschakelt, kunnen gebruikers hun VM's gebruiken.
+
+        ![Nul uur - alleen geplande tijd](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Totale aantal uren per gebruiker lab**. Gebruikers kunnen hun VM's gebruiken voor het aantal uren (opgegeven voor dit veld) **naast het geplande tijdstip**. Als u deze optie selecteert, voert u de **aantal uren** in het tekstvak in. 
+
+        ![Aantal uren per gebruiker](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Selecteer **Opslaan**. 
+5. Ziet u de gewijzigde waarden op de werkbalk nu: **Quotum per gebruiker: &lt;aantal uren&gt;** . 
+
+    ![Quotum per gebruiker](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## <a name="set-a-schedule-for-the-lab"></a>Een schema voor de testomgeving instellen
+Als u de quota-instelling geconfigureerd **0 uur (alleen schedule)** , moet u een schema voor de testomgeving instellen. In deze zelfstudie stelt u de planning om te worden van een terugkerende wekelijkse planning.
+
+1. Schakel over naar de **planningen** pagina en selecteer **toevoegen planning** op de werkbalk. 
+
+    ![Schema-knop op de pagina schema toevoegen](../media/how-to-create-schedules/add-schedule-button.png)
+2. Op de **toevoegen planning** pagina, gaat u naar **wekelijkse** aan de bovenkant. 
+3. Voor **plannen dagen (vereist)** , selecteer de dagen waarop de planning van kracht. In het volgende voorbeeld, is maandag tot vrijdag geselecteerd. 
+4. Voor de **van** en voer de **plannen begindatum** of kies een datum selecteert de **agenda** knop. Dit veld is vereist. 
+5. Voor **planning einddatum**Typ of Selecteer een einddatum waarop de virtuele machines moeten worden afgesloten. 
+6. Voor **begintijd**, selecteert u het tijdstip waarop u wilt dat de virtuele machines worden gestart. De begintijd is vereist als de tijd voor het stoppen is niet ingesteld. Selecteer **verwijderen start gebeurtenis** als u wilt om op te geven alleen de tijd voor het stoppen. Als de **begintijd** is uitgeschakeld, selecteer **toevoegen begingebeurtenis** naast de vervolgkeuzelijst zodat het. 
+7. Voor **stoptijd**, selecteert u het tijdstip waarop u wilt dat de virtuele machines worden afgesloten. De tijd voor het stoppen is vereist als de begintijd is niet ingesteld. Selecteer **stop-gebeurtenis Remove** als u wilt opgeven voor alleen de begintijd. Als de **stoptijd** is uitgeschakeld, selecteer **stop-gebeurtenis toevoegen** naast de vervolgkeuzelijst zodat het.
+8. Voor **tijdzone (vereist)** , selecteert u de tijdzone voor het starten en stoppen keren dat u hebt opgegeven.  
+9. Voor **opmerkingen bij de**, geen beschrijving of notities invoeren voor de planning. 
+10. Selecteer **Opslaan**. 
+
+    ![Wekelijks schema](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="send-an-email-with-the-registration-link"></a>Stuur een e-mail met de registratiekoppeling
 

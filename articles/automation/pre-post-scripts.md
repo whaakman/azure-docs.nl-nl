@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a11602919a8b68a078b0b2690411358b4b5f814
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65913857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063494"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Beheren van scripts voor vóór en na
 
@@ -42,7 +42,7 @@ Configuratie van de Update-implementatie te voltooien.
 
 Wanneer de Update-implementatie voltooid is, gaat u naar **Update-implementaties** om de resultaten weer te geven. Zoals u ziet, wordt de status van de Pre-script en post-script worden geleverd.
 
-![Updateresultaten](./media/pre-post-scripts/update-results.png)
+![Resultaten van de update](./media/pre-post-scripts/update-results.png)
 
 Door te klikken in de update-implementatie uitvoert, krijgt u meer informatie naar de scripts voor vóór en na de. Een koppeling naar de scriptbron op het moment van de uitvoering is opgegeven.
 
@@ -68,7 +68,7 @@ Naast de standaard runbookparameters, is een extra parameter opgegeven. Deze par
 
 ## <a name="stopping-a-deployment"></a>Een implementatie stoppen
 
-Als u wilt stoppen van een implementatie op basis van een Pre-script dat u moet [throw](automation-runbook-execution.md#throw) een uitzondering. Als u een uitzondering genereren, de implementatie en post-script nog steeds uitgevoerd. De [voorbeeldrunbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) in de galerie toont hoe u dit kunt doen. Hier volgt een codefragment in dat runbook.
+Als u stoppen van een implementatie op basis van een Pre-script wilt, moet u [throw](automation-runbook-execution.md#throw) een uitzondering. Als u niet een uitzondering genereert, de implementatie en post-script nog steeds uitgevoerd. De [voorbeeldrunbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) in de galerie toont hoe u dit kunt doen. Hier volgt een codefragment in dat runbook.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -206,11 +206,11 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-machines"></a>Interactie met virtuele machines
 
-Vóór en na-taken worden uitgevoerd als een runbook in uw Automation-Account en niet rechtstreeks op de virtuele machines in uw implementatie. Vóór en na taken ook uitvoeren in de context van Azure en geen toegang hebt tot niet-Azure-machines. De volgende secties tonen hoe u kunt werken met de virtuele machines rechtstreeks of ze een virtuele Azure-machine of een niet-Azure-machine zijn:
+Vóór en na-taken worden uitgevoerd als een runbook in uw Automation-Account en niet rechtstreeks op de virtuele machines in uw implementatie. Vóór en na taken ook uitvoeren in de context van Azure en geen toegang hebt tot niet-Azure-machines. De volgende secties tonen hoe u kunt werken met de virtuele machines rechtstreeks of ze een Azure-VM of een niet-Azure-machine:
 
 ### <a name="interacting-with-azure-machines"></a>Interactie met Azure-machines
 
-Vóór en na-taken worden uitgevoerd als runbooks en systeemeigen niet uitgevoerd op uw Azure-VM's in uw implementatie. Om te communiceren met uw Azure VM's, hebt u de volgende items:
+Taken vóór en na als runbooks worden uitgevoerd en niet systeemeigen worden uitgevoerd op uw Azure-VM's in uw implementatie. Om te communiceren met uw Azure VM's, hebt u de volgende items:
 
 * Een uitvoeren als-account
 * Een runbook die uit te voeren
@@ -239,9 +239,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## <a name="known-issues"></a>Bekende problemen
 
-* U toevoegen geen objecten of -matrices aan de parameters bij het gebruik van scripts voor vóór en na. Het runbook zal mislukken.
+* U doorgeven niet een Booleaanse waarde, objecten of matrices parameters bij het gebruik van scripts voor vóór en na. Het runbook zal mislukken. Zie voor een volledige lijst van ondersteunde typen [parameters](#passing-parameters).
 
 ## <a name="next-steps"></a>Volgende stappen
 

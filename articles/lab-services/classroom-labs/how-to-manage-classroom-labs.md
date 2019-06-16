@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 06/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ba41132c93ebdb2578bafb100416ca3fe579298
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703079"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123293"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Leslokaallabs in Azure Lab Services beheren 
 In dit artikel wordt beschreven hoe u maken en verwijderen van een leslokaallab. Deze leest u ook alle leslokaallabs weergeven in een lab-account. 
@@ -37,10 +37,10 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
         ![Een leslokaallab maken](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Voer op de pagina **Specificaties van virtuele machines selecteren** de volgende stappen uit:
-    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Op dit moment **kleine**, **gemiddeld**, **grote**, en **GPU** grootten zijn toegestaan.
-    2. Selecteer de **regio** waarin de virtuele machines moeten worden gemaakt. 
-    3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. Als u een installatiekopie van Linux selecteert, ziet u een optie voor het inschakelen van de verbinding met extern bureaublad voor. Zie voor meer informatie, [verbinding met extern bureaublad voor Linux inschakelen](how-to-enable-remote-desktop-linux.md).
-    4. Selecteer **Next**.
+    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Op dit moment **kleine**, **gemiddeld**, **Gemiddeld (virtualisatie)** , **grote**, en **GPU** grootten zijn toegestaan. Zie voor meer informatie, de [VM-grootten](#vm-sizes) sectie.
+    1. Selecteer de **regio** waarin de virtuele machines moeten worden gemaakt. 
+    1. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. Als u een installatiekopie van Linux selecteert, ziet u een optie voor het inschakelen van de verbinding met extern bureaublad voor. Zie voor meer informatie, [verbinding met extern bureaublad voor Linux inschakelen](how-to-enable-remote-desktop-linux.md).
+    1. Selecteer **Next**.
 
         ![VM-specificaties opgeven](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. Geef op de pagina **Referenties instellen** de standaardreferenties voor alle virtuele machines in het lab op. 
@@ -49,7 +49,10 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
         > [!IMPORTANT]
         > Noteer de gebruikersnaam en het wachtwoord. Deze worden niet opnieuw weergegeven.
-    3. Selecteer **Maken**. 
+    3. Uitschakelen **hetzelfde wachtwoord gebruiken voor alle virtuele machines** optie als u wilt dat studenten om in te stellen hun eigen wachtwoorden. Deze stap is **optioneel**. 
+
+        Een leraar kunt ervoor kiezen gebruik hetzelfde wachtwoord voor alle virtuele machines in het lab toe te staan of studenten instellen van wachtwoorden voor hun VM's. Deze instelling is standaard ingeschakeld voor alle Windows en Linux-installatiekopieën, met uitzondering van Ubuntu. Wanneer u selecteert **Ubuntu** VM, deze instelling is uitgeschakeld, zodat de cursisten wordt gevraagd een wachtwoord wanneer ze zich aanmelden voor de eerste keer instellen.
+    1. Selecteer **Maken**. 
 
         ![Referenties instellen](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. Op de pagina **Sjabloon configureren** wordt de status van het maken van het lab weergegeven. Het maken van de sjabloon in het lab duurt maximaal 20 minuten. Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden.  
@@ -59,13 +62,11 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
     ![Sjabloonpagina configureren nadat deze is voltooid](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. In deze zelfstudie zijn de volgende stappen optioneel: 
-    1. De sjabloon-VM starten door **Starten** te selecteren.
     2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. Als het een basis van Linux virtuele machine, kunt u kiezen of u verbinding maken met SSH of RDP wilt (als RDP is ingeschakeld).
-    3. Software installeren en configureren op uw sjabloon-VM. 
-    4. **Stop** de virtuele machine.  
-    5. Een **Beschrijving** voor de sjabloon invoeren
-
-        ![Volgende op de pagina Sjabloon configureren](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+    1. Selecteer **wachtwoord opnieuw instellen** het wachtwoord opnieuw instellen voor de virtuele machine. 
+    1. Software installeren en configureren op uw sjabloon-VM. 
+    1. **Stop** de virtuele machine.  
+    1. Een **Beschrijving** voor de sjabloon invoeren
 9. Selecteer **Volgende** op de sjabloonpagina. 
 10. Voer op de pagina **De sjabloon publiceren** de volgende acties uit. 
     1. Als u de sjabloon onmiddellijk wilt publiceren, schakelt u het selectievakje in voor *Ik begrijp dat ik de sjabloon niet kan wijzigen nadat deze is gepubliceerd. Dit proces kan slechts één keer worden uitgevoerd en kan tot een uur duren*. Selecteer vervolgens **publiceren**.  Publiceer de sjabloon om exemplaren van de sjabloon-VM beschikbaar te maken voor de labgebruikers.
@@ -88,6 +89,15 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
     ![Virtuele machines met de status Gestopt](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+### <a name="vm-sizes"></a>Formaten van virtuele machines  
+
+| Grootte | Kerngeheugens | RAM | Description | 
+| ---- | ----- | --- | ----------- | 
+| Klein | 2 | 3,5 GB | Deze grootte is het meest geschikt is voor de opdrachtregel, webbrowser, webservers met weinig verkeer, kleine tot middelgrote databases te openen. |
+| Gemiddeld | 4 | 7 GB | Deze grootte is het meest geschikt voor relationele databases, caching in geheugen en analysefuncties | 
+| Gemiddeld (geneste virtualization) | 4 | 16 GB | Deze grootte is het meest geschikt voor relationele databases, caching in geheugen en analyses. Deze grootte biedt ook ondersteuning voor geneste virtualisatie. <p>Deze grootte kan worden gebruikt in scenario's waarbij elke student meerdere virtuele machines nodig. Docenten kunnen geneste virtualisatie gebruiken voor het instellen van een paar kleine grootte geneste virtuele machines in de virtuele machine. </p> |
+| Groot | 8 | 32 GB | Deze grootte is het meest geschikt voor toepassingen waarvoor snellere CPU's, betere lokale-schijfprestaties, grote databases, grote geheugencaches. Deze grootte biedt ook ondersteuning voor geneste virtualisatie |  
+| GPU | 12 | 112 GB | Deze grootte is het meest geschikt voor intensieve compute- en grafisch intensieve visualisatie workloads | 
 
 ## <a name="view-all-classroom-labs"></a>Alle leslokaallabs weergeven
 1. Navigeer naar [Azure Lab Services-portal](https://labs.azure.com).

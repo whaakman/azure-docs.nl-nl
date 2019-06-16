@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64688505"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Probleemoplossing: Een Azure-site-naar-site VPN-verbinding kan geen verbinding maken en werkt niet
 
@@ -41,7 +41,7 @@ Controleer het type van de Azure VPN-gateway.
     
     ![Overzicht van de gateway](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
-### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Step 1. Controleer of de on-premises VPN-apparaat wordt gevalideerd
+### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Stap 1. Controleer of de on-premises VPN-apparaat wordt gevalideerd
 
 1. Controleer of u gebruikt een [gevalideerde VPN-apparaat en de versie van besturingssysteem](vpn-gateway-about-vpn-devices.md#devicetable). Als het apparaat niet een gevalideerde VPN-apparaat is, moet u mogelijk contact op met de fabrikant van het apparaat om te zien of er een compatibiliteitsprobleem op.
 
@@ -102,7 +102,10 @@ Test vervolgens het resultaat controleren en verwijderen van de gebruiker gedefi
 2. Klik op de certificaatwaarschuwing.
 3. Als u een antwoord ontvangt, wordt de VPN-gateway als in orde beschouwd. Als u niet een antwoord ontvangt, wordt de gateway mogelijk niet in orde of het probleem wordt veroorzaakt door een NSG op het gatewaysubnet. De volgende tekst is een voorbeeldantwoord:
 
-    &lt;? XML-versie = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">primaire instantie: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Stap 8. Controleer of de on-premises VPN-apparaat de functie perfect forward secrecy is ingeschakeld heeft
 

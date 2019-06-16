@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730701"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068771"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -33,7 +33,7 @@ Er zijn geen kosten voor het versleutelen van VM-schijven met Azure Disk Encrypt
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Welke Prijscategorieën voor virtuele machines biedt ondersteuning voor Azure Disk Encryption?
 
-Azure Disk Encryption is beschikbaar op standard-laag virtuele machines met inbegrip van [A, D, DS, G, GS en F](https://azure.microsoft.com/pricing/details/virtual-machines/) reeks IaaS-VM's. Het is ook beschikbaar voor virtuele machines met premium storage. Het is niet beschikbaar in basic-laag virtuele machines.
+Azure Disk Encryption is beschikbaar op standard-laag virtuele machines met inbegrip van [A, D, DS, E, G, GS en F](https://azure.microsoft.com/pricing/details/virtual-machines/) reeks IaaS-VM's. Het is ook beschikbaar voor virtuele machines met premium storage. Het is niet beschikbaar in basic-laag virtuele machines.
 
 ## <a name="bkmk_LinuxOSSupport"></a> Wat Linux-distributies biedt ondersteuning voor Azure Disk Encryption?
 
@@ -121,7 +121,9 @@ Ja. Schijfversleuteling met behulp van een Azure AD-app wordt nog steeds onderst
 De meest recente versie van de SDK van Azure PowerShell gebruiken om te configureren van Azure Disk Encryption. Download de nieuwste versie van [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption is *niet* ondersteund door Azure SDK versie 1.1.0.
 
 > [!NOTE]
-> De Linux Azure disk encryption-uitbreiding met Preview-versie is afgeschaft. Zie voor meer informatie, [Azure niet meer ondersteund schijf versleuteling preview-extensie voor Linux IaaS-VM's](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/).
+> De Linux Azure schijf versleuteling preview-extensie "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" is afgeschaft. Deze uitbreiding is gepubliceerd voor Azure disk encryption preview-versie. U moet de preview-versie van de extensie niet gebruiken in uw tests of productie-implementatie.
+
+> Voor implementatiescenario's, zoals Azure Resource Manager (ARM), waar u behoefte aan het implementeren van Azure disk encryption-extensie voor Linux-VM om in te schakelen van versleuteling op uw Linux IaaS-VM hebt, moet u de Azure disk encryption-uitbreiding productie ondersteund" Microsoft.Azure.Security.AzureDiskEncryptionForLinux'.
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>Kan ik Azure Disk Encryption toepassen op mijn aangepaste installatiekopie van Linux?
 

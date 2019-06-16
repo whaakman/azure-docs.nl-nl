@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
 ms.openlocfilehash: 526fc3e51691773e27530a0fa775f4f07ee94acd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389778"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text-API 3.0: Voorbeelden in woordenlijst
@@ -37,7 +37,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   <th width="20%">Queryparameter</th>
   <th>Description</th>
   <tr>
-    <td>API-versie</td>
+    <td>api-version</td>
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
   </tr>
   <tr>

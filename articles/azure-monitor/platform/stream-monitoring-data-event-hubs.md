@@ -1,19 +1,19 @@
 ---
 title: Azure-Stream bewakingsgegevens naar Event Hubs
 description: Meer informatie over het streamen van uw Azure-bewakingsgegevens naar een event hub om op te halen van de gegevens in een SIEM-partner of analyseprogramma.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: ''
-ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8a4de244d0fa07bfc162625f577015317fca7e6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069340"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -43,8 +43,8 @@ Voordat u begint, moet u [maken van een Event Hubs-naamruimte en event hub](../.
 * Het aantal doorvoereenheden kunt u schaalt de doorvoer voor uw eventhubs. Het aantal partities kunt u parallel verbruik in veel consumenten. Één partitie kan maximaal 20MBps of ongeveer 20.000 berichten per seconde. Afhankelijk van het hulpprogramma gebruiken van de gegevens, mogelijk of die uit meerdere partities mogelijk niet ondersteund. Als u niet zeker weet over het aantal partities om in te stellen, het beste beginnen met vier partities.
 * U wordt aangeraden dat u de bewaartermijn voor berichten ingesteld op uw event hub tot zeven dagen duren. Als de verbruikende tool uitgeschakeld voor meer dan een dag wordt, dit zorgt ervoor dat het hulpprogramma verder kan gaan waar deze is gestopt (voor gebeurtenissen tot 7 dagen).
 * Wordt u aangeraden de standaardgroep voor consumenten voor uw event hub. Er is niet nodig om te maken van andere consumentengroepen of een afzonderlijke consumergroep wilt gebruiken, tenzij u van plan bent twee verschillende hulpprogramma's gebruiken dezelfde gegevens uit de dezelfde event hub.
-* Voor de Azure-activiteitenlogboek, kiest u een Event Hubs-naamruimte en Azure Monitor maakt u een event hub in die naamruimte met de naam 'insights-logs-operationallogs'. Voor andere typen logboeken, kunt u een bestaande event hub (zodat u kunt het gebruiken van de dezelfde insights-logs-operationallogs event hub) kiezen of Azure Monitor een event hub per logboekcategorie maken.
-* Poort 5671 en 5672 moet normaal gesproken worden geopend op de computer gebruiken van gegevens uit de event hub.
+* Voor de Azure-activiteitenlogboek, kiest u een Event Hubs-naamruimte en Azure Monitor maakt u een event hub in die naamruimte met de naam 'insights-logs-operational-logs.' Voor andere typen logboeken, kunt u een bestaande event hub (zodat u kunt het gebruiken van de dezelfde insights-logs-operational-logs event hub) kiezen of Azure Monitor een event hub per logboekcategorie maken.
+* Uitgaande poort 5671 en 5672 moet normaal gesproken worden geopend op de machine of het gebruiken van gegevens uit de event hub VNET.
 
 Ook raadpleegt u de [Veelgestelde vragen over Azure Event Hubs](../../event-hubs/event-hubs-faq.md).
 

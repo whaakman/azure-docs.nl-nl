@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120123"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>B2B-berichten bijhouden met Azure Monitor-logboeken
@@ -155,7 +155,7 @@ Hier volgen eigenschapbeschrijvingen voor elk AS2-bericht.
 | Ack | De status van het MDN-bericht <br>Geaccepteerd = ontvangen of een positief MDN verzonden. <br>In afwachting van = wachten ontvangen of een MDN te verzenden. <br>Afgewezen = ontvangen of een negatieve MDN verzonden. <br>Niet vereist = MDN is niet ingesteld in de overeenkomst. |
 | Direction | De richting van de AS2-bericht |
 | Correlatie-id | De ID die overeenkomt met alle triggers en acties in een logische app |
-| Bericht-id | De AS2-bericht-ID van de AS2-bericht-headers |
+| Bericht-ID | De AS2-bericht-ID van de AS2-bericht-headers |
 | Tijdstempel | De tijd wanneer het bericht worden verwerkt door de AS2-actie |
 |          |             |
 

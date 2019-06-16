@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815136"
 ---
 # <a name="command-line-interface"></a>Opdrachtregelinterface
@@ -82,7 +82,7 @@ De **host_service** opdracht als host fungeert voor een exemplaar van de service
 | `<indexFile>`   | Pad van invoer binaire index           |
 | `--port <port>` | Lokale poortnummer.  Standaard: 8000 |
 
-Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-blobs.  Een webservice wordt gehost op http://localhost:&lt; poort&gt;/.  Zie [Web-API's](WebAPI.md) voor een lijst met ondersteunde bewerkingen.
+Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-blobs.  Een webservice wordt gehost op http://localhost:&lt ; poort&gt; /.  Zie [Web-API's](WebAPI.md) voor een lijst met ondersteunde bewerkingen.
 
 Buiten de Azure-omgeving lokaal gehoste services beperkt zijn tot index maximaal 1 MB in grootte, 10 aanvragen per seconde en totaal aantal aanroepen van 1000 bestanden.  Uitvoeren om te strijden tegen deze beperkingen, **host_service** binnen een Azure-VM of implementeren op een Azure-cloud service met behulp van **deploy_service**.
 
@@ -94,7 +94,7 @@ De **deploy_service** opdracht wordt een exemplaar van de service KES geïmpleme
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
-| Parameter       | Beschrijving                  |
+| Parameter       | Description                  |
 |-----------------|------------------------------|
 | `<grammarFile>` | Invoer binaire grammatica-pad           |
 | `<indexFile>`   | Pad van invoer binaire index             |
@@ -114,7 +114,7 @@ De **describe_index** opdracht voert informatie over een indexbestand, met inbeg
 
 `kes.exe describe_index <indexFile>`
 
-| Parameter     | Beschrijving      |
+| Parameter     | Description      |
 |---------------|------------------|
 | `<indexFile>` | Pad van de invoer-index |
 

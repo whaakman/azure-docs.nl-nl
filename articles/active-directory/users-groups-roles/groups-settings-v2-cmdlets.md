@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65407871"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory-cmdlets van versie 2 voor groepsbeheer
@@ -254,13 +254,13 @@ Wanneer een groep is gemaakt, bepaalde-eindpunten kunt de eindgebruiker een mail
   
 * misbruik 
 * beheerder 
-* beheerder 
+* de beheerder 
 * hostmaster 
 * majordomo 
 * postbeheerder 
 * hoofdmap 
-* beveiligen 
-* beveiliging 
+* veilig 
+* security 
 * ssl-admin 
 * beheerder 
 

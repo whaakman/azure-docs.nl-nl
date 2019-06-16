@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 1ae585322316a9c215fc32cc2f8ffba2f332ff61
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cd5839520a5b85f31cbe677ad6691a3d6bacd0b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066356"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 
@@ -93,7 +93,7 @@ U kunt een normale cluster koppelen met behulp van de gebruikersnaam van de Amba
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Een Spark Scala-project voor een HDInsight Spark-cluster instellen
 
 1. Selecteer in de werkruimte Eclipse IDE **bestand**, selecteer **nieuw**, en selecteer vervolgens **Project**. 
-1. Vouw in de wizard Nieuw Project **HDInsight**, selecteer **Spark in HDInsight (Scala)**, en selecteer vervolgens **volgende**.
+1. Vouw in de wizard Nieuw Project **HDInsight**, selecteer **Spark in HDInsight (Scala)** , en selecteer vervolgens **volgende**.
 
    ![De Spark in HDInsight (Scala) project selecteren](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 1. De wizard Scala-project maken detecteert automatisch of u de invoegtoepassing Scala geïnstalleerd. Selecteer **OK** blijven downloaden van de invoegtoepassing Scala en volg de instructies op te starten van Eclipse.
@@ -191,7 +191,7 @@ U kunt verschillende bewerkingen uitvoeren met behulp van HDInsight-hulpprogramm
 1. In het dashboard van de server in de Spark geschiedenis gebruikt u de naam van de toepassing om te zoeken naar de toepassing dat u zojuist hebt uitgevoerd. In de bovenstaande code stelt u de naam van de toepassing met behulp van `val conf = new SparkConf().setAppName("MyClusterApp")`. Dus de naam van uw Spark-toepassing is **MyClusterApp**.
 
 ### <a name="start-the-apache-ambari-portal"></a>Start de Apache Ambari-portal
-1. Met de rechtermuisknop op de naam van uw Spark-cluster in Azure Explorer, en selecteer vervolgens **Open Management Portal van het Cluster (Ambari)**. 
+1. Met de rechtermuisknop op de naam van uw Spark-cluster in Azure Explorer, en selecteer vervolgens **Open Management Portal van het Cluster (Ambari)** . 
 1. Wanneer u wordt gevraagd, typt u de beheerdersreferenties voor het cluster. U hebt opgegeven dat deze tijdens het inrichten van het cluster.
 
 ### <a name="manage-azure-subscriptions"></a>Azure-abonnementen beheren
@@ -212,7 +212,7 @@ U kunt deze fout oplossen, moet u [downloaden van het uitvoerbare bestand](https
 1. Start Eclipse en maak een project. In de **nieuw Project** in het dialoogvenster de volgende opties en selecteer vervolgens **volgende**.
    
    * Selecteer **HDInsight** in het linkerdeelvenster.
-   * Selecteer in het rechter deelvenster **Spark in HDInsight lokaal uitvoeren voorbeeld (Scala)**.
+   * Selecteer in het rechter deelvenster **Spark in HDInsight lokaal uitvoeren voorbeeld (Scala)** .
 
    ![Het dialoogvenster Nieuw project](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
    
@@ -226,6 +226,60 @@ U kunt deze fout oplossen, moet u [downloaden van het uitvoerbare bestand](https
    
    ![Spark-toepassing lokaal uitvoeren van resultaat](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
+## <a name="reader-only-role"></a>Rol van lezer alleen-lezen
+Wanneer gebruikers verzenden van taken aan een cluster met de van lezer alleen-lezen-Rolmachtiging, is Ambari referenties vereist.
+
+### <a name="link-cluster-from-context-menu"></a>Koppeling cluster op basis van contextmenu
+
+1. Meld u aan met de rol van lezer alleen-lezen-account.
+       
+2. Van **Azure Explorer**, vouw **HDInsight** om HDInsight-clusters die in uw abonnement zijn weer te geven. De clusters gemarkeerd **'Rol: lezer'** alleen gemachtigd rol van lezer alleen-lezen.
+
+    ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+
+3. Klik met de rechtermuisknop op het cluster met de van lezer alleen-lezen-Rolmachtiging. Selecteer **koppelt dit cluster** cluster in contextmenu om te koppelen. Voer de Ambari-gebruikersnaam en wachtwoord.
+
+    ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+
+4. Als het cluster is is gekoppeld, kunt u HDInsight wordt vernieuwd.
+   De fase van het cluster zal worden gekoppeld.
+  
+    ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+
+
+
+### <a name="link-cluster-by-expanding-jobs-node"></a>Koppeling cluster door het uitbreiden van taken knooppunt
+
+1. Klik op **taken** knooppunt **Cluster taak toegang geweigerd** venster wordt weergegeven.
+   
+2. Klik op **koppelt dit cluster** cluster koppelen.
+   
+    ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+
+### <a name="link-cluster-from-spark-submission-window"></a>Koppeling cluster op basis van de verzending van de Spark-venster
+
+1. Een HDInsight-Project maken.
+
+2. Klik met de rechtermuisknop op het pakket. Selecteer vervolgens **Spark-toepassing verzenden naar HDInsight**.
+   
+   ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+
+3. Selecteer een cluster dat gemachtigd voor de rol van lezer alleen-lezen is voor **clusternaam**. Bericht wordt weergegeven op de waarschuwing uit. U kunt klikken op **koppelt dit cluster** cluster koppelen.
+   
+   ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   
+### <a name="view-storage-accounts"></a>Storage-Accounts weergeven
+
+* Voor clusters met alleen-lezer Rolmachtiging, klikt u op **Opslagaccounts** knooppunt **opslag toegang geweigerd** venster wordt weergegeven. 
+     
+   ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+
+   ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+
+* Gekoppelde clusters, klikt u op **Opslagaccounts** knooppunt **opslag toegang geweigerd** venster wordt weergegeven. 
+     
+   ![HDInsight Spark-clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+
 ## <a name="known-problems"></a>Bekende problemen
 Wanneer een cluster te koppelen, ik zou u de referenties van de opslag bieden voorstellen.
 
@@ -236,9 +290,6 @@ Er zijn twee modi voor het verzenden van de taken. Als storage-referentie is opg
 ![eclipse de foutmelding wanneer cluster bezet](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
 
 ![eclipse de foutmelding wanneer cluster bezet](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
-
-## <a name="feedback"></a>Feedback
-Als u bepaalde feedback hebt, of als er andere problemen die optreden bij gebruik van dit hulpprogramma, stuur ons een e-mailbericht op hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Zie ook
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
@@ -257,7 +308,6 @@ Als u bepaalde feedback hebt, of als er andere problemen die optreden bij gebrui
 * [Azure Toolkit voor IntelliJ gebruiken om te maken en verzenden van Spark Scala-toepassingen](apache-spark-intellij-tool-plugin.md)
 * [Azure Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand via VPN-verbinding gebruiken](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Azure Toolkit voor IntelliJ gebruiken voor foutopsporing van Apache Spark-toepassingen op afstand via SSH](../hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](apache-spark-jupyter-notebook-use-external-packages.md)

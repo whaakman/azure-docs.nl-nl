@@ -1,6 +1,6 @@
 ---
 title: Azure Monitorafhankelijkheid virtuele machine-extensie voor Linux | Microsoft Docs
-description: De afhankelijkheid van Azure Monitor-agent op Linux-machine met behulp van de extensie van een virtuele machine implementeren.
+description: De afhankelijkheid van Azure Monitor-agent op Linux-machine implementeren met behulp van een VM-extensie.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 750393e6dba17ab8ba024f9f1fbb2f9127dd81ab
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 5faeebe799bd8cc0ba9a148508ac5b3a6d4b803a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120201"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Azure Monitorafhankelijkheid virtuele machine-extensie voor Linux
 
@@ -74,7 +74,7 @@ De volgende JSON bevat het schema voor de afhankelijkheid van Azure VM agent-ext
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Name | Waarde / voorbeeld |
+| Name | Voorbeeld van een waarde / |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
@@ -83,11 +83,11 @@ De volgende JSON bevat het schema voor de afhankelijkheid van Azure VM agent-ext
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de afhankelijkheid van Azure VM agent-extensie tijdens de sjabloonimplementatie van een Azure Resource Manager. 
+U kunt Azure VM-extensies met Azure Resource Manager-sjablonen implementeren. U kunt de JSON-schema dat is beschreven in het vorige gedeelte van een Azure Resource Manager-sjabloon gebruiken om uit te voeren van de afhankelijkheid van Azure VM agent-extensie tijdens de sjabloonimplementatie van een Azure Resource Manager.
 
-De JSON voor de extensie van een virtuele machine kan worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+De JSON voor de extensie van een virtuele machine kan worden genest in de bron van de virtuele machine. Of u kunt deze plaatsen op de basis- of hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources).
 
-Het volgende voorbeeld wordt ervan uitgegaan dat de agent-extensie van afhankelijkheid is genest in de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
+Het volgende voorbeeld wordt ervan uitgegaan dat de agent-extensie van afhankelijkheid is genest in de bron van de virtuele machine. Wanneer u de extensie resource nesten, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
 
 
 ```json
@@ -108,7 +108,7 @@ Het volgende voorbeeld wordt ervan uitgegaan dat de agent-extensie van afhankeli
 }
 ```
 
-Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, naam van de resource bevat een verwijzing naar de bovenliggende virtuele machine en het type weerspiegelt de geneste configuratie. 
+Als u de JSON-extensie in de hoofdmap van de sjabloon plaatst, bevat de naam van de resource een verwijzing naar de bovenliggende virtuele machine. Het type weerspiegelt de geneste configuratie. 
 
 ```json
 {
@@ -130,7 +130,7 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, naam van d
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
 
-De Azure CLI kan worden gebruikt om de agent voor afhankelijkheden VM-extensie om een bestaande virtuele machine te implementeren.  
+U kunt de Azure CLI gebruiken voor het implementeren van de agent voor afhankelijkheden VM-extensie op een bestaande virtuele machine.  
 
 ```azurecli
 
@@ -146,7 +146,7 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>Problemen oplossen
 
-Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure-portal en met behulp van de Azure CLI. Als wilt zien de implementatiestatus van extensies voor een bepaalde virtuele machine, voert u de volgende opdracht uit met de Azure CLI.
+Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure-portal en met behulp van de Azure CLI. Als u wilt zien de implementatiestatus van extensies voor een bepaalde virtuele machine, moet u de volgende opdracht uitvoeren met behulp van de Azure CLI:
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -160,4 +160,4 @@ Extensie uitvoering uitvoer wordt vastgelegd in het volgende bestand:
 
 ### <a name="support"></a>Ondersteuning
 
-Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer Get-ondersteuning. Voor meer informatie over het gebruik van ondersteuning voor Azure, de [Veelgestelde vragen over Microsoft Azure-ondersteuning](https://azure.microsoft.com/support/faq/).
+Als u hulp nodig hebt op elk gewenst moment in dit artikel, contact op met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). Of u kunt een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer **ondersteuning krijgen**. Voor meer informatie over hoe u ondersteuning voor Azure, de [Veelgestelde vragen over Microsoft Azure-ondersteuning](https://azure.microsoft.com/support/faq/).

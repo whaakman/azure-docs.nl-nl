@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812814"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113163"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Voorwaardelijke toegang voor gebruikers van B2B-samenwerking
 
@@ -89,7 +89,7 @@ Daarom is de aanbeveling voor MFA voor B2B-gebruikers altijd om MFA te vereisen 
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Op basis van apparaat, op basis van locatie en risico's gebaseerde voorwaardelijke toegang voor B2B-gebruikers
 
-Bij Contoso beleid voor voorwaardelijke toegang op basis van apparaten voor hun zakelijke gegevens kunt, wordt toegang vanaf apparaten die niet beheerd door Contoso en niet compatibel zijn met de Contoso-apparaatbeleid worden voorkomen.
+Bij Contoso beleid voor voorwaardelijke toegang op basis van het apparaat voor hun zakelijke gegevens kunt, wordt toegang vanaf apparaten die niet worden beheerd door Contoso en niet compatibel zijn met de Contoso-apparaatbeleid voorkomen.
 
 Als het apparaat van de B2B-gebruiker niet wordt beheerd door Contoso, wordt de toegang van B2B-gebruikers van de partnerorganisaties geblokkeerd in welke context deze beleidsregels worden afgedwongen. Contoso kan echter uitsluitingslijsten met specifieke partner gebruikers uitgesloten van het beleid voor voorwaardelijke toegang op basis van het apparaat te maken.
 

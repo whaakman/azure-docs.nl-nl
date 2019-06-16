@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-naslaginformatie voor voorwaardelijke toegang | Microsoft Docs
-description: Bekijk een overzicht van de ondersteunde instellingen in een Azure Active Directory-beleid voor voorwaardelijke toegang.
+title: Naslaginformatie over Azure Active Directory voor voorwaardelijke toegang | Microsoft Docs
+description: Bekijk een overzicht van de ondersteunde instellingen in een beleid voor Azure Active Directory voor voorwaardelijke toegang.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112113"
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Naslaginformatie over Azure Active Directory voor voorwaardelijke toegang
 
 U kunt [voorwaardelijke toegang van Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) om te bepalen hoe gemachtigde gebruikers toegang hebben tot uw resources.
 
@@ -140,7 +140,7 @@ Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
 | Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
@@ -149,10 +149,10 @@ Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersle
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
 | Type | REG_SZ (String) |
-| Gegevens | {"patroon": "https://device.login.microsoftonline.com',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}} |
+| Gegevens | {"patroon": "https://device.login.microsoftonline.com ',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}} |
 
 Deze browsers ondersteunen verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privémodus.
 
@@ -182,7 +182,7 @@ Deze instelling heeft een invloed op een poging toegang van de volgende mobiele 
 | Mobiele app van Outlook | Office 365 Exchange Online | Android, iOS |
 | Power BI-app | Power BI-service | Windows 10, Windows 8.1, Windows 7, Android en iOS |
 | Skype voor Bedrijven | Office 365 Exchange Online| Android, IOS |
-| Visual Studio Team Services-app | Visual Studio-teamservices | Windows 10, Windows 8.1, Windows 7, iOS en Android |
+| Visual Studio Team Services-app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS en Android |
 
 ## <a name="support-for-legacy-authentication"></a>Ondersteuning voor legacy-verificatie
 

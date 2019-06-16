@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4cfbfc4bed5438ed901fca86d8c2939d3860c68e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061585"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Inleiding tot variabele pakketopname in Azure Network Watcher
 
-Variabele pakketopname van Network Watcher kunt u packet capture-sessies voor het volgen van verkeer van en naar een virtuele machine maken. Packet capture helpt om op te sporen netwerk afwijkingen beide reactief en proactivity. Andere toepassingen zijn onder andere de netwerkstatistieken, het verkrijgen van informatie over het netwerk indringers, fouten opsporen in client-servercommunicatie en nog veel meer verzamelen.
+Variabele pakketopname van Network Watcher kunt u packet capture-sessies voor het volgen van verkeer van en naar een virtuele machine maken. Pakketopname helpt bij het opsporen van afwijkingen netwerk reactief en proactief. Andere toepassingen zijn onder andere de netwerkstatistieken, het verkrijgen van informatie over het netwerk indringers, fouten opsporen in client-servercommunicatie en nog veel meer verzamelen.
 
 Pakketopname is de extensie van een virtuele machine die op afstand via Network Watcher is gestart. Deze mogelijkheid vereenvoudigt het ongemak van het uitvoeren van een pakketopname handmatig op de gewenste virtuele machine, waardoor waardevolle tijd worden opgeslagen. Pakketopname kan worden geactiveerd via de portal, PowerShell, CLI of REST-API. Er is een voorbeeld van hoe pakketopname kan worden geactiveerd met waarschuwingen van de virtuele Machine. Filters zijn beschikbaar voor de opnamesessie om te controleren of vastleggen van verkeer die u wilt bewaken. Filters zijn gebaseerd op 5-tuple (protocol, lokale IP-adres, extern IP-adres, lokale poort en externe poort) informatie. De vastgelegde gegevens worden opgeslagen in de lokale schijf of een opslag-blob. Er is een limiet van 10 packet capture-sessies per regio per abonnement. Deze limiet geldt alleen voor de sessies en geldt niet voor de opgeslagen packet capture-bestanden lokaal op de virtuele machine of in een storage-account.
 
