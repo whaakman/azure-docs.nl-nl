@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60690811"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Aan de slag met de Informix-connector
@@ -44,7 +44,7 @@ Deze connector ondersteunt de volgende acties van logische Apps:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Lijst met tabellen weergeven
+## <a name="list-tables"></a>Lijst met tabellen
 Het maken van een logische app voor elke bewerking die bestaat uit veel stappen die worden uitgevoerd via de Microsoft Azure-portal.
 
 In de logische app, kunt u een actie toevoegen aan lijst met tabellen in een Informix-database. Hiermee geeft u de connector voor het verwerken van een Informix-schema-instructie, zoals `CALL SYSIBM.SQLTABLES`.
@@ -58,7 +58,7 @@ In de logische app, kunt u een actie toevoegen aan lijst met tabellen in een Inf
 2. In de **triggers** in de lijst met **terugkeerpatroon**. 
 3. In de **terugkeerpatroon** trigger, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst te selecteren **dag**, en selecteer vervolgens  **Interval** naar het type **7**.  
 4. Selecteer de **+ nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - tabellen ophalen (Preview)**.
+5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - tabellen ophalen (Preview)** .
    
    ![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
 6. In de **Informix - Get-tabellen** configuratie venster **selectievakje** om in te schakelen **verbinding maken via een on-premises gegevensgateway**. U ziet dat de instellingen voor het wijzigen van cloud naar on-premises.
@@ -85,9 +85,9 @@ Deze connector biedt ondersteuning voor verbindingen met database on-premises en
 | server |Vereist. Accepteert een string-waarde vertegenwoordigt een TCP/IP-adres of de alias in IPv4 of IPv6-indeling, gevolgd (puntkomma's gescheiden) door een TCP/IP-poortnummer. |
 | database |Vereist. Accepteert een string-waarde vertegenwoordigt een DRDA relationele Database de naam (RDBNAM). Informix accepteert een 128-byte-tekenreeks (de database staat bekend als de naam van een IBM Informix-database (dbname)). |
 | verificatie |Optioneel. Accepteert een item lijstwaarde, Basic of Windows (kerberos). |
-| gebruikersnaam |Vereist. Een string-waarde accepteert. |
+| username |Vereist. Een string-waarde accepteert. |
 | password |Vereist. Een string-waarde accepteert. |
-| gateway |Vereist. Accepteert een lijst met item-waarde voor de on-premises gegevensgateway naar Logic Apps is gedefinieerd in de opslaggroep. |
+| Gateway |Vereist. Accepteert een lijst met item-waarde voor de on-premises gegevensgateway naar Logic Apps is gedefinieerd in de opslaggroep. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>De on-premises gatewayverbinding maken
 Deze connector kan toegang tot een on-premises Informix-database met behulp van de on-premises gegevensgateway. Zie gateway-onderwerpen voor meer informatie. 
@@ -128,7 +128,7 @@ U kunt een actie voor logische app om op te halen van alle rijen in de Informix-
 2. In de **triggers** in de lijst met **terugkeerpatroon**. 
 3. In de **terugkeerpatroon** trigger, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst te selecteren **dag**, en selecteer vervolgens  **Interval** naar het type **7**. 
 4. Selecteer de **+ nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rijen ophalen (Preview)**.
+5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rijen ophalen (Preview)** .
 6. In de **rijen (Preview) ophalen** actie, selecteer **verbinding wijzigen**.
 7. In de **verbindingen** configuratie venster **nieuw**. 
    
@@ -165,7 +165,7 @@ U kunt een actie voor logische app als u wilt toevoegen van een rij in een Infor
 2. In de **triggers** in de lijst met **terugkeerpatroon**. 
 3. In de **terugkeerpatroon** trigger, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst te selecteren **dag**, en selecteer vervolgens  **Interval** naar het type **7**. 
 4. Selecteer de **+ nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rij invoegen (Preview)**.
+5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rij invoegen (Preview)** .
 6. In de **rijen (Preview) ophalen** actie, selecteer **verbinding wijzigen**. 
 7. In de **verbindingen** configuratie in het deelvenster selecteren om een verbinding te kiezen. Selecteer bijvoorbeeld **hisdemo2**.
    
@@ -192,7 +192,7 @@ U kunt een actie voor logische app om op te halen van een rij in een Informix-ta
 2. In de **triggers** in de lijst met **terugkeerpatroon**. 
 3. In de **terugkeerpatroon** trigger, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst te selecteren **dag**, en selecteer vervolgens  **Interval** naar het type **7**. 
 4. Selecteer de **+ nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rijen ophalen (Preview)**.
+5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rijen ophalen (Preview)** .
 6. In de **rijen (Preview) ophalen** actie, selecteer **verbinding wijzigen**. 
 7. In de **verbindingen** deelvenster configuraties, selecteer een bestaande verbinding selecteren. Selecteer bijvoorbeeld **hisdemo2**.
    
@@ -220,7 +220,7 @@ U kunt een actie voor logische app als u wilt wijzigen van een rij in een Inform
 2. In de **triggers** in de lijst met **terugkeerpatroon**. 
 3. In de **terugkeerpatroon** trigger, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst te selecteren **dag**, en selecteer vervolgens  **Interval** naar het type **7**. 
 4. Selecteer de **+ nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rij bijwerken (Preview)**.
+5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rij bijwerken (Preview)** .
 6. In de **rijen (Preview) ophalen** actie, selecteer **verbinding wijzigen**. 
 7. In de **verbindingen** deelvenster configuraties, selecteer een bestaande verbinding selecteren. Selecteer bijvoorbeeld **hisdemo2**.
    
@@ -247,7 +247,7 @@ U kunt een actie voor logische app als u wilt verwijderen van een rij in een Inf
 2. In de **triggers** in de lijst met **terugkeerpatroon**. 
 3. In de **terugkeerpatroon** trigger, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst te selecteren **dag**, en selecteer vervolgens  **Interval** naar het type **7**. 
 4. Selecteer de **+ nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rij verwijderen (Preview)**.
+5. In de **acties** weergeven, typt u **informix** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **Informix - rij verwijderen (Preview)** .
 6. In de **rijen (Preview) ophalen** actie, selecteer **verbinding wijzigen**. 
 7. In de **verbindingen** configuraties in het deelvenster een bestaande verbinding selecteren. Selecteer bijvoorbeeld **hisdemo2**.
    

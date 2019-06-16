@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773261"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Virtuele Machine gebruik metrische gegevens met behulp van de REST-API ophalen
@@ -23,7 +23,7 @@ In dit voorbeeld laat zien hoe om op te halen van het CPU-gebruik voor een [virt
 
 Volledige documentatie en meer voorbeelden voor de REST-API zijn beschikbaar in de [naslaginformatie over de Azure Monitor REST](/rest/api/monitor). 
 
-## <a name="build-the-request"></a>De aanvraag maken
+## <a name="build-the-request"></a>De aanvraag voor het samenstellen
 
 Gebruik de volgende GET-aanvraag voor het verzamelen van de [Percentage CPU-metriek](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) van een virtuele Machine
 
@@ -38,7 +38,7 @@ De volgende headers zijn vereist:
 |Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
-|*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parameters
 
@@ -48,7 +48,7 @@ De volgende headers zijn vereist:
 | resourceGroupName | De naam van de Azure-resourcegroep die is gekoppeld aan de resource. U kunt deze waarde ophalen vanuit de Azure Resource Manager-API, CLI of de portal. |
 | vmname | De naam van de Azure-Machine. |
 | metricnames | Door komma's gescheiden lijst van geldige [metrische gegevens over Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| API-versie | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2018-01-01`opgenomen in de bovenstaande URL.  |
+| api-version | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2018-01-01`opgenomen in de bovenstaande URL.  |
 | timespan | De tekenreeks met de volgende indeling `startDateTime_ISO/endDateTime_ISO` waarmee het tijdsbereik van de geretourneerde metrische gegevens worden gedefinieerd. Dit is een optionele parameter is ingesteld om te retourneren van een dag aan gegevens in het voorbeeld. |
 | &nbsp; | &nbsp; |
 

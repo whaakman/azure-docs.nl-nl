@@ -12,10 +12,10 @@ ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379251"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Levenscyclus van de Knowledge base in QnA Maker
@@ -31,7 +31,7 @@ QnA Maker knowledge base (KB)-eindpunt biedt een best-none-match-antwoord op een
 De knowledge base is klaar voor testen wanneer het wordt gevuld met inhoud, redactioneel of via automatische extractie. Interactieve testen kan worden uitgevoerd in de QnA Maker portal via de **Test** Configuratiescherm door te voeren van de algemene query's van gebruikers en verifiëren dat het antwoord geretourneerd met de juiste reactie en voldoende betrouwbaarheidsscore. 
 
 * **Om op te lossen lage vertrouwen scores**: alternatieve vragen toevoegen. 
-* **Wanneer een query onjuist retourneert de [Standaardantwoord](confidence-score.md#change-default-answer)**: nieuwe antwoorden op de juiste vraag toevoegen. 
+* **Wanneer een query onjuist retourneert de [Standaardantwoord](confidence-score.md#change-default-answer)** : nieuwe antwoorden op de juiste vraag toevoegen. 
 
 Deze lus van test-update gaat door totdat u tevreden met de resultaten bent. Meer informatie over het [uw knowledge base test](../How-To/test-knowledge-base.md).
 

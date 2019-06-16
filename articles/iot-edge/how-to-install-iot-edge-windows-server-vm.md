@@ -7,27 +7,24 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: be7479d3f042d6e64428a07e0509907b78595200
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9e3f7e3b23cba3fab87ee35aa2a15b6305d9ece4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159778"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054176"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Azure IoT Edge worden uitgevoerd op Windows Server Virtual Machines
 De Azure IoT Edge-runtime is wat een apparaat verandert in een IoT Edge-apparaat. De runtime kan worden geïmplementeerd op apparaten als klein is als een Raspberry Pi of even groot zijn als een industrie-server. Wanneer een apparaat is geconfigureerd met de IoT Edge-runtime, kun u bedrijfslogica toe vanuit de cloud implementeren.
 
 Zie voor meer informatie over de werking van de IoT Edge-runtime en welke onderdelen zijn opgenomen, [inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur](iot-edge-runtime.md).
 
-In dit artikel worden de stappen voor het uitvoeren van de Azure IoT Edge-runtime op een Windows Server 2019 virtuele machine met de [WindowsServer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace-aanbieding. Volg de instructies op [installeren van de Azure IoT Edge-runtime](how-to-install-iot-edge-windows.md) op Windows voor gebruik met andere versies.
-
-> [!NOTE]
-> IoT Edge-runtime op Windows Server is in [preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In dit artikel worden de stappen voor het uitvoeren van de Azure IoT Edge-runtime op een Windows Server 2019 virtuele machine met de [WindowsServer](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-aanbieding. Volg de instructies op [installeren van de Azure IoT Edge-runtime](how-to-install-iot-edge-windows.md) op Windows voor gebruik met andere versies.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Implementeren in Azure Marketplace
-1.  Navigeer naar de [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace-aanbieding of door te zoeken naar 'Windows Server' op [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1.  Navigeer naar de [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-aanbieding of door te zoeken naar 'Windows Server' op [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2.  Selecteer **krijgen nu** 
 3.  In **softwareabonnement**, zoek 'Windows Server 2019 Datacenter Server Core met Containers' en selecteer vervolgens **doorgaan** in het volgende dialoogvenster.
     * U kunt deze instructies ook gebruiken voor andere versies van Windows Server met Containers

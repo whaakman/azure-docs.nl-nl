@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127324"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure Security and Compliance Blueprint - PaaS Web Application for NIST Special Publication 800-171
@@ -118,10 +118,10 @@ Elk van de nsg's heeft specifieke poorten en protocollen open zodat de oplossing
 
 **Azure Load Balancer**: [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) kan worden gebruikt door klanten hun toepassingen schalen en hoge beschikbaarheid voor services. Load Balancer biedt ondersteuning voor scenario's voor binnenkomend en uitgaand. Het lage latentie en hoge doorvoer en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen.
 
-### <a name="data-in-transit"></a>Gegevens die onderweg zijn
+### <a name="data-in-transit"></a>Actieve gegevens
 Alle communicatie naar en vanuit Azure-datacenters versleutelt Azure standaard. Alle transacties met Azure Storage via Azure portal plaatsvinden via HTTPS.
 
-### <a name="data-at-rest"></a>Data-at-rest
+### <a name="data-at-rest"></a>Inactieve gegevens
 
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 

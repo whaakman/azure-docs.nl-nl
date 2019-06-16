@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080541"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Event Hubs
 
@@ -45,7 +45,7 @@ Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen di
 > - Azure Functions
 
 > [!IMPORTANT]
-> Virtuele netwerken worden ondersteund in de lagen **Standard** en **Dedicated** van Event Hubs. Deze worden niet ondersteund in de Basic-laag.
+> Virtuele netwerken worden ondersteund **standard** en **toegewezen** lagen van Event Hubs. Het wordt niet ondersteund in de basic-laag.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Geavanceerde beveiliging mogelijke scenario's met VNet-integratie 
 
@@ -71,13 +71,13 @@ Sjabloonparameters:
 
 * **namespaceName**: Event Hubs-naamruimte.
 * **vnetRuleName**: Naam voor de regel voor virtuele netwerken worden gemaakt.
-* **virtualNetworkingSubnetId**: Volledig gekwalificeerde pad van de Resource Manager voor het subnet van het virtuele netwerk; bijvoorbeeld, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` voor de standaard-subnet van een virtueel netwerk.
+* **virtualNetworkingSubnetId**: Volledig gekwalificeerde pad van de Resource Manager voor het subnet van het virtuele netwerk; bijvoorbeeld, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` voor de standaard-subnet van een virtueel netwerk.
 
 > [!NOTE]
 > Er zijn geen regels voor weigeren mogelijk, de Azure Resource Manager-sjabloon is de standaardactie die is ingesteld op **'Toestaan'** die verbindingen niet beperken.
 > Bij het maken van regels voor Virtueelnetwerk of Firewalls, moeten we wijzigen de ***"defaultAction"***
 > 
-> uit
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

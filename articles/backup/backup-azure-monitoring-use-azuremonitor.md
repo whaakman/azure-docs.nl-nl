@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808521"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Bewaking op schaal met Azure Monitor
 
@@ -257,7 +257,7 @@ De resource als volgt de Recovery Services-kluis zelf en daarom moet u dezelfde 
 Hoewel de melding via activiteitenlogboeken kan worden gebruikt, ***Azure Backup-service wordt ten zeerste aangeraden LA gebruiken voor de bewaking op schaal en niet de activiteitenlogboeken van de volgende redenen***.
 
 - **Beperkte scenario's:** Alleen van toepassing op virtuele Azure-machines en voor elke kluis RS moet worden herhaald.
-- **Definitie van past:** De geplande back-activiteit niet voldoen aan de meest recente definitie van activiteitenlogboeken en conform de [diagnostische logboeken](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Deze leiden tot onverwachte gevolgen wanneer de gegevens die via een activiteit log kanaal pompen wordt gewijzigd zoals hieronder.
+- **Definitie van past:** De geplande back-activiteit niet voldoen aan de meest recente definitie van activiteitenlogboeken en conform de [diagnostische logboeken](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Deze leiden tot onverwachte gevolgen wanneer de gegevens die via een activiteit log kanaal pompen wordt gewijzigd zoals hieronder.
 - **Problemen met activiteit log kanaal:** We hebben verplaatst naar een nieuw model moet activiteitenlogboeken van Azure Backup op de Recovery Services-kluizen. De verplaatsing is helaas generatie van activiteitenlogboeken in Azure onafhankelijke Clouds beïnvloed. Als gebruikers van Azure onafhankelijke Cloud gemaakt/geconfigureerd geen waarschuwingen van activiteitenlogboeken via Azure Monitor, zouden ze niet worden geactiveerd. Ook wordt in alle Azure openbare regio's, als een gebruiker Recovery Services-activiteitenlogboeken in een Log Analytics-werkruimte verzamelen is zoals vermeld [hier](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), deze logboeken ook niet weergegeven.
 
 Dus het is raadzaam gebruik van Log Analytics-werkruimte voor bewaking en waarschuwingen op schaal voor uw Azure Backup beveiligde werkbelastingen.

@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 28cfbc7183628b00c463f1c3a8a954ba4074409b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65415965"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute wereldwijd bereik
@@ -39,7 +39,7 @@ ExpressRoute globaal bereik wordt op dat moment ondersteund in de volgende locat
 * Hongkong SAR
 * Ierland
 * Japan
-* Zuid-Korea
+* Korea
 * Nederland
 * Singapore
 * Zwitserland

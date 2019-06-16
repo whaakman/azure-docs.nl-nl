@@ -11,26 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 3/19/2018
+ms.author: amsriva
 ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715794"
 ---
 # <a name="application-gateway-redirect-overview"></a>Overzicht van Application Gateway redirect
 
-Application gateway kunt u verkeer omleiden.  Er is een algemene omleiding-mechanisme voor het omleiden van verkeer dat is ontvangen door een listener voor een ander listener of naar een externe site waarmee. Dit vereenvoudigt de configuratie van toepassing, optimaliseert het gebruik van bronnen en biedt ondersteuning voor nieuwe omleiding-scenario's, met inbegrip van omleiding van globale en op basis van een pad.
+Application gateway kunt u verkeer omleiden.  De service heeft een algemeen omleidingsmechanisme om verkeer dat is ontvangen door de ene listener om te leiden naar een andere listener of naar een externe site. Dit vereenvoudigt de configuratie van toepassing, optimaliseert het gebruik van bronnen en biedt ondersteuning voor nieuwe omleiding-scenario's, met inbegrip van omleiding van globale en op basis van een pad.
 
 Een veelvoorkomend scenario omleiding voor veel webtoepassingen wordt voor de ondersteuning van automatische HTTP naar HTTPS-omleiding om te controleren of dat alle communicatie tussen de toepassing en de gebruikers daarvan vindt plaats via een gecodeerde pad. Klanten hebben in het verleden technieken zoals het maken van een toegewezen back endpool met als enig doel is om te leiden van HTTP naar HTTPS ontvangen aanvragen worden gebruikt. Met de ondersteuning van omleiding in Application Gateway, kunt u dit doen door een nieuwe omleidings-configuratie toe te voegen aan een regel voor het doorsturen en een ander listener met HTTPS-protocol als de doel-listener op te geven.
 
 De volgende typen omleiding worden ondersteund:
 
 - 301: permanente omleiding
-- 302 - Gevonden
+- 302 gevonden
 - 303 Zie overige
 - 307 Temporary Redirect
 
@@ -51,5 +50,3 @@ Met deze wijziging moeten klanten maken van een nieuwe omleiden configuration-ob
 ### <a name="next-steps"></a>Volgende stappen
 
 [URL-omleiding in een toepassingsgateway configureren](tutorial-url-redirect-powershell.md)
-
-<!-- Update_Description: wording update -->

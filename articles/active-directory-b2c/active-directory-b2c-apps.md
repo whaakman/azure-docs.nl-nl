@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4a9931fa6e2edf8989036eb8dbfbef3638cbbe0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051740"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
@@ -98,7 +98,7 @@ Een web-API kan tokens ontvangen van tal van clients, waaronder webtoepassingen,
 6. De `access_token` en `refresh_token` keert terug naar de webserver.
 7. De web-API wordt aangeroepen met de `access_token` in een autorisatie-header.
 8. De web-API valideert het token.
-9. Beveiligde gegevens worden geretourneerd naar de webserver.
+9. Beveiligen van gegevens wordt geretourneerd naar de web-App.
 
 Voor meer informatie over autorisatiecodes, vernieuwingstokens en de stappen voor het ophalen van tokens, leest u over het [OAuth 2.0-protocol](active-directory-b2c-reference-oauth-code.md).
 

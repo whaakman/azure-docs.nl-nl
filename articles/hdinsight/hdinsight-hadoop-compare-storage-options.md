@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fb25386ef9282a922866e39353d84f0e339caee7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479158"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122140"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Opties voor opslag voor gebruik met Azure HDInsight-clusters vergelijken
 
@@ -55,7 +55,7 @@ U kunt een cluster met behulp van verschillende combinaties van services voor he
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nee |
 | 4.0 | Data Lake Storage Gen1 | Alle | Nee |
 
-* = Dit wordt mogelijk een of meerdere accounts van Data Lake Storage Gen2, zolang ze alle ingesteld zijn met de dezelfde beheerde identiteit voor toegang tot het cluster.
+\* = Dit wordt mogelijk een of meerdere accounts van Data Lake Storage Gen2, zolang ze alle ingesteld zijn met de dezelfde beheerde identiteit voor toegang tot het cluster.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure Data Lake Storage Gen2 met Apache Hadoop in Azure HDInsight gebruiken
 

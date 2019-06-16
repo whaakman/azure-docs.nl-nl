@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059680"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS-server registreert alias overzicht
 
@@ -53,7 +53,7 @@ In dit scenario is vergelijkbaar met het vorige voorbeeld. Misschien een toepass
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Met load balancing hosting van toepassingen in de apex van de zone
 
-Het DNS-protocol wordt voorkomen dat de toewijzing van CNAME-records in de apex van de zone. Als uw domein contoso.com, bijvoorbeeld u kunt de CNAME-records voor somelable.contoso.com; maken maar u kunt geen CNAME maken voor contoso.com zelf.
+Het DNS-protocol wordt voorkomen dat de toewijzing van CNAME-records in de apex van de zone. Als uw domein contoso.com, bijvoorbeeld u kunt de CNAME-records voor somelabel.contoso.com; maken maar u kunt geen CNAME maken voor contoso.com zelf.
 Deze beperking geeft een probleem voor toepassingseigenaren van een die beschikken over Netwerktaakverdeling toepassingen achter [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Omdat het maken van een CNAME-record met behulp van een Traffic Manager-profiel worden vereist, is het niet mogelijk om te verwijzen naar de Traffic Manager-profiel in het toppunt van de zone.
 
 Dit probleem is opgelost met aliasrecords. In tegenstelling tot de CNAME-records, aliasrecords zijn gemaakt in de apex van de zone en toepassingseigenaren kunnen deze gebruiken om hun apexrecord zone verwijzen naar een Traffic Manager-profiel met externe eindpunten. Toepassingseigenaren verwijzen naar dezelfde Traffic Manager-profiel dat wordt gebruikt voor andere domeinen in hun DNS-zone.

@@ -17,23 +17,23 @@ ms.date: 03/14/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459708"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108918"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procedure: Het beleid voor gebruikersrisico’s configureren
 
-Met het gebruikersrisico vaststelt Azure AD dat de kans dat een gebruikersaccount verdacht is. U kunt als beheerder, gebruiker risico beleid voor voorwaardelijke toegang, automatisch reageren op een specifieke gebruiker risiconiveau configureren.
+Met het gebruikersrisico vaststelt Azure AD dat de kans dat een gebruikersaccount verdacht is. U kunt een gebruikersrisico beleid voor voorwaardelijke toegang, automatisch reageren op een specifieke gebruiker risiconiveau configureren als een beheerder.
  
 In dit artikel biedt u de informatie die u moet een beleid voor gebruikersrisico's configureren.
 
 
 ## <a name="what-is-a-user-risk-policy"></a>Wat is er een beleid voor gebruikersrisico's?
 
-Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse is voor het detecteren van verdachte activiteit die afkomstig, samen met de aanmelding zijn. De verdachte activiteit die kan worden gedetecteerd door het systeem zijn in Azure AD, ook wel bekend als risicogebeurtenissen. Risico's en gebeurtenissen in realtime kunnen worden gedetecteerd, er zijn ook risicogebeurtenissen vereisen meer tijd. Voor het detecteren van een onmogelijke reis naar ongewone locaties, bijvoorbeeld, vereist het systeem een eerste leerperiode van 14 dagen voor meer informatie over het normale gedrag van een gebruiker. Er zijn verschillende opties om op te lossen gedetecteerde risico. Bijvoorbeeld, kunt u afzonderlijke risicogebeurtenissen handmatig oplossen, of u deze omgezet met behulp van een aanmeldingsrisico of een beleid voor gebruikersrisico's voor voorwaardelijke toegang kunt krijgen.
+Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse is voor het detecteren van verdachte activiteit die afkomstig, samen met de aanmelding zijn. De verdachte activiteit die kan worden gedetecteerd door het systeem zijn in Azure AD, ook wel bekend als risicogebeurtenissen. Risico's en gebeurtenissen in realtime kunnen worden gedetecteerd, er zijn ook risicogebeurtenissen vereisen meer tijd. Voor het detecteren van een onmogelijke reis naar ongewone locaties, bijvoorbeeld, vereist het systeem een eerste leerperiode van 14 dagen voor meer informatie over het normale gedrag van een gebruiker. Er zijn verschillende opties om op te lossen gedetecteerde risico. Bijvoorbeeld, kunt u afzonderlijke risicogebeurtenissen handmatig oplossen, of u deze omgezet met behulp van een aanmeldingsrisico of een gebruikersrisico beleid voor voorwaardelijke toegang kunt krijgen.
 
 Alle risicogebeurtenissen die zijn gedetecteerd voor een gebruiker en niet worden opgelost staat bekend als actieve risico's. De actieve risicogebeurtenissen die gekoppeld aan een gebruiker zijn staat bekend als gebruikersrisico. Op basis van het gebruikersrisico, berekent Azure AD een kans (laag, Gemiddeld, hoog) dat een gebruiker is aangetast. De kans op heet risiconiveau van de gebruiker.
 
@@ -46,7 +46,7 @@ Het beleid voor gebruikersrisico's is een geautomatiseerd antwoord dat u voor ee
    
 Het beleid voor aanmeldingsrisico is in de **configureren** sectie op de [Azure AD Identity Protection-pagina](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Beleid voor gebruikersrisico's](./media/howto-user-risk-policy/1014.png)
+![Beleid voor gebruikersrisico 's](./media/howto-user-risk-policy/1014.png)
 
 
 
@@ -60,7 +60,7 @@ Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
 
 - Het niveau van aanmeldingsrisico waarmee het beleid wordt geactiveerd:
 
-    ![Niveau van gebruikersrisico](./media/howto-user-risk-policy/12.png)
+    ![Risiconiveau van de gebruiker](./media/howto-user-risk-policy/12.png)
 
 - Het type toegang dat u wilt worden afgedwongen wanneer de risiconiveau van uw aanmelding is voldaan:  
 
@@ -72,7 +72,7 @@ Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
 
 Het dialoogvenster van de configuratie van beleid biedt u een optie voor het schatten van de impact van uw configuratie.
 
-![Verwachte impact](./media/howto-user-risk-policy/15.png)
+![De geschatte impact](./media/howto-user-risk-policy/15.png)
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 

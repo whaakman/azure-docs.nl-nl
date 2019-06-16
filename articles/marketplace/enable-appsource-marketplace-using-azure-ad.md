@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938088"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Een AppSource- en Azure Marketplace-vermelding inschakelen met behulp van Azure Active Directory
@@ -34,13 +34,13 @@ De verschillende [aanbiedingsopties en typen bieden](https://docs.microsoft.com/
 
 | **Type aanbieding**    | **Azure AD-eenmalige aanmelding vereist?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Contact opnemen | Proefversie | Test Drive | Handelen |
-| Virtuele machine | N/A | Nee | Nee | Nee |
+|  | Contact met mij | Proefversie | Test Drive | Handelen |
+| Virtuele Machine | N/A | Nee | Nee | Nee |
 | Azure-Apps (oplossingssjabloon)  | N/A | N/A | N/A | N/A |
 | Beheerde Apps  | N/A | N/A | N/A | Nee |
 | SaaS  | Nee | Ja | Ja | Ja |
 | Containers  | N/A | N/A | N/A | Nee |
-| Adviesdiensten  | Nee | N/A | N/A | N/A |
+| Adviesservices  | Nee | N/A | N/A | N/A |
 
 Zie voor meer informatie over de technische vereisten voor SaaS [SaaS-toepassingen bieden Publicatiehandleiding voor](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 

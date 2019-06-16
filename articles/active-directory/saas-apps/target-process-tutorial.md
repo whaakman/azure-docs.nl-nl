@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 60cd043c34ba2aee365c59feb38cc9dd02d45746
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Zelfstudie: Integratie van Azure Active Directory met TargetProcess
 
@@ -54,7 +54,7 @@ U moet TargetProcess vanuit de galerie aan uw lijst met beheerde SaaS-apps toevo
 
 **Voer de volgende stappen uit om TargetProcess vanuit de galerie toe te voegen:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 U hebt de volgende bouwstenen nodig om eenmalige aanmelding van Azure AD met TargetProcess te configureren en testen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding TargetProcess](#configure-targetprocess-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[TargetProcess-testgebruiker maken](#create-targetprocess-test-user)**: om een equivalent van Britta Simon te hebben in TargetProcess die is gekoppeld aan de bijbehorende gebruiker in Azure AD.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[TargetProcess-testgebruiker maken](#create-targetprocess-test-user)** : om een equivalent van Britta Simon te hebben in TargetProcess die is gekoppeld aan de bijbehorende gebruiker in Azure AD.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

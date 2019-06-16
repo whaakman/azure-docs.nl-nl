@@ -3,20 +3,20 @@ title: Containers installeren en uitvoeren
 titlesuffix: Face - Azure Cognitive Services
 description: Downloaden, installeren en uitvoeren van containers voor gezicht in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 4d3f3e64e109d0b1dc010be39b62b4f0bdc0573d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306642"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063595"
 ---
 # <a name="install-and-run-face-containers"></a>Installeren en uitvoeren van de Face-containers
 
@@ -135,7 +135,7 @@ Gebruikmaken van de host `https://localhost:5000`, voor de container met API's.
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](./face-resource-container-config.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 De Face-API-containers voor het verzenden van factureringsgegevens naar Azure met behulp van een resource Face-API voor uw Azure-account. 
 

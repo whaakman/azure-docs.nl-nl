@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142602"
 ---
 # <a name="setup-diagnostic-logging"></a>Registratie in diagnoselogboek instellen
@@ -83,7 +83,7 @@ De metrische categorie registreert hetzelfde [metrische servergegevens](analysis
 
     * **Archiveren naar een opslagaccount**. Als u wilt deze optie gebruikt, moet u een bestaand opslagaccount verbinden. Zie [een opslagaccount maken](../storage/common/storage-create-storage-account.md). Volg de instructies voor het maken van een Resource Manager, account voor algemeen gebruik, en selecteer vervolgens uw storage-account door te retourneren aan deze pagina in de portal. Het duurt een paar minuten voor de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
     * **Stream naar een event hub**. Als u wilt deze optie gebruikt, moet u een bestaande Event Hub-naamruimte en event hub te verbinden. Zie voor meer informatie, [maken van een Event Hubs-naamruimte en een event hub met behulp van de Azure-portal](../event-hubs/event-hubs-create.md). Ga vervolgens terug naar deze pagina in de portal voor het selecteren van de naam van de Event Hub-naamruimte en het beleid.
-    * **Verzenden naar Azure Monitor (Log Analytics-werkruimte)**. Als u wilt deze optie gebruikt, gebruikt u een bestaande werkruimte of [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-create-workspace.md) resource in de portal. Zie voor meer informatie over het weergeven van uw logboeken [weergave-logboeken in Log Analytics-werkruimte](#view-logs-in-log-analytics-workspace) in dit artikel.
+    * **Verzenden naar Azure Monitor (Log Analytics-werkruimte)** . Als u wilt deze optie gebruikt, gebruikt u een bestaande werkruimte of [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-create-workspace.md) resource in de portal. Zie voor meer informatie over het weergeven van uw logboeken [weergave-logboeken in Log Analytics-werkruimte](#view-logs-in-log-analytics-workspace) in dit artikel.
 
     * **Engine**. Selecteer deze optie om aan te melden xEvents. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaarperiode is verlopen.
     * **Service**. Selecteer deze optie om aan te melden op gebeurtenissen van de service. Als u naar een opslagaccount archiveren wordt, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaarperiode is verlopen.

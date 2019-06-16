@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070818"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Handmatig stoppen en starten van containers in Azure Container Instances
@@ -28,7 +28,7 @@ Wanneer de containers gerecycled zijn, de [resources](container-instances-contai
 
 De actie bij stoppen heeft geen effect als de containergroep is al beëindigd (is een geslaagd of mislukt). Bijvoorbeeld, beëindigt een containergroep met eenmalig worden uitgevoerd-container-taken die zijn uitgevoerd in de status geslaagd. Probeert te stoppen van de groep in deze status kan de status niet wijzigen. 
 
-## <a name="start"></a>Starten
+## <a name="start"></a>Start
 
 Wanneer een containergroep is gestopt - kun ofwel omdat de containers op hun eigen beëindigd of als u de groep - handmatig gestopt u de containers. Gebruik bijvoorbeeld de [az container start] [ az-container-start] opdracht of Azure-portal handmatig starten van de containers in de groep. Als de installatiekopie van de container voor elke container wordt bijgewerkt, wordt een nieuwe afbeelding opgehaald. 
 

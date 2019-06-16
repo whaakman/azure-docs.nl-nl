@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129396"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Apache Sqoop gebruiken met Hadoop in HDInsight
@@ -83,11 +83,11 @@ Het cluster, SQL-database en andere objecten zijn gemaakt via de Azure-portal me
     |Locatie |Selecteer een regio in de vervolgkeuzelijst.|
     |Clusternaam |Voer een naam in voor het Hadoop-cluster. Gebruik alleen kleine letter.|
     |Gebruikersnaam voor clusteraanmelding |De vooraf ingestelde waarde behouden `admin`.|
-    |Wachtwoord voor clusteraanmelding |Voer een wachtwoord in.|
+    |Wachtwoord voor clusteraanmelding |Voer een wachtwoord.|
     |SSH-gebruikersnaam |De vooraf ingestelde waarde behouden `sshuser`.|
-    |SSH wachtwoord |Voer een wachtwoord in.|
+    |SSH wachtwoord |Voer een wachtwoord.|
     |Aanmeldgegevens SQL-beheerder |De vooraf ingestelde waarde behouden `sqluser`.|
-    |Wachtwoord SQL-beheerder |Voer een wachtwoord in.|
+    |Wachtwoord SQL-beheerder |Voer een wachtwoord.|
     |_artifacts locatie | Gebruik de standaardwaarde, tenzij u wilt gebruiken van uw eigen bacpac-bestand in een andere locatie.|
     |_artifacts locatie Sas-Token |Leeg laten.|
     |De naam van het Bacpac-bestand |Gebruik de standaardwaarde, tenzij u wilt gebruiken van uw eigen bacpac-bestand.|

@@ -9,18 +9,51 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118717"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
 Dit artikel worden veelvoorkomende problemen met betrekking tot Azure Files wanneer u verbinding vanaf een Linux-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen. 
 
 Naast de stappen in dit artikel, kunt u [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) om ervoor te zorgen dat de Linux-client juiste vereisten heeft. AzFileDiagnostics automatiseert de detectie van de meeste van de problemen die in dit artikel worden vermeld. Zo kunt u uw omgeving instelt om de optimale prestaties. U kunt ook deze informatie vinden in de [probleemoplosser voor Azure-bestandsshares](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). De probleemoplosser voor bevat stappen voor hulp bij problemen met verbinding te maken en koppelen van Azure-bestandsshares toewijzen.
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Kan geen verbinding maken met of een Azure-bestandsshare koppelen
+
+### <a name="cause"></a>Oorzaak
+
+Meest voorkomende oorzaken van dit probleem zijn:
+
+- U gebruikt een incompatibele client voor Linux-distributie. U wordt aangeraden dat u de volgende Linux-distributies gebruiken om te verbinden met een Azure-bestandsshare:
+
+|   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van on-premises en regio-overschrijdende) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- Hulpprogramma's voor CIFS (cfs-utils) zijn niet geïnstalleerd op de client.
+- De minimale SMB/CIFS-versie, 2.1, is niet geïnstalleerd op de client.
+- SMB 3.0-codering wordt niet ondersteund op de client. De voorgaande tabel geeft een lijst van Linux-distributies die ondersteuning koppelen vanuit on-premises en regio-overschrijdende met behulp van versleuteling. Andere distributies vereisen kernel 4.11 en latere versies.
+- U probeert verbinding maken met een storage-account via TCP-poort 445, wat niet wordt ondersteund.
+- U probeert verbinding maken met een Azure-bestandsshare vanaf een Azure-VM en de virtuele machine is niet in dezelfde regio als het opslagaccount.
+- Als de [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account, Azure Files kunnen alleen verbindingen die gebruikmaken van SMB 3.0 met-codering.
+
+### <a name="solution"></a>Oplossing
+
+Gebruik van het probleem op te lossen de [hulpprogramma voor probleemoplossing voor Azure Files Koppelingsfouten in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Dit hulpprogramma:
+
+* Helpt u bij het valideren van de client met de omgeving.
+* Detecteert de configuratie van de niet-compatibele client die kan leiden de fout toegang voor Azure Files dat ertoe.
+* Biedt richtlijnen voor het zelf oplossen.
+* De diagnostics-traceringen worden verzameld.
 
 <a id="mounterror13"></a>
 ## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Error(13) koppelen: Toegang geweigerd"wanneer u een Azure-bestandsshare koppelen
@@ -55,9 +88,11 @@ In Linux ontvangt u een foutmelding krijgen dat de volgende strekking weergegeve
 
 U kunt de bovengrens van gelijktijdige open ingangen die zijn toegestaan voor een bestand hebt bereikt.
 
+Er is een quotum van 2000 open ingangen in één bestand. Wanneer u 2000 open ingangen hebt, wordt een foutbericht weergegeven met de tekst dat is bereikt.
+
 ### <a name="solution"></a>Oplossing
 
-Verminder het aantal gelijktijdige open ingangen door het aantal ingangen gesloten en probeer het vervolgens opnieuw. Zie voor meer informatie, [controlelijst voor de prestaties en schaalbaarheid van Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Verminder het aantal gelijktijdige open ingangen door het aantal ingangen gesloten en probeer het vervolgens opnieuw.
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Trage bestand kopiëren van en naar Azure-bestanden in Linux
@@ -66,36 +101,12 @@ Verminder het aantal gelijktijdige open ingangen door het aantal ingangen geslot
 - Als u weet dat de uiteindelijke omvang van een bestand dat u bent uit te breiden met schrijfbewerkingen en de software niet compatibiliteitsproblemen optreden wanneer een ongeschreven staart op het bestand nullen bevat, stelt u de grootte van tevoren in plaats van elke schrijven waardoor een uitbreiden schrijven.
 - Gebruik de juiste methode:
     - Gebruik [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) de overdracht tussen twee bestandsshares.
-    - Gebruik [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) tussen bestandsshares op een on-premises computer.
-
-<a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Error(112) koppelen: Host is niet beschikbaar' vanwege een time-out van de nieuwe verbindingen
-
-Een '112' mount-fout optreedt op de Linux-client wanneer de client gedurende een lange periode niet actief is geweest. Na inactiviteit gedurende lange tijd, de client de verbinding verbreekt en de verbinding een time-out optreedt.  
-
-### <a name="cause"></a>Oorzaak
-
-De verbinding kan inactief zijn voor de volgende redenen:
-
--   Netwerk-communicatiefouten die voorkomen een TCP-verbinding met de server opnieuw tot stand dat wanneer de standaardoptie voor 'soft' koppelpunt wordt gebruikt
--   Recente opnieuw verbinden met oplossingen die niet aanwezig in oudere kernels beschikt zijn
-
-### <a name="solution"></a>Oplossing
-
-Dit probleem opnieuw verbinden in de kernel Linux is nu opgelost als onderdeel van de volgende wijzigingen:
-
-- [FIX opnieuw verbinding maken als u wilt niet uitstellen smb3-sessie opnieuw verbinding maken met lang nadat socket opnieuw verbinding maken](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
-- [Echo-service aanroepen onmiddellijk nadat de socket opnieuw verbinding maken](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: Een mogelijke geheugenbeschadiging tijdens reconnect oplossen](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
-- [CIFS: Herstellen van een mogelijke dubbele vergrendeling van mutex tijdens reconnect (voor kernel v4.9 en hoger)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
-
-Echter kunnen deze wijzigingen niet worden overgezet nog naar alle Linux-distributies. Deze oplossing en de oplossingen van andere nieuwe verbindingen zijn in de volgende populaire Linux-kernels: 4.4.40, 4.8.16 en 4.9.1. Deze oplossing krijgt u door te upgraden naar een van deze aanbevolen kernelversies.
-
-### <a name="workaround"></a>Tijdelijke oplossing
-
-U kunt dit probleem omzeilen door een harde koppeling op te geven. Een harde koppeling zorgt ervoor dat de client moet worden gewacht totdat een verbinding tot stand is gebracht of deze expliciet wordt onderbroken. U kunt deze gebruiken om te voorkomen dat fouten vanwege netwerk time-outs. Deze oplossing kan echter leiden tot onbepaalde wachttijd. Wees voorbereid om te stoppen verbindingen indien nodig.
-
-Als u niet naar de nieuwste versie van de kernel upgraden, kunt u dit probleem omzeilen door een bestand in de Azure-bestandsshare die u naar elke 30 seconden of minder schrijft. Dit moet een schrijfbewerking, zoals het herschrijven van de datum gemaakt of gewijzigd op het bestand. Anders krijgt u mogelijk de resultaten in de cache en de bewerking kan niet activeren voor het opnieuw verbinden.
+    - Met behulp van cp met parallelle kopie snelheid kan verbeteren, het aantal threads is afhankelijk van uw use-case- en werkbelasting. In dit voorbeeld maakt gebruik van zes: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Open source-hulpprogramma's van derden, zoals:
+        - [GNU parallelle](http://www.gnu.org/software/parallel/).
+        - [Fpart](https://github.com/martymac/fpart) - bestanden worden gesorteerd en verpakt ze in partities.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -Fpart gebruikt en een hulpprogramma voor kopiëren naar het produceren van meerdere exemplaren src_dir gegevens migreren naar dst_url.
+        - [Meerdere](https://github.com/pkolano/mutil) -meerdere threads cp en md5sum op basis van de GNU coreutils.
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error(115) koppelen: De bewerking nu wordt uitgevoerd' bij het koppelen van Azure Files via SMB 3.0
@@ -106,7 +117,7 @@ Sommige Linux-distributies ondersteund niet versleutelingsfuncties nog in SMB 3.
 
 ### <a name="solution"></a>Oplossing
 
-De functie versleuteling voor SMB 3.0 voor Linux is ingevoerd in de 4.11 kernel. Deze functie kunt koppelen van een Azure-bestandsshare van on-premises of in een andere Azure-regio. Deze functionaliteit is op het moment van publicatie, backported Ubuntu 17.04 en Ubuntu 16,10. 
+De functie versleuteling voor SMB 3.0 voor Linux is ingevoerd in de 4.11 kernel. Deze functie kunt koppelen van een Azure-bestandsshare van on-premises of in een andere Azure-regio. Deze functionaliteit is opgenomen in de Linux-distributies die worden vermeld in [minimaal aanbevolen versies met de bijbehorende mount-mogelijkheden (SMB-versie 2.1 versus SMB-versie 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Andere distributies vereisen kernel 4.11 en latere versies.
 
 Als uw Linux SMB-client biedt geen ondersteuning voor versleuteling, bestanden koppelen van Azure met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als de bestandsshare. Controleer de [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op het storage-account. 
 
@@ -133,13 +144,13 @@ Controleer of het virtuele netwerk en firewall-regels correct zijn geconfigureer
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Langzame prestaties van een Azure-bestandsshare die is gekoppeld aan een Linux-VM
 
-### <a name="cause"></a>Oorzaak
+### <a name="cause-1-caching"></a>1 oorzaak: Caching
 
-Een mogelijke oorzaak van vertragingen bij het opslaan in cache is uitgeschakeld.
+Een mogelijke oorzaak van vertragingen bij het opslaan in cache is uitgeschakeld. Opslaan in cache is handig dat als u een bestand herhaaldelijk opent, anders kan het zijn een overhead. Controleer als u de cache gebruikt voordat u dit uitschakelt.
 
-### <a name="solution"></a>Oplossing
+### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
 
-Als u wilt controleren of opslaan in cache is uitgeschakeld, zoekt de **cache =** vermelding. 
+Als u wilt controleren of opslaan in cache is uitgeschakeld, zoekt de **cache =** vermelding.
 
 **Cache = none** geeft aan dat opslaan in cache is uitgeschakeld. De share te koppelen met behulp van de koppelopdracht of door expliciet toe te voegen de **cache = strikte** optie voor de mount-opdracht om ervoor te zorgen dat standaard opslaan in cache of 'strikte' cache-modus is ingeschakeld.
 
@@ -154,6 +165,14 @@ U kunt ook controleren of de juiste opties worden gebruikt door het uitvoeren va
 ```
 
 Als de **cache = strikte** of **serverino** optie is niet aanwezig zijn, te ontkoppelen en opnieuw koppelen van Azure Files met de koppelopdracht van de [documentatie](../storage-how-to-use-files-linux.md). Vervolgens controleren dat de **/etc/fstab** item heeft de juiste opties.
+
+### <a name="cause-2-throttling"></a>2 oorzaak: Beperking
+
+Het is mogelijk ondervindt u beperking en de aanvragen worden verzonden naar een wachtrij. U kunt dit controleren door gebruik te maken van [metrische gegevens van Azure Storage in Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
+
+### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
+
+Zorg ervoor dat uw app is binnen de [Azure Files schalen doelen](storage-files-scale-targets.md#azure-files-scale-targets).
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Tijdstempels verloren zijn gegaan bij het kopiëren van bestanden van Windows tot Linux
@@ -172,40 +191,6 @@ Gebruik de storage-account-gebruiker voor het kopiëren van bestanden:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Kan geen verbinding maken met of een Azure-bestandsshare koppelen
-
-### <a name="cause"></a>Oorzaak
-
-Meest voorkomende oorzaken van dit probleem zijn:
-
-
-- U gebruikt een incompatibele client voor Linux-distributie. U wordt aangeraden dat u de volgende Linux-distributies gebruiken om te verbinden met een Azure-bestandsshare:
-
-    |   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van on-premises en regio-overschrijdende) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- Hulpprogramma's voor CIFS (cfs-utils) zijn niet geïnstalleerd op de client.
-- De minimale SMB/CIFS-versie, 2.1, is niet geïnstalleerd op de client.
-- SMB 3.0-codering wordt niet ondersteund op de client. SMB 3.0-versleuteling is beschikbaar in Ubuntu 16.4 en hoger, samen met SUSE 12.3 en latere versies. Andere distributies vereisen kernel 4.11 en latere versies.
-- U probeert verbinding maken met een storage-account via TCP-poort 445, wat niet wordt ondersteund.
-- U probeert verbinding maken met een Azure-bestandsshare vanaf een Azure-VM en de virtuele machine is niet in dezelfde regio als het opslagaccount.
-- Als de [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account, Azure Files kunnen alleen verbindingen die gebruikmaken van SMB 3.0 met-codering.
-
-### <a name="solution"></a>Oplossing
-
-Gebruik van het probleem op te lossen de [hulpprogramma voor probleemoplossing voor Azure Files Koppelingsfouten in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Dit hulpprogramma:
-
-* Helpt u bij het valideren van de client met de omgeving.
-* Detecteert de configuratie van de niet-compatibele client die kan leiden de fout toegang voor Azure Files dat ertoe.
-* Biedt richtlijnen voor het zelf oplossen.
-* De diagnostics-traceringen worden verzameld.
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: geen toegang tot '&lt;pad&gt;': I/o-fout
 
@@ -248,6 +233,35 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 Vervolgens kunt u symlinks maken als voorgestelde op de [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
+<a id="error112"></a>
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Error(112) koppelen: Host is niet beschikbaar' vanwege een time-out van de nieuwe verbindingen
+
+Een '112' mount-fout optreedt op de Linux-client wanneer de client gedurende een lange periode niet actief is geweest. Na inactiviteit gedurende lange tijd, de client de verbinding verbreekt en de verbinding een time-out optreedt.  
+
+### <a name="cause"></a>Oorzaak
+
+De verbinding kan inactief zijn voor de volgende redenen:
+
+-   Netwerk-communicatiefouten die voorkomen een TCP-verbinding met de server opnieuw tot stand dat wanneer de standaardoptie voor 'soft' koppelpunt wordt gebruikt
+-   Recente opnieuw verbinden met oplossingen die niet aanwezig in oudere kernels beschikt zijn
+
+### <a name="solution"></a>Oplossing
+
+Dit probleem opnieuw verbinden in de kernel Linux is nu opgelost als onderdeel van de volgende wijzigingen:
+
+- [FIX opnieuw verbinding maken als u wilt niet uitstellen smb3-sessie opnieuw verbinding maken met lang nadat socket opnieuw verbinding maken](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+- [Echo-service aanroepen onmiddellijk nadat de socket opnieuw verbinding maken](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+- [CIFS: Een mogelijke geheugenbeschadiging tijdens reconnect oplossen](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Herstellen van een mogelijke dubbele vergrendeling van mutex tijdens reconnect (voor kernel v4.9 en hoger)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+
+Echter kunnen deze wijzigingen niet worden overgezet nog naar alle Linux-distributies. Deze oplossing en andere oplossingen opnieuw kunnen worden gevonden in de [minimaal aanbevolen versies met de bijbehorende mount-mogelijkheden (SMB-versie 2.1 versus SMB-versie 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) sectie van de [Azure Files gebruiken met Linux](storage-how-to-use-files-linux.md)artikel. Deze oplossing krijgt u door te upgraden naar een van deze aanbevolen kernelversies.
+
+### <a name="workaround"></a>Tijdelijke oplossing
+
+U kunt dit probleem omzeilen door een harde koppeling op te geven. Een harde koppeling zorgt ervoor dat de client moet worden gewacht totdat een verbinding tot stand is gebracht of deze expliciet wordt onderbroken. U kunt deze gebruiken om te voorkomen dat fouten vanwege netwerk time-outs. Deze oplossing kan echter leiden tot onbepaalde wachttijd. Wees voorbereid om te stoppen verbindingen indien nodig.
+
+Als u niet naar de nieuwste versie van de kernel upgraden, kunt u dit probleem omzeilen door een bestand in de Azure-bestandsshare die u naar elke 30 seconden of minder schrijft. Dit moet een schrijfbewerking, zoals het herschrijven van de datum gemaakt of gewijzigd op het bestand. Anders krijgt u mogelijk de resultaten in de cache en de bewerking kan niet activeren voor het opnieuw verbinden.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 

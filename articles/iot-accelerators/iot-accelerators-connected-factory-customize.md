@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450401"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080491"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Hoe de gegevens van uw OPC UA-servers worden weergegeven in de oplossing voor verbonden Factory aanpassen
 
@@ -39,7 +39,7 @@ Dit artikel wordt beschreven:
 
 ## <a name="data-sources"></a>Gegevensbronnen
 
-De oplossing voor verbonden Factory worden gegevens uit de OPC UA-servers die zijn verbonden met de oplossing. De standaard-installatie omvat verschillende OPC UA-servers waarop een factory simulatie wordt uitgevoerd. U kunt uw eigen OPC UA-servers toevoegen die [verbinding maken via een gateway] [ lnk-connect-cf] aan uw oplossing.
+De oplossing voor verbonden Factory worden gegevens uit de OPC UA-servers die zijn verbonden met de oplossing. De standaard-installatie omvat verschillende OPC UA-servers waarop een factory simulatie wordt uitgevoerd. U kunt uw eigen OPC UA-servers toevoegen die [verbinding maken via een gateway] [lnk-connect-cf] aan uw oplossing.
 
 De gegevensitems die een verbonden OPC UA-server naar uw oplossing in het dashboard verzenden kunt, kunt u bladeren:
 
@@ -79,8 +79,6 @@ De **azure-iot-connected-factory** opslagplaats bevat een **build.ps1** PowerShe
 
 Meer informatie over de oplossingsverbetering voor verbonden Factory door het lezen van de volgende artikelen:
 
-* [Kennismaken met de oplossingsversneller Verbonden factory][lnk-rm-walkthrough]
-* [Een gateway implementeren voor verbonden Factory][lnk-connect-cf]
 * [Machtigingen op de site azureiotsolutions.com][lnk-permissions]
 * [Veelgestelde vragen over Verbonden Factory](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
@@ -93,7 +91,5 @@ Meer informatie over de oplossingsverbetering voor verbonden Factory door het le
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

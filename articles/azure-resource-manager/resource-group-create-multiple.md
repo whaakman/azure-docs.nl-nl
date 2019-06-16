@@ -2,35 +2,60 @@
 title: Meerdere exemplaren van Azure-resources implementeren | Microsoft Docs
 description: Bewerking voor het kopiëren en matrices in een Azure Resource Manager-sjabloon gebruiken om te herhalen meerdere keren bij het implementeren van resources.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807377"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Meer dan één exemplaar van een resource of eigenschap in Azure Resource Manager-sjablonen implementeren
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resource, eigenschap of variabele iteratie in Azure Resource Manager-sjablonen
 
-Dit artikel ziet u hoe u in uw Azure Resource Manager-sjabloon voor het maken van meer dan één exemplaar van een resource. Als u nodig hebt om op te geven of een resource wordt geïmplementeerd op alle, Zie [voorwaarde element](resource-group-authoring-templates.md#condition).
+Dit artikel laat u het maken van meer dan één exemplaar van een resource, de variabele of de eigenschap in de Azure Resource Manager-sjabloon. Voor het maken van meerdere exemplaren toevoegen de `copy` object aan de sjabloon.
 
-Zie voor een zelfstudie [zelfstudie: maken van meerdere exemplaren van resources met behulp van Resource Manager-sjablonen](./resource-manager-tutorial-create-multiple-instances.md).
+Gebruikt in combinatie met een resource, heeft het kopiëren-object in de volgende indeling:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Gebruikt in combinatie met een variabele of een eigenschap, heeft het kopiëren-object in de volgende indeling:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Beide gebruikt zijn in meer detail in dit artikel beschreven. Zie voor een zelfstudie [zelfstudie: maken van meerdere exemplaren van resources met behulp van Resource Manager-sjablonen](./resource-manager-tutorial-create-multiple-instances.md).
+
+Als u nodig hebt om op te geven of een resource wordt geïmplementeerd op alle, Zie [voorwaarde element](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Limieten kopiëren
+
+Als u wilt het aantal iteraties opgeven, kunt u een waarde opgeven voor de eigenschap count. Het aantal mag niet meer dan 800.
+
+Het aantal mag geen negatief getal zijn. Als u een sjabloon met REST API-versie implementeert **2019-05-10** of hoger, kunt u het aantal instellen op nul. Eerdere versies van de REST-API ondersteund niet nul zijn voor een aantal. Op dit moment ondersteunen Azure CLI of PowerShell geen nul zijn voor een aantal, maar dat ondersteuning wordt toegevoegd in een toekomstige release.
+
+De limieten voor het aantal zijn hetzelfde, ongeacht of gebruikt met een resource, de variabele of de eigenschap.
 
 ## <a name="resource-iteration"></a>Herhaling van de resource
 
-Wanneer u tijdens de implementatie beslissen moet te maken van een of meer exemplaren van een resource, Voeg een `copy` element aan het brontype. In het copy-element geeft u het aantal iteraties en een naam voor deze lus op. De waarde van het aantal moet een positief geheel getal zijn en mag niet meer dan 800. 
+Wanneer u tijdens de implementatie beslissen moet te maken van een of meer exemplaren van een resource, Voeg een `copy` element aan het brontype. Geef het aantal iteraties en een naam op voor deze lus in het element kopiëren.
 
 De resource te maken van meerdere keren heeft de volgende notatie:
 
@@ -71,7 +96,7 @@ Hiermee maakt u deze namen:
 * storage1
 * storage2.
 
-Als u de indexwaarde wilt verschuiven, kunt u een waarde doorgeven in de functie copyIndex(). Het aantal iteraties om uit te voeren is nog steeds opgegeven in het element kopiëren, maar de waarde van copyIndex wordt gecompenseerd door de opgegeven waarde. Dus in het volgende voorbeeld:
+Als u de indexwaarde wilt verschuiven, kunt u een waarde doorgeven in de functie copyIndex(). Het aantal iteraties nog steeds is opgegeven in het element kopiëren, maar de waarde van copyIndex wordt gecompenseerd door de opgegeven waarde. Dus in het volgende voorbeeld:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +181,7 @@ Zie voor meer informatie over het gebruik van kopiëren met geneste sjablonen [v
 Voor het maken van meer dan één waarde voor een eigenschap van een resource, Voeg een `copy` -matrix in het eigenschapselement. Deze matrix bevat objecten en elk object bevat de volgende eigenschappen:
 
 * naam - de naam van de eigenschap te maken van verschillende waarden voor
-* aantal - het aantal waarden om te maken. De waarde van het aantal moet een positief geheel getal zijn en mag niet meer dan 800.
+* aantal - het aantal waarden om te maken.
 * invoer - een object dat de waarden die moeten worden toegewezen aan de eigenschap bevat  
 
 Het volgende voorbeeld laat zien hoe om toe te passen `copy` met de eigenschap dataDisks op een virtuele machine:

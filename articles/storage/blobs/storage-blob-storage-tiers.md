@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: clausjor
 ms.subservice: blobs
 ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148499"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob storage: hot, cool en archive toegangslagen
@@ -89,7 +89,7 @@ De functie Laaginstelling op blob-niveau maakt het mogelijk om de laag van uw ge
 
 Het tijdstip waarop de laatste wijziging aan de blob-laag heeft plaatsgevonden, wordt weergegeven via de blob-eigenschap **Access Tier Change Time**. Worden als een blob in de laag archief was, deze kan niet overschreven, zodat dezelfde blob uploaden is niet toegestaan in dit scenario. U kunt een blob in een laag hot of cool, waarin de nieuwe blob geval neemt de laag van de blob die is overschreven over overschrijven.
 
-BLOBs in alle drie toegangslagen kunnen naast elkaar bestaan binnen hetzelfde account. Een blob waaraan niet expliciet een laag is toegewezen, leidt de laag af die is ingesteld als toegangslaag voor het account. Als de toegangslaag van het account is afgeleid, ziet u de **Access Tier Inferred** blob-eigenschap is ingesteld op 'true', en met de blob **Toegangslaag** blob-eigenschap komt overeen met de accountlaag. In de Azure-portal, de toegangslaag afgeleid eigenschap wordt weergegeven met de blob-toegangslaag (bijvoorbeeld **Hot (afgeleid)** of **Cool (afgeleid)**).
+BLOBs in alle drie toegangslagen kunnen naast elkaar bestaan binnen hetzelfde account. Een blob waaraan niet expliciet een laag is toegewezen, leidt de laag af die is ingesteld als toegangslaag voor het account. Als de toegangslaag van het account is afgeleid, ziet u de **Access Tier Inferred** blob-eigenschap is ingesteld op 'true', en met de blob **Toegangslaag** blob-eigenschap komt overeen met de accountlaag. In de Azure-portal, de toegangslaag afgeleid eigenschap wordt weergegeven met de blob-toegangslaag (bijvoorbeeld **Hot (afgeleid)** of **Cool (afgeleid)** ).
 
 > [!NOTE]
 > Archiefopslag en laaginstelling op blobniveau ondersteunen alleen blok-blobs. U kunt evenmin de laag wijzigen van een blok-blob die momentopnamen bevat.
@@ -162,7 +162,7 @@ In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt
 
 1. Ga naar de blob in uw opslagaccount, selecteer **alle Resources**, selecteer uw opslagaccount, uw container en selecteer vervolgens uw blob.
 
-1. In de **Blob-eigenschappen** blade, selecteer de **toegangslaag** in het vervolgkeuzemenu selecteren de **warm**, **' Cool '**, of **archiveren**  toegangslaag.
+1. In de **Blob-eigenschappen** blade, selecteer de **toegangslaag** in het vervolgkeuzemenu selecteren de **warm**, **' Cool '** , of **archiveren**  toegangslaag.
 
 1. Klik op **Opslaan** boven aan de blade.
 

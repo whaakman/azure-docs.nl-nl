@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 6fdab26bb5a4da5402a3a0a895a7c8835ef22c2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935798"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Leadbeheer configureren voor Dynamics CRM online
@@ -141,5 +141,5 @@ De laatste stap is om in te schakelen van de gebruiker die u hebt gemaakt voor h
 
 Klaar bent met het configureren van Dynamics CRM voor lead management door toe te voegen van de gegenereerde accountgegevens voor de Cloud Partner-Portal. Bijvoorbeeld:
 
--   **Azure Active Directory** - **toepassings-Id** (voorbeeld: *23456052-AAAA-bbbb-8662-1234df56788f*), **map-Id** (voorbeeld: *12345678-8af1-4asf-1234-12234d01db47*), en **Toepassingssleutel** (voorbeeld: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **Url** (voorbeeld: *https://contoso.crm4.dynamics.com*), **gebruikersnaam** (voorbeeld: *contoso\@ Contoso.onmicrosoft.com*), en **wachtwoord** (voorbeeld: *P\@ssw0rd*).
+-   **Azure Active Directory** - **toepassings-Id** (voorbeeld: *23456052-AAAA-bbbb-8662-1234df56788f*), **map-Id** (voorbeeld: *12345678-8af1-4asf-1234-12234d01db47*), en **Toepassingssleutel** (voorbeeld: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
+-   **Office 365** - **Url** (voorbeeld: *https://contoso.crm4.dynamics.com* ), **gebruikersnaam** (voorbeeld: *contoso\@ Contoso.onmicrosoft.com*), en **wachtwoord** (voorbeeld: *P\@ ssw0rd*).

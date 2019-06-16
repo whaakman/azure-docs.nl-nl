@@ -10,25 +10,25 @@ ms.date: 11/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: e5be86f9f7fbaedeb8fbb10b89926644dcf8aac2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 612c0b48faac365623fe36d6d2435c1c79566d9b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071327"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Zelfstudie: Afbeeldingsgegevens uploaden in de cloud met Azure Storage
 
 Deze zelfstudie is deel één van een serie. In deze zelfstudie leert u hoe u een web-app implementeert die de Azure Storage-clientbibliotheek gebruikt om afbeeldingen te uploaden in een opslagaccount. Wanneer u klaar bent, hebt u een web-app die afbeeldingen vanuit Azure-opslag kan opslaan en weergeven.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Containerweergave van afbeeldingen](media/storage-upload-process-images/figure2.png)
+![Afbeeldingsgrootte wijzigen-App in .NET](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
-![Containerweergave van afbeeldingen](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Afbeelding aanwijzer Formaat app in Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Containerweergave van afbeeldingen](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Image-aanwijzer Formaat-app in Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -211,7 +211,7 @@ U kunt de web-app testen door naar de URL van de gepubliceerde app te gaan. De s
 
 Selecteer het gebied **Upload photos** als u een bestand wilt selecteren en uploaden, of sleep een bestand naar het gebied. Als de afbeelding is geüpload, verdwijnt deze. De sectie **Gegenereerde miniaturen** blijft leeg totdat we deze verderop in dit onderwerp testen.
 
-![App ImageResizer](media/storage-upload-process-images/figure1.png)
+![Uploaden van foto's in .NET](media/storage-upload-process-images/figure1.png)
 
 In de voorbeeldcode wordt de taak `UploadFiletoStorage` in bestand *Storagehelper.cs* gebruikt om de afbeeldingen door middel van de methode [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) te uploaden naar de container *images* in het opslagaccount. Het volgende codevoorbeeld bevat de taak `UploadFiletoStorage`.
 
@@ -254,7 +254,7 @@ In de vorige taak zijn de volgende klassen en methoden gebruikt:
 
 Selecteer **Bestand kiezen** om een bestand te selecteren en klik u vervolgens op **Installatiekopie uploaden**. De sectie **Gegenereerde miniaturen** blijft leeg totdat we deze verderop in dit onderwerp testen. 
 
-![App voor het uploaden van afbeeldingen](media/storage-upload-process-images/upload-app-nodejs.png)
+![Uploaden van foto's in Node.js V2](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In de voorbeeldcode is de `post`-route verantwoordelijk voor het uploaden van de afbeelding naar een blobcontainer. De route gebruikt de modules om de upload te verwerken:
 
@@ -318,7 +318,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 Selecteer **Bestand kiezen** om een bestand te selecteren en klik u vervolgens op **Installatiekopie uploaden**. De sectie **Gegenereerde miniaturen** blijft leeg totdat we deze verderop in dit onderwerp testen. 
 
-![App voor het uploaden van afbeeldingen](media/storage-upload-process-images/upload-app-nodejs.png)
+![Foto's in Node.js V10 uploaden](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In de voorbeeldcode is de `post`-route verantwoordelijk voor het uploaden van de afbeelding naar een blobcontainer. De route gebruikt de modules om de upload te verwerken:
 
@@ -400,7 +400,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com). In het linkermenu selec
 
 Controleer of de afbeelding in de container wordt weergegeven.
 
-![Containerweergave van afbeeldingen](media/storage-upload-process-images/figure13.png)
+![Azure Portal-aanbieding van installatiekopieën van container](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Weergave van miniaturen testen
 
@@ -413,13 +413,13 @@ Kies een bestand met de bestandenkiezer en selecteer **Uploaden**.
 Ga terug naar de app om te controleren of de naar de **thumbnails**-container geüploade afbeelding zichtbaar is.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Containerweergave van afbeeldingen](media/storage-upload-process-images/figure2.png)
+![.NET-installatiekopie aanwijzer Formaat app met een nieuwe installatiekopie weergegeven](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
-![Containerweergave van afbeeldingen](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js-V2-installatiekopie aanwijzer Formaat app met een nieuwe installatiekopie weergegeven](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Containerweergave van afbeeldingen](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js V10 installatiekopie aanwijzer Formaat app met een nieuwe installatiekopie weergegeven](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

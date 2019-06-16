@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: dwgeo
 ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463222"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informatie over hoe clients tokens doorgeven aan de sleutel leveringsservice voor Azure Media Services
@@ -29,7 +29,7 @@ Klanten vragen vaak hoe een speler kunt doorgeven tokens aan de sleutel levering
 
 - Via de HTTP-autorisatie-header.
     > [!NOTE]
-    > Het voorvoegsel 'Bearer' wordt verwacht per de OAuth 2.0-specificaties. Een voorbeeld-speler met de configuratie van sessietoken wordt gehost op de Azure Media Player [demo pagina](https://ampdemo.azureedge.net/). Om in te stellen de videobron, kies **AES (JWT-Token)** of **AES (SWT Token)**. Het token wordt doorgegeven via de autorisatie-header.
+    > Het voorvoegsel 'Bearer' wordt verwacht per de OAuth 2.0-specificaties. Een voorbeeld-speler met de configuratie van sessietoken wordt gehost op de Azure Media Player [demo pagina](https://ampdemo.azureedge.net/). Om in te stellen de videobron, kies **AES (JWT-Token)** of **AES (SWT Token)** . Het token wordt doorgegeven via de autorisatie-header.
 
 - Via het toevoegen van een URL queryparameter met ' token = tokenvalue. "  
     > [!NOTE]

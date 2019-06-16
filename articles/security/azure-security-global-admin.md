@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7d40b8f0ca05000a51e70d7a124e9cb143aa2dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127238"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Afdwingen van multi-factor authentication (MFA) voor alle abonnementsbeheerders
 
@@ -44,5 +44,5 @@ Als uw gebruikers licenties hebben die Azure Multi-Factor Authentication bevatte
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Verificatie in twee stappen inschakelen voor gebruikers
 
-Gebruik een van de procedures in [hoe u verificatie in twee stappen vereist](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) voor een gebruiker of groep aan de slag met Azure MFA. U kunt ervoor kiezen om verificatie in twee stappen af te dwingen voor alle aanmeldingen of u kunt een beleid voor voorwaardelijke toegang maken om verificatie in twee stappen alleen te vereisen wanneer dit voor u belangrijk is.
+Gebruik een van de procedures in [hoe u verificatie in twee stappen vereist](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) voor een gebruiker of groep aan de slag met Azure MFA. U kunt kiezen om af te dwingen de verificatie in twee stappen voor alle aanmeldingen of kunt u beleid voor voorwaardelijke toegang om te vereisen van verificatie in twee stappen alleen wanneer deze voor u belangrijk is.
 

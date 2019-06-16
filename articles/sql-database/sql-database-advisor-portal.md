@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61420304"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
@@ -42,7 +42,7 @@ Aanbevelingen worden gesorteerd op hun mogelijke invloed op de prestaties in de 
 | Impact | Description |
 |:--- |:--- |
 | Hoog |Aanbevelingen voor hoge impact moeten de meeste impact prestaties bieden. |
-| Middelgroot |Normale impact aanbevelingen voor moeten de prestaties verbeteren, maar niet aanzienlijk. |
+| Gemiddeld |Normale impact aanbevelingen voor moeten de prestaties verbeteren, maar niet aanzienlijk. |
 | Laag |Weinig impact aanbevelingen voor moeten zorgen voor betere prestaties dan zonder, maar mogelijk aanzienlijke verbeteringen niet. |
 
 
@@ -131,10 +131,10 @@ Toepassen van een aanbeveling mogelijk niet onmiddellijk plaatsvindt. De portal 
 | Status | Description |
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en gepland voor uitvoering van toepassing. |
-| In uitvoering |De aanbeveling is toegepast. |
+| Wordt uitgevoerd |De aanbeveling is toegepast. |
 | Valideren |De aanbeveling is toegepast en de service is meten van de voordelen. |
 | Geslaagd |De aanbeveling is toegepast en voordelen zijn gemeten. |
-| Fout |Er is een fout opgetreden tijdens het toepassen van de aanbeveling. Dit is een tijdelijk probleem of mogelijk een schema wijzigen in de tabel en het script is niet meer geldig. |
+| Fout |Er is een fout opgetreden tijdens het proces van het toepassen van de aanbeveling. Dit is een tijdelijk probleem of mogelijk een schema wijzigen in de tabel en het script is niet meer geldig. |
 | Terugdraaien |De aanbeveling is toegepast, maar niet-goed presterende ervan en wordt automatisch hersteld. |
 | Teruggedraaid |De aanbeveling is hersteld. |
 

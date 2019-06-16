@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480646"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Uitvoeren van sentimentanalyses met behulp van Azure Stream Analytics en Azure Machine Learning
@@ -175,7 +175,7 @@ In deze sectie van de zelfstudie definieert u een functie in de Stream Analysis-
 
 1. Zorg ervoor dat u hebt de web service-URL en API-sleutel die u eerder in de Excel-werkmap hebt gedownload.
 
-2. Navigeer naar de taakblade > **functies** > **+ toevoegen** > **AzureML**
+2. Navigeer naar de taakblade > **functies** >  **+ toevoegen** > **AzureML**
 
 3. Vul de **Azure Machine Learning-functie** blade met deze waarden:
 

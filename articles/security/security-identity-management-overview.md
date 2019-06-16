@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 758ed2e44718da709acec1379cfc79936c8b7cdf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444228"
+ms.locfileid: "67083641"
 ---
 # <a name="azure-identity-management-security-overview"></a>Overzicht van Azure identity management-beveiliging
 
- Identiteitsbeheer is het proces van verifiëren en autoriseren [beveiligings-principals](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). Dit omvat ook controle over informatie over de beveiligings-principals (identiteiten). Beveiligings-principals (identiteiten), omvat mogelijk services, toepassingen, gebruikers, groepen, enzovoort. Identiteits- en toegangsbeheer management solutions Help bij Microsoft IT de toegang tot toepassingen en bronnen beveiligen via het zakelijke datacentrum en in de cloud. Deze beveiliging zorgt ervoor dat extra niveaus van validatie, zoals multi-factor Authentication en beleid voor voorwaardelijke toegang. Verdachte activiteiten controleren tot en met geavanceerde beveiliging voor rapportages, controle en waarschuwingen helpt bij het beperken mogelijke beveiligingsproblemen. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) biedt eenmalige aanmelding (SSO) voor duizenden cloudsoftware as a service (SaaS)-apps en de toegang tot web-apps die u on-premises uitvoert.
+ Identiteitsbeheer is het proces van verifiëren en autoriseren [beveiligings-principals](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). Dit omvat ook controle over informatie over de beveiligings-principals (identiteiten). Beveiligings-principals (identiteiten), omvat mogelijk services, toepassingen, gebruikers, groepen, enzovoort. Identiteits- en toegangsbeheer management solutions Help bij Microsoft IT de toegang tot toepassingen en bronnen beveiligen via het zakelijke datacentrum en in de cloud. Deze beveiliging zorgt ervoor dat extra niveaus van validatie, zoals meervoudige verificatie en voorwaardelijk beleid. Verdachte activiteiten controleren tot en met geavanceerde beveiliging voor rapportages, controle en waarschuwingen helpt bij het beperken mogelijke beveiligingsproblemen. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) biedt eenmalige aanmelding (SSO) voor duizenden cloudsoftware as a service (SaaS)-apps en de toegang tot web-apps die u on-premises uitvoert.
  
 Door te profiteren van de voordelen van de beveiliging van Azure Active Directory (Azure AD), kunt u het volgende doen:
 

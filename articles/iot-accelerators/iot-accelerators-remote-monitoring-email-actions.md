@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466883"
 ---
 # <a name="add-an-email-action"></a>Een e-mailactie toevoegen
@@ -164,7 +164,7 @@ De volgende stappen laten zien hoe u de HTML-e-mailsjabloon te bewerken. U kunt 
 
 1. Installatiekopieën of aangepaste tekst wilt toevoegen, moet u het bestand EmailTemplate.HTML rechtstreeks bijwerken.
 
-## <a name="throttling"></a>Beperken
+## <a name="throttling"></a>Beperking
 
 De oplossingsverbetering voor externe controle wordt Outlook gebruikt voor het verzenden van e-mailmeldingen. Outlook beperkt het aantal e-mailberichten verzonden naar [30 e-mailberichten per één minuut](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-mailclients die de e-mailberichten ontvangt mogelijk ook het aantal e-mailberichten ontvangen per minuut vertraging. Neem contact op met uw specifieke e-mailclient op beperkingen. Bij het instellen van e-mailmelding voor een regel, wordt de regel berekend gemiddelde waarden gedurende een periode van ten minste één minuut en niet direct waarden gebruiken:
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: a9ada25641e2a56beb9083b145a507c8fd41a46f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935119"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Over het maken van Dynamics 365 voor bewerkingen via Cloud Partner-portal bieden
@@ -41,7 +41,7 @@ Er zijn vier belangrijkste formulieren voor het ontwerpen van een Dynamics 365 f
 
 Het formulier van de instellingen voor aanbieding is een eenvoudige methode om de instellingen van de aanbieding te geven. De verschillende velden worden hieronder beschreven.
 
-### <a name="offer-id"></a>Aanbiedings-id
+### <a name="offer-id"></a>Aanbiedings-ID
 
 Dit is een unieke id voor de aanbieding binnen een publisher-profiel. Deze ID zijn in URL's voor product zichtbaar. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De ID kan mag niet eindigen met een streepje en een maximum van 50 tekens. Dit veld is vergrendeld zodra een aanbieding live meteen.
 
@@ -82,7 +82,7 @@ Selecteer \'Ja\' of \'Nee\'.
 
 Selecteer \'Ja\' of \'Nee\'.
 
-### <a name="product-version"></a>Productversie
+### <a name="product-version"></a>Versie van het product
 
 Selecteer nieuwe AX. Ten slotte klikt u op opslaan.
 

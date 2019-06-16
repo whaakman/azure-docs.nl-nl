@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60732362"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Filters, bestellen, wisselbestand van Media Services-entiteiten
@@ -57,7 +57,7 @@ De volgende tabel ziet u hoe de filters en opties bestellen kunnen worden toegep
 |Name|Filteren|Bestellen|
 |---|---|---|
 |id|||
-|naam|eq, gt, lt| Oplopend of aflopend|
+|name|eq, gt, lt| Oplopend of aflopend|
 |properties.alternateId |eq||
 |properties.assetId |eq||
 |Properties.container |||
@@ -144,7 +144,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [Inhoudbe
 |Name|Filteren|Bestellen|
 |---|---|---|
 |id|||
-|naam|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
+|name|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
 |Properties.created |Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
 |Properties.Description |Eq, ne, ge, le, gt, lt||
 |properties.lastModified|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
@@ -178,7 +178,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [taken](h
 
 | Name    | Filteren                        | Bestellen |
 |---------|-------------------------------|-------|
-| naam                    | eq            | Oplopend of aflopend|
+| name                    | eq            | Oplopend of aflopend|
 | properties.state        | eq, ne        |                         |
 | Properties.created      | gt, ge, lt, le| Oplopend of aflopend|
 | properties.lastModified | gt, ge, lt, le | Oplopend of aflopend| 
@@ -226,7 +226,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de Streaming
 |Name|Filteren|Bestellen|
 |---|---|---|
 |id |||
-|naam|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
+|name|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
 |properties.alternativeMediaId  |||
 |properties.assetName   |||
 |properties.contentKeys |||
@@ -265,7 +265,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de Streaming
 |Name|Filteren|Bestellen|
 |---|---|---|
 |id|||
-|naam|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
+|name|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
 |properties.commonEncryptionCbcs|||
 |properties.commonEncryptionCenc|||
 |Properties.created |Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
@@ -300,7 +300,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [transfor
 
 | Name    | Filteren                        | Bestellen |
 |---------|-------------------------------|-------|
-| naam                    | eq            | Oplopend of aflopend|
+| name                    | eq            | Oplopend of aflopend|
 | Properties.created      | gt, ge, lt, le| Oplopend of aflopend|
 | properties.lastModified | gt, ge, lt, le | Oplopend of aflopend|
 

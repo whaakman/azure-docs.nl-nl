@@ -1,8 +1,8 @@
 ---
 title: Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory | Microsoft Docs
-description: Meer informatie over dingen die u moet weten en wat dat inhoudt dat dient u dit te vermijden bij het configureren van beleid voor voorwaardelijke toegang.
+description: Meer informatie over dingen die u moet weten en wat het is u beter niet kunt doen bij het configureren van beleid voor voorwaardelijke toegang.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67811e03bfa87a991b9eeb6f80ddddd87f781335
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 8e7b77376989031dc1697d155cccf59954233a85
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112658"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -109,7 +109,7 @@ Voor elke aanmelding, Azure Active Directory evalueert alle beleidsregels en zor
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Werkt voorwaardelijke toegang met Exchange ActiveSync?
 
-Ja, kunt u Exchange ActiveSync in een beleid voor voorwaardelijke toegang met enkele [beperkingen](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
+Ja, kunt u Exchange ActiveSync in een beleid voor voorwaardelijke toegang met enkele [beperkingen](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Hoe moet u voorwaardelijke toegang configureren met Office 365-apps?
 
@@ -117,7 +117,7 @@ Omdat Office 365-apps met elkaar zijn verbonden, wordt u aangeraden vaak toewijz
 
 Algemene onderling verbonden toepassingen bevatten Microsoft Flow, Microsoft Planner Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online en Office 365 Yammer.
 
-Het is belangrijk voor beleidsregels die interactie van gebruikers, zoals meervoudige verificatie, vereisen wanneer toegang wordt geregeld aan het begin van een sessie of de taak. Als u dit niet doet, kunnen gebruikers om sommige taken in een app te voltooien niet mogelijk. Bijvoorbeeld, als u multi-factor authentication op niet-beheerde apparaten toegang tot SharePoint, maar niet naar e-mailadres nodig hebt, gebruikers die werken in hun e-mailbericht niet mogelijk SharePoint-bestanden koppelen aan een bericht. Meer informatie vindt u in het artikel [wat serviceafhankelijkheden zijn in Azure Active Directory voor voorwaardelijke toegang?](service-dependencies.md).
+Het is belangrijk voor beleidsregels die interactie van gebruikers, zoals meervoudige verificatie, vereisen wanneer toegang wordt geregeld aan het begin van een sessie of de taak. Als u dit niet doet, kunnen gebruikers om sommige taken in een app te voltooien niet mogelijk. Bijvoorbeeld, als u multi-factor authentication op niet-beheerde apparaten toegang tot SharePoint, maar niet naar e-mailadres nodig hebt, gebruikers die werken in hun e-mailbericht niet mogelijk SharePoint-bestanden koppelen aan een bericht. Meer informatie vindt u in het artikel [wat zijn serviceafhankelijkheden in Azure Active Directory voor voorwaardelijke toegang?](service-dependencies.md).
 
 
 
@@ -183,5 +183,5 @@ Zie voor meer informatie, [klassiek beleid migreren in Azure portal](policy-migr
 
 Als u weten wilt:
 
-- Het beleid voor voorwaardelijke toegang configureren, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+- Het beleid voor voorwaardelijke toegang configureren, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
 - Over het plannen van uw beleid voor voorwaardelijke toegang, Zie [over het plannen van uw implementatie van voorwaardelijke toegang in Azure Active Directory](plan-conditional-access.md).

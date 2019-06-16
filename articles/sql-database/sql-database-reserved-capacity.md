@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/26/2019
 ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574183"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
@@ -53,12 +53,12 @@ Bijvoorbeeld: Stel dat u een algemene, Gen5 – 16 vCore elastische pool en twee
     |:------------|:--------------|
     |Name        |De naam van deze reservering.|
     |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering van SQL-Database gereserveerde capaciteit. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering van SQL-Database gereserveerde capaciteit. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR-0023P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|
-    |Bereik       |Bereik van de vCore-reservering kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <br/><br/>**Enkel abonnement** -de reserveringskorting vCore wordt toegepast op SQL Database-exemplaren in dit abonnement. <br/><br/>**Gedeeld abonnement** -de reserveringskorting vCore wordt toegepast op SQL Database-exemplaren die worden uitgevoerd in alle abonnementen binnen de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.|
+    |Scope       |Bereik van de vCore-reservering kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <br/><br/>**Enkel abonnement** -de reserveringskorting vCore wordt toegepast op SQL Database-exemplaren in dit abonnement. <br/><br/>**Gedeeld abonnement** -de reserveringskorting vCore wordt toegepast op SQL Database-exemplaren die worden uitgevoerd in alle abonnementen binnen de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.|
     |Regio      |De Azure-regio die wordt gedekt door de SQL-Database gereserveerde capaciteit.|
     |Implementatietype|Het type van de SQL-resource die u wilt kopen, de reservering voor.|
     |Prestatielaag|De servicelaag voor de SQL Database-exemplaren.
     |Termijn        |Één of drie jaar.|
-    |Hoeveelheid    |Het aantal exemplaren dat u hebt gekocht in de SQL-Database gereserveerde capaciteit. Het aantal is het aantal actieve SQL Database-exemplaren die de korting voor facturering krijgt. Bijvoorbeeld, als u 10 SQL Database-exemplaren in de VS-Oost, geeft vervolgens u hoeveelheid 10 te optimaliseren voor alle machines die worden uitgevoerd. |
+    |Aantal    |Het aantal exemplaren dat u hebt gekocht in de SQL-Database gereserveerde capaciteit. Het aantal is het aantal actieve SQL Database-exemplaren die de korting voor facturering krijgt. Bijvoorbeeld, als u 10 SQL Database-exemplaren in de VS-Oost, geeft vervolgens u hoeveelheid 10 te optimaliseren voor alle machines die worden uitgevoerd. |
     |||
 
 5. Controleer de kosten van de SQL-Database gereserveerde capaciteitsreservering in de **kosten** sectie.

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 27dc1b1315a8e33b8ac13b34d4a86ad0343388b4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9f74365f3fe935be45fa9c45e5b12c45b97b2f8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068358"
 ---
 De code voor alle functies in een specifieke functie-app bevindt zich in een hoofdmap van het project met een configuratiebestand voor de host en een of meer submappen. Elke submap bevat de code voor een afzonderlijke functie, zoals in de volgende afbeelding:
 
@@ -31,7 +31,7 @@ FunctionApp
  | - bin
 ```
 
-In versie 2.x van de Functions-runtime, alle functies in de functie-app moet dezelfde taal werknemer delen.  
+In versie 2.x van de Functions-runtime, alle functies in de functie-app moeten delen de dezelfde taal-stack.  
 
 De [host.json](../articles/azure-functions/functions-host-json.md) bestand, dat een runtime-specifieke configuraties bevat, is in de hoofdmap van de functie-app. Een `bin` map bevat pakketten en andere bibliotheekbestanden die vereist zijn voor de functie-app. Zie de taal-specifieke vereisten voor een functie-app-project:
 

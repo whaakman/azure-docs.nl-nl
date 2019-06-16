@@ -11,10 +11,10 @@ ms.date: 11/14/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514687"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Capaciteitslimieten voor SQL Data Warehouse
@@ -35,11 +35,11 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 |:--- |:--- |:--- |
 | Database |Maximale grootte | Gen1: 240 TB gecomprimeerd op schijf. Deze ruimte is onafhankelijk van tempdb- of logboekpad ruimte, en daarom deze ruimte wordt toegewezen aan de permanente tabellen.  Geclusterde columnstore-compressie wordt geschat op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen de geclusterde columnstore (de standaard-tabeltype worden). <br/><br/> Gen2: 240TB voor rowstore en onbeperkte opslag voor columnstore-tabellen |
 | Tabel |Maximale grootte |60 TB gecomprimeerd op schijf |
-| Tabel |Tabellen per database | 100.000 |
+| Tabel |Tabellen per database | 100\.000 |
 | Tabel |Kolommen per tabel |1024 kolommen |
 | Tabel |Bytes per kolom |Afhankelijk van de kolom [gegevenstype](sql-data-warehouse-tables-data-types.md). De limiet is 8000 voor de gegevenstypen char, 4000 voor nvarchar of 2 GB voor de MAX-gegevenstypen. |
 | Tabel |Bytes per rij, gedefinieerde grootte |8060 bytes<br/><br/>Het aantal bytes per rij wordt berekend op dezelfde manier als voor SQL Server bij de pagina, compressie. Als SQL Server en SQL Data Warehouse biedt ondersteuning voor overloop van rij-opslag, waarmee **kolommen met variabele lengte** buiten een rij worden gepusht. Wanneer rijen met variabele lengte zijn buiten een rij worden doorgestuurd, worden alleen 24 uur per dag-byte-hoofdmap wordt opgeslagen in de belangrijkste record. Zie voor meer informatie, [overloop rij gegevens van meer dan 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabel |Partities per tabel |15.000<br/><br/>Voor hoge prestaties, raden we het minimaliseren van het aantal partities moet u terwijl nog steeds ondersteuning van uw zakelijke vereisten. Als het aantal partities groeit, wordt de overhead voor Data Definition Language (DDL) en gegevens manipuleren taal (DML) toeneemt en zorgt ervoor dat de tragere prestaties. |
+| Tabel |Partities per tabel |15\.000<br/><br/>Voor hoge prestaties, raden we het minimaliseren van het aantal partities moet u terwijl nog steeds ondersteuning van uw zakelijke vereisten. Als het aantal partities groeit, wordt de overhead voor Data Definition Language (DDL) en gegevens manipuleren taal (DML) toeneemt en zorgt ervoor dat de tragere prestaties. |
 | Tabel |Tekens per partitie grenswaarde. |4000 |
 | Index |Niet-geclusterde indexen per tabel. |50<br/><br/>Van toepassing op alleen rowstore-tabellen. |
 | Index |Geclusterde indexen per tabel. |1<br><br/>Van toepassing op zowel rowstore en columnstore-tabellen. |
@@ -75,14 +75,14 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 ## <a name="metadata"></a>Metagegevens
 | Systeemweergave | Maximum aantal rijen |
 |:--- |:--- |
-| sys.dm_pdw_component_health_alerts |10.000 |
+| sys.dm_pdw_component_health_alerts |10\.000 |
 | sys.dm_pdw_dms_cores |100 |
 | sys.dm_pdw_dms_workers |Totaal aantal DMS webwerkrollen voor de meest recente 1000 aanvragen voor SQL. |
-| sys.dm_pdw_errors |10.000 |
-| sys.dm_pdw_exec_requests |10.000 |
-| sys.dm_pdw_exec_sessions |10.000 |
+| sys.dm_pdw_errors |10\.000 |
+| sys.dm_pdw_exec_requests |10\.000 |
+| sys.dm_pdw_exec_sessions |10\.000 |
 | sys.dm_pdw_request_steps |Totaal aantal stappen voor de meest recente versie van 1000 SQL aanvragen die zijn opgeslagen in sys.dm_pdw_exec_requests. |
-| sys.dm_pdw_os_event_logs |10.000 |
+| sys.dm_pdw_os_event_logs |10\.000 |
 | sys.dm_pdw_sql_requests |De meest recente 1000 SQL-aanvragen die zijn opgeslagen in sys.dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Volgende stappen

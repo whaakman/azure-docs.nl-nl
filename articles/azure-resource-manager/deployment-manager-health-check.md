@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796259"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduceren de gezondheid van integratie van implementatie naar Azure Deployment Manager (preview-versie)
@@ -140,11 +140,11 @@ Als u wilt nemen een voorbeeld, Zie [zelfstudie: Controle van gatewayservicestat
 
 Op dit moment weet Azure Deployment Manager hoe u query's voor de status van uw service en wat fasen bij uw implementatie om dit te doen. Azure Deployment Manager kan echter ook voor een grondige configuratie van de timing van deze controles. Een stap statuscontrole wordt uitgevoerd in 3 opeenvolgende fasen, die allemaal kunnen worden geconfigureerd duur zijn: 
 
-1. Wachten
+1. Wait
 
     1. Nadat de bewerking voor een implementatie is voltooid, virtuele machines kunnen worden opgestart, opnieuw configureren op basis van nieuwe gegevens, of zelfs voor de eerste keer wordt gestart. Het duurt ook tijd voor services om te beginnen met het verzenden van health-signalen en worden samengevoegd door de provider voor statuscontrole in iets nuttig. Tijdens dit proces tumultuous, kan het niet verstandig om te controleren voor de status van de service nadat de update nog niet een stabiele status heeft bereikt. De service kan immers worden vibrerende tussen de statussen in orde is en niet in orde als de resources vereffenen. 
     1. Status van de service wordt niet gecontroleerd tijdens de fase wachten. Dit wordt gebruikt om te worden gebruikt om de geïmplementeerde resources de tijd voor het maken van voordat u begint met de health-proces. 
-1. Elastisch
+1. Flexibel
 
     1. Omdat het niet mogelijk om te weten in alle gevallen hoelang nodig resources is om te maken voordat ze een stabiel, de elastische fase kunt u een flexibele tijd tussen wanneer de resources mogelijk instabiel zijn en wanneer ze vereist voor het onderhouden van een stabiele in orde zijn status.
     1. Wanneer de elastische fase begint met, begint Azure Deployment Manager periodiek polling van de opgegeven REST-eindpunt voor de servicestatus. Het polling-interval kan worden geconfigureerd. 

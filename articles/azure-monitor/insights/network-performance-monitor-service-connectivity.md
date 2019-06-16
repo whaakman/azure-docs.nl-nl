@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
-ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65963588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052090"
 ---
 # <a name="service-connectivity-monitor"></a>Bewaking van serviceverbinding
 
@@ -108,7 +108,7 @@ Nadat u hebt vastgesteld dat het probleem vanwege het netwerk is, selecteert u d
 
 ![Connectiviteitsmonitor voor service-tests](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
-## <a name="diagnostics"></a>Diagnostische gegevens 
+## <a name="diagnostics"></a>Diagnostiek 
 
 Als u een afwijking ziet, volgt u deze stappen:
 
@@ -129,7 +129,7 @@ Als u een afwijking ziet, volgt u deze stappen:
 * Als de toepassing wordt traag uitgevoerd, moet u bepalen of de prestaties slecht presteert vanwege een probleem aan het uiteinde van de provider van de toepassing of het netwerk.
 
 ## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office-URL's voor Amerikaanse overheidsklanten
-Alleen Amerikaanse ministerie van defensie-URL's zijn voor US Government Virginia regio, ingebouwde NPM. Klanten die gebruikmaken van GCC-URL's moeten maken van aangepaste tests en elke URL inidividually toevoegen.
+Alleen Amerikaanse ministerie van defensie-URL's zijn voor US Government Virginia regio, ingebouwde NPM. Klanten die gebruikmaken van GCC-URL's moeten maken van aangepaste tests en elke URL afzonderlijk toevoegen.
 
 | Veld | GCC |
 |:---   |:--- |

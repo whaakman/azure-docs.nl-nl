@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 024a2dbbd46fa2ab60da0f9682dbe298eaf73e86
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61300046"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055574"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -85,7 +85,7 @@ Computers die onlangs zijn ingeschakeld voor het beheer updates mogelijk zijn no
 
 - **Niet-compatibele**: Computers die niet over ten minste één essentiële beschikken of beveiligingsupdate.
 
-- **Niet beoordeeld**: De gegevens van de evaluatie van de update nog niet is ontvangen van de computer binnen het verwachte tijdsbestek. Voor Linux-computers is het verwachte tijdsbestek in de afgelopen 3 uur. Voor Windows-computers is het verwachte tijdsbestek in de afgelopen 12 uur.
+- **Niet beoordeeld**: De gegevens van de evaluatie van de update nog niet is ontvangen van de computer binnen het verwachte tijdsbestek. Voor Linux-computers is het verwachte tijdsbestek in het afgelopen uur. Voor Windows-computers is het verwachte tijdsbestek in de afgelopen 12 uur.
 
 Als u wilt de status van agent weergeven, selecteert u de koppeling in de **gereedheid voor UPDATE-AGENT** kolom. Hiermee opent u deze optie selecteert, de **Hybrid Worker** in het deelvenster en toont de status van de Hybrid Worker. De volgende afbeelding toont een voorbeeld van een agent die nog niet is verbonden met updatebeheer voor een lange periode:
 
@@ -116,7 +116,7 @@ Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de 
 
 Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten van de MMA opnieuw wordt gestart, voordat de installatie van de update en na installatie van update gestart.
 
-Voor een Linux-computer wordt de nalevingsscan standaard elke drie uur uitgevoerd. Als de MMA-agent opnieuw is opgestart, wordt een nalevingsscan gestart binnen 15 minuten.
+Voor een Linux-computer wordt de nalevingsscan standaard elk uur uitgevoerd. Als de MMA-agent opnieuw is opgestart, wordt een nalevingsscan gestart binnen 15 minuten.
 
 Duurt tussen 30 minuten en 6 uur voor het dashboard bijgewerkte gegevens van beheerde computers worden weergegeven.
 
@@ -130,7 +130,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
 - **Naam**: Voer een unieke naam voor het identificeren van de update-implementatie.
 - **Besturingssysteem**: Selecteer **Windows** of **Linux**.
-- **Groepen om bij te werken (preview)**: definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
+- **Groepen om bij te werken (preview)** : definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
 - **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Azure Monitorlogboeken](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Azure Monitor-logboeken
 
   ![Deelvenster met nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
@@ -154,7 +154,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
    ![Dialoogvenster Schema-instellingen](./media/manage-update-multi/update-set-schedule.png)
 
 - **Voorafgaande scripts en navolgende scripts**: selecteer de scripts die moeten worden uitgevoerd vóór en na de implementatie. Zie[Manage Pre and Post scripts](pre-post-scripts.md) (Voorafgaande en navolgende scripts beheren) voor meer informatie.
-- **Onderhoudsvenster (minuten)**: Geef de periode die u wilt dat de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
+- **Onderhoudsvenster (minuten)** : Geef de periode die u wilt dat de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
 
 - **Opnieuw opstarten besturingselement** -deze instelling bepaalt hoe opnieuw wordt opgestart voor de update-implementatie worden verwerkt.
 

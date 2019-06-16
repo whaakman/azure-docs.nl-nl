@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7e9b7c8f2cf86245322679198b84b50d2c5edce8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464673"
 ---
 # <a name="module-k-means-clustering"></a>Module: K-means-clustering
@@ -75,7 +75,7 @@ Wanneer deze de trainingsgegevens verwerkt, wordt het algoritme K-means begint m
 
          Deze methode wordt ook aangeroepen de *willekeurige partitie* methode.  
   
-    -   **K-middelen ++**: Dit is de standaardmethode voor het initialiseren van clusters.  
+    -   **K-middelen ++** : Dit is de standaardmethode voor het initialiseren van clusters.  
   
          De **K-middelen ++** algoritme is voorgesteld in 2007 door David Arthur en Sergei Vassilvitskii om te voorkomen dat slecht clustering door de norm K-means-algoritme. **K-middelen ++** norm K-means verbeterd met behulp van een andere methode voor het kiezen van de eerste cluster datacenters.  
   

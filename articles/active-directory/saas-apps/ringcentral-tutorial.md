@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e4f45deb8c63640a328e38cebc2ecbe67233c3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c374c9e8fd91d50b7e6589f22f9bed09fbe0de39
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143142"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092859"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Zelfstudie: RingCentral integreren met Azure Active Directory
 
@@ -62,8 +62,8 @@ Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met RingCent
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van SSO RingCentral](#configure-ringcentral-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maak RingCentral testgebruiker](#create-ringcentral-test-user)**  : als u wilt een equivalent van Britta Simon in RingCentral die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 

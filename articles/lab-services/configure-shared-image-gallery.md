@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: de857498aeb51c9b3711c90338d983e85b61cb70
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065434"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Een gedeelde galerie met installatiekopieën configureren in Azure DevTest Labs
-DevTest Labs nu ondersteunt de [gedeelde afbeeldingengalerie](/virtual-machines/windows/shared-image-galleries.md) functie. Hiermee kunnen labgebruikers toegang krijgen tot installatiekopieën vanaf een gedeelde locatie terwijl ze labresources maken. Het zorgt ook voor structuur en organisatie in uw aangepaste, beheerde VM-installatiekopieën. De galerie met installatiekopieën van gedeelde functie ondersteunt:
+DevTest Labs nu ondersteunt de [gedeelde afbeeldingengalerie](../virtual-machines/windows/shared-image-galleries.md) functie. Hiermee kunnen labgebruikers toegang krijgen tot installatiekopieën vanaf een gedeelde locatie terwijl ze labresources maken. Het zorgt ook voor structuur en organisatie in uw aangepaste, beheerde VM-installatiekopieën. De galerie met installatiekopieën van gedeelde functie ondersteunt:
 
 - Beheerde globale replicatie van installatiekopieën
 - Versiebeheer en groepering van installatiekopieën voor eenvoudiger beheer

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065481"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Ontwikkelaarshandleiding voor Azure Functions-PowerShell
 
@@ -60,7 +60,7 @@ In de hoofdmap van het project, er is een gedeelde [ `host.json` ](functions-hos
 
 Bepaalde bindingen vereist de aanwezigheid van een `extensions.csproj` bestand. Binding-extensies, vereist in [versie 2.x](functions-versions.md) van de Functions-runtime, zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
-In PowerShell-functie-Apps kan eventueel hebt u een `profile.ps1` die wordt uitgevoerd wanneer een functie-app begint te lopen (anders weten als een  *[koude start](#cold-start)*. Zie voor meer informatie, [PowerShell profiel](#powershell-profile).
+In PowerShell-functie-Apps kan eventueel hebt u een `profile.ps1` die wordt uitgevoerd wanneer een functie-app begint te lopen (anders weten als een  *[koude start](#cold-start)* . Zie voor meer informatie, [PowerShell profiel](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Een PowerShell-script definiëren als een functie
 
@@ -243,7 +243,7 @@ Logboekregistratie in de PowerShell-functies, zoals logboekregistratie van regul
 | Fout | **`Write-Error`** |
 | Waarschuwing | **`Write-Warning`**  | 
 | Informatie | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informatie | Schrijft naar _informatie_ logboekregistratie op. |
-| Fouten opsporen | **`Write-Debug`** |
+| fouten opsporen | **`Write-Debug`** |
 | Tracering | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Naast deze cmdlets iets geschreven naar de pijplijn wordt omgeleid naar de `Information` log niveau en weergegeven met de standaardopmaak PowerShell.
@@ -253,7 +253,7 @@ Naast deze cmdlets iets geschreven naar de pijplijn wordt omgeleid naar de `Info
 
 ### <a name="configure-the-function-app-log-level"></a>Het logboek-niveau van de functie-app configureren
 
-Functions kunt u de drempelwaarde voor het gemakkelijk om te bepalen de manier waarop functies worden geschreven naar de logboeken te definiëren. Als u wilt dat de drempelwaarde voor alle traceringen geschreven naar de console, gebruikt u de `logging.logLevel.default` eigenschap in de [ `host.json` bestand][naslaginformatie voor host.json]. Deze instelling geldt voor alle functies in uw functie-app.
+Azure Functions kunt u bij het definiëren van de drempelwaarde voor het gemakkelijk om te bepalen de manier waarop functies worden geschreven naar de logboeken. Als u wilt dat de drempelwaarde voor alle traceringen geschreven naar de console, gebruikt u de `logging.logLevel.default` eigenschap in de [ `host.json` bestand][naslaginformatie voor host.json]. Deze instelling geldt voor alle functies in uw functie-app.
 
 Het volgende voorbeeld wordt de drempel voor het inschakelen van uitgebreide logboekregistratie in voor alle functies, maar Hiermee stelt u de drempel voor het inschakelen van logboekregistratie voor foutopsporing voor een functie met de naam `MyFunction`:
 
@@ -598,7 +598,7 @@ Bij het ontwikkelen van Azure Functions in de [serverloze hostingmodel](function
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Bundel modules in plaats van `Install-Module`
 
-Het script wordt uitgevoerd op elke aanroep. Vermijd het gebruik van `Install-Module` in uw script. Gebruik in plaats daarvan `Save-Module` vóór publicatie, zodat uw functie niet kwijt aan het downloaden van de module. Als koude starts van invloed zijn op uw functies, kunt u overwegen uw functie-app implementeren een [App Service-plan](functions-scale.md#app-service-plan) ingesteld op *AlwaysOn* of naar een [Premium-abonnement](functions-scale.md#premium-plan-public-preview).
+Het script wordt uitgevoerd op elke aanroep. Vermijd het gebruik van `Install-Module` in uw script. Gebruik in plaats daarvan `Save-Module` vóór publicatie, zodat uw functie niet kwijt aan het downloaden van de module. Als koude starts van invloed zijn op uw functies, kunt u overwegen uw functie-app implementeren een [App Service-plan](functions-scale.md#app-service-plan) ingesteld op *AlwaysOn* of naar een [Premium-abonnement](functions-scale.md#premium-plan).
 
 ## <a name="next-steps"></a>Volgende stappen
 

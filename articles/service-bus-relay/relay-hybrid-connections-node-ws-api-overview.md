@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699381"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay-hybride verbindingen knooppunt API-overzicht
 
@@ -131,7 +131,7 @@ Constructorargumenten:
 - `server` (required) - the fully qualified URI for a Hybrid Connection name on which to listen, usually constructed with the WebSocket.createRelayListenUri() helper method.
 - `token` (vereist): dit argument een eerder uitgegeven tokens tekenreeks of een retouraanroepfunctie die kan worden aangeroepen om op te halen van een token tekenreeks bevat. De callback-optie is de voorkeur, vernieuwing van het token is ingeschakeld.
 
-#### <a name="events"></a>Gebeurtenissen
+#### <a name="events"></a>Events
 
 `RelayedServer` exemplaren van verzenden drie gebeurtenissen waarmee u kunt inkomende aanvragen worden verwerkt, verbindingen tot stand brengen en opsporen van fouten. U moet zich abonneren op de `connect` gebeurtenis om berichten te verwerken. 
 

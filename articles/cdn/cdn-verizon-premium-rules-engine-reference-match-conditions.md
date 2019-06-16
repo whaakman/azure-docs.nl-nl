@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481652"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN van Verizon Premium regels-engine voldoen aan bepaalde voorwaarden
@@ -804,7 +804,7 @@ Belangrijke informatie:
 - Een edge CNAME-URL wordt herschreven naar een CDN-URL voor vergelijking van de URL.
 
     Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
-     - De URL van CDN: http://wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
+     - De URL van CDN: http://wpc.0001.&lt ; domein&gt; /800001/CustomerOrigin/path/asset.htm
      - Edge CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
     
     Aanvullende informatie:

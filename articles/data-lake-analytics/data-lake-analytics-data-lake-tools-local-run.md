@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62113932"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>U-SQL-scripts uitvoeren op uw lokale computer
@@ -27,7 +27,7 @@ Het volgende diagram ziet u de onderdelen voor het lokaal uitvoeren en hoe deze 
 
 |Onderdeel|Lokaal uitvoeren|Cloud uitvoeren|
 |---------|---------|---------|
-|Storage|Hoofdmap van de lokale gegevens|Standaard Azure Data Lake Store-account|
+|Opslag|Hoofdmap van de lokale gegevens|Standaard Azure Data Lake Store-account|
 |Compute|U-SQL-engine met lokaal uitvoeren|Azure Data Lake Analytics-service|
 |Omgeving worden uitgevoerd|Werkmap op de lokale computer|Azure Data Lake Analytics-cluster|
 

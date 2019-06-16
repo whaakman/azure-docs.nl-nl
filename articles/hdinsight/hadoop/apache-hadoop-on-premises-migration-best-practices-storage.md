@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691524"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - opslag aanbevolen procedures
@@ -73,7 +73,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Azure storage gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-blob-storage.md)
+- [Azure-opslag gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-blob-storage.md)
 - [Schaalbaarheids- en Prestatiedoelen voor Azure Storage](../../storage/common/storage-scalability-targets.md)
 - [Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage](../../storage/common/storage-performance-checklist.md)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) (Bewaken, diagnosticeren en problemen oplossen in Microsoft Azure Storage)

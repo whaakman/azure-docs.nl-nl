@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109389"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan voor de levenscyclus van hybride identiteit
 Identiteit is een van de fundamenten van uw strategie voor enterprise mobility en de toepassing. Of u zich op uw mobiele apparaat of de SaaS-app, is uw identiteit de sleutel tot het verkrijgen van toegang tot alles. Op het hoogste niveau omvat een oplossing voor identiteitsbeheer werking en synchronisatie tussen uw opslagplaatsen voor identiteit, waaronder automatiseren en het proces van inrichting van resources te centraliseren. De oplossing voor identiteit moet de identiteit van een gecentraliseerde via on-premises en cloud en een vorm van identiteitsfederatie ook gebruiken om te onderhouden centrale verificatie en veilig delen en samenwerken met externe gebruikers en bedrijven. Bronnen variëren van besturingssystemen en toepassingen naar mensen in of gekoppeld aan een organisatie. Organisatiestructuur kan worden gewijzigd om te voldoen aan de inrichting beleidsregels en procedures.

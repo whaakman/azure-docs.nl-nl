@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736277"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Hoe voordeur aansluit bij aanvragen voor een regel voor doorsturen
@@ -48,7 +48,7 @@ Wanneer die overeenkomt met een front-hosts, gebruiken we de logica zoals hieron
 
 Voor een uitleg van dit proces verder, laten we bekijken een van de voorbeeldconfiguratie van voordeur routes (alleen linkerkant):
 
-| Routeringsregel | Front-endhosts | Pad |
+| Routeringsregel | Frontend-hosts | Pad |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /gebruikers/\* |

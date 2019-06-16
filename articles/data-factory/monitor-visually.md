@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
 ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60716748"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure data factory's visueel bewaken
@@ -42,12 +42,12 @@ Lijstweergave geeft elke pijplijnuitvoering voor uw v2-pijplijnen van uw gegeven
 | Pijplijnnaam | Naam van de pijplijn. |
 | Acties | Één actie beschikbaar om uitvoeringen van activiteit weer te geven. |
 | Uitvoering starten | Pijplijn uitvoeren start datum en tijd (MM/DD/JJJJ uu: mm: SS AM/PM) |
-| Duur | Uitvoeringsduur (uu: mm:) |
+| Duration | Uitvoeringsduur (uu: mm:) |
 | Geactiveerd door | Handmatige triggers, trigger voor schema |
 | Status | Is mislukt, is voltooid, wordt uitgevoerd |
 | Parameters | Pijplijnuitvoering parameters (naam, waarde-paren) |
 | Fout | Pijplijnuitvoering fout (indien/any) |
-| Run-id | ID van de pijplijnuitvoering |
+| ID uitvoeren | ID van de pijplijnuitvoering |
 
 ![Pijplijnuitvoeringen controleren](media/monitor-visually/pipeline-runs.png)
 
@@ -56,10 +56,10 @@ Lijstweergave geeft activiteituitvoeringen weer die corresponderen met elke pijp
 
 | **De naam van kolom** | **Beschrijving** |
 | --- | --- |
-| Naam activiteit | Naam van de activiteit in de pijplijn. |
-| Type activiteit | Het type van de activiteit, zoals kopiëren, HDInsightSpark, HDInsightHive, enzovoort. |
+| Naam van de activiteit | Naam van de activiteit in de pijplijn. |
+| Activiteitstype | Het type van de activiteit, zoals kopiëren, HDInsightSpark, HDInsightHive, enzovoort. |
 | Uitvoering starten | Uitvoering van activiteit start datum en tijd (MM/DD/JJJJ uu: mm: SS AM/PM) |
-| Duur | Uitvoeringsduur (uu: mm:) |
+| Duration | Uitvoeringsduur (uu: mm:) |
 | Status | Is mislukt, is voltooid, wordt uitgevoerd |
 | Invoer | JSON-matrix met een beschrijving van de invoer voor de activiteit |
 | Uitvoer | JSON-matrix met een beschrijving van de uitvoer voor activiteiten |

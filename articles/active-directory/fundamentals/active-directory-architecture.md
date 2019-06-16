@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: aed332f32fa9fdc154c72e45914e642a9dad4993
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055715"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Wat is de Azure Active Directory-architectuur?
 Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer informatie over de functies van Azure AD.
@@ -95,7 +95,7 @@ Het model van de directory is een van de uiteindelijke consistenties. Een typisc
 
 Met behulp van een secundaire replica biedt Azure AD lees-/schrijfconsistentie voor toepassingen door schrijfbewerkingen naar de primaire replica te leiden en ze tegelijkertijd terug te halen naar de secundaire replica.
 
-Voor toepassingsschrijfbewerkingen met behulp van de Graph-API of Azure AD wordt geen affiniteit onderhouden met een mapreplica voor lees-/schrijfconsistentie. De Azure AD Graph-service onderhoudt een logische sessie die affiniteit heeft met een secundaire replica die wordt gebruikt voor leesbewerkingen. Affiniteit wordt vastgelegd in een replicatoken dat met de Graph-service in cache wordt geplaatst met behulp van een gedistribueerde cache. Dit token wordt vervolgens gebruikt voor verdere bewerkingen in dezelfde logische sessie. 
+Voor toepassingsschrijfbewerkingen met behulp van de Graph-API of Azure AD wordt geen affiniteit onderhouden met een mapreplica voor lees-/schrijfconsistentie. De Azure AD Graph-service onderhoudt een logische sessie die affiniteit heeft naar een secundaire replica die wordt gebruikt voor leesbewerkingen; affiniteit wordt vastgelegd in een token' replica', dat de graph-service in de cache opslaat met behulp van een gedistribueerde cache in het datacenter van de secundaire replica. Dit token wordt vervolgens gebruikt voor verdere bewerkingen in dezelfde logische sessie. Om door te gaan met behulp van dezelfde logische sessie moeten de volgende aanvragen worden doorgestuurd naar de dezelfde Azure AD-datacenter. Het is niet mogelijk om door te gaan van een logische sessie als de Active directory-client-aanvragen worden omgeleid naar meerdere Azure AD-datacenters; Als dit het geval is de client meerdere logische sessies die onafhankelijk lezen / schrijven consistenties hebben.
 
  >[!NOTE]
  >Schrijfbewerkingen worden onmiddellijk gerepliceerd naar de secundaire replica waarop de leesbewerkingen van de logische sessie zijn weggeschreven.

@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541613"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Maken en beheren van een catalogus in Azure AD waar u recht op beheer (Preview)
@@ -30,7 +30,7 @@ ms.locfileid: "64541613"
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
 > Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-## <a name="create-a-catalog"></a>Een catalogusitemgroep maken
+## <a name="create-a-catalog"></a>Een catalogus maken
 
 Een catalogus is een container van resources en toegang tot pakketten. U kunt een catalogus maken als u wilt groeperen van gerelateerde resources en toegang tot pakketten. Degene die de catalogus wordt gemaakt, wordt de eigenaar van de eerste catalogus. De eigenaar van een catalogus kunt eigenaren van aanvullende catalogussen toevoegen.
 
@@ -98,7 +98,7 @@ U kunt resources verwijderen uit een catalogus. Een resource kan alleen worden v
 
 1. Selecteer de resources die u wilt verwijderen.
 
-1. Klik op **verwijderen** (of klik op het weglatingsteken (**...** ) en klik vervolgens op **resource verwijderen**).
+1. Klik op **verwijderen** (of klik op het weglatingsteken ( **...** ) en klik vervolgens op **resource verwijderen**).
 
 ## <a name="add-catalog-owners-or-access-package-managers"></a>Catalogus eigenaren toevoegen of toegang tot Pakketbeheer
 

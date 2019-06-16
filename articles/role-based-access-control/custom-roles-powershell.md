@@ -15,10 +15,10 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158456"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Aangepaste rollen maken voor Azure-resources met behulp van Azure PowerShell
@@ -128,7 +128,7 @@ PS C:\> (Get-AzRoleDefinition "Virtual Machine Operator").Actions
 "Microsoft.Support/*"
 ```
 
-## <a name="create-a-custom-role"></a>Een aangepast rol maken
+## <a name="create-a-custom-role"></a>Een aangepaste rol maken
 
 U kunt een aangepaste rol maken met de [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) opdracht. Er zijn twee methoden voor het structureren van de rol, met behulp van `PSRoleDefinition` object of een JSON-sjabloon. 
 

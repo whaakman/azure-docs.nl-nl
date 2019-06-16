@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110995"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-naar-service aanroepen die gebruik gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
 
@@ -112,10 +112,10 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-servi
 | Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |Vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JSON Web Token (JWT), zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
+| assertion |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
 | client_id |Vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
 | client_secret |Vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Bron |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| resource |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
 | scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
@@ -146,11 +146,11 @@ Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volg
 | Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |Vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JWT-toegangstoken, zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
+| assertion |Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
 | client_id |Vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
 | client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Vereist | Een JSON Web Token die u maakt en meld u aan met het certificaat dat u geregistreerd als referenties voor uw toepassing. Zie [referenties van het certificaat](active-directory-certificate-credentials.md) voor meer informatie over assertion indeling en over het registreren van uw certificaat.|
-| Bron |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| resource |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
 | scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
@@ -187,7 +187,7 @@ Een geslaagd antwoord is een JSON OAuth 2.0-antwoord met de volgende parameters:
 | scope |Het bereik van de toegang is verleend in het token. |
 | expires_in |De hoeveelheid tijd die het toegangstoken ongeldig (in seconden is). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Bron |De app-ID-URI van de ontvangende service (beveiligde resource). |
+| resource |De app-ID-URI van de ontvangende service (beveiligde resource). |
 | access_token |Het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om te verifiëren bij de ontvangende service. |
 | id_token |De aangevraagde ID-token. De aanroepende service kunt u dit token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
 | refresh_token |Het vernieuwingstoken dat voor de aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |
@@ -256,10 +256,10 @@ Een service-naar-service-aanvraag voor een SAML-verklaring bevat de volgende par
 | Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |Vereist | Het type van het token aan te vragen. Voor een aanvraag die gebruikmaakt van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
+| assertion |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
 | client_id |Vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
 | client_secret |Vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Bron |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Dit is de resource die de doelgroep van het SAML-token. Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| resource |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Dit is de resource die de doelgroep van het SAML-token. Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
 | requested_token_type | Vereist | Hiermee geeft u het type token dat is aangevraagd. De waarde kan zijn **urn: ietf:params:oauth:token-type: saml2** of **urn: ietf:params:oauth:token-type: saml1** afhankelijk van de vereisten van de gebruikte resource. |
 
@@ -278,7 +278,7 @@ Het antwoord bevat een SAML-token dat is gecodeerd in UTF8 en Base64url.
 | scope |Het bereik van de toegang is verleend in het token. |
 | expires_in |De hoeveelheid tijd die het toegangstoken ongeldig (in seconden is). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Bron |De app-ID-URI van de ontvangende service (beveiligde resource). |
+| resource |De app-ID-URI van de ontvangende service (beveiligde resource). |
 | access_token |De parameter die het SAML-verklaring retourneert. |
 | refresh_token |Het vernieuwingstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat de huidige SAML-verklaring is verlopen. |
 

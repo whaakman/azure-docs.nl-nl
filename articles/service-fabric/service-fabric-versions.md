@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: aljo
-ms.openlocfilehash: 606b14fba093b6ec8039c646a49bc3bf7d24eb51
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 8a548bce6da8b3bae004b0be4f6e8f09c9894025
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060355"
 ---
 # <a name="supported-service-fabric-versions"></a>Ondersteunde versies van de Service Fabric
 
@@ -46,7 +46,8 @@ De volgende tabel bevat de versies van Service Fabric en de einddatum van onders
 | 6.1.* | 5.7.221.* |Kleiner dan of gelijk zijn aan versie 3.0 |15 juli 2018      |
 | 6.2.* | 6.0.232.* |Kleiner dan of gelijk zijn aan versie 3.1 |26 oktober 2018   |
 | 6.3.* | 6.1.480.* |Kleiner dan of gelijk zijn aan versie 3.2 |Maart 31 mei 2019  |
-| 6.4.* | 6.2.301.* |Kleiner dan of gelijk zijn aan versie 3.3 |Huidige versie, dus geen einddatum |
+| 6.4.* | 6.2.301.* |Kleiner dan of gelijk zijn aan versie 3.3 |Op 15 september 2019 |
+| 6.5.* | 6.4.617.* |Kleiner dan of gelijk zijn aan versie 3.4 |Huidige versie, dus geen einddatum |
 
 ## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
@@ -103,3 +104,4 @@ De volgende tabel bevat de versienamen van Service Fabric en hun bijbehorende ve
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 ONDERSTEUND | 6.4.658.9590 | N.V.T. |
 | 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |

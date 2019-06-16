@@ -9,12 +9,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 21ccd7b2919714610dbd51c62701c4bb32d330d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808830"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Een Azure Red Hat OpenShift-ontwikkelaarsomgeving instellen
 
@@ -22,7 +22,7 @@ Als u wilt bouwen en uitvoeren van toepassingen van Microsoft Azure Red Hat Open
 
 * Kopen van gereserveerde virtuele Azure-machine-instanties.
 * Versie 2.0.65 installeren (of hoger) van de Azure CLI (of gebruik de Azure Cloud Shell).
-* Meld u aan voor de `openshiftmanagedcluster` functie en de gekoppelde resourceproviders.
+* Meld u aan voor de `AROGA` functie en de gekoppelde resourceproviders.
 * Een Azure Active Directory (Azure AD)-tenant maken.
 * Maak een Azure AD-toepassing-object.
 * Maak een Azure AD-gebruiker.
@@ -55,7 +55,7 @@ U kunt ook kunt u de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-
 
 ## <a name="register-providers-and-features"></a>Registreren van providers en -functies
 
-De `Microsoft.ContainerService openshiftmanagedcluster` functie `Microsoft.Solutions`, en `Microsoft.Network` providers moeten worden geregistreerd bij uw abonnement handmatig voordat u uw eerste Azure Red Hat OpenShift-cluster implementeert.
+De `Microsoft.ContainerService AROGA` functie `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.KeyVault` en `Microsoft.Network` providers moeten worden geregistreerd bij uw abonnement handmatig voordat u uw eerste Azure Red Hat OpenShift-cluster implementeert.
 
 Gebruik voor het handmatig registreren van deze voorzieningen en functies, de volgende instructies zijn van een Bash-shell als u de CLI hebt geïnstalleerd, of van de sessie van de Azure Cloud Shell (Bash) in uw Azure-portal:
 
@@ -65,10 +65,10 @@ Gebruik voor het handmatig registreren van deze voorzieningen en functies, de vo
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. De functie van de openshiftmanagedcluster Microsoft.ContainerService registreren:
+1. De functie Microsoft.ContainerService AROGA registreren:
 
     ```bash
-    az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
+    az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Registreer de provider Microsoft.Storage:

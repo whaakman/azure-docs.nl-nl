@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075473"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Een aangepast domein toewijzen aan een functie-app
 
-Met dit voorbeeldscript maakt u een functie-app in een App Service-abonnement en wijst u deze vervolgens toe aan een aangepast domein dat u opgeeft. Wanneer uw functie-app wordt gehost in een [Premium-abonnement](../functions-scale.md#premium-plan-public-preview) of een [App Service-plan](../functions-scale.md#app-service-plan), kunt u een aangepast domein met behulp van een CNAME- of een A-record toewijzen. Voor functie-apps in een [verbruiksabonnement](../functions-scale.md#consumption-plan) wordt alleen de optie CNAME ondersteund. Met dit voorbeeld maakt u een App Service-abonnement en hebt u een A-record nodig om het domein toe te wijzen. 
+Met dit voorbeeldscript maakt u een functie-app in een App Service-abonnement en wijst u deze vervolgens toe aan een aangepast domein dat u opgeeft. Wanneer uw functie-app wordt gehost in een [Premium-abonnement](../functions-scale.md#premium-plan) of een [App Service-plan](../functions-scale.md#app-service-plan), kunt u een aangepast domein met behulp van een CNAME- of een A-record toewijzen. Voor functie-apps in een [verbruiksabonnement](../functions-scale.md#consumption-plan) wordt alleen de optie CNAME ondersteund. Met dit voorbeeld maakt u een App Service-abonnement en hebt u een A-record nodig om het domein toe te wijzen. 
 
 Om dit voorbeeldscript te kunnen uitvoeren, moet u al een A-record in uw aangepaste domein hebben geconfigureerd die naar de standaarddomeinnaam van uw web-app wijst. Zie de [instructies van Aangepast domein toewijzen voor Azure App Service](https://aka.ms/appservicecustomdns) voor meer informatie. 
 

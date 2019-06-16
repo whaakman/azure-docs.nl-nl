@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130123"
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
@@ -166,7 +166,7 @@ Uw toepassing heeft nu twee services: de stateless service HelloWorld en de stat
 
 Een stateful service heeft de dezelfde toegangspunten als een stateless service. Het belangrijkste verschil is de beschikbaarheid van een state-provider die de status op betrouwbare wijze kunt opslaan. Service Fabric wordt geleverd door een implementatie voor een status-provider met de naam betrouwbare verzamelingen, waarmee u structuren van gerepliceerde gegevens via de betrouwbare status Manager maken. Een stateful betrouwbare Service maakt gebruik van deze provider staat standaard.
 
-Open HelloWorldStateful.java in **HelloWorldStateful src ->**, die de volgende RunAsync-methode bevat:
+Open HelloWorldStateful.java in **HelloWorldStateful src ->** , die de volgende RunAsync-methode bevat:
 
 ```java
 @Override

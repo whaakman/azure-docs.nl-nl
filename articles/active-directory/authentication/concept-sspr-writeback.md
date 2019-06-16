@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113500"
 ---
 # <a name="what-is-password-writeback"></a>Wat is wachtwoord terugschrijven?
 
@@ -152,7 +152,6 @@ Wachtwoorden worden teruggeschreven in de volgende situaties:
    * Een beheerder selfservice-force wijzigen wachtwoord bewerking, bijvoorbeeld: wachtwoord verloopt
    * Een beheerder van self-service voor wachtwoord opnieuw instellen dat afkomstig van is de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com)
    * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de [Azure-portal](https://portal.azure.com)
-   * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de [Microsoft 365-beheercentrum](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Write-back van niet-ondersteunde bewerkingen
 
@@ -162,6 +161,7 @@ Wachtwoorden zijn *niet* teruggeschreven in een van de volgende situaties:
    * Een eindgebruiker hun eigen wachtwoord opnieuw instellen met behulp van PowerShell-versie 1, versie 2 of de Azure AD Graph API
 * **Niet-ondersteunde bewerkingen**
    * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de PowerShell-versie 1, versie 2 of de Azure AD Graph API
+   * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de [Microsoft 365-beheercentrum](https://admin.microsoft.com)
 
 > [!WARNING]
 > Gebruik van het selectievakje 'gebruiker moet wachtwoord wijzigen bij volgende aanmelding' in de on-premises Active Directory-beheerprogramma's, zoals Active Directory: gebruikers en Computers of Active Directory Administrative Center wordt niet ondersteund. Bij het wijzigen van een wachtwoord controleren on-premises met deze optie niet.

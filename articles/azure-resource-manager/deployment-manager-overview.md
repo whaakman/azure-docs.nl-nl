@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066825"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (openbare preview) inschakelen
 
 Voor het implementeren van uw service in veel regio's en zorg ervoor dat deze wordt uitgevoerd zoals verwacht in elke regio, kunt u Azure Deployment Manager gebruiken voor de coördinatie van een gefaseerde implementatie van de service. Net zoals u zou voor elke Azure-implementatie doen, definieert u de resources voor uw service in [Resource Manager-sjablonen](resource-group-authoring-templates.md). Na het maken van de sjablonen, kunt u Deployment Manager gebruiken om te beschrijven van de topologie voor uw service en hoe deze moet worden geïmplementeerd.
 
-Deployment Manager is een functie van Resource Manager. Hiermee wordt uw mogelijkheden tijdens de implementatie. Deployment Manager gebruiken wanneer u een complexe service die moet worden geïmplementeerd voor meerdere regio's. Door de implementatie van uw service te faseren, kunt u potentiële problemen opsporen voordat de service is geïmplementeerd voor alle regio's. Als u niet de extra voorzorgsmaatregelen van een gefaseerde implementatie nodig hebt, gebruikt u de standaard [implementatieopties](resource-group-template-deploy-portal.md) voor Resource Manager. Deployment Manager integreert naadloos met alle bestaande hulpprogramma's van derden die ondersteuning bieden voor Resource Manager-implementaties, zoals continue integratie en continue levering (CI/CD)-aanbiedingen. 
+Deployment Manager is een functie van Resource Manager. Hiermee wordt uw mogelijkheden tijdens de implementatie. Deployment Manager gebruiken wanneer u een complexe service die moet worden geïmplementeerd voor meerdere regio's. Door de implementatie van uw service te faseren, kunt u potentiële problemen opsporen voordat de service is geïmplementeerd voor alle regio's. Als u niet de extra voorzorgsmaatregelen van een gefaseerde implementatie nodig hebt, gebruikt u de standaard [implementatieopties](resource-group-template-deploy-portal.md) voor Resource Manager. Deployment Manager integreert naadloos met alle bestaande hulpprogramma's van derden die ondersteuning bieden voor Resource Manager-implementaties, zoals continue integratie en continue levering (CI/CD)-aanbiedingen.
 
 Azure Deployment Manager is in preview. Help ons te verbeteren van de functie door op te geven [feedback](https://aka.ms/admfeedback).
 
@@ -31,7 +31,12 @@ Deployment Manager wilt gebruiken, moet u vier bestanden maken:
 
 U implementeren de sjabloon topologie voordat u de implementatie-sjabloon implementeert.
 
-De Azure Deployment Manager REST API-verwijzing vindt u [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Aanvullende bronnen:
+
+- De [Azure Deployment Manager REST API-verwijzingen](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen](./deployment-manager-tutorial.md).
+- [Zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Een voorbeeld van Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identiteit en toegang
 
@@ -191,7 +196,7 @@ In de sjabloon rollout maakt u een artefact bron voor de binaire bestanden die u
 
 ### <a name="steps"></a>Stappen
 
-U kunt een stap uit te voeren voor of na de implementatiebewerking definiëren. Op dit moment alleen de `wait` stap en de 'statuscontrole' beschikbaar zijn. 
+U kunt een stap uit te voeren voor of na de implementatiebewerking definiëren. Op dit moment alleen de `wait` stap en de 'statuscontrole' beschikbaar zijn.
 
 De stap wacht onderbreekt de implementatie voordat u doorgaat. Hiermee kunt u controleren of uw service wordt uitgevoerd zoals verwacht voordat u de volgende eenheid van de service implementeert. Het volgende voorbeeld ziet de algemene indeling van een stap wacht.
 
@@ -262,13 +267,13 @@ Zie voor meer informatie, [implementaties sjabloonverwijzing](/azure/templates/M
 
 ## <a name="parameter-file"></a>Parameterbestand
 
-U maakt twee parameterbestanden. Een parameterbestand wordt gebruikt bij het implementeren van de topologie van de service en de andere wordt gebruikt voor de implementatie van de implementatie. Er zijn enkele waarden die u nodig hebt om ervoor te zorgen zijn hetzelfde in beide parameterbestanden.  
+U maakt twee parameterbestanden. Een parameterbestand wordt gebruikt bij het implementeren van de topologie van de service en de andere wordt gebruikt voor de implementatie van de implementatie. Er zijn enkele waarden die u nodig hebt om ervoor te zorgen zijn hetzelfde in beide parameterbestanden.
 
 ## <a name="containerroot-variable"></a>containerRoot variabele
 
 Met versie implementaties, het pad naar uw artefacten wijzigingen bij elke nieuwe versie. De eerste keer dat u het pad naar een implementatie uitgevoerd mogelijk `https://<base-uri-blob-container>/binaries/1.0.0.0`. De tweede keer dat het mogelijk `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager vereenvoudigt het ophalen van pad naar de juiste hoofdmap voor de huidige implementatie met behulp van de `$containerRoot` variabele. Deze waarde wordt gewijzigd met elke versie en is niet bekend zijn vóór de implementatie.
 
-Gebruik de `$containerRoot` variabele in het parameterbestand voor de sjabloon voor het implementeren van de Azure-resources. Tijdens de implementatie, wordt deze variabele vervangen door de werkelijke waarden van de implementatie. 
+Gebruik de `$containerRoot` variabele in het parameterbestand voor de sjabloon voor het implementeren van de Azure-resources. Tijdens de implementatie, wordt deze variabele vervangen door de werkelijke waarden van de implementatie.
 
 Tijdens de implementatie maakt u bijvoorbeeld een artefact bron voor de binaire artefacten.
 

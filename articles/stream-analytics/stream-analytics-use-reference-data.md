@@ -4,19 +4,19 @@ description: In dit artikel wordt beschreven hoe u referentiegegevens gebruiken 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066771"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
+
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. 
 
 Stream Analytics ondersteunt Azure Blob storage en Azure SQL Database als de opslaglaag voor referentiegegevens. U kunt ook transformeren en/of referentiegegevens naar Blob storage kopiëren van Azure Data Factory gebruiken [een aantal van de cloud gebaseerde en on-premises gegevensopslagexemplaren](../data-factory/copy-activity-overview.md).
@@ -43,7 +43,7 @@ Voor het configureren van de referentiegegevens, moet u eerst het maken van de i
 
 ### <a name="static-reference-data"></a>Statische referentiegegevens
 
-Als uw referentiegegevens niet verwacht wordt te wijzigen, klikt u vervolgens ondersteuning voor statische verwijzing gegevens is ingeschakeld door een statische pad op te geven in de configuratie van de invoer. Azure Stream Analytics, neemt de blob uit het opgegeven pad. {date} en {time} vervanging tokens niet vereist. Referentiegegevens is onveranderbaar in Stream Analytics. Daarom wordt overschrijven van een statische referentiegegevens-blob niet aanbevolen.
+Als uw referentiegegevens niet verwacht wordt te wijzigen, klikt u vervolgens ondersteuning voor statische verwijzing gegevens is ingeschakeld door een statische pad op te geven in de configuratie van de invoer. Azure Stream Analytics, neemt de blob uit het opgegeven pad. {date} en {time} vervanging tokens niet vereist. Omdat referentiegegevens onveranderbare in Stream Analytics is, wordt het overschrijven van een statische referentiegegevens-blob niet aanbevolen.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Referentiegegevens volgens een schema genereren
 
@@ -54,7 +54,7 @@ Azure Stream Analytics scant automatisch voor vernieuwd referentiegegevens-blobs
 > [!NOTE]
 > Stream Analytics-taken bekijken die momenteel voor het vernieuwen van de blob alleen wanneer de tijd op de computer wordt verplaatst naar de tijd die is gecodeerd in de blob-naam. Bijvoorbeeld, de taak wordt gezocht naar `sample/2015-04-16/17-30/products.csv` zo snel mogelijk maar het is niet eerder dan 17:30 uur op 16 April 2015 UTC tijdzone. Het wordt *nooit* zoeken naar een blob met een gecodeerde tijd ouder is dan het laatste item dat is gedetecteerd.
 > 
-> Bijvoorbeeld Zodra de taak wordt de blob gevonden `sample/2015-04-16/17-30/products.csv` deze bestanden met een gecodeerde datum ouder is dan 5:30 PM 16 April 2015 worden genegeerd als een latere binnenkomen `sample/2015-04-16/17-25/products.csv` blob wordt gemaakt in dezelfde container wordt niet gebruikt door de taak deze.
+> Bijvoorbeeld, zodra de taak wordt de blob gevonden `sample/2015-04-16/17-30/products.csv` deze bestanden met een gecodeerde datum ouder is dan 5:30 PM 16 April 2015 worden genegeerd als een latere binnenkomen `sample/2015-04-16/17-25/products.csv` blob wordt gemaakt in dezelfde container wordt niet gebruikt door de taak deze.
 > 
 > Op dezelfde manier als `sample/2015-04-16/17-30/products.csv` alleen om 22:03 uur 16 April 2015 wordt gemaakt, maar geen blob met een eerdere datum in de container aanwezig is, de taak wordt dit bestand begint bij 10:03 PM 16 April 2015 gebruiken en gebruikmaken van de vorige referentiegegevens tot die tijd.
 > 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/21/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059289"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
@@ -62,6 +62,19 @@ Terwijl de modelopbouw is geautomatiseerd, kunt u ook [informatie over hoe belan
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
+
+## <a name="time-series-forecasting"></a>Time Series-prognoses
+Het bouwen van prognoses is een integraal onderdeel van een bedrijf, of het omzet, voorraad, verkoop of klant aanvraag. Geautomatiseerde ml maakt gebruik van gecombineerde technieken en manieren om aan te bevelen prognose van een tijdreeks van hoge kwaliteit. Time series-experimenten in ml automatisch worden behandeld als een multidimensionale regressie-probleem. Na de timeseries zijn waarden "draaien" om extra dimensies voor de regressor zijn samen met andere voorspellingsfactoren geworden. 
+
+Deze benadering, in tegenstelling tot klassieke time series-methoden, heeft een voordeel van het opnemen van op een natuurlijke manier meerdere contextuele variabelen en hun relatie tot elkaar tijdens de training. In de praktijk prognoses toepassingen, meerdere factoren kunnen invloed hebben op een prognose. Bijvoorbeeld bij het voorspellen van de verkoop, stimuleren interacties van historische trends, wisselkoers en prijs alle gezamenlijk de verkoop uitkomst. Een ander voordeel is dat alle recente innovaties in regressiemodellen direct op het maken van prognoses toegepast.
+
+Hoe ver in de toekomst de prognose (de prognose horizon) moet uitbreiden maakt deel uit van de basic prognose-specificatie. Als u de vereiste parameter van `max_horizon` in het experiment definieert hoeveel eenheid perioden (op basis van het tijdsinterval van uw trainingsgegevens, bijvoorbeeld maandelijks, per week de forecaster af te voorspellen. 
+
+Geautomatiseerde ML leert een enkele, maar vaak intern vertakkingen model voor alle items in de gegevensset en voorspelling horizon. Meer gegevens is beschikbaar om te schatten Modelparameters en generalisatie op van de reeks niet waren herkend mogelijk wordt. 
+
+Functies die zijn geëxtraheerd uit de trainingsgegevens spelen een essentiële rol. Geautomatiseerde ML standard vooraf verwerken stappen worden uitgevoerd en extra functies van time series (bijvoorbeeld een jaar, maand, dag van week enzovoort) genereert voor het vastleggen van seizoensgebonden effecten en voorspellende nauwkeurigheid te maximaliseren. 
+
+Als geschikt is voor uw scenario, kunt u sturen geautomatiseerde ML lag maken (`target_lags`) of u rolling-venster aggregeren van gegevens (`target_rolling_window_size`) van uw doel (`y_value`) voorbij waarden. 
 
 ## <a name="preprocessing"></a>Voorverwerking
 
@@ -160,6 +173,7 @@ Geautomatiseerde ML is ook beschikbaar in andere Microsoft-oplossingen, zoals:
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatische modelselectie en training in .NET-apps met behulp van Visual Studio en Visual Studio Code met ML.NET geautomatiseerde ML (Preview).|
 |[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale-out uw geautomatiseerde ML-trainingstaken op Spark in HDInsight-clusters tegelijk.|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Machine learning-modellen rechtstreeks in Power BI (Preview) worden aangeroepen.|
+|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Maak nieuwe machine learning-modellen voor uw gegevens in SQL Server 2019 big data-clusters.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

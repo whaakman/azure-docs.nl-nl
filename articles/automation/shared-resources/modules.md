@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/13/2019
+ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063466"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Modules in Azure Automation beheren
 
-Azure Automation biedt de mogelijkheid om te importeren van de PowerShell-modules in uw Automation-Account moet worden gebruikt door de runbooks op basis van PowerShell. Deze modules zijn aangepaste modules die u hebt gemaakt, vanuit de PowerShell Gallery, of de azurerm-module en Az-modules voor Azure.
+Azure Automation biedt de mogelijkheid om te importeren van de PowerShell-modules in uw Automation-Account moet worden gebruikt door de runbooks op basis van PowerShell. Deze modules zijn aangepaste modules die u hebt gemaakt, vanuit de PowerShell Gallery, of de azurerm-module en Az-modules voor Azure. Wanneer u een Automation-Account maakt worden standaard sommige modules geïmporteerd.
 
 ## <a name="import-modules"></a>Modules importeren
 
@@ -50,6 +50,22 @@ Als u wilt een module importeren vanuit de PowerShell Gallery, gaat u naar https
 U kunt ook modules importeren vanuit de PowerShell Gallery rechtstreeks vanuit uw Automation-Account. Selecteer in uw Automation-Account **Modules** onder **gedeelde bronnen**. Klik op de pagina modules **bladeren in galerie**. Hiermee opent u de **bladeren in galerie** pagina. U kunt deze pagina gebruiken om te zoeken naar de PowerShell Gallery voor een module. Selecteer de module die u wilt importeren en klik op **importeren**. Op de **importeren** pagina, klikt u op **OK** te starten tijdens het importeren.
 
 ![PowerShell Gallery importeren uit Azure portal](../media/modules/gallery-azure-portal.png)
+
+## <a name="delete-modules"></a>Verwijderen van modules
+
+Als u problemen met een module hebt of als u wilt terugkeren naar een eerdere versie van een module, kunt u het verwijderen van uw Automation-Account. U kunt niet verwijderen met de oorspronkelijke versie van de [modules standaard](#default-modules) die worden geïmporteerd wanneer u een Automation-Account maakt. Als de module die u wilt verwijderen, een nieuwere versie van een van is de [standaard modules](#default-modules) geïnstalleerd, deze wordt terugdraaien naar de versie die is geïnstalleerd met uw Automation-Account. Anders worden alle modules die u via uw Automation-Account verwijdert, verwijderd.
+
+### <a name="azure-portal"></a>Azure Portal
+
+Navigeer in de Azure-portal naar uw Automation-Account en selecteer **Modules** onder **gedeelde bronnen**. Selecteer de module die u wilt verwijderen. Op de **Module** pagina, clcick **verwijderen**. Als deze module een van is de [modules standaard](#default-modules) het zal worden teruggezet naar de versie die is aanwezig wanneer het Automation-Account is gemaakt.
+
+### <a name="powershell"></a>PowerShell
+
+Als u wilt verwijderen van een module via PowerShell, voer de volgende opdracht:
+
+```azurepowershell-interactive
+Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
+```
 
 ## <a name="internal-cmdlets"></a>Interne-cmdlets
 
@@ -209,6 +225,37 @@ U wordt aangeraden u rekening houden met het volgende wanneer u een PowerShell-m
 * De module moet volledig zijn opgenomen in een pakket waarvoor xcopy kan. Azure Automation-modules worden gedistribueerd naar de Automation-sandboxes wanneer runbooks moeten worden uitgevoerd. De modules moeten werken onafhankelijk van de host die ze op worden uitgevoerd. U moet kunnen zippen vergroten en het verplaatsen van een module-pakket en het laten functioneren wanneer geïmporteerd in een andere host PowerShell-omgeving. In de volgorde voor die worden uitgevoerd, mag niet afhankelijk van de module van bestanden buiten de modulemap. Dit is de map die wordt gezipt wanneer de module wordt geïmporteerd in Azure Automation. De module moet ook niet afhankelijk zijn van unieke registerinstellingen op een host, zoals deze instellingen worden ingesteld wanneer een product is geïnstalleerd. Alle bestanden in de module moeten een pad minder dan 140 tekens bevatten. Alle paden over 140 tekens zorgt ervoor dat problemen met het importeren van uw runbook. Als deze aanbevolen procedure niet wordt gevolgd, is de module niet bruikbaar in Azure Automation.  
 
 * Als u verwijst naar een [Az van Azure Powershell-modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in uw module, zorg ervoor dat u niet zijn ook verwijzen naar `AzureRM`. De `Az` module kan niet worden gebruikt in combinatie met de `AzureRM` modules. `Az` wordt ondersteund in runbooks, maar worden niet standaard geïmporteerd. Voor meer informatie over de `Az` modules en overwegingen bij het rekening mee dat, Zie [Az-module-ondersteuning in Azure Automation](../az-modules.md).
+
+## <a name="default-modules"></a>Standaardmodules
+
+De volgende tabel bevat de modules die standaard worden geïmporteerd wanneer een Automation-Account wordt gemaakt. De modules hieronder vermelde nieuwere versies van deze geïmporteerde kunnen hebben, maar de oorspronkelijke versie kan niet worden verwijderd uit uw Automation-Account, zelfs als u een nieuwere versie van deze verwijdert.
+
+|modulenaam|Version|
+|---|---|
+| AuditPolicyDsc | 1.1.0.0 |
+| Azure | 1.0.3 |
+| Azure.Storage | 1.0.3 |
+| AzureRM.Automation | 1.0.3 |
+| AzureRM.Compute | 1.2.1 |
+| AzureRM.Profile | 1.0.3 |
+| AzureRM.Resources | 1.0.3 |
+| AzureRM.Sql | 1.0.3 |
+| AzureRM.Storage | 1.0.3 |
+| ComputerManagementDsc | 5.0.0.0 |
+| GPRegistryPolicyParser | 0.2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
+| PSDscResources | 2.9.0.0 |
+| SecurityPolicyDsc | 2.1.0.0 |
+| StateConfigCompositeResources | 1 |
+| xDSCDomainjoin | 1.1 |
+| xPowerShellExecutionPolicy | 1.1.0.0 |
+| xRemoteDesktopAdmin | 1.1.0.0 |
 
 ## <a name="next-steps"></a>Volgende stappen
 

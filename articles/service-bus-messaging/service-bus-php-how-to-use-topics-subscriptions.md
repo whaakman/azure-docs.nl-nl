@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 18aeaccef724ba94a9c18240fb77ea33897e8d26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992056"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063876"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Service Bus-onderwerpen en abonnementen gebruiken met PHP
 
@@ -51,7 +51,23 @@ De enige vereiste voor het maken van een PHP-toepassing die toegang heeft tot de
 Dit artikel wordt beschreven hoe u servicefuncties die kunnen worden aangeroepen binnen een PHP-toepassing lokaal of in de code die wordt uitgevoerd binnen een Azure-Webrol, werkrol of website.
 
 ## <a name="get-the-azure-client-libraries"></a>De Azure-client-bibliotheken ophalen
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### <a name="install-via-composer"></a>Via Composer installeren
+1. Maak een bestand met de naam **composer.json** in de hoofdmap van uw project en voeg de volgende code toe:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. Download **[composer.phar] [composer-phar]** in de hoofdmap van uw project.
+3. Open een opdrachtprompt en voer de volgende opdracht uit in de hoofdmap van uw project
+   
+    ```
+    php composer.phar install
+    ```
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus
 De Service Bus-API's gebruiken:
@@ -67,7 +83,7 @@ Het volgende voorbeeld laat zien hoe om op te nemen de autoloader bestands- en n
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 

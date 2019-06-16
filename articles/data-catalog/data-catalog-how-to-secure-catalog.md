@@ -8,10 +8,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 6c09b509399647f4cacbc96427200da5a1b00ac9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61000705"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Over het beveiligen van toegang tot de gegevenscatalogus en gegevensassets
@@ -28,7 +28,7 @@ Een gebruiker of groep de toegang geven tot een gegevenscatalogus en machtiginge
     ![Data catalog - instellingen](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. Vouw in de instellingenpagina van de **Catalogusgebruikers** sectie.
     ![Gebruikers - catalogus toevoegen](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 4. Voer de volledig gekwalificeerde **gebruikersnaam** of naam van de **beveiligingsgroep** in de Azure Active Directory (AAD) die zijn gekoppeld aan de catalogus. Gebruik een komma (', ') als scheidingsteken als u wilt toevoegen van meer dan één gebruiker of groep.
     ![Gebruikers van de catalogus - gebruikers of groepen](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 5. Druk op **ENTER** of **tabblad** buiten het tekstvak. 

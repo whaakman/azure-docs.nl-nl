@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 45cbb26eb74dd78bf46a6b148a32a7762bb31fbc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 730ecd306bf33709ed5d9fa334b64f7cd7a482dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696879"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066490"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Application Insights-logboekbestanden met telemetrie met Apache Spark in HDInsight analyseren
 
@@ -26,9 +26,6 @@ Meer informatie over het gebruik van [Apache Spark](https://spark.apache.org/) o
 * Een toepassing die is geconfigureerd voor het gebruik van Application Insights.
 
 * Als u bekend bent met het maken van een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie, [maakt Apache Spark in HDInsight](apache-spark-jupyter-spark-sql.md).
-
-  > [!IMPORTANT]  
-  > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een webbrowser.
 

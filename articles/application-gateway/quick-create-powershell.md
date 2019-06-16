@@ -1,19 +1,19 @@
 ---
 title: 'Snelstart: webverkeer omleiden met Azure Application Gateway - Azure PowerShell | Microsoft Docs'
-description: Lees hoe u Azure PowerShell kunt gebruiken om een Azure Application Gateway te maken die webverkeer omleidt naar virtuele machines in een back-endpool.
+description: Leer hoe u Azure PowerShell gebruiken voor het maken van een Azure Application Gateway die zorgt ervoor webverkeer naar virtuele machines in een back-endpool dat.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/11/2019
+ms.date: 06/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c472c30514e6acd3b21822e31f2cefc0da5bc98
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053351"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Quickstart: Webverkeer omleiden met Azure Application Gateway - Azure PowerShell
 
@@ -36,7 +36,7 @@ Als u wilt installeren en gebruiken van Azure PowerShell lokaal, in deze zelfstu
 
 ### <a name="resource-group"></a>Resourcegroep
 
-In Azure kunt u verwante resources toewijzen aan een resourcegroep. U kunt een bestaande resourcegroep gebruiken of een nieuwe maken. In dit voorbeeld wordt er een nieuwe resourcegroep maken met behulp van de [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) cmdlet als volgt te werk: 
+In Azure kunt u verwante resources toewijzen aan een resourcegroep. U kunt een bestaande resourcegroep gebruiken of een nieuwe maken. In dit voorbeeld maakt u een nieuwe resourcegroep met behulp van de [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) cmdlet als volgt te werk: 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ### <a name="required-network-resources"></a>Vereiste netwerkbronnen
 
-Er is een virtueel netwerk nodig voor communicatie tussen de resources die u maakt.  Het subnet van de toepassingsgateway kan alleen bestaan uit toepassingsgateways. Andere resources zijn niet toegestaan.  U kunt een nieuw subnet maken voor Application Gateway of gebruik een bestaande resourcegroep. In dit voorbeeld maakt u twee subnetten in dit voorbeeld: één voor de application gateway en een voor de back-endservers. U kunt configureren dat de Frontend-IP van de toepassingsgateway moet openbaar of privé aan de hand van uw situatie. In dit voorbeeld kiezen we een openbare front-end-IP-adres.
+Er is een virtueel netwerk nodig voor communicatie tussen de resources die u maakt.  Het subnet van de toepassingsgateway kan alleen bestaan uit toepassingsgateways. Andere resources zijn niet toegestaan.  U kunt een nieuw subnet maken voor Application Gateway of gebruik een bestaande resourcegroep. In dit voorbeeld maakt u twee subnetten in dit voorbeeld: één voor de application gateway en een voor de back-endservers. U kunt configureren dat de Frontend-IP van de toepassingsgateway moet openbaar of privé aan de hand van uw situatie. In dit voorbeeld kiest u een openbaar front-end-IP-adres.
 
 1. Maak de subnetconfiguraties door het aanroepen van [New-AzVirtualNetworkSubnetConfig](/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig).
 2. Het virtuele netwerk met de subnetconfiguraties maken door het aanroepen van [New-AzVirtualNetwork](/powershell/module/Az.network/new-Azvirtualnetwork). 
@@ -109,7 +109,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -219,7 +219,7 @@ New-AzApplicationGateway `
 Het is niet nodig IIS te installeren om de toepassingsgateway te maken, maar u hebt het in deze quickstart geïnstalleerd om te controleren of het maken van de toepassingsgateway in Azure is geslaagd. Gebruik IIS om de toepassingsgateway te testen:
 
 1. Voer [Get-AzPublicIPAddress](/powershell/module/Az.network/get-Azpublicipaddress) om op te halen van het openbare IP-adres van de toepassingsgateway. 
-2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Als u de browser vernieuwt, ziet u de naam van de virtuele machine. Een geldige reactie wordt gecontroleerd of de application gateway is gemaakt en uitgevoerd wordt om verbinding te maken met de back-end.
+2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Als u de browser vernieuwt, ziet u de naam van de virtuele machine. Een geldige reactie wordt gecontroleerd of de application gateway is gemaakt en deze verbinding met de back-end maken kan.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

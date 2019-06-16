@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126746"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Update 5 installeren op uw StorSimple-apparaat
@@ -47,7 +47,7 @@ De volgende stappen uitvoeren om uw apparaat bijwerken [Update 5](storsimple-upd
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-Controleren of uw apparaat wordt uitgevoerd **StorSimple 8000 serie Update 5 (6.3.9600.17845)**. De **datum laatst bijgewerkt** moet worden gewijzigd.
+Controleren of uw apparaat wordt uitgevoerd **StorSimple 8000 serie Update 5 (6.3.9600.17845)** . De **datum laatst bijgewerkt** moet worden gewijzigd.
 
 U ziet nu dat de updates voor de onderhoudsmodus beschikbaar zijn (dit bericht kan nog wel weergegeven voor het tot 24 uur nadat u de updates hebt geïnstalleerd). De stappen voor het installeren van onderhoudsmodusupdate worden beschreven in de volgende sectie.
 
@@ -78,21 +78,21 @@ U moet downloaden en installeren van de volgende hotfixes in de aangegeven volgo
 
 | Bestellen | KB | Description | Updatetype | Tijd van installatie |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Software-update<br> Download beide _HcsSoftwareUpdate.exe_ en _CisMSDAgent.exe_ |Normaal <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+| 1. |KB4037264 |Software-update<br> Download beide _HcsSoftwareUpdate.exe_ en _CisMSDAgent.exe_ |Reguliere <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
 
 Als het bijwerken van een apparaat met Update 4, moet u alleen voor het installeren van de cumulatieve updates van het besturingssysteem als de tweede belangrijkste updates.
 
 | Bestellen | KB | Description | Updatetype | Tijd van installatie |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Besturingssysteem van de cumulatieve updates pakket <br> Versie van Windows Server 2012 R2 downloaden |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Besturingssysteem van de cumulatieve updates pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 Als installeren vanaf een apparaat met Update 3 of eerder, installeert u de volgende naast de cumulatieve updates.
 
 | Bestellen | KB | Description | Updatetype | Tijd van installatie |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI-stuurprogramma's en firmware-updates <br> Voor Gebruikersbeheer firmware-update (versie 3.38) |Normaal <br></br>Non-disruptive |~ 3 uur <br> (inclusief 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-updates-beveiligingspakket <br> Versie van Windows Server 2012 R2 downloaden |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS-updates-pakket <br> Versie van Windows Server 2012 R2 downloaden |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI-stuurprogramma's en firmware-updates <br> Voor Gebruikersbeheer firmware-update (versie 3.38) |Reguliere <br></br>Non-disruptive |~ 3 uur <br> (inclusief 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-updates-beveiligingspakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS-updates-pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 
 U moet mogelijk ook installeren van updates van de schijffirmware boven op alle updates die wordt weergegeven in de voorgaande tabellen. U kunt controleren of u de schijf firmware-updates door te voeren moet de `Get-HcsFirmwareVersion` cmdlet. Als u deze firmwareversies: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, en u niet hoeft om deze updates te installeren.

@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 65e94a271fc8fc72ac74d51af3cf7b717f8410b0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f3c1331e2b005b136a015c537d0fc18406ca9d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072093"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van een volume met de Azure-bestandsshare in Azure Kubernetes Service (AKS)
@@ -71,7 +71,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Koppel de bestandsshare als volume
 
-Voor het koppelen van de Azure-bestandsshare in uw schil, configureert u het volume in de container-specificaties. Maak een nieuw bestand met de naam `azure-files-pod.yaml` met de volgende inhoud. Als u de naam van het delen van bestanden of de geheime naam gewijzigd, werkt u de *shareName* en *secretName*. Als gewenst is, werkt u de `mountPath`, dit is het pad waar de bestanden delen in de schil is gekoppeld.
+Voor het koppelen van de Azure-bestandsshare in uw schil, configureert u het volume in de container-specificaties. Maak een nieuw bestand met de naam `azure-files-pod.yaml` met de volgende inhoud. Als u de naam van het delen van bestanden of de geheime naam gewijzigd, werkt u de *shareName* en *secretName*. Als gewenst is, werkt u de `mountPath`, dit is het pad waar de bestanden delen in de schil is gekoppeld. Voor Windows Server-containers (momenteel in preview in AKS), Geef een *mountpath is opgegeven* met behulp van de Windows-pad-overeenkomst, zoals *'D:'* .
 
 ```yaml
 apiVersion: v1
@@ -137,7 +137,7 @@ Volumes:
 
 Standaard *fileMode* en *dirMode* waarden verschillen tussen de Kubernetes-versies, zoals beschreven in de volgende tabel.
 
-| versie | value |
+| version | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003174"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112390"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Beleid: MFA vereisen voor servicebeheer (preview)
 
@@ -40,7 +40,7 @@ Om uit te voeren interactieve aanmelding met [Azure Powershell](https://docs.mic
 Connect-AzAccount
 ```
 
-Wanneer deze cmdlet wordt uitgevoerd, vertegenwoordigt deze een tokenreeks. Als u wilt aanmelden, kopieert u deze tekenreeks en plak deze in [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) in een browser. Uw PowerShell-sessie wordt geverifieerd om verbinding te maken met Azure.
+Wanneer deze cmdlet wordt uitgevoerd, vertegenwoordigt deze een tokenreeks. Als u wilt aanmelden, kopieert u deze tekenreeks en plak deze in [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  in een browser. Uw PowerShell-sessie wordt geverifieerd om verbinding te maken met Azure.
 
 Om uit te voeren interactieve aanmelding met [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), voert de [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) opdracht.
 
@@ -73,7 +73,7 @@ Dit beleid inschakelt en beveiligen van uw beheerders:
 
 1. Aanmelden bij de **Azure-portal** als hoofdbeheerder, beveiligingsbeheerder of beheerder van voorwaardelijke toegang.
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
-1. Selecteer in de lijst met beleidsregels **Basisbeleid: MFA vereisen voor servicebeheer (preview)**.
+1. Selecteer in de lijst met beleidsregels **Basisbeleid: MFA vereisen voor servicebeheer (preview)** .
 1. Stel **beleid inschakelen** naar **beleid direct gebruiken**.
 1. Gebruiker uitsluitingen toevoegen door te klikken op **gebruikers** > **uitgesloten gebruikers selecteren** en het kiezen van de gebruikers die moeten worden uitgesloten. Klik op **Selecteer** vervolgens **gedaan**.
 1. Klik op **opslaan**.
@@ -82,6 +82,6 @@ Dit beleid inschakelt en beveiligen van uw beheerders:
 
 Zie voor meer informatie:
 
-* [Basislijn protection-beleid voor voorwaardelijke toegang](concept-baseline-protection.md)
+* [Beleid voor voorwaardelijke toegang basislijn-beveiliging](concept-baseline-protection.md)
 * [Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten](../../security/azure-ad-secure-steps.md)
 * [Wat is voorwaardelijke toegang in Azure Active Directory?](overview.md)

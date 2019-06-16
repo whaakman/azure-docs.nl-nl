@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2b57ec7727e8f5b648bcb97e5fae26c63724411c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127214"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-identiteitsbeheer en toegangsbeheer best practices voor beveiliging
 In dit artikel wordt besproken hoe een verzameling Azure-identiteitsbeheer en aanbevolen procedures voor de beveiliging van access control. Deze aanbevolen procedures zijn afgeleid van onze ervaring met [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) en de ervaringen van klanten, zoals zelf.
@@ -113,7 +113,7 @@ Organisaties die geen een gemeenschappelijke identiteit maakt voor het maken van
 
 Gebruikers kunnen toegang krijgen tot bronnen van uw organisatie met behulp van verschillende apparaten en apps vanaf elke locatie. Als IT-beheerder, die u wilt ervoor zorgen dat deze apparaten aan uw normen voor beveiliging en naleving. Alleen richten op wie toegang heeft tot een resource is niet voldoende meer.
 
-Voor beveiliging en productiviteit in balans brengen, moet u echter nadenken over hoe u een resource wordt geopend voordat u een beslissing over toegangsbeheer kunt maken. Met voorwaardelijke toegang van Azure AD kunt u deze vereiste aanpakken. Met voorwaardelijke toegang, kunt u automatisch toegang tot het toegangsbeheer op basis van voorwaarden voor toegang tot uw cloud-apps.
+Voor beveiliging en productiviteit in balans brengen, moet u echter nadenken over hoe u een resource wordt geopend voordat u een beslissing over toegangsbeheer kunt maken. Met Azure AD voor voorwaardelijke toegang, kunt u deze vereiste adres. Met voorwaardelijke toegang, kunt u automatisch toegang tot het toegangsbeheer op basis van voorwaarden voor toegang tot uw cloud-apps.
 
 **Beste**: Beheren en toegang tot bedrijfsresources beheren.  
 **Details**: Azure AD configureren [voorwaardelijke toegang](../active-directory/active-directory-conditional-access-azure-portal.md) op basis van een groep, de locatie en de gevoeligheid van een toepassing voor SaaS-apps en Azure AD verbonden apps.

@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481472"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080768"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN van Verizon Premium regels-engine-functies
 
@@ -338,7 +338,7 @@ Als u wilt dupliceren van de "no-cache" queryreeks cachegedrag op de pagina Quer
 
 Het volgende voorbeeld van gebruik voor deze functie biedt een voorbeeld van een aanvraag en de standaard-cache-sleutel:
 
-- **Voorbeeld van een aanvraag:** http://wpc.0001.&lt; domein&gt;/800001/Origin/folder/asset.htm?sessionid=1234 & taal = nl & userid = 01
+- **Voorbeeld van een aanvraag:** http://wpc.0001.&lt ; domein&gt; /800001/Origin/folder/asset.htm?sessionid=1234 & taal = nl & userid = 01
 - **Standaard-cache-sleutel:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Opnemen
@@ -516,8 +516,8 @@ De indeling voor het opgeven van de aanvraag- en reactieheaders wordt als volgt 
 
 Header-Type|Indeling|Voorbeelden
 -|-|-
-Aanvraagheader|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
-Antwoordkoptekst|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Aanvraagheader|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+Antwoordkoptekst|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Belangrijke informatie:
 
@@ -999,7 +999,7 @@ Belangrijke informatie:
     - server
     - trailer
     - transfer-encoding
-    - Een upgrade uitvoert
+    - upgrade
     - variëren
     - via
     - waarschuwing

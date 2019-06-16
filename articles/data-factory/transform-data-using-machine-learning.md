@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928059"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Huidige versie](transform-data-using-machine-learning.md)
 
@@ -126,7 +126,7 @@ De volgende JSON-fragment definieert een Azure Machine Learning Batch Execution-
 
 | Eigenschap          | Description                              | Vereist |
 | :---------------- | :--------------------------------------- | :------- |
-| naam              | Naam van de activiteit in de pijplijn     | Ja      |
+| name              | Naam van de activiteit in de pijplijn     | Ja      |
 | description       | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type              | Voor Data Lake Analytics U-SQL-activiteit, het activiteitstype is **AzureMLBatchExecution**. | Ja      |
 | linkedServiceName | Gekoppelde Services in de Azure Machine Learning gekoppelde Service. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |

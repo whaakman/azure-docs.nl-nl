@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
 ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861598"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Apache Hive-query's uitvoeren met behulp van de Data Lake-tools voor Visual Studio
@@ -67,7 +67,7 @@ Ad-hocquery's kunnen worden uitgevoerd in een **Batch** of **interactief** modus
    
     ![Schermafbeelding van een HDInsight Visual Studio Tools IntelliSense-voorbeeld 2](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
 
-7. Selecteer **Verzenden** of **Verzenden (geavanceerd)**.
+7. Selecteer **Verzenden** of **Verzenden (geavanceerd)** .
 
    Als u de optie voor geavanceerd verzenden selecteert, configureert u de **Taaknaam**, **Argumenten**, **Aanvullende configuraties** en **Statusmap** voor het script:
 

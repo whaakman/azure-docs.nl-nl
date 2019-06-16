@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118684"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Mogelijkheden van Azure Batch rendering
@@ -30,7 +30,7 @@ Er is een Windows 2016-installatiekopie en een CentOS-installatiekopie.  In de [
 
 Zie voor een voorbeeldconfiguratie van toepassingen, de [zelfstudie voor Azure CLI-rendering](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  De Azure-portal en Batch Explorer bieden GUI-hulpprogramma's om te selecteren van een rendering-VM-installatiekopie wanneer u een pool maakt.  Als u een Batch-API gebruikt, geeft u de volgende eigenschapswaarden voor [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) bij het maken van een groep:
 
-| Uitgever | Aanbieding | Sku | Versie |
+| Uitgever | Aanbieding | Sku | Version |
 |---------|---------|---------|--------|
 | batch | rendering-centos73 | rendering | meest recente |
 | batch | rendering-windows2016 | rendering | meest recente |

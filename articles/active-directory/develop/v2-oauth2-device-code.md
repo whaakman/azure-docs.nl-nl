@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 06/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 79718b14210bfdf139bca76db91c57c38a791434
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052246"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-platform en de stroom voor OAuth 2.0-apparaat code
 
@@ -31,9 +31,11 @@ ms.locfileid: "65544927"
 De Microsoft identity-platform ondersteunt de [apparaat verlenen](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), waarmee gebruikers zich aanmelden bij de invoer beperkte apparaten zoals een smart-tv's, IoT-apparaat of een printer.  Om in te schakelen met deze stroom, heeft het apparaat de gebruiker gaat u naar een webpagina in een browser op een ander apparaat te melden.  Als de gebruiker zich aangemeld heeft, wordt het apparaat kunnen toegangstokens ophalen en vernieuwingstokens zo nodig is.  
 
 > [!IMPORTANT]
-> Op dit moment ondersteunt het eindpunt van de Microsoft identity platform alleen de apparaat-stroom voor Azure AD-tenants, maar geen persoonlijke accounts.  Dit betekent dat u een eindpunt dat is ingesteld als een tenant moet gebruiken of de `organizations` eindpunt.  
+> Op dit moment ondersteunt het eindpunt van de Microsoft identity platform alleen de apparaat-stroom voor Azure AD-tenants, maar geen persoonlijke accounts.  Dit betekent dat u een eindpunt dat is ingesteld als een tenant moet gebruiken of de `organizations` eindpunt.  Deze ondersteuning wordt binnenkort ingeschakeld. 
 >
 > Persoonlijke accounts die worden uitgenodigd voor een Azure AD-tenant zich de toekenning van de stroom apparaat gebruiken, maar alleen in de context van de tenant.
+>
+> Als een aanvullende Opmerking: de `verification_uri_complete` veld met de reactie is niet opgenomen of op dit moment ondersteund.  
 
 > [!NOTE]
 > Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. Meer informatie over om te bepalen of moet u het eindpunt van de Microsoft identity-platform, [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md).
@@ -42,7 +44,7 @@ De Microsoft identity-platform ondersteunt de [apparaat verlenen](https://tools.
 
 De stroom van het hele apparaat lijkt op het volgende diagram. We beschrijven elk van de stappen verderop in dit artikel.
 
-![Stroom voor apparaatcode](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
+![De stroom van apparaat](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Autorisatie-aanvraag voor apparaat
 
@@ -73,12 +75,11 @@ scope=user.read%20openid%20profile
 
 Een geslaagde reactie is een JSON-object met de vereiste gegevens zodat de gebruiker zich aanmeldt.  
 
-| Parameter | Notatie | Description |
+| Parameter | Indeling | Description |
 | ---              | --- | --- |
 |`device_code`     | String | Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server. Deze parameter wordt gebruikt om aan te vragen van het toegangstoken van de autorisatieserver de client. |
 |`user_code`       | String | Een korte tekenreeks aan de gebruiker die wordt gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|
 |`verification_uri`| URI | De URI die de gebruiker moet te gaan met de `user_code` om te kunnen aanmelden. |
-|`verification_uri_complete`| URI | Een URI die combineert de `user_code` en de `verification_uri`, die wordt gebruikt voor niet-tekstuele verzending naar de gebruiker (bijvoorbeeld via Bluetooth op een apparaat of via een QR-code).  |
 |`expires_in`      | int | Het aantal seconden voordat de `device_code` en `user_code` verlopen. |
 |`interval`        | int | Het aantal seconden dat de client tussen navragen aanvragen wachten moet. |
 | `message`        | String | Een leesbare tekenreeks met instructies voor de gebruiker. Dit kan worden gelokaliseerd door een **queryparameter** in de aanvraag van het formulier `?mkt=xx-XX`, vullen in de juiste taal voor de cultuur. |
@@ -130,7 +131,7 @@ Een geslaagde respons token ziet er als:
 }
 ```
 
-| Parameter | Notatie | Description |
+| Parameter | Indeling | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String| Altijd 'Bearer. |
 | `scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn dit de scopes die het toegangstoken is ongeldig voor. |

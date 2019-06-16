@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: ef2507a15579ea3d145bfe37df281e2c044d181c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7554f0739626520153196472a790ab672a932331
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066206"
 ---
 # <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Fouten opsporen in Apache Spark toepassingen lokaal of extern op een HDInsight-cluster met de Azure Toolkit voor IntelliJ via SSH
 
@@ -75,7 +75,7 @@ Deze fout op te lossen [downloaden van het uitvoerbare bestand](https://public-r
 
 ### <a name="scenario-2-perform-local-run"></a>Scenario 2: Uitvoeren van lokaal uitvoeren
 1. Open de **SparkCore_wasbloTest** script, met de rechtermuisknop op de script-editor en selecteer vervolgens de optie **uitvoeren '[Spark-taak] XXX'** om uit te voeren lokaal uitvoeren.
-1. Eenmaal lokale uitvoering is voltooid, ziet u het uitvoerbestand opslaan in uw huidige Projectverkenner **gegevens** > **__standaard__**.
+1. Eenmaal lokale uitvoering is voltooid, ziet u het uitvoerbestand opslaan in uw huidige Projectverkenner **gegevens** >  **__standaard__** .
 
     ![Lokaal uitvoeren van resultaat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
 1. Onze programma's hebben standaard lokale uitvoeringsconfiguratie automatisch bij het uitvoeren van de lokale uitvoeren en lokale foutopsporing ingesteld. Open de configuratie van de **[Spark in HDInsight] XXX** in de rechterbovenhoek ziet u de **[Spark in HDInsight] XXX** al zijn gemaakt onder **Apache Spark in HDInsight**. Schakel over naar **lokaal uitvoeren** tabblad.
@@ -84,7 +84,7 @@ Deze fout op te lossen [downloaden van het uitvoerbare bestand](https://public-r
     - [Omgevingsvariabelen](#prerequisite-for-windows): Als u de systeemomgevingsvariabele al ingesteld **HADOOP_HOME** naar **C:\WinUtils**, automatisch kunnen detecteren dat hoeft niet handmatig toe te voegen.
     - [WinUtils.exe Location](#prerequisite-for-windows): Als u de omgevingsvariabele van het systeem niet hebt ingesteld, kunt u de locatie vinden door te klikken op de knop.
     - Kies een van twee opties en ze niet nodig zijn in MacOS en Linux.
-1. U kunt ook instellen op de configuratie handmatig voordat u lokaal fouten opsporen en lokaal worden uitgevoerd. In de vorige schermafbeelding, selecteer het plusteken (**+**). Selecteer vervolgens de **Apache Spark in HDInsight** optie. Informatie invoeren voor **naam**, **de naam van de Main-klasse** om op te slaan, klik vervolgens op de knop voor lokale uitvoeren.
+1. U kunt ook instellen op de configuratie handmatig voordat u lokaal fouten opsporen en lokaal worden uitgevoerd. In de vorige schermafbeelding, selecteer het plusteken ( **+** ). Selecteer vervolgens de **Apache Spark in HDInsight** optie. Informatie invoeren voor **naam**, **de naam van de Main-klasse** om op te slaan, klik vervolgens op de knop voor lokale uitvoeren.
 
 ### <a name="scenario-3-perform-local-debugging"></a>Scenario 3: Lokale foutopsporing uitvoeren
 1. Open de **SparkCore_wasbloTest** script, onderbrekingspunten instellen.
@@ -99,10 +99,10 @@ Deze fout op te lossen [downloaden van het uitvoerbare bestand](https://public-r
 
    ![Configuraties bewerken](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-1. In de **uitvoeren/Debug configuraties** dialoogvenster vak, selecteer het plusteken (**+**). Selecteer vervolgens de **Apache Spark in HDInsight** optie.
+1. In de **uitvoeren/Debug configuraties** dialoogvenster vak, selecteer het plusteken ( **+** ). Selecteer vervolgens de **Apache Spark in HDInsight** optie.
 
    ![Nieuwe configuratie toevoegen](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. Schakel over naar **op afstand uitvoeren in Cluster** tabblad. Informatie invoeren voor **naam**, **Spark-cluster**, en **de naam van de Main-klasse**. Klik vervolgens op **geavanceerde configuratie (foutopsporing op afstand)**. Onze hulpprogramma's voor ondersteuning van foutopsporing met **Executor**. De **numExectors**, de standaardwaarde is 5. U zou beter niet instellen hoger is dan 3.
+1. Schakel over naar **op afstand uitvoeren in Cluster** tabblad. Informatie invoeren voor **naam**, **Spark-cluster**, en **de naam van de Main-klasse**. Klik vervolgens op **geavanceerde configuratie (foutopsporing op afstand)** . Onze hulpprogramma's voor ondersteuning van foutopsporing met **Executor**. De **numExectors**, de standaardwaarde is 5. U zou beter niet instellen hoger is dan 3.
 
    ![Foutopsporing configuraties uitvoeren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
@@ -174,7 +174,6 @@ Deze fout op te lossen [downloaden van het uitvoerbare bestand](https://public-r
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster](apache-spark-intellij-tool-plugin.md)
 * [Azure Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand via VPN-verbinding gebruiken](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in het Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)

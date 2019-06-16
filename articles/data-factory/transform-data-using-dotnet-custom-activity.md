@@ -11,16 +11,16 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062107"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-use-custom-activities.md)
 > * [Huidige versie](transform-data-using-dotnet-custom-activity.md)
 
@@ -102,7 +102,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 
 | Eigenschap              | Description                              | Vereist |
 | :-------------------- | :--------------------------------------- | :------- |
-| naam                  | Naam van de activiteit in de pijplijn     | Ja      |
+| name                  | Naam van de activiteit in de pijplijn     | Ja      |
 | description           | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                  | Voor aangepaste activiteit, het activiteitstype is **aangepaste**. | Ja      |
 | linkedServiceName     | Gekoppelde Azure Batch-Service. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.  | Ja      |
@@ -301,7 +301,7 @@ Activity Error section:
 Als u wilt om de inhoud van stdout.txt aan downstream-activiteiten te gebruiken, krijgt u het pad naar het bestand stdout.txt in de expressie '\@activity('MyCustomActivity').output.outputs [0] '.
 
 > [!IMPORTANT]
-> - De activity.json, linkedServices.json en datasets.json zijn opgeslagen in de map van de runtime van de Batch-taak. In dit voorbeeld de activity.json, linkedServices.json en datasets.json worden opgeslagen in 'https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/' pad. Indien nodig, moet u ze afzonderlijk opschonen.
+> - De activity.json, linkedServices.json en datasets.json zijn opgeslagen in de map van de runtime van de Batch-taak. In dit voorbeeld de activity.json, linkedServices.json en datasets.json worden opgeslagen in `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` pad. Indien nodig, moet u ze afzonderlijk opschonen.
 > - De gevoelige gegevens, zoals sleutels of wachtwoorden zijn versleuteld door de zelfgehoste Integration Runtime om ervoor te zorgen referentie blijft klant gedefinieerd voor de gekoppelde Services die gebruikmaken van de zelfgehoste Integration Runtime, particuliere netwerkomgeving. Sommige tijdgevoelige velden kunnen worden ontbrekende wanneer waarnaar wordt verwezen door de code van uw aangepaste toepassing op deze manier. Gebruik SecureString in extendedProperties in plaats van verwijzing naar de gekoppelde Service, indien nodig.
 
 ## <a name="pass-outputs-to-another-activity"></a>Pass-uitvoer naar een andere activiteit

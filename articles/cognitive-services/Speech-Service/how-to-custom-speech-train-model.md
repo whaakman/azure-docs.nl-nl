@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 194ae477bb3cba4ac7e3350da6b793c6fea6ecdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063923"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Een model te trainen voor aangepaste spraak
 
@@ -25,9 +25,9 @@ Een spraak-naar-tekst training is nodig voor het verbeteren van nauwkeurigheid v
 
 Als problemen met herkenning van het model ondervindt, met behulp van menselijke etiket worden uitgeschreven en bijbehorende gegevens voor extra training kan helpen om de nauwkeurigheid te. Gebruik deze tabel om te bepalen welke gegevensset gebruiken om de oorzaak van deze:
 
-| Toepassing | Gegevenstype | De hoeveelheid gegevens |
+| Use-case | Gegevenstype | De hoeveelheid gegevens |
 |----------|-----------|---------------|
-| Namen van de juiste zijn misrecognized | Relateren tekst (zinnen/uitingen) | 10 MB tot 500 MB |
+| Namen van de juiste zijn misrecognized | Tekst (zinnen/uitingen) | 10 MB tot 500 MB |
 | Woorden zijn misrecognized vanwege een accent | Tekst (uitspraak) | Geef de misrecognized woorden |
 | Veelvoorkomende woorden zijn verwijderd of misrecognized | Audio + human etiket transcripties | 10-1000 transcriptie uur |
 

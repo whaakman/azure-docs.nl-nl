@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a2a2fffa9ed3a4dae3c0768291b7585be4bfc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64690838"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configureren en beheren van Azure SQL Database-beveiliging voor geografisch herstel en failover
 
@@ -89,7 +89,9 @@ De laatste stap is het gaat u naar de doelserver of servers en de aanmeldingen m
 > [!NOTE]
 > Als u wilt dat gebruikerstoegang verlenen tot de secundaire server, maar niet naar de primaire, u dat doen kunt door het wijzigen van de gebruikersaanmelding op de primaire server met behulp van de volgende syntaxis.
 >
-> ALTER LOGIN <login name> UITSCHAKELEN
+> ```sql
+> ALTER LOGIN <login name> DISABLE
+> ```
 >
 > SCHAKEL verandert niet het wachtwoord, zodat u deze altijd inschakelen kunt indien nodig.
 

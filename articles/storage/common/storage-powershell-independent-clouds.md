@@ -9,10 +9,10 @@ ms.date: 10/24/2017
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 69707eec0ea1f2260ee50a48ce1dcb82dc9ddd8f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145868"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Beheren van opslag in de Azure-onafhankelijke clouds met behulp van PowerShell
@@ -96,7 +96,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 De resultaten zijn vergelijkbaar met het volgende:
 
-|Naam van eigenschap|Value|
+|De naam van eigenschap|Value|
 |----|----|
 | Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |

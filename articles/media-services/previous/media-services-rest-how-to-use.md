@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687065"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Overzicht van Media Services operations REST-API 
@@ -74,12 +74,12 @@ Hier volgt een aantal optionele headers:
 | Header | Type | Value |
 | --- | --- | --- |
 | Date |RFC 1123 datum |Tijdstempel van de aanvraag |
-| Accepteren |Inhoudstype |Het aangevraagde type inhoud voor het antwoord, zoals het volgende:<p> -application/json;odata=verbose<p> -application/atom + xml<p> Antwoorden mogelijk een andere type inhoud, zoals een blob ophalen, waarbij een geslaagd antwoord bevat de stroom blob als de nettolading. |
+| Accepteren |Type inhoud |Het aangevraagde type inhoud voor het antwoord, zoals het volgende:<p> -application/json;odata=verbose<p> -application/atom + xml<p> Antwoorden mogelijk een andere type inhoud, zoals een blob ophalen, waarbij een geslaagd antwoord bevat de stroom blob als de nettolading. |
 | Accept-Encoding |Gzip, deflate |GZIP en DEFLATE-codering, indien van toepassing. Opmerking: Voor grote resources, Media Services deze header negeren en niet-gecomprimeerde gegevens retourneren. |
 | Accept-Language |"en", "es", enzovoort. |Hiermee geeft u de gewenste taal voor het antwoord. |
 | Accept-Charset |Tekenset type, zoals "UTF-8" |Standaard wordt UTF-8. |
 | X-HTTP-methode |HTTP-methode |Hiermee kunnen clients of firewalls die geen ondersteuning voor HTTP-methoden, zoals opslag of verwijderen voor het gebruik van deze methoden, tunnel via een GET-aanroep. |
-| Content-Type |Inhoudstype |Type inhoud van de hoofdtekst van de aanvraag in de PUT- of POST-aanvragen. |
+| Content-Type |Type inhoud |Type inhoud van de hoofdtekst van de aanvraag in de PUT- of POST-aanvragen. |
 | client-request-id |String |Een aanroeper gedefinieerde waarde waarmee de aanvraag. Als u opgeeft, wordt deze waarde in het antwoordbericht worden opgenomen als een manier om toe te wijzen de aanvraag. <p><p>**Belangrijk**<p>Waarden moeten worden beperkt tot 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standaard-HTTP-antwoordheaders ondersteund door Media Services

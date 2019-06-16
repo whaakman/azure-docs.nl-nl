@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: fc51c1d9d47340da85d42f7c398c8ee21c601beb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025868"
 ---
-# <a name="deploy-a-custom-model"></a>Een aangepast model implementeren
+# <a name="deploy-a-custom-model"></a>Aangepaste model implementeren
 
 Nadat u hebt geüpload en inspectie van gegevens, nauwkeurigheid geëvalueerd en een aangepast model wordt getraind, kunt u een aangepast eindpunt voor gebruik met uw apps, -tools en producten kunt implementeren. In dit document leert u hoe u kunt maken en implementeren van een eindpunt met behulp van de aangepaste spraak-portal.
 

@@ -3,20 +3,20 @@ title: Containers installeren en uitvoeren
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Het downloaden, installeren en uitvoeren van containers voor Tekstanalyse overschrijd in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: fc9e2b6e5ab2d2103cab2681fe603c1ca9b725c8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069219"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installeren en uitvoeren van de Text Analytics-containers
 
@@ -159,7 +159,7 @@ Gebruikmaken van de host `https://localhost:5000`, voor de container met API's.
 
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](../text-analytics-resource-container-config.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 De Text Analytics containers verzenden factuurgegevens naar Azure, met behulp van een _Cognitive Services_ resource voor uw Azure-account. 
 

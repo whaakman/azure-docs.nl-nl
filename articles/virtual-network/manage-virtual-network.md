@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700469"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
@@ -138,7 +138,7 @@ Alle virtuele machines die zijn verbonden met het virtuele netwerk registreren z
 2. Selecteer in de lijst met virtuele netwerken, het virtuele netwerk waarvoor u wilt wijzigen van de DNS-servers voor.
 3. Selecteer **DNS-servers**onder **instellingen**.
 4. Selecteer een van de volgende opties:
-   - **Standaard (door Azure geleverd)**: Alle namen van voorbeeldresources en privé-IP-adressen worden automatisch geregistreerd bij de Azure DNS-servers. U kunt omzetten van namen tussen alle resources die zijn verbonden met hetzelfde virtuele netwerk. U kunt deze optie niet gebruiken voor het omzetten van namen tussen virtuele netwerken. Als u wilt omzetten van namen tussen virtuele netwerken, moet u een aangepaste DNS-server.
+   - **Standaard (door Azure geleverd)** : Alle namen van voorbeeldresources en privé-IP-adressen worden automatisch geregistreerd bij de Azure DNS-servers. U kunt omzetten van namen tussen alle resources die zijn verbonden met hetzelfde virtuele netwerk. U kunt deze optie niet gebruiken voor het omzetten van namen tussen virtuele netwerken. Als u wilt omzetten van namen tussen virtuele netwerken, moet u een aangepaste DNS-server.
    - **Aangepast**: U kunt een of meer servers, tot de Azure is bereikt voor een virtueel netwerk toevoegen. Zie voor meer informatie over limieten voor DNS-servers, [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). U hebt de volgende opties:
    - **Toevoegen van een adres**: De server toevoegen aan uw lijst met virtuele netwerk DNS-servers. Deze optie wordt ook de DNS-server geregistreerd bij Azure. Als u hebt al een DNS-server geregistreerd bij Azure, kunt u deze DNS-server in de lijst selecteren.
    - **Verwijderen van een adres**: Naast de server die u wilt verwijderen, selecteert u **...** , klikt u vervolgens **verwijderen**. De server verwijdert, wordt de server alleen in de lijst van dit virtuele netwerk. De DNS-server blijft ingeschreven in Azure voor uw virtuele netwerken om te gebruiken.

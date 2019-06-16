@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339083"
 ---
 # <a name="evaluate-method"></a>Methode evalueren
@@ -43,7 +43,7 @@ Name     | Value | Vereist?  | Description
 
 ## <a name="response-json"></a>Antwoord (JSON)
 
-Name | Beschrijving
+Name | Description
 -------|-----   
 **expr** |  De *expr* parameter van de aanvraag.
 **Entiteiten** |  Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat een waarde voor de kans natuurlijke logboek en de waarden van andere aangevraagde kenmerken.

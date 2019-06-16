@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
 ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151076"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Maken van een trigger die een pijplijn volgens een schema wordt uitgevoerd
@@ -44,7 +44,7 @@ U kunt maken een **schematrigger** voor het plannen van een pijplijn periodiek w
 3. In de **nieuwe Trigger** pagina, de volgende stappen uit: 
 
     1. Bevestig dat **planning** is geselecteerd voor **Type**. 
-    2. Geef de begindatum/tijd van de trigger voor **Start datum (UTC)**. Deze wordt standaard ingesteld op de huidige datum/tijd. 
+    2. Geef de begindatum/tijd van de trigger voor **Start datum (UTC)** . Deze wordt standaard ingesteld op de huidige datum/tijd. 
     3. Geef **terugkeerpatroon** voor de trigger. Selecteer een van de waarden in de vervolgkeuzelijst (elke minuut, uur, dagelijks, wekelijks, en maandelijks). Voer de vermenigvuldiger in het tekstvak in. Bijvoorbeeld, als u wilt dat de trigger eenmaal voor elke 15 minuten wordt uitgevoerd, u **elke minuut**, en voer **15** in het tekstvak in. 
     4. Voor de **End** veld, als u niet wilt opgeven van een datum en tijd voor de trigger, selecteer **geen End**. Als u een end datum en tijd, schakelt u **op datum**, en geef de datum en tijd en klikt u op **toepassen**. Er zijn kosten gekoppeld aan elke uitvoering van de pijplijn. Als u testen wilt, kunt u om ervoor te zorgen dat de pijplijn wordt geactiveerd slechts een paar keer. Zorg er echter wel voor dat er voldoende tijd is om de pijplijn uit te voeren tussen de publicatietijd en de eindtijd. De trigger gaat pas van kracht nadat u de oplossing hebt gepubliceerd in Data Factory, niet wanneer u de trigger opslaat in de UI.
 

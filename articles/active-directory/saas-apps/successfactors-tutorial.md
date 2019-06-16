@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9526cde92fe2f504207de188fa8f0567ffa580d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866587"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Zelfstudie: Azure Active Directory-integratie met SuccessFactors
 
@@ -53,7 +53,7 @@ Om de integratie van SuccessFactors te configureren in Azure AD, moet u SuccessF
 
 **Voer de volgende stappen uit om SuccessFactors vanuit de galerie toe te voegen:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 Om eenmalige aanmelding van Azure AD met SuccessFactors te configureren en testen, moet u de volgende procedures voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor SuccessFactors configureren](#configure-successfactors-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Een testgebruiker voor SuccessFactors maken](#create-successfactors-test-user)**: als u een tegenhanger van Britta Simon in SuccessFactors wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor SuccessFactors configureren](#configure-successfactors-single-sign-on)** : de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor SuccessFactors maken](#create-successfactors-test-user)** : als u een tegenhanger van Britta Simon in SuccessFactors wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -187,7 +187,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     e. Selecteer **Enabled** bij **Enable SAML Flag**.
 
-    f. Selecteer **No** bij **Login Request Signature(SF Generated/SP/RP)**.
+    f. Selecteer **No** bij **Login Request Signature(SF Generated/SP/RP)** .
 
     g. Selecteer **Browser/Post Profile** bij **SAML Profile**.
 
@@ -210,7 +210,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     d. Selecteer **unspecified** bij **NameID Format**.
 
-    e. Selecteer **Yes** bij **Enable sp initiated login (AuthnRequest)**.
+    e. Selecteer **Yes** bij **Enable sp initiated login (AuthnRequest)** .
 
     f. Plak in het tekstvak **single sign on redirect service location** de waarde voor **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 

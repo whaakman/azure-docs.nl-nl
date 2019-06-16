@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
 ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127751"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor Data Protection Manager (DPM)-servers
@@ -121,7 +121,7 @@ Hiermee wordt de agent geïnstalleerd met de standaardopties. De installatie duu
 
 De agent wordt weergegeven in de lijst met geïnstalleerde programma's. De lijst met geïnstalleerde programma's wilt bekijken, gaat u naar **Configuratiescherm** > **programma's** > **programma's en onderdelen**.
 
-![De agent is geïnstalleerd](./media/backup-dpm-automation/installed-agent-listing.png)
+![Agent is geïnstalleerd](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opties voor de installatie
 
@@ -189,7 +189,7 @@ Alle wijzigingen zijn aangebracht aan deze lokale PowerShell-object ```$setting`
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Netwerk
+## <a name="networking"></a>Netwerken
 
 Als de verbinding van de DPM-machine naar de Azure Backup-service op het internet via een proxyserver, moeten klikt u vervolgens de instellingen van de proxyserver worden opgegeven voor geslaagde back-ups. Dit wordt gedaan met behulp van de ```-ProxyServer```en ```-ProxyPort```, ```-ProxyUsername``` en de ```ProxyPassword``` parameters met de [Set DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet. In dit voorbeeld is er geen proxyserver, zodat we een proxy-gerelateerde informatie expliciet wordt gewist.
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424700"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Werken met tekenreeksen in Logboeken-query's van Azure Monitor
@@ -93,12 +93,12 @@ Telt het aantal exemplaren van een subtekenreeks in een tekenreeks. Kan overeenk
 countof(text, search [, kind])
 ```
 
-### <a name="arguments"></a>Argumenten:
+### <a name="arguments"></a>Arguments:
 - `text` -De ingevoerde tekenreeks 
 - `search` -Eenvoudige tekenreeks of reguliere expressie in om in tekst.
 - `kind` - _normale_ | _regex_ (standaard: normaal).
 
-### <a name="returns"></a>Retourneert
+### <a name="returns"></a>Geeft als resultaat
 
 Het aantal keren dat de zoekreeks kan worden gekoppeld in de container. Eenvoudige tekenreeks komt overeen met overlappen op en komt overeen met reguliere expressie niet.
 
@@ -140,7 +140,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text` -Een tekenreeks te zoeken.
 - `typeLiteral` -Een optionele type letterlijke waarde (bijvoorbeeld typeof(long)). Indien opgegeven, wordt de uitgepakte subtekenreeks wordt geconverteerd naar dit type.
 
-### <a name="returns"></a>Retourneert
+### <a name="returns"></a>Geeft als resultaat
 De subtekenreeks vergeleken met het vastleggen van de opgegeven groep captureGroup, wordt eventueel geconverteerd naar typeLiteral.
 Als er geen overeenkomst, of het typeconversie is mislukt, null te retourneren.
 
@@ -246,7 +246,7 @@ replace(regex, rewrite, input_text)
 - `rewrite` -De vervangende reguliere expressie voor elke overeenkomst op overeenkomende reguliere expressie. \0 gebruiken om te verwijzen naar de volledige overeenkomst, \1 voor de eerste capture-groep, \2, enzovoort voor groepen van de volgende vastleggen.
 - `input_text` -De ingevoerde tekenreeks om in te zoeken.
 
-### <a name="returns"></a>Retourneert
+### <a name="returns"></a>Geeft als resultaat
 De tekst na het vervangen van alle resultaten van de reguliere expressie met evaluaties van herschrijven. Komt overeen met elkaar niet overlappen.
 
 ### <a name="examples"></a>Voorbeelden
@@ -274,7 +274,7 @@ Hiermee wordt een opgegeven tekenreeks op basis van een opgegeven scheidingsteke
 split(source, delimiter [, requestedIndex])
 ```
 
-### <a name="arguments"></a>Argumenten:
+### <a name="arguments"></a>Arguments:
 
 - `source` -De tekenreeks die moet worden verdeeld op basis van het opgegeven scheidingsteken.
 - `delimiter` -Het scheidingsteken dat wordt gebruikt om de brontekenreeks te splitsen.
@@ -331,7 +331,7 @@ Een subtekenreeks uit een bepaalde bron-tekenreeks, beginnend bij de opgegeven i
 substring(source, startingIndex [, length])
 ```
 
-### <a name="arguments"></a>Argumenten:
+### <a name="arguments"></a>Arguments:
 
 - `source` -De brontekenreeks die de subtekenreeks wordt opgehaald uit.
 - `startingIndex` -De op nul gebaseerde beginpositie van de aangevraagde subtekenreeks.

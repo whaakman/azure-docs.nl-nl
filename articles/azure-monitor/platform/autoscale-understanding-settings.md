@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787492"
 ---
 # <a name="understand-autoscale-settings"></a>Inzicht in instellingen voor automatisch schalen
@@ -89,29 +89,29 @@ Ter illustratie van het schema van de instelling voor automatisch schalen, wordt
 }
 ```
 
-| Sectie | De naam van element | Description |
+| Section | De naam van element | Description |
 | --- | --- | --- |
 | Instelling | Id | De instelling voor automatisch schalen van resource-ID. Instellingen voor automatisch schalen vormen een Azure Resource Manager-resource. |
-| Instelling | naam | De naam van de instelling voor automatisch schalen. |
+| Instelling | name | De naam van de instelling voor automatisch schalen. |
 | Instelling | location | De locatie van de instelling voor automatisch schalen. Deze locatie kan afwijken van de locatie van de resource die wordt geschaald. |
 | properties | targetResourceUri | De resource-ID van de resource die wordt geschaald. U kunt slechts één instelling voor automatisch schalen per resource hebben. |
 | properties | Profielen | Een instelling voor automatisch schalen bestaat uit een of meer profielen. Telkens wanneer de engine voor automatisch schalen wordt uitgevoerd, uitvoeren het van één profiel. |
-| profiel | naam | De naam van het profiel. U kunt een willekeurige naam die helpt u bij het identificeren van het profiel. |
-| profiel | Capacity.maximum | De maximale capaciteit toegestaan. Het zorgt ervoor dat voor automatisch schalen, bij het uitvoeren van dit profiel niet omhoog uw resource boven dit getal schalen. |
-| profiel | Capacity.minimum | De opgegeven Minimumcapaciteit toegestaan. Het zorgt ervoor dat voor automatisch schalen, bij het uitvoeren van dit profiel niet omhoog uw resource onder dit getal schalen. |
-| profiel | Capacity.Default | Als er een probleem opgetreden bij het lezen van de metrische resource gegevens (in dit geval de CPU van 'vmss1'), en de huidige capaciteit lager dan de standaardwaarde is, wordt de functie voor automatisch schalen uitgeschaald op de standaardwaarde. Dit is om te controleren of de beschikbaarheid van de resource. Als de huidige capaciteit al hoger dan de standaardcapaciteit is, schaalt automatisch schalen niet. |
-| profiel | regels | Automatisch schalen wordt automatisch aangepast tussen de maximale en minimale capaciteit, met behulp van de regels in het profiel. U kunt meerdere regels in een profiel hebben. Er zijn doorgaans twee regels: een om te bepalen wanneer om uit te schalen, en de andere om te bepalen wanneer om in te schalen. |
-| regel | metricTrigger | Hiermee definieert u de metrische gegevens van de regel. |
+| Profiel | name | De naam van het profiel. U kunt een willekeurige naam die helpt u bij het identificeren van het profiel. |
+| Profiel | Capacity.maximum | De maximale capaciteit toegestaan. Het zorgt ervoor dat voor automatisch schalen, bij het uitvoeren van dit profiel niet omhoog uw resource boven dit getal schalen. |
+| Profiel | Capacity.minimum | De opgegeven Minimumcapaciteit toegestaan. Het zorgt ervoor dat voor automatisch schalen, bij het uitvoeren van dit profiel niet omhoog uw resource onder dit getal schalen. |
+| Profiel | Capacity.Default | Als er een probleem opgetreden bij het lezen van de metrische resource gegevens (in dit geval de CPU van 'vmss1'), en de huidige capaciteit lager dan de standaardwaarde is, wordt de functie voor automatisch schalen uitgeschaald op de standaardwaarde. Dit is om te controleren of de beschikbaarheid van de resource. Als de huidige capaciteit al hoger dan de standaardcapaciteit is, schaalt automatisch schalen niet. |
+| Profiel | regels | Automatisch schalen wordt automatisch aangepast tussen de maximale en minimale capaciteit, met behulp van de regels in het profiel. U kunt meerdere regels in een profiel hebben. Er zijn doorgaans twee regels: een om te bepalen wanneer om uit te schalen, en de andere om te bepalen wanneer om in te schalen. |
+| Regel | metricTrigger | Hiermee definieert u de metrische gegevens van de regel. |
 | metricTrigger | MetricName | De naam van de metrische gegevens. |
 | metricTrigger |  metricResourceUri | De resource-ID van de resource die de metrische gegevens verzendt. In de meeste gevallen is dit hetzelfde als de resource die wordt geschaald. In sommige gevallen kan deze afwijken. U kunt bijvoorbeeld een virtuele-machineschaalset op basis van het aantal berichten in een opslagwachtrij schalen. |
 | metricTrigger | timeGrain | De duur van de metrische steekproef nemen. Bijvoorbeeld, **TimeGrain = "PT1M"** betekent dat de metrische gegevens moeten worden samengevoegd om de minuut, met behulp van de aggregatiemethode die is opgegeven in het element statistiek. |
 | metricTrigger | statistiek | De samenvoegingsmethode binnen de timeGrain-periode. Bijvoorbeeld, **statistiek = "Gemiddelde"** en **timeGrain = "PT1M"** betekent dat de metrische gegevens moeten worden samengevoegd om de minuut, door het gemiddelde te nemen. Deze eigenschap bepaalt hoe de metrische gegevens verzameld. |
 | metricTrigger | timeWindow | De hoeveelheid tijd terugkijken voor metrische gegevens. Bijvoorbeeld, **timeWindow = "PT10M"** betekent dat telkens wanneer automatisch schalen wordt uitgevoerd, vraagt het metrische gegevens voor de afgelopen 10 minuten. De periode kan uw metrische gegevens moeten worden genormaliseerd, en voorkomt u reageren op tijdelijke pieken. |
 | metricTrigger | timeAggregation | De aggregatiemethode die wordt gebruikt om de metrische. Bijvoorbeeld, **TimeAggregation = "Gemiddelde"** moet de metrische aggregeren op basis van het gemiddelde te nemen. In het geval is voorgaande, de tien voorbeelden van 1 minuut duren en gemiddelde ze. |
-| regel | scaleAction | De actie die moet worden uitgevoerd wanneer de metricTrigger van de regel wordt geactiveerd. |
-| scaleAction | richting | "Verhogen' als u wilt uitschalen, of 'Verkleinen' om te schalen in.|
+| Regel | scaleAction | De actie die moet worden uitgevoerd wanneer de metricTrigger van de regel wordt geactiveerd. |
+| scaleAction | direction | "Verhogen' als u wilt uitschalen, of 'Verkleinen' om te schalen in.|
 | scaleAction | value | Hoeveel vergroten of verkleinen van de capaciteit van de resource. |
-| scaleAction | afkoeltijd | De hoeveelheid tijd moet wachten na een schaalbewerking voordat opnieuw kan worden geschaald. Bijvoorbeeld, als **afkoeltijd = "PT10M"**, automatisch schalen wordt niet getracht te schalen opnieuw voor een andere 10 minuten. De afkoeltijd is om de metrische waarden na het toevoegen of verwijderen van exemplaren. |
+| scaleAction | afkoeltijd | De hoeveelheid tijd moet wachten na een schaalbewerking voordat opnieuw kan worden geschaald. Bijvoorbeeld, als **afkoeltijd = "PT10M"** , automatisch schalen wordt niet getracht te schalen opnieuw voor een andere 10 minuten. De afkoeltijd is om de metrische waarden na het toevoegen of verwijderen van exemplaren. |
 
 ## <a name="autoscale-profiles"></a>Profielen voor automatisch schalen
 
@@ -290,13 +290,13 @@ Automatisch schalen maakt gebruik van de volgende procedure om op te halen van h
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Hoe beoordeelt voor automatisch schalen meerdere regels
 
-Nadat de functie voor automatisch schalen wordt vastgesteld welke profiel om uit te voeren, de scale-out-regels in het profiel worden geëvalueerd (dit zijn regels met **richting = "Verhogen"**).
+Nadat de functie voor automatisch schalen wordt vastgesteld welke profiel om uit te voeren, de scale-out-regels in het profiel worden geëvalueerd (dit zijn regels met **richting = "Verhogen"** ).
 
 Als een of meer regels voor scale-out worden geactiveerd, automatisch schalen wordt berekend voor de nieuwe capaciteit bepaald door de **scaleAction** van elk van deze regels. Vervolgens wordt er opgeschaald om naar het maximum van de capaciteit, om te controleren of de beschikbaarheid van de service.
 
 Bijvoorbeeld: Stel dat er wordt een virtuele-machineschaalset met een huidige capaciteit van 10. Er zijn twee regels van de scale-out: één die capaciteit verhoogd met 10 procent en één die capaciteit met 3 aantallen wordt verhoogd. De eerste regel resulteert in een nieuwe capaciteit van 11 en de tweede regel zou leiden tot een capaciteit van 13. Om te garanderen de beschikbaarheid van de service, kiest voor automatisch schalen de actie die ertoe leidt dat de maximale capaciteit, dus de tweede regel wordt gekozen.
 
-Als er geen scale-out-regels worden geactiveerd, automatisch schalen wordt geëvalueerd als alle schaal regels (regels met **richting = "Verkleinen"**). Een inschaalactie nodig voor automatisch schalen alleen als alle regels schaal worden geactiveerd.
+Als er geen scale-out-regels worden geactiveerd, automatisch schalen wordt geëvalueerd als alle schaal regels (regels met **richting = "Verkleinen"** ). Een inschaalactie nodig voor automatisch schalen alleen als alle regels schaal worden geactiveerd.
 
 Automatisch schalen wordt berekend voor de nieuwe capaciteit bepaald door de **scaleAction** van elk van deze regels. Vervolgens wordt de schaalactie die in het maximum van de capaciteit resulteert om te controleren of de beschikbaarheid van de service gekozen.
 
@@ -310,3 +310,4 @@ Meer informatie over automatisch schalen door te verwijzen naar het volgende:
 * [Aanbevolen procedures voor automatisch schalen van Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook waarschuwingsmeldingen](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API voor automatisch schalen](https://msdn.microsoft.com/library/dn931953.aspx)
+

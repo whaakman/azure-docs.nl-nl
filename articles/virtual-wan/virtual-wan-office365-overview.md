@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
 ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458590"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685267"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Office 365-controlelaag in Virtual WAN
 
@@ -26,7 +26,7 @@ Virtuele WAN-klanten met bepaalde SDWAN apparaten kunnen Internet O365-groepen b
 Met deze functie in virtuele WAN-kunnen klanten nu opgeven de categorieën voor het verkeer van Office 365 die ze voor directe internet-groepen vertrouwen. Dit vertrouwde proxy's van Office 365-verkeer wordt omzeilen en de route rechtstreeks vanuit de locatie van de gebruiker naar de dichtstbijzijnde POP van Microsoft. Hiermee voorkomt u verkeer back-slepen en haar pining, dus optimale gebruikerservaring te bieden en opslaan van WAN-kosten. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>Wat zijn de categorieën van Office 365-verkeer?
-Office 365-eindpunten vertegenwoordigen netwerkadressen en subnetten. Eindpunten kunnen worden URL's, IP-adressen of IP-adresbereiken. URL's kunnen een FQDN-naam, zoals *account.office.net*, of een jokerteken-URL, zoals **. office365.com*. Eindpunten zijn onderverdeeld in drie categorieën - **optimaliseren**, **toestaan**, en **standaard**, op basis van hun ernst. Meer informatie over de eindpunt-categorieën zijn [hier](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
+Office 365-eindpunten vertegenwoordigen netwerkadressen en subnetten. Eindpunten kunnen worden URL's, IP-adressen of IP-adresbereiken. URL's kunnen een FQDN-naam, zoals *account.office.net*, of een jokerteken-URL, zoals * *. office365.com*. Eindpunten zijn onderverdeeld in drie categorieën - **optimaliseren**, **toestaan**, en **standaard**, op basis van hun ernst. Meer informatie over de eindpunt-categorieën zijn [hier](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>Welke categorie Office 365-verkeer wordt door Microsoft aanbevolen voor direct internet-groepen?
 De **optimaliseren** categorie is de meest kritieke netwerkeindpunten en is vereist voor het overslaan van SSL-einde en inspecteren en andere netwerkapparaten voor beveiliging. Er moet direct Internet uitgaande dicht bij gebruikers. Deze eindpunten vertegenwoordigen Office 365-scenario's die het meest gevoelig zijn voor de prestaties, latentie en beschikbaarheid van het netwerk. Deze categorie bevat kleine (orde van grootte ~ 10) van sleutel-URL's en een gedefinieerde set IP-subnetten aan core Office 365-werkbelastingen, zoals Exchange Online, SharePoint Online, Skype voor bedrijven Online en toegewezen Microsoft Teams. 

@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154223"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
@@ -220,7 +220,7 @@ Naast het gebruik van de weergave-indelingen van Azure Storage, kunt u ook defin
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Kleurenregels toepassen op het raster analyse
 De opslag-activa ook kleurenregels die bieden een visueel element betekent dat voor het identificeren van verschillende typen fouten in het raster analyse. De van de vooraf gedefinieerde kleurenregels van toepassing op HTTP-fouten, zodat ze alleen voor de server-logboek- en netwerk-trace weergegeven.
 
-Selecteren om toe te passen hoe zij kleuren, **kleurenregels** op het lint van de werkbalk. Hier ziet u de Azure Storage-kleurenregels in het menu. Selecteer voor deze zelfstudie **clientfouten (StatusCode tussen 400 en 499)**, zoals wordt weergegeven in de volgende afbeelding.
+Selecteren om toe te passen hoe zij kleuren, **kleurenregels** op het lint van de werkbalk. Hier ziet u de Azure Storage-kleurenregels in het menu. Selecteer voor deze zelfstudie **clientfouten (StatusCode tussen 400 en 499)** , zoals wordt weergegeven in de volgende afbeelding.
 
 ![Lay-out van Azure Storage weergeven](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -278,7 +278,7 @@ De volgende afbeelding ziet u een specifieke aanvraag wanneer een Blob ophalen-b
 
 Er wordt vervolgens deze clientaanvraag-ID correleren met de logboekgegevens van de client om te zien welke acties de client duurt toen de fout is opgetreden. U kunt voor deze sessie om de client-logboekgegevens, die wordt geopend in een tweede tabblad weer te geven van een nieuwe Analysis-rasterweergave weergegeven:
 
-1. Kopieer eerst de waarde van de **ClientRequestId** veld naar het Klembord. U kunt dit doen door een rij selecteren, zoeken naar de **ClientRequestId** veld met de rechtermuisknop op de gegevenswaarde en het kiezen van **kopie 'ClientRequestId'**.
+1. Kopieer eerst de waarde van de **ClientRequestId** veld naar het Klembord. U kunt dit doen door een rij selecteren, zoeken naar de **ClientRequestId** veld met de rechtermuisknop op de gegevenswaarde en het kiezen van **kopie 'ClientRequestId'** .
 2. Selecteer op de werkbalk van het lint **nieuwe Viewer**en selecteer vervolgens **Analysis Grid** om een nieuw tabblad te openen. Het nieuwe tabblad bevat alle gegevens in uw logboekbestanden, zonder te groeperen, filteren of kleurenregels.
 3. Selecteer op de werkbalk van het lint **lay-out**en selecteer vervolgens **alle kolommen van de .NET Client** onder de **Azure Storage** sectie. Deze weergave-indeling bevat gegevens van de client logboek, evenals de traceerlogboeken server en het netwerk. Standaard deze wordt gesorteerd op de **MessageNumber** kolom.
 4. Zoek vervolgens het logboek van de client voor de client-request-ID. Selecteer op de werkbalk van het lint **berichten vinden**, geeft u een aangepast filter op de clientaanvraag-ID in de **vinden** veld. Gebruik deze syntaxis voor het filter, uw eigen clientaanvraag-ID op te geven:
@@ -303,11 +303,11 @@ Nu dat u bekend bent met Message Analyzer gebruiken om uw logboekgegevens te ana
 | Onverwachte vertragingen bij de levering van berichten in een wachtrij |AzureStorageClientDotNetV4.Description bevat 'Opnieuw proberen is bewerking mislukt.' |Client |
 | HTTP-toename in percentthrottlingerror aan |HTTP. Response.StatusCode == 500 &#124; &#124; HTTP. Response.StatusCode 503 == |Netwerk |
 | Toename in percenttimeouterror aan |HTTP. Response.StatusCode 500 == |Netwerk |
-| Toename in percenttimeouterror aan (alle) |* StatusCode 500 == |Alle |
+| Toename in percenttimeouterror aan (alle) |\* StatusCode 500 == |Alle |
 | Toename in percentnetworkerror aan |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Client |
 | HTTP-fout 403 (verboden) berichten |HTTP. Response.StatusCode 403 == |Netwerk |
 | HTTP 404 (niet gevonden) berichten |HTTP. Response.StatusCode 404 == |Netwerk |
-| 404 (alle) |* StatusCode 404 == |Alle |
+| 404 (alle) |\* StatusCode 404 == |Alle |
 | Shared Access Signature (SAS) autorisatie probleem |AzureStorageLog.RequestStatus == "SASAuthorizationError" |Netwerk |
 | HTTP 409 (Conflict) berichten |HTTP. Response.StatusCode 409 == |Netwerk |
 | 409 (alle) |*StatusCode   == 409 |Alle |

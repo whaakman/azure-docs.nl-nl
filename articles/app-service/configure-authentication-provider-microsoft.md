@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: e3da856efd7d44f15f9de27c9e38375d40dc211d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60850957"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Uw App Service-toepassing voor het gebruik aanmelding voor Microsoft-Account configureren
@@ -44,7 +44,7 @@ In dit onderwerp ziet u hoe het configureren van Azure App Service voor het gebr
     > [!IMPORTANT]
     > Het wachtwoord is een belangrijke beveiligingsreferentie. Het wachtwoord met iedereen delen en distribueren binnen een clienttoepassing niet.
     
-8. Klik op **Opslaan**.
+8. Klik op **Opslaan**
 
 ## <a name="secrets"> </a>Informatie voor Microsoft-Account toevoegen aan uw App Service-toepassing
 1. Klik in de [Azure Portal], gaat u naar uw toepassing, klikt u op **instellingen** > **verificatie / autorisatie**.

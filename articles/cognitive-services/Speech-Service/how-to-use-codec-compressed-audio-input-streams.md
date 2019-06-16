@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 41a55eca321cbe1bfa23a889b8e3ce7c701ce769
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8717dad27786450e4275c9fd91523c0e9379f375
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073049"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Audio-invoer met de spraak-SDK met codec gecomprimeerd
 
@@ -23,6 +23,7 @@ De spraak-SDK **gecomprimeerde Audio-invoer Stream** API biedt een manier om te 
 
 > [!IMPORTANT]
 > Streaming van gecomprimeerde audio wordt alleen ondersteund voor C++, C#, en Java in Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
+> Spraak SDK versie 1.4.0 of hoger vereist.
 
 Raadpleeg de spraakdocumentatie hoofdlijnen voor wav PCM /.  Buiten wav/PCM, worden de volgende codec gecomprimeerde invoer indelingen ondersteund:
 

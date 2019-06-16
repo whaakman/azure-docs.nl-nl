@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938261"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Geografische beschikbaarheid en ondersteuning
@@ -96,7 +96,7 @@ Azure Marketplace-aanbiedingen kunnen worden gekocht in 141 regio's, zoals gedef
 | Litouwen                           | LT        | EUR          |
 | Luxemburg                          | LU        | EUR          |
 | Macau SAR                           | MO        | USD          |
-| Noord-Macedonië                     | MK        | USD          |
+| Noord Macedonië                     | MK        | USD          |
 | Maleisië                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |
@@ -106,7 +106,7 @@ Azure Marketplace-aanbiedingen kunnen worden gekocht in 141 regio's, zoals gedef
 | Mongolië                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marokko                             | MA        | USD          |
-| Namibië                             | N.v.t.        | USD          |
+| Namibië                             | N.V.T.        | USD          |
 | Nepal                               | NP        | USD          |
 | Nederland                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |

@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60950377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080423"
 ---
 # <a name="upload-files-with-iot-hub"></a>Bestanden uploaden met IoT Hub
 
-Zoals beschreven in de [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md) artikel, een apparaat kunt uploaden van een bestand starten door het verzenden van een melding via een apparaat gerichte-eindpunt (**/devices/ {apparaat-id} / bestanden**). Wanneer een apparaat aan IoT-Hub gecommuniceerd dat het uploaden voltooid is, IoT-Hub verzendt een melding van bestand uploaden via de **/messages/servicebound/filenotifications** gerichte service-eindpunt.
+Zoals beschreven in de [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md) artikel, een apparaat kunt uploaden van een bestand starten door het verzenden van een melding via een apparaat gerichte-eindpunt ( **/devices/ {apparaat-id} / bestanden**). Wanneer een apparaat aan IoT-Hub gecommuniceerd dat het uploaden voltooid is, IoT-Hub verzendt een melding van bestand uploaden via de **/messages/servicebound/filenotifications** gerichte service-eindpunt.
 
 In plaats van berichten via IoT Hub zelf uitgeven van de fungeert IoT Hub in plaats daarvan als een functie voor berichtverzending naar een gekoppeld Azure Storage-account. Een apparaat vraagt een token van het opslagaccount van IoT-Hub die specifiek is voor het bestand dat het apparaat wenst te uploaden. Het apparaat de SAS-URI gebruikt om het bestand uploaden naar opslag, en wanneer het uploaden voltooid is het apparaat een melding van voltooiing naar IoT Hub verzendt. IoT Hub controleert of het bestand te uploaden is voltooid en een bericht over een upload vervolgens toegevoegd aan het meldingseindpunt service gerichte-bestand.
 
@@ -95,7 +95,7 @@ De volgende onderwerpen met naslaginformatie bieden u meer informatie over het u
 
 Wanneer een apparaat aan IoT-Hub gecommuniceerd dat het uploaden voltooid is, genereert IoT Hub (optioneel) een melding. Dit bericht bevat de locatie van de naam en de opslag van het bestand.
 
-Zoals uitgelegd in [eindpunten](iot-hub-devguide-endpoints.md), IoT-Hub biedt een bestand uploaden meldingen via een gerichte service-eindpunt (**/messages/servicebound/fileuploadnotifications**) als berichten. De semantiek ontvangen voor het bestand uploaden meldingen zijn dezelfde als die voor cloud-naar-apparaat-berichten en hebben hetzelfde [bericht lifecycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Elk bericht dat wordt opgehaald uit het bestand uploaden-meldingseindpunt is een JSON-record met de volgende eigenschappen:
+Zoals uitgelegd in [eindpunten](iot-hub-devguide-endpoints.md), IoT-Hub biedt een bestand uploaden meldingen via een gerichte service-eindpunt ( **/messages/servicebound/fileuploadnotifications**) als berichten. De semantiek ontvangen voor het bestand uploaden meldingen zijn dezelfde als die voor cloud-naar-apparaat-berichten en hebben hetzelfde [bericht levenscyclus van](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Elk bericht dat wordt opgehaald uit het bestand uploaden-meldingseindpunt is een JSON-record met de volgende eigenschappen:
 
 | Eigenschap | Description |
 | --- | --- |

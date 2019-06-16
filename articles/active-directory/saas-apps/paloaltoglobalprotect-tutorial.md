@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae59e6820214d1f3291f4d95a0bc7094f8b488d7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a61d634e4962a2cae508f8acb3c067a77263cc2a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904696"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095234"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Zelfstudie: Azure Active Directory-integratie met Palo Alto Networks - GlobalProtect
 
@@ -54,7 +54,7 @@ Als u de integratie van Palo Alto Networks - GlobalProtect met Azure AD wilt con
 
 **Voer de volgende stappen uit om Palo Alto Networks - GlobalProtect uit de galerie toe te voegen:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 Voer het volgende uit om eenmalige aanmelding van Azure AD met Palo Alto Networks - GlobalProtect te configureren en testen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding met Palo Alto Networks - GlobalProtect configureren](#configure-palo-alto-networks---globalprotect-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Testgebruiker voor Palo Alto Networks - GlobalProtect maken](#create-palo-alto-networks---globalprotect-test-user)**: als u een equivalent van Britta Simon in Palo Alto Networks - GlobalProtect wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding met Palo Alto Networks - GlobalProtect configureren](#configure-palo-alto-networks---globalprotect-single-sign-on)** : als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Palo Alto Networks - GlobalProtect maken](#create-palo-alto-networks---globalprotect-test-user)** : als u een equivalent van Britta Simon in Palo Alto Networks - GlobalProtect wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

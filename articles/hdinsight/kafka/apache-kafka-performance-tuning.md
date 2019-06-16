@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689363"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimalisatie van prestaties voor Apache Kafka HDInsight-clusters
@@ -73,7 +73,7 @@ Vergroten van de partitie dichtheid (het aantal partities per broker), wordt een
 
 Voor Apache Kafka-clusters 1.1 en boven HDInsight, raden we u maximaal 1000 partities per broker, met inbegrip van replica's hebben. Het aantal partities per broker vergroten, verkleint u doorvoer en kan ook leiden tot onderwerp niet beschikbaar zijn. Zie voor meer informatie over de ondersteuning van Kafka-partitie [de officiële Apache Kafka-blogbericht op de toename van het aantal ondersteunde partities in versie 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). Zie voor meer informatie over het aanpassen van onderwerpen [Apache Kafka: wijzigen van onderwerpen](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
 
-### <a name="number-of-replicas"></a>Aantal replica's
+### <a name="number-of-replicas"></a>Aantal replica 's
 
 Hogere replicatiefactor resulteert in extra aanvragen tussen de leider partitie en Volgers. Als gevolg daarvan kan een hogere replicatiefactor verbruikt meer schijf- en CPU-aanvullende aanvragen verwerken verhogen schrijven latentie en doorvoer te verlagen.
 

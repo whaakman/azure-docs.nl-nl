@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04-08-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91899b35f319dafd01a3f27d31aac53515b46d78
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 542d1008bfe505887f4c3639ff0271fc1c81664e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Zelfstudie: Azure Active Directory-integratie met Skytap
 
@@ -77,12 +77,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Skytap, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding Skytap](#configure-skytap-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker Skytap](#create-skytap-test-user)**  : als u wilt een equivalent van Britta Simon in Skytap die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -108,7 +108,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Skytap, moet u de vo
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `http://pingone.com/<custom EntityID>`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stappen uit als u de toepassing in de met **SP** geïnitieerde modus wilt configureren:
 

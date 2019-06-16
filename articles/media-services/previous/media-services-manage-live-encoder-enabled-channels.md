@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217194"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
@@ -239,7 +239,7 @@ Wanneer uw kanaal Live Encoding ingeschakeld heeft, u hebt een onderdeel in de p
 
 Hieronder vindt u de eigenschappen die u instellen kunt wanneer signalering aankondigingen. 
 
-### <a name="duration"></a>Duur
+### <a name="duration"></a>Duration
 De duur, in seconden van de reclameonderbreking. De sleutel moet een positieve waarde dan nul om te beginnen de reclameonderbreking. Wanneer een reclameonderbreking wordt uitgevoerd en de duur is ingesteld op nul met de CueId die overeenkomt met de reclameonderbreking continue die pauze wordt geannuleerd.
 
 ### <a name="cueid"></a>CueId
@@ -255,7 +255,7 @@ Het live coderingsprogramma binnen het kanaal kunt overschakelen naar een slatea
 
 Het live coderingsprogramma kan worden geconfigureerd als u wilt overschakelen naar een slateafbeelding en het binnenkomende video signaal in bepaalde situaties – bijvoorbeeld verbergen tijdens een ad-einde. Als deze een slate niet is geconfigureerd, wordt niet invoervideo gemaskeerd tijdens die ad-einde.
 
-### <a name="duration"></a>Duur
+### <a name="duration"></a>Duration
 De duur van de slate in seconden. Dit heeft moet een positieve waarde dan nul om te starten van de status. Als er een continue slate, en een duur van nul is opgegeven, wordt die continue slate worden beëindigd.
 
 ### <a name="insert-slate-on-ad-marker"></a>Slate invoegen op advertentiemarkering

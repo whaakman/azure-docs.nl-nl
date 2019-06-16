@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233790"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Doelcode gebeurtenisbestand voor uitgebreide gebeurtenissen in SQL-Database
@@ -41,7 +41,7 @@ In dit onderwerp biedt een codevoorbeeld van in twee fasen:
 > [!IMPORTANT]
 > De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
-* Een Azure-account en -abonnement. U  kunt zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). 
+* Een Azure-account en -abonnement. U  kunt zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 * Elke database die kunt u een tabel in.
   
   * U kunt eventueel [maken een **AdventureWorksLT** demonstratiedatabase](sql-database-get-started.md) in minuten.

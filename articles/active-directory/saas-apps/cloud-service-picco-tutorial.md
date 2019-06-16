@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f0424cc744f1b6db0e4adaaf074ae72d94e9c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37597b010394ed6c0a3cfd75be85d58628fdbdfb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Zelfstudie: Azure Active Directory-integratie met Cloud Service PICCO
 
@@ -54,7 +54,7 @@ Om de integratie van Cloud Service PICCO met Azure AD te configureren, moet u Cl
 
 **Ga als volgt te werk om Cloud Service PICCO vanuit de galerie toe te voegen:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Cloud Service PICCO, moet u de volgende procedures uitvoeren:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor Cloud Service PICCO configureren](#configure-cloud-service-picco-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[Testgebruiker voor Cloud Service PICCO maken](#create-cloud-service-picco-test-user)**: een tegenhanger voor Britta Simon maken in Cloud Service PICCO die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Cloud Service PICCO configureren](#configure-cloud-service-picco-single-sign-on)** : de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[Testgebruiker voor Cloud Service PICCO maken](#create-cloud-service-picco-test-user)** : een tegenhanger voor Britta Simon maken in Cloud Service PICCO die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401916"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Uitgaande SMTP-verbindingsproblemen in Azure oplossen
@@ -52,6 +52,6 @@ Als u deze abonnementstypen, bent u aangeraden om te gebruiken SMTP-relayservice
 
 Als u Azure-resources via CSP, om te maken van een ondersteuningsverzoek in via uw keuze van CSP kunt u en u kunt aanvragen de CSP een aanvraag voor opheffen van blokkeringen namens maken als een beveiligde SMTP-relay kan niet worden gebruikt.
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119724"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedure: Geef optioneel claims voor uw Azure AD-app
@@ -84,11 +84,11 @@ Deze claims worden altijd in de Azure AD-tokens v1.0 opgenomen, maar niet opgeno
 | JWT Claim     | Name                            | Description                                | Opmerkingen |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adres                      | De client heeft aangemeld vanaf het IP-adres.   |       |
-| `onprem_sid`  | On-premises beveiligings-id |                                             |       |
+| `onprem_sid`  | On-Premises beveiligings-id |                                             |       |
 | `pwd_exp`     | Wachtwoordverlooptijd        | De datum en tijd waarop het wachtwoord is verlopen. |       |
 | `pwd_url`     | URL van wijzigen wachtwoord             | Een URL die de gebruiker bezoeken kan om hun wachtwoord te wijzigen.   |   |
 | `in_corp`     | Inside Corporate Network        | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als ze niet, niet de claim is opgenomen.   |  Op basis van de [vertrouwde IP-adressen](../authentication/howto-mfa-mfasettings.md#trusted-ips) instellingen in MFA.    |
-| `nickname`    | Bijnaam                        | Een andere naam voor de gebruiker te scheiden van de naam van eerste of laatste. | 
+| `nickname`    | Nickname                        | Een andere naam voor de gebruiker te scheiden van de naam van eerste of laatste. | 
 | `family_name` | Achternaam                       | Bevat de laatste naam, de achternaam of familienaam van de gebruiker gedefinieerd in het gebruikersobject. <br>"family_name": "Kleefstra" | Ondersteund in beheerde Serviceaccounts en AAD   |
 | `given_name`  | Voornaam                      | De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op het gebruikersobject.<br>'given_name': "Frank"                   | Ondersteund in beheerde Serviceaccounts en AAD  |
 | `upn`         | User principal name | Een id voor de gebruiker die kan worden gebruikt met de parameter username_hint.  Geen een gebruiksartikel-id voor de gebruiker en mag niet worden gebruikt om belangrijke gegevens. | Zie [extra eigenschappen](#additional-properties-of-optional-claims) hieronder voor de configuratie van de claim. |

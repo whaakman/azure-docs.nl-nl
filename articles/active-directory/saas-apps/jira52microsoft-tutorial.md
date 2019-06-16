@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 003666d5bb3c309e501bcf76a15beb47340f9150
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d3b304bb35ea69906fc9576f45733134387be1b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708748"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO by Microsoft (V5.2)
 
@@ -55,9 +55,9 @@ Voor het configureren van Azure AD-integratie met JIRA SAML SSO by Microsoft (V5
 > [!NOTE]
 > Als u de stappen in deze zelfstudie wilt testen, raden wij u aan niet een productieomgeving van JIRA te gebruiken. Test de integratie eerst in een ontwikkel- of faseringsomgeving van de toepassing en gebruik dan pas de productieomgeving.
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u hier een gratis proefversie van één maand krijgen: [Proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="supported-versions-of-jira"></a>Ondersteunde versies van JIRA
@@ -80,7 +80,7 @@ Voor het configureren van de integratie van JIRA SAML SSO by Microsoft (V5.2) in
 
 **Voer de volgende stappen uit om JIRA SAML SSO by Microsoft (V5.2) toe te voegen vanuit de galerie:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -103,12 +103,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 Als u Azure AD-eenmalige aanmelding met JIRA SAML SSO by Microsoft (V5.2) wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor JIRA SAML SSO by Microsoft (V5.2) configureren](#configure-jira-saml-sso-by-microsoft-v52-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Een testgebruiker maken in JIRA SAML SSO by Microsoft (V5.2)](#create-jira-saml-sso-by-microsoft-v52-test-user)**: om in JIRA SAML SSO by Microsoft (V5.2) een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor JIRA SAML SSO by Microsoft (V5.2) configureren](#configure-jira-saml-sso-by-microsoft-v52-single-sign-on)** : als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker maken in JIRA SAML SSO by Microsoft (V5.2)](#create-jira-saml-sso-by-microsoft-v52-test-user)** : om in JIRA SAML SSO by Microsoft (V5.2) een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -116,7 +116,7 @@ In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakel
 
 Voor het configureren van Azure AD-eenmalige aanmelding met JIRA SAML SSO by Microsoft (V5.2) moet u de volgende stappen uitvoeren:
 
-1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **JIRA SAML SSO by Microsoft (V5.2)**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **JIRA SAML SSO by Microsoft (V5.2)** .
 
     ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
@@ -224,7 +224,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot JIRA SAML SSO by Microsoft (V5.2).
 
-1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **JIRA SAML SSO by Microsoft (V5.2)**.
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **JIRA SAML SSO by Microsoft (V5.2)** .
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
