@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964762"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Diagnostische logboeken en metrische gegevens over Media Services controleren
@@ -34,7 +34,7 @@ Metrische gegevens worden verzameld met regelmatige tussenpozen al dan niet de w
 
 Op dit moment in de volgende Media Services [Streaming-eindpunten](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrische gegevens worden gegenereerd door Azure:
 
-|Metric|`Display name`|Description|
+|Gegevens|`Display name`|Description|
 |---|---|---|
 |Aanvragen|Aanvragen|Deze code geeft informatie over het totale aantal aanvragen dat wordt verwerkt door het Streaming-eindpunt.|
 |Uitgaand verkeer|Uitgaand verkeer|Totaal aantal uitgaande bytes. Bijvoorbeeld: bytes gestreamd door het Streaming-eindpunt.|

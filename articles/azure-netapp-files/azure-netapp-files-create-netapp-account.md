@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522817"
 ---
 # <a name="create-a-netapp-account"></a>Een NetApp-account maken
@@ -48,7 +48,7 @@ U moet hebt uw abonnement voor het gebruik van de Resourceprovider NetApp ook ge
      Kies een abonnement uit uw bestaande abonnementen.
    * **Resourcegroep**   
      Gebruik een bestaande resourcegroep of maak een nieuwe.
-   * **Locatie**  
+   * **Location**  
      Selecteer de regio waarin u wilt dat het account en zijn onderliggende resources zich bevinden.  
 
      ![Nieuw NetApp-account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)

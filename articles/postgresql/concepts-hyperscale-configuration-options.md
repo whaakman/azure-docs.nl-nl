@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: e8c1c2e51ca14ae9b17f0d7efb20552cdd55139b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077288"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-preview-performance-options"></a>Azure Database voor PostgreSQL – grootschalige (Citus) (preview) instellingen voor prestaties
@@ -20,7 +20,7 @@ ms.locfileid: "65077288"
  
 U kunt de instellingen berekening en opslag onafhankelijk van elkaar voor worker-knooppunten en het coördinatorknooppunt selecteren in een grootschalige (Citus) server-groep.  COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU van de onderliggende hardware. De maximale grootte voor het inrichten van verwijst naar de capaciteit die beschikbaar zijn voor de coördinator en worker-knooppunten in uw servergroep grootschalige (Citus). De opslag bevat databasebestanden, tijdelijke bestanden, transactielogboeken en de Postgres server-Logboeken. De totale hoeveelheid opslag die u ook inrichten definieert de i/o-capaciteit beschikbaar voor elk knooppunt werknemer en coordinator.
  
-|                       | Werkknooppunt           | Coördinatorknooppunt      |
+|                       | Worker-knooppunt           | Coördinatorknooppunt      |
 |-----------------------|-----------------------|-----------------------|
 | Compute, vCores       | 4, 8, 16, 32          | 4, 8, 16, 32          |
 | Geheugen per vCore, GiB | 8                     | 4                     |

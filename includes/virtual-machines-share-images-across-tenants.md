@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145891"
 ---
 Gedeelde Afbeeldingsgalerieën kunt u installatiekopieën van de share met RBAC. U kunt RBAC gebruiken voor het delen van afbeeldingen in uw tenant, en zelfs personen buiten uw tenant. Maar als u wilt delen van installatiekopieën buiten uw Azure-tenant, op schaal, moet u de registratie van een app delen in het kader maken.  Met behulp van een app-registratie kunt complexere scenario's voor delen, zoals: 
@@ -38,9 +38,9 @@ Maak de registratie van een toepassing die door beide tenants worden gebruikt om
 
 De app-registratie machtigen om te gebruiken de galerie met installatiekopieën van de gedeelde wilt opgeven.
 1. Selecteer in de Azure-portal, de gedeelde galerie met installatiekopieën die u wilt delen met een andere tenant.
-1. Selecteer **Selecteer toegangsbeheer (IAM)**, en klikt u onder **roltoewijzing toevoegen** Selecteer *toevoegen*. 
+1. Selecteer **Selecteer toegangsbeheer (IAM)** , en klikt u onder **roltoewijzing toevoegen** Selecteer *toevoegen*. 
 1. Onder **rol**, selecteer **lezer**.
-1. Onder **toegang toewijzen aan:**, laat u dit als **Azure AD-gebruiker, groep of service-principal**.
+1. Onder **toegang toewijzen aan:** , laat u dit als **Azure AD-gebruiker, groep of service-principal**.
 1. Onder **Selecteer**, type *myGalleryApp* en dit selecteren wanneer deze weergegeven in de lijst wordt. Wanneer u klaar bent, selecteert u **opslaan**.
 
 
@@ -54,9 +54,9 @@ https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Appl
 
 In de [Azure-portal](https://portal.azure.com) zich aanmelden als Tenant 2 en geeft toegang tot de registratie van de app naar de resourcegroep waar u de virtuele machine wilt maken.
 
-1. Selecteer de resourcegroep en selecteer vervolgens **toegangsbeheer (IAM)**. Onder **roltoewijzing toevoegen** Selecteer **toevoegen**. 
+1. Selecteer de resourcegroep en selecteer vervolgens **toegangsbeheer (IAM)** . Onder **roltoewijzing toevoegen** Selecteer **toevoegen**. 
 1. Onder **rol**, type **Inzender**.
-1. Onder **toegang toewijzen aan:**, laat u dit als **Azure AD-gebruiker, groep of service-principal**.
+1. Onder **toegang toewijzen aan:** , laat u dit als **Azure AD-gebruiker, groep of service-principal**.
 1. Onder **Selecteer** type *myGalleryApp* selecteren wanneer deze weergegeven in de lijst wordt. Wanneer u klaar bent, selecteert u **opslaan**.
 
 > [!NOTE]

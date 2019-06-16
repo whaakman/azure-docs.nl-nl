@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002050"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Kosten van metrische gegevens met dashboards weergeven-sleutel
@@ -42,7 +42,7 @@ Als u wilt snel aan de slag met een aangepast dashboard, kunt u een bestaande re
 
 Een aangepast dashboard maken:
 
-1. Klik op de startpagina, **nieuwe toevoegen +**. De pagina Mijn Dashboard wordt weergegeven.  
+1. Klik op de startpagina, **nieuwe toevoegen +** . De pagina Mijn Dashboard wordt weergegeven.  
     ![Mijn dashboardpagina waar u nieuwe rapporten toevoegen](./media/dashboards/my-dashboard.png)
 2. Klik op **toevoegen van nieuwe rapport**. Het rapport toevoegen wordt weergegeven.
 3. Selecteer het rapport dat u wilt toevoegen aan het dashboard-object. De widget wordt toegevoegd aan het dashboard.
@@ -101,7 +101,7 @@ Voor het dupliceren van (gekloond) een aangepast dashboard:
 1. Klik op het Dashboard dat u wilt dupliceren, **OpslaanAls**. Een nieuw dashboard wordt geopend met dezelfde naam en een nummer.
 2. Wijzig de naam van het dubbele dashboard en als u wilt wijzigen.
 
-- Of -
+\- Of -
 
 1. In de instellingen voor Dashboard, klikt u op **OpslaanAls** op de regel van het dashboard dat u wilt dupliceren.
 2. Het dubbele dashboard geopend.
@@ -113,7 +113,7 @@ U kunt een dashboard instellen als standaard. Instellen op de standaard, kunt u 
 
 - Klik op het dashboardtabblad dat u wilt instellen als standaard en klik vervolgens op **standaard** aan de rechterkant.
 
-- Of -
+\- Of -
 
 1. Klik op **Dashboardinstellingen** de lijst met beschikbare dashboards weergeven en selecteren van het dashboard dat u wilt instellen als standaard.  
     ![dashboard-opties voor een standaarddashboard](./media/dashboards/dashboard-options.png)

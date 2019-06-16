@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799084"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de API
@@ -37,10 +37,10 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 |---|---|
 |accountId|Van de afspeellijst VI account-ID.|
 |id|Van de afspeellijst-ID.|
-|naam|De naam van de afspeellijst.|
+|name|De naam van de afspeellijst.|
 |description|Beschrijving van de afspeellijst.|
 |userName|De naam van de gebruiker die de afspeellijst gemaakt.|
-|gemaakt|Aanmaaktijd van de afspeellijst.|
+|Gemaakt|Aanmaaktijd van de afspeellijst.|
 |privacyMode|Van de afspeellijst privacymodus (privé/openbaar).|
 |state|Van de afspeellijst (geüploade, verwerking, verwerkt, is mislukt, de in quarantaine geplaatste).|
 |isOwned|Geeft aan of de afspeellijst is gemaakt door de huidige gebruiker.|
@@ -48,7 +48,7 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 |isBase|Geeft aan of de afspeellijst een base afspeellijst (video is) of een afspeellijst van andere video's (afgeleid) gemaakt.|
 |durationInSeconds|De totale duur van de afspeellijst.|
 |summarizedInsights|Bevat een [summarizedInsights](#summarizedinsights).
-|video's|Een lijst met [video's](#videos) de afspeellijst maken.<br/>Als deze afspeellijst met samengesteld uit tijdsbereiken van andere video's (afgeleid), de video's in deze lijst bevat alleen gegevens uit de opgenomen tijdsbereik.|
+|Video 's|Een lijst met [video's](#videos) de afspeellijst maken.<br/>Als deze afspeellijst met samengesteld uit tijdsbereiken van andere video's (afgeleid), de video's in deze lijst bevat alleen gegevens uit de opgenomen tijdsbereik.|
 
 ```json
 {
@@ -75,15 +75,15 @@ In deze sectie bevat een overzicht van de inzichten.
 
 |Kenmerk | Description|
 |---|---|
-|naam|De naam van de video. Bijvoorbeeld: Azure Monitor.|
+|name|De naam van de video. Bijvoorbeeld: Azure Monitor.|
 |id|De ID van de video. Bijvoorbeeld: 63c6d532ff.|
 |privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **Persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
-|duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
+|Duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
 |thumbnailVideoId|De ID van de video van waaruit de miniatuur is gehaald.
 |thumbnailId|Miniatuur van de video-id. Als u wilt de miniatuur van het werkelijke, aanroepen [Get-miniatuur](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
 |faces|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
-|stemmingen|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
+|sentimenten|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
 |audioEffects| Kan nul of meer audioEffects bevatten. Zie voor meer informatie, [audioEffects](#audioEffects).|
 |labels| Kan nul of meer labels bevatten. Zie voor meer informatie, [labels](#labels).|
 |merken| Kan nul of meer merken bevatten. Zie voor meer informatie, [merken](#brands).|
@@ -91,13 +91,13 @@ In deze sectie bevat een overzicht van de inzichten.
 |emoties| Kan nul of meer emoties bevatten. Zie voor meer informatie, [emoties](#emotions).|
 |onderwerpen|Kan nul of meer onderwerpen bevatten. De [onderwerpen](#topics) dimensie.|
 
-## <a name="videos"></a>video's
+## <a name="videos"></a>Video 's
 
 |Name|Description|
 |---|---|
 |accountId|Van de video VI account-ID.|
 |id|Van de video-ID.|
-|naam|De naam van de video.
+|name|De naam van de video.
 |state|Status van de video (geüploade, verwerking, verwerkt, is mislukt, de in quarantaine geplaatste).|
 |processingProgress|De voortgang tijdens de verwerking (bijvoorbeeld 20%).|
 |failureCode|De foutcode als proces (bijvoorbeeld ' UnsupportedFileType') is mislukt.|
@@ -106,7 +106,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |externalUrl|Van de video externe url (indien opgegeven door de gebruiker).|
 |metagegevens|De metagegevens van video's externe (indien opgegeven door de gebruiker).|
 |isAdult|Geeft aan of er handmatig de video is bekeken en geïdentificeerd als een volwassene video.|
-|inzichten|De insights-object. Zie voor meer informatie, [insights](#insights).|
+|Inzichten|De insights-object. Zie voor meer informatie, [insights](#insights).|
 |thumbnailId|Miniatuur van de video-id. Om op te halen van de werkelijke miniaturen aanroep [Get-miniatuur](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) en geeft die door de video-ID en thumbnailId.|
 |publishedUrl|Een url naar de video te streamen.|
 |publishedUrlProxy|Een url naar het streamen van video van (voor Apple-apparaten).|
@@ -143,13 +143,13 @@ In deze sectie bevat een overzicht van de inzichten.
     }],
 }
 ```
-### <a name="insights"></a>inzichten
+### <a name="insights"></a>Inzichten
 
 De inzichten zijn een set van dimensies (bijvoorbeeld regels tekst, gezichten, merken, enzovoort), waarbij elke dimensie een lijst met unieke elementen (bijvoorbeeld face1, face2, face3), en elk element heeft een eigen metagegevens en een lijst van de exemplaren (die zijn tijd van reeksen met aanvullende optionele metagegevens).
 
 Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een lijst van de tijdelijke exemplaren (bijvoorbeeld: 00: 00:05 – 00:00:10, 00:01:00-00:02:30 en 00:41:21: 00:41:49.) Elke tijdelijke instantie kan aanvullende metagegevens hebben. Bijvoorbeeld, coördinaten van het gezichtsrechthoek (20,230,60,60).
 
-|Versie|De codeversie|
+|Version|De codeversie|
 |---|---|
 |sourceLanguage|Van de video source-taal (ervan uitgaande dat één master taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
 |language|De insights-taal (vertaald uit de source-taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
@@ -162,7 +162,7 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |foto 's|De [opnamen](#shots) dimensie.|
 |merken|De [merken](#brands) dimensie.|
 |audioEffects|De [audioEffects](#audioEffects) dimensie.|
-|stemmingen|De [sentimenten](#sentiments) dimensie.|
+|sentimenten|De [sentimenten](#sentiments) dimensie.|
 |visualContentModeration|De [visualContentModeration](#visualcontentmoderation) dimensie.|
 |textualContentModeration|De [textualContentModeration](#textualcontentmoderation) dimensie.|
 |emoties| De [emoties](#emotions) dimensie.|
@@ -201,7 +201,7 @@ instanties|Een lijst met tijdsbereiken van dit blok.|
 |Name|Description|
 |---|---|
 |id|De regel-ID.|
-|tekst|Het transcript zelf.|
+|text|Het transcript zelf.|
 |language|De transcript-taal. Bedoeld ter ondersteuning van transcript waarbij elke regel een andere taal kan hebben.|
 |instanties|Een lijst met bereiken van tijd waarop deze regel wordt weergegeven. Als de instantie transcript is, is er slechts 1 exemplaar.|
 
@@ -239,7 +239,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|De OCR-regel-ID.|
-|tekst|De tekst.|
+|text|De tekst.|
 |vertrouwen|De opname-vertrouwen.|
 |language|De OCR-taal.|
 |instanties|Een lijst met tijdsbereik waar deze OCR weergegeven (de dezelfde OCR kan meerdere keren voorkomen).|
@@ -274,7 +274,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|Het sleutelwoord-ID.|
-|tekst|De tekst trefwoord.|
+|text|De tekst trefwoord.|
 |vertrouwen|Van het sleutelwoord erkenning vertrouwen.|
 |language|Het sleutelwoord-taal (wanneer het wordt omgezet).|
 |instanties|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|
@@ -305,7 +305,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|De face-ID.|
-|naam|De naam van het gezicht. Kan het zijn ' Onbekende #, 0, een geïdentificeerde beroemdheden of een persoon met de klant.|
+|name|De naam van het gezicht. Kan het zijn ' Onbekende #, 0, een geïdentificeerde beroemdheden of een persoon met de klant.|
 |vertrouwen|De face id vertrouwen.|
 |description|Een beschrijving van de beroemdheden. |
 |thumbnailId|De ID van de miniatuur van die gezicht.|
@@ -350,7 +350,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|De label-ID.|
-|naam|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
+|name|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
 |language|De taal met de label-naam (wanneer het wordt omgezet). BCP-47|
 |instanties|Een lijst met tijdsbereik waar dit label wordt weergegeven (een label kan meerdere keren voorkomen). Elk exemplaar heeft een veld vertrouwen. |
 
@@ -492,7 +492,7 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 |Name|Description|
 |---|---|
 |id|De merk-ID.|
-|naam|De naam van merken.|
+|name|De naam van merken.|
 |referenceId | Het achtervoegsel van het merk wikipedia-url. Bijvoorbeeld, "Target_Corporation" is het achtervoegsel van [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Het merk de Wikipedia-url, indien aanwezig. Bijvoorbeeld [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|De beschrijving van merken.|
@@ -583,7 +583,7 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 ]
 ```
 
-#### <a name="sentiments"></a>stemmingen
+#### <a name="sentiments"></a>sentimenten
 
 Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/negatieve). Bijvoorbeeld, 0-0.1, 0.1 0.2.
 
@@ -765,7 +765,7 @@ Video Indexer maakt Deductie van de belangrijkste onderwerpen uit transcripties.
 |Name|Description|
 |---|---|
 |id|De onderwerp-ID.|
-|naam|De onderwerpnaam, bijvoorbeeld: "Pharmaceuticals".|
+|name|De onderwerpnaam, bijvoorbeeld: "Pharmaceuticals".|
 |referenceId|Breadcrumbs zetten op basis van de hiërarchie van onderwerpen. Bijvoorbeeld: ' Status en wellbeing / medicijnen en gezondheidszorg / Pharmaceuticals '.|
 |vertrouwen|De betrouwbaarheidsscore binnen het bereik [0,1]. Hoger is meer vertrouwen hebben.|
 |language|De taal die wordt gebruikt in het onderwerp.|

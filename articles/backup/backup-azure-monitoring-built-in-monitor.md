@@ -11,10 +11,10 @@ ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236449"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup bewakingsworkloads
@@ -34,7 +34,7 @@ Taken van de volgende back-up van Azure-oplossingen worden hier weergegeven:
   - Azure VM Backup
   - Azure back-up
   - Azure-workload back-up, zoals SQL
-  - Azure backup-agent (Microsoft Azure Backup)
+  - Azure Backup-agent (MAB)
 
 Taken van System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup-Server (MABS) worden niet weergegeven.
 
@@ -48,7 +48,7 @@ Waarschuwingen zijn voornamelijk scenario's waarin gebruikers worden gewaarschuw
 ### <a name="alert-scenarios"></a>Waarschuwing scenario 's
 De volgende scenario's worden gedefinieerd door de service als Signaleerbare scenario's.
 
-  - Back-up/herstel fouten
+  - Back-up-/herstelfouten
   - Back-up is voltooid met waarschuwingen voor Azure Backup-Agent (MAB)
   - Stop de beveiliging met gegevens/Stop de beveiliging en verwijder gegevens behouden
 
@@ -63,10 +63,10 @@ De bovenstaande uitzonderingen zijn ontworpen uit het begrip die het resultaat v
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Waarschuwingen van de volgende back-up van Azure-oplossingen worden hier weergegeven:
 
-  - Azure VM-back-ups
-  - Back-ups voor Azure-
-  - Back-ups van Azure-workload, zoals SQL
-  - Azure backup-agent (Microsoft Azure Backup)
+  - Back-ups van Azure-VM's
+  - Azure-bestandsback-ups
+  - Back-ups van Azure-workloads, zoals SQL
+  - Azure Backup-agent (MAB)
 
 > [!NOTE]
 > Waarschuwingen van System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup-Server (MABS) worden hier niet weergegeven.

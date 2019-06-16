@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128319"
 ---
 # <a name="azure-signalr-service-authentication"></a>verificatie van Azure SignalR Service
@@ -58,10 +58,10 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 3. Gebruik de volgende instellingen voor de nieuwe OAuth-app en klik vervolgens op **Register application**:
 
-    | Instellingsnaam | Voorgestelde waarde | Description |
+    | Naam van instelling | Voorgestelde waarde | Description |
     | ------------ | --------------- | ----------- |
-    | Toepassingsnaam | *Azure SignalR Chat* | De GitHub-gebruiker moet de app waarmee hij of zij verificatie uitvoert, kunnen herkennen en vertrouwen.   |
-    | URL van de startpagina | `http://localhost:5000/home` | |
+    | De naam van de toepassing | *Azure SignalR Chat* | De GitHub-gebruiker moet de app waarmee hij of zij verificatie uitvoert, kunnen herkennen en vertrouwen.   |
+    | Homepage URL | `http://localhost:5000/home` | |
     | Application description | *Een voorbeeld van een chatruimte die Azure SignalR Service gebruikt voor GitHub-verificatie* | Een zinvolle beschrijving van de toepassing zodat de gebruikers van uw toepassing de context begrijpen waarin de verificatie wordt gebruikt. |
     | Authorization callback URL | `http://localhost:5000/signin-github` | Deze instelling is de belangrijkste instelling voor uw OAuth-toepassing. Dit is de callback-URL waarnaar de gebruiker door GitHub wordt omgeleid na een geslaagde authenticatie. In deze zelfstudie moet u de standaard-callback-URL voor het pakket *AspNet.Security.OAuth.GitHub* gebruiken, te weten */signin-github*.  |
 
@@ -545,7 +545,7 @@ Als laatste moet u de waarden voor **Homepage URL** en **Authorization callback 
 
     | Instelling | Voorbeeld |
     | ------- | ------- |
-    | URL van de startpagina | https://signalrtestwebapp22665120.azurewebsites.net/home |
+    | Homepage URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
     | Authorization callback URL | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
 
 3. Navigeer naar de URL van de web-app en test de toepassing.
@@ -563,7 +563,7 @@ Als u niet verder wilt met de snelstart, kunt u de Azure-resources verwijderen d
 
 Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
-Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *SignalRTestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...** . In de instructies voor dit artikel is een resourcegroep met de naam *SignalRTestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 
 ![Verwijderen](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 

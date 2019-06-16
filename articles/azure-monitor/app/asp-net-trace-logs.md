@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
 ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472053"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>.NET/.NET Core in Application Insights traceerlogboeken verkennen
@@ -172,7 +172,7 @@ U kunt doen, bijvoorbeeld:
 >Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger, gebruikt de *adaptieve steekproeven* functie kan werken en slechts een gedeelte van uw telemetrie te verzenden. [Meer informatie over steekproeven.](../../azure-monitor/app/sampling.md)
 >
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 ### <a name="how-do-i-do-this-for-java"></a>Hoe moet ik dit doen voor Java?
 Gebruik de [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 

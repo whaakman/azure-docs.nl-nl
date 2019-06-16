@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230009"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
@@ -62,7 +62,7 @@ Netwerkbeleid werkt alleen met de optie Azure CNI (Geavanceerd). Implementatie v
 | Ondersteunde platforms                      | Linux                      | Linux                       |
 | Netwerkopties ondersteund             | Azure CNI                  | Azure CNI                   |
 | Naleving van Kubernetes-specificatie | Alle beleidstypen ondersteund |  Alle beleidstypen ondersteund |
-| Aanvullende functies                      | Geen                       | Uitgebreid beleid model die bestaat uit een beleid voor globale netwerken, Global Network instellen en Host-eindpunt. Voor meer informatie over het gebruik van de `calicoctl` CLI voor het beheren van deze uitgebreide functies, Zie [calicoctl gebruiker verwijzing][calicoctl]. |
+| Extra functies                      | Geen                       | Uitgebreid beleid model die bestaat uit een beleid voor globale netwerken, Global Network instellen en Host-eindpunt. Voor meer informatie over het gebruik van de `calicoctl` CLI voor het beheren van deze uitgebreide functies, Zie [calicoctl gebruiker verwijzing][calicoctl]. |
 | Ondersteuning                                  | Ondersteund door Azure-ondersteuning en de Engineering-team | Calico communityondersteuning. Zie voor meer informatie over de ondersteuning van aanvullende betaalde [Project Calico ondersteuningsopties][calico-support]. |
 | Logboekregistratie                                  | Regels toegevoegd / verwijderd in IPTables zijn aangemeld op elke host onder */var/log/azure-npm.log* | Zie voor meer informatie, [Calico onderdeel Logboeken][calico-logs] |
 

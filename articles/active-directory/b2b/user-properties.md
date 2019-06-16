@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1416dacd65024457e713547223f5c35290b3d15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768154"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Eigenschappen van de gebruiker van een Azure Active Directory B2B-samenwerking
@@ -68,7 +68,7 @@ Deze eigenschap geeft aan dat de relatie van de gebruiker op de host-tenants. De
   > [!NOTE]
   > Het UserType is niet gekoppeld aan hoe de gebruiker zich aanmeldt, de directory-rol van de gebruiker, enzovoort. Deze eigenschap geeft aan dat de relatie van de gebruiker voor de organisatie van de host gewoon en kan de organisatie om af te dwingen van beleidsregels die afhankelijk van deze eigenschap zijn.
 
-### <a name="source"></a>Source
+### <a name="source"></a>source
 Deze eigenschap geeft aan hoe de gebruiker zich aanmeldt.
 
 - Uitgenodigde gebruiker: Deze gebruiker is uitgenodigd maar een uitnodiging nog niet is ingewisseld.

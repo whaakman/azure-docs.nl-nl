@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137790"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Veelgestelde vragen over Azure Active Directory Connect
@@ -62,7 +62,7 @@ Ja, dit scenario wordt ondersteund. Raadpleeg [meerdere domeinen](how-to-connect
 **V: Kan bevatten meerdere connectors voor hetzelfde Active Directory-domein in Azure AD Connect?**  
 Nee, meerdere connectors voor hetzelfde AD-domein worden niet ondersteund. 
 
-**V: Kan ik de Azure AD Connect-database uit de lokale database verplaatsen naar een extern exemplaar van SQL Server?**   
+**V: Kan ik de Azure AD Connect-database uit de lokale database verplaatsen naar een extern exemplaar van SQL Server?**    
 Ja, bieden de volgende stappen uit algemene richtlijnen over hoe u dit doet. Er zijn momenteel gewerkt aan een meer gedetailleerde document.
 1. Back-up van de LocalDB ADSync-database.
 De eenvoudigste manier om dit te doen is met SQL Server Management Studio is geïnstalleerd op dezelfde computer als Azure AD Connect. Verbinding maken met *(LocalDb). \ADSync*, en vervolgens back-up van de ADSync-database.

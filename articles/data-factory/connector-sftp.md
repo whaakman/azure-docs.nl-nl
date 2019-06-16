@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 1a62e9e8377705af1a70e356f554cfa549c58f20
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233463"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Gegevens kopiëren van de SFTP-server met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-sftp-connector.md)
 > * [Huidige versie](connector-sftp.md)
 
@@ -53,7 +53,7 @@ De volgende eigenschappen worden ondersteund voor SFTP gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SFTP**. |Ja |
 | host | Naam of IP-adres van de SFTP-server. |Ja |
-| port | De poort waarop de SFTP-server luistert.<br/>Toegestane waarden zijn: geheel getal, standaardwaarde is **22**. |Nee |
+| poort | De poort waarop de SFTP-server luistert.<br/>Toegestane waarden zijn: geheel getal, standaardwaarde is **22**. |Nee |
 | skipHostKeyValidation | Geef op of moet worden overgeslagen sleutelvalidatie voor de host.<br/>Toegestane waarden zijn: **waar**, **false** (standaard).  | Nee |
 | hostKeyFingerprint | Geef de vingerafdruk van de hostsleutel. | Ja als het 'skipHostKeyValidation' is ingesteld op false.  |
 | authenticationType | Geef het verificatietype.<br/>Toegestane waarden zijn: **Basic**, **SshPublicKey**. Raadpleeg [met basisverificatie](#using-basic-authentication) en [met behulp van SSH openbare sleutelverificatie](#using-ssh-public-key-authentication) respectievelijk de secties over meer eigenschappen en voorbeelden voor JSON. |Ja |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833989"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Multi-VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
@@ -99,7 +99,7 @@ Nadat een opslagplaats voor Azure Resource Manager-sjablonen in het lab is gecon
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 1. Selecteer de gewenste lab in de lijst met labs.   
-1. Selecteer in het deelvenster van de testomgeving **toevoegen +**.
+1. Selecteer in het deelvenster van de testomgeving **toevoegen +** .
 1. De **kiest u een base** deelvenster geeft de basisinstallatiekopieën kunt u met de Azure Resource Manager-sjablonen als eerste weergegeven. Selecteer de gewenste Azure Resource Manager-sjabloon.
 
     ![Een basis kiezen](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)

@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546261"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Verbinding maken met on-premises gegevensbronnen vanuit Azure Logic Apps
@@ -68,7 +68,7 @@ Nadat u de gateway op een lokale computer installeert, kunt u vervolgens een Azu
    | **Naam** | De naam voor uw gateway-resource | 
    | **Abonnement** | De naam van uw Azure-abonnement, moet hetzelfde abonnement als uw logische app. Het standaardabonnement is gebaseerd op het Azure-account waarmee u zich. | 
    | **Resourcegroep** | De naam voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) voor het ordenen van verwante bronnen | 
-   | **Locatie** | Azure beperkt deze locatie bij dezelfde regio die is geselecteerd voor de gateway-cloudservice tijdens [gatewayinstallatie](../logic-apps/logic-apps-gateway-install.md). <p>**Opmerking**: Zorg ervoor dat deze gateway Resourcelocatie komt overeen met de servicelocatie van de gateway-cloud. De gatewayinstallatie mogelijk anders niet weergegeven in de lijst met geïnstalleerde gateways voor u om te selecteren in de volgende stap. U kunt verschillende regio's gebruiken voor uw gateway en voor uw logische app. | 
+   | **Location** | Azure beperkt deze locatie bij dezelfde regio die is geselecteerd voor de gateway-cloudservice tijdens [gatewayinstallatie](../logic-apps/logic-apps-gateway-install.md). <p>**Opmerking**: Zorg ervoor dat deze gateway Resourcelocatie komt overeen met de servicelocatie van de gateway-cloud. De gatewayinstallatie mogelijk anders niet weergegeven in de lijst met geïnstalleerde gateways voor u om te selecteren in de volgende stap. U kunt verschillende regio's gebruiken voor uw gateway en voor uw logische app. | 
    | **De Installatienaam van de** | Als de gatewayinstallatie is niet nog is geselecteerd, selecteert u de gateway die u eerder hebt geïnstalleerd. | 
    | | | 
 

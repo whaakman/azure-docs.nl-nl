@@ -10,10 +10,10 @@ ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: dcee8da943603fb0978caf9992be76347ca197d6
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977720"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migreren van Azure Containerservice (ACS) naar Azure Kubernetes Service (AKS)
@@ -57,7 +57,7 @@ Omdat de extra virtuele machines worden geïmplementeerd in uw abonnement tijden
 
 Zie voor meer informatie, [Azure-abonnement en Servicelimieten](https://docs.microsoft.com/azure/azure-subscription-service-limits). Om te controleren of uw huidige quota's in Azure portal, gaat u naar de [blade abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selecteer uw abonnement en selecteer vervolgens **gebruik + quota**.
 
-### <a name="networking"></a>Netwerk
+### <a name="networking"></a>Netwerken
 
 Voor complexe toepassingen, zult u doorgaans na verloop van tijd in plaats van in één keer migreren. Dit betekent dat dat de oude en nieuwe omgevingen om te communiceren via het netwerk mogelijk. Toepassingen die eerder is gebruikt `ClusterIP` services om te communiceren moeten mogelijk worden weergegeven als type `LoadBalancer` en op de juiste wijze worden beveiligd.
 

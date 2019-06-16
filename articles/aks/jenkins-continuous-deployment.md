@@ -7,11 +7,11 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073787"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: Implementeren vanuit GitHub op Azure Kubernetes Service (AKS) met Jenkins continue integratie en implementatie
@@ -48,6 +48,9 @@ Voor het voltooien van deze zelfstudie hebt u de volgende items nodig:
 ## <a name="prepare-your-app"></a>Uw app voorbereiden
 
 In dit artikel gebruikt u een voorbeeld van Azure vote-toepassing die een webinterface die wordt gehost op een of meer schillen en een tweede schil hosting van Redis voor opslag van tijdelijke gegevens bevat. Voordat u Jenkins en AKS voor geautomatiseerde implementaties integreert, eerst handmatig voorbereiden en implementeren van de Azure vote-toepassing naar uw AKS-cluster. Deze handmatige implementatie versie 1 van de toepassing is en kunt u de toepassing in actie zien.
+
+> [!NOTE]
+> Voorbeeld van Azure vote-toepassing maakt gebruik van een Linux-schil die is gepland voor uitvoering op een Linux-knooppunt. De stroom die worden beschreven in dit artikel werkt ook voor een Windows Server-schil op een Windows Server-knooppunt is gepland.
 
 De volgende GitHub-opslagplaats voor de voorbeeldtoepassing - splitsen [ https://github.com/Azure-Samples/azure-voting-app-redis ](https://github.com/Azure-Samples/azure-voting-app-redis). Om de opslagplaats naar uw eigen GitHub-account te vertakken, selecteert u de knop **Fork** in de rechterbovenhoek.
 

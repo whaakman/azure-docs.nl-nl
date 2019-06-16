@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
 ms.openlocfilehash: 50adab1eaa199473a8da857d38c3a08c424c677a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64728933"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Problemen oplossen met extern bureaublad-verbindingen met een Azure-machine
 De RDP-verbinding (Remote Desktop Protocol) met uw Windows Azure VM (Virtual Machine) kan om verschillende redenen worden onderbroken, waardoor u geen toegang hebt tot uw VM. Het probleem kan in Extern bureaublad in de VM zitten, in de netwerkverbinding of in de Extern bureaublad-client in de hostcomputer. In dit artikel begeleidt u bij sommige van de meest voorkomende methoden voor het oplossen van problemen met RDP-verbinding. 

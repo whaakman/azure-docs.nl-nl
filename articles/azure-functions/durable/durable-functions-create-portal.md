@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
 ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872863"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Duurzame functies met behulp van de Azure portal maken
@@ -38,7 +38,7 @@ Gemaakte functie-app maakt standaard gebruik van versie 2.x van de Azure Functio
 
 Als u JavaScript duurzame functies maakt, moet u voor het installeren van de [ `durable-functions` npm-pakket](https://www.npmjs.com/package/durable-functions).
 
-1. Selecteer uw functie-app-naam, gevolgd door **platformfuncties**, klikt u vervolgens **geavanceerde hulpmiddelen (Kudu)**.
+1. Selecteer uw functie-app-naam, gevolgd door **platformfuncties**, klikt u vervolgens **geavanceerde hulpmiddelen (Kudu)** .
 
    ![Functies van het platform functies kiezen Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 

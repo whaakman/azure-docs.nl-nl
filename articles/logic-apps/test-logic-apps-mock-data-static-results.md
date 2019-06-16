@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597206"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Logische apps met Hiermee mock-gegevens door het instellen van statische resultaten testen
@@ -38,7 +38,7 @@ Bijvoorbeeld, als u statische resultaten voor de Outlook 365 actie e-mail verzen
 
 1. Op de actie waar u het instellen van statische resultaten, de volgende stappen uit: 
 
-   1. In de rechterbovenhoek van de actie, kiest u de weglatingstekens (*...* ) en selecteer **statische resultaat**, bijvoorbeeld:
+   1. In de rechterbovenhoek van de actie, kiest u de weglatingstekens ( *...* ) en selecteer **statische resultaat**, bijvoorbeeld:
 
       ![Selecteer 'Statische resultaat' > "Statische resultaat inschakelen"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 

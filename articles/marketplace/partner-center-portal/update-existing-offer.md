@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 22490599b6f7a8d87c546cd84ca2fc6fbb2bfa3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806159"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Een bestaande aanbieding op Marketplace commercieel bijwerken
@@ -42,7 +42,7 @@ Wanneer u klaar bent om uw bijgewerkte aanbieding publiceren, selecteert u **pub
 Wijzigingen aanbrengen in een plan binnen een bestaande aanbieding die u al hebt gepubliceerd:
 
 - Met de **overzicht bieden** pagina geopend voor uw bestaande aanbieding, kies het abonnement dat u wilt wijzigen. Als het abonnement niet toegankelijk is vanaf is de **Plan overzicht** in de lijst met **alle abonnementen bekijken**.
-- U kunt kiezen om het abonnement selecteren **naam**, **prijzen model**, of **beschikbaarheid**. *Abonnementen zijn momenteel alleen beschikbaar in het Engels (Verenigde Staten)*.
+- U kunt kiezen om het abonnement selecteren **naam**, **prijzen model**, of **beschikbaarheid**. *Abonnementen zijn momenteel alleen beschikbaar in het Engels (Verenigde Staten)* .
 - Selecteer **opslaan** na de benodigde wijzigingen aanbrengen in de naam, beschrijving, prijzen of beschikbaarheid van de doelgroep. 
 - Selecteer **publiceren** wanneer u bent klaar om uw updates te publiceren. De **[controleren en te publiceren](#review-and-publish-an-updated-offer)** pagina openen en een voltooiingsstatus bieden voor de updates. 
 

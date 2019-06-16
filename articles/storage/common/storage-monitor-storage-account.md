@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153639"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Een opslagaccount in Azure portal controleren
@@ -94,7 +94,7 @@ De metrische gegevens die u hebt geselecteerd in **Diagnostics** bepaalt de reso
 
 U kunt waarschuwingen om u te waarschuwen wanneer drempels is bereikt voor metrische gegevens voor storage-resources maken.
 
-1. Om te openen de **waarschuwingsregels blade**, schuif omlaag naar de **bewaking** sectie van de **Menu-blade** en selecteer **waarschuwingen (klassiek)**.
+1. Om te openen de **waarschuwingsregels blade**, schuif omlaag naar de **bewaking** sectie van de **Menu-blade** en selecteer **waarschuwingen (klassiek)** .
 2. Selecteer **metrische waarschuwing toevoegen (klassiek)** openen de **een waarschuwingsregel toevoegen** blade
 3. Voer een **naam** en **beschrijving** voor uw nieuwe waarschuwingsregel.
 4. Selecteer de **Metric** voor die u wilt een waarschuwing, wordt een waarschuwing toevoegen **voorwaarde**, en een **drempelwaarde**. De drempelwaarde-eenheid Typ gewijzigd, afhankelijk van de metrische gegevens die u hebt gekozen. Bijvoorbeeld, "aantal" is het eenheidstype voor *ContainerCount*, terwijl de eenheid voor de *percentnetworkerror aan* meetwaarde is een percentage.

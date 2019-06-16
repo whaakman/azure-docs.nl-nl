@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64476539"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Meer gegevens, items of records ophalen met behulp van paginering in Azure Logic Apps
@@ -51,7 +51,7 @@ Hier volgt een lijst met slechts enkele van de connectors waar u groter zijn dan
 
 Om te bepalen of een actie biedt ondersteuning voor paginering in Logic App Designer, Controleer de instellingen van de actie voor de **paginering** instelling. In dit voorbeeld laat zien hoe paginering in de SQL-Server inschakelen **rijen ophalen** actie.
 
-1. In de rechterbovenhoek van de actie, kiest u de weglatingstekens (**...** ) en selecteer **instellingen**.
+1. In de rechterbovenhoek van de actie, kiest u de weglatingstekens ( **...** ) en selecteer **instellingen**.
 
    ![Open de instellingen van de actie](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 

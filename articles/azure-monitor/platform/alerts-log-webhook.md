@@ -9,10 +9,10 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681806"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
@@ -29,7 +29,7 @@ Webhookacties vereisen de eigenschappen in de volgende tabel:
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Webhook-URL |De URL van de webhook. |
+| Webhook URL |De URL van de webhook. |
 | Aangepaste JSON-nettolading |Aangepaste nettolading om te verzenden met de webhook wanneer deze optie is gekozen tijdens het maken van waarschuwingen. Details beschikbaar op [waarschuwingen beheren](alerts-log.md) |
 
 > [!NOTE]

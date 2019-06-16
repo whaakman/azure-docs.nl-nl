@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9c9a4b41dbb9b9acc2982ae2af1f3a611f9d3beb
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228272"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Gegevens kopiëren van Google Cloud Storage met Azure Data Factory
@@ -38,7 +38,7 @@ Specifiek,-bestanden kopiëren als biedt ondersteuning voor deze connector Googl
 
 Om gegevens te kopiëren van Google Cloud Storage, moet dat u de volgende machtigingen zijn verleend:
 
-- **Voor de uitvoering van activiteit kopiëren:**: `s3:GetObject` en `s3:GetObjectVersion` voor Object-bewerkingen.
+- **Voor de uitvoering van activiteit kopiëren:** : `s3:GetObject` en `s3:GetObjectVersion` voor Object-bewerkingen.
 - **Voor het ontwerpen van Data Factory-gebruikersinterface**: `s3:ListAllMyBuckets` en `s3:ListBucket` / `s3:GetBucketLocation` voor Bucket bewerkingen machtigingen zijn ook vereist voor bewerkingen, zoals verbinding testen en navigeert u bladeren/bestand paden. Als u niet wilt dat deze machtiging te verlenen, overslaan van de testverbinding in de gekoppelde service-pagina voor het maken en geef het pad rechtstreeks in de gegevenssetinstellingen.
 
 ## <a name="getting-started"></a>Aan de slag
@@ -56,7 +56,7 @@ De volgende eigenschappen worden ondersteund voor Google Cloud Storage gekoppeld
 | type | De eigenschap type moet worden ingesteld op **Amazon S3**. | Ja |
 | accessKeyId | ID van de geheime toegangssleutel. Als u wilt de toegangssleutel en het geheim gevonden, gaat u naar **Google Cloud Storage** > **instellingen** > **interoperabiliteit**. |Ja |
 | secretAccessKey | De geheime toegangssleutel zelf. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| serviceUrl | Geef het eindpunt van de aangepaste S3 als **`https://storage.googleapis.com`**. | Ja |
+| serviceUrl | Geef het eindpunt van de aangepaste S3 als **`https://storage.googleapis.com`** . | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 Hier volgt een voorbeeld:

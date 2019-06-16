@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
 ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122022"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Maak een virtueel-netwerkpeering - Resource Manager, verschillende abonnementen
@@ -29,7 +29,7 @@ De stappen voor het maken van een virtueel netwerk-peering zijn verschillend, af
 |--------- |---------|
 |[Beide in Resource Manager](tutorial-connect-virtual-networks-portal.md) |Dezelfde|
 |[Een Resource Manager, één klassiek](create-peering-different-deployment-models.md) |Dezelfde|
-|[Een Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschil|
+|[Een Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschillende|
 
 Peering op virtueel netwerk kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Als u verbinding maken met virtuele netwerken die zijn beide gemaakt via het klassieke implementatiemodel wilt, kunt u een Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) om de virtuele netwerken te verbinden.
 
@@ -57,11 +57,11 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
     - **Locatie**: *VS-Oost*
 4. In de **zoeken naar resources** vak aan de bovenkant van de portal, type *myVnetA*. Selecteer **myVnetA** wanneer deze wordt weergegeven in de lijst met zoekresultaten. 
 5. Selecteer **toegangsbeheer (IAM)** uit de verticale lijst met opties aan de linkerkant.
-6. Onder **myVnetA - toegangsbeheer (IAM)**, selecteer **+ roltoewijzing toevoegen**.
+6. Onder **myVnetA - toegangsbeheer (IAM)** , selecteer **+ roltoewijzing toevoegen**.
 7. Selecteer **Inzender voor netwerken** in de **rol** vak.
 8. In de **Selecteer** Selecteer *UserB*, of typ de e-mailadres van gebruiker b om te zoeken naar deze.
 9. Selecteer **Opslaan**.
-10. Onder **myVnetA - toegangsbeheer (IAM)**, selecteer **eigenschappen** uit de verticale lijst met opties aan de linkerkant. Kopieer de **RESOURCE-ID**, die wordt gebruikt in een latere stap. De resource-ID is vergelijkbaar met het volgende voorbeeld: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
+10. Onder **myVnetA - toegangsbeheer (IAM)** , selecteer **eigenschappen** uit de verticale lijst met opties aan de linkerkant. Kopieer de **RESOURCE-ID**, die wordt gebruikt in een latere stap. De resource-ID is vergelijkbaar met het volgende voorbeeld: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Meld u af bij de portal aan als UserA en meld u aan als UserB.
 12. Volg de stappen 2-3, invoeren of selecteren van de volgende waarden in stap 3:
 

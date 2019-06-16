@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918505"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Accountmachtigingen voor AD DS-Connector configureren 
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
  
 
-|Type |Name |Access |Van toepassing op| 
+|Type |Name |Access |Is van toepassing op| 
 |-----|-----|-----|-----|
 |Toestaan |AD DS-Connector-Account |Alle eigenschappen lezen |Onderliggende apparaatobjecten| 
 |Toestaan |AD DS-Connector-Account|Alle eigenschappen lezen |Onderliggende InetOrgPerson-objecten| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
 
-|Type |Name |Access |Van toepassing op|
+|Type |Name |Access |Is van toepassing op|
 |-----|-----|-----|-----| 
 |Toestaan|AD DS-Connector-Account|Eigenschap voor lezen/schrijven|Onderliggende gebruikersobjecten|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
 
-|Type |Name |Access |Van toepassing op|
+|Type |Name |Access |Is van toepassing op|
 |-----|-----|-----|-----| 
 |Toestaan |AD DS-Connector-Account |Directorywijzigingen repliceren |Alleen dit object (hoofddomein)| 
 |Toestaan |AD DS-Connector-Account |Alle Active Directory repliceren gewijzigd |Alleen dit object (hoofddomein)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
 
-|Type |Name |Access |Van toepassing op|
+|Type |Name |Access |Is van toepassing op|
 |-----|-----|-----|-----| 
 |Toestaan |AD DS-Connector-Account |Wachtwoord opnieuw instellen |Onderliggende gebruikersobjecten| 
 |Toestaan |AD DS-Connector-Account |De eigenschap lockoutTime schrijven |Onderliggende gebruikersobjecten| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
 
-|Type |Name |Access |Van toepassing op|
+|Type |Name |Access |Is van toepassing op|
 |-----|-----|-----|-----| 
 |Toestaan |AD DS-Connector-Account |Algemene lezen/schrijven |Alle kenmerken van het object type groep en subobjecten| 
 |Toestaan |AD DS-Connector-Account |Onderliggend object maken/verwijderen |Alle kenmerken van het object type groep en subobjecten| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Deze cmdlet wordt de volgende machtigingen ingesteld:  
  
 
-|Type |Name |Access |Van toepassing op|
+|Type |Name |Access |Is van toepassing op|
 |-----|-----|-----|-----| 
 |Toestaan |AD DS-Connector-Account |Lezen/schrijven alle eigenschappen |Onderliggende gebruikersobjecten| 
 |Toestaan |AD DS-Connector-Account |Lezen/schrijven alle eigenschappen |Onderliggende InetOrgPerson-objecten| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
 
-|Type |Name |Access |Van toepassing op|
+|Type |Name |Access |Is van toepassing op|
 |-----|-----|-----|-----| 
 |Toestaan |AD DS-Connector-Account |Alle eigenschappen lezen |Onderliggende PublicFolder objecten| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
 
-|Type |Name |Access |Van toepassing op|
+|Type |Name |Access |Is van toepassing op|
 |-----|-----|-----|-----| 
 |Toestaan |SYSTEEM |Volledig beheer |Dit object 
 |Toestaan |Ondernemingsadministrators |Volledig beheer |Dit object 
@@ -300,10 +300,10 @@ Deze cmdlet wordt de volgende machtigingen ingesteld:
 |Toestaan |Beheerders |Volledig beheer |Dit object 
 |Toestaan |Enterprise-domeincontrollers |Inhoud weergeven |Dit object 
 |Toestaan |Enterprise-domeincontrollers |Alle eigenschappen lezen |Dit object 
-|Toestaan |Enterprise-domeincontrollers |Machtigingen lezen |Dit object 
+|Toestaan |Enterprise-domeincontrollers |De machtiging lezen |Dit object 
 |Toestaan |Geverifieerde gebruikers |Inhoud weergeven |Dit object 
 |Toestaan |Geverifieerde gebruikers |Alle eigenschappen lezen |Dit object 
-|Toestaan |Geverifieerde gebruikers |Machtigingen lezen |Dit object 
+|Toestaan |Geverifieerde gebruikers |De machtiging lezen |Dit object 
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Azure AD Connect: accounts en machtigingen](reference-connect-accounts-permissions.md)

@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251079"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693817"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine maken vanaf een gespecialiseerde VHD in een storage-account
 
@@ -126,7 +126,7 @@ Wijs de virtuele machine, zodat u de VHD moet worden gekopieerd.
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-De **Status** voor de virtuele machine in Azure portal, verandert van **gestopt** naar **gestopt (toewijzing opgeheven)**.
+De **Status** voor de virtuele machine in Azure portal, verandert van **gestopt** naar **gestopt (toewijzing opgeheven)** .
 
 ### <a name="get-the-storage-account-urls"></a>De storage-account-URL's ophalen
 U moet de URL's van de bron- en storage-accounts. De URL's eruit: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Als u de naam van het storage-account en de container al kent, kunt u alleen de gegevens tussen de haakjes te maken van uw URL vervangen. 

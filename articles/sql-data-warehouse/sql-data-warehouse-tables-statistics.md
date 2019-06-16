@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851526"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabelstatistieken voor de in Azure SQL Data Warehouse
@@ -46,7 +46,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Deze instructies wordt automatisch maken van statistieken geactiveerd:
 
-- SELECTEREN
+- SELECT
 - INSERT-SELECT
 - CTAS
 - UPDATE
@@ -77,7 +77,7 @@ Hier volgen de aanbevelingen statistieken bij te werken:
 
 |||
 |-|-|
-| **Frequentie van updates van statistieken**  | Conservatief: Per dag </br> Na het laden van of uw gegevens te transformeren |
+| **Frequentie van updates van statistieken**  | Conservatief: Dagelijks </br> Na het laden van of uw gegevens te transformeren |
 | **Steekproeven** |  Minder dan 1 miljard rijen, gebruiken standaard steekproeven (20 procent). </br> Gebruiken met meer dan 1 miljard rijen, steekproeven van twee procent. |
 
 Een van de eerste vragen wanneer u problemen met een query is, **"Zijn de statistieken bijgewerkt?"**
@@ -469,7 +469,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS() bevat gegevens die zijn opgeslagen in een object statistieken. Deze gegevens zijn afkomstig uit drie delen:
 
-- Koptekst
+- Header
 - Dichtheid vector
 - Histogram
 

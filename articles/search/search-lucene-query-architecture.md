@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797485"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekstzoekopdrachten werkt in Azure Search
@@ -274,7 +274,7 @@ Voor de **beschrijving** veld, de index is als volgt:
 | strand | 1
 | voorwaarde | 3
 | vertrouwd | 3
-| afstand | 1
+| distance | 1
 | island | 2
 | kauaʻi | 2
 | zich bevindt | 2
@@ -287,8 +287,8 @@ Voor de **beschrijving** veld, de index is als volgt:
 | secluded | 4
 | wal | 2
 | groot | 1
-| de | 1, 2
-| aan | 1
+| het | 1, 2
+| tot | 1
 | weergeven | 1, 2, 3
 | lopen | 1
 | met | 3

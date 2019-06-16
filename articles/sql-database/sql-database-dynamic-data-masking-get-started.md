@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1db1535779d180994c9ce4350d11f4c696da9e3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721558"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Dynamische gegevensmaskering voor SQL-Database
 
@@ -43,7 +43,7 @@ Dynamische gegevensmaskering kan worden geconfigureerd door de beheerder van de 
 
 | Maskeringsfunctie | Logische maskeren |
 | --- | --- |
-| **Standaard** |**Volledige maskeren op basis van de gegevenstypen van de desbetreffende velden**<br/><br/>• Gebruik XXXX of minder Xs als de grootte van het veld minder dan 4 tekens in voor de gegevenstypen string (nchar, ntext, nvarchar is).<br/>• Gebruik een waarde van nul voor numerieke gegevenstypen (bigint, bits, decimal, int, geld, numerieke, smallint, smallmoney, tinyint, float, real).<br/>• Gebruik 01-01-1900 voor datum/tijd-gegevenstypen (datum, datetime2, datum/tijd, datetimeoffset, smalldatetime, tijd).<br/>• Voor SQL-variant, de standaardwaarde van het huidige type wordt gebruikt.<br/>• Voor het document XML <masked/> wordt gebruikt.<br/>• Gebruik een lege waarde voor speciale gegevenstypen (timestamp tabel, hierarchyid, GUID, binaire bestanden, afbeeldingen, varbinary ruimtelijke typen). |
+| **Standaard** |**Volledige maskeren op basis van de gegevenstypen van de desbetreffende velden**<br/><br/>• Gebruik XXXX of minder Xs als de grootte van het veld minder dan 4 tekens in voor de gegevenstypen string (nchar, ntext, nvarchar is).<br/>• Gebruik een waarde van nul voor numerieke gegevenstypen (bigint, bits, decimal, int, geld, numerieke, smallint, smallmoney, tinyint, float, real).<br/>• Gebruik 01-01-1900 voor datum/tijd-gegevenstypen (datum, datetime2, datum/tijd, datetimeoffset, smalldatetime, tijd).<br/>• Voor SQL-variant, de standaardwaarde van het huidige type wordt gebruikt.<br/>• Voor het document XML \<gemaskeerd / > wordt gebruikt.<br/>• Gebruik een lege waarde voor speciale gegevenstypen (timestamp tabel, hierarchyid, GUID, binaire bestanden, afbeeldingen, varbinary ruimtelijke typen). |
 | **Creditcard** |**Methode, waarmee wordt aangegeven dat de laatste vier cijfers van de opgegeven velden te maskeren** en wordt een constante tekenreeks toegevoegd als een voorvoegsel in de vorm van een creditcard.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-mail** |**Methode, waarmee wordt aangegeven dat de eerste letter en vervangt u het domein met XXX.com maskeren** met behulp van een constante tekenreeks-voorvoegsel in de vorm van een e-mailadres.<br/><br/>aXX@XXXX.com |
 | **Willekeurig getal** |**Methode, waarbij een willekeurig getal genereert maskeren** op basis van de geselecteerde grenzen en de werkelijke gegevenstypen. Als de opgegeven grenzen bevindt gelijk zijn, is de maskeringsfunctie een constante waarde.<br/><br/>![Navigatiedeelvenster](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |

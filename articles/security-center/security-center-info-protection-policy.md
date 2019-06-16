@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: rkarlin
 ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875612"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Aanpassen van de SQL information protection-beleid in Azure Security Center (Preview)
@@ -53,7 +53,7 @@ Voor het aanpassen van de information protection-beleid voor uw Azure-tenant, mo
 2. In de **configureren gevoeligheid, label** scherm, u kunt maken of wijzigen van de labelnaam en de beschrijving. U kunt ook instellen of het label is niet actief of uitgeschakeld door het omschakelen van de **ingeschakeld** in of uit te schakelen. Ten slotte kunt u toevoegen of verwijderen van de gegevenstypen die zijn gekoppeld aan het label. Geen gegevens gevonden die overeenkomt met dat informatietype automatisch de bijbehorende gevoeligheid, label in de aanbevelingen voor classificatie bevat.
 3. Klik op **OK**.
  
-   ![Gevoeligheidslabel configureren](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Gevoeligheid, label configureren](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Labels worden weergegeven in de volgorde van oplopende gevoeligheid. Als u wilt de volgorde tussen de labels wijzigen, sleept u de labels die u wilt de volgorde in de tabel, of gebruik de **omhoog** en **omlaag** knoppen om de volgorde te wijzigen. 
  

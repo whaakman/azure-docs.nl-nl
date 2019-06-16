@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991914"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
@@ -451,7 +451,7 @@ De volgende Media Services PowerShell-cmdlets zijn nu opgenomen in [Azure SDK-hu
 De volgende wijzigingen die in deze sectie worden de updates die zijn opgenomen in de releases: juni 2013 Media Services:
 
 * De mogelijkheid om meerdere opslagaccounts koppelen aan een Media Service-account. 
-    * Opslagaccount
+    * StorageAccount
     * Asset.StorageAccountName en Asset.StorageAccount
 * De mogelijkheid om bij te werken Job.Priority. 
 * Kennisgeving met betrekking tot entiteiten en eigenschappen: 

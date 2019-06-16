@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466521"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
@@ -70,7 +70,7 @@ Selecteren om toe te voegen een nieuwe meting met telemetrie, **+ nieuwe meting*
 > De veldnamen in de sjabloon van het apparaat moeten overeenkomen met de namen van eigenschappen in de bijbehorende apparaatcode in volgorde voor de meting telemetrie moet worden weergegeven in de toepassing wanneer een echt apparaat is verbonden. Doe hetzelfde bij het configureren van instellingen voor apparaateigenschappen opdrachten, en als u doorgaat met het definiëren van de sjabloon van het apparaat in de volgende secties.
 PNG bijvoorbeeld, kunt u een nieuwe meting van de temperatuur-telemetrie toevoegen:
 
-| Weergavenaam        | Veldnaam    |  Eenheden    | Min.   |Max|
+| Weergavenaam        | Veldnaam    |  Eenheden    | Min.   |Max.|
 | --------------------| ------------- |-----------|-------|---|
 | Temperatuur         | temp          |  degC     |  0    |100|
 
@@ -91,7 +91,7 @@ Geef de **weergavenaam**, **veldnaam**, en **ernst** details voor de gebeurtenis
 
 Bijvoorbeeld, u kunt toevoegen van een nieuwe **ventilator Motor fout** gebeurtenis.
 
-| Weergavenaam        | Veldnaam    |  Standaardurgentie |
+| Weergavenaam        | Veldnaam    |  Standaard ernst |
 | --------------------| ------------- |-----------|
 | Storing ventilatormotor     | fanmotorerror |  Fout    |
 
@@ -114,7 +114,7 @@ Geef de details voor **weergavenaam**, **veldnaam**, en **waarden** van de statu
 
 Bijvoorbeeld, u kunt toevoegen van een nieuwe **ventilator modus** status waaraan twee mogelijke waarden die het apparaat verzenden kan, **besturingssysteem** en **gestopt**.
 
-| Weergavenaam | Veldnaam    |  Waarde 1   | Weergavenaam | Waarde 2    |Weergavenaam  | 
+| Weergavenaam | Veldnaam    |  Waarde 1   | Weergavenaam | De waarde 2    |Weergavenaam  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Ventilatormodus     | ventilatormodus       |  1         | Actief    |     0      | Gestopt      |
 
@@ -160,7 +160,7 @@ Er zijn twee categorieën eigenschappen:
 
 U kunt bijvoorbeeld de laatste onderhouden datum voor het apparaat toevoegen als een nieuwe **datum** eigenschap (een eigenschap van de toepassing) op de **eigenschappen** tabblad:
 
-| Weergavenaam  | Veldnaam | Beginwaarde   |
+| Weergavenaam  | Veldnaam | Initiële waarde   |
 | --------------| -----------|-----------------|
 | Laatste servicebeurt      | lastServiced        | 01/29/2019     |
 
@@ -189,7 +189,7 @@ U kunt een locatie-eigenschap maken als een eigenschap van de toepassing met beh
 
 3. Configureer **weergavenaam**, **veldnaam**, en (optioneel) **beginwaarde** voor de locatie.
 
-    | Weergavenaam  | Veldnaam | Beginwaarde |
+    | Weergavenaam  | Veldnaam | Initiële waarde |
     | --------------| -----------|---------| 
     | Installatie-adres | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -236,7 +236,7 @@ Bijvoorbeeld, u kunt toevoegen van een nieuwe **Echo** opdracht door het selecte
 
 | Weergavenaam  | Veldnaam | Standaardtime-out | Gegevenstype |
 | --------------| -----------|---------------- | --------- |
-| Opdracht Echo  | echo       |  30             | tekst      |
+| Opdracht Echo  | echo       |  30             | text      |
 
 !['-Opdracht configureren' formulier met details voor echo](./media/howto-set-up-template/commandsecho1.png)
 

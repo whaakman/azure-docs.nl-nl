@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161420"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>HDInsight-clusters maken met Azure Data Lake Storage Gen1 als standaardopslag met behulp van PowerShell
@@ -45,7 +45,7 @@ Voordat u deze zelfstudie begint, zorg ervoor dat u voldoet aan de volgende vere
 
 * **Een Azure-abonnement**: Ga naar [gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 of hoger**: Zie [installeren en configureren van PowerShell](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: Voor het installeren van Windows-SDK, gaat u naar [Downloads en hulpprogramma's voor Windows 10](https://dev.windows.com/downloads). De SDK wordt gebruikt voor het maken van een security-certificaat.
+* **Windows Software Development Kit (SDK)** : Voor het installeren van Windows-SDK, gaat u naar [Downloads en hulpprogramma's voor Windows 10](https://dev.windows.com/downloads). De SDK wordt gebruikt voor het maken van een security-certificaat.
 * **Service-principal voor Azure Active Directory**: In deze zelfstudie wordt beschreven hoe u een service-principal in Azure Active Directory (Azure AD) maken. Voor het maken van een service-principal, moet u echter een Azure AD-beheerder zijn. Als u een beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     >[!NOTE]

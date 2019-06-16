@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
 ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540929"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Service-updates in de Azure Site Recovery
@@ -116,7 +116,7 @@ Opnieuw opstarten wordt aanbevolen na elke upgrade van de Mobility-agent om ervo
 
 ## <a name="links-to-currently-supported-update-rollups"></a>Koppelingen naar de momenteel ondersteunde updatepakketten
 
-|Updatepakket  |Leverancier  |Geïntegreerde Setup| OVF  |MARS.|
+|Updatepakket  |Provider  |Geïntegreerde Setup| OVF  |MARS.|
 |---------|---------|---------|---------|--------|
 |[Update Rollup 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Update Rollup 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939987"
 ---
 # <a name="hosted-test-drive"></a>Gehoste Test Drive
@@ -41,7 +41,7 @@ Geef de volgende velden in de \'technische configuratie\' sectie:
 
 - **Type Test Drive**: Kies \'Microsoft Hosted (voorbeeld van de Dynamics 365 voor Customer Engagement)' optie. Dit geeft aan dat Microsoft hosten en beheren van de service die de gebruiker Test Drive-inrichting en ongedaan maken van inrichting uitvoert.
 - **Maximale aantal gelijktijdige Test Drives**: Dit veld instellen op het aantal gelijktijdige gebruikers die een actieve Test Drive op een willekeurig moment tijd wordt opgelost hebben kunnen. Elke gebruiker wordt een Dynamics-licentie gebruiken tijdens de Test Drive actief, is daarom u moet om ervoor te zorgen dat u ten minste dit aantal Dynamics licenties beschikbaar voor gebruikers van Test Drive. Aanbevolen waarde van 3 tot 5.
-- **Test Drive duur (uren)**: Dit veld instellen op het aantal uren de Test Drive is actief voor gebruikers. Na dit aantal uur, wordt de gebruiker uit uw tenant worden beëindigd. Aanbevolen waarde van 2 tot 24 uur, afhankelijk van de complexiteit van uw App. De gebruiker kan een andere Test Drive altijd aanvragen als ze weinig tijd en toegang kunt krijgen tot de Test Drive opnieuw.
+- **Test Drive duur (uren)** : Dit veld instellen op het aantal uren de Test Drive is actief voor gebruikers. Na dit aantal uur, wordt de gebruiker uit uw tenant worden beëindigd. Aanbevolen waarde van 2 tot 24 uur, afhankelijk van de complexiteit van uw App. De gebruiker kan een andere Test Drive altijd aanvragen als ze weinig tijd en toegang kunt krijgen tot de Test Drive opnieuw.
 - **Instantie-URL**: Geef een URL waar de gebruiker Test Drive wordt in eerste instantie wordt genavigeerd wanneer ze de Test Drive starten. Dit is meestal de URL van uw Dynamics 365-exemplaar waarop uw App en voorbeeldgegevens op geïnstalleerd. Voorbeeldwaarde: https:\//testdrive.crm.dynamics.com
 - **Azure AD-Tenant-ID**: Geef de ID van de Azure-Tenant voor uw exemplaar van Dynamics 365. Voor het ophalen van deze waarde, meld u aan bij Azure portal en gaat u naar \'Azure Active Directory\'  - \> eigenschappen selecteren uit het menu-blade -\> Kopieer de map-ID. Voorbeeldwaarde: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD-App-ID**: ID van de Azure AD-App die u hebt gemaakt in stap 7. \ Voorbeeldwaarde: 53852862-a2ae-4e43-9461-faa49650a096

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727361"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# met MapReduce, streaming van Apache Hadoop in HDInsight
@@ -154,7 +154,7 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
 
     ![Server Explorer met de storage-account voor het cluster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * Als dit item kan worden uitgebreid, gebruikt u een __Azure Storage-Account__ als standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, vouw de vermelding en dubbelklik vervolgens op de __(standaardcontainer)__.
+    * Als dit item kan worden uitgebreid, gebruikt u een __Azure Storage-Account__ als standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, vouw de vermelding en dubbelklik vervolgens op de __(standaardcontainer)__ .
 
     * Als dit item kan niet worden uitgebreid, gebruikt u __Azure Data Lake Storage__ als de standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, dubbelklikt u op de __(Standaardopslagaccount)__ vermelding.
 

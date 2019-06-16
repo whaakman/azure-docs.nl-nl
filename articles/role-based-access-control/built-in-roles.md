@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755121"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
@@ -190,7 +190,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Hiermee kunt u Alles weergeven, maar geen wijzigingen aanbrengen. |
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1578,7 +1578,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Inzender van log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. |
 > | **Id** | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Automation/automationAccounts/* |  |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Geeft een lijst van de toegangssleutels voor de storage-accounts. |
@@ -1605,7 +1605,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Lezer van log Analytics kunt bekijken en zoeken van alle bewakingsgegevens en de controle-instellingen, inclusief het weergeven van de configuratie van Azure diagnostics op alle Azure-resources weergeven. |
 > | **Id** | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Zoeken met de nieuwe engine. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Een zoekquery uitgevoerd |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
@@ -1687,7 +1687,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Hiermee kunt u lees- en acties uitvoeren op resources van beheerde toepassingen |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Solutions/applications/read | Hiermee haalt een lijst met toepassingen. |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
@@ -1704,7 +1704,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Hiermee kunt u lezen van resources in een beheerde app en de aanvraag voor JIT-toegang. |
 > | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
@@ -1798,7 +1798,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
@@ -1853,7 +1853,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Een zoekquery uitgevoerd |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
@@ -1950,7 +1950,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | (Preview) Supportticket gebruikers gevuld vanuit EA, met machtigingen voor het maken/wijzigen voor resourcebeleid, maken en het lezen van resources/hiërarchie. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Authorization/policyassignments/* | Maken en beheren van de toewijzingen van beleid |
 > | Microsoft.Authorization/policydefinitions/* | Maken en beheren van beleidsdefinities |
 > | Microsoft.Authorization/policysetdefinitions/* | Maken en beheren van beleid instellen |
@@ -2688,7 +2688,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Hiermee kunt u gebruikerstoegang tot Azure-resources beheren. |
 > | **Id** | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Acties** |  |
-> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
+> | \* / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Authorization/* | Machtigingen beheren |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |

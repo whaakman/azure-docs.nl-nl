@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604038"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Meer informatie over uw factuur KLANTOVEREENKOMST van Microsoft
@@ -59,14 +59,14 @@ De **facturering samenvatting** ziet u de kosten in rekening gebracht tegen de f
 
 | Termijn | Description |
 | --- | --- |
-| Kosten|Totaal aantal kosten van Microsoft voor dit profiel facturering sinds de laatste factureringsperiode |
+| Kosten in rekening gebracht|Totaal aantal kosten van Microsoft voor dit profiel facturering sinds de laatste factureringsperiode |
 | Credits |Tegoeden die u hebt ontvangen van retourneert |
 | Azure-tegoed toegepast | Azure-tegoed die automatisch worden toegepast op Azure-kosten worden elke factureringsperiode |
 | Subtotaal |Het bedrag vóór belasting |
-| Btw |Het type en de hoeveelheid van het tarief dat u, afhankelijk van het land/de regio van uw facturering-profiel betaalt. Als u geen btw betalen, weergegeven niet u belasting op uw factuur. |
+| Belasting |Het type en de hoeveelheid van het tarief dat u, afhankelijk van het land/de regio van uw facturering-profiel betaalt. Als u geen btw betalen, weergegeven niet u belasting op uw factuur. |
 | Geschatte totale besparingen |De geschatte totale hoeveelheid die u hebt opgeslagen in de effectieve kortingen. Indien van toepassing, worden effectieve kortingstarieven weergegeven onder de regelitems aankoop in Details gedeelte factuur. |
 
-### <a name="invoice-sections"></a>Factuursecties
+### <a name="invoice-sections"></a>Factuur secties
 
 Voor elke sectie factuur onder uw factureringsprofiel ziet u de kosten, de hoeveelheid tegoed voor Azure toegepast, belasting en het totale verschuldigde bedrag.
 
@@ -84,7 +84,7 @@ Het totale verschuldigde bedrag voor elke service-serie wordt berekend door af t
 
 | Termijn |Description |
 | --- | --- |
-| Eenheidsprijs | De effectieve prijs per van de service (in voor de valuta) die wordt gebruikt voor het tarief voor het gebruik. Dit is uniek voor een product, service-familie, meter en aanbieding. |
+| Prijs per eenheid | De effectieve prijs per van de service (in voor de valuta) die wordt gebruikt voor het tarief voor het gebruik. Dit is uniek voor een product, service-familie, meter en aanbieding. |
 | Defect | Aantal hebt aangeschaft, of tijdens de factureringsperiode verbruikt |
 | Kosten/tegoed | NET hoeveelheid kosten in rekening gebracht nadat tegoed/restituties zijn toegepast |
 | Azure-tegoed | De hoeveelheid tegoed voor Azure toegepast op de kosten/tegoeden|

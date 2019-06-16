@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968797"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
@@ -135,7 +135,7 @@ De **wijzigingen** tabblad (Zie hieronder) bevat alle wijzigingen in de werkruim
 
    **Configuratie van de werkruimte** wordt geopend drie tabbladen: **Windows-register**, **Windows bestanden**, en **Linux-bestanden**. Elk tabblad geeft een lijst van de entiteiten die u in die categorie kunt bewerken. Voor elke entiteit die worden vermeld, Security Center wordt geïdentificeerd als FIM is ingeschakeld (true) of niet (ONWAAR) is ingeschakeld.  De entiteit bewerken, kunt u in- of uitschakelen van FIM.
 
-   ![Werkruimteconfiguratie][12]
+   ![Configuratie van de werkruimte][12]
 
 2. Selecteer een identiteitsbeveiliging. In dit voorbeeld wordt een item hebt geselecteerd onder Windows-register. **Voor het bijhouden van wijzigingen bewerken** wordt geopend.
 
@@ -172,7 +172,7 @@ Onder **voor het bijhouden van wijzigingen bewerken** kunt:
 
 4. Onder **Werkruimteconfiguratie**, selecteert u een groep waarin **ingeschakeld** is ingesteld op true.
 
-   ![Werkruimteconfiguratie][18]
+   ![Configuratie van de werkruimte][18]
 
 5. Onder **voor het bijhouden van wijzigingen bewerken** venster set **ingeschakeld** op False.
 

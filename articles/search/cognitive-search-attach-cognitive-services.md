@@ -11,10 +11,10 @@ ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244435"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
@@ -143,7 +143,7 @@ Om een schatting van de kosten voor cognitieve zoekopdrachten indexeren, te begi
 + 1000 PDF-bestanden.
 + Zes elk pagina's.
 + Één afbeelding per pagina (6000 afbeeldingen).
-+ 3.000 tekens per pagina.
++ 3\.000 tekens per pagina.
 
 Wordt ervan uitgegaan dat u een pijplijn die uit documenten kraken van elke PDF, afbeeldingen en tekst extractie, optische tekenherkenning (OCR) van afbeeldingen, en de entiteit erkenning van organisaties bestaat.
 

@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: tomfitz
 ms.openlocfilehash: 21b3972a96c1601b15c403275474d58873753b08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712990"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Verwijderen van de Azure-resources voor volledige-implementaties
@@ -44,10 +44,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- |
 | aadsupportcases | Nee | 
 | addsservices | Nee | 
-| agents | Nee | 
+| Agents | Nee | 
 | anonymousapiusers | Nee | 
 | configuratie | Nee | 
-| logboeken | Nee | 
+| logs | Nee | 
 | rapporten | Nee | 
 | services | Nee | 
 
@@ -56,7 +56,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- |
 | Configuraties | Nee | 
 | generateRecommendations | Nee | 
-| aanbevelingen | Nee | 
+| Aanbevelingen | Nee | 
 | suppressions | Nee | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -243,7 +243,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | reservationOrders/splitsen | Nee | 
 | reservationOrders/wisselen | Nee | 
 | reserveringen | Nee | 
-| bronnen | Nee | 
+| resources | Nee | 
 | validateReservationOrder | Nee | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -305,7 +305,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Mogelijkheden | Nee | 
-| schijven | Nee | 
+| Schijven | Nee | 
 | images | Nee | 
 | osImages | Nee | 
 | osPlatformImages | Nee | 
@@ -332,13 +332,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | availabilitySets | Ja | 
-| schijven | Ja | 
+| Schijven | Ja | 
 | images | Ja | 
 | restorePointCollections | Ja | 
 | restorePointCollections/restorePoints | Nee | 
 | sharedVMImages | Ja | 
 | sharedVMImages /-versies | Ja | 
-| momentopnamen | Ja | 
+| Momentopnamen | Ja | 
 | virtualMachines | Ja | 
 | virtualMachines/diagnosticSettings | Nee | 
 | virtualMachines/extensions | Ja | 
@@ -355,7 +355,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | AggregatedCost | Nee | 
 | Tegoeden | Nee | 
 | Budgetten | Nee | 
-| Kosten | Nee | 
+| Kosten in rekening gebracht | Nee | 
 | CostTags | Nee | 
 | credits | Nee | 
 | events | Nee | 
@@ -363,7 +363,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | veel | Nee | 
 | Marktplaatsen | Nee | 
 | Pricesheets | Nee | 
-| producten | Nee | 
+| Producten | Nee | 
 | ReservationDetails | Nee | 
 | ReservationRecommendations | Nee | 
 | ReservationSummaries | Nee | 
@@ -427,7 +427,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Waarschuwingen | Nee | 
 | BillingAccounts | Nee | 
 | Connectors | Ja | 
-| Afdelingen | Nee | 
+| afdelingen | Nee | 
 | Dimensies | Nee | 
 | EnrollmentAccounts | Nee | 
 | Query’s uitvoeren | Nee | 
@@ -455,7 +455,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| taken | Ja | 
+| jobs | Ja | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Resourcetype | Modus voor volledige verwijdering |
@@ -465,7 +465,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| werkruimten | Ja | 
+| workspaces | Ja | 
 | workspaces/virtualNetworkPeerings | Nee | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -590,7 +590,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Clusters | Ja | 
-| naamruimten | Ja | 
+| Naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
 | naamruimten/disasterrecoveryconfigs | Nee | 
 | namespaces/eventhubs | Nee | 
@@ -616,7 +616,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | myareas/areas/galleryitems | Nee | 
 | myareas/galleryitems | Nee | 
 | Registreren | Nee | 
-| bronnen | Nee | 
+| resources | Nee | 
 | retrieveresourcesbyid | Nee | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -639,7 +639,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| taken | Ja | 
+| jobs | Ja | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Resourcetype | Modus voor volledige verwijdering |
@@ -658,7 +658,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | alertrules | Ja | 
 | automatedExportSettings | Nee | 
 | autoscalesettings | Ja | 
-| basislijn | Nee | 
+| Basislijn | Nee | 
 | calculatebaseline | Nee | 
 | Onderdelen | Ja | 
 | onderdelen/gebeurtenissen | Nee | 
@@ -671,7 +671,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | extendedDiagnosticSettings | Nee | 
 | logDefinitions | Nee | 
 | logprofiles | Nee | 
-| logboeken | Nee | 
+| logs | Nee | 
 | metricAlerts | Ja |
 | migrateToNewPricingModel | Nee | 
 | myWorkbooks | Nee | 
@@ -733,7 +733,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| logboeken | Nee | 
+| logs | Nee | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Resourcetype | Modus voor volledige verwijdering |
@@ -766,7 +766,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| werkruimten | Ja | 
+| workspaces | Ja | 
 | workspaces/computes | Nee | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -780,7 +780,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- |
 | getEntities | Nee | 
 | managementGroups | Nee | 
-| bronnen | Nee | 
+| resources | Nee | 
 | startTenantBackfill | Nee | 
 | tenantBackfillStatus | Nee | 
 
@@ -802,7 +802,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | offerTypes/publishers/offers/plans/configs | Nee | 
 | offerTypes/publishers/offers/plans/configs/importImage | Nee | 
 | privategalleryitems | Nee | 
-| producten | Nee | 
+| Producten | Nee | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Resourcetype | Modus voor volledige verwijdering |
@@ -849,7 +849,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | azureFirewallFqdnTags | Nee | 
 | azureFirewalls | Ja | 
 | bgpServiceCommunities | Nee | 
-| verbindingen | Ja | 
+| Verbindingen | Ja | 
 | ddosCustomPolicies | Ja | 
 | ddosProtectionPlans | Ja | 
 | dnsOperationStatuses | Nee | 
@@ -868,7 +868,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | dnszones/TXT | Nee | 
 | expressRouteCircuits | Ja | 
 | expressRouteServiceProviders | Nee | 
-| ingangen | Ja | 
+| frontdoors | Ja | 
 | frontdoorWebApplicationFirewallPolicies | Ja | 
 | getDnsResourceReference | Nee | 
 | interfaceEndpoints | Ja | 
@@ -905,7 +905,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| naamruimten | Ja | 
+| Naamruimten | Ja | 
 | namespaces/notificationHubs | Ja | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -914,7 +914,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | apparaten | Nee | 
 | linkTargets | Nee | 
 | storageInsightConfigs | Nee | 
-| werkruimten | Ja | 
+| workspaces | Ja | 
 | workspaces/dataSources | Nee | 
 | workspaces/linkedServices | Nee | 
 | workspaces/query | Nee | 
@@ -925,7 +925,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | managementassociations | Nee | 
 | managementconfigurations | Ja | 
 | oplossingen | Ja | 
-| weergaven | Ja | 
+| Weergaven | Ja | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Resourcetype | Modus voor volledige verwijdering |
@@ -966,7 +966,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| naamruimten | Ja | 
+| Naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
 | namespaces/hybridconnections | Nee | 
 | namespaces/hybridconnections/authorizationrules | Nee | 
@@ -976,7 +976,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| bronnen | Nee | 
+| resources | Nee | 
 | subscriptionsStatus | Nee | 
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -987,19 +987,19 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | childResources | Nee | 
 | events | Nee | 
 | impactedResources | Nee | 
-| meldingen | Nee | 
+| Meldingen | Nee | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| implementaties | Nee | 
+| Implementaties | Nee | 
 | Implementaties/operations | Nee | 
 | Koppelingen | Nee | 
 | notifyResourceJobs | Nee | 
 | Providers | Nee | 
 | resourceGroups | Nee | 
-| bronnen | Nee | 
-| abonnementen | Nee | 
+| resources | Nee | 
+| Abonnementen | Nee | 
 | Abonnementen/providers | Nee | 
 | abonnementen/resourcegroepen | Nee | 
 | abonnementen/resourcegroups/resources | Nee | 
@@ -1041,11 +1041,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | externalSecuritySolutions | Nee | 
 | InformationProtectionPolicies | Nee | 
 | jitNetworkAccessPolicies | Nee | 
-| bewaking | Nee | 
+| Bewaking | Nee | 
 | monitoring/antimalware | Nee | 
 | bewaking/basislijn | Nee | 
 | bewaking/patch | Nee | 
-| beleidsregels | Nee | 
+| Beleid | Nee | 
 | prijzen | Nee | 
 | securityContacts | Nee | 
 | securitySolutions | Nee | 
@@ -1070,7 +1070,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| naamruimten | Ja | 
+| Naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
 | naamruimten/disasterrecoveryconfigs | Nee | 
 | naamruimten/eventgridfilters | Nee | 
@@ -1197,7 +1197,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | providerRegistrations | Ja | 
-| bronnen | Ja | 
+| resources | Ja | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Resourcetype | Modus voor volledige verwijdering |
@@ -1228,9 +1228,9 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | apiManagementAccounts/connectionAcls | Nee | 
 | apiManagementAccounts/connections | Nee | 
 | billingMeters | Nee | 
-| certificaten | Ja | 
+| Certificaten | Ja | 
 | connectionGateways | Ja | 
-| verbindingen | Ja | 
+| Verbindingen | Ja | 
 | customApis | Ja | 
 | deletedSites | Nee | 
 | functions | Nee | 
@@ -1240,7 +1240,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | hostingEnvironments/workerPools | Nee | 
 | hostingEnvironments/workerPools/instances | Nee | 
 | publishingUsers | Nee | 
-| aanbevelingen | Nee | 
+| Aanbevelingen | Nee | 
 | resourceHealthMetadata | Nee | 
 | runtimes | Nee | 
 | serverFarms | Ja | 

@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
 ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799110"
 ---
 # <a name="public-ip-address-prefix"></a>Openbare IP-adresvoorvoegsel
 
 Een openbare IP-adresvoorvoegsel is een gereserveerd bereik met IP-adressen voor uw openbare eindpunten in Azure. Azure wijst een aaneengesloten reeks adressen aan uw abonnement op basis van hoeveel u opgeeft. Als u niet bekend met openbare adressen bent, Zie [openbare IP-adressen.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Openbare IP-adressen worden toegewezen uit een groep met de adressen in elke Azure-regio. U kunt [downloaden](https://www.microsoft.com/download/details.aspx?id=56519) de lijst met bereiken maakt gebruik van Azure voor elke regio. 40.121.0.0/16 is bijvoorbeeld een van meer dan 100 bereiken in die Azure wordt gebruikt in de regio VS-Oost. Bereik omvat ook de bruikbare adressen van 40.121.0.1 - 40.121.255.254.
+Openbare IP-adressen worden toegewezen uit een groep met de adressen in elke Azure-regio. U kunt [downloaden](https://www.microsoft.com/download/details.aspx?id=56519) de lijst met bereiken maakt gebruik van Azure voor elke regio. 40\.121.0.0/16 is bijvoorbeeld een van meer dan 100 bereiken in die Azure wordt gebruikt in de regio VS-Oost. Bereik omvat ook de bruikbare adressen van 40.121.0.1 - 40.121.255.254.
 
 U een openbaar IP-adresvoorvoegsel dat in een Azure-regio en een abonnement maken door een naam op te geven en het aantal adressen wilt u het voorvoegsel om op te nemen. Bijvoorbeeld, als u een openbaar IP-adresvoorvoegsel van/28 maakt, toewijst Azure 16-adressen uit een van de bereiken ligt voor u. U weet niet welke bereik Azure wordt toegewezen wanneer u het bereik hebt gemaakt, maar de adressen aaneengesloten zijn. Openbare IP-adresvoorvoegsels hebben een betaling te doen. Zie voor meer informatie, [prijzen van openbare IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses).
 
@@ -49,7 +49,7 @@ U kunt de volgende resources koppelen aan een statisch openbaar IP-adres uit een
 |Resource|Scenario|Stappen|
 |---|---|---|
 |Virtuele machines| Koppelen van openbare IP-adressen uit een voorvoegsel aan uw virtuele machines in Azure verminderd als het gaat om opname in de whitelist IP-adressen in een firewall. U kunt gewoon een hele voorvoegsel met één firewallregel whitelist. Wanneer u met virtuele machines in Azure schaalt, kunt u IP-adressen uit hetzelfde voorvoegsel zodat kosten, tijd en beheeroverhead koppelen.| IP-adressen uit een voorvoegsel koppelen aan uw virtuele machine: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. [De IP-adres aan de netwerkinterface van de virtuele machine koppelen.](virtual-network-network-interface-addresses.md#add-ip-addresses)
-| Load Balancers | Koppelen van openbare IP-adressen uit een voorvoegsel aan uw frontend-IP-configuratie of de regel voor uitgaande van een Load Balancer zorgt ervoor dat vereenvoudiging van uw Azure openbare IP-adresruimte. U kunt uw scenario vereenvoudigen door het opschonen van de uitgaande verbindingen naar worden afkomstig is van een reeks aaneengesloten IP-adressen die zijn gedefinieerd met het openbare IP-voorvoegsel. | IP-adressen uit een voorvoegsel koppelen aan uw Load balancer: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Bij het maken van de Load Balancer, selecteert u of het IP-adres gemaakt in stap 2 hierboven als de front-end-IP-adres van de Load Balancer bijwerken. |
+| Load balancers | Koppelen van openbare IP-adressen uit een voorvoegsel aan uw frontend-IP-configuratie of de regel voor uitgaande van een Load Balancer zorgt ervoor dat vereenvoudiging van uw Azure openbare IP-adresruimte. U kunt uw scenario vereenvoudigen door het opschonen van de uitgaande verbindingen naar worden afkomstig is van een reeks aaneengesloten IP-adressen die zijn gedefinieerd met het openbare IP-voorvoegsel. | IP-adressen uit een voorvoegsel koppelen aan uw Load balancer: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Bij het maken van de Load Balancer, selecteert u of het IP-adres gemaakt in stap 2 hierboven als de front-end-IP-adres van de Load Balancer bijwerken. |
 | Azure Firewall | U kunt een openbaar IP-adres uit een voorvoegsel voor uitgaande SNAT. Dit betekent dat alle uitgaande virtuele netwerkverkeer wordt omgezet naar de [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) openbaar IP-adres. Omdat deze IP afkomstig zijn uit een vooraf vastgestelde voorvoegsel, is het heel eenvoudig tevoren weten wat uw openbare IP-voetafdruk in Azure eruit. | 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Wanneer u [implementeren van de Azure-firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), moet u het eerder toegewezen IP-adres uit het voorvoegsel selecteren.|
 
 ## <a name="constraints"></a>Beperkingen

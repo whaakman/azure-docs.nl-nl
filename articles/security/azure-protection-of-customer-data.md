@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603146"
 ---
 # <a name="azure-customer-data-protection"></a>Azure-klant-gegevensbeveiliging   
@@ -32,7 +32,7 @@ Azure-ondersteuningspersoneel zijn unieke zakelijke Active Directory-accounts to
 
 Alle toegangspogingen worden bewaakt en kunnen worden weergegeven via een set met rapporten.
 
-## <a name="data-protection"></a>Gegevensbeveiliging
+## <a name="data-protection"></a>Gegevensbescherming
 Azure biedt klanten met sterke gegevensbeveiliging, zowel standaard als als opties voor de klant.
 
 **Gegevensscheiding**: Azure is een service met meerdere tenants, wat dat klanten meerdere implementaties betekent en virtuele machines zijn opgeslagen op dezelfde fysieke hardware. Azure wordt logische isolatie gebruikt gegevens van de gegevens van andere gebruikers van elke klant te scheiden. Scheiding is wordt voorkomen dat klanten toegang krijgen tot andere gegevens de schaal en de economische voordelen van multitenant-services.
@@ -55,9 +55,9 @@ Gegevens kunnen worden gerepliceerd binnen een geselecteerde geografische gebied
 
 Wanneer u uw storage-account maakt, een van de volgende replicatieopties selecteren:
 
-- **Lokaal redundante opslag (LRS)**: Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één faciliteit in één regio driemaal gerepliceerd. LRS beschermt uw gegevens tegen normale hardwarefouten, maar niet tegen het uitvallen van één faciliteit.
-- **Zone-redundante opslag (ZRS)**: Zone-redundante opslag onderhoudt drie kopieën van uw gegevens. ZRS is drie keer gerepliceerd tussen twee of drie faciliteiten voor hogere duurzaamheid dan LRS. Replicatie vindt plaats binnen één regio of tussen twee regio's. ZRS zorgt ervoor dat uw gegevens duurzaam binnen één regio is.
-- **Geografisch redundante opslag (GRS)**: Wanneer u een account maakt, is geografisch redundante opslag standaard ingeschakeld. GRS onderhoudt zes kopieën van uw gegevens. Met GRS, worden uw gegevens drie keer gerepliceerd binnen de primaire regio. Uw gegevens worden ook drie keer gerepliceerd in een secundaire regio die honderden afstand van de primaire regio, biedt het hoogste niveau van duurzaamheid. In het geval van een storing optreedt in de primaire regio wordt Azure Storage overgenomen door naar de secundaire regio. GRS zorgt ervoor dat uw gegevens duurzaam, in twee afzonderlijke regio's zijn.
+- **Lokaal redundante opslag (LRS)** : Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één faciliteit in één regio driemaal gerepliceerd. LRS beschermt uw gegevens tegen normale hardwarefouten, maar niet tegen het uitvallen van één faciliteit.
+- **Zone-redundante opslag (ZRS)** : Zone-redundante opslag onderhoudt drie kopieën van uw gegevens. ZRS is drie keer gerepliceerd tussen twee of drie faciliteiten voor hogere duurzaamheid dan LRS. Replicatie vindt plaats binnen één regio of tussen twee regio's. ZRS zorgt ervoor dat uw gegevens duurzaam binnen één regio is.
+- **Geografisch redundante opslag (GRS)** : Wanneer u een account maakt, is geografisch redundante opslag standaard ingeschakeld. GRS onderhoudt zes kopieën van uw gegevens. Met GRS, worden uw gegevens drie keer gerepliceerd binnen de primaire regio. Uw gegevens worden ook drie keer gerepliceerd in een secundaire regio die honderden afstand van de primaire regio, biedt het hoogste niveau van duurzaamheid. In het geval van een storing optreedt in de primaire regio wordt Azure Storage overgenomen door naar de secundaire regio. GRS zorgt ervoor dat uw gegevens duurzaam, in twee afzonderlijke regio's zijn.
 
 **Gegevensvernietiging**: Wanneer klanten gegevens verwijderen of Azure laat, volgt Microsoft strikte standaarden bij het overschrijven van opslagbronnen voordat hun hergebruik, evenals de fysieke vernietiging van het uit bedrijf genomen hardware. Microsoft voert een volledige verwijdering van gegevens op verzoek van de klant en contract-beëindiging.
 

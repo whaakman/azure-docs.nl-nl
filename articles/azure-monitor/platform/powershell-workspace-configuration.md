@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.openlocfilehash: 36cb2462a47f9d175ca25bbbde46a14009637db0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65907880"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Log Analytics-werkruimte in Azure Monitor met behulp van PowerShell beheren
@@ -180,7 +180,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 In het bovenstaande voorbeeld regexDelimiter is gedefinieerd als '\\n "voor nieuwe regel. Het scheidingsteken log mogelijk ook een tijdstempel.  Dit zijn de ondersteunde indelingen:
 
-| Notatie | JSON RegEx-indeling gebruikt twee \\ voor elke \ in een standard reguliere expressie als testen in een reguliere expressie-app verminderen \\ naar \ | | |
+| Indeling | JSON RegEx-indeling gebruikt twee \\ voor elke \ in een standard reguliere expressie als testen in een reguliere expressie-app verminderen \\ naar \ | | |
 | --- | --- | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` | | |

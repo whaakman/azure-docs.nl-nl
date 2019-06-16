@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872819"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Het uitvoeren van duurzame functies als WebJobs
@@ -53,9 +53,9 @@ In dit artikel wordt uitgelegd hoe u voor het ontwikkelen van een WebJobs SDK 2.
 
 Voor duurzame functies als WebJobs uitvoeren, moet u eerst een console-app maken. Een WebJobs SDK-project is alleen een console-app-project met de juiste NuGet-pakketten zijn geïnstalleerd.
 
-In de Visual Studio **nieuw Project** in het dialoogvenster, selecteer **Windows Classic Desktop** > **Console-App (.NET Framework)**. In het projectbestand de `TargetFrameworkVersion` moet `v4.6.1`.
+In de Visual Studio **nieuw Project** in het dialoogvenster, selecteer **Windows Classic Desktop** > **Console-App (.NET Framework)** . In het projectbestand de `TargetFrameworkVersion` moet `v4.6.1`.
 
-Visual Studio heeft ook een WebJob-projectsjabloon, waarin u hiervoor kunt **Cloud** > **(.NET Framework) van de Azure-webtaak**. Deze sjabloon wordt veel pakketten, die waarvan sommige u niet hoeft mogelijk geïnstalleerd.
+Visual Studio heeft ook een WebJob-projectsjabloon, waarin u hiervoor kunt **Cloud** >  **(.NET Framework) van de Azure-webtaak**. Deze sjabloon wordt veel pakketten, die waarvan sommige u niet hoeft mogelijk geïnstalleerd.
 
 ## <a name="install-nuget-packages"></a>NuGet-pakketten installeren
 
@@ -222,7 +222,7 @@ In dit artikel wordt uitgelegd hoe het ontwikkelen van een WebJobs SDK 2.x-proje
 
 De belangrijkste wijziging is het gebruik van .NET Core in plaats van .NET Framework. Voor het maken van een WebJobs SDK 3.x project zijn de instructies hetzelfde, met de volgende uitzonderingen:
 
-1. Een .NET Core-consoletoepassing maken. In de Visual Studio **nieuw Project** in het dialoogvenster, selecteer **.NET Core** > **Console-App (.NET Core)**. Het projectbestand geeft aan dat `TargetFramework` is `netcoreapp2.x`.
+1. Een .NET Core-consoletoepassing maken. In de Visual Studio **nieuw Project** in het dialoogvenster, selecteer **.NET Core** > **Console-App (.NET Core)** . Het projectbestand geeft aan dat `TargetFramework` is `netcoreapp2.x`.
 
 1. Kies de versie WebJobs SDK 3.x van de volgende pakketten:
 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: a04dc76a110b1d126d5d826761e2e0c09c6aac47
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520244"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Simple Storage-Service met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 >
 > * [Versie 1:](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Huidige versie](connector-amazon-simple-storage-service.md)
@@ -42,7 +42,7 @@ Specifiek,-bestanden kopiëren als biedt ondersteuning voor deze connector Amazo
 
 Als u wilt kopiëren van gegevens vanaf Amazon S3, zorg ervoor dat u de volgende machtigingen zijn verleend:
 
-- **Voor de uitvoering van activiteit kopiëren:**: `s3:GetObject` en `s3:GetObjectVersion` voor Amazon S3-Object bewerkingen.
+- **Voor de uitvoering van activiteit kopiëren:** : `s3:GetObject` en `s3:GetObjectVersion` voor Amazon S3-Object bewerkingen.
 - **Voor het ontwerpen van Data Factory-gebruikersinterface**: `s3:ListAllMyBuckets` en `s3:ListBucket` / `s3:GetBucketLocation` voor Amazon S3-Bucket bewerkingen machtigingen zijn ook vereist voor bewerkingen, zoals verbinding testen en navigeert u bladeren/bestand paden. Als u niet wilt dat deze machtiging te verlenen, overslaan van de testverbinding in de gekoppelde service-pagina voor het maken en geef het pad rechtstreeks in de gegevenssetinstellingen.
 
 Zie voor meer informatie over de volledige lijst met machtigingen voor Amazon S3 [machtigingen op te geven in een beleid](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).

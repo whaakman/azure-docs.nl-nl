@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715194"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Beveiliging op rijniveau met Power BI-werkruimteverzamelingen
@@ -48,7 +48,7 @@ Hier volgen enkele dingen die opvallen in dit schema:
 
 * Alle metingen, zoals **totale verkoop**, worden opgeslagen in de **verkoop** feitentabel.
 * Er zijn vier extra gerelateerde dimensietabellen: **Item**, **tijd**, **Store**, en **District**.
-* De pijlen op de relatielijnen aangeven welke filters van de ene tabel naar een andere stromen kunnen manier. Bijvoorbeeld, als een filter wordt belast **tijd [datum]**, in het huidige schema deze alleen filtert u de waarden in de **verkoop** tabel. Er zijn geen andere tabellen worden niet beïnvloed door dit filter omdat alle pijlen op de relatielijnen naar de tabel verkoop en niet ervandaan verwijzen.
+* De pijlen op de relatielijnen aangeven welke filters van de ene tabel naar een andere stromen kunnen manier. Bijvoorbeeld, als een filter wordt belast **tijd [datum]** , in het huidige schema deze alleen filtert u de waarden in de **verkoop** tabel. Er zijn geen andere tabellen worden niet beïnvloed door dit filter omdat alle pijlen op de relatielijnen naar de tabel verkoop en niet ervandaan verwijzen.
 * De **District** tabel wordt aangegeven wie de manager voor elk district is:
   
   ![Tabelrijen district](media/row-level-security/district-table-4.png)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 19/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966800"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
@@ -57,7 +57,7 @@ Een abonnement of een werkruimte upgraden naar Standard:
    >
    >
 
-## <a name="onboard-non-azure-computers"></a>Niet-Azure-computers onboarden
+## <a name="onboard-non-azure-computers"></a>Onboarding voor niet-Azure-computers
 Security Center kan de beveiligingsstatus van uw niet-Azure-computers controleren, maar u moet deze resources dan eerst onboarden. U kunt niet-Azure computers toevoegen uit de **aan de slag** blade of vanuit de **Compute** blade. We nemen door beide methoden.
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Toevoegen van nieuwe niet-Azure-computers vanuit **aan de slag**
@@ -65,7 +65,7 @@ Security Center kan de beveiligingsstatus van uw niet-Azure-computers controlere
 1. Ga terug naar **aan de slag**.   
 2. Selecteer het tabblad **Aan de slag**.
 
-   ![Niet-Azure](./media/security-center-onboarding/non-azure.png)
+   ![Non-Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Klik op **Configureren** onder **Nieuwe niet-Azure-computers toevoegen**. Een lijst met uw Log Analytics-werkruimten wordt weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
 

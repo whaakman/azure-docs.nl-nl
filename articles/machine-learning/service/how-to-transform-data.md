@@ -13,10 +13,10 @@ ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471839"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
@@ -496,7 +496,7 @@ dflow.head(2)
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|1.0|
-|1|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|0.0|
+|1|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|0,0|
 
 ## <a name="next-steps"></a>Volgende stappen
 

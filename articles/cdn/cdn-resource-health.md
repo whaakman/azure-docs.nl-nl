@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696177"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Controleer de status van Azure CDN-resources
   
@@ -51,7 +51,7 @@ Azure CDN-Resource health is een subset van [Azure resource health](../resource-
 
 Status met betrekking tot Azure CDN resource health vindt u hieronder.
 
-|Bericht | Aanbevolen actie |
+|Message | Aanbevolen actie |
 |---|---|
 |Een of meer CDN-eindpunten zijn mogelijk gestopt, verwijderd of verkeerd geconfigureerd | Een of meer CDN-eindpunten zijn mogelijk gestopt, verwijderd of verkeerd geconfigureerd.|
 |De CDN-beheerservice is momenteel niet beschikbaar | Kom hier terug voor statusupdates; Als het probleem zich blijft na de tijd dat het probleem zou moeten voordoen contact opnemen met ondersteuning.|

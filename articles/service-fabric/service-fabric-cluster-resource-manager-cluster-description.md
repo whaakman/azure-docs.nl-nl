@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561222"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
@@ -369,7 +369,7 @@ De waarde die is opgegeven in de eigenschap van het knooppunt kan een string, bo
 
 1) voorwaardelijke controles voor het maken van bepaalde instructies
 
-| Verklaring | Syntaxis |
+| Instructie | Syntaxis |
 | --- |:---:|
 | 'gelijk aan' | "==" |
 | 'niet gelijk aan' | "!=" |
@@ -380,7 +380,7 @@ De waarde die is opgegeven in de eigenschap van het knooppunt kan een string, bo
 
 2) Booleaanse instructies voor groepen en logische bewerkingen
 
-| Verklaring | Syntaxis |
+| Instructie | Syntaxis |
 | --- |:---:|
 | 'en' | "&&" |
 | "or" | "&#124;&#124;" |

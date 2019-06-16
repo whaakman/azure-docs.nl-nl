@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205756"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor
@@ -90,7 +90,7 @@ De parameters in dit element worden in de volgende tabel beschreven.
 
 De volgende tabel bevat de objecten en de items die u in het configuratiebestand opgeven kunt.  Er zijn extra items beschikbaar voor bepaalde toepassingen zoals beschreven in [verzamelen van prestatiemeteritems voor Linux-toepassingen in Azure Monitor](data-sources-linux-applications.md).
 
-| Objectnaam | Naam van teller |
+| Objectnaam | Naam van het prestatiemeteritem |
 |:--|:--|
 | Logische schijf | Percentage vrije Inodes |
 | Logische schijf | Percentage vrije ruimte |
@@ -116,7 +116,7 @@ De volgende tabel bevat de objecten en de items die u in het configuratiebestand
 | Geheugen | Gebruikt geheugen in megabytes |
 | Netwerk | Totaal aantal verzonden Bytes |
 | Netwerk | Totaal aantal ontvangen Bytes |
-| Netwerk | Totaal aantal bytes |
+| Netwerk | Totaal aantal Bytes |
 | Netwerk | Totaal aantal verzonden pakketten |
 | Netwerk | Totaal aantal ontvangen pakketten |
 | Netwerk | Totaal aantal Rx-fouten |
@@ -126,10 +126,10 @@ De volgende tabel bevat de objecten en de items die u in het configuratiebestand
 | Fysieke schijf | Gem. Schijfoverdrachten per seconde |
 | Fysieke schijf | Gem. Schijf sec/schrijven |
 | Fysieke schijf | Fysieke schijf Bytes per seconde |
-| Verwerken | PCT gemachtigde tijd |
-| Verwerken | PCT in gebruikersmodus |
-| Verwerken | Gebruikt geheugen kB |
-| Verwerken | Virtuele gedeeld geheugen |
+| Process | PCT gemachtigde tijd |
+| Process | PCT in gebruikersmodus |
+| Process | Gebruikt geheugen kB |
+| Process | Virtuele gedeeld geheugen |
 | Processor | Percentage DPC-tijd |
 | Processor | % Niet-actieve tijd |
 | Processor | % Interrupt Time |

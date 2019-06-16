@@ -13,10 +13,10 @@ ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762310"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
@@ -32,7 +32,7 @@ Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voorda
 
 Deze sectie wordt beschreven hoe sommige algemene termen in de branche toegewezen aan de API van Media Services v3.
 
-### <a name="live-event"></a>Livegebeurtenis
+### <a name="live-event"></a>Live-gebeurtenis
 
 Een **Live gebeurtenis** vertegenwoordigt een pijplijn voor het opnemen, transcodering (optioneel) en live streams van metagegevens van video, audio en realtime verpakking.
 
@@ -51,7 +51,7 @@ Als u wilt beheren, coderen, codering, analyseren en streaming van media-inhoud 
 - [Uploaden naar en opslaan in de cloud](storage-account-concept.md)
 - [Activa-concept](assets-concept.md)
 
-## <a name="encoding"></a>Codering
+## <a name="encoding"></a>Encoding
 
 Nadat u uw hoogwaardige digitale media-bestanden naar Assets uploaden, kunt u ze coderen in indelingen die kunnen worden afgespeeld op een groot aantal browsers en apparaten. 
 
@@ -62,7 +62,7 @@ Als u wilt coderen met Media Services v3, moet u maken **transformeert** en **ta
 - [Transformaties en taken](transforms-jobs-concept.md)
 - [Codering met mediaservices](encoding-concept.md)
 
-## <a name="media-analytics"></a>Media Analytics
+## <a name="media-analytics"></a>Media-analyses
 
 Voor het analyseren van uw video en audio-bestanden, moet u ook maken **transformeert** en **taken**.
 
@@ -114,7 +114,7 @@ De volgende afbeelding illustreert de werkstroom van Pass Through-type:
 
 ## <a name="monitoring"></a>Bewaking
 
-### <a name="event-grid"></a>Gebeurtenisraster
+### <a name="event-grid"></a>Event Grid
 
 Als u wilt zien van de voortgang van de taak, moet u **Event Grid**. Media Services verzendt ook de Live-gebeurtenis-typen. Met Event Grid kunnen uw apps luisteren naar en reageren op gebeurtenissen uit vrijwel alle Azure-services, evenals aangepaste bronnen. 
 
