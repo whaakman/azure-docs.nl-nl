@@ -5,40 +5,56 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 05/16/2018
+ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238585"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133870"
 ---
-De volgende limieten gelden voor Azure Log Analytics-resources per abonnement.
+De volgende limieten gelden voor elke Log Analytics-werkruimte in de huidige op basis van gebruik prijscategorie in April 2018 geïntroduceerd:
 
-| Resource | Standaardlimiet | Opmerkingen
-| --- | --- | --- |
-| Aantal gratis werkruimten per abonnement | 10 | Deze limiet kan niet worden verhoogd. |
-| Aantal betaalde werkruimten per abonnement | N/A | U bent beperkt door het aantal resources binnen een resourcegroep en het aantal resourcegroepen per abonnement. | 
+|     | Per GB-2018 |
+| --- | --- | 
+| Gegevensvolume verzameld per dag | Geen |
+| Bewaarperiode van gegevens | 30-730 dagen<sup>1</sup> |
+
+De volgende limieten gelden voor elke Log Analytics-werkruimte de meest recente oudere Prijscategorieën:
+
+|  | Gratis | Zelfstandig (Per GB) | Per knooppunt (OMS) |
+| --- | --- | --- | --- | --- | --- |--- |
+| Gegevensvolume verzameld per dag |500 MB<sup>2</sup> |Geen |Geen |
+| Bewaarperiode van gegevens |7 dagen | 30-730 dagen<sup>1</sup> | 30-730 dagen<sup>1</sup> |
+
+De volgende limieten gelden voor elke Log Analytics-werkruimte de oudste oudere Prijscategorieën:
+
+|  | Standard | Premium | 
+| --- | --- | --- | --- | --- | --- |--- |
+| Gegevensvolume verzameld per dag | Geen | Geen | 
+| Bewaarperiode van gegevens |30 dagen | 365 dagen |
+
+<sup>1</sup>bewaren van gegevens langer dan 31 dagen is beschikbaar voor extra kosten in rekening gebracht. Meer informatie over [prijzen van Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+
+<sup>2</sup>wanneer uw werkruimte bereikt de 500 MB dagelijkse limiet voor gegevensoverdracht, analyse van gegevens gestopt en wordt aan het begin van de volgende dag hervat. Een dag is gebaseerd op UTC.
 
 >[!NOTE]
->Vanaf 2 April 2018 gebruiken nieuwe werkruimten in een nieuw abonnement automatisch de *Per GB* prijsplan. Voor bestaande abonnementen die zijn gemaakt vóór 2 April, of een abonnement dat is gekoppeld aan een bestaande Enterprise Agreement-inschrijving, kunt u kiezen uit de drie Prijscategorieën voor nieuwe werkruimten blijven. 
+>Afhankelijk van hoe lang u hebt gebruikt Log Analytics, wellicht u toegang tot de oudere Prijscategorieën. Meer informatie over [Log Analytics oudere Prijscategorieën](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
 >
 
-De volgende limieten gelden voor elke Log Analytics-werkruimte.
+De volgende limieten gelden voor Azure Log Analytics-resources (werkruimten) per abonnement.
 
-|  | Gratis | Standard | Premium | Zelfstandig | OMS | Per GB |
-| --- | --- | --- | --- | --- | --- |--- |
-| Gegevensvolume verzameld per dag |500 MB<sup>1</sup> |Geen |Geen | Geen | Geen | Geen
-| Bewaarperiode van gegevens |7 dagen |1 maand |12 maanden | 1 maand<sup>2</sup> | 1 maand<sup>2</sup>| 1 maand<sup>2</sup>|
+| Prijscategorie    | Aantal werkruimten per abonnement | Opmerkingen
+| --- | --- | --- |
+| Gratis laag  | 10 | Deze limiet kan niet worden verhoogd. |
+| Alle lagen dan gratis | N/A | U bent beperkt door het aantal resources binnen een resourcegroep en het aantal resourcegroepen per abonnement. | 
 
-<sup>1</sup>wanneer klanten bereiken hun 500 MB dagelijkse limiet voor gegevensoverdracht, analyse van gegevens gestopt en wordt aan het begin van de volgende dag hervat. Een dag is gebaseerd op UTC.
-
-<sup>2</sup>de bewaarperiode van gegevens voor de zelfstandige, OMS en Per GB-prijsplannen kan worden verhoogd tot 730 dagen.
+De volgende limieten gelden voor de Log Analytics-API's:
 
 | Category | Limits | Opmerkingen
 | --- | --- | --- |
 | Gegevensverzamelaar-API | Maximale grootte voor een enkel bericht is 30 MB.<br>Maximumgrootte voor veldwaarden is 32 KB. | Grotere volumes splitsen in meerdere berichten.<br>Velden die langer zijn dan 32 KB worden afgebroken. |
-| API voor zoeken | 5000 records geretourneerd voor niet-samengevoegde gegevens.<br>500.000 records voor samengevoegde gegevens. | Samengevoegde gegevens is een zoekopdracht met de `summarize` opdracht.
+| API voor zoeken | 5000 records geretourneerd voor niet-samengevoegde gegevens.<br>500\.000 records voor samengevoegde gegevens. | Samengevoegde gegevens is een zoekopdracht met de `summarize` opdracht.
  

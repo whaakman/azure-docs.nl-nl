@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130616"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configureren van een App Service Environment v1
@@ -32,12 +32,12 @@ ms.locfileid: "62130616"
 Op hoog niveau, wordt een Azure App Service-omgeving bestaat uit verschillende belangrijke onderdelen:
 
 * COMPUTE-resources die worden uitgevoerd in de App Service Environment gehoste service
-* Storage
+* Opslag
 * Een database
 * Een virtueel netwerk Classic(V1) of Resource Manager(V2) Azure (VNet) 
 * Een subnet met de App Service Environment gehoste-service wordt uitgevoerd op het
 
-### <a name="compute-resources"></a>Rekenresources
+### <a name="compute-resources"></a>COMPUTE-resources
 U gebruikt de compute-resources voor uw vier resourcegroepen.  Elke App Service Environment (ASE) is een set van front-ends en drie mogelijke werknemersgroepen. U hoeft niet te gebruiken van alle drie werknemersgroepen--als u wilt, kunt u alleen gebruiken één of twee.
 
 De hosts in de resourcegroepen (front-ends en werkrollen) zijn niet rechtstreeks toegankelijk is voor tenants. U kunt Remote Desktop Protocol (RDP) Maak er verbinding mee, wijzigt de inrichtingen gebruiken of fungeren als een beheerder zijn van deze.
@@ -73,7 +73,7 @@ Als uw apps een groter formaat van de compute-resource is vereist, kan niet u pr
 
 Als u wilt instellen van de regels voor automatisch schalen om compute resource pool metrische gegevens, en houd rekening met de tijd die de inrichting is vereist. Zie voor meer informatie over automatisch schalen App Service-omgevingen, [configureren voor automatisch schalen in een App Service Environment][ASEAutoscale].
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 Elke as-omgeving is geconfigureerd met 500 GB aan opslagruimte. Deze ruimte wordt gebruikt voor alle apps in de as-omgeving. Deze opslagruimte is een onderdeel van de as-omgeving en momenteel niet voor het gebruik van uw opslagruimte kan niet worden overgeschakeld. Als u wijzigingen aan uw virtuele netwerkroutering of veiligheid aanbrengt, moet u wel wilt toestaan dat toegang tot Azure Storage - of de as-omgeving kan niet worden gebruikt.
 
 ### <a name="database"></a>Database

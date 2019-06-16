@@ -14,10 +14,10 @@ ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955976"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie voor Azure App Service configureren
@@ -33,7 +33,7 @@ U kunt uw referenties op gebruikersniveau configureren van een App [resourcepagi
 
 Uw referenties op gebruikersniveau configureren:
 
-1. In de [Azure-portal](https://portal.azure.com), in het menu links, klikt u op **App Services** > **&lt;any_app >** > **implementatie Center** > **implementatiereferenties**.
+1. In de [Azure-portal](https://portal.azure.com), in het menu links, klikt u op **App Services** >  **&lt;any_app >**  > **implementatie Center** > **implementatiereferenties**.
 
     In de portal, moet u ten minste één app hebben voordat u krijgt de implementatiepagina-referenties tot toegang. Met de [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), kunt u de referenties op gebruikersniveau zonder een bestaande app configureren.
 
@@ -63,7 +63,7 @@ Omdat op gebruikersniveau referenties zijn gekoppeld aan de gebruiker en niet op
 ## <a name="appscope"></a>Ophalen en op app-niveau referenties opnieuw instellen
 De referenties op app-niveau ophalen:
 
-1. In de [Azure-portal](https://portal.azure.com), in het menu links, klikt u op **App Services** > **&lt;any_app >** > **implementatie Center** > **implementatiereferenties**.
+1. In de [Azure-portal](https://portal.azure.com), in het menu links, klikt u op **App Services** >  **&lt;any_app >**  > **implementatie Center** > **implementatiereferenties**.
 
 2. Klik op **App referenties**, en klik op de **kopiëren** koppeling om te kopiëren van de gebruikersnaam of wachtwoord.
 

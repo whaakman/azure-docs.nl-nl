@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126217"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster met Enterprise Security Package configureren met behulp van Azure Active Directory Domain Services
 
@@ -27,7 +27,7 @@ In dit artikel leert u hoe u een HDInsight-cluster met ESP configureren met behu
 ## <a name="enable-azure-ad-ds"></a>Inschakelen van Azure AD DS
 
 > [!NOTE]  
-> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van eenvoudige Kerberos-verificatie moet uitschakelen. U kunt [vertrouwde IP-adressen](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) of [voorwaardelijke toegang](../../active-directory/conditional-access/overview.md) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang Zorg ervoor dat AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
+> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van eenvoudige Kerberos-verificatie moet uitschakelen. U kunt [vertrouwde IP-adressen](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) of [voorwaardelijke toegang](../../active-directory/conditional-access/overview.md) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang Zorg ervoor dat die AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
 >
 > Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076916"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
@@ -55,7 +55,7 @@ Voor gevoelige toepassingen met prestaties, wordt aanbevolen dat u het volgende 
 * **SQL Server Enterprise Edition**: DS3_v2 of hoger
 * **SQL Server Standard- en Web-edities**: DS2_v2 of hoger
 
-[DSv2-serie](../sizes-general.md#dsv2-series) VMs ondersteuning voor premium storage, die wordt aanbevolen voor de beste prestaties. De grootte aanbevolen basislijnen hier zijn, maar de grootte van de werkelijke machine die u selecteert, is afhankelijk van uw werklastvraag. DSv2-serie VM's zijn voor algemeen gebruik VM's die geschikt voor verschillende workloads, zijn terwijl andere machines-grootten zijn geoptimaliseerd voor specifieke werkbelasting typen. Bijvoorbeeld, de [M-serie](../sizes-memory.md#m-series) biedt het hoogste aantal vCPU's en geheugen voor de grootste SQL Server-workloads. De [GS-serie](../sizes-memory.md#gs-series) en [DSv2-serie 11-15](../sizes-memory.md#dsv2-series-11-15) zijn geoptimaliseerd voor grote geheugenvereisten. Beide van deze serie zijn ook beschikbaar in [constrained core grootten](../../windows/constrained-vcpu.md), die voor workloads met lagere eisen bespaart u geld. De [Ls-serie](../sizes-storage.md) machines zijn geoptimaliseerd voor snelle doorvoer van schijfgegevens en IO. Het is belangrijk rekening houden met uw specifieke SQL Server-werkbelasting en dit toepassen op uw selectie van een VM-serie en de grootte.
+[DSv2-serie](../sizes-general.md#dsv2-series) VMs ondersteuning voor premium storage, die wordt aanbevolen voor de beste prestaties. De grootte aanbevolen basislijnen hier zijn, maar de grootte van de werkelijke machine die u selecteert, is afhankelijk van uw werklastvraag. DSv2-serie VM's zijn voor algemeen gebruik VM's die geschikt voor verschillende workloads, zijn terwijl andere machines-grootten zijn geoptimaliseerd voor specifieke werkbelasting typen. Bijvoorbeeld, de [M-serie](../sizes-memory.md#m-series) biedt het hoogste aantal vCPU's en geheugen voor de grootste SQL Server-workloads. De [GS-serie](../sizes-previous-gen.md#gs-series) en [DSv2-serie 11-15](../sizes-memory.md#dsv2-series-11-15) zijn geoptimaliseerd voor grote geheugenvereisten. Beide van deze serie zijn ook beschikbaar in [constrained core grootten](../../windows/constrained-vcpu.md), die voor workloads met lagere eisen bespaart u geld. De [Ls-serie](../sizes-storage.md) machines zijn geoptimaliseerd voor snelle doorvoer van schijfgegevens en IO. Het is belangrijk rekening houden met uw specifieke SQL Server-werkbelasting en dit toepassen op uw selectie van een VM-serie en de grootte.
 
 ## <a name="storage-guidance"></a>Richtlijnen voor opslag
 

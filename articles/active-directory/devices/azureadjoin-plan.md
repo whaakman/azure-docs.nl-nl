@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fc638c515af59f6872f2dae262a6910318abdd0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110765"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -270,17 +270,17 @@ Kies uw implementatiebenadering of benaderingen door de bovenstaande tabel contr
 
 De Azure-portal kunt dat u de controle van de implementatie van Azure AD gekoppelde apparaten in uw organisatie. De gerelateerde instellingen te configureren op de **Azure Active Directory-pagina**, selecteer `Devices > Device settings`.
 
-### <a name="users-may-join-devices-to-azure-ad"></a>Gebruikers mogen apparaten aan Azure AD toevoegen
+### <a name="users-may-join-devices-to-azure-ad"></a>Gebruikers kunnen apparaten koppelen aan Azure AD
 
 Deze optie instelt op **alle** of **geselecteerde** op basis van het bereik van uw implementatie en die u wilt toestaan om in te stellen van een Azure AD toegevoegde apparaat. 
 
-![Gebruikers mogen apparaten aan Azure AD toevoegen](./media/azureadjoin-plan/01.png)
+![Gebruikers kunnen apparaten koppelen aan Azure AD](./media/azureadjoin-plan/01.png)
 
-### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Extra lokale beheerders voor apparaten die zijn toegevoegd aan Azure AD
+### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Extra lokale beheerders op Azure AD gekoppelde apparaten
 
 Kies **geselecteerde** en selecteert u de gebruikers die u wilt toevoegen aan de groep lokale beheerders op alle Azure AD gekoppelde apparaten. 
 
-![Extra lokale beheerders voor apparaten die zijn toegevoegd aan Azure AD](./media/azureadjoin-plan/02.png)
+![Extra lokale beheerders op Azure AD gekoppelde apparaten](./media/azureadjoin-plan/02.png)
 
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>Multi-factor Authentication worden toegevoegd aan apparaten vereist
@@ -325,7 +325,7 @@ Op basis van uw bereik valt, gebeurt het volgende:
 
 Er zijn drie URL's die zijn gerelateerd aan uw MDM-configuratie:
 
-- URL voor MDM-gebruiksvoorwaarden
+- URL voor MDM gebruiksvoorwaarden
 
 - Detectie-URL voor MDM 
 

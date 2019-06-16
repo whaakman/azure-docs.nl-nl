@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424727"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Onderneem actie met een Automation-Runbook uit een zoekresultaat voor Log Analytics-logboek
@@ -38,7 +38,7 @@ Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw log
 
 1. Klik in de Azure-portal op **alle services** en selecteer **Log Analytics**.  
 2. Selecteer uw Log Analytics-werkruimte.
-3. Selecteer in de werkruimte **Logboeken (klassiek)**.  
+3. Selecteer in de werkruimte **Logboeken (klassiek)** .  
 4. Op de pagina zoeken in Logboeken, moet u een zoekopdracht in Logboeken uitvoert.  
 5. Uit de resultaten van de logboekzoekopdracht, klikt u op de ellips aan de linkerkant van een van de velden en in het pop-upvenster, selecteer **actie ondernemen voor**.<br><br> ![Selecteer actie ondernemen in zoekresultaat](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Selecteer **uitvoeren van een runbook** en selecteert u een runbook om uit te voeren.  U kunt een runbook selecteren in het Automation-account dat is gekoppeld aan de Log Analytics-werkruimte.  Houd rekening met het volgende:

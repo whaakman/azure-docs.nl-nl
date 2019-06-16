@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2f86dfd414309e8420dc19c92c1cd20c40a5a13a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108190"
 ---
 # <a name="managing-access-to-apps"></a>Toegang tot apps beheren
 Beheer van continue toegang, gebruik evaluatie en rapportage blijven lastig zijn om nadat een app is geïntegreerd in identiteitssysteem van uw organisatie. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Toewijzing wordt soms uitgevoerd door een algemene of divisie IT-team. Vaak de beslissing van de toewijzing is bedoeld om te worden overgedragen aan de zakelijke besluitvormer, waarvoor ze worden goedgekeurd voordat IT heeft de toewijzing.  Andere organisaties investeren in integratie met een bestaande geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals Role-Based Access Control (RBAC) of op kenmerken gebaseerde Access Control (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en dure. Controleren of rapportage over beide benaderingen management is een eigen afzonderlijke, dure en complexe investering.
@@ -51,7 +51,7 @@ Met Azure AD is-toepassingen, zoals Salesforce vooraf geconfigureerd voor eenmal
 
 In dit geval zouden alle toegewezen gebruikers worden automatisch ingericht met Salesforce, wanneer ze worden toegevoegd aan verschillende groepen die hun roltoewijzing zou worden bijgewerkt in Salesforce. Gebruikers zou kunnen detecteren en Salesforce via het toegangsvenster Microsoft-toepassing en Office web-clients, of zelfs door te navigeren naar de aanmeldingspagina van hun organisatie Salesforce. Beheerders zou kunnen eenvoudig gebruik en de toewijzing om status te bekijken met behulp van Azure AD-rapportage zijn.
 
-Beheerders kunnen gebruikmaken van [voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md) toegangsbeleid voor specifieke rollen instellen. Deze beleidsregels kunnen opnemen of toegang is toegestaan buiten de bedrijfsomgeving en zelfs multi-factor Authentication of het apparaat vereisten voor toegang in verschillende gevallen bereiken.
+Beheerders kunnen gebruikmaken van [Azure AD voor voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) toegangsbeleid voor specifieke rollen instellen. Deze beleidsregels kunnen opnemen of toegang is toegestaan buiten de bedrijfsomgeving en zelfs multi-factor Authentication of het apparaat vereisten voor toegang in verschillende gevallen bereiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Beveiligen van apps met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)

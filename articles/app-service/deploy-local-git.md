@@ -15,10 +15,10 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956056"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
@@ -114,7 +114,7 @@ In het linkernavigatievenster van de app-pagina, klikt u op **Implementatiecentr
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Klik op **Azure pijplijnen (Preview)** > **blijven**.
+Klik op **Azure pijplijnen (Preview)**  > **blijven**.
 
 ![](media/app-service-deploy-local-git/pipeline-builds.png)
 
@@ -212,7 +212,7 @@ git config --global http.postBuffer 524288000
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
-      OR
+      OF
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
 ## <a name="additional-resources"></a>Aanvullende resources

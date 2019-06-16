@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160138"
 ---
 # <a name="activity-management-overview"></a>Overzicht van activiteit
 
 CloudSimple houdt bij of alle activiteiten die invloed kunnen zijn op de werking van uw privéclouds. Deze activiteiten zoals waarschuwingen, gebeurtenissen, taken en controle-activiteiten. De [activiteit-pagina's](https://docs.azure.cloudsimple.com/activity/) samenvatten van de huidige activiteit en kunt u inzoomen voor meer informatie.
 
-## <a name="events"></a>Gebeurtenissen
+## <a name="events"></a>Events
 
 Gebeurtenissen bijhouden gebruiker en systeemactiviteiten in de portal CloudSimple.  De activiteit die is gekoppeld aan een specifieke resource en de ernst van de impact weergeven gebeurtenissen  U kunt de gebeurtenissen vanuit de portal CloudSimple weergeven.
 

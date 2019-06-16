@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204027"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
@@ -184,7 +184,7 @@ De methode heeft enkele belangrijke onderdelen die u nodig hebt om te begrijpen:
 
    b. Selecteer **Bestand** > **Nieuw** > **Project**.
 
-   c. Vouw **sjablonen**, en selecteer **Visual C\#**. In dit scenario gebruikt u C\#, maar u kunt een .NET-taal gebruiken voor het ontwikkelen van de aangepaste activiteit.
+   c. Vouw **sjablonen**, en selecteer **Visual C\#** . In dit scenario gebruikt u C\#, maar u kunt een .NET-taal gebruiken voor het ontwikkelen van de aangepaste activiteit.
 
    d. Selecteer **Class Library** uit de lijst met projecttypen aan de rechterkant.
 

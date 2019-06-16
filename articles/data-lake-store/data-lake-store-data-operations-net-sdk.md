@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908070"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
@@ -42,7 +42,7 @@ Zie voor instructies over het uitvoeren van accountbeheerbewerkingen in Data Lak
 Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) doorloopt het proces waarin bestanden in het archief worden gemaakt, bestanden worden samengevoegd, een bestand wordt gedownload en een aantal bestanden uit het archief wordt verwijderd. In dit gedeelte van het artikel komen de belangrijkste onderdelen van de code aan bod.
 
 1. Selecteer in Visual Studio, de **bestand** in het menu **nieuw**, en vervolgens **Project**.
-2. Kies **Console-App (.NET Framework)**, en selecteer vervolgens **volgende**.
+2. Kies **Console-App (.NET Framework)** , en selecteer vervolgens **volgende**.
 3. In **projectnaam**, voer `CreateADLApplication`, en selecteer vervolgens **maken**.
 
 4. Voeg de NuGet-pakketten toe aan het project.
@@ -131,7 +131,7 @@ Het volgende codefragment wordt de inhoud van een bestand in Data Lake Storage G
         }
     }
 
-## <a name="get-file-properties"></a>Bestandseigenschappen ophalen
+## <a name="get-file-properties"></a>Bestandseigenschappen opvragen
 Het volgende codefragment retourneert de eigenschappen die zijn gekoppeld aan een bestand of map.
 
     // Get file properties

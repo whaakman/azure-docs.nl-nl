@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: roaror
 ms.openlocfilehash: 476a143555323bbb5058541000a5b1a26d23b71a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61330858"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Stappen vóór de migratie voor migraties van MongoDB naar Azure Cosmos DB-API voor MongoDB
@@ -60,7 +60,7 @@ In Azure Cosmos DB is de doorvoer vooraf is ingericht, en wordt gemeten in Aanvr
 In tegenstelling tot virtuele machines of on-premises servers zijn de RU's eenvoudig omhoog en omlaag schalen op elk gewenst moment. U kunt het aantal ingerichte ru's binnen enkele seconden wijzigen en u alleen voor het maximum aantal ru's die u voor een bepaalde periode van één uur inricht worden gefactureerd. Zie voor meer informatie, [Aanvraageenheden in Azure Cosmos DB](request-units.md).
 
 Hier volgen de belangrijkste factoren die invloed hebben op het aantal vereiste ru's:
-- **De grootte van artikel (dat wil zeggen, document)**: Als de grootte van een item/document toeneemt, wordt het aantal ru's gebruikt om te lezen of schrijven van het item/document ook toeneemt.
+- **De grootte van artikel (dat wil zeggen, document)** : Als de grootte van een item/document toeneemt, wordt het aantal ru's gebruikt om te lezen of schrijven van het item/document ook toeneemt.
 - **De eigenschap count-item**: Ervan uitgaande dat de [standaard indexeren](index-overview.md) voor alle eigenschappen, het aantal ru's die worden gebruikt voor het schrijven van een item wordt verhoogd wanneer het item eigenschap aantal toeneemt. U kunt kan worden verkleind de verzoek-eenheid voor schrijfbewerkingen door [beperkt het aantal geïndexeerde eigenschappen](index-policy.md).
 - **Gelijktijdige bewerkingen**: Vraag eenheden verbruikt ook afhankelijk van de frequentie met welke andere CRUD-bewerkingen (zoals schrijfbewerkingen, lezen, updates, verwijderingen) en meer complexe query's worden uitgevoerd. U kunt [mongostat](https://docs.mongodb.com/manual/reference/program/mongostat/) om uit te voeren van de behoeften van de gelijktijdigheid van uw huidige MongoDB-gegevens.
 - **Query uitvoeren op patronen**: De complexiteit van een query is van invloed op het aantal aanvraageenheden worden verbruikt door de query.

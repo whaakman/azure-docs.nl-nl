@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825488"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Systeemeigen client-toepassingen om te communiceren met de proxy-toepassingen inschakelen
@@ -54,7 +54,7 @@ Nu moet u uw toepassing registreren in Azure AD wordt als volgt:
    - Om u te richten alleen accounts die intern voor uw organisatie zijn, selecteer **Accounts in deze organisatie-map alleen**.
    - Om u te richten alleen bedrijven of onderwijsinstellingen klanten, selecteer **Accounts in een organisatie-map**.
    - Als u wilt de breedste set Microsoft-id's als doel, selecteert u **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**.
-7. In de **omleidings-URI** kop, selecteer **openbare client (mobiele en desktop)**, en typ vervolgens de omleidings-URI voor uw toepassing.
+7. In de **omleidings-URI** kop, selecteer **openbare client (mobiele en desktop)** , en typ vervolgens de omleidings-URI voor uw toepassing.
 8. Selecteer en lees de **voor Microsoft-Platform**, en selecteer vervolgens **registreren**. Een overzichtspagina voor de registratie van nieuwe toepassing is gemaakt en weergegeven.
 
 Zie voor meer informatie over het maken van een nieuwe toepassing registreren, [toepassingen integreren met Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).

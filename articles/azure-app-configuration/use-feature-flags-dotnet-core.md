@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 577cb55ce381976a6d623b272b920d0d1bf2eeb9
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393516"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144001"
 ---
-# <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Zelfstudie: Functievlaggen gebruiken in een .NET Core-app
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Zelfstudie: Functie vlaggen gebruiken in een ASP.NET Core-app
 
 De .NET Core functie Management-bibliotheken bieden idiomatisch ondersteuning voor het implementeren van functie-vlaggen in een .NET- of ASP.NET Core-toepassing. Deze bibliotheken kunnen u declaratief functie vlaggen toevoegen aan uw code, zodat u hoeft te schrijven alle de `if` -instructies voor deze handmatig.
 
@@ -109,7 +109,7 @@ Functie vlagwaarden wordt verwacht dat het verloop van tijd veranderen. De funct
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
            });
 });
 ```

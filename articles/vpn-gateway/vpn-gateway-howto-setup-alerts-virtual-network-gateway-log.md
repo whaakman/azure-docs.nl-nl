@@ -5,18 +5,26 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptional
-ms.date: 04/22/2019
+ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 3880c847c54136dfd3ba1ecfe0178565091e229f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 48725ed8cdf3df30f8df31966aa632bfb2a4ef1f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066896"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Waarschuwingen voor gebeurtenissen-diagnoselogboek instellen van VPN-Gateway
 
-Dit artikel helpt u bij het instellen van waarschuwingen op basis van diagnostische gebeurtenissen van Azure VPN-Gateway.
+Dit artikel helpt u bij het instellen van waarschuwingen op basis van diagnostische gebeurtenissen van Azure VPN-Gateway. De volgende logboeken zijn beschikbaar.
+
+|***Naam*** | ***Beschrijving*** |
+|---        | ---               |
+|GatewayDiagnosticLog | Diagnostische logboeken voor gateway-Configuratiegebeurtenissen, primaire wijzigingen en onderhoud voor bevat |
+|TunnelDiagnosticLog | Statuswijzigingsgebeurtenissen tunnel bevat. Tunnel/verbreken gebeurtenissen hebben een samengevatte reden voor de statuswijziging heeft plaatsgevonden, indien van toepassing |
+|RouteDiagnosticLog | Logboeken wijzigingen van statische routes en BGP-gebeurtenissen die op de gateway plaatsvinden |
+|IKEDiagnosticLog | IKE-besturingselement berichten en gebeurtenissen in de gateway-Logboeken |
+|P2SDiagnosticLog | Besturingselement voor punt-naar-site-berichten en gebeurtenissen in de gateway-Logboeken |
 
 ## <a name="setup"></a>Waarschuwingen instellen
 

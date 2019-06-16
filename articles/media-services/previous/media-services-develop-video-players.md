@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8d4ff3e833dcbe92802845796e3b826735b68ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465640"
 ---
 # <a name="develop-video-player-applications"></a>Videospelertoepassingen ontwikkelen
@@ -52,7 +52,7 @@ U kunt ook een van de volgende SDK's gebruiken:
 * [Licentieverlening Microsoft® Smooth Streaming Client Porting Kit](https://aka.ms/sspk) 
 * [XBOX Video toepassingsontwikkeling](https://xbox.create.msdn.com/) 
 
-## <a name="advertising"></a>Advertenties
+## <a name="advertising"></a>Reclame
 Azure Media Services biedt ondersteuning voor advertentie-invoeging via het Windows Media-Platform: Player Frameworks. Frameworks voor spelers met ad-ondersteuning zijn beschikbaar voor Windows 8, Silverlight, Windows Phone 8 en iOS-apparaten. Elk speler framework bevat voorbeeldcode die laat zien u hoe u een player-toepassing implementeert. Er zijn drie verschillende soorten advertenties die u in uw media invoegen kunt:
 
 Lineaire-volledige frame advertenties die de belangrijkste video onderbreken

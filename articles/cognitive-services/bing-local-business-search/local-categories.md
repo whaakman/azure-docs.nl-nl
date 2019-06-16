@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 61bd230ffdb79b31390e96179e5beb3646902142
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796733"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Zoekcategorieën voor de Bing API voor zoeken van lokale bedrijven
@@ -26,7 +26,7 @@ De Bing lokale bedrijven zoeken-API kunt u zoeken naar lokale zakelijke entiteit
 De volgende typen definiëren categorieën met zoeken.  Meer dan één categorie kan worden opgegeven met behulp van een door komma's gescheiden lijst die wordt toegewezen aan de `localCategories` parameter.  
 - EatDrink 
 - SeeDo 
-- Winkelen 
+- Kiezen 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
 - De vervangende domeinpagina 
@@ -66,7 +66,7 @@ Subcategorieën worden doorgegeven dezelfde manier als `localCategories`. Subcat
 | MovieTheaters | Museums | Parken |
 | SightseeingTours | TouristInformation | Dierentuinen |
  
-### <a name="shop"></a>Winkelen 
+### <a name="shop"></a>Kiezen 
 |  |  |  |
 | -- | -- | -- |
 | AntiqueStores | Uw boekwinkel | CDAndRecordStores |

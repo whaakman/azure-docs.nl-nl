@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60949134"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
@@ -211,7 +211,7 @@ De [statusrapporten](https://docs.microsoft.com/dotnet/api/system.fabric.health.
 * **RemoveWhenExpired**. Een Booleaanse waarde. Indien ingesteld op true, het verlopen statusrapport wordt automatisch verwijderd uit de store status en het rapport niet invloed hebben op evalueren entiteit. Gebruikt wanneer het rapport voor een opgegeven periode alleen geldig is en de journalist hoeft niet te deze expliciet wissen. Ook wordt gebruikt voor het verwijderen van rapporten uit de store health (bijvoorbeeld een watchdog is gewijzigd en stopt met het verzenden van rapporten met vorige bron en de eigenschap). Een rapport met een korte TimeToLive samen met RemoveWhenExpired om te wissen van een vorige status van de health store kan verzenden. Als de waarde is ingesteld op false, wordt het verlopen rapport behandeld als een fout opgetreden in de health-evaluatie. De waarde false geeft aan de health store dat de bron voor deze eigenschap regelmatig moet rapporteren. Als dat niet het geval is, moet er iets mis is met de watchdog. Status van de watchdog wordt op basis van de gebeurtenis als een fout vastgelegd.
 * **SequenceNumber**. Een positief geheel getal dat moet worden toenemende, staat de volgorde van de rapporten. Deze wordt gebruikt door de health store voor het detecteren van verouderde rapporten die worden ontvangen, laat vanwege vertragingen in het netwerk of andere problemen. Een rapport wordt geweigerd als het volgnummer is dat kleiner dan of gelijk zijn aan de meest recent nummer voor de dezelfde entiteit, de bron en de eigenschap toegepast. Als deze niet is opgegeven, wordt het volgnummer automatisch gegenereerd. Het is nodig om te zetten in het volgnummer alleen tijdens het rapporteren van verloopgebeurtenissen bij statuswijzigingen. In dit geval wordt de bron moet onthouden welke rapporten, verzonden en blijven de gegevens voor herstel bij failover.
 
-Deze vier onderdelen van informatie, SourceId, entiteits-id, eigenschap en HealthState--zijn vereist voor elke statusrapport. De SourceId tekenreeks mag niet beginnen met het voorvoegsel "**systeem.**', die is gereserveerd voor systeemrapporten. Er is slechts één rapport voor de dezelfde bron en de eigenschap voor de dezelfde entiteit. Meerdere rapporten voor de bron en de eigenschap overschrijven elkaar en aan de clientzijde health (als ze worden batchgewijs) of op de status aan clientzijde opslaan. De vervanging is gebaseerd op volgnummers; nieuwere rapporten (met hogere volgnummers) vervangt oudere rapporten.
+Deze vier onderdelen van informatie, SourceId, entiteits-id, eigenschap en HealthState--zijn vereist voor elke statusrapport. De SourceId tekenreeks mag niet beginnen met het voorvoegsel "**systeem.** ', die is gereserveerd voor systeemrapporten. Er is slechts één rapport voor de dezelfde bron en de eigenschap voor de dezelfde entiteit. Meerdere rapporten voor de bron en de eigenschap overschrijven elkaar en aan de clientzijde health (als ze worden batchgewijs) of op de status aan clientzijde opslaan. De vervanging is gebaseerd op volgnummers; nieuwere rapporten (met hogere volgnummers) vervangt oudere rapporten.
 
 ### <a name="health-events"></a>Statusgebeurtenissen
 Intern, houdt u de health store [statusgebeurtenissen](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), die alle gegevens van de rapporten en aanvullende metagegevens bevatten. De metagegevens bevatten de tijd die het rapport is gegeven aan de health-client en de tijd die het op de server is gewijzigd. De health-gebeurtenissen worden geretourneerd door [statusquery's](service-fabric-view-entities-aggregated-health.md#health-queries).

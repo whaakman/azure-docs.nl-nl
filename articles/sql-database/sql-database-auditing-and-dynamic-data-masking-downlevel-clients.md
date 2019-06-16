@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61416523"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - ondersteuning voor Downlevel-clients en IP-eindpunt voor Tabelcontrole wordt gewijzigd
@@ -60,11 +60,11 @@ De nieuwe database IP-eindpunt is afhankelijk van de databaseregio:
 | Australië - zuidoost |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
 | Brazilië - zuid |104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
 | US - centraal |104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
-| US - centraal EUAP |52.180.178.16, 52.180.176.190 |
+| VS-midden EUAP |52.180.178.16, 52.180.176.190 |
 | Azië - oost |23.99.125.133, 13.75.40.42, 23.97.71.138, 13.94.43.245 |
 | US - oost 2 |104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
 | US - oost |23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
-| US - oost EUAP |52.225.190.86, 52.225.191.187 |
+| VS-Oost EUAP |52.225.190.86, 52.225.191.187 |
 | India - centraal |104.211.98.219, 104.211.103.71 |
 | India - zuid |104.211.227.102, 104.211.225.157 |
 | India - west |104.211.161.152, 104.211.162.21 |

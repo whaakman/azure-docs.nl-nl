@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546241"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedure: Migreren vanuit de Azure Access Control Service
@@ -129,7 +129,7 @@ De volgende secties beschrijven op hoog niveau aanbevelingen voor het migreren v
 
 Ten minste één alternatieve vorm van verificatie biedt ondersteuning voor elke cloudservice van Microsoft die tokens die zijn uitgegeven door Access Control nu accepteert. Het juiste verificatiemechanisme varieert voor elke service. Het is raadzaam dat u naar de specifieke documentatie over voor elke service voor de officiële richtlijnen verwijzen. Voor het gemak elke set van documentatie is die hier beschikbaar zijn:
 
-| Service | Hulp |
+| Service | Richtlijnen |
 | ------- | -------- |
 | Azure Service Bus | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -150,7 +150,7 @@ Ten minste één alternatieve vorm van verificatie biedt ondersteuning voor elke
 
 SharePoint 2013, 2016 en SharePoint Online-klanten hebben lang ACS gebruikt voor verificatiedoeleinden wordt gebruikt in de cloud, on premises en hybride scenario's. Sommige functies van SharePoint en use-cases worden beïnvloed door ACS buiten gebruik stellen, terwijl andere gebruikers. De onderstaande tabel bevat een overzicht van hulp bij de migratie voor enkele van de meest populaire SharePoint die gebruikmaken van ACS functie:
 
-| Functie | Hulp |
+| Functie | Richtlijnen |
 | ------- | -------- |
 | Verifiëren van gebruikers van Azure AD | Voorheen Azure AD bieden geen ondersteuning voor SAML 1.1-tokens vereist voor SharePoint voor verificatie en ACS is gebruikt als een intermediair die SharePoint compatibel met Azure AD-token indelingen. U kunt nu [SharePoint rechtstreeks verbinden met Azure AD met behulp van Azure AD App Gallery SharePoint on premises app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [App-verificatie & server-naar-server-verificatie in SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Niet beïnvloed door ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig. | 
@@ -204,7 +204,7 @@ Op hoog niveau, *Azure Active Directory is waarschijnlijk de beste keuze voor uw
 | WS-Trust | Ondersteund | Niet ondersteund |
 | **Token-indelingen** | | |
 | JWT | Ondersteund In de bètafase | Ondersteund |
-| SAML 1.1 | Ondersteund | Voorbeeld |
+| SAML 1.1 | Ondersteund | Preview |
 | SAML 2.0 | Ondersteund | Ondersteund |
 | SWT | Ondersteund | Niet ondersteund |
 | **Aanpassingen** | | |

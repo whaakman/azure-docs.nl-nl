@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61280668"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Problemen oplossen met de Azure Site Recovery-agent
@@ -26,14 +26,14 @@ Foutcode: "151076"
 
  Azure Site Recovery installeren een extensie op de virtuele machine als onderdeel van de taak beveiliging inschakelen. Een van de volgende voorwaarden kan voorkomen dat de beveiliging van die wordt geactiveerd en mislukt de taak. Voltooi de volgende stappen voor het oplossen van problemen en voer de bewerking vervolgens opnieuw uit:
 
-**1 oorzaak: [De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**1 oorzaak: [De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **2 oorzaak: [De agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3 oorzaak: [De extensie voor Site Recovery is mislukt om te werken of te laden](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Foutbericht: "Het vorige extensiebewerking voor site recovery duurt langer dan verwacht."<br>
 Foutcode: "150066"<br>
 
-**1 oorzaak: [De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**1 oorzaak: [De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **2 oorzaak: [De agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3 oorzaak: [De status van de Site Recovery-extensie is onjuist](#the-site-recovery-extension-fails-to-update-or-load)**  
 
@@ -45,7 +45,7 @@ Foutcode: "151099"<br>
 Deze fout kan optreden als de Azure-gastagent in de virtuele machine zich niet in de status gereed heeft.
 U kunt de status van Azure-gastagent in controleren [Azure-portal](https://portal.azure.com/). Ga naar de virtuele machine die u probeert te beveiligen en controleer de status in ' VM > Instellingen > Eigenschappen > agentstatus '. De meeste gevallen de status van de agent weer gereed is na het opnieuw opstarten van de virtuele machine. Echter, als opnieuw opstarten niet een van de mogelijke opties is of als u het probleem nog steeds worden geconfronteerd, voltooi de volgende stappen voor probleemoplossing.
 
-**1 oorzaak: [De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**1 oorzaak: [De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **2 oorzaak: [De agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 

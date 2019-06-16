@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
 ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65835191"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure Active Directory integreren met Azure Kubernetes Service met behulp van de Azure CLI
@@ -77,7 +77,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 
 De Azure AD moet toegangsmachtigingen voor de volgende acties uitvoeren:
 
-* Adreslijstgegevens lezen
+* Mapgegevens lezen
 * Aanmelden en gebruikersprofiel lezen
 
 Deze machtigingen met behulp van de [az ad app-machtiging toevoegen] [ az-ad-app-permission-add] opdracht:

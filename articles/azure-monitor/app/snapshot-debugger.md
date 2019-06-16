@@ -13,10 +13,10 @@ ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595584"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-apps
@@ -54,7 +54,7 @@ Toegang tot momentopnamen is beveiligd met op rollen gebaseerd toegangsbeheer (R
 Eigenaars van abonnementen toe te kennen de `Application Insights Snapshot Debugger` rol voor gebruikers die zullen momentopnamen inspecteren. Deze rol kan worden toegewezen aan individuele gebruikers of groepen door abonnementseigenaren voor Application Insights-resource van het doel of de resourcegroep of abonnement.
 
 1. Navigeer naar de Application Insights-resource in Azure portal.
-1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 1. Klik op de **+ roltoewijzing toevoegen** knop.
 1. Selecteer **Application Insights Snapshot Debugger** uit de **rollen** vervolgkeuzelijst.
 1. Zoek en voer een naam voor de gebruiker toe te voegen.

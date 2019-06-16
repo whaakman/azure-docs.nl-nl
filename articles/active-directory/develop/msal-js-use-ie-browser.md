@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873913"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Bekende problemen in Internet Explorer en Microsoft Edge browsers met MSAL.js
@@ -43,7 +43,7 @@ Dit komt doordat JavaScript beloften biedt geen systeemeigen ondersteuning voor 
 Normaal gesproken implementeren van uw toepassing naar productie (bijvoorbeeld in een Azure-Web-apps) werkt prima, voor zover dat de eindgebruiker pop-ups heeft geaccepteerd. We hebben het met Internet Explorer 11 getest.
 
 ### <a name="running-locally"></a>Lokaal worden uitgevoerd
-Als u wilt uitvoeren en fouten opsporen in lokaal uw toepassing in Internet Explorer wordt uitgevoerd, moet u rekening houden met de volgende overwegingen (wordt ervan uitgegaan dat u wilt uitvoeren van uw toepassing als *http://localhost:1234*):
+Als u wilt uitvoeren en fouten opsporen in lokaal uw toepassing in Internet Explorer wordt uitgevoerd, moet u rekening houden met de volgende overwegingen (wordt ervan uitgegaan dat u wilt uitvoeren van uw toepassing als *http://localhost:1234* ):
 
 - Internet Explorer is een beveiligingsmechanisme met de naam 'beveiligde modus', waarmee wordt voorkomen dat MSAL.js correct werkt. Tussen de symptomen nadat u zich hebt aangemeld, de pagina kan worden omgeleid naar http://localhost:1234/null.
 
@@ -51,7 +51,7 @@ Als u wilt uitvoeren en fouten opsporen in lokaal uw toepassing in Internet Expl
 
     1. Klik op Internet Explorer **extra** (het tandwielpictogram).
     1. Selecteer **Internetopties** en vervolgens de **Security** tabblad.
-    1. Klik op de **Internet** zone en schakel het selectievakje **beveiligde modus inschakelen (vereist opnieuw opstarten van Internet Explorer)**. Internet Explorer wordt gewaarschuwd dat de computer niet meer is beveiligd. Klik op **OK**.
+    1. Klik op de **Internet** zone en schakel het selectievakje **beveiligde modus inschakelen (vereist opnieuw opstarten van Internet Explorer)** . Internet Explorer wordt gewaarschuwd dat de computer niet meer is beveiligd. Klik op **OK**.
     1. Start Internet Explorer opnieuw.
     1. Uitvoeren en fouten opsporen in uw toepassing.
 

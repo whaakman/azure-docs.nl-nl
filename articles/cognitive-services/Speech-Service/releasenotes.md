@@ -12,10 +12,10 @@ ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
 ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606347"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
@@ -129,7 +129,7 @@ De volgende nieuwe inhoud is beschikbaar in onze [voorbeeldopslagplaats](https:/
   * De SDK is nu gebouwd op basis van de iOS SDK versie 12.1.
   * De SDK biedt nu ondersteuning voor iOS versie 9.2 en hoger.
   * Referentiedocumentatie voor verbeteren en op te lossen verschillende namen van eigenschappen.
-* JavaScript
+* Javascript
   * Ondersteuning toevoegen voor het verbindingsobject.
   * Type definitiebestanden voor gebundelde JavaScript toevoegen
   * Eerste ondersteuning en de implementatie voor woordgroep hints.
@@ -161,7 +161,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 
 * Python
   * De bètaversie van Python-ondersteuning (3.5 en hoger) is beschikbaar in deze versie. Zie voor meer informatie, here](quickstart-python.md).
-* JavaScript
+* Javascript
   * De spraak-SDK voor JavaScript is open-source. De broncode is beschikbaar op [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * We bieden nu ondersteuning voor Node.js, kunt u meer informatie vinden [hier](quickstart-js-node.md).
   * De lengtebeperking voor audio-sessies is verwijderd, opnieuw verbinden gebeurt automatisch onder de dekking.

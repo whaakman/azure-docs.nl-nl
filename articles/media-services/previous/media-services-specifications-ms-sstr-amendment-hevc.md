@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963252"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming Protocol (MS-SSTR) amendement voor HEVC 
@@ -34,7 +34,7 @@ Het gebruik van een MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkI
 
 ## <a name="11-glossary"></a>1.1 verklarende woordenlijst 
 
-De volgende voorwaarden zijn gedefinieerd in *[MS-GLOS]*:
+De volgende voorwaarden zijn gedefinieerd in *[MS-GLOS]* :
 
 >   **unieke id (GUID) universele, unieke id (UUID)**
 

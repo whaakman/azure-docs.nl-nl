@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 43fe0047022173cc20f58688920fa95b95cc6c22
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473534"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Als een CSP, maken en beheren van een Azure IoT Central-toepassing namens uw klant 
@@ -43,11 +43,11 @@ Voor het maken van een Azure IoT Central-toepassing, selecteert u de **nieuwe to
 
 U kunt alleen betalen per gebruik-toepassingen maken als een CSP. Ter promotie van Azure IoT Central naar de klant, kunt u een proefversie afzonderlijk maken. Meer informatie over de proef- en betalen per gebruik-toepassingen in de [Azure IoT Central pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## <a name="application-name"></a>Naam van toepassing
+## <a name="application-name"></a>Naam van de toepassing
 
 De naam van uw toepassing wordt weergegeven op de **Toepassingsbeheer** pagina en in elke Azure IoT Central-toepassing. U kunt een willekeurige naam voor uw Azure IoT Central-toepassing. Kies een naam die zinvol voor u en anderen in uw organisatie.
 
-## <a name="application-url"></a>URL van toepassing
+## <a name="application-url"></a>Toepassings-URL
 
 De URL van de toepassing is de koppeling naar uw toepassing. U kunt een bladwijzer toe opslaan in uw browser of met anderen delen.
 
@@ -87,7 +87,7 @@ U kunt een van de beschikbare sjablonen voor uw nieuwe Azure IoT Central-toepass
 | Toepassingsjabloon | Description |
 | -------------------- | ----------- |
 | Aangepaste toepassing   | Hiermee maakt u een lege toepassing die u kunt vullen met uw eigen apparaatsjablonen en apparaten. |
-| Voorbeeld-Contoso       | Hiermee maakt u een toepassing die gebruikmaakt van een apparaat-sjabloon voor een eenvoudige aangesloten apparaat. Gebruik deze sjabloon als u wilt beginnen met het verkennen van Azure IoT Central. |
+| Contoso-voorbeeld       | Hiermee maakt u een toepassing die gebruikmaakt van een apparaat-sjabloon voor een eenvoudige aangesloten apparaat. Gebruik deze sjabloon als u wilt beginnen met het verkennen van Azure IoT Central. |
 | Devkits-voorbeeld       | Hiermee maakt u een toepassing met apparaatsjablonen die u in staat stelt verbinding te maken met een MXChip- of Raspberry Pi-apparaat. Gebruik deze sjabloon als u een ontwikkelaar van het apparaat te experimenteren met code op een van deze apparaten. |
 
 ## <a name="next-steps"></a>Volgende stappen

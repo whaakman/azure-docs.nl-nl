@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 8cf9dc6cbfc96448462aac3a64807f8beb6036ad
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 016dcf32f2f846e43362f17bc9f4627113908352
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156909"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075155"
 ---
-# <a name="get-started-with-custom-voice"></a>Aan de slag met aangepaste spraak
+# <a name="get-started-with-custom-voice"></a>Aan de slag met Custom Voice
 
 Aangepaste spraak is een set online hulpprogramma's waarmee u kunt maken van een herkenbare, één van een unieke stem voor uw merk. Alles die wat u nodig om te beginnen zijn een paar van de audio-bestanden en de bijbehorende transcripties. Volg de koppelingen hieronder om te beginnen met het maken van een aangepaste Text to Speech-ervaring.
 
@@ -29,13 +29,13 @@ In het onderstaande diagram ziet u de stappen voor het maken van een aangepaste 
 
 ![Architectuurdiagram van aangepaste spraak](media/custom-voice/custom-voice-diagram.png)
 
-1.  [Abonneren en maak een project](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#set-up-your-azure-account) : Maak een Azure-account en maakt u een abonnement Speech Services. Deze geïntegreerde abonnement geeft u toegang tot spraak-naar-tekst, Text to Speech, spraakomzetting en de aangepaste spraak-portal. Met behulp van uw abonnement Speech Services, maak vervolgens uw eerste aangepaste spraak-project.
+1.  [Abonneren en maak een project](#set-up-your-azure-account) : Maak een Azure-account en maakt u een abonnement Speech Services. Deze geïntegreerde abonnement geeft u toegang tot spraak-naar-tekst, Text to Speech, spraakomzetting en de aangepaste spraak-portal. Met behulp van uw abonnement Speech Services, maak vervolgens uw eerste aangepaste spraak-project.
 
-2.  [Gegevens uploaden](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#upload-your-datasets) -gegevens (audio en tekst) uploaden met behulp van de aangepaste spraak-portal of aangepaste spraak-API. U kunt onderzoeken en evalueren uitspraak van scores en signaal ruis ratio's vanuit de portal. Zie voor meer informatie, [over het voorbereiden van gegevens voor aangepaste spraak](how-to-custom-voice-prepare-data.md).
+2.  [Gegevens uploaden](how-to-custom-voice-create-voice.md#upload-your-datasets) -gegevens (audio en tekst) uploaden met behulp van de aangepaste spraak-portal of aangepaste spraak-API. U kunt onderzoeken en evalueren uitspraak van scores en signaal ruis ratio's vanuit de portal. Zie voor meer informatie, [over het voorbereiden van gegevens voor aangepaste spraak](how-to-custom-voice-prepare-data.md).
 
-3.  [Uw model te trainen](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#build-your-voice-font) – uw gegevens gebruiken om een aangepaste tekst-naar-spraak-model te maken. U kunt een model in verschillende talen te trainen. Na de training, uw model testen en als u tevreden met het resultaat bent, kunt u het model implementeren.
+3.  [Uw model te trainen](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) – uw gegevens gebruiken om een aangepaste tekst-naar-spraak-model te maken. U kunt een model in verschillende talen te trainen. Na de training, uw model testen en als u tevreden met het resultaat bent, kunt u het model implementeren.
 
-4.  [Uw model implementeert](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#create-and-use-a-custom-endpoint) : een aangepast eindpunt voor uw stem-model maken en deze gebruiken voor spraaksynthese in uw producten, -hulpprogramma's en toepassingen.
+4.  [Uw model implementeert](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) : een aangepast eindpunt voor uw stem-model maken en deze gebruiken voor spraaksynthese in uw producten, -hulpprogramma's en toepassingen.
 
 ## <a name="set-up-your-azure-account"></a>Instellen van uw Azure-account
 
@@ -55,7 +55,7 @@ Als u een Azure-account en een Speech Services-abonnement hebt gemaakt, moet u z
 
 Inhoud, zoals gegevens, modellen, tests en eindpunten zijn ingedeeld in **projecten** in de portal voor aangepaste spraak. Elk project is specifiek voor een land/de taal en het geslacht van de stem die u wilt maken. U kunt bijvoorbeeld een project voor een vrouw stem voor uw callcenter chat bots die gebruik de Engelse versie in de Verenigde Staten (en-US) maken.
 
-Voor het maken van uw eerste project, selecteer de **Text-naar-Speech/aangepaste spraak** tabblad en klik vervolgens op **nieuw Project**. Volg de instructies van de wizard om uw project te maken. Nadat u een project hebt gemaakt, ziet u vier tabbladen: **Gegevens**, **Training**, **testen**, en **implementatie**. Gebruik de koppelingen [Vervolgstappen](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#next-steps) voor informatie over het gebruik van elk tabblad.
+Voor het maken van uw eerste project, selecteer de **Text-naar-Speech/aangepaste spraak** tabblad en klik vervolgens op **nieuw Project**. Volg de instructies van de wizard om uw project te maken. Nadat u een project hebt gemaakt, ziet u vier tabbladen: **Gegevens**, **Training**, **testen**, en **implementatie**. Gebruik de koppelingen [Vervolgstappen](#next-steps) voor informatie over het gebruik van elk tabblad.
 
 ## <a name="next-steps"></a>Volgende stappen
 

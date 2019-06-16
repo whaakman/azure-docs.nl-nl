@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113207"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Zelfstudie: Risicogebeurtenissen gebruiken als trigger voor Multi-Factor Authentication en het wijzigen van wachtwoorden
 
 In deze zelfstudie gaat u functies van Azure Active Directory (Azure AD) Identity Protection inschakelen. Dit is een Azure AD Premium P2-functie en is meer dan alleen een controle- en rapportagehulpmiddel. Ter bescherming van identiteiten binnen uw organisatie, kunt u op risicogebeurtenissen gebaseerde beleidsregels configureren die automatisch op risicovol gedrag reageren. Deze beleidsregels kunnen automatisch herstelstappen blokkeren of initiëren, zoals onder andere het verplicht wijzigen van wachtwoorden en het afdwingen van Multi-Factor Authentication.
 
-Azure AD Identity Protection-beleid kan worden gebruikt naast bestaande beleidsregels voor voorwaardelijke toegang en dient als extra beveiligingslaag. Misschien dat het nooit voorkomt dat gebruikers risicovol gedrag activeren waarvoor een van deze beleidsregels is vereist, maar u als beheerder weet dat ze zijn beveiligd.
+Azure AD Identity Protection-beleid kunnen worden gebruikt naast de bestaande beleidsregels voor voorwaardelijke toegang als een extra beveiligingslaag. Misschien dat het nooit voorkomt dat gebruikers risicovol gedrag activeren waarvoor een van deze beleidsregels is vereist, maar u als beheerder weet dat ze zijn beveiligd.
 
 Er zijn enkele gebeurtenissen die een risicogebeurtenis kunnen activeren, zoals onder andere:
 
@@ -73,7 +73,7 @@ Microsoft werkt samen met onderzoekers, justitie en politie, diverse beveiliging
 1. Bij **Toegang** kiest u **Toegang toestaan** en selecteert u vervolgens **Wachtwoordwijziging vereisen**.
 1. Klik op Selecteren.
 1. Stel Beleid afdwingen in op **Aan**.
-1. Klik op **Opslaan**.
+1. Klik op **Opslaan**
 
 ### <a name="enable-risk-based-multi-factor-authentication"></a>Op risicogebeurtenissen gebaseerde Multi-Factor Authentication inschakelen
 
@@ -85,7 +85,7 @@ De meeste gebruikers vertonen normaal gedrag dat kan worden getraceerd. Wanneer 
 1. Bij **Toegang** kiest u **Toegang toestaan** en selecteert u vervolgens **Multi-Factor Authentication vereisen**.
 1. Klik op Selecteren.
 1. Stel Beleid afdwingen in op **Aan**.
-1. Klik op **Opslaan**.
+1. Klik op **Opslaan**
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

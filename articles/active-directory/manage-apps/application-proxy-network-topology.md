@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7e236d3142ba4410b6942f9e8069e1429aae5378
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236255"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108429"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Netwerk-topologie overwegingen bij het gebruik van Azure Active Directory-toepassingsproxy
 
@@ -176,5 +176,5 @@ U kunt ook overwegen met behulp van een andere variant in dit geval. Als de mees
 
 - [Toepassingsproxy inschakelen](application-proxy-add-on-premises-application.md)
 - [Eenmalige aanmelding inschakelen](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Voorwaardelijke toegang inschakelen](application-proxy-integrate-with-sharepoint-server.md)
+- [Inschakelen van voorwaardelijke toegang](application-proxy-integrate-with-sharepoint-server.md)
 - [Oplossen van problemen met Application Proxy](application-proxy-troubleshoot.md)

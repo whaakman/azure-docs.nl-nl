@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/12/2019
+ms.date: 06/11/2019
 ms.author: alkohli
-ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6e1870093dc89856e093267172418e9c7330c479
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755505"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080566"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Wat is Azure Data Box Edge? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge is een Edge-rekenapparaat met AI dat mogelijkheden voor netw
     - Een subset van de benodigde gegevens te maken en deze over te dragen voor grondigere analyse in de cloud.
     - IoT-gebeurtenissen te analyseren en erop te reageren. 
 
-- **Azure Machine Learning afleiden**: Met Data Box Edge kunt u ML-modellen (Machine Learning) uitvoeren om snel resultaten te verkrijgen die kunnen worden gebruikt voordat de gegevens naar de cloud worden verzonden. De volledige gegevensset wordt overgedragen om uw ML-modellen te blijven trainen en verbeteren.
+- **Azure Machine Learning afleiden**: Met Data Box Edge kunt u ML-modellen (Machine Learning) uitvoeren om snel resultaten te verkrijgen die kunnen worden gebruikt voordat de gegevens naar de cloud worden verzonden. De volledige gegevensset kan worden overgedragen om door te gaan voor het opnieuw trainen en het verbeteren van uw ML-modellen. Zie voor meer informatie over het gebruik van de Azure ML-hardware versneld modellen op het apparaat Databox Edge [implementeren Azure ML hardwareversnelling modellen op Databox Edge](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Gegevens via een netwerk naar Azure overdragen**: Gebruik Data Box Edge om gegevens gemakkelijk en snel naar Azure over te dragen voor verdere berekeningen en analyses of voor archivering. 
 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485424"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Prestaties van shard Azure SQL-database met meerdere tenants in een multitenant SaaS-app controleren en beheren
@@ -98,7 +98,7 @@ Wingtip Tickets SaaS multitenant-Database is een SaaS-app en de werkelijke belas
 
 Voor het controleren van het gebruik van bronnen die het resultaat is van de belasting wordt toegepast, open de portal naar de database met meerdere tenants **tenants1**, met de tenants:
 
-1. Open de [Azure-portal](https://portal.azure.com) en blader naar de server *tenants1-mt -&lt;gebruiker&gt;*.
+1. Open de [Azure-portal](https://portal.azure.com) en blader naar de server *tenants1-mt -&lt;gebruiker&gt;* .
 1. Schuif naar beneden, zoek van databases en klikt u op **tenants1**. Deze shard multitenant-database bevat alle tenants die tot nu toe zijn gemaakt.
 
 ![database-grafiek](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)

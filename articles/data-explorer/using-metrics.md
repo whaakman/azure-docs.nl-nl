@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826771"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>De prestaties, de status en het gebruik met metrische gegevens over Azure Data Explorer controleren
@@ -49,7 +49,7 @@ In het deelvenster met metrische gegevens:
     | Opname-resultaat | Count | Count | Totaal aantal opname-bewerkingen die zijn mislukt en is voltooid. Gebruik **toepassen splitsen** maken van buckets van slagen en mislukken van de resultaten en analyseren van de dimensies (**waarde** > **Status**).|
     | Opname-gebruik | Procent | Avg, Max, Min | Percentage van de werkelijke hoeveelheid resources die worden gebruikt voor opname van gegevens van het totaal aan resources in het beleid van de capaciteit, om uit te voeren van gegevensopname toegewezen. Het standaardbeleid voor capaciteit is niet meer dan 512 gelijktijdige opname bewerkingen of 75% van de clusterbronnen geïnvesteerd in de opname. Gemiddelde opname gebruik van 80% of minder is een duurzame status voor een cluster. Maximale waarde van het gebruik van gegevensopname is 100%, wat betekent dat alle cluster opname-mogelijkheid wordt gebruikt en kan leiden tot een opname-wachtrij. |
     | Opname-volume (in MB) | Count | Max, Min, Sum | De totale grootte van de gegevens die worden opgenomen in het cluster (in MB) voor compressie. |
-    | Actief houden | Count | Gem | Houdt de reactiesnelheid van het cluster. Een cluster met heel snel reageert, retourneert de waarde 1 en een cluster geblokkeerd of niet-verbonden retourneert 0. |
+    | Actief houden | Count | Avg | Houdt de reactiesnelheid van het cluster. Een cluster met heel snel reageert, retourneert de waarde 1 en een cluster geblokkeerd of niet-verbonden retourneert 0. |
     | Queryduur | Seconden | Count, Avg, Min, Max, Sum | Totale tijd totdat de queryresultaten worden ontvangen (niet de netwerklatentie bevatten). |
     | | | |
 

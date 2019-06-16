@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605447"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Gebruik de Azure Data Lake-tools voor Visual Studio met de Hortonworks Sandbox
@@ -120,7 +120,7 @@ U kunt ook een project met meerdere Hive-scripts maken. Een project gebruiken wa
 
 1. Selecteer in Visual Studio, **bestand**, **nieuw**, en vervolgens **Project**.
 
-2. Vouw in de lijst met projecten **sjablonen**, vouw **Azure Data Lake**, en selecteer vervolgens **HIVE (HDInsight)**. Selecteer in de lijst met sjablonen **Hive voorbeeld**. Voer een naam en locatie, en selecteer vervolgens **OK**.
+2. Vouw in de lijst met projecten **sjablonen**, vouw **Azure Data Lake**, en selecteer vervolgens **HIVE (HDInsight)** . Selecteer in de lijst met sjablonen **Hive voorbeeld**. Voer een naam en locatie, en selecteer vervolgens **OK**.
 
     ![Schermopname van nieuw Project-venster met Azure Data Lake, HIVE, Hive-voorbeeld en OK gemarkeerd](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
@@ -130,7 +130,7 @@ De **Hive voorbeeld** -project bevat twee scripts **WebLogAnalysis.hql** en **Se
 
 Hoewel Hive een SQL-achtige taal biedt voor het werken met gestructureerde gegevens, wordt Pig werkt door het uitvoeren van transformaties op gegevens. Pig biedt een taal (Pig Latin) waarmee u voor het ontwikkelen van een pijplijn van transformaties. Als u wilt Pig gebruiken met het lokale cluster, de volgende stappen uit:
 
-1. Open Visual Studio en selecteer **bestand**, **nieuw**, en vervolgens **Project**. Vouw in de lijst met projecten **sjablonen**, vouw **Azure Data Lake**, en selecteer vervolgens **Pig (HDInsight)**. Selecteer in de lijst met sjablonen **Pig toepassing**. Voer een naam en locatie, en selecteer vervolgens **OK**.
+1. Open Visual Studio en selecteer **bestand**, **nieuw**, en vervolgens **Project**. Vouw in de lijst met projecten **sjablonen**, vouw **Azure Data Lake**, en selecteer vervolgens **Pig (HDInsight)** . Selecteer in de lijst met sjablonen **Pig toepassing**. Voer een naam en locatie, en selecteer vervolgens **OK**.
 
     ![Schermopname van nieuw Project-venster met Azure Data Lake, Pig, Pig-toepassing en OK gemarkeerd](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 

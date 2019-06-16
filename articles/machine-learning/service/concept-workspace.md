@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059257"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Wat is een werkruimte van de service Azure Machine Learning?
 
@@ -32,16 +32,16 @@ Het diagram ziet u de volgende onderdelen van een werkruimte:
 
 + Een werkruimte kan bevatten [Notebook VMs](quickstart-run-cloud-notebook.md), resources die zijn geconfigureerd met de Python-omgeving die nodig zijn om uit te voeren van Azure Machine Learning in de cloud.
 + [Gebruikersrollen](how-to-assign-roles.md) kunt u uw werkruimte delen met andere gebruikers, teams of projecten.
-+ [COMPUTE-doelen](concept-azure-machine-learning-architecture.md#compute-target) worden gebruikt voor het uitvoeren van de experimenten nodig hebben.
++ [COMPUTE-doelen](concept-azure-machine-learning-architecture.md#compute-targets) worden gebruikt voor het uitvoeren van de experimenten nodig hebben.
 + Wanneer u de werkruimte maakt [gekoppelde resources](#resources) worden ook voor u gemaakt.
-+ [Experimenten](concept-azure-machine-learning-architecture.md#experiment) zijn trainingsuitvoeringen u gebruiken om uw modellen te bouwen.  U kunt maken en uitvoeren van experimenten met
++ [Experimenten](concept-azure-machine-learning-architecture.md#experiments) zijn trainingsuitvoeringen u gebruiken om uw modellen te bouwen.  U kunt maken en uitvoeren van experimenten met
     + De [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + De [machine learning-experimenten (preview) geautomatiseerde](how-to-create-portal-experiments.md) sectie in Azure portal.
     + De [visuele interface (preview)](ui-concept-visual-interface.md).
-+ [Pijplijnen](concept-azure-machine-learning-architecture.md#pipeline) zijn herbruikbare werkstromen voor trainings- en opnieuw trainen van uw model.
-+ [Gegevenssets](concept-azure-machine-learning-architecture.md#dataset) hulpmiddel bij het beheer van de gegevens die u voor het model training en de pijplijn gebruikt.
-+ Zodra u een model dat u wilt implementeren hebt, maakt u een [geregistreerde model](concept-azure-machine-learning-architecture.md#model-registry).
-+ Het geregistreerde model en een scoring-script gebruiken om u te maken van een [implementatie](concept-azure-machine-learning-architecture.md#image-registry).
++ [Pijplijnen](concept-azure-machine-learning-architecture.md#ml-pipelines) zijn herbruikbare werkstromen voor trainings- en opnieuw trainen van uw model.
++ [Gegevenssets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) hulpmiddel bij het beheer van de gegevens die u voor het model training en de pijplijn gebruikt.
++ Zodra u een model dat u wilt implementeren hebt, kunt u een geregistreerde model maken.
++ Het geregistreerde model en een scoring-script gebruiken om u te maken van een [implementatie](concept-azure-machine-learning-architecture.md#deployment).
 
 ## <a name="tools-for-workspace-interaction"></a>Hulpprogramma's voor interactie met de werkruimte
 

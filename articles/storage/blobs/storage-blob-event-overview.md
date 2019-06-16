@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826509"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
@@ -34,7 +34,7 @@ Blob-opslaggebeurtenissen zijn beschikbaar in v2-opslagaccounts en Blob-opslagac
 ## <a name="available-blob-storage-events"></a>Beschikbare gebeurtenissen van Blob storage
 Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Gebeurtenisabonnementen voor BLOB-opslag kunnen twee soorten gebeurtenissen omvatten:  
 
-> |Naam van de gebeurtenis|Description|
+> |De naam van gebeurtenis|Description|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Geactiveerd wanneer een blob wordt gemaakt of vervangen door de `PutBlob`, `PutBlockList`, of `CopyBlob` bewerkingen|
 > |`Microsoft.Storage.BlobDeleted`|Geactiveerd wanneer een blob wordt verwijderd via een `DeleteBlob` bewerking|
@@ -44,14 +44,14 @@ Gebeurtenissen van BLOB storage bevatten alle informatie die u nodig hebt om te 
 
 > |Eigenschap|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |onderwerp|string|Volledige Azure Resource Manager-id van het opslagaccount dat u de gebeurtenis verzendt.|
-> |onderwerp|string|De relatieve resourcepad naar het object dat het onderwerp van de gebeurtenis is met behulp van dezelfde uitgebreid Azure Resource Manager-indeling die we gebruiken om te beschrijven van storage-accounts, services en containers voor Azure RBAC.  Deze indeling bevat een blobnaam letters behouden blijven.|
+> |topic|string|Volledige Azure Resource Manager-id van het opslagaccount dat u de gebeurtenis verzendt.|
+> |subject|string|De relatieve resourcepad naar het object dat het onderwerp van de gebeurtenis is met behulp van dezelfde uitgebreid Azure Resource Manager-indeling die we gebruiken om te beschrijven van storage-accounts, services en containers voor Azure RBAC.  Deze indeling bevat een blobnaam letters behouden blijven.|
 > |eventTime|string|Datum/tijd die de gebeurtenis is gegenereerd, in ISO 8601-notatie|
 > |eventType|string|"Microsoft.Storage.BlobCreated" of "Microsoft.Storage.BlobDeleted"|
 > |Id|string|De unieke id als deze gebeurtenis|
 > |dataVersion|string|De schemaversie van het gegevensobject.|
 > |metadataVersion|string|De schemaversie van de eigenschappen van het hoogste niveau.|
-> |gegevens|object|Verzamelen van gegevens voor blob storage-specifieke gebeurtenis|
+> |data|object|Verzamelen van gegevens voor blob storage-specifieke gebeurtenis|
 > |data.contentType|string|Het inhoudstype van de blob, zoals in de header Content-Type worden geretourneerd met de blob|
 > |data.contentLength|getal|De grootte van de blob zoals integer voor een aantal bytes, zoals in de Content-Length-header worden geretourneerd met de blob in.  Met BlobCreated gebeurtenis, maar niet met BlobDeleted verzonden.|
 > |data.url|string|De url van het object dat het onderwerp van de gebeurtenis|

@@ -9,15 +9,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779913"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Instellen van de x.509-beveiliging in uw Azure-IoT-hub
 
-In deze zelfstudie simuleert de stappen die u nodig hebt voor het beveiligen van uw Azure IoT hub met behulp van de *X.509-certificaatverificatie*. Ten behoeve van de afbeelding, zullen we laten zien hoe de open-source hulpprogramma OpenSSL gebruiken voor het maken van certificaten lokaal op uw Windows-computer. U wordt aangeraden dat u deze zelfstudie voor test-doeleinden gebruiken. Voor productie-omgeving, moet u de certificaten van koopt een *basis-CA (Certificeringsinstantie)*.
+In deze zelfstudie simuleert de stappen die u nodig hebt voor het beveiligen van uw Azure IoT hub met behulp van de *X.509-certificaatverificatie*. Ten behoeve van de afbeelding, zullen we laten zien hoe de open-source hulpprogramma OpenSSL gebruiken voor het maken van certificaten lokaal op uw Windows-computer. U wordt aangeraden dat u deze zelfstudie voor test-doeleinden gebruiken. Voor productie-omgeving, moet u de certificaten van koopt een *basis-CA (Certificeringsinstantie)* .
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ De x.509-certificaat op basis van beveiliging in de IoT-Hub, moet u beginnen met
 
 U kunt een van de volgende manieren om uw certificaten te halen:
 
-* Kopen van x.509-certificaten van een *basis-CA (Certificeringsinstantie)*. Dit wordt aanbevolen voor productie-omgevingen.
+* Kopen van x.509-certificaten van een *basis-CA (Certificeringsinstantie)* . Dit wordt aanbevolen voor productie-omgevingen.
 
 * Maak uw eigen X.509-certificaten met behulp van een hulpprogramma van derden zoals [OpenSSL](https://www.openssl.org/). Dit is prima voor test- en testdoeleinden. Zie [beheren test CA-certificaten voor voorbeelden en zelfstudies](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) testen voor informatie over het genereren van CA-certificaten met behulp van PowerShell- of Bash. De rest van deze zelfstudie maakt gebruik van CA-testcertificaten die zijn gegenereerd door de instructies in [beheren test CA-certificaten voor voorbeelden en zelfstudies](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 

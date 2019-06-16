@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3e79b00545f76dff9442a11864701d6d61f057
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784570"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108772"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Quickstart: een toepassing toevoegen aan uw Azure Active Directory-tenant
 
@@ -24,7 +24,7 @@ Azure AD (Azure Active Directory) heeft een galerie met duizenden vooraf geïnte
 
 Nadat een toepassing is toegevoegd aan de Azure AD-tenant, kunt u:
 
-- Gebruikerstoegang tot de toepassing beheren met een voorwaardelijk toepassingsbeleid.
+- Toegang tot de toepassing met een beleid voor voorwaardelijke toegang voor gebruikers beheren.
 - Gebruikers configureren voor eenmalige aanmelding bij de toepassing via hun Azure AD-accounts.
 
 ## <a name="before-you-begin"></a>Voordat u begint
@@ -72,7 +72,7 @@ U klaar bent met het toevoegen van uw toepassing. Neem gerust even pauze. In de 
 
 Laten we aannemen dat u even weg bent gegaan en dat u nu verdergaat met het configureren van de toepassing. Het eerste wat te doen is uw toepassing vinden.
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
+1. In de  **[Azure-portal](https://portal.azure.com)** , selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
 
 1. In de **Azure Active Directory** venster **bedrijfstoepassingen**.
 

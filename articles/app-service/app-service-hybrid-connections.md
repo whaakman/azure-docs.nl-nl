@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653387"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069470"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybride verbindingen van Azure App Service #
 
@@ -41,7 +41,6 @@ Als uw app in een DNS-aanvraag die overeenkomt met een geconfigureerde hybride v
 > [!NOTE]
 > Dit betekent dat u proberen moet te gebruiken altijd een DNS-naam voor de hybride verbinding. Sommige clientsoftware doet een DNS-zoekopdracht als het eindpunt maakt gebruik van een IP-adres in plaats daarvan.
 >
-
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Voordelen van App-Service hybride verbinding ###
 
@@ -140,7 +139,7 @@ Een of meer hybride verbindingen toevoegen aan uw HCM:
 2. Selecteer **configureren van een andere hybride verbinding**.
 ![Schermafbeelding van nieuwe hybride verbindingen configureren][8]
 
-1. Meld u aan met uw Azure-account.
+1. Meld u aan met uw Azure-account om op te halen van uw hybride verbindingen die beschikbaar zijn met uw abonnementen. De HCM wordt niet voortgezet gebruik van uw Azure-account verder. 
 1. Kies een abonnement.
 1. Selecteer de hybride verbindingen die u wilt dat de HCM om door te sturen.
 ![Schermafbeelding van hybride verbindingen][9]
@@ -226,7 +225,9 @@ De status van de 'Verbonden' betekent dat ten minste één HCM is geconfigureerd
 
 De primaire reden dat clients geen verbinding met het eindpunt maken is omdat het eindpunt is opgegeven met behulp van een IP-adres in plaats van een DNS-naam. Als uw app het eindpunt van de gewenste niet bereiken kan en u een IP-adres gebruikt, kunt u overstappen naar een DNS-naam die geldig is op de host waarop de HCM wordt uitgevoerd. Controleer ook of de DNS-naam wordt omgezet correct op de host waarop de HCM wordt uitgevoerd. Controleer of er een verbinding van de host waarop de HCM wordt uitgevoerd naar het eindpunt van de hybride verbinding is.  
 
-In App Service, kan het hulpprogramma tcpping worden aangeroepen vanuit de console geavanceerde hulpmiddelen (Kudu). Dit hulpprogramma kunt u zien als u toegang tot een TCP-eindpunt hebt, maar het geeft niet aan als u toegang tot een eindpunt voor de hybride verbinding hebt. Wanneer u het hulpprogramma in de console voor het eindpunt van een hybride verbinding gebruikt, alleen bevestigt u dat deze gebruikmaakt van een combinatie van host: poort.  
+In App Service, de **tcpping** vanaf de opdrachtregel-hulpprogramma kan worden aangeroepen vanuit de console geavanceerde hulpmiddelen (Kudu). Dit hulpprogramma kunt u zien als u toegang tot een TCP-eindpunt hebt, maar het geeft niet aan als u toegang tot een eindpunt voor de hybride verbinding hebt. Wanneer u het hulpprogramma in de console voor het eindpunt van een hybride verbinding gebruikt, alleen bevestigt u dat deze gebruikmaakt van een combinatie van host: poort.  
+
+Als u een client vanaf de opdrachtregel voor het eindpunt hebt, kunt u de connectiviteit van de app-console kunt testen. U kunt bijvoorbeeld toegang tot web server-eindpunten te testen met behulp van curl.
 
 ## <a name="biztalk-hybrid-connections"></a>Hybrid Connections van BizTalk ##
 

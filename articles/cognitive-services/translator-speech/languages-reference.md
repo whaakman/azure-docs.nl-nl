@@ -12,10 +12,10 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827898"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech-API: Languages
@@ -132,7 +132,7 @@ Langagues {spraak (object, optioneel), tekst (object, optioneel), tts (object, o
 
 ### <a name="headers"></a>Headers
 
-|Header|Beschrijving|Type|
+|Header|Description|Type|
 :--|:--|:--|
 X-RequestId|Waarde die worden gegenereerd door de server voor het identificeren van de aanvraag en gebruikt voor het oplossen van problemen.|string|
 
@@ -140,14 +140,14 @@ X-RequestId|Waarde die worden gegenereerd door de server voor het identificeren 
 
 |Parameter|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|
-|API-versie    |De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query|string|
+|api-version    |De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query|string|
 |scope  |Sets met ondersteunde talen of stemmen om terug te keren naar de client. Deze parameter is opgegeven als een door komma's gescheiden lijst met trefwoorden. De volgende trefwoorden zijn beschikbaar:<ul><li>`speech`: Biedt de talen die worden ondersteund voor spraak transcriberen.</li><li>`tts`: Biedt de stemmen voor tekst-speech conversie wordt ondersteund.</li><li>`text`: Biedt de talen die worden ondersteund voor het omzetten van tekst.</li></ul>Als een waarde niet opgegeven is, de waarde van `scope` standaard ingesteld op `text`.|query|string|
 |X-ClientTraceId    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Om te kunnen oplossen van problemen met, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.|koptekst|string|
 |Accept-Language    |Enkele van de velden in het antwoord zijn namen van talen of regio's. Gebruik deze parameter voor het definiëren van de taal waarin de namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Selecteer een label in de lijst van taal-id's die zijn geretourneerd met de `text` bereik. Voor niet-ondersteunde talen vindt u de namen in het Engels.<br/>Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400|Ongeldige aanvraag. Controleer de invoerparameters om ervoor te zorgen dat geldig zijn. Het antwoordobject bevat een gedetailleerde beschrijving van de fout.|
 |429|Te veel aanvragen.|

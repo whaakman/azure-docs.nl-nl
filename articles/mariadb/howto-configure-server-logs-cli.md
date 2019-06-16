@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 403f111882b1bd151b26af56fd614355e7ba88e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/12/2019
+ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065686"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en serverlogboeken openen met behulp van Azure CLI
 U kunt de Azure Database voor MariaDB serverlogboeken downloaden met behulp van Azure CLI, het Azure-opdrachtregelprogramma.
@@ -38,7 +38,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Lijst met Logboeken voor Azure Database voor MariaDB-server
-Uitvoeren als u de beschikbare logboekbestanden voor uw server, de [az mariadb-server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) opdracht.
+Uitvoeren als u de logboekbestanden van de beschikbare langzame query's voor uw server, de [az mariadb-server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) opdracht.
 
 U kunt een lijst de logboekbestanden voor server **mydemoserver.mariadb.database.azure.com** onder de resourcegroep **myresourcegroup**. De lijst met logboekbestanden naar een tekstbestand met de naam vervolgens direct **log\_bestanden\_lijst.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [serverlogboeken in Azure Database voor MariaDB](concepts-server-logs.md).
+- Meer informatie over [logboeken van de langzame query's in Azure Database voor MariaDB](concepts-server-logs.md).

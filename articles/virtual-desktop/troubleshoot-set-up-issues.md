@@ -8,10 +8,10 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523332"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Tenants en hostpools maken
@@ -320,7 +320,7 @@ Voorbeeld van onbewerkte fout:
 Als u de Azure Marketplace-aanbieding uitvoert, waarden opgeven voor de volgende parameters voor de virtuele Windows-bureaublad correct verificatie:
 
 - Virtuele Windows-bureaublad-tenant de eigenaar van de extern bureaublad-services: Service-principal
-- Toepassings-id: De toepassings-id van de nieuwe service-principal die u hebt gemaakt.
+- Toepassings-ID: De toepassings-id van de nieuwe service-principal die u hebt gemaakt.
 - Wachtwoord/Bevestig het wachtwoord: Het wachtwoord geheim dat u hebt gegenereerd voor de service-principal
 - Azure AD-Tenant-ID: De Azure AD-Tenant-ID van de service-principal die u hebt gemaakt.
 

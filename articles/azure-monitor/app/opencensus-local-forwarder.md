@@ -13,10 +13,10 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699319"
 ---
 # <a name="local-forwarder-preview"></a>Lokale doorstuurserver (Preview)
@@ -29,13 +29,13 @@ Lokale doorstuurserver is een [open-SourceProject op GitHub](https://github.com/
 
 ### <a name="windows"></a>Windows
 
-#### <a name="windows-service"></a>Windows-service
+#### <a name="windows-service"></a>Windows Service
 
 De eenvoudigste manier om lokale doorstuurserver die wordt uitgevoerd onder Windows is door het te installeren als een Windows-Service. De versie wordt geleverd met een Windows-Service kan worden uitgevoerd (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) die eenvoudig kunnen worden geregistreerd met het besturingssysteem.
 
 > [!NOTE]
 > De lokale doorstuurserver minimaal .NET Framework 4.7 is vereist. Als u geen .NET Framework 4.7 de service wordt niet installeren, maar het gestart. Voor toegang tot de meest recente versie van .NET Framework **[gaat u naar de downloadpagina van .NET Framework](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Download de LF. WindowsServiceHost.zip-bestand van de [lokale doorstuurserver release pagina](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) op GitHub.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* De service controleren door te inspecteren **.log* bestanden in de map /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* De service controleren door te inspecteren * *.log* bestanden in de map /home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 Lokale doorstuurserver kan ook werken met Mac OS, maar het is momenteel niet officieel ondersteund.
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>Bewaking van lokale doorstuurserver
 
-Traceringen worden geschreven naar het bestandssysteem naast het uitvoerbare bestand dat lokale-doorstuurserver wordt uitgevoerd (zoek naar **.log* bestanden). U kunt een bestand met de naam plaatsen *NLog.config* naast het uitvoerbare bestand voor uw eigen configuratie in plaats van de standaardwaarde. Zie [documentatie](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) voor de beschrijving van de indeling.
+Traceringen worden geschreven naar het bestandssysteem naast het uitvoerbare bestand dat lokale-doorstuurserver wordt uitgevoerd (zoek naar * *.log* bestanden). U kunt een bestand met de naam plaatsen *NLog.config* naast het uitvoerbare bestand voor uw eigen configuratie in plaats van de standaardwaarde. Zie [documentatie](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) voor de beschrijving van de indeling.
 
 Als er is geen configuratiebestand is opgegeven (dit is de standaardinstelling), lokale doorstuurserver zal worden gebruikt voor het gebruik van de standaardconfiguratie, die kan worden gevonden [hier](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 

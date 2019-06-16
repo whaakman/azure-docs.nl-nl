@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097689"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Een ILB-listener voor AlwaysOn-beschikbaarheidsgroepen configureren in Azure
@@ -105,7 +105,7 @@ Maak een eindpunt met load balancing voor elke virtuele machine die als host fun
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Nadat u de variabelen hebt ingesteld, kopieert u het script van de teksteditor aan uw PowerShell-sessie uit te voeren. Als u nog steeds weergegeven in de prompt **>>**, druk op Enter opnieuw te controleren of het script wordt uitgevoerd.
+13. Nadat u de variabelen hebt ingesteld, kopieert u het script van de teksteditor aan uw PowerShell-sessie uit te voeren. Als u nog steeds weergegeven in de prompt **>>** , druk op Enter opnieuw te controleren of het script wordt uitgevoerd.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Controleer of KB2854082 is geïnstalleerd, indien nodig
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Maak de beschikbaarheidsgroep-listener in twee stappen. Eerst de clusterresource
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Nadat u de variabelen hebt ingesteld, open een verhoogde Windows PowerShell-venster, het script van de teksteditor te plakken in uw PowerShell-sessie uit te voeren. Als u nog steeds weergegeven in de prompt **>>**, druk op Enter opnieuw om het ervoor te zorgen dat het script wordt uitgevoerd.
+3. Nadat u de variabelen hebt ingesteld, open een verhoogde Windows PowerShell-venster, het script van de teksteditor te plakken in uw PowerShell-sessie uit te voeren. Als u nog steeds weergegeven in de prompt **>>** , druk op Enter opnieuw om het ervoor te zorgen dat het script wordt uitgevoerd.
 
 4. Herhaal de voorgaande stappen voor elke virtuele machine.  
     Met dit script wordt de resource van het IP-adres geconfigureerd met het IP-adres van de cloudservice en andere parameters, zoals de testpoort ingesteld. Als de IP-adresresource online is geplaatst, kan het reageren op de polling op de testpoort van het eindpunt met gelijke die u eerder hebt gemaakt.

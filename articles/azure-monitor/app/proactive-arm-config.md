@@ -14,10 +14,10 @@ ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
 ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461558"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Regels voor slimme detectie van Application Insights met behulp van Azure Resource Manager-sjablonen beheren
@@ -39,7 +39,7 @@ Elke regel voor slimme detectie kan worden geconfigureerd met unieke meldingsins
 ## <a name="examples"></a>Voorbeelden
 
 Hieronder vindt u enkele voorbeelden die laten zien hoe u configureert de instellingen van regels voor slimme detectie met behulp van Azure Resource Manager-sjablonen.
-Alle voorbeelden verwijzen naar een Application Insights-resource met de naam _"myApplication"_, en aan de 'afhankelijkheid lange duur van de regel voor slimme detectie", die intern heet _"longdependencyduration"_.
+Alle voorbeelden verwijzen naar een Application Insights-resource met de naam _"myApplication"_ , en aan de 'afhankelijkheid lange duur van de regel voor slimme detectie", die intern heet _"longdependencyduration"_ .
 Zorg ervoor dat ter vervanging van de naam van de Application Insights-resource, en om op te geven van de interne naam van de relevante Slimme detectie. Controleer de onderstaande tabel voor een lijst van de bijbehorende interne Azure Resource Manager-namen voor elke regel voor slimme detectie.
 
 ### <a name="disable-a-smart-detection-rule"></a>Een regel voor slimme detectie uitschakelen
@@ -146,9 +146,9 @@ Hieronder ziet u een tabel met de namen van Slimme detectie zoals ze worden weer
 | Azure portal regelnaam | Interne naam
 |:---|:---|
 | Langzame paginalaadtijd | slowpageloadtime |
-| Langzame reactietijd voor de server | slowserverresponsetime |
-| Lange duur van de afhankelijkheid | longdependencyduration |
-| Degradatie van de serverreactietijd | degradationinserverresponsetime |
+| Trage reactietijd | slowserverresponsetime |
+| Lange afhankelijkheidsduur | longdependencyduration |
+| Vermindering in responstijd van de server | degradationinserverresponsetime |
 | Degradatie van afhankelijkheidsduur | degradationindependencyduration |
 | Degradatie traceren ernst breedteverhouding (preview) | extension_traceseveritydetector |
 | Abnormale toename van uitzonderingen (preview) | extension_exceptionchangeextension |

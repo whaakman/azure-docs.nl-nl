@@ -14,15 +14,15 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462384"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Naar of van Oracle on-premises gegevens kopiëren met behulp van Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-onprem-oracle-connector.md)
 > * [Versie 2 (huidige versie)](../connector-oracle.md)
 
@@ -55,7 +55,7 @@ De gateway is vereist, zelfs als de Oracle wordt gehost in een Azure-infrastruct
 
 Deze connector Oracle bieden ondersteuning voor twee versies van stuurprogramma's:
 
-- **Microsoft-stuurprogramma voor Oracle (aanbevolen)**: Een Microsoft-stuurprogramma voor Oracle, dat is vanaf Data Management Gateway versie 2.7, wordt automatisch geïnstalleerd met de gateway. U hoeft niet te installeren of bijwerken van het stuurprogramma voor het maken van verbinding met Oracle. U kunt ook betere kopieerprestaties ervaren door dit stuurprogramma. Deze versies van Oracle-databases worden ondersteund:
+- **Microsoft-stuurprogramma voor Oracle (aanbevolen)** : Een Microsoft-stuurprogramma voor Oracle, dat is vanaf Data Management Gateway versie 2.7, wordt automatisch geïnstalleerd met de gateway. U hoeft niet te installeren of bijwerken van het stuurprogramma voor het maken van verbinding met Oracle. U kunt ook betere kopieerprestaties ervaren door dit stuurprogramma. Deze versies van Oracle-databases worden ondersteund:
   - Oracle 12c R1 (12.1)
   - Oracle 11g R1, R2 (11.1, 11.2)
   - Oracle 10g R1, R2 (10.1, 10.2)
@@ -183,7 +183,7 @@ In de Kopieeractiviteit, wanneer de bron is de **OracleSource** type, de volgend
 | writeBatchTimeout |De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out. |**timespan**<br/><br/> Voorbeeld: 00:30:00 uur (30 minuten) |Nee |
 | writeBatchSize |Gegevens invoegen in de SQL-tabel wanneer de waarde van de buffergrootte is bereikt **writeBatchSize**. |Geheel getal (aantal rijen) |Nee (standaard: 100) |
 | sqlWriterCleanupScript |Hiermee geeft u een query voor de Kopieeractiviteit om uit te voeren zodat de gegevens van een bepaald segment wordt opgeschoond. |Een query-instructie. |Nee |
-| sliceIdentifierColumnName |Hiermee geeft u de naam van de kolom voor de Kopieeractiviteit in te vullen met een automatisch gegenereerde segment-id. De waarde voor **sliceIdentifierColumnName** wordt gebruikt voor het opschonen van gegevens van een bepaald segment wanneer opnieuw uitgevoerd. |De naam van de kolom van een kolom met gegevenstype van **binary(32)**. |Nee |
+| sliceIdentifierColumnName |Hiermee geeft u de naam van de kolom voor de Kopieeractiviteit in te vullen met een automatisch gegenereerde segment-id. De waarde voor **sliceIdentifierColumnName** wordt gebruikt voor het opschonen van gegevens van een bepaald segment wanneer opnieuw uitgevoerd. |De naam van de kolom van een kolom met gegevenstype van **binary(32)** . |Nee |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van de Oracle-database
 
@@ -571,7 +571,7 @@ De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor het gebruik v
     1. Open het configuratiebestand van de machine voor .NET 2.0 uit de map < systeemschijf\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Zoeken naar **Oracle-gegevensprovider voor .NET**. U moet kunnen geen vermelding vinden, zoals wordt weergegeven in het volgende voorbeeld onder **systeem.gegevens** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Deze vermelding kopiëren naar het bestand machine.config in de volgende .NET 4.0-map: < systeemschijf\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Wijzig de versie in 4.xxx.x.x.
-* Installeer < ODP.NET geïnstalleerd pad\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll in de global assembly-cache (GAC) door te voeren **gacutil /i [providerpad]**.
+* Installeer < ODP.NET geïnstalleerd pad\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll in de global assembly-cache (GAC) door te voeren **gacutil /i [providerpad]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Probleem 2: Datum/tijd opmaken
 
@@ -597,27 +597,27 @@ Wanneer u gegevens van Oracle hebt verplaatst, worden de volgende toewijzingen v
 
 | Oracle-gegevenstype | .NET framework-gegevenstype |
 | --- | --- |
-| BBESTAND |Byte[] |
+| BFILE |Byte[] |
 | BLOB |Byte[]<br/>(alleen ondersteund op Oracle 10g en latere versies wanneer u een stuurprogramma van Microsoft) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimaal getal, tekenreeks (als precisie > 28) |
-| GEHEEL GETAL ZIJN |Decimaal getal, tekenreeks (als precisie > 28) |
+| FLOAT |Decimal, String (als precisie > 28) |
+| INTEGER |Decimal, String (als precisie > 28) |
 | INTERVAL VOOR JAAR TOT MAAND |Int32 |
 | TWEEDE INTERVAL DAG |TimeSpan |
 | LONG |String |
-| LANGE ONBEWERKTE |Byte[] |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| AANTAL |Decimaal getal, tekenreeks (als precisie > 28) |
+| NUMBER |Decimal, String (als precisie > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
 | TIMESTAMP |DateTime |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |DateTime |
-| TIJDSTEMPEL MET TIJDZONE |DateTime |
-| GEHEEL GETAL ZONDER TEKEN |Aantal |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

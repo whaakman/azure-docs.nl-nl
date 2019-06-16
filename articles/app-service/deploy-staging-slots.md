@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
 ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955897"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
@@ -99,7 +99,7 @@ Functies die zijn gemarkeerd met een * zijn gepland om te worden aangebracht in 
 * Schaalinstellingen
 * WebJobs-planners
 * IP-beperkingen
-* Altijd aan
+* AlwaysOn
 * Instellingen-protocol (HTTP**S**, TLS-versie, clientcertificaten)
 * Instellingen voor diagnostische logboeken
 * CORS
@@ -108,7 +108,7 @@ Functies die zijn gemarkeerd met een * zijn gepland om te worden aangebracht in 
 
 Voor het configureren van een app-instelling of de verbindingsreeks aan een specifieke site (niet wisselen), gaat u naar de **toepassingsinstellingen** voor dat de sleuf pagina en selecteer vervolgens de **site-instelling** vak voor de configuratie-elementen die behouden in de sleuf blijven moeten. Een configuratie-element markeren als sleuf specifieke vertelt App Service is niet swappable. 
 
-![Instelling voor site](./media/web-sites-staged-publishing/SlotSetting.png)
+![Site-instelling](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
@@ -159,7 +159,7 @@ Volg deze stappen om te wisselen met Preview-versie.
 
 1. Volg de stappen in [implementatiesites wisselen](#Swap) maar selecteer **wisselen met preview uitvoeren**.
 
-    ![Wisseling met voorbeeld](./media/web-sites-staged-publishing/SwapWithPreview.png)
+    ![Wisselen met Preview-versie](./media/web-sites-staged-publishing/SwapWithPreview.png)
 
     Het dialoogvenster ziet u hoe de configuratie in de sleuf van de bron wordt gewijzigd in fase 1, en hoe de bron en doel-sleuf in fase 2 wijzigen.
 
@@ -195,7 +195,7 @@ Automatisch wisselen stroomlijnt DevOps-scenario's waar u voor het implementeren
 
 Als u wilt configureren voor automatisch wisselen, de volgende stappen uit:
 
-1. Navigeer naar de resourcepagina van uw app. Selecteer **implementatiesites (Preview)** > *\<gewenste bronsite >* > **toepassingsinstellingen**.
+1. Navigeer naar de resourcepagina van uw app. Selecteer **implementatiesites (Preview)**  >  *\<gewenste bronsite >*  > **toepassingsinstellingen**.
    
 2. In **automatisch wisselen**, selecteer **op**, selecteer vervolgens de gewenste doelsleuf in **sleuf voor automatisch wisselen**, en klikt u op **opslaan** in de opdrachtbalk. 
    
@@ -238,7 +238,7 @@ Standaard worden alle aanvragen van clients naar de productie-URL van de app (`h
 
 Om productieverkeer te routeren automatisch, de volgende stappen uit:
 
-1. Navigeer naar de resourcepagina van uw app en selecteer **implementatiesites (Preview)**.
+1. Navigeer naar de resourcepagina van uw app en selecteer **implementatiesites (Preview)** .
 
 2. In de **verkeer %** kolom van de site die u wilt doorsturen naar, Geef een percentage (tussen 0 en 100) staat voor het bedrag van het totale verkeer dat u wilt routeren. Klik op **Opslaan**.
 
@@ -272,7 +272,7 @@ Nieuwe sleuven krijgen standaard een regel voor het doorsturen van `0%`, zoals w
 
 ## <a name="delete-slot"></a>Sleuf verwijderen
 
-Navigeer naar de resourcepagina van uw app. Selecteer **implementatiesites (Preview)** > *\<sleuf verwijderen >* > **overzicht**. Klik op **verwijderen** in de opdrachtbalk.  
+Navigeer naar de resourcepagina van uw app. Selecteer **implementatiesites (Preview)**  >  *\<sleuf verwijderen >*  > **overzicht**. Klik op **verwijderen** in de opdrachtbalk.  
 
 ![Een Implementatiesite verwijderen](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -289,7 +289,7 @@ Azure PowerShell is een module die cmdlets voor het beheren van Azure via Window
 Zie voor informatie over het installeren en configureren van Azure PowerShell, en verificatie van Azure PowerShell met uw Azure-abonnement, [installeren en configureren van Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Web-app maken
+### <a name="create-web-app"></a>Een web-app maken
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

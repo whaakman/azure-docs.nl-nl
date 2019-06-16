@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620491"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
@@ -49,7 +49,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.8.1 rel
 * De vlag voor het berekenen en instellen van de MD5-hash is nu ingeschakeld voor de AzCopy-uploads. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Voorbeeld van functies
+### <a name="preview-features"></a>Preview-functies
 
 * Apparaat code flow aanmelden is nu beschikbaar om te bekijken. Als u wilt inschakelen, gaat u naar 'Preview' → 'Gebruik apparaat Code Flow aanmelden'. U wordt aangeraden alle gebruikers die hebben gehad problemen met lege aanmelding bij windows om te proberen deze functie, zoals het blijken te zijn van een meer betrouwbare vorm van aanmelding.
 * Storage Explorer is geïntegreerd met AzCopy is momenteel beschikbaar voor preview. Als u wilt inschakelen, gaat u naar 'Preview' → 'Met AzCopy voor verbeterde Blob uploaden en downloaden'. BLOB-overdracht is voltooid met AzCopy moeten worden snellere en beter.
@@ -145,7 +145,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.8.1 rel
 * De vlag voor het berekenen en instellen van de MD5-hash is nu ingeschakeld voor de AzCopy-uploads. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Voorbeeld van functies
+### <a name="preview-features"></a>Preview-functies
 
 * Apparaat code flow aanmelden is nu beschikbaar om te bekijken. Als u wilt inschakelen, gaat u naar 'Preview' → 'Gebruik apparaat Code Flow aanmelden'. U wordt aangeraden alle gebruikers die hebben gehad problemen met lege aanmelding bij windows om te proberen deze functie, zoals het blijken te zijn van een meer betrouwbare vorm van aanmelding.
 * Storage Explorer is geïntegreerd met AzCopy is momenteel beschikbaar voor preview. Als u wilt inschakelen, gaat u naar 'Preview' → 'Met AzCopy voor verbeterde Blob uploaden en downloaden'. BLOB-overdracht is voltooid met AzCopy moeten worden snellere en beter.
@@ -198,7 +198,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.8.1 rel
 * U kunt nu de eigenaar en de groep die eigenaar is bij het beheren van toegang voor een ADLS-Gen2 container, bestand of map wijzigen.
 * Op Windows is Opslagverkenner van updates binnen het product nu een incrementele installeren. Dit moet resulteren in een snellere update-ervaring. Als u liever een schone installatie, dan kunt u downloaden de [installatieprogramma](https://azure.microsoft.com/features/storage-explorer/) zelf en installeer vervolgens handmatig. #1089
 
-### <a name="preview-features"></a>Voorbeeld van functies
+### <a name="preview-features"></a>Preview-functies
 
 * Apparaat code flow aanmelden is nu beschikbaar om te bekijken. Als u wilt inschakelen, gaat u naar 'Preview' → 'Gebruik apparaat Code Flow aanmelden'. U wordt aangeraden alle gebruikers die hebben gehad problemen met lege aanmelding bij windows om te proberen deze functie, zoals het blijken te zijn van een meer betrouwbare vorm van aanmelding. #938
 * Storage Explorer is geïntegreerd met AzCopy is momenteel beschikbaar voor preview. Als u wilt inschakelen, gaat u naar 'Preview' → 'Met AzCopy voor verbeterde Blob uploaden en downloaden'. BLOB-overdracht is voltooid met AzCopy moeten worden snellere en beter.

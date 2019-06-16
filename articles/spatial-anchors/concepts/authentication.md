@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e641025d49dd42125aa692925c0697235489b1db
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307150"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073942"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Verificatie en autorisatie voor Azure ruimtelijke ankers
 
@@ -56,7 +56,7 @@ Wanneer dat is gebeurd, wordt de SDK verwerkt de uitwisseling van de accountsleu
 
 ## <a name="azure-ad-user-authentication"></a>Gebruikersverificatie met Azure AD
 
-Voor toepassingen die zijn gericht op Azure Active Directory-gebruikers, de aanbevolen aanpak is een Azure AD-token wordt gebruikt voor de gebruiker die u met behulp van de ADAL-bibliotheek verkrijgen kunt, zoals beschreven in de volgende documentatie: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; u moet de hier vermelde stappen volgen onder 'Quick Start' waaronder:
+Voor toepassingen die zijn gericht op Azure Active Directory-gebruikers, de aanbevolen aanpak is een Azure AD-token wordt gebruikt voor de gebruiker die u met behulp van de ADAL-bibliotheek verkrijgen kunt, zoals beschreven in de volgende documentatie: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); u Volg de stappen die worden vermeld onder 'Quick Start', waaronder:
 
 1. De configuratie in Azure portal
     1.  Registreer uw toepassing in Azure AD als **systeemeigen toepassing**. Als onderdeel van het registreren moet u te bepalen of uw toepassing moet multitenant of niet worden en de URL's toegestaan voor uw toepassing omleiding bieden.  
@@ -73,7 +73,7 @@ Voor toepassingen die zijn gericht op Azure Active Directory-gebruikers, de aanb
         1.  Als uw toepassing ondersteunt **mijn organisatie alleen**, vervang deze waarde aan uw **Tenant-ID** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com)
         2.  Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met **organisaties**
         3.  Als uw toepassing ondersteunt **alle Microsoft-accountgebruikers**, vervang deze waarde met **algemene**
-    3.  Stel op uw tokenaanvraag de **resource** naar 'https://sts.mixedreality.azure.com'. Deze 'resource' wordt aangegeven met Azure AD dat uw toepassing een token voor de service Azure ruimtelijke ankers aanvraagt.  
+    3.  Stel op uw tokenaanvraag de **resource** naar 'https://sts.mixedreality.azure.com '. Deze 'resource' wordt aangegeven met Azure AD dat uw toepassing een token voor de service Azure ruimtelijke ankers aanvraagt.  
 
 Met die uw toepassing zou het mogelijk om te verkrijgen van ADAL met een Azure AD-token; u kunt instellen dat Azure AD-token als de **authenticationtoken weergeeft** op uw cloud-sessie AppConfig-object. 
 
@@ -89,7 +89,7 @@ De aanbevolen optie voor het gebruik te maken van Azure ruimtelijke ankers naar 
 
 Hier wordt ervan uitgegaan dat uw app gebruikmaakt van een eigen mechanisme (bijvoorbeeld: Microsoft-account, PlayFab, Facebook, Google-ID, aangepaste gebruikersnaam en wachtwoord, enz.) aanmelden bij de back endservice. Wanneer uw gebruikers worden geverifieerd met uw back endservice, die service kan ophalen een Azure AD-token exchange het voor een toegangstoken voor ruimtelijke ankers van Azure en deze terug naar uw clienttoepassing te retourneren.
 
-Het Azure AD-toegangstoken wordt opgehaald met behulp van de ADAL-bibliotheek, zoals beschreven in de volgende documentatie: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; u moet de stappen die worden vermeld onder 'Quick Start', waaronder:
+Het Azure AD-toegangstoken wordt opgehaald met behulp van de ADAL-bibliotheek, zoals beschreven in de volgende documentatie: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); u moet de stappen die worden vermeld onder 'Quick Start', waaronder:
 
 1.  De configuratie in Azure portal:
     1.  Uw toepassing registreren in Azure AD:
@@ -107,7 +107,7 @@ Het Azure AD-toegangstoken wordt opgehaald met behulp van de ADAL-bibliotheek, z
 2.  In uw code (Opmerking: u kunt het voorbeeld van de service opgenomen op GitHub):
     1.  Zorg ervoor dat u de toepassings-ID, het toepassingsgeheim en omleidings-Uri van uw eigen Azure AD-toepassing als de client-ID, RedirectUri parameters in ADAL en -geheim
     2.  De tenant-ID ingesteld op uw eigen tenant-ID AAAzure toevoegen in de parameter instantie in ADAL
-    3.  Stel op uw tokenaanvraag de **resource** naar "https://sts.mixedreality.azure.com" 
+    3.  Stel op uw tokenaanvraag de **resource** naar "https://sts.mixedreality.azure.com " 
 
 Uw back-endservice kan een Azure AD-token ophalen met die. Het kan deze vervolgens uitwisselen voor een MR-token dat wordt geretourneerd naar de client. Met behulp van een Azure AD-token ophalen een token MR wordt gedaan via een REST-aanroep. Hier volgt een voorbeeld-aanroep:
 

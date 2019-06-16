@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: b62b35320ba1f4473e9b3a039d181d6a2fb58257
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 9dd7f7d07b34ed3c1076b46c0bf5185d6c8cd31a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743618"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074236"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle-installatiekopieën voor virtuele machine en de implementatie ervan op Microsoft Azure
 
@@ -68,6 +68,18 @@ Oracle biedt actieve Oracle DB 12.1 Standard en Enterprise-edities ondersteuning
 ### <a name="attached-disk-configuration-options"></a>Gekoppelde schijf configuratie-opties
 
 Gekoppelde schijven, is afhankelijk van de Azure Blob storage-service. Elke standard-schijf is geschikt voor een theoretisch maximum van ongeveer 500 invoer/uitvoer-bewerkingen per seconde (IOPS). Onze premium-aanbod voor schijf heeft de voorkeur voor databaseworkloads met hoge prestaties en kan maar liefst tot 5000 IOP's per schijf. U kunt één schijf als die voldoet aan uw prestatievereisten past. U kunt echter de effectieve IOPS-prestaties verbeteren als u meerdere gekoppelde schijven te gebruiken, een databasegegevens verdeeld over deze, en vervolgens met Oracle automatische Storage Management (ASM). Zie [automatische opslag van Oracle-overzicht](https://www.oracle.com/technetwork/database/index-100339.html) voor Oracle ASM specifieke informatie. Zie voor een voorbeeld van hoe u kunt installeren en configureren van Oracle Asm installeren op een virtuele Linux Azure-machine, de [installeren en configureren van Oracle geautomatiseerde Storage Management](configure-oracle-asm.md) zelfstudie.
+
+### <a name="shared-storage-configuration-options"></a>Configuratieopties voor gedeelde opslag
+
+Azure Files met NetApp is ontworpen om te voldoen aan de vereisten van de kern van het uitvoeren van krachtige workloads, zoals databases in de cloud en biedt;
+- Systeemeigen Azure storage-service voor het uitvoeren van Oracle-workloads, hetzij via een virtuele machine systeemeigen NFS-client of Oracle dNFS NFS gedeeld
+- Schaalbare prestatielagen die overeenkomen met de werkelijke bereik van de IOPS-vereisten
+- Lage latentie
+- Hoge beschikbaarheid, hoge duurzaamheid en beheerbaarheid op schaal, doorgaans worden vereist door essentiële taken kritiek bedrijfsworkloads (zoals SAP en Oracle)
+- Snelle en efficiënte back-up en herstel, om de agressief RTO en RPO SLA's te realiseren
+
+Deze mogelijkheden zijn mogelijk omdat Azure NetApp bestanden is gebaseerd op NetApp ONTAP® all-flash-systemen die binnen de omgeving van het Azure data center – als een systeemeigen Azure-service worden uitgevoerd. Het resultaat is een ideale database opslagtechnologie die kan worden ingericht en verbruikt net als andere Azure storage-opties. Zie [Azure NetApp Files documentatie](https://docs.microsoft.com/azure/azure-netapp-files/) voor meer informatie over het implementeren en toegang tot Azure NetApp bestanden NFS-volumes. Zie [Oracle op Azure Best Practice Guide met behulp van Azure NetApp Implementatiebestanden](https://www.netapp.com/us/media/tr-4780.pdf) voor aanbevelingen voor het besturingssysteem van een Oracle-database op Azure NetApp bestanden.
+
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 Oracle RAC is ontworpen voor het beperken van het uitvallen van één knooppunt in een cluster met meerdere knooppunten on-premises configuratie. Afhankelijk van twee on-premises technologieën die niet ingebouwd in grootschalige openbare cloudomgevingen zijn: gedeelde schijf en netwerk-multicast. Als uw databaseoplossing vereist dat Oracle RAC in Azure, moet u andere software van derden zodat deze technologieën. Zie voor meer informatie over Oracle RAC de [FlashGrid SkyCluster pagina](https://www.flashgrid.io/oracle-rac-in-azure/).

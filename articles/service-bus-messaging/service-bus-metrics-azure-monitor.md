@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
 ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921228"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
@@ -38,13 +38,13 @@ U kunt metrische gegevens controleren na verloop van tijd in de [Azure-portal](h
 
 ![][1]
 
-U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Preview)**. Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de entiteit, selecteer de entiteit en klik vervolgens op **metrische gegevens (preview)**.
+U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Preview)** . Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de entiteit, selecteer de entiteit en klik vervolgens op **metrische gegevens (preview)** .
 
 ![][2]
 
 Voor metrische gegevens voor ondersteuning van dimensies, moet u filteren met de gewenste dimensiewaarde.
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 Met metrische gegevens in Azure Monitor is gratis tijdens preview. Echter, als u aanvullende oplossingen die metrische gegevens opnemen, u mogelijk worden kosten in rekening gebracht door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als u metrische gegevens om een Azure Storage-account te archiveren. U wordt ook gefactureerd door Azure Monitor-Logboeken, als u metrische gegevens naar Azure Monitor-logboeken voor geavanceerde analyse streamen.
 
@@ -99,8 +99,8 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 
 | Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: Percent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
-|Geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: Percent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
+|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: Procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
+|Geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: Procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens over dimensies
 
@@ -124,7 +124,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
         ![Naamruimte selecteren](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selecteer **criteria toevoegen**, en de volgende acties uitvoeren op de **signaallogica configureren** pagina:
     1. Selecteer **metrische gegevens** voor **signaal type**. 
-    2. Selecteer een signaal. Bijvoorbeeld: **Service-fouten (Preview)**. 
+    2. Selecteer een signaal. Bijvoorbeeld: **Service-fouten (Preview)** . 
 
         ![Selecteer de server-fouten](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selecteer **groter is dan** voor **voorwaarde**.
@@ -138,7 +138,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
     2. Voer een **beschrijving** voor de waarschuwing.
     3. Selecteer **ernst** voor de waarschuwing. 
 
-        ![Waarschuwingsdetails](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Meldingsdetails](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Op de **maken regel** pagina uit, vouw **actiegroep definiëren**, selecteer **nieuwe actiegroep**, en de volgende acties uitvoeren op de **pagina van de groep toevoegen actie**. 
     1. Voer een naam voor de actiegroep.
     2. Voer een korte naam voor de actiegroep. 
@@ -152,7 +152,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
         2. Type de **e-mailadres**. 
         3. Selecteer **OK**.
 
-            ![Waarschuwingsdetails](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Meldingsdetails](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Op de **actiegroep toevoegen** weergeeft, schakelt **OK**. 
 1. Op de **maken regel** weergeeft, schakelt **waarschuwingsregel maken**. 
 

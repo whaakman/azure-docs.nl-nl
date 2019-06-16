@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190399"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137270"
 ---
 # <a name="why-use-batch-transcription"></a>Waarom Batch transcriptie gebruiken?
 
@@ -66,8 +66,8 @@ Parameters voor de configuratie worden gegeven als JSON:
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
@@ -83,14 +83,16 @@ Parameters voor de configuratie worden gegeven als JSON:
 
 ### <a name="configuration-properties"></a>Configuratie-eigenschappen
 
-| Parameter | Description | Vereiste / optioneel |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | Geeft aan hoe grof taalgebruik in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld grof taalgebruik filteren, `masked` die grof taalgebruik vervangen door sterretjes, `removed` waarbij alle scheldwoorden worden verwijderd uit het resultaat, of `tags` zodat 'grof taalgebruik' tags aan wordt toegevoegd. De standaardinstelling is `masked`. | Optioneel |
-| `PunctuationMode` | Geeft aan hoe interpunctie in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld interpunctie, `dictated` dit expliciete interpunctie houdt `automatic` waarmee de decoder interpunctie, behandelt of `dictatedandautomatic` dit houdt bepaald leestekens of automatisch. | Optioneel |
- | `AddWordLevelTimestamps` | Hiermee geeft u als word niveau tijdstempels moet worden toegevoegd aan de uitvoer. Geaccepteerde waarden zijn `true` waarmee word niveau tijdstempels en `false` (de standaardwaarde) uitschakelen. | Optioneel |
- | `AddSentiment` | Hiermee geeft u op gevoel moet worden toegevoegd aan de utterance. Geaccepteerde waarden zijn `true` waarmee sentiment per utterance en `false` (de standaardwaarde) uitschakelen. | Optioneel |
+Gebruik deze optionele eigenschappen transcriptie configureren:
 
-### <a name="storage"></a>Storage
+| Parameter | Description |
+|-----------|-------------|
+| `ProfanityFilterMode` | Geeft aan hoe grof taalgebruik in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld grof taalgebruik filteren, `masked` die grof taalgebruik vervangen door sterretjes, `removed` waarbij alle scheldwoorden worden verwijderd uit het resultaat, of `tags` zodat 'grof taalgebruik' tags aan wordt toegevoegd. De standaardinstelling is `masked`. |
+| `PunctuationMode` | Geeft aan hoe interpunctie in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld interpunctie, `dictated` dit expliciete interpunctie houdt `automatic` waarmee de decoder interpunctie, behandelt of `dictatedandautomatic` dit houdt bepaald leestekens of automatisch. |
+ | `AddWordLevelTimestamps` | Hiermee geeft u als word niveau tijdstempels moet worden toegevoegd aan de uitvoer. Geaccepteerde waarden zijn `true` waarmee word niveau tijdstempels en `false` (de standaardwaarde) uitschakelen. |
+ | `AddSentiment` | Hiermee geeft u op gevoel moet worden toegevoegd aan de utterance. Geaccepteerde waarden zijn `true` waarmee sentiment per utterance en `false` (de standaardwaarde) uitschakelen. |
+
+### <a name="storage"></a>Opslag
 
 Batch ondersteunt transcriptie [Azure Blob-opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) voor het lezen van audio en transcripties van het schrijven naar de opslag.
 
@@ -99,6 +101,40 @@ Batch ondersteunt transcriptie [Azure Blob-opslag](https://docs.microsoft.com/az
 Polling voor de status van transcriptie mogelijk niet de meeste prestaties of de beste gebruikerservaring te bieden. Als u wilt laten pollen van status, kunt u zich registreren callbacks, die de client ontvangt wanneer langlopende transcriptie taken zijn voltooid.
 
 Zie voor meer informatie, [Webhooks](webhooks.md).
+
+## <a name="speaker-separation-diarization"></a>Sprekerherkenning scheiding (Diarization)
+
+Diarization is het proces voor het scheiden van luidsprekers in een stukje audio. Onze pijplijn Batch ondersteunt Diarization en is geschikt voor twee sprekers op mono kanaal opnamen herkennen.
+
+Als u wilt dat uw aanvraag audiotranscriptie voor diarization is verwerkt, moet u gewoon de relevante parameter in de HTTP-aanvraag toevoegen, zoals hieronder wordt weergegeven.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Word niveau tijdstempels moet ook zijn ' ingeschakeld ' als de parameters in de bovenstaande aanvraag geven. 
+
+De bijbehorende audio bevat de luidsprekers geïdentificeerd door een getal (momenteel kunnen slechts twee stemmen, zodat de luidsprekers aangeduid als ' spreker 1 ' en 'Spreker 2') gevolgd door de uitvoer transcriptie.
+
+Houd er ook rekening mee Diarization is niet beschikbaar in Stereo-opnamen. Bovendien alle JSON de uitvoer bevat de Sprekerherkenning-tag. Als diarization niet gebruikt wordt, wordt het weergegeven ' spreker: Null' in de JSON-uitvoer.
+
+Ondersteunde landinstellingen worden hieronder vermeld.
+
+| Taal | Landinstelling |
+|--------|-------|
+| Nederlands | en-US |
+| Chinees | zh-CN |
+| Deutsch | de-DE |
 
 ## <a name="sentiment"></a>Sentiment
 
@@ -110,7 +146,7 @@ Sentiment is een nieuwe functie in Batch transcriptie API en is een belangrijk o
 4.  Wat is een fout als negatief aanroepen naar positieve inschakelen met deze functie
 5.  Wat klanten en wat ze niet bevalt over een product of een service identificeren
 
-Gevoel wordt berekend per audio segment waarbij een audio-segment is gedefinieerd als het verstrijken van de tijd tussen het begin van de utterance (offset) en de detectie van stilte van einde van de bytestroom. De volledige tekst in dat segment wordt gebruikt om het gevoel te berekenen. We niet berekenen alle cumulatieve sentiment-waarden voor de volledige aanroep of de hele spraak van elk kanaal. Deze worden van links naar de domeineigenaar verder toepassen.
+Gevoel wordt berekend per audio segment waarbij een audio-segment is gedefinieerd als het verstrijken van de tijd tussen het begin van de utterance (offset) en de detectie van stilte van einde van de bytestroom. De volledige tekst in dat segment wordt gebruikt om het gevoel te berekenen. We niet berekenen alle cumulatieve sentiment-waarden voor de volledige aanroep of de hele spraak van elk kanaal. Deze aggregaties worden van links naar de domeineigenaar verder toepassen.
 
 Gevoel wordt toegepast op het lexicale formulier.
 
@@ -149,11 +185,11 @@ Een voorbeeld van de JSON-uitvoer ziet eruit zoals hieronder:
   ]
 }
 ```
-De functies maakt gebruik van een Sentiment-model dat zich momenteel in de bètaversie.
+De functie maakt gebruik van een model Sentiment, dat zich momenteel in de bètaversie.
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-Het volledige voorbeeld is beschikbaar in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples) binnen de `samples/batch` submap.
+Volledige voorbeelden zijn beschikbaar in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples) binnen de `samples/batch` submap.
 
 U moet de voorbeeldcode met de gegevens van uw abonnement, de regio van de service, de SAS-URI die verwijst naar het audiobestand te transcriberen en model van id's in het geval u wilt gebruiken een aangepaste akoestische of taal model aanpassen. 
 

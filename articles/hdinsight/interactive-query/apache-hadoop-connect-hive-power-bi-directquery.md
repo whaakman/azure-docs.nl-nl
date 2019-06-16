@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800996"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Interactieve Query Apache Hive-gegevens visualiseren met Microsoft Power BI met behulp van directquery in Azure HDInsight
@@ -27,7 +27,7 @@ U kunt gebruikmaken van de [Apache Hive ODBC-stuurprogramma](../hadoop/apache-ha
 Voordat u verdergaat met dit artikel, hebt u de volgende items:
 
 * **HDInsight-cluster**. Het cluster kan zijn op een HDInsight-cluster met Apache Hive of een nieuw uitgebrachte Interactive Query-cluster. Zie voor het maken van clusters, [-cluster maken](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. U kunt een kopie van downloaden de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . U kunt een kopie van downloaden de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Laden van gegevens uit HDInsight
 
@@ -49,7 +49,7 @@ De `hivesampletable` Hive-tabel wordt geleverd met alle HDInsight-clusters.
 
     |Eigenschap | Waarde |
     |---|---|
-    |Server  |Voer de naam van het cluster, bijvoorbeeld *myiqcluster.azurehdinsight.net*.|
+    |Server |Voer de naam van het cluster, bijvoorbeeld *myiqcluster.azurehdinsight.net*.|
     |Database |Voer **standaard** voor dit artikel.|
     |Gegevensverbindingsmodus |Selecteer **DirectQuery** voor dit artikel.|
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062166"
 ---
 # <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
 
@@ -55,7 +55,7 @@ Een LUIS-app bevat een specifiek domeinmodel voor natuurlijke taal. U kunt de LU
 ## <a name="build-the-luis-model"></a>Het LUIS-model opbouwen
 U bouwt het model op met de [ontwerp](https://go.microsoft.com/fwlink/?linkid=2092087)-API's of met de LUIS-portal.
 
-Om te beginnen definieert u categorieën gebruikersintenties, ook wel kortweg  **[intenties](luis-concept-intent.md)** genoemd. Voor elke intentie zijn voorbeelden van **[uitingen](luis-concept-utterance.md)** van gebruikers vereist. Elke uiting kan verschillende gegevens bevatten. Deze moeten worden geëxtraheerd met **[entiteiten](luis-concept-entity-types.md)**. 
+Om te beginnen definieert u categorieën gebruikersintenties, ook wel kortweg  **[intenties](luis-concept-intent.md)** genoemd. Voor elke intentie zijn voorbeelden van **[uitingen](luis-concept-utterance.md)** van gebruikers vereist. Elke uiting kan verschillende gegevens bevatten. Deze moeten worden geëxtraheerd met **[entiteiten](luis-concept-entity-types.md)** . 
 
 |Voorbeeld van een uiting van een gebruiker|Intentie|Entiteiten|
 |-----------|-----------|-----------|
@@ -101,7 +101,7 @@ LUIS biedt hulpprogramma's, versiebeheer en samenwerking met andere LUIS-auteurs
 LUIS kan als REST-API worden geïntegreerd met elk product, elke service en elk framework waarmee een HTTP-aanvraag wordt gemaakt. De volgende lijst bevat de belangrijkste Microsoft-producten en services die gebruikmaken van LUIS.
 
 De populairste clienttoepassing voor LUIS is:
-* [Web-app-bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) - hiermee maakt u snel een met LUIS compatibele chatbot voor communicatie met een gebruiker via tekstinvoer. Deze maakt gebruik van [Bot Framework][bot-framework] versie [3.x](https://github.com/Microsoft/BotBuilder) of [4.x](https://github.com/Microsoft/botbuilder-dotnet) voor een complete bot-ervaring.
+* [Web-app-bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) - hiermee maakt u snel een met LUIS compatibele chatbot voor communicatie met een gebruiker via tekstinvoer. Maakt gebruik van [Bot Framework] [ bot-framework] versie [4.x](https://github.com/Microsoft/botbuilder-dotnet) voor een complete bot-ervaring.
 
 Hulpprogramma's om LUIS snel en eenvoudig met een bot te gebruiken:
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) de NPM-pakket biedt ontwerpen en voorspelling met als een zelfstandige vanaf de opdrachtregel-hulpprogramma of importeren. 

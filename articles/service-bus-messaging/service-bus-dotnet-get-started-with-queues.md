@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991768"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
@@ -42,7 +42,7 @@ Maak een C#-consoletoepassing met Visual Studio om berichten naar de wachtrij te
 
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
-Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)**.
+Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)** .
 
 ### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
 
@@ -387,7 +387,7 @@ Voor het ontvangen van de berichten die u hebt verzonden, maakt u een andere .NE
     ```
 4. Voer het programma uit en controleer de portal opnieuw. De waarden voor **Aantal actieve berichten** en **Huidige** moeten nu **0** zijn.
    
-    ![Lengte van wachtrij][queue-message-receive]
+    ![Wachtrijlengte][queue-message-receive]
 
 Gefeliciteerd! U hebt nu een wachtrij gemaakt, een set berichten verzonden naar die wachtrij en deze berichten ontvangen van dezelfde wachtrij.
 

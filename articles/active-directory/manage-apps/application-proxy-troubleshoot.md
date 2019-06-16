@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbdccf3b7a3ba1b8e55befa0fdc24eeff3e403da
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108369"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met Application Proxy- en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD Application Proxy correct werkt:
@@ -91,7 +91,7 @@ Als er een fout of een probleem met Azure AD-toepassingsproxy die niet wordt ver
 * [Schakel de toepassingsproxy voor Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publiceren van toepassingen met toepassingsproxy](application-proxy-add-on-premises-application.md)
 * [Eenmalige aanmelding inschakelen](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Voorwaardelijke toegang inschakelen](application-proxy-integrate-with-sharepoint-server.md)
+* [Inschakelen van voorwaardelijke toegang](application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

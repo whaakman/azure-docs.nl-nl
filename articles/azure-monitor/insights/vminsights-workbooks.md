@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387155"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Interactieve rapporten maken met Azure Monitor-werkmappen
@@ -33,7 +33,7 @@ Werkmappen zijn handig voor scenario's zoals:
 
 Azure Monitor voor VM's bevat verschillende werkmappen u aan de slag, en de volgende tabel geeft een overzicht van deze.
 
-| Werkmap | Description | Bereik |
+| Werkmap | Description | Scope |
 |----------|-------------|-------|
 | Prestaties | Biedt een aanpasbare versie van onze Top N-lijst en grafieken weergeven in een enkele werkboek die gebruikmaakt van alle van de Log Analytics-prestatiemeteritems die u hebt ingeschakeld.| Op schaal |
 | Prestatiemeteritems | Een Top N grafiek weergeven voor een groot aanbod van prestatiemeteritems. | Op schaal |
@@ -57,7 +57,7 @@ Een werkmap is opgebouwd uit secties die bestaan uit onafhankelijk bewerkbare gr
 
 3. Selecteer een VM in de lijst.
 
-4. Op de pagina virtuele machine in de **bewaking** sectie, selecteer **inzichten (preview)**.
+4. Op de pagina virtuele machine in de **bewaking** sectie, selecteer **inzichten (preview)** .
 
 5. Selecteer op de pagina van de inzichten VM **prestaties** of **Maps** tabblad en selecteer vervolgens **weergave werkmappen** via de koppeling op de pagina. 
 
@@ -173,7 +173,7 @@ Er zijn vier typen parameters, die momenteel worden ondersteund:
 
 ### <a name="using-a-text-parameter"></a>Met behulp van een tekstparameter
 
-De waarde van een gebruiker typt in het tekstvak wordt vervangen rechtstreeks in de query, zonder aanhalingstekens of aanhalingstekens voor. Als de waarde die u moet een tekenreeks is de query aanhalingstekens rond de parameter moet hebben (zoals **{parameter}**).
+De waarde van een gebruiker typt in het tekstvak wordt vervangen rechtstreeks in de query, zonder aanhalingstekens of aanhalingstekens voor. Als de waarde die u moet een tekenreeks is de query aanhalingstekens rond de parameter moet hebben (zoals **{parameter}** ).
 
 De tekstparameter zorgt ervoor dat de waarde in een tekstvak in op overal worden gebruikt. Mag een tabelnaam, kolomnaam, naam van de functie, operator, enzovoort.  Het parametertype tekst is een instelling **standaardwaarde ophalen uit analytische query**, waarmee de auteur van werkmap een query gebruiken voor het vullen van de standaardwaarde voor het tekstvak.
 
@@ -227,7 +227,7 @@ Terwijl u uw eigen aangepaste tijd bereik parameter via het parametertype van de
 
 Time range parametertypen hebben 15 standaard bereiken die naar de laatste 90 dagen gaan van vijf minuten. Er is ook een optie om toe te staan selectie aangepast tijdsbereik, waardoor de operator van het rapport om te kiezen expliciete starten en stoppen van de waarden voor het tijdsbereik.
 
-### <a name="resource-picker"></a>Resourcekiezer
+### <a name="resource-picker"></a>Bronkiezer
 
 Het parametertype van de resource-kiezer biedt u de mogelijkheid om het bereik van uw rapport voor bepaalde typen resources te. Een voorbeeld van een vooraf gedefinieerde werkmap die gebruikmaakt van het type resource datumkiezer is de **prestaties** werkmap.
 

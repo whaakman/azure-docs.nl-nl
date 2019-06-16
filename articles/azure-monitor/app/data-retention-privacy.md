@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: mbullwin
 ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518845"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
@@ -240,9 +240,9 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 
 | De actie | Gegevensklassen die worden verzameld (Zie de volgende tabel) |
 | --- | --- |
-| [Application Insights-SDK toevoegen aan een .NET-web-project][greenbrown] |ServerContext<br/>Afgeleid<br/>Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>Gebruikers |
+| [Application Insights-SDK toevoegen aan een .NET-web-project][greenbrown] |ServerContext<br/>Afgeleid<br/>Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>gebruikers |
 | [Installeer statusmonitor op IIS][redfield] |Afhankelijkheden<br/>ServerContext<br/>Afgeleid<br/>Prestatiemeteritems |
-| [Application Insights SDK toevoegen aan een Java-web-app][java] |ServerContext<br/>Afgeleid<br/>Aanvragen<br/>Sessie<br/>Gebruikers |
+| [Application Insights SDK toevoegen aan een Java-web-app][java] |ServerContext<br/>Afgeleid<br/>Aanvraag<br/>Sessie<br/>gebruikers |
 | [JavaScript SDK toevoegen aan webpagina][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Standaard-eigenschappen definiëren][apiproperties] |**Eigenschappen van** op alle standaardentiteiten en aangepaste gebeurtenissen |
 | [Call TrackMetric][api] |Numerieke waarden<br/>**Eigenschappen** |
@@ -263,7 +263,7 @@ Voor [SDK's voor andere platforms][platforms], Zie de documenten.
 | ServerContext |Naam van de computer, landinstelling, besturingssysteem, apparaat, gebruikerssessie, gebruikerscontext, bewerking |
 | Afgeleid |geo-locatie van IP-adres, timestamp, besturingssysteem, browser |
 | Metrische gegevens |Naam van de meetwaarde en de waarde |
-| Gebeurtenissen |Gebeurtenisnaam en waarde |
+| Events |Gebeurtenisnaam en waarde |
 | PageViews |URL- en -naam of de schermnaam van het |
 | Client voor prestaties |URL-/ pagina-naam, de laadtijd van de browser |
 | Ajax |HTTP-aanroepen van de webpagina met server |

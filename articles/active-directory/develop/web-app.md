@@ -18,13 +18,13 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544729"
 ---
-# <a name="web-apps"></a>Web Apps
+# <a name="web-apps"></a>Web-apps
 
 Web-apps zijn toepassingen die een gebruiker in een webbrowser om een webtoepassing te verifiëren. De web-App in dit scenario zorgt ervoor dat de browser van de gebruiker ze zich aanmelden bij Azure AD. Azure AD retourneert een antwoord aanmelden via de browser van de gebruiker, met claims over de gebruiker in een beveiligingstoken. In dit scenario biedt ondersteuning voor aanmelding met behulp van de OpenID Connect, SAML 2.0 en WS-Federation-protocollen.
 

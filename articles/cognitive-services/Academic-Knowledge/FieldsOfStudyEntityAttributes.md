@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: e9d6badf76efd03c0520a728af7b3e47b25f200a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339582"
 ---
 # <a name="field-of-study-entity"></a>Veld van het onderzoek naar entiteit
@@ -23,11 +23,11 @@ ms.locfileid: "61339582"
 
 Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entiteits-id                              |Int64      |Is gelijk aan
+Id      |Entiteit-ID                              |Int64      |Is gelijk aan
 FN      |Veld van genormaliseerde studie-naam         |String     |Is gelijk aan
-DFN     |Veld studie-weergavenaam            |String     |geen
-CC      |Veld van het onderzoek totale citaat aantal    |Int32      |geen  
-ECC     |Veld van het aantal totale geschatte citaat|Int32      |geen
+DFN     |Veld studie-weergavenaam            |String     |Geen
+CC      |Veld van het onderzoek totale citaat aantal    |Int32      |Geen  
+ECC     |Veld van het aantal totale geschatte citaat|Int32      |Geen
 FL      |Velden van de hiërarchie studie-niveau     |Int32      |Is gelijk aan, <br/>IsBetween
 FP.FN   |Bovenliggende veld van de naam van het onderzoek             |String     |Is gelijk aan
 FP.FId  |Bovenliggende veld van de ID van het onderzoek               |Int64      |Is gelijk aan

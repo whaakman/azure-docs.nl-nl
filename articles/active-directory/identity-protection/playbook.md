@@ -17,19 +17,19 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294327"
+ms.locfileid: "67108830"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory Identity Protection
 
 Dit playbook helpt u bij:
 
 * Gegevens in de omgeving Identity Protection te vullen door risicogebeurtenissen en beveiligingsproblemen te simuleren
-* Een beleid voor voorwaardelijke toegang op basis van risico's in te stellen en de gevolgen van het beleid te testen
+* Instellen van beleid voor voorwaardelijke toegang op basis van risico en de gevolgen van het beleid testen
 
 
 ## <a name="simulating-risk-events"></a>Risicogebeurtenissen simuleren
@@ -135,7 +135,7 @@ Zie [Het risicobeleid voor gebruikers configureren](howto-user-risk-policy.md) v
 6. Verhoogde bevoegdheden het gebruikersrisico van een testaccount, bijvoorbeeld, een van de risicogebeurtenissen simuleren van een paar keer.
 7. Wacht een paar minuten en controleer vervolgens of het gebruikersniveau van de voor de gebruiker normaal. Als dat niet het geval is, moet u meer risicogebeurtenissen voor de gebruiker simuleren.
 8. Als **beleid afdwingen**, selecteer **op**.
-9. U kunt nu voorwaardelijke toegang voor gebruikers op basis van risico testen als u zich aanmeldt bij het gebruik van een gebruiker met een niveau verhoogd risico.
+9. U kunt nu gebruiker testen risico's gebaseerde voorwaardelijke toegang als u zich aanmeldt bij het gebruik van een gebruiker met een niveau verhoogd risico.
     
     
 

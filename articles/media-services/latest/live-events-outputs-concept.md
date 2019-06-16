@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/12/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114670"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
@@ -54,14 +54,14 @@ Zie een .NET-codevoorbeeld in [MediaV3LiveApp](https://github.com/Azure-Samples/
 
 ![live encoding](./media/live-streaming/live-encoding.svg)
 
-Bij gebruik van live-codering met Media Services zou u uw on-premises live-encoder zodanig configureren dat één bitrate-video als bijdragefeed wordt verzonden naar de livegebeurtenis (met behulp van het protocol RTMP of gefragmenteerde MP4). De livegebeurtenis codeert de binnenkomende enkelvoudige bitrate gegevensstroom in een [videostroom met meerdere bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) en maakt deze beschikbaar voor afgifte naar afspeelapparaten via protocollen als MPEG-DASH, HLS en Smooth Streaming. Bij het maken van dit type livegebeurtenis, geeft u het coderingstype **Standard** (LiveEventEncodingType.Standard) op.
+Bij gebruik van live-codering met Media Services zou u uw on-premises live-encoder zodanig configureren dat één bitrate-video als bijdragefeed wordt verzonden naar de livegebeurtenis (met behulp van het protocol RTMP of gefragmenteerde MP4). U zou vervolgens instellen van een Live gebeurtenis zodat deze die binnenkomende single-bitrate codeert stream naar een [meerdere bitrate videostream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), en wordt de uitvoer beschikbaar gemaakt voor levering aan apparaten via protocollen, zoals MPEG-DASH, HLS, af te spelen en het soepel te verwerken Streaming.
 
-U kunt de bijdragefeed verzenden bij een resolutie tot maximaal 1080 p en een framesnelheid van 30 frames per seconde, met H.264/AVC-videocodec en AAC (AAC-LC, HE-AACv1 of HE-AACv2)-audiocodec. Zie het artikel [Vergelijking van typen livegebeurtenissen](live-event-types-comparison.md) voor meer informatie.
+Wanneer u met live codering, kunt u de bijdrage alleen met een resolutie van 1080p resolutie tegen een tarief van het kader van 30 frames/seconde, met de video codec H.264/AVC en AAC-kanaal verzenden (AAC-LC, hij AACv1 of hij AACv2)-audiocodec. Houd er rekening mee dat Pass Through-Live gebeurtenissen resoluties maximaal 4 K op 60 frames per seconde ondersteunen kunnen. Zie het artikel [Vergelijking van typen livegebeurtenissen](live-event-types-comparison.md) voor meer informatie.
 
-Bij gebruik van live codering (livegebeurtenis ingesteld op **Standard**), bepaalt de vooraf ingestelde codering hoe de binnenkomende stream in meerdere bitrates of lagen wordt gecodeerd. Zie [Systeemwaarden](live-event-types-comparison.md#system-presets) voor meer informatie.
+De oplossingen en bitrates die is opgenomen in de uitvoer van het live coderingsprogramma wordt bepaald door de voorinstelling. Als een **Standard** live coderingsprogramma (LiveEventEncodingType.Standard), dan zal de *Default720p* vooraf ingestelde geeft een reeks van 6 resolutie/bits rate-paren, die van 720 p op 3.5Mbps omlaag 192 p op 200 kbps. Als u met behulp van een **Premium1080p** live coderingsprogramma (LiveEventEncodingType.Premium1080p), dan zal de *Default1080p* vooraf ingestelde geeft een reeks van 6 resolutie/bits rate-paren, die van 1080 p op 3.5Mbps omlaag 180 p op 200 kbps. Zie [Systeemwaarden](live-event-types-comparison.md#system-presets) voor meer informatie.
 
 > [!NOTE]
-> Momenteel is *Default720p* de enige toegestane vooraf ingestelde waarde voor het type Standard van de livegebeurtenis. Als u een aangepaste vooraf ingestelde waarde voor live codering wilt gebruiken, neemt u contact op met amshelp@microsoft.com. Geef de gewenste tabel met resoluties en bitrates op. Controleer of er slechts één laag is op 720 p, en maximaal zes lagen.
+> Als u nodig hebt om aan te passen van de live voorinstelling voor encoding, opent u een ondersteuningsticket via Azure portal. Geef de gewenste tabel met resoluties en bitrates op. Controleer of er slechts één laag bij 720p (als vraagt een definitie voor een live codering-standaard) of 1080p (als een definitie voor een live coderingsprogramma Premium1080p aanvragen) en maximaal 6 lagen.
 
 ## <a name="live-event-creation-options"></a>Opties voor het maken van Live gebeurtenis
 
@@ -93,6 +93,14 @@ U kunt niet-vanity-URL's en vanity-URL's gebruiken.
 
     Het toegangstoken moet uniek zijn in uw datacenter. Als uw toepassing moet een aangepaste URL moet worden gebruikt, is het aanbevolen maken altijd een nieuw exemplaar van de GUID voor uw toegangstoken (in plaats van opnieuw gebruiken van een bestaande GUID). 
 
+    Gebruik de volgende API's voor de Vanity-URL inschakelen en het toegangstoken ingesteld op een geldige GUID (bijvoorbeeld `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    
+    |Taal|Aangepaste URL inschakelen|Toegangstoken instellen|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>Live naamgevingsregels URL voor opnemen
 
 De *willekeurige* tekenreeks hieronder is een 128-bits hexadecimaal getal (bestaande uit 32 tekens, van 0-9 en a-f).<br/>

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831587"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Certificaten voor opname in de whitelist back-end met Azure Application Gateway maken
 
-Als u end-to-end SSL, vereist application-gateway dat de back-end-exemplaren in de whitelist opgenomen door de verificatie/vertrouwde basiscertificaten uploaden. In het geval van v1-SKU, certificaten voor serververificatie zijn vereist dat de vertrouwde basiscertificaten zijn vereist voor opname in de whitelist in het geval van v2-SKU, de certificaten
+Als u end-to-end SSL, vereist application-gateway dat de back-end-exemplaren in de whitelist opgenomen door de verificatie/vertrouwde basiscertificaten uploaden. In het geval van een v1-SKU zijn verificatiecertificaten vereist, terwijl bij een v2-SKU vertrouwde basiscertificaten vereist zijn voor expliciete goedkeuring van de certificaten
 
 In dit artikel leert u het volgende:
 

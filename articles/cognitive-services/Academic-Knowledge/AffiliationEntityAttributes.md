@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61340510"
 ---
 # <a name="affiliation-entity"></a>Relatie-entiteit
@@ -23,14 +23,14 @@ ms.locfileid: "61340510"
 
 Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entiteits-id                              |Int64      |Is gelijk aan
+Id      |Entiteit-ID                              |Int64      |Is gelijk aan
 AfN     |Relatie genormaliseerde naam        |String     |Is gelijk aan
-DAfN    |Weergavenaam van de relatie       |String     |geen
-CC      |Relatie totale citaat tellen           |Int32      |geen  
-ECC     |Relatie totale geschatte citaat tellen |Int32      |geen
+DAfN    |Weergavenaam van de relatie       |String     |Geen
+CC      |Relatie totale citaat tellen           |Int32      |Geen  
+ECC     |Relatie totale geschatte citaat tellen |Int32      |Geen
 
 ## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##
 
-Name    | Beschrijving               
+Name    | Description               
 --------|---------------------------    
 Pc      |Lidmaatschap van papier tellen

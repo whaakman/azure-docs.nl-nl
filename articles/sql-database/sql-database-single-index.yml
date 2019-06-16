@@ -76,7 +76,7 @@ sections:
           - html: '(Preview) Nieuwe SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">bouwen</a> en bewerkingen van geclusterde columnstore-index opnieuw opbouwen.'
           - html: '(Preview) Nieuwe <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database-Machine Learning-Services (met R)</a>.'
           - html: '(Preview) Nieuwe <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">serverloze compute-laag</a> biedt compute automatisch schalen en facturen per seconde voor de rekenkracht die wordt gebruikt.'
-  - title: Quickstarts van vijf minuten
+  - title: Snelstartgidsen van vijf minuten
     items:
       - type: paragraph
         text: 'Azure SQL Database kunt u algemene beheertaken uitvoeren met behulp van de Azure-portal, de Azure CLI en Azure PowerShell. Ontdek hoe u algemene beheertaken uitvoeren met behulp van de volgende Quick Start-voorbeelden:'

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800107"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072319"
 ---
 # <a name="what-is-speech-to-text"></a>Wat is de spraak-naar-tekst?
 
 Spraak-naar-tekst van Azure Speech Services, ook wel bekend als spraak naar tekst, kunnen realtime transcriptie van audiostreams naar tekst die uw toepassingen, hulpprogramma's of apparaten gebruiken kunnen, weergeven en actie ondernemen als opdrachtinvoer. Deze service wordt mogelijk gemaakt door de dezelfde opname-technologie die door Microsoft gebruikt voor Cortana en Office-producten en werkt naadloos samen met de vertaling en tekst naar spraak.  Zie voor een volledige lijst van beschikbare talen voor spraak-naar-tekst, [ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-De spraak-naar-tekst-service gebruikt standaard het universele taalmodel. Dit model is getraind met gegevens die eigendom zijn van Microsoft en is de cloud geïmplementeerd. Dit is geoptimaliseerd voor conversatie en dicteren scenario's. Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. 
+De spraak-naar-tekst-service gebruikt standaard het universele taalmodel. Dit model is getraind met gegevens die eigendom zijn van Microsoft en wordt geïmplementeerd in de cloud. Dit is geoptimaliseerd voor conversatie en dicteren scenario's. Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. 
 
 U kunt eenvoudig vastleggen audio van een microfoon, lezen via een stroom of toegang tot audio-bestanden uit de opslag met de spraak-SDK en REST-API's. De spraak-SDK biedt ondersteuning voor WAV PCM/16-bits, 16 kHz/8 kHz, audio-één-kanaal voor spraakherkenning. Aanvullende audio-indelingen worden ondersteund met behulp van de [REST-eindpunt voor spraak-naar-tekst](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) of de [batch-service transcriptie](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
@@ -49,7 +49,7 @@ Hier zijn de functies die beschikbaar zijn via de spraak-SDK en REST-API's:
 
 We bieden snelstartgidsen in de populairste programmeertalen, elk ontworpen dat u de uitvoering van code in minder dan 10 minuten. Deze tabel bevat een volledige lijst van spraak SDK snelstartgidsen ingedeeld per taal.
 
-| Quick Start | Platform | API-verwijzing |
+| Snelstartgids | Platform | API-verwijzing |
 |------------|----------|---------------|
 | [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
 | [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
@@ -57,7 +57,7 @@ We bieden snelstartgidsen in de populairste programmeertalen, elk ontworpen dat 
 | [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Bladeren](https://aka.ms/csspeech/cppref)|
 | [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Bladeren](https://aka.ms/csspeech/cppref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Bladeren](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Bladeren](https://aka.ms/csspeech/javaref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux, macOS | [Bladeren](https://aka.ms/csspeech/javaref) |
 | [JavaScript, Browser](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Bladeren](https://aka.ms/AA434tv) |
 | [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Bladeren](https://aka.ms/AA434tv) |
 | [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Bladeren](https://aka.ms/csspeech/objectivecref) |
@@ -76,7 +76,7 @@ Voorbeeldcode voor de spraak-SDK is beschikbaar op GitHub. Deze voorbeelden voor
 * [Voorbeelden van spraak-naar-tekst (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Voorbeelden van batch transcriptie (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
-## <a name="customization"></a>Aanpassen
+## <a name="customization"></a>Aanpassing
 
 Naast het universele model door de Speech Services gebruikt, kunt u aangepaste akoestische, taal en de uitspraak modellen specifieke tot uw ervaring. Hier volgt een lijst met opties voor het aanpassen:
 

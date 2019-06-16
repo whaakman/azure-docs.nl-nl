@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979009"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Azure Cosmos DB-gegevens visualiseren met behulp van de Power BI-connector
@@ -78,7 +78,7 @@ U de Vulkaan gegevens opgehaald uit de Azure Cosmos DB-account en visualiseren v
 
 3. Selecteer de **Start** lint en klik vervolgens op **gegevens ophalen**.  De **gegevens ophalen** venster moet worden weergegeven.
 
-4. Klik op **Azure**, selecteer **Azure Cosmos DB (bèta)**, en klik vervolgens op **Connect**. 
+4. Klik op **Azure**, selecteer **Azure Cosmos DB (bèta)** , en klik vervolgens op **Connect**. 
 
     ![Ophalen Power BI Desktop - Power BI-connector](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
 

@@ -7,25 +7,25 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pabutler
-ms.openlocfilehash: 57efbfe12df8072d619cf71f4b08da2e2e5be3ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1a45af2cb5eed8daa4b50bb6f0b504f9653c827a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068939"
 ---
 # <a name="handling-review-feedback"></a>Beoordelingsfeedback verwerken
 
 In dit artikel wordt uitgelegd hoe u toegang tot het Azure DevOps-omgeving gebruikt door het team van Microsoft Azure Marketplace controleren.  Als er kritieke problemen worden gevonden in de aanbieding van uw Azure-toepassing tijdens de **Microsoft revisie** stap, kunt u zich in het systeem om gedetailleerde informatie over deze problemen (feedback bekijken) weer te geven.  Nadat u alle deze problemen oplossen, moet u uw aanbieding om door te gaan publiceren op Azure Marketplace naar opnieuw indienen.  Het volgende diagram illustreert hoe dit Feedbackproces is gekoppeld aan het publicatieproces.
 
-![Publiceren stappen met VSTS feedback](./media/pub-flow-vsts-access.png)
+![Werk met Azure DevOps-feedback publiceren](./media/pub-flow-vsts-access.png)
 
 Beoordeling problemen wordt meestal verwezen als pull-aanvraag (PR).  Elke pull-aanvraag is gekoppeld aan een online [Azure DevOps](https://azure.microsoft.com/services/devops/) (voorheen Visual Studio Team Services (VSTS) genoemd) artikel informatie over het probleem bevat.  De volgende afbeelding geeft een voorbeeld van een verwijzing naar een beoordeling pull-aanvraag.  Voor complexe situaties kunnen de controle en ondersteuning voor teams ook u e-mail. 
 
 ![Status van tabblad weergeven Lees feedback](./media/status-tab-ms-review.png)
 
 
-## <a name="vsts-access"></a>VSTS-toegang
+## <a name="azure-devops-access"></a>Azure DevOps-toegang
 
 Als u wilt weergeven van de pull-aanvraag-items waarnaar wordt verwezen in lees feedback, moeten uitgevers eerst worden verleend juiste autorisatie.  Anders, nieuwe uitgevers ontvangen een `401 - Not Authorized` antwoordpagina bij het weergeven van pull-aanvragen.  Voor het aanvragen van toegang tot deze Azure DevOps-opslagplaats, moet u de volgende stappen uitvoeren:
 
@@ -40,7 +40,7 @@ Als u wilt weergeven van de pull-aanvraag-items waarnaar wordt verwezen in lees 
     ![Ondersteuning voor ticket categorie](./media/support-incident1.png)
 
 4. In **stap 1 van 2** pagina, Geef uw contactgegevens en selecteer **doorgaan**.
-5. In **stap 2 van 2** pagina, de titel van een incident opgeven (bijvoorbeeld `Request VSTS access`) en geef de gegevens die u hebt verzameld in de eerste stap (hierboven).  Lees en accepteer de overeenkomst, en selecteer vervolgens **indienen**.
+5. In **stap 2 van 2** pagina, de titel van een incident opgeven (bijvoorbeeld `Request Azure DevOps access`) en geef de gegevens die u hebt verzameld in de eerste stap (hierboven).  Lees en accepteer de overeenkomst, en selecteer vervolgens **indienen**.
 
 Als het incident maken voltooid is, wordt een bevestigingspagina weergegeven.  De Bevestigingsgegevens opslaan op deze pagina ter referentie.  Het ondersteuningsteam van Microsoft moet binnen een paar dagen antwoord op uw aanvraag voor toegang.
 

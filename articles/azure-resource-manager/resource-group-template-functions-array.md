@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128709"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix- en -functies voor Azure Resource Manager-sjablonen
@@ -49,7 +49,7 @@ Als u een matrix van tekenreeksen gescheiden door een waarde, Zie [splitsen](res
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>matrix
+## <a name="array"></a>array
 `array(convertToArray)`
 
 De waarde omgezet in een matrix.
@@ -403,11 +403,11 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | Onwaar |
+| stringFalse | Bool | False |
 | objectTrue | Bool | True |
-| objectFalse | Bool | Onwaar |
+| objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | Onwaar |
+| arrayFalse | Bool | False |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -503,7 +503,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>Leeg
+## <a name="empty"></a>leeg zijn
 
 `empty(itemToTest)`
 
@@ -724,7 +724,7 @@ In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 `json(arg1)`
 
 Retourneert een JSON-object.
@@ -864,7 +864,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="length" />
 
-## <a name="length"></a>Lengte
+## <a name="length"></a>length
 `length(arg1)`
 
 Retourneert het aantal elementen in een matrix of tekens in een tekenreeks.
@@ -1011,7 +1011,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min
+## <a name="min"></a>min.
 `min(arg1)`
 
 Retourneert de minimumwaarde van een matrix met gehele getallen of een door komma's gescheiden lijst met gehele getallen.
@@ -1139,7 +1139,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>overslaan
+## <a name="skip"></a>Overslaan
 `skip(originalValue, numberToSkip)`
 
 Retourneert een matrix met alle elementen na het opgegeven getal in de matrix of retourneert een tekenreeks waarbij alle tekens na het opgegeven getal in de tekenreeks.

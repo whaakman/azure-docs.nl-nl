@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e84801875cf0a77990a63db5c28eedc2128c504
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866833"
 ---
 # <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>Wat is de oplossing VMware op Azure door CloudSimple
@@ -38,7 +38,7 @@ Uw VMware-omgeving wordt uitgevoerd systeemeigen op Bare-Metalimplementatie van 
 ## <a name="benefits"></a>Voordelen
 
 * **Operationele continuïteit:** CloudSimple biedt systeemeigen toegang tot de VMware-platforms. De architectuur CloudSimple is compatibel met uw bestaande:
-  * Applicaties
+  * Toepassingen
   * Bewerkingen
   * Netwerken
   * Beveiliging

@@ -2,24 +2,24 @@
 title: Inleiding tot Azure Stream Analytics windowing functies
 description: Dit artikel wordt beschreven vier windowing functies (tumbling, Hopping plaatsvindt, schuiven, sessie) die worden gebruikt in Azure Stream Analytics-taken.
 services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
+author: jseb225
+ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 56b6f11d226f25e3094a90d8646fa13860ee306e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844723"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066750"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Inleiding tot Stream Analytics windowing functies
+
 In scenario's voor het streamen van tijd is uitvoeren van bewerkingen op de gegevens die zijn opgenomen in windows temporal een algemeen patroon. Stream Analytics biedt ingebouwde ondersteuning voor windowing functies, zodat ontwikkelaars kunnen de auteur van complexe verwerking taken met een minimale inspanning.
 
-Er zijn vier soorten tijdelijke windows kiezen uit: [**Tumbling**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **Hopping**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **Sliding**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), en [ **sessie**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Gebruik van de vensterfuncties in de [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) -component van de query-syntaxis in de Stream Analytics-taken.
+Er zijn vier soorten tijdelijke windows kiezen uit: [**Tumbling**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **Hopping**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **Sliding**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), en [ **sessie**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Gebruik van de vensterfuncties in de [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) -component van de query-syntaxis in de Stream Analytics-taken. U kunt ook gebeurtenissen samenvoegen over meerdere windows met behulp van de [ **Windows()** functie](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
 Alle de [windowing](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) uitvoerresultaten van bewerkingen op de **end** van het venster. De uitvoer van het venster is één gebeurtenis op basis van de statistische functie gebruikt. De uitvoergebeurtenis heeft de tijdstempel van het einde van het venster en alle vensterfuncties zijn gedefinieerd met een vaste lengte. 
 
@@ -51,6 +51,7 @@ Als gebeurtenissen binnen de opgegeven time-out plaatsvinden blijven, wordt het 
 
 Wanneer een partitiesleutel is opgegeven, wordt de gebeurtenissen zijn gegroepeerd door de sleutel en sessievenster wordt onafhankelijk toegepast op elke groep. Deze partitioneren is handig in situaties waar u andere sessie windows nodig hebt voor verschillende gebruikers of apparaten.
 
+
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
@@ -58,4 +59,3 @@ Wanneer een partitiesleutel is opgegeven, wordt de gebeurtenissen zijn gegroepee
 * [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->

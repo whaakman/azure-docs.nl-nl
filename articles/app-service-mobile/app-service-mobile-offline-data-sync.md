@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: ab8fb4a567e4c4a7bf1e884999a4e403a98547a0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128012"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Offlinesynchronisatie van gegevens in Azure Mobile Apps
@@ -65,8 +65,8 @@ Een lokale opslag is gekoppeld aan de context van de synchronisatie met behulp v
 ## <a name="how-sync-works"></a>Hoe offline synchronisatie werkt
 Wanneer u de synchronisatie-tabellen, bepaalt de clientcode wanneer lokale wijzigingen worden gesynchroniseerd met de back-end van een Azure Mobile Apps. Niets verzonden naar de back-end voordat er een aanroep van wordt *push* lokale wijzigingen. Op dezelfde manier het lokale archief wordt gevuld met nieuwe gegevens alleen wanneer er een aanroep van wordt *pull* gegevens.
 
-* **Push-**: Push is een bewerking in de context van de synchronisatie en alle CUD wijzigingen sinds de laatste push verzendt. Houd er rekening mee dat het is niet mogelijk voor het verzenden van alleen de wijzigingen van een afzonderlijke tabel, omdat anders bewerkingen kunnen worden verzonden niet de juiste volgorde. Push voert een reeks van REST-aanroepen naar uw mobiele Apps van Azure back-end, die op zijn beurt Hiermee wijzigt u de server-database.
-* **Pull-**: Pull-abonnementen op basis van per tabel is uitgevoerd en kan worden aangepast met een query voor het ophalen van slechts een subset van de server-gegevens. De client-SDK's voor Azure Mobile wordt vervolgens de resulterende gegevens invoegen in het lokale archief.
+* **Push-** : Push is een bewerking in de context van de synchronisatie en alle CUD wijzigingen sinds de laatste push verzendt. Houd er rekening mee dat het is niet mogelijk voor het verzenden van alleen de wijzigingen van een afzonderlijke tabel, omdat anders bewerkingen kunnen worden verzonden niet de juiste volgorde. Push voert een reeks van REST-aanroepen naar uw mobiele Apps van Azure back-end, die op zijn beurt Hiermee wijzigt u de server-database.
+* **Pull-** : Pull-abonnementen op basis van per tabel is uitgevoerd en kan worden aangepast met een query voor het ophalen van slechts een subset van de server-gegevens. De client-SDK's voor Azure Mobile wordt vervolgens de resulterende gegevens invoegen in het lokale archief.
 * **Impliciete Pushes**: Als een pull op basis van een tabel met lokale updates die nog niet wordt uitgevoerd, voert de pull eerst een `push()` in de context van de synchronisatie. Deze push helpt bij het minimaliseren van conflicten tussen de wijzigingen die al in de wachtrij staan en nieuwe gegevens van de server.
 * **Incrementele synchronisatie**: de eerste parameter voor de pullbewerking wordt een *querynaam* die alleen op de client wordt gebruikt. Als u de naam van een niet-null-query gebruikt, de Azure Mobile SDK wordt uitgevoerd een *incrementele synchronisatie*. Telkens wanneer een pullbewerking retourneert een set met resultaten, de meest recente `updatedAt` timestamp van die resultatenset wordt opgeslagen in de lokale SDK-systeemtabellen. Volgende pull-bewerkingen worden alleen records ophalen na deze timestamp.
 

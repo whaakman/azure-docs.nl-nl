@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: d527c4fed9c43e62d815078c049d4d8e6f8a46b7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 04c19c9a8603fee46914eb94b50c4f97e34e9c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070217"
 ---
 # <a name="sql-database-release-notes"></a>Opmerkingen bij de release van SQL-Database
 
@@ -32,7 +32,6 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 | Taken voor Elastic Database | Zie voor meer informatie, [maken, configureren en beheren van elastische taken](elastic-jobs-overview.md). |
 | Elastische query’s | Zie voor meer informatie, [elastische query overzicht](sql-database-elastic-query-overview.md). |
 | Elastische transacties | [Gedistribueerde transacties tussen clouddatabases](sql-database-elastic-transactions-overview.md). |
-| De sortering van het exemplaar met beheerde exemplaren |Zie voor meer informatie, [PowerShell gebruiken met Azure Resource Manager-sjabloon maken van een beheerd exemplaar in Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 |Feedback op Geheugentoekenning (rij-modus) (met compatibiliteitsniveau 150)|Zie voor meer informatie, [Feedback op Geheugentoekenning in (rij-modus)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Query-editor in Azure portal |Zie voor meer informatie, [van de Azure portal SQL query-editor gebruiken om te verbinden en gegevens op te vragen](sql-database-connect-query-portal.md).|
 | R services / machine learning met individuele databases en elastische pools |Zie voor meer informatie, [Machine Learning-Services in Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
@@ -42,9 +41,20 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 |SQL Analytics|Zie voor meer informatie, [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Tabel variabele uitgesteld compilatie (onder compatibiliteitsniveau 150)|Zie voor meer informatie, [tabel variabele uitgesteld compilatie](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | Detectie van bedreigingen met beheerde exemplaren |Zie voor meer informatie, [detectie van bedreigingen configureren in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
-| Tijdzone-ondersteuning voor beheerde exemplaren|Zie voor meer informatie, [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
 | Transparante gegevensversleuteling (TDE) met Bring Your Own Key (BYOK) met beheerde exemplaren |Zie voor meer informatie, [Azure SQL Transparent Data Encryption met de klant beheerde sleutels in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
+
+## <a name="june-2019"></a>Juni 2019
+
+### <a name="service-improvements"></a>Verbeteringen van de services
+
+| Verbeteringen van de services | Details |
+| --- | --- |
+| 4 vCores beheerd exemplaar op Gen5 hardware generatie| Zie voor meer informatie, https://aka.ms/four-cores-sql-mi-update. |
+| Managed Instance - ondersteuning voor abonnementen met maandelijkse Azure-tegoed voor Visual Studio-abonnees | Zie voor meer informatie, https://aka.ms/sql-mi-visual-studio-subscribers. |
+|Grotere regionale limieten voor het beheerde exemplaar| Zie voor meer informatie, [regionale resourcebeperkingen](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
+| &nbsp; |
+
 
 ## <a name="may-2019"></a>Mei 2019
 
@@ -54,6 +64,8 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 | --- | --- |
 |Zeer grootschalige servicelaag die zijn uitgebracht voor algemene beschikbaarheid| Zie voor meer informatie, [grootschalige servicelaag voor maximaal 100 TB](sql-database-service-tier-hyperscale.md) en [ophalen van hoge prestaties, schaalbaarheid voor uw Azure databaseworkloads met zeer grootschalige](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
 |Serverloze compute-laag die zijn uitgebracht voor de openbare preview | Zie voor meer informatie, [serverloze SQL-Database (preview)](sql-database-serverless.md).|
+|Tijdzone-ondersteuning voor beheerde exemplaren die zijn uitgebracht voor algemene beschikbaarheid |Zie voor meer informatie, [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
+|De sortering van het exemplaar met beheerde exemplaren die zijn uitgebracht voor algemene beschikbaarheid |Zie voor meer informatie, [PowerShell gebruiken met Azure Resource Manager-sjabloon maken van een beheerd exemplaar in Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 | Logboek transactietarieven en doel-IOPS verhoogd voor databases met behulp van het op vCore gebaseerde aankoopmodel| Zie voor meer informatie, [Resource limieten voor individuele databases met behulp van het op vCore gebaseerde aankoopmodel](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) en [Resource limieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
 | &nbsp; |
 

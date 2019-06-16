@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414950"
+ms.locfileid: "67113476"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
 
@@ -37,7 +37,7 @@ Dit document bevat informatie over strategieën een organisatie moet nemen om te
 Er zijn vier belangrijke takeaways in dit document:
 
 * Beheerder accountvergrendeling voorkomen met behulp van accounts voor toegang in noodgevallen.
-* Implementeren met behulp van voorwaardelijke toegang (CA) in plaats van MFA per gebruiker MFA.
+* Implementeren met behulp van voorwaardelijke toegang (CA) MFA in plaats van MFA per gebruiker.
 * Vergrendeling van het gebruiker beperken met behulp van meerdere besturingselementen voor voorwaardelijke toegang (CA).
 * Beperk gebruiker vergrendeling van het door het inrichten van meerdere verificatiemethoden of -equivalenten voor elke gebruiker.
 
@@ -109,7 +109,7 @@ Inzicht krijgen in de blootstelling tijdens een onderbreking vermindert het risi
 
 #### <a name="microsoft-recommendations"></a>Aanbevelingen van Microsoft
 
-Beleid voor onvoorziene gebeurtenissen voorwaardelijke toegang is een **uitgeschakeld beleid** die Azure MFA, externe MFA, risico's gebaseerde of het apparaat gebaseerde besturingselementen worden weggelaten. Vervolgens, wanneer uw organisatie besluit om het activeren van uw plan voor onvoorziene gebeurtenissen, beheerders kunnen het beleid inschakelen en uitschakelen van het normale beleid op basis van een besturingselement.
+Onvoorziene gebeurtenissen beleid voor voorwaardelijke toegang is een **uitgeschakeld beleid** die Azure MFA, externe MFA, risico's gebaseerde of het apparaat gebaseerde besturingselementen worden weggelaten. Vervolgens, wanneer uw organisatie besluit om het activeren van uw plan voor onvoorziene gebeurtenissen, beheerders kunnen het beleid inschakelen en uitschakelen van het normale beleid op basis van een besturingselement.
 
 >[!IMPORTANT]
 > Uitschakelen van beleidsregels die van beveiliging voor uw gebruikers afdwingen, zelfs tijdelijk beperkt u uw beveiligingspostuur zolang het plan voor onvoorziene gebeurtenissen van kracht.
@@ -268,5 +268,5 @@ Als uw organisatie van verouderde MFA-beleid per gebruiker gebruikmaakt, kunt u 
 * [Het configureren van hybride Azure Active Directory verbonden apparaten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Implementatiehandleiding Windows Hello voor Bedrijven](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Wat zijn de voorwaarden in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Wat zijn de besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

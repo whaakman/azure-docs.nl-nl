@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
 ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957482"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Overzicht van Azure Standard Load Balancer
 
-Met Azure Load Balancer kunt u uw toepassingen schalen en zorgen voor hoge beschikbaarheid voor de services. Load Balancer kan worden gebruikt voor zowel inkomende als uitgaande scenario's en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen. 
+Azure Load Balancer kunt u uw toepassingen schalen en hoge beschikbaarheid voor uw services te maken. Load Balancer kan worden gebruikt voor zowel inkomende als uitgaande scenario's en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen. 
 
 In dit artikel is gericht op Standard Load Balancer.  Voor een meer algemeen overzicht voor Azure Load Balancer, raadpleegt u [overzicht van Load Balancer](load-balancer-overview.md) ook.
 
@@ -91,7 +91,7 @@ Beoordeling [gedetailleerde bespreking van de Beschikbaarheidszones gerelateerde
 
 Standard Load Balancer biedt multi-dimensionale metrische gegevens via Azure Monitor.  Deze metrische gegevens kunnen worden gefilterd, gegroepeerd en uitgesplitst voor een opgegeven dimensie.  Beschikt over de huidige en historische informatie over prestaties en status van uw service.  Resource Health wordt ook ondersteund.  Hieronder volgt een kort overzicht van ondersteunde diagnostische gegevens:
 
-| Metric | Description |
+| Gegevens | Description |
 | --- | --- |
 | VIP-beschikbaarheid | Standard Load Balancer oefeningen continu het gegevenspad van binnen een regio aan de Load Balancer front-end helemaal tot aan de SDN-stack die ondersteuning biedt voor uw virtuele machine. Als in orde exemplaren blijven, volgt de meting hetzelfde pad als verkeer met netwerktaakverdeling van uw toepassing. Het gegevenspad die wordt gebruikt door uw klanten wordt ook gevalideerd. De meting is zichtbaar voor uw toepassing en niet van invloed op andere bewerkingen.|
 | Beschikbaarheid van DIP | Standard Load Balancer maakt gebruik van een gedistribueerde health service de status van het toepassingseindpunt van uw op basis van uw configuratie-instellingen controleert te scannen. Met deze metriek bevat een statistische functie of groep per eindpunt gefilterd-weergave van alle afzonderlijke gevallen-eindpunten in de Load Balancer.  U kunt zien hoe de Load Balancer de status van uw toepassing, zoals aangegeven door de configuratie van de health test bekijkt.
@@ -204,7 +204,7 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie om te verplaats
 >
 >Overeenkomende SKU's mogen worden gebruikt voor Load Balancer en openbare IP-resources. U kunt geen een combinatie van standaard-SKU-middelen en basis-SKU. Het is evenmin mogelijk om zelfstandige virtuele machines, virtuele machines in een resource van een beschikbaarheidsset of resources uit schaalset met virtuele machines op beide SKU's tegelijk in te stellen.
 
-## <a name="region-availability"></a>Beschikbaarheid voor de regio
+## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
 Standard Load Balancer is momenteel beschikbaar in alle openbare cloud-regio's.
 
@@ -212,7 +212,7 @@ Standard Load Balancer is momenteel beschikbaar in alle openbare cloud-regio's.
 
 Standard Load Balancers zijn beschikbaar met een SLA van 99,99%.  Controleer de [Standard Load Balancer SLA](https://aka.ms/lbsla) voor meer informatie.
 
-## <a name="pricing"></a>Prijs
+## <a name="pricing"></a>Prijzen
 
 Gebruik van Standard Load Balancer wordt in rekening gebracht.
 

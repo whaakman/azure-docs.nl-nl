@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752881"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
@@ -41,7 +41,7 @@ Deze aanbevelingen zijn gecompileerde feedback en tips van veel data scientists 
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Het gebruik van het referentiemateriaal voor
 
-Lezen van het pad en de algoritme labels op de grafiek als ' voor  *&lt;pad label&gt;*, gebruikt u  *&lt;algoritme&gt;*. " Bijvoorbeeld, "voor *snelheid*, gebruikt u *twee logistieke regressie klasse*." Soms meer dan één vertakking is van toepassing.
+Lezen van het pad en de algoritme labels op de grafiek als ' voor  *&lt;pad label&gt;* , gebruikt u  *&lt;algoritme&gt;* . " Bijvoorbeeld, "voor *snelheid*, gebruikt u *twee logistieke regressie klasse*." Soms meer dan één vertakking is van toepassing.
 Geen van beide zijn soms een perfecte maat. Ze zijn bedoeld om te worden van de regel van de miniatuur aanbevelingen, dus hoeft hiervoor niets erop vertrouwen dat u precies.
 Verschillende gegevenswetenschappers die we hebben het gehad met genoemde die de enige manier om te zoeken, het beste algoritme is om te proberen ze allemaal.
 
@@ -66,14 +66,14 @@ Leren met supervisie is een populaire en nuttige van machine learning. Met één
 
 Leren met zonder supervisie hebben gegevenspunten geen labels worden gekoppeld. In plaats daarvan is het doel van een algoritme zonder supervisie learning om de gegevens op een bepaalde manier te ordenen of om te beschrijven van de structuur. Dit kan betekenen dat het groeperen in clusters of het vinden van complexe gegevens kijken, zodat deze wordt weergegeven eenvoudiger of meer geordend op verschillende manieren.
 
-### <a name="reinforcement-learning"></a>Bekrachtigingen
+### <a name="reinforcement-learning"></a>Bekrachtigend leren
 
 In de versterkend leren, haalt de algoritme een actie te kiezen in reactie op elk gegevenspunt. Het learning-algoritme ontvangt ook een signaal beloning korte tijd later, dat aangeeft hoe goed de beslissing is.
 Het algoritme wijzigt op basis hiervan de strategie om te realiseren van de hoogste prijs. Er zijn momenteel geen leren met bekrachtigingen beschikt learning-algoritme modules in Azure Machine Learning Studio. Bekrachtigingen is gebruikelijk in robotiek, waarbij de set sensorwaarden, serverlogs, op één punt in tijd een gegevenspunt, en het algoritme moet de volgende actie van de robot kiezen. Het is ook dat een natuurlijke geschikt voor Internet of Things toepassingen.
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Overwegingen bij het kiezen van een algoritme
 
-### <a name="accuracy"></a>Nauwkeurigheid
+### <a name="accuracy"></a>nauwkeurigheid
 
 Aan de meest nauwkeurige antwoord mogelijk niet altijd nodig.
 Soms is een benadering voldoende, afhankelijk van wat u wilt gebruiken. Als dit het geval is, kunt u mogelijk de verwerkingstijd aanzienlijk knippen door meer geschatte methoden bevalt. Een ander voordeel van meer geschatte methoden is dat ze op een natuurlijke manier om te voorkomen dat te vaak.

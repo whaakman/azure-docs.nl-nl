@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 247d959abadc92d70bdd60555a090986743e9322
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002076"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Verbinding maken met een account van Google Cloud Platform
@@ -63,7 +63,7 @@ Voor het verzamelen van gebruiks-en asset nodig Cloudyn heeft de volgende Google
 
 1. Open de Cloudyn-portal vanuit Azure portal of Ga naar [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) en meld u aan.
 2. Klik op **instellingen** (symbol tandwiel) en selecteer vervolgens **Cloudaccounts**.
-3. In **Accounts Management**, selecteer de **Google-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
+3. In **Accounts Management**, selecteer de **Google-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +** .
 4. In **Google-accountnaam**, voer het e-mailadres voor de facturering account en klik vervolgens op **volgende**.
 5. In het dialoogvenster voor Google-verificatie, selecteer of typ een Google-account en vervolgens **toestaan** cloudyn.com toegang tot uw account.
 6. De gegevens van de aanvraag-project toevoegen dat u al vorige die u hebt genoteerd. Dit zijn onder andere **Project-ID**, **Project** naam **facturering** Bucketnaam, en **facturering bestand** voorvoegsel rapport en klik vervolgens op  **Sla**.  

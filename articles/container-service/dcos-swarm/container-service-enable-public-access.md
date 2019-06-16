@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457334"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(AFGESCHAFT) Openbare toegang tot een Azure Container Service-toepassing inschakelen
@@ -74,7 +74,7 @@ Vervolgens moeten we een beveiligingsregel routeren van verkeer van onze poort g
    | --- | --- |
    | Name |Een beschrijvende naam van de firewallregel. |
    | Prioriteit |De positie van de prioriteit voor de regel. Des te lager het nummer hoe hoger de prioriteit. |
-   | Bron |Beperk het inkomende IP-adresbereik worden toegestaan of geweigerd door deze regel. Gebruik **eventuele** niet opgeven een beperking. |
+   | source |Beperk het inkomende IP-adresbereik worden toegestaan of geweigerd door deze regel. Gebruik **eventuele** niet opgeven een beperking. |
    | Service |Selecteer een set vooraf gedefinieerde services die deze beveiligingsregel is. Gebruik anders **aangepaste** te maken van uw eigen. |
    | Protocol |Beperken van verkeer op basis van **TCP** of **UDP**. Gebruik **eventuele** niet opgeven een beperking. |
    | Poortbereik |Wanneer **Service** is **aangepaste**, Hiermee geeft u het bereik van poorten waarop deze regel betrekking heeft. U kunt één poort zijn, zoals **80**, of een bereik, zoals **1024-1500**. |

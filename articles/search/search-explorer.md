@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024025"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Search explorer voor het opvragen van gegevens in Azure Search 
@@ -70,7 +70,7 @@ Voeg **$count** om het aantal overeenkomsten gevonden in een index. Op een lege 
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Voorbeeld 4: de velden in de zoekresultaten beperken
 
-Voeg **$select** te beperken tot de expliciet benoemde velden voor een beter leesbare uitvoer in **Search explorer**. De zoekreeks houden en **$count = true**, argumenten met het voorvoegsel **&**. 
+Voeg **$select** te beperken tot de expliciet benoemde velden voor een beter leesbare uitvoer in **Search explorer**. De zoekreeks houden en **$count = true**, argumenten met het voorvoegsel **&** . 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 25812e10b4c2b90aa4f40c38610c30a26ab11d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a11640959a8c7fdd0d238aba92698eb47934969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080454"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Wat is verbonden Factory IoT-oplossingsversnellers?
 
@@ -65,7 +65,4 @@ Verbonden Factory bevat de volgende functies:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de oplossing Connected Factory preconfigured door te lezen van de volgende artikelen:
-
-* [Overzicht van de oplossing voor vooraf geconfigureerde Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Een gateway implementeren voor Verbonden Factory]( iot-accelerators-connected-factory-gateway-deployment.md)
+Zie voor meer informatie over de oplossingsverbetering voor verbonden Factory, de snelstartgids [een cloud-gebaseerde oplossing voor het beheren van mijn industriële IoT-apparaten proberen](quickstart-connected-factory-deploy.md).

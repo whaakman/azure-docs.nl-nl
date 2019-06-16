@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e756a0a7af9ad89e3aad8b0dbe27a870a3f855c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60907326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064275"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Beveiligingsoplossingen integreren in Azure Security Center
 Dit document helpt u bij het beheren van beveiligingsoplossingen die al zijn gekoppeld aan Azure Security Center en bij het toevoegen van nieuwe oplossingen.
+
+> [!NOTE]
+> Een subset van beveiligingsoplossingen stopgezet op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Geïntegreerde Azure-beveiligingsoplossingen
 Met Security Center kunt u gemakkelijk geïntegreerde beveiligingsoplossingen in Azure inschakelen. Voordelen zijn:
@@ -31,11 +34,7 @@ Met Security Center kunt u gemakkelijk geïntegreerde beveiligingsoplossingen in
 - **Geïntegreerde detectie**: Beveiligingsgebeurtenissen van partneroplossingen worden automatisch verzameld, samengevoegd en weergegeven als meldingen en incidenten in Security Center. Deze gebeurtenissen worden ook gekoppeld aan detecties van andere bronnen voor geavanceerde detectie van bedreigingen.
 - **Geïntegreerde statuscontrole en beheer**: Klanten kunnen geïntegreerde statusgebeurtenissen gebruiken om in één oogopslag alle partneroplossingen te controleren. Er zijn basisbeheermogelijkheden beschikbaar, met eenvoudige toegang tot geavanceerde installatie met behulp van de partneroplossing.
 
-Geïntegreerde beveiligingsoplossingen omvatten momenteel:
-
-- Firewall voor webtoepassingen ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) en [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Firewall van de volgende generatie ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) en [Palo Alto Networks](https://www.paloaltonetworks.com/products))
-- Evaluatie van beveiligingsproblemen ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) en [Rapid7](https://www.rapid7.com/products/insightvm/))
+Op dit moment geïntegreerde beveiligingsoplossingen omvatten voor evaluatie van beveiligingsproblemen door [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) en [Rapid7](https://www.rapid7.com/products/insightvm/) en Microsoft Application Gateway Web application firewall.
 
 > [!NOTE]
 > Security Center installeert de Microsoft Monitoring Agent niet op virtuele apparaten van partners omdat de meeste leveranciers van beveiligingsoplossingen het niet toestaan dat externe agents worden uitgevoerd op hun apparaat.
@@ -43,12 +42,7 @@ Geïntegreerde beveiligingsoplossingen omvatten momenteel:
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>Beveiligingsoplossingen integreren
-Azure-beveiligingsoplossingen die zijn geïmplementeerd vanuit Security Center, zijn automatisch verbonden. U kunt ook verbinding maken met andere gegevensbronnen voor beveiliging, waaronder:
-
-- Azure AD-identiteitsbeveiliging
-- Computers die on-premises of in andere clouds worden uitgevoerd
-- Een beveiligingsoplossing die ondersteuning biedt voor CEF (Common Event Format)
-- Microsoft Advanced Threat Analytics
+Azure-beveiligingsoplossingen die zijn geïmplementeerd vanuit Security Center, zijn automatisch verbonden. U kunt ook verbinding maken met andere gegevensbronnen voor beveiliging, inclusief computers waarop on-premises of in andere clouds.
 
 ![Integratie van partneroplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -112,76 +106,6 @@ Het gedeelte **Gegevensbronnen toevoegen** bevat andere beschikbare gegevensbron
 
 ![Gegevensbronnen](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
-### <a name="connect-external-solutions"></a>Verbinding maken met externe oplossingen
-
-U kunt niet alleen beveiligingsgegevens verzamelen van uw computers, maar u kunt ook beveiligingsgegevens integreren van tal van andere beveiligingsoplossingen, waaronder alle oplossingen die CEF (Common Event Format) ondersteunen. CEF is een standaardindeling in de branche voor Syslog-berichten. De indeling wordt door veel leveranciers van beveiligingsproducten gebruikt om gebeurtenisintegratie tussen verschillende platforms mogelijk te maken.
-
-In deze snelstartgids leert u het volgende:
-- Een beveiligingsoplossing met Security Center verbinden met behulp van CEF-logboeken
-- De verbinding met de beveiligingsoplossing valideren
-
-#### <a name="prerequisites"></a>Vereisten
-U moet over een abonnement op Microsoft Azure beschikken om met Security Center aan de slag te gaan. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/).
-
-Om deze zelfstartgids te doorlopen, moet u zich in de Standard-prijscategorie van Security Center bevinden. U kunt Security Center Standard kosteloos proberen. In de snelstartgids [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Uw Azure-abonnement registreren voor Security Center Standard) wordt u begeleid bij het upgraden naar Standard. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
-
-U hebt ook een [Linux-machine](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux) nodig, waarop de Syslog-service al is verbonden met uw Security Center.
-
-#### <a name="connect-solution-using-cef"></a>Oplossing verbinden met behulp van CEF
-
-1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
-
-    ![Security Center selecteren](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
-
-3. Selecteer in het hoofdmenu van Security Center de optie **Beveiligingsoplossingen**.
-4. Op de pagina Beveiligingsoplossingen gaat u naar **Gegevensbronnen toevoegen (3)** en klikt u onder **Common Event Format** op **Toevoegen**.
-
-    ![Gegevensbron toevoegen](./media/quick-security-solutions/quick-security-solutions-fig2.png)
-
-5. Vouw op de pagina Common Event Format-logboeken de tweede stap, **Syslog doorsturen configureren om de vereiste logboeken te zenden naar de agent op UDP-poort 25226**, uit en volg de onderstaande instructies op uw Linux-computer:
-
-    ![Syslog configureren](./media/quick-security-solutions/quick-security-solutions-fig3.png)
-
-6. Vouw de derde stap, **Het configuratiebestand van de agent op de agentcomputer plaatsen**, uit en volg de onderstaande instructies op uw Linux-computer:
-
-    ![Agent configuration](./media/quick-security-solutions/quick-security-solutions-fig4.png)
-
-7. Vouw de derde stap, **De syslog-daemon en de agent opnieuw starten**, uit en volg de onderstaande instructies op uw Linux-computer:
-
-    ![De syslog opnieuw starten](./media/quick-security-solutions/quick-security-solutions-fig5.png)
-
-
-#### <a name="validate-the-connection"></a>De verbinding valideren
-
-Voordat u verder gaat met onderstaande stappen, moet u wachten tot de syslog is gestart met de rapportage aan Security Center. Dit kan enige tijd duren, afhankelijk van de grootte van de omgeving.
-
-1.  Klik in het linkerdeelvenster van het dashboard van Security Center op **Zoeken**.
-2.  Selecteer de werkruimte waarmee de Syslog (Linux-computer) is verbonden.
-3.  Typ *CommonSecurityLog* en klik op de knop **Zoeken**.
-
-Het volgende voorbeeld toont het resultaat van deze stappen: ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
-
-#### <a name="clean-up-resources"></a>Resources opschonen
-Andere snelstartgidsen en zelfstudies in deze verzameling zijn gebaseerd op deze snelstartgids. Als u de volgende snelstartgidsen en zelfstudies ook wilt doornemen, blijf dan de prijscategorie Standard gebruiken en houd automatische inrichting ingeschakeld. Als u niet wilt doorgaan of wilt terugkeren naar de laag gratis:
-
-1. Ga terug naar het hoofdmenu van Security Center en selecteer **Beveiligingsbeleid**.
-2. Selecteer het abonnement of het beleid dat u wilt terugzetten op Gratis. **Beveiligingsbeleid** wordt geopend.
-3. Selecteer onder **BELEIDSONDERDELEN** de optie **Prijscategorie**.
-4. Selecteer **Gratis** om het abonnement te wijzigen van de Standard-laag in de Gratis laag.
-5. Selecteer **Opslaan**.
-
-Als u automatisch inrichten wilt uitschakelen:
-
-1. Ga terug naar het hoofdmenu van Security Center en selecteer **Beveiligingsbeleid**.
-2. Selecteer het abonnement waarvoor u automatisch inrichten wilt uitschakelen.
-3. Ga naar **Beveiligingsbeleid – Gegevensverzameling** en selecteer onder **Onboarding** de optie **Uit** om automatisch inrichten uit te schakelen.
-4. Selecteer **Opslaan**.
-
->[!NOTE]
-> Wanneer u automatische inrichting uitschakelt, wordt MMA niet verwijderd van Azure-VM's waarop de agent is ingericht. Door automatische inrichting uit te schakelen, wordt de beveiligingsbewaking voor uw resources beperkt.
->
-
 ## <a name="exporting-data-to-a-siem"></a>Exporteren van gegevens naar een SIEM
 
 Verwerkte gebeurtenissen die worden geproduceerd door Azure Security Center worden gepubliceerd naar de Azure [activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), een van het logboek voor bestandstypen die beschikbaar zijn via Azure Monitor. Azure Monitor biedt een geconsolideerde pijplijn voor de routering van uw bewakingsgegevens naar een SIEM-hulpprogramma. Dit wordt gedaan door het streamen van die gegevens naar een Event Hub waar deze kan vervolgens worden opgehaald naar een partner-hulpprogramma.
@@ -230,6 +154,5 @@ Hier volgt een aantal Splunk-query's die u kunt gebruiken voor het ophalen van w
 In dit artikel hebt u kunnen lezen hoe u partneroplossingen integreert in Security Center. Zie de volgende artikelen voor meer informatie over Security Center:
 
 * [Beveiligingsstatus controleren in Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.
-* [Partneroplossingen controleren met Security Center](security-center-partner-solutions.md). Meer informatie over het bewaken van de status van uw partneroplossingen.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md). Krijg antwoorden op veelgestelde vragen over het gebruik van Security Center.
 * [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.

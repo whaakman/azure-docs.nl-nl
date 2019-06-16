@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918432"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109359"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit definiëren
 In deze taak definieert u de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in:
@@ -45,7 +45,7 @@ Afhankelijk van hoe u de vragen in beantwoord [beveiligingsvereisten voor gegeve
 
 | Opties voor beveiliging van gegevens | AT-rest in de cloud | Op de rest-on-premises | In-transit |
 | --- | --- | --- | --- |
-| BitLocker-stationsversleuteling |X |X | |
+| BitLocker Drive Encryption |X |X | |
 | SQL Server voor het versleutelen van databases |X |X | |
 | VM-VM-versleuteling | | |X |
 | SSL/TLS | | |X |

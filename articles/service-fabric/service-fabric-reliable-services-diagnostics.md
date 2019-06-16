@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772955"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunctionaliteit voor Stateful Reliable Services
@@ -29,7 +29,7 @@ De naam van de gebeurtenisbron voor de klasse Stateful Reliable Services Statefu
 
 Voorbeelden van hulpprogramma's en technologieën die hulp bieden bij het verzamelen en/of EventSource gebeurtenissen bekijken zijn [voorbeeld](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), en de [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Gebeurtenissen
+## <a name="events"></a>Events
 | Gebeurtenisnaam | Gebeurtenis-id | Niveau | Beschrijving van gebeurtenis |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informatief |Verzonden wanneer de service RunAsync-taak wordt gestart |
@@ -52,7 +52,7 @@ De runtime van Reliable Services definieert de volgende categorieën voor presta
 
 | Category | Description |
 | --- | --- |
-| Transactionele replicator voor Service Fabric |Prestatiemeteritems specifiek voor de transactionele Replicator voor Azure Service Fabric |
+| Transactionele Replicator voor service Fabric |Prestatiemeteritems specifiek voor de transactionele Replicator voor Azure Service Fabric |
 | Service Fabric TStore |Prestatiemeteritems specifiek voor de Azure Service Fabric TStore |
 
 De transactionele Replicator voor Service Fabric wordt gebruikt door de [betrouwbare status Manager](service-fabric-reliable-services-reliable-collections-internals.md) voor het repliceren van transacties binnen een bepaalde set [replica's](service-fabric-concepts-replica-lifecycle.md).
@@ -104,9 +104,9 @@ De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Servi
 
  Naam van het prestatiemeteritem | Description |
 | --- | --- |
-| Transactiebewerkingen starten/sec | Het aantal nieuwe schrijven transacties per seconde worden gemaakt.|
+| Begin transactiebewerkingen/sec | Het aantal nieuwe schrijven transacties per seconde worden gemaakt.|
 | Transactiebewerkingen/sec | Het aantal bewerkingen toevoegen/bijwerken/verwijderen die worden uitgevoerd op een betrouwbare verzamelingen per seconde.|
-| Logboekbytes leegmaken/sec | Het aantal bytes dat wordt leeggemaakt op de schijf met de transactionele replicatie per seconde |
+| Meld u logboekbytes leegmaken/sec | Het aantal bytes dat wordt leeggemaakt op de schijf met de transactionele replicatie per seconde |
 | Beperkte bewerkingen/sec | Het aantal bewerkingen per seconde door de transactionele Replicator vanwege een beperking afgewezen. |
 | Gem. Transactie ms en doorvoeren | Gemiddelde doorvoervertraging per transactie in milliseconden |
 | Gem. Latentie van leegmaken (ms) | Gemiddelde duur van de schijf leegmaken bewerkingen, gestart door de transactionele Replicator in milliseconden |
@@ -119,8 +119,8 @@ De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Servi
 | --- | --- |
 | Aantal items | Het aantal items in de store.|
 | Schijfgrootte | De totale schijfgrootte in bytes, van controlepuntbestanden voor de store.|
-| Geschreven bytes per seconde voor controlepuntbestand | Het aantal bytes per seconde voor het meest recente controlepunt geschreven.|
-| Overgedragen bytes per seconde voor kopiëren van schijf | Het aantal bytes op de schijf (op de primaire replica) gelezen of geschreven (op een secundaire replica) per seconde tijdens een kopie van de store.|
+| Controlepunt bestand geschreven Bytes per seconde | Het aantal bytes per seconde voor het meest recente controlepunt geschreven.|
+| Kopiëren van schijf overdracht Bytes per seconde | Het aantal bytes op de schijf (op de primaire replica) gelezen of geschreven (op een secundaire replica) per seconde tijdens een kopie van de store.|
 
 ## <a name="next-steps"></a>Volgende stappen
 [Gebeurtenisbron providers in het voorbeeld](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

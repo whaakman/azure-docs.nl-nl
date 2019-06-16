@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794294"
 ---
 # <a name="access-the-vfxt-cluster"></a>Toegang tot het cluster vFXT
@@ -58,8 +58,8 @@ In de **configuratie** Configuratiescherm:
 1. Geef een bron-poort, zoals 8443. 
 1. Voer voor de bestemming van het cluster vFXT beheer van IP-adres en poort 443. 
    Voorbeeld: ``203.0.113.51:443``
-1. Klik op **Add**.
-1. Klik op **Openen**.
+1. Klik op **Toevoegen**.
+1. Klik op **Open**.
 
 ![Schermafbeelding van de Putty-toepassing die laat zien waar op om toe te voegen een tunnel te klikken](media/avere-vfxt-ptty-numbered.png)
 

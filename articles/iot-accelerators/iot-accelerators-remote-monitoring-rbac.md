@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443098"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Op rollen gebaseerd toegangsbeheer in de oplossingsverbetering voor externe controle configureren
@@ -25,7 +25,7 @@ Wanneer u eerst de oplossing voor externe controle implementeert, zijn er twee r
 
 Een gebruiker in de **Admin** rol heeft volledige toegang tot de oplossing, met inbegrip van de volgende machtigingen hieronder. Een gebruiker in de **alleen-lezen** rol hebben alleen toegang tot de oplossing bekijken.
 
-| Machtiging            | Gemeente | Alleen-lezen |
+| Machtiging            | beheerder | Alleen-lezen |
 |----------------       |-------|-----------|
 | Weergave-oplossing         | Ja   | Ja       |
 | Waarschuwingen bijwerken         | Ja   | Nee        |

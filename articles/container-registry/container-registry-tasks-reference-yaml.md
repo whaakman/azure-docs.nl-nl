@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954466"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR-taken naar te verwijzen: YAML
@@ -88,7 +88,7 @@ Taakeigenschappen is doorgaans worden weergegeven aan de bovenkant van een `acr-
 | `secrets` | [secret, secret, ...] | Ja | Matrix van [geheim](#secret) objecten. | Geen |
 | `networks` | [netwerk, netwerk,...] | Ja | Matrix van [netwerk](#network) objecten. | Geen |
 
-### <a name="secret"></a>geheim
+### <a name="secret"></a>secret
 
 Het geheime object heeft de volgende eigenschappen.
 
@@ -98,7 +98,7 @@ Het geheime object heeft de volgende eigenschappen.
 | `keyvault` | string | Ja | De URL van de Azure Key Vault-geheim. | Geen |
 | `clientID` | string | Ja | De client-ID van de gebruiker toegewezen identiteit voor Azure-resources worden beheerd. | Geen |
 
-### <a name="network"></a>netwerk
+### <a name="network"></a>Netwerk
 
 Het object network heeft de volgende eigenschappen.
 

@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
 ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606862"
 ---
-# <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft Ondersteuning
+# <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
 
 StorSimple Device Manager biedt de mogelijkheid voor **melden van een nieuwe ondersteuningsaanvraag** binnen de overzichtsblade van de service. Als u problemen ondervindt met uw StorSimple-oplossing, kunt u een serviceaanvraag voor technische ondersteuning. In een online-sessie met de ondersteuningstechnicus moet u mogelijk ook een ondersteuningssessie te starten op uw StorSimple-apparaat. In dit artikel begeleidt u bij:
 
@@ -31,7 +31,7 @@ StorSimple Device Manager biedt de mogelijkheid voor **melden van een nieuwe ond
 
 Controleer de [StorSimple 8000-serie ondersteuning Sla's en informatie](https://msdn.microsoft.com/library/mt433077.aspx) voordat u een ondersteuningsaanvraag maken.
 
-## <a name="create-a-support-request"></a>Maak een ondersteuningsaanvraag
+## <a name="create-a-support-request"></a>Een ondersteuningsaanvraag maken
 
 Afhankelijk van uw [ondersteuningsplan](https://azure.microsoft.com/support/plans/), u kunt ondersteuningstickets voor een probleem maken op uw StorSimple-apparaat rechtstreeks vanuit de overzichtsblade van de StorSimple Device Manager-service. De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
 

@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60786933"
 ---
 # <a name="templates"></a>Sjablonen
@@ -30,7 +30,7 @@ U kunt aan de slag maken van een Data Factory-pijplijn met een sjabloon in de vo
 
     ![Open de galerie met sjablonen op de pagina overzicht](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Selecteer op het tabblad maken in Resource Explorer, **+**, klikt u vervolgens **pijplijn van sjabloon** openen van de galerie met sjablonen.
+1.  Selecteer op het tabblad maken in Resource Explorer, **+** , klikt u vervolgens **pijplijn van sjabloon** openen van de galerie met sjablonen.
 
     ![De galerie met sjablonen openen vanuit het tabblad auteur](media/solution-templates-introduction/templates-intro-image2.png)
 

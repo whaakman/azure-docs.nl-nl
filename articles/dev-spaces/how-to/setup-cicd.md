@@ -11,10 +11,10 @@ manager: yuvalm
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687313"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>CI/CD met Azure Dev opslagruimten gebruiken
@@ -43,7 +43,7 @@ Maak een nieuwe ruimte met de naam _dev_ met behulp van de `azds space select` o
 azds space select -n dev
 ```
 
-Wanneer u wordt gevraagd een bovenliggende dev-ruimte te selecteren, selecteert u _\<geen\>_.
+Wanneer u wordt gevraagd een bovenliggende dev-ruimte te selecteren, selecteert u _\<geen\>_ .
 
 Nadat uw dev-ruimte is gemaakt, moet u bepalen het achtervoegsel van de host. Gebruik de `azds show-context` opdracht om het achtervoegsel voor de host van de Controller voor binnenkomend verkeer van Azure Dev spaties weer te geven.
 
@@ -101,7 +101,7 @@ U hebt nu een CI-oplossing die u automatisch bouwt *mywebapi* en *webfrontend* v
 1. Voor de **standaardversie**, kiest u **nieuwste uit de standaardvertakking build-pijplijn met tags**.
 1. Laat **Tags** leeg zijn.
 1. Stel de **alias van de gegevensbron** naar `drop`. De **alias van de gegevensbron** waarde wordt gebruikt door de taken vooraf gedefinieerde release, zodat deze moet worden ingesteld.
-1. Klik op **Add**.
+1. Klik op **Toevoegen**.
 1. Klik nu op het bliksempictogram bolt op het zojuist gemaakte `drop` artefact bron, zoals hieronder wordt weergegeven:
 
     ![Release artefact continue implementatie instellen](../media/common/release-artifact-cd-setup.png)

@@ -3,19 +3,19 @@ title: Spraak containers installeren
 titleSuffix: Azure Cognitive Services
 description: Installeren en uitvoeren van containers van spraak. Spraak-naar-tekst transcribes audiostreams naar tekst in realtime die uw toepassingen, hulpprogramma's of apparaten kunnen gebruiken of weergeven. Tekst naar spraak converteert invoertekst naar menselijke kunstmatige spraak.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 93ae5dd00a7be929f7aa4ac8c35a30b856f0b3ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072479"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installeren en uitvoeren van containers voor spraak-Service
 
@@ -23,7 +23,7 @@ Spraak-containers bieden klanten kunnen maken van een architectuur van de spraak
 
 De twee spraak-containers zijn **spraak-naar-tekst** en **tekst naar spraak**. 
 
-|Function|Functies|De laatste|
+|Function|Functies|Latest|
 |-|-|--|
 |Spraak-naar-tekst| <li>Transcribes continue realtime spraak of batch audio-opnamen in tekst met tussenliggende resultaten genereren.|1.1.1|
 |Tekst naar spraak| <li>Converteert tekst naar natuurlijk klinkende spraak. met tekst zonder opmaak invoer of spraak synthese Markup Language (SSML). |1.1.0|
@@ -71,14 +71,13 @@ De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen to
 
 * Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
 
-
 Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
 
-**Houd er rekening mee**; De minimale en aanbevolen zijn op basis van Docker-limieten, *niet* resources van de host de computer. Spraak-naar-tekst containers geheugen toewijzen gedeelten van een grote taalmodel en het is bijvoorbeeld _aanbevolen_ dat het hele bestand past in het geheugen, namelijk een extra 4-6 GB. Ook kan de eerste uitvoering van de beide container langer duren, omdat het modellen wisselgeheugen wordt geplaatst in het geheugen.
+**Houd er rekening mee**; De minimale en aanbevolen zijn op basis van Docker-limieten, *niet* resources van de host de computer. Spraak-naar-tekst containers geheugen toewijzen gedeelten van een grote taalmodel en het is bijvoorbeeld _aanbevolen_ dat het hele bestand past in het geheugen, namelijk een extra 4-6 GB. Ook kan de eerste uitvoering van een container langer duren, omdat het modellen wisselgeheugen wordt geplaatst in het geheugen.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Met de installatiekopie van de container ophalen `docker pull`
 
-Containerinstallatiekopieën voor spraak zijn beschikbaar. 
+Containerinstallatiekopieën voor spraak zijn beschikbaar.
 
 | Container | Opslagplaats |
 |-----------|------------|
@@ -89,7 +88,7 @@ Containerinstallatiekopieën voor spraak zijn beschikbaar.
 
 ### <a name="language-locale-is-in-container-tag"></a>Landinstelling voor de taal is in container-code
 
-De `latest` label worden de `en-us` landinstellingen en `jessarus` stem. 
+De `latest` label worden de `en-us` landinstellingen en `jessarus` stem.
 
 #### <a name="speech-to-text-locales"></a>Spraak naar tekst landinstellingen
 
@@ -118,7 +117,6 @@ De volgende tabel bevat de ondersteunde landinstellingen voor **spraak-naar-teks
 |Koreaans|`ko-kr`|
 |Portugees|`pt-br`|
 |Spaans|`es-es`<br>`es-mx`|
-
 
 #### <a name="text-to-speech-locales"></a>Landinstellingen van tekst naar spraak
 
@@ -171,8 +169,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Als de container op de [hostcomputer](#the-host-computer), de volgende procedure gebruiken om te werken met de container.
 
-1. [Uitvoeren van de container](#run-the-container-with-docker-run), met de facturering instellingen vereist, maar niet in gebruik. Meer [voorbeelden](speech-container-configuration.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
-1. [Query van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint). 
+1. [Uitvoeren van de container](#run-the-container-with-docker-run), met de facturering instellingen vereist, maar niet in gebruik. Meer [voorbeelden](speech-container-configuration.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar.
+1. [Query van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>De container met uitvoeren `docker run`
 
@@ -194,7 +192,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 ### <a name="speech-to-text"></a>Spraak-naar-tekst
@@ -204,7 +202,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 Met deze opdracht:
@@ -212,7 +210,7 @@ Met deze opdracht:
 * Een spraak-container op de installatiekopie van de container wordt uitgevoerd
 * 2 CPU-kernen en 2 GB (Gigabyte) geheugen worden toegewezen
 * Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
-* De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer. 
+* De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer.
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
@@ -241,7 +239,9 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 met behulp van het eindpunt van de container op deze aanroep:
 
 ```C#
-var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
+var config = SpeechConfig.FromEndpoint(
+    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
+    "YourSubscriptionKey");
 ```
 
 #### <a name="for-python"></a>Voor Python
@@ -262,9 +262,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 De container biedt REST-eindpunt API's die kunnen worden gevonden [hier](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) en voorbeelden vindt [hier](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
-
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## <a name="stop-the-container"></a>De container stoppen
 
@@ -272,11 +270,11 @@ De container biedt REST-eindpunt API's die kunnen worden gevonden [hier](https:/
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Wanneer u de container uitvoert, wordt de container gebruikt **stdout** en **stderr** naar uitvoerinformatie die is het handig om het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
+Wanneer u de container uitvoert, wordt de container gebruikt **stdout** en **stderr** naar uitvoerinformatie die is het handig om het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container.
 
 ## <a name="billing"></a>Billing
 
-Het verzenden van de containers spraak factuurgegevens naar Azure, met behulp van een _spraak_ resource voor uw Azure-account. 
+Het verzenden van de containers spraak factuurgegevens naar Azure, met behulp van een _spraak_ resource voor uw Azure-account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

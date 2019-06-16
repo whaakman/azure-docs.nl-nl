@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 732cb118b7a0eebdbf28c7d7fe6ced435ce7920e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713723"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
@@ -41,8 +41,8 @@ De volgende tabel bevat geschatte data transfer duur op basis van de gegevens vo
 |80 TB|173 dagen|78 dagen|8 dagen|19 uur|
 |100 TB|216 dagen|97 dagen|tien dagen|1 dag|
 |200 TB|1 jaar|194 dagen|19 dagen|2 dagen|
-|500 TB|Drie jaar|1 jaar|49 dagen|5 dagen|
-|1 PB|zes jaar|Drie jaar|97 dagen|tien dagen|
+|500 TB|drie jaar|1 jaar|49 dagen|5 dagen|
+|1 PB|zes jaar|drie jaar|97 dagen|tien dagen|
 |2 PB|twaalf jaar|5 jaar|194 dagen|19 dagen|
 
 Hulpprogramma's ingebouwd in Azure, zoals Apache Hadoop DistCp, Azure Data Factory en AzureCp, kunnen worden gebruikt voor gegevensoverdracht via het netwerk. Het hulpprogramma van derden WANDisco kan ook worden gebruikt voor hetzelfde doel. Apache Kafka Mirrormaker en Apache Sqoop kunnen worden gebruikt voor continue gegevensoverdracht van on-premises naar Azure storage-systemen.

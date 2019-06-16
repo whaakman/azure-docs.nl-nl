@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 01/23/2017
+ms.author: yegu
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829800"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Voorbeelden voor Azure Cache voor Redis
@@ -32,14 +31,14 @@ De [Hallo wereld](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 
 
 Dit voorbeeld laat zien hoe u:
 
-- Gebruik verschillende verbindingsopties
-- Lezen en schrijven van objecten naar en van de cache met behulp van synchrone en asynchrone bewerkingen
-- Redis MGET-/ MSET-opdrachten gebruiken om te retourneren waarden van de opgegeven sleutels
-- Redis transactionele bewerkingen uitvoeren
-- Werken met een lijst met Redis en gesorteerde sets
-- .NET-objecten met behulp van JsonConvert objectserializers Store
-- Gebruik Redis ingesteld voor het implementeren van tags
-- Werken met Redis-Cluster
+* Gebruik verschillende verbindingsopties
+* Lezen en schrijven van objecten naar en van de cache met behulp van synchrone en asynchrone bewerkingen
+* Redis MGET-/ MSET-opdrachten gebruiken om te retourneren waarden van de opgegeven sleutels
+* Redis transactionele bewerkingen uitvoeren
+* Werken met een lijst met Redis en gesorteerde sets
+* .NET-objecten met behulp van JsonConvert objectserializers Store
+* Gebruik Redis ingesteld voor het implementeren van tags
+* Werken met Redis-Cluster
 
 Zie voor meer informatie de [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentatie op GitHub en meer gebruiksscenario's Zie de [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) eenheidstests.
 
@@ -53,8 +52,8 @@ De [Azure-Cache gebruiken voor Redis als een Scale-out Backplane voor ASP.NET Si
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure voor voorbeeld van een klant query Redis-Cache
 In dit voorbeeld ziet u vergelijkt prestaties tussen toegang tot gegevens uit de cache en toegang tot gegevens uit de permanente opslag. Dit voorbeeld heeft twee projecten.
 
-- [Demo hoe Azure-Cache voor Redis prestaties kunt verbeteren door gegevens opslaan in cache](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-- [Voor de Database en de Cache voor de demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+* [Demo hoe Azure-Cache voor Redis prestaties kunt verbeteren door gegevens opslaan in cache](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [Voor de Database en de Cache voor de demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>ASP.NET-sessiestatus en uitvoercaching
 De [Azure Cache gebruik van Redis voor het opslaan van ASP.NET SessionState en OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) voorbeeld laat zien hoe u Azure Redis Cache gebruiken voor het opslaan van ASP.NET-sessie en gebruik van de providers SessionState en OutputCache voor Redis Cache-uitvoer .
@@ -70,6 +69,4 @@ De [Retwis](https://github.com/SyntaxC4-MSFT/retwis) voorbeeld is de Redis-Hallo
 
 ## <a name="bandwidth-monitor"></a>Bandbreedte-monitor
 De [bandbreedte monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) voorbeeld kunt u voor het bewaken van de bandbreedte die wordt gebruikt op de client. Als u wilt meten van de bandbreedte, het voorbeeld uitvoeren in de cache-clientcomputer, aanroepen naar de cache en bekijk de bandbreedte die is gerapporteerd door het voorbeeld van de monitor bandbreedte.
-
-<!-- Update_Description: update metedata properties -->
 

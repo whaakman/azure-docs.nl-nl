@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061086"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configureren van Azure CNI netwerken in Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ In dit artikel leest u hoe u *Azure CNI* netwerken maken en een subnet van een v
 
 * Het virtuele netwerk voor het AKS-cluster moet uitgaande internetverbinding toestaan.
 * Niet meer dan één AKS-cluster maken in hetzelfde subnet.
-* AKS-clusters worden niet gebruikt `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16` voor het Kubernetes-service-adresbereik.
+* AKS-clusters worden niet gebruikt `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, of `192.0.2.0/24` voor het Kubernetes-service-adresbereik.
 * De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw virtuele netwerk. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -100,7 +100,7 @@ Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigur
 * Moet niet binnen het virtuele netwerk IP-adresbereik van het cluster
 * Mag niet overlappen met andere virtuele netwerken met die van het virtuele clusternetwerk collega 's
 * Mag niet overlappen met een on-premises-IP-adressen
-* Moet niet binnen de bereiken `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16`
+* Moet niet binnen de bereiken `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, of `192.0.2.0/24`
 
 Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde virtuele netwerk als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services] [ services] in het Kubernetes-documentatie.
 

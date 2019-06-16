@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61128846"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Bewaken en problemen oplossen vanaf de HANA-zijde
@@ -94,10 +94,10 @@ Raadpleeg de [SAP HANA probleemoplossing: Problemen met geheugen](https://help.s
 Raadpleeg [SAP Opmerking #2081065 – het oplossen van SAP HANA netwerk](https://launchpad.support.sap.com/#/notes/2081065) en het netwerk de stappen in deze SAP-notitie voor probleemoplossing uitvoeren.
 
 1. Analyse van retourtijd tussen server en client.
-  A. Voer de SQL-script [ _HANA\_netwerk\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Voer de SQL-script [ _HANA\_netwerk\_Clients_](https://launchpad.support.sap.com/#/notes/1969700) _._
   
 2. Analyseer de communicatie tussen knooppunten.
-  A. Voer SQL-script [ _HANA\_netwerk\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Voer SQL-script [ _HANA\_netwerk\_Services_](https://launchpad.support.sap.com/#/notes/1969700) _._
 
 3. Linux-opdracht uitvoeren **ifconfig** (in de uitvoer ziet als een pakketverlies optreden).
 4. Linux-opdracht uitvoeren **tcpdump**.
@@ -106,7 +106,7 @@ Gebruik ook de open-source [IPERF](https://iperf.fr/) hulpprogramma (of vergelij
 
 Raadpleeg de [SAP HANA probleemoplossing: Prestaties van de netwerken en problemen met de netwerkverbinding](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 Vanuit het perspectief van een eindgebruiker, een toepassing (of het systeem als geheel) wordt traag uitgevoerd, is niet meer reageert of zelfs lijkt misschien niet meer reageert als er problemen met i/o-prestaties zijn. In de **Volumes** tabblad in SAP HANA Studio, ziet u de gekoppelde volumes en welke volumes worden gebruikt door elke service.
 

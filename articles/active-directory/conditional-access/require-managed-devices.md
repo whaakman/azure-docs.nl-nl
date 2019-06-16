@@ -1,6 +1,6 @@
 ---
-title: Hoe-vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang van Azure Active Directory te beheren | Microsoft Docs
-description: Informatie over het configureren van Azure Active Directory (Azure AD)-beleid voor voorwaardelijke toegang op basis van apparaten die beheerde apparaten voor toegang tot cloud-Apps vereisen.
+title: Hoe-vereisen voor toegang tot cloud-Apps met Azure Active Directory voor voorwaardelijke toegang te beheren | Microsoft Docs
+description: Informatie over het configureren van Azure Active Directory (Azure AD) apparaten gebaseerd beleid voor voorwaardelijke toegang die beheerde apparaten voor toegang tot cloud-Apps vereisen.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -17,12 +17,12 @@ ms.date: 06/14/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 459dd981b73ae840b3fc61bd0cc83ecefb1cf393
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354743"
+ms.locfileid: "67112147"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedure: Beheerde apparaten vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang
 
@@ -33,7 +33,7 @@ In dit artikel wordt uitgelegd hoe u beleid voor voorwaardelijke toegang die ver
 
 ## <a name="prerequisites"></a>Vereisten
 
-Beheerde apparaten vereisen voor cloud-app toegang ties **voorwaardelijke toegang voor Azure AD** en **Azure AD-Apparaatbeheer** samen. Als u nog niet bekend bent met een van deze gebieden, moet u eerst de volgende onderwerpen lezen:
+Beheerde apparaten vereisen voor cloud-app toegang ties **Azure AD voor voorwaardelijke toegang** en **Azure AD-Apparaatbeheer** samen. Als u nog niet bekend bent met een van deze gebieden, moet u eerst de volgende onderwerpen lezen:
 
 - **[Voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -in dit artikel biedt u een conceptueel overzicht van voorwaardelijke toegang en de bijbehorende terminologie.
 
@@ -112,5 +112,5 @@ Voor een apparaat dat is gemarkeerd als compatibel, kunt u ervan uitgaan dat:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voordat u beleid voor voorwaardelijke toegang op basis van het apparaat configureert in uw omgeving, moet u Kijk eens de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).
+Voordat u een beleid voor voorwaardelijke toegang op basis van het apparaat configureert in uw omgeving, moet u Kijk eens de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).
 
