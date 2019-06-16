@@ -1,20 +1,20 @@
 ---
-title: Automatisch schalen en Zone-redundante Application Gateway in Azure
+title: Automatisch schalen en zoneredundante toepassingsgateway v2
 description: In dit artikel worden de Azure-toepassing Standard_v2 en WAF_v2 SKU, waaronder functies voor automatisch schalen en Zone-redundante geïntroduceerd.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054743"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisch schalen en Zone-redundante Application Gateway 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisch schalen en zoneredundante toepassingsgateway v2 
 
 Application Gateway en Web Application Firewall (WAF) zijn ook beschikbaar onder een Standard_v2 en WAF_v2 SKU. De v2-SKU biedt verbeterde prestaties en voegt ondersteuning toe voor belangrijke nieuwe functies zoals automatisch schalen, zoneredundantie en ondersteuning voor statische VIP's. Bestaande functies onder de Standard- en WAF-Voorraadeenheid worden nog steeds ondersteund in de nieuwe v2-SKU, met een paar uitzonderingen die worden vermeld in [vergelijking](#differences-with-v1-sku) sectie.
 
@@ -71,7 +71,7 @@ Zie voor meer informatie prijzen, de [pagina met prijzen](https://azure.microsof
 Een Application Gateway Standard_v2 wordt ingericht zonder automatisch schalen in de modus voor handmatige vergroten/verkleinen met vaste capaciteit van vijf exemplaren.
 
 Vaste prijs 744(hours) = * $0.20 $148.8 = <br>
-Capaciteitseenheden 744 (uren) 10 capaciteitseenheid per exemplaar = * vijf exemplaren * $0.008 per uur voor capaciteit eenheid = $297.6
+Capaciteitseenheden 744 = (uren) * 10 capaciteitseenheid per exemplaar * 5 exemplaren * $0.008 per uur voor capaciteit eenheid = $297.6
 
 Totale prijs = $148.8 + $297.6 $446.4 =
 
@@ -85,6 +85,9 @@ Prijs per eenheid voor capaciteit 744(hours) = * Max (25/50 rekeneenheid voor ve
 
 Totale prijs = $148. 23.81 8 + = $172.61
 
+> [!NOTE]
+> De functie Max retourneert de grootste waarde in een paar van de waarden.
+
 **Voorbeeld 3**
 
 Een Application Gateway WAF_v2 wordt ingericht voor een maand. Gedurende deze tijd het 25 nieuwe SSL-verbindingen/sec, gemiddelde 8.88 Mbps gegevensoverdracht ontvangt en 80 aanvragen per seconde heeft. Ervan uitgaande dat de verbindingen zijn korte duur en dat berekening van de compute-eenheid voor de toepassing biedt ondersteuning voor 10 RPS per compute-eenheid, de prijs zou zijn:
@@ -94,6 +97,9 @@ Vaste prijs 744(hours) = * $0.36 $267.84 =
 Prijs per eenheid voor capaciteit 744(hours) = * Max (compute-eenheid Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 capaciteitseenheid voor doorvoer) * $0.0144 = 744 * 8 * 0.0144 $85.71 =
 
 Totale prijs = $267.84 + $85.71 $353.55 =
+
+> [!NOTE]
+> De functie Max retourneert de grootste waarde in een paar van de waarden.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Application Gateway en WAF v2 schalen
 
@@ -142,11 +148,12 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 |FIPS-modus|Deze worden momenteel niet ondersteund.|
 |Alleen ILB-modus|Dit wordt momenteel niet ondersteund. Openbare en samen ILB-modus wordt ondersteund.|
 |Integratie van het netwerk controleren|Wordt niet ondersteund.|
-|Integratie van Azure-ondersteuning|Nog niet beschikbaar.
+|Integratie van Azure Security Center|Nog niet beschikbaar.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migreren van v1 naar v2
 
 Een Azure PowerShell-script is beschikbaar in de PowerShell gallery kunt u vanaf uw v1 Application Gateway/WAF migreren naar de v2-automatisch schalen SKU. Met dit script helpt u bij het kopiëren van de configuratie van uw gateway v1. Verkeer migratie is nog steeds uw eigen verantwoordelijkheid. Zie voor meer informatie, [migreren Azure Application Gateway van v1 in v2](migrate-v1-v2.md).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Snelstart: Directe webverkeer met Azure Application Gateway - Azure portal](quick-create-portal.md)

@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7de892a0851e556c5046fe4b3691f39b42a9d237
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074753"
 ---
 # <a name="web-api-that-calls-web-apis---move-to-production"></a>Web-API die web-API's - aanroept verplaatsen naar productie
@@ -34,4 +34,4 @@ Nu dat u weet dat de basisprincipes van over het aanroepen van web-API's van uw 
 
 | Voorbeeld | Platform | Description |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2.2 van ASP.NET Core Web-API, bureaublad (WPF) | 2.2 van ASP.NET Core Web-API aanroepen van Microsoft Graph, zelf aangeroepen vanuit een WPF-toepassing met behulp van de Microsoft identity-platform (v2.0) |
+| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2\.2 van ASP.NET Core Web-API, bureaublad (WPF) | 2\.2 van ASP.NET Core Web-API aanroepen van Microsoft Graph, zelf aangeroepen vanuit een WPF-toepassing met behulp van de Microsoft identity-platform (v2.0) |

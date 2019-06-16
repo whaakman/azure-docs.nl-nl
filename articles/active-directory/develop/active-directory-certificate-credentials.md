@@ -19,10 +19,10 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001220"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Referenties van het computercertificaat voor de verificatie van de toepassing
@@ -34,7 +34,7 @@ Een vorm van de referentie op die een toepassing voor verificatie gebruiken kunt
 ## <a name="assertion-format"></a>Bewering indeling
 De verklaring Reken-, kunt u een van de vele [JSON Web Token](https://jwt.ms/) bibliotheken in de taal van uw keuze. De informatie die door het token zijn als volgt:
 
-### <a name="header"></a>Koptekst
+### <a name="header"></a>Header
 
 | Parameter |  Opmerking |
 | --- | --- |
@@ -51,9 +51,9 @@ De verklaring Reken-, kunt u een van de vele [JSON Web Token](https://jwt.ms/) b
 | `iss` | Uitgever: moet de client_id (toepassings-ID van de client-service) |
 | `jti` | GUID: de JWT-ID |
 | `nbf` | Niet vooraf: de datum waarvoor het token kan niet worden gebruikt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC tot het moment dat het token is uitgegeven. |
-| `sub` | Houder: Als voor `iss`, moet de client_id (toepassings-ID van de client-service) |
+| `sub` | Onderwerp: Als voor `iss`, moet de client_id (toepassings-ID van de client-service) |
 
-### <a name="signature"></a>Handtekening
+### <a name="signature"></a>handtekening
 
 De handtekening wordt berekend met het toepassen van het certificaat zoals is beschreven in de [JSON Web Token RFC7519-specificatie](https://tools.ietf.org/html/rfc7519)
 

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306662"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>De Azure Storage REST API gebruiken
@@ -65,7 +65,7 @@ Laten we kijken naar de pagina in de REST-API-naslaginformatie voor de [ListCont
 
 **Verzoekmethode**: TOEVOEGEN. Deze bewerking wordt de HTTP-methode die u als een eigenschap van het request-object opgeeft. Andere waarden voor deze bewerking zijn HEAD, PUT en DELETE, afhankelijk van de API die u aanroept.
 
-**Aanvraag-URI**: https://myaccount.blob.core.windows.net/?comp=list  Dit is gemaakt op basis van het eindpunt van blob storage-account `http://myaccount.blob.core.windows.net` en de brontekenreeks `/?comp=list`.
+**Aanvraag-URI**: https://myaccount.blob.core.windows.net/?comp=list   Dit is gemaakt op basis van het eindpunt van blob storage-account `http://myaccount.blob.core.windows.net` en de brontekenreeks `/?comp=list`.
 
 [URI-parameters](/rest/api/storageservices/List-Containers2#uri-parameters): Er zijn aanvullende queryparameters die u gebruiken kunt bij het aanroepen van ListContainers. Enkele van deze parameters zijn *time-out* voor de aanroep (in seconden) en *voorvoegsel*, die wordt gebruikt voor het filteren.
 

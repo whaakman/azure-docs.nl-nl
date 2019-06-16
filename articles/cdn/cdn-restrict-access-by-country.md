@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869589"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Azure CDN-inhoud beperken per land/regio
@@ -42,12 +42,12 @@ Voor toegang tot de functie voor geo-filteren, selecteert u uw CDN-eindpunt in d
 
 Uit de **pad** , geeft u het relatieve pad naar de locatie waarop gebruikers wordt toegestaan of toegang geweigerd. 
 
-U geografisch filteren kunt toepassen voor alle bestanden met een zone voor forward slash (/) of door op te geven mappaden de specifieke mappen te selecteren (bijvoorbeeld */afbeeldingen/*). U kunt ook geografisch filteren in één bestand (bijvoorbeeld */pictures/city.png*). Meerdere regels zijn toegestaan; Nadat u een regel hebt ingevoerd, wordt de volgende regel geeft u op een lege rij weergegeven.
+U geografisch filteren kunt toepassen voor alle bestanden met een zone voor forward slash (/) of door op te geven mappaden de specifieke mappen te selecteren (bijvoorbeeld */afbeeldingen/* ). U kunt ook geografisch filteren in één bestand (bijvoorbeeld */pictures/city.png*). Meerdere regels zijn toegestaan; Nadat u een regel hebt ingevoerd, wordt de volgende regel geeft u op een lege rij weergegeven.
 
 Bijvoorbeeld, zijn alle van de volgende directory pad filters geldig:   
 */*                                 
-*/Photos/*     
-*/Photos/Strasbourg/*     
+*/Photos/*      
+*/Photos/Strasbourg/*      
 */Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Het type actie definiëren

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482791"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Vervangen van een controllermodule op uw StorSimple-apparaat
@@ -36,7 +36,7 @@ In deze zelfstudie wordt uitgelegd hoe om te verwijderen en vervangen door een o
 
 De volgende tabel bevat de ondersteunde controller vervanging scenario's.
 
-| Case | Vervanging scenario | Procedures |
+| Aanvraag | Vervanging scenario | Procedures |
 |:--- |:--- |:--- |
 | 1 |Een controller bevindt zich in een foutstatus, de andere controller is in orde en actief is. |[Eén controller vervangen](#replace-a-single-controller), welke optie beschrijft het [logica achter een vervanging van één domeincontroller](#single-controller-replacement-logic), evenals de [vervanging stappen](#single-controller-replacement-steps). |
 | 2 |Beide controllers zijn mislukt en moeten worden vervangen. Het chassis, schijven en schijfbehuizing zijn in orde. |[Dual-controller vervangen](#replace-both-controllers), welke optie beschrijft het [logica achter de vervanging van een dubbele domeincontroller](#dual-controller-replacement-logic), evenals de [vervanging stappen](#dual-controller-replacement-steps). |

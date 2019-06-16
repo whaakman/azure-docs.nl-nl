@@ -27,6 +27,7 @@
       items:
         - name: Met .NET
           href: stream-live-tutorial-with-api.md
+          displayName: 'Live Events, Live Outputs, ingest'
     - name: Uw video analyseren
       items:
         - name: Met .NET
@@ -47,7 +48,7 @@
       href: concepts-overview.md
     - name: Uploaden naar en opslaan in de cloud
       items:
-        - name: Opslag
+        - name: Storage
           href: storage-account-concept.md
           displayName: Storage side encryption
         - name: Assets
@@ -122,6 +123,7 @@
           href: live-streaming-overview.md
         - name: Live gebeurtenissen en live uitvoer
           href: live-events-outputs-concept.md
+          displayName: 'vanity, ingest'
         - name: Aanbevolen live-encoders
           href: recommended-on-premises-live-encoders.md
         - name: Een cloud-DVR gebruiken

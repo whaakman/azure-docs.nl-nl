@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799355"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen
@@ -65,7 +65,7 @@ De tabellen in de volgende secties bieden een logische groepering van de wachtri
 ## <a name="foundational-capabilities"></a>Fundamentele mogelijkheden
 In deze sectie worden enkele van de fundamentele queuing mogelijkheden geboden door Storage-wachtrijen en Service Bus-wachtrijen vergeleken.
 
-| Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
+| Vergelijkingscriteria | Storage-wachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
 | Volgorde gegarandeerd |**Nee** <br/><br>Zie voor meer informatie, de eerste opmerking in de sectie 'Extra gegevens'.</br> |**Ja - First In First Out (FIFO)**<br/><br>(door het gebruik van messaging sessies) |
 | Aflevering gegarandeerd |**At-Least-Once** |**At-Least-Once**<br/><br/>**In de meeste eens** |
@@ -98,7 +98,7 @@ In deze sectie worden enkele van de fundamentele queuing mogelijkheden geboden d
 ## <a name="advanced-capabilities"></a>Geavanceerde mogelijkheden
 In deze sectie worden vergeleken geavanceerde mogelijkheden van Storage-wachtrijen en Service Bus-wachtrijen.
 
-| Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
+| Vergelijkingscriteria | Storage-wachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
 | Geplande bezorging |**Ja** |**Ja** |
 | Automatische onbestelbare |**Nee** |**Ja** |
@@ -129,7 +129,7 @@ In deze sectie worden vergeleken geavanceerde mogelijkheden van Storage-wachtrij
 ## <a name="capacity-and-quotas"></a>Capaciteit en quota
 In deze sectie worden vergeleken Storage-wachtrijen en Service Bus-wachtrijen vanuit het perspectief van [capaciteit en quota's](service-bus-quotas.md) die mogelijk van toepassing is.
 
-| Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
+| Vergelijkingscriteria | Storage-wachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
 | Maximale wachtrijgrootte |**500 TB**<br/><br/>(beperkt tot een [enkel opslagaccountcapaciteit](../storage/common/storage-introduction.md#queue-storage)) |**1 GB tot 80 GB**<br/><br/>(gedefinieerd bij het maken van een wachtrij en [inschakelen partitioneren](service-bus-partitioning.md) : Zie de sectie "Extra informatie") |
 | Maximale berichtgrootte |**64 KB**<br/><br/>(48 KB bij het gebruik van **Base64** codering)<br/><br/>Azure biedt ondersteuning voor grote berichten door een combinatie van wachtrijen en blobs – op dat moment u in de wachtrij zetten kunt tot 200 GB voor één item. |**256 KB** of **1 MB**<br/><br/>(met inbegrip van de koptekst en hoofdtekst, maximale header-grootte: 64 KB).<br/><br/>Afhankelijk van de [servicelaag](service-bus-premium-messaging.md). |
@@ -148,7 +148,7 @@ In deze sectie worden vergeleken Storage-wachtrijen en Service Bus-wachtrijen va
 ## <a name="management-and-operations"></a>Beheer en bewerkingen
 In deze sectie worden de beheerfuncties die is geleverd door de Storage-wachtrijen en Service Bus-wachtrijen met elkaar vergeleken.
 
-| Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
+| Vergelijkingscriteria | Storage-wachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
 | Management-protocol |**REST via HTTP/HTTPS** |**REST-via HTTPS** |
 | Runtime-protocol |**REST via HTTP/HTTPS** |**REST-via HTTPS**<br/><br/>**AMQP 1.0 standaard (TCP met TLS)** |
@@ -172,7 +172,7 @@ In deze sectie worden de beheerfuncties die is geleverd door de Storage-wachtrij
 ## <a name="authentication-and-authorization"></a>Verificatie en autorisatie
 Deze sectie wordt de verificatie en autorisatie functies die worden ondersteund door de Storage-wachtrijen en Service Bus-wachtrijen beschreven.
 
-| Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
+| Vergelijkingscriteria | Storage-wachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
 | Verificatie |**Symmetrische sleutel** |**Symmetrische sleutel** |
 | Beveiligingsmodel |Gedelegeerde toegang via SAS-tokens. |SAS |

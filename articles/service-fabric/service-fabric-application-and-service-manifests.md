@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621510"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052662"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-toepassing- en servicemanifesten
 Dit artikel wordt beschreven hoe Service Fabric-toepassingen en services worden gedefinieerd en is samengesteld met behulp van de bestanden ApplicationManifest.xml en ServiceManifest.xml.  Zie voor meer voorbeelden van gedetailleerde [toepassing en service manifest van de voorbeelden](service-fabric-manifest-examples.md).  Het XML-schema voor deze manifestbestanden wordt gedocumenteerd in [ServiceFabricServiceModel.xsd schemadocumentatie](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ Zie voor meer informatie over het configureren van de SetupEntryPoint [het belei
 </Settings>
 ```
 
-Een Service Fabric-Service **eindpunt** volgt een voorbeeld van een Service Fabric-Resource; Een Service Fabric-Resource kan worden opgegeven/gewijzigd zonder de gecompileerde code te wijzigen. Toegang tot de Service Fabric-Resources die zijn opgegeven in het servicemanifest kan worden beheerd via de **Toewijzingsmodule** in het toepassingsmanifest. Als een Resource-eindpunt is gedefinieerd in het servicemanifest, wijst Service Fabric poorten van het gereserveerde bereik toe wanneer een poort niet expliciet is opgegeven. Meer informatie over [op te geven of het vervangen van eindpunt resources](service-fabric-service-manifest-resources.md).
+Een Service Fabric-Service **eindpunt** volgt een voorbeeld van een Service Fabric-Resource. Een Service Fabric-Resource kan worden opgegeven/gewijzigd zonder de gecompileerde code te wijzigen. Toegang tot de Service Fabric-Resources die zijn opgegeven in het servicemanifest kan worden beheerd via de **Toewijzingsmodule** in het toepassingsmanifest. Als een Resource-eindpunt is gedefinieerd in het servicemanifest, wijst Service Fabric poorten van het gereserveerde bereik toe wanneer een poort niet expliciet is opgegeven. Meer informatie over [op te geven of het vervangen van eindpunt resources](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -163,7 +163,11 @@ Servicemanifesten, zoals **versie** kenmerken zijn tekenreeksen met niet-gestruc
 
 **Certificaten** (niet ingesteld in het vorige voorbeeld) verklaart de certificaten voor het [HTTPS-eindpunten instellen](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) of [versleutelen geheimen in het toepassingsmanifest](service-fabric-application-secret-management.md).
 
-**Beleid** (niet ingesteld in het vorige voorbeeld) beschrijft de logboekverzameling [standaard run as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), en [beveiligingstoegang](service-fabric-application-runas-security.md) beleid om in te stellen op de niveau van de toepassing.
+**Beleid** (niet ingesteld in het vorige voorbeeld) beschrijft de logboekverzameling [standaard run as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), en [beveiligingstoegang](service-fabric-application-runas-security.md) beleid om in te stellen op de niveau van de toepassing, waaronder of de service (s) toegang tot de Service Fabric-runtime hebben.
+
+> [!NOTE] 
+> Service Fabric-toepassingen hebben standaard toegang tot de Service Fabric-runtime, in de vorm van een eindpunt toepassingsspecifieke aanvragen en omgevingsvariabelen die verwijst naar paden op de host met Fabric en toepassingsspecifieke bestanden accepteren . Houd rekening met deze toegang uitschakelen wanneer de toepassing als host fungeert voor niet-vertrouwde code (dat wil zeggen code waarvan herkomst is onbekend of die eigenaar van de toepassing weet niet als veilig kan worden uitgevoerd). Zie voor meer informatie, [best practices voor beveiliging in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Beveiligings-principals** (niet ingesteld in het voorgaande voorbeeld) de beveiligings-principals (gebruikers of groepen) vereist om te beschrijven [uitvoeren services en bronnen van veilige service](service-fabric-application-runas-security.md).  Beveiligings-principals zijn waarnaar wordt verwezen in de **beleid** secties.
 

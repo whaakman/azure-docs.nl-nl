@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65782924"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Een script voor installatie zonder toezicht voor de Azure AD Application Proxy-connector maken
@@ -53,7 +53,7 @@ Er zijn twee methoden die u gebruiken kunt om de connector te registreren:
 * Registreert u de connector met behulp van een token gemaakt offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registreert u de connector met behulp van een Windows PowerShell-referentieobject
-1. Een Windows PowerShell-referenties-object maken `$cred` die bevat een administratieve gebruikersnaam en wachtwoord voor uw directory. Voer de volgende opdracht vervangt *\<gebruikersnaam\>* en  *\<wachtwoord\>*:
+1. Een Windows PowerShell-referenties-object maken `$cred` die bevat een administratieve gebruikersnaam en wachtwoord voor uw directory. Voer de volgende opdracht vervangt *\<gebruikersnaam\>* en  *\<wachtwoord\>* :
    
         $User = "<username>"
         $PlainPassword = '<password>'

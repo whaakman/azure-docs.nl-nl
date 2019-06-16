@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440206"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Upgrade uitvoeren van uw IoT-hub
@@ -39,7 +39,7 @@ Deze voorbeelden zijn bedoeld om te begrijpen hoe u uw IoT-hub als de oplossing 
 
 2. Selecteer **prijs- en schaalniveau**.
 
-   ![Prijzen en schaal](./media/iot-hub-upgrade/pricing-scale.png)
+   ![Prijs- en schaalniveau](./media/iot-hub-upgrade/pricing-scale.png)
 
 3. Als u wilt wijzigen van de laag voor uw hub, selecteer **prijs- en schaalcategorie**. De nieuwe laag kiezen en klik vervolgens op **Selecteer**.
 

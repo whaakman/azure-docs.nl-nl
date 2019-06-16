@@ -9,10 +9,10 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60840030"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Netwerkprestatiemeter configureren voor ExpressRoute
@@ -206,7 +206,7 @@ Voor Microsoft-peering, klikt u op de Microsoft-peering verbindingen die u wilt 
 
 1. Controleer de **deze peering controleren** selectievakje. 
 2. (Optioneel) U kunt het doel Microsoft service-eindpunt kunt wijzigen. Standaard kiest NPM een Microsoft-service-eindpunt als het doel. NPM bewaakt connectiviteit vanuit uw on-premises servers naar dit eindpunt doel via ExpressRoute. 
-    * Als u wilt dit eindpunt doel wijzigen, klikt u op de **(bewerken)** koppeling onder **doel:**, en selecteer een ander doel eindpunt van de Microsoft-service in de lijst met URL's.
+    * Als u wilt dit eindpunt doel wijzigen, klikt u op de **(bewerken)** koppeling onder **doel:** , en selecteer een ander doel eindpunt van de Microsoft-service in de lijst met URL's.
       ![doel bewerken](./media/how-to-npm/edit_target.png)<br>
 
     * U kunt een aangepaste URL of IP-adres gebruiken. Deze optie is met name relevant als u van Microsoft gebruikmaakt-peering voor het maken van een verbinding met Azure PaaS-services, zoals Azure Storage, SQL-databases en Websites die worden aangeboden op openbare IP-adressen. Klik op de koppeling om dit te doen, **(aangepaste URL of IP-adres gebruiken in plaats daarvan)** aan de onderkant van de lijst met URL's, voert u het openbare eindpunt van uw Azure PaaS-service die is verbonden via de ExpressRoute-Microsoft-peering.

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510398"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Maken en beheren van lezen-replica's in Azure Database voor PostgreSQL - één Server van de Azure-portal
@@ -67,7 +67,7 @@ Volg deze stappen voor het maken van een replica lezen:
 
 5. Selecteer een locatie voor de replica. U kunt een replica maken in een Azure-regio. De standaardlocatie is hetzelfde als van de hoofd-server.
 
-    ![Een locatie selecteren](./media/howto-read-replicas-portal/location-replica.png)
+    ![Selecteer een locatie](./media/howto-read-replicas-portal/location-replica.png)
 
 6. Selecteer **OK** om te bevestigen van het maken van de replica.
 

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520261"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
@@ -229,7 +229,7 @@ Geef toegestane internet-adresbereiken met behulp van [CIDR-notatie](https://too
    > [!NOTE]
    > Kleine adresbereiken met behulp van '/ 31' of '/ 32' voorvoegsel grootten worden niet ondersteund. Deze bereiken moeten worden geconfigureerd met behulp van afzonderlijke regels voor IP-adres.
 
-IP-netwerkregels zijn alleen toegestaan voor **openbare internet** IP-adressen. IP-adresbereiken die zijn gereserveerd voor particuliere netwerken (zoals gedefinieerd in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) zijn niet toegestaan in de IP-regels. Particuliere netwerken bevatten adressen die met beginnen _10.*_, _172.16. *_ - _172.31. *_, en _192.168. *_.
+IP-netwerkregels zijn alleen toegestaan voor **openbare internet** IP-adressen. IP-adresbereiken die zijn gereserveerd voor particuliere netwerken (zoals gedefinieerd in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) zijn niet toegestaan in de IP-regels. Particuliere netwerken bevatten adressen die met beginnen _10.*_ , _172.16. *_  - _172.31. *_ , en _192.168. *_ .
 
    > [!NOTE]
    > IP-netwerkregels hebben geen invloed op aanvragen die afkomstig zijn van dezelfde Azure-regio als het opslagaccount. Gebruik [virtuele-netwerkregels](#grant-access-from-a-virtual-network) waarmee aanvragen voor dezelfde regio.

@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
 ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001745"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob storage beheren
@@ -33,7 +33,7 @@ U hebt een scenario waarbij gegevens regelmatig toegang opgehaald tijdens de eer
 
 De levenscyclus van management-beleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2) accounts en Blob storage-accounts. In de Azure-portal, kunt u een bestaande account voor algemeen gebruik (GPv1) upgraden naar een GPv2-account. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie over opslagaccounts.  
 
-## <a name="pricing"></a>Prijs
+## <a name="pricing"></a>Prijzen
 
 De levenscyclus van management-functie is gratis. Klanten betalen voor de bewerkingskosten van de normale voor de [Blobs weergeven](https://docs.microsoft.com/rest/api/storageservices/list-blobs) en [Blob-laag instellen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-aanroepen. Verwijderbewerking is gratis. Zie voor meer informatie over prijzen [prijzen voor blok-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -200,7 +200,7 @@ Elke regel in het beleid heeft verschillende parameters:
 | Parameternaam | Parametertype | Opmerkingen | Vereist |
 |----------------|----------------|-------|----------|
 | `name`         | String |Een de regelnaam mag maximaal 256 alfanumerieke tekens bestaan. De naam van regel is hoofdlettergevoelig.  Deze moet uniek zijn binnen een beleid. | True |
-| `enabled`      | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | Onwaar | 
+| `enabled`      | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
 | `type`         | Een enum-waarde | De huidige geldig type is `Lifecycle`. | True |
 | `definition`   | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. | True |
 
@@ -266,7 +266,7 @@ Levenscyclusbeheer biedt ondersteuning voor opslaglagen en verwijderen van blobs
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Ondersteuning voor blobs dat zich momenteel in de warme laag         | Niet ondersteund |
 | tierToArchive | Ondersteuning voor blobs dat zich momenteel in de opslaglaag hot of cool | Niet ondersteund |
-| verwijderen        | Ondersteund                                   | Ondersteund     |
+| delete        | Ondersteund                                   | Ondersteund     |
 
 >[!NOTE]
 >Als u meer dan één actie op dezelfde blob definieert, is levensduurbeheer van de minst dure actie van toepassing op de blob. Bijvoorbeeld: actie `delete` is goedkoper dan actie `tierToArchive`. Actie `tierToArchive` is goedkoper dan actie `tierToCool`.

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9a6f162a10408469669cf40b29efc6d2903944
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 612bdd2a5813237f05e9a30a0c90c3b643ece4b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111443"
 ---
 # <a name="authentication-flows"></a>Verificatiestromen
 
@@ -51,7 +51,7 @@ Lees het volgende voor meer informatie over het gebruik van MSAL.NET aan te scha
 
 Lees voor meer informatie over interactieve aanroepen in MSAL.js [gedrag in de interactieve aanvragen MSAL.js vragen](msal-js-prompt-behavior.md)
 
-## <a name="implicit-grant"></a>Impliciete toewijzing
+## <a name="implicit-grant"></a>Impliciete goedkeuring voor
 
 MSAL ondersteunt de [OAuth 2 impliciete stroom verlenen](v2-oauth2-implicit-grant-flow.md), waarmee de app ophalen van tokens uit de Microsoft identity-platform zonder uit te voeren van een back-endserver uitwisseling van verificatiegegevens. Hiermee wordt de app te melden bij de gebruiker, sessie en het verkrijgen van tokens, voor andere web-API's in de client JavaScript-code.
 
@@ -124,7 +124,7 @@ MSAL ondersteunt de [OAuth 2 apparaat codestroom](v2-oauth2-device-code.md), waa
 
 Met behulp van de stroom van het apparaat, krijgt de toepassing tokens via een proces in twee stappen is speciaal ontworpen voor deze apparaten/OS. Voorbeelden van dergelijke toepassingen worden toepassingen die worden uitgevoerd op iOT-apparaten of de opdrachtregelprogramma's (CLI). 
 
-![Stroom voor apparaatcode](media/msal-authentication-flows/device-code.png)
+![De stroom van apparaat](media/msal-authentication-flows/device-code.png)
 
 1. Wanneer de verificatie van de gebruiker is vereist, de app biedt een code en vraag de gebruiker om een ander apparaat (zoals een smartphone internetverbinding) gebruiken om te navigeren naar een URL (bijvoorbeeld https://microsoft.com/devicelogin), waarbij de gebruiker wordt gevraagd de code op te geven. Dat klaar, de webpagina de gebruiker via een normale verificatie-ervaring leidt, met inbegrip van toestemming wordt gevraagd en meervoudige verificatie, indien nodig.
 

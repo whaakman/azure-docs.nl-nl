@@ -16,10 +16,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298732"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Toepassingen implementeren op rekenknooppunten met Batch-toepassingspakketten
@@ -323,7 +323,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Nu dat de nieuwe versie is geconfigureerd, de Batch-service in een versie 2.76b geïnstalleerd *nieuwe* knooppunt dat aan de pool wordt toegevoegd. 2.76b installeren op de knooppunten die zijn *al* in de pool opnieuw opstarten of deze installatiekopie terugzetten. Houd er rekening mee dat opnieuw opgestart knooppunten de bestanden van eerdere implementaties van het pakket behoudt.
+Nu dat de nieuwe versie is geconfigureerd, de Batch-service in een versie 2.76b geïnstalleerd *nieuwe* knooppunt dat aan de pool wordt toegevoegd. 2\.76b installeren op de knooppunten die zijn *al* in de pool opnieuw opstarten of deze installatiekopie terugzetten. Houd er rekening mee dat opnieuw opgestart knooppunten de bestanden van eerdere implementaties van het pakket behoudt.
 
 ## <a name="list-the-applications-in-a-batch-account"></a>Lijst van de toepassingen in een Batch-account
 U kunt de toepassingen en hun pakketten in een Batch-account weergeven met behulp van de [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] methode.

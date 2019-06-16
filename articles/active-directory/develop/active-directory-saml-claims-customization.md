@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950997"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
@@ -80,7 +80,7 @@ Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt ki
 | onpremisessamaccount | SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD |
 | object-id | object-id van de gebruiker in Azure AD |
 | werknemer-id | werknemer-id van de gebruiker |
-| Directory-extensies | Mapextensies [vanuit on-premises Active Directory met behulp van Azure AD Connect Sync gesynchroniseerd](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Uitbreidingen van de directory | Mapextensies [vanuit on-premises Active Directory met behulp van Azure AD Connect Sync gesynchroniseerd](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Extensiekenmerken 1-15 | On-premises extensiekenmerken gebruikt de Azure AD-schema uit te breiden |
 
 Zie voor meer informatie, [tabel 3: Id-waarden per bron](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
@@ -114,9 +114,9 @@ U kunt ook de claims transformaties-functies gebruiken.
 | **Join()** | Hiermee maakt een nieuwe waarde lid wordt van twee kenmerken. Desgewenst kunt u een scheidingsteken tussen de twee kenmerken. |
 | **ToLower()** | Zet de tekens van het geselecteerde kenmerk in kleine letters. |
 | **ToUpper()** | Zet de tekens van het geselecteerde kenmerk in hoofdletters. |
-| **Contains()** | Voert een kenmerk of een constante als de invoer komt overeen met de opgegeven waarde. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker e-mailadres is als de waarde van het domein '@contoso.com', anders u wilt uitvoeren van de user principal name. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)*: user.email<br/>*Waarde*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.userprincipalname |
-| **EndWith()** | Voert een kenmerk of een constante als de invoer met de opgegeven waarde eindigt. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker werknemer-id is als de id van de werknemer eindigt op "000", u anders uitvoer van een kenmerk toestelnummer. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)*: user.employeeid<br/>*Waarde*: "000"<br/>Parameter 2 (uitvoer): user.employeeid<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.extensionattribute1 |
-| **StartWith()** | Voert een kenmerk of een constante als de invoer wordt gestart met de opgegeven waarde. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker werknemer-id is als het land/de regio met begint "US", u anders uitvoer van een kenmerk toestelnummer. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)*: zoals user.country<br/>*Waarde*: "US"<br/>Parameter 2 (uitvoer): user.employeeid<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.extensionattribute1 |
+| **Contains()** | Voert een kenmerk of een constante als de invoer komt overeen met de opgegeven waarde. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker e-mailadres is als de waarde van het domein '@contoso.com', anders u wilt uitvoeren van de user principal name. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)* : user.email<br/>*Waarde*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.userprincipalname |
+| **EndWith()** | Voert een kenmerk of een constante als de invoer met de opgegeven waarde eindigt. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker werknemer-id is als de id van de werknemer eindigt op "000", u anders uitvoer van een kenmerk toestelnummer. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)* : user.employeeid<br/>*Waarde*: "000"<br/>Parameter 2 (uitvoer): user.employeeid<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.extensionattribute1 |
+| **StartWith()** | Voert een kenmerk of een constante als de invoer wordt gestart met de opgegeven waarde. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker werknemer-id is als het land/de regio met begint "US", u anders uitvoer van een kenmerk toestelnummer. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)* : zoals user.country<br/>*Waarde*: "US"<br/>Parameter 2 (uitvoer): user.employeeid<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.extensionattribute1 |
 | **Extract() - na die overeenkomt met** | Retourneert de subtekenreeks nadat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer is 'Finance_BSimon', de overeenkomende waarde is 'Finance_' en de uitvoer van de claim 'BSimon' is. |
 | **Extract() - voordat u die overeenkomt met** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer is 'BSimon_US', de overeenkomende waarde is '_US' en de uitvoer van de claim 'BSimon' is. |
 | **Extract() - tussen overeenkomende** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Bijvoorbeeld, als de waarde van de invoer is 'Finance_BSimon_US', de eerste overeenkomende waarde is 'Finance_', de tweede, overeenkomende waarde is '_US' en uitvoer van de claim 'BSimon' is. |

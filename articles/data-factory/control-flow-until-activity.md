@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155174"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>UNTIL-activiteit in Azure Data Factory
@@ -57,7 +57,7 @@ Eigenschap | Description | Toegestane waarden | Vereist
 name | Naam van de `Until` activiteit. | String | Ja
 type | Moet worden ingesteld op **totdat**. | String | Ja
 expressie | Expressie die moet worden geëvalueerd op waar of ONWAAR | De expressie.  | Ja
-time-out | De-pas na de opgegeven tijd hier time-out lus. | tekenreeks. `d.hh:mm:ss` (of) `hh:mm:ss`. De standaardwaarde is 7 dagen. Maximale waarde is: 90 dagen. | Nee
+timeout | De-pas na de opgegeven tijd hier time-out lus. | tekenreeks. `d.hh:mm:ss` (of) `hh:mm:ss`. De standaardwaarde is 7 dagen. Maximale waarde is: 90 dagen. | Nee
 Activiteiten | Set van activiteiten die worden uitgevoerd totdat de expressie resulteert in `true`. | Matrix van activiteiten. |  Ja
 
 ## <a name="example-1"></a>Voorbeeld 1

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60785673"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>de expressie Workspace() in Azure Monitor log-query
@@ -33,7 +33,7 @@ De `workspace` expressie in een Azure Monitor-query wordt gebruikt voor het opha
 
 - *Id*: Hiermee geeft u de werkruimte met behulp van een van de indelingen in de onderstaande tabel.
 
-| Id | Description | Voorbeeld
+| ID | Description | Voorbeeld
 |:---|:---|:---|
 | Resourcenaam | Menselijke leesbare naam van de werkruimte (AKA "naam van onderdeel") | Workspace("contosoretail") |
 | Gekwalificeerde naam | Volledige naam van de werkruimte in de vorm: "resourceGroup-subscriptionName/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |

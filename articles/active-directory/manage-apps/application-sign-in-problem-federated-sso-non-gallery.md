@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825441"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing buiten de galerie geconfigureerd voor federatieve eenmalige aanmelding
@@ -148,7 +148,7 @@ Azure AD biedt geen ondersteuning voor de SAML-aanvraag die door de toepassing i
 
 -   Ontbrekende vereiste velden in de SAML-aanvraag
 
--   Gecodeerde methode voor SAML-aanvraag
+-   Methode voor SAML-aanvraag gecodeerd
 
 **Resolutie**
 
@@ -264,7 +264,7 @@ Verwijder de ongebruikte antwoord-URL's geconfigureerd voor de toepassing.
 
 6.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-7.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)**, niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
+7.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)** , niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

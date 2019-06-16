@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116573"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -41,7 +41,7 @@ Configureer uw app in Azure Active Directory voor het gebruik van de stroom van 
 
     [![Azure Active Directory-app-registraties toevoegen api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Klik op **Manifest** manifest voor de toepassing voor uw app te openen. Stel *oauth2AllowImplicitFlow* naar `true`.
+1. Selecteer **Manifest** manifest voor de toepassing voor uw app te openen. Stel *oauth2AllowImplicitFlow* naar `true`.
 
     [![Azure Active Directory-impliciete stroom](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -111,7 +111,7 @@ Na het voltooien van de vorige stappen, Postman als u wilt maken van een geverif
    > * U hoeft niet om op te geven die kopteksten voor elk onderdeel.
    > * U moet selecteren `multipart/mixed` of een andere correcte **Content-Type** voor de hele aanvraag.
 
-1. Klik ten slotte **verzenden** uw meerdelige HTTP POST-aanvraag indienen.
+1. Selecteer ten slotte **verzenden** uw meerdelige HTTP POST-aanvraag indienen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

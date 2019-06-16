@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575349"
 ---
 # <a name="glossary"></a>Woordenlijst
@@ -37,11 +37,11 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="antimeridian"></a> **Antimeridian**: Ook wel bekend als de 180<sup>th</sup> Kaartmeridiaan is het punt waar-180 graden en 180 graden van lengtegraad voldoen aan. Dit is tegenover de nulmeridiaan op de hele wereld.
 
-<a name="application-programming-interface-api"></a> **Application Programming Interface (API)**: Een specificatie waarmee ontwikkelaars om toepassingen te maken.
+<a name="application-programming-interface-api"></a> **Application Programming Interface (API)** : Een specificatie waarmee ontwikkelaars om toepassingen te maken.
 
 <a name="api-key"></a> **API-sleutel**: Zie Azure kaarten-sleutel.
 
-<a name="area-of-interest-aoi"></a> **Interessegebied (AOI)**: De omvang die wordt gebruikt voor het definiëren van een aandachtsgebied voor productie van een kaart of de database.
+<a name="area-of-interest-aoi"></a> **Interessegebied (AOI)** : De omvang die wordt gebruikt voor het definiëren van een aandachtsgebied voor productie van een kaart of de database.
 
 <a name="asset-tracking"></a> **Bijhouden van Assets**: Het proces van het volgen van de locatie van een asset, zoals een persoon, voertuig of een ander object.
 
@@ -51,7 +51,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="autosuggest"></a> **Automatische suggestie**: Een functie in een toepassing de voorspelt logische mogelijkheden voor wat de gebruiker te typen.
 
-<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: De oude naam van Azure Maps werd in preview.
+<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)** : De oude naam van Azure Maps werd in preview.
 
 <a name="azure-maps-key"></a> **Azure kaarten-sleutel**: Een Azure kaarten-sleutel is een unieke tekenreeks die wordt gebruikt voor verificatie van een gebruiker Azure kaarten-toepassing of service-aanvraag. 
 
@@ -109,7 +109,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="dbf-file"></a> **DBF-bestand**: Een database-indeling die wordt gebruikt in combinatie met Vormbestanden (SHP).
 
-<a name="degree-minutes-seconds-dms"></a> **Mate minuten seconden (DMS)**: De maateenheid voor de beschrijving van de breedtegraad en lengtegraad. Een zekere mate wordt 1/360<sup>th</sup> van een cirkel. Een zekere mate verder wordt onderverdeeld in 60 minuten en een paar minuten is onderverdeeld in 60 seconden.
+<a name="degree-minutes-seconds-dms"></a> **Mate minuten seconden (DMS)** : De maateenheid voor de beschrijving van de breedtegraad en lengtegraad. Een zekere mate wordt 1/360<sup>th</sup> van een cirkel. Een zekere mate verder wordt onderverdeeld in 60 minuten en een paar minuten is onderverdeeld in 60 seconden.
 
 <a name="delaunay-triangulation"></a> **Delaunay triangulatie**: Een techniek voor het maken van een net van aaneengesloten, niet-overlappende driehoeken uit een gegevensset van punten. Van elke driehoek circumscribing cirkel bevat geen punten van de gegevensset in de binnenkant.
 
@@ -117,7 +117,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="destination"></a> **Bestemming**: Een eindpunt of een locatie waarin iemand anders wordt verzonden naar.
 
-<a name="digital-elevation-model-dem"></a> **Digitale bevoegdheden Model (DEM)**: Een gegevensset van uitbreiding van bevoegdheden waarden met betrekking tot een gebied, vastgelegd over een gebied in regelmatige intervallen met behulp van een algemene datum. DEMs worden meestal gebruikt om aan te duiden terrein vrijstelling.
+<a name="digital-elevation-model-dem"></a> **Digitale bevoegdheden Model (DEM)** : Een gegevensset van uitbreiding van bevoegdheden waarden met betrekking tot een gebied, vastgelegd over een gebied in regelmatige intervallen met behulp van een algemene datum. DEMs worden meestal gebruikt om aan te duiden terrein vrijstelling.
 
 <a name="dijkstra's-algorithm"></a> **De Dijkstra algoritme**: Een algoritme die de connectiviteit van een netwerk te vinden van het kortste pad tussen twee punten onderzoekt.
 
@@ -185,7 +185,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="great-circle-distance"></a> **Great cirkel afstand**: De kortste afstand tussen de twee punten op het oppervlak van een bol.
 
-<a name="greenwich-mean-time-gmt"></a> **Greenwich Mean Time (GMT)**: De tijd op de nulmeridiaan die wordt uitgevoerd via de Royal voor de audiovisuele sector in Greenwich, Engeland.
+<a name="greenwich-mean-time-gmt"></a> **Greenwich Mean Time (GMT)** : De tijd op de nulmeridiaan die wordt uitgevoerd via de Royal voor de audiovisuele sector in Greenwich, Engeland.
 
 <a name="guid"></a> **GUID**: Een globally unique identifier. Een tekenreeks die wordt gebruikt voor het aanduiden van een interface, klasse, typebibliotheek, categorie onderdeel of een record.
 
@@ -273,7 +273,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="point"></a> **Point**: Een geometrie die staat voor een enkele positie op de kaart. 
 
-<a name="points-of-interest-poi"></a> **Punten van belang (pijl)**: Een bedrijf, oriëntatiepunt of algemene plaats van belang zijn.
+<a name="points-of-interest-poi"></a> **Punten van belang (pijl)** : Een bedrijf, oriëntatiepunt of algemene plaats van belang zijn.
 
 <a name="polygon"></a> **Veelhoek**: Een solide geometrie die Hiermee geeft u een gebied op een kaart. 
 
@@ -297,7 +297,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="quadtree"></a> **Quadtree**: Een gegevensstructuur waarin elk knooppunt exact vier onderliggende items heeft. Het naast elkaar systeem dat wordt gebruikt in Azure Maps maakt gebruik van een structuur quadtree zo dat als een gebruiker zoomt u in één niveau, elke kaarttegel in vier onderdelen tegels breekt.  Zie voor meer informatie, [zoomniveaus en tegelraster](zoom-levels-and-tile-grid.md) documentatie voor meer informatie.
 
-<a name="queries-per-second-qps"></a> **Query's Per seconde (QPS)**: Het aantal query's of aanvragen dat kunnen worden uitgevoerd met een service of platform binnen één seconde. 
+<a name="queries-per-second-qps"></a> **Query's Per seconde (QPS)** : Het aantal query's of aanvragen dat kunnen worden uitgevoerd met een service of platform binnen één seconde. 
 
 ## <a name="r"></a>R
 
@@ -321,7 +321,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="route"></a> **Route**: Het pad tussen twee of meer locaties, waaronder ook aanvullende informatie, zoals instructies voor het waypoints langs de route.
 
-<a name="requests-per-second-rps"></a> **Aanvragen Per seconde (RPS)**: Zie [query's Per seconde (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Aanvragen Per seconde (RPS)** : Zie [query's Per seconde (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a> **RSS**: Acroniem voor heel eenvoudig Syndication, Resource beschrijving Framework (RDF) Site Summary of Rich Site Summary, afhankelijk van de bron. Een eenvoudige, gestructureerde XML-indeling voor het delen van inhoud tussen verschillende websites. RSS-documenten zijn de van de belangrijkste metagegevenselementen zoals auteur, datum, titel, een korte beschrijving en een koppeling. Deze informatie helpt een gebruiker (of een service van de uitgever RSS) bepalen wat materialen zijn het noemen waard verder onderzoek.
 
@@ -329,9 +329,9 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="satellite-imagery"></a> **Satelliet beeldmateriaal**: Beelden die is vastgelegd door te vlakken en rechtstreeks omlaag wijzende satellieten.
 
-<a name="software-development-kit-sdk"></a> **Software development kit (SDK)**: Een verzameling van documentatie, voorbeeldcode en voorbeeld-apps om u te helpen bij het gebruik van een ontwikkelaars een API om apps te bouwen.
+<a name="software-development-kit-sdk"></a> **Software development kit (SDK)** : Een verzameling van documentatie, voorbeeldcode en voorbeeld-apps om u te helpen bij het gebruik van een ontwikkelaars een API om apps te bouwen.
 
-<a name="shapefile-shp"></a> **Vormbestand (SHP)**: Een ESRI-Vormbestand wordt ook wel bekend als een indeling voor gegevensopslag vector voor het opslaan van de locatie, vorm en kenmerken van geografische functies. Een shape-bestand wordt opgeslagen in een set van gerelateerde bestanden.
+<a name="shapefile-shp"></a> **Vormbestand (SHP)** : Een ESRI-Vormbestand wordt ook wel bekend als een indeling voor gegevensopslag vector voor het opslaan van de locatie, vorm en kenmerken van geografische functies. Een shape-bestand wordt opgeslagen in een set van gerelateerde bestanden.
 
 <a name="spherical-mercator-projection"></a> **Bolvormige Mercator-projectie**: Zie [Mercator Web](#web-mercator). 
 
@@ -364,7 +364,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="transformation"></a> **Transformatie**: Het proces van het converteren van gegevens tussen verschillende geografische coördinaat-systemen. Bijvoorbeeld, wellicht sommige gegevens die zijn opgenomen in het Verenigd Koninkrijk en op basis van het systeem van OSGB 1936 geografische coördinaten. Azure kaarten maakt gebruik van de [EPSG:3857](https://epsg.io/3857) coördinaat verwijzing system variant van WGS84. Als u wilt de gegevens correct weergegeven, moet deze wordt als zodanig hebben de coördinaten van het ene systeem omgezet naar een andere.
 
-<a name="traveling-salesmen-problem-tsp"></a> **Traveling verkopers probleem (TSP)**:  Een Hamiltonian circuit probleem waarin de meest efficiënte manier om te een reeks stopt, gaat u naar moet zoeken, een verkoper Ga vervolgens terug naar de eerste locatie.  
+<a name="traveling-salesmen-problem-tsp"></a> **Traveling verkopers probleem (TSP)** :  Een Hamiltonian circuit probleem waarin de meest efficiënte manier om te een reeks stopt, gaat u naar moet zoeken, een verkoper Ga vervolgens terug naar de eerste locatie.  
 
 <a name="trilateration"></a> **Trilateration**: Het proces voor het bepalen van de positie van een distributiepunt op het aardoppervlak met betrekking tot de twee andere punten door te meten of de afstand tussen alle drie punten.
 
@@ -376,7 +376,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="vector-tile"></a> **Tegel vector**: Een specificatie van het gegevensbestand voor het opslaan van georuimtelijke vectorgegevens met behulp van de dezelfde tegel als het kaartbesturingselement. Zie ook [tegellaag](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **Vehicle routeringsprobleem (VRP)**: Een klasse van problemen waarbij een set geordende routes voor een hele vloot van voertuigen tijdens het in aanmerking genomen als set met beperkingen wordt berekend. Deze beperkingen kunnen bevatten, zoals tijdvensters levering, meerdere route capaciteiten en reizen duur beperkingen.
+<a name="vehicle-routing-problem-vrp"></a> **Vehicle routeringsprobleem (VRP)** : Een klasse van problemen waarbij een set geordende routes voor een hele vloot van voertuigen tijdens het in aanmerking genomen als set met beperkingen wordt berekend. Deze beperkingen kunnen bevatten, zoals tijdvensters levering, meerdere route capaciteiten en reizen duur beperkingen.
 
 <a name="voronoi-diagram"></a> **Diagram van Voronoi**: Een partitie van de ruimte in gebieden of cellen rond een set van geometrische objecten (meestal punt functies). Deze cellen, of polygonen, moeten voldoen aan de criteria voor Delaunay driehoeken. Alle locaties binnen een gebied zich dichter bij het object pagina dan naar een ander object in de set. Voronoi diagrammen worden vaak gebruikt om af te bakenen gebieden van invloed rond geografische functies. 
 
@@ -386,7 +386,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="waypoint-optimization"></a> **Optimalisatie van beginpunt**: Het proces opnieuw ordenen van een set waypoints te minimaliseren, de reis tijd of de opgegeven afstand van vereist om door te geven tot en met alle opgegeven waypoints. Vaak aangeduid als de [Traveling verkopers probleem](#traveling-salesmen-problem-tsp) of [Vehicle routering probleem](#vehicle-routing-problem-vrp) afhankelijk van de complexiteit van de optimalisatie.
 
-<a name="web-map-service-wms"></a> **Webservice voor kaart (WMS)**: WMS is een Open geografische Consortium (OGC)-standaard waarmee wordt gedefinieerd toewijzing op basis van een installatiekopie van services. WMS-services bieden Kaartafbeeldingen voor specifieke gebieden binnen een kaart op aanvraag. Afbeeldingen vooraf gerenderde symbolen bevatten en kunnen worden weergegeven in een van de verschillende stijlen voor benoemde als gedefinieerd door de service.
+<a name="web-map-service-wms"></a> **Webservice voor kaart (WMS)** : WMS is een Open geografische Consortium (OGC)-standaard waarmee wordt gedefinieerd toewijzing op basis van een installatiekopie van services. WMS-services bieden Kaartafbeeldingen voor specifieke gebieden binnen een kaart op aanvraag. Afbeeldingen vooraf gerenderde symbolen bevatten en kunnen worden weergegeven in een van de verschillende stijlen voor benoemde als gedefinieerd door de service.
 
 <a name="web-mercator"></a> **Web-Mercator**: Ook wel bekend als is bolvormige Mercator-projectie een lichte variant van de Mercator-projectie, een voornamelijk gebruikt voor toewijzing op basis van een Web-programma's. Deze dezelfde formules gebruikt als de standaard Mercator-projectie als gebruikt voor kleinschalige kaarten. Echter gebruiken de Web Mercator gebruikt de bolvormige formules helemaal kan worden geschaald dat grootschalige Mercator normaal gesproken wijst de ellipsvormige vorm van de projectie. Het verschil is niet zichtbaar op de wereldwijde schaal, maar zorgt ervoor dat de toewijzingen van lokale gebieden af te wijken enigszins van true die ellipsvormige Mercator-op de dezelfde schaal kaarten.
 

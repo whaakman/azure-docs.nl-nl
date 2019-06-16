@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 890cd7080447649396855bfbe051dca4470a4564
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546305"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Data Lake Storage Gen1 met Azure HDInsight-clusters gebruiken
@@ -62,7 +62,7 @@ Wanneer HDInsight met Data Lake Storage Gen1 als standaardopslag is geïmplement
 * Cluster1 het pad `adl://mydatalakestore/cluster1storage` kan gebruiken
 * Cluster2 het pad `adl://mydatalakestore/cluster2storage` kan gebruiken
 
-U ziet dat beide clusters hetzelfde Data Lake Storage Gen1-account gebruiken **mydatalakestore**. Elk cluster heeft toegang tot een eigen basisbestandssysteem in Data Lake-opslag. In het Azure Portal-implementatiescenario wordt u gevraagd voor het pad naar de hoofdmap een mapnaam te gebruiken zoals **/clusters/\<clusternaam>**.
+U ziet dat beide clusters hetzelfde Data Lake Storage Gen1-account gebruiken **mydatalakestore**. Elk cluster heeft toegang tot een eigen basisbestandssysteem in Data Lake-opslag. In het Azure Portal-implementatiescenario wordt u gevraagd voor het pad naar de hoofdmap een mapnaam te gebruiken zoals **/clusters/\<clusternaam>** .
 
 Als u Data Lake Storage Gen1 als standaardopslag gebruiken, moet u de service-principal toegang tot de volgende paden verlenen:
 

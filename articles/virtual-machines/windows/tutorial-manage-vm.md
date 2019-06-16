@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6a23ca469aab582fed4b4e72f48bc2dd0b9dafe0
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 3055b629865344bef43c3d06ec88ed394e498348
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075627"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Zelfstudie: Windows-VM's maken en beheren met Azure PowerShell
 
@@ -184,10 +184,10 @@ In de volgende tabel zijn grootten gecategoriseerd in use-cases.
 | Type                     | Veelgebruikte grootten           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Algemeen doel](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Evenwichtige CPU-geheugenverhouding. Ideaal voor ontwikkelen/testen en in kleine tot middelgrote toepassingen en gegevensoplossingen.  |
-| [Geoptimaliseerde rekenkracht](sizes-compute.md)   | Fsv2            | Hoge CPU-geheugenverhouding. Goed voor middelgrootte verkeerstoepassingen, netwerkapparatuur en batchprocessen.        |
-| [Geoptimaliseerd geheugen](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Hoge geheugen-kernverhouding. Uiterst geschikt voor relationele-databases, middelgrote tot grote caches en analysefuncties in het geheugen.                 |
-| [Geoptimaliseerde opslag](sizes-storage.md)      | Lsv2, Ls                | Snelle doorvoer van schijfgegevens en IO. Ideaal voor big data-, SQL- en NoSQL-databases.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, NDv2, ND   | Gespecialiseerde VM's bedoeld voor intensieve grafische rendering en videobewerking.       |
+| [Geoptimaliseerde rekenkracht](sizes-compute.md)   | Fsv2          | Hoge CPU-geheugenverhouding. Goed voor middelgrootte verkeerstoepassingen, netwerkapparatuur en batchprocessen.        |
+| [Geoptimaliseerd geheugen](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Hoge geheugen-kernverhouding. Uiterst geschikt voor relationele-databases, middelgrote tot grote caches en analysefuncties in het geheugen.                 |
+| [Geoptimaliseerde opslag](sizes-storage.md)      | Lsv2, Ls              | Snelle doorvoer van schijfgegevens en IO. Ideaal voor big data-, SQL- en NoSQL-databases.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Gespecialiseerde VM's bedoeld voor intensieve grafische rendering en videobewerking.       |
 | [Hoge prestaties](sizes-hpc.md) | H        | Onze krachtigste CPU-VM's met optionele netwerkinterfaces (RDMA) voor hoge doorvoer. |
 
 ### <a name="find-available-vm-sizes"></a>Beschikbare VM-grootten zoeken

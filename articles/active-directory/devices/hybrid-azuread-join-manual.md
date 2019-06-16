@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426324"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052149"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Zelfstudie: Hybride Azure Active Directory-gekoppelde apparaten handmatig configureren
 
@@ -139,7 +139,7 @@ De cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Maakt gebruik van de Active Directory PowerShell-module en Azure AD DS-hulpprogramma's (Azure Active Directory Domain Services). Deze hulpprogramma's maken op hun beurt gebruik van Active Directory Web Services dat wordt uitgevoerd op een domeincontroller. Active Directory Web Services wordt ondersteund op domeincontrollers waarop Windows Server 2008 R2 of hoger wordt uitgevoerd.
 * Wordt alleen ondersteund door MSOnline PowerShell-module versie 1.1.166.0. Gebruik deze [koppeling](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/) om deze module te downloaden.
-* Als de AD DS-hulpprogramma’s niet zijn geïnstalleerd, mislukt `Initialize-ADSyncDomainJoinedComputerSync`. U kunt de AD DS-hulpprogramma’s installeren via Serverbeheer onder **Functies** > **Remote Server Administration Tools** > **Hulpprogramma's voor functiebeheer**.
+* Als de AD DS-hulpprogramma's zijn niet geïnstalleerd, `Initialize-ADSyncDomainJoinedComputerSync` mislukken. U kunt de AD DS-hulpprogramma's onder via Serverbeheer installeren **functies** > **Remote Server Administration Tools** > **functiebeheer**.
 
 Voor domeincontrollers waarop Windows Server 2008 of een eerdere versie wordt uitgevoerd, gebruikt u het volgende script om het serviceverbindingspunt te maken. In een configuratie met meerdere forests gebruikt u het volgende script om het serviceverbindingspunt te maken in elke forest waarin computers bestaan:
 

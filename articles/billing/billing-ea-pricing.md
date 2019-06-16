@@ -16,10 +16,10 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127630"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Weergeven en downloaden van uw organisatie Azure-prijzen
@@ -78,7 +78,7 @@ U kunt ook de prijzen van uw organisatie gebruiken kosten wilt ramen met de prij
 
 1. Ga naar de [prijscalculator van Azure](https://azure.microsoft.com/pricing/calculator).
 1. Selecteer in de rechterbovenhoek, **aanmelden**.
-1. Onder **programma's en aanbieding** > **Licensing-programma**, selecteer **Enterprise Agreement (EA)**.
+1. Onder **programma's en aanbieding** > **Licensing-programma**, selecteer **Enterprise Agreement (EA)** .
 1. Onder **programma's en aanbieding** > **geselecteerde overeenkomst**, selecteer **niets geselecteerd**.
 
     ![Schermafbeelding van de prijslijst csv knop downloaden](./media/billing-ea-pricing/ea-pricing-calculator-estimate.png)

@@ -8,10 +8,10 @@ ms.date: 05/30/2019
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: 601124aef37d2b285db71130f5c63b3620c7768f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735644"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reageren op gebeurtenissen van Azure App-configuratie
@@ -40,7 +40,7 @@ Gebeurtenissen van Azure App-configuratie bevatten alle informatie die u nodig h
 > |Eigenschap|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Volledige Azure Resource Manager-id van de appconfiguratie van de die u de gebeurtenis verzendt.|
-> |topic|string|De URI van de sleutel-waarde die het onderwerp van de gebeurtenis.|
+> |subject|string|De URI van de sleutel-waarde die het onderwerp van de gebeurtenis.|
 > |eventTime|string|De datum/tijd die de gebeurtenis is gegenereerd, in ISO 8601-notatie.|
 > |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" of 'Microsoft.AppConfiguration.KeyValueDeleted'.|
 > |Id|string|Een unieke id van deze gebeurtenis.|

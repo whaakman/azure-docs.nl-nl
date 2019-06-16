@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991437"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenario's en de beschikbaarheid van Media Services-functies in datacenters
@@ -207,14 +207,14 @@ Media Analytics is een verzameling spraakonderdelen en visuele onderdelen waarme
 
 |Naam van mediaprocessor|Status|Datacenters
 |---|---|---|
-|Azure Media Face Detector|Voorbeeld|Alle|
+|Azure Media Face Detector|Preview|Alle|
 |Azure Media Indexer|Algemene beschikbaarheid|Alle|
-|Azure Media Motion Detector|Voorbeeld|Alle|
-|Azure Media OCR|Voorbeeld|Alle|
-|Azure Media Redactor|Voorbeeld|Alle|
-|Azure Media Stabilizer|Voorbeeld|Alle|
-|Azure Media Video Thumbnails|Voorbeeld|Alle|
-|Azure Media Indexer 2|Voorbeeld|Overal behalve China en regio federale overheid|
+|Azure Media Motion Detector|Preview|Alle|
+|Azure Media OCR|Preview|Alle|
+|Azure Media Redactor|Preview|Alle|
+|Azure Media Stabilizer|Preview|Alle|
+|Azure Media Video Thumbnails|Preview|Alle|
+|Azure Media Indexer 2|Preview|Overal behalve China en regio federale overheid|
 
 ### <a name="protection"></a>Beveiliging
 
@@ -224,7 +224,7 @@ Met Microsoft Azure Media Services kunt u uw media beveiligen vanaf het moment d
 
 |Versleuteling|Status|Datacenters|
 |---|---|---| 
-|Storage|Algemene beschikbaarheid|Alle|
+|Opslag|Algemene beschikbaarheid|Alle|
 |AES-128-sleutels|Algemene beschikbaarheid|Alle|
 |FairPlay|Algemene beschikbaarheid|Alle|
 |PlayReady|Algemene beschikbaarheid|Alle|

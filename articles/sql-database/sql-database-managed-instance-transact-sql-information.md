@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070359"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -276,6 +276,7 @@ Zie voor meer informatie, [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
+- Inschakelen en uitschakelen van SQL Server Agent wordt momenteel niet ondersteund in het beheerde exemplaar. SQL Agent wordt altijd uitgevoerd.
 - SQL Server Agent-instellingen zijn alleen-lezen. De procedure `sp_set_agent_properties` wordt niet ondersteund in het beheerde exemplaar. 
 - Taken
   - T-SQL-taakstappen worden ondersteund.
@@ -456,13 +457,13 @@ Cross-exemplaar van service broker wordt niet ondersteund:
 - `Extended stored procedures` worden niet ondersteund, waaronder `sp_addextendedproc`  en `sp_dropextendedproc`. Zie [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, en `sp_detach_db` worden niet ondersteund. Zie [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), en [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Environmet beperkingen
+## <a name="Environment"></a>Beperkingen van de omgeving
 
 ### <a name="subnet"></a>Subnet
 - U plaatsen geen andere bronnen (bijvoorbeeld virtuele machines) in het subnet is gereserveerd voor uw beheerde exemplaar. Het plaatsen van deze resources in andere subnetten.
 - Subnet moet voldoende beschikbare [IP-adressen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimaal is 16, terwijl het wordt aangeraden ten minste 32 IP-adressen in het subnet.
 - [Service-eindpunten kunnen niet worden gekoppeld aan het beheerde exemplaar subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
-- Het aantal en typen van exemplaren die u in het subnet plaatsen kunt zijn sommige [beperkingen en limieten](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Het aantal vCores en typen van exemplaren die u in een regio implementeren kunt zijn sommige [beperkingen en limieten](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Er zijn een aantal [beveiligingsregels die moeten worden toegepast op het subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### <a name="vnet"></a>VNET

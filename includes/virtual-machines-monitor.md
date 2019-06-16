@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158229"
 ---
 U kunt profiteren van veel mogelijkheden voor het bewaken van uw virtuele machines te verzamelen, weergeven en analyseren van diagnostische en logboekgegevens. Eenvoudige doen [bewaking](../articles/azure-monitor/overview.md) van uw virtuele machine, kunt u het scherm overzicht voor de virtuele machine in Azure portal. U kunt [extensies](../articles/virtual-machines/windows/extensions-features.md) voor het configureren van diagnostische gegevens op uw VM's voor het verzamelen van aanvullende metrische gegevens. U kunt ook meer geavanceerde controle-opties, zoals gebruiken [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) en [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
@@ -33,7 +33,7 @@ U kunt instellen en controleren van de verzameling van [diagnostische gegevens](
 
 U kunt maken [waarschuwingen](../articles/azure-monitor/platform/alerts-overview.md) op basis van specifieke maatstaven voor prestaties. Voorbeelden van de problemen die u kunt worden gewaarschuwd bij zijn bij het gemiddelde CPU-gebruik een bepaalde drempelwaarde overschrijdt of beschikbare vrije schijfruimte onder een bepaalde hoeveelheid komt. Waarschuwingen kunnen worden geconfigureerd in de [Azure-portal](../articles/azure-monitor/platform/alerts-classic-portal.md), met [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), of de [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
-## <a name="azure-service-health"></a>Azure-servicestatus
+## <a name="azure-service-health"></a>Azure Service Health
 
 [Azure Service Health](../articles/service-health/service-health-overview.md) biedt gepersonaliseerde begeleiding en ondersteuning bij problemen in Azure-services gevolgen voor u, en helpt bij het voorbereiden voor toekomstige gepland onderhoud. Azure Service Health waarschuwt u en uw teams met behulp van gerichte en flexibele meldingen.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938360"
 ---
 # <a name="create-virtual-machine-offer"></a>Virtuele Machine-aanbieding maken
@@ -24,7 +24,7 @@ Waar:
 
 |  **Activa-groep**   |  **Beschrijving**  |
 |  ---------------   |  ---------------  |
-|    Voorraadeenheden            |  De kleinste die kunnen worden gekocht eenheid van een aanbieding. Één aanbieding (productklasse) kan meerdere SKU's die zijn gekoppeld aan het onderscheid maken tussen de ondersteunde functies, typen VM-installatiekopieën en factureringsmodellen hebben. |
+|    SKU 's            |  De kleinste die kunnen worden gekocht eenheid van een aanbieding. Één aanbieding (productklasse) kan meerdere SKU's die zijn gekoppeld aan het onderscheid maken tussen de ondersteunde functies, typen VM-installatiekopieën en factureringsmodellen hebben. |
 |  Marketplace       | Marketing, juridische en potentiële klanten beheer activa en specificaties bevat.  <ul><li> Marketing activa omvatten aanbiedingsnaam, beschrijving en logo 's</li> <li> Juridische activa omvatten een privacybeleid, gebruiksvoorwaarden en andere juridische documentatie</li>  <li> Potentiële klanten beleid kunt u opgeven hoe worden verwerkt via de portal van Azure Marketplace door eindgebruikers leidt.</li> </ul> |
 | Ondersteuning            | Bevat informatie over ondersteuning en neem contact op met het beleid |
 | Test Drive         | Definieert de activa die eindgebruikers kunnen om te testen van uw aanbieding voordat ze kopen |

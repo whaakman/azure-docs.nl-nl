@@ -11,10 +11,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 5744ee76d36b1cea256cd2594bcbc07c954f38f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60849762"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium Storage met behulp van Azure Site Recovery
@@ -77,7 +77,7 @@ U kunt Site Recovery gebruiken voor het migreren van Azure IaaS VM's tussen regi
 ### <a name="step-1-create-a-recovery-services-vault"></a>Stap 1: Een Recovery Services-kluis maken
 
 1. Open de [Azure Portal](https://portal.azure.com).
-2. Selecteer **een resource maken** > **Management** > **back-up en Site Recovery (OMS)**. U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**.
+2. Selecteer **een resource maken** > **Management** > **back-up en Site Recovery (OMS)** . U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**.
    >[!NOTE]
    >Back-up en Site Recovery was voorheen deel uitmaakt van de ![OMS suite](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
 1. Een regio die virtuele machines worden gerepliceerd naar opgeven. Selecteer de regio waar uw bron-VM's en de bron-opslagaccounts zijn voor migratie in dezelfde regio. 
@@ -144,7 +144,7 @@ Om te bevestigen dat uw configuratieserver is gekoppeld aan het replicatiebeleid
 ### <a name="step-6-plan-capacity"></a>Stap 6: Capaciteit plannen
 
 1. Gebruik de [Capaciteitsplanner](../../site-recovery/site-recovery-capacity-planner.md) nauwkeurig te schatten netwerkbandbreedte, opslag en andere vereisten voor uw behoeften. 
-2. Wanneer u klaar bent, selecteert u **Ja, heb ik gedaan** in **hebt u plannen van capaciteit?**.
+2. Wanneer u klaar bent, selecteert u **Ja, heb ik gedaan** in **hebt u plannen van capaciteit?** .
 
    ![Vak voor het bevestigen dat u voltooid capaciteitsplanning][11]
 

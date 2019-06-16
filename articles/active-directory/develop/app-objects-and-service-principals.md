@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47626cbd8d5b8a5ddf7cc5c6ea42fb9453e5bfb2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540670"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Toepassing en service-principalobjecten in Azure Active Directory
@@ -43,7 +43,7 @@ Een [stroom voor OAuth 2.0 machtiging Grant](developer-glossary.md#authorization
 
 In de volgende secties ziet u hoe een App op het moment van ontwerp en runtime-Hiermee geeft u de Azure AD-toepassingsmodel.
 
-## <a name="application-registration"></a>Toepassingsregistratie
+## <a name="application-registration"></a>Een toepassing registreren
 
 Wanneer u een Azure AD-toepassing in registreert de [Azure-portal][AZURE-Portal], twee objecten worden gemaakt in uw Azure AD-tenant:
 

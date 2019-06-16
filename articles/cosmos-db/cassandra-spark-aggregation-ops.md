@@ -1,22 +1,20 @@
 ---
 title: Statistische bewerkingen op tabellen uit Spark Cassandra-API van Azure Cosmos DB
 description: In dit artikel bevat informatie over eenvoudige aggregatiebewerkingen uit te voeren op basis van de Cassandra-API van Azure Cosmos DB-tabellen uit Spark
-author: rockboyfor
-ms.author: v-yeche
+author: kanshiG
+ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/15/2019
+ms.date: 09/24/2018
 ms.openlocfilehash: 4fbb86f4fbda9b8e521f7465bb8bb3d18602ca13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60894183"
 ---
-<!--Verify sucessfully-->
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Statistische bewerkingen op tabellen uit Spark Cassandra-API van Azure Cosmos DB 
 
 Dit artikel wordt beschreven basic aggregatiebewerkingen uit te voeren op basis van de Cassandra-API van Azure Cosmos DB-tabellen uit Spark. 
@@ -36,7 +34,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -71,6 +69,7 @@ booksDF.write
 
 ## <a name="count-operation"></a>Aantal bewerking
 
+
 ### <a name="rdd-api"></a>RDD-API
 
 ```scala
@@ -102,28 +101,28 @@ Kies een [opslagoptie]( https://spark.apache.org/docs/2.2.0/rdd-programming-guid
 
 * OFF_HEAP (experimenteel): Net als bij MEMORY_ONLY_SER, maar de gegevens worden opgeslagen in off-heap-geheugen en hiervoor uit heap-geheugen moet vooraf worden ingeschakeld. 
 
-    ```scala
-    //Workaround
-    import org.apache.spark.storage.StorageLevel
+```scala
+//Workaround
+import org.apache.spark.storage.StorageLevel
 
-    //Read from source
-    val readBooksDF = spark
-      .read
-      .cassandraFormat("books", "books_ks", "")
-      .load()
+//Read from source
+val readBooksDF = spark
+  .read
+  .cassandraFormat("books", "books_ks", "")
+  .load()
 
-    //Explain plan
-    readBooksDF.explain
+//Explain plan
+readBooksDF.explain
 
-    //Materialize the dataframe
-    readBooksDF.persist(StorageLevel.MEMORY_ONLY)
+//Materialize the dataframe
+readBooksDF.persist(StorageLevel.MEMORY_ONLY)
 
-    //Subsequent execution against this DF hits the cache 
-    readBooksDF.count
+//Subsequent execution against this DF hits the cache 
+readBooksDF.count
 
-    //Persist as temporary view
-    readBooksDF.createOrReplaceTempView("books_vw")
-    ```
+//Persist as temporary view
+readBooksDF.createOrReplaceTempView("books_vw")
+```
 
 ### <a name="sql"></a>SQL
 
@@ -370,6 +369,3 @@ select book_name,book_price from books_vw order by book_price desc limit 3;
 Om te tabel kopieerbewerkingen uitvoert, Zie:
 
 * [Kopieerbewerkingen tabel](cassandra-spark-table-copy-ops.md)
-
-<!--Verify sucessfully-->
-<!--Update_Description: wording update -->

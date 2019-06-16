@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: yegu
 ms.openlocfilehash: 318d02f5da816ae8fe2fe199b9c87b3748d5d1fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133011"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Het opdrachtregelprogramma Redis gebruiken met Azure Cache voor Redis
@@ -55,7 +55,7 @@ Met Azure Cache voor Redis, alleen de SSL-poort (6380 zijn) is standaard ingesch
 
     Met de rechtermuisknop op het pictogram voor het verbinden met stunnelserver op de taakbalk en klikt u op **venster Logboek weergeven**.
 
-    Klik op het menu van het logboekvenster verbinden met stunnel **configuratie** > **-configuratie bewerken** om de huidige configuratiebestand te openen.
+    Klik op het menu van het logboekvenster verbinden met stunnel **configuratie** >  **-configuratie bewerken** om de huidige configuratiebestand te openen.
 
     Voeg de volgende vermelding voor *redis-cli.exe* onder de **Service definities** sectie. Voeg de Cachenaam van uw werkelijke in plaats van `yourcachename`. 
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522319"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database
@@ -99,7 +99,7 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 
 | Name       |Poort                        |Protocol|Bron           |Bestemming|Bewerking|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|beheer  |9000, 9003, 1438, 1440, 1452|TCP     |Alle              |MI-SUBNET  |Toestaan |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Alle              |MI-SUBNET  |Toestaan |
 |mi_subnet   |Alle                         |Alle     |MI-SUBNET        |MI-SUBNET  |Toestaan |
 |health_probe|Alle                         |Alle     |AzureLoadBalancer|MI-SUBNET  |Toestaan |
 
@@ -107,7 +107,7 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 
 | Name       |Poort          |Protocol|Bron           |Bestemming|Bewerking|
 |------------|--------------|--------|-----------------|-----------|------|
-|beheer  |80, 443, 12000|TCP     |MI-SUBNET        |AzureCloud |Toestaan |
+|management  |80, 443, 12000|TCP     |MI-SUBNET        |AzureCloud |Toestaan |
 |mi_subnet   |Alle           |Alle     |MI-SUBNET        |MI-SUBNET  |Toestaan |
 
 > [!IMPORTANT]

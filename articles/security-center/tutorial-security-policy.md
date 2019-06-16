@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967834"
 ---
 # <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
@@ -230,17 +230,17 @@ Dit voorbeeld ziet u hoe u een toewijzing verwijderen:
 |----|----|----|
 |SQL-versleuteling |Niet-versleutelde SQL-database in Azure Security Center bewaken |sqlEncryptionMonitoringEffect| 
 |Controleren voor SQL |Niet-gecontroleerde SQL-database in Azure Security Center bewaken |sqlAuditingMonitoringEffect|
-|Systeemupdates |Ontbrekende systeemupdates bewaken in Azure Security Center |systemUpdatesMonitoringEffect|
-|Storage-versleuteling |Ontbrekende blobversleuteling voor opslagaccounts controleren |storageEncryptionMonitoringEffect|
-|Toegang tot het JIT-netwerk |Mogelijke Just In Time-netwerktoegang (JIT) bewaken in Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Besturingselementen voor adaptieve toepassingen |Mogelijkheid voor de lijst met goedgekeurde apps bewaken in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
-|Netwerkbeveiligingsgroepen |Ruime netwerktoegang bewaken in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
+|Systeemupdates |Ontbrekende systeemupdates in Azure Security Center bewaken |systemUpdatesMonitoringEffect|
+|Storage-versleuteling |Controle uitvoeren op ontbrekende blobversleuteling voor opslagaccounts |storageEncryptionMonitoringEffect|
+|Toegang tot het JIT-netwerk |Mogelijk alleen In tijd (JIT)-toegang in Azure Security Center bewaken |jitNetworkAccessMonitoringEffect |
+|Adaptieve toepassingsbesturingselementen |Mogelijke opname Apps op Whitelist in Azure Security Center bewaken |adaptiveApplicationControlsMonitoringEffect|
+|Netwerkbeveiligingsgroepen |Ruime netwerktoegang in Azure Security Center bewaken |networkSecurityGroupsMonitoringEffect| 
 |Beveiligingsconfiguraties |Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Endpoint Protection |Ontbrekende Endpoint Protection bewaken in Azure Security Center |endpointProtectionMonitoringEffect |
-|Schijfversleuteling |Niet-versleutelde VM-schijven bewaken in Azure Security Center |diskEncryptionMonitoringEffect|
-|Evaluatie van beveiligingsproblemen |Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
+|Eindpuntbeveiliging |Ontbrekende Endpoint Protection bewaken in Azure Security Center |endpointProtectionMonitoringEffect |
+|Schijfversleuteling |Niet-versleutelde VM-schijven in Azure Security Center bewaken |diskEncryptionMonitoringEffect|
+|Evaluatie van beveiligingsproblemen |Beveiligingsproblemen van de monitor voor virtuele machines in Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Web Application Firewall |Niet-beveiligde web-App in Azure Security Center bewaken |webApplicationFirewallMonitoringEffect |
-|Firewall van volgende generatie |Niet-beveiligde netwerkeindpunten bewaken in Azure Security Center| |
+|Next Generation Firewall |Netwerkeindpunten in Azure Security Center bewaken| |
 
 
 ### <a name="who-can-edit-security-policies"></a>Wie kan beveiligingsbeleid bewerken?

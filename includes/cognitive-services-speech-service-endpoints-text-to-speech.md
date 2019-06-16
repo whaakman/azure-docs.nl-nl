@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: d5a4b3a07854c2664de7ec60f3677b666798a9bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145358"
 ---
 ### <a name="standard-and-neural-voices"></a>Standaard- en neurale stemmen
@@ -26,7 +26,7 @@ Gebruik deze tabel om te bepalen van de beschikbaarheid van de standaard- en neu
 | Frankrijk - centraal | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nee |
 | India - centraal | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | Japan - oost | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nee |
-| Korea Centraal | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nee |
+| Korea - centraal | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nee |
 | US - noord-centraal | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nee |
 | Europa - noord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nee |
 | US - zuid-centraal | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
@@ -51,7 +51,7 @@ Als u een aangepaste spraakstijl hebt gemaakt, gebruikt u het eindpunt dat u heb
 | Frankrijk - centraal | `https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | India - centraal | `https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Japan - oost | `https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Korea Centraal | `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Korea - centraal | `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | US - noord-centraal | `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Europa - noord | `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | US - zuid-centraal | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |

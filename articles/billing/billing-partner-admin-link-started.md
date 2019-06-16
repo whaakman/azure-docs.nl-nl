@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694228"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Een partner-ID koppelen aan uw Azure-accounts
@@ -34,7 +34,7 @@ Voordat u uw partner-ID koppelen, moet uw klant u toegang geven tot hun Azure-re
 
 - **Service-principal**: Uw klant kunt een app of script toevoegen van uw organisatie in de map en alle RBAC-rol toe te wijzen. De identiteit van de app of script staat bekend als een service-principal.
 
-## <a name="link-to-a-partner-id"></a>Koppelen aan een partner-id
+## <a name="link-to-a-partner-id"></a>Koppeling naar een partner-ID
 
 Als u toegang tot resources van de klant hebt, gebruikt u de Azure-portal, PowerShell of Azure CLI aan uw Microsoft Partner Network-ID (MPN-ID) koppelen aan uw gebruikers-ID of de service-principal. Koppel de partner-ID in de tenant van elke klant.
 

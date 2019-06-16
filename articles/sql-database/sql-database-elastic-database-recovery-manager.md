@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475883"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Problemen met shard-toewijzingen oplossen met de RecoveryManager-klasse
@@ -33,7 +33,7 @@ Zie voor definities van de termijn [woordenlijst voor hulpprogramma's elastische
 
 ## <a name="why-use-the-recovery-manager"></a>Waarom recovery manager gebruiken
 
-In een omgeving met shard-database is één tenant per database en een groot aantal databases per server. Er kan ook worden veel servers in de omgeving. Elke database is in de shard-toewijzing toegewezen, zodat er aanroepen kunnen worden doorgestuurd naar de juiste server en database. Databases worden bijgehouden volgens een **sharding-sleutel**, en elke shard wordt toegewezen een **reeks sleutelwaarden**. Bijvoorbeeld, een sharding-sleutel de klantnamen van de mogelijk weer uit "D" tot "F." De toewijzing van alle shards (ook wel databases) en hun toewijzing bereiken zijn opgenomen in de **globale shard-toewijzing (GSM)**. Elke database bevat ook een overzicht van de bereiken ligt die zijn opgenomen in de shard die bekend als staat de **lokale shard-toewijzing (LSM)**. Wanneer een app maakt verbinding met een shard, de toewijzing is opgeslagen in de cache met de app voor het ophalen van snelle. De LSM wordt gebruikt voor het valideren van gegevens in de cache.
+In een omgeving met shard-database is één tenant per database en een groot aantal databases per server. Er kan ook worden veel servers in de omgeving. Elke database is in de shard-toewijzing toegewezen, zodat er aanroepen kunnen worden doorgestuurd naar de juiste server en database. Databases worden bijgehouden volgens een **sharding-sleutel**, en elke shard wordt toegewezen een **reeks sleutelwaarden**. Bijvoorbeeld, een sharding-sleutel de klantnamen van de mogelijk weer uit "D" tot "F." De toewijzing van alle shards (ook wel databases) en hun toewijzing bereiken zijn opgenomen in de **globale shard-toewijzing (GSM)** . Elke database bevat ook een overzicht van de bereiken ligt die zijn opgenomen in de shard die bekend als staat de **lokale shard-toewijzing (LSM)** . Wanneer een app maakt verbinding met een shard, de toewijzing is opgeslagen in de cache met de app voor het ophalen van snelle. De LSM wordt gebruikt voor het valideren van gegevens in de cache.
 
 Het GSM en LSM kunnen worden gesynchroniseerd voor de volgende redenen:
 

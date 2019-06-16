@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
 ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506377"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Toevoegen, wijzigen of verwijderen van IP-adressen voor een Azure-netwerk-interface
@@ -143,14 +143,14 @@ Er zijn scenario's waarin het nodig het IP-adres van een netwerkinterface in het
 1. Zorg ervoor dat de virtuele machine een adres van de Azure DHCP-servers ontvangt. Zodra u hebt, wordt de toewijzing van het IP-adres wijzigen in DHCP in het besturingssysteem en start de virtuele machine.
 2. Stoppen (toewijzing ongedaan maken) de virtuele machine.
 3. Wijzig het IP-adres voor de IP-configuratie in Azure.
-4. Hiermee wordt de virtuele machine gestart.
+4. Start de virtuele machine.
 5. [Handmatig configureren](virtual-network-multiple-ip-addresses-portal.md#os-config) de secundaire IP-adressen binnen het besturingssysteem (en ook de primaire IP-adres binnen Windows) zodat deze overeenkomt met wat u in Azure instellen.
 
 Door de vorige stappen hebt uitgevoerd, het privé IP-adres toegewezen aan de netwerkinterface in Azure, en binnen het besturingssysteem van een virtuele machine, moet u hetzelfde blijven. Overweeg om bij te houden welke virtuele machines binnen uw abonnement die u handmatig IP-adressen binnen een besturingssysteem voor hebt ingesteld, het toevoegen van een Azure [tag](../azure-resource-manager/resource-group-using-tags.md) aan de virtuele machines. U kunt "IP-adrestoewijzing: Statische', bijvoorbeeld. Op deze manier kunt u eenvoudig vinden de virtuele machines binnen uw abonnement die u hebt het IP-adres voor het besturingssysteem handmatig ingesteld.
 
 Naast het inschakelen van een virtuele machine om te communiceren met andere resources binnen de dezelfde of verbonden virtuele netwerken kan een privé IP-adres ook een virtuele machine naar de uitgaande communicatie met Internet. Uitgaande verbindingen zijn de bron-netwerkadres vertaald door Azure op een onvoorspelbare openbare IP-adres. Lees voor meer informatie over Azure uitgaande verbinding met Internet heeft, de [Azure uitgaande internetverbinding](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. U kunt geen inkomend communiceren met privé IP-adres van een virtuele machine vanaf het Internet. Als uw uitgaande verbindingen een voorspelbare openbare IP-adres vereist, koppelt u een openbare IP-adresresource aan een netwerkinterface.
 
-### <a name="public"></a>Openbaar
+### <a name="public"></a>Public
 
 Openbare IP-adressen die via een openbare IP-adresresource is toegewezen voor het inschakelen van binnenkomende verbindingen aan een virtuele machine via Internet. Uitgaande verbindingen via Internet een voorspelbare IP-adres gebruiken. Zie [uitleg over uitgaande verbindingen in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie. U mag een openbaar IP-adres toewijzen aan een IP-configuratie, maar zijn niet vereist voor het. Als u geen openbaar IP-adres aan een virtuele machine toewijst door een openbare IP-adresresource koppelen, kunt de virtuele machine nog steeds uitgaande communicatie met Internet. In dit geval is het privé IP-adres bron netwerkadres vertaald door Azure op een onvoorspelbare openbare IP-adres. Zie voor meer informatie over resources voor openbaar IP-adres, [openbare IP-adresresource](virtual-network-public-ip-address.md).
 
@@ -194,7 +194,7 @@ U kunt toewijzen nul of één privé [IPv6](#ipv6) adres aan een secundaire IP-c
 
 U kunt een openbaar IPv6-adres kan niet toewijzen aan een primaire of secundaire IP-configuratie.
 
-## <a name="skus"></a>Voorraadeenheden
+## <a name="skus"></a>SKU 's
 
 Een openbaar IP-adres wordt gemaakt met de basis of standaard-SKU. Zie voor meer informatie over de verschillen tussen SKU [openbare IP-adressen beheren](virtual-network-public-ip-address.md).
 

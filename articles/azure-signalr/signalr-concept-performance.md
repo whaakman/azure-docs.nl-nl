@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: zhshang
 ms.openlocfilehash: f7cc05c8c2a299d809c4386d119fef58fa2548d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269438"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Prestatiehandleiding voor voor Azure SignalR Service
@@ -122,14 +122,14 @@ Voer *niet* groter zijn dan de geselecteerde waarden in de volgende twee tabelle
 
 |       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen                       | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen                       | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | **Binnenkomende bandbreedte** | **2 MBps**    | **4 MBps**    | **10 MBps**   | **20 MBps**    | **40 MBps**    | **100 MBps**   | **200 MBps**    |
 | Uitgaande bandbreedte | 2 Mbps   | 4 Mbps   | 10 Mbps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 
 |     Uitzenden             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindingen               | 1000 | 2,000 | 5.000  | 10.000 | 20,000 | 50,000  | 100.000 |
+| Verbindingen               | 1000 | 2,000 | 5,000  | 10\.000 | 20,000 | 50,000  | 100\.000 |
 | Binnenkomende bandbreedte  | 4 k   | 4 k   | 4 k    | 4 k    | 4 k    | 4 k     | 4 k    |
 | **Uitgaande bandbreedte** | **4 MBps**    | **8 MBps**    | **20 MBps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400 MBps**   |
 
@@ -159,7 +159,7 @@ De volgende tabel ziet u een echte use case van **uitzending**. Maar de grootte 
 
 | Uitzenden  | Berichtgrootte | Binnenkomende berichten per seconde | Verbindingen | Intervallen verzenden |
 |---|---------------------|--------------------------|-------------|-------------------------|
-| 1 | 20 KB                | 1                        | 100.000     | 5 per seconde                      |
+| 1 | 20 KB                | 1                        | 100\.000     | 5 per seconde                      |
 | 2 | 256 kB               | 1                        | 8,000       | 5 per seconde                      |
 
 De volgende formule is eenvoudig te afleiden op basis van de vorige formule:
@@ -213,8 +213,8 @@ Het gedrag van **echo** bepaalt dat de maximale bandbreedte voor inkomend gelijk
 
 |       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen                       | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
-| Inkomende/uitgaande berichten per seconde | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen                       | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
+| Inkomende/uitgaande berichten per seconde | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Inkomende/uitgaande bandbreedte | 2 Mbps   | 4 Mbps   | 10 Mbps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 In dit geval gebruik roept elke client de hub die is gedefinieerd in de app-server. De hub worden alleen de methode die is gedefinieerd in de oorspronkelijke client aanroepen. Deze hub is de meest eenvoudige hub voor **echo**.
@@ -231,7 +231,7 @@ Zelfs voor dit eenvoudige hub, de druk verkeer op de appserver is belangrijk als
 
 |    Echo          | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -249,9 +249,9 @@ De volgende tabel geeft een overzicht van de maximale-clientverbindingen, aantal
 
 |     Uitzenden             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindingen               | 1000 | 2,000 | 5.000  | 10.000 | 20,000 | 50,000  | 100.000 |
+| Verbindingen               | 1000 | 2,000 | 5,000  | 10\.000 | 20,000 | 50,000  | 100\.000 |
 | Binnenkomende berichten per seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Uitgaande berichten per seconde | 2,000 | 4,000 | 10.000 | 20,000 | 40,000 | 100.000 | 200.000 |
+| Uitgaande berichten per seconde | 2,000 | 4,000 | 10\.000 | 20,000 | 40,000 | 100\.000 | 200\.000 |
 | Binnenkomende bandbreedte  | 4 k   | 4 k   | 4 k    | 4 k    | 4 k    | 4 k     | 4 k     |
 | Uitgaande bandbreedte | 4 Mbps   | 8 MBps   | 20 MBps   | 40 MBps   | 80 MBps   | 200 MBps   | 400 MBps   |
 
@@ -259,7 +259,7 @@ De clients broadcasting geposte berichten zijn niet meer dan vier. Ze nodig hebb
 
 |   Uitzenden      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -287,19 +287,19 @@ De kosten voor routering is van belang voor het verzenden van berichten naar vee
 
 |   Verzenden naar een kleine groep     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50 | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
-| Verbindingen               | 1000 | 2,000 | 5.000  | 10.000 | 20,000 | 50,000 | 100.000
+| Verbindingen               | 1000 | 2,000 | 5,000  | 10\.000 | 20,000 | 50,000 | 100\.000
 | Aantal voor leden van groep        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
-| Aantal groepen               | 100   | 200   | 500    | 1000  | 2,000  | 5.000  | 10.000 
+| Aantal groepen               | 100   | 200   | 500    | 1000  | 2,000  | 5,000  | 10\.000 
 | Binnenkomende berichten per seconde  | 200   | 400   | 1000  | 2,500  | 4,000  | 7,000  | 7,000   |
 | Binnenkomende bandbreedte  | 400 k  | 800 kBps  | 2 Mbps     | 5 Mbps     | 8 MBps     | 14 MBps    | 14 MBps     |
-| Uitgaande berichten per seconde | 2,000 | 4,000 | 10.000 | 25,000 | 40,000 | 70,000 | 70,000  |
+| Uitgaande berichten per seconde | 2,000 | 4,000 | 10\.000 | 25,000 | 40,000 | 70,000 | 70,000  |
 | Uitgaande bandbreedte | 4 Mbps    | 8 MBps    | 20 MBps    | 50 MBps     | 80 MBps    | 140 MBps   | 140 MBps    |
 
 Veel clientverbindingen zijn aanroepen van de hub, zodat het nummer van de app is ook belangrijk voor prestaties. De volgende tabel bevat de aantallen van de voorgestelde Apps-server.
 
 |  Verzenden naar een kleine groep   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -311,19 +311,19 @@ Voor **verzenden naar grote groep**, de uitgaande bandbreedte wordt het knelpunt
 
 |    Verzenden naar grote groep      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindingen               | 1000 | 2,000 | 5.000  | 10.000 | 20,000 | 50,000  | 100.000
-| Aantal voor leden van groep        | 100   | 200   | 500    | 1000  | 2,000  | 5.000   | 10.000 
+| Verbindingen               | 1000 | 2,000 | 5,000  | 10\.000 | 20,000 | 50,000  | 100\.000
+| Aantal voor leden van groep        | 100   | 200   | 500    | 1000  | 2,000  | 5,000   | 10\.000 
 | Aantal groepen               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Binnenkomende berichten per seconde  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Binnenkomende bandbreedte  | 80 kBps   | 40 kBps   | 40 kBps    | 20 kBps    | 40 kBps    | 40 kBps     | 40 kBps     |
-| Uitgaande berichten per seconde | 2,000 | 4,000 | 10.000 | 20,000 | 40,000 | 100.000 | 200.000 |
+| Uitgaande berichten per seconde | 2,000 | 4,000 | 10\.000 | 20,000 | 40,000 | 100\.000 | 200\.000 |
 | Uitgaande bandbreedte | 8 MBps    | 8 MBps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
 De verzendende aantal verbindingen is niet meer dan 40. De werkbelasting van de app-server is klein, zodat het aanbevolen aantal web-apps klein is.
 
 |  Verzenden naar grote groep  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -345,15 +345,15 @@ De volgende tabel bevat een overzicht van statistische na veel afgerond van het 
 
 |   Verzenden naar verbinding   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
-| Verbindingen                        | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000          | 100.000         |
-| Inkomende/uitgaande berichten per seconde | 1000 | 2,000 | 5.000 | 8,000  | 9,000  | 20,000 | 20,000 |
+| Verbindingen                        | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000          | 100\.000         |
+| Inkomende/uitgaande berichten per seconde | 1000 | 2,000 | 5,000 | 8,000  | 9,000  | 20,000 | 20,000 |
 | Inkomende/uitgaande bandbreedte | 2 Mbps    | 4 Mbps    | 10 Mbps   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
 
 Deze use case vereist hoge belasting op de server app. Zie de voorgestelde appserver tellen in de volgende tabel.
 
 |  Verzenden naar verbinding  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -369,21 +369,21 @@ De volgende tabel geeft het aantal van de voorgestelde web-app voor ASP.NET Sign
 
 |   Echo           | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 De volgende tabel geeft het aantal van de voorgestelde web-app voor ASP.NET SignalR **uitzending**.
 
 |  Uitzenden       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 De volgende tabel geeft het aantal van de voorgestelde web-app voor ASP.NET SignalR **verzenden naar een kleine groep**.
 
 |  Verzenden naar een kleine groep     | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindingen      | 1000 | 2,000 | 5.000 | 10.000 | 20,000 | 50,000 | 100.000 |
+| Verbindingen      | 1000 | 2,000 | 5,000 | 10\.000 | 20,000 | 50,000 | 100\.000 |
 | Aantal App-server | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 ### <a name="serverless-mode"></a>Serverloze modus
@@ -397,9 +397,9 @@ Alle clients tot stand brengen van verbindingen met Azure SignalR Service WebSoc
 
 |   Verzonden via de REST-API     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindingen               | 1000 | 2,000 | 5.000  | 10.000 | 20,000 | 50,000  | 100.000 |
+| Verbindingen               | 1000 | 2,000 | 5,000  | 10\.000 | 20,000 | 50,000  | 100\.000 |
 | Binnenkomende berichten per seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Uitgaande berichten per seconde | 2,000 | 4,000 | 10.000 | 20,000 | 40,000 | 100.000 | 200.000 |
+| Uitgaande berichten per seconde | 2,000 | 4,000 | 10\.000 | 20,000 | 40,000 | 100\.000 | 200\.000 |
 | Binnenkomende bandbreedte  | 4 k    | 4 k    | 4 k     | 4 k     | 4 k     | 4 k      | 4 k      |
 | Uitgaande bandbreedte | 4 Mbps    | 8 MBps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
@@ -408,9 +408,9 @@ Voordat ze verbinding maken met Azure SignalR Service, de benchmark gebruikersna
 
 |   Verzenden naar de gebruiker via REST-API | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindingen               | 1000 | 2,000 | 5.000  | 10.000 | 20,000 | 50,000  | 100.000 |
-| Binnenkomende berichten per seconde  | 300   | 600   | 900    | 1,300  | 2,000  | 10.000  | 18,000  |
-| Uitgaande berichten per seconde | 300   | 600   | 900    | 1,300  | 2,000  | 10.000  | 18,000 |
+| Verbindingen               | 1000 | 2,000 | 5,000  | 10\.000 | 20,000 | 50,000  | 100\.000 |
+| Binnenkomende berichten per seconde  | 300   | 600   | 900    | 1,300  | 2,000  | 10\.000  | 18,000  |
+| Uitgaande berichten per seconde | 300   | 600   | 900    | 1,300  | 2,000  | 10\.000  | 18,000 |
 | Binnenkomende bandbreedte  | 600 kBps  | 1.2 MBps  | 1.8 MBps   | 2.6 MBps   | 4 Mbps     | 10 Mbps     | 36 MBps    |
 | Uitgaande bandbreedte | 600 kBps  | 1.2 MBps  | 1.8 MBps   | 2.6 MBps   | 4 Mbps     | 10 Mbps     | 36 MBps    |
 
@@ -434,5 +434,5 @@ In dit artikel hebt u een overzicht van Azure SignalR Service-prestaties in typi
 
 Als u meer informatie over leest de inhoud van de service en schalen, u de volgende handleidingen:
 
-* [Azure SignalR Service-inhoud](signalr-concept-internals.md)
+* [Interne werking van Azure SignalR Service](signalr-concept-internals.md)
 * [Azure SignalR Service schalen](signalr-howto-scale-multi-instances.md)

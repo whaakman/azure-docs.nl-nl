@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: fa92c836fc967f67b46f0417ec5182b41e980b18
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735404"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062480"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Connectiviteitsarchitectuur in Azure Database for MySQL
 In dit artikel wordt de Azure Database for MySQL connectiviteitsarchitectuur ook uitgelegd hoe het verkeer wordt omgeleid naar uw Azure Database voor MySQL-exemplaar van clients binnen en buiten Azure.
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
-Verbinding met uw Azure Database voor MySQL SQL via een gateway die verantwoordelijk is voor routering binnenkomende verbindingen met de fysieke locatie van uw server in onze clusters tot stand is gebracht. Het volgende diagram illustreert de werkstroom verkeer.
+Verbinding met uw Azure Database for MySQL via een gateway die verantwoordelijk is voor routering binnenkomende verbindingen met de fysieke locatie van uw server in onze clusters tot stand is gebracht. Het volgende diagram illustreert de werkstroom verkeer.
 
 ![Overzicht van de connectiviteitsarchitectuur](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 

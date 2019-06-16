@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787300"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook-meldingen van waarschuwingen in Azure Monitor
@@ -62,7 +62,7 @@ Wanneer met de REST-API of Resource Manager-sjabloon, neemt u de meldingen-eleme
 
 | Veld | Verplichte? | Description |
 | --- | --- | --- |
-| bewerking |ja |de waarde moet 'Schaal' |
+| Bewerking |ja |de waarde moet 'Schaal' |
 | sendToSubscriptionAdministrator |ja |waarde moet 'true' of 'false' |
 | sendToSubscriptionCoAdministrators |ja |waarde moet 'true' of 'false' |
 | customEmails |ja |waarde mag null [] of string-matrix van e-mailberichten |
@@ -106,12 +106,12 @@ Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende
 | Veld | Verplichte? | Description |
 | --- | --- | --- |
 | status |ja |De status die aangeeft dat een actie voor automatisch schalen is gegenereerd |
-| bewerking |ja |Voor een verhoging van de exemplaren worden 'Scale Out' en voor een afname in exemplaren, is 'Schaal In' |
+| Bewerking |ja |Voor een verhoging van de exemplaren worden 'Scale Out' en voor een afname in exemplaren, is 'Schaal In' |
 | context |ja |De context van de actie voor automatisch schalen |
 | timestamp |ja |Tijdstempel wanneer het voor automatisch schalen is geactiveerd |
 | id |Ja |Resource Manager-ID van de instelling voor automatisch schalen |
-| naam |Ja |De naam van de instelling voor automatisch schalen |
-| details |Ja |Uitleg van de actie die de service voor automatisch schalen heeft geduurd en de wijziging in het aantal instanties |
+| name |Ja |De naam van de instelling voor automatisch schalen |
+| Meer informatie |Ja |Uitleg van de actie die de service voor automatisch schalen heeft geduurd en de wijziging in het aantal instanties |
 | subscriptionId |Ja |Abonnements-ID van de doelresource die is die wordt geschaald |
 | resourceGroupName |Ja |Naam van de resourcegroep van de doelresource die is die wordt geschaald |
 | resourceName |Ja |Naam van de doelresource die is die wordt geschaald |

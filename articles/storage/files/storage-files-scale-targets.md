@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078149"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure bestanden schaalbaarheids- en prestatiedoelen
 
@@ -42,16 +42,18 @@ Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5
 
 ### <a name="premium-filestorage-account-limits"></a>Limieten voor Premium FileStorage-account
 
-Premium-bestandsshares zijn ingericht in een speciale storage-account met de naam **filestorage (preview)**. Dit account heeft enigszins schaal doelen dan de storage-account gebruikt voor de standard-bestandsshares. Raadpleeg voor de prestatiedoelen van storage-account schalen aan de tabel in de [prestatiedoelen voor Azure storage-account schalen](#azure-storage-account-scale-targets) sectie.
+Premium-bestandsshares zijn ingericht in een speciale storage-account met de naam **filestorage (preview)** . Dit account heeft enigszins schaal doelen dan de storage-account gebruikt voor de standard-bestandsshares. Raadpleeg voor de prestatiedoelen van storage-account schalen aan de tabel in de [prestatiedoelen voor Azure storage-account schalen](#azure-storage-account-scale-targets) sectie.
 
 > [!IMPORTANT]
 > Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor storage-accounts is alleen mogelijk als er slechts één share per opslagaccount.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Azure File Sync schaal doelen
 
-Met Azure File Sync, dat we hebben geprobeerd zo veel mogelijk te ontwerpen voor onbeperkt gebruik, maar dit niet altijd mogelijk is. De onderstaande tabel geeft aan dat de grenzen van onze tests en welke doelen daadwerkelijk vaste limieten zijn:
+Azure File Sync is ontworpen met het doel van onbeperkt gebruik, maar onbeperkte gebruik is niet altijd mogelijk. De volgende tabel geeft aan dat de grenzen van het testen van Microsoft en geeft ook aan welke doelen vaste limieten zijn:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -82,7 +84,7 @@ Voor hulp bij het plannen van de implementatie voor elk van de fasen, worden hie
 | Uploaden van doorvoer | 20 objecten per seconde |
 | Namespace downloaden doorvoer * | 400 objecten per seconde |
 
-* Wanneer een nieuw servereindpunt wordt gemaakt, kan de Azure File Sync-agent een van de bestandsinhoud wordt niet gedownload. Het de volledige naamruimte voor het eerst synchroniseert en vervolgens triggers op de achtergrond intrekken om de bestanden in hun geheel te downloaden of, indien het cloud-opslaglagen is ingeschakeld, naar de cloud beleidsinstelling voor lagen ingesteld op het servereindpunt.
+\* Wanneer een nieuw servereindpunt wordt gemaakt, kan de Azure File Sync-agent een van de bestandsinhoud wordt niet gedownload. Het de volledige naamruimte voor het eerst synchroniseert en vervolgens triggers op de achtergrond intrekken om de bestanden in hun geheel te downloaden of, indien het cloud-opslaglagen is ingeschakeld, naar de cloud beleidsinstelling voor lagen ingesteld op het servereindpunt.
 
 | Doorlopende synchronisatie  |   |
 |-|--|
@@ -92,7 +94,7 @@ Voor hulp bij het plannen van de implementatie voor elk van de fasen, worden hie
 | Uploaden van doorvoer | 30 objecten per seconde |
 | Volledige Download doorvoer * | 60 objecten per seconde |
 
-* Als cloud tiering is ingeschakeld, kunt u waarschijnlijk betere prestaties als slechts een deel van het bestand gegevens gedownload in acht nemen. De gegevens van de bestanden in de cache downloadt met Azure File Sync alleen wanneer ze worden gewijzigd op een van de eindpunten. Voor gelaagde of de zojuist gemaakte bestanden, de agent niet de gegevens uit een bestand wordt gedownload en synchroniseert de naamruimte op alle servereindpunten in plaats daarvan alleen. De agent biedt ook ondersteuning voor gedeeltelijke downloads van gelaagde bestanden, zoals ze worden gebruikt door de gebruiker. 
+\* Als cloud tiering is ingeschakeld, kunt u waarschijnlijk betere prestaties als slechts een deel van het bestand gegevens gedownload in acht nemen. De gegevens van de bestanden in de cache downloadt met Azure File Sync alleen wanneer ze worden gewijzigd op een van de eindpunten. Voor gelaagde of de zojuist gemaakte bestanden, de agent niet de gegevens uit een bestand wordt gedownload en synchroniseert de naamruimte op alle servereindpunten in plaats daarvan alleen. De agent biedt ook ondersteuning voor gedeeltelijke downloads van gelaagde bestanden, zoals ze worden gebruikt door de gebruiker. 
 
 > [!Note]  
 > De bovenstaande getallen zijn niet een indicatie van de prestaties die u ondervindt. De werkelijke prestaties wordt afhankelijk zijn van meerdere factoren, zoals wordt beschreven in het begin van deze sectie.

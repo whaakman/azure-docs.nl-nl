@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 03/12/2019
-ms.author: v-junlch
+ms.date: 8/15/2018
+ms.author: victorh
 ms.openlocfilehash: 90200f7be6c71346441922365fc4439111dd8701
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133696"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway-certificaten vernieuwen
@@ -26,7 +25,7 @@ U kunt een certificaat dat is gekoppeld aan een listener met de Azure portal, Az
 
 Een listener om certificaat te vernieuwen vanuit de portal, gaat u naar uw application gateway-listeners. Klik op de listener met een certificaat dat moet worden vernieuwd en klik vervolgens op **vernieuwen of bewerken van de geselecteerde certificaat**.
 
-![Certificaat vernieuwen](./media/renew-certificate/ssl-cert.png)
+![Certificaat vernieuwen](media/renew-certificate/ssl-cert.png)
 
 Het nieuwe PFX-certificaat uploaden, een naam geven, typt u het wachtwoord en klik vervolgens op **opslaan**.
 
@@ -36,7 +35,7 @@ Het nieuwe PFX-certificaat uploaden, een naam geven, typt u het wachtwoord en kl
 
 Uw om certificaat te vernieuwen met behulp van Azure PowerShell, gebruikt u het volgende script:
 
-```azurepowershell
+```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
   -ResourceGroupName <ResourceGroup> `
   -Name <AppGatewayName>
@@ -53,17 +52,15 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 ## <a name="azure-cli"></a>Azure-CLI
 
-```azurecli
-az network application-gateway ssl-cert update `
-  -n "<CertName>" `
-  --gateway-name "<AppGatewayName>" `
-  -g "ResourceGroupName>" `
-  --cert-file <PathToCerFile> `
+```azurecli-interactive
+az network application-gateway ssl-cert update \
+  -n "<CertName>" \
+  --gateway-name "<AppGatewayName>" \
+  -g "ResourceGroupName>" \
+  --cert-file <PathToCerFile> \
   --cert-password "<password>"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over het configureren van SSL-Offloading met Azure Application Gateway, [SSL-Offload configureren](application-gateway-ssl-portal.md)
-
-<!-- Update_Description: code update -->

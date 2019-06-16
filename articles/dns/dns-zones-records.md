@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712234"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Overzicht van DNS-zones en records
 
@@ -28,7 +28,7 @@ Deze pagina leest u de belangrijkste concepten van domeinen, DNS-zones, DNS-reco
 
 ## <a name="domain-names"></a>Domeinnamen
 
-Het Domain Name System is een hiërarchie van domeinen. De hiërarchie start vanaf het hoofddomein. De naam van dit domein is eenvoudigweg '**.**'.  Hieronder komen de topleveldomeinen, zoals com, net, org, uk of nl.  Onder de topleveldomeinen komen de secondleveldomeinen, zoals org.uk of co.jp. De domeinen in de DNS-hiërarchie worden globaal gedistribueerd en gehost door DNS-naamservers over de hele wereld.
+Het Domain Name System is een hiërarchie van domeinen. De hiërarchie start vanaf het hoofddomein. De naam van dit domein is eenvoudigweg ' **.** '.  Hieronder komen de topleveldomeinen, zoals com, net, org, uk of nl.  Onder de topleveldomeinen komen de secondleveldomeinen, zoals org.uk of co.jp. De domeinen in de DNS-hiërarchie worden globaal gedistribueerd en gehost door DNS-naamservers over de hele wereld.
 
 Een domeinnaamregistrar is een organisatie waarmee u een domeinnaam, bijvoorbeeld 'contoso.com' aanschaffen.  De naam van een domein aanschaffen, geeft u het recht voor het beheren van de DNS-hiërarchie met die naam, bijvoorbeeld zodat u de naam 'www.contoso.com' naar de website van uw bedrijf. De registrar kan hosten van het domein in een eigen naamservers uit uw naam of kunt u alternatieve naam voor servers opgeven.
 
@@ -134,7 +134,7 @@ Etags zijn opgegeven met behulp van HTTP-headers op het niveau van de REST-API v
 | Header | Gedrag |
 | --- | --- |
 | Geen |PUT altijd is gelukt (geen Etag-controle) |
-| If-None-match <etag> |PUT slaagt alleen als de resource bestaat en Etag komt overeen met |
+| If-None-match \<etag > |PUT slaagt alleen als de resource bestaat en Etag komt overeen met |
 | If-None-match * |PUT slaagt alleen als de resource bestaat |
 | If-none-match * |PUT slaagt alleen als de resource bestaat niet |
 

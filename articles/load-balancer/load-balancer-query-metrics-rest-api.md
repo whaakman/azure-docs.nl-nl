@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
 ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734538"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Load Balancer-gebruik metrische gegevens met behulp van de REST-API ophalen
@@ -24,7 +24,7 @@ Hoe u deze instructies voor het verzamelen van het aantal bytes dat is verwerkt 
 
 Volledige documentatie en meer voorbeelden voor de REST-API zijn beschikbaar in de [naslaginformatie over de Azure Monitor REST](/rest/api/monitor). 
 
-## <a name="build-the-request"></a>De aanvraag maken
+## <a name="build-the-request"></a>De aanvraag voor het samenstellen
 
 Gebruik de volgende GET-aanvraag voor het verzamelen van de [ByteCount metriek](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) van een Standard Load Balancer. 
 
@@ -39,7 +39,7 @@ De volgende headers zijn vereist:
 |Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
-|*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parameters
 
@@ -49,7 +49,7 @@ De volgende headers zijn vereist:
 | resourceGroupName | De naam van de resourcegroep waarin de resource. U kunt deze waarde niet ophalen van de Azure Resource Manager-API, CLI of de portal. |
 | loadBalancerName | De naam van de Azure Load Balancer. |
 | metricnames | Door komma's gescheiden lijst van geldige [metrische gegevens over Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| API-versie | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2018-01-01`opgenomen in de bovenstaande URL.  |
+| api-version | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2018-01-01`opgenomen in de bovenstaande URL.  |
 | timespan | De duur van de query. Het is een tekenreeks met de volgende indeling `startDateTime_ISO/endDateTime_ISO`. Dit is een optionele parameter is ingesteld om te retourneren van een dag aan gegevens in het voorbeeld. |
 | &nbsp; | &nbsp; |
 

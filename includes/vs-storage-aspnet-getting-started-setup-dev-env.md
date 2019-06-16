@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160766"
 ---
 ## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
@@ -25,7 +25,7 @@ In deze sectie helpt bij het instellen van de ontwikkelomgeving. Dit omvat het m
 
 1. Selecteer in het hoofdmenu van **bestand** > **nieuw** > **Project**.
 
-1. In de **nieuw Project** in het dialoogvenster, selecteer **Web** > **ASP.NET-webtoepassing (.NET Framework)**. In de **naam** veld, geeft u **StorageAspNet**. Selecteer **OK**.
+1. In de **nieuw Project** in het dialoogvenster, selecteer **Web** > **ASP.NET-webtoepassing (.NET Framework)** . In de **naam** veld, geeft u **StorageAspNet**. Selecteer **OK**.
 
     ![Schermafbeelding van het dialoogvenster New Project](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 

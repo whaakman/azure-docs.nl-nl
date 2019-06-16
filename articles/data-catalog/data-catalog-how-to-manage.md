@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953114"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gegevensassets in Azure Data Catalog beheren
@@ -49,7 +49,7 @@ Gewoon als een gegevensasset is al eigendom, andere gebruikers kunnen geen eigen
 >
 >
 
-### <a name="remove-owners"></a>Eigenaren verwijderen
+### <a name="remove-owners"></a>Eigenaars verwijderen
 Net als de eigenaar van een asset mede-eigenaars toevoegen kunt, kan de eigenaar van een asset een mede-eigenaar kunt verwijderen.
 
 De asset kan niet meer beheren door de eigenaar van een asset die zich als een eigenaar verwijdert. Als de eigenaar van de asset zelf als een eigenaar verwijdert en er geen andere mede-eigenaars zijn, wordt de asset naar een zonder eigenaar status terugkeert.

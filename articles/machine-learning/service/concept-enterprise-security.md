@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059350"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Bedrijfsbeveiliging voor Azure Machine Learning-service
 
@@ -75,7 +75,7 @@ De volgende tabel bevat enkele van de primaire bewerkingen voor Azure Machine Le
 | Modellen/afbeeldingen weergeven | ✓ | ✓ | ✓ |
 | Webservice aanroepen | ✓ | ✓ | ✓ |
 
-Als de ingebouwde rollen onvoldoende is voor uw behoeften zijn, kunt u ook aangepaste rollen maken. Houd er rekening mee dat het alleen aangepaste rollen die wordt ondersteund voor bewerkingen in de werkruimte en Machine Learning-Computing. De aangepaste rollen hebben mogelijk lezen, schrijven of verwijderen van machtigingen voor de werkruimte en de rekenresource in deze werkruimte. U kunt de rol beschikbaar maken op het niveau van een specifieke werkruimte, het niveau van een specifieke resourcegroep of een bepaald abonnement. Zie voor meer informatie, [beheren van gebruikers en rollen in een Azure Machine Learning-werkruimte](how-to-assign-roles.md)
+Als de ingebouwde rollen onvoldoende is voor uw behoeften zijn, kunt u ook aangepaste rollen maken. De alleen aangepaste rollen die wordt ondersteund zijn voor bewerkingen in de werkruimte en Machine Learning-Computing. De aangepaste rollen hebben mogelijk lezen, schrijven of verwijderen van machtigingen voor de werkruimte en de rekenresource in deze werkruimte. U kunt de rol beschikbaar maken op het niveau van een specifieke werkruimte, het niveau van een specifieke resourcegroep of een bepaald abonnement. Zie voor meer informatie, [beheren van gebruikers en rollen in een Azure Machine Learning-werkruimte](how-to-assign-roles.md)
 
 ### <a name="securing-compute-and-data"></a>Compute en -gegevens beveiligen
 Eigenaren en bijdragers kunnen alle compute-doelen en gegevensarchieven die zijn gekoppeld aan de werkruimte gebruiken.  
@@ -86,7 +86,7 @@ Zie voor meer informatie over beheerde identiteiten [beheerde identiteiten voor 
 | Resource | Machtigingen |
 | ----- | ----- |
 | Werkruimte | Inzender | 
-| Opslagaccount | Bijdrager voor opslagblobgegevens | 
+| Opslagaccount | Gegevensbijdrager voor Blob | 
 | Key Vault | Toegang tot alle sleutels en geheimen,-certificaten | 
 | Azure Container Registry | Inzender | 
 | Resourcegroep met de werkruimte | Inzender | 
@@ -94,7 +94,7 @@ Zie voor meer informatie over beheerde identiteiten [beheerde identiteiten voor 
 
 Het verdient aanbeveling dat beheerders Trek de toegang van de beheerde identiteit tot de resources die hierboven worden vermeld. Toegang kan worden hersteld met de bewerking sleutels opnieuw synchroniseren.
 
-Azure Machine Learning-service maakt u een extra toepassing (de naam begint met aml-) met het niveau toegangsrechten van een bijdrager in uw abonnement voor elke regio werkruimte. Voor bijvoorbeeld. Als u een werkruimte in VS-Oost en een andere werkruimte in Noord-Europa in hetzelfde abonnement ziet u 2 dergelijke toepassingen. Dit is nodig zodat die rekenresources van Azure Machine Learning-service kan helpen beheren.
+Azure Machine Learning-service maakt u een extra toepassing (de naam begint met `aml-`) met het niveau toegangsrechten van een bijdrager in uw abonnement voor elke regio werkruimte. Voor bijvoorbeeld. Als u een werkruimte in VS-Oost en een andere werkruimte in Noord-Europa in hetzelfde abonnement ziet u twee dergelijke toepassingen. Dit is nodig zodat die rekenresources van Azure Machine Learning-service kan helpen beheren.
 
 
 ## <a name="network-security"></a>Netwerkbeveiliging
@@ -113,13 +113,15 @@ Zie voor meer informatie over hoe u uw eigen sleutels voor de gegevens die zijn 
 
 Traininggegevens worden meestal ook opgeslagen in Azure Blob-opslag zodat deze toegankelijk is voor de training compute. Deze opslag wordt niet beheerd door Azure Machine Learning, maar gekoppeld voor compute als een extern bestandssysteem.
 
+Zie voor informatie over het opnieuw genereren van de toegangssleutels voor het Azure storage-accounts die worden gebruikt met uw werkruimte, de [opnieuw genereren van toegangssleutels voor opslag](how-to-change-storage-access-key.md) artikel.
+
 #### <a name="cosmos-db"></a>Cosmos DB
 Azure Machine Learning-service slaat metrische gegevens en metagegevens om de Cosmos-DB die zich in een abonnement dat Microsoft wordt beheerd door Azure Machine Learning-service. Alle gegevens die zijn opgeslagen in Cosmos DB worden versleuteld in rust door Microsoft beheerde sleutels.
 
 #### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)
 Alle containerinstallatiekopieën in het register (ACR) worden in rust versleuteld. Azure automatisch een installatiekopie van een versleuteld voordat deze worden opgeslagen en ontsleutelt deze tijdens het als Azure Machine Learning-service wordt de afbeelding opgehaald.
 
-#### <a name="machine-learning-compute"></a>Machine Learning Compute
+#### <a name="machine-learning-compute"></a>Machine Learning-Computing
 De besturingssysteemschijf is voor elk knooppunt is opgeslagen in Azure Storage versleuteld met Microsoft beheerde sleutels in Azure Machine Learning-service storage-accounts. Deze berekening is tijdelijk en clusters doorgaans omlaag worden geschaald wanneer er geen uitvoeringen zijn in de wachtrij. De onderliggende virtuele machine is verlopen en de schijf met besturingssysteem verwijderd. Azure disk encryption wordt niet ondersteund voor de besturingssysteemschijf.
 Elke virtuele machine heeft ook een lokale tijdelijke schijf voor OS-bewerkingen. Deze schijf kan ook optioneel worden gebruikt om gegevens te Faseren training. Deze schijf is niet versleuteld. Zie voor meer informatie over de werking van versleuteling-at-rest in Azure [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest). 
 

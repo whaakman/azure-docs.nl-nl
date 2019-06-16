@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 6d9b68bda2a6cff533286d9ee944abf1c92cc2bf
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523242"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve vaardigheden
@@ -54,7 +54,7 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Naam invoeren      | Description                                          |
+| Voer een naam in      | Description                                          |
 |---------------|------------------------------------------------------|
 | image         | Complexe Type. Momenteel wordt alleen werkt met "/ document/normalized_images"-veld, die worden geproduceerd door de indexeerfunctie Azure Blob als ```imageAction``` is ingesteld op een andere waarde dan ```none```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 
@@ -62,7 +62,7 @@ Parameters zijn hoofdlettergevoelig.
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 | Naam van de uitvoer     | Description                   |
 |---------------|-------------------------------|
-| tekst          | Tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
+| text          | Tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
 | layoutText    | Complexe type met de beschrijving de geëxtraheerde tekst en de locatie waar de tekst is gevonden.|
 
 

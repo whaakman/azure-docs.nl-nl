@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523968"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Een hostpool maken met een Azure Resource Manager-sjabloon
@@ -42,7 +42,7 @@ Als u in een Cloud Solution Provider-abonnement implementeert, volgt u deze stap
 
 1. Schuif naar beneden en met de rechtermuisknop op **implementeren in Azure**en selecteer vervolgens **kopie koppelingslocatie**.
 2. Open een teksteditor zoals Kladblok en plak er de koppeling.
-3. Direct na het 'https://portal.azure.com/' en voert u vóór de hashtag (#) een apenstaartje (@) gevolgd door de naam van de tenant-domein. Hier volgt een voorbeeld van de indeling moet u: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+3. Direct na het 'https://portal.azure.com/ ' en voert u vóór de hashtag (#) een apenstaartje (@) gevolgd door de naam van de tenant-domein. Hier volgt een voorbeeld van de indeling moet u: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
 4. Meld u aan de Azure-portal aan als een gebruiker met Administrator-/ Inzenderrechten machtigingen voor de Cloud Solution Provider-abonnement.
 5. Plak de koppeling die u hebt gekopieerd naar de teksteditor in de adresbalk.
 

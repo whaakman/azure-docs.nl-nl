@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
 ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003120"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Overzicht van Service Bus-wachtrijen voor onbestelbare berichten
@@ -45,10 +45,10 @@ Toepassingen kunnen hun eigen codes definiëren voor de `DeadLetterReason` stelt
 
 | Voorwaarde | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
-| Altijd |HeaderSizeExceeded |Het quotum van de voor deze stroom is overschreden. |
+| Altijd |HeaderSizeExceeded |Het quotum voor de grootte voor deze stream is overschreden. |
 | ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing en SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Het bericht is verlopen en werd dode lettered. |
-| SubscriptionDescription.RequiresSession |Sessie-id is null. |Sessie ingeschakeld entiteit is niet mogelijk een bericht waarvan sessie-id null is. |
+| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Het bericht is verlopen en naar de wachtrij voor onbestelbare berichten verplaatst. |
+| SubscriptionDescription.RequiresSession |Sessie-id is null. |Door sessie ingeschakelde entiteit staat geen berichten toe waarvan de sessie-id null is. |
 | ! dead-letter-wachtrij |MaxTransferHopCountExceeded |Null |
 | Expliciete dode lettering toepassing |Opgegeven door toepassing |Opgegeven door toepassing |
 

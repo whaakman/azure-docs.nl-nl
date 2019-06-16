@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956472"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met de Azure-schijven in Azure Kubernetes Service (AKS)
@@ -88,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Gebruik de permanent volume
 
-Als de claim permanent volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. De volgende manifest maakt u een eenvoudige NGINX-schil die gebruikmaakt van de permanent volume claim met de naam *azure-beheerde schijf* te koppelen van de Azure-schijf in het pad `/mnt/azure`. Voor Windows Server-containers (momenteel in preview in AKS), Geef een *mountpath is opgegeven* met behulp van de Windows-pad-overeenkomst, zoals *'D:'*.
+Als de claim permanent volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. De volgende manifest maakt u een eenvoudige NGINX-schil die gebruikmaakt van de permanent volume claim met de naam *azure-beheerde schijf* te koppelen van de Azure-schijf in het pad `/mnt/azure`. Voor Windows Server-containers (momenteel in preview in AKS), Geef een *mountpath is opgegeven* met behulp van de Windows-pad-overeenkomst, zoals *'D:'* .
 
 Maak een bestand met de naam `azure-pvc-disk.yaml`, en kopieer de volgende manifest.
 

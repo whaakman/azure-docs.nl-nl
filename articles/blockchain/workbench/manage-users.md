@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 15babefda36ba37cf6df7820ac888668e4a502be
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509926"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gebruikers beheren in Azure Blockchain Workbench
@@ -79,7 +79,7 @@ Gebruik de Blockchain Workbench-toepassing voor het beheren van gebruikers en or
 
     Het aantal leden dat is gekoppeld aan de geselecteerde toepassing wordt weergegeven in de tegel leden.
 
-    ![Toepassing selecteren](./media/manage-users/blockchain-workbench-select-application.png)
+    ![toepassing selecteren](./media/manage-users/blockchain-workbench-select-application.png)
 
 
 #### <a name="add-member-to-application"></a>Lid toevoegen aan toepassing

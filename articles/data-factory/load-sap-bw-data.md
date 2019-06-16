@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
 ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152420"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse met behulp van Azure Data Factory
@@ -29,7 +29,7 @@ Dit artikel leest hoe u gegevens van SAP Business Warehouse (BW) via Open Hub ko
 
 - **Azure Data Factory**: Als u niet hebt, volgt u de stappen voor het [maken van een data factory](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
-- **SAP BW Open Hub bestemming (OHD) met het doeltype "Databasetabel"**: Een OHD maken of om te controleren of uw OHD correct is geconfigureerd voor integratie met Data Factory, raadpleegt u de [configuraties van SAP BW Open Hub bestemming](#sap-bw-open-hub-destination-configurations) sectie van dit artikel.
+- **SAP BW Open Hub bestemming (OHD) met het doeltype "Databasetabel"** : Een OHD maken of om te controleren of uw OHD correct is geconfigureerd voor integratie met Data Factory, raadpleegt u de [configuraties van SAP BW Open Hub bestemming](#sap-bw-open-hub-destination-configurations) sectie van dit artikel.
 
 - **De SAP BW-gebruiker moet de volgende machtigingen**:
 

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768370"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory
@@ -31,7 +31,7 @@ We kijken naar enkele elementen van het e-mailbericht, zodat u hoe het beste wee
 ### <a name="subject"></a>Subject
 Het onderwerp van het e-mailbericht heeft het volgende patroon: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
 
-### <a name="from-address"></a>Van adres
+### <a name="from-address"></a>Verzendadres
 We gebruiken een LinkedIn-patroon voor het adres van de afzender.  U moet wissen die de afzender van de uitnodiging is en waaruit de bedrijfsportal, en ook verduidelijken dat de e-mail afkomstig is van een Microsoft e-mailadres. De indeling is: Microsoft Invitations <invites@microsoft.com> of &lt;weergavenaam op van de afzender van de uitnodiging&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Antwoorden op

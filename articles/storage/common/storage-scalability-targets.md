@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073738"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage-schaalbaarheids- en prestatiedoelen van storage-accounts
 
@@ -43,6 +43,9 @@ Wanneer uw toepassing de limiet bereikt van wat een partitie voor uw werkbelasti
 
 Zie voor meer informatie over de schaal- en prestatiedoelen voor Azure Files en Azure File Sync, [schaalbaarheids- en prestatiedoelen van Azure Files](../files/storage-files-scale-targets.md).
 
+> [!IMPORTANT]
+> Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor storage-accounts is alleen mogelijk als er slechts één share per opslagaccount.
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="premium-files-scale-targets"></a>Premium-bestanden schalen doelen
@@ -53,27 +56,7 @@ Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5
 
 #### <a name="premium-file-share-limits"></a>Limieten voor Premium-bestand delen
 
-> [!IMPORTANT]
-> Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor storage-accounts is alleen mogelijk als er slechts één share per opslagaccount.
-
-|Onderwerp  |Doel  |
-|---------|---------|
-|Minimale ingerichte grootte                        |100 GiB      |
-|Maximale grootte van ingericht                        |100 TiB      |
-|Minimale grootte vergroten/verkleinen    |1 GiB      |
-|Basislijn IOPS    |1 IOP's per GiB maximaal 100.000|
-|IOPS bursting    |3 x IOPS per GiB maximaal 100.000|
-|Snelheid van uitgangsgebeurtenissen         |60 MiB/s + 0,06 * ingericht GiB        |
-|Gegevens| 40 MiB/s + 0,04 * ingericht GiB |
-|Maximum aantal momentopnamen        |200       |
-
-#### <a name="premium-file-limits"></a>Limieten voor Premium-bestand
-
-|Onderwerp  |Doel  |
-|---------|---------|
-|Grootte                  |1 TiB         |
-|Maximale IOPS per bestand     |5.000         |
-|Gelijktijdige verwerkt    |2,000         |
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure File Sync schaal doelen
 

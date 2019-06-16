@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002096"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Gebruik waarschuwingen van de kosten voor gebruik en uitgaven bewaken
@@ -39,11 +39,11 @@ Afdeling bestedingslimiet quotum waarschuwingen een melding wanneer een vaste dr
 
 Ondersteuning voor waarschuwingstypen, is afhankelijk van het type Azure-account dat u hebt (aanbieding van Microsoft). De volgende tabel ziet u de waarschuwing functies die worden ondersteund door verschillende Microsoft-aanbiedingen. U vindt de volledige lijst met Microsoft-aanbiedingen [gegevens van kostenbeheer begrijpen](understand-cost-mgt-data.md).
 
-| Waarschuwingstype | Enterprise Overeenkomst | Microsoft-klantovereenkomst | Web direct/Pay-As-You-Go |
+| Waarschuwingstype | Enterprise Agreement | Microsoft-klantovereenkomst | Web direct/Pay-As-You-Go |
 |---|---|---|---|
 | Budget | ✔ | ✔ | ✔ |
 | Tegoed | ✔ |✘ | ✘ |
-| Bestedingsquotum van afdeling | ✔ | ✘ | ✘ |
+| Bestedingsquotum afdeling | ✔ | ✘ | ✘ |
 
 
 

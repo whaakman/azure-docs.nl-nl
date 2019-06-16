@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose implementatie-Preview
 description: Azure Service Fabric accepteert Docker Compose-indeling voor het indelen van bestaande containers met behulp van Service Fabric te vereenvoudigen. Deze ondersteuning is momenteel in preview.
 services: service-fabric
 documentationcenter: .net
-author: rockboyfor
-manager: digimobile
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/23/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
+ms.date: 2/23/2018
+ms.author: aljo, subramar
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60948831"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Ondersteuning voor de implementatie van docker Compose in Azure Service Fabric (Preview)
@@ -139,8 +138,8 @@ Instellen van het cluster voor het afdwingen van resourcebeperkingen, zoals besc
 ### <a name="ports-section"></a>Sectie poorten
 
 Geef de http- of https-protocol in de sectie poorten die worden gebruikt door de Service Fabric service-listener. Dit zorgt ervoor dat de eindpunt-protocol correct is gepubliceerd met de naming-service om toe te staan van omgekeerde proxy voor het doorsturen van aanvragen:
-* Om te routeren naar niet-beveiligde Service Fabric-Compose-services, geef **/http**. Bijvoorbeeld- **"80:80 / http"**.
-* Als u wilt doorsturen naar beveiligde Service Fabric-Compose-services, geef **/https**. Bijvoorbeeld- **"443:443 / https"**.
+* Om te routeren naar niet-beveiligde Service Fabric-Compose-services, geef **/http**. Bijvoorbeeld- **"80:80 / http"** .
+* Als u wilt doorsturen naar beveiligde Service Fabric-Compose-services, geef **/https**. Bijvoorbeeld- **"443:443 / https"** .
 
 > [!NOTE]
 > De syntaxis van de sectie /http en /https poorten is specifiek voor Service Fabric voor het registreren van de correcte URL van de Service Fabric-listener.  Als de Docker compose syntaxis van bestanden via een programma is gevalideerd, kan dit ertoe leiden dat een validatiefout.
@@ -166,5 +165,3 @@ Hoewel dit model biedt een flexibiliteit, zijn we ook plannen voor de ondersteun
 
 * Lees de [Service Fabric-toepassingsmodel](service-fabric-application-model.md)
 * [Aan de slag met Service Fabric-CLI](service-fabric-cli.md)
-
-<!-- Update_Description: wording update -->

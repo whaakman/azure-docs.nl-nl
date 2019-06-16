@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 72d1c4d2ea3adf7d8751adfbb013435f8f2530f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125743"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Privé IP-adressen voor een virtuele machine (klassiek) met behulp van de Azure-portal configureren
@@ -61,7 +61,7 @@ Het maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet v
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Het statische privé IP-adresgegevens voor een virtuele machine ophalen
 Als u wilt weergeven met de statische privé IP-adresgegevens voor de virtuele machine gemaakt met de bovenstaande stappen, voer de onderstaande stappen.
 
-1. Selecteer in de Azure-portal **door alles bladeren** > **virtuele machines (klassiek)** > **DNS01** > **alle instellingen voor** > **IP-adressen** en ziet u de toewijzing van IP-adressen en IP-adres zoals hieronder wordt weergegeven.
+1. Selecteer in de Azure-portal **door alles bladeren** > **virtuele machines (klassiek)**  > **DNS01** > **alle instellingen voor** > **IP-adressen** en ziet u de toewijzing van IP-adressen en IP-adres zoals hieronder wordt weergegeven.
    
     ![Virtuele machine maken in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

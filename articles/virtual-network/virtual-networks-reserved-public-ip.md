@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
 ms.openlocfilehash: 8afed4eb1add0ba3a7db474e54b2f78a0babab06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789074"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Gereserveerde IP-adressen (klassieke implementatie)
@@ -34,7 +34,7 @@ Lees voor meer informatie over IP-adressen in Azure, de [IP-adressen](virtual-ne
 
 ## <a name="when-do-i-need-a-reserved-ip"></a>Wanneer moet ik een gereserveerde IP-adres?
 * **U wilt ervoor zorgen dat het IP-adres wordt gereserveerd in uw abonnement**. Als u reserveren van een IP-adres dat niet is vrijgegeven uit uw abonnement onder alle omstandigheden wilt, moet u een gereserveerde openbare IP-adres gebruiken.  
-* **U wilt dat uw IP-adres om te blijven met uw service in de cloud, zelfs meerdere gestopt of de toewijzing ongedaan gemaakt status (VM's)**. Als u wilt dat uw service worden geopend met behulp van een IP-adres wijzigen dat niet, zelfs wanneer virtuele machines in de cloudservice worden afgesloten of stoppen (toewijzing opgeheven).
+* **U wilt dat uw IP-adres om te blijven met uw service in de cloud, zelfs meerdere gestopt of de toewijzing ongedaan gemaakt status (VM's)** . Als u wilt dat uw service worden geopend met behulp van een IP-adres wijzigen dat niet, zelfs wanneer virtuele machines in de cloudservice worden afgesloten of stoppen (toewijzing opgeheven).
 * **U wilt ervoor zorgen dat het uitgaande verkeer van Azure gebruikmaakt van een voorspelbare IP-adres**. Mogelijk hebt u uw on-premises firewall geconfigureerd, zodat alleen verkeer van specifieke IP-adressen. Door het reserveren van een IP-adres, kunt u kent het bron-IP-adres en niet nodig hebt om bij te werken van uw firewall-regels vanwege een wijziging in de IP.
 
 ## <a name="faqs"></a>Veelgestelde vragen

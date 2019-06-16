@@ -4,17 +4,17 @@ description: Deze zelfstudie leidt u door het instellen van uw machine en cloud 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/20/2019
+ms.date: 06/06/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 81d660857eff63e0dfeeda400b168ea424152081
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 94a287cd996bd18b757620254540f8dc0df499e8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051814"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Zelfstudie: IoT Edge-modules ontwikkelen voor Windows-apparaten
 
@@ -22,7 +22,7 @@ Visual Studio gebruiken om te ontwikkelen en implementeren van code op Windows-a
 
 In de Quick Start, moet u een IoT Edge-apparaat met een Windows-machine gemaakt en geïmplementeerd een vooraf samengestelde module op basis van de Azure Marketplace. Deze zelfstudie leert wat het duurt om te ontwikkelen en implementeren van uw eigen code in een IoT Edge-apparaat. Deze zelfstudie is een nuttig vereiste voor alle de andere zelfstudies die u meer informatie over specifieke programmeertalen of Azure-services krijgt. 
 
-Deze zelfstudie wordt gebruikgemaakt van het voorbeeld van de implementatie van een **C-module op een Windows-apparaat**. In dit voorbeeld is gekozen voor de eenvoudig te houden, zodat u kunt meer informatie over de ontwikkelhulpprogramma's zonder dat u of u de juiste bibliotheken geïnstalleerd hebt. Als u inzicht in de ontwikkeling van concepten, kunt klikt u vervolgens u uw voorkeurstaal of Duik in de details van de Azure-service. 
+Deze zelfstudie wordt gebruikgemaakt van het voorbeeld van de implementatie van een  **C# module aan een Windows-apparaat**. In dit voorbeeld is gekozen omdat dit de meest voorkomende scenario voor het ontwikkelen. Als u geïnteresseerd bent in het ontwikkelen in een andere taal of van plan bent over het implementeren van Azure-services als modules, wordt in deze zelfstudie nog steeds nuttig zijn voor meer informatie over de ontwikkelhulpprogramma's. Als u inzicht in de ontwikkeling van concepten, kunt klikt u vervolgens u uw voorkeurstaal of Duik in de details van de Azure-service. 
 
 In deze zelfstudie leert u het volgende:
 
@@ -49,9 +49,7 @@ De volgende tabel bevat de ondersteunde scenario's voor **Windows containers** i
 | - | ------------------ | ------------------ |
 | **Azure-services** | Azure Functions <br> Azure Stream Analytics |   |
 | **Talen** | C#(foutopsporing niet ondersteund) | C <br> C# |
-| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge-Tools voor Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
-In deze zelfstudie leert de stappen ontwikkeling voor Visual Studio 2019. Als u in plaats van Visual Studio Code gebruikt, raadpleegt u de instructies in [gebruik van Visual Studio Code te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge](how-to-vs-code-develop-module.md). Als u gebruikmaakt van Visual Studio 2017 (versie 15.7 of hoger), plrease downloadt en installeert [Azure IoT Edge-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge-hulpprogramma's voor Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -60,17 +58,6 @@ Een ontwikkelcomputer:
 * Windows 10 met 1809 update of hoger.
 * U kunt uw eigen computer of op een virtuele machine, afhankelijk van uw voorkeuren voor ontwikkeling.
 * Installeer [Git](https://git-scm.com/). 
-* De Azure IoT C SDK voor Windows x64 via vcpkg installeren:
-
-   ```powershell
-   git clone https://github.com/Microsoft/vcpkg
-   cd vcpkg
-   .\bootstrap-vcpkg.bat
-   .\vcpkg install azure-iot-sdk-c:x64-windows
-   .\vcpkg --triplet x64-windows integrate install
-   ```
-
-<!--vcpkg only required for C development-->
 
 Een Azure IoT Edge-apparaat op Windows:
 
@@ -94,17 +81,23 @@ Gebruik de Docker-documentatie om te installeren op uw ontwikkelcomputer:
 
 ## <a name="set-up-visual-studio-and-tools"></a>Instellen van Visual Studio en hulpprogramma 's
 
-De IoT-extensies voor Visual Studio 2019 gebruiken voor het ontwikkelen van IoT Edge-modules. Deze uitbreidingen bevatten projectsjablonen, het maken van het manifest implementatie automatiseren en kunnen u controleren en beheren van IoT Edge-apparaten. In deze sectie kunt u Visual Studio en de IoT Edge-extensie installeren en vervolgens uw Azure-account instellen voor het beheren van IoT Hub-resources vanuit Visual Studio. 
+De IoT-uitbreidingen voor Visual Studio kunnen u voor het ontwikkelen van IoT Edge-modules. Deze uitbreidingen bevatten projectsjablonen, het maken van het manifest implementatie automatiseren en kunnen u controleren en beheren van IoT Edge-apparaten. In deze sectie kunt u Visual Studio en de IoT Edge-extensie installeren en vervolgens uw Azure-account instellen voor het beheren van IoT Hub-resources vanuit Visual Studio. 
 
-1. Als u geen Visual Studio al op uw ontwikkelcomputer hebt [2019 Visual Studio installeren](https://docs.microsoft.com/visualstudio/install/install-visual-studio) met de volgende workloads: 
+In deze zelfstudie leert de stappen ontwikkeling voor Visual Studio 2019. Als u Visual Studio 2017 (versie 15.7 of hoger) gebruikt, zijn de stappen zijn vergelijkbaar. Als u in plaats van Visual Studio Code gebruikt, raadpleegt u de instructies in [gebruik van Visual Studio Code te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge](how-to-vs-code-develop-module.md). 
 
-   * Azure-ontwikkeling
-   * Desktopontwikkeling metC++
-   * Platformoverschrijdende ontwikkelmogelijkheden van .NET Core
+1. Visual Studio 2019 voorbereiden op uw ontwikkelcomputer. 
 
-1. Als u Visual Studio 2019 al op uw ontwikkelcomputer hebt. Volg de stappen in [Visual Studio wijzigen](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) om toe te voegen van de vereiste werkbelastingen als u nog geen hebt.
+   * Als u geen Visual Studio al op uw ontwikkelcomputer hebt [2019 Visual Studio installeren](https://docs.microsoft.com/visualstudio/install/install-visual-studio) met de volgende workloads: 
+
+      * Azure-ontwikkeling
+      * Desktopontwikkeling metC++
+      * Platformoverschrijdende ontwikkelmogelijkheden van .NET Core
+
+   * Als u Visual Studio 2019 al op uw ontwikkelcomputer hebt, volgt u de stappen in [Visual Studio wijzigen](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) om toe te voegen van de vereiste werkbelastingen.
 
 2. Download en installeer de [hulpprogramma's voor Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) -extensie voor Visual Studio 2019. 
+
+   Als u gebruikmaakt van Visual Studio 2017 (versie 15.7 of hoger), downloadt en installeert de [Azure IoT Edge-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
 
 3. Wanneer uw installaties voltooid zijn, opent u Visual Studio 2019 en selecteer **doorgaan zonder code**.
 
@@ -112,9 +105,9 @@ De IoT-extensies voor Visual Studio 2019 gebruiken voor het ontwikkelen van IoT 
 
 5. Selecteer het pictogram van het profiel in de cloud explorer en aanmelden bij uw Azure-account als u al zijn niet aangemeld. 
 
-6. Als u zich aanmeldt, wordt uw Azure-abonnementen worden weergegeven. Selecteer de abonnementen die u wilt openen via de cloud explorer en selecteer vervolgens **toepassen**. 
+6. Als u zich aanmeldt, wordt uw Azure-abonnementen worden weergegeven. Vouw het abonnement waaraan uw IoT-hub. 
 
-7. Vouw uw abonnement, klikt u vervolgens **IoT-Hubs**, klikt u vervolgens uw IoT-hub. U ziet een lijst met uw IoT-apparaten en kunt deze explorer gebruiken om deze te beheren. 
+7. Vouw onder uw abonnement, **IoT-Hubs** vervolgens uw IoT-hub. U ziet een lijst met uw IoT-apparaten en kunt deze explorer gebruiken om deze te beheren. 
 
    ![Toegang tot IoT Hub-resources in de Cloud Explorer](./media/tutorial-develop-for-windows/cloud-explorer-view-hub.png)
 
@@ -126,11 +119,11 @@ De hulpprogramma's voor Azure IoT Edge-extensie biedt projectsjablonen voor alle
 
 1. Selecteer **bestand** > **nieuwe** > **Project...**
 
-2. In het nieuwe projectvenster 2. Zoek in het venster Nieuw project **IoT Edge** toepassingsproject en kies de **Azure IoT Edge (Windows-amd64)** project. Klik op **volgende**. 
+2. Zoek in het venster Nieuw project **IoT Edge** en kies de **Azure IoT Edge (Windows-amd64)** project. Klik op **volgende**. 
 
    ![Een nieuw Azure IoT Edge-project maken](./media/tutorial-develop-for-windows/new-project.png)
 
-3. In de configureren uw nieuw projectvenster, wijzig de naam van het project en de oplossing iets beschrijvende als volgt aan bij **CTutorialApp**. Klik op **maken** om het project te maken.
+3. In de configureren uw nieuw projectvenster, wijzig de naam van het project en de oplossing iets beschrijvende als volgt aan bij **CSharpTutorialApp**. Klik op **maken** om het project te maken.
 
    ![Een nieuw project voor Azure IoT Edge configureren](./media/tutorial-develop-for-windows/configure-project.png)
  
@@ -139,20 +132,21 @@ De hulpprogramma's voor Azure IoT Edge-extensie biedt projectsjablonen voor alle
 
    | Veld | Value |
    | ----- | ----- |
+   | Selecteer een sjabloon | Selecteer  **C# Module**. | 
+   | Naam van de module-project | Accepteer de standaardwaarde **IoTEdgeModule1**. | 
+   | Opslagplaats voor docker-installatiekopieën | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. Uw containerinstallatiekopie wordt vooraf ingevuld vanuit de waarde van de naam van de module project. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br> De opslagplaats voor de uiteindelijke installatiekopie ziet eruit als \<registernaam\>.azurecr.io/iotedgemodule1. |
 
-   | Selecteer een sjabloon | Selecteer **C Module**. | | Module projectnaam | Accepteer de standaardwaarde **IoTEdgeModule1**. | | Opslagplaats voor docker-installatiekopieën | Een opslagplaats voor de installatiekopie bevat de naam van het containerregister en de naam van uw containerinstallatiekopie. Uw containerinstallatiekopie wordt vooraf ingevuld vanuit de waarde van de naam van de module project. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br> De opslagplaats voor de uiteindelijke installatiekopie ziet eruit als \<registernaam\>.azurecr.io/iotedgemodule1. |
+   ![Configureren van uw project voor het doelapparaat en module-type containerregister](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-   ![Configureren van uw project voor het doelapparaat en module-type containerregister](./media/tutorial-develop-for-windows/add-application-and-module.png)
-
-5. Selecteer **OK** de wijzigingen worden toegepast. 
+5. Selecteer **Ja** de wijzigingen worden toegepast. 
 
 Zodra het nieuwe project wordt geladen in het venster Visual Studio, even de tijd om vertrouwd te raken met de bestanden dat is gemaakt: 
 
-* Een IoT Edge-project met de naam **AzureIoTEdgeApp1.Windows.Amd64**.
+* Een IoT Edge-project met de naam **CSharpTutorialApp**.
     * De **Modules** map bevat verwijzingen naar de modules die zijn opgenomen in het project. In dit geval moet het zojuist IoTEdgeModule1 zijn. 
     * De **deployment.template.json** bestand is een sjabloon voor het maken van een manifest van de implementatie. Een *implementatie manifest* is een bestand dat bepaalt precies welke modules gewenste geïmplementeerd op een apparaat, hoe deze moeten worden geconfigureerd en hoe ze kunnen communiceren met elkaar en in de cloud. 
 * Een IoT Edge-module-project met de naam **IoTEdgeModule1**.
-    * De **main.c** -bestand bevat de standaard C-module-code die wordt geleverd met de projectsjabloon, maken. De standaardmodule invoer van een bron en geeft deze samen met IoT Hub. 
+    * De **program.cs** bestand bevat de standaard C# module-code die wordt geleverd met de projectsjabloon, maken. De standaardmodule invoer van een bron en geeft deze samen met IoT Hub. 
     * De **module.json** bestand wachtstand details over de module, met inbegrip van de opslagplaats volledige installatiekopie installatiekopie versie, en welke docker-bestand moet worden gebruikt voor elk ondersteund platform.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Referenties voor uw register met de IoT Edge-agent
@@ -183,17 +177,19 @@ De sjabloon van de oplossing die u hebt gemaakt, bevat voorbeelden van code voor
 
 Elke module kunt hebben meerdere *invoer* en *uitvoer* wachtrijen gedeclareerd in hun code. De IoT Edge hub die wordt uitgevoerd op het apparaat routeert berichten uit de uitvoer van een module in de invoer van een of meer modules. De specifieke taal voor de invoer en uitvoer declareren varieert tussen talen, maar het concept is hetzelfde voor alle modules. Zie voor meer informatie over routering tussen modules [declareren routes](module-composition.md#declare-routes).
 
-1. In de **main.c** bestand, zoek de **SetupCallbacksForModule** functie.
+Het voorbeeld C# maakt gebruik van code die wordt geleverd met de projectsjabloon, maken de [ModuleClient klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) van de IoT Hub-SDK voor .NET. 
 
-2. Deze functie stelt u een wachtrij om binnenkomende berichten te ontvangen. Roept de C-SDK-module client functie [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Bekijk deze functie en het initialiseren van een wachtrij met de naam **input1**. 
+1. In de **program.cs** bestand, zoek de **SetInputMessageHandlerAsync** methode.
 
-   ![De ingevoerde naam niet vinden in de constructor SetInputMessageCallback](./media/tutorial-develop-for-windows/declare-input-queue.png)
+2. De [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) methode stelt u een wachtrij om binnenkomende berichten te ontvangen. Deze methode controleren en bekijken hoe het initialiseren van een wachtrij met de naam **input1**. 
 
-3. Zoek vervolgens de **InputQueue1Callback** functie.
+   ![De ingevoerde naam niet vinden in de constructor SetInputMessageHandlserAsync](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
-4. Deze functie ontvangen berichten worden verwerkt en een uitvoerwachtrij ingesteld om door te geven ze samen. Roept de C-SDK-module client functie [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Bekijk deze functie en het initialiseren van een uitvoerwachtrij met de naam **output1**. 
+3. Zoek vervolgens de **SendEventAsync** methode.
 
-   ![De naam van de uitvoer niet vinden in de constructor SendEventToOutputAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
+4. De [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) methode ontvangen berichten worden verwerkt en een uitvoerwachtrij ingesteld om door te geven ze samen. Bekijk deze methode en dat het initialiseren van een uitvoerwachtrij met de naam **output1**. 
+
+   ![De naam van de uitvoer niet vinden in de constructor SendEventAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
 5. Open de **deployment.template.json** bestand.
 
@@ -232,7 +228,7 @@ Referenties van uw container registry Docker op uw ontwikkelcomputer zodat deze 
 
 Uw ontwikkelcomputer heeft nu toegang tot uw container registry en uw IoT Edge-apparaten te worden. Het is tijd om in te schakelen van de projectcode in een containerinstallatiekopie. 
 
-1. Met de rechtermuisknop op de **AzureIotEdgeApp1.Windows.Amd64** projectmap en selecteer **Build and Push IoT Edge-Modules**. 
+1. Met de rechtermuisknop op de **CSharpTutorialApp** projectmap en selecteer **Build and Push IoT Edge-Modules**. 
 
    ![Bouw en push IoT Edge-modules](./media/tutorial-develop-for-windows/build-and-push-modules.png)
 
@@ -253,7 +249,7 @@ Uw ontwikkelcomputer heeft nu toegang tot uw container registry en uw IoT Edge-a
 
 6. Sla uw wijzigingen in het bestand module.json.
 
-7. Met de rechtermuisknop op de **AzureIotEdgeApp1.Windows.Amd64** map opnieuw project en selecteer opnieuw **Build and Push IoT Edge-modules**. 
+7. Met de rechtermuisknop op de **CSharpTutorialApp** map opnieuw project en selecteer **Build and Push IoT Edge-modules** opnieuw. 
 
 8. Open de **deployment.windows amd64.json** bestand opnieuw uit. U ziet dat er een nieuw bestand is niet gemaakt wanneer u de opdracht build- en push opnieuw uitgevoerd. In plaats daarvan is hetzelfde bestand bijgewerkt om de wijzigingen weer te geven. De installatiekopie van het IotEdgeModule1 verwijst nu naar de 0.0.2 versie van de container. Deze wijziging in het manifest van de implementatie is hoe u de IoT Edge-apparaat dat er een nieuwe versie van een module om op te halen. 
 
@@ -283,7 +279,7 @@ U verifiëren dat de gemaakte containerinstallatiekopieën worden opgeslagen in 
    ![Implementatie voor één apparaat maken](./media/tutorial-develop-for-windows/create-deployment.png)
 
 
-3. Navigeer in de Verkenner naar de map van de configuratie van uw project en selecteer de **deployment.windows amd64.json** bestand. Dit bestand bevindt zich vaak `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`
+3. Navigeer in de Verkenner naar de map van de configuratie van uw project en selecteer de **deployment.windows amd64.json** bestand. Dit bestand bevindt zich vaak `C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
 
    Gebruik niet de deployment.template.json-bestand, dat niet beschikt over de volledige module image-waarden in deze. 
 

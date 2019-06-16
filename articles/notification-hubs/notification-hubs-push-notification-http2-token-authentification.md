@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: jowargo
 ms.openlocfilehash: 890577c013a96fc06acf3b05881649ad8202a083
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872322"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Verificatie op basis van tokens (HTTP/2) voor APN 's
@@ -50,7 +50,7 @@ Merk op dat als u een migratie van met behulp van referenties van het computerce
 
 Als u wilt inschakelen op tokens gebaseerde verificatie, moet u de volgende eigenschappen van uw Apple Developer-Account:
 
-### <a name="key-identifier"></a>Id van sleutel
+### <a name="key-identifier"></a>Sleutel-id
 
 De sleutel-id kan worden verkregen via de pagina 'Sleutels' in uw Apple Developer-Account
 

@@ -9,16 +9,16 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Meer informatie over het snel maken van een Kubernetes-cluster ingeschakeld voor Azure Dev opslagruimten direct vanuit uw browser zonder iets te installeren.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
-ms.openlocfilehash: 532a094f96817f3c525384694b6fa60a292aa948
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: cd0c8c3c26feefe3448ada1cf1575706cd17e525
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808686"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Een Kubernetes-cluster maken met behulp van Azure Cloud Shell
 
-U kunt [Azure Cloud Shell](/azure/cloud-shell) gebruiken om een cluster te maken voor Azure Dev Spaces met behulp van de **uitproberen** knop op deze pagina. Als u niet bent aangemeld, volg de aanwijzingen voor het aanmelden met een Azure-account en vervolgens typt u de opdrachten bij de Azure Cloud Shell-prompt wanneer deze wordt weergegeven.
+U kunt [Azure Cloud Shell](/azure/cloud-shell) voor het maken van een Azure Kubernetes Service-cluster met behulp van de **uitproberen** knop op deze pagina. Als u niet bent aangemeld, volg de aanwijzingen voor het aanmelden met een Azure-account en vervolgens typt u de opdrachten bij de Azure Cloud Shell-prompt wanneer deze wordt weergegeven.
 
 ## <a name="create-the-cluster"></a>Het cluster maken
 
@@ -39,6 +39,9 @@ Het duurt een paar minuten om het cluster te maken.  Als het gereed is wordt de 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Azure Dev spaties](/azure/dev-spaces/) voor koppelingen naar volledige zelfstudies.
+
+> [!IMPORTANT]
+> Veel van de Azure Dev spaties snelstartgidsen en zelfstudies Azure Dev spaties CLI gebruiken voor het uitvoeren van bewerkingen. U kunt de CLI van Azure Dev spaties niet installeren in de Azure Cloud Shell.
 
 
 [supported-regions]: ../about.md#supported-regions-and-configurations

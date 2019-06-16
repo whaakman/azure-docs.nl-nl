@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807177"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway-ondersteuning voor meerdere tenants back-ends zoals appservice
 
 In multitenant-architectuur ontwerpen in webservers, worden meerdere websites uitgevoerd op hetzelfde exemplaar van de webserver. Hostnamen worden gebruikt om onderscheid maken tussen de verschillende toepassingen die worden gehost. Application Gateway wijzigt standaard niet de binnenkomende HTTP-host-header van de client en stuurt de header ongewijzigd terug naar de back-end. Dit werkt goed voor back-endpoolleden zoals NIC's, virtuele-machineschaalsets, openbare IP-adressen, interne IP-adressen, FQDN-naam en als deze niet zijn gebaseerd op een specifieke host-header of SNI-extensie op te lossen naar het juiste eindpunt. Er zijn echter veel services zoals Azure App service WebApps en Azure API management die nature werken met meerdere tenants en vertrouwen op een specifieke host-header of SNI-extensie om te worden omgezet naar het juiste eindpunt. Normaal gesproken verschilt de DNS-naam van de toepassing die op zijn beurt de DNS-naam die is gekoppeld aan de toepassingsgateway is, van de domeinnaam van de back-endservice. De host-header in de oorspronkelijke aanvraag is ontvangen door de application gateway is daarom niet hetzelfde als de hostnaam van de back-endservice. Als gevolg hiervan, tenzij de host-header in de aanvraag van de application gateway naar de back-end wordt gewijzigd naar de hostnaam van de back endservice, de back-ends voor meerdere tenants kan niet worden voor het omzetten van de aanvraag naar het juiste eindpunt. 
 
-Application gateway biedt een functie waarmee gebruikers voor de onderdrukking van de HTTP host-header in de aanvraag op basis van de hostnaam van de back-end. Deze mogelijkheid biedt ondersteuning voor meerdere tenants back-ends, zoals Azure App service WebApps en API management. Deze mogelijkheid is beschikbaar voor zowel de v1 en v2 standard- en WAF-SKU's. 
+Application Gateway biedt een functie waarmee gebruikers de HTTP host-header in de aanvraag kunnen overschrijven op basis van de hostnaam van de back-end. Dankzij deze functie is er ondersteuning voor back-ends met meerdere tenants, zoals web-apps van Azure App Service en API-beheer. Deze functie is beschikbaar voor zowel de v1- en v2-standaard- als de WAF-SKU. 
 
 ![Host-overschrijven](./media/application-gateway-web-app-overview/host-override.png)
 
@@ -31,7 +31,7 @@ De mogelijkheid om op te geven van een host onderdrukking is gedefinieerd in de 
 
 - De mogelijkheid om in te stellen van de hostnaam op een vaste waarde expliciet is ingevoerd in de HTTP-instellingen. Deze functionaliteit zorgt ervoor dat de host-header wordt overschreven met deze waarde voor al het verkeer naar de back-end-pool waar de bepaalde HTTP-instellingen worden toegepast. Als u end-to-end SSL gebruikt, wordt de overschreven hostnaam gebruikt in de SNI-extensie. Op deze manier kunt scenario's waarin een back-end-pool-farm wordt verwacht dat een host-header die verschilt van de binnenkomende host-header van de klant.
 
-- De mogelijkheid om de hostnaam afgeleid van de IP- of FQDN-naam van de leden van de back-end-pool. HTTP-instellingen bieden ook de mogelijkheid om op te halen dynamisch de hostnaam van een lid van de back-end-pool FQDN als geconfigureerd met de optie voor de hostnaam afgeleid van een afzonderlijke back-end-adrespool lid. Als u end-to-end SSL gebruikt, wordt de hostnaam afgeleid van de FQDN en gebruikt in de SNI-extensie. Op deze manier kunt scenario's waarin een back-end-pool kan twee of meer multitenant PaaS-services zoals Azure web-apps hebben en host-header op elk lid van de aanvraag bevat de hostnaam die is afgeleid van de FQDN. Voor de implementatie van dit scenario gebruiken we een switch in de HTTP-instellingen met de naam [kiezen hostnaam van de back-endadres](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-backend-address) die dynamisch de host-header in de oorspronkelijke aanvraag naar de vermeld in de back-endpool wordt overschreven.  Bijvoorbeeld, als uw back-endgroep FQDN-naam 'contoso11.azurewebsites.net' en 'contoso22.azurewebsites.net' bevat, van de oorspronkelijke aanvraag host-header die contoso.com is overschreven contoso11.azurewebsites.net of contoso22.azurewebsites.net Wanneer de aanvraag wordt verzonden naar de juiste back-endserver. 
+- De mogelijkheid om de hostnaam afgeleid van de IP- of FQDN-naam van de leden van de back-end-pool. HTTP-instellingen bieden ook de mogelijkheid om op te halen dynamisch de hostnaam van een lid van de back-end-pool FQDN als geconfigureerd met de optie voor de hostnaam afgeleid van een afzonderlijke back-end-adrespool lid. Als u end-to-end SSL gebruikt, wordt de hostnaam afgeleid van de FQDN en gebruikt in de SNI-extensie. Op deze manier kunt scenario's waarin een back-end-pool kan twee of meer multitenant PaaS-services zoals Azure web-apps hebben en host-header op elk lid van de aanvraag bevat de hostnaam die is afgeleid van de FQDN. Voor de implementatie van dit scenario gebruiken we een switch in de HTTP-instellingen met de naam [kiezen hostnaam van de back-endadres](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) die dynamisch de host-header in de oorspronkelijke aanvraag naar de vermeld in de back-endpool wordt overschreven.  Bijvoorbeeld, als uw back-endgroep FQDN-naam 'contoso11.azurewebsites.net' en 'contoso22.azurewebsites.net' bevat, van de oorspronkelijke aanvraag host-header die contoso.com is overschreven contoso11.azurewebsites.net of contoso22.azurewebsites.net Wanneer de aanvraag wordt verzonden naar de juiste back-endserver. 
 
   ![web-app-scenario](./media/application-gateway-web-app-overview/scenario.png)
 

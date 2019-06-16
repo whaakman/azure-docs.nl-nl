@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254656"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Prestaties van Azure-toepassingen met Azure Advisor
@@ -106,7 +106,7 @@ Advisor detecteert Azure Cosmos DB-accounts waarvoor verkeer vanuit een regio di
 
 Azure Advisor identificeert Cosmos DB-containers die gebruikmaakt van de standaardbeleidsregels voor indexering van beleid, maar kunnen profiteren van een aangepast indexeringsbeleid op basis van het workloadpatroon. De standaardbeleidsregels voor indexering voor alle eigenschappen geïndexeerd, maar de RU's en de voor indexering verbruikte opslag met behulp van een aangepast indexeringsbeleid met expliciete opgenomen of uitgesloten paden gebruikt in queryfilters kunt beperken. [Meer informatie over het wijzigen van beleid voor index](https://aka.ms/cosmosdb/modify-index-policy)
 
-## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configureren van uw Azure Cosmos DB-query paginagrootte (MaxItemCount) op-1 
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB-querypaginaformaat (MaxItemCount) instellen op -1 
 
 Azure Advisor identificeert Azure Cosmos DB-containers die de paginagrootte voor query van 100 en om de paginagrootte van een 1 te gebruiken voor snellere scans. [Meer informatie over het maximumaantal van Item](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 

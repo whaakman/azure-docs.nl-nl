@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935760"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian Jira en samenloop beheerdershandleiding voor Azure Active Directory
@@ -112,11 +112,11 @@ De volgende afbeelding ziet u het Configuratiescherm in Jira en samenloop:
 
 * **Metagegevens-URL**: De URL voor federatiemetagegevens ophalen uit Azure AD.
 
-* **Id's**: De URL die Azure AD wordt gebruikt voor het valideren van de bron van de aanvraag. Het wordt toegewezen aan de **id** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*\<domein: poort >*/.
+* **Id's**: De URL die Azure AD wordt gebruikt voor het valideren van de bron van de aanvraag. Het wordt toegewezen aan de **id** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https:// *\<domein: poort >* /.
 
-* **Antwoord-URL**: De antwoord-URL in uw id-provider (IdP) die de SAML-aanmelding initieert. Het wordt toegewezen aan de **antwoord-URL** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*\<domein: poort >*/plugins/servlet/saml/auth.
+* **Antwoord-URL**: De antwoord-URL in uw id-provider (IdP) die de SAML-aanmelding initieert. Het wordt toegewezen aan de **antwoord-URL** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https:// *\<domein: poort >* /plugins/servlet/saml/auth.
 
-* **Aanmeldings-URL**: De aanmeldings-URL in de IdP die de SAML-aanmelding initieert. Het wordt toegewezen aan de **aanmelding** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*\<domein: poort >*/plugins/servlet/saml/auth.
+* **Aanmeldings-URL**: De aanmeldings-URL in de IdP die de SAML-aanmelding initieert. Het wordt toegewezen aan de **aanmelding** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https:// *\<domein: poort >* /plugins/servlet/saml/auth.
 
 * **IdP entiteit-ID**: De entiteit-ID die gebruikmaakt van uw id-provider. Dit vak wordt gevuld wanneer de metagegevens-URL opgelost is.
 
@@ -144,7 +144,7 @@ De volgende afbeelding ziet u het Configuratiescherm in Jira en samenloop:
 
 * **Een certificaat is bijna verlopen in Azure AD**: Invoegtoepassingen zorgen voor automatische rollover van het certificaat. Wanneer een certificaat bijna verlopen is, een nieuw certificaat moet als actief gemarkeerd en niet-gebruikte certificaten moeten worden verwijderd. Wanneer een gebruiker wil zich aanmelden bij Jira in dit scenario, de invoegtoepassing haalt en slaat het nieuwe certificaat.
 
-* **U wilt uitschakelen WebSudo (de beheerder van de beveiligde sessie uitschakelen)**:
+* **U wilt uitschakelen WebSudo (de beheerder van de beveiligde sessie uitschakelen)** :
 
   * Beveilig voor Jira, beheerder van sessies (dat wil zeggen, wachtwoordbevestiging voordat u toegang tot functies voor beheer) zijn standaard ingeschakeld. Als u verwijderen van deze mogelijkheid in uw exemplaar Jira wilt, geeft u de volgende regel in het bestand jira-config.properties: `ira.websudo.is.disabled = true`
 

@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89c76ad0739edea4c0541ace76ca2311453de71d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963022"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
@@ -255,7 +255,7 @@ Azure AD Connect vereist een Active Directory **wachtwoord opnieuw instellen** m
 
 Als u een algemene vraag hebt over Azure AD en selfservice voor wachtwoord opnieuw instellen, u kunt vraag het de community voor hulp op het [Azure AD-forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Leden van de community zijn engineers, productmanagers, MVP's en andere IT-professionals.
 
-## <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft Ondersteuning
+## <a name="contact-microsoft-support"></a>Neem contact op met Microsoft ondersteuning
 
 Als u het antwoord op een probleem niet kunt vinden, zijn altijd onze ondersteuningsteams beschikbaar om te helpen u verder.
 

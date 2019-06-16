@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud;anavin
 ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694718"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Maak een virtueel-netwerkpeering - verschillende implementatiemodellen, hetzelfde abonnement
@@ -31,8 +31,8 @@ De stappen voor het maken van een virtueel netwerk-peering zijn verschillend, af
 |Azure-implementatiemodel  | Azure-abonnement  |
 |--------- |---------|
 |[Beide in Resource Manager](tutorial-connect-virtual-networks-portal.md) |Dezelfde|
-|[Beide in Resource Manager](create-peering-different-subscriptions.md) |Verschil|
-|[Een Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschil|
+|[Beide in Resource Manager](create-peering-different-subscriptions.md) |Verschillende|
+|[Een Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschillende|
 
 Peering op virtueel netwerk kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Als u verbinding maken met virtuele netwerken die zijn beide gemaakt via het klassieke implementatiemodel wilt, kunt u een Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) om de virtuele netwerken te verbinden.
 

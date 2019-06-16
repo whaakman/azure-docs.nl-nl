@@ -8,19 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b00630354834897793bbf357be378051bcf74698
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059375"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
 Azure HDInsight-clusters bieden Apache Hadoop op een vertrouwde Linux-omgeving, die worden uitgevoerd in de Azure-cloud. Voor de meeste dingen werkt deze moet exact zoals elke andere Hadoop op Linux-installatie. Dit document worden specifieke verschillen die u moet rekening houden met aangeroepen.
-
-> [!IMPORTANT]  
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -55,7 +52,7 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
 
 ## <a name="remote-access-to-services"></a>Externe toegang tot services
 
-* **Ambari (web)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
 
     Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord en meld u aan Ambari.
 
@@ -66,14 +63,14 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     >
     > Als u de volledige functionaliteit van de Ambari-Webgebruikersinterface, gebruikt u een SSH-tunnel voor proxy-webverkeer met het hoofdknooppunt van het cluster. Zie [SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere webgebruikersinterfaces](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord.
     >
     > Verificatie is als tekst zonder opmaak - gebruik altijd HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
-* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord.
@@ -288,7 +285,6 @@ Upload voor het gebruik van een andere versie van een onderdeel, de versie die u
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Migreren van HDInsight op basis van Windows op basis van Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [HDInsight-clusters beheren met behulp van de Apache Ambari REST-API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
 * [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)

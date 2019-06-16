@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571299"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Volgende stappen en over het beheren van Azure AD Connect
@@ -56,12 +56,12 @@ De Azure portal gebruiken om de status van een synchronisatie te controleren.
 Als u een synchronisatietaak uitvoeren wilt, kunt u dit doen door:
 
 1. Dubbelklik op het bureaublad een snelkoppeling Azure AD Connect om de wizard te starten.
-2. Klik op **Configureren**
+2. Klik op **Configureren**.
 3. Selecteer op het scherm taken de **aanpassen Synchronisatieopties** en klikt u op **volgende**
 4. Voer uw Azure AD-referenties in
 5. Klik op **volgende**. Klik op **volgende**.  Klik op **volgende**.
 5.  Op de **klaar om te configureren** scherm, zorg ervoor dat de **Start het synchronisatieproces wanneer de configuratie is voltooid** is ingeschakeld.
-6.  Klik op **Configureren**
+6.  Klik op **Configureren**.
 
 Zie voor meer informatie over de Azure AD Connect sync Scheduler [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md).
 

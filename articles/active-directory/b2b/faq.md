@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40fc631e84336b684f981a2fef1515a1febec0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113076"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -57,7 +57,7 @@ Absoluut. Zie voor meer informatie, [gastgebruikers toevoegen aan een rol](add-g
 Tenzij een gebruiker de rol van beperkte beheerder is toegewezen, wordt niet toegang tot de Azure-portal nodig hebben gebruikers van B2B-samenwerking. B2B-samenwerking gebruikers aan wie de rol van beperkte beheerder toegewezen kunnen echter toegang tot de portal. Ook als een gastgebruiker die een van deze beheerdersrollen is niet toegewezen toegang heeft tot de portal, de gebruiker mogelijk toegang kunnen krijgen tot bepaalde onderdelen van de ervaring. De Gast-gebruikersrol heeft bepaalde machtigingen in de map.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan ik toegang tot de Azure-portal voor gastgebruikers blokkeren?
-Ja! Wanneer u dit beleid configureren, Let erop om te voorkomen dat per ongeluk blokkeren van toegang tot de leden en beheerders.
+Ja. Wanneer u dit beleid configureren, Let erop om te voorkomen dat per ongeluk blokkeren van toegang tot de leden en beheerders.
 Een gastgebruiker toegang tot blokkeren de [Azure-portal](https://portal.azure.com), gebruikt u een beleid voor voorwaardelijke toegang in de Windows Azure classic deployment model-API:
 1. Wijzig de **alle gebruikers** groeperen zodat deze alleen leden bevat.
    ![Schermafbeelding van de groep alle gebruikers waar UserType is niet gelijk zijn aan Gast](media/faq/modify-all-users-group.png)

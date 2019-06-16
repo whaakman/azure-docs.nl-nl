@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125737"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Files gebruiken met Linux
 
@@ -34,22 +34,22 @@ ms.locfileid: "66754835"
 
     Ondersteuning voor SMB 3.0-versleuteling is geïntroduceerd in Linux kernelversie 4.11 en is backported tot oudere kernelversies voor populaire Linux-distributies. Op het moment van publicatie van dit document ondersteunen de volgende distributies vanuit de Azure-galerie koppelen optie opgegeven in de headers-tabel. 
 
-* **Minimaal aanbevolen versies met de bijbehorende mount-mogelijkheden (SMB-versie 2.1 vs SMB-versie 3.0)**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Minimaal aanbevolen versies met de bijbehorende mount-mogelijkheden (SMB-versie 2.1 vs SMB-versie 3.0)
 
-    |   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van locatie en regio-overschrijdende) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van locatie en regio-overschrijdende) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    Als uw Linux-distributie hier niet wordt vermeld, kunt u controleren de versie van de Linux-kernel met de volgende opdracht:
+Als uw Linux-distributie hier niet wordt vermeld, kunt u controleren de versie van de Linux-kernel met de volgende opdracht:
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**De cifs-utils-pakket is geïnstalleerd.**  
     De cifs-utils-pakket kan worden geïnstalleerd met behulp van de package manager op de Linux-distributie van uw keuze. 
@@ -75,7 +75,7 @@ ms.locfileid: "66754835"
 
     Gebruik de juiste package manager in een andere distributie of [compileren van bron](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Besluit op de map/bestand machtigingen van de gekoppelde share**: In de voorbeelden hieronder de machtiging `0777` wordt gebruikt om te voorzien van lezen, schrijven en uitvoeren van machtigingen voor alle gebruikers. U kunt deze vervangen door andere [chmod machtigingen](https://en.wikipedia.org/wiki/Chmod) naar wens, hoewel dit betekent dat toegang mogelijk te beperken. Als u andere machtigingen gebruikt, moet u overwegen ook uid en groeps-id als u wilt behouden toegang tot lokale groepen van uw keuze.
+* **Besluit op de map/bestand machtigingen van de gekoppelde share**: In de voorbeelden hieronder de machtiging `0777` wordt gebruikt om te voorzien van lezen, schrijven en uitvoeren van machtigingen voor alle gebruikers. U kunt deze vervangen door andere [chmod machtigingen](https://en.wikipedia.org/wiki/Chmod) naar wens, hoewel dit betekent dat toegang mogelijk te beperken. Als u andere machtigingen gebruikt, moet u overwegen ook uid en groeps-id als u wilt behouden toegang voor lokale gebruikers en groepen van uw keuze.
 
 > [!NOTE]
 > Als u machtigingen voor map- en met dir_mode en file_mode niet expliciet toewijst, zullen ze 0755 standaard.

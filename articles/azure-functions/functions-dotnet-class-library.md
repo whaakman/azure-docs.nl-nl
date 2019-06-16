@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872787"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
@@ -187,7 +187,7 @@ De `Sdk` pakket ook afhankelijk van [Newtonsoft.Json](https://www.nuget.org/pack
 
 De broncode voor `Microsoft.NET.Sdk.Functions` is beschikbaar in de GitHub-opslagplaats [azure\-functies\-vs\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="runtime-version"></a>Runtime-versi
+## <a name="runtime-version"></a>Runtime-versie
 
 Visual Studio gebruikt het [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) om uit te voeren van Functions-projecten. De essentiële hulpprogramma is een opdrachtregelinterface voor de Functions-runtime.
 

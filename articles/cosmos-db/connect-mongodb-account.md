@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978712"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Verbinding maken met een MongoDB-toepassing met Azure Cosmos DB
@@ -32,7 +32,7 @@ In deze zelfstudie biedt twee manieren om de verbindingsreeksinformatie ophalen:
 1. In een internetbrowser, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com).
 2. In de **Azure Cosmos DB** blade, selecteer de API. 
 3. Klik in het linkerdeelvenster van de accountblade op **Quick start**. 
-4. Kies uw platform (**.NET**, **Node.js**, **MongoDB-Shell**, **Java**, **Python**). Als u niet uw stuurprogramma of hulpprogramma wordt vermeld ziet, geen zorgen, documenteren we voortdurend meer verbindingscodefragmenten. Stuur een reactie hieronder op wat u graag zou willen zien. Als u wilt weten hoe ze moesten uw eigen verbinding maken, lezen [van het account verbindingsreeksgegevens downloaden](#GetCustomConnection).
+4. Kies uw platform ( **.NET**, **Node.js**, **MongoDB-Shell**, **Java**, **Python**). Als u niet uw stuurprogramma of hulpprogramma wordt vermeld ziet, geen zorgen, documenteren we voortdurend meer verbindingscodefragmenten. Stuur een reactie hieronder op wat u graag zou willen zien. Als u wilt weten hoe ze moesten uw eigen verbinding maken, lezen [van het account verbindingsreeksgegevens downloaden](#GetCustomConnection).
 5. Kopieer en plak het codefragment in uw MongoDB-app.
 
     ![Quick start-blade](./media/connect-mongodb-account/QuickStartBlade.png)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c9c24f5b594935c0057eb15acec09a0b27324
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 8b1461999679935587370f66349a440d588465cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052536"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Wanneer u een Azure multi-factor Authentication-Provider
 
@@ -25,7 +25,7 @@ Verificatie in twee stappen is standaard beschikbaar voor globale beheerders van
 Azure multi-factor Authentication-Provider wordt gebruikt om te profiteren van functies van Azure multi-factor Authentication voor gebruikers die **geen licenties**.
 
 > [!NOTE]
-> Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen nog steeds worden gebruikt en bijgewerkt. Meervoudige verificatie blijft beschikbaar als een functie in Azure AD Premium-licenties.
+> Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen verder worden gebruikt en bijgewerkt, maar de migratie is niet meer mogelijk. Meervoudige verificatie blijft beschikbaar als een functie in Azure AD Premium-licenties.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Waarschuwingen met betrekking tot de Azure MFA-SDK
 

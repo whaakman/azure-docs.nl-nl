@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c9b07e7524488d0336a55af6e1d5f36af59a870
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c5ccc4ef6c095eacd29590504d46756ead856574
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058619"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory cmdlets voor het configureren van groepsinstellingen
 In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Azure AD) PowerShell-cmdlets voor groepen maken en bijwerken. Deze inhoud geldt alleen voor Office 365-groepen (ook wel gecombineerde groepen). 
@@ -78,7 +78,7 @@ Deze stappen maakt u instellingen op het niveau van de map die van toepassing op
    ```
 6. U kunt de waarden met behulp van lezen:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```  
 ## <a name="update-settings-at-the-directory-level"></a>Update-instellingen op het niveau van de map
@@ -86,7 +86,7 @@ Voor het bijwerken van de waarde voor UsageGuideLinesUrl in de sjabloon instelli
 
 Als u wilt verwijderen van de waarde van UsageGuideLinesUrl, bewerk de URL om te worden van een lege tekenreeks met behulp van stap 4 hierboven:
 
- ```powershell
+   ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
 Voer stap 5 om in te stellen de nieuwe waarde.
@@ -112,7 +112,7 @@ Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsT
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Voorbeeld: Gast-beleid voor groepen configureren op het niveau van de map
 1. Alle sjablonen van de instelling ophalen:
-  ```powershell
+   ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
 2. Als u wilt instellen Gast voor groepen op het niveau van de map, moet u Group.Unified sjabloon
@@ -135,7 +135,7 @@ Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsT
    ```
 6. U kunt de waarden met behulp van lezen:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```   
 
@@ -143,9 +143,9 @@ Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsT
 
 Als u bekend bent met de naam van de instelling die u wilt ophalen, kunt u de volgende cmdlet voor het ophalen van de huidige waarde van de instellingen. In dit voorbeeld zijn we ophalen van de waarde voor de instelling met de naam "UsageGuidelinesUrl." 
 
-  ```powershell
-  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-  ```
+   ```powershell
+   (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+   ```
 Deze stappen lezen instellingen op het niveau van de map die van toepassing op alle Office-groepen in de map zijn.
 
 1. Alle bestaande directoryinstellingen lezen:
@@ -188,11 +188,11 @@ Deze stappen lezen instellingen op het niveau van de map die van toepassing op a
 
 ## <a name="remove-settings-at-the-directory-level"></a>Instellingen op het niveau van de map verwijderen
 Deze stap worden de instellingen op het niveau van de map die van toepassing op alle Office-groepen in de map verwijderd.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
+   ```powershell
+   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+   ```
 
-## <a name="update-settings-for-a-specific-group"></a>Instellingen voor een specifieke groep bijwerken
+## <a name="create-settings-for-a-specific-group"></a>Instellingen voor een specifieke groep maken
 
 1. Zoeken naar de instellingen-sjabloon met de naam "Groups.Unified.Guest"
    ```powershell
@@ -219,13 +219,49 @@ Deze stap worden de instellingen op het niveau van de map die van toepassing op 
    ```powershell
    $SettingCopy["AllowToAddGuests"]=$False
    ```
-5. Maak de nieuwe instelling voor de vereiste groep in de map:
+5. De ID van de groep die u wilt toepassen van deze instelling niet ophalen:
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-6. Als u wilt controleren of de instellingen, moet u deze opdracht uitvoeren:
+6. Maak de nieuwe instelling voor de vereiste groep in de map:
    ```powershell
-   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
+   ```
+7. Als u wilt controleren of de instellingen, moet u deze opdracht uitvoeren:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
+   ```
+
+## <a name="update-settings-for-a-specific-group"></a>Instellingen voor een specifieke groep bijwerken
+1. Haal de ID van de groep waarvan de instelling u wilt bijwerken:
+   ```powershell
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
+   ```
+2. De instelling van de groep op te halen:
+   ```powershell
+   $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+3. Werk de instelling van de groep als u nodig, bijvoorbeeld hebt
+   ```powershell
+   $Setting["AllowToAddGuests"] = $True
+   ```
+4. Haal vervolgens de ID van de instelling voor deze specifieke groep:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+   U ontvangt een antwoord ongeveer als volgt uit:
+   ```powershell
+   Id                                   DisplayName            TemplateId                             Values
+   --                                   -----------            -----------                            ----------
+   2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
+   ```
+5. U kunt vervolgens de nieuwe waarde instellen voor deze instelling:
+   ```powershell
+   Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
+   ```
+6. De waarde van de instelling om te controleren of dat deze correct is bijgewerkt, kunt u lezen:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Naslaginformatie over de syntaxis van cmdlets

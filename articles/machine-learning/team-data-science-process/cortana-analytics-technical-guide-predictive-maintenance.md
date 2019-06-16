@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715525"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de luchtvaart
@@ -171,10 +171,10 @@ De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-D
    
    U moet **database-servernaam, databasenaam, gebruikersnaam en wachtwoord** voordat u doorgaat naar de volgende stappen. Hier volgen de stappen om u te begeleiden u deze kunt vinden.
    
-   * Eenmaal **'Azure SQL Database'** op uw oplossingssjabloon diagram wordt groen, klikt u op deze en klik vervolgens op **'Open'**.
+   * Eenmaal **'Azure SQL Database'** op uw oplossingssjabloon diagram wordt groen, klikt u op deze en klik vervolgens op **'Open'** .
    * Hier ziet u een nieuw tabblad/browservenster waarin de Azure portal op de pagina worden weergegeven. Klik op **'Resourcegroepen'** in het linkerdeelvenster.
-   * Selecteer het abonnement dat u gebruikt voor het implementeren van de oplossing en selecteer vervolgens **' YourSolutionName\_ResourceGroup'**.
-   * In de nieuwe pop-outmodus deelvenster, klikt u op de ![SQL pictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pictogram voor toegang tot uw database. De databasenaam van uw naast dit pictogram is (bijvoorbeeld **'pmaintenancedb'**), en de **databaseservernaam** wordt vermeld onder de naameigenschap van de Server en moet er ongeveer als volgt  **YourSolutionName.database.windows.net**.
+   * Selecteer het abonnement dat u gebruikt voor het implementeren van de oplossing en selecteer vervolgens **' YourSolutionName\_ResourceGroup'** .
+   * In de nieuwe pop-outmodus deelvenster, klikt u op de ![SQL pictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pictogram voor toegang tot uw database. De databasenaam van uw naast dit pictogram is (bijvoorbeeld **'pmaintenancedb'** ), en de **databaseservernaam** wordt vermeld onder de naameigenschap van de Server en moet er ongeveer als volgt  **YourSolutionName.database.windows.net**.
    * Uw database **gebruikersnaam** en **wachtwoord** zijn hetzelfde als de gebruikersnaam en het wachtwoord eerder vastgelegd tijdens de implementatie van de oplossing.
 2. De gegevensbron van het koude pad-rapportbestand bijwerken met Power BI Desktop.
    
@@ -182,8 +182,8 @@ De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-D
      
      ![Query's bewerken](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Ziet u twee tabellen **RemainingUsefulLife** en **PMResult**. Selecteer de eerste tabel en klik op ![Query Instellingenpictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) naast **'Source'** onder **TOEGEPASTE stappen'** aan de rechterkant **Query-instellingen** deelvenster. Negeer eventuele waarschuwingsberichten die worden weergegeven.
-   * Vervang in het pop-outmodus venster, **'Server'** en **'Database'** met uw eigen namen van de server en database, en klik vervolgens op **'OK'**. Voor de servernaam van de, zorg ervoor dat u de poort 1433 opgeven (**YourSolutionName.database.windows.net, 1433**). Laat het veld Database als **pmaintenancedb**. Negeer de waarschuwingsberichten die worden weergegeven op het scherm.
-   * In het volgende pop-outmodus venster, ziet u twee opties in het linkerdeelvenster (**Windows** en **Database**). Klik op **'Database'**, vult u uw **'Username'** en **'Password'** (dit is de gebruikersnaam en het wachtwoord dat u hebt ingevoerd wanneer u eerst de oplossing wordt geïmplementeerd en een Azure wordt gemaakt SQL database). In ***Selecteer welk gegevensniveau voor deze instellingen toepassen op***, een optie voor database controleren. Klik vervolgens op **'Connect'**.
+   * Vervang in het pop-outmodus venster, **'Server'** en **'Database'** met uw eigen namen van de server en database, en klik vervolgens op **'OK'** . Voor de servernaam van de, zorg ervoor dat u de poort 1433 opgeven (**YourSolutionName.database.windows.net, 1433**). Laat het veld Database als **pmaintenancedb**. Negeer de waarschuwingsberichten die worden weergegeven op het scherm.
+   * In het volgende pop-outmodus venster, ziet u twee opties in het linkerdeelvenster (**Windows** en **Database**). Klik op **'Database'** , vult u uw **'Username'** en **'Password'** (dit is de gebruikersnaam en het wachtwoord dat u hebt ingevoerd wanneer u eerst de oplossing wordt geïmplementeerd en een Azure wordt gemaakt SQL database). In ***Selecteer welk gegevensniveau voor deze instellingen toepassen op***, een optie voor database controleren. Klik vervolgens op **'Connect'** .
    * Klik op de tweede tabel **PMResult** klikt u vervolgens op ![pictogram Navigatie](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) naast **'Source'** onder **TOEGEPASTE stappen'** aan de rechterkant **Query-instellingen** deelvenster en bijwerken van de namen van de server en database zoals in de bovenstaande stappen en klik op OK.
    * Nadat u terug naar de vorige pagina Begeleide bent, sluit u het venster. Een bericht wordt weergegeven, klikt u **toepassen**. Klik ten slotte de **opslaan** knop de wijzigingen op te slaan. Uw Power BI-bestand is nu ingesteld voor verbinding met de server. Als uw visualisaties leeg zijn, zorg er dan voor dat u de gewenste opties op de visualisaties aan alle gegevens visualiseren door te klikken op het gumpictogram in de rechterbovenhoek van de legenda's uitschakelen. Gebruik de vernieuwknop om nieuwe gegevens voor de visualisaties weer te geven. In eerste instantie alleen ziet u de seedgegevens op uw visualisaties als de data factory is gepland om te vernieuwen elke drie uur. U ziet na 3 uur nieuwe voorspellingen doorgevoerd in uw visualisaties bij het vernieuwen van de gegevens.
 3. (Optioneel) Het koude pad-dashboard om te publiceren [Power BI online](https://www.powerbi.com/). Houd er rekening mee dat deze stap moet een Power BI-account (of Office 365-account).

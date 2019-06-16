@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346340"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activiteit in Azure Data Factory verwijderen
@@ -82,7 +82,7 @@ Hier volgen enkele aanbevelingen voor het gebruik van de activiteit verwijderen:
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | Gegevensset | Bevat de referentie van de gegevensset om te bepalen welke bestanden of map die wordt verwijderd | Ja |
-| recursieve | Geeft aan of de bestanden verwijderd recursief uit de submappen of alleen voor de opgegeven map zijn.  | Nee. De standaardwaarde is `false`. |
+| recursive | Geeft aan of de bestanden verwijderd recursief uit de submappen of alleen voor de opgegeven map zijn.  | Nee. De standaardwaarde is `false`. |
 | maxConcurrentConnections | Het nummer van de verbindingen verbinding maken met opslag store gelijktijdig voor het verwijderen van map of bestanden.   |  Nee. De standaardwaarde is `1`. |
 | EnableLogging | Geeft aan of u wilt vastleggen van de namen van mappen of bestanden die zijn verwijderd. Indien waar, moet u een opslagaccount om op te slaan van het logboekbestand verder opgeven zodat u het gedrag van de Delete-activiteit bijhouden kunt door te lezen van het logboekbestand. | Nee |
 | logStorageSettings | Alleen van toepassing wanneer enablelogging = true.<br/><br/>Een groep met Opslageigenschappen die kunnen worden opgegeven waar u het bestand met de map of bestand namen die zijn verwijderd door de activiteit verwijderen. | Nee |
@@ -117,10 +117,10 @@ Er zijn twee manieren waarop u kunt zien en controleren van de resultaten van de
 
 | Name | Category | Status | Fout |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | File | Deleted |  |
-| test2/hello789.txt | File | Deleted |  |
-| test2/test3/hello000.txt | File | Deleted |  |
-| test2/test3/zzz.json | File | Deleted |  |
+| test1/yyy.json | File | Verwijderen |  |
+| test2/hello789.txt | File | Verwijderen |  |
+| test2/test3/hello000.txt | File | Verwijderen |  |
+| test2/test3/zzz.json | File | Verwijderen |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Voorbeelden van het gebruik van de activiteit verwijderen
 
@@ -573,4 +573,4 @@ Gegevensset voor het Gegevensdoel van die worden gebruikt door de kopieeractivit
 
 Meer informatie over het verplaatsen van bestanden in Azure Data Factory.
 
--   [Hulpprogramma voor kopiëren-gegevens in Azure Data Factory](copy-data-tool.md)
+-   [Hulpprogramma voor gegevens kopiëren in Azure Data Factory](copy-data-tool.md)

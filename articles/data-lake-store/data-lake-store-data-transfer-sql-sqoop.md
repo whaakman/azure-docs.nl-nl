@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878763"
 ---
 # <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Azure Data Lake Storage Gen1 en Sqoop met Azure SQL-database kopiëren
@@ -107,7 +107,7 @@ Een HDInsight-cluster heeft al de Sqoop-pakketten beschikbaar. Als u het HDInsig
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    Elke **onderdeel-m -*** bestand komt overeen met een rij in de brontabel **Tabel1**. U kunt de inhoud van het onderdeel - m - weergeven * bestanden om te controleren.
+    Elke **onderdeel-m -** * bestand komt overeen met een rij in de brontabel **Tabel1**. U kunt de inhoud van het onderdeel - m - weergeven * bestanden om te controleren.
 
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Gegevens exporteren uit Data Lake Storage Gen1 naar Azure SQL Database

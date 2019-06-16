@@ -5,17 +5,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2019
 ms.openlocfilehash: f4925401235aedb341a7e29ca36b079126647f7b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66124316"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Valideren dat een container wordt uitgevoerd 
 
 Er zijn verschillende manieren om te valideren dat de container wordt uitgevoerd. 
 
-|Aanvragen|Doel|
+|Aanvraag|Doel|
 |--|--|
 |`http://localhost:5000/`|De container biedt een startpagina.|
 |`http://localhost:5000/status`|Aangevraagd met GET, om te valideren dat de container wordt uitgevoerd zonder dat een eindpunt-query. Deze aanvraag kan worden gebruikt voor Kubernetes [liveness en gereedheid voor tests](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|

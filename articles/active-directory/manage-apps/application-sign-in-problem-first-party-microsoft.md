@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108301"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -67,7 +67,7 @@ Hieronder vindt u enkele veelvoorkomende problemen mensen ondervindt wanneer hun
 
   * Zorg ervoor dat **multi-Factor Authentication** gebruikerstoegang niet blokkeert. [Controleer de status van van een gebruiker multi-factor authentication](#check-a-users-multi-factor-authentication-status) of [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info)
 
-  * Zorg ervoor dat een **beleid voor voorwaardelijke toegang** of **Identity Protection** beleid voor de gebruikerstoegang niet blokkeert. [Controleren op een specifieke voorwaardelijk toegangsbeleid](#problems-with-conditional-access-policies) of [controleren van beleid voor voorwaardelijke toegang van een bepaalde toepassing](#check-a-specific-applications-conditional-access-policy) of [beleid voor specifieke voorwaardelijke toegang uitschakelen](#disable-a-specific-conditional-access-policy)
+  * Zorg ervoor dat een **beleid voor voorwaardelijke toegang** of **Identity Protection** beleid voor de gebruikerstoegang niet blokkeert. [Een specifiek beleid voor voorwaardelijke toegang controleren](#problems-with-conditional-access-policies) of [controleren van beleid voor voorwaardelijke toegang van een bepaalde toepassing](#check-a-specific-applications-conditional-access-policy) of [specifiek beleid voor voorwaardelijke toegang uitschakelen](#disable-a-specific-conditional-access-policy)
 
   * Zorg ervoor dat een gebruiker **contactgegevens voor verificatie** is up-to-date om toe te staan van multi-factor Authentication of voorwaardelijk beleid moeten worden afgedwongen. [Controleer de status van van een gebruiker multi-factor authentication](#check-a-users-multi-factor-authentication-status) of [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info)
 
@@ -419,9 +419,9 @@ Als u wilt een licentie toewijzen aan een groep, de volgende stappen uit:
 
 ## <a name="problems-with-conditional-access-policies"></a>Problemen met beleid voor voorwaardelijke toegang
 
-### <a name="check-a-specific-conditional-access-policy"></a>Beleid voor specifieke voorwaardelijke toegang controleren
+### <a name="check-a-specific-conditional-access-policy"></a>Een specifiek beleid voor voorwaardelijke toegang controleren
 
-Om te controleren of een voorwaardelijk toegangsbeleid valideren:
+Om te controleren of het valideren van één beleid voor voorwaardelijke toegang:
 
 1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
@@ -474,9 +474,9 @@ Geconfigureerd om te controleren of het valideren van één toepassing momenteel
      >
      >
 
-### <a name="disable-a-specific-conditional-access-policy"></a>Beleid voor specifieke voorwaardelijke toegang uitschakelen
+### <a name="disable-a-specific-conditional-access-policy"></a>Een specifiek beleid voor voorwaardelijke toegang uitschakelen
 
-Om te controleren of een voorwaardelijk toegangsbeleid valideren:
+Om te controleren of het valideren van één beleid voor voorwaardelijke toegang:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
@@ -512,7 +512,7 @@ Toegang tot toepassingen kan worden geblokkeerd omdat de juiste machtigingen toe
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>De bewerking beheerdersniveau toestemming voor elke toepassing uitvoeren
 
--   Voor **alleen de toepassingen die zijn ontwikkeld met behulp van het V1-toepassingsmodel**, u kunt afdwingen dat dit niveau goedgekeurd door een beheerder worden uitgevoerd door toe te voegen '**? prompt = beheerder\_toestemming geven**' aan het einde van een aanmelding van de toepassing in URL.
+-   Voor **alleen de toepassingen die zijn ontwikkeld met behulp van het V1-toepassingsmodel**, u kunt afdwingen dat dit niveau goedgekeurd door een beheerder worden uitgevoerd door toe te voegen ' **? prompt = beheerder\_toestemming geven**' aan het einde van een aanmelding van de toepassing in URL.
 
 -   Voor **elke toepassing die is ontwikkeld met behulp van de V2-toepassingsmodel**, kunt u afdwingen dat deze toestemming beheerdersrechten worden uitgevoerd door de instructies onder de **de machtigingen van een directory-beheerderaanvragen** sectie van [met behulp van het eindpunt beheerder toestemming](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

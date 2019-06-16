@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947201"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van Azure Site Recovery Deployment Planner 
@@ -125,7 +125,7 @@ Handmatig VM's toevoegen:
 
     i. **Azure Hybrid Use Benefit**
 
-1. U kunt dezelfde waarde toepassen op alle virtuele machines in de tabel door **Op alles toepassen** te selecteren voor **Aantal noodherstelanalyses in een jaar**, **Duur van elke noodherstelanalyse (dagen)**, **Gegevensredundantie** en **Azure Hybrid Use Benefit**.
+1. U kunt dezelfde waarde toepassen op alle virtuele machines in de tabel door **Op alles toepassen** te selecteren voor **Aantal noodherstelanalyses in een jaar**, **Duur van elke noodherstelanalyse (dagen)** , **Gegevensredundantie** en **Azure Hybrid Use Benefit**.
 
 1. Selecteer **Kosten opnieuw berekenen** om de kosten bij te werken.
 
@@ -133,17 +133,17 @@ Handmatig VM's toevoegen:
 
 **Aantal virtuele machines**: Het aantal virtuele machines die overeenkomen met de configuratie. U kunt het aantal bestaande virtuele machines bijwerken als een vergelijkbare configuratie van virtuele machines niet is geprofileerd maar wel wordt beveiligd.
 
-**Grootte van IaaS (aanbeveling)**: De rol van VM-grootte van de compatibele VM die het hulpprogramma wordt aanbevolen. 
+**Grootte van IaaS (aanbeveling)** : De rol van VM-grootte van de compatibele VM die het hulpprogramma wordt aanbevolen. 
 
-**Grootte van IaaS (uw selectie)**: De grootte is standaard hetzelfde als de aanbevolen grootte van de VM-rol. U kunt de rol aanpassen aan uw behoefte. De kosten voor het rekenen zijn gebaseerd op de geselecteerde grootte van de VM-rol.
+**Grootte van IaaS (uw selectie)** : De grootte is standaard hetzelfde als de aanbevolen grootte van de VM-rol. U kunt de rol aanpassen aan uw behoefte. De kosten voor het rekenen zijn gebaseerd op de geselecteerde grootte van de VM-rol.
 
 **Opslagtype**: Het type opslag dat wordt gebruikt door de virtuele machine. Dit is Standard- of Premium-opslag.
 
-**Grootte van VM-totale opslag (GB)**: De totale opslagruimte van de virtuele machine.
+**Grootte van VM-totale opslag (GB)** : De totale opslagruimte van de virtuele machine.
 
 **Aantal DR-oefeningen in een jaar**: Het aantal keren dat die u DR-oefeningen in een jaar uitvoert. Dit is standaard vier keer per jaar. U kunt de periode voor bepaalde VM's wijzigen of de nieuwe waarde toepassen op alle VM's. Geef de nieuwe waarde op in de bovenste rij en selecteer **Toepassen op alles**. Op basis van het aantal noodherstelanalyses in een jaar en de duur van elke analyse worden de totale kosten voor noodherstelanalyse berekend. 
 
-**De duur van elke DR-oefening (dagen)**: De duur van elke DR-oefening. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance Benefit](https://azure.microsoft.com/pricing/details/site-recovery). U kunt de periode voor bepaalde VM's wijzigen of een nieuwe waarde toepassen op alle VM's. Geef een nieuwe waarde op in de bovenste rij en selecteer **Toepassen op alles**. De totale kosten voor noodherstelanalyse worden berekend op basis van het aantal analyses in een jaar en de duur van elke analyse.
+**De duur van elke DR-oefening (dagen)** : De duur van elke DR-oefening. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance Benefit](https://azure.microsoft.com/pricing/details/site-recovery). U kunt de periode voor bepaalde VM's wijzigen of een nieuwe waarde toepassen op alle VM's. Geef een nieuwe waarde op in de bovenste rij en selecteer **Toepassen op alles**. De totale kosten voor noodherstelanalyse worden berekend op basis van het aantal analyses in een jaar en de duur van elke analyse.
  
 **Type besturingssysteem**: Het besturingssysteemtype (OS) van de virtuele machine. Dit is Windows of Linux. Als het type besturingssysteem Windows is, kan Azure Hybrid Use Benefit op die VM worden toegepast. 
 
@@ -155,7 +155,7 @@ Handmatig VM's toevoegen:
 
 **Replicatiekosten juiste gereedstatus**: De opslagkosten voor replicatie.
 
-**Totale kosten DR-oefening (gemiddeld)**: De berekenings- en opslagkosten voor noodherstelanalyse.
+**Totale kosten DR-oefening (gemiddeld)** : De berekenings- en opslagkosten voor noodherstelanalyse.
 
 **Azure Site Recovery-licentiekosten**: De Site Recovery-licentie kosten.
 

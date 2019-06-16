@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751896"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072637"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -72,12 +72,12 @@ Verkopen via Microsoft voorziet in betere klant detectie en overname, kan Micros
 
 Om de lijst met Software als een Service (SaaS) met commerciële Marketplace op Partner Center biedt, wordt de volgende criteria voldaan:
 
-- Uw aanbod moet compatibel zijn met Azure-clients. (Vaak SaaS-apps worden gehost op Azure voor optimale prestaties en compatibiliteit, maar dit is geen vereiste.) 
 - Uw aanbieding moet gebruiken [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) voor de verificatie en identiteitsbeheer.
 - Uw aanbieding moet gebruiken [SaaS-API's voor vervulling](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) om te integreren met de Azure Marketplace.
+- Zie voor meer uitgebreide vereisten, de [Publicatiehandleiding voor SaaS bieden](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="billing-infrastructure-costs"></a>Infrastructuurkosten voor facturering
-SaaS-aanbiedingen, u, als de uitgever moet rekening houden voor de infrastructuur van Azure-gebruikskosten en softwarelicentiekosten als een item eenmalige kosten. Deze kosten wordt weergegeven als een vaste maandelijkse kosten voor de klant. Gebruik Azure-infrastructuur wordt beheerd en kosten in rekening gebracht, kunt u de partner direct. Werkelijke infrastructuur gebruikskosten zijn niet zichtbaar voor de klant. Uitgevers is doorgaans ervoor kiezen te bundelen gebruikskosten voor Azure-infrastructuur in de software-licentie prijzen. 
+#### <a name="saas-on-azure-billing-infrastructure-costs"></a>SaaS in Azure Billing infrastructuurkosten
+Als de SaaS-aanbieding wordt gehost in Azure, u, als de uitgever moet rekening houden voor de infrastructuur van Azure-gebruikskosten en softwarelicentiekosten als een item eenmalige kosten. Deze kosten wordt weergegeven als een vaste maandelijkse kosten voor de klant. Gebruik Azure-infrastructuur wordt beheerd en kosten in rekening gebracht, kunt u de partner direct. Werkelijke infrastructuur gebruikskosten zijn niet zichtbaar voor de klant. Uitgevers is doorgaans ervoor kiezen te bundelen gebruikskosten voor Azure-infrastructuur in de software-licentie prijzen. 
 
 Software licentiekosten als een maandelijkse, terugkerende site-gebaseerde vast tarief abonnementskosten worden weergegeven en wordt geen datalimiet of op basis van verbruik.
 

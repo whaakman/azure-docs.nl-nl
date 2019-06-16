@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
 ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132926"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Het schalen van Azure Cache voor Redis
@@ -29,7 +29,7 @@ U kunt de [bewaking](cache-how-to-monitor.md) functies van Azure Cache voor Redi
 
 U kunt de volgende metrische gegevens om te bepalen of u wilt schalen bewaken.
 
-* Redis-serververmogen
+* Redis Server Load
 * Geheugengebruik
 * Netwerkbandbreedte
 * CPU-gebruik
@@ -39,7 +39,7 @@ Als u vaststelt dat de cache niet langer voldoen aan de vereisten van uw toepass
 ## <a name="scale-a-cache"></a>Een cache schalen
 Voor het schalen van uw cache [bladert u naar de cache](cache-configure.md#configure-azure-cache-for-redis-settings) in de [Azure-portal](https://portal.azure.com) en klikt u op **schaal** uit de **resourcemenu**.
 
-![Schaal aanpassen](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Schalen](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selecteer de gewenste prijscategorie van de **Selecteer prijscategorie** blad en klik op **Selecteer**.
 

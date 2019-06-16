@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742458"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
@@ -665,7 +665,7 @@ De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting a
    ![][2]
    *Afbeelding 6: Configureren van het inrichten in Azure portal*
     
-1. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. De vermelding is iets als http://testmachine.contoso.com:9000 of http://\<ip-adres >: 9000 / waar \<ip-adres > is internet blootgesteld IP adres. 
+1. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. De vermelding is iets als http://testmachine.contoso.com:9000 of http://\< ip-adres >: 9000 / waar \< ip-adres > is internet blootgesteld IP adres. 
 
 1. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. 
 1. Selecteer **testverbinding** met Azure Active Directory wilt verbinden met het eindpunt SCIM. Als de poging mislukt, wordt informatie over de fout wordt weergegeven.  
@@ -823,7 +823,7 @@ Voor het hosten van de service in Internet Information Services, zou een ontwikk
    ```
 
 ### <a name="handling-endpoint-authentication"></a>Verwerking-eindpuntverificatie
-Aanvragen van Azure Active Directory bevatten een OAuth 2.0-bearer-token.   Elke service die is ontvangen van de aanvraag moet de uitgever als Azure Active Directory voor de verwachte Azure Active Directory-tenant, voor toegang tot de Azure Active Directory Graph-webservice worden geverifieerd.  In het token wordt de verlener wordt geïdentificeerd door een iss-claim, zoals "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/'.  In dit voorbeeld wordt het basisadres van de claimwaarde https://sts.windows.net, identificeert Azure Active Directory als de uitgever, hoewel de relatieve segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is de unieke id van de Azure Active Directory-tenant voor die het token is uitgegeven.  Als het token is uitgegeven voor toegang tot de Azure Active Directory Graph-webservice, moet de id van die service, 00000002-0000-0000-c000-000000000000, zich in de waarde van van het token aud claim.  Elk van de toepassingen die zijn geregistreerd in één tenant wordt dezelfde `iss` claim met SCIM aanvragen.
+Aanvragen van Azure Active Directory bevatten een OAuth 2.0-bearer-token.   Elke service die is ontvangen van de aanvraag moet de uitgever als Azure Active Directory voor de verwachte Azure Active Directory-tenant, voor toegang tot de Azure Active Directory Graph-webservice worden geverifieerd.  In het token wordt de verlener wordt geïdentificeerd door een iss-claim, zoals "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ '.  In dit voorbeeld wordt het basisadres van de claimwaarde https://sts.windows.net , identificeert Azure Active Directory als de uitgever, hoewel de relatieve segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is de unieke id van de Azure Active Directory-tenant voor die het token is uitgegeven.  Als het token is uitgegeven voor toegang tot de Azure Active Directory Graph-webservice, moet de id van die service, 00000002-0000-0000-c000-000000000000, zich in de waarde van van het token aud claim.  Elk van de toepassingen die zijn geregistreerd in één tenant wordt dezelfde `iss` claim met SCIM aanvragen.
 
 Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Microsoft voor het bouwen van een service SCIM kunnen verifiëren van aanvragen van Azure Active Directory met behulp van het pakket Microsoft.Owin.Security.ActiveDirectory door de volgende stappen: 
 

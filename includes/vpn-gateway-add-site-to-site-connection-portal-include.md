@@ -9,10 +9,10 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170111"
 ---
 1. Navigeer naar en open de pagina voor uw virtuele netwerkgateway. Er zijn meerdere manieren om ernaar te navigeren. U kunt naar de gateway 'VNet1GW' navigeren via: **TestVNet1 -> Overzicht -> Verbonden apparaten -> VNet1GW**.
@@ -22,7 +22,7 @@ ms.locfileid: "66170111"
 3. Op de pagina **Verbinding toevoegen** configureert u de waarden die nodig zijn om verbinding te maken.
 
    - **Naam:** Naam van de verbinding.
-   - **Verbindingstype:** Selecteer **Site-to-site(IPSec)**.
+   - **Verbindingstype:** Selecteer **Site-to-site(IPSec)** .
    - **Gateway van virtueel netwerk:** De waarde is opgelost, omdat u verbinding vanaf deze gateway maakt.
    - **Lokale netwerkgateway:** Klik op **een lokale netwerkgateway kiezen** en selecteert u de lokale netwerkgateway die u wilt gebruiken.
    - **Gedeelde sleutel:** de waarde hier moet overeenkomen met de waarde die u voor uw lokale on-premises VPN-apparaat gebruikt. In het voorbeeld wordt 'abc123' gebruikt, maar u kunt een ingewikkeldere waarde gebruiken (aanbevolen). Het is van belang dat de waarde die u hier opgeeft, dezelfde waarde is die u hebt opgegeven bij het configureren van het VPN-apparaat.

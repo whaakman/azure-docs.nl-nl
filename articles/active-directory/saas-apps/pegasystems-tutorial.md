@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 195e7bf21fe1f6017705883f2ec692c182f15375
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560593"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Zelfstudie: Azure Active Directory-integratie met Pega systemen
 
@@ -234,7 +234,7 @@ In deze sectie maakt u een testgebruiker Britta Simon met de naam in Azure porta
 
     a. Voer in het vak **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** Voer **brittasimon @\<uwbedrijfsdomein >.\< extensie >**. (Bijvoorbeeld BrittaSimon@contoso.com.)
+    b. In de **gebruikersnaam** Voer **brittasimon @\<uwbedrijfsdomein >.\< extensie >** . (Bijvoorbeeld BrittaSimon@contoso.com.)
 
     c. Selecteer **Show wachtwoord**, en noteer de waarde in de **wachtwoord** vak.
 
@@ -276,7 +276,7 @@ Nu moet u uw configuratie Azure AD eenmalige aanmelding testen met behulp van he
 
 Wanneer u de tegel Pega systemen in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de Pega systemen-exemplaar waarvoor u eenmalige aanmelding hebt ingesteld. Zie voor meer informatie, [toegang en gebruik apps op de portal mijn Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 - [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

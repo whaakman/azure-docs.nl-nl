@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: b0719f6ac2f99f9e665b1265665752dd53ccbaf0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b47e498754bad6917efca5b7f19f8ebce9cf0330
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062221"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Een Xamarin.Forms-app maken met Azure
 
@@ -48,19 +48,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 De Visual Studio-hulpprogramma's voor Xamarin zijn vereist voor het openen van de oplossing. Zie de [Xamarin-installatie-instructies][Install Xamarin]. Als de hulpprogramma's al zijn geïnstalleerd, voert u de volgende stappen uit om de oplossing te downloaden en te openen:
 
-### <a name="visual-studio"></a>Visual Studio
-
-1. Ga naar de [Azure Portal](https://portal.azure.com/).
-
-2. In de blade Instellingen voor uw mobiele app klikt u op **Quickstart** (onder Implementatie) > **Xamarin.Forms**. Klik in stap 3 op  **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
-
-   Er wordt nu een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
-
-3. Pak het project dat u hebt gedownload uit en opent u het in Visual Studio.
-
-4. Volg de onderstaande instructies om de Android- of Windows-projecten uit te voeren en het iOS-project als er een Mac-netwerkcomputer beschikbaar is.
-
-### <a name="visual-studio-for-mac"></a>Visual Studio voor Mac
+### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows en Mac)
 
 1. Ga naar de [Azure-portal](https://portal.azure.com/) en navigeer naar de mobiele app die u hebt gemaakt. Op de `Overview` blade, zoekt u de URL op die het openbare eindpunt voor uw mobiele app. Voorbeeld: de sitenaam voor mijn app-naam 'test123' worden https://test123.azurewebsites.net.
 

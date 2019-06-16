@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950098"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Taken voor een groepmanager op een data science-teamproject
@@ -86,7 +86,7 @@ Nadat u zich hebt aangemeld, klikt u op **nieuw Account maken** in de rechterbov
 Vul de gegevens voor de Azure DevOps-Services die u maken wilt de **maken van uw account** wizard met de volgende waarden:
 
 - **Server-URL**: Vervang *mysamplegroup* door uw eigen *servernaam*. De URL van uw server is het verstandig om: *https://\<servername\>. visualstudio.com*.
-- **Beheren met behulp van code:** Selecteer  **_Git_**.
+- **Beheren met behulp van code:** Selecteer  **_Git_** .
 - **Naam van testproject:** Voer *GroupCommon*.
 - **Ordenen met behulp van werk:** Kies *flexibele*.
 - **Host uw projecten in:** Kies een geolocatie. In dit voorbeeld, kiezen wij *Zuid-centraal VS*.

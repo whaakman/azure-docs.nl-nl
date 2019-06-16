@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123889"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Preview: Migreren naar API-versie 3.x voor LUIS-apps
@@ -54,7 +54,7 @@ De V3 antwoord objectwijzigingen omvatten [vooraf gemaakte entiteiten](luis-refe
 
 De API V3 heeft verschillende queryreeksparameters.
 
-|Parameternaam|Type|Versie|Doel|
+|Parameternaam|Type|Version|Doel|
 |--|--|--|--|
 |`query`|string|Alleen v3|**In V2**, de utterance om te worden voorspeld is in de `q` parameter. <br><br>**In V3**, de functionaliteit wordt doorgegeven de `query` parameter.|
 |`show-all-intents`|booleaans|Alleen v3|Retourneren van alle intents met de bijbehorende score in de **prediction.intents** object. Intents worden geretourneerd als objecten in een bovenliggende `intents` object. Hiermee wordt toegang op programmeerniveau zonder dat het doel niet vinden in een matrix: `prediction.intents.give`. In V2, zijn deze in een matrix geretourneerd. |
@@ -160,7 +160,7 @@ In V2, de `entities` matrix de voorspelde entiteiten geretourneerd met de naam v
 
 In het volgende voorbeeld: u kunt een utterance dat de tekst bevat `Yellow Bird Lane`. Deze tekst wordt voorspeld als een aangepaste `Location` rol van de entiteit van `Destination`.
 
-|Utterance tekst|De naam van de entiteit|Rolnaam|
+|Utterance tekst|Naam van de entiteit|Rolnaam|
 |--|--|--|
 |`Yellow Bird Lane`|`Location`|`Destination`|
 

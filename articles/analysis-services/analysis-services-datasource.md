@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142548"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Ondersteunde gegevensbronnen in Azure Analysis Services
@@ -82,7 +82,7 @@ Verbinding maken met on-premises gegevensbronnen van en Azure-AS-server moet een
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
-|Sybase-database     |  
+|Sybase-Database     |  
 |TXT-bestand  |
 |XML-tabel<sup>[1](#tab1400b)</sup>    |  
 ||
@@ -92,7 +92,7 @@ Verbinding maken met on-premises gegevensbronnen van en Azure-AS-server moet een
 
 ## <a name="specifying-a-different-provider"></a>Een andere provider op te geven
 
-Gegevensmodellen in Azure Analysis Services mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen mogelijk modellen in tabelvorm verbinding maken met gegevensbronnen met behulp van systeemeigen providers, zoals SQL Server Native Client (SQLNCLI11) een fout geretourneerd. Als u systeemeigen providers dan SQLOLEDB, ziet u mogelijk een foutbericht weergegeven: **De provider 'SQLNCLI11.1' is niet geregistreerd**. Of, als u een DirectQuery-model verbinding te maken met on-premises gegevensbronnen hebt en u systeemeigen providers gebruikt, ziet u mogelijk foutbericht weergegeven: **Fout bij het maken van OLE DB-rij instellen. Onjuiste syntaxis bij 'LIMIET'**.
+Gegevensmodellen in Azure Analysis Services mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen mogelijk modellen in tabelvorm verbinding maken met gegevensbronnen met behulp van systeemeigen providers, zoals SQL Server Native Client (SQLNCLI11) een fout geretourneerd. Als u systeemeigen providers dan SQLOLEDB, ziet u mogelijk een foutbericht weergegeven: **De provider 'SQLNCLI11.1' is niet geregistreerd**. Of, als u een DirectQuery-model verbinding te maken met on-premises gegevensbronnen hebt en u systeemeigen providers gebruikt, ziet u mogelijk foutbericht weergegeven: **Fout bij het maken van OLE DB-rij instellen. Onjuiste syntaxis bij 'LIMIET'** .
 
 Bij het migreren van een on-premises SQL Server Analysis Services tabellair model naar Azure Analysis Services, is het mogelijk nodig is om te wijzigen van de provider.
 

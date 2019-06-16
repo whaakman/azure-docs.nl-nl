@@ -11,10 +11,10 @@ ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539251"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
@@ -46,7 +46,7 @@ De volgende tabel bevat de beschikbare categorieën. U vindt meer informatie ove
 |Laag | Capaciteit |
 |-----|-------------|
 |Gratis | Gedeeld met andere abonnees. Niet schaalbaar. Beperkt tot drie indexen en 50 MB aan opslagruimte. |
-|Basis | Toegewezen computerbronnen voor productieworkloads op kleinere schaal. Een partitie van 2 GB en maximaal drie replica's. |
+|Basic | Toegewezen computerbronnen voor productieworkloads op kleinere schaal. Een partitie van 2 GB en maximaal drie replica's. |
 |Standard 1 (S1) | Voor S1 en hoger, toegewezen machines met meer capaciteit voor de opslag en verwerking op ieder niveau. Voor S1 wordt de grootte van partitie 25 GB per partitie (met een maximum van 300 GB per service). |
 |Standard 2 (S2) | Vergelijkbaar naar S1 uitvoert, maar met partities van 100 GB (en een maximum van 1,2 TB per service). |
 |Standard 3 (S3) | 200 GB-partities (met een maximum van 2,4 TB per service). |

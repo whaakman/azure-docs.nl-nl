@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399939"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure 
@@ -104,7 +104,7 @@ Als u wilt uitvoeren van een testfailover uitvoeren voor de toepassing testen, m
 
 Als u verbinding maken met virtuele Azure-machines met behulp van RDP/SSH na een failover wilt, volgt u de vereisten die worden samengevat in de tabel.
 
-**Failover** | **Locatie** | **Acties**
+**Failover** | **Location** | **Acties**
 --- | --- | ---
 **Virtuele Azure-machine waarop Windows wordt uitgevoerd** | On-premises computer voordat de failover | Voor toegang tot de Azure-VM via internet, schakelt u RDP in en zorg ervoor dat TCP en UDP-regels zijn toegevoegd voor **openbare**, en die RDP is toegestaan voor alle profielen in **Windows Firewall**  >  **Toegestane Apps**.<br/><br/> Voor toegang tot de Azure-VM via een site-naar-site-verbinding, schakelt u RDP in op de machine en zorg ervoor dat RDP is toegestaan in de **Windows Firewall** -> **toegestane apps en functies**, voor **Domein en privé** netwerken.<br/><br/>  Zorg ervoor dat het besturingssysteem SAN-beleid is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135).<br/><br/> Zorg ervoor dat er geen Windows-updates in behandeling zijn op de virtuele machine wanneer u een failover activeert. Windows update kan worden gestart wanneer u een failover uitvoert, en kunt u zich niet aanmelden bij de virtuele machine totdat de update is voltooid.
 **Virtuele Azure-machine waarop Windows wordt uitgevoerd** | Virtuele Azure-machine na een failover |  [Voeg een openbaar IP-adres toe](https://aka.ms/addpublicip) voor de VM.<br/><br/> De regels voor netwerkbeveiligingsgroepen op de virtuele machine (en de Azure-subnet waarmee deze is verbonden) moeten binnenkomende verbindingen met de RDP-poort worden toegestaan.<br/><br/> Controleer **diagnostische gegevens over opstarten** om te controleren of een schermopname van de virtuele machine.<br/><br/> Als u geen verbinding kunt maken, controleert u dat de virtuele machine wordt uitgevoerd, en bekijk deze [tips voor probleemoplossing](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).

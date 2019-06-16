@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: dekapur
 ms.openlocfilehash: 99882bd23d7b94afc550247172e5b70deb23bec9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791400"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Veelgestelde vragen over Azure Container Instances
@@ -89,7 +89,7 @@ Schalen is momenteel niet beschikbaar voor containers of groepen met containers.
 
 U kunt containergroepen in een Azure-netwerk van uw keuze implementeren en privé-IP's aan de containergroepen voor het routeren van verkeer binnen het VNet via uw Azure-resources overdragen. Implementatie van de containergroep van een in een virtueel netwerk is momenteel in preview en sommige aspecten van deze functie kunnen wijzigen voordat de algemene beschikbaarheid (GA). Zie [beperkingen bekijken](container-instances-vnet.md#preview-limitations) voor actuele informatie.
 
-## <a name="pricing"></a>Prijs
+## <a name="pricing"></a>Prijzen
 
 ### <a name="when-does-the-meter-start-running"></a>Wanneer begint de meter uitgevoerd?
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 91b61e88d876f481e74b8f2295b6fffced3f7902
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065514"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Uw eerste duurzame functie maken in JavaScript
 
@@ -32,7 +32,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 * Installeer [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Zorg ervoor dat u beschikt over de [nieuwste versie van de hulpprogramma's van Azure Functions](../functions-develop-vs.md#check-your-tools-version).
+* Zorg ervoor dat u hebt de nieuwste versie van de [Azure Functions Core Tools](../functions-run-local.md).
 
 * Op een Windows-computer controleert u of de [Azure Storage-emulator](../../storage/common/storage-use-emulator.md) is geïnstalleerd en wordt uitgevoerd. Op een Mac- of Linux-computer moet u daadwerkelijk een Azure-opslagaccount gebruiken.
 
@@ -48,69 +48,61 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 1. Installeer het `durable-functions` NPM-pakket met duurzame functies door `npm install durable-functions` uit te voeren in de hoofdmap van de functie-app.
 
-## <a name="create-a-starter-function"></a>Een Starter-functie maken
+## <a name="creating-your-functions"></a>Het maken van uw functies
+
+We gaan nu de drie functies die u wilt aan de slag met duurzame functies maken: een HTTP-starter, een orchestrator en de functie van een activiteit. De gehele oplossing wordt geïnitieerd door de HTTP-starter en de orchestrator werken aan verschillende activiteitsfuncties wordt verzonden.
+
+### <a name="http-starter"></a>HTTP-starter
 
 Maak eerst een HTTP-geactiveerde functie waarmee de indeling voor een duurzame functie wordt gestart.
 
-1. In **Azure: Functions** kiest u het pictogram Functie maken.
+1. In *Azure: Functies*, kiest u de **Create Function** pictogram.
 
     ![Een functie maken](./media/quickstart-js-vscode/create-function.png)
 
-2. Selecteer de map met uw functie-appproject en selecteer de functiesjabloon **HTTP trigger**.
+2. Selecteer de map met uw functie-app-project en selecteer de **duurzame functies HTTP-Starter** functiesjabloon.
 
-    ![De sjabloon voor de HTTP-trigger kiezen](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Kies de HTTP-starter-sjabloon](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Typ `HttpStart` voor de functienaam en druk op Enter. Selecteer vervolgens **Anonymous** (Anoniem) bij verificatie.
+3. Laat de standaardnaam als `DurableFunctionsHttpStart` en druk op *** Enter **, selecteer vervolgens **anoniem** verificatie.
 
     ![Anonieme verificatie kiezen](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-    Een functie wordt gemaakt in de door u gekozen taal met de sjabloon voor een door HTTP getriggerde functie.
-
-4. Vervang index.js door het onderstaande JavaScript:
-
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-5. Vervang function.json door de onderstaande JSON:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
-
 U hebt nu een ingangspunt gemaakt in de duurzame functie. Nu gaan we een orchestrator toevoegen.
 
-## <a name="create-an-orchestrator-function"></a>Een Orchestrator-functie maken
+### <a name="orchestrator"></a>Orchestrator
 
-Vervolgens maakt u nog een functie die de orchestrator wordt. We gebruiken voor het gemak de HTTP-triggerfunctiesjabloon. De functiecode zelf wordt vervangen door de orchestrator-code.
+Nu maken we een orchestrator voor het coördineren van activiteitsfuncties.
 
-1. Herhaal de stappen uit de vorige sectie om een tweede functie te maken met behulp van de HTTP-triggersjabloon. Deze keer geeft u de functie de naam `OrchestratorFunction`.
+1. In *Azure: Functies*, kiest u de **Create Function** pictogram.
 
-2. Open het index.js-bestand voor de nieuwe functie en vervang de inhoud door de volgende code:
+    ![Een functie maken](./media/quickstart-js-vscode/create-function.png)
 
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+2. Selecteer de map met uw functie-app-project en selecteer de **duurzame functies orchestrator** functiesjabloon. Laat u de naam als de standaard "DurableFunctionsOrchestrator"
 
-3. Open het function.json-bestand en vervang het door de volgende JSON:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+    ![Kies de sjabloon voor orchestrator](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Er is een orchestrator toegevoegd om de activiteitsfuncties te coördineren. Nu gaan we de activiteitsfunctie toevoegen waarnaar wordt verwezen.
 
-## <a name="create-an-activity-function"></a>Een Activiteitsfunctie maken
+### <a name="activity"></a>Activiteit
 
-1. Herhaal de stappen uit de vorige sectie om een derde functie te maken met behulp van de HTTP-triggersjabloon. Maar deze keer geeft u de functie de naam `E1_SayHello`.
+Nu maken we een functie van de activiteit daadwerkelijk uit te voeren het werk van de oplossing.
 
-2. Open het index.js-bestand voor de nieuwe functie en vervang de inhoud door de volgende code:
+1. In *Azure: Functies*, kiest u de **Create Function** pictogram.
 
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    ![Een functie maken](./media/quickstart-js-vscode/create-function.png)
 
-3. Vervang function.json door de onderstaande JSON:
+2. Selecteer de map met uw functie-app-project en selecteer de **activiteit duurzame functies** functiesjabloon. Laat u de naam als de standaard "Hallo".
 
-    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    ![De activiteitssjabloon voor de kiezen](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Nu zijn alle benodigde onderdelen toegevoegd voor het starten van een indeling en om activiteitsfuncties te koppelen.
 
 ## <a name="test-the-function-locally"></a>De functie lokaal testen
 
-Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio Code start, wordt u gevraagd deze hulpprogramma's te installeren.  
+Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio Code start, wordt u gevraagd deze hulpprogramma's te installeren.
 
-1. Op een Windows-computer start u de Azure Storage-emulator en zorgt u ervoor dat de eigenschap **AzureWebJobsStorage** van local.settings.json is ingesteld op `UseDevelopmentStorage=true`. 
+1. Op een Windows-computer, start u de Azure-Opslagemulator en zorg ervoor dat de **AzureWebJobsStorage** eigenschap van *local.settings.json* is ingesteld op `UseDevelopmentStorage=true`.
 
     Voor Storage Emulator 5.8 Zorg ervoor dat de **AzureWebJobsSecretStorageType** eigenschap van local.settings.json is ingesteld op `files`. Op een Mac of Linux-computer, moet u instellen de **AzureWebJobsStorage** eigenschap op de verbindingstekenreeks van een bestaand Azure storage-account. Later in dit artikel maakt u een opslagaccount.
 
@@ -123,15 +115,15 @@ Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitv
 
     ![Lokale Azure-uitvoer](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Vervang `{functionName}` door `OrchestratorFunction`.
+4. Vervang `{functionName}` door `DurableFunctionsOrchestrator`.
 
-5. Verzend met behulp van een hulpprogramma zoals [Postman](https://www.getpostman.com/) of [cURL](https://curl.haxx.se/) een HTTP POST-aanvraag naar het URL-eindpunt.
+5. Met behulp van een hulpprogramma zoals [Postman](https://www.getpostman.com/) of [cURL](https://curl.haxx.se/), een HTTP POST-aanvraag verzenden naar de URL-eindpunt.
 
    De reactie is het eerste resultaat van de HTTP-functie waarmee wordt aangegeven dat de orchestrator is gestart. Dit is nog niet het eindresultaat van de orchestrator. De reactie bevat enkele nuttige URL's. Maar eerst gaan we de status van de orchestrator opvragen.
 
 6. Kopieer de URL-waarde voor `statusQueryGetUri` en plak deze in de adresbalk van de browser en voer de aanvraag uit. U kunt ook kunt u ook blijven gebruiken Postman om uit te geven van de GET-aanvraag.
 
-   De aanvraag voert een query uit op het orchestrator-exemplaar voor de status. U moet een uiteindelijke antwoord geeft ons de instantie is voltooid en de uitvoer of resultaten van de duurzame functie bevat. Het lijkt: 
+   De aanvraag voert een query uit op het orchestrator-exemplaar voor de status. U moet een uiteindelijke-antwoord dat zien laat door de instantie is voltooid en de uitvoer of resultaten van de duurzame functie bevat. Het lijkt: 
 
     ```json
     {

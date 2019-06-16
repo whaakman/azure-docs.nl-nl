@@ -10,10 +10,10 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304563"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook starten met een webhook
@@ -34,7 +34,7 @@ De volgende tabel beschrijft de eigenschappen die u voor een webhook configurere
 |:--- |:--- |
 | Name |U kunt een willekeurige naam die u wilt gebruiken voor een webhook omdat dit niet wordt blootgesteld aan de client opgeven. Dit wordt alleen gebruikt voor u om te identificeren van het runbook in Azure Automation. <br> Als een best practice, moet u de webhook geeft een naam die betrekking hebben op de client die wordt gebruikt. |
 | URL |De URL van de webhook is het unieke adres waarmee een client wordt aangeroepen met een HTTP POST naar het runbook dat is gekoppeld aan de webhook starten. Er wordt automatisch gegenereerd bij het maken van de webhook. U kunt een aangepaste URL niet opgeven. <br> <br> De URL bevat een beveiligingstoken waarmee het runbook worden aangeroepen door een derde partij zonder verdere verificatie. Daarom moet deze worden behandeld als een wachtwoord. Uit veiligheidsoverwegingen kunt u alleen de URL in de Azure-portal weergeven op het moment dat de webhook wordt gemaakt. Houd er rekening mee de URL op een veilige locatie op voor toekomstig gebruik. |
-| Verloopdatum |Als een certificaat heeft elke webhook een vervaldatum die op dat moment deze kan niet meer worden gebruikt. Deze datum van afloop voor kan worden gewijzigd nadat de webhook wordt gemaakt, zolang de webhook niet is verlopen. |
+| Vervaldatum |Als een certificaat heeft elke webhook een vervaldatum die op dat moment deze kan niet meer worden gebruikt. Deze datum van afloop voor kan worden gewijzigd nadat de webhook wordt gemaakt, zolang de webhook niet is verlopen. |
 | Enabled |Een webhook is standaard ingeschakeld wanneer deze wordt gemaakt. Als u dit op uitgeschakeld, instellen wordt er geen client kan worden gebruikt. U kunt instellen dat de **ingeschakeld** eigenschap wanneer u de webhook of op elk gewenst moment nadat deze gemaakt. |
 
 ### <a name="parameters"></a>Parameters
@@ -95,7 +95,7 @@ Gebruik de volgende procedure om een nieuwe webhook maken gekoppeld aan een runb
 4. Geef een **naam**, **vervaldatum** voor de webhook en of het moet worden ingeschakeld. Zie [Details van een webhook](#details-of-a-webhook) voor meer informatie deze eigenschappen.
 5. Klik op het pictogram voor kopiëren en druk op Ctrl + C om te kopiëren van de URL van de webhook. Noteer het op een veilige plaats. **Als u de webhook maakt, kan u niet de URL opnieuw ophalen.**
 
-   ![Webhook-URL](media/automation-webhooks/copy-webhook-url.png)
+   ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
 1. Klik op **Parameters** waarden opgeven voor de runbookparameters. Als het runbook verplichte parameters heeft, klikt u vervolgens bent u niet de webhook te maken tenzij er waarden zijn verstrekt.
 1. Klik op **maken** te maken van de webhook.
