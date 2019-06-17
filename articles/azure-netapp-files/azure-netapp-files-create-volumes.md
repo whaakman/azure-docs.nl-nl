@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/23/2019
+ms.date: 6/6/2019
 ms.author: b-juche
-ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 657bacc153b5721d5a9f34792eaf4796cb477755
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808877"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Een volume maken voor Azure NetApp Files
 
@@ -65,7 +65,7 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
         
         Als u geen subnet hebt gedelegeerd, kunt u klikken op **Nieuwe maken** op de pagina Een volume maken. Geef vervolgens op de pagina Subnet maken de subnetgegevens op, en selecteer **Microsoft.NetApp/volumes** om het subnet te delegeren aan Azure NetApp Files. In elk Vnet kan slechts één subnet worden overgedragen naar Azure NetApp bestanden.   
  
-        ![ Een volume maken](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Een volume maken](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Subnet maken](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
@@ -90,34 +90,36 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
 
 Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbindingen maken voordat u een SMB-volume toevoegt. 
 
+### <a name="requirements-for-active-directory-connections"></a>Vereisten voor Active Directory-verbindingen
+
+ De vereisten voor Active Directory-verbindingen zijn als volgt: 
+
+* Het beheerdersaccount dat u moet mogelijk te maken van computeraccounts in de organisatie-eenheid (OE)-pad dat u opgeeft.  
+
+* Juiste poorten moeten worden geopend op de toepasselijke Windows Active Directory (AD).  
+    De vereiste poorten zijn als volgt: 
+
+    |     Service           |     Poort     |     Protocol     |
+    |-----------------------|--------------|------------------|
+    |    AD Web Services    |    9389      |    TCP           |
+    |    DNS                |    53        |    TCP           |
+    |    DNS                |    53        |    UDP           |
+    |    ICMPv4             |    N/A       |    Echoantwoord    |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
+    |    LDAP               |    389       |    TCP           |
+    |    LDAP               |    389       |    UDP           |
+    |    LDAP               |    3268      |    TCP           |
+    |    NetBIOS-naam       |    138       |    UDP           |
+    |    SAM/LSA            |    445       |    TCP           |
+    |    SAM/LSA            |    445       |    UDP           |
+    |    Secure LDAP        |    636       |    TCP           |
+    |    Secure LDAP        |    3269      |    TCP           |
+    |    W32Time            |    123       |    UDP           |
+
 ### <a name="create-an-active-directory-connection"></a>Maak een Active Directory-verbinding
-
-1. Zorg ervoor dat u voldoet aan de volgende requiements: 
-
-    * Het beheerdersaccount dat u moet mogelijk te maken van computeraccounts in de organisatie-eenheid (OE)-pad dat u opgeeft.
-    * Juiste poorten moeten worden geopend op de toepasselijke Windows Active Directory (AD).  
-        De vereiste poorten zijn als volgt: 
-
-        |     Service           |     Poort     |     Protocol     |
-        |-----------------------|--------------|------------------|
-        |    AD Web Services    |    9389      |    TCP           |
-        |    DNS                |    53        |    TCP           |
-        |    DNS                |    53        |    UDP           |
-        |    ICMPv4             |    N/A       |    Echoantwoord    |
-        |    Kerberos           |    464       |    TCP           |
-        |    Kerberos           |    464       |    UDP           |
-        |    Kerberos           |    88        |    TCP           |
-        |    Kerberos           |    88        |    UDP           |
-        |    LDAP               |    389       |    TCP           |
-        |    LDAP               |    389       |    UDP           |
-        |    LDAP               |    3268      |    TCP           |
-        |    NetBIOS-naam       |    138       |    UDP           |
-        |    SAM/LSA            |    445       |    TCP           |
-        |    SAM/LSA            |    445       |    UDP           |
-        |    Secure LDAP        |    636       |    TCP           |
-        |    Secure LDAP        |    3269      |    TCP           |
-        |    W32Time            |    123       |    UDP           |
-
 
 1. Uw account NetApp, klik op **Active Directory-verbindingen**, klikt u vervolgens op **Join**.  
 
@@ -125,10 +127,10 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
 
 2. Geef in het Active Directory Join-venster de volgende informatie:
 
-    * **Primaire DNS**   
-        Dit is de domain controller IP-adres voor de gewenste Active Directory Domain Services voor gebruik met Azure NetApp-bestanden. 
-    * **Secundaire DNS**  
-        Dit is het domain controller-IP-adres voor de secundaire Active Directory Domain Services voor gebruik met Azure NetApp-bestanden. 
+    * **Primaire DNS**  
+        Dit is de DNS-server die is vereist voor de Active Directory-domein en de SMB-bewerkingen voor verificatie. 
+    * **Secundaire DNS**   
+        Dit is de secundaire DNS-server om ervoor te zorgen redundante naamservices. 
     * **Domein**  
         Dit is de domeinnaam van uw Active Directory Domain Services die u wilt deelnemen.
     * **Het voorvoegsel voor SMB-server (computeraccount)**  
@@ -142,7 +144,7 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
         Dit is de LDAP-pad voor de organisatie-eenheid (OE) waar de computeraccounts van SMB-server worden gemaakt. Dat wil zeggen, OU = tweede niveau, OU = eerste niveau. 
     * Referenties, inclusief uw **gebruikersnaam** en **wachtwoord**
 
-    ![Active Directory toevoegen](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. Klik op **Deelnemen**.  
 
@@ -184,7 +186,7 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
         
         Als u geen subnet hebt gedelegeerd, kunt u klikken op **Nieuwe maken** op de pagina Een volume maken. Geef vervolgens op de pagina Subnet maken de subnetgegevens op, en selecteer **Microsoft.NetApp/volumes** om het subnet te delegeren aan Azure NetApp Files. In elk Vnet kan slechts één subnet worden overgedragen naar Azure NetApp bestanden.   
  
-        ![ Een volume maken](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Een volume maken](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Subnet maken](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
@@ -204,5 +206,5 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
 ## <a name="next-steps"></a>Volgende stappen  
 
 * [Koppelen of ontkoppelen van een volume voor Windows of Linux-machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Exporteren-beleid voor een NFS-volume configureren](azure-netapp-files-configure-export-policy.md)
+* [Exportbeleid voor een NFS-volume configureren](azure-netapp-files-configure-export-policy.md)
 * Meer informatie over [Integratie van virtuele netwerken voor Azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
