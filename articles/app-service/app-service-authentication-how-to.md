@@ -15,10 +15,10 @@ ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851419"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Geavanceerd gebruik van verificatie en autorisatie in Azure App Service
@@ -41,7 +41,7 @@ De configuratie van de portal biedt geen een directe manier om meerdere provider
 
 Eerste in de **verificatie / autorisatie** pagina in Azure portal, het configureren van elk van de id-provider die u wilt inschakelen.
 
-In **te ondernemen actie wanneer de aanvraag niet is geverifieerd**, selecteer **toestaan anonieme aanvragen (Er is geen actie)**.
+In **te ondernemen actie wanneer de aanvraag niet is geverifieerd**, selecteer **toestaan anonieme aanvragen (Er is geen actie)** .
 
 In de aanmeldingspagina, of de navigatiebalk, of een andere locatie van uw app, kunt u een koppeling aanmelden toevoegen aan elk van de providers die u hebt ingeschakeld (`/.auth/login/<provider>`). Bijvoorbeeld:
 
@@ -186,7 +186,7 @@ Wanneer het toegangstoken van de provider (niet de [sessietoken](#extend-session
 - **Microsoft-Account**: Wanneer [verificatie-instellingen voor Microsoft-Account configureren](configure-authentication-provider-microsoft.md), selecteer de `wl.offline_access` bereik.
 - **Azure Active Directory**: In [ https://resources.azure.com ](https://resources.azure.com), de volgende stappen uit:
     1. Aan de bovenkant van de pagina, selecteer **lezen/schrijven**.
-    2. Navigeer in de browser links naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_naam >**_   >  **providers** > **Microsoft.Web** > **sites** > _**\<app \_naam >**_ > **config** > **authsettings**. 
+    2. Navigeer in de browser links naar **abonnementen** >  ** _\<abonnement\_naam_**   >  **resourceGroups** >  _ **\<resource\_groep\_naam >** _   >  **providers** > **Microsoft.Web** > **sites** >  _ **\<app \_naam >** _ > **config** > **authsettings**. 
     3. Klik op **Bewerken**.
     4. De volgende eigenschap wijzigen. Vervang  _\<app\_id >_ met Azure Active Directory-toepassings-ID van de service die u wilt openen.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Zowel Microsoft-Account en Azure Active Directory kunt u zich aanmelden vanaf meerdere domeinen. Microsoft-Account kan bijvoorbeeld _outlook.com_, _live.com_, en _hotmail.com_ accounts. Azure Active Directory kunt een onbeperkt aantal aangepaste domeinen voor de accounts aanmelden. Dit is mogelijk ongewenste voor een interne app, die u niet dat iedereen met wilt een _outlook.com_ account voor toegang tot. Volg deze stappen om te beperken de domeinnaam van het e-mailaccounts.
 
-In [ https://resources.azure.com ](https://resources.azure.com), gaat u naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_naam >**_   >  **providers** > **Microsoft.Web** > **sites**  >    _**\<app\_naam >**_ > **config** > **authsettings**. 
+In [ https://resources.azure.com ](https://resources.azure.com), gaat u naar **abonnementen** >  ** _\< abonnement\_ naam_**   >  **resourceGroups** >  _ **\< resource\_ groep\_ naam >** _   >  **providers** > **Microsoft.Web** > **sites**  >    _ **\< app\_ naam >** _ > **config** > **authsettings**. 
 
 Klik op **bewerken**, de volgende eigenschap wijzigen en klik vervolgens op **plaatsen**. Vervang  _\<domein\_naam >_ met het domein dat u wilt.
 

@@ -17,10 +17,10 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409984"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hoge beschikbaarheid voor SAP NetWeaver op virtuele Azure-machines
@@ -54,21 +54,21 @@ ms.locfileid: "65409984"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -365,7 +365,7 @@ ms.locfileid: "65409984"
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
-[sap-pam]:https://support.sap.com/pam (SAP-Product beschikbaarheid Matrix)
+[sap-pam]: https://support.sap.com/pam (SAP-Product beschikbaarheid Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -881,7 +881,7 @@ Als u wilt de vereiste DNS IP-adressen instellen, moet u de volgende stappen uit
 
 In ons voorbeeld is de DNS-service geïnstalleerd en geconfigureerd op deze virtuele machines van Windows:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Vast IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
 | --- | --- | --- | --- |
 | Eerste DNS-server |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
 | Tweede DNS-server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
@@ -919,7 +919,7 @@ Nadat u de virtuele machines te gebruiken in uw cluster implementeert, moet u st
 
 In ons voorbeeld hebben we deze virtuele machines en statische IP-adressen:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Vast IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
 | --- | --- | --- | --- |
 | Eerste exemplaar van de SAP-toepassingsserver |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
 | Tweede instantie van SAP-toepassingsserver |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
@@ -952,7 +952,7 @@ Een statisch IP-adres voor de interne Azure load balancer instellen:
 
 In ons voorbeeld hebben we twee interne Azure load balancers die deze statische IP-adressen:
 
-| Interne Azure load balancer-rol | Naam van de interne Azure load balancer | Vast IP-adres |
+| Interne Azure load balancer-rol | Naam van de interne Azure load balancer | Statisch IP-adres |
 | --- | --- | --- |
 | SAP ASCS/SCS-exemplaar van interne load balancer |pr1-lb-ascs |10.0.0.43 |
 | SAP DBMS interne load balancer |pr1-lb-dbms |10.0.0.33 |
@@ -1018,7 +1018,7 @@ Als u gebruiken van verschillende aantallen voor de SAP ASCS of SCS wilt, moet u
 2. Voor alle load balancer-regels die deel uitmaken van het SAP ASCS of SCS-exemplaar, kunt u deze waarden wijzigen:
 
    * Name
-   * Port
+   * Poort
    * Back-end-poort
 
    Bijvoorbeeld, als u het standaardnummer van de ASCS-instantie wijzigen van 00 tot en met 31 wilt, moet u de aanbrengen voor alle poorten die worden vermeld in tabel 1.
@@ -1043,7 +1043,7 @@ Azure Load Balancer heeft een interne load balancer die wordt gesloten verbindin
 
 Als u wilt toevoegen de registervermeldingen op beide clusterknooppunten van de SAP ASCS/SCS-exemplaar, eerst deze Windows registervermeldingen toevoegen op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveTime` |
 | Type variabele |REG_DWORD (decimaal) |
@@ -1054,7 +1054,7 @@ _**Tabel 3:** Wijzig de eerste parameter van de TCP/IP_
 
 Voegt u deze registervermeldingen van Windows op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveInterval` |
 | Type variabele |REG_DWORD (decimaal) |
@@ -1177,7 +1177,7 @@ Een cluster bestandsshare-witness configureren, moet deze taken uitvoeren:
 
    _**Afbeelding 30:** De machtigingen voor de share voor het cluster name object toewijzen_
 
-   Zorg ervoor dat de machtigingen voor de instantie te wijzigen van gegevens in de share voor het clusternaamobject opneemt (in ons voorbeeld **pr1-ascs-vir$**).
+   Zorg ervoor dat de machtigingen voor de instantie te wijzigen van gegevens in de share voor het clusternaamobject opneemt (in ons voorbeeld **pr1-ascs-vir$** ).
 
 3. Selecteer om de clusternaamobject toe aan de lijst met **toevoegen**. Het filter om te controleren op computerobjecten, naast die wordt weergegeven in afbeelding 31 wijzigen.
 
@@ -1410,7 +1410,7 @@ SAP met een hoge beschikbaarheid ASCS/SCS-exemplaar installeert, moet deze taken
 1. Maak een DNS-vermelding voor de virtuele host-naam van de ASCS/SCS-exemplaar in de Windows DNS-beheer.
 
    > [!IMPORTANT]
-   > Het IP-adres dat u aan de virtuele host-naam van de ASCS/SCS-exemplaar toewijst moet hetzelfde zijn als het IP-adres dat u hebt toegewezen aan Azure Load Balancer (**<*SID*> - lb - ascs**).  
+   > Het IP-adres dat u aan de virtuele host-naam van de ASCS/SCS-exemplaar toewijst moet hetzelfde zijn als het IP-adres dat u hebt toegewezen aan Azure Load Balancer ( **<*SID*> - lb - ascs**).  
    >
    >
 
@@ -1612,7 +1612,7 @@ De **SAP PR1** clustergroep wordt uitgevoerd op een clusterknooppunt A. Bijvoorb
 
 _**Afbeelding 61:** Failover Cluster Manager: De SAP <*SID*> clustergroep wordt uitgevoerd op een clusterknooppunt A_
 
-In het hulpprogramma SIOS DataKeeper beheer en de configuratie kunt u zien dat de gegevens van de gedeelde schijf is asynchroon worden gerepliceerd vanaf de bron volume station S op clusterknooppunt A naar het doel volume station S op clusterknooppunt B. Bijvoorbeeld: deze worden gerepliceerd van **pr1-ascs-0 [10.0.0.40]** naar **pr1-ascs-1 [10.0.0.41]**.
+In het hulpprogramma SIOS DataKeeper beheer en de configuratie kunt u zien dat de gegevens van de gedeelde schijf is asynchroon worden gerepliceerd vanaf de bron volume station S op clusterknooppunt A naar het doel volume station S op clusterknooppunt B. Bijvoorbeeld: deze worden gerepliceerd van **pr1-ascs-0 [10.0.0.40]** naar **pr1-ascs-1 [10.0.0.41]** .
 
 ![Afbeelding 62: Repliceren in SIOS DataKeeper, het lokale volume van clusterknooppunt A naar B-clusterknooppunt][sap-ha-guide-figure-5001]
 
@@ -1641,7 +1641,7 @@ _**Afbeelding 62:** Repliceren in SIOS DataKeeper, het lokale volume van cluster
 
    _**Afbeelding 63**: In Failoverclusterbeheer, de SAP <*SID*> clustergroep wordt uitgevoerd op een clusterknooppunt B_
 
-   De gedeelde schijf is nu gekoppeld op cluster knooppunt B. SIOS DataKeeper is die gegevens van de bron volume station S op clusterknooppunt B naar volume doelstation S op clusterknooppunt A. Bijvoorbeeld, deze wordt gerepliceerd van **pr1-ascs-1 [10.0.0.41]** naar **pr1-ascs-0 [10.0.0.40]**.
+   De gedeelde schijf is nu gekoppeld op cluster knooppunt B. SIOS DataKeeper is die gegevens van de bron volume station S op clusterknooppunt B naar volume doelstation S op clusterknooppunt A. Bijvoorbeeld, deze wordt gerepliceerd van **pr1-ascs-1 [10.0.0.41]** naar **pr1-ascs-0 [10.0.0.40]** .
 
    ![Afbeelding 64: SIOS DataKeeper worden gerepliceerd van het lokale volume van het clusterknooppunt B aan het cluster een knooppunt][sap-ha-guide-figure-5003]
 

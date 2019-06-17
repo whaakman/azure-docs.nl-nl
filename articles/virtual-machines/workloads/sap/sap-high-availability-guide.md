@@ -18,19 +18,19 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204940"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver
 
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -767,7 +767,7 @@ Azure Load Balancer heeft een interne load balancer die wordt gesloten verbindin
 
 Als u wilt toevoegen de registervermeldingen op beide clusterknooppunten van de SAP ASCS/SCS-exemplaar, eerst deze Windows registervermeldingen toevoegen op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveTime` |
 | Type variabele |REG_DWORD (decimaal) |
@@ -778,7 +778,7 @@ _**Tabel 3:** Wijzig de eerste parameter van de TCP/IP_
 
 Voegt u deze registervermeldingen van Windows op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveInterval` |
 | Type variabele |REG_DWORD (decimaal) |
@@ -901,7 +901,7 @@ Een cluster bestandsshare-witness configureren, moet deze taken uitvoeren:
 
    _**Afbeelding 30:** De machtigingen voor de share voor het cluster name object toewijzen_
 
-   Zorg ervoor dat de machtigingen voor de instantie te wijzigen van gegevens in de share voor het clusternaamobject opneemt (in ons voorbeeld **pr1-ascs-vir$**).
+   Zorg ervoor dat de machtigingen voor de instantie te wijzigen van gegevens in de share voor het clusternaamobject opneemt (in ons voorbeeld **pr1-ascs-vir$** ).
 
 3. Selecteer om de clusternaamobject toe aan de lijst met **toevoegen**. Het filter om te controleren op computerobjecten, naast die wordt weergegeven in afbeelding 31 wijzigen.
 
@@ -1133,7 +1133,7 @@ SAP met een hoge beschikbaarheid ASCS/SCS-exemplaar installeert, moet deze taken
 1. Maak een DNS-vermelding voor de virtuele host-naam van de ASCS/SCS-exemplaar in de Windows DNS-beheer.
 
    > [!IMPORTANT]
-   > Het IP-adres dat u aan de virtuele host-naam van de ASCS/SCS-exemplaar toewijst moet hetzelfde zijn als het IP-adres dat u hebt toegewezen aan Azure Load Balancer (**<*SID*> - lb - ascs**).  
+   > Het IP-adres dat u aan de virtuele host-naam van de ASCS/SCS-exemplaar toewijst moet hetzelfde zijn als het IP-adres dat u hebt toegewezen aan Azure Load Balancer ( **<*SID*> - lb - ascs**).  
    >
    >
 
@@ -1335,7 +1335,7 @@ De **SAP PR1** clustergroep wordt uitgevoerd op een clusterknooppunt A. Bijvoorb
 
 _**Afbeelding 61:** Failover Cluster Manager: De SAP <*SID*> clustergroep wordt uitgevoerd op een clusterknooppunt A_
 
-In het hulpprogramma SIOS DataKeeper beheer en de configuratie kunt u zien dat de gegevens van de gedeelde schijf is asynchroon worden gerepliceerd vanaf de bron volume station S op clusterknooppunt A naar het doel volume station S op clusterknooppunt B. Bijvoorbeeld: deze worden gerepliceerd van **pr1-ascs-0 [10.0.0.40]** naar **pr1-ascs-1 [10.0.0.41]**.
+In het hulpprogramma SIOS DataKeeper beheer en de configuratie kunt u zien dat de gegevens van de gedeelde schijf is asynchroon worden gerepliceerd vanaf de bron volume station S op clusterknooppunt A naar het doel volume station S op clusterknooppunt B. Bijvoorbeeld: deze worden gerepliceerd van **pr1-ascs-0 [10.0.0.40]** naar **pr1-ascs-1 [10.0.0.41]** .
 
 ![Afbeelding 62: Repliceren in SIOS DataKeeper, het lokale volume van clusterknooppunt A naar B-clusterknooppunt][sap-ha-guide-figure-5001]
 
@@ -1364,7 +1364,7 @@ _**Afbeelding 62:** Repliceren in SIOS DataKeeper, het lokale volume van cluster
 
    _**Afbeelding 63**: In Failoverclusterbeheer, de SAP <*SID*> clustergroep wordt uitgevoerd op een clusterknooppunt B_
 
-   De gedeelde schijf is nu gekoppeld op cluster knooppunt B. SIOS DataKeeper is die gegevens van de bron volume station S op clusterknooppunt B naar volume doelstation S op clusterknooppunt A. Bijvoorbeeld, deze wordt gerepliceerd van **pr1-ascs-1 [10.0.0.41]** naar **pr1-ascs-0 [10.0.0.40]**.
+   De gedeelde schijf is nu gekoppeld op cluster knooppunt B. SIOS DataKeeper is die gegevens van de bron volume station S op clusterknooppunt B naar volume doelstation S op clusterknooppunt A. Bijvoorbeeld, deze wordt gerepliceerd van **pr1-ascs-1 [10.0.0.41]** naar **pr1-ascs-0 [10.0.0.40]** .
 
    ![Afbeelding 64: SIOS DataKeeper worden gerepliceerd van het lokale volume van het clusterknooppunt B aan het cluster een knooppunt][sap-ha-guide-figure-5003]
 

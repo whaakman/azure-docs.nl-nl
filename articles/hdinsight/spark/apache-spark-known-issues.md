@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 51a0ee6f2d928d79e60ca9976d7651c70867a41f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717605"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Bekende problemen voor Apache Spark-cluster in HDInsight
@@ -67,7 +67,7 @@ HDInsight Spark-clusters bieden geen ondersteuning voor de Spark-Phoenix-connect
 
 **Risicobeperking:**
 
-In plaats daarvan moet u de Spark-HBase-connector gebruiken. Zie voor instructies [over het gebruik van Spark-HBase-connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+In plaats daarvan moet u de Spark-HBase-connector gebruiken. Zie voor instructies [over het gebruik van Spark-HBase-connector](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemen met de Jupyter-notebooks
 Hieronder vindt u enkele bekende problemen met betrekking tot de Jupyter-notebooks.
