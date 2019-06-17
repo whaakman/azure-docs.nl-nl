@@ -117,7 +117,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 | commandToExecute (bijvoorbeeld) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (bijvoorbeeld) | false | booleaans |
-| tijdstempel (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
+| timestamp (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
 | storageAccountName (bijvoorbeeld) | examplestorageacct | string |
 | storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
