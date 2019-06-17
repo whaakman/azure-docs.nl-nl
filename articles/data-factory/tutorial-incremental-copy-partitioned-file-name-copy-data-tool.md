@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61098718"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Nieuwe bestanden op basis van tijd gepartitioneerde bestandsnaam met behulp van het hulpprogramma Copy Data incrementeel kopiëren
@@ -48,7 +48,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     ![Bestanden uploaden](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
-    > Wijzig de naam van de map met de UTC-tijd.  Bijvoorbeeld, als de huidige UTC-tijd 2:03 PM 26 februari 2019 is, kunt u het pad naar de map als **bron/2019/02/26/14/** door de regel van **bron / {Year} / {Month} / {Day} / {Hour} /**.
+    > Wijzig de naam van de map met de UTC-tijd.  Bijvoorbeeld, als de huidige UTC-tijd 2:03 PM 26 februari 2019 is, kunt u het pad naar de map als **bron/2019/02/26/14/** door de regel van **bron / {Year} / {Month} / {Day} / {Hour} /** .
 
 2. Maak een container met de naam **bestemming**. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -66,7 +66,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
    
    ![Foutbericht nieuwe data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
    
-   Als u een foutbericht ontvangt dat betrekking heeft op de waarde die bij de naam is ingevuld, voert u een andere naam in voor de data factory. Gebruik bijvoorbeeld de naam _**uwnaam**_**ADFTutorialDataFactory**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   Als u een foutbericht ontvangt dat betrekking heeft op de waarde die bij de naam is ingevuld, voert u een andere naam in voor de data factory. Gebruik bijvoorbeeld de naam _**uwnaam**_ **ADFTutorialDataFactory**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 3. Selecteer het Azure-**abonnement** waarin u de nieuwe data factory wilt maken. 
 4. Voer een van de volgende stappen uit voor **Resourcegroep**:
      
@@ -136,7 +136,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     ![Kies het invoerbestand of invoermap.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
-    c. Het dynamische pad als schrijven **bron / {year} / {month} / {day} / {hour} /**, en de indeling wijzigen als het volgende:
+    c. Het dynamische pad als schrijven **bron / {year} / {month} / {day} / {hour} /** , en de indeling wijzigen als het volgende:
     
     ![Kies het invoerbestand of invoermap.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
     
@@ -152,7 +152,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     ![Het uitvoerbestand of de uitvoermap kiezen](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
-    b. Het dynamische pad als schrijven **bron / {year} / {month} / {day} / {hour} /**, en de indeling wijzigen als het volgende:
+    b. Het dynamische pad als schrijven **bron / {year} / {month} / {day} / {hour} /** , en de indeling wijzigen als het volgende:
     
     ![Het uitvoerbestand of de uitvoermap kiezen](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
@@ -184,7 +184,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
     > [!NOTE]
-    > Het is mogelijk dat u op de hoogte dat een nieuw pad is vereist om te worden gemaakt. Wijzig de naam van de map met de UTC-tijd.  Bijvoorbeeld, als de huidige UTC-tijd 3:20 uur op 26 februari 2019 is, kunt u het pad naar de map als **bron/2019/02/26/15/** door de regel van **{Year} / {Month} / {Day} / {Hour} /**.
+    > Het is mogelijk dat u op de hoogte dat een nieuw pad is vereist om te worden gemaakt. Wijzig de naam van de map met de UTC-tijd.  Bijvoorbeeld, als de huidige UTC-tijd 3:20 uur op 26 februari 2019 is, kunt u het pad naar de map als **bron/2019/02/26/15/** door de regel van **{Year} / {Month} / {Day} / {Hour} /** .
     
 13. Terugkeren naar de **Pijplijnuitvoeringen** weergave, selecteer **alle pijplijnen uitvoeringen**, en wacht tot de dezelfde pijplijn opnieuw wordt geactiveerd na een andere één uur automatisch.  
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60698634"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
@@ -204,7 +204,7 @@ Als een regel met de compressiemethode splitsbare is belangrijk, anders heel wei
 
     d. Voer in het venster eigenschap toevoegen `mapred.map.output.compression.codec` als de sleutel en `org.apache.hadoop.io.compress.SnappyCodec` als de waarde.
 
-    e. Klik op **Add**.
+    e. Klik op **Toevoegen**.
 
     ![De aangepaste eigenschap hive](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -269,7 +269,7 @@ De volgende secties beschrijven aanvullende Hive-gerelateerde optimalisaties die
 
 Het jointype in component is een *shuffle join*. In Hive, speciale mappers Lees de invoer- en verzenden van een join-sleutel/waarde-paar naar een tussenliggende-bestand. Hadoop worden gesorteerd en worden deze paren samengevoegd in de fase van een willekeurige volgorde. Deze fase shuffle is kostbaar. De juiste join op basis van uw gegevens te selecteren, kan de prestaties aanzienlijk verbeteren.
 
-| Jointype | Wanneer | Hoe | Hive-instellingen | Opmerkingen |
+| Type join | Wanneer | Hoe | Hive-instellingen | Opmerkingen |
 | -- | -- | -- | -- | -- |
 | Shuffle Join | <ul><li>Standaardoptie</li><li>Altijd werkt</li></ul> | <ul><li>Leest uit deel uitmaakt van een van de tabellen</li><li>Buckets en gesorteerd op Join-sleutel</li><li>Verzendt een bucket naar elke verminderen</li><li>Join is uitgevoerd op de zijde verminderen</li></ul> | Er is geen aanzienlijke Hive benodigde instellen | Elke keer werkt |
 | Lid worden van kaart | <ul><li>Een tabel past in het geheugen</li></ul> | <ul><li>Kleine tabel leest in geheugen hash-tabel</li><li>Stromen via deel van de grote bestanden</li><li>Lid wordt van elke record van hash-tabel</li><li>Moeten worden samengevoegd door het toewijzen van de alleen</li></ul> | `hive.auto.confvert.join=true` | Zeer snelle maar beperkte |
@@ -284,7 +284,7 @@ Extra aanbevelingen voor het optimaliseren van de engine voor het uitvoeren van 
 | `hive.mapjoin.hybridgrace.hashtable` | = True veiliger, langzamer; False = sneller | false |
 | `tez.am.resource.memory.mb` | Bovengrens van 4 GB voor de meeste | Automatisch zijn afgestemd |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
-| `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10.000 |
+| `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10\.000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
 ## <a name="apache-pig-optimization"></a>Apache Pig-optimalisatie
@@ -393,7 +393,7 @@ De blokcache is de leescache. De grootte wordt bepaald door de `hfile.block.cach
 
 #### <a name="memstore-size"></a>Grootte van de geheugenopslag
 
-Alle wijzigingen worden opgeslagen in het geheugen voor buffer, met de naam een *setSize()*. Dit verhoogt de totale hoeveelheid gegevens die kunnen worden geschreven naar de schijf in één bewerking, en het daaropvolgende toegang versnelt naar de recente wijzigingen. De grootte van de geheugenopslag is gedefinieerd door de volgende twee parameters:
+Alle wijzigingen worden opgeslagen in het geheugen voor buffer, met de naam een *setSize()* . Dit verhoogt de totale hoeveelheid gegevens die kunnen worden geschreven naar de schijf in één bewerking, en het daaropvolgende toegang versnelt naar de recente wijzigingen. De grootte van de geheugenopslag is gedefinieerd door de volgende twee parameters:
 
 * `hbase.regionserver.global.memstore.UpperLimit`: Hiermee definieert u het maximale percentage van de regioserver die setSize() gecombineerd kunt gebruiken.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333646"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Automatische IoT-Apparaatbeheer op schaal met Azure portal
@@ -58,11 +58,11 @@ Voordat u een configuratie maakt, moet u opgeven welke apparaten die u wilt toep
 
 Er zijn vijf stappen voor het maken van een configuratie. De volgende secties helpen bij elkaar. 
 
-### <a name="name-and-label"></a>Naam en label
+### <a name="name-and-label"></a>Naam en een Label
 
 1. Geef uw configuratie van een unieke naam die maximaal 128 kleine letters. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
 
-2. Labels voor het bijhouden van uw configuraties toevoegen. Labels zijn **naam**, **waarde** paren, die uw configuratie wordt beschreven. Bijvoorbeeld `HostPlatform, Linux` of `Version, 3.0.1`.
+2. Labels voor het bijhouden van uw configuraties toevoegen. Labels zijn **naam**, **waarde** paren, die uw configuratie wordt beschreven. Bijvoorbeeld, `HostPlatform, Linux` of `Version, 3.0.1`.
 
 3. Selecteer **volgende** te verplaatsen naar de volgende stap. 
 
@@ -111,7 +111,7 @@ Omdat meerdere configuraties zijn op hetzelfde apparaat gericht kunnen, moet u e
 
 1. Voer een positief geheel getal voor de configuratie van **prioriteit**. De hoogste numerieke waarde wordt beschouwd als de hoogste prioriteit. Als twee configuraties de dezelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
 
-2. Voer een **voorwaarde als doel** om te bepalen welke apparaten wordt met deze configuratie worden toegepast. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld `tags.environment='test'` of `properties.reported.chillerProperties.model='4000x'`. U kunt opgeven `*` om u te richten op alle apparaten.
+2. Voer een **voorwaarde als doel** om te bepalen welke apparaten wordt met deze configuratie worden toegepast. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.reported.chillerProperties.model='4000x'`. U kunt opgeven `*` om u te richten op alle apparaten.
 
 3. Selecteer **volgende** om door te gaan naar de laatste stap.
 

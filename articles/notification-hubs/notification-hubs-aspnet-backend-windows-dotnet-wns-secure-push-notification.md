@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459163"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Veilig vanaf Azure Notification Hubs pushmeldingen verzenden
@@ -90,7 +90,7 @@ Deze beveiligde Push-zelfstudie leert hoe u een push-bericht veilig verzendt. De
 De volgende stap is het maken van het onderdeel van de achtergrond push.
 
 1. Klik in Solution Explorer met de rechtermuisknop op het knooppunt op het hoogste niveau van de oplossing (**oplossing SecurePush** in dit geval), klikt u vervolgens op **toevoegen**, klikt u vervolgens op **nieuw Project**.
-2. Vouw **Store-Apps**, klikt u vervolgens op **Windows Phone Apps**, klikt u vervolgens op **Windows Runtime-onderdeel (Windows Phone)**. Noem het project **PushBackgroundComponent**, en klik vervolgens op **OK** om het project te maken.
+2. Vouw **Store-Apps**, klikt u vervolgens op **Windows Phone Apps**, klikt u vervolgens op **Windows Runtime-onderdeel (Windows Phone)** . Noem het project **PushBackgroundComponent**, en klik vervolgens op **OK** om het project te maken.
 
     ![][12]
 3. Klik in Solution Explorer met de rechtermuisknop op de **PushBackgroundComponent (Windows Phone 8.1)** project en klik vervolgens op **toevoegen**, klikt u vervolgens op **klasse**. Noem de nieuwe klasse `PushBackgroundTask.cs`. Klik op **toevoegen** om de klasse te genereren.

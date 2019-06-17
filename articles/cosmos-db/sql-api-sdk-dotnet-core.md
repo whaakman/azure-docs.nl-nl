@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
 ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510644"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
@@ -216,7 +216,7 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Oplossing voor een probleem waardoor af en toe een WebException: Kan de externe naam niet omzetten.
+* Oplossing voor een probleem waardoor af en toe een WebException: De externe naam kan niet worden omgezet.
 * De ondersteuning voor het lezen van een getypte document rechtstreeks door toe te voegen nieuwe overloads naar ReadDocumentAsync API toegevoegd.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1

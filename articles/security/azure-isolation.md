@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b8142551d9c20c18d83c256b3f07a0deb291577c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147660"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie in de openbare Cloud van Azure
@@ -310,7 +310,7 @@ Logische-hoofddatabases zijn onder andere:
 
 -   SQL-aanmeldingen die zijn gebruikt voor verbinding met de server
 
--   Firewallregels
+-   Firewall-regels
 
 Facturering en gebruik gerelateerde informatie voor SQL Azure-databases van dezelfde logische server niet gegarandeerd worden op dezelfde fysieke instantie in SQL Azure-cluster, in plaats daarvan toepassingen moet de naam van doeldatabase opgeven wanneer u verbinding maakt.
 

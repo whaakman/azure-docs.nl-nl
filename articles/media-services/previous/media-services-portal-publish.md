@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61127859"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Inhoud publiceren in Azure portal  
@@ -37,8 +37,8 @@ ms.locfileid: "61127859"
 
 Als u aan uw gebruikers een URL wilt leveren die ze kunnen gebruiken om uw inhoud te streamen of te downloaden, moet u uw asset eerst publiceren door een locator te maken. Locators bieden toegang tot assetbestanden. Azure Media Services ondersteunt twee typen locators: 
 
-* **Streaming-locators (OnDemandOrigin)**. Streaming-locators worden gebruikt voor adaptief streamen. Voorbeelden van adaptief streamen zijn Apple HTTP Live Streaming (HLS), Smooth Streaming van Microsoft en Dynamic Adaptive Streaming via HTTP (DASH, ook wel MPEG-DASH genoemd). Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. Bijvoorbeeld http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
-* **Progressieve locators (Shared Access Signature)**. Progressieve locators worden gebruikt voor het leveren van video via progressief downloaden.
+* **Streaming-locators (OnDemandOrigin)** . Streaming-locators worden gebruikt voor adaptief streamen. Voorbeelden van adaptief streamen zijn Apple HTTP Live Streaming (HLS), Smooth Streaming van Microsoft en Dynamic Adaptive Streaming via HTTP (DASH, ook wel MPEG-DASH genoemd). Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. Bijvoorbeeld http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Progressieve locators (Shared Access Signature)** . Progressieve locators worden gebruikt voor het leveren van video via progressief downloaden.
 
 Als u een streaming-URL voor HLS wilt maken, voegt u *(format=m3u8-aapl)* toe aan de URL:
 

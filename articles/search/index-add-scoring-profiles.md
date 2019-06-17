@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ccb6944227208cee8601751cf43a53c111c09c6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021629"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Scoreprofielen toevoegen aan een Azure Search-index
@@ -162,7 +162,7 @@ De search-score wordt berekend op basis van statistische eigenschappen van de ge
 
  Beginnen met de [sjabloon](#bkmk_template) vindt u in dit onderwerp.  
 
- Geef een naam op. Scoreprofielen zijn optioneel, maar als u een toevoegen, de naam is vereist. Zorg ervoor dat u de naamconventies voor velden (begint met een letter, voorkomt u speciale tekens en gereserveerde woorden). Zie [naamgevingsregels &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) voor een volledige lijst.  
+ Geef een naam. Scoreprofielen zijn optioneel, maar als u een toevoegen, de naam is vereist. Zorg ervoor dat u de naamconventies voor velden (begint met een letter, voorkomt u speciale tekens en gereserveerde woorden). Zie [naamgevingsregels &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) voor een volledige lijst.  
 
  De hoofdtekst van het scoringprofiel is samengesteld uit gewogen velden en functies.  
 
@@ -247,7 +247,7 @@ De search-score wordt berekend op basis van statistische eigenschappen van de ge
 |`magnitude` &#124; `boostingRangeEnd`|Hiermee stelt u de eindwaarde van het bereik waarvoor de magnitude wordt berekend. De waarde moet een geheel getal of getal met drijvende komma. Voor sterwaarderingen van 1 tot en met 4, zou dit 4 zijn.|  
 |`magnitude` &#124; `constantBoostBeyondRange`|Geldige waarden zijn true of false (standaard). Wanneer is ingesteld op true, de volledige versterking om toe te passen op documenten waarvoor een waarde op voor het doelveld hoger is dan de bovengrens van het bereik. Indien onwaar, wordt de versterking van deze functie niet toegepast op documenten met een waarde op voor het doelveld die buiten het bereik valt.|  
 |`freshness`|De webdocumenten scoring-functie wordt gebruikt voor het wijzigen van de classificatiescores voor items op basis van waarden in `DateTimeOffset` velden. Een item met een recentere datum kan bijvoorbeeld hoger dan de oudere items worden gerangschikt.<br /><br /> Het is ook mogelijk op positie items zoals agenda-gebeurtenissen met datums in de toekomst zodat items dichter bij de huidige hoger dan de items in de toekomst verder kunnen worden gerangschikt.<br /><br /> In de huidige versie van de service wordt op de huidige tijd ene uiteinde van het bereik opgelost. Het andere uiteinde is een tijd in het verleden op basis van de `boostingDuration`. Als u wilt een aantal keren dat in de toekomst vergroten, gebruikt u een negatieve `boostingDuration`.<br /><br /> De snelheid waarmee de versterking verandert van maximaal en minimaal bereik wordt bepaald door de interpolatie toegepast op de scoringprofiel (Zie de onderstaande afbeelding). Als u wilt omkeren de Gradient boosting factor die wordt toegepast, kiest u een boost factor van minder dan 1.|  
-|`freshness` &#124; `boostingDuration`|Hiermee stelt u een vervalperiode in waarna versterking van een bepaald document wordt stopgezet. Zie [boostingDuration ingesteld](#bkmk_boostdur) in de volgende sectie voor de syntaxis en voorbeelden.|  
+|`freshness` &#124; `boostingDuration`|Stelt een vervalperiode in waarna versterking voor een bepaald document wordt gestopt. Zie [boostingDuration ingesteld](#bkmk_boostdur) in de volgende sectie voor de syntaxis en voorbeelden.|  
 |`distance`|Sluit u de score van documenten op basis van hoe u de afstand scoringfunctie wordt gebruikt om te bepalen of ver ze zich ten opzichte van een opgegeven geografische locatie. De referentielocatie is opgegeven als onderdeel van de query in een parameter (met behulp van de `scoringParameterquery` optie tekenreeks) als een ion, lat argument.|  
 |`distance` &#124; `referencePointParameter`|Een parameter in query's om te gebruiken als referentielocatie worden doorgegeven. `scoringParameter` is een queryparameter. Zie [documenten zoeken &#40;Azure Search Service REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor beschrijvingen van queryparameters.|  
 |`distance` &#124; `boostingDistance`|Een getal geeft de afstand in kilometer tot de referentielocatie waar het versterkingsbereik wordt beëindigd.|  
@@ -275,7 +275,7 @@ De search-score wordt berekend op basis van statistische eigenschappen van de ge
 
  De volgende tabel bevat enkele voorbeelden.  
 
-|Duur|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1 dag|"P1D"|  
 |2 dagen en 12 uur|"P2DT12H"|  

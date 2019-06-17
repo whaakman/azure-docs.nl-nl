@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058534"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Ontwerp- en eindpunt gebruikerstoegang
-Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app is eindpunt toegang beschikbaar voor iedereen die hun eigen account LUIS en heeft de openbare app-ID. 
+Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app eindpunt toegang is beschikbaar voor iedereen met hun eigen Azure [Cognitive Service](../cognitive-services-apis-create-account.md) of [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) resource, en heeft de openbare app-ID. 
 
 ## <a name="access-to-authoring"></a>Toegang tot het ontwerpen
 Toegang tot de app uit de [LUIS](luis-reference-regions.md#luis-website) website of de [API's ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) wordt bepaald door de eigenaar van de app. 

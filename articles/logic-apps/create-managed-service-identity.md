@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416130"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot bronnen met beheerde identiteiten in Azure Logic Apps
@@ -132,7 +132,7 @@ Om toegang te verlenen aan een andere Azure-resource voor beheerde identiteit va
 
 1. Ga naar de Azure-resource waar u toegang wilt toewijzen voor uw beheerde identiteit in de Azure-portal. 
 
-1. Selecteer in het resourcemenu **toegangsbeheer (IAM)**. Kies op de werkbalk **toevoegen** > **roltoewijzing toevoegen**.
+1. Selecteer in het resourcemenu **toegangsbeheer (IAM)** . Kies op de werkbalk **toevoegen** > **roltoewijzing toevoegen**.
 
    ![Roltoewijzing toevoegen](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

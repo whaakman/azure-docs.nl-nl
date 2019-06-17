@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 3b4ed6d1ba83e2adb96bcfac986381dccbbef56f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 0a202621a9da031815ebbff3b121ea7f5e1eccfe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062181"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -45,8 +45,9 @@ Zie het voorbeeld taalspecifieke:
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)
 * [F#](#f-example)
-* [JavaScript](#javascript-example)
 * [Java](#java-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C#-voorbeeld
 
@@ -117,6 +118,21 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
     log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
+### <a name="java-example"></a>Java-voorbeeld
+
+Het volgende van de voorbeeldfunctie wordt geactiveerd en wordt uitgevoerd om de vijf minuten. De `@TimerTrigger` aantekening op de functie definieert het schema met behulp van de indeling van de dezelfde tekenreeks als [CRON-expressies](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ### <a name="javascript-example"></a>JavaScript-voorbeeld
 
 Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie schrijft een logboek die aangeeft of deze functie-aanroep vanwege een schema voor gemiste-exemplaar is. Een [timerobject](#usage) wordt doorgegeven in de functie.
@@ -148,19 +164,37 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="java-example"></a>Java-voorbeeld
+### <a name="python-example"></a>Python-voorbeeld
 
-Het volgende van de voorbeeldfunctie wordt geactiveerd en wordt uitgevoerd om de vijf minuten. De `@TimerTrigger` aantekening op de functie definieert het schema met behulp van de indeling van de dezelfde tekenreeks als [CRON-expressies](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+Het volgende voorbeeld wordt een timertrigger binding waarvan de configuratie wordt beschreven in de *function.json* bestand. De werkelijke [funkce Pythonu](functions-reference-python.md) dat maakt gebruik van de binding wordt beschreven in de  *__init__.py* bestand. Het object doorgegeven aan de functie is van het type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). De logische functie schrijft naar de logboeken die aangeeft of het huidige aanroepen vanwege een schema voor gemiste-exemplaar is. 
 
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
+Hier volgt de binding-gegevens de *function.json* bestand:
+
+```json
+{
+    "name": "mytimer",
+    "type": "timerTrigger",
+    "direction": "in",
+    "schedule": "0 */5 * * * *"
 }
+```
+
+Hier volgt de Python-code:
+
+```python
+import datetime
+import logging
+
+import azure.functions as func
+
+def main(mytimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.datetime.utcnow().replace(
+        tzinfo=datetime.timezone.utc).isoformat()
+
+    if mytimer.past_due:
+        logging.info('The timer is past due!')
+
+    logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
 ## <a name="attributes"></a>Kenmerken
@@ -269,7 +303,7 @@ Bijvoorbeeld, *Eastern (standaardtijd)* wordt UTC-05:00. De timer trigger worden
 "schedule": "0 0 15 * * *"
 ``` 
 
-Of maak een app-instelling voor uw functie-app met de naam `WEBSITE_TIME_ZONE` en stel de waarde voor **Eastern (standaardtijd)**.  Vervolgens gebruikt de volgende CRON-expressie: 
+Of maak een app-instelling voor uw functie-app met de naam `WEBSITE_TIME_ZONE` en stel de waarde voor **Eastern (standaardtijd)** .  Vervolgens gebruikt de volgende CRON-expressie: 
 
 ```json
 "schedule": "0 0 10 * * *"
@@ -303,7 +337,7 @@ Als u een opslagaccount voor meerdere functie-apps deelt, zorg ervoor dat elke f
 
 In tegenstelling tot de wachtrijtrigger opnieuw niet de timertrigger nadat een functie is mislukt. Als een functie mislukt, is niet het op de planning die tot de volgende keer opnieuw genoemd.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Zie voor informatie over wat er moet gebeuren wanneer de timertrigger werkt niet zoals verwacht, [Investigating en rapporteren van problemen met timer geactiveerde functies niet geactiveerd,](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 

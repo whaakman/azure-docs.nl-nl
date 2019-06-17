@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08bf7950ada5db90d2b8bfea751b39ffc21f3ee9
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109282"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Bepaal de vereisten voor respons op incidenten voor uw oplossing voor hybride identiteit
 Grote of middelgrote organisaties waarschijnlijk heeft een [reageren op beveiligingsincidenten](https://technet.microsoft.com/library/cc700825.aspx) om u te helpen IT dienovereenkomstig te handelen op het niveau van het incident. Het beheersysteem voor identiteit is een belangrijk onderdeel van het proces voor respons op incidenten, omdat deze kan worden gebruikt om te identificeren die een specifieke actie op het doel is uitgevoerd. De oplossing voor hybride identiteit moet kunnen bieden mogelijkheden voor controle- en rapportagefuncties die kunnen worden gebruikt door IT maatregelen kunt herkennen en verminderen een mogelijke bedreiging. In een typische reactieplan hebt u de volgende fasen als onderdeel van het abonnement:

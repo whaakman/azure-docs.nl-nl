@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119386"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113300"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Schakel gecombineerd security informatie registratie (preview)
 
@@ -53,7 +53,7 @@ Als u de Site aan de lijst van zonetoewijzingen hebt geconfigureerd in Internet 
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Beleid voor voorwaardelijke toegang voor gecombineerde registratie
 
-Beveiligen wanneer en hoe gebruikers registreren voor Azure multi-factor Authentication en Self-service voor wachtwoord opnieuw instellen nu mogelijk is met de acties van de gebruiker in het beleid voor voorwaardelijke toegang is. Deze preview-functie is beschikbaar voor organisaties die hebben ingeschakeld de [gecombineerd registratie preview](../authentication/concept-registration-mfa-sspr-combined.md). Deze functionaliteit kan worden ingeschakeld in een organisatie waar ze willen dat gebruikers zich registreren voor Azure multi-factor Authentication en SSPR vanuit een centrale locatie zoals een vertrouwde netwerklocatie tijdens HR-onboarding. Zie het artikel voor meer informatie over het maken van vertrouwde locaties voor de voorwaardelijke toegang [wat is er met de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](../conditional-access/location-condition.md#named-locations)
+Beveiligen wanneer en hoe gebruikers registreren voor Azure multi-factor Authentication en Self-service voor wachtwoord opnieuw instellen nu mogelijk is met de acties van de gebruiker in het beleid voor voorwaardelijke toegang is. Deze preview-functie is beschikbaar voor organisaties die hebben ingeschakeld de [gecombineerd registratie preview](../authentication/concept-registration-mfa-sspr-combined.md). Deze functionaliteit kan worden ingeschakeld in een organisatie waar ze willen dat gebruikers zich registreren voor Azure multi-factor Authentication en SSPR vanuit een centrale locatie zoals een vertrouwde netwerklocatie tijdens HR-onboarding. Zie het artikel voor meer informatie over het maken van vertrouwde locaties voor de voorwaardelijke toegang [wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Maak een beleid om te vereisen dat de registratie van een vertrouwde locatie bevindt
 

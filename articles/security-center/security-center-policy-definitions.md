@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/19/2019
 ms.author: monhaber
 ms.openlocfilehash: 25ed9cb624474d5da56d385f4e9c155918ec8eab
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428327"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Beleid voor Azure-beveiliging bewaakt door Security Center
@@ -79,7 +79,7 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |\[Preview-versie]: Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd van uw abonnement. Afgeschafte accounts zijn zich geblokkeerd.|
 |\[Preview-versie]: Afgeschafte accounts moeten worden verwijderd uit uw abonnement|Afgeschafte accounts moeten worden verwijderd uit uw abonnementen. Afgeschafte accounts zijn zich geblokkeerd.|
 |\[Preview-versie]: Externe accounts met eigenaarsmachtigingen moeten worden verwijderd van uw abonnement|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement om te voorkomen dat machtigingen voor toegang.|
-|\[Preview-versie]: Externe accounts met schrijven machtigingen moeten worden verwijderd van uw abonnement|Externe accounts die zijn geschreven machtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.|
+|\[Preview-versie]: Externe accounts met schrijfmachtigingen moeten worden verwijderd uit uw abonnement|Externe accounts die zijn geschreven machtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.|
 |\[Preview-versie]: Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement|Externe accounts die u hebt leesmachtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.|
 
 

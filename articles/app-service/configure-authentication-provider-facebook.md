@@ -16,10 +16,10 @@ ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: e91d55c29d325301b8ac70ddc63fb408961fbb2c
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742968"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Uw App Service-toepassing configureren voor het gebruik van Facebook-aanmelding

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860375"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Update 4 installeren op uw StorSimple-apparaat
@@ -45,7 +45,7 @@ De volgende stappen uitvoeren om uw apparaat bijwerken [Update 4](storsimple-upd
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Controleren of uw apparaat wordt uitgevoerd **StorSimple 8000 serie Update 4 (6.3.9600.17820)**. De **datum laatst bijgewerkt** moet ook worden gewijzigd.
+Controleren of uw apparaat wordt uitgevoerd **StorSimple 8000 serie Update 4 (6.3.9600.17820)** . De **datum laatst bijgewerkt** moet ook worden gewijzigd.
 
 * U ziet nu dat de updates voor de onderhoudsmodus beschikbaar zijn (dit bericht kan nog wel weergegeven voor het tot 24 uur nadat u de updates hebt geïnstalleerd). Updates voor de onderhoudsmodus zijn updates waarvoor de computer die leiden tot stilstand van apparaten en kunnen alleen worden toegepast via de Windows PowerShell-interface van uw apparaat.
 
@@ -76,10 +76,10 @@ U moet downloaden en installeren van de volgende hotfixes in de aangegeven volgo
 
 | Bestellen | KB | Description | Updatetype | Tijd van installatie |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Software-update |Normaal <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |LSI-stuurprogramma's en firmware-updates <br> Voor Gebruikersbeheer firmware-update (versie 3.38) |Normaal <br></br>Non-disruptive |~ 3 uur <br> (inclusief 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS-updates-beveiligingspakket <br> Download Windows Server 2012 R2 |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS-updates-pakket <br> Download Windows Server 2012 R2 |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 1. |KB4011839 |Software-update |Reguliere <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |LSI-stuurprogramma's en firmware-updates <br> Voor Gebruikersbeheer firmware-update (versie 3.38) |Reguliere <br></br>Non-disruptive |~ 3 uur <br> (inclusief 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS-updates-beveiligingspakket <br> Download Windows Server 2012 R2 |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS-updates-pakket <br> Download Windows Server 2012 R2 |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 U moet mogelijk ook installeren van updates van de schijffirmware boven op alle updates die wordt weergegeven in de voorgaande tabellen. U kunt controleren of u de schijf firmware-updates door te voeren moet de `Get-HcsFirmwareVersion` cmdlet. Als u deze firmwareversies: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, en u niet hoeft om deze updates te installeren.
 

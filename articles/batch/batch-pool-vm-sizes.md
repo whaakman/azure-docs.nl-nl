@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 06/11/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 033e0865f23034b94e3133e0ba5890eca4e746ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080879"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-pool
 
@@ -28,60 +28,54 @@ Wanneer u een knooppuntgrootte voor een Azure Batch-pool selecteert, kunt u kiez
 
 Er zijn enkele uitzonderingen en beperkingen voor het kiezen van een VM-grootte:
 
-* Sommige families van de virtuele machine of VM-grootten worden niet ondersteund in Batch. 
+* Sommige-serie VM's of VM-grootten worden niet ondersteund in Batch.
 * Enkele VM-grootten zijn beperkt en moeten specifiek worden ingeschakeld voordat ze kunnen worden toegewezen.
 
-## <a name="supported-vm-families-and-sizes"></a>Ondersteunde VM-reeksen en grootten
+## <a name="supported-vm-series-and-sizes"></a>Ondersteunde VM-reeksen en grootten
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Toepassingen in virtuele-machineconfiguratie
 
-Batch-pools in de configuratie van de virtuele Machine ondersteuning voor alle VM-grootten ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)) *behalve* voor het volgende:
+Batch-pools in de configuratie van de virtuele Machine ondersteunen bijna alle VM-grootten ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Zie de volgende tabel voor meer informatie over ondersteunde grootten en -beperkingen.
 
-| Gezin  | Niet-ondersteunde grootten  |
-|---------|---------|
-| Basic A-serie | Basic_A0 (A0) |
-| A-serie | Standard_A0 |
-| B-serie | Alle |
-| DC-serie | Alle |
-| Extreme geoptimaliseerd voor geheugen | Alle |
-| HB-serie<sup>1,2</sup> | Alle |
-| Hc-series<sup>1,2</sup> | Alle |
-| Lsv2-serie | Alle |
-| NDv2-serie<sup>1,2</sup> | Alle |
-| NVv2-series<sup>1</sup> | Alle |
-| SAP HANA | Alle |
+Aanbiedingen of VM-grootten van een Preview-versie niet wordt vermeld, zijn niet gegarandeerd voor ondersteuning.
 
+| VM-reeks  | Ondersteunde grootten | Groepstoewijzingsmodus is ingesteld op batch-account<sup>1</sup> |
+|------------|---------|-----------------|
+| Basic A-serie | Alle grootten *behalve* Basic_A0 (A0) | Alle |
+| A-serie | Alle grootten *behalve* Standard_A0 | Alle |
+| Av2-serie | Alle grootten | Alle |
+| B-serie | Geen | Niet beschikbaar |
+| DC-serie | Geen | Niet beschikbaar |
+| Dv2, Dsv2-serie | Alle grootten | Alle |
+| Dv3, Dsv3-serie | Alle grootten | Alle |
+| [Geoptimaliseerd voor geheugen-grootten](../virtual-machines/linux/sizes-memory.md) | Geen | Niet beschikbaar |
+| Fsv2-serie | Alle grootten | Alle |
+| H-serie | Alle grootten | Alle |
+| Hb-serie | Alle grootten | Modus Gebruikersabonnement |
+| Hc-serie | Alle grootten | Modus Gebruikersabonnement |
+| Ls-serie | Alle grootten | Alle |
+| Lsv2-serie | Geen | Niet beschikbaar |
+| M-serie | Standard_M64ms (met lage prioriteit alleen), Standard_M128s (met lage prioriteit alleen) | Alle |  
+| NCv2-series<sup>2</sup> | Alle grootten | Alle |
+| NCv3-series<sup>2</sup> | Alle grootten | Alle |
+| ND-serie<sup>2</sup> | Alle grootten | Alle |
+| NDv2-serie | Alle grootten | Modus Gebruikersabonnement |
+| NV-serie | Alle grootten | Alle |
+| NVv3-serie | Geen | Niet beschikbaar |
+| SAP HANA | Geen | Niet beschikbaar |
 
-<sup>1</sup> gepland voor ondersteuning.  
-<sup>2</sup> kan worden gebruikt door Batch-accounts in de gebruikersabonnementmodus; de gebruikersabonnementmodus Batch-account moet beschikken over het quotum voor kerngeheugens instellen. Zie [configuratie voor de gebruikersabonnementmodus](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) voor meer informatie.
+<sup>1</sup> sommige nieuwere VM-reeksen gedeeltelijk in eerste instantie worden ondersteund. Deze VM-serie kan worden toegewezen door de Batch-accounts waarvoor de **pooltoewijzingsmodus** ingesteld op **gebruikersabonnement**. Zie [beheren van Batch-accounts](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) voor meer informatie over de configuratie van de Batch-account. Zie [quota en limieten](batch-quota-limit.md) voor meer informatie over het aanvragen van het quotum voor deze VM-serie voor gedeeltelijk ondersteund **gebruikersabonnement** Batch-accounts.  
 
-De volgende VM-grootten worden alleen ondersteund voor knooppunten met lage prioriteit:
-
-| Gezin  | Ondersteunde grootten  |
-|---------|---------|
-| M-serie | Standard_M64ms |
-| M-serie | Standard_M128s |
-
-Andere VM-grootten in de M-serie zijn momenteel niet ondersteund.
+<sup>2</sup> deze VM-grootten in Batch-pools in de configuratie virtuele Machine wordt toegewezen, maar u moet een specifieke vragen [verhoging](batch-quota-limit.md#increase-a-quota).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Groepen in de Cloud-serviceconfiguratie
 
-Batch-pools in de Cloud-serviceconfiguratie ondersteunen alle [VM-grootten voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md) *behalve* voor het volgende:
+Batch-pools in de Cloud-serviceconfiguratie ondersteunen alle [VM-grootten voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md) **behalve** voor het volgende:
 
-| Gezin  | Niet-ondersteunde grootten  |
-|---------|---------|
-| A-serie | ExtraSmall |
+| VM-reeks  | Niet-ondersteunde grootten |
+|------------|-------------------|
+| A-serie   | Extra klein       |
 | Av2-serie | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
-
-## <a name="restricted-vm-families"></a>Beperkte VM-families
-
-De volgende VM-families kunnen worden toegewezen in Batch-pools, maar u moet een bepaalde verhoging aanvragen (Zie [in dit artikel](batch-quota-limit.md#increase-a-quota)):
-
-* NCv2-serie
-* NCv3-serie
-* ND-serie
-
-Deze grootten kunnen alleen worden gebruikt in toepassingen in de configuratie van de virtuele Machine.
 
 ## <a name="size-considerations"></a>Overwegingen voor grootte
 
@@ -89,7 +83,7 @@ Deze grootten kunnen alleen worden gebruikt in toepassingen in de configuratie v
 
 * **Taken per knooppunt** -meestal selecteert u een knooppunt in de veronderstelling dat één taak tegelijk op een knooppunt wordt uitgevoerd. Echter, is het mogelijk nuttig om meerdere taken (en waarbij meerdere toepassingsinstanties) [parallel uit voeren](batch-parallel-node-tasks.md) op rekenknooppunten tijdens het uitvoeren van taak. Het is in dit geval kiest u de grootte van een multicore knooppunt aan de toegenomen vraag van de uitvoering van de parallelle taak.
 
-* **Laden van prestatieniveaus voor verschillende taken** -alle knooppunten in een pool zijn even groot is. Als u toepassingen met verschillende systeemvereisten en/of workloadniveaus wilt uitvoeren, moet u afzonderlijke pools maken. 
+* **Laden van prestatieniveaus voor verschillende taken** -alle knooppunten in een pool zijn even groot is. Als u toepassingen met verschillende systeemvereisten en/of workloadniveaus wilt uitvoeren, moet u afzonderlijke pools maken.
 
 * **Beschikbaarheid in regio** -een VM-reeks of de grootte mogelijk niet beschikbaar in de regio's waar u uw Batch-accounts maken. Als u wilt controleren of een grootte beschikbaar is, Zie [producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
 

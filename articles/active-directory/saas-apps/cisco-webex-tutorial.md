@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900079"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex vergaderingen
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van Cisco Webex vergaderingen in Azure A
 
 **Als u wilt toevoegen Cisco Webex vergaderingen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Cisco Webex vergaderingen, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van Cisco Webex vergaderingen Single Sign-On](#configure-cisco-webex-meetings-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Cisco Webex vergaderingen testgebruiker maken](#create-cisco-webex-meetings-test-user)**  : als u wilt een equivalent van Britta Simon in Cisco Webex vergaderingen die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

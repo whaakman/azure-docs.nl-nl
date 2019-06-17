@@ -9,16 +9,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 53b9f8fb58a6e70a4bd2cd02adb9ce824466d7de
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059729"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Back-up van systeemstatus oplossen
 
 Dit artikel wordt beschreven oplossingen voor problemen die u tegenkomen kunt tijdens het gebruik van systeemstatusback-up.
+
+## <a name="basic-troubleshooting"></a>Eenvoudige probleemoplossing
+Is het beter om u de onderstaande validatie, voordat u begint het oplossen van de systeemstatusback-up:
+
+- [Zorg ervoor dat Microsoft Azure Recovery Services Agent (MARS) is bijgewerkt](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Zorg ervoor dat er netwerkverbinding is tussen de MARS-agent en Azure](https://aka.ms/AB-A4dp50)
+- Controleer of Microsoft Azure Recovery Services wordt uitgevoerd (in Service-console). Indien nodig kunt u de services opnieuw starten en de bewerking nogmaals proberen
+- [Zorg ervoor dat er 5-10% ruimte vrij is op de locatie van de scratch-map](https://aka.ms/AB-AA4dwtt)
+- [Controleer of er geen ander proces of antivirussoftware conflicten veroorzaakt met Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [Geplande back-up mislukt, maar handmatige back-up werkt](https://aka.ms/ScheduledBackupFailManualWorks)
+- Zorg ervoor dat uw besturingssysteem helemaal is bijgewerkt
+- [Zorg ervoor dat niet-ondersteunde schijven en bestanden met niet-ondersteunde kenmerken zijn uitgesloten van back-up](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Zorg ervoor dat de **systeemklok** op de beveiligde computer is geconfigureerd voor de juiste tijdzone <br>
+- [Zorg ervoor dat op de server ten minste .Net Framework-versie 4.5.2 of hoger is geïnstalleerd](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- Als u probeert om **uw server opnieuw te registreren** bij een kluis, moet u: <br>
+  - Ervoor zorgen dat de agent wordt verwijderd op de server en uit de portal <br>
+  - Dezelfde wachtwoordzin gebruiken die in eerste instantie is gebruikt voor het registreren van de server <br>
+- Zorg ervoor dat Azure PowerShell versie 3.7.0 op zowel de bron-en de kopie is geïnstalleerd voordat u offline back-upbewerking een offline back-up
+- [Overweging bij het backup-agent wordt uitgevoerd op een virtuele machine van Azure](https://aka.ms/AB-AA4dwtr)
+
+### <a name="limitation"></a>Beperking
+- Het herstellen van bestanden naar andere hardware met behulp van systeemstatusherstel wordt niet aanbevolen door Microsoft
+- De systeemstatusback-up ondersteunt momenteel 'on-premises Windows-servers, deze functionaliteit is niet beschikbaar voor virtuele Azure-machines.
 
 ## <a name="pre-requisite"></a>Vereiste
 

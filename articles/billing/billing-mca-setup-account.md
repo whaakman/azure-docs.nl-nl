@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919153"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Instellen van uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
@@ -81,7 +81,7 @@ U kunt de enterprise-beheerders van de inschrijving om de instellingen van uw fa
 
 De gebruiker in uw organisatie, die de klant Microsoft overeenkomst ondertekend wordt toegevoegd als de eigenaar van het profiel voor facturering. Vraag de gebruiker toe te voegen als een eigenaar zodat u de installatie kunt uitvoeren.  <!-- Todo Are there any next steps -->
 
-## <a name="understand-changes-to-your-billing-hierarchy"></a>Inzicht in wijzigingen in uw factureringshiërarchie
+## <a name="understand-changes-to-your-billing-hierarchy"></a>Informatie over wijzigingen in uw hiërarchie van facturering
 
 Uw nieuwe factureringsrekening vereenvoudigt de facturering voor uw organisatie terwijl u verbeterde facturering en beheermogelijkheden voor kosten. Het volgende diagram wordt uitgelegd hoe de facturering wordt georganiseerd in het nieuwe account voor facturering.
 
@@ -271,7 +271,7 @@ Enterprise-beheerders kunnen worden weergegeven als het profiel eigenaren bij de
 
 Enterprise-beheerders en beheerders van de afdeling worden weergegeven als eigenaren van de sectie factuur of factuur sectie lezers terwijl eigenaars van de afdeling worden weergegeven als de makers van Azure-abonnement. Herhaal de stap voor alle factuur secties om te controleren of de toegang voor alle afdelingen in uw Enterprise Agreement-inschrijving. Eigenaars die deel uitmaken van een afdeling niet krijgen toestemming voor de gedeelte van een factuur met de naam **factuur standaardsectie**. Als u denkt dat de toegang voor alle beheerders ontbreekt dat, kunt u hen toegang geven in de Azure-portal. Zie voor meer informatie, [facturering rollen in Azure portal beheren](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 

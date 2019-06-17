@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61418822"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple Virtual Array - inrichten in VMware implementeren
@@ -131,7 +131,7 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 18. Op de **versie van de virtuele Machine** weergeeft, schakelt **versie van de virtuele Machine: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. Op de **Gast-besturingssysteem** weergeeft, schakelt de **Gast-besturingssysteem** als **Windows**. Voor **versie**, in de vervolgkeuzelijst, selecteer **Microsoft Windows Server 2012 (64-bits)**.
+19. Op de **Gast-besturingssysteem** weergeeft, schakelt de **Gast-besturingssysteem** als **Windows**. Voor **versie**, in de vervolgkeuzelijst, selecteer **Microsoft Windows Server 2012 (64-bits)** .
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. Op de **CPU's** pagina, aanpassen de **aantal virtuele sockets** en **aantal kernen per virtuele socket** zodat de **totale aantal kernen** is 4 (of meer). Klik op **volgende**.
@@ -158,7 +158,7 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 27. Op de pagina **Gereed om te voltooien** controleert u alle instellingen voor de nieuwe virtuele machine. Controleer **bewerken van de instellingen van de virtuele machine voor voltooiing**. Klik op **Doorgaan**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Op de **eigenschappen van virtuele Machines** pagina, in de **Hardware** tabblad, Ga naar het apparaat. Selecteer **nieuwe vaste schijf**. Klik op **Add**.
+28. Op de **eigenschappen van virtuele Machines** pagina, in de **Hardware** tabblad, Ga naar het apparaat. Selecteer **nieuwe vaste schijf**. Klik op **Toevoegen**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. U ziet een **Hardware toevoegen** venster. Op de **apparaattype** pagina onder **Kies het type apparaat dat u wilt toevoegen**, selecteer **harde schijf**, en klikt u op **volgende**.

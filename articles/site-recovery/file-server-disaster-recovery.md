@@ -9,10 +9,10 @@ ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772136"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Een bestandsserver beveiligen met behulp van Azure Site Recovery 
@@ -58,13 +58,13 @@ De volgende diagrammen helpen u te bepalen welke strategie u moet gebruiken voor
 |---------|---------|---------|
 |Bestandsserveromgeving met of zonder DFSR|   [Site Recovery gebruiken voor replicatie](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery biedt geen ondersteuning voor schijfclusters of NAS (Network Attached Storage). Als deze configuraties worden gebruikt in uw omgeving, kiest u een van de andere methoden, zoals toepasselijk is. <br> Site Recovery biedt geen ondersteuning voor SMB 3.0. De gerepliceerde VM bevat alleen wijzigingen in bestanden die zijn bijgewerkt op de oorspronkelijke locatie van de bestanden.
 |Bestandsserveromgeving met DFSR     |  [DFSR uitbreiden naar een virtuele Azure IaaS-machine](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR werkt goed in omgevingen waarin de bandbreedte extreem is beperkt. Voor deze aanpak is vereist dat een Azure-VM de hele tijd actief is. U moet in uw planning rekening houden met de kosten van de VM.         |
-|Azure IaaS-VM     |     File Sync    |     Als u File Sync gebruikt in een noodherstelscenario, moet u tijdens failover handmatige acties uitvoeren om ervoor te zorgen dat de bestandsshares op een transparante manier toegankelijk zijn voor de clientcomputer. Voor File Sync is vereist dat poort 445 open is op de clientcomputer.     |
+|Azure IaaS VM     |     File Sync    |     Als u File Sync gebruikt in een noodherstelscenario, moet u tijdens failover handmatige acties uitvoeren om ervoor te zorgen dat de bestandsshares op een transparante manier toegankelijk zijn voor de clientcomputer. Voor File Sync is vereist dat poort 445 open is op de clientcomputer.     |
 
 
 ### <a name="site-recovery-support"></a>Ondersteuning voor Site Recovery
 Omdat Site Recovery-replicatie toepassingsagnostisch is, is de verwachting dat deze aanbevelingen gelden voor de volgende scenario’s.
 
-| Bron    |Op een secundaire site    |In Azure
+| source    |Op een secundaire site    |In Azure
 |---------|---------|---------|
 |Azure| -|Ja|
 |Hyper-V|   Ja |Ja

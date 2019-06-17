@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65916960"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Het gebruik van aangepaste toewijzingsbeleid
@@ -102,7 +102,7 @@ In deze sectie maakt u een nieuwe registratiegroep die gebruikmaakt van de aange
 
     **Sleutels automatisch genereren**: Dit selectievakje moet nog worden gecontroleerd.
 
-    **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **aangepast (Gebruik de Azure-functie)**.
+    **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **aangepast (Gebruik de Azure-functie)** .
 
     ![Aangepaste toewijzing registratiegroep voor attestation-symmetrische sleutel toevoegen](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -404,7 +404,7 @@ In deze sectie maakt u een voorbeeld van een inrichten met de naam bijwerken **p
 
 Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanvraag voor inrichting worden verzonden naar uw Device Provisioning Service-exemplaar. De opstartvolgorde zorgt ervoor dat het apparaat toaster worden herkend en toegewezen aan de IoT-hub met behulp van de aangepaste toewijzingsbeleid.
 
-1. Selecteer in Azure Portal het tabblad **Overzicht** voor uw Device Provisioning-service en noteer de waarde van het **_Id-bereik_**.
+1. Selecteer in Azure Portal het tabblad **Overzicht** voor uw Device Provisioning-service en noteer de waarde van het **_Id-bereik_** .
 
     ![Device Provisioning Service-eindpuntgegevens uit de portalblade extraheren](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

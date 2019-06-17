@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 4b166ded3dcef4a89951eb81f7f1b321f89a0e67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153401"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Over het maken en configureren van Azure Integration Runtime

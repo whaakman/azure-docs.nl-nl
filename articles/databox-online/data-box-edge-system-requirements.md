@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756542"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box-Edge-systeemvereisten
@@ -60,7 +60,7 @@ Gebruik de volgende tabel voor de configuratie van de poort voor de servers die 
 
 | Poort niet. | In- of uitschalen | Poort-bereik | Vereist | Richtlijnen |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Uit       | WAN        | Ja      | Uitgaande open voor IoT Edge wordt ingericht. Deze configuratie is vereist bij het gebruik van handmatige scripts of Azure IoT Device Provisioning Service (DPS).|
+| TCP 443 (HTTPS)| out       | WAN        | Ja      | Uitgaande open voor IoT Edge wordt ingericht. Deze configuratie is vereist bij het gebruik van handmatige scripts of Azure IoT Device Provisioning Service (DPS).|
 
 Voor meer informatie gaat u naar [Firewall en configuratieregels poort voor de implementatie van IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

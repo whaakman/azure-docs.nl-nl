@@ -13,10 +13,10 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900516"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetrie van aanvraag: Application Insights-gegevensmodel
@@ -39,23 +39,23 @@ Id van een exemplaar van de aanroep van aanvraag. Gebruikt voor correlatie tusse
 
 Maximumlengte: 128 tekens
 
-## <a name="url"></a>URL
+## <a name="url"></a>Url
 
 Aanvraag-URL met alle queryreeksparameters.
 
 Maximumlengte: 2048 tekens
 
-## <a name="source"></a>Bron
+## <a name="source"></a>source
 
 De bron van de aanvraag. Voorbeelden hiervan zijn de instrumentatiesleutel van de oproepende functie of het ip-adres van de oproepende functie. Zie voor meer informatie, [correlatie](../../azure-monitor/app/correlation.md) pagina.
 
 Maximumlengte: 1024 tekens
 
-## <a name="duration"></a>Duur
+## <a name="duration"></a>Duration
 
 Duur in de indeling van aanvraag: `DD.HH:MM:SS.MMMMMM`. Moet positief en kleiner dan `1000` dagen. Dit veld is verplicht als aanvraagtelemetrie Hiermee geeft u de bewerking opnieuw uit met de begin- en het einde.
 
-## <a name="response-code"></a>Antwoordcode
+## <a name="response-code"></a>Responscode
 
 Resultaat van een aanvraag kan worden uitgevoerd. HTTP-statuscode voor HTTP-aanvragen. Kan het zijn `HRESULT` type waarde of een uitzondering voor andere aanvraagtypen.
 

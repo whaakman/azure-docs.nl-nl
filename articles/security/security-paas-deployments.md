@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231115"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
@@ -115,10 +115,10 @@ De volgende tabel geeft een lijst van de STRIDE-bedreigingen en enkele voorbeeld
 | --- | --- | --- |
 | Adresvervalsing (spoofing) | Verificatie | HTTPS-verbindingen vereisen. |
 | Manipulatie | Gegevensintegriteit | Valideer de SSL-certificaten. |
-| Afwijzing | Geen weerlegbaarheid | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
+| Afwijzing | Niet-afwijzing | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Openbaarmaking van informatie | Vertrouwelijkheid | Gevoelige gegevens in rust versleutelen met behulp van [service-certificaten](https://docs.microsoft.com/rest/api/appservice/certificates). |
-| Denial of service | Beschikbaarheid | Prestatiegegevens mogelijke situaties waarbij een denial-of-service controleren. Verbindingsfilters implementeren. |
-| Verhoging van bevoegdheden | Autorisatie | Gebruik [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
+| DOS-aanval | Beschikbaarheid | Prestatiegegevens mogelijke situaties waarbij een denial-of-service controleren. Verbindingsfilters implementeren. |
+| Misbruik van bevoegdheden | Autorisatie | Gebruik [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Ontwikkelen op Azure App Service
 [Azure App Service](../app-service/overview.md) is een product met PaaS kunt u web- en mobiele apps voor elk platform of apparaat maken en verbinding maken met gegevens waar dan ook, in de cloud of on-premises. App Service bevat de web- en mobiele mogelijkheden die zijn eerder afzonderlijk verkrijgbaar waren in Azure Websites en Azure Mobile Services. Deze service bevat ook nieuwe mogelijkheden voor het automatiseren van bedrijfsprocessen en het hosten van cloud-API's. Als een geïntegreerde service heeft App Service een uitgebreide set mogelijkheden voor het web, mobiele en integratiescenario's.
@@ -169,7 +169,7 @@ In dit artikel richten we ons op beveiligingsvoordelen van een Azure PaaS-implem
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database en Azure SQL datawarehouse](security-paas-applications-using-sql.md)
 - [Azure Storage](security-paas-applications-using-storage.md)
-- Azure-cache voor Redis
+- Azure Cache voor Redis
 - Azure Service Bus
 - Web Application Firewalls
 

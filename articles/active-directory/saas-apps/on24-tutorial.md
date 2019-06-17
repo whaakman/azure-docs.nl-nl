@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 801a631b56a11e68c444ede846ff82195cd7627f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870696"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Zelfstudie: Azure Active Directory-integratie met ON24 virtuele omgeving SAML-verbinding
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van ON24 virtuele omgeving SAML verbindi
 
 **Als u wilt toevoegen ON24 virtuele omgeving SAML verbinding uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met ON24 virtuele omgeving SAML-verbinding, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureer ON24 virtuele omgeving SAML verbinding Single Sign-On](#configure-on24-virtual-environment-saml-connection-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maak ON24 virtuele omgeving SAML verbinding testgebruiker](#create-on24-virtual-environment-saml-connection-test-user)**  : als u wilt een equivalent van Britta Simon in ON24 virtuele omgeving SAML-verbinding die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412819"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Problemen met een app in Azure App Service met behulp van Visual Studio oplossen
@@ -233,7 +233,7 @@ Foutopsporing op afstand werkt alleen met doorlopende webtaken. Geplande en on-d
 
 16. Klik op de naam van de functie voor informatie over de functie wordt uitgevoerd.
 
-     ![Functiedetails](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
+     ![Details van functie](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
 Als uw functie [Logboeken geschreven](https://github.com/Azure/azure-webjobs-sdk/wiki), kunt u op **ToggleOutput** te zien.
 
@@ -684,7 +684,7 @@ Moet u ook geen gebruik van ASP.NET of `System.Diagnostics` voor het ophalen van
 Zie de volgende bronnen voor meer informatie over het analyseren van weblogboeken server:
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Een hulpprogramma voor het weergeven van gegevens in webserverlogboeken (*.log* bestanden).
+  Een hulpprogramma voor het weergeven van gegevens in webserverlogboeken ( *.log* bestanden).
 * [Het oplossen van prestatieproblemen voor IIS of met behulp van LogParser toepassingsfouten](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Een inleiding tot het hulpprogramma Logboekparser die u gebruiken kunt voor het analyseren van weblogboeken-server.
 * [Blog van Robert McMurray over het gebruik van LogParser plaatst.](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

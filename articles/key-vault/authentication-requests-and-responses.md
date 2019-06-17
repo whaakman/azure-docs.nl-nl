@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 4160d6ce324cf419cd4b9a61b68bb39b0443321c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694724"
 ---
 # <a name="authentication-requests-and-responses"></a>Verificatie, vragen en antwoorden
@@ -51,7 +51,7 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
  Tenzij anders vermeld in de beschrijving van de bewerking, moet de Accept-header voor aanvraag voor het mediatype application/json bevatten.  
 
-## <a name="response-body"></a>Hoofdtekst van de reactie  
+## <a name="response-body"></a>De hoofdtekst van antwoord  
  Tenzij anders vermeld in de beschrijving van de bewerking, wordt het antwoord hoofdtekst-inhoudstype van geslaagde en mislukte bewerkingen worden application/json en bevat gedetailleerde foutgegevens.  
 
 ## <a name="using-http-post"></a>Met behulp van HTTP POST  

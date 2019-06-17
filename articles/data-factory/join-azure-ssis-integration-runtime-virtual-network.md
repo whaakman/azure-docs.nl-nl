@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152899"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
@@ -110,12 +110,12 @@ Zie voor meer informatie, [naamomzetting die gebruikmaakt van uw eigen DNS-serve
 ### <a name="nsg"></a> Netwerkbeveiligingsgroep
 Als u nodig hebt voor het implementeren van een netwerkbeveiligingsgroep (NSG) voor het subnet dat wordt gebruikt door uw Azure-SSIS integratieruntime, kunt u binnenkomend en uitgaand verkeer via de volgende poorten: 
 
-| Direction | Transportprotocol | Source | Poortbereik van bron | Bestemming | Poortbereik van doel | Opmerkingen |
+| Direction | Transportprotocol | source | Poortbereik van bron | Bestemming | Poortbereik van doel | Opmerkingen |
 |---|---|---|---|---|---|---|
 | Inkomend | TCP | AzureCloud<br/>(of een groter bereik, zoals Internet) | * | VirtualNetwork | 29876, 29877 (als u de IR aan een virtueel netwerk van Azure Resource Manager toevoegen) <br/><br/>10100, 20100, 30100 (als u de IR aan een klassiek virtueel netwerk toevoegen)| De Data Factory-service gebruikt deze poorten om te communiceren met de knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk. <br/><br/> Of u een NSG op subnetniveau of niet maakt, Data Factory altijd Hiermee configureert u een NSG op het niveau van de netwerkinterfacekaarten (NIC's) die is gekoppeld aan de virtuele machines die als host fungeren van de Azure-SSIS-IR. Alleen inkomend verkeer van Data Factory-IP-adressen op de opgegeven poorten is toegestaan door deze NSG NIC-niveau. Zelfs als u deze poorten voor verkeer van Internet op het subnetniveau opent, wordt verkeer van IP-adressen die geen Data Factory-IP-adressen wordt geblokkeerd op NIC-niveau. |
-| Uitgaand | TCP | VirtualNetwork | * | AzureCloud<br/>(of een groter bereik, zoals Internet) | 443 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk gebruiken deze poort voor toegang tot Azure-services, zoals Azure Storage en Azure Event Hubs. |
-| Uitgaand | TCP | VirtualNetwork | * | Internet | 80 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk gebruikt deze poort certificaatintrekkingslijst downloaden van Internet. |
-| Uitgaand | TCP | VirtualNetwork | * | SQL<br/>(of een groter bereik, zoals Internet) | 1433, 11000-11999, 14000-14999 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerkgebruik deze poorten voor toegang tot SSISDB wordt gehost door uw Azure SQL Database-server, dit doel is niet van toepassing op SSISDB wordt gehost door beheerde exemplaar. |
+| Uitgaande | TCP | VirtualNetwork | * | AzureCloud<br/>(of een groter bereik, zoals Internet) | 443 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk gebruiken deze poort voor toegang tot Azure-services, zoals Azure Storage en Azure Event Hubs. |
+| Uitgaande | TCP | VirtualNetwork | * | Internet | 80 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk gebruikt deze poort certificaatintrekkingslijst downloaden van Internet. |
+| Uitgaande | TCP | VirtualNetwork | * | SQL<br/>(of een groter bereik, zoals Internet) | 1433, 11000-11999, 14000-14999 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerkgebruik deze poorten voor toegang tot SSISDB wordt gehost door uw Azure SQL Database-server, dit doel is niet van toepassing op SSISDB wordt gehost door beheerde exemplaar. |
 ||||||||
 
 ### <a name="route"></a> Gebruik Azure ExpressRoute of de gebruiker gedefinieerde Route
@@ -185,7 +185,7 @@ U moet een virtueel netwerk configureren voordat u een Azure-SSIS IR aan deze to
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
-1. Selecteer **meer services**. Filter en selecteer **virtuele netwerken (klassiek)**. 
+1. Selecteer **meer services**. Filter en selecteer **virtuele netwerken (klassiek)** . 
 
 1. Filter en selecteer het virtuele netwerk in de lijst. 
 

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
 ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61483030"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health oplossen met connectiviteit voor Azure SQL Database gebruiken

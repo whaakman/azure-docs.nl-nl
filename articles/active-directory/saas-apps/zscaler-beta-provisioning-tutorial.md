@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 54cf2924a94dda1d29baf048c866f019b82e1402
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050028"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Zelfstudie: Zscaler bèta configureren voor het automatisch inrichten van gebruikers
 
@@ -49,7 +49,7 @@ Voordat u Zscaler bèta configureert voor automatisch gebruikers inrichten met A
 
 **Als u wilt toevoegen Zscaler bèta van de Azure AD-toepassingsgalerie, kunt u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
