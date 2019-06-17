@@ -1,0 +1,15 @@
+- name: Documentatie over het ontwikkelen van beveiligde toepassingen
+  href: index.yml
+- name: Concepten
+  expanded: true
+  items:
+    - name: Aanbevolen procedures
+      items:
+        - name: Overzicht
+          href: secure-dev-overview.md
+        - name: Beveiligde apps ontwerpen
+          href: secure-design.md
+        - name: Beveiligde apps ontwikkelen
+          href: secure-develop.md
+        - name: Beveiligde apps implementeren
+          href: secure-deploy.md

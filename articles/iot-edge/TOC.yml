@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: Gegevens lokaal opslaan met SQL
           href: tutorial-store-data-sql-server.md
+    - name: 4. Integraal voorbeeld van machine learning aan de rand
+      items:
+        - name: Inleiding
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: Ontwikkelcomputer en Azure-services instellen
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: Gesimuleerde apparaatgegevens genereren
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Een Azure Machine Learning-model trainen en implementeren
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: Een transparante gateway configureren
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: IoT Edge-modules maken en implementeren
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: Gegevens naar IoT Hub verzenden via een transparante gateway
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Concepten
   items:
     - name: IoT Edge-runtime
@@ -149,6 +165,8 @@
       items:
         - name: Een transparante gateway configureren
           href: how-to-create-transparent-gateway.md
+        - name: Een downstream-apparaat verifiëren
+          href: how-to-authenticate-downstream-device.md
         - name: Verbinding maken met een downstream-apparaat
           href: how-to-connect-downstream-device.md
         - name: Modbus-protocolgateway

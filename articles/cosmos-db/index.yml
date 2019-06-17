@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: Azure Cosmos DB-API voor MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: <p>Gebruik de tabel-API als u gegevens van Azure Table Storage migreert naar het premium tabelaanbod van Azure Cosmos DB.</p>
-            image:
-              src: media/index/table-api.svg
-            title: Tabel-API
           - href: /azure/cosmos-db/cassandra-introduction/
             html: <p>Gebruik de Cassandra-API als u gegevens van Cassandra migreert naar de volledig beheerde service van Azure Cosmos DB.</p>
             image:
               src: media/index/cassandra-api.png
             title: Cassandra-API
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>Gebruik de tabel-API als u gegevens van Azure Table Storage migreert naar het premium tabelaanbod van Azure Cosmos DB.</p>
+            image:
+              src: media/index/table-api.svg
+            title: Tabel-API
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Gebruik de ingebouwde ondersteuning voor Apache Spark om analyses uit te voeren op gegevens die zijn opgeslagen in een Azure Cosmos-account. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Ingebouwde analyse met Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: <p>Voer realtime analyses uit met de wijzigingenfeed door de gesorteerde lijst met documenten binnen een Azure Cosmos DB-container te lezen in de volgorde waarin de documenten zijn gewijzigd. </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: Feed wijzigen
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: <p> Met de Etcd-API kunt u Azure Cosmos DB gebruiken als backend-archief voor Azure Kubernetes.</p>
+            image:
+              src: media/index/etcd-logo.png
+            title: Etcd-API
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph

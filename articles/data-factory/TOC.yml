@@ -486,6 +486,8 @@
           href: control-flow-expression-language-functions.md
         - name: Systeemvariabelen
           href: control-flow-system-variables.md
+        - name: Gegevensstroomparameters
+          href: parameters-data-flow.md
     - name: Beveiliging
       items:
         - name: Beveiligingsoverwegingen bij het verplaatsen van gegevens
@@ -516,7 +518,7 @@
       items:
         - name: Azure Integration Runtime
           href: create-azure-integration-runtime.md
-        - name: Zelf-hostende integratie-runtime
+        - name: Zelf-hostende Integration Runtime
           href: create-self-hosted-integration-runtime.md
         - name: Azure-SSIS-integratie-runtime
           href: create-azure-ssis-integration-runtime.md
@@ -546,6 +548,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: SSISDB-logboeken opschonen met taken voor Elastic Database
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Problemen met het uitvoeren van pakketten in Azure-SSIS IR oplossen
+          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Triggers maken
       items:
         - name: Een trigger op basis van gebeurtenissen maken

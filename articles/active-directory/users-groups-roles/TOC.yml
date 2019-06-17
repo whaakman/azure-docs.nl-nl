@@ -116,7 +116,7 @@
           href: licensing-groups-change-licenses.md
         - name: Overige scenario's
           href: licensing-group-advanced.md
-        - name: Groepslicenties met PowerShell
+        - name: Groepslicenties met PowerShell en Graph
           href: licensing-ps-examples.md
         - name: Serviceplan-id's voor licentieverlening
           href: licensing-service-plan-reference.md

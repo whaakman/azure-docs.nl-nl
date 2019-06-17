@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie over het ontwikkelen van beveiligde toepassingen
+metadata:
+  document_id: null
+  title: Documentatie over het ontwikkelen van beveiligde toepassingen in Microsoft Azure
+  meta.description: Learn how to develop secure apps on Azure.
+  services: security
+  author: TerryLanfear
+  manager: barbkess
+  ms.service: security
+  ms.subservice: develop
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/11/2019
+  ms.author: terrylan
+abstract:
+  description: 'Leer aan de hand van onze voorbeeld-apps, best practices en richtlijnen hoe u in Azure beveiligde toepassingen ontwikkelt en implementeert.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/security/develop/secure-dev-overview
+            html: <p>Een beveiligde webtoepassing ontwikkelen in Azure</p>
+            image:
+              src: /media/common/i_get-started.svg
+            title: Aan de slag
+          - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
+            html: <p>De vijf belangrijkste beveiligingsaspecten voor web-apps</p>
+            image:
+              src: /media/common/i_learn-about.svg
+            title: Uw vaardigheden ontwikkelen met Microsoft Learn
+  - title: Concepten
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-dev-overview">Best practices voor het ontwikkelen van beveiligde toepassingen</a>
+          - html: <a href="/azure/security/azure-security-threat-modeling-tool">Bedreigingsmodellen</a>

@@ -43,6 +43,8 @@
         - name: Offline-evaluatie
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: Schaalbaarheid en prestaties
+      href: concepts-scalability-performance.md
 - name: Handleidingen
   items:
     - name: Personalizer maken en configureren

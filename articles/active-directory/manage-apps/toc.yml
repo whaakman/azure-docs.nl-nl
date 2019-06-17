@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: Portals voor eindgebruikers
       href: end-user-experiences.md
+    - name: Eenmalige aanmelding met één klik
+      items:
+        - name: Wat is eenmalige aanmelding met één klik?
+          href: one-click-sso-tutorial.md
 - name: Handleidingen
   items:
     - name: Een cloud-app toevoegen

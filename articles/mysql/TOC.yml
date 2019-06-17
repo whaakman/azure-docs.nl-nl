@@ -89,12 +89,20 @@
           href: concepts-business-continuity.md
         - name: Back-ups en herstellen
           href: concepts-backup.md
-    - name: Controleren
+    - name: Controleren en afstemmen
       items:
-        - name: Controleren
+        - name: Controleren en afstemmen
           href: concepts-monitoring.md
-        - name: Serverlogboeken
+        - name: Logboeken voor langzame query's
           href: concepts-server-logs.md
+        - name: Auditlogboeken
+          href: concepts-audit-logs.md
+        - name: Query Store
+          href: concepts-query-store.md
+        - name: Inzicht in queryprestaties
+          href: concepts-query-performance-insight.md
+        - name: Aanbevelingen voor prestaties
+          href: concepts-performance-recommendations.md
     - name: Ontwikkeling
       items:
         - name: Compatibiliteit van stuurprogramma's en hulpprogramma's
@@ -165,10 +173,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Serverlogboeken openen
       items:
-        - name: Azure Portal
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure-CLI
-          href: howto-configure-server-logs-in-cli.md
+        - name: Logboeken voor langzame query's
+          items:
+            - name: Azure Portal
+              href: howto-configure-server-logs-in-portal.md
+            - name: Azure-CLI
+              href: howto-configure-server-logs-in-cli.md
+        - name: Auditlogboeken
+          items:
+            - name: Azure Portal
+              href: howto-configure-audit-logs-portal.md
     - name: Controleren
       items:
         - name: Waarschuwingen maken op basis van metrische gegevens

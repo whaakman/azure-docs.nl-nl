@@ -59,7 +59,7 @@
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Gezichten toevoegen
       href: Face-API-How-to-Topics/how-to-add-faces.md
-    - name: HeadPose gebruiken om rechthoeken te draaien
+    - name: Het kenmerk HeadPose gebruiken
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Een model voor gezichtsherkenning opgeven
       href: Face-API-How-to-Topics/specify-recognition-model.md

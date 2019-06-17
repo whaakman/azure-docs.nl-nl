@@ -139,6 +139,8 @@
                   href: scenario-protected-web-api-app-registration.md
                 - name: Codeconfiguratie
                   href: scenario-protected-web-api-app-configuration.md
+                - name: Verificatie van bereiken of app-rollen
+                  href: scenario-protected-web-api-verification-scope-app-roles.md
                 - name: Verplaatsen naar productie
                   href: scenario-protected-web-api-production.md
             - name: Web-API die web-API's aanroept

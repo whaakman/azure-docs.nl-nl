@@ -2,37 +2,51 @@
   href: index.md
 - name: Overzicht
   items:
-    - name: Wat is Azure Status?
+    - name: Azure Service Health-service
+      href: overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Waarschuwingen voor servicestatusgebeurtenissen configureren
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+- name: Concepten
+  items:
+    - name: Azure-statuspagina
       href: azure-status-overview.md
-    - name: Wat is Service Health?
+    - name: Service Health
       href: service-health-overview.md
-    - name: Wat is Resource Health?
+    - name: Status van resources
       href: resource-health-overview.md
 - name: Procedures
   items:
     - name: Waarschuwingen voor servicestatusgebeurtenissen configureren
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-      items:
-        - name: Servicestatusmeldingen bekijken met de Azure-portal
-          href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-    - name: Servicestatusmeldingen configureren met behulp van een webhook
+    - name: Servicestatusmeldingen bekijken met de Azure-portal
+      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    - name: Waarschuwingen naar externe systemen verzenden via een webhook
       href: service-health-alert-webhook-guide.md
-      items:
-        - name: Configureren met ServiceNow
-          href: service-health-alert-webhook-servicenow.md
-        - name: Configureren met PagerDuty
-          href: service-health-alert-webhook-pagerduty.md
-        - name: Configureren met OpsGenie
-          href: service-health-alert-webhook-opsgenie.md
-        - name: Statusgebeurtenissen ophalen met REST
-          href: service-health-rest.md
+    - name: Waarschuwingen verzenden naar ServiceNow
+      href: service-health-alert-webhook-servicenow.md
+    - name: Waarschuwingen verzenden naar PagerDuty
+      href: service-health-alert-webhook-pagerduty.md
+    - name: Waarschuwingen verzenden naar OpsGenie
+      href: service-health-alert-webhook-opsgenie.md
+    - name: Statusgebeurtenissen ophalen met REST
+      href: service-health-rest.md
     - name: Waarschuwingen voor resourcestatusgebeurtenissen configureren
       href: resource-health-alert-arm-template-guide.md
+- name: Naslaginformatie
+  items:
+    - name: Eigenschappen van servicestatusmeldingen
+      href: service-health-notifications-properties.md
+    - name: Resource Health-typen en -controles
+      href: resource-health-checks-resource-types.md
+    - name: Veelgestelde vragen over Resource Health
+      href: resource-health-faq.md
 - name: Resources
   items:
-    - name: Veelgestelde vragen
-      href: resource-health-faq.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: Prijscalculator
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Resourcetypen en statuscontroles die beschikbaar zijn via Azure Resource Health
-      href: resource-health-checks-resource-types.md
+    - name: Prijzen van meldingen
+      href: 'https://azure.microsoft.com/pricing/details/monitor/'

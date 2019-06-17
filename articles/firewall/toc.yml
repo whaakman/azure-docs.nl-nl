@@ -39,6 +39,8 @@
   items:
     - name: Implementeren met Azure PowerShell
       href: deploy-ps.md
+    - name: Implementeren met behulp van Azure CLI
+      href: deploy-cli.md
     - name: Implementeren met behulp van een sjabloon
       href: deploy-template.md
     - name: Integreren met load balancer

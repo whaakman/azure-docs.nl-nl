@@ -6,6 +6,11 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Aanvragen voor quotumverhoging
   href: resource-manager-core-quotas-request.md
+  items:
+    - name: De vCPU-limiet voor een VM-reeks verhogen
+      href: per-vm-quota-requests.md
+    - name: De algehele regionale vCPU-limiet verhogen
+      href: regional-quota-requests.md
 - name: Abonnementsproblemen gerelateerd aan de regio of de SKU oplossen
   href: sku-series-unavailable.md
 - name: Naslaginformatie

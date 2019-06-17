@@ -16,14 +16,14 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Leer hoe u de juiste balans vindt tussen beveiliging en productiviteit door voorwaardelijke toegang voor Azure AD te configureren. Met beleid voor voorwaardelijke toegang kunt u rekening houden met de manier waarop uw cloud-apps kunnen worden geopend als uw beslissingen voor toegang van toepassing zijn. U kunt bijvoorbeeld de volgende vragen opnemen in uw beslissingen voor toegang:<ul><li>Wat is de netwerklocatie van de gebruiker?</li><li>Is de toegangspoging gestart vanaf een beheerd apparaat?</li><li>Vanuit welke client-app is er geprobeerd verbinding te maken?</li><li>Is er een toegangspoging ondernomen door een riskante aanmelding?</li></ul>Met de volgende bronnen kunt u snel aan de slag.'
+  description: 'Leer hoe u de juiste balans vindt tussen beveiliging en productiviteit door voorwaardelijke toegang voor Azure AD te configureren. Met beleid voor voorwaardelijke toegang kunt u in uw toegangsgerelateerde beslissingen rekening houden met de manier waarop uw cloud-apps worden geopend. U kunt bijvoorbeeld de volgende vragen opnemen in uw beslissingen voor toegang:<ul><li>Wat is de netwerklocatie van de gebruiker?</li><li>Is de toegangspoging gestart vanaf een beheerd apparaat?</li><li>Vanuit welke client-app is er geprobeerd verbinding te maken?</li><li>Is er een toegangspoging ondernomen door een riskante aanmelding?</li></ul>Met de volgende bronnen kunt u snel aan de slag.'
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
-    title: Uitleg over voorwaardelijke toegang
+    title: Wat is voorwaardelijke toegang?
     href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
     width: 246
 sections:

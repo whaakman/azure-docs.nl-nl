@@ -74,8 +74,9 @@
     - name: Tenant-brede zichtbaarheid
       href: security-center-management-groups.md
     - name: Aanbevelingen voor beveiliging implementeren
-      href: security-center-recommendations.md
       items:
+        - name: Wat zijn aanbevelingen voor beveiliging?
+          href: security-center-recommendations.md
         - name: Beveiligingspostuur verbeteren
           href: security-center-monitoring.md
         - name: Uw machines en apps beschermen
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: Gebruikersgegevens beheren
       href: security-center-privacy.md
+    - name: IoT beheren
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: Veelgestelde vragen
       href: security-center-faq.md
     - name: Azure-beveiliging

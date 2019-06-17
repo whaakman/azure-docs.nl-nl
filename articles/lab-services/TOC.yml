@@ -50,6 +50,10 @@
       items:
         - name: DevTest Labs-concepten
           href: devtest-lab-concepts.md
+        - name: Best practices voor gedistribueerde en gemeenschappelijke ontwikkeling
+          href: best-practices-distributive-collaborative-development-environment.md
+        - name: Integratie met Azure DevOps
+          href: devtest-lab-dev-ops.md
         - name: Scenario's
           items:
             - name: Populaire scenario's voor het gebruik van DevTest Labs
@@ -92,6 +96,8 @@
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Verbinding met Extern bureaublad inschakelen voor Linux
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
+            - name: Wachtwoorden voor virtuele machines instellen of opnieuw instellen
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
     - name: DevTest Labs
       items:
         - name: Resourcegroep opgeven voor virtuele machines van het lab
@@ -106,6 +112,8 @@
           href: personal-data-delete-export.md
         - name: Virtuele machines importeren uit een ander lab
           href: import-virtual-machines-from-another-lab.md
+        - name: Een lab configureren voor gebruik van een Extern bureaublad-gateway
+          href: configure-lab-remote-desktop-gateway.md
         - name: Een fabrieksinstallatiekopie maken
           href: image-factory-create.md
           items:

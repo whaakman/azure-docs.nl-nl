@@ -16,7 +16,7 @@ metadata:
   ms.date: 09/14/2018
   ms.author: joflore
 abstract:
-  description: 'Kom erachter hoe het detecteren van mogelijk verdachte identiteiten werkt en hoe u automatische reacties kunt implementeren om deze aan te pakken. Azure Active Directory Identity Protection is een functie van de Premium P2-versie van Azure AD, waarmee u de volgende zaken kunt doen:<ul><li>Mogelijke beveiligingsproblemen detecteren met betrekking tot de identiteiten van uw organisatie</li><li>Beleid voor voorwaardelijke toegang configureren, waarbij automatisch wordt gereageerd op verdachte activiteit die zijn gerelateerd aan de identiteiten van uw organisatie</li><li>Verdachte incidenten onderzoeken en gepaste maatregelen treffen om deze problemen op te lossen</li></ul><br> Met de volgende bronnen kunt u snel aan de slag.'
+  description: 'Kom erachter hoe het detecteren van mogelijk verdachte identiteiten werkt en hoe u automatische reacties kunt implementeren om deze aan te pakken. Azure Active Directory Identity Protection is een functie van de Premium P2-versie van Azure AD, waarmee u de volgende zaken kunt doen:<ul><li>Mogelijke beveiligingsproblemen detecteren met betrekking tot de identiteiten van uw organisatie</li><li>Beleid voor voorwaardelijke toegang configureren, waarbij automatisch wordt gereageerd op verdachte activiteit die is gerelateerd aan de identiteiten van uw organisatie</li><li>Verdachte incidenten onderzoeken en gepaste maatregelen treffen om deze problemen op te lossen</li></ul><br> Met de volgende bronnen kunt u snel aan de slag.'
   aside:
     image:
       alt: null
@@ -30,7 +30,7 @@ sections:
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
-        text: Leer hoe u beleid voor aanmeldingsrisico’s configureert voor veelvoorkomende toegangsscenario's.
+        text: Leer hoe u beleid voor aanmeldingsrisico's configureert voor veelvoorkomende toegangsscenario's.
       - type: list
         style: icon48
         items:
