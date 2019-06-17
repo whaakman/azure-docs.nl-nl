@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 06/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 896680b38d6861b09b133680487aa90ad11dec77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064347"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Veelgestelde vragen over QnA Maker
 
@@ -114,7 +114,7 @@ De naam van de Azure Search-resource is de naam van de QnA Maker-resource met ee
 
 ### <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>Moet ik Bot Framework gebruiken om QnA Maker te kunnen gebruiken?
 
-Nee, hoeft u niet de Bot Framework gebruiken met QnA Maker. QnA Maker wordt echter aangeboden als een van verschillende sjablonen in Azure Bot Service. Botservice kunt snelle, intelligente bot-ontwikkeling via Microsoft Bot Framework en deze wordt uitgevoerd in een omgeving zonder server.
+Nee, u hoeft te gebruiken de [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) met QnA Maker. QnA Maker wordt echter aangeboden als een van verschillende sjablonen in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Botservice kunt snelle, intelligente bot-ontwikkeling via Microsoft Bot Framework en deze wordt uitgevoerd in een omgeving zonder server.
 
 ### <a name="how-can-i-create-a-bot-with-qna-maker"></a>Hoe maak ik een bot met QnA Maker?
 

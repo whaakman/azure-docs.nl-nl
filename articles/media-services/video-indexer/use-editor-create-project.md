@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518138"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>De Video Indexer-editor gebruiken om projecten te maken
@@ -89,14 +89,14 @@ Als u op de pijl-omlaag aan de rechterkant van elke video klikt, wordt u opent u
     
     Alle segmenten van een video toevoegen door te klikken op de menuoptie lijst naast de video en vervolgens **selecteert u alle segmenten**. 
 
-    ![Allemaal toevoegen](./media/video-indexer-view-edit/add-all.png)
+    ![Alles toevoegen](./media/video-indexer-view-edit/add-all.png)
 
     U kunt alle van de selectie hiervoor selectie wissen wissen.
 
 > [!TIP]
 > Als u te selecteren en uw clips bestellen, kunt u de video in de speler aan de rechterkant van de pagina bekijken. 
 
-![Voorbeeld](./media/video-indexer-view-edit/preview.png)
+![Preview](./media/video-indexer-view-edit/preview.png)
 
 Houd er rekening mee om op te slaan van het project wanneer u wijzigingen door te selecteren **opslaan project**. 
 

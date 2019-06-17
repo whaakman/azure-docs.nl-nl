@@ -16,10 +16,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77a4ed01ac55a1153a62c672b33056a543b912ed
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545598"
 ---
 # <a name="single-page-application---call-a-web-api"></a>Single-page toepassing - aanroep van een web-API
@@ -28,7 +28,7 @@ Het is raadzaam dat u aanroepen de `acquireTokenSilent` methode voor het aanscha
 
 ## <a name="call-a-web-api"></a>Een web-API aanroepen
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 Gebruik het toegangstoken verkregen als een bearer in een HTTP-aanvraag voor het aanroepen van een web-API, zoals Microsoft Graph API. Bijvoorbeeld:
 

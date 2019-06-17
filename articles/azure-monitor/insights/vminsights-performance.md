@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
 ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522095"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hoe u op de prestaties van de grafiek met Azure Monitor voor virtuele machines (preview)
@@ -78,7 +78,7 @@ Als u wilt het Resourcegebruik door afzonderlijke virtuele machine in een lijstw
 
 Als u wilt de resultaten op een specifieke virtuele machine in de lijst te filteren, voer de naam van de computer in de **zoeken op naam** tekstvak.  
 
-Als u in plaats daarvan gebruik van een andere prestatiemeetwaarde van weergeven wilt de **Metric** vervolgkeuzelijst selecteren **beschikbaar geheugen**, **ruimte logische schijf gebruikt %**,  **Ontvangen bytes/s netwerk**, of **netwerk verzonden bytes/s** en de lijst met updates voor gebruik binnen het bereik van deze metrische gegevens weergeven.  
+Als u in plaats daarvan gebruik van een andere prestatiemeetwaarde van weergeven wilt de **Metric** vervolgkeuzelijst selecteren **beschikbaar geheugen**, **ruimte logische schijf gebruikt %** ,  **Ontvangen bytes/s netwerk**, of **netwerk verzonden bytes/s** en de lijst met updates voor gebruik binnen het bereik van deze metrische gegevens weergeven.  
 
 Hiermee opent u een virtuele machine selecteren in de lijst de **eigenschappen** van het deelvenster aan de rechterkant van de pagina en van hieruit kunt u selecteren **details van de prestatie**.  De **details van de virtuele Machine** pagina wordt geopend en is afgestemd op die VM, vergelijkbare ervaring bij het openen van de prestaties van de VM-inzichten rechtstreeks vanuit de Azure-VM.  
 
@@ -86,7 +86,7 @@ Hiermee opent u een virtuele machine selecteren in de lijst de **eigenschappen**
 Voor toegang tot rechtstreeks vanuit een virtuele machine, moet u de volgende stappen uitvoeren.
 
 1. Selecteer in de Azure portal, **virtuele Machines**. 
-2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)**.  
+2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)** .  
 3. Selecteer de **prestaties** tabblad. 
 
 Deze pagina niet alleen bevat prestatiegrafieken voor gebruik, maar ook een tabel weergegeven voor elke logische schijf wordt gedetecteerd, de capaciteit, gebruik, en totale gemiddelde van elke meting.  
@@ -119,7 +119,7 @@ Te klikken op het speldpictogram in de rechterbovenhoek van een van de pincodes 
 ![Virtuele machine insights prestaties rechtstreeks vanuit virtuele-machineschaalset weergave instellen](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
 >[!NOTE]
->U kunt ook een gedetailleerde Prestatieweergave voor een specifiek exemplaar van de weergave exemplaren openen voor uw schaalset. Navigeer naar **exemplaren** onder de **instellingen** uit en kies vervolgens **inzichten (preview)**.
+>U kunt ook een gedetailleerde Prestatieweergave voor een specifiek exemplaar van de weergave exemplaren openen voor uw schaalset. Navigeer naar **exemplaren** onder de **instellingen** uit en kies vervolgens **inzichten (preview)** .
 
 ## <a name="alerts"></a>Waarschuwingen  
 Metrische gegevens voor prestaties ingeschakeld als onderdeel van Azure Monitor voor virtuele machines bevatten geen vooraf geconfigureerde regels voor waarschuwingen. Er zijn [statusmeldingen](vminsights-health.md#alerts) overeenkomt met de prestatieproblemen op uw Azure-VM gedetecteerd, zoals hoge CPU-gebruik, onvoldoende geheugen beschikbaar is, onvoldoende schijfruimte, enz.  Maar deze health-waarschuwingen zijn alleen van toepassing op alle virtuele machines die zijn ingeschakeld voor Azure Monitor voor virtuele machines. 

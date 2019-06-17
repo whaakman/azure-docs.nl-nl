@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60a61a581574c77a57939ea23fdadc7b060b82af
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541538"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Rapporten weergeven en Logboeken in Azure AD waar u recht op beheer (Preview)
@@ -44,7 +44,7 @@ ms.locfileid: "64541538"
 
     Een lijst met resources die de gebruiker toegang tot heeft wordt weergegeven. Het bevat de access-pakket, beleid en datums.
 
-    ![Rapport over gebruikerstoewijzing](./media/entitlement-management-reports/user-assignments-report.png)
+    ![Gebruikersrapport van de toewijzingen](./media/entitlement-management-reports/user-assignments-report.png)
 
 ## <a name="determine-the-status-of-a-users-request"></a>De status van de aanvraag van een gebruiker bepalen
 
@@ -62,7 +62,7 @@ Als Azure AD een nieuwe aanvraag ontvangt, er wordt een controlerecord geschreve
 
 Azure AD wordt aanvullende controlerecords schrijven, terwijl de aanvraag uitgevoerd wordt, met inbegrip van:
 
-| Category | Activiteit | Aanvraagstatus |
+| Category | Activiteit | De status van aanvraag |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | Aanvraag is niet vereist voor goedkeuring |
 | `UserManagement` | `Create request approval` | Aanvraag is goedkeuring vereist |

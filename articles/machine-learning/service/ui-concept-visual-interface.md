@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 0b158a1d713e0de8f3d1b2672aed442fce66e724
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917158"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077382"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Wat is de visuele interface voor Azure Machine Learning-service? 
 
@@ -27,7 +27,7 @@ Uw Azure Machine Learning-service maakt gebruik van de visuele interface [werkru
 + Artefacten van schrijven [experimenteren](#experiment) wordt uitgevoerd in de werkruimte.
 + Toegang tot [gegevenssets](#dataset).
 + Gebruik de [rekenresources](#compute) in de werkruimte om uit te voeren van het experiment. 
-+ Registreren [modellen](concept-azure-machine-learning-architecture.md#model).
++ Registreren [modellen](concept-azure-machine-learning-architecture.md#models).
 + [Implementeer](#deployment) modellen als webservices op-resources in de werkruimte COMPUTE.
 
 ![Overzicht van de visuele interface](media/ui-concept-visual-interface/overview.png)

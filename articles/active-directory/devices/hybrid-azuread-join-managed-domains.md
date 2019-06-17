@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 6ea885dfd1dd38e0811606cd67bf0a1730b0c824
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110625"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor beheerde domeinen
 
@@ -26,7 +26,7 @@ Een apparaat is op een soortgelijke manier aan een gebruiker een andere core-ide
 - Hybride Azure AD-koppeling
 - Azure AD-registratie
 
-Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises bronnen en cloudbronnen. Tegelijk kunt u de toegang tot uw on-premises bronnen en cloudbronnen beveiligen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
+Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises bronnen en cloudbronnen. Op hetzelfde moment, kunt u veilige toegang tot uw cloud en on-premises resources met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
 
 In deze zelfstudie leert u hoe u hybride Azure AD join voor AD Domeincomputers apparaten configureert in een beheerde omgeving. 
 
@@ -160,7 +160,7 @@ Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controle
 
 - Een object met de **apparaat-ID** die overeenkomt met de ID op de Windows client moet bestaan.
 - Moet de waarde voor **DeviceTrustType** op **Toegevoegd aan domein** zijn ingesteld. Dit is equivalent aan de status **Toegevoegd aan hybride Azure AD** op de pagina Apparaten in de Azure AD-portal.
-- De waarde voor **Ingeschakeld** moet op **Waar** zijn ingesteld en **DeviceTrustLevel** moet **Beheerd** zijn voor apparaten die voor voorwaardelijke toegang worden gebruikt.
+- De waarde voor **ingeschakeld** moet **waar** en **DeviceTrustLevel** moet **beheerde** voor apparaten die worden gebruikt voor de voorwaardelijke toegang.
 
 **Ga als volgt te werk om de servicedetails te controleren:**
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606933"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Technische specificaties en naleving voor de StorSimple-apparaat
@@ -42,8 +42,8 @@ De behuizing EBOD maakt gebruik van een 580 W PCM en primaire behuizing gebruikt
 | Correctie van energiebeheer van meerdere factoren |> 95% nominale ingangsvoltage |> 95% nominale ingangsvoltage |
 | Harmonischen |Voldoet aan de EN61000-3-2 |Voldoet aan de EN61000-3-2 |
 | Uitvoer |5V stand-by spanning \@ 2.0 A |5V stand-by spanning \@ 2.7 A |
-| +5V \@ 42 A |+ 5V \@ 40 A | |
-| + 12V \@ 38 A |+ 12V \@ 38 A | |
+| +5V \@ 42 A |\+ 5V \@ 40 A | |
+| \+ 12V \@ 38 A |\+ 12V \@ 38 A | |
 | Hot pluggable |Ja |Ja |
 | Switches en -LED 's |AC aan/uit-schakelaar en vier status-LED 's |AC aan/uit-schakelaar en zes status-LED 's |
 | Behuizing koeling |Ene koeling fans met variabele ventilatorbesturing voor snelheid |Ene koeling fans met variabele ventilatorbesturing voor snelheid |

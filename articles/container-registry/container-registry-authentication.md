@@ -10,10 +10,10 @@ ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333868"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verifiëren met een persoonlijk Docker-containerregister
@@ -54,9 +54,9 @@ Zie voor de CLI-scripts te maken van een service-principal app-ID en wachtwoord 
 
 Service-principals inschakelen ' headless ' verbinding met een register in zowel push als pull-scenario's als volgt uit:
 
-  * *Pull-*: Containers implementeren van een register op de orchestration-systemen, waaronder Kubernetes, DC/OS en Docker Swarm. U kunt ook ophaalt uit containerregisters naar gerelateerde Azure-services zoals [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), enzovoort.
+  * *Pull-* : Containers implementeren van een register op de orchestration-systemen, waaronder Kubernetes, DC/OS en Docker Swarm. U kunt ook ophaalt uit containerregisters naar gerelateerde Azure-services zoals [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), enzovoort.
 
-  * *Push-*: Installatiekopieën compileren en push ze naar een register met behulp van continue integratie en implementatie-oplossingen zoals Azure pijplijnen of Jenkins.
+  * *Push-* : Installatiekopieën compileren en push ze naar een register met behulp van continue integratie en implementatie-oplossingen zoals Azure pijplijnen of Jenkins.
 
 U kunt zich ook aanmelden rechtstreeks met een service-principal. Wanneer u de volgende opdracht uitvoert, geeft u interactief de service-principal appID (gebruikersnaam) en het wachtwoord wanneer hierom wordt gevraagd. Zie voor aanbevolen procedures voor het beheren van referenties voor clusteraanmelding de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdrachten:
 
@@ -70,7 +70,7 @@ Wanneer u bent aangemeld, caches Docker de referenties, zodat u niet hoeft te on
 > U kunt het wachtwoord van een service-principal opnieuw genereren door het uitvoeren van de [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest) opdracht.
 >
 
-## <a name="admin-account"></a>Beheeraccount
+## <a name="admin-account"></a>Beheerdersaccount
 
 Elke container registry bevat een beheeraccount is standaard uitgeschakeld. U kunt de gebruiker met beheerdersrechten inschakelen en beheren van de referenties in de Azure portal of met behulp van de Azure CLI of andere Azure-hulpprogramma's.
 

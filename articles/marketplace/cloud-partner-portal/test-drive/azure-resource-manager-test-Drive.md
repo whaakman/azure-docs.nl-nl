@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606432"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
@@ -362,7 +362,7 @@ Berekent het totale aantal potentiële gelijktijdige Test Drives u gaat op dit m
 
 **Test Drive Resource Manager-sjabloon:** *vereist* uploaden van uw Resource Manager-sjabloon. Dit is het bestand dat u in de vorige sectie hierboven hebt gemaakt. Naam van de belangrijkste sjabloonbestand: 'main-template.json' en zorg ervoor dat uw Resource Manager-sjabloon bevat parameters die voor de variabelen voor de sleutel die nodig zijn. (Dit moet een ZIP-bestand zijn)
 
-**Toegang tot informatie -** *vereist* nadat de Test Drive wordt door een klant, de toegang tot informatie weergegeven. Deze instructies zijn bedoeld voor het delen van de parameters die handig zijn in uw Test Drive Resource Manager-sjabloon. Gebruiken om op te nemen output-parameters, dubbele gekrulde haken (bijvoorbeeld **{{outputname}}**), en ze correct zal worden ingevoegd in de locatie. (HTML-indeling van tekenreeks wordt aanbevolen hier moeten worden weergegeven in de front-end).
+**Toegang tot informatie -** *vereist* nadat de Test Drive wordt door een klant, de toegang tot informatie weergegeven. Deze instructies zijn bedoeld voor het delen van de parameters die handig zijn in uw Test Drive Resource Manager-sjabloon. Gebruiken om op te nemen output-parameters, dubbele gekrulde haken (bijvoorbeeld **{{outputname}}** ), en ze correct zal worden ingevoegd in de locatie. (HTML-indeling van tekenreeks wordt aanbevolen hier moeten worden weergegeven in de front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Abonnementsgegevens van Test Drive-implementatie
 
@@ -403,7 +403,7 @@ Klik op Opslaan. De laatste stap is om te halen van de toepassings-ID voor deze 
 Krijgen we de toepassing gebruiken om te implementeren voor het abonnement, moet de toepassing toevoegen als Inzender van het abonnement. De instructies voor deze zijn als hieronder:
 
 1. Navigeer naar de blade abonnementen en selecteer het juiste abonnement dat u voor de Test Drive gebruikt.
-1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 1. Klik op de **roltoewijzingen** tabblad.  ![Een nieuwe Access Control-principal toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Klik op **roltoewijzing toevoegen**.
 1. Instellen van de rol als **Inzender**.

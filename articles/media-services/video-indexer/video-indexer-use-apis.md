@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799247"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: De Video Indexer-API gebruiken
@@ -40,14 +40,14 @@ In dit artikel wordt uitgelegd hoe ontwikkelaars kunnen profiteren van de [Video
 
     Selecteer het tabblad [Producten](https://api-portal.videoindexer.ai/products). Selecteer daarna Autorisatie en abonneren. 
     
-    ![Registreren](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Nieuwe gebruikers worden automatisch geabonneerd op Autorisatie.
     
     Wanneer u zich abonneert, kunt u uw abonnement en uw primaire en secundaire sleutels zien. De sleutels moeten beveiligd zijn. De sleutels mogen alleen door uw servercode gebruikt worden. Ze mogen niet aan clientzijde beschikbaar zijn (.js, .html, enzovoort).
 
-    ![Registreren](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > Een gebruiker van Video Indexer kan met één abonnementssleutel verbinding maken met meerdere Video Indexer-accounts. U kunt deze Video Indexer-accounts vervolgens koppelen aan verschillende Media Services-accounts.

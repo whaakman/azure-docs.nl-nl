@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061611"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Pushmeldingen verzenden met Azure Notification Hubs en Node.js
 
@@ -106,7 +106,7 @@ De `GcmService` object biedt een `send` methode die kan worden gebruikt om pushm
 - **Nettolading** -JSON- of onbewerkte tekenreeks nettolading van het bericht.
 - **Callback** -de callback-functie.
 
-Zie voor meer informatie over de indeling van de nettolading, de **nettolading** sectie van de [GCM Server implementeren](https://developer.android.com/google/gcm/server.html#payload) document.
+Zie voor meer informatie over de indeling van de nettolading, de **nettolading** sectie van de [GCM Server implementeren](https://developers.google.com/cloud-messaging/) document.
 
 De volgende code gebruikt de `GcmService` exemplaar die worden weergegeven door de `NotificationHubService` een pushmelding verzenden naar alle geregistreerde clients.
 

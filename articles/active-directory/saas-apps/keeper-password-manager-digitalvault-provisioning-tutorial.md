@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508590"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Zelfstudie: Wachtwoordbeheer houder & digitale kluis configureren voor het automatisch inrichten van gebruikers
@@ -45,17 +45,17 @@ Voordat u wachtwoordbeheer houder & digitale kluis configureert voor het automat
 
 **Als u wilt toevoegen houder wachtwoordbeheer & digitale kluis uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
+1. In de  **[Azure-portal](https://portal.azure.com)** , selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
 
-    ![De Azure Active Directory-knop](common/select-azuread.png)
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
 2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
 3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het deelvenster.
 
-    ![De knop nieuwe toepassing](common/add-new-app.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
 4. Voer in het zoekvak **houder wachtwoordbeheer & digitale kluis**, selecteer **houder wachtwoordbeheer & digitale kluis** in het deelvenster voor resultaten en klik vervolgens op de **toevoegen**om toe te voegen van de toepassing.
 
@@ -167,7 +167,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 * Wachtwoordbeheer houder & digitale kluis vereist **e-mailberichten** en **gebruikersnaam** hebben dezelfde bronwaarde, zoals updates op een van beide kenmerken worden de andere waarde wijzigen.
 * Wachtwoordbeheer houder & digitale kluis niet ondersteunen van de gebruiker verwijdert, alleen uitschakelen. Uitgeschakelde gebruikers wordt weergegeven als vergrendeld in de gebruikersinterface van houder Administrator-Console.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

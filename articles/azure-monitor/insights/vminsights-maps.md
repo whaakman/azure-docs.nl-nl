@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522176"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Met behulp van Azure Monitor voor virtuele machines (preview) de kaart om te begrijpen van toepassingsonderdelen
@@ -90,7 +90,7 @@ Als de groep bewaakte en niet-bewaakte servers bevat, kunt u de juiste sectie va
 Voor toegang tot Azure Monitor voor virtuele machines rechtstreeks vanaf een virtuele machine, het volgende te doen.
 
 1. Selecteer in de Azure portal, **virtuele Machines**. 
-2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)**.  
+2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)** .  
 3. Selecteer de **kaart** tabblad.
 
 Kaart visualiseert de afhankelijkheden VM's, die wordt uitgevoerd procesgroepen en processen met actieve netwerkverbindingen via een opgegeven tijdperiode.  Standaard ziet u de kaart de laatste 30 minuten.  Met behulp van de **TimeRange** selector in de linkerbovenhoek kunt u zoeken naar historische tijdsbereik van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld tijdens een incident, of voordat er een wijziging is opgetreden).  
@@ -102,7 +102,7 @@ Kaart visualiseert de afhankelijkheden VM's, die wordt uitgevoerd procesgroepen 
 Voor toegang tot Azure Monitor voor virtuele machines rechtstreeks vanaf een virtuele-machineschaalset moet het volgende te doen.
 
 1. Selecteer in de Azure portal, **virtuele-machineschaalsets**.
-2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)**.  
+2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)** .  
 3. Selecteer de **kaart** tabblad.
 
 Kaart worden gevisualiseerd met alle van de exemplaren in de schaalset als een groepsknooppunt samen met de afhankelijkheden van de groep. De uitgevouwen knooppunt geeft de exemplaren in de schaalset, u tien tegelijk schuiven kunt. Voor het laden van een kaart voor een specifiek exemplaar, selecteert u instantie op de kaart en klik vervolgens op het weglatingsteken aan klopt en kies **Servertoewijzing laden**. Hiermee wordt de kaart voor het exemplaar, waardoor u verwerken van groepen en -processen met actieve netwerkverbindingen via een opgegeven tijdperiode geladen. Standaard ziet u de kaart de laatste 30 minuten. Met behulp van de **TimeRange** selector kunt u zoeken naar historische tijdsbereik van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld tijdens een incident, of voordat er een wijziging is opgetreden).  
@@ -110,7 +110,7 @@ Kaart worden gevisualiseerd met alle van de exemplaren in de schaalset als een g
 ![Direct overzicht van de toewijzing van VM](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->U kunt ook een kaart voor een specifiek exemplaar van de weergave exemplaren openen voor uw virtuele-machineschaalset. Navigeer naar **exemplaren** onder de **instellingen** uit en kies vervolgens **inzichten (preview)**.
+>U kunt ook een kaart voor een specifiek exemplaar van de weergave exemplaren openen voor uw virtuele-machineschaalset. Navigeer naar **exemplaren** onder de **instellingen** uit en kies vervolgens **inzichten (preview)** .
 
 ## <a name="view-map-from-azure-monitor"></a>Kaart van Azure Monitor weergeven
 Van Azure Monitor biedt de functie van de kaart een algemeen overzicht van uw virtuele machines en hun afhankelijkheden.  Voor toegang tot de Map-functie van Azure Monitor, het volgende te doen. 

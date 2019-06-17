@@ -17,11 +17,11 @@ ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 687012e73b4b0c869b491ac1c9ea128662b23510
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64680875"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA-beschikbaarheid binnen één Azure-regio
 Dit artikel beschrijft de verschillende scenario's voor beschikbaarheid binnen één Azure-regio. Azure heeft een groot aantal regio's, verspreid over de hele wereld. Zie voor een lijst van Azure-regio's, [Azure-regio's](https://azure.microsoft.com/regions/). Microsoft biedt voor het implementeren van SAP HANA op virtuele machines binnen een Azure-regio, implementatie van een enkele virtuele machine met een HANA-instantie. Voor grotere beschikbaarheid, kunt u twee VM's met twee HANA-instanties binnen implementeren een [Azure-beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) die gebruikmaakt van HANA-systeemreplicatie voor beschikbaarheid. 

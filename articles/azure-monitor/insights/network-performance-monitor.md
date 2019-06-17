@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
 ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916762"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
@@ -37,7 +37,7 @@ Network Performance Monitor biedt drie brede mogelijkheden:
 
     Deze mogelijkheid kunt u op basis van HTTP, HTTPS, TCP- en ICMP om te controleren in het verleden of in realtime de beschikbaarheid en reactietijd van uw service uit te voeren. U kunt ook de bijdrage van het netwerk in pakketverlies en latentie controleren. Met een netwerk-topologie-kaart, kunt u network vertragingen isoleren. U kunt identificeren probleem punten die op het netwerkpad van het knooppunt naar de service, met latentiegegevens voor elke hop plaatsvinden. Met ingebouwde tests kunt u de netwerkverbinding met Office 365 en Dynamics CRM zonder eventuele meteen controleren. Met deze functie kunt u de netwerkverbinding met een TCP-compatibele eindpunt, zoals websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases bewaken.
 
-* [ExpressRoute Monitor](network-performance-monitor-expressroute.md): End-to-end-connectiviteit en -prestaties controleren tussen uw filialen en Azure, via Azure ExpressRoute.  
+* [ExpressRoute Monitor](network-performance-monitor-expressroute.md): End-to-end-connectiviteit controleren en de prestaties tussen uw filialen en Azure, via Azure ExpressRoute.  
 
 Meer informatie over de verschillende mogelijkheden ondersteund door [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is online beschikbaar.
  
@@ -46,7 +46,7 @@ NPM kunt Controleer de connectiviteit tussen netwerken en toepassingen in een de
 * Europa -west
 * US - west-centraal
 * US - oost
-* Japan - oost
+* Japan-Oost
 * Azië - zuidoost
 * Zuid-Oost-Australië
 * Zuid-groot-Brittannië

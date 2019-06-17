@@ -2,18 +2,17 @@
 title: Over het inrichten van apparaten voor multitenancy in de Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Over het inrichten van apparaten voor multitenancy met uw device provisioning service-exemplaar
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116106"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
@@ -42,6 +41,8 @@ In dit artikel wordt een voorbeeld van het gesimuleerde apparaat van de [Azure I
 
 * Voltooiing van de [IoT Hub Device Provisioning Service instellen met de Azure-portal](./quick-setup-auto-provision.md) Quick Start.
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>Twee regionale IoT-hubs maken
@@ -192,7 +193,7 @@ Om het opschonen gemakkelijker, deze VM's wordt toegevoegd aan dezelfde resource
 In deze sectie wordt u de Azure IoT C SDK op elke virtuele machine klonen. De SDK bevat een voorbeeld waarin het simuleren van een tenant voor apparaatinrichting uit elke regio.
 
 
-1. Voor elke virtuele machine, installeert u **Cmake**, **g ++**, **gcc**, en [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) met de volgende opdrachten:
+1. Voor elke virtuele machine, installeert u **Cmake**, **g ++** , **gcc**, en [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) met de volgende opdrachten:
 
     ```bash
     sudo apt-get update
@@ -299,7 +300,7 @@ In deze sectie wordt een inrichting voorbeeld in de Azure IoT C SDK bijgewerkt v
 
 De voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanvraag voor inrichting worden verzonden naar uw Device Provisioning Service-exemplaar. De opstartvolgorde zorgt ervoor dat het apparaat kan worden herkend en toegewezen aan de IoT-hub die het dichtst is gebaseerd op de latentie.
 
-1. Selecteer in Azure Portal het tabblad **Overzicht** voor uw Device Provisioning-service en noteer de waarde van het **_Id-bereik_**.
+1. Selecteer in Azure Portal het tabblad **Overzicht** voor uw Device Provisioning-service en noteer de waarde van het **_Id-bereik_** .
 
     ![Device Provisioning Service-eindpuntgegevens uit de portalblade extraheren](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

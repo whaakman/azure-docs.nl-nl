@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595156"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
@@ -236,7 +236,7 @@ Azure-opslagaccountverbindingsreeksen voor het webrolroject en het werkrolprojec
 2. Klik op het tabblad **Settings**. Kies in de vervolgkeuzelijst **Service Configuration** de optie **Cloud**.
 
     ![Cloudconfiguratie](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Selecteer de vermelding **StorageConnectionString**. Aan de rechterkant van de regel ziet u nu een knop met weglatingstekens (**...**). Klik op deze knop om het dialoogvenster **Create Storage Account Connection String** te openen.
+3. Selecteer de vermelding **StorageConnectionString**. Aan de rechterkant van de regel ziet u nu een knop met weglatingstekens ( **...** ). Klik op deze knop om het dialoogvenster **Create Storage Account Connection String** te openen.
 
     ![Het dialoogvenster Create Storage Connection String](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. In het dialoogvenster **Create Storage Connection String** klikt u op **Your subscription**, kiest u het opslagaccount dat u eerder hebt gemaakt en klikt u vervolgens op **OK**. Als u nog niet bent aangemeld, wordt u gevraagd om uw referenties voor uw Azure-account op te geven.

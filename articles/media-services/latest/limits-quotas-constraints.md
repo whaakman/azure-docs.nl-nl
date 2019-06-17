@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
 ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824457"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quota en beperkingen in Azure Media Services v3
@@ -24,14 +24,14 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 
 | Resource | Standaardlimiet | 
 | --- | --- | 
-| Assets per Azure Media Services-account | 1.000.000|
+| Assets per Azure Media Services-account | 1\.000.000|
 | Dynamisch-manifestfilters|100|
 | JobInputs per taak | 50 (vast)|
 | JobOutputs per taak | 20 (vast) |
 | TransformOutputs in een transformatie | 20 (vast) |
 | Bestanden per JobInput|10 (vast)|
 | Bestandsgrootte| In sommige scenario's, moet u er een limiet is op de maximale bestandsgrootte voor verwerking in Media Services wordt ondersteund. <sup>(1)</sup> |
-| Taken per Media Services-account | 500.000 <sup>(2)</sup> (vast)|
+| Taken per Media Services-account | 500\.000 <sup>(2)</sup> (vast)|
 | Lijst met transformaties|Pagineer het antwoord met 1000 transformaties per pagina|
 | Lijst met taken|Pagineer het antwoord met 500 taken per pagina|
 | Live gebeurtenissen per Azure Media Services-account |5|

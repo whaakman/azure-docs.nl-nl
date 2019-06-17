@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020384"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072425"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
@@ -32,7 +32,7 @@ Standard stemmen worden gemaakt met behulp van statistische parametrische synthe
 
 Stemmen neurale deep neural networks te strijden tegen de beperkingen van traditionele Text to Speech systemen in die overeenkomen met de patronen van stress en intonation in gesproken taal en in de stof de eenheden van spraak in de stem van een computer voor de synthese gebruiken Standard tekst naar spraak een uitsplitsing van prosody in afzonderlijke linguïstische analyse- en akoestische voorspelling stappen die onafhankelijke modellen gelden. Dat kan resulteren in spellen, buzzy gesproken synthese. Onze mogelijkheid voor neurale biedt prosody voorspelling en toon synthese tegelijkertijd, wat resulteert in een meer vloeiende en natuurlijk klinkende spraak.
 
-Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele assistenten natuurlijker maken en aantrekkelijke digitale teksten, zoals e-books converteren naar audiobooks en in de auto-navigatiesystemen te verbeteren. Met de menselijke natuurlijke prosody en duidelijke afbakening van woorden verkorten Neural stemmen aanzienlijk luisterende intensief gebruik wanneer u met AI-systemen communiceren. 
+Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele assistenten natuurlijker maken en aantrekkelijke digitale teksten, zoals e-books converteren naar audiobooks en in de auto-navigatiesystemen te verbeteren. Met de menselijke natuurlijke prosody en duidelijke afbakening van woorden verkorten neural stemmen aanzienlijk luisterende intensief gebruik wanneer u met AI-systemen communiceren. 
 
 Neurale stemmen ondersteuning voor verschillende stijlen, zoals neutraal en vrolijke. De stem Jessa (en-US) kan bijvoorbeeld cheerfully, die is geoptimaliseerd voor warme, blij conversatie spreken. U kunt de uitvoer van de gesproken zoals toon, verkopen, aanpassen en versnellen met behulp van [spraak synthese Markup Language](speech-synthesis-markup.md). Zie voor een volledige lijst van beschikbare stemmen, [ondersteunde talen](language-support.md#text-to-speech).
 
@@ -46,7 +46,7 @@ Stem aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk 
 
 Deze tabel bevat de kernfuncties voor tekst naar spraak:
 
-| Toepassing | SDK | REST |
+| Use-case | SDK | REST |
 |----------|-----|------|
 | Converteert tekst naar spraak. | Ja | Ja |
 | Gegevenssets voor de toon aanpassing uploaden. | Nee | Ja\* |

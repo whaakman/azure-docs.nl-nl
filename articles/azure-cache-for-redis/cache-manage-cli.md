@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119075"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Over het maken en beheren van Azure Cache voor Redis met de klassieke Azure-CLI
@@ -46,16 +46,16 @@ De volgende eigenschappen worden gebruikt bij het maken en bijwerken van Azure C
 
 | Eigenschap | Switch | Description |
 | --- | --- | --- |
-| naam |-n-,--naam |Naam van de Azure Cache voor Redis. |
+| name |-n-,--naam |Naam van de Azure Cache voor Redis. |
 | resourcegroep |-g, --resource-group |De naam van de resourcegroep. |
 | location |l-,--locatie |Locatie voor het maken van de cache. |
-| grootte |-z, --size |Grootte van de Azure Cache voor Redis. Geldige waarden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| size |-z, --size |Grootte van de Azure Cache voor Redis. Geldige waarden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |Redis-SKU. Should be one of : [Basic, Standard, Premium] |
 | EnableNonSslPort |-e-,--inschakelen-niet-ssl-poort |EnableNonSslPort-eigenschap van de Azure-Cache voor Redis. Met deze markering toevoegen als u wilt de niet-SSL-poort voor uw cache inschakelen |
 | Redis-configuratie |-c-,--redis-configuratie |Redis-configuratie. Voer een tekenreeks in JSON-indeling van de van configuratiesleutels en waarden die hier. Format:"{"":"","":""}" |
 | Redis-configuratie |-f-,--redis-configuratiebestand |Redis-configuratie. Geef het pad van een bestand met de van configuratiesleutels en waarden die hier. Indeling voor de bestandsvermelding: {"": "","": ""} |
 | Aantal shards |-r-,--aantal shards |Het aantal Shards te maken op een Premium-Cluster-Cache met clustering. |
-| Virtual Network |-v-,--virtueel netwerk |Bij het hosten van uw cache in een VNET, Hiermee geeft u de exacte ARM-resource-ID van het virtuele netwerk voor het implementeren van de Azure-Cache voor Redis-. Voorbeeld van een indeling: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Virtueel netwerk |-v-,--virtueel netwerk |Bij het hosten van uw cache in een VNET, Hiermee geeft u de exacte ARM-resource-ID van het virtuele netwerk voor het implementeren van de Azure-Cache voor Redis-. Voorbeeld van een indeling: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Sleuteltype |-t-,--key-type |Het type sleutel te vernieuwen. Geldige waarden: [primaire, secundaire] |
 | StaticIP |-p-,--statische ip- \<statische-ip\> |Bij het hosten van uw cache in een VNET, geeft een uniek IP-adres in het subnet voor de cache. Als niet is opgegeven, wordt een gekozen voor u uit het subnet. |
 | Subnet |t-,--subnet \<subnet\> |Bij het hosten van uw cache in een VNET, geeft de naam van het subnet waarin de cache implementeert. |
@@ -94,7 +94,7 @@ Als alle Azure-Cache voor Redis-opdrachten en de bijbehorende parameters wilt we
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="create-an-azure-cache-for-redis"></a>Een Azure Cache voor Redis-instantie maken
+## <a name="create-an-azure-cache-for-redis"></a>Een Azure-Cache maken voor Redis
 Voor het maken van een Azure-Cache voor Redis, gebruikt u de volgende opdracht:
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]

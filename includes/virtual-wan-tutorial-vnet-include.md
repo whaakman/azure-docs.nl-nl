@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077525"
 ---
-Voor het snel maken van een VNet, kunt u 'Try It' in dit artikel om een PowerShell-console te openen. Pas de waarden aan en kopieer en plak de opdrachten in het consolevenster. Zie voor meer informatie over de nieuwe Az-module en compatibiliteit met AzureRM [Introductie van de nieuwe Az-module van Azure PowerShell](/powershell/azure/new-azureps-module-az). Zie voor instructies over Az-module installeren, [Azure PowerShell installeren](/powershell/azure/install-az-ps).
+Voor het snel maken van een VNet, kunt u 'Try It' in dit artikel een PowerShell-console openen in Azure Cloud Shell. Pas de waarden aan en kopieer en plak de opdrachten in het consolevenster. 
 
 Controleer wel of de adresruimte voor het VNet dat u maakt niet overlapt met een van de adresbereiken van andere VNet's waarmee u verbinding wilt maken of met de adresruimten van uw on-premises netwerk.
 

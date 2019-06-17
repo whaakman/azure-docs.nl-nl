@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
 ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073691"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Zelfstudie: Gerelateerde gegevens groeperen en herkennen
@@ -93,7 +93,7 @@ LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemen
 
     ![Schermafbeelding van het samengestelde naam invoeren in de vervolgkeuzelijst van dialoogvenster](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. In **welk type entiteit wilt u maken?**, de velden die vereist zijn in de lijst: `personName` en `Department`. Selecteer **Done**. U ziet dat de vooraf gedefinieerde entiteit, personName, is toegevoegd aan de samengestelde entiteit. Als u een vooraf gedefinieerde entiteit weergegeven tussen het begin en einde van de tokens van een samengestelde entiteit hebt kan, moet de samengestelde entiteit die vooraf gemaakte entiteiten bevatten. Als de vooraf gemaakte entiteiten niet opgenomen zijn, de samengestelde entiteit niet correct wordt voorspeld, maar elk afzonderlijk element is.
+1. In **welk type entiteit wilt u maken?** , de velden die vereist zijn in de lijst: `personName` en `Department`. Selecteer **Done**. U ziet dat de vooraf gedefinieerde entiteit, personName, is toegevoegd aan de samengestelde entiteit. Als u een vooraf gedefinieerde entiteit weergegeven tussen het begin en einde van de tokens van een samengestelde entiteit hebt kan, moet de samengestelde entiteit die vooraf gemaakte entiteiten bevatten. Als de vooraf gemaakte entiteiten niet opgenomen zijn, de samengestelde entiteit niet correct wordt voorspeld, maar elk afzonderlijk element is.
 
     ![Schermafbeelding van het samengestelde naam invoeren in de vervolgkeuzelijst van dialoogvenster](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 

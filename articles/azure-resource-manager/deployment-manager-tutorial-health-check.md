@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ae44872f209550b1387a5c7e99ee4e0a07c558a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061035"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager (preview-versie)
 
@@ -41,7 +41,10 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * Controleer of de implementatie-implementatie
 > * Resources opschonen
 
-De Azure Deployment Manager REST API-verwijzing vindt u [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Aanvullende bronnen:
+
+- De [Azure Deployment Manager REST API-verwijzingen](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Een voorbeeld van Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 

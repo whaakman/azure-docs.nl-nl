@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107973"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Privé IP-adressen voor een virtuele machine (klassiek) met de klassieke Azure-CLI configureren
@@ -64,10 +64,10 @@ Het maken van een nieuwe virtuele machine met de naam *DNS01* in een nieuwe clou
         info:    OK
         info:    vm create command OK
    
-   * **-l (of --locatie)**. Azure-regio waar de virtuele machine wordt gemaakt. In ons scenario *centralus*.
-   * **-n (of--vm-naam)**. De naam van de virtuele machine wordt gemaakt.
-   * **-w (of---naam-virtueel netwerk)**. Naam van de VNet waar de virtuele machine wordt gemaakt. 
-   * **-S (of--statische-ip)**. Statische privé IP-adres voor de virtuele machine.
+   * **-l (of --locatie)** . Azure-regio waar de virtuele machine wordt gemaakt. In ons scenario *centralus*.
+   * **-n (of--vm-naam)** . De naam van de virtuele machine wordt gemaakt.
+   * **-w (of---naam-virtueel netwerk)** . Naam van de VNet waar de virtuele machine wordt gemaakt. 
+   * **-S (of--statische-ip)** . Statische privé IP-adres voor de virtuele machine.
    * **TestService**. De naam van de cloudservice waar de virtuele machine wordt gemaakt.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. De installatiekopie die wordt gebruikt om de VM te maken.
    * **adminuser**. Lokale beheerder voor de Windows-VM.

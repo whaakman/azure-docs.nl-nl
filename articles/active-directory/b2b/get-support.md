@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7b9ebefb9762b663adcd17fb1fdd656cb4f2ec2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768432"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Ondersteuning krijgen voor B2B-samenwerking
@@ -24,7 +24,7 @@ ms.locfileid: "65768432"
 U hebt gelezen door de documentatie, u hebt de juiste dingen gedaan, maar lukt het niet om iets te werken? Open een ondersteuningsticket (een ondersteuningsplan vereist):
 
 1. In [de Azure-portal](https://portal.azure.com), gaat u naar de blade Help en ondersteuning, en selecteer nieuwe ondersteuningsaanvraag:
-   - Type probleem: Technisch
+   - Type probleem: Technische
    - Abonnement: Betrokken abonnement kiezen
      - Service: Active Directory
      - Ondersteuningsplan: Relevante ondersteuningsplan kiezen

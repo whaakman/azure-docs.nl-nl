@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906411"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Toegang beperken via internetgerichte eindpunten in Azure Security Center
@@ -34,7 +34,7 @@ Deze aanbeveling wordt gegenereerd voor elke niet-web-poort dat 'een' als bron.
 ## <a name="implement-the-recommendation"></a>De aanbeveling voor het implementeren
 1. In de **blade aanbevelingen**, selecteer **toegang via een Internetgericht eindpunt beperken**.
 
-   ![Toegang via een internetgericht eindpunt beperken][1]
+   ![Toegang via een Internetgericht eindpunt beperken][1]
 2. Hiermee opent u de blade **toegang via een Internetgericht eindpunt beperken**. Deze blade geeft een lijst van de virtuele machines (VM's) met binnenkomende regels die een mogelijk beveiligingsprobleem te maken. Selecteer een virtuele machine.
 
    ![Selecteer een virtuele machine][2]

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468602"
 ---
 # <a name="return-your-azure-data-box-edge-device"></a>Retourneren van uw Azure Data Box-Edge-apparaat
@@ -102,7 +102,7 @@ De volgende stappen om het apparaat en de resource in Azure portal te verwijdere
 
 2. In de **apparaat verwijderen** blade, typ de naam van het apparaat dat u wilt verwijderen en selecteer **verwijderen**.
 
-    ![Verwijderen bevestigen](media/data-box-edge-return-device/delete-resource-2.png)
+    ![De verwijdering bevestigen](media/data-box-edge-return-device/delete-resource-2.png)
 
 Krijgt u een melding nadat het apparaat en de gekoppelde resource wordt verwijderd.
 

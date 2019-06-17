@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b2b3d1ac0a7c0e917f87be1dd131120f63a70f8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b245661ab8f26c1f529a049d326d2c72838c7a17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142814"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056722"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integratie van Apache Spark en Apache Hive met de Hive-Warehouse-Connector
 
@@ -20,7 +20,7 @@ Apache Hive datawarehouse Connector (HWC) is een bibliotheek waarmee u eenvoudig
 
 De Hive-Warehouse-Connector kunt u profiteren van de unieke eigenschappen van Hive- en Spark om krachtige big data-toepassingen te bouwen. Apache Hive biedt ondersteuning voor databasetransacties die Atomic, Consistent, geïsoleerd en duurzaam (ACID). Zie voor meer informatie over het ACID en transacties in Hive [Hive transacties](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive biedt ook gedetailleerde beveiligingsmaatregelen door middel van Apache Ranger en lage latentie analytische verwerking niet beschikbaar is in Apache Spark.
 
-Apache Spark, heeft een Structured Streaming-API waarmee streaming mogelijkheden die niet beschikbaar zijn in Apache Hive. U begint met Hortonworks Data Platform (HDP) 3.0, hebben Apache Spark en Apache Hive afzonderlijke metastores, waardoor interoperabiliteit moeilijk. De Hive-Warehouse-Connector maakt het eenvoudiger te gebruiken met Spark en Hive samen. De HWC-bibliotheek worden gegevens geladen uit LLAP daemons op Spark Executor parallel, waardoor het nog efficiënter en beter schaalbaar dan het gebruik van een standard JDBC-verbinding tussen Spark en Hive.
+Apache Spark, heeft een Structured Streaming-API waarmee streaming mogelijkheden die niet beschikbaar zijn in Apache Hive. Beginnen met HDInsight 4.0, hebben Apache Spark 2.3.1 en Apache Hive 3.1.0 afzonderlijke metastores, waardoor interoperabiliteit moeilijk. De Hive-Warehouse-Connector maakt het eenvoudiger te gebruiken met Spark en Hive samen. De HWC-bibliotheek worden gegevens geladen uit LLAP daemons op Spark Executor parallel, waardoor het nog efficiënter en beter schaalbaar dan het gebruik van een standard JDBC-verbinding tussen Spark en Hive.
 
 ![Architectuur](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -231,7 +231,7 @@ Volg onderstaande stappen voor het maken van een voorbeeld van een Hive-Warehous
     1. Klik op de Hive-service voor uw cluster onder **Hive**.
         ![demo-tabel vóór het toepassen van beleid voor ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. Klik op de **maskeren** tabblad en vervolgens **nieuw beleid toevoegen** ![lijst met beleidsregels](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. Geef een beleidsnaam van het gewenste. Database selecteren: **Standaard**, Hive-tabel: **demo**, Hive-kolom: **naam**, gebruiker: **rsadmin2**, toegangstypen: **Selecteer**, en **Gedeeltelijke masker: afgelopen 4 weergeven** uit de **maskeren optie selecteren** menu. Klik op **Add**.
+    1. Geef een beleidsnaam van het gewenste. Database selecteren: **Standaard**, Hive-tabel: **demo**, Hive-kolom: **naam**, gebruiker: **rsadmin2**, toegangstypen: **Selecteer**, en **Gedeeltelijke masker: afgelopen 4 weergeven** uit de **maskeren optie selecteren** menu. Klik op **Toevoegen**.
                 ![lijst met beleidsregels](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. De inhoud van de tabel weer. Na het toepassen van het beleid voor ranger, zien we alleen de laatste vier tekens van de kolom.
 
@@ -239,5 +239,5 @@ Volg onderstaande stappen voor het maken van een voorbeeld van een Hive-Warehous
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Interactive Query gebruiken met HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Interactieve query gebruiken met HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 * [Voorbeelden van interactie met Hive Warehouse-Connector met behulp van Zeppelin, Livy, spark-submit, en pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514576"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083927"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -91,24 +91,26 @@ De volgende beheerdersrollen zijn beschikbaar:
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Alle Intune-controlegegevens weergeven
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Alleen-lezen machtigingen heeft en kunnen waarschuwingen beheren<br>Kunt maken en wijzigen van de beleidsregels voor bestanden en governance-acties voor toestaan<br> De ingebouwde rapporten onder beheer van de gegevens kunt weergeven
 
-<!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
+* **[Beheerder voor naleving gegevens](#compliance-data-administrator)** : Gebruikers met deze rol hebben machtigingen om te beveiligen en bijhouden van gegevens in het compliancecentrum Microsoft 365, Microsoft 365-beheercentrum en Azure. Gebruikers kunnen ook alle functies in de Exchange-beheercentrum voor naleving, en Teams en Skype voor bedrijven-beheercentrum beheren en maken van ondersteuningstickets voor Azure en Microsoft 365.
 
-  In | Can do
+  In | Kan doen
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
-  [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
--->
-* **[Beheerder van voorwaardelijke toegang](#conditional-access-administrator)** : Gebruikers met deze rol hebben de mogelijkheid voor het beheren van instellingen voor voorwaardelijke toegang van Azure Active Directory.
+  [Microsoft 365 compliancecentrum](https://protection.office.com) | Beleid met betrekking tot naleving controleren in Microsoft 365-services<br>Naleving-waarschuwingen beheren
+  [Voor naleving](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Bijhouden, toewijzen en controleer of de activiteiten van de naleving van regelgeving van uw organisatie
+  [Office 365-beveiliging en compliance](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gegevensbeheer beheren<br>Wettelijke informatie en gegevens onderzoek uitvoeren<br>Aanvraag voor het onderwerp van gegevens beheren
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Alle Intune-controlegegevens weergeven
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Alleen-lezen machtigingen heeft en kunnen waarschuwingen beheren<br>Kunt maken en wijzigen van de beleidsregels voor bestanden en governance-acties voor toestaan<br> De ingebouwde rapporten onder beheer van de gegevens kunt weergeven
+
+* **[Beheerder van voorwaardelijke toegang](#conditional-access-administrator)** : Gebruikers met deze rol hebben de mogelijkheid voor het beheren van instellingen voor Azure Active Directory voorwaardelijke toegang.
   > [!NOTE]
-  > Voor het implementeren van Exchange ActiveSync-beleid voor voorwaardelijke toegang in Azure, moet de gebruiker ook een globale beheerder zijn.
+  > Voor het implementeren van voorwaardelijke toegang voor Exchange ActiveSync-beleid in Azure, moet de gebruiker ook een globale beheerder zijn.
   
 * **[Klanten-Lockbox toegang goedkeurder](#customer-lockbox-access-approver)** : Beheert [aanvragen van klanten-Lockbox](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) in uw organisatie. Ze kunnen ontvangen van e-mailmeldingen voor aanvragen van klanten-Lockbox goedkeuren en weigeren van de Microsoft 365-beheercentrum. Ze kunnen ook de functie voor klanten-Lockbox inschakelen of uitschakelen. Alleen globale beheerders kunnen de wachtwoorden van personen die zijn toegewezen aan deze rol opnieuw instellen.
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
-* **[Apparaatbeheerders](#device-administrators)** : Deze functie is beschikbaar voor toewijzing alleen als een lokale beheerder in [apparaatinstellingen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gebruikers met deze rol worden lokale computerbeheerders op alle Windows 10-apparaten die zijn gekoppeld aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaatobjecten in Azure Active Directory. 
+* **[Analytics-Administrator voor Desktop](#desktop-analytics-administrator)** : Gebruikers in deze rol kunnen de Desktop Analytics en de Office Customization & beleid services beheren. Dit omvat de mogelijkheid om te bekijken van asset-inventarisatie, implementatie plannen, status van de implementatie en de status bekijken voor Desktop-analyse. Deze rol kunnen gebruikers Office-beleid beheren voor Office Customization & Policy-service.
+
+* **[Apparaatbeheerder](#device-administrators)** : Deze functie is beschikbaar voor toewijzing alleen als een lokale beheerder in [apparaatinstellingen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gebruikers met deze rol worden lokale computerbeheerders op alle Windows 10-apparaten die zijn gekoppeld aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaatobjecten in Azure Active Directory. 
 
 * **[Adreslijstlezers](#directory-readers)** : Dit is een rol die moet worden toegewezen aan alleen oudere toepassingen die geen ondersteuning voor de [toestemming geven Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Niet toewijzen aan gebruikers.
 
@@ -210,19 +212,20 @@ Bovendien kan de gebruiker toegang tot rapporten met betrekking tot acceptatie e
   [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen
   [Office 365-servicestatus](https://docs.microsoft.com/office365/enterprise/view-service-health) | Bekijk de status van Office 365-services
 
-<!--* **[Security operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center.
+* **[Beveiliging-operator](#security-operator)** : Gebruikers met deze rol kunnen waarschuwingen beheren en hebben globale alleen-lezen toegang op functies met betrekking tot beveiliging, met inbegrip van alle gegevens in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management en Office 365 Beveiliging en compliance. Meer informatie over Office 365-machtigingen is beschikbaar op [machtigingen in het Office 365-beveiligings- en Nalevingscentrum](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
-  In | Can do
+  In | Kan doen
   --- | ---
-  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-  Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | All permissions of the Security Reader role
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | All permissions of the Security Reader role
-  [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
--->
+  [Microsoft 365 security center](https://protection.office.com) | Alle machtigingen van de rol van Beveiligingslezer<br>Bekijken en reageren op bedreigingen beveiligingswaarschuwingen onderzoeken
+  Identity Protection Center | Alle machtigingen van de rol van Beveiligingslezer<br>Bovendien de mogelijkheid om uit te voeren van alle Identity Protection Center-bewerkingen, met uitzondering van wachtwoorden opnieuw instellen
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Alle machtigingen van de rol van Beveiligingslezer
+  [Office 365-beveiliging en compliance](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Alle machtigingen van de rol van Beveiligingslezer<br>Weergeven, onderzoeken en reageren op beveiligingswaarschuwingen
+  Windows Defender ATP en EDR | Alle machtigingen van de rol van Beveiligingslezer<br>Weergeven, onderzoeken en reageren op beveiligingswaarschuwingen
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Alle machtigingen van de rol van Beveiligingslezer
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Alle machtigingen van de rol van Beveiligingslezer
+  [Office 365-servicestatus](https://docs.microsoft.com/office365/enterprise/view-service-health) | Bekijk de status van Office 365-services
+<!--* **[Security Operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management.-->
+
 * **[Beveiligingslezer](#security-reader)** : Gebruikers met deze rol hebben globale alleen-lezen toegang op functies met betrekking tot beveiliging, met inbegrip van alle gegevens in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, evenals de mogelijkheid om te lezen Azure Active Directory-aanmeldingsrapporten en controlelogboeken, en in Office 365-beveiligings- en Compliancecentrum. Meer informatie over Office 365-machtigingen is beschikbaar op [machtigingen in het Office 365-beveiligings- en Nalevingscentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
   In | Kan doen
@@ -406,22 +409,6 @@ Kunnen algemene facturering gerelateerde taken uitvoeren, zoals betalingsgegeven
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en Office 365-servicestatus configureren. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maken en beheren van Office 365-ondersteuningstickets. |
 
-### <a name="desktop-analytics-administrator"></a>Desktop Analytics-Administrator
-Kunnen de Desktop Analytics en de Office Customization & beleid services beheren. Dit omvat de mogelijkheid om te bekijken van asset-inventarisatie, implementatie plannen, status van de implementatie en de status bekijken voor Desktop-analyse. Deze rol kunnen gebruikers Office-beleid beheren voor Office Customization & Policy-service.
-
-  > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Eenvoudige eigenschappen voor alle resources in microsoft.office365.webPortal lezen. |
-| microsoft.office365.desktopAnalytics/allEntities/allTasks | Alle aspecten van bureaublad Analytics beheren. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Lees en Office 365-servicestatus configureren. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Maken en beheren van Office 365-ondersteuningstickets. |
 
 ### <a name="cloud-application-administrator"></a>Beheerder van de cloudtoepassing
 Kan maken en beheren van alle aspecten van app-registraties en bedrijfsapps, behalve App Proxy.
@@ -565,6 +552,28 @@ Kan lezen en nalevingsconfiguratie en -rapporten beheren in Azure AD en Office 3
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Alle aspecten van Skype voor bedrijven Online beheren. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maken en beheren van Office 365-ondersteuningstickets. |
 
+### <a name="compliance-data-administrator"></a>Beheerder voor naleving-gegevens
+Maakt en beheert de naleving inhoud.
+
+  > [!NOTE]
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Lees en Microsoft Cloud App Security configureren. |
+| microsoft.azure.informationProtection/allEntities/allTasks | Alle aspecten van Azure Information Protection beheren. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Eenvoudige eigenschappen voor alle resources in microsoft.office365.webPortal lezen. |
+| microsoft.office365.complianceManager/allEntities/allTasks | Alle aspecten van Office 365-Nalevingsframework Manager beheren |
+| microsoft.office365.exchange/allEntities/allTasks | Alle aspecten van Exchange Online te beheren. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lees en Office 365-servicestatus configureren. |
+| microsoft.office365.sharepoint/allEntities/allTasks | Maken en verwijderen van alle resources en lezen en bijwerken van de standaardeigenschappen in microsoft.office365.sharepoint. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | Alle aspecten van Skype voor bedrijven Online beheren. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Maken en beheren van Office 365-ondersteuningstickets. |
+
 ### <a name="conditional-access-administrator"></a>Voorwaardelijke toegang beheerder
 Mogelijkheden voor voorwaardelijke toegang beheren.
 
@@ -608,6 +617,23 @@ Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klan
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Eenvoudige eigenschappen voor alle resources in microsoft.office365.webPortal lezen. |
 | microsoft.office365.lockbox/allEntities/allTasks | Alle aspecten van Office 365-klant Lockbox beheren |
+
+### <a name="desktop-analytics-administrator"></a>Desktop Analytics-Administrator
+Kunnen de Desktop Analytics en de Office Customization & beleid services beheren. Dit omvat de mogelijkheid om te bekijken van asset-inventarisatie, implementatie plannen, status van de implementatie en de status bekijken voor Desktop-analyse. Deze rol kunnen gebruikers Office-beleid beheren voor Office Customization & Policy-service.
+
+  > [!NOTE]
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Eenvoudige eigenschappen voor alle resources in microsoft.office365.webPortal lezen. |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | Alle aspecten van bureaublad Analytics beheren. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lees en Office 365-servicestatus configureren. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Maken en beheren van Office 365-ondersteuningstickets. |
 
 ### <a name="device-administrators"></a>Apparaatbeheerders
 Gebruikers die zijn toegewezen aan deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD join-apparaten.
@@ -1081,6 +1107,25 @@ Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD
 | microsoft.office365.protectionCenter/allEntities/update | Alle resources in microsoft.office365.protectionCenter bijwerken. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en Office 365-servicestatus configureren. |
 
+### <a name="security-operator"></a>Beveiliging-Operator
+Maakt en beheert beveiligingsgebeurtenissen.
+
+  > [!NOTE]
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Lees en Microsoft Cloud App Security configureren. |
+| microsoft.aad.identityProtection/allEntities/read | Alle resources in microsoft.aad.identityProtection lezen. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | Alle resources in microsoft.aad.privilegedIdentityManagement lezen. |
+| microsoft.azure.advancedThreatProtection/allEntities/read | Lezen en te configureren van Azure AD Advanced Threat Protection. |
+| microsoft.intune/allEntities/allTasks | Alle aspecten van Intune beheren. |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | Lezen of beveiliging en compliance. |
+| microsoft.office365.usageReports/allEntities/read | Gebruiksrapporten lezen Office 365. |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Lezen en te configureren van Windows Defender Advanced Threat Protection. |
+
 ### <a name="security-reader"></a>Beveiligingslezer
 Informatie over beveiliging en rapporten kunnen worden gelezen in Azure AD en Office 365.
 
@@ -1261,14 +1306,15 @@ B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 
 B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF Policy Administrator | B2C IEF Policy Administrator | 3edaf663-341e-4475-9f94-5c398ef6c070
 Factureringsbeheerder | Factureringsbeheerder | b0f54661-2d74-4c50-afa3-1ec803f12efe
-Desktop Analytics-Administrator | Desktop Analytics-Administrator | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Beheerder van de cloudtoepassing | Beheerder van de cloudtoepassing | 158c047a-c907-4556-b7ef-446551a6b5f7
 Cloud-Apparaatbeheerder | Cloud-apparaatbeheerder | 7698a772-787b-4ac8-901f-60d6b08affd2
 Bedrijfsbeheerder | Globale beheerder | 62e90394-69f5-4237-9190-012177145e10
 Beheerder voor naleving | Beheerder voor naleving | 17315797-102d-40b4-93e0-432062caca18
+Beheerder voor naleving-gegevens | Beheerder voor naleving-gegevens | e6d1a23a-da11-4be4-9570-befc86d067a7
 Voorwaardelijke toegang beheerder | Voorwaardelijke toegang beheerder | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 CRM-servicebeheerder | Dynamics 365-beheerder | 44367163-eba1-44c3-98af-f5787879f96a
 Toegangsfiatteur voor klanten | Klanten-Lockbox toegang goedkeurder | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+Desktop Analytics-Administrator | Desktop Analytics-Administrator | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Apparaatbeheerders | Apparaatbeheerders | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Toevoegen | Toevoegen | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Device Manager-services | Device Manager-services | 2b499bcd-da44-4968-8aec-78e1674fa64d
@@ -1295,6 +1341,7 @@ Rapportenreader | Rapportenreader | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Zoekresultaten | Zoekresultaten | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 Search-Editor | Search-editor | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Beveiligingsbeheerder | Beveiligingsbeheerder | 194ae4cb-b126-40b2-bd5b-6091b380977d
+Beveiliging-Operator | Beveiliging-operator | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Beveiligingslezer | Beveiligingslezer | 5d6b6bb7-de71-4623-b4af-96380a352509
 Beheerder serviceondersteuning | Servicebeheerder | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint-servicebeheerder | SharePoint-beheerder | f28a1f50-f6e7-4571-818b-6a12f2af6b6c

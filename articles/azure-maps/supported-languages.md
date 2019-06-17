@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686787"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokalisatieondersteuning in Azure-kaarten
@@ -56,7 +56,7 @@ Azure Maps zijn voor services in verschillende talen gelokaliseerd. De volgende 
 | id-ID      | Indonesisch             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | IT-IT      | Italiaans                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japans               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazachs                 |       |    ✓   |         |                   |                |     ✓     |
+| kk-KZ      | Kazachstaans                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Koreaans                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Latijns-Amerika Spaans |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Lets                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -85,7 +85,7 @@ Azure Maps zijn voor services in verschillende talen gelokaliseerd. De volgende 
 
 ## <a name="azure-maps-supported-views"></a>Azure Maps ondersteunde weergaven
 
-Azure kaarten weergeven-parameter (ook wel 'gebruiker regio parameter' genoemd) is een 2-letter uitvoeren voor ISO-3166 landcode die wordt weergegeven de juiste toewijzingen van dat land/de regio op te geven welke geopolitieke set betwist randen en labels worden weergegeven op de kaart.  Weergave-parameter is standaard ingesteld op **"Unified"**.  Land/regio's die niet in de weergavelijst wordt teruggezet naar de weergave 'Unified'. Het is uw verantwoordelijkheid om te bepalen van de locatie van uw gebruikers en stel vervolgens de weergave-parameter correct voor die locatie. De parameter weergeven in Azure kaarten-moet worden gebruikt in overeenstemming met van toepassing zijnde wetten, met inbegrip van de betreffende toewijzing van het land waar kaarten, afbeeldingen en andere gegevens en van derden inhoud die u bent gemachtigd om via Azure kaarten-beschikbaar wordt gesteld.
+Azure kaarten weergeven-parameter (ook wel 'gebruiker regio parameter' genoemd) is een 2-letter uitvoeren voor ISO-3166 landcode die wordt weergegeven de juiste toewijzingen van dat land/de regio op te geven welke geopolitieke set betwist randen en labels worden weergegeven op de kaart.  Weergave-parameter is standaard ingesteld op **"Unified"** .  Land/regio's die niet in de weergavelijst wordt teruggezet naar de weergave 'Unified'. Het is uw verantwoordelijkheid om te bepalen van de locatie van uw gebruikers en stel vervolgens de weergave-parameter correct voor die locatie. De parameter weergeven in Azure kaarten-moet worden gebruikt in overeenstemming met van toepassing zijnde wetten, met inbegrip van de betreffende toewijzing van het land waar kaarten, afbeeldingen en andere gegevens en van derden inhoud die u bent gemachtigd om via Azure kaarten-beschikbaar wordt gesteld.
 
 De volgende tabel bevat de ondersteunde weergaven.
 
@@ -107,4 +107,4 @@ De volgende tabel bevat de ondersteunde weergaven.
 | SA           | Saoedi-Arabië (Arabisch weergeven)            |   ✓   |        |     ✓          |
 | SY           | Syrië (Arabisch weergeven)                   |   ✓   |        |     ✓          |
 | YE           | Jemen (Arabisch weergeven)                   |   ✓   |        |     ✓          |
-| Unified      | Geïntegreerde weergave (andere)                  |   ✓   |   ✓     |     ✓          |
+| Gecentraliseerd      | Geïntegreerde weergave (andere)                  |   ✓   |   ✓     |     ✓          |

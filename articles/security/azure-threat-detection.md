@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a6a0e6219a45821e2a4416a4e563aa6edb86eba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611046"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127173"
 ---
 # <a name="azure-advanced-threat-detection"></a>Geavanceerde bedreigingsdetectie van Azure
 
@@ -37,7 +37,7 @@ Identity Protection maakt gebruik van geavanceerde machine learning-algoritmen e
 
 Azure Active Directory Identity Protection is meer dan een controle- en rapportagetool. Op basis van risico's, berekend Identity Protection een risiconiveau van de gebruiker voor elke gebruiker zodat u risico's gebaseerd beleid voor het automatisch beveiligen van de identiteiten van uw organisatie kunt configureren.
 
-Deze risico's gebaseerd beleid, naast andere [besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) die worden geleverd door Azure Active Directory en [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), kunnen automatisch blokkeren of adaptieve herstelacties bieden die wachtwoord opnieuw instellen van wachtwoorden en het afdwingen van multi-factor authentication bevatten.
+Deze risico's gebaseerd beleid, naast andere [Hiermee bepaalt u voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) die worden geleverd door Azure Active Directory en [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), kunnen automatisch blokkeren of adaptieve herstelacties bieden die wachtwoord opnieuw instellen van wachtwoorden en het afdwingen van multi-factor authentication bevatten.
 
 ### <a name="identity-protection-capabilities"></a>Mogelijkheden voor identiteits-beveiliging
 
@@ -95,7 +95,7 @@ De Log Analytics-beveiliging en controle-dashboard is onderverdeeld in vier hoof
 
 -   **Problemen die aandacht vereisen**: Hiermee kunt u snel het aantal actieve problemen en de ernst van de problemen kunt identificeren.
 
--   **Detecties (Preview)**: Hiermee kunt u aanvalspatronen identificeren door beveiligingswaarschuwingen weergeven wanneer deze zich op basis van uw resources voordoen.
+-   **Detecties (Preview)** : Hiermee kunt u aanvalspatronen identificeren door beveiligingswaarschuwingen weergeven wanneer deze zich op basis van uw resources voordoen.
 
 -   **Bedreigingsinformatie**: Hiermee kunt u aanvalspatronen identificeren door het totale aantal servers met schadelijk uitgaand IP-verkeer, het type schadelijke dreigingen en een overzicht van de IP-adressen locaties weer te geven.
 
@@ -344,7 +344,7 @@ Met hulpprogramma's om schaduw-IT te onthullen, risico's te beoordelen, beleid a
 | Ontdekken | Onthul shadow IT met Cloud App Security. Krijg meer inzicht door apps, activiteiten, gebruikers, gegevens en bestanden in uw cloudomgeving te detecteren. Detecteer apps van derden die zijn verbonden met uw cloud.|
 |Onderzoeken | Onderzoek uw cloud-apps met behulp van forensische hulpprogramma's voor cloud om riskante apps, specifieke gebruikers en bestanden in uw netwerk. Het vinden van patronen in de gegevens die worden verzameld van uw cloud. Maak rapporten om uw cloud te bewaken. |
 | Beheer | Beperk risico's door beleidsregels en waarschuwingen om maximale controle over het netwerkverkeer van de cloud te stellen. Gebruik Cloud App Security voor uw gebruikers migreren naar alternatieven voor veilige, goedgekeurde cloud-app. |
-| Beschermen | Cloud App Security kunt goedkeuren of toepassingen verbieden, af te dwingen van preventie van gegevensverlies, machtigingen en delen en aangepaste rapporten en waarschuwingen te genereren. |
+| beveiligen | Cloud App Security kunt goedkeuren of toepassingen verbieden, af te dwingen van preventie van gegevensverlies, machtigingen en delen en aangepaste rapporten en waarschuwingen te genereren. |
 | Beheer | Beperk risico's door beleidsregels en waarschuwingen om maximale controle over het netwerkverkeer van de cloud te stellen. Gebruik Cloud App Security voor uw gebruikers migreren naar alternatieven voor veilige, goedgekeurde cloud-app. |
 | | |
 

@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 05/15/2019
+ms.date: 06/13/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133077"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via de **klassieke** implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "66238277"
 | Lokale netwerksites |20 |Neem contact op met ondersteuning. |
 | DNS-servers per virtueel netwerk |20 |20 |
 | Privé-IP-adressen per virtueel netwerk |4,096 |4,096 |
-| Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500.000 maximaal 1.000.000 voor twee of meer NIC's. |500.000 maximaal 1.000.000 voor twee of meer NIC's. |
+| Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500\.000 maximaal 1.000.000 voor twee of meer NIC's. |500\.000 maximaal 1.000.000 voor twee of meer NIC's. |
 | Netwerkbeveiligingsgroepen (nsg's) |200 |200 |
 | NSG-regels per NSG |1000 |1000 |
 | Gebruiker gedefinieerde routetabellen |200 |200 |
@@ -81,7 +81,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Regels per resource, Basic | 250 |
 | Regels per resource, Standard | 1,500 | 
 | Regels per IP-configuratie | 299 |
-| Regels per NIC | 500 |
+| Regels per NIC | 300 |
 | Front-end-IP-configuraties, Basic | 200 |
 | Front-end-IP-configuraties, Standard | 600 |
 | Back-end-pool, Basic | 100, één beschikbaarheidsset |

@@ -15,10 +15,10 @@ ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824647"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
@@ -184,7 +184,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **[appRoleAssignments]** |Vereist |Reeks |**[appRoleAssignments]**  object. |
 
 - - -
-### <a name="split"></a>Splitsen
+### <a name="split"></a>splitsen
 **Functie:**<br> Splitsen (bron, scheidingsteken)
 
 **Beschrijving:**<br> Hiermee wordt een tekenreeks in een matrix mulit-waarde, met behulp van het opgegeven scheidingsteken.

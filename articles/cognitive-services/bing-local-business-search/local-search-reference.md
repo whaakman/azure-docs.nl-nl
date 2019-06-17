@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796748"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Verwijzing van lokale bedrijven zoeken-API voor Bing versie 7
@@ -49,7 +49,7 @@ In de aanvraag moet u het HTTPS-protocol gebruiken.
 ## <a name="headers"></a>Headers  
 Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.  
   
-|Koptekst|Description|  
+|Header|Description|  
 |------------|-----------------|  
 |Accepteren|Optionele aanvraagheader.<br /><br /> De standaard-mediatype is application/json. Om op te geven dat het antwoord gebruiken [JSON-LD](https://json-ld.org/), de Accept-header ingesteld op application/ld + json.|  
 |<a name="acceptlanguage" />Accept-Language|Optionele aanvraagheader.<br /><br /> Een door komma's gescheiden lijst met talen die moet worden gebruikt voor gebruikersinterfacetekenreeksen. De lijst is in aflopende volgorde van voorkeur. Zie [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) voor meer informatie, waaronder de verwachte indeling.<br /><br /> Deze header en de queryparameter [setLang](#setlang) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Als u deze header instelt, moet u ook de cc-queryparameter. Om de markt te bepalen waarvoor resultaten moeten worden geretourneerd, gebruikt Bing de eerste ondersteunde taal die wordt gevonden in de lijst en combineert deze met de parameterwaarde `cc`. Als de lijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen, of gebruikt een geaggregeerde of standaardmarkt voor de resultaten. Zie de header BingAPIs-Market om de markt te bepalen die Bing heeft gebruikt.<br /><br /> Gebruik deze header en de queryparameter `cc` alleen als u meerdere talen opgeeft. Gebruik anders de queryparameters [mkt](#mkt) en [setLang](#setlang).<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|  
@@ -75,7 +75,7 @@ De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor
 |<a name="count" />count|Het aantal resultaten dat moet worden geretourneerd, beginnend met de index opgegeven door de `offset` parameter.|String|Nee|   
 |<a name="localCategories" />localCategories|Lijst met opties die zoeken op categorie zakelijke definiëren.  Zie [categorieën van lokale bedrijven zoeken](local-categories.md)|String|Nee|  
 |<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, markt-Codes.<br /><br /> **OPMERKING:** De lokale bedrijven zoeken-API ondersteunt momenteel alleen en-us markt en taal.<br /><br />|String|Ja|
-|<a name="offset"/>offset|De index om te starten van de resultaten die zijn opgegeven door de `count` parameter.|Integer|Nee|  
+|<a name="offset"/>offset|De index om te starten van de resultaten die zijn opgegeven door de `count` parameter.|Geheel getal|Nee|  
 |<a name="query" />q|Zoekterm van de gebruiker.|String|Nee|  
 |<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />  Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](https://json-ld.org/).|String|Nee|  
 |<a name="safesearch" />safeSearch|Een filter dat wordt gebruikt voor het filteren van inhoud voor volwassenen. Hier volgen de mogelijke niet-hoofdlettergevoelige filterwaarden.<br /><ul><li>Uit&mdash;webpagina's met volwassen tekst, afbeeldingen of video's retourneren.<br /><br/></li><li>Gemiddeld&mdash;webpagina's met volwassen tekst, maar niet volwassen afbeeldingen of video's retourneren.<br /><br/></li><li>Strikte&mdash;webpagina's met volwassen tekst, afbeeldingen of video's niet retourneren.</li></ul><br /> De standaardwaarde is Moderate.<br /><br /> **OPMERKING:** Als de aanvraag afkomstig van een markt is van die Bing volwassenen beleid vereist dat `safeSearch` is ingesteld op strikt, Bing negeert de `safeSearch` waarde en maakt gebruik van strikt.<br/><br/>**OPMERKING:** Als u de `site:` query-operator, bestaat de kans dat het antwoord inhoud voor volwassen, ongeacht wat bevatten de `safeSearch` queryparameter is ingesteld op. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt. |String|Nee|  
@@ -119,17 +119,17 @@ Hiermee definieert u de licentie waaronder de tekst of foto's kan worden gebruik
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|De naam van de licentie.|String|  
+|name|De naam van de licentie.|String|  
 |url|De URL naar een website waar de gebruiker meer informatie over de licentie krijgt.<br /><br /> De naam en URL gebruiken om een hyperlink te maken.|String|  
 
 
-### <a name="link"></a>Koppelen  
+### <a name="link"></a>Koppeling  
 Hiermee definieert u de onderdelen van een hyperlink.  
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Type hint.|String|  
-|tekst|De tekst.|String|  
+|text|De tekst.|String|  
 |url|EEN URL. Gebruik de URL en tekst voor het maken van een hyperlink weer te geven.|String|  
   
 
@@ -142,7 +142,7 @@ Houd er rekening mee dat de uitgever hun naam of de website of beide bieden kan.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|Naam van de uitgever.|String|  
+|name|Naam van de uitgever.|String|  
 |url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever niet een website bieden mogelijk.|String|  
   
   
@@ -155,7 +155,7 @@ Informatie over een lokale bedrijven, zoals een restaurant of een hotel definiee
 |_type|Type-hint die kan worden ingesteld op een van de volgende:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|String|  
 |address|Het postadres van waar de entiteit zich bevindt.|PostalAddress|  
 |entityPresentationInfo|Meer informatie over de entiteit, zoals de hints die u gebruiken kunt om te bepalen van de entiteit-type. Of het is bijvoorbeeld een restaurant of in een hotel. De `entityScenario` ListItem is ingeschakeld.|EntityPresentationInfo|  
-|naam|De naam van de entiteit.|String|  
+|name|De naam van de entiteit.|String|  
 |Telefoonnummer|Het telefoonnummer van de entiteit.|String|  
 |url|De URL naar de website van de entiteit.<br /><br /> Gebruik deze URL samen met de naam van de entiteit op een hyperlink maken die terugkoppeling leidt de gebruiker naar de website van de entiteit.|String|  
 |webSearchUrl|De URL van de Bing-zoekresultaten voor deze locatie.|String| 
@@ -190,7 +190,7 @@ Hiermee definieert u een item voor het resultaat van zoeken om weer te geven.
 
 |Name|Value|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Integer|
+|resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Geheel getal|
 |answerType|Het antwoord waarin het item om weer te geven. Bijvoorbeeld, nieuws.<br /><br />Gebruik het type in het antwoord vinden in het object SearchResponse. Het type is de naam van een veld SearchResponse.<br /><br /> Echter, het antwoordtype alleen gebruiken als dit object het waardeveld bevat. anders wordt deze negeren.|String|
 |textualIndex|De index van het antwoord in textualAnswers om weer te geven.| Geheel getal zonder teken|
 |value|De ID die u identificeert een antwoord om weer te geven of een item van het antwoord om weer te geven. Als de ID verwijst naar een antwoord, moet u alle items van het antwoord weergegeven.|Identificeerbare|
@@ -222,7 +222,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   
 |Statuscode|Description|  
 |-----------------|-----------------|  
-|200|Voltooid.|  
+|200|Geslaagd.|  
 |400|Een van de queryparameters is ontbreekt of is ongeldig.|  
 |401|De abonnementssleutel ontbreekt of is niet geldig.|  
 |403|De gebruiker is geverifieerd (bijvoorbeeld deze sleutel hebt gebruikt een geldig abonnement), maar zij geen machtiging voor de aangevraagde resource.<br /><br /> Bing mogelijk deze status ook geretourneerd als de oproepende functie hun query's per maand quotum overschreden.|  
@@ -262,7 +262,7 @@ Hier volgen de mogelijke fout code en de onderliggende fout code-waarden.
 
 |Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|HTTP-statuscode is 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP-statuscode is 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als u het HTTP-protocol in plaats van HTTPS, Bing retourneert HttpNotAllowed en de HTTP-statuscode 410.
 |RateLimitExceeded|Er is geen onderliggende codes|Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Als u QPS overschrijdt, Bing retourneert HTTP-statuscode 429 en als u QPM overschrijdt, Bing 403 retourneert.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.

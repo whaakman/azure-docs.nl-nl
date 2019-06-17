@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8804988387ba4a6cdc8dff5d93077de42ea2051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4af8cdc1072678de7e34458fc4b54d52aae9eff1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546181"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111599"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integreren met Azure Active Directory
 
@@ -81,7 +81,7 @@ Integratie met Azure AD wordt geleverd met voordelen die niet nodig hebt u extra
 
 **Afwijkende aanmelden detectie.**  Azure AD verwerkt meer dan een miljard aanmeldingen per dag, tijdens het gebruik van machine learning-algoritmen voor detecteren van verdachte activiteiten en de kennisgeving van IT-beheerders van mogelijke problemen. Door de ondersteuning van Azure AD-aanmelding, krijgt uw toepassing het voordeel van deze beveiligingsgroep. Meer informatie over [weergeven van Azure Active Directory-rapport](../active-directory-view-access-usage-reports.md).
 
-**Voorwaardelijke toegang.**  Naast verificatie met meerdere factoren, beheerders kunnen vereisen dat aan bepaalde voorwaarden worden voldaan voordat gebruikers kunnen aanmelden bij uw toepassing. Voorwaarden die kunnen worden ingesteld omvatten het IP-adresbereik van clientapparaten, lidmaatschap van de opgegeven groepen en de status van het apparaat wordt gebruikt om toegang te krijgen. Meer informatie over [voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+**Voorwaardelijke toegang.**  Naast verificatie met meerdere factoren, beheerders kunnen vereisen dat aan bepaalde voorwaarden worden voldaan voordat gebruikers kunnen aanmelden bij uw toepassing. Voorwaarden die kunnen worden ingesteld omvatten het IP-adresbereik van clientapparaten, lidmaatschap van de opgegeven groepen en de status van het apparaat wordt gebruikt om toegang te krijgen. Meer informatie over [Azure Active Directory voor voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Eenvoudige ontwikkeling
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925155"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147516"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box Disk en deze gegevens controleren
 
@@ -58,9 +58,9 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
 
     |Geselecteerde opslaglocatie  |Type opslagaccount|Type opslagaccount fasering |Mappen en submappen  |
     |---------|---------|---------|------------------|
-    |Storage-account     |GPv1- of GPv2                 | N.v.t. | BlockBlob <br> PageBlob <br> AzureFile        |
-    |Storage-account     |BLOB storage-account         | N.v.t. | BlockBlob        |
-    |Managed Disks     |N.v.t. | GPv1- of GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Storage-account     |GPv1- of GPv2                 | N.V.T. | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Storage-account     |BLOB storage-account         | N.V.T. | BlockBlob        |
+    |Managed Disks     |N.V.T. | GPv1- of GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
     |Storage-account <br> Managed Disks     |GPv1- of GPv2 | GPv1- of GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
     |Storage-account <br> Managed Disks    |BLOB storage-account | GPv1- of GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
@@ -88,8 +88,8 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     
     |Parameters/opties  |Description |
     |--------------------|------------|
-    |Bron            | Hiermee geeft u het pad naar de bronmap op.        |
-    |Doel       | Hiermee geeft u het pad naar de doelmap op.        |
+    |source            | Hiermee geeft u het pad naar de bronmap op.        |
+    |Bestemming       | Hiermee geeft u het pad naar de doelmap op.        |
     |/E                  | Hiermee kopieert u submappen, met inbegrip van lege mappen. |
     |/MT[:N]             | Hiermee maakt u kopieën met meerdere (N) threads, waarbij N een geheel getal tussen 1 en 128 is. <br>De standaardwaarde voor N is 8.        |
     |/R: \<N>             | Hiermee geeft u het aantal nieuwe pogingen bij mislukte kopieerbewerkingen op. De standaardwaarde van N is 1.000.000 (één miljoen nieuwe pogingen).        |
@@ -250,6 +250,8 @@ U kunt deze optionele procedure gebruiken als u meerdere schijven gebruikt en u 
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Als u fouten met het hulpprogramma voor splitsen up ziet, gaat u naar het [splitsen up hulpprogramma fouten oplossen](data-box-disk-troubleshoot-data-copy.md).
+
 Nadat het kopiëren van gegevens voltooid is, kunt u doorgaan met het valideren van uw gegevens. Als u het hulpprogramma Split Copy gebruikt, slaat u de validatie over (Split Copy valideert ook) en gaat u door met de volgende zelfstudie.
 
 
@@ -270,6 +272,8 @@ Als u niet de Split Copy tool gebruikt hebt om gegevens te kopiëren, moet u uw 
     > - Gebruik optie 1 als het gaat om een grote gegevensset met kleine bestanden (~ KB). Met deze optie worden alleen de bestanden gevalideerd, omdat het genereren van een controlesom erg lang kan duren en de prestaties dus tegenvallen.
 
 3. Als u meerdere schijven gebruikt, voert u de opdracht uit voor elke schijf.
+
+Als u fouten tijdens de validatie ziet, Zie [validatiefouten oplossen](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

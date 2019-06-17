@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 0991a0df8d34ddbcebf3d4097c0219b47793120b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779942"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps dekking voor routering
@@ -75,7 +75,7 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Tanzania                       |        ✓       |                       |             |
 | Togo                           |        ✓       |                       |             |
 | Tunesië                        |        ✓       |                       |             |
-| Uganda                         |        ✓       |                       |             |
+| Oeganda                         |        ✓       |                       |             |
 | Zambia                         |        ✓       |                       |             |
 | Zimbabwe                       |        ✓       |                       |             |
 
@@ -86,7 +86,7 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentinië                      |        ✓       |         ✓            |     ✓       |
 | Antigua en Barbuda            |        ✓       |                      |             |
-| Bahama´s                        |        ✓       |                      |             |
+| Bahama's                        |        ✓       |                      |             |
 | Barbados                       |        ✓       |                      |             |
 | Belize                         |        ✓       |                      |             |
 | Brazilië                         |        ✓       |         ✓            |     ✓       | 
@@ -103,7 +103,7 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Grenada                        |        ✓       |                      |             |
 | Guatemala                      |        ✓       |                      |             |
 | Guyana                         |        ✓       |                      |             |
-| Haïti                          |        ✓       |                      |             |
+| Haiti                          |        ✓       |                      |             |
 | Honduras                       |        ✓       |                      |             |
 | Jamaica                        |        ✓       |                      |             |
 | Mexico                         |        ✓       |         ✓            |     ✓      | 
@@ -115,12 +115,12 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Saint Lucia                      |        ✓       |                      |             |
 | Saint Vincent en de Grenadines       |        ✓       |                      |             |
 | Suriname                       |        ✓       |                      |             |
-| Trinidad en Tobago              |        ✓       |                      |             |
+| Trinidad & Tobago              |        ✓       |                      |             |
 | Verenigde Staten                  |        ✓       |         ✓            |     ✓      | 
-| + Amerikaans-Samoa                |        ✓       |                      |             |
-| + Noordelijke Marianen      |        ✓       |                      |             |
+| \+ Amerikaans-Samoa                |        ✓       |                      |             |
+| \+ Noordelijke Marianen      |        ✓       |                      |             |
 | +Puerto Rico                   |        ✓       |                      |             |
-| + VS Britse Maagdeneilanden           |        ✓       |                      |             |
+| \+ VS Britse Maagdeneilanden           |        ✓       |                      |             |
 | Uruguay                        |        ✓       |         ✓            |     ✓      | 
 | Venezuela                      |        ✓       |                      |             |
 
@@ -130,7 +130,7 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Land/regio                 | Routering         | Routering van verkeer | Vrachtwagen routering |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australië                      |        ✓       |         ✓            |     ✓       |
-| + Christmas-Eiland              |        ✓       |                      |             |
+| \+ Christmas-Eiland              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Cambodja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
@@ -138,7 +138,7 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Hongkong SAR                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesië                      |        ✓       |         ✓            |             |
-| Zuid-Korea                          |        Ø       |                      |             |
+| Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | Macau SAR                      |        ✓       |         ✓            |             |
 | Maleisië                       |        ✓       |         ✓            |             |
@@ -163,20 +163,20 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Bolivia                        |        ✓       |                      |             |
 | Bosnia-Herzegovina             |        ✓       |                      |             |
 | Bulgarije                       |        ✓       |         ✓            |     ✓      | 
-| Kroatië (Hrvatska)                        |        ✓       |         ✓            |     ✓      |
+| Kroatië                        |        ✓       |         ✓            |     ✓      |
 | Cyprus                         |        ✓       |                      |             |
-| Tsjechische Republiek                 |        ✓       |         ✓            |     ✓      |
+| Tsjechië                 |        ✓       |         ✓            |     ✓      |
 | Denemarken                        |        ✓       |         ✓            |     ✓      |
-| + Faeröer                 |        ✓       |                      |             |
+| \+ Faeröer                 |        ✓       |                      |             |
 | Estland                        |        ✓       |         ✓            |     ✓      |
 | Finland                        |        ✓       |         ✓            |     ✓      |
 | Frankrijk                         |        ✓       |         ✓            |     ✓      | 
 | +Guadeloupe                    |        ✓       |                      |             |
 | +Martinique                    |        ✓       |                      |             |
-| + Saint-Barthélemy                |        ✓       |                      |             |
-| + Sint-Maarten                    |        ✓       |                      |             |
-| + St. Pierre en Miquelon         |        ✓       |                      |             |
-| Georgia                        |        ✓       |                      |             |
+| \+ Saint-Barthélemy                |        ✓       |                      |             |
+| \+ Sint-Maarten                    |        ✓       |                      |             |
+| \+ St. Pierre en Miquelon         |        ✓       |                      |             |
+| Georgië                        |        ✓       |                      |             |
 | Duitsland                        |        ✓       |         ✓            |     ✓      | 
 | Griekenland                         |        ✓       |         ✓            |     ✓      |  
 | Guernsey                       |        ✓       |                      |             |
@@ -189,23 +189,23 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Litouwen                      |        ✓       |         ✓            |     ✓      | 
 | Luxemburg                     |        ✓       |         ✓            |     ✓      | 
-| Noord-Macedonië                |        ✓       |                      |             |
+| Noord Macedonië                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldavië                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Nederland                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
-| + Caribisch gebied Nederland         |        ✓       |                      |             |
+| \+ Caribisch gebied Nederland         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + Sint-Maarten                  |        ✓       |                      |             |
+| \+ Sint-Maarten                  |        ✓       |                      |             |
 | Noorwegen                         |        ✓       |         ✓            |     ✓      | 
 | Polen                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Roemenië                        |        ✓       |         ✓            |     ✓      | 
 | Russische Federatie             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| + Sint-Maarten                  |        ✓       |                      |             |
+| \+ Sint-Maarten                  |        ✓       |                      |             |
 | Servië                         |        ✓       |                      |     ✓      | 
 | Slowakije                       |        ✓       |         ✓            |     ✓      | 
 | Slovenië                       |        ✓       |         ✓            |     ✓      |
@@ -217,13 +217,13 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Verenigd Koninkrijk                 |        ✓       |         ✓            |     ✓      | 
 | +Anguilla                      |        ✓       |                      |             |
 | +Bermuda                       |        ✓       |                      |             |
-| + Britse Maagdeneilanden        |        ✓       |                      |             |
-| + Kaaimaneilanden                |        ✓       |                      |             |
+| \+ Britse Maagdeneilanden        |        ✓       |                      |             |
+| \+ Kaaimaneilanden                |        ✓       |                      |             |
 | +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Turks en Caicos-eilanden      |        ✓       |                      |             |
+| \+ Turks en Caicos-eilanden      |        ✓       |                      |             |
 | Vaticaanstad                   |        ✓       |         ✓            |             |
-| Israël                    |        ✓       |                      |             |
+| Man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Midden-Oosten
@@ -238,7 +238,7 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Libanon                        |        ✓       |                      |             |
 | Oman                           |        ✓       |         ✓            |             |
 | Qatar                          |        ✓       |         ✓            |             |
-| Saudi-Arabië                   |        ✓       |         ✓            |             |
+| Saoedi-Arabië                   |        ✓       |         ✓            |             |
 | Verenigde Arabische Emiraten           |        ✓       |         ✓            |             |
 | Jemen                          |        ✓       |                      |             |
 

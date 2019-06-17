@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128097"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js-SDK
@@ -372,7 +372,7 @@ De meeste instellingen in het bestand azureMobile.js hebben een gelijkwaardige a
 
 | App-instelling | azureMobile.js instelling | Description | Geldige waarden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |naam |Naam van de app |string |
+| **MS_MobileAppName** |name |Naam van de app |string |
 | **MS_MobileLoggingLevel** |logging.level |Minimaal logboekniveau van berichten aan te melden |fout, waarschuwing, informatie, uitgebreid, foutopsporing, stom |
 | **MS_DebugMode** |fouten opsporen |Hiermee schakelt de foutopsporingsmodus in of |waar of ONWAAR |
 | **MS_TableSchema** |data.schema |De schemanaam standaard voor SQL-tabellen |tekenreeks (standaard: dbo) |
@@ -404,7 +404,7 @@ Met behulp van Azure SQL Database als een gegevensarchief is vrijwel identiek vo
 1. In de **resourcegroep** voert u dezelfde naam als uw app.
 1. De standaardwaarde van App Service-plan is geselecteerd. Als u wijzigen van uw App Service-plan wilt:
 
-   a. Selecteer **App Service-Plan** > **+ nieuwe maken**.
+   a. Selecteer **App Service-Plan** >  **+ nieuwe maken**.
 
    b. Geef een naam op van de nieuwe App Service-plan en selecteer de juiste locatie.
 
@@ -422,7 +422,7 @@ U kunt een bestaande SQL-database verbinden met uw back-end van Mobile Apps of m
 > [!NOTE]
 > Als u al een database op dezelfde locatie hebt als de Mobile Apps-back-end, kunt u in plaats daarvan selecteren **gebruik een bestaande database** en selecteer vervolgens die database. Het gebruik van een database in een andere locatie wordt niet aanbevolen vanwege de hogere latentie.
 
-1. Selecteer in het nieuwe Mobile Apps back-end, **instellingen** > **mobiele App** > **gegevens** > **+ toevoegen**.
+1. Selecteer in het nieuwe Mobile Apps back-end, **instellingen** > **mobiele App** > **gegevens** >  **+ toevoegen**.
 1. In de **gegevensverbinding toevoegen** venster **SQL Database - vereiste instellingen configureren** > **een nieuwe database maken**. Voer de naam van de nieuwe database in de **naam** vak.
 1. Selecteer **Server**. In de **nieuwe server** deelvenster, voer een unieke naam in de **servernaam** in en geef een geschikte server beheerdersaanmelding bij en het wachtwoord. Zorg ervoor dat **azure-services tot server toestaan** is geselecteerd. Selecteer **OK**.
 
@@ -910,7 +910,7 @@ U kunt eenvoudige tabellen maken en werken met tabellen direct in de portal. U k
 * createdAt
 * updatedAt
 * verwijderd
-* versie
+* version
 
 U kunt zelfs tabelbewerkingen bewerken met behulp van App Service-Editor. Wanneer u selecteert **eenvoudige tabellen** in uw back-end-site-instellingen, kunt u toevoegen, wijzigen of verwijderen van een tabel. U ziet ook de gegevens in de tabel.
 
@@ -942,7 +942,7 @@ Met behulp van de Azure-portal, kunt u uw Node.js-back-end-script-bestanden in A
 
 1. In het deelvenster voor uw Mobile Apps-back-end, selecteer **alle instellingen** > beide **eenvoudige tabellen** of **eenvoudige API's**. Selecteer een tabel of de API, en selecteer vervolgens **script bewerken**. Het scriptbestand wordt geopend in App Service-Editor.
 
-   ![App Service-editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+   ![App Service-Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 1. Breng uw wijzigingen naar het codebestand in de online-editor. Wijzigingen worden automatisch opgeslagen terwijl u typt.
 
 <!-- Images -->

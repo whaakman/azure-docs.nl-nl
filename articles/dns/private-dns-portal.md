@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: ef9c0cddf989a438d18871767c3353fbc2d621db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e3772d8f385ed93c96f8aa2f7ee2ded8f46d4e00
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126228"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147831"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-the-azure-portal"></a>Zelfstudie: Een persoonlijke Azure DNS-zone met behulp van de Azure portal maken
 
@@ -40,11 +40,13 @@ Als u liever, u kunt deze zelfstudie volgen met behulp [Azure PowerShell](privat
 
 Het volgende voorbeeld wordt een DNS-zone met de naam **private.contoso.com** in een resourcegroep met de naam **MyAzureResourceGroup**.
 
-Een DNS-zone bevat de DNS-vermeldingen voor een domein. Als u uw domein wilt hosten in Azure DNS, maakt u een DNS-zone voor deze domeinnaam. 
+Een DNS-zone bevat de DNS-vermeldingen voor een domein. Als u uw domein wilt hosten in Azure DNS, maakt u een DNS-zone voor deze domeinnaam.
 
-1. Selecteer in de linkerbovenhoek van de portal op de pagina **een resource maken**, klikt u vervolgens **netwerken**. Type **privé-DNS-zone** in het zoekvak en druk op **Enter**.
+![Privé-DNS-zones zoeken](media/private-dns-portal/search-private-dns.png)
+
+1. Typ op de portal zoekbalk **privé-dns-zones** in het zoekvak en druk op **Enter**.
 1. Selecteer **privé-DNS-zone**.
-2. Selecteer **Maken**.
+2. Selecteer **privé-dns-zone maken**.
 
 1. Op de **persoonlijke DNS-zone maken** pagina typt of selecteert u de volgende waarden:
 
@@ -69,6 +71,8 @@ Het maken van de zone kan een paar minuten duren.
 ## <a name="link-the-virtual-network"></a>Het virtueel netwerk koppelen
 
 Als u wilt de privé-DNS-zone met een virtueel netwerk koppelen, moet u de koppeling van een virtueel netwerk maken.
+
+![Koppeling van virtueel netwerk toevoegen](media/private-dns-portal/dns-add-virtual-network-link.png)
 
 1. Open de **MyAzureResourceGroup** resource-groep en selecteer de **private.contoso.com** privézone.
 2. Selecteer in het linkerdeelvenster **virtuele netwerkkoppelingen**.

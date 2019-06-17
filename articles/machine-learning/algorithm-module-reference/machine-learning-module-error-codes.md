@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029758"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Uitzonderingen en foutcodes voor algoritme en Module-verwijzing
@@ -701,7 +701,7 @@ For general information about how the Matchbox recommendation algorithm works, a
   
 |Uitzondering berichten|  
 |------------------------|  
-|Bewerking mislukt.|  
+|Bewerking is mislukt.|  
 |Fout bij het voltooien van bewerking: {0}.|  
   
 
@@ -1192,7 +1192,7 @@ Zie de volgende artikelen voor meer informatie over met Hive-query's voor machin
   
  Als er een bericht gegenereerd SQL is gerapporteerd door de module-uitzondering, maatregelen nemen op basis van de gemelde fout. Zo bevatten de foutberichten soms specifieke hulp over de fout waarschijnlijk:
 + *De kolom of ontbrekende database bestaat niet*, waarmee wordt aangegeven dat u een verkeerde kolomnaam mogelijk ingevoerd. Als u ervoor dat de de kolomnaam juist is, probeert u plaatst u de kolom-id met behulp van haakjes of aanhalingstekens.
-+ *SQL logische fout in de buurt \<SQL-sleutelwoord\>*, waarmee wordt aangegeven dat u een syntaxisfout voor de opgegeven trefwoord wellicht
++ *SQL logische fout in de buurt \<SQL-sleutelwoord\>* , waarmee wordt aangegeven dat u een syntaxisfout voor de opgegeven trefwoord wellicht
 
   
 |Uitzondering berichten|  
@@ -1879,7 +1879,7 @@ In het algemeen kan een transformatie op basis van aantal alleen worden toegepas
 |Uitzondering berichten|  
 |------------------------|  
 |Het opgegeven bestand is niet gevonden int het zip-bestand.|  
-|Kan het opgegeven bestand niet vinden. De volgende bestanden te vinden: {0}|  
+|Het opgegeven bestand is niet gevonden. De volgende bestanden te vinden: {0}|  
   
 
 ## <a name="error-0134"></a>Fout 0134
@@ -2191,4 +2191,4 @@ Als u hulp nodig hebt, is het raadzaam dat u het gedetailleerde bericht die word
 |------------------------|  
 |Uitzondering van de bibliotheek.|  
 |Bibliotheek uitzondering: {0}|  
-|{0} bibliotheek uitzondering: {1}|  
+|{0} Bibliotheek uitzondering: {1}|  

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864455"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107652"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -98,7 +98,7 @@ Als u de gerapporteerde gegevens wilt beperken tot een bepaald niveau, kunt u de
 
 - Gebruiker
 - Toepassing
-- Aanmeldstatus
+- Aanmeldingsstatus
 - Voorwaardelijke toegang
 - Date
 
@@ -127,7 +127,7 @@ Mogelijke waarden zijn:
 - 1 maand
 - 7 dagen
 - 24 uur
-- Aangepaste tijdinterval
+- Aangepast tijdsinterval
 
 Wanneer u een aangepast tijdsbestek selecteert, kunt u een begintijd en eindtijd configureren.
 
@@ -190,7 +190,7 @@ Elke rij in de lijst met aanmeldingsactiviteiten geeft het volgende weer:
 
 Door op een item te klikken, krijgt u meer informatie over de aanmelding:
 
-- Gebruikers-id
+- Gebruikers-ID
 - Gebruiker
 - Gebruikersnaam
 - Toepassings-id
@@ -200,7 +200,7 @@ Door op een item te klikken, krijgt u meer informatie over de aanmelding:
 - IP-adres
 - Date
 - MFA vereist
-- Aanmeldstatus
+- Aanmeldingsstatus
 
 > [!NOTE]
 > IP-adressen worden uitgegeven zodanig dat er is geen definitieve verbinding tussen een IP-adres en waar de computer met dit adres zich fysiek bevindt. Toewijzing van IP-adressen wordt bemoeilijkt door het feit dat mobiele providers en VPN's uitgeven IP-adressen uit de centrale pools die vaak erg zijn ver ligt waar het client-apparaat daadwerkelijk wordt gebruikt. In Azure AD-rapporten is IP-adres converteren naar een fysieke locatie momenteel een best-effort op basis van traceringen, register, omgekeerde zoekopdrachten en andere gegevens.

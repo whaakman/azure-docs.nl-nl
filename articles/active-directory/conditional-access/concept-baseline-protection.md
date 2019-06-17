@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca062f4024bb5b0946812e00c8ccc1254b56d333
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112594"
 ---
 # <a name="what-are-baseline-policies"></a>Wat zijn beleidsregels voor basislijn?
 
 Basislijn-beleidsregels zijn een set vooraf gedefinieerde beleidsregels waarmee organisaties tegen algemene aanvallen veel beter te beveiligen. Deze veelvoorkomende aanvallen zijn wachtwoord spray, opnieuw afspelen en phishing. Basislijn-beleidsregels zijn beschikbaar in alle edities van Azure AD. Microsoft maakt deze basislijn beveiligingsbeleid voor apps beschikbaar voor iedereen omdat aanvallen op basis van identiteit op de toename van de afgelopen jaren zijn. Het doel van deze vier beleidsregels is om ervoor te zorgen dat alle organisaties een basisbeveiliging ingeschakeld zonder hebben extra kosten.  
 
-Beleid voor aangepaste voorwaardelijke toegang beheren, is een Azure AD Premium-licentie vereist.
+Aangepaste beleidsregels voor voorwaardelijke toegang beheren, is een Azure AD Premium-licentie vereist.
 
 ## <a name="baseline-policies"></a>Basislijnbeleid
 
-![Basislijn-beleid voor voorwaardelijke toegang in Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Beleid voor voorwaardelijke toegang basislijn in Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 Er zijn vier basislijn-beleidsregels die organisaties kunnen inschakelen:
 
@@ -46,11 +46,11 @@ Vanwege de kracht en de toegang van administrator-accounts, moet u ze behandelen
 * Globale beheerder
 * SharePoint-beheerder
 * Exchange-beheerder
-* Voorwaardelijke-toegangsbeheerder
+* Voorwaardelijke toegang beheerder
 * Beveiligingsbeheerder
 * Helpdesk-beheerder / wachtwoordbeheerder
 * Factureringsbeheerder
-* Gebruikersbeheerder
+* Gebruikerbeheerder
 
 Als uw organisatie deze accounts in scripts of code wordt gebruikt heeft, kunt u deze met overal vervangen [beheerde identiteiten](../managed-identities-azure-resources/overview.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid.
 

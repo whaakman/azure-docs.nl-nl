@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952564"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Verificatie van Azure Maps beheren
@@ -61,17 +61,17 @@ Nadat u een Azure kaarten-account hebt gemaakt, moet u een koppeling tussen uw A
 
 Nadat u een Azure kaarten-account aan uw Azure AD-tenant koppelt, kunt u toegangsbeheer door het toewijzen van een gebruiker of toepassing naar een of meer Azure-kaarten toegangsbeheerrollen verlenen.
 
-1. Ga naar **toegangsbeheer (IAM)**, selecteer **roltoewijzingen**, en selecteer vervolgens **roltoewijzing toevoegen**.
+1. Ga naar **toegangsbeheer (IAM)** , selecteer **roltoewijzingen**, en selecteer vervolgens **roltoewijzing toevoegen**.
 
     ![RBAC verlenen](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. In de **roltoewijzing toevoegen** venster onder **rol**, selecteer **Azure Maps datum Reader (Preview)**. Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of service-principal**. Onder **Selecteer**, selecteer de gebruiker of toepassing. Selecteer **Opslaan**.
+2. In de **roltoewijzing toevoegen** venster onder **rol**, selecteer **Azure Maps datum Reader (Preview)** . Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of service-principal**. Onder **Selecteer**, selecteer de gebruiker of toepassing. Selecteer **Opslaan**.
 
     ![Roltoewijzing toevoegen](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Beschikbare Azure Maps RBAC-rollen weergeven
 
-Als u wilt weergeven op basis van rollen (RBAC) toegangsbeheerrollen die beschikbaar voor Azure-kaarten zijn, gaat u naar **toegangsbeheer (IAM)**, selecteer **rollen**, en vervolgens zoeken naar functies vanaf **Azure Maps**. Dit zijn de functies die u toegang tot kunt verlenen.
+Als u wilt weergeven op basis van rollen (RBAC) toegangsbeheerrollen die beschikbaar voor Azure-kaarten zijn, gaat u naar **toegangsbeheer (IAM)** , selecteer **rollen**, en vervolgens zoeken naar functies vanaf **Azure Maps**. Dit zijn de functies die u toegang tot kunt verlenen.
 
 ![Beschikbare rollen weergeven](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
@@ -80,7 +80,7 @@ Als u wilt weergeven op basis van rollen (RBAC) toegangsbeheerrollen die beschik
 
 RBAC biedt nauwkeurig toegangsbeheer.
 
-Als u wilt weergeven van gebruikers en apps die zijn verleend RBAC voor Azure-kaarten, gaat u naar **Access Control (IAM)**, selecteer **roltoewijzingen**, en vervolgens filteren op **Azure Maps**.
+Als u wilt weergeven van gebruikers en apps die zijn verleend RBAC voor Azure-kaarten, gaat u naar **Access Control (IAM)** , selecteer **roltoewijzingen**, en vervolgens filteren op **Azure Maps**.
 
 ![Gebruikers en apps die zijn verleend RBAC weergeven](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 

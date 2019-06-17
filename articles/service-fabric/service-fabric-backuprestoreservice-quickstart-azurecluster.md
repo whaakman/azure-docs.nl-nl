@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237368"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059195"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodieke back-up en herstel in Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Service Fabric biedt een set API's voor het bereiken van de volgende functionali
 - Retentie-beheer van back-ups (toekomstige)
 
 ## <a name="prerequisites"></a>Vereisten
-* Service Fabric-cluster met Fabric versie 6.2 en hoger. Het cluster moet worden ingesteld op Windows Server. Verwijzen naar dit [artikel](service-fabric-cluster-creation-via-arm.md) voor stappen voor het maken van Service Fabric-cluster met behulp van Azure-resource-sjabloon.
+* Service Fabric-cluster met Fabric versie 6.4 of hoger. Verwijzen naar dit [artikel](service-fabric-cluster-creation-via-arm.md) voor stappen voor het maken van Service Fabric-cluster met behulp van Azure-resource-sjabloon.
 * X.509-certificaat voor het versleutelen van geheimen die nodig zijn voor het verbinding maken met opslag voor het opslaan van back-ups. Raadpleeg [artikel](service-fabric-cluster-creation-via-arm.md) wilt weten hoe ophalen of maken van een X.509-certificaat.
 * Betrouwbare Stateful van service Fabric-toepassing die is gebouwd met behulp van Service Fabric SDK versie 3.0 of hoger. Voor toepassingen die gericht is op .NET Core 2.0, toepassing moet worden gemaakt met behulp van Service Fabric SDK versie 3.1 of hoger.
 * Azure Storage-account voor het opslaan van back-ups van de toepassing maken.

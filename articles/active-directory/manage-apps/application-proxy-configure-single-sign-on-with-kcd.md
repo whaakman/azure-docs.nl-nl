@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859626"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
@@ -55,7 +55,7 @@ Voordat u aan de slag met eenmalige aanmelding voor geïntegreerde Windows-toepa
 De Active Directory-configuratie varieert, afhankelijk van of de toepassingsserver en de Application Proxy-connector zich in hetzelfde domein of niet.
 
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Connector en toepassingsserver in hetzelfde domein
-1. In Active Directory, gaat u naar **extra** > **: gebruikers en Computers**.
+1. In Active Directory, gaat u naar **extra** >  **: gebruikers en Computers**.
 2. Selecteer de server waarop de connector wordt uitgevoerd.
 3. Met de rechtermuisknop op en selecteer **eigenschappen** > **delegering**.
 4. Selecteer **deze computer mag alleen aan opgegeven services delegeren**. 

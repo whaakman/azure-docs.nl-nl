@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/10/2019
+ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077207"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
@@ -21,6 +21,9 @@ HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aanta
 Als u periodieke batchverwerking, kan het HDInsight-cluster worden opgeschaald een paar minuten vóór deze bewerking, zodat uw cluster voldoende geheugen en CPU-kracht heeft.  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
 
 U kunt een cluster handmatig met behulp van een van de methoden worden hieronder beschreven, of gebruik [voor automatisch schalen](hdinsight-autoscale-clusters.md) opties om het systeem automatisch omhoog en omlaag schalen in reactie op CPU, geheugen en andere metrische gegevens.
+
+> [!NOTE]  
+> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.
 
 ## <a name="utilities-to-scale-clusters"></a>Hulpprogramma's voor het schalen van clusters
 
@@ -47,6 +50,50 @@ Met behulp van een van deze methoden, kunt u uw HDInsight-cluster omhoog of omla
 Wanneer u **toevoegen** knooppunten aan uw actief HDInsight-cluster (Omhoog schalen), in behandeling of actieve taken worden niet beïnvloed. Nieuwe taken kunnen veilig worden verzonden terwijl het proces voor vergroten/verkleinen wordt uitgevoerd. Als de vergroten/verkleinen bewerking om een bepaalde reden mislukt, wordt de fout wordt afgehandeld als u wilt laten van uw cluster in een functionele staat.
 
 Als u **verwijderen** knooppunten (neerschalen), een wordt uitgevoerd of in behandeling zijnde taken mislukken wanneer de vergroten/verkleinen bewerking is voltooid. Deze fout wordt veroorzaakt door een van de services opnieuw te starten tijdens het vergroten/verkleinen. Er is ook een risico dat uw cluster vastgelopen in veilige modus krijgt tijdens een handmatige bewerking schalen.
+
+De gevolgen van het wijzigen van het aantal gegevensknooppunten varieert voor elk type cluster die door HDInsight worden ondersteund:
+
+* Apache Hadoop
+
+    Het aantal worker-knooppunten in een Hadoop-cluster dat wordt uitgevoerd zonder gevolgen voor alle taken die in behandeling of wordt uitgevoerd, kunt u naadloos verhogen. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor vergroten/verkleinen probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
+
+    Wanneer een Hadoop-cluster is omlaag geschaald door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw opgestart. Dit gedrag zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking vergroten/verkleinen. U kunt echter de taken opnieuw zodra de bewerking voltooid is.
+
+* Apache HBase
+
+    U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de vergroten/verkleinen bewerking. U kunt echter ook handmatig de regionale servers verdelen door te melden bij het hoofdknooppunt van het cluster en de volgende opdrachten uitvoert vanuit een opdrachtpromptvenster:
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    Zie voor meer informatie over het gebruik van de HBase-shell [aan de slag met een voorbeeld voor Apache HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
+
+* Apache Storm
+
+    U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Na een geslaagde bewerking vergroten/verkleinen is voltooid moet u wordt echter opnieuw verdelen van de topologie.
+
+    Herverdelen kan worden uitgevoerd op twee manieren:
+
+  * Storm-Webgebruikersinterface
+  * Opdrachtregelinterface (CLI)-hulpprogramma
+
+    Raadpleeg de [Apache Storm documentatie](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
+
+    De Storm-webgebruikersinterface is beschikbaar op het HDInsight-cluster:
+
+    ![HDInsight Storm schaal opnieuw verdelen](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    Hier volgt een voorbeeld van de CLI-opdracht voor het opnieuw verdelen van de Storm-topologie:
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Hoe u veilig omlaag een cluster schalen
 
@@ -140,13 +187,13 @@ Als Hive heeft verlaten achter tijdelijke bestanden, en vervolgens u handmatig d
 1. Hive-services stoppen en zorg ervoor dat alle query's en taken zijn voltooid.
 2. De inhoud van de bovenstaande gevonden scratchdirectory `hdfs://mycluster/tmp/hive/` om te zien als deze bestanden bevat:
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
     Hier volgt een voorbeeld van uitvoer wanneer bestanden bestaan:
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -160,7 +207,7 @@ Als Hive heeft verlaten achter tijdelijke bestanden, en vervolgens u handmatig d
 
     Voorbeeld van de opdrachtregel om bestanden te verwijderen uit HDFS:
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -173,7 +220,6 @@ Behoud van drie worker-knooppunten is duurder dan het omlaag schalen naar slecht
 #### <a name="run-the-command-to-leave-safe-mode"></a>Voer de opdracht uit om te laten veilige modus
 
 De laatste mogelijkheid is de veilige modus laat opdracht uit te voeren. Als u weet dat de reden voor het invoeren van de veilige modus HDFS vanwege een te voorzichtige bestandsreplicatie Hive is, kunt u de volgende opdracht uit om te laten veilige modus uitvoeren:
-
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -201,4 +247,3 @@ Regioservers worden automatisch verdeeld binnen een paar minuten na het voltooie
 
 * [Automatisch schalen van Azure HDInsight-clusters](hdinsight-autoscale-clusters.md)
 * [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md)
-* [Clusters schalen](hdinsight-administer-use-portal-linux.md#scale-clusters)

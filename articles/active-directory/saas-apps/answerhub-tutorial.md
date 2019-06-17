@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Zelfstudie: Azure Active Directory-integratie met AnswerHub
 
@@ -158,7 +158,7 @@ In deze sectie stelt u eenmalige aanmelding voor AnswerHub in.
 
     ![Keys and Certificates section](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
 
-    a. Open in Kladblok het met Base64 gecodeerde certificaat dat u in de Azure-portal hebt gedownload, kopieer de inhoud en plak deze in het vak **IDP Public Key (x509 Format)**.
+    a. Open in Kladblok het met Base64 gecodeerde certificaat dat u in de Azure-portal hebt gedownload, kopieer de inhoud en plak deze in het vak **IDP Public Key (x509 Format)** .
   
     b. Selecteer **Opslaan**.
 
@@ -184,7 +184,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
     a. Voer in het vak **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** Voer **brittasimon\@< yourcompanydomain.extension >**.  
+    b. In de **gebruikersnaam** Voer **brittasimon\@< yourcompanydomain.extension >** .  
     Bijvoorbeeld BrittaSimon@contoso.com.
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.

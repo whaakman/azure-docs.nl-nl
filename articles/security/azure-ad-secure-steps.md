@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119287"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -36,7 +36,7 @@ Deze controlelijst helpt u snel implementeren kritieke aanbevolen acties ter bes
 
 De aanbevelingen in dit document zijn uitgelijnd met de [identiteit Secure Score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), een geautomatiseerde beoordeling van de configuratie van de beveiliging van uw Azure AD-tenant-id. Organisaties kunnen de identiteit Secure Score-pagina in de Azure AD-portal gebruiken voor de hiaten in de huidige beveiligingsconfiguratie om ervoor te zorgen dat ze volgen huidige Microsoft best practices voor beveiliging. Elke aanbeveling te implementeren op de pagina Score beveiligen, wordt uw score verhogen en kunt u uw voortgang bijhouden, plus helpen bij het vergelijken van de implementatie op basis van andere vergelijkbare grootte organisaties of uw branche.
 
-![Identity Secure Score](media/azure-ad/azure-ad-sec-steps0.png)
+![Identiteit beveiligde Score](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Voordat u begint: Beveiligen van bevoegde accounts met MFA
 
@@ -103,7 +103,7 @@ Apps met behulp van hun eigen verouderde methoden voor verificatie met Azure AD 
 
 ### <a name="block-invalid-authentication-entry-points"></a>Ongeldige verificatie-toegangspunten blokkeren
 
-Met behulp van de commerciëlere uitgaan van inbreuk mentaliteit, moet u de impact van de referenties waarmee is geknoeid gebruiker beperken wanneer ze zich voordoen. Voor elke app in uw omgeving kunt u overwegen de geldige use cases: welke groepen, welke netwerken, welke apparaten en andere elementen zijn toegestaan: en blokkeren van de rest. Met [voorwaardelijke toegang voor Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), kunt u bepalen hoe gemachtigde gebruikerstoegang tot hun apps en resources op basis van specifieke voorwaarden die u definieert.
+Met behulp van de commerciëlere uitgaan van inbreuk mentaliteit, moet u de impact van de referenties waarmee is geknoeid gebruiker beperken wanneer ze zich voordoen. Voor elke app in uw omgeving kunt u overwegen de geldige use cases: welke groepen, welke netwerken, welke apparaten en andere elementen zijn toegestaan: en blokkeren van de rest. Met [Azure AD voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), kunt u bepalen hoe gemachtigde gebruikerstoegang tot hun apps en resources op basis van specifieke voorwaarden die u definieert.
 
 ### <a name="block-end-user-consent"></a>Blok eindgebruikers toestemming geven
 

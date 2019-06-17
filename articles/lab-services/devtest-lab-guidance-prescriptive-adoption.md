@@ -14,13 +14,13 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 32e828f420d41d7a67e4f41ac8a4a0698711ce2f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916407"
 ---
-# <a name="devtest-labs-in-the-enterprise"></a>DevTest Labs in de onderneming
+# <a name="devtest-labs-in-the-enterprise"></a>DevTest Labs in het bedrijf
 Ondernemingen zijn snel overstappen op de cloud vanwege [voordelen](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) die flexibiliteit, flexibiliteit en besparingen bevatten. De eerste stappen zijn vaak ontwikkeling en testen van workloads. Azure DevTest Labs biedt [functies](devtest-lab-concepts.md) die profiteren van de onderneming en ondersteuning [belangrijke scenario's voor ontwikkelen en testen](devtest-lab-guidance-get-started.md).
 
 Meest voorkomende zorgen voor ondernemingen die workloads naar de cloud migreren zijn onder andere:

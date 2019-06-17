@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911317"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Een Web-App en de Azure Cache voor Redis met behulp van een sjabloon maken
@@ -35,7 +35,7 @@ Zie voor de volledige sjabloon, [Web-App met Azure Cache voor Redis-sjabloon](ht
 In deze sjabloon, gaat u implementeren:
 
 * Azure Web App
-* Azure-cache voor Redis
+* Azure Cache voor Redis
 
 Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
@@ -59,7 +59,7 @@ Deze sjabloon maakt gebruik van variabelen te maken van namen voor de resources.
 ## <a name="resources-to-deploy"></a>Resources om te implementeren
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### <a name="azure-cache-for-redis"></a>Azure-cache voor Redis
+### <a name="azure-cache-for-redis"></a>Azure Cache voor Redis
 De Azure-Cache voor Redis dat wordt gebruikt met de web-app gemaakt. De naam van de cache is opgegeven in de **cacheName** variabele.
 
 De sjabloon maakt u de cache in dezelfde locatie als de resourcegroep.

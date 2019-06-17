@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597088"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
@@ -28,7 +28,7 @@ Voordat u de details van de planning voor de implementatie van een Azure File Sy
 ### <a name="storage-sync-service"></a>Opslagsynchronisatieservice
 De Opslagsynchronisatieservice is de op het hoogste niveau Azure-resource voor Azure File Sync. De Opslagsynchronisatieservice-resource is een peer van de resource van het opslagaccount en kan op dezelfde manier worden geïmplementeerd op Azure-resourcegroepen. Een resource voor verschillende op het hoogste niveau van de resource van het opslagaccount is vereist omdat de Opslagsynchronisatieservice synchronisatierelaties met meerdere opslagaccounts via meerdere synchronisatiegroepen maken kunt. Een abonnement kan hebben meerdere Opslagsynchronisatieservice resources die zijn geïmplementeerd.
 
-### <a name="sync-group"></a>Synchronisatiegroep
+### <a name="sync-group"></a>Groep voor synchronisatie
 Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameling bestanden. Eindpunten binnen een synchronisatiegroep worden onderling synchroon gehouden. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met Azure File Sync hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een Opslagsynchronisatieservice kunt zoveel synchronisatiegroepen als u wilt hosten.  
 
 ### <a name="registered-server"></a>Geregistreerde server
@@ -113,7 +113,7 @@ De resultaten weergeven in CSV:
 ### <a name="system-requirements"></a>Systeemvereisten
 - Een server met Windows Server 2012 R2, Windows Server 2016 of Windows Server 2019:
 
-    | Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
+    | Version | Ondersteunde SKU 's | Ondersteunde implementatieopties |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
     | Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
@@ -178,9 +178,9 @@ Voor volumes waarvoor geen cloud-opslaglagen ingeschakeld, ondersteunt Azure Fil
 ### <a name="distributed-file-system-dfs"></a>Distributed File System (DFS)
 Azure File Sync biedt ondersteuning voor samenwerking met DFS-naamruimten (DFS-N) en DFS-replicatie (DFS-R).
 
-**DFS-naamruimten (DFS-N)**: Azure File Sync wordt volledig ondersteund voor DFS-N-servers. U kunt de Azure File Sync-agent installeren op een of meer leden DFS-N gegevens synchroniseren tussen de servereindpunten en de cloudeindpunt. Zie voor meer informatie, [DFS-naamruimten overzicht](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS-naamruimten (DFS-N)** : Azure File Sync wordt volledig ondersteund voor DFS-N-servers. U kunt de Azure File Sync-agent installeren op een of meer leden DFS-N gegevens synchroniseren tussen de servereindpunten en de cloudeindpunt. Zie voor meer informatie, [DFS-naamruimten overzicht](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS-replicatie (DFS-R)**: Omdat de DFS-R- en Azure File Sync beide replicatieoplossingen in de meeste gevallen zijn wordt afgeraden om DFS-R vervangen door Azure File Sync. Er zijn echter enkele scenario's waarbij u zou willen DFS-R- en Azure File Sync samen gebruiken:
+**DFS-replicatie (DFS-R)** : Omdat de DFS-R- en Azure File Sync beide replicatieoplossingen in de meeste gevallen zijn wordt afgeraden om DFS-R vervangen door Azure File Sync. Er zijn echter enkele scenario's waarbij u zou willen DFS-R- en Azure File Sync samen gebruiken:
 
 - U migreert vanaf een DFS-R-implementatie naar een Azure File Sync-implementatie. Zie voor meer informatie, [migreren van een DFS-replicatie (DFS-R)-implementatie naar Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Niet elke on-premises server die een kopie van uw gegevens uit een bestand moet kan rechtstreeks met internet worden verbonden.
@@ -230,7 +230,7 @@ Azure File Sync moet in het algemeen interoperabiliteit met versleutelingsoploss
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andere oplossingen hiërarchische opslag Management (HSM)
 Er zijn geen andere HSM-oplossingen moeten worden gebruikt met Azure File Sync.
 
-## <a name="region-availability"></a>Beschikbaarheid voor de regio
+## <a name="region-availability"></a>Beschikbaarheid in regio’s
 Azure File Sync is alleen beschikbaar in de volgende regio's:
 
 | Regio | Datacenter-locatie |
@@ -239,13 +239,13 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Australië - zuidoost | Victoria |
 | Brazilië - zuid | Sao Paolo State |
 | Canada - midden | Toronto |
-| Canada Oost | Quebec |
+| Canada - oost | Quebec |
 | India - centraal | Pune |
 | US - centraal | Iowa |
 | Azië - oost | Hongkong SAR |
 | US - oost | Virginia |
 | US - oost 2 | Virginia |
-| Korea Centraal| Seoul |
+| Korea - centraal| Seoul |
 | Korea - zuid| Busan |
 | Japan - oost | Tokyo, Saitama |
 | Japan - west | Osaka |
@@ -255,7 +255,7 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | India - zuid | Chennai |
 | Azië - zuidoost | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
-| VK West | Cardiff |
+| Verenigd Koninkrijk West | Cardiff |
 | VS (overheid)-Arizona (preview) | Arizona |
 | US Gov Texas (preview) | Texas |
 | VS (overheid) Virginia (preview) | Virginia |
@@ -282,8 +282,8 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | Australië - oost      | Australië - zuidoost|
 | Australië - zuidoost | Australië - oost     |
 | Brazilië - zuid        | US - zuid-centraal   |
-| Canada - midden      | Canada Oost        |
-| Canada Oost         | Canada - midden     |
+| Canada - midden      | Canada - oost        |
+| Canada - oost         | Canada - midden     |
 | India - centraal       | India - zuid        |
 | US - centraal          | US - oost 2          |
 | Azië - oost           | Azië - zuidoost     |
@@ -291,18 +291,18 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | US - oost 2           | US - centraal         |
 | Japan - oost          | Japan - west         |
 | Japan - west          | Japan - oost         |
-| Korea Centraal       | Korea - zuid        |
-| Korea - zuid         | Korea Centraal      |
+| Korea - centraal       | Korea - zuid        |
+| Korea - zuid         | Korea - centraal      |
 | Europa - noord        | Europa -west        |
 | US - noord-centraal    | US - zuid-centraal   |
 | US - zuid-centraal    | US - noord-centraal   |
 | India - zuid         | India - centraal      |
 | Azië - zuidoost      | Azië - oost          |
-| Verenigd Koninkrijk Zuid            | VK West            |
-| VK West             | Verenigd Koninkrijk Zuid           |
-| US Gov - Arizona      | US Gov - Texas       |
-| US Gov - Iowa         | US Gov - Virginia    |
-| US Gov Virgini      | US Gov - Texas       |
+| Verenigd Koninkrijk Zuid            | Verenigd Koninkrijk West            |
+| Verenigd Koninkrijk West             | Verenigd Koninkrijk Zuid           |
+| VS (overheid) - Arizona      | VS (overheid) - Texas       |
+| US Gov - Iowa         | VS (overheid) - Virginia    |
+| US Gov Virgini      | VS (overheid) - Texas       |
 | Europa -west         | Europa - noord       |
 | US - west-centraal     | US - west 2          |
 | US - west             | US - oost            |

@@ -1,19 +1,19 @@
 ---
-title: Azure service health waarschuwingen configureren met PagerDuty | Microsoft Docs
+title: Azure service health waarschuwingen verzenden met PagerDuty met behulp van webhooks
 description: Ophalen persoonlijke meldingen over service health-gebeurtenissen naar uw PagerDuty-exemplaar.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067157"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>Service health waarschuwingen configureren met PagerDuty
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Azure service health waarschuwingen verzenden met PagerDuty met behulp van webhooks
 
 In dit artikel leest u hoe u Azure service health meldingen via PagerDuty instelt met behulp van een webhook. Met behulp van [PagerDuty](https://www.pagerduty.com/)van aangepaste type voor Microsoft Azure-integratie, kunt u moeiteloos servicestatus waarschuwingen toevoegen aan uw nieuwe of bestaande PagerDuty-services.
 

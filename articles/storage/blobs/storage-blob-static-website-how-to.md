@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 7a1aef14a2a32266c893933482527c361f17d7fb
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428558"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071442"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Host een statische website in Azure Storage
 
@@ -181,11 +181,13 @@ U kunt inhoud vanuit een browser weergeven met behulp van de openbare URL van de
 De URL zoeken met behulp van de volgende opdracht uit:
 
 ```powershell
-$context = Get-AzSubscription -SubscriptionId <subscription-d>
-Set-AzContext $context
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-Vervang de `<subscription-id>` aanduidingswaarde met de ID van uw abonnement.
+* Vervang de `<resource-group-name>` aanduidingswaarde met de naam van de resourcegroep.
+
+* Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
 <a id="metrics" />
 

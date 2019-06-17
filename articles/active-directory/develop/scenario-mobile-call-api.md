@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b6c203583a082228c2ba1f4c5f6fdb04d059be
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7fc8c21db0f42bbb6804c00e27e82f840d7038c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111176"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Mobiele app, die aanroepen van web-API's - een web-API aanroepen
 
@@ -131,7 +131,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 Als u nodig hebt om aan te roepen van dezelfde API meerdere keren, of als u nodig hebt om aan te roepen meerdere API's, voert u het volgende letten wanneer u uw app te bouwen:
 
 - **Incrementele toestemming**: Microsoft identity-platform kan apps om toestemming van de gebruiker als machtigingen zijn vereist, in plaats van alle aan het begin. Telkens wanneer die uw app is gereed om aan te roepen een API, moet deze aanvragen alleen de bereiken die nodig is.
-- **Voorwaardelijke toegang**: In bepaalde scenario's, u de vereisten voor aanvullende voorwaardelijke toegang kunt krijgen wanneer u meerdere API-aanvragen. Dit kan gebeuren als de eerste aanvraag geen beleid voor voorwaardelijke toegang toegepast heeft en uw app probeert te krijgen op de achtergrond tot een nieuwe API die is vereist voor voorwaardelijke toegang. Voor het afhandelen van dit scenario moet runbookauteur fouten uit op de achtergrond aanvragen worden gedetecteerd en worden voorbereid om een interactieve aanvraag te doen.  Zie voor meer informatie, [richtlijnen voor voorwaardelijk](conditional-access-dev-guide.md).
+- **Voorwaardelijke toegang**: In bepaalde scenario's krijgt u mogelijk aanvullende vereisten voor voorwaardelijke toegang wanneer u meerdere API-aanvragen. Dit kan gebeuren als de eerste aanvraag geen beleid voor voorwaardelijke toegang toegepast heeft en uw app probeert te krijgen op de achtergrond tot een nieuwe API die is vereist voor voorwaardelijke toegang. Voor het afhandelen van dit scenario moet runbookauteur fouten uit op de achtergrond aanvragen worden gedetecteerd en worden voorbereid om een interactieve aanvraag te doen.  Zie voor meer informatie, [richtlijnen voor voorwaardelijk](conditional-access-dev-guide.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

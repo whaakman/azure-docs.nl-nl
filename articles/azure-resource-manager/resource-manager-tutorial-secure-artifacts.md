@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069258"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Zelfstudie: Artefacten in Azure Resource Manager-sjabloonimplementaties beveiligen
 
@@ -75,9 +75,9 @@ Download het [BACPAC-bestand](https://armtutorials.blob.core.windows.net/sqlexte
 
     * **Abonnement**: Selecteer uw Azure-abonnement.
     * **Resourcegroep**: Selecteer **Nieuwe maken** en geef een naam op. Een resourcegroep is een container voor Azure-resources voor beheerdoeleinden. In deze zelfstudie, kunt u dezelfde resourcegroep voor het opslagaccount en de Azure SQL Database gebruiken. Noteer de naam van deze resourcegroep. U hebt deze nodig wanneer u de Azure SQL Database later in de zelfstudies maakt.
-    * **Locatie**: Selecteer een regio. Bijvoorbeeld **US - centraal**. 
+    * **Locatie**: Selecteer een regio. Bijvoorbeeld **US - centraal**.
     * **Type opslagaccount**: Gebruik de standaardwaarde, **Standard_LRS**.
-    * **Locatie**: Gebruik de standaardwaarde, **[resourceGroup ().locatie]**. Dit betekent dat u de locatie van de resourcegroep gebruikt voor het opslagaccount.
+    * **Locatie**: Gebruik de standaardwaarde, **[resourceGroup ().locatie]** . Dit betekent dat u de locatie van de resourcegroep gebruikt voor het opslagaccount.
     * **Ik ga akkoord met de bovenstaande voorwaarden**: (geselecteerd)
 3. Selecteer **Aankoop**.
 4. Selecteer het meldingspictogram (het belpictogram) in de rechterbovenhoek van de portal om de implementatiestatus te bekijken.
@@ -87,7 +87,7 @@ Download het [BACPAC-bestand](https://armtutorials.blob.core.windows.net/sqlexte
 
 ### <a name="create-a-blob-container"></a>Een blobcontainer maken
 
-Een blobcontainer is vereist voordat u bestanden kunt uploaden. 
+Een blobcontainer is vereist voordat u bestanden kunt uploaden.
 
 1. Selecteer de opslag om deze te openen. U ziet slechts één opslagaccount in de resourcegroep. De naam van uw opslagaccount wijkt af van die van het opslagaccount in de volgende schermafbeelding.
 
@@ -99,8 +99,8 @@ Een blobcontainer is vereist voordat u bestanden kunt uploaden.
 3. Selecteer **+ Container** bovenaan om een nieuwe container te maken.
 4. Voer de volgende waarden in:
 
-    * **Naam**: voer **sqlbacpac** in. 
-    * **Openbaar toegangsniveau**: gebruik de standaardwaarde, **Privé (geen anonieme toegang)**.
+    * **Naam**: voer **sqlbacpac** in.
+    * **Openbaar toegangsniveau**: gebruik de standaardwaarde, **Privé (geen anonieme toegang)** .
 5. Selecteer **OK**.
 6. Selecteer **sqlbacpac** om de zojuist gemaakte container te openen.
 
@@ -237,7 +237,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een SQL Server en een SQL Database geïmplementeerd en een BACPAC-bestand geïmporteerd met behulp van een SAS-token. Voor meer informatie over hoe u Azure-resources implementeert in meerdere regio's en hoe u veilige implementatiemethoden gebruikt, raadpleegt u
+In deze zelfstudie hebt u een SQL Server en een SQL Database geïmplementeerd en een BACPAC-bestand geïmporteerd met behulp van een SAS-token. Zie voor meer informatie over het maken van een Azure-pijplijn voor het continu ontwikkelen en implementeren van Resource Manager-sjablonen,
 
 > [!div class="nextstepaction"]
-> [Azure Deployment Manager gebruiken](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Continue integratie met Azure-pijplijn](./resource-manager-tutorial-use-azure-pipelines.md)

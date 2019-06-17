@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
 ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785498"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Transact-SQL-verschillen oplossen tijdens de migratie naar SQL Database
@@ -83,7 +83,7 @@ Zie voor meer informatie over Transact-SQL-grammatica, syntaxis en voorbeelden,�
 
 ### <a name="about-the-applies-to-tags"></a>Over het label 'Van toepassing op'
 
-De Transact-SQL-naslaginformatie bevat artikelen die betrekking hebben op versies van SQL Server 2008 bij de huidige. Onder de titel van het artikel is een pictogram balk met pictogrammen de vier SQL Server-platforms en toepasselijkheid waarmee wordt aangegeven. Beschikbaarheidsgroepen zijn bijvoorbeeld geïntroduceerd in SQL Server 2012. De [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) artikel geeft aan dat de instructie is van toepassing op **SQL-Server (vanaf 2012)**. De instructie is niet van toepassing op SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse en Parallel Data Warehouse.
+De Transact-SQL-naslaginformatie bevat artikelen die betrekking hebben op versies van SQL Server 2008 bij de huidige. Onder de titel van het artikel is een pictogram balk met pictogrammen de vier SQL Server-platforms en toepasselijkheid waarmee wordt aangegeven. Beschikbaarheidsgroepen zijn bijvoorbeeld geïntroduceerd in SQL Server 2012. De [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) artikel geeft aan dat de instructie is van toepassing op **SQL-Server (vanaf 2012)** . De instructie is niet van toepassing op SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse en Parallel Data Warehouse.
 
 In sommige gevallen kan het algemene onderwerp van een artikel kan worden gebruikt in een product, maar er zijn kleine verschillen tussen producten. De verschillen worden waar nodig in het artikel waar nodig. In sommige gevallen kan het algemene onderwerp van een artikel kan worden gebruikt in een product, maar er zijn kleine verschillen tussen producten. De verschillen worden waar nodig in het artikel waar nodig. Het artikel CREATE TRIGGER is bijvoorbeeld beschikbaar in SQL-Database. Maar de **alle SERVER** optie voor triggers op serverniveau, geeft aan dat de triggers op serverniveau kunnen niet worden gebruikt in SQL-Database. Gebruik in plaats daarvan op databaseniveau triggers.
 

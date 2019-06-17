@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: 83149a8422db25106a97b1711c0ae9ce3c6603eb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465664"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072542"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Quickstart: Maken van een stem op de eerste virtuele assistent met de SDK van de spraak-, Java
 
@@ -30,11 +30,11 @@ Voor deze snelstart zijn de volgende zaken vereist:
 * Besturingssysteem: Windows (64-bits), Ubuntu Linux 16.04/18.04 (64-bits) of macOS 10.13 of hoger
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) of [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
+* De sleutel van een Azure-abonnement voor de spraakservices in de **westus2** regio. Maken van dit abonnement op de [Azure-portal](https://portal.azure.com).
 * Een vooraf geconfigureerde bot gemaakt met behulp van Bot Framework versie 4.2 of hoger. De bot moet zich abonneren op het nieuwe kanaal 'Directe regel spraak' Toon invoer ontvangen.
 
     > [!NOTE]
-    > Preview-versie, het kanaal directe regel spraak ondersteunt momenteel alleen de **westus2** regio.
+    > Directe regel spraak (Preview) is momenteel alleen beschikbaar in de **westus2** regio.
 
     > [!NOTE]
     > De proefversie van 30 dagen voor de prijscategorie wordt beschreven in standaard [Speech Services gratis uitproberen](get-started.md) is beperkt tot **westus** (niet **westus2**) en is dus niet compatibel met Direct Regel spraak. Gratis en standard-laag **westus2** abonnementen compatibel zijn.
@@ -156,8 +156,8 @@ Bovendien, als logboekregistratie wilt inschakelen, werken de **pom.xml** bestan
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
-    final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
-    final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
+    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
     final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.

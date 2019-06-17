@@ -19,10 +19,10 @@ ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544509"
 ---
 # <a name="federation-metadata"></a>Federatieve metagegevens
@@ -50,7 +50,7 @@ Bijvoorbeeld, een tenant-specifieke eindpunt mogelijk `https://login.microsofton
 ## <a name="contents-of-federation-metadata"></a>Inhoud van de federatieve metagegevens
 De volgende sectie bevat informatie die nodig zijn voor services die de tokens die zijn uitgegeven door Azure AD worden gebruikt.
 
-### <a name="entity-id"></a>Entiteits-id
+### <a name="entity-id"></a>Entiteit-ID
 De `EntityDescriptor` element bevat een `EntityID` kenmerk. De waarde van de `EntityID` kenmerk vertegenwoordigt de verlener, dat wil zeggen, de beveiligingstokenservice (STS) die het token is uitgegeven. Het is belangrijk om te valideren van de verlener wanneer u een token ontvangt.
 
 De metagegevens van de volgende toont een voorbeeld van een tenant-specifieke `EntityDescriptor` element met een `EntityID` element.

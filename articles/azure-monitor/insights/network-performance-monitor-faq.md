@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
 ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232668"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
@@ -209,7 +209,7 @@ Dit kan gebeuren als een of meer ingesteld op true is:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>In de Connectiviteitsmonitor voor Service-capaciteit, de reactietijd van de service is NA maar wegvallend netwerk, evenals de latentie geldig zijn
 Dit kan gebeuren als de doelservice niet een web-App is, maar de test is geconfigureerd als een Webtest. De Testconfiguratie van de bewerken en de test kiezen als het netwerk in plaats van Web.
 
-## <a name="miscellaneous"></a>Overig
+## <a name="miscellaneous"></a>Diversen
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Is er een prestatie-impact op het knooppunt wordt gebruikt voor het bewaken van?
 NPM-proces is geconfigureerd om te stoppen als deze gebruikmaakt van meer dan 5% van de host CPU-resources. Dit is om ervoor te zorgen dat u blijven de knooppunten voor hun gebruikelijke werkbelastingen gebruiken kunt zonder gevolgen voor prestaties.

@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023753"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en extraheer informatie uit afbeeldingen in scenario's met cognitief zoeken
@@ -66,7 +66,7 @@ Wanneer de *imageAction* is ingesteld op een waarde andere vervolgens 'none', de
 
 | Lid van de installatiekopie       | Description                             |
 |--------------------|-----------------------------------------|
-| gegevens               | Met base64 gecodeerde tekenreeks van de genormaliseerde afbeelding in JPEG-indeling.   |
+| data               | Met base64 gecodeerde tekenreeks van de genormaliseerde afbeelding in JPEG-indeling.   |
 | Breedte              | Breedte van de installatiekopie van het genormaliseerde in pixels. |
 | Hoogte             | De hoogte van de installatiekopie van het genormaliseerde in pixels. |
 | originalWidth      | De oorspronkelijke breedte van de afbeelding voordat normalisering. |

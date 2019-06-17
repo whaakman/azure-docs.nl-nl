@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5b53ccdcd33e2542834769baff5b759ff7b170
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 0f007ad1d5bf99136328ec5706f7ccbb5f6593c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111233"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Mobiele toepassing of aanroepen van web-API 's
 
@@ -52,7 +52,7 @@ Overwegingen voor mobiele apps:
 
 - **Gebruikerservaring is essentieel**: Toestaan dat gebruikers de waarde van uw app zien voordat waarin wordt gevraagd voor aanmelding bij en alleen de vereiste machtigingen aanvragen.
 - **Ondersteuning voor alle gebruikersconfiguraties**: Er zijn veel mobiele zakelijke gebruikers onder voorwaardelijke toegang en nalevingsbeleid voor apparaten. Zorg ervoor dat deze belangrijke scenario's ondersteunen.
-- **Implementeren van eenmalige aanmelding (SSO)**: MSAL en Microsoft identity-platform kunnen inschakelen van eenmalige aanmelding eenvoudig via de browser van het apparaat of de Microsoft Authenticator (en Intune-bedrijfsportal voor Android).
+- **Implementeren van eenmalige aanmelding (SSO)** : MSAL en Microsoft identity-platform kunnen inschakelen van eenmalige aanmelding eenvoudig via de browser van het apparaat of de Microsoft Authenticator (en Intune-bedrijfsportal voor Android).
 
 ## <a name="specifics"></a>Specifieke informatie
 

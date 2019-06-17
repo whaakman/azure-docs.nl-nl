@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: ffb159dc684b4b6663dcb966706d4745ab88a403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61337802"
 ---
 # <a name="journal-entity"></a>Logboek-entiteit
@@ -23,8 +23,8 @@ ms.locfileid: "61337802"
 
 Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entiteits-id                              |Int64      |Is gelijk aan
-DJN     |Naam van genormaliseerde                |String     |geen
+Id      |Entiteit-ID                              |Int64      |Is gelijk aan
+DJN     |Naam van genormaliseerde                |String     |Geen
 JN      |Logboek-weergavenaam                   |String     |Is gelijk aan
-CC      |Totaal aantal citaat tellen mee           |Int32      |geen  
-ECC     |Totale geschatte citaat tellen mee |Int32      |geen
+CC      |Totaal aantal citaat tellen mee           |Int32      |Geen  
+ECC     |Totale geschatte citaat tellen mee |Int32      |Geen

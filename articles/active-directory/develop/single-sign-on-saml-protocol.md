@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545281"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocol voor eenmalige SAML-aanmelding
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parameter |  | Description |
 | --- | --- | --- |
 | Id | Vereist | Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een algemene strategie bestaat uit een tekenreeks, zoals "id" aan de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld, `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
-| Versie | Vereist | Deze parameter moet worden ingesteld op **2.0**. |
+| Version | Vereist | Deze parameter moet worden ingesteld op **2.0**. |
 | IssueInstant | Vereist | Dit is een datum/tijd-tekenreeks met een UTC-waarde en [traject indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD wordt verwacht dat een datum / tijdwaarde van dit type is, maar niet evalueren of gebruik de waarde. |
 | AssertionConsumerServiceUrl | Optioneel | Indien opgegeven, deze parameter moet overeenkomen met de `RedirectUri` van de cloudservice in Azure AD. |
 | ForceAuthn | Optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als er een geldige sessie met Azure AD. |
@@ -60,7 +60,7 @@ Alle andere `AuthnRequest` kenmerken, zoals toestemming, doel, AssertionConsumer
 
 Azure AD ook negeert de `Conditions` -element in `AuthnRequest`.
 
-### <a name="issuer"></a>Certificaatverlener
+### <a name="issuer"></a>Verlener
 
 De `Issuer` -element in een `AuthnRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Meestal dit is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
@@ -97,7 +97,7 @@ De `Scoping` -element, waaronder een lijst met id-providers, is optioneel in `Au
 
 Indien opgegeven, zijn niet opgenomen de `ProxyCount` kenmerk `IDPListOption` of `RequesterID` -element, zoals ze worden niet ondersteund.
 
-### <a name="signature"></a>Handtekening
+### <a name="signature"></a>handtekening
 Neem geen een `Signature` -element in `AuthnRequest` elementen, zoals Azure AD biedt geen ondersteuning voor ondertekende aanvragen voor authenticatie.
 
 ### <a name="subject"></a>Subject
@@ -156,7 +156,7 @@ De `Response` element bevat het resultaat van de autorisatieaanvraag. Azure AD-s
 * `Destination`: Wanneer de aanmelding is voltooid, dit is ingesteld op de `RedirectUri` van de serviceprovider (cloudservice).
 * `InResponseTo`: Deze optie is ingesteld op de `ID` kenmerk van de `AuthnRequest` element dat het antwoord wordt gestart.
 
-### <a name="issuer"></a>Certificaatverlener
+### <a name="issuer"></a>Verlener
 
 Azure AD stelt de `Issuer` element `https://login.microsoftonline.com/<TenantIDGUID>/` waar \<TenantIDGUID > is de tenant-ID van de Azure AD-tenant.
 
@@ -191,7 +191,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Naast de `ID`, `IssueInstant` en `Version`, Azure AD Hiermee stelt u de volgende elementen in de `Assertion` element van het antwoord.
 
-#### <a name="issuer"></a>Certificaatverlener
+#### <a name="issuer"></a>Verlener
 
 Deze optie is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar \<TenantIDGUID > is de Tenant-ID van de Azure AD-tenant.
 
@@ -199,7 +199,7 @@ Deze optie is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar \<Tenan
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### <a name="signature"></a>Handtekening
+#### <a name="signature"></a>handtekening
 
 Azure AD zich de verklaring in reactie op een geslaagde aanmelding. De `Signature` element bevat een digitale handtekening die de service in de cloud gebruiken kunt om te verifiëren van de bron om te controleren of de integriteit van de verklaring.
 

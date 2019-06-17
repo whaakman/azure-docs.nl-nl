@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712664"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Een probleem VM-netwerk-verkeersfilter vaststellen
@@ -170,9 +170,9 @@ Of het gebruik van de Azure [portal](#diagnose-using-azure-portal), [PowerShell]
 
 | Eigenschap                | Value                                                                              |
 |---------                |---------                                                                           |
-| Bron                  | Alle                                                                                |
+| source                  | Alle                                                                                |
 | Poortbereiken van bron      | Alle                                                                                |
-| Doel             | Het IP-adres van de virtuele machine, een bereik van IP-adressen of alle adressen in het subnet. |
+| Bestemming             | Het IP-adres van de virtuele machine, een bereik van IP-adressen of alle adressen in het subnet. |
 | Poortbereiken van doel | 80                                                                                 |
 | Protocol                | TCP                                                                                |
 | Bewerking                  | Toestaan                                                                              |

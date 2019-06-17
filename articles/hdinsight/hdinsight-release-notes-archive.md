@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713038"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Opmerkingen bij de release voor Azure HDInsight
@@ -28,7 +28,7 @@ Azure HDInsight is onder zakelijke klanten een van de meest populaire services v
 
 De nieuwe updates en mogelijkheden kunnen worden onderverdeeld de volgende categorieën:
 
-*  ***Bijwerken van Hadoop en andere open-sourceprojecten*** : naast het meer dan 1000 oplossingen voor problemen in open-source-projecten, deze update bevat een nieuwe versie van voor 20 + **Spark (2.3)** en **Kafka (1.0)**.
+*  ***Bijwerken van Hadoop en andere open-sourceprojecten*** : naast het meer dan 1000 oplossingen voor problemen in open-source-projecten, deze update bevat een nieuwe versie van voor 20 + **Spark (2.3)** en **Kafka (1.0)** .
 
     a.  [**Nieuwe functies in Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -822,73 +822,73 @@ In deze sectie bevat informatie over alle veelvoorkomende beveiligingsproblemen 
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Overzicht:** Apache Ranger beleidsevaluatie negeert tekens na '\*' jokerteken |
+| **Overzicht:**  Apache Ranger beleidsevaluatie negeert tekens na '\*' jokerteken |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ernst:** kritiek                                                                           |
-| **Leverancier:** Hortonworks                                                                          |
-| **Versies optreedt:** HDInsight 3.6-versies met inbegrip van Apache Ranger versies 0.5.x/0.6.x/0.7.0     |
-| **Betrokken gebruikers:** omgevingen die gebruikmaken van Ranger-beleidsregels met tekens na '\*' Jokertekens teken – zoals mijn\*testen, test\*.txt |
-| **Gevolgen:** beleid resource matcher negeert tekens na '\*' jokerteken, wat tot onbedoeld gedrag leiden kan.      |
-| **Gegevens herstellen:** Ranger beleid resource matcher is bijgewerkt voor het afhandelen van correct komt overeen met jokerteken.           |
-| **Aanbevolen actie:** upgraden naar HDI 3.6 (met Apache Ranger 0.7.1+).                                |
+| **Ernst:**  kritiek                                                                           |
+| **Leverancier:**  Hortonworks                                                                          |
+| **Versies optreedt:**  HDInsight 3.6-versies met inbegrip van Apache Ranger versies 0.5.x/0.6.x/0.7.0     |
+| **Betrokken gebruikers:**  omgevingen die gebruikmaken van Ranger-beleidsregels met tekens na '\*' Jokertekens teken – zoals mijn\*testen, test\*.txt |
+| **Gevolgen:**  beleid resource matcher negeert tekens na '\*' jokerteken, wat tot onbedoeld gedrag leiden kan.      |
+| **Gegevens herstellen:**  Ranger beleid resource matcher is bijgewerkt voor het afhandelen van correct komt overeen met jokerteken.           |
+| **Aanbevolen actie:**  upgraden naar HDI 3.6 (met Apache Ranger 0.7.1+).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Overzicht:** Apache Ranger Hive Authorizer moet controleren op RWX machtiging als externe locatie wordt opgegeven |
+| **Overzicht:**  Apache Ranger Hive Authorizer moet controleren op RWX machtiging als externe locatie wordt opgegeven |
 |--------------------------------------------------------------------------------------------------|
-| **Ernst:** kritiek                                                                           |
-| **Leverancier:** Hortonworks                                                                          |
-| **Versies optreedt:** HDInsight 3.6-versies met inbegrip van Apache Ranger versies 0.5.x/0.6.x/0.7.0 |
-| **Betrokken gebruikers:** omgevingen die gebruikmaken van de externe locatie voor hive-tabellen |
-| **Gevolgen:** In omgevingen die gebruikmaken van externe locatie voor hive-tabellen, Apache Ranger Hive Authorizer RWX machtiging voor de externe locatie die is opgegeven voor tabel maken moet controleren. |
-| **Gegevens herstellen:** Ranger Hive Authorizer is bijgewerkt voor het afhandelen van correct machtigingscontrole met externe locatie. |
-| **Aanbevolen actie:** gebruikers moeten upgraden naar HDI 3.6 (met Apache Ranger 0.7.1+). |
+| **Ernst:**  kritiek                                                                           |
+| **Leverancier:**  Hortonworks                                                                          |
+| **Versies optreedt:**  HDInsight 3.6-versies met inbegrip van Apache Ranger versies 0.5.x/0.6.x/0.7.0 |
+| **Betrokken gebruikers:**  omgevingen die gebruikmaken van de externe locatie voor hive-tabellen |
+| **Gevolgen:**  In omgevingen die gebruikmaken van externe locatie voor hive-tabellen, Apache Ranger Hive Authorizer RWX machtiging voor de externe locatie die is opgegeven voor tabel maken moet controleren. |
+| **Gegevens herstellen:**  Ranger Hive Authorizer is bijgewerkt voor het afhandelen van correct machtigingscontrole met externe locatie. |
+| **Aanbevolen actie:**  gebruikers moeten upgraden naar HDI 3.6 (met Apache Ranger 0.7.1+). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Overzicht:** mogelijke uitvoering van code als de verkeerder gebruikers in Apache Storm |
+| **Overzicht:**  mogelijke uitvoering van code als de verkeerder gebruikers in Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Ernst:** belangrijk |
-| **Leverancier:** Hortonworks |
-| **Versies beïnvloed:** HDP 2.4.0, HDP-2.5.0 HDP-2.6.0 |
-| **Betrokken gebruikers:** gebruikers die Storm gebruiken in veilige modus en blobarchief gebruikt voor het distribueren van de topologie op basis van artefacten of met behulp van de blobarchief voor het distribueren van een topologie-resources. |
-| **Gevolgen:** onder bepaalde omstandigheden en configuraties van storm theoretisch mogelijk dat de eigenaar van een topologie om u te verleiden om de supervisor om te starten als een andere, niet-hoofdmap, gebruiker van een werknemer is. In het ergste geval, kan dit leiden tot het beveiligen van referenties van de andere gebruiker worden aangetast. Dit beveiligingsprobleem is alleen van toepassing op installaties van Apache Storm waarvoor beveiliging is ingeschakeld. |
-| **Risicobeperking:** upgraden naar HDP-2.6.2.1 omdat er momenteel geen tijdelijke oplossingen zijn.  |
+|**Ernst:**  belangrijk |
+| **Leverancier:**  Hortonworks |
+| **Versies beïnvloed:**  HDP 2.4.0, HDP-2.5.0 HDP-2.6.0 |
+| **Betrokken gebruikers:**  gebruikers die Storm gebruiken in veilige modus en blobarchief gebruikt voor het distribueren van de topologie op basis van artefacten of met behulp van de blobarchief voor het distribueren van een topologie-resources. |
+| **Gevolgen:**  onder bepaalde omstandigheden en configuraties van storm theoretisch mogelijk dat de eigenaar van een topologie om u te verleiden om de supervisor om te starten als een andere, niet-hoofdmap, gebruiker van een werknemer is. In het ergste geval, kan dit leiden tot het beveiligen van referenties van de andere gebruiker worden aangetast. Dit beveiligingsprobleem is alleen van toepassing op installaties van Apache Storm waarvoor beveiliging is ingeschakeld. |
+| **Risicobeperking:**  upgraden naar HDP-2.6.2.1 omdat er momenteel geen tijdelijke oplossingen zijn.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Overzicht:** handler/ssl/OpenSslEngine.java in Netty 4.0.x voordat 4.0.37.Final en 4.1.x voordat 4.1.1.Final kunnen externe aanvallers om te leiden tot denial of service (oneindige lus) |
+| **Overzicht:**  handler/ssl/OpenSslEngine.java in Netty 4.0.x voordat 4.0.37.Final en 4.1.x voordat 4.1.1.Final kunnen externe aanvallers om te leiden tot denial of service (oneindige lus) |
 |--------------------------------------------------------------------------------------------------|
 | **Ernst:** Gemiddeld  |
-| **Leverancier:** Hortonworks  |
-| **Versies beïnvloed:** HDP 2.x.x sinds 2.3.x  |
-| **Gebruikers optreedt:** alle gebruikers die gebruikmaken van HDFS. |
-| **Gevolgen:** Impact is laag als Hortonworks gebruik OpenSslEngine.java niet rechtstreeks in Hadoop-codebasis.     |
-| **Aanbevolen actie:** upgraden naar HDP 2.6.3.   |
+| **Leverancier:**  Hortonworks  |
+| **Versies beïnvloed:**  HDP 2.x.x sinds 2.3.x  |
+| **Gebruikers optreedt:**  alle gebruikers die gebruikmaken van HDFS. |
+| **Gevolgen:**  Impact is laag als Hortonworks gebruik OpenSslEngine.java niet rechtstreeks in Hadoop-codebasis.     |
+| **Aanbevolen actie:**  upgraden naar HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Overzicht:** Apache Ranger pad die overeenkomt met probleem in de evaluatie van het beleid                                                                    |
+| **Overzicht:**  Apache Ranger pad die overeenkomt met probleem in de evaluatie van het beleid                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Ernst:** normaal                                                                                                                   |
+| **Ernst:**  normaal                                                                                                                   |
 | **Leverancier:** Hortonworks                                                                                                                |
-| **Versies optreedt:** alle HDP 2.5-versies, met inbegrip van Apache Ranger versies 0.6.0/0.6.1/0.6.2                                         |
-| **Betrokken gebruikers:** alle gebruikers van het beheerprogramma voor ranger-beleid.                                                                         |
-| **Gevolgen:** Ranger beleidsengine onjuist komt overeen met paden in bepaalde omstandigheden wanneer een beleid de vlaggen jokertekens en recursieve bevat. |
+| **Versies optreedt:**  alle HDP 2.5-versies, met inbegrip van Apache Ranger versies 0.6.0/0.6.1/0.6.2                                         |
+| **Betrokken gebruikers:**  alle gebruikers van het beheerprogramma voor ranger-beleid.                                                                         |
+| **Gevolgen:**  Ranger beleidsengine onjuist komt overeen met paden in bepaalde omstandigheden wanneer een beleid de vlaggen jokertekens en recursieve bevat. |
 | **Gegevens herstellen:** Beleid voor vaste evaluatielogica                                                                                          |
-| **Aanbevolen actie:** gebruikers moeten upgraden naar HDP 2.5.4+ (met Apache Ranger 0.6.3+) of HDP 2.6 + (met Apache Ranger 0.7.0+)         |
+| **Aanbevolen actie:**  gebruikers moeten upgraden naar HDP 2.5.4+ (met Apache Ranger 0.6.3+) of HDP 2.6 + (met Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Overzicht:** Apache Ranger opgeslagen cross-site scripting probleem  |
+| **Overzicht:**  Apache Ranger opgeslagen cross-site scripting probleem  |
 |--------------------------------------------------------------------------------------------------|
-| **Ernst:** normaal |
-| **Leverancier:** Hortonworks |
-| **Versies optreedt:** alle HDP 2.3/2.4/2.5 versies, met inbegrip van Apache Ranger versies 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Betrokken gebruikers:** alle gebruikers van het beheerprogramma voor ranger-beleid. |
-| **Gevolgen:** Apache Ranger is kwetsbaar voor een opgeslagen Cross-Site Scripting bij het invoeren van aangepast beleid voor voorwaarden. Sommige willekeurige javascript kunnen opslaan als beheerder ze code worden uitgevoerd als normale gebruikers zich aanmelden en beleid voor gegevenstoegang. |
-| **Gegevens herstellen:** logica voor het opschonen van de invoer van de gebruiker toegevoegd.  |
-| **Aanbevolen actie:** gebruikers moeten upgraden naar HDP 2.5.4+ (met Apache Ranger 0.6.3+) of HDP 2.6 + (met Apache Ranger 0.7.0+)  |
+| **Ernst:**  normaal |
+| **Leverancier:**  Hortonworks |
+| **Versies optreedt:**  alle HDP 2.3/2.4/2.5 versies, met inbegrip van Apache Ranger versies 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **Betrokken gebruikers:**  alle gebruikers van het beheerprogramma voor ranger-beleid. |
+| **Gevolgen:**  Apache Ranger is kwetsbaar voor een opgeslagen Cross-Site Scripting bij het invoeren van aangepast beleid voor voorwaarden. Sommige willekeurige javascript kunnen opslaan als beheerder ze code worden uitgevoerd als normale gebruikers zich aanmelden en beleid voor gegevenstoegang. |
+| **Gegevens herstellen:**  logica voor het opschonen van de invoer van de gebruiker toegevoegd.  |
+| **Aanbevolen actie:**  gebruikers moeten upgraden naar HDP 2.5.4+ (met Apache Ranger 0.6.3+) of HDP 2.6 + (met Apache Ranger 0.7.0+)  |
 
 ## <a name="fixed-issues-for-support"></a>Opgeloste problemen voor ondersteuning
 

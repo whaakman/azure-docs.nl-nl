@@ -3,7 +3,7 @@ title: Wat is Azure Security Center?| Microsoft Docs
 description: Meer informatie over Azure Security Center, de belangrijkste mogelijkheden van Azure Security Center en hoe Azure Security Center werkt.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064335"
 ---
 # <a name="what-is-azure-security-center"></a>Wat is Azure Security Center?
 
@@ -125,6 +125,10 @@ Security Center zorgt ervoor dat u minder wordt blootgesteld aan beveiligingsaan
 ### <a name="protect-data-services"></a>Gegevensservices beveiligen
 
 Security Center beschikt over mogelijkheden waarmee u de gegevens in Azure SQL automatisch kunt classificeren. U kunt ook beoordelingen krijgen van mogelijke beveiligingsproblemen in Azure SQL- en Azure Storage-services en aanbevelingen ontvangen voor de wijze waarop u deze kunt verhelpen.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Bescherming van IoT- en hybride cloud-workloads (Preview)
+
+Azure Security Center voor IoT (Internet of Things) vereenvoudigt hybride workload protection door het leveren van geïntegreerde zichtbaarheid en controle, geavanceerde bedreigingen te voorkomen, en intelligente detectie van bedreigingen en antwoord verschillende workloads die worden uitgevoerd in Microsoft edge, on-premises in Azure, en in andere clouds. Zie voor meer informatie, [Azure Security Center voor IoT (Preview)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Uw infrastructuur sneller beveiligen
 

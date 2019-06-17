@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
 ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938521"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configureren van WinRM na het maken van virtuele machines
@@ -26,7 +26,7 @@ In dit artikel wordt uitgelegd hoe het configureren van een bestaande Azure geho
 
 De WinRM via HTTPS-protocol gebruikt poort 5896, die niet standaard op de vooraf geconfigureerde Windows VM's die worden aangeboden via Azure Marketplace is ingeschakeld. Als wilt inschakelen dit protocol, gebruikt u de volgende stappen uit in een nieuwe regel toevoegen aan de netwerkbeveiligingsgroep (NSG) met de [Azure-portal](https://portal.azure.com).  Zie voor meer informatie over nsg's [beveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Navigeer naar de blade **virtuele machines >**  <*vm-naam*>  **> Instellingen/netwerken**.
+1.  Navigeer naar de blade **virtuele machines >**   <*vm-naam*>   **> Instellingen/netwerken**.
 2.  Klik op de naam van de NSG (in dit voorbeeld **testvm11002**) om de eigenschappen ervan weer te geven:
 
     ![Network security-groepseigenschappen](./media/nsg-properties.png)

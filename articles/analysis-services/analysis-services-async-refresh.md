@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506974"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwing met de REST-API
@@ -189,7 +189,7 @@ Waarden voor `syncstate`:
 - 0: Replicatie uitgevoerd. Databasebestanden worden gerepliceerd naar een doelmap.
 - 1: Reactiveren. De database is wordt gereactiveerd op alleen-lezen-server-instantie (s).
 - 2: Voltooid. De synchronisatiebewerking is voltooid.
-- 3: Mislukt. De synchronisatie is mislukt.
+- 3: Is mislukt. De synchronisatie is mislukt.
 - 4: Wordt voltooid. De synchronisatiebewerking is voltooid maar opschonen stappen uitvoert.
 
 ## <a name="code-sample"></a>Codevoorbeeld

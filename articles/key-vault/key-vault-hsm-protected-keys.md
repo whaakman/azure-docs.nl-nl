@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
 ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556203"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
@@ -162,7 +162,7 @@ KeyVault-BYOK-Tools-Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
-[**Azure Government:**](https://azure.microsoft.com/features/gov/)
+[**Azure Government:** ](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -236,7 +236,7 @@ Voor deze tweede stap doen in de volgende procedures op het werkstation dat niet
 
 Installeer de nCipher-ondersteuningssoftware op een Windows-computer, en voeg vervolgens een nCipher nShield-HSM aan die computer.
 
-Zorg ervoor dat de nCipher-hulpprogramma's in het pad (**%nfast_home%\bin**). Bijvoorbeeld, typ het volgende:
+Zorg ervoor dat de nCipher-hulpprogramma's in het pad ( **%nfast_home%\bin**). Bijvoorbeeld, typ het volgende:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -369,7 +369,7 @@ Wanneer u deze opdracht uitvoert, gebruikt u deze instructies:
 * Vervang de waarde van *contosokey* voor de **ident** en **plainname** met een string-waarde. Administratieve overhead te minimaliseren en de kans op fouten te verminderen, wordt u aangeraden dat u dezelfde waarde voor beide gebruiken. De **ident** waarde mag alleen cijfers, streepjes en kleine letters.
 * De pubexp is leeg (standaard) in dit voorbeeld, maar u kunt specifieke waarden opgeven. Zie voor meer informatie de [nCipher-documentatie.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
-Deze opdracht maakt u een Tokenized sleutelbestand in uw map %NFAST_KMDATA%\local met een naam die begint met **key_simple_**, gevolgd door de **ident** die is opgegeven in de opdracht. Bijvoorbeeld: **key_simple_contosokey**. Dit bestand bevat een versleutelde sleutel.
+Deze opdracht maakt u een Tokenized sleutelbestand in uw map %NFAST_KMDATA%\local met een naam die begint met **key_simple_** , gevolgd door de **ident** die is opgegeven in de opdracht. Bijvoorbeeld: **key_simple_contosokey**. Dit bestand bevat een versleutelde sleutel.
 
 Back-up van deze Tokenized sleutelbestand op een veilige locatie.
 
@@ -453,7 +453,7 @@ U kunt inspecteert de ACL's van de volgende opdrachten met de nCipher nShield-hu
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
   Wanneer u deze opdrachten uitvoert, vervangt u contosokey met dezelfde waarde die u hebt opgegeven in **stap 3.5: Maak een nieuwe sleutel** uit de [de sleutel genereren](#step-3-generate-your-key) stap.
 
-### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.2 stap: Uw sleutel versleutelt met behulp van Microsoft uitwisselingssleutel van de sleutel
+### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4\.2 stap: Uw sleutel versleutelt met behulp van Microsoft uitwisselingssleutel van de sleutel
 
 Voer een van de volgende opdrachten uit, afhankelijk van uw geografische regio of het exemplaar van Azure:
 

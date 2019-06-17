@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000109"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatisch schalen van Azure HDInsight-clusters (preview)
@@ -26,14 +26,14 @@ Functie voor automatisch schalen van Azure HDInsight-cluster automatisch het aan
 
 De volgende tabel beschrijft de clustertypen en versies die compatibel met de functie voor automatisch schalen zijn.
 
-| Versie | Spark | Hive | LLAP | Hbase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 zonder ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 | HDInsight 4.0 zonder ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 | HDInsight 3.6 met ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 | HDInsight 3.6 met ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
 U kunt kiezen op basis van een load schalen of schalen op basis van een schema voor uw HDInsight-cluster. Schalen op basis van een Load, wijzigt het aantal knooppunten in uw cluster, binnen een bereik dat u instelt, zorg ervoor dat de optimale CPU-gebruik en de lopende kosten minimaliseren.
 
@@ -211,7 +211,7 @@ Taken die worden uitgevoerd blijft worden uitgevoerd en voltooid. De in behandel
 
 ## <a name="monitoring"></a>Bewaking
 
-### <a name="cluster-status"></a>Clusterstatus
+### <a name="cluster-status"></a>De clusterstatus
 
 De status van het cluster die worden vermeld in de Azure-portal kunt u automatisch schalen activiteiten controleren.
 
@@ -219,9 +219,9 @@ De status van het cluster die worden vermeld in de Azure-portal kunt u automatis
 
 Alle van de cluster-statusberichten die u kunt tegenkomen worden beschreven in de onderstaande lijst.
 
-| Clusterstatus | Uitleg |
+| De clusterstatus | Uitleg |
 |---|---|
-| Actief | Het cluster wordt normaal uitgevoerd. Alle vorige voor automatisch schalen activiteiten zijn voltooid. |
+| In uitvoering | Het cluster wordt normaal uitgevoerd. Alle vorige voor automatisch schalen activiteiten zijn voltooid. |
 | Bijwerken  | De clusterconfiguratie voor automatisch schalen wordt bijgewerkt.  |
 | HDInsight-configuratie  | Een cluster omhoog of bewerking omlaag schalen wordt uitgevoerd.  |
 | Fout bij bijwerken  | HDInsight er zijn problemen opgetreden tijdens het bijwerken van de configuratie voor automatisch schalen. Klanten kunnen kiezen voor probeert u de update of automatisch schalen uitschakelen.  |

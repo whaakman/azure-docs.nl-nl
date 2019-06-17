@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510150"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging-integratie
@@ -36,7 +36,7 @@ De aanvraag moet de volgende velden:
 | **Naam**             | **Beschrijving**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | Client wordt geleverd GUID                                |
-| firstName            | De voornaam van de gebruiker                              |
+| voornaam            | De voornaam van de gebruiker                              |
 | lastName             | De achternaam van de gebruiker                               |
 | emailAddress         | E-mailadres van de gebruiker                           |
 | externalId           | Azure AD-object-ID van de gebruiker                      |
@@ -70,7 +70,7 @@ Blockchain Workbench retourneert een antwoord met de volgende velden:
 | messageSchemaVersion  | Messaging schemaversie |
 | messageName           | **CreateUserUpdate** |
 | status                | De status van de aanvraag voor het maken van gebruiker.  Als lukt, waarde is **succes**. Bij fouten, ligt **fout**.     |
-| additionalInformation | Als u meer informatie vindt u op basis van de status |
+| AdditionalInformation | Als u meer informatie vindt u op basis van de status |
 
 Voorbeeld van de geslaagde **gebruiker maken** reactie van Blockchain Workbench:
 
@@ -368,7 +368,7 @@ Service Bus-onderwerpen kunnen worden gebruikt om gebruikers te informeren over 
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Verbruik van Service Bus-berichten met Logic Apps
 
 1. Maak een nieuwe **Azure Logic App** in Azure portal.
-2. Bij het openen van de logische App van Azure in de portal, wordt u gevraagd om te selecteren van een trigger. Type **Service Bus** in het zoekvak en selecteer de trigger die geschikt is voor het type interactie dat u wilt dat met de Service Bus. Bijvoorbeeld, **Service Bus - wanneer een bericht wordt ontvangen in een onderwerpabonnement (automatisch voltooien)**.
+2. Bij het openen van de logische App van Azure in de portal, wordt u gevraagd om te selecteren van een trigger. Type **Service Bus** in het zoekvak en selecteer de trigger die geschikt is voor het type interactie dat u wilt dat met de Service Bus. Bijvoorbeeld, **Service Bus - wanneer een bericht wordt ontvangen in een onderwerpabonnement (automatisch voltooien)** .
 3. Wanneer de werkstroomontwerper wordt weergegeven, geeft u de verbindingsgegevens voor de Service Bus.
 4. Selecteer uw abonnement en geeft u het onderwerp van **workbench-externe**.
 5. De logica voor uw toepassing die gebruikmaakt van het bericht van deze trigger te ontwikkelen.
@@ -383,7 +383,7 @@ Bevat informatie over afzonderlijke blokken. De *BlockMessage* bevat een sectie 
 
 | Name | Description |
 |------|-------------|
-| blokkeren | Bevat [informatie blokkeren](#block-information) |
+| Blokkeren | Bevat [informatie blokkeren](#block-information) |
 | transacties | Bevat een verzameling [transactie-informatie](#transaction-information) voor het blok |
 | connectionId | De unieke id voor de verbinding |
 | messageSchemaVersion | Messaging schemaversie |
@@ -407,7 +407,7 @@ Bevat informatie over afzonderlijke blokken. De *BlockMessage* bevat een sectie 
 | transactionId      | De unieke id voor de transactie binnen Azure Blockchain Workbench |
 | TransactionHash    | De hash van de transactie op het grootboek |
 | from               | De unieke id van het grootboek voor oorsprong van de transactie |
-| aan                 | De unieke id van het grootboek voor het doel van de transactie |
+| tot                 | De unieke id van het grootboek voor het doel van de transactie |
 | ProvisioningStatus | Hiermee geeft u de huidige status van het inrichtingsproces voor de transactie. Mogelijke waarden zijn: </br>0: de transactie is gemaakt door de API in de database</br>1: de transactie is verzonden naar het grootboek</br>2: de transactie is doorgevoerd naar het grootboek</br>3 of 4: de transactie kan niet worden doorgevoerd naar het grootboek</br>5 - de transactie is doorgevoerd naar het grootboek |
 
 Voorbeeld van een *BlockMessage* van Blockchain Workbench:
@@ -469,14 +469,14 @@ Bevat informatie over een contract. Het bericht bevat een sectie met eigenschapp
 | transactionId | De unieke id voor de transactie binnen Azure Blockchain Workbench |
 | TransactionHash | De hash van de transactie op het grootboek |
 | from | De unieke id van het grootboek voor oorsprong van de transactie |
-| aan | De unieke id van het grootboek voor het doel van de transactie |
+| tot | De unieke id van het grootboek voor het doel van de transactie |
 
 #### <a name="contract-properties"></a>Contract-eigenschappen
 
 | Name               | Description |
 |--------------------|-------------|
 | workflowPropertyId | De unieke id voor de werkstroom-eigenschap binnen Azure Blockchain Workbench |
-| naam | Naam van de werkstroom-eigenschap |
+| name | Naam van de werkstroom-eigenschap |
 | value | Waarde van de werkstroom-eigenschap |
 
 Voorbeeld van een *ContractMessage* van Blockchain Workbench:
@@ -563,7 +563,7 @@ Bevat informatie wanneer een overeenkomst-functie is aangeroepen, zoals de naam 
 | Name | Description |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| oproepende functie                      | [Beller-informatie](#caller-information) |
+| Beller                      | [Beller-informatie](#caller-information) |
 | ContractId                  | De unieke id voor het contract binnen Azure Blockchain Workbench |
 | contractLedgerIdentifier    | De unieke id voor het contract op het grootboek |
 | Functienaam                | Naam van de functie |
@@ -587,7 +587,7 @@ Bevat informatie wanneer een overeenkomst-functie is aangeroepen, zoals de naam 
 
 | Name | Description |
 |------|-------------|
-| naam | Parameternaam |
+| name | Parameternaam |
 | value | Parameterwaarde |
 
 #### <a name="event-message-transaction-information"></a>Gebeurtenis bericht transactie-informatie
@@ -597,7 +597,7 @@ Bevat informatie wanneer een overeenkomst-functie is aangeroepen, zoals de naam 
 | transactionId      | De unieke id voor de transactie binnen Azure Blockchain Workbench |
 | TransactionHash    | De hash van de transactie op het grootboek |
 | from               | De unieke id van het grootboek voor oorsprong van de transactie |
-| aan                 | De unieke id van het grootboek voor het doel van de transactie |
+| tot                 | De unieke id van het grootboek voor het doel van de transactie |
 
 Voorbeeld van een *EventMessage ContractFunctionInvocation* van Blockchain Workbench:
 
@@ -644,8 +644,8 @@ Bevat informatie wanneer een toepassing wordt geüpload naar de Workbench, zoals
 |------|-------------|
 | eventName | **ApplicationIngestion** |
 | applicationId | De unieke id voor de toepassing in Azure Blockchain Workbench |
-| applicationName | Toepassingsnaam |
-| applicationDisplayName | Weergavenaam van toepassing |
+| applicationName | De naam van de toepassing |
+| applicationDisplayName | Weergavenaam van de toepassing |
 | applicationVersion | Toepassingsversie |
 | applicationDefinitionLocation | URL op waar het configuratiebestand van de toepassing zich bevindt |
 | contractCodes | Verzameling van [contract codes](#contract-code-information) voor de toepassing |
@@ -669,14 +669,14 @@ Bevat informatie wanneer een toepassing wordt geüpload naar de Workbench, zoals
 | Name | Description |
 |------|-------------|
 | id | De unieke id voor de toepassingsrol binnen Azure Blockchain Workbench |
-| naam | Naam van de toepassingsrol |
+| name | Naam van de toepassingsrol |
 
 #### <a name="application-workflow-information"></a>Informatie over de werkstroom van toepassing
 
 | Name | Description |
 |------|-------------|
 | id | De unieke id voor de toepassingswerkstroom in Azure Blockchain Workbench |
-| naam | Naam van de toepassing-werkstroom |
+| name | Naam van de toepassing-werkstroom |
 | displayName | Weergavenaam van de toepassing-werkstroom |
 | functions | Verzameling van [functies voor de toepassingswerkstroom](#workflow-function-information)|
 | statussen | Verzameling van [statussen voor de toepassingswerkstroom](#workflow-state-information) |
@@ -687,23 +687,23 @@ Bevat informatie wanneer een toepassing wordt geüpload naar de Workbench, zoals
 | Name | Description |
 |------|-------------|
 | id | De unieke id voor de functie van de werkstroom toepassing binnen Azure Blockchain Workbench |
-| naam | Functienaam |
+| name | Functienaam |
 | parameters | Parameters voor de functie |
 
 ##### <a name="workflow-state-information"></a>Informatie over de status van de werkstroom
 
 | Name | Description |
 |------|-------------|
-| naam | Provincienaam |
+| name | Naam van de staat |
 | displayName | Status weergavenaam |
-| stijl | Status stijl (slagen of mislukken) |
+| style | Status stijl (slagen of mislukken) |
 
 ##### <a name="workflow-property-information"></a>Informatie over werkstroom-eigenschap
 
 | Name | Description |
 |------|-------------|
 | id | De unieke id voor de eigenschap van de werkstroom toepassing binnen Azure Blockchain Workbench |
-| naam | Naam van eigenschap |
+| name | Naam van eigenschap |
 | type | Typ vlastnosti |
 
 Voorbeeld van een *EventMessage ApplicationIngestion* van Blockchain Workbench:
@@ -838,8 +838,8 @@ Bevat informatie wanneer een gebruiker een rol in Workbench, zoals wie de toewij
 |------|-------------|
 | eventName | **RoleAssignment** |
 | applicationId | De unieke id voor de toepassing in Azure Blockchain Workbench |
-| applicationName | Toepassingsnaam |
-| applicationDisplayName | Weergavenaam van toepassing |
+| applicationName | De naam van de toepassing |
+| applicationDisplayName | Weergavenaam van de toepassing |
 | applicationVersion | Toepassingsversie |
 | applicationRole        | Informatie over de [toepassingsrol](#roleassignment-application-role) |
 | toewijzer van               | Informatie over de [toewijzer van](#roleassignment-assigner) |
@@ -854,7 +854,7 @@ Bevat informatie wanneer een gebruiker een rol in Workbench, zoals wie de toewij
 | Name | Description |
 |------|-------------|
 | id | De unieke id voor de toepassingsrol binnen Azure Blockchain Workbench |
-| naam | Naam van de toepassingsrol |
+| name | Naam van de toepassingsrol |
 
 #### <a name="roleassignment-assigner"></a>Toewijzer van RoleAssignment
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957329"
 ---
 # <a name="clustering-point-data"></a>Gegevens van clusters
@@ -86,7 +86,7 @@ Wanneer muisgebeurtenissen worden uitgevoerd in een laag die geclusterde gegeven
 
 | Naam van eigenschap | Type | Description |
 |---------------|------|-------------|
-| cluster | booleaans | Hiermee wordt aangegeven als functie staat voor een cluster. |
+| Cluster | booleaans | Hiermee wordt aangegeven als functie staat voor een cluster. |
 | cluster_id | string | Een unieke ID voor het cluster dat kan worden gebruikt met de gegevensbron `getClusterExpansionZoom`, `getClusterChildren`, en `getClusterLeaves` methoden. |
 | point_count | getal | Het aantal punten die het cluster bevat. |
 | point_count_abbreviated | string | Een tekenreeks is die beperkt de `point_count` waarde op als het lang is. (bijvoorbeeld 4.000 wordt voor 4K) |

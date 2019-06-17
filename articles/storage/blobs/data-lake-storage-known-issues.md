@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061330"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ In dit artikel bevat de functies en hulpprogramma's die nog niet ondersteund of 
 
 ## <a name="blob-storage-apis"></a>BLOB storage-API 's
 
-BLOB storage-API's zijn uitgeschakeld om te voorkomen dat onbedoelde gegevens toegangsproblemen die optreden kunnen omdat Blob Storage-API's nog niet compatibel met Azure Data Lake Gen2 API's.
+BLOB storage-API's zijn uitgeschakeld om te voorkomen dat de functie ervan problemen die kunnen ontstaan omdat Blob Storage-API's zijn nog niet compatibel met Azure Data Lake Gen2 API's.
 
 ### <a name="what-to-do-with-existing-tools-applications-and-services"></a>Wat te doen met bestaande hulpprogramma's, toepassingen en services
 

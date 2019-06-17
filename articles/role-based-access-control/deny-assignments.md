@@ -11,27 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 432703b5acb4cd56dac9b25edf99165ca26b0aa0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197133"
+ms.locfileid: "67118280"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informatie over toewijzingen voor Azure-resources te weigeren
 
-Vergelijkbaar met een roltoewijzing een *weigeren toewijzing* wordt een reeks acties voor weigeren aan een gebruiker, groep of service-principal bij een bepaald bereik voor de toegang wordt geweigerd. Weigeren toewijzingen voorkomen dat gebruikers van het uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. Sommige providers in Azure zijn nu resource weigeren toewijzingen.
-
-In sommige opzichten weigeren toewijzingen zijn anders dan roltoewijzingen. Weigeren toewijzingen kunnen uitsluiten van beveiligings-principals en te voorkomen dat de overname van onderliggende bereiken. Weigeren toewijzingen zijn ook van toepassing op [klassiek abonnementsbeheerder](rbac-and-directory-admin-roles.md) toewijzingen.
+Vergelijkbaar met een roltoewijzing een *weigeren toewijzing* wordt een reeks acties voor weigeren aan een gebruiker, groep of service-principal bij een bepaald bereik voor de toegang wordt geweigerd. Weigeren toewijzingen voorkomen dat gebruikers van het uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend.
 
 Dit artikel wordt beschreven hoe weigeren toewijzingen zijn gedefinieerd.
 
-> [!NOTE]
-> Op dit moment de enige manier waarop u kunt toevoegen uw eigen weigeren toewijzingen met behulp van Azure blauwdrukken is. Zie voor meer informatie, [nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen](../governance/blueprints/tutorials/protect-new-resources.md).
+## <a name="how-deny-assignments-are-created"></a>Hoe weigeren toewijzingen worden gemaakt
+
+Weigeren toewijzingen worden gemaakt en beheerd door Azure-resources beveiligen. Bijvoorbeeld, blauwdrukken voor Azure en Azure beheerde apps gebruik weigeren toewijzingen om systeem beheerde resources te beschermen. Zie voor meer informatie, [nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="compare-role-assignments-and-deny-assignments"></a>Roltoewijzingen vergelijken en toewijzingen weigeren
+
+Weigeren toewijzingen volgen een vergelijkbaar patroon zoals toewijzingen weigeren, maar ook enkele verschillen.
+
+| Mogelijkheid | Roltoewijzing | Toewijzing weigeren |
+| --- | --- | --- |
+| Toegang verlenen | :heavy_check_mark: |  |
+| Toegang weigeren |  | :heavy_check_mark: |
+| Kan rechtstreeks worden gemaakt | :heavy_check_mark: |  |
+| Met een bereik toepassen | :heavy_check_mark: | :heavy_check_mark: |
+| Uitsluiten van beveiligings-principals |  | :heavy_check_mark: |
+| Voorkomen dat de overname van onderliggende bereiken |  | :heavy_check_mark: |
+| Van toepassing op [klassiek abonnementsbeheerder](rbac-and-directory-admin-roles.md) toewijzingen |  | :heavy_check_mark: |
 
 ## <a name="deny-assignment-properties"></a>Van toewijzingseigenschappen weigeren
 
@@ -54,14 +67,24 @@ Dit artikel wordt beschreven hoe weigeren toewijzingen zijn gedefinieerd.
 > | `ExcludePrincipals[i].Type` | Nee | String[] | Een matrix met de objecttypen die wordt vertegenwoordigd door .id ExcludePrincipals [i]. |
 > | `IsSystemProtected` | Nee | Boolean | Hiermee geeft u op of dit weigeren toewijzing is gemaakt door Azure en kan niet worden bewerkt of verwijderd. Op dit moment weigeren alle toewijzingen worden door het systeem beveiligd. |
 
-## <a name="system-defined-principal"></a>Het systeem gedefinieerde Principal
+## <a name="the-all-principals-principal"></a>De principal alle beveiligings-Principals
 
-Voor ondersteuning weigeren toewijzingen, de **System-Defined Principal** is geïntroduceerd. Deze principal vertegenwoordigt alle gebruikers, groepen, service-principals en beheerde identiteiten in Azure AD-adreslijst. Als de principal-ID een nul GUID is `00000000-0000-0000-0000-000000000000` en het type principal `SystemDefined`, de principal vertegenwoordigt alle beveiligings-principals. `SystemDefined` kan worden gecombineerd met `ExcludePrincipals` voor het weigeren van alle beveiligings-principals met uitzondering van bepaalde gebruikers. `SystemDefined` heeft de volgende beperkingen:
+Voor ondersteuning weigeren toewijzingen, een systeem gedefinieerde principal met de naam *alle Principals* is geïntroduceerd. Deze principal vertegenwoordigt alle gebruikers, groepen, service-principals en beheerde identiteiten in Azure AD-adreslijst. Als de principal-ID een nul GUID is `00000000-0000-0000-0000-000000000000` en het type principal `SystemDefined`, de principal vertegenwoordigt alle beveiligings-principals. In de uitvoer van Azure PowerShell lijkt alle Principals op het volgende:
+
+```azurepowershell
+Principals              : {
+                          DisplayName:  All Principals
+                          ObjectType:   SystemDefined
+                          ObjectId:     00000000-0000-0000-0000-000000000000
+                          }
+```
+
+Alle beveiligings-Principals kunnen worden gecombineerd met `ExcludePrincipals` voor het weigeren van alle beveiligings-principals met uitzondering van bepaalde gebruikers. Alle Principals heeft de volgende beperkingen:
 
 - Alleen in kan worden gebruikt `Principals` en kan niet worden gebruikt `ExcludePrincipals`.
 - `Principals[i].Type` moet worden ingesteld op `SystemDefined`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal](deny-assignments-portal.md)
+* [Lijst weigeren toewijzingen voor Azure-resources met behulp van de Azure portal](deny-assignments-portal.md)
 * [Informatie over roldefinities voor Azure-resources](role-definitions.md)

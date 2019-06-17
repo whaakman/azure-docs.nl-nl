@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154561"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen voor uw LUIS-model en de sleutels
@@ -28,7 +28,7 @@ Als uw app de grenzen van LUIS-model en de grenzen overschrijdt, kunt u overwege
 
 |Onderwerp|Limiet|
 |--|:--|
-| [App-naam][luis-get-started-create-app] | * Standaard teken max |
+| [App-naam][luis-get-started-create-app] | \* Standaard teken max |
 | [Batch testen][batch-testing]| 10 gegevenssets, 1000 uitingen per gegevensset|
 | Expliciete lijst | 50 per toepassing|
 | Externe entiteiten | Er zijn geen limieten |
@@ -43,11 +43,11 @@ Als uw app de grenzen van LUIS-model en de grenzen overschrijdt, kunt u overwege
 | [Reguliere expressie entiteiten](./luis-concept-entity-types.md)|20 entiteiten<br>Max. 500 tekens. per entiteit patroon van reguliere expressie|
 | [Rollen](luis-concept-roles.md)|300 rollen per toepassing. 10 rollen per entiteit|
 | [Utterance][utterances] | 500 tekens bevatten|
-| [Uitingen][utterances] | 15.000 per toepassing - er is geen limiet voor het aantal uitingen per doel|
+| [Uitingen][utterances] | 15\.000 per toepassing - er is geen limiet voor het aantal uitingen per doel|
 | [Versies](luis-concept-version.md)| geen limiet |
 | [Versienaam][luis-how-to-manage-versions] | beperkt tot alleen alfanumerieke tekens en periode 10 tekens (.) |
 
-* Standaard teken maximaal is 50 tekens. 
+\* Standaard teken maximaal is 50 tekens. 
 
 <a name="intent-and-entity-naming"></a>
 

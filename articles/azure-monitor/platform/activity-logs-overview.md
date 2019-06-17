@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 34857108cf7f0580c380ffbd4bbcedb5cd5a807a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6fc00bf0dfb83f349da91989a579f31be2027ff0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071671"
 ---
 # <a name="overview-of-azure-activity-log"></a>Overzicht van Azure-activiteitenlogboek
 
@@ -30,10 +30,10 @@ Er is een eenmalige activiteitenlogboek voor elke Azure-abonnement. Het biedt ge
 
 
 > [!NOTE]
-> De Azure-activiteitenlogboek is voornamelijk bedoeld voor activiteiten die in Azure Resource Manager plaatsvinden. Met behulp van het model Klassiek/RDFE ugresources worden niet bijgehouden. Sommige resourcetypen klassiek hebben een proxy-resourceprovider in Azure Resource Manager (bijvoorbeeld Microsoft.ClassicCompute). Als u met een resourcetype klassiek via Azure Resource Manager met behulp van deze proxy-resourceproviders werken, is de bewerkingen worden weergegeven in het activiteitenlogboek. Als u met een resourcetype klassiek buiten de Azure Resource Manager-proxy's communiceert, zijn alleen uw acties in het logboek geregistreerd. Het logboek kan worden gebladerd in een apart gedeelte van de portal.
+> De Azure-activiteitenlogboek is voornamelijk bedoeld voor activiteiten die in Azure Resource Manager plaatsvinden. Resources met behulp van het model Klassiek/RDFE worden niet bijgehouden. Sommige resourcetypen klassiek hebben een proxy-resourceprovider in Azure Resource Manager (bijvoorbeeld Microsoft.ClassicCompute). Als u met een resourcetype klassiek via Azure Resource Manager met behulp van deze proxy-resourceproviders werken, is de bewerkingen worden weergegeven in het activiteitenlogboek. Als u met een resourcetype klassiek buiten de Azure Resource Manager-proxy's communiceert, zijn alleen uw acties in het logboek geregistreerd. Het logboek kan worden gebladerd in een apart gedeelte van de portal.
 
 ## <a name="activity-log-retention"></a>Logboekbehoud activiteit
-Gebeurtenissen in het activiteitenlogboek worden 90 dagen bewaard. Voor het opslaan van deze gegevens voor langere tijd [verzamelen in Azure Monitor](activity-log-collect.md) of [exporteren naar opslag of Event Hubs](activity-log-export.md).
+Nadat u hebt gemaakt, worden logboekvermeldingen activiteit niet gewijzigd of verwijderd door het systeem. U kunt geen ze ook wijzigen in de gebruikersinterface of via een programma. Gebeurtenissen in het activiteitenlogboek worden 90 dagen bewaard. Voor het opslaan van deze gegevens voor langere tijd [verzamelen in Azure Monitor](activity-log-collect.md) of [exporteren naar opslag of Event Hubs](activity-log-export.md).
 
 ## <a name="view-the-activity-log"></a>Raadpleeg het activiteitenlogboek
 Raadpleeg het activiteitenlogboek voor alle resources uit de **Monitor** in het menu in de Azure-portal. Raadpleeg het activiteitenlogboek voor een bepaalde resource uit de **activiteitenlogboek** optie in het menu van die resource. U kunt ook activiteitenlogboek records met PowerShell, CLI of REST-API ophalen.  Zie [weergeven en ophalen van Azure-activiteit logboekgebeurtenissen](activity-log-view.md).

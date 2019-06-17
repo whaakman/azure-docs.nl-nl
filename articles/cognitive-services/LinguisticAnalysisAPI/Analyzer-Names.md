@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954702"
 ---
 # <a name="analyzer-names"></a>Analysenamen
@@ -31,7 +31,7 @@ Onder is de rol van elk onderdeel gedefinieerd.
 Eerst heeft een analyzer een unieke ID; een GUID.
 Deze GUID's relatief zelden moeten wijzigen, maar zijn de enige manier om een unieke beschrijving van een bepaalde analyzer.
 
-## <a name="kind"></a>Soort
+## <a name="kind"></a>Kind
 Vervolgens elke analyzer is een **type**.
 Hiermee definieert u in een zeer brede voorwaarden voor het type analyse geretourneerd en de gegevensstructuur die wordt gebruikt om aan te duiden die analyse moet unieke worden gedefinieerd.
 Er zijn momenteel drie verschillende typen:

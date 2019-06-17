@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: f15cd14ddc3a489db3abbbd2665d242470b5a821
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200707"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Veelgestelde vragen over Azure Security Center voor IoT  
@@ -95,7 +95,7 @@ ASC voor IoT biedt configureerbare agent scans, gegevensbuffers en de mogelijkhe
 
 Ja. Verzonden agent gegevens wordt in uw IoT Hub-quotum geteld. 
 
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Wat zijn de volgende stappen? Kan ik een agent hebt geïnstalleerd en u ziet geen activiteiten of Logboeken
+## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Wat nu? Kan ik een agent hebt geïnstalleerd en u ziet geen activiteiten of Logboeken
 
 1. Controleer de [agenttype geschikt is voor de opgegeven OS-platform van uw apparaat](how-to-deploy-agent.md)
 

@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65442373"
 ---
 # <a name="decision-forest-regression-module"></a>Beslissingsforest met regressie-module
@@ -25,7 +25,7 @@ Gebruik deze module om een regressiemodel dat op basis van een ensembles van bes
 
 Nadat u het model hebt geconfigureerd, moet u het model met behulp van een gegevensset met gelabelde trainen en het [Train Model](./train-model.md) module.  Het getrainde model kan vervolgens worden gebruikt om voorspellingen te doen. 
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
 Beslisbomen zijn niet-parametrische modellen die een reeks eenvoudige tests voor elk exemplaar een binaire gegevens van de boomstructuur doorlopen uitvoeren totdat een leafknooppunt (besluit) is bereikt.
 

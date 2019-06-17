@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a5b1838007e1be7fc1d9872516ede14c208b1f57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415337"
+ms.locfileid: "67113463"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
 
@@ -86,10 +86,10 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. U maakt twee clai
 Nu de claims zijn gemaakt, kunnen we goedgekeurde IP-adressen gaan configureren.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **Azure Active Directory** > **Voorwaardelijke toegang** > **Benoemde locaties**.
-3. Selecteer in de blade **Voorwaardelijke toegang - Benoemde locaties** de optie **Vertrouwde IP's voor MFA configureren**
+2. Selecteer **Azure Active Directory** > **voorwaardelijke toegang** > **benoemde locaties**.
+3. Uit de **voorwaardelijke toegang - benoemde locaties** Selecteer **vertrouwde IP's voor MFA configureren**
 
-   ![Azure AD voorwaardelijke toegang benoemde locaties Vertrouwde IP's voor MFA configureren](./media/howto-mfa-adfs/trustedip6.png)
+   ![Azure AD voor voorwaardelijke toegang benoemde locaties vertrouwde IP's voor MFA configureren](./media/howto-mfa-adfs/trustedip6.png)
 
 4. Selecteer op de pagina Service-instellingen onder **Vertrouwde IP's** de optie **Meervoudige verificatie overslaan voor aanvragen van federatieve gebruikers op mijn intranet**.  
 5. Klik op **Opslaan**.

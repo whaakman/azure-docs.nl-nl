@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e9ca9fa26e9744eb0a9bfafe692a096825b0b5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 05d21910d1b3601346fbd038cbc25f8f2be61f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110705"
 ---
 # <a name="building-secure-workstations"></a>Het bouwen van veilige werkstations
 
 Beveiligde geïsoleerde werkstations zijn uitermate belangrijk voor de beveiliging van gevoelige functies, zoals beheerders, ontwikkelaars en exploitanten van kritieke services. Veel andere besturingselementen voor de beveiliging en zekerheid mislukt of hebben geen effect als de onderliggende beveiliging van de client-werkstation is aangetast.
 
 Dit document wordt uitgelegd wat u nodig hebt om te maken van een beveiligde client-werkstation met gedetailleerde stapsgewijze instructies over het instellen van het starten van beveiligingsmaatregelen zoals. Dit type werkstations soms is een werkstation met bevoegde toegang (PAW), dat deze referentie wordt gebruikt en die zijn gebouwd met genoemd. De richtlijnen echter uiterlijk voor cloud-gebaseerde technologie voor het beheren van de service en beveiligingsmogelijkheden die is geïntroduceerd in Windows 10RS5, Microsoft Defender ATP, Azure Active Directory en Intune vanaf introduceert.
+
+> [!NOTE]
+> In dit artikel wordt uitgelegd dat het concept van beveiligde werkstation en het belang. Als u al bekend met het concept bent en wilt overslaan voor distributie, Lees [over het implementeren van een werkstation Secure](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
 
 ## <a name="why-securing-workstation-access-is-important"></a>Waarom werkstation toegang beveiligen is belangrijk
 

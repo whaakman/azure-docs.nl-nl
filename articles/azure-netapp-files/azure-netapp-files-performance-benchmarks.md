@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: b-juche
 ms.openlocfilehash: aca0668fc364518fe45d9fe94d089ee366b25676
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870880"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>Referentiepunten voor prestaties voor Azure NetApp-bestanden
+# <a name="performance-benchmarks-for-azure-netapp-files"></a>Prestatiebenchmarks voor Azure NetApp Files
 
 Dit artikel beschrijft de resultaten van de prestaties benchmark-tests voor Azure NetApp bestanden op het volumeniveau van het. 
 
@@ -57,7 +57,7 @@ De volgende tests zijn uitgevoerd:
 
 Azure Files met NetApp biedt meerdere [serviceniveaus](azure-netapp-files-service-levels.md). Elk serviceniveau biedt een andere hoeveelheid bandbreedte per TiB ingerichte capaciteit (volume quotum). De limiet voor bandbreedte voor een volume wordt ingericht op basis van de combinatie van het serviceniveau en het volume-quotum. Houd er rekening mee dat de limiet voor bandbreedte slechts één factor is bij het bepalen van de werkelijke hoeveelheid doorvoer die zal worden gerealiseerd.  
 
-4.500 MiB is momenteel de hoogste doorvoer die door een workload op basis van een enkel volume in de testfase is bereikt.  Met het serviceniveau Premium, wordt een volume-quotum van 70.31 TiB voldoende bandbreedte om te realiseren van deze doorvoer per de berekening van de onderstaande inrichten: 
+4\.500 MiB is momenteel de hoogste doorvoer die door een workload op basis van een enkel volume in de testfase is bereikt.  Met het serviceniveau Premium, wordt een volume-quotum van 70.31 TiB voldoende bandbreedte om te realiseren van deze doorvoer per de berekening van de onderstaande inrichten: 
 
 ![Bandbreedte-formule](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 

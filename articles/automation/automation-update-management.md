@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075504"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -45,7 +45,7 @@ Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de 
 
 Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten van de MMA opnieuw wordt gestart, voordat de installatie van de update en na installatie van update gestart.
 
-Voor een Linux-computer wordt de nalevingsscan standaard elke drie uur uitgevoerd. Als de MMA-agent opnieuw is opgestart, wordt een nalevingsscan gestart binnen 15 minuten.
+Voor een Linux-computer wordt de nalevingsscan standaard elk uur uitgevoerd. Als de MMA-agent opnieuw is opgestart, wordt een nalevingsscan gestart binnen 15 minuten.
 
 De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron waarmee u bent geconfigureerd om te synchroniseren met. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, afhankelijk van wanneer WSUS laatste synchronisatie met Microsoft Update, wordt de resultaten afwijken van wat Microsoft-Updates wordt weergegeven. Dit gedrag is hetzelfde voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale opslagplaats in plaats van naar een openbare opslagplaats.
 
@@ -303,7 +303,7 @@ Beheer van updates is afhankelijk van Windows Update voor Windows-Updates downlo
 
 ### <a name="pre-download-updates"></a>Pre-updates downloaden
 
-Als u wilt configureren updates automatisch downloaden in Groepsbeleid, kunt u instellen de [instelling Automatische Updates configureren](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) naar **3**. Deze downloadt de updates die nodig zijn op de achtergrond, maar ze niet installeren. Dit houdt u updatebeheer in beheer van schema's, maar toestaan van updates voor het downloaden van buiten het onderhoudsvenster voor updatebeheer. Dit kan verhinderen dat **onderhoudsvenster is overschreden** fouten in de Update Management.
+Als u wilt configureren updates automatisch downloaden in Groepsbeleid, kunt u instellen de [instelling Automatische Updates configureren](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) naar **3**. Deze downloadt de updates die nodig zijn op de achtergrond, maar ze niet installeren. Dit houdt u updatebeheer in beheer van schema's, maar toestaan van updates voor het downloaden van buiten het onderhoudsvenster voor updatebeheer. Dit kan verhinderen dat **onderhoudsvenster is overschreden** fouten in de Update Management.
 
 U kunt dit ook instellen met PowerShell, de volgende PowerShell ook uitvoeren op een systeem dat u de automatische download van updates wilt.
 

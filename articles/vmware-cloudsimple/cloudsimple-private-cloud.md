@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577043"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Overzicht van de privécloud CloudSimple
@@ -31,7 +31,7 @@ CloudSimple transformeert en breidt de VMware-workloads met openbare clouds in m
 * Deze compatibiliteit kan uw teams voor het beheren van werkbelastingen op de Azure-cloud, zonder te onderbreken van uw beleid:
   * Netwerk
   * Beveiliging  
-  * Gegevensbeveiliging  
+  * Gegevensbescherming  
   * Controleren
 * CloudSimple beheert de infrastructuur en alle vereiste netwerk- en beheer van services. De CloudSimple-service kan uw team zich richten op:
   * Waarde voor het bedrijf

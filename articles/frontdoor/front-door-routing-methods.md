@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736221"
 ---
 # <a name="front-door-routing-methods"></a>Methoden voor het doorsturen van voordeur
@@ -39,7 +39,7 @@ De 'dichtstbijzijnde' back-end is niet noodzakelijkerwijs dichtstbijzijnde wordt
 
 Hieronder volgt de algemene stroomschema:
 
-| Beschikbare back-ends | Prioriteit | Latentie signaal (gebaseerd op de statustest) | Waarden |
+| Beschikbare back-ends | Prioriteit | Latentie signaal (gebaseerd op de statustest) | Gewicht |
 |-------------| ----------- | ----------- | ----------- |
 | Selecteer in de eerste plaats alle back-ends die zijn ingeschakeld en geretourneerd in orde (200 OK) voor de statustest. Bijvoorbeeld, er zijn zes back-ends A, B, C, D, E en F, en tussen deze C is niet in orde en E is uitgeschakeld. Zodat de lijst met beschikbare back-ends A is, B, D, f kan zijn.  | Vervolgens zijn de hoogste prioriteit back-ends met de beschikbare netwerken geselecteerd. Bijvoorbeeld, back-end A, B en D hebben prioriteit 1 en back-end-F heeft prioriteit 2. Zodat de geselecteerde back-ends zijn A, B en D.| Selecteer de back-ends met latentiebereik (minimale latentie en latentie gevoeligheid in ms die zijn opgegeven). Bijvoorbeeld, als A 15 ms, B 30 ms is en D 60 ms weg van de voordeur omgeving waar de aanvraag bevindt zich, en latentie gevoeligheid is 30 ms vervolgens laagste latentie van toepassingen bestaat uit de back-end A en B, is omdat D is meer dan 30 ms weg van de dichtstbijzijnde back-end die is een A. | Ten slotte wordt voordeur round robin het verkeer tussen de laatste geselecteerde groep van back-ends via de verhouding van de gewichten opgegeven. Bijvoorbeeld, als back-end A heeft een gewicht van 5 en back-end B heeft een gewicht van 8, wordt het verkeer wordt gedistribueerd in de verhouding van 5:8 tussen back-ends A en B. |
 

@@ -1,23 +1,24 @@
 ---
-title: Azure service health waarschuwingen configureren met ServiceNow | Microsoft Docs
+title: Azure service health waarschuwingen verzenden met ServiceNow met behulp van webhooks
 description: Gepersonaliseerde meldingen over service health-gebeurtenissen naar uw ServiceNow-exemplaar te ontvangen.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620871"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067107"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>Service health waarschuwingen configureren met ServiceNow
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Azure service health waarschuwingen verzenden met ServiceNow met behulp van webhooks
 
 Dit artikel ziet u hoe u waarschuwingen van Azure service health integreert met ServiceNow met behulp van een webhook. Na het instellen van de webhook-integratie met uw ServiceNow-exemplaar, krijgen u waarschuwingen via uw bestaande infrastructuur bij problemen met Azure-service. Telkens wanneer een Azure Service Health-waarschuwing wordt geactiveerd, wordt een webhook via REST-API met een script vastgelegd van ServiceNow.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Het maken van een script REST-API in ServiceNow
+
 1.  Zorg ervoor dat u hebt zich heeft aangemeld en bent aangemeld bij uw [ServiceNow](https://www.servicenow.com/) account.
 
 1.  Navigeer naar de **System-webservices** sectie in ServiceNow en selecteer **REST-API's in een script vastgelegd**.

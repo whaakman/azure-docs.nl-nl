@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64709525"
 ---
 # <a name="encoding-error-codes"></a>Foutcodes voor codering
 
@@ -30,7 +30,7 @@ De volgende tabel bevat de foutcodes die kunnen worden geretourneerd in het geva
 | Onbekend |Onbekende fout tijdens het uitvoeren van de taak |
 | ErrorDownloadingInputAssetMalformedContent |Categorie van fouten die betrekking heeft op fouten bij het downloaden van invoer asset, zoals onjuiste bestandsnamen, nul bestanden met een lengte, onjuist opgemaakt enzovoort. |
 | ErrorDownloadingInputAssetServiceFailure |De categorie van fouten die betrekking heeft op problemen aan de servicezijde - voorbeeld van de netwerk- of fouten tijdens het downloaden. |
-| ErrorParsingConfiguration |Categorie van fouten waar de taak <see cref="MediaTask.PrivateData"/> (configuratie) is niet geldig, bijvoorbeeld de configuratie is niet een geldig systeem vooraf ingesteld of bevat ongeldige XML. |
+| ErrorParsingConfiguration |Categorie van fouten waar de taak \<Zie cref="MediaTask.PrivateData"/ > (configuratie) is niet geldig, bijvoorbeeld de configuratie is niet een geldig systeem vooraf ingesteld of bevat ongeldige XML. |
 | ErrorExecutingTaskMalformedContent |De categorie van fouten tijdens het uitvoeren van de taak waar de problemen in de invoer mediabestanden mislukken. |
 | ErrorExecutingTaskUnsupportedFormat |Categorie van fouten waarbij de opgegeven bestanden kan niet worden verwerkt door de Mediaprocessor - media-indeling niet ondersteund of komt niet overeen met de configuratie. Bijvoorbeeld, probeert te maken van een alleen-audio-uitvoer van een asset die alleen video heeft |
 | ErrorProcessingTask |De categorie van andere fouten die de Mediaprocessor tegenkomt tijdens de verwerking van de taak die niet gerelateerd aan de inhoud zijn. |

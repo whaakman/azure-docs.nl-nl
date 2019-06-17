@@ -12,10 +12,10 @@ ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 02111ac90fe97ddaddbd41ad42410e7e76f1c405
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379249"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Wat is er een basis voor kennis van QnA Maker?
@@ -36,7 +36,7 @@ Een enkele QnA, vertegenwoordigd door een numerieke ID van de QnA heeft meerdere
 
 Wanneer u inhoud met opmaak in een knowledge base opnemen, probeert de QnA Maker aan de inhoud naar markdown converteren. Lezen [dit](https://aka.ms/qnamaker-docs-markdown-support) blog om te begrijpen van de markdown indelingen onbegrijpelijk voor de meeste chat-clients.
 
-Velden van de metagegevens bestaan uit de sleutel / waarde-paren, gescheiden door een dubbele punt **(Product: Shredder)**. Zowel de sleutel en de waarde moet alleen tekst. De metagegevenssleutel mag geen spaties bevatten. Metagegevens ondersteunt slechts één waarde per sleutel.
+Velden van de metagegevens bestaan uit de sleutel / waarde-paren, gescheiden door een dubbele punt **(Product: Shredder)** . Zowel de sleutel en de waarde moet alleen tekst. De metagegevenssleutel mag geen spaties bevatten. Metagegevens ondersteunt slechts één waarde per sleutel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

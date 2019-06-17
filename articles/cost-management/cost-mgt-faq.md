@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002026"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Veelgestelde vragen over Cloudyn
@@ -118,7 +118,7 @@ Selecteer aanvullende CSP-accounts toevoegen aan een entiteit, **MSP toegang** i
 
 Mogelijk hebt u meerdere Azure-accounts met behulp van verschillende valuta's. Kostenrapporten in Cloudyn worden echter niet meer dan één Valutatype per rapport weergegeven.
 
-Als u meerdere abonnementen met behulp van verschillende valuta's hebt, een bovenliggende entiteit en de onderliggende entiteit valuta's worden weergegeven in USD **$**. Onze voorgestelde aanbevolen procedure is om te voorkomen dat met behulp van verschillende valuta's in de entiteitshiërarchie van dezelfde. Al uw abonnementen ingedeeld in de entiteitsstructuur van een moeten met andere woorden, gebruikt u dezelfde valuta.
+Als u meerdere abonnementen met behulp van verschillende valuta's hebt, een bovenliggende entiteit en de onderliggende entiteit valuta's worden weergegeven in USD **$** . Onze voorgestelde aanbevolen procedure is om te voorkomen dat met behulp van verschillende valuta's in de entiteitshiërarchie van dezelfde. Al uw abonnementen ingedeeld in de entiteitsstructuur van een moeten met andere woorden, gebruikt u dezelfde valuta.
 
 Cloudyn automatisch detecteert de valuta van uw Enterprise Agreement-abonnement en geeft deze juist in rapporten.  Cloudyn wordt echter alleen USD **$** voor CSP en Azure web direct-accounts.
 

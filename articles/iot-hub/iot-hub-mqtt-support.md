@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442559"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
@@ -216,7 +216,7 @@ Voor het ontvangen van berichten uit IoT Hub, een apparaat moet zich abonneren o
 
 Het apparaat ontvangt geen berichten uit IoT Hub, totdat deze is geabonneerd op het apparaat-specifieke eindpunt, vertegenwoordigd door de `devices/{device_id}/messages/devicebound/#` onderwerp filter. Nadat een abonnement heeft tot stand is gebracht, ontvangt het apparaat cloud-naar-apparaat-berichten dat is verzonden naar deze na de tijd van het abonnement. Als het apparaat verbinding met maakt **CleanSession** vlag ingesteld op **0**, het abonnement blijven behouden tussen verschillende sessies. In dit geval wordt de volgende keer dat het apparaat verbinding maakt met **CleanSession 0** wordt verzonden naar het terwijl de verbinding verbroken openstaande berichten ontvangen. Als het apparaat gebruikmaakt van **CleanSession** vlag ingesteld op **1** echter deze ontvangt geen berichten uit IoT Hub totdat het apparaat-eindpunt worden bijgehouden.
 
-IoT-Hub levert berichten met de **onderwerpnaam** `devices/{device_id}/messages/devicebound/`, of `devices/{device_id}/messages/devicebound/{property_bag}` wanneer er eigenschappen van berichten. `{property_bag}` bevat de url-gecodeerde sleutel/waarde-paren van eigenschappen van berichten. Alleen de eigenschappen voor de toepassing en de gebruiker instelbare Systeemeigenschappen (zoals **messageId** of **correlationId**) zijn opgenomen in de eigenschappenverzameling. Namen van de eigenschap System hebben het voorvoegsel **$**, eigenschappen voor de toepassing de naam van de oorspronkelijke met geen voorvoegsel gebruiken.
+IoT-Hub levert berichten met de **onderwerpnaam** `devices/{device_id}/messages/devicebound/`, of `devices/{device_id}/messages/devicebound/{property_bag}` wanneer er eigenschappen van berichten. `{property_bag}` bevat de url-gecodeerde sleutel/waarde-paren van eigenschappen van berichten. Alleen de eigenschappen voor de toepassing en de gebruiker instelbare Systeemeigenschappen (zoals **messageId** of **correlationId**) zijn opgenomen in de eigenschappenverzameling. Namen van de eigenschap System hebben het voorvoegsel **$** , eigenschappen voor de toepassing de naam van de oorspronkelijke met geen voorvoegsel gebruiken.
 
 Wanneer een apparaat-app zich abonneert op een onderwerp met **QoS 2**, IoT-Hub geeft het maximum aantal QoS-niveau 1 in de **SUBACK** pakket. Hierna levert de IoT Hub berichten op het apparaat met behulp van QoS-1.
 

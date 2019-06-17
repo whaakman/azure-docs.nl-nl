@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232037"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Gebruik de Wirecast-coderingsprogramma voor het verzenden van een single-bitrate live stream 
@@ -94,7 +94,7 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
 3. Klik op **OK**.
 4. Stel op de instellingenpagina van de **bestemming** veld **Azure Media Services**.
 
-    Het profiel codering is vooraf geselecteerde naar **Azure H.264 720 p 16:9 (1280 x 720)**. Voor het aanpassen van deze instellingen, selecteer het tandwielpictogram rechts van de vervolgkeuzelijst en kies vervolgens **nieuwe voorinstelling**.
+    Het profiel codering is vooraf geselecteerde naar **Azure H.264 720 p 16:9 (1280 x 720)** . Voor het aanpassen van deze instellingen, selecteer het tandwielpictogram rechts van de vervolgkeuzelijst en kies vervolgens **nieuwe voorinstelling**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Voorinstellingen van het coderingsprogramma configureren.
@@ -106,7 +106,7 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
    * Coderingsprogramma: MainConcept H.264
    * Frames per seconde: 30
    * Gemiddelde bitsnelheid: 5000 kbits per seconde (kan worden aangepast op basis van de beperkingen op het netwerk)
-   * Profiel: Algemeen
+   * Profiel: Hoofdvenster
    * Belangrijkste frame elke: 60 frames
 
      **Audio**

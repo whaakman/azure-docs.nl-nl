@@ -2,20 +2,20 @@
 title: Eindpuntbewaking van Azure Traffic Manager | Microsoft Docs
 description: In dit artikel krijgt u inzicht in hoe Traffic Manager eindpuntbewaking en failover automatisch eindpunt gebruikt om u te helpen Azure-klanten toepassingen met hoge beschikbaarheid implementeren
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: kumud
-ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071061"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -74,7 +74,7 @@ Status monitor-eindpunt is een Traffic Manager gegenereerde waarde met de status
 | Enabled |Enabled |Online |Het eindpunt wordt gecontroleerd en in orde is. Het is opgenomen in de DNS-antwoorden en kan verkeer ontvangen. |
 | Enabled |Enabled |Verminderd |Statuscontroles voor controle-eindpunt mislukken. Het eindpunt is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. <br>Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in dat geval ze allemaal beschouwd als reactie op de query worden geretourneerd).</br>|
 | Enabled |Enabled |CheckingEndpoint |Het eindpunt wordt bewaakt, maar de resultaten van de eerste test zijn nog niet ontvangen. CheckingEndpoint is een tijdelijke situatie die treedt meestal op onmiddellijk na het toevoegen of inschakelen van een eindpunt in het profiel. Een eindpunt in deze status is opgenomen in de DNS-antwoorden en kan verkeer ontvangen. |
-| Enabled |Enabled |Gestopt |De cloud of -web-app die het eindpunt naar verwijst wordt niet uitgevoerd. Controleer de instellingen voor cloud-service of web-app. Dit kan ook gebeuren als het eindpunt van het type genest eindpunt en het onderliggende profiel is uitgeschakeld of niet actief is. <br>Een eindpunt met de status gestopt wordt niet gecontroleerd. Het is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal zal worden beschouwd als reactie op de query worden geretourneerd.</br>|
+| Enabled |Enabled |Gestopt |De web-app die het eindpunt naar verwijst wordt niet uitgevoerd. Controleer de instellingen van de web-app. Dit kan ook gebeuren als het eindpunt van het type genest eindpunt en het onderliggende profiel is uitgeschakeld of niet actief is. <br>Een eindpunt met de status gestopt wordt niet gecontroleerd. Het is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal zal worden beschouwd als reactie op de query worden geretourneerd.</br>|
 
 Zie voor meer informatie over hoe status monitor-eindpunt wordt berekend voor geneste eindpunten [geneste Traffic Manager-profielen](traffic-manager-nested-profiles.md).
 
@@ -98,6 +98,7 @@ De monitor status van het profiel is een combinatie van de status van het geconf
 Traffic Manager controleert periodiek de status van elk eindpunt, inclusief niet in orde eindpunten. Traffic Manager detecteert wanneer een eindpunt in orde is en terug in rotatie gehaald.
 
 Een eindpunt is niet in orde als een van de volgende gebeurtenissen optreedt:
+
 - Als de controle-protocol HTTP of HTTPS is:
     - Een niet-200-respons, of een antwoord dat niet de status dat is opgegeven in de **code statusbereik verwacht** instelt, wordt ontvangen (met inbegrip van een andere 2xx-code of een 301/302-omleiding).
 - Als de controle-protocol TCP is: 
@@ -151,8 +152,6 @@ Zie voor meer informatie, [methoden voor Traffic Manager traffic routing](traffi
 > Het gevolg is van dit gedrag is dat als statuscontroles van Traffic Manager niet correct zijn geconfigureerd, wordt deze mogelijk weergegeven van het verkeer routeren alsof Traffic Manager *is* goed werkt. Echter, in dit geval eindpunt-failover kan niet worden uitgevoerd die van invloed is op algemene beschikbaarheid. Het is belangrijk om te controleren dat het profiel ziet u een Online status, niet de status gedegradeerd. Een Online status geeft aan dat de statuscontroles van Traffic Manager werkt zoals verwacht.
 
 Voor meer informatie over het oplossen van problemen mislukt statuscontroles, Zie [probleemoplossing gedegradeerd op Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

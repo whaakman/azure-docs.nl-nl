@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 407b8ba2fda35d3acbf1b425bb15fe20778613d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146005"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Gescheiden tekstopmaak in Azure Data Factory
@@ -29,9 +29,9 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 | Eigenschap         | Description                                                  | Vereist |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | De eigenschap type van de gegevensset moet worden ingesteld op **DelimitedText**. | Ja      |
-| location         | De instellingen van de locatie van de bestanden. Elke connector op basis van het bestand heeft een eigen locatietype en eigenschappen onder ondersteund `location`. **Zie voor meer informatie artikel connector eigenschappengedeelte van gegevensset ->**. | Ja      |
+| location         | De instellingen van de locatie van de bestanden. Elke connector op basis van het bestand heeft een eigen locatietype en eigenschappen onder ondersteund `location`. **Zie voor meer informatie artikel connector eigenschappengedeelte van gegevensset ->** . | Ja      |
 | columnDelimiter  | De tekens die wordt gebruikt voor het scheiden van kolommen in een bestand. Scheidingsteken voor meerdere char is op dit moment alleen ondersteund voor de gegevensstroom toewijzen, maar niet de kopieeractiviteit. <br>De standaardwaarde is **met door komma's `,`** , wanneer het kolomscheidingsteken wordt gedefinieerd als lege tekenreeks, wat betekent dat er geen scheidingsteken, de volledige regel wordt het opgevat als één kolom. | Nee       |
-| rowDelimiter     | Het teken of '\r\n' gebruikt voor het scheiden van rijen in een bestand.<br>De standaardwaarde is een van de volgende waarden **op lezen: ['\r\n', '\r', '\n']**, en **'\n' of '\r\n' schrijfwaarde** toewijzingsgegevens Flow en respectievelijk Copy-activiteit. <br>Wanneer `rowDelimiter` is ingesteld op geen scheidingsteken (lege tekenreeks), de `columnDelimiter` moet worden ingesteld als er geen scheidingsteken (lege tekenreeks) als het goed is, wat betekent dat de hele inhoud behandelen als één waarde. | Nee       |
+| rowDelimiter     | Het teken of '\r\n' gebruikt voor het scheiden van rijen in een bestand.<br>De standaardwaarde is een van de volgende waarden **op lezen: ['\r\n', '\r', '\n']** , en **'\n' of '\r\n' schrijfwaarde** toewijzingsgegevens Flow en respectievelijk Copy-activiteit. <br>Wanneer `rowDelimiter` is ingesteld op geen scheidingsteken (lege tekenreeks), de `columnDelimiter` moet worden ingesteld als er geen scheidingsteken (lege tekenreeks) als het goed is, wat betekent dat de hele inhoud behandelen als één waarde. | Nee       |
 | quoteChar        | Het teken kolomwaarden citeren als het scheidingsteken voor kolommen bevat. <br>De standaardwaarde is **dubbele aanhalingstekens** `"`. <br>Voor het toewijzen van gegevensstroom `quoteChar` mag geen lege tekenreeks. <br>Voor de kopieeractiviteit, wanneer `quoteChar` is gedefinieerd als lege tekenreeks is, betekent dit er is geen aanhalingsteken en waarde in de kolom niet wordt vermeld, en `escapeChar` wordt gebruikt als escapeteken voor het kolomscheidingsteken en zichzelf. | Nee       |
 | escapeChar       | De enkele escape-teken aanhalingstekens in een waarde tussen aanhalingstekens.<br>De standaardwaarde is **backslash `\`** . <br>Voor het toewijzen van gegevensstroom `escapeChar` mag geen lege tekenreeks. <br/>Voor de kopieeractiviteit, wanneer `escapeChar` wordt gedefinieerd als lege tekenreeks is, de `quoteChar` moet worden ingesteld als ook lege tekenreeks, in welk geval Zorg ervoor dat alle waarden van de kolom niet scheidingstekens bevatten. | Nee       |
 | firstRowAsHeader | Hiermee geeft u op of moet worden behandeld/om de eerste rij als een headerregel door de namen van kolommen.<br>Toegestane waarden zijn **waar** en **false** (standaard). | Nee       |
@@ -79,7 +79,7 @@ De volgende eigenschappen worden ondersteund in de kopieeractiviteit ***\*bron\*
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **DelimitedTextSource**. | Ja      |
 | formatSettings | Een groep met eigenschappen. Raadpleeg **gescheiden tekst instellingen lezen** in de volgende tabel. | Nee       |
-| storeSettings  | Een groep met eigenschappen voor het lezen van gegevens uit een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde lezen instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->**. | Nee       |
+| storeSettings  | Een groep met eigenschappen voor het lezen van gegevens uit een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde lezen instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->** . | Nee       |
 
 Ondersteund **tekst met scheidingstekens instellingen lezen** onder `formatSettings`:
 
@@ -96,7 +96,7 @@ De volgende eigenschappen worden ondersteund in de kopieeractiviteit ***\*sink\*
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **DelimitedTextSink**. | Ja      |
 | formatSettings | Een groep met eigenschappen. Raadpleeg **gescheiden tekst instellingen schrijven** in de volgende tabel. |          |
-| storeSettings  | Een groep met eigenschappen voor het schrijven van gegevens naar een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde schrijven-instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->**. | Nee       |
+| storeSettings  | Een groep met eigenschappen voor het schrijven van gegevens naar een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde schrijven-instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->** . | Nee       |
 
 Ondersteund **tekst met scheidingstekens instellingen schrijven** onder `formatSettings`:
 

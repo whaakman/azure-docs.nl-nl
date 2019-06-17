@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989293"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Single sign-on bij niet-galerietoepassingen in Microsoft identity-platform configureren
@@ -68,7 +68,7 @@ Door het toevoegen van een toepassing op deze manier kunt u een vergelijkbare er
 
 Zie de volgende secties van dit artikel voor meer informatie over deze opties.
 
-## <a name="saml-based-single-sign-on"></a>Eenmalige aanmelding op basis van SAML
+## <a name="saml-based-single-sign-on"></a>SAML gebaseerde eenmalige aanmelding
 
 Selecteer de **SAML** optie voor het configureren van verificatie op basis van SAML voor de toepassing. (Deze optie vereist dat de toepassing SAML 2.0 ondersteunt.) De **instellen van eenmalige aanmelding met SAML** pagina wordt weergegeven.
 
@@ -125,7 +125,7 @@ De volgende twee velden die zijn vereist:
 
 De volgende drie velden zijn optioneel:
 
-- **Aanmeldings-URL (SP geïnitieerde alleen)**. Deze waarde geeft aan waar de gebruiker zich aanmeldt bij deze toepassing gaat. Als de toepassing wordt uitgevoerd Serviceprovider geïnitieerde eenmalige aanmelding, wanneer een gebruiker naar deze URL navigeert wordt de SP de benodigde omleiding naar Azure AD om te verifiëren en meld u aan de gebruiker. Als u dit veld opgeeft, Azure AD maakt gebruik van deze URL om de toepassing uit Office 365 en Azure AD-Toegangsvenster te starten. Als u dit veld niet opgeeft, Azure AD in plaats daarvan voert IdP gestart door aanmelding bij toepassing is gestart uit Office 365, de Azure AD-Toegangsvenster of de URL van de Azure AD-eenmalige aanmelding (die u kunt kopiëren van de **Dashboard** pagina).
+- **Aanmeldings-URL (SP geïnitieerde alleen)** . Deze waarde geeft aan waar de gebruiker zich aanmeldt bij deze toepassing gaat. Als de toepassing wordt uitgevoerd Serviceprovider geïnitieerde eenmalige aanmelding, wanneer een gebruiker naar deze URL navigeert wordt de SP de benodigde omleiding naar Azure AD om te verifiëren en meld u aan de gebruiker. Als u dit veld opgeeft, Azure AD maakt gebruik van deze URL om de toepassing uit Office 365 en Azure AD-Toegangsvenster te starten. Als u dit veld niet opgeeft, Azure AD in plaats daarvan voert IdP gestart door aanmelding bij toepassing is gestart uit Office 365, de Azure AD-Toegangsvenster of de URL van de Azure AD-eenmalige aanmelding (die u kunt kopiëren van de **Dashboard** pagina).
 
 - **Relaystatus**. U kunt een relaystatus in SAML om te geven van de toepassing waar gebruikers na verificatie opgeven. De waarde is doorgaans een URL of URL-pad dat gebruikers naar een specifieke locatie in de toepassing leidt.
 
@@ -183,7 +183,7 @@ Een nieuwe gebruiker of groep toewijzen aan uw toepassing:
 
 1. Selecteer in de zijbalk toepassing **gebruikers en groepen**. De  **\<toepassingsnaam >-gebruikers en groepen** pagina wordt weergegeven, waarin de huidige lijst met toegewezen gebruikers en groepen.
 2. Selecteer **gebruikers toevoegen**. De **toewijzingen toevoegen** pagina wordt weergegeven.
-3. Selecteer **gebruikers en groepen (\<nummer > geselecteerde)**. De **gebruikers en groepen** pagina wordt weergegeven, waarin een lijst met beschikbare gebruikers en groepen.
+3. Selecteer **gebruikers en groepen (\<nummer > geselecteerde)** . De **gebruikers en groepen** pagina wordt weergegeven, waarin een lijst met beschikbare gebruikers en groepen.
 4. Typ of blader te vinden van de gebruiker of groep die u wilt toewijzen in de lijst.
 5. Selecteer elke gebruiker of groep die u wilt toevoegen en selecteer vervolgens de **Selecteer** knop. De **gebruikers en groepen** pagina verdwijnt.
 6. In de **toewijzingen toevoegen** weergeeft, schakelt **toewijzen**. De  **<application name> -gebruikers en groepen** pagina wordt weergegeven met de extra gebruikers wordt weergegeven in de lijst.
@@ -213,7 +213,7 @@ Selecteer deze optie voor het configureren van [wachtwoord gebaseerde eenmalige 
 
 Nadat u hebt geselecteerd **op basis van wachtwoorden**, u wordt gevraagd om in te voeren van de URL van de toepassing web gebaseerde aanmeldingspagina opgeven.
 
-![Eenmalige aanmelding op basis van wachtwoord](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Wachtwoord gebaseerde eenmalige aanmelding](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Voer deze stappen:
 

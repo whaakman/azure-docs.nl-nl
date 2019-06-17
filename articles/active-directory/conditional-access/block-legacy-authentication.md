@@ -2,7 +2,7 @@
 title: Het blokkeren van verouderde verificatie met Azure Active Directory (Azure AD) met voorwaardelijke toegang | Microsoft Docs
 description: Leer hoe u uw beveiligingspostuur verbeteren door verouderde verificatie met behulp van Azure AD voor voorwaardelijke toegang blokkeren.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,19 +18,19 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112706"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedure: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
 
 Als u wilt uw gebruikers eenvoudig toegang geven tot uw cloud-apps, Azure Active Directory (Azure AD) biedt ondersteuning voor tal van verificatieprotocollen, waaronder oudere authentication. Echter, verouderde protocollen bieden geen ondersteuning voor multi-factor authentication (MFA). MFA is in veel omgevingen een algemene vereiste op identiteitsdiefstal adres. 
 
 
-Als uw omgeving klaar voor de verouderde verificatie blok is voor het verbeteren van de beveiliging van uw tenant, kunt u dit doel met voorwaardelijke toegang kunt uitvoeren. In dit artikel wordt uitgelegd hoe u kunt beleid voor voorwaardelijke toegang dat blok verouderde verificatie configureren voor uw tenant.
+Als uw omgeving klaar voor de verouderde verificatie blok is voor het verbeteren van de beveiliging van uw tenant, kunt u dit doel te bereiken met voorwaardelijke toegang. In dit artikel wordt uitgelegd hoe u beleid voor voorwaardelijke toegang die verouderde verificatie voor uw tenant blokkeren kunt configureren.
 
 
 
@@ -38,7 +38,7 @@ Als uw omgeving klaar voor de verouderde verificatie blok is voor het verbeteren
 
 In dit artikel wordt ervan uitgegaan dat u bekend met bent: 
 
-- De [basisconcepten](overview.md) van voorwaardelijke toegang van Azure AD 
+- De [basisconcepten](overview.md) van Azure AD voor voorwaardelijke toegang 
 - De [aanbevolen procedures](best-practices.md) voor het configureren van beleid voor voorwaardelijke toegang in Azure portal
 
 
@@ -55,7 +55,7 @@ Azure AD biedt ondersteuning voor diverse van de meest gebruikte verificatie en 
 
 Hoe kunt u voorkomen dat apps met behulp van verouderde verificatie van toegang tot resources van uw tenant? De aanbeveling is om te blokkeren dat ze alleen met een beleid voor voorwaardelijke toegang. Indien nodig, kunt u alleen bepaalde gebruikers en specifieke netwerklocaties apps die zijn gebaseerd op verouderde verificatie gebruiken.
 
-Beleid voor voorwaardelijke toegang wordt afgedwongen nadat de verificatie van de eerste factor is voltooid. Daarom is voorwaardelijke toegang niet zozeer bedoeld als een eerste verdedigingslinie voor bijvoorbeeld DoS-aanvallen (Denial of Service), maar kan het gebruikmaken van signalen van dergelijke gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, de locatie van de aanvraag, enzovoort) om wel of geen toegang te verlenen.
+Beleid voor voorwaardelijke toegang worden afgedwongen nadat de eerste factor-verificatie is voltooid. Daarom voorwaardelijke toegang is niet bedoeld als een eerste regel defense voor scenario's zoals denial-of-service (DoS) aanvallen, maar kunnen gebruikmaken van signalen van deze gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, de locatie van de aanvraag, enzovoort) om toegang te bepalen.
 
 
 
@@ -140,6 +140,6 @@ Als u verouderde verificatie met behulp van de andere clients condition blokkeer
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u niet bekend bent met het configureren van beleid voor voorwaardelijke toegang nog, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md) voor een voorbeeld.
+- Als u niet bekend bent met het configureren van beleid voor voorwaardelijke toegang nog, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md) voor een voorbeeld.
 
 - Zie voor meer informatie over de ondersteuning van moderne verificatie [hoe moderne verificatie werkt voor Office 2013 en Office 2016 client-apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

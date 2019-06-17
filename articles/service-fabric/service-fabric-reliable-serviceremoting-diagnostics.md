@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925944"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostische gegevens en prestatiecontrole voor betrouwbare Service voor externe toegang
@@ -30,7 +30,7 @@ De runtime betrouwbare ServiceRemoting definieert de volgende categorieën voor 
 
 | Category | Description |
 | --- | --- |
-| Service Fabric Service |Items die specifiek zijn voor Azure Service Fabric-Service voor externe toegang, bijvoorbeeld, gemiddelde tijd die nodig is voor het verwerken van aanvraag |
+| Service Fabric-Service |Items die specifiek zijn voor Azure Service Fabric-Service voor externe toegang, bijvoorbeeld, gemiddelde tijd die nodig is voor het verwerken van aanvraag |
 | Service Fabric Service-methode |Items die specifiek zijn voor methoden geïmplementeerd door de Service Fabric Remoting Service, bijvoorbeeld hoe vaak een service-methode wordt aangeroepen |
 
 Elk van de bovenstaande categorieën vallen heeft een of meer items.
@@ -85,19 +85,19 @@ De betrouwbare Service runtime publiceert de volgende prestatiemeteritems met be
 
 | Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
-| Service Fabric Service-methode |Aanroepen/sec |Aantal keren dat de servicemethode wordt aangeroepen per seconde |
+| Service Fabric Service-methode |Aanroepen per seconde |Aantal keren dat de servicemethode wordt aangeroepen per seconde |
 | Service Fabric Service-methode |Gemiddeld aantal milliseconden per aanroep |Gebruikte tijd voor het uitvoeren van de servicemethode in milliseconden |
-| Service Fabric Service-methode |Aantal opgetreden uitzonderingen/sec |Aantal keren dat de servicemethode een uitzondering per seconde heeft |
+| Service Fabric Service-methode |Opgetreden uitzonderingen/Sec |Aantal keren dat de servicemethode een uitzondering per seconde heeft |
 
 ### <a name="service-request-processing-performance-counters"></a>Prestatiemeteritems voor service-aanvraag verwerken
 Wanneer een client een methode via een proxy-serviceobject roept, resulteert dit in een bericht naar de service voor externe toegang via het netwerk worden verzonden. De service het aanvraagbericht verwerkt en stuurt een antwoord terug naar de client. De runtime betrouwbare ServiceRemoting publiceert de volgende prestatiemeteritems met betrekking tot de verwerking van de service-aanvraag.
 
 | Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
-| Service Fabric Service |Aantal openstaande aanvragen |Aantal aanvragen in de service wordt verwerkt |
-| Service Fabric Service |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service om een aanvraag te verwerken |
-| Service Fabric Service |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Gebruikte tijd (in milliseconden) voor het deserialiseren van het aanvraagbericht service wanneer het is ontvangen door de service |
-| Service Fabric Service |Gemiddeld aantal milliseconden voor de serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht service op de service voordat de reactie wordt verzonden naar de client |
+| Service Fabric-Service |aantal openstaande aanvragen |Aantal aanvragen in de service wordt verwerkt |
+| Service Fabric-Service |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service om een aanvraag te verwerken |
+| Service Fabric-Service |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Gebruikte tijd (in milliseconden) voor het deserialiseren van het aanvraagbericht service wanneer het is ontvangen door de service |
+| Service Fabric-Service |Gemiddeld aantal milliseconden voor serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht service op de service voordat de reactie wordt verzonden naar de client |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voorbeeldcode](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)

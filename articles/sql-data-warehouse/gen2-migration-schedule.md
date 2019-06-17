@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596113"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
@@ -22,7 +22,7 @@ ms.locfileid: "65596113"
 Microsoft helpt oppervlaktegebied de op instapniveau kosten van het uitvoeren van een datawarehouse.  Compute lagere lagen kan verwerken veeleisende query's zijn nu beschikbaar voor Azure SQL Data Warehouse. Lees de volledige aankondiging [kleine compute laag ondersteuning voor Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). De nieuwe aanbieding is beschikbaar in de regio's die u hebt genoteerd in de onderstaande tabel. Voor ondersteunde regio's, kunnen bestaande Gen1 datawarehouses worden bijgewerkt naar Gen2 via een:
 
 - **Automatische tijdens de upgrade:** Automatische upgrades start niet zodra de service beschikbaar in een regio is.  Wanneer automatische upgrades in een bepaalde regio start, hebben afzonderlijke upgrades van DW plaatsvinden tijdens de geselecteerde onderhoudsplanning.
-- [**Zelf een upgrade naar Gen2:**](#self-upgrade-to-gen2) U kunt bepalen wanneer bijwerken met een zelf-upgrade uitvoeren naar Gen2. Als uw regio wordt nog niet ondersteund, kunt u herstellen vanaf een herstelpunt rechtstreeks naar een exemplaar Gen2 in een ondersteunde regio.
+- [**Zelf een upgrade naar Gen2:** ](#self-upgrade-to-gen2) U kunt bepalen wanneer bijwerken met een zelf-upgrade uitvoeren naar Gen2. Als uw regio wordt nog niet ondersteund, kunt u herstellen vanaf een herstelpunt rechtstreeks naar een exemplaar Gen2 in een ondersteunde regio.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Geautomatiseerde schema en tabel van de beschikbaarheid van regio
 
@@ -36,9 +36,9 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | Australië - zuidoost |Beschikbaar |1 mei 2019 |
 | Brazilië - zuid |Beschikbaar |1 juni 2019 |
 | Canada - midden |Beschikbaar |1 juni 2019 |
-| Canada Oost |\* |\* |
+| Canada - oost |\* |\* |
 | US - centraal |Beschikbaar |1 juni 2019 |
-| China - oost |\* |\* |
+| China East |\* |\* |
 | China - oost 2 |\* |Alleen Gen2 |
 | China - noord |\* |\* |
 | China - noord 2 |Beschikbaar |Alleen Gen2 |
@@ -49,17 +49,17 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | Duitsland - centraal |\* |\* |
 | Duitsland - west-centraal |1 september 2019|2 januari 2020 |
 | India - centraal |Beschikbaar |1 juni 2019 |
-| India, zuiden |Beschikbaar |1 juni 2019 |
+| India - zuid |Beschikbaar |1 juni 2019 |
 | Japan - oost |Beschikbaar |1 juni 2019 |
 | Japan - west |Beschikbaar |1 mei 2019 |
-| Korea Centraal |Beschikbaar |1 juni 2019 |
+| Korea - centraal |Beschikbaar |1 juni 2019 |
 | Korea - zuid |Beschikbaar |1 mei 2019 |
 | US - noord-centraal |Beschikbaar |1 mei 2019 |
 | Europa - noord |Beschikbaar |1 juni 2019 |
 | US - zuid-centraal |Beschikbaar |1 juni 2019 |
 | Azië - zuidoost |Beschikbaar |1 juni 2019 |
 | Verenigd Koninkrijk Zuid |Beschikbaar, 2019 |1 juni 2019 |
-| VK West |\*|\* |
+| Verenigd Koninkrijk West |\*|\* |
 | US - west-centraal |2 september 2019 |2 januari 2020|
 | Europa -west |Beschikbaar |1 juni 2019 |
 | US - west |Beschikbaar |1 juni 2019 |

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65206659"
 ---
 # <a name="extended-events-in-sql-database"></a>Uitgebreide gebeurtenissen in SQL-Database
@@ -90,7 +90,7 @@ De uitgebreide gebeurtenissen-functie wordt ondersteund door verschillende [weer
 | **sys.database_event_session_targets** |Retourneert een rij voor elke gebeurtenisdoel voor de gebeurtenissessie van een. |
 | **sys.database_event_sessions** |Retourneert een rij voor elke gebeurtenissessie in de database van SQL-Database. |
 
-In Microsoft SQL Server, vergelijkbare catalogusweergaven hebben namen die zijn *.server\_*  in plaats van *.database\_*. Het naampatroon is, zoals **sys.server_event_%**.
+In Microsoft SQL Server, vergelijkbare catalogusweergaven hebben namen die zijn *.server\_*  in plaats van *.database\_* . Het naampatroon is, zoals **sys.server_event_%** .
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nieuwe dynamische beheerweergaven [(DMV's)](https://msdn.microsoft.com/library/ms188754.aspx)
 
