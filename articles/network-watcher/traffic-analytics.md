@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051663"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -42,7 +42,7 @@ Virtuele netwerken van Azure hebben NSG-stroomlogboeken, waarin u informatie ove
 
 ## <a name="key-components"></a>Belangrijkste onderdelen
 
-- **Netwerkbeveiligingsgroep (NSG)**: Bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met een Azure-netwerk. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie voor meer informatie, [overzicht van netwerkbeveiligingsgroepen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Netwerkbeveiligingsgroep (NSG)** : Bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met een Azure-netwerk. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie voor meer informatie, [overzicht van netwerkbeveiligingsgroepen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network security group (NSG) stroomlogboeken**: Kunt u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, dat de NIC van de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, bron-/ doel-poort en protocol) en als het verkeer is toegestaan of is geweigerd. Zie voor meer informatie over NSG-stroomlogboeken [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: Een Azure-service die gegevens verzamelt en de gegevens worden opgeslagen in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API van Azure bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals network performance monitor en verkeer analytics zijn gebouwd met behulp van Azure Monitor-Logboeken als een basis. Zie voor meer informatie, [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Log Analytics-werkruimte**: Een exemplaar van Azure Monitor-Logboeken, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over Log Analytics-werkruimten, [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
@@ -87,12 +87,19 @@ U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteund
 De Log Analytics-werkruimte moet bestaan in de volgende regio's:
 * Canada - midden
 * US - west-centraal
-* US - west 2
 * US - oost
+* US - oost 2
+* US - zuid-centraal
+* US - west
+* US - west 2
+* US - centraal
 * Frankrijk - centraal
+* Europa - noord
 * Europa -west
 * Verenigd Koninkrijk Zuid
+* Australië - oost
 * Australië - zuidoost
+* Azië - oost
 * Azië - zuidoost
 * Korea - centraal
 * India - centraal

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 30d52f1ac6a68a3202de59a0b4cab8edfb7ed042
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 28f154c4bd8bb1675eac509bd9d6dab9bb6af026
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701084"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066237"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure-Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand in HDInsight via VPN-verbinding
 
@@ -85,7 +85,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 
     ![Selecteer de nieuwe projectsjabloon, maken in IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
 
-    a. Selecteer **HDInsight** > **Spark in HDInsight (Scala)**.
+    a. Selecteer **HDInsight** > **Spark in HDInsight (Scala)** .
 
     b. Selecteer **Next**.
 1. In de volgende **nieuw Project** in het dialoogvenster de volgende handelingen uit en selecteer vervolgens **voltooien**:
@@ -102,7 +102,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 
     a. Selecteer **Project Structure** in het menu **File**.
 
-    b. In de **projectstructuur** in het dialoogvenster, selecteer **artefacten** om weer te geven van de standaard-artefacten die is gemaakt. U kunt ook uw eigen artefact maken door het selecteren van het plusteken (**+**).
+    b. In de **projectstructuur** in het dialoogvenster, selecteer **artefacten** om weer te geven van de standaard-artefacten die is gemaakt. U kunt ook uw eigen artefact maken door het selecteren van het plusteken ( **+** ).
 
    ![JAR maken](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
@@ -111,7 +111,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 
     a. Met de rechtermuisknop op de naam van het project in de projectstructuur van het en selecteer vervolgens **Open Module-instellingen**. 
 
-    b. In de **projectstructuur** in het dialoogvenster, selecteer **bibliotheken**, selecteer de (**+**) symbool en selecteer vervolgens **van Maven** .
+    b. In de **projectstructuur** in het dialoogvenster, selecteer **bibliotheken**, selecteer de ( **+** ) symbool en selecteer vervolgens **van Maven** .
 
     ![Een bibliotheek toevoegen](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
@@ -241,7 +241,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 1. Wanneer de programma-uitvoering het onderbrekingspunt bereikt, ziet u een **foutopsporingsprogramma** tabblad in het onderste deelvenster.
 
     ![Het tabblad foutopsporingsprogramma weergeven](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
-1. Als u wilt toevoegen een watch, selecteer de (**+**) pictogram.
+1. Als u wilt toevoegen een watch, selecteer de ( **+** ) pictogram.
 
     ![Selecteer het pictogram +](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
@@ -277,7 +277,6 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster](apache-spark-intellij-tool-plugin.md)
 * [Azure Toolkit voor IntelliJ gebruiken voor foutopsporing van Apache Spark-toepassingen op afstand via SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in een Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)

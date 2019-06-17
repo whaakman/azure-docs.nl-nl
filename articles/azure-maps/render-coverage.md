@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869998"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps dekking voor weergave
@@ -56,7 +56,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Gambia                           | ✓ | Ø |
 | Ghana                            | ✓ | ✓ |
 | Guinee                           | ✓ | Ø |
-| Guinea-Bissau                    | ✓ | Ø |
+| Guinee-Bissau                    | ✓ | Ø |
 | Kenia                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
 | Liberia                          | ✓ | Ø |
@@ -75,12 +75,12 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
 | Sint-Helena, Ascension en Tristan da Cunha | ✓ | Ø |
-| São Tomé en Príncipe            | ✓ | Ø |
+| Sao Tomé en principe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalië                          | ✓ | ✓ |
 | Zuid-Afrika                     | ✓ | ✓ |
-| Zuid-Sudan                      | ✓ | ✓ |
+| Zuid-Soedan                      | ✓ | ✓ |
 | Soedan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
 | Verenigde Republiek van Tanzania      | ✓ | ✓ |
@@ -102,7 +102,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
 | Bermuda                   | ✓ | ✓ |
-| Bolivia | ✓ | ✓ |
+| Plurinationale staat Bolivia | ✓ | ✓ |
 | Bonaire, Sint Eustatius en Saba | ✓ | ✓ |
 | Brazilië                    | ✓ | ✓ |
 | Canada                    | ✓ | ✓ |
@@ -115,7 +115,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Dominica                  | ✓ | ✓ |
 | Dominicaanse Republiek        | ✓ | ✓ |
 | Ecuador                   | ✓ | ✓ |
-| Falklandeilanden | ✓ | ✓ |
+| Falklandeilanden (Malvinas) | ✓ | ✓ |
 | Frans-Guyana             | ✓ | ✓ |
 | Groenland                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
@@ -199,7 +199,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Taiwan                    | ✓ | ✓ |
 | Tadzjikistan                |   | Ø |
 | Thailand                  | ✓ | ✓ |
-| Democratische republiek Timor-Leste               |   | Ø |
+| Timor-Leste               |   | Ø |
 | Turkmenistan              |   | Ø |
 | Verenigde Arabische Emiraten      | ✓ | ✓ |
 | Amerikaanse ondergeschikte afgelegen eilanden |   | Ø |
@@ -227,7 +227,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Norfolkeiland            |   | Ø |
 | Palau                     |   | Ø |
 | Papoea-Nieuw-Guinea          |   | Ø |
-| Pitcairn                  |   | Ø |
+| Pitcairneilanden                  |   | Ø |
 | Samoa                     |   | Ø |
 | Salomonseilanden           |   | Ø|
 | Tokelau                   |   | Ø |
@@ -274,7 +274,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Liechtenstein             | ✓ | ✓ |
 | Litouwen                 | ✓ | ✓ |
 | Luxemburg                | ✓ | ✓ |
-| Noord-Macedonië           | ✓ | ✓ |
+| Noord Macedonië           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldavië                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |

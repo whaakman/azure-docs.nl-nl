@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6661cee8ba6176bd706d31a10a8f20549e29e4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2804a50cc1ef7bb257e1549afabdef466ce3c2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60356229"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112199"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migreren van een klassiek beleid waarvoor multi-factor authentication in Azure portal
 
@@ -31,7 +31,7 @@ Het scenario in dit artikel laat zien hoe u voor het migreren van een klassiek b
 Het migratieproces bestaat uit de volgende stappen uit:
 
 1. [Open het klassieke beleid](#open-a-classic-policy) om op te halen van de configuratie-instellingen.
-1. Maak een nieuwe Azure AD-beleid voor voorwaardelijke toegang ter vervanging van uw klassiek beleid. 
+1. Maak een nieuw beleid voor Azure AD voor voorwaardelijke toegang ter vervanging van uw klassiek beleid. 
 1. Klassiek beleid uitschakelen.
 
 ## <a name="open-a-classic-policy"></a>Een klassiek beleid openen
@@ -44,7 +44,7 @@ Het migratieproces bestaat uit de volgende stappen uit:
 
    ![Voorwaardelijke toegang](./media/policy-migration-mfa/02.png)
 
-1. In de **beheren** sectie, klikt u op **klassiek beleid (preview)**.
+1. In de **beheren** sectie, klikt u op **klassiek beleid (preview)** .
 
    ![Klassieke beleidsregels](./media/policy-migration-mfa/12.png)
 
@@ -125,5 +125,5 @@ Als u wilt uw klassiek beleid uitschakelen, klikt u op **uitschakelen** in de **
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over de migratie van klassiek beleid [klassiek beleid migreren in Azure portal](policy-migration.md).
-- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
-- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren.
+- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
+- Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).

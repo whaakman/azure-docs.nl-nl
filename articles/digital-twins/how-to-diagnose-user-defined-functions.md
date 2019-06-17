@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4d772b8cad64f138d93d91e87f6e6364c5a5d602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808887"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in door de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -34,7 +34,7 @@ Tal van logboekregistratie, analyses en diagnostische hulpprogramma's vindt u wa
 Azure van digitale dubbels biedt ondersteuning voor robuuste logboekregistratie, controle en analyse. Oplossingen voor ontwikkelaars kunnen Azure Monitor-Logboeken, diagnostische logboeken, activiteitenlogboeken en andere services gebruiken ter ondersteuning van de behoeften van complexe bewaking van een IoT-app. Opties voor logboekregistratie kunnen worden gecombineerd om opvragen of records weergeven binnen diverse services en om gedetailleerde logboekregistratie dekking voor veel services.
 
 * Lees voor de configuratie van de logboekregistratie is specifiek voor Azure digitale dubbels, [bewaking en logboekregistratie configureren](./how-to-configure-monitoring.md).
-* Raadpleeg de de [Azure Monitor](../azure-monitor/overview.md) overzicht voor meer informatie over krachtige logboekinstellingen via Azure Monitor wordt ingeschakeld.
+* Raadpleeg de [Azure Monitor](../azure-monitor/overview.md) overzicht voor meer informatie over krachtige logboekinstellingen via Azure Monitor wordt ingeschakeld.
 * Lees het artikel [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md) voor het configureren van instellingen voor diagnostische logboeken in Azure van digitale dubbels via Azure Portal, Azure CLI of PowerShell.
 
 Wanneer geconfigureerd, moet u mogelijk zijn voor het selecteren van alle logboekcategorieën, metrische gegevens en krachtige Azure Monitor log analytics-werkruimten gebruiken ter ondersteuning van uw foutopsporing.

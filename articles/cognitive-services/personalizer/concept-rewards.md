@@ -1,21 +1,21 @@
 ---
 title: Beloning score - Personalizer
 titleSuffix: Azure Cognitive Services
-description: De score beloning geeft aan hoe goed uw persoonlijke instellingen keuze, RewardActionID, heeft geleid tot voor de gebruiker. De waarde van de score van de prijs wordt bepaald door uw zakelijke logica, op basis van metingen van het gedrag van gebruikers. De machine learning-modellen traint personalizer door het evalueren van de voordelen.
+description: De score beloning geeft aan hoe goed uw persoonlijke instellingen keuze, RewardActionID, heeft geleid tot voor de gebruiker. De waarde van de score van de prijs wordt bepaald door uw zakelijke logica, op basis van metingen van het gedrag van gebruikers. Personalizer traint het machine learning-modellen door het evalueren van de voordelen.
 services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077402"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Beloning scores sitebeheerpunt van persoonlijke instellingen
 
@@ -30,6 +30,18 @@ Vouchers worden verzonden naar Personalizer door de [beloning API](https://docs.
 Vouchers worden verzonden nadat het gedrag van gebruikers is opgetreden, wat erop kan dagen later. De maximale hoeveelheid tijd Personalizer wacht totdat een gebeurtenis wordt beschouwd als geen vergoeding hebben of een beloning standaard is geconfigureerd met de [beloning wachttijd](#reward-wait-time) in Azure portal.
 
 Als de score beloning voor een gebeurtenis is niet ontvangen binnen de **beloning wachttijd**, dan zal de **standaard beloning** wordt toegepast. Normaal gesproken de **[standaard beloning](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** is geconfigureerd om te worden van nul.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Gedrag en gegevens om te overwegen voor beloningen
+
+Houd rekening met deze signalen en het gedrag voor de context van de score van derden:
+
+* Rechtstreekse invoer van de gebruiker voor suggesties wanneer opties zijn betrokken ("u betekenen X?").
+* Lengte van de sessie.
+* Tijd tussen sessies.
+* Sentimentanalyse interacties van de gebruiker.
+* Directe vragen en mini onderzoeken waar de bot de gebruiker wordt gevraagd voor feedback over de bruikbaarheid, nauwkeurigheid.
+* Reactie op waarschuwingen of vertraging in reactie op waarschuwingen.
 
 ## <a name="composing-reward-scores"></a>Beloning scores samenstellen
 
@@ -52,7 +64,7 @@ U kunt bijvoorbeeld deze regels voor het personaliseren van een lijst met video-
 |--|--|
 |De gebruiker heeft geklikt op het eerste item.|+0.5 beloning|
 |De gebruiker opent de daadwerkelijke inhoud van dat item.|+0.3 beloning|
-|De gebruiker gevolgd 5 minuten van de inhoud of 30%, afhankelijk van welke periode langer is.|+ 0,2 beloning|
+|De gebruiker gevolgd 5 minuten van de inhoud of 30%, afhankelijk van welke periode langer is.|\+ 0,2 beloning|
 |||
 
 Vervolgens kunt u de totale prijs verzenden naar de API.

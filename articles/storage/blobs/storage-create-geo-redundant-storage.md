@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d218ebcacf18687d01402f2c6ac354d95a1fe71f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071402"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag
 
@@ -82,12 +82,10 @@ Volg deze stappen om een account voor geografisch redundante opslag met leestoeg
    | **Implementatiemodel** | Resource Manager  | Resource Manager bevat de nieuwste functies.|
    | **Type account** | StorageV2 | Zie [Typen opslagaccounts](../common/storage-introduction.md#types-of-storage-accounts) voor meer informatie over de verschillende typen accounts |
    | **Prestaties** | Standard | Standard is voldoende voor het voorbeeldscenario. |
-   | **Replicatie**| Geografisch redundante opslag met leestoegang (RA-GRS) | Deze instelling is vereist voor het voorbeeld te laten werken. |
-   |**Abonnement** | uw abonnement |Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    | **Replicatie**| Geografisch redundante opslag met leestoegang (RA-GRS) | Dit is nodig om het voorbeeld te laten werken. |
    |**Abonnement** | uw abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    |**ResourceGroup** | myResourceGroup |Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen van resourcegroepen. |
-   |**Locatie** | US - oost | Kies een locatie. |
+   |**Location** | US - oost | Kies een locatie. |
 
 ![opslagaccount maken](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 

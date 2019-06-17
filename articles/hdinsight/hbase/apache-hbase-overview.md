@@ -5,23 +5,21 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/23/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 358b835b42862bd0ceb1a5c4a48ba4b18a567f4d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: b41c34d4dcbfa4107383318cd9665a41edee79f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120455"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Wat is Apache HBase in Azure HDInsight
 
 [Apache HBase](https://hbase.apache.org/) is een open-source NoSQL-database die is gebouwd op [Apache Hadoop](https://hadoop.apache.org/) en gemodelleerde na [Google BigTable](https://cloud.google.com/bigtable/). HBase biedt willekeurige toegang en een sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens in een database zonder schema die is georganiseerd op basis van kolomfamilies.
 
 HBase is vanuit het perspectief van gebruiker, vergelijkbaar met een database. Gegevens worden opgeslagen in de rijen en kolommen in een tabel en gegevens in een rij worden gegroepeerd per kolomfamilie. HBase is een database zonder schema in de zin dat zowel de kolommen als het type gegevens dat hierin wordt opgeslagen niet hoeven te worden gedefinieerd voordat u ze kunt gebruiken. De open-source code wordt lineair geschaald om petabytes aan gegevens op duizenden knooppunten te verwerken. Hiervoor kan gebruik worden gemaakt van gegevensredundantie, batchverwerking en andere functies die worden geboden door gedistribueerde toepassingen in het Hadoop-ecosysteem.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-apache-hbase-implemented-in-azure-hdinsight"></a>Hoe is Apache HBase geïmplementeerd in Azure HDInsight?
 
@@ -52,12 +50,7 @@ Het canonieke gebruiksvoorbeeld waarvoor bigtable (en door uitbreiding HBase) is
     Toepassingen kunnen worden uitgevoerd in HBase door HBase te gebruiken als gegevensopslag. Voorbeelden hiervan zijn Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji en Titan. Toepassingen kunnen ook worden geïntegreerd met HBase. Voorbeelden zijn onder meer [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [ Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/) , [Ganglia](http://ganglia.info/), en [Apache Drill](https://drill.apache.org/).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Aan de slag met Apache HBase met Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight-clusters maken in Azure Virtual Network](./apache-hbase-provision-vnet.md)
 * [Apache HBase-replicatie in HDInsight configureren](apache-hbase-replication.md)
-* [Apache Maven gebruiken om Java-toepassingen die gebruikmaken van Apache HBase met HDInsight (Hadoop) te bouwen](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>Zie ook
-* [Apache HBase](https://hbase.apache.org/)
-* [Apache HBase Reference Guide](https://hbase.apache.org/book.html)
-* [Bigtable: Een gedistribueerd opslagsysteem voor gestructureerde gegevens](https://research.google.com/archive/bigtable.html)

@@ -6,15 +6,15 @@ keywords: codering; coderingsprogramma's; media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055280"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Aanbevolen live streaming-coderingsprogramma 's
 
@@ -24,7 +24,7 @@ In Azure Media Services, een [Live gebeurtenis](https://docs.microsoft.com/rest/
 
   > [!NOTE]
   > Met behulp van een passthrough-methode is de meest voordelige manier om live te streamen.
-
+ 
 * Een on-premises live codering verzendt een single-bitrate stream naar de Live gebeurtenis dat is ingeschakeld voor live coderen met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). De Live gebeurtenis voert live codering van de binnenkomende single-bitrate stream naar een multi-bitrate (adaptieve) videostream.
 
 Zie voor gedetailleerde informatie over live coderen met Media Services, [Live streamen met Media Services v3](live-streaming-overview.md).
@@ -127,7 +127,7 @@ Volg dezelfde stappen als in [Live gebeurtenis van Pass through-verificatie](#pa
 
 ### <a name="email-your-recorded-settings"></a>E-instellingen van uw opgenomen
 
-Ten slotte, e-instellingen van uw opgenomen en archive-parameters voor Azure Media Services op live amsstreaming@microsoft.com als een melding dat alle zelf verificatiecontroles is verstreken. Bovendien zijn uw contactgegevens voor elke communityleden reageert. U kunt contact opnemen met het Azure Media Services-team met vragen over dit proces.
+Ten slotte, e-instellingen van uw opgenomen en archive-parameters voor Azure Media Services op live amslived@microsoft.com als een melding dat alle zelf verificatiecontroles is verstreken. Bovendien zijn uw contactgegevens voor elke communityleden reageert. U kunt contact opnemen met het Azure Media Services-team met vragen over dit proces.
 
 ## <a name="next-steps"></a>Volgende stappen
 

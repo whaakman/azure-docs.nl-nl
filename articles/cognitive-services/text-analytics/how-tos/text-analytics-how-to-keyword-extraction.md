@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/16/2019
-ms.author: aahi
-ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/05/2019
+ms.author: raymondl
+ms.openlocfilehash: b7683b6d5932872f8cef2f6db9a1ec7e5e4fa86d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828729"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069185"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Voorbeeld: Sleuteltermen extraheren met behulp van Text Analytics
 
@@ -22,7 +22,7 @@ De [Sleuteltermextractie API](https://westcentralus.dev.cognitive.microsoft.com/
 
 Deze functie is handig als u snel de belangrijkste punten moet identificeren van een verzameling documenten. Bijvoorbeeld, bij de invoertekst "het eten was heerlijk en de bediening fantastisch", retourneert de service de belangrijkste gespreksonderwerpen: 'eten' en "bediening fantastisch".
 
-Op dit moment ondersteunt Sleuteltermextractie Engels, Duits, Spaans en Japans. Andere talen bevinden zich in preview-fase. Zie voor meer informatie [Ondersteunde talen](../text-analytics-supported-languages.md).
+Zie de [ondersteunde talen](../text-analytics-supported-languages.md) artikel voor meer informatie. 
 
 > [!TIP]
 > Text Analytics biedt ook een Docker-containerinstallatiekopie op basis van Linux voor sleuteltermextractie. U kunt de [Text Analytics-container dus dicht bij uw gegevens installeren en uitvoeren](text-analytics-how-to-install-containers.md).

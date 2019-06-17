@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
 ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706322"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Een aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken 
@@ -27,7 +27,7 @@ Met behulp van een aangepaste installatiekopie, bespaart u tijd bij de voorberei
 
 Met behulp van een aangepaste installatiekopie die is geconfigureerd voor uw scenario kan bieden verschillende voordelen:
 
-- **Configureren van het besturingssysteem (OS)**. U kunt de configuratie van de besturingssysteemschijf van de installatiekopie kunt aanpassen. 
+- **Configureren van het besturingssysteem (OS)** . U kunt de configuratie van de besturingssysteemschijf van de installatiekopie kunt aanpassen. 
 - **Toepassingen vooraf worden geïnstalleerd.** Voorafgaand aan installatie toepassingen op de besturingssysteemschijf, dit is efficiënter en minder gevoelig voor fouten dan het installeren van toepassingen na het inrichten van de compute-knooppunten met behulp van een begintaak.
 - **Opnieuw opstarten tijd besparen op virtuele machines.** De installatie van toepassing is doorgaans nodig voor het opnieuw opstarten van de virtuele machine, die is tijdrovend. U kunt opnieuw opstarten tijd besparen door vooraf installeren van toepassingen. 
 - **Zeer grote hoeveelheden gegevens eenmaal kopiëren.** Statische gegevensonderdeel van de beheerde aangepaste installatiekopie maken door deze te kopiëren naar een beheerde installatiekopie gegevensschijven. Dit alleen moet één keer worden uitgevoerd en maakt gegevens beschikbaar zijn voor elk knooppunt van de groep.
@@ -41,7 +41,7 @@ Met behulp van een aangepaste installatiekopie die is geconfigureerd voor uw sce
   - Als u wilt een pool maken met de installatiekopie met behulp van de Batch-API's, geef de **resource-ID** van de installatiekopie, die van het formulier `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Voor het gebruik van de portal, gebruikt u de **naam** van de installatiekopie.  
   - De resource beheerde installatiekopie moet bestaan voor de levensduur van de pool omhoog zodat en kan worden verwijderd nadat de groep is verwijderd.
 
-- **Verificatie van Azure Active Directory (AAD)**. De Batch-client-API moet de AAD-verificatie gebruiken. Azure Batch-ondersteuning voor AAD wordt gedocumenteerd in [verifiëren Batch-service-oplossingen met Active Directory](batch-aad-auth.md).
+- **Verificatie van Azure Active Directory (AAD)** . De Batch-client-API moet de AAD-verificatie gebruiken. Azure Batch-ondersteuning voor AAD wordt gedocumenteerd in [verifiëren Batch-service-oplossingen met Active Directory](batch-aad-auth.md).
 
 ## <a name="prepare-a-custom-image"></a>Een aangepaste installatiekopie voorbereiden
 

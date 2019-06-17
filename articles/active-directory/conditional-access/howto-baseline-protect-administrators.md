@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1ce48126c3e8867ac7f2696d8cf7db992a9a60a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112426"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>Beleid: MFA vereisen voor beheerders
 
@@ -27,11 +27,11 @@ Gebruikers met toegang tot beschermde accounts hebben onbeperkte toegang tot uw 
 * Globale beheerder
 * SharePoint-beheerder
 * Exchange-beheerder
-* Voorwaardelijke-toegangsbeheerder
+* Voorwaardelijke toegang beheerder
 * Beveiligingsbeheerder
 * Helpdesk-beheerder / wachtwoordbeheerder
 * Factureringsbeheerder
-* Gebruikersbeheerder
+* Gebruikerbeheerder
 
 Bij het inschakelen van de MFA vereisen voor beheerders beleid voor de bovenstaande negen beheerdersrollen moet zich registreren voor MFA met behulp van de Authenticator-App. Als MFA-registratie voltooid is, wordt beheerders moeten MFA telkens één wanneer ze zich aanmelden bij uitvoeren.
 
@@ -76,6 +76,6 @@ Dit beleid inschakelt en beveiligen van uw beheerders:
 
 Zie voor meer informatie:
 
-* [Basislijn protection-beleid voor voorwaardelijke toegang](concept-baseline-protection.md)
+* [Beleid voor voorwaardelijke toegang basislijn-beveiliging](concept-baseline-protection.md)
 * [Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten](../../security/azure-ad-secure-steps.md)
 * [Wat is voorwaardelijke toegang in Azure Active Directory?](overview.md)

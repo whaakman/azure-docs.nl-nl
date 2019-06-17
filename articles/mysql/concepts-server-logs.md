@@ -1,25 +1,25 @@
 ---
 title: Serverlogboeken voor Azure Database for MySQL
-description: Beschrijving van de logboeken die beschikbaar zijn in Azure Database voor MySQL en de beschikbare parameters voor het inschakelen van van verschillende logboekregistratieniveaus.
+description: Beschrijft de langzame-querylogboeken beschikbaar in Azure Database voor MySQL en de beschikbare parameters voor het inschakelen van van verschillende logboekregistratieniveaus.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062398"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Serverlogboeken in Azure Database for MySQL
-In Azure Database voor MySQL is het logboek voor langzame query's beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het logboek voor langzame query's kan worden gebruikt om knelpunten in de prestaties voor het oplossen van problemen. 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Logboeken van de langzame query's in Azure Database voor MySQL
+In Azure Database voor MySQL is het logboek voor langzame query's beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het logboek voor langzame query's kan worden gebruikt om knelpunten in de prestaties voor het oplossen van problemen.
 
 Zie voor meer informatie over het MySQL-logboek voor langzame query's, de MySQL-handleiding [uplogboekgedeelte van de query vertragen](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
-## <a name="access-server-logs"></a>Serverlogboeken openen
-U kunt weergeven en downloaden van Azure Database voor MySQL-server-logboeken met behulp van de Azure-portal en de Azure CLI.
+## <a name="access-slow-query-logs"></a>Langzame-querylogboeken van toegang
+U kunt weergeven en downloaden van Azure Database voor MySQL van Logboeken voor langzame query's met behulp van de Azure-portal en de Azure CLI.
 
 Selecteer uw Azure Database voor MySQL-server in de Azure-portal. Onder de **bewaking** kop, selecteer de **serverlogboeken** pagina.
 
@@ -30,8 +30,7 @@ Logboeken zijn beschikbaar voor maximaal zeven dagen van hun maken. Als de total
 
 Logboeken zijn geroteerd elke 24 uur of 7 GB, afhankelijk van wat eerst komt.
 
-
-## <a name="configure-logging"></a>Logboekregistratie configureren 
+## <a name="configure-slow-query-logging"></a>Logboekregistratie voor langzame query's configureren 
 Het logboek voor langzame query's is standaard uitgeschakeld. Als u wilt inschakelen, stelt u slow_query_log op ON.
 
 Er zijn andere parameters die u kunt aanpassen:
@@ -73,10 +72,10 @@ De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van de uit
 | `rows_sent_s` | Aantal rijen dat is verzonden |
 | `rows_examined_s` | Aantal rijen onderzocht |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Id ingevoegd |
+| `insert_id_s` | ID ingevoegd |
 | `sql_text_s` | Volledige-query |
-| `server_id_s` | Id van de server |
-| `thread_id_s` | Thread-id |
+| `server_id_s` | ID van de server |
+| `thread_id_s` | Thread-ID |
 | `\_ResourceId` | Resource-URI |
 
 ## <a name="next-steps"></a>Volgende stappen

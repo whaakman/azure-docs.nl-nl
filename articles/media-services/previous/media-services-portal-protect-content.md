@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866971"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Content protection-beleid configureren met behulp van Azure portal
@@ -65,7 +65,7 @@ Als u een licentie als niet-persistente configureert, deze alleen vast als Windo
 
 ![Niet-persistente inhoudsbeveiliging](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
-### <a name="persistent"></a>Permanent
+### <a name="persistent"></a>Permanente
 Als u een licentie als permanente configureert, wordt deze opgeslagen in een permanente opslag op de client.
 
 ![Permanente beveiliging van inhoud](./media/media-services-portal-content-protection/media-services-content-protection004.png)
@@ -117,7 +117,7 @@ AES clear key-versleuteling is ingeschakeld voor alle streamingprotocollen: Smoo
 
 1. FairPlay-versleuteling inschakelen voor de **Content Protection globale instellingen** Selecteer **FairPlay-configuratie**. Selecteer vervolgens de **App certificate**, en voer de **geheime Toepassingssleutel**.
 
-    ![Versleutelingstype](./media/media-services-portal-content-protection/media-services-content-protection009.png)
+    ![Coderingstype](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
 1. Nadat u de versleutelingsselectie, selecteer **toepassen**.
 

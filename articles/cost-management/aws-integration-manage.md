@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870310"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Kosten voor AWS en gebruik in Azure beheren
@@ -85,14 +85,14 @@ De volgende tabel beschrijft de beschikbare groep te filteren op in kostenanalys
 | Bewerking | lineItem/Operation | Alle |   |
 | Resource | lineItem/ResourceId | Alle |   |
 | Resourcetype | product/instanceType | Alle | Als het product/instanceType null is, wordt lineItem/UsageType gebruikt. |
-| ResourceGuid | N/A | Alle | Azure-meterkenmerken GUID. |
+| Resource-GUID | N/A | Alle | Azure-meterkenmerken GUID. |
 | Servicenaam | product/ProductName | Alle | Als het product/ProductName null is, wordt lineItem/ProductCode gebruikt. |
 | Servicelaag |   |   |   |
 | Abonnements-id | lineItem/UsageAccountId | Geconsolideerde-account en beheer van groep |   |
-| Abonnementsnaam | N/A | Geconsolideerde-account en beheer van groep | Namen worden verzameld met behulp van de organisatie-API van AWS. |
-| Label | resourceTags/\* | Alle | De _gebruiker:_ voorvoegsel wordt verwijderd uit de gebruiker gedefinieerde tags om toe te staan van cross-cloud-tags. De _aws:_ voorvoegsel blijft intact. |
-| Factureringsaccount-id | bill/PayerAccountId | Beheergroep |   |
-| Naam van het factureringsaccount | N/A | Beheergroep | Namen worden verzameld met behulp van de organisatie-API van AWS. |
+| De naam van abonnement | N/A | Geconsolideerde-account en beheer van groep | Namen worden verzameld met behulp van de organisatie-API van AWS. |
+| Tag | resourceTags/\* | Alle | De _gebruiker:_ voorvoegsel wordt verwijderd uit de gebruiker gedefinieerde tags om toe te staan van cross-cloud-tags. De _aws:_ voorvoegsel blijft intact. |
+| Facturering-account-ID | bill/PayerAccountId | Beheergroep |   |
+| Facturering-accountnaam | N/A | Beheergroep | Namen worden verzameld met behulp van de organisatie-API van AWS. |
 | Provider | N/A | Beheergroep | AWS of Azure. |
 
 ## <a name="set-budgets-on-aws-scopes"></a>Set-budgetten voor AWS-scopes

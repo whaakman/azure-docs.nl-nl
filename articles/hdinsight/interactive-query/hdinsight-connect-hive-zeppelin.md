@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Apache Hive-query's uitvoeren in Azure HDInsight - Apache Zeppelin"
-description: Informatie over het gebruik van Apache Zeppelin Apache Hive-query's uitvoeren.
+description: In deze snelstartgids leert u hoe u Apache Hive-query's uitvoeren met Apache Zeppelin.
 keywords: hdinsight, hadoop, hive, LLAP met interactive query
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: f4b8495646e83005dc48e8a729a0e5987b832721
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1642c64b0b14c2e290aad689399b59d896660a28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056694"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Apache Hive-query's uitvoeren in Azure HDInsight met Apache Zeppelin
 
@@ -83,12 +83,3 @@ In deze snelstartgids hebt u geleerd hoe u Apache Hive-query's uitvoeren in Azur
 
 > [!div class="nextstepaction"]
 > [Verbinding maken met Azure HDInsight en Apache Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## <a name="see-also"></a>Zie ook
-
-* [Apache Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Apache Interactive Query Hive-gegevens visualiseren met Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Excel verbinden met Apache Hadoop met Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Azure HDInsight-hulpprogramma gebruiken voor Visual Studio Code](../hdinsight-for-vscode.md).
-* [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md).

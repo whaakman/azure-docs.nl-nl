@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4f97f6925c482cb282324dcc1c97bbfe2a701643
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752071"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074214"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Over het configureren van Virtual Network-ondersteuning voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure-Cache voor Redis-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kunnen alleen worden geopend van virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Cache voor Redis-exemplaar.
@@ -131,7 +131,7 @@ Er zijn acht vereisten voor het bereik van binnenkomende poort. Inkomende aanvra
 
 | Poort(en) | Direction | Transportprotocol | Doel | Lokaal IP | Extern IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkomend |TCP |Communicatie van clients met Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Inkomend |TCP |Communicatie van clients met Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer <sup>2</sup> |
 | 8443 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inkomend |TCP/UDP |Azure load balancer | (Redis subnet) |Azure Load Balancer |
 | 10221-10231 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet), Azure Load Balancer |
@@ -139,6 +139,8 @@ Er zijn acht vereisten voor het bereik van binnenkomende poort. Inkomende aanvra
 | 15000-15999 |Inkomend |TCP |Clientcommunicatie met Redis-Clusters, Azure load Balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
 | 16001 |Inkomend |TCP/UDP |Azure load balancer | (Redis subnet) |Azure Load Balancer |
 | 20226 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
+
+<sup>2</sup> kunt u de servicetag 'AzureLoadBalancer' (Resource Manager) (of 'AZURE_LOADBALANCER' voor klassiek) voor het ontwerpen van de NSG-regels.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Aanvullende vereisten voor VNET netwerk connectiviteit
 

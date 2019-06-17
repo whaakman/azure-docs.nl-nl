@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bf21e8cb69091c222b73bb939b3a36caf097c299
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238853"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144157"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (openbare preview)
 
-Meer informatie over het gebruik van [Azure Deployment Manager](./deployment-manager-overview.md) om uw toepassingen in meerdere regio's te implementeren. Als u Deployment Manager wilt gebruiken, moet u twee sjablonen maken:
+Meer informatie over het gebruik van [Azure Deployment Manager](./deployment-manager-overview.md) om uw toepassingen in meerdere regio's te implementeren. Als u liever een snellere benadering [Azure Deployment Manager quickstart](https://github.com/Azure-Samples/adm-quickstart) wordt gemaakt van de vereiste configuraties in uw abonnement en de artefacten voor het implementeren van een toepassing in meerdere regio's worden aangepast. De Quick Start voert dezelfde taken uit als in deze zelfstudie.
+
+Als u Deployment Manager wilt gebruiken, moet u twee sjablonen maken:
 
 * **Een topologiesjabloon**: beschrijft de Azure-resources die uw toepassingen vormen en waar ze moeten worden geïmplementeerd.
 * **Een implementatiesjabloon**: beschrijft de stappen die moeten worden genomen bij het implementeren van uw toepassingen.
@@ -44,7 +46,10 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De nieuwere versie implementeren
 > * Resources opschonen
 
-De Azure Deployment Manager REST API-verwijzing vindt u [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Aanvullende bronnen:
+
+* De [Azure Deployment Manager REST API-verwijzingen](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 

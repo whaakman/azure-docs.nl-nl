@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133831"
 ---
 ### <a name="what-is-expressroute-direct"></a>Wat is ExpressRoute Direct?
 
@@ -28,7 +28,6 @@ Klanten moet samenwerken met hun lokale providers en CO-locatieproviders connect
 De beschikbare poorten zijn dynamisch en is beschikbaar door PowerShell om de capaciteit weer te geven. Locaties zijn en *worden gewijzigd op basis van beschikbaarheid*:
 
 * Amsterdam
-* Canberra
 * Chicago
 * Washington DC
 * Dallas 

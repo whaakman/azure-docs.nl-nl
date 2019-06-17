@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/11/2019
 ms.author: tulasim
-ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053234"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v4-processors
 
@@ -55,9 +55,9 @@ Maak een bot als een clienttoepassing voor de knowledge base.
     |Locatie|`west us`|Locatie van de Azure-resource van de bot.|
     |Prijscategorie|`F0`|De gratis laag voor de Azure botservice.|
     |Naam van app|`my-tutorial-kb-bot-app`|Dit is een web-app voor de ondersteuning van uw bot alleen. Dit moet niet dezelfde app-naam als de QnA Maker-service wordt al gebruikt. QnA Maker van web-app delen met een andere resource wordt niet ondersteund.|
-    |SDK Language|C#|Dit is de onderliggende programmeertaal die worden gebruikt door de botframework SDK. Uw keuzes zijn C# of Node.js.|
+    |SDK Language|C#|Dit is de onderliggende programmeertaal die worden gebruikt door de botframework SDK. Uw keuzes zijn [ C# ](https://github.com/Microsoft/botbuilder-dotnet) of [Node.js](https://github.com/Microsoft/botbuilder-js).|
     |QnA verificatiesleutel|**Niet wijzigen**|Deze waarde is ingevuld voor u.|
-    |App Service-plan/-locatie|**Niet wijzigen**|Voor deze zelfstudie is de locatie niet belangrijk.|
+    |App service-plan/locatie|**Niet wijzigen**|Voor deze zelfstudie is de locatie niet belangrijk.|
     |Azure Storage|**Niet wijzigen**|Conversatie gegevens worden opgeslagen in Azure Storage-tabellen.|
     |Application Insights|**Niet wijzigen**|Logboekregistratie wordt verzonden naar Application Insights.|
     |Microsoft App-ID|**Niet wijzigen**|Active directory-gebruiker en het wachtwoord is vereist.|

@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61261806"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rollen en machtigingen voor Azure Data Factory
@@ -78,7 +78,7 @@ Hier volgen enkele voorbeelden die laten zien wat u kunt bereiken met aangepaste
   Dit scenario vereist twee roltoewijzingen.
 
   1. Wijs de ingebouwde **Inzender** rol op het niveau van data factory.
-  2. Een aangepaste rol maken met de machtiging **Microsoft.Resources/deployments/**. Deze aangepaste rol toewijzen aan de gebruiker op het niveau van de resourcegroep.
+  2. Een aangepaste rol maken met de machtiging **Microsoft.Resources/deployments/** . Deze aangepaste rol toewijzen aan de gebruiker op het niveau van de resourcegroep.
 
 - Laat een gebruiker bijwerken van een data factory vanuit PowerShell of de SDK, maar niet in de Azure-portal.
 

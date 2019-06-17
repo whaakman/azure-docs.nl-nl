@@ -2,18 +2,18 @@
 title: 'Virtuele netwerken migreren van klassiek naar Resource Manager - ExpressRoute: Azure: PowerShell | Microsoft Docs'
 description: Deze pagina wordt beschreven hoe u ExpressRoute gekoppelde virtuele netwerken migreren naar Resource Manager na het verplaatsen van uw circuit.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.author: ganesr;cherylmc
+ms.date: 06/13/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363849"
+ms.locfileid: "67115411"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute-gekoppelde virtuele netwerken migreren van klassiek naar Resource Manager
 
@@ -23,7 +23,7 @@ In dit artikel wordt uitgelegd hoe u virtuele netwerken gekoppeld met een Expres
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Controleer of u de nieuwste versie van de Azure PowerShell-modules. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
+* Controleer of u de nieuwste versies van de Azure PowerShell-modules. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. Te installeren van de PowerShell Service Management-module (die nodig is voor het klassieke implementatiemodel), Zie [installeren van de Azure PowerShell Service Management-Module](/powershell/azure/servicemanagement/install-azure-ps).
 * Zorg ervoor dat u hebt bekeken de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 * Lees de informatie die is opgegeven onder [een ExpressRoute-circuit verplaatsen van klassiek naar Resource Manager](expressroute-move.md). Zorg ervoor dat u volledig inzicht in limieten en beperkingen.
 * Controleer of het circuit volledig operationeel zijn in het klassieke implementatiemodel.

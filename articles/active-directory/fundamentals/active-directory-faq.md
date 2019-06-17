@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06112361434a8217df6714a70d0059c175e98ac8
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: df20c8b863a6abb1cdb4d53c0057b223fe9fdaf5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521721"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110431"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -196,7 +196,7 @@ Zie [How to provide secure remote access to on-premises applications](../manage-
 - - -
 **V: Hoe moet ik multi-factor authentication voor gebruikers die toegang hebben tot een bepaalde toepassing?**
 
-**A:** Met Azure AD voor voorwaardelijke toegang, kunt u voor elke toepassing een uniek toegangsbeleid toewijzen. In uw beleid kunt u aangeven dat Multi-Factor Authentication altijd is vereist of alleen wanneer gebruikers niet zijn verbonden met het lokale netwerk.  
+**A:** U kunt met Azure AD voor voorwaardelijke toegang voor elke toepassing een uniek toegangsbeleid toewijzen. In uw beleid kunt u aangeven dat Multi-Factor Authentication altijd is vereist of alleen wanneer gebruikers niet zijn verbonden met het lokale netwerk.  
 
 Zie [Securing access to Office 365 and other apps connected to Azure Active Directory](../active-directory-conditional-access-azure-portal.md) (De toegang beveiligen tot Office 365 en andere apps die zijn verbonden met Azure Active Directory) voor meer informatie.
 

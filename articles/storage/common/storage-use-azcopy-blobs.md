@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 140f2ec6252eac2958f236b2ffb48225fa16fe2b
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: fea9e79986e45127ad4918ed62bd8bf8dc782133
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125806"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Gegevens overdragen met AzCopy en Blob-opslag
 
@@ -191,10 +191,10 @@ Deze sectie bevat de volgende voorbeelden:
 
 ## <a name="synchronize-files"></a>Synchroniseren van bestanden
 
-U kunt de inhoud van een lokaal bestandssysteem voor een blob-container kunt synchroniseren. U kunt ook een blob-container naar een lokale bestandssysteem synchroniseren op uw computer. Synchronisatie kan niet worden teruggedraaid. Met andere woorden, kiest u welke van deze twee eindpunten de bron is en wat is de bestemming.
+U kunt de inhoud van een lokaal bestandssysteem synchroniseren met een blob-container. Synchronisatie kan niet worden teruggedraaid. Met andere woorden, kiest u welke van deze twee eindpunten de bron is en wat is de bestemming.
 
 > [!NOTE]
-> De huidige versie van AzCopy wordt niet gesynchroniseerd tussen de andere bronnen en bestemmingen (bijvoorbeeld: Amazon Web Services (AWS) S3 buckets of bestandsopslag).
+> Op dit moment wordt in dit scenario alleen ondersteund voor accounts waarvoor geen een hiërarchische naamruimte. De huidige versie van AzCopy wordt niet gesynchroniseerd tussen de andere bronnen en bestemmingen (bijvoorbeeld: Amazon Web Services (AWS) S3 buckets of bestandsopslag).
 
 De `sync` opdracht vergelijkt bestandsnamen en tijdstempels het laatst is gewijzigd. Stel de `--delete-destination` optionele vlag aan een waarde van `true` of `prompt` bestanden in de doelmap worden verwijderd als deze bestanden niet meer in de bronmap bestaat.
 
@@ -203,26 +203,24 @@ Als u de `--delete-destination` markering `true` AzCopy bestanden worden verwijd
 > [!NOTE]
 > Om te voorkomen dat onbedoelde verwijderingen, zorg ervoor dat u inschakelen de [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) functie voordat u de `--delete-destination=prompt|true` vlag.
 
-### <a name="synchronize-a-container-to-a-local-file-system"></a>Synchroniseren van een container voor een lokaal bestandssysteem
+### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Bijwerken van een container met wijzigingen in een lokaal bestandssysteem
 
-In dit geval wordt het lokale bestandssysteem wordt de bron en de container is de bestemming.
+In dit geval is de bestemming van de container en het lokale bestandssysteem is de bron.
 
 |    |     |
 |--------|-----------|
 | **Syntaxis** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **Voorbeeld** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **Voorbeeld** (hiërarchische naamruimte) | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Bijwerken van een lokaal bestandssysteem met wijzigingen in een container
 
-### <a name="synchronize-a-local-file-system-to-a-container"></a>Synchroniseren van een lokaal bestandssysteem voor een container
-
-In dit geval wordt de container wordt de bron en het lokale bestandssysteem is de bestemming.
+In dit geval is de bestemming van het lokale bestandssysteem en de container is de bron.
 
 |    |     |
 |--------|-----------|
 | **Syntaxis** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
 | **Voorbeeld** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
-| **Voorbeeld** (hiërarchische naamruimte) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+|
 
 ## <a name="next-steps"></a>Volgende stappen
 

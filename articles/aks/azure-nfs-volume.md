@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
 ms.openlocfilehash: 55eb5b0b98a4097d2f300bacabbfef3b0a32b27b
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468497"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van een volume van de Linux-Server voor NFS (Network File System) met Azure Kubernetes Service (AKS)
@@ -140,7 +140,7 @@ spec:
       type: nfs
 ```
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 Als u geen verbinding maken met de server uit een cluster, wordt een probleem mogelijk worden de geëxporteerde map of het bovenliggende object, beschikt niet over voldoende machtigingen voor toegang tot de server.
 
 Controleer of zowel de exportmap als de bovenliggende map 777 machtigingen hebt.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237958"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137244"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Gegevens voorbereiden voor de aangepaste spraak
 
@@ -25,7 +25,7 @@ Of u test om te zien hoe nauwkeurig Microsoft-spraakherkenning is of uw eigen mo
 
 Deze tabel bevat de geaccepteerde gegevenstypen, wanneer elk gegevenstype moet worden gebruikt en de aanbevolen hoeveelheid. Niet alle gegevens van het type is vereist om een model te maken. Vereisten voor gegevens varieert afhankelijk van of u een test maakt of een model te trainen.
 
-| Gegevenstype | Gebruikt van testen | Hoeveelheid | Gebruikt voor training | Hoeveelheid |
+| Gegevenstype | Gebruikt van testen | Aantal | Gebruikt voor training | Aantal |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Ja<br>Gebruikt voor visueel inspecteren | 5 + audiobestanden | Nee | N/a |
 | [Audio + Human etiket transcripties](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Gebruikt voor het evalueren van nauwkeurigheid | 0,5 - 5 uur audio | Ja | 1 - 1000 uur aan audio |
@@ -44,7 +44,7 @@ Elke gegevensset die u uploadt, moet voldoen aan de vereisten voor het gegevenst
 Nadat uw gegevensset is geüpload, hebt u enkele opties:
 
 * U kunt navigeren naar de **testen** tabblad en visueel inspecteren alleen audio- of audio + human etiket transcriptie gegevens.
-* U kunt navigeren naar de **Training** tabblad en ons audio + menselijke transcriptie gegevens of gegevens van de tekst met het trainen van een aangepast model.
+* U kunt navigeren naar de **Training** tabblad en audio + menselijke transcriptie gegevens of tekst met een aangepast model te trainen.
 
 ## <a name="audio-data-for-testing"></a>Audiogegevens voor het testen
 
@@ -55,7 +55,7 @@ Deze tabel gebruiken om ervoor te zorgen dat uw audio-bestanden zijn ingedeeld v
 | Eigenschap | Value |
 |----------|-------|
 | Bestandsindeling | RIFF (WAV) |
-| Steekproeffrequentie | 8000 Hz of 16.000 Hz |
+| Samplefrequentie | 8000 Hz of 16.000 Hz |
 | Kanalen | 1 (mono) |
 | Maximale lengte per audio | 2 uur |
 | Voorbeeldindeling | PCM, 16-bits |
@@ -76,7 +76,7 @@ Als u wilt meten de nauwkeurigheid van de nauwkeurigheid van de spraak-naar-teks
 | Eigenschap | Value |
 |----------|-------|
 | Bestandsindeling | RIFF (WAV) |
-| Steekproeffrequentie | 8000 Hz of 16.000 Hz |
+| Samplefrequentie | 8000 Hz of 16.000 Hz |
 | Kanalen | 1 (mono) |
 | Maximale lengte per audio | 60 s |
 | Voorbeeldindeling | PCM, 16-bits |
@@ -138,11 +138,11 @@ Als er ongewone voorwaarden zonder standard uitspraak die uw gebruikers ondervin
 
 Dit bevat voorbeelden van een gesproken utterance en een aangepaste uitspraak van voor elke:
 
-| Gesproken formulier | Formulier herkend/weergegeven |
+| Formulier herkend/weergegeven | Gesproken formulier |
 |--------------|--------------------------|
-| drie c-p-o | 3CPO |  
-| c n t k | CNTK |
-| ik drievoudige e | IEEE |
+| 3CPO | drie c-p-o |  
+| CNTK | c n t k |
+| IEEE | ik drievoudige e |
 
 Het formulier gesproken is de fonetische reeks voluit geschreven. Het kan bestaan uit letters, woorden, lettergrepen of een combinatie van alle drie.
 

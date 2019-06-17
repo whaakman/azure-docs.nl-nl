@@ -8,21 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078248"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Apache Storm-topologieën op Azure HDInsight implementeren en beheren 
 
 In dit document leert de basisbeginselen van het beheren en controleren van [Apache Storm](https://storm.apache.org/) topologieën voor Storm op HDInsight-clusters waarop.
-
-> [!IMPORTANT]  
-> De stappen in dit artikel is een op Linux gebaseerde Storm op HDInsight-cluster vereist. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. 
->
-
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -159,7 +154,7 @@ Herverdeling van een topologie, kan het systeem voor het bijwerken van de parall
 
 ## <a name="monitor-and-manage-storm-ui"></a>Controleren en beheren: Storm-gebruikersinterface
 
-De Storm-gebruikersinterface biedt een webinterface voor het werken met actieve topologieën en is opgenomen in uw HDInsight-cluster. Als u de Storm-gebruikersinterface, gebruikt u een webbrowser openen **https://CLUSTERNAME.azurehdinsight.net/stormui**, waarbij **CLUSTERNAME** is de naam van uw cluster.
+De Storm-gebruikersinterface biedt een webinterface voor het werken met actieve topologieën en is opgenomen in uw HDInsight-cluster. Als u de Storm-gebruikersinterface, gebruikt u een webbrowser openen **https://CLUSTERNAME.azurehdinsight.net/stormui** , waarbij **CLUSTERNAME** is de naam van uw cluster.
 
 > [!NOTE]  
 > Als u wordt gevraagd een gebruikersnaam en een wachtwoord op te geven, voert u de gegevens voor de clusterbeheerder (admin) en het wachtwoord in die u hebt gebruikt toen u het cluster maakte.
@@ -213,7 +208,7 @@ Zie voor meer informatie, [REST-API voor Apache Storm-gebruikersinterface](https
 
 ### <a name="base-uri"></a>Basis-URI
 
-De basis-URI voor de REST-API op Linux gebaseerde HDInsight-clusters is beschikbaar op het hoofdknooppunt op **https:\//HEADNODEFQDN:8744/api/v1/**. De domeinnaam van het hoofdknooppunt is gegenereerd tijdens het maken van clusters en is niet statisch.
+De basis-URI voor de REST-API op Linux gebaseerde HDInsight-clusters is beschikbaar op het hoofdknooppunt op **https:\//HEADNODEFQDN:8744/api/v1/** . De domeinnaam van het hoofdknooppunt is gegenereerd tijdens het maken van clusters en is niet statisch.
 
 U vindt de volledig gekwalificeerde domeinnaam (FQDN) voor het hoofdknooppunt van het cluster op verschillende manieren:
 

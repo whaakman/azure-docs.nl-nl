@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 2c2ed46ed6e4a5d6663387777d3425d18b50500e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743144"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060217"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure Recovery Services (MARS)-Agent oplossen
 
@@ -41,9 +41,29 @@ Is het beter om u de onderstaande validatie, voordat u begint het oplossen van M
 
 ## <a name="invalid-vault-credentials-provided"></a>Ongeldige kluisreferenties ingevoerd
 
-| Foutdetails | Mogelijke oorzaken | Aanbevolen acties |
-| ---     | ---     | ---    |
-| **Fout** </br> *Er zijn ongeldige kluisreferenties opgegeven. Het bestand is beschadigd of heeft niet zijn de meest recente referenties die zijn gekoppeld aan recovery-service. (ID: 34513)* | <ul><li> De kluisreferenties zijn ongeldig (dat wil zeggen, zijn ze meer dan 48 uur vóór het tijdstip van inschrijving gedownload).<li>MARS-Agent, kan geen bestanden downloaden naar de map Temp van Windows. <li>De kluisreferenties bevinden zich op een netwerklocatie bevindt. <li>TLS 1.0 is uitgeschakeld<li> De verbinding wordt geblokkeerd door een geconfigureerde proxyserver. <br> |  <ul><li>Download nieuwe kluisreferenties. (**Opmerking**: Als meerdere bestanden van de kluis referentie eerder zijn gedownload, alleen het meest recente gedownloade bestand is geldig binnen 48 uur.) <li>Start **IE** > **instelling** > **Internetopties** > **Security**  >  **Internet**. Selecteer vervolgens **aangepast niveau**, en schuif totdat u het bestand downloaden sectie ziet. Selecteer vervolgens **inschakelen**.<li>Kunt u wellicht ook om toe te voegen deze sites in Internet Explorer [vertrouwde sites](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access).<li>Wijzig de instellingen voor het gebruik van een proxyserver. Geeft u de proxy-server-gegevens. <li> De datum en tijd overeen met de computer.<li>Als u een foutmelding waarin staat dat downloaden van bestanden niet zijn toegestaan, is het waarschijnlijk dat er een groot aantal bestanden in de C:/Windows/Temp-map zijn.<li>Ga naar C:/Windows/Temp en controleren of er meer dan 60.000 of 65.000 bestanden met de extensie .tmp. Als er, moet u deze bestanden verwijdert.<li>Zorg dat u .NET framework 4.6.2 is geïnstalleerd. <li>Als u TLS 1.0 hebt uitgeschakeld vanwege PCI-naleving, verwijzen naar dit [pagina voor probleemoplossing](https://support.microsoft.com/help/4022913). <li>Als u antivirussoftware op de server geïnstalleerd hebt, kunt u de volgende bestanden uitsluiten van de scan antivirusprogramma's: <ul><li>CBengine.exe<li>CSC.exe is gerelateerd aan .NET Framework. Er is een CSC.exe voor elk .NET-versie die geïnstalleerd op de server. CSC.exe-bestanden die zijn gekoppeld aan alle versies van .NET Framework op de betrokken server uitsluiten. <li>Map of cache scratchlocatie. <br>*De standaardlocatie voor de tijdelijke map of het pad naar de locatie van de cache is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>De bin-map C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+**Foutbericht**: Er zijn ongeldige kluisreferenties opgegeven. Het bestand is beschadigd of heeft niet zijn de meest recente referenties die zijn gekoppeld aan recovery-service. (ID: 34513)
+
+| Oorzaak | Aanbevolen actie |
+| ---     | ---    |
+| **De kluisreferenties zijn ongeldig** <br/> <br/> Kluis referentie bestanden is mogelijk beschadigd of is verlopen (dat wil zeggen meer dan 48 uur vóór het tijdstip van inschrijving gedownload)| Download een nieuwe referentie van Recovery Services-kluis vanuit het Azure-portal (Zie *stap 6* onder [ **de MARS-agent downloaden** ](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) sectie) en uit te voeren de hieronder: <ul><li> Als u hebt al geïnstalleerd en geregistreerd Microsoft Azure Backup-Agent, de Microsoft Azure Backup Agent MMC-console openen en kies **Server registreren** vanuit het actiedeelvenster om uit te voeren van de registratie bij de zojuist gedownloade referenties <br/> <li> Als de nieuwe installatie is mislukt Probeer het vervolgens opnieuw installeren met behulp van de nieuwe referenties</ul> **Opmerking**: Als meerdere bestanden van de kluis referentie eerder zijn gedownload, alleen het meest recente gedownloade bestand is geldig binnen 48 uur. Het verdient daarom nieuwe nieuw bestand met kluisreferenties downloaden.
+| **Proxy-Server/firewall blokkeert <br/>of <br/>geen internetverbinding** <br/><br/> Als uw computer of proxyserver heeft beperkte toegang tot Internet vervolgens mislukt zonder dat de vereiste URL's de registratie.| U lost dit probleem, voer de onderstaande:<br/> <ul><li> Werken met uw IT-team om te controleren of dat het systeem verbinding heeft met Internet<li> Als u geen proxyserver, zorg er dan voor de proxyoptie is geselecteerd bij het registreren van de agent, controleert u of proxy-instellingen stappen vermeld [hier](#verifying-proxy-settings-for-windows)<li> Als u een firewall/proxy-server hebt vervolgens werken met uw netwerk team om ervoor te zorgen dat onderstaande URL's en IP-adres hebben toegang<br/> <br> **URL 's**<br> - *www.msftncsi.com* <br>-  *.Microsoft.com* <br> -  *.WindowsAzure.com* <br>-  *.microsoftonline.com* <br>-  *.windows.net* <br>**IP-adres**<br> - *20.190.128.0/18* <br> - *40.126.0.0/18* <br/></ul></ul>Probeer het opnieuw te registreren nadat u de bovenstaande stappen hebt voltooid
+| **Wordt geblokkeerd door antivirussoftware** | Als u antivirussoftware op de server geïnstalleerd hebt, voegt u regels voor het uitsluiten van die nodig zijn voor de volgende bestanden van de scan antivirusprogramma's: <br/><ui> <li> *CBengine.exe* <li> *CSC.exe*<li> De standaardlocatie is scratchmap, *C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* <li> Bin-map op *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
+
+### <a name="additional-recommendations"></a>Extra aanbevelingen
+- Ga naar *C:/Windows/Temp* en controleren of er meer dan 60.000 of 65.000 bestanden met de extensie .tmp. Als er, verwijdert u deze bestanden
+- Zorg ervoor dat de datum en tijd van de machine is die overeenkomt met de lokale tijdzone
+- Zorg ervoor dat de [volgende](backup-configure-vault.md#verify-internet-access) sites worden toegevoegd aan IE vertrouwde sites
+
+### <a name="verifying-proxy-settings-for-windows"></a>Controleren van proxy-instellingen voor Windows
+
+- Download **psexec** van [hier](https://docs.microsoft.com/sysinternals/downloads/psexec)
+- Voer deze `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` opdracht uit vanaf de opdrachtprompt met verhoogde bevoegdheid:
+- Hiermee wordt geopend *Internet Explorer* venster
+- Ga naar *extra* -> *Internetopties* -> *verbindingen* -> *LAN-instellingen*
+- Controleer of de proxy-instellingen voor *System* account
+- Als er geen proxy is geconfigureerd en proxy-gegevens worden geleverd, en verwijder vervolgens de details
+-   Controleer vervolgens als proxy is geconfigureerd en proxy-gegevens onjuist zijn, of *Proxy IP* en *poort* details zijn nauwkeurige
+- Sluiten *Internet Explorer*
 
 ## <a name="unable-to-download-vault-credential-file"></a>Kan geen kluisreferentiebestand downloaden
 
@@ -85,34 +105,31 @@ Als de geplande back-ups niet automatisch ophalen geactiveerd terwijl er een han
 
 - Zorg ervoor dat de status van de Online back-up is ingesteld op **inschakelen**. Om te controleren of het uitvoeren van de status van de hieronder:
 
-  - Ga naar **Configuratiescherm** > **Systeembeheer** > **Task Scheduler**.
-    - Vouw **Microsoft**, en selecteer **Online back-up**.
+  - Open **Task Scheduler** en vouw **Microsoft**, en selecteer **Online back-up**.
   - Dubbelklik op **Microsoft OnlineBackup**, en Ga naar de **Triggers** tabblad.
-  - Controleer of als de status is ingesteld op **ingeschakeld**. Als dit niet, selecteer **bewerken**, en selecteer de **ingeschakeld** selectievakje in en klikt u op **OK**.
+  - Controleer of als de status is ingesteld op **ingeschakeld**. Als deze niet is, selecteert u **bewerken** > **ingeschakeld** selectievakje in en klikt u op **OK**.
 
-- Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak is **SYSTEM** of **lokale beheerdersgroep** op de server. Als u wilt controleren of het gebruikersaccount, gaat u naar de **algemene** tabblad en controleer de **beveiligingsopties**.
+- Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak is **SYSTEM** of **lokale beheerdersgroep** op de server. Als u wilt controleren of het gebruikersaccount, gaat u naar de **algemene** tabblad en controleer de **Security** opties.
 
-- Zie als PowerShell 3.0 of hoger is geïnstalleerd op de server. Voer de volgende opdracht uit om te controleren of de PowerShell-versie, en controleer de *belangrijke* versienummer is gelijk aan of groter is dan 3.
+- Zorg ervoor dat PowerShell 3.0 of hoger is geïnstalleerd op de server. Voer de volgende opdracht uit om te controleren of de PowerShell-versie, en controleer de *belangrijke* versienummer is gelijk aan of groter is dan 3.
 
   `$PSVersionTable.PSVersion`
 
-- Zie als het volgende pad deel uit van maakt de *PSMODULEPATH* omgevingsvariabele.
+- Controleer of het volgende pad deel uitmaakt van de *PSMODULEPATH* omgevingsvariabele
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Als de PowerShell-uitvoeringsbeleid voor *LocalMachine /* is ingesteld op beperkte, de PowerShell-cmdlet die de back-uptaak activeert kan mislukken. Voer de volgende opdrachten met verhoogde bevoegdheden, om te controleren en het uitvoeringsbeleid instellen op *onbeperkt* of *RemoteSigned*.
+- Als de PowerShell-uitvoeringsbeleid voor *LocalMachine /* is ingesteld op beperkte, de PowerShell-cmdlet die de back-uptaak activeert kan mislukken. Voer de volgende opdrachten met verhoogde bevoegdheden, om te controleren en het uitvoeringsbeleid instellen op *onbeperkt* of *RemoteSigned*
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Zorg ervoor dat de server opnieuw is opgestart na de installatie van de backup-agent
+- Zorg ervoor dat er geen ontbreekt of beschadigd **PowerShell** module **MSonlineBackup**. Als er is bestand ontbreekt of is beschadigd, om op te lossen dit probleem uitvoeren van de hieronder:
 
-- Zorg ervoor dat er geen ontbreekt of beschadigd **PowerShell** module **MSonlineBackup**. Wanneer er een bestand ontbreekt of is beschadigd, om op te lossen het probleem uitvoeren van de hieronder:
-
-  - Vanaf een andere computer (Windows 2008 R2), met de MARS-agent werkt goed, Kopieer de map MSOnlineBackup van *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* pad.
+  - Van elke machine met MARS-agent die functioneert goed, kopieert u de map MSOnlineBackup van *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* pad.
   - Plak deze in de problematische machine in hetzelfde pad *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
-  - Als **MSOnlineBackup** map is al bestaat in de machine plakken/vervangen de inhoudsbestanden in het.
+  - Als **MSOnlineBackup** map bestaat al in de machine, plakken of de inhoudsbestanden in het wilt vervangen.
 
 
 > [!TIP]

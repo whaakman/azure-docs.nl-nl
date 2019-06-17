@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110403"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Gebruik Azure AD-toegangsbeoordelingen voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
 
@@ -32,7 +32,7 @@ In een ideaal volgt alle gebruikers de toegang tot de beleidsregels voor beveili
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>Waarom zou u gebruikers uitsluiten van beleidsregels?
 
-Als IT-beheerder, kunt u [voorwaardelijke toegang voor Azure AD](../conditional-access/overview.md) om te vereisen dat gebruikers om te verifiëren met multi-factor authentication (MFA) of aanmelden vanaf een vertrouwd netwerk of het apparaat. Tijdens de implementatie plannen weten u dat sommige van deze vereisten niet wordt voldaan aan door alle gebruikers. Bijvoorbeeld, er zijn gebruikers die werken vanaf een externe locatie die geen deel uitmaakt van uw interne netwerk of er is een manager die gebruikmaakt van een oude telefoon die niet wordt ondersteund. Het bedrijf vereist dat deze gebruikers zich aanmelden en hun werkzaamheden mag daarom worden uitgesloten van het beleid voor voorwaardelijke toegang.
+Als IT-beheerder, kunt u [Azure AD voor voorwaardelijke toegang](../conditional-access/overview.md) om te vereisen dat gebruikers om te verifiëren met multi-factor authentication (MFA) of aanmelden vanaf een vertrouwd netwerk of het apparaat. Tijdens de implementatie plannen weten u dat sommige van deze vereisten niet wordt voldaan aan door alle gebruikers. Bijvoorbeeld, er zijn gebruikers die werken vanaf een externe locatie die geen deel uitmaakt van uw interne netwerk of er is een manager die gebruikmaakt van een oude telefoon die niet wordt ondersteund. Het bedrijf vereist dat deze gebruikers zich aanmelden en hun werkzaamheden mag daarom worden uitgesloten van het beleid voor voorwaardelijke toegang.
 
 Als een ander voorbeeld: u kunt [benoemde locaties](../conditional-access/location-condition.md) in voorwaardelijke toegang tot een set van regio's en regio's waaruit u niet wilt toestaan dat gebruikers toegang krijgen tot hun tenant configureren.
 

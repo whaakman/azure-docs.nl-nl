@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 06/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4dee0e994c9e7be9677a8f1051481850990998e9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074053"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Gegevens kopiëren van SAP-tabel met behulp van Azure Data Factory
 
@@ -29,7 +29,13 @@ U kunt gegevens uit SAP-tabel naar een ondersteunde sink-gegevensopslag kopiëre
 
 Deze tabel voor SAP-connector ondersteunt name:
 
-- Kopiëren van gegevens uit de SAP-tabel in **SAP Business Suite met versie 7.01 of hoger** (in een recente SAP ondersteuning voor pakket-Stack die zijn uitgebracht na het jaar 2015) of **S/4HANA**.
+- Kopiëren van gegevens uit SAP-tabel in:
+
+    - **SAP ECC** met versie 7.01 of hoger (in een recente SAP ondersteuning voor pakket-Stack die zijn uitgebracht na het jaar 2015)
+    - **SAP BW** met versie 7.01 of hoger
+    - **SAP S/4HANA**
+    - **Andere producten in SAP Business Suite** met versie 7.01 of hoger 
+
 - Kopiëren van gegevens uit zowel **SAP transparante tabel** en **weergave**.
 - Kopiëren van gegevens met **basisverificatie** of **SNC** (Secure Network Communications) als SNC is geconfigureerd.
 - Verbinding maken met **toepassingsserver** of **Message-Server**.
@@ -66,7 +72,7 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse Open Hu
 | systemNumber | Het systeemnummer van de SAP-systeem.<br/>Van toepassing als u verbinding maken wilt met **SAP-toepassingsserver**.<br/>Toegestane waarde: decimaal getal van twee cijfers weergegeven als een tekenreeks. | Nee |
 | messageServer | De hostnaam van de SAP-berichtenserver.<br/>Van toepassing als u verbinding maken wilt met **SAP-berichtenserver**. | Nee |
 | messageServerService | De servicenaam van de of de poort van de bericht-Server.<br/>Van toepassing als u verbinding maken wilt met **SAP-berichtenserver**. | Nee |
-| systeem-id | Systeem-id van de SAP-systeem waarin de tabel zich bevindt.<br/>Van toepassing als u verbinding maken wilt met **SAP-berichtenserver**. | Nee |
+| systemId | Systeem-id van de SAP-systeem waarin de tabel zich bevindt.<br/>Van toepassing als u verbinding maken wilt met **SAP-berichtenserver**. | Nee |
 | logonGroup | De groep van de aanmelding voor de SAP-systeem.<br/>Van toepassing als u verbinding maken wilt met **SAP-berichtenserver**. | Nee |
 | clientId | Client-ID van de client in de SAP-systeem.<br/>Toegestane waarde: decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
 | language | De taal die gebruikmaakt van de SAP-systeem. | Nee (standaardwaarde is **EN**)|
@@ -203,7 +209,7 @@ Om gegevens te kopiëren uit SAP-tabel, worden de volgende eigenschappen worden 
 | type                             | De eigenschap type moet worden ingesteld op **SapTableSource**.       | Ja      |
 | rowCount                         | Het aantal rijen moeten worden opgehaald.                              | Nee       |
 | rfcTableFields                   | Velden om te kopiëren uit de SAP-tabel. Bijvoorbeeld `column0, column1`. | Nee       |
-| rfcTableOptions                  | Opties voor het filteren van de rijen in de SAP-tabel. Bijvoorbeeld `COLUMN0 EQ 'SOMEVALUE'`. | Nee       |
+| rfcTableOptions                  | Opties voor het filteren van de rijen in de SAP-tabel. Bijvoorbeeld `COLUMN0 EQ 'SOMEVALUE'`. Zie meer beschrijving onder deze tabel. | Nee       |
 | customRfcReadTableFunctionModule | Aangepaste RFC functiemodule die kan worden gebruikt om gegevens te lezen uit SAP-tabel. | Nee       |
 | partitionOption                  | Het mechanisme voor partitie te lezen uit SAP-tabel. De ondersteunde opties zijn onder andere: <br/>- **Geen**<br/>- **PartitionOnInt** (normale geheel getal of gehele getallen met nul opvulling aan de linkerkant, zoals 0000012345)<br/>- **PartitionOnCalendarYear** (4 cijfers in de indeling "YYYY")<br/>- **PartitionOnCalendarMonth** (6 cijfers in de indeling "JJJJMM")<br/>- **PartitionOnCalendarDate** (8 cijfers in de indeling "JJJJMMDD") | Nee       |
 | partitionColumnName              | De naam van de kolom voor het partitioneren van de gegevens. | Nee       |
@@ -215,6 +221,18 @@ Om gegevens te kopiëren uit SAP-tabel, worden de volgende eigenschappen worden 
 >- Als uw SAP-tabel heeft een groot volume aan gegevens, zoals verschillende miljarden rijen, gebruikt u `partitionOption` en `partitionSetting` als u wilt de gegevens splitsen in kleine partities, in welk geval gegevens worden gelezen door partities en elke partitie wordt opgehaald uit uw SAP-server via één RFC-aanroep.<br/>
 >- Duurt `partitionOption` als `partitionOnInt` bijvoorbeeld het aantal rijen in elke partitie wordt berekend door (totaal aantal rijen die zich tussen *partitionUpperBound* en *partitionLowerBound*) /*maxPartitionsNumber*.<br/>
 >- Als u wilt om meer partities parallel te versnellen kopiëren uit te voeren, het is raadzaam om `maxPartitionsNumber` als een veelvoud zijn van de waarde van `parallelCopies` (meer informatie uit [parallelle kopie](copy-activity-performance.md#parallel-copy)).
+
+In `rfcTableOptions`, kunt u bijvoorbeeld de volgende algemene SAP standaardoperators voor query's voor het filteren van de rijen: 
+
+| Operator | Description |
+| :------- | :------- |
+| EQ | Gelijk aan |
+| NE | Niet gelijk aan |
+| LT | Kleiner dan |
+| LE | Kleiner dan of gelijk aan |
+| GT | Groter dan |
+| GE | Groter dan of gelijk aan |
+| NET ALS | Als in, zoals 'Emma %' |
 
 **Voorbeeld:**
 

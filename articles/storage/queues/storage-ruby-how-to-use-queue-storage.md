@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 30a090aeb2d66c732e70a9acce67d5f3374c32fa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153151"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Queue Storage gebruiken met Ruby
@@ -98,8 +98,8 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit wachtrij verwijderen
 U kunt een bericht verwijderen uit een wachtrij in twee stappen.
 
-1. Als u aanroept **lijst\_messages()**, krijgt u het volgende bericht in een wachtrij standaard. U kunt ook opgeven hoeveel berichten die u wilt ophalen. De berichten geretourneerd door **lijst\_messages()** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. U doorgeven de time-out voor zichtbaarheid in een paar seconden als een parameter.
-2. Voor het voltooien van het bericht uit de wachtrij verwijderen, moet u ook aanroepen **delete_message()**.
+1. Als u aanroept **lijst\_messages()** , krijgt u het volgende bericht in een wachtrij standaard. U kunt ook opgeven hoeveel berichten die u wilt ophalen. De berichten geretourneerd door **lijst\_messages()** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. U doorgeven de time-out voor zichtbaarheid in een paar seconden als een parameter.
+2. Voor het voltooien van het bericht uit de wachtrij verwijderen, moet u ook aanroepen **delete_message()** .
 
 Dit proces in twee stappen van het verwijderen van een bericht zorgt ervoor dat wanneer uw code niet kan verwerken van een bericht vanwege fout bij de hardware of software, een ander exemplaar van uw code kunt hetzelfde bericht en probeer het opnieuw. Uw code roept **verwijderen\_message()** direct nadat het bericht is verwerkt.
 

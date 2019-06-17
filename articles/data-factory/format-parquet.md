@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65144884"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-indeling in Azure Data Factory
@@ -29,7 +29,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 | Eigenschap         | Description                                                  | Vereist |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | De eigenschap type van de gegevensset moet worden ingesteld op **Parquet**. | Ja      |
-| location         | De instellingen van de locatie van de bestanden. Elke connector op basis van het bestand heeft een eigen locatietype en eigenschappen onder ondersteund `location`. **Zie voor meer informatie artikel connector eigenschappengedeelte van gegevensset ->**. | Ja      |
+| location         | De instellingen van de locatie van de bestanden. Elke connector op basis van het bestand heeft een eigen locatietype en eigenschappen onder ondersteund `location`. **Zie voor meer informatie artikel connector eigenschappengedeelte van gegevensset ->** . | Ja      |
 | compressionCodec | De compressiecodec te gebruiken bij het schrijven naar een Parquet-bestanden. Bij het lezen van Parquet-bestanden, wordt de compressiecodec op basis van metagegevens van het bestand automatisch bepalen door Data Factory.<br>Ondersteunde typen zijn '**geen**","**gzip**","**snappy**' (standaard), en "**lzo**'. Let op dat moment Copy activity biedt geen ondersteuning voor LZO. | Nee       |
 
 > [!NOTE]
@@ -70,7 +70,7 @@ De volgende eigenschappen worden ondersteund in de kopieeractiviteit ***\*bron\*
 | Eigenschap      | Description                                                  | Vereist |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **ParquetSource**. | Ja      |
-| storeSettings | Een groep met eigenschappen voor het lezen van gegevens uit een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde lezen instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->**. | Nee       |
+| storeSettings | Een groep met eigenschappen voor het lezen van gegevens uit een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde lezen instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->** . | Nee       |
 
 ### <a name="parquet-as-sink"></a>Parquet als sink
 
@@ -79,7 +79,7 @@ De volgende eigenschappen worden ondersteund in de kopieeractiviteit ***\*sink\*
 | Eigenschap      | Description                                                  | Vereist |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **ParquetSink**. | Ja      |
-| storeSettings | Een groep met eigenschappen voor het schrijven van gegevens naar een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde schrijven-instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->**. | Nee       |
+| storeSettings | Een groep met eigenschappen voor het schrijven van gegevens naar een gegevensarchief. Elke connector op basis van het bestand heeft een eigen ondersteunde schrijven-instellingen onder `storeSettings`. **Zie voor meer informatie artikel connector sectie met eigenschappen activiteit kopiëren ->** . | Nee       |
 
 ## <a name="mapping-data-flow-properties"></a>Eigenschappen van fouttoewijzing gegevensstroom
 

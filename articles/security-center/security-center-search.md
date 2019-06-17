@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574154"
 ---
 # <a name="azure-security-center-search"></a>Zoeken in Azure Security Center
+
+> [!NOTE]
+> Search-dashboard van Security Center wordt beëindigd op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_search).
+
 Azure Security Center maakt gebruik van [Azure Monitor-logboeken zoeken](../log-analytics/log-analytics-log-searches.md) ophalen en uw beveiligingsgegevens te analyseren. Logboeken in Azure Monitor omvat een querytaal snel ophalen en samenvoegen van gegevens. Vanuit Security Center, kunt u gebruikmaken van Azure Monitor logboeken zoeken voor het samenstellen van query's en verzamelde gegevens te analyseren.
 
 Search is beschikbaar in de gratis laag en de prijscategorie Standard van Security Center.  De gegevens beschikbaar zijn in uw zoekopdrachten is afhankelijk van het niveau van de laag toegepast op uw werkruimte.  Zie het Security Center [pagina met prijzen](../security-center/security-center-pricing.md) voor meer informatie.
@@ -39,13 +43,13 @@ Search is beschikbaar in de gratis laag en de prijscategorie Standard van Securi
 
 2. Security Center geeft een lijst van alle werkruimten onder uw Azure-abonnementen. Selecteer een werkruimte. (Als u slechts één werkruimte hebt, deze werkruimteselector niet weergegeven.)
 
-   ![Een werkruimte selecteren][2]
+   ![Selecteer een werkruimte][2]
 
 3. **Zoeken in logboeken** wordt geopend. Voer om te vragen voor meer gegevens onder de geselecteerde werkruimte, in dit voorbeeld van een query:
 
    SecurityEvent | wanneer gebeurtenis-id == 4625 | count() by TargetAccount samenvatten
 
-   Resultaat bevat alle accounts die niet zijn geslaagd om aan te melden (gebeurtenis 4625).
+   Resultaat bevat alle accounts die kunnen niet aanmelden (gebeurtenis 4625).
 
    ![Zoekresultaten][3]
 

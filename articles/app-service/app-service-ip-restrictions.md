@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069437"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Beperkingen voor Azure App Service-toegang #
 
@@ -48,27 +48,27 @@ U kunt vanuit de gebruikersinterface van de beperkingen voor toegang tot de lijs
 
 Deze lijst wordt aangegeven dat alle van de huidige beperkingen die zich op uw app. Als u een VNet-beperking op uw app hebt, ziet u de tabel of service-eindpunten zijn ingeschakeld voor Microsoft.Web. Als er geen gedefinieerde beperkingen met betrekking tot uw app, wordt uw app vanaf elke locatie toegankelijk zijn.  
 
+## <a name="adding-ip-address-rules"></a>IP-adresregels toe te voegen
+
 U kunt klikken op **[+] toevoegen** om toe te voegen een nieuwe regel voor de beperking van toegang. Als u een regel toevoegt, wordt deze zijn onmiddellijk van kracht. Regels worden afgedwongen in volgorde van prioriteit begonnen met het laagste getal en neemt. Er is een impliciete weigeren die van kracht nadat u zelfs een enkele regel toegevoegd.
-
-### <a name="adding-ip-address-rules"></a>IP-adresregels toe te voegen
-
-![een regel van de beperkingen van de IP-toegang toevoegen](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 Wanneer u een regel maakt, moet u toestaan/weigeren en ook op het type regel selecteren. U zijn ook vereist voor de prioriteitswaarde en wat u bent beperkt de toegang tot.  U kunt desgewenst een naam en beschrijving toevoegen aan de regel.  
 
+![een regel van de beperkingen van de IP-toegang toevoegen](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
+
 Om in te stellen van een IP-adres op basis van de regel, selecteer een type IPv4 of IPv6. Notatie van de IP-adres moet worden opgegeven in CIDR-notatie voor zowel IPv4 als IPv6-adressen. Als u wilt een exact adres opgeeft, kunt u er ongeveer als 1.2.3.4/32 waarin de eerste vier octetten vertegenwoordigen uw IP-adres en /32 is het masker. De IPv4-CIDR-notatie voor alle adressen is 0.0.0.0/0. Voor meer informatie over de CIDR-notatie, kunt u lezen [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
-### <a name="service-endpoints"></a>Service-eindpunten
+## <a name="service-endpoints"></a>Service-eindpunten
+
+Service-eindpunten kunt u toegang tot geselecteerde Azure-netwerksubnetten te beperken. Om toegang te beperken voor een specifiek subnet, maakt u een regel voor het beperkingen met een type van het Virtueelnetwerk. U kunt het abonnement, VNet en subnet dat u wilt toestaan of weigeren van toegang met kiezen. Als service-eindpunten zijn nog niet ingeschakeld met Microsoft.Web voor het subnet dat u hebt geselecteerd, wordt deze automatisch ingeschakeld voor u, tenzij u het selectievakje gevraagd niet om dat te doen. De situatie waarin u wilt inschakelen op de app, maar niet het subnet is grotendeels met betrekking tot hebt u de machtigingen voor het inschakelen van service-eindpunten op het subnet of niet. Als u nodig hebt om op te halen van iemand anders om in te schakelen van service-eindpunten op het subnet, kunt u het selectievakje en uw App geconfigureerd voor service-eindpunten in afwachting van het later opnieuw wordt ingeschakeld op het subnet. 
 
 ![een VNet-regel voor toegang tot beperkingen toevoegen](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
-
-Als u wilt toegang beperken tot de geselecteerde subnetten, selecteer een type van het Virtueelnetwerk. Daaronder kunt u zich om op te halen van het abonnement, VNet en subnet dat u wilt toestaan of weigeren van toegang met. Als service-eindpunten zijn nog niet ingeschakeld met Microsoft.Web voor het subnet dat u hebt geselecteerd, wordt deze automatisch ingeschakeld voor u, tenzij u het selectievakje gevraagd niet om dat te doen. De situatie waarin u wilt inschakelen op de app, maar niet het subnet is grotendeels met betrekking tot hebt u de machtigingen voor het inschakelen van service-eindpunten op het subnet of niet. Als u nodig hebt om op te halen van iemand anders om in te schakelen van service-eindpunten op het subnet, kunt u het selectievakje en uw App geconfigureerd voor service-eindpunten in afwachting van het later opnieuw wordt ingeschakeld op het subnet. 
 
 Service-eindpunten kunnen niet worden gebruikt om toegang te beperken tot apps die worden uitgevoerd in een App Service Environment. Wanneer uw app zich in een App Service-omgeving, kunt u toegang tot uw app met IP-toegangsregels beheren. 
 
 Service-eindpunten kunt u uw app met Application Gateways of andere apparaten WAF configureren. U kunt ook toepassingen met meerdere lagen met veilige back-ends. Lees voor meer informatie over enkele van de mogelijkheden [netwerkfuncties en App Service](networking-features.md).
 
-### <a name="managing-access-restriction-rules"></a>Regels voor beperking van toegang beheren
+## <a name="managing-access-restriction-rules"></a>Regels voor beperking van toegang beheren
 
 U kunt klikken op een rij te bewerken van een bestaande regel voor de beperking van toegang. Bewerkingen zijn van kracht inclusief direct wijzigingen in volgorde van prioriteit.
 
@@ -82,7 +82,7 @@ Als u wilt een regel hebt verwijderd, klikt u op de **...**  op de regel en klik
 
 ![regel voor beperking van toegang verwijderen](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="blocking-a-single-ip-address"></a>Blokkering van één IP-adres ##
+## <a name="blocking-a-single-ip-address"></a>Blokkering van één IP-adres ##
 
 Bij het toevoegen van de eerste regel van de IP-beperking, de service wordt toegevoegd een expliciete **Alles weigeren** regel met een prioriteit van 2147483647. In de praktijk, de expliciete **Alles weigeren** regel worden de laatste regel uitgevoerd en blokkeert de toegang tot elk IP-adres dat niet expliciet is toegestaan met behulp van een **toestaan** regel.
 
@@ -90,7 +90,7 @@ Voor het scenario waar gebruikers wilt blokkeren expliciet een enkel IP-adres of
 
 ![blok één ip-adres](media/app-service-ip-restrictions/block-single-address.png)
 
-### <a name="scm-site"></a>SCM-site 
+## <a name="scm-site"></a>SCM-site 
 
 Naast het beheren van toegang tot uw app, kunt u ook toegang tot de scm-site die worden gebruikt door uw app beperken. De scm-site is de web-eindpunt en ook de Kudu-console implementeren. U kunt afzonderlijk toegangsbeperkingen toewijst aan de scm-site uit de app of gebruik dezelfde set voor zowel de app en de scm-site. Wanneer u het selectievakje hebben de dezelfde beperkingen als uw app, wordt alles meetfout uit. Als u het selectievakje uitschakelt, worden de instellingen die u eerder had op de scm-site worden toegepast. 
 

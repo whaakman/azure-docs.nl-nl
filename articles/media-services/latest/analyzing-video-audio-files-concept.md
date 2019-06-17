@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689377"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
@@ -65,7 +65,7 @@ De uitvoer bevat een JSON-bestand (insights.json) met de inzichten die zijn gevo
 |Name|Description|
 |---|---|
 |id|De regel-ID.|
-|tekst|Het transcript zelf.|
+|text|Het transcript zelf.|
 |language|De transcript-taal. Bedoeld ter ondersteuning van transcript waarbij elke regel een andere taal kan hebben.|
 |instanties|Een lijst met bereiken van tijd waarop deze regel wordt weergegeven. Als de instantie transcript is, is er slechts 1 exemplaar.|
 
@@ -103,7 +103,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|De OCR-regel-ID.|
-|tekst|De tekst.|
+|text|De tekst.|
 |vertrouwen|De opname-vertrouwen.|
 |language|De OCR-taal.|
 |instanties|Een lijst met tijdsbereik waar deze OCR weergegeven (de dezelfde OCR kan meerdere keren voorkomen).|
@@ -146,7 +146,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|De face-ID.|
-|naam|De naam van pictogramtitel. 'Onbekende #0', een geïdentificeerde beroemdheden of een persoon met de klant kan zijn.|
+|name|De naam van pictogramtitel. 'Onbekende #0', een geïdentificeerde beroemdheden of een persoon met de klant kan zijn.|
 |vertrouwen|De face id vertrouwen.|
 |description|Een beschrijving van de beroemdheden. |
 |thumbnailId|De ID van de miniatuur van die gezicht.|
@@ -254,7 +254,7 @@ Voorbeeld:
 |SpeakerTalkToListenRatio|De berekening is gebaseerd op de tijd die op van de spreker monolog (zonder de stilte in tussen) gedeeld door de totale tijd van de video. De tijd wordt afgerond op de derde decimaalteken.|
 
 
-### <a name="sentiments"></a>stemmingen
+### <a name="sentiments"></a>sentimenten
 
 Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/negatieve). Bijvoorbeeld, 0-0.1, 0.1 0.2.
 
@@ -296,7 +296,7 @@ Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/
 |Name|Description|
 |---|---|
 |id|De label-ID.|
-|naam|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
+|name|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
 |language|De taal met de label-naam (wanneer het wordt omgezet). BCP-47|
 |instanties|Een lijst met tijdsbereik waar dit label wordt weergegeven (een label kan meerdere keren voorkomen). Elk exemplaar heeft een veld vertrouwen. |
 
@@ -355,7 +355,7 @@ Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/
 |Name|Description|
 |---|---|
 |id|Het sleutelwoord-ID.|
-|tekst|De tekst trefwoord.|
+|text|De tekst trefwoord.|
 |vertrouwen|Van het sleutelwoord erkenning vertrouwen.|
 |language|Het sleutelwoord-taal (wanneer het wordt omgezet).|
 |instanties|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|

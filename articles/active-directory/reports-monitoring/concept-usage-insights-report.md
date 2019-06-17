@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806354"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Gebruik en inzichten rapport in de Azure Active Directory-portal
@@ -45,7 +45,7 @@ Voor toegang tot de gegevens uit het rapport gebruiks- en inzichten, hebt u het 
 2. Selecteer de juiste map en selecteer vervolgens **Azure Active Directory** en kies **bedrijfstoepassingen**.
 3. Uit de **activiteit** sectie, selecteer **gebruik & insights** om het rapport te openen. 
 
-![Gebruik en de Insights-rapport](./media/concept-usage-insights-report/main-menu.png)
+![Rapport over gebruik en inzichten weergeven](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Het rapport gebruiken
@@ -58,7 +58,7 @@ U kunt ook de focus instellen op een specifieke toepassing. Selecteer **aanmeldi
 
 Als u een dag in de grafiek voor het gebruik van toepassing selecteert, krijgt u een gedetailleerd overzicht van de aanmeldingsactiviteiten voor de toepassing.  
 
-![Gebruik en de Insights-rapport](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Rapport over gebruik en inzichten weergeven](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

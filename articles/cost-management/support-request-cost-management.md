@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: ''
 ms.openlocfilehash: 2553d08b55aff45e52b9d8c5a64db141a668eb62
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967111"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Maak een ondersteuningsaanvraag voor Cloudyn
@@ -34,7 +34,7 @@ Als u de informatie die u zoekt niet vinden, kunt u een ondersteuningsaanvraag o
 9. In **probleemtype** Selecteer **Cloudyn Legacy**, en selecteer vervolgens een **categorie**.
 10. In de **titel** voert u een titel waarmee uw aanvraag wordt beschreven.
 11. In de **Details** vak, typ extra informatie.
-12. Voor **wanneer is het probleem begonnen?**, selecteert u een bij benadering de datum en tijd voor en klik vervolgens op **volgende**.  
+12. Voor **wanneer is het probleem begonnen?** , selecteert u een bij benadering de datum en tijd voor en klik vervolgens op **volgende**.  
 14. In de **contactgegevens** gebied, selecteer de gewenste Neem contact op met de methode en geef uw contactgegevens, en klik vervolgens op **maken**.  
 
 Wanneer de ondersteuningsticket is gemaakt, wordt deze toegevoegd aan de Ondersteuningswachtrij voor. Reactietijd varieert, afhankelijk van het ondersteuningsplan en de ernst (impact op bedrijf) van het probleem. Zie voor meer informatie, [ondersteuningsreikwijdte en reactiesnelheid](https://azure.microsoft.com/support/plans/response/).

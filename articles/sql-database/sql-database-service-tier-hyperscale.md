@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 0fe098bd644762fb291eb623a7b41cd987c7fa26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070130"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Zeer grootschalige servicelaag voor maximaal 100 TB
 
 Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
 - Algemeen doel/Standard 
--  Grootschalig
+-  Hyperscale
 -  Business Critical/Premium
 
 De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier in het op vCore gebaseerde aankoopmodel. Deze servicelaag is een zeer schaalbare opslag en compute-prestatielaag die gebruikmaakt van de Azure-architectuur om te schalen om de opslag en rekenresources voor een Azure SQL-Database aanzienlijk buiten de grenzen beschikbaar voor de algemeen gebruik en het bedrijf Kritieke Servicelagen.
@@ -111,7 +111,7 @@ Met de mogelijkheid om snel automatisch instellen/uitschakelen als u meer alleen
 
 Een grote database kan worden gemaakt met de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Zeer grootschalige databases zijn alleen beschikbaar is met de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
-De volgende T-SQL-opdracht maakt een grootschalige-database. Moet u de editie en de service-doel in de `CREATE DATABASE` instructie.
+De volgende T-SQL-opdracht maakt een grootschalige-database. Moet u de editie en de service-doel in de `CREATE DATABASE` instructie. Raadpleeg de [resourcelimieten](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) voor een lijst van geldige service doelstellingen.
 
 ```sql
 -- Create a HyperScale Database
@@ -146,8 +146,8 @@ Als u een grootschalige Azure SQL Database-database herstellen naar een andere r
 1. Als u nog geen een geschikte server bevat, moet u een SQL-Database-server maken in de doelregio.  Deze server moet eigendom zijn van hetzelfde abonnement als de oorspronkelijke (bron)-server.
 2. Volg de instructies in de [geo-herstel](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) onderwerp van de pagina op het herstellen van Azure SQL-Databases van automatische back-ups.
 
-#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>Opmerkingen bij de geo-herstellen van een grootschalige-database
-Omdat de bron- en zich in verschillende regio's, delen niet de database opslag voor momentopnamen met de brondatabase zoals in niet-geo-herstellen extreem snel kunnen worden uitgevoerd.  In het geval van een geo-herstel van een grote database is dit een bewerking met de grootte van gegevens, zelfs als het doel in de gekoppelde regio van de opslag met geo-replicatie.  Dit betekent dat dat doen van een geo-herstel duurt lang in verhouding met de grootte van de database die wordt hersteld.  Als het doel in de gekoppelde regio, wordt de kopie zich in een datacenter, is aanzienlijk sneller dan een interlokale kopie via het internet, maar deze nog steeds kopieert u alle bits.
+> [!NOTE]
+> Omdat de bron- en zich in verschillende regio's, delen niet de database opslag voor momentopnamen met de brondatabase zoals in niet-geo-herstellen extreem snel kunnen worden uitgevoerd.  In het geval van een geo-herstel van een grote database is dit een bewerking met de grootte van gegevens, zelfs als het doel in de gekoppelde regio van de opslag met geo-replicatie.  Dit betekent dat dat doen van een geo-herstel duurt lang in verhouding met de grootte van de database die wordt hersteld.  Als het doel in de gekoppelde regio, wordt de kopie zich in een datacenter, is aanzienlijk sneller dan een interlokale kopie via het internet, maar deze nog steeds kopieert u alle bits.
 
 ## <a name=regions></a>Beschikbare regio 's
 
@@ -166,15 +166,15 @@ De Azure SQL Database grootschalige-laag is momenteel beschikbaar in de volgende
 - Frankrijk - centraal
 - Japan - oost
 - Japan - west
-- Korea Centraal
+- Korea - centraal
 - Korea - zuid
 - US - noord-centraal
 - Europa - noord
-- Zuid-Afrika - noord
+- Zuid-Afrika (noord)
 - US - zuid-centraal
 - Azië - zuidoost
 - Verenigd Koninkrijk Zuid
-- VK West
+- Verenigd Koninkrijk West
 - Europa -west
 - US - west
 - US - west 2
@@ -199,7 +199,7 @@ Om aan te vragen de mogelijkheid om te maken van zeer grootschalige databases in
 
 1. Klik op **vindt u informatie**
 
-    ![Probleemdetails](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Details van probleem](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
 
 8. Kies **SQL-Database quotumtype**: **Andere quotumaanvraag**
 
@@ -225,8 +225,8 @@ Dit zijn de huidige beperkingen aan de servicelaag grootschalige vanaf algemene 
 
 | Probleem | Description |
 | :---- | :--------- |
-| Het deelvenster back-ups beheren voor een logische server wordt niet weergegeven voor het zeer grootschalige databases worden gefilterd vanuit SQL server ->  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
-| Terugzetten naar eerder tijdstip | Zodra een database wordt gemigreerd naar de servicelaag van grootschalige, wordt herstel naar een punt-in-tIme vóór de migratie wordt niet ondersteund.|
+| Het deelvenster back-ups beheren voor een logische server wordt niet weergegeven voor het zeer grootschalige databases van SQL server worden gefilterd  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
+| Terugzetten naar eerder tijdstip | Zodra een database wordt gemigreerd naar de servicelaag van grootschalige, wordt herstel naar een punt-in-time vóór de migratie wordt niet ondersteund.|
 | Herstellen van niet - flexibele DB Hypserscale en vice versa | U kunt een grootschalige-database niet terugzetten in een niet-flexibele-database, noch kunt u een niet-flexibele-database herstellen in een grootschalige-database.|
 | Als een databasebestand tijdens de migratie vanwege een actieve werkbelasting toeneemt en de 1 TB per bestand grens snijdt, mislukt de migratie | Oplossingen: <br> -Migreren van de database indien mogelijk, als er geen update-workload uitgevoerd.<br> -Probeer opnieuw de migratie, het slaagt, zolang de grens van 1 TB niet tijdens de migratie is overschreden.|
 | Beheerd exemplaar | Azure SQL Database Managed Instance is momenteel niet ondersteund met grootschalige databases. |

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8e9e5b96eaf5a25661af721950029a670d0df5f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063247"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Lokaal fouten opsporen in PowerShell Azure Functions
 
@@ -99,7 +99,7 @@ Als u wilt fouten opsporen in uw PowerShell-functies in Visual Studio Code, hebt
 
 * [PowerShell-extensie voor Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md) (Azure Functions-extensie voor Visual Studio Code)
-* [PowerShell Core 6.2 of hoger](/powershell/scripting/install/installing-powershell#powershell-core)
+* [PowerShell Core 6.2 of hoger](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 Na de installatie van deze afhankelijkheden laden van een bestaande PowerShell-Functions-project, of [uw eerste PowerShell-Functions-project maakt](functions-create-first-function-powershell.md).
 

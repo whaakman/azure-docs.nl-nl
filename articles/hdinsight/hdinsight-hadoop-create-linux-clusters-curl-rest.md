@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059412"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Apache Hadoop-clusters met behulp van de Azure REST API maken
 
@@ -22,9 +22,6 @@ ms.locfileid: "64707352"
 Informatie over het maken van een HDInsight-cluster met behulp van een Azure Resource Manager-sjabloon en de Azure REST API.
 
 De Azure REST API kunt u beheerbewerkingen op services die worden gehost in de Azure-platform, met inbegrip van het maken van nieuwe resources zoals HDInsight-clusters.
-
-> [!IMPORTANT]  
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 > [!NOTE]  
 > De stappen in dit document gebruiken de [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) hulpprogramma om te communiceren met de Azure REST API.
@@ -215,7 +212,7 @@ In dit voorbeeld wordt gebruikt in de stappen in dit document. Vervang het voorb
 >
 > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
 
-## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
+## <a name="sign-in-to-your-azure-subscription"></a>Meld u aan bij uw Azure-abonnement
 
 Volg de stappen beschreven in [aan de slag met Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) en maak verbinding met uw abonnement met de `az login` opdracht.
 

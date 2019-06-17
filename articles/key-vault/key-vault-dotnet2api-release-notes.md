@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: f9dd8a48da08f00cea1219f72940dd84dd3a97ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64725504"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Release-opmerkingen en Migratiehandleiding
@@ -60,11 +60,11 @@ Key Vault-certificaten beheren x509 certificaten en biedt ondersteuning voor het
 
 * *KeyVaultClientException* wordt gewijzigd naar *KeyVaultErrorException*
 * De servicefout gewijzigd van *uitzondering. Fout* naar *uitzondering. Body.Error.Message*.
-* Aanvullende informatie verwijderd uit het foutbericht voor **[JsonExtensionData]**.
+* Aanvullende informatie verwijderd uit het foutbericht voor **[JsonExtensionData]** .
 
 ## <a name="constructors"></a>Constructors
 
-* In plaats van het accepteren van een *HttpClient* als een constructorargument accepteert de constructor alleen *HttpClientHandler* of *DelegatingHandler []*.
+* In plaats van het accepteren van een *HttpClient* als een constructorargument accepteert de constructor alleen *HttpClientHandler* of *DelegatingHandler []* .
 
 ## <a name="downloaded-packages"></a>Gedownloade pakketten
 

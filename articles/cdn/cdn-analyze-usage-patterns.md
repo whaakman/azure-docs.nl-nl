@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606390"
 ---
 # <a name="core-reports-from-verizon"></a>Kernrapporten
@@ -29,7 +29,7 @@ U kunt met behulp van Verizon Core rapporten via de portal beheren voor Verizon-
 
 * Bandbreedte
 * Overdracht van gegevens
-* Treffers
+* Aantal treffers
 * Statusbepaling van de cache
 * Aantal cachetreffers
 * IPv4/IPV6 gegevens die worden overgedragen

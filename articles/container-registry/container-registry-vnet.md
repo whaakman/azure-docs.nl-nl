@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867381"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067973"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Toegang beperken tot een Azure container registry met behulp van een Azure-netwerk of firewall-regels
 
@@ -216,7 +216,7 @@ Blijven [toegang tot het register controleren](#verify-access-to-the-registry).
 
 ## <a name="allow-access-from-an-ip-address"></a>Zodat toegang vanaf een IP-adres
 
-In deze sectie configureert u het containerregister zodat toegang vanaf een subnet in een Azure-netwerk. Equivalent met behulp van de Azure CLI en Azure portal vindt u stappen.
+In deze sectie configureert u het containerregister voor toegang van een specifiek IP-adres of adresbereik. Equivalent met behulp van de Azure CLI en Azure portal vindt u stappen.
 
 ### <a name="allow-access-from-an-ip-address---cli"></a>Zodat toegang vanaf een IP-adres - CLI
 

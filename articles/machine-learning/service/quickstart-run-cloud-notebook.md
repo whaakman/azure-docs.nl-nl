@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f47735a6e41ae14cb439e10803b82c0dbd3e64d7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015274"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115019"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken
 
@@ -84,10 +84,12 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
 1. Selecteer **01.run experiment.ipynb** om het notebook te openen.
 
+1. Als u een waarschuwing 'Kernel niet gevonden' ziet, selecteert u de kernel **Python 3.6 - AzureML** (ongeveer halverwege om in de lijst) en stel de kernel.
+
 1. Klik in de eerste codecel en selecteer **uitvoeren**.
 
     > [!NOTE]
-    > Code cellen hebben vierkante haken voordat ze. Als de vierkante haken leeg zijn (__[]__), de code niet is uitgevoerd. Terwijl de code wordt uitgevoerd, ziet u een sterretje (__[*]__). Nadat de code is voltooid, wordt een getal **[1]** wordt weergegeven.  Het aantal ziet u de volgorde waarin de cellen is uitgevoerd.
+    > Code cellen hebben vierkante haken voordat ze. Als de vierkante haken leeg zijn ( __[]__ ), de code niet is uitgevoerd. Terwijl de code wordt uitgevoerd, ziet u een sterretje ( __[*]__ ). Nadat de code is voltooid, wordt een getal **[1]** wordt weergegeven.  Het aantal ziet u de volgorde waarin de cellen is uitgevoerd.
     >
     > Gebruik **Shift + Enter** als een snelkoppeling naar een cel worden uitgevoerd.
 
@@ -95,7 +97,7 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
 1. De tweede codecel uitvoert. Als er instructies om te verifiëren, kopieert u de code en volg de koppeling aan te melden. Als u zich aanmeldt, wordt deze instelling in uw browser onthouden.  
 
-    ![Authenticeren](media/quickstart-run-cloud-notebook/authenticate.png)
+    ![Verifiëren](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. Wanneer u klaar bent, het aantal cellen __[2]__ wordt weergegeven.  Als u zich aanmeldt, ziet u een statusbericht verificatie is geslaagd.   Als u niet aanmelden, geen uitvoer voor deze cel niet zichtbaar is voor u, alleen het nummer wordt weergegeven om weer te geven dat de cel is uitgevoerd.
 

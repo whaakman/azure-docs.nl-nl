@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: ec9f5aa8163ea9bb838b1a95ab8ad49233a72643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: a88842802759a5c3ae7af7334bbe125344c978ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392614"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066905"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -62,7 +62,7 @@ Het cluster met knooppunten voor het model van de beschikbaarheid van premium wo
 Omdat de zone-redundante databases replica's in verschillende datacenters met een onderlinge afstand hebben, kan de verhoogde netwerklatentie verhoogt de tijd die doorvoeren en dus van invloed zijn op de prestaties van sommige OLTP-workloads. U kunt altijd terugkeren naar de configuratie met één zone door de instelling van de redundantie zone uit te schakelen. Dit proces is een online bewerking die vergelijkbaar is met de reguliere service tier-upgrade. De database of pool aan het einde van het proces is gemigreerd vanuit een redundante ring zone naar een enkele zone-ring of vice versa.
 
 > [!IMPORTANT]
-> Zone-redundante databases en elastische pools zijn momenteel alleen ondersteund in de Servicelagen Premium en bedrijfskritiek. Standaard worden back-ups en audit records worden opgeslagen in de RA-GRS-opslag en daarom mogelijk niet automatisch beschikbaar in het geval van een storing in de hele zone. 
+> Zone-redundante databases en elastische pools zijn momenteel alleen ondersteund in de Servicelagen Premium en bedrijfskritiek in bepaalde regio's. Wanneer u de laag bedrijfskritiek, is zone-redundante configuratie alleen beschikbaar wanneer de hardware van de compute Gen5 is geselecteerd. Zie voor informatie over de regio's die ondersteuning bieden voor zone-redundante databases up-to-date [serviceondersteuning per regio](../availability-zones/az-overview.md#services-support-by-region).  
 
 De zone-redundante-versie van de architectuur voor hoge beschikbaarheid wordt aangegeven door het volgende diagram:
 

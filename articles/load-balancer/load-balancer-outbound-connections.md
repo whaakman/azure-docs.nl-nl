@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
 ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967734"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
@@ -40,7 +40,7 @@ Er zijn meerdere [scenario's voor uitgaande](#scenarios). U kunt deze scenario's
 
 Azure Load Balancer en verwante resources expliciet worden gedefinieerd als u [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure biedt momenteel drie verschillende methoden voor het bereiken van uitgaande connectiviteit voor Azure Resource Manager-resources. 
 
-| Voorraadeenheden | Scenario | Methode | IP-protocollen | Description |
+| SKU 's | Scenario | Methode | IP-protocollen | Description |
 | --- | --- | --- | --- | --- |
 | Standard, Basic | [1. VM met een Instance Level Public IP-adres (met of zonder Load Balancer)](#ilpip) | SNAT, poort zich niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen aan de IP-configuratie van het exemplaar van de NIC. Het exemplaar heeft alle kortstondige poorten die beschikbaar zijn. Wanneer u Standard Load Balancer gebruikt, moet u [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md) expliciet definiëren uitgaande connectiviteit |
 | Standard, Basic | [2. Een openbare Load Balancer die zijn gekoppeld aan een virtuele machine (geen Instance Level Public IP-adres op het exemplaar)](#lb) | SNAT met poort onechte (PAT) met behulp van de Load Balancer-front-ends | TCP, UDP |Azure deelt het openbare IP-adres van de openbare Load Balancer-front-ends met meerdere privé IP-adressen. Kortstondige poorten van de front-ends voor PAT maakt gebruik van Azure. |

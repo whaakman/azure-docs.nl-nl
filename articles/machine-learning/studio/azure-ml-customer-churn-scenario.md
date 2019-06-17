@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699446"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyseren traject van de klant met behulp van Azure Machine Learning Studio
@@ -188,7 +188,7 @@ De modellen die worden gehost in Machine Learning Studio presteerde SAS met 15-2
 In de branche telecommunicatie verschillende procedures voor het analyseren van verloop, is ontstaan met inbegrip van:  
 
 * Metrische gegevens voor vier fundamentele categorieën worden afgeleid:
-  * **Entiteit (bijvoorbeeld een abonnement)**. Algemene informatie over het abonnement en/of de klant die het onderwerp van het verloop inrichten.
+  * **Entiteit (bijvoorbeeld een abonnement)** . Algemene informatie over het abonnement en/of de klant die het onderwerp van het verloop inrichten.
   * **Activiteit**. Alle informatie over het gebruik mogelijk die is gerelateerd aan de entiteit, bijvoorbeeld het aantal aanmeldingen verkrijgen.
   * **Klantondersteuning**. Verzamelt gegevens uit logboeken van de klant ondersteuning om aan te geven of het abonnement problemen of interactie met de klantondersteuning heeft.
   * **Concurrerende en zakelijke gegevens**. Verkrijgen van mogelijk informatie over de klant (bijvoorbeeld kunnen zijn niet beschikbaar of moeilijk zijn om bij te houden).

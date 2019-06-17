@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3ae6966ed3fa8ee57e0ac85fe34866dcbde0fb9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077254"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-copy-activity-performance.md)
 > * [Huidige versie](copy-activity-performance.md)
 
@@ -306,7 +306,7 @@ Zorg ervoor dat het onderliggende gegevensarchief niet wordt overbelast door and
 
 Raadpleeg voor Microsoft-gegevensarchieven, [bewaking en afstemming van onderwerpen](#performance-reference) die specifiek zijn voor gegevensopslag. Deze onderwerpen vindt u informatie over data store prestatiekenmerken en hoe u responstijden te minimaliseren en doorvoer te maximaliseren.
 
-* Als u gegevens kopieert **van Blob storage naar SQL Data Warehouse**, kunt u overwegen **PolyBase** om prestaties te verbeteren. Zie [gebruik PolyBase om gegevens te laden in Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) voor meer informatie.
+* Als u gegevens kopieert **opslaan van gegevens naar Azure SQL Data Warehouse**, kunt u overwegen **PolyBase** om prestaties te verbeteren. Zie [gebruik PolyBase om gegevens te laden in Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) voor meer informatie.
 * Als u gegevens kopieert **van HDFS naar Azure Blob/Azure Data Lake Store**, kunt u overwegen **DistCp** om prestaties te verbeteren. Zie [DistCp gebruiken om te kopiëren van gegevens uit HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs) voor meer informatie.
 * Als u gegevens kopieert **van Redshift naar Azure SQL Data Warehouse/Azure BLob/Azure Data Lake Store**, kunt u overwegen **UNLOAD** om prestaties te verbeteren. Zie [gebruik laden ongedaan maken om gegevens te kopiëren van Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) voor meer informatie.
 
@@ -317,10 +317,8 @@ Raadpleeg voor Microsoft-gegevensarchieven, [bewaking en afstemming van onderwer
 
 ### <a name="relational-data-stores"></a>Op opgeslagen relationele gegevens
 
-* **Kopieer gedrag**: Afhankelijk van de eigenschappen die u hebt ingesteld voor **sqlSink**, Kopieeractiviteit schrijft gegevens naar de doeldatabase op verschillende manieren.
-  * Standaard voegt de data movement service wordt gebruikt de bulksgewijs kopiëren-API om gegevens in te voegen modus, waarbij de beste prestaties biedt.
-  * Als u een opgeslagen procedure in de sink is geconfigureerd, is de database de één rij met gegevens van toepassing op een tijdstip in plaats van als bulksgewijs laden. Prestaties aanzienlijk wordt geweigerd. Als uw gegevensset is groot, indien van toepassing is, overweeg over te schakelen voor het gebruik van de **preCopyScript** eigenschap.
-  * Als u configureert de **preCopyScript** eigenschap voor elke activiteit kopiëren uitvoeren, het script door de service wordt geactiveerd en u de bulksgewijs kopiëren-API gebruiken voor het invoegen van de gegevens. Bijvoorbeeld, als u wilt overschrijven de hele tabel met de meest recente gegevens, kunt u een script voor het eerst alle records verwijderen voordat u de nieuwe gegevens uit de bron voor bulksgewijs laden.
+* **Kopieer de gevolgen voor de werking en prestaties**: Er zijn verschillende manieren voor het schrijven van gegevens in SQL-sink, leer van [Best practice om gegevens te laden in Azure SQL Database](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
+
 * **Patroon en batch gegevensgrootte**:
   * Uw tabelschema is van invloed op de doorvoer van de kopie. Als u wilt kopiëren van de dezelfde hoeveelheid gegevens, biedt een grote rijgrootte betere prestaties dan een kleine rijgrootte omdat de database kan efficiënter minder batches van de gegevens worden doorgevoerd.
   * Kopieeractiviteit voegt de gegevens in een reeks van batches. U kunt het aantal rijen in een batch instellen met behulp van de **writeBatchSize** eigenschap. Als uw gegevens klein rijen is, kunt u instellen de **writeBatchSize** eigenschap met een hogere waarde om te profiteren van lagere batch overhead en hogere doorvoer. Als de rijgrootte van uw gegevens te groot is, Wees voorzichtig wanneer u verhogen **writeBatchSize**. Een hoge waarde kan leiden tot een mislukte kopieerbewerking veroorzaakt door overbelasting van de database.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64681286"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit voor Windows Server
 Voor klanten met Software Assurance kunt Azure Hybrid Benefit voor Windows Server u uw on-premises Windows Server-licenties en het uitvoeren van Windows virtuele machines op Azure tegen lagere kosten. U kunt Azure Hybrid Benefit voor Windows Server gebruiken voor het implementeren van nieuwe virtuele machines met Windows-besturingssysteem. In dit artikel gaat over de stappen voor het implementeren van nieuwe virtuele machines met Azure Hybrid Benefit voor Windows Server en hoe u kunt bijwerken bestaande virtuele machines uitvoeren. Zie voor meer informatie over Azure Hybrid Benefit voor Windows Server licentie- en kosten besparen, de [Azure Hybrid Benefit voor Windows Server-licenties pagina](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -36,7 +36,7 @@ Voor klanten met Software Assurance kunt Azure Hybrid Benefit voor Windows Serve
 > Voor klassieke virtuele machines, wordt alleen implementeren nieuwe VM op basis van op lokale aangepaste installatiekopieën ondersteund. Als u wilt profiteren van de mogelijkheden die in dit artikel wordt ondersteund, moet u eerst een klassieke virtuele machines migreren naar Resource Manager-model.
 >
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Manieren waarop u met Azure Hybrid Benefit voor Windows Server
 Er zijn verschillende manieren Windows virtual machines met Azure Hybrid Benefit gebruiken:

@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126357"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementeren en bewaken van IoT Edge-modules op schaal met Azure portal
@@ -50,7 +50,7 @@ Zie voor meer informatie over apparaatdubbels en tags [apparaatdubbels begrijpen
 
 Er zijn vijf stappen voor het maken van een implementatie. De volgende secties helpen bij elkaar. 
 
-### <a name="step-1-name-and-label"></a>Stap 1: Naam en label
+### <a name="step-1-name-and-label"></a>Stap 1: Naam en een Label
 
 1. Geef uw implementatie een unieke naam die maximaal 128 kleine letters. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
 1. U kunt labels toevoegen als sleutel-waardeparen voor het bijhouden van uw implementaties. Bijvoorbeeld, **HostPlatform** en **Linux**, of **versie** en **3.0.1**.
@@ -126,7 +126,7 @@ Omdat meerdere implementaties zijn op hetzelfde apparaat gericht kunnen, moet u 
 1. Voer een **voorwaarde als doel** om te bepalen welke apparaten doelgroepen voor deze implementatie. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.reported.devicemodel='4000x'`. 
 1. Selecteer **volgende** om door te gaan naar de laatste stap.
 
-### <a name="step-6-review-deployment"></a>Stap 6: Implementatie controleren
+### <a name="step-6-review-deployment"></a>Stap 6: Implementatie bekijken
 
 Lees de informatie van uw implementatie, en selecteer vervolgens **indienen**.
 

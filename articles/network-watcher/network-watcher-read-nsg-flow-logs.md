@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: 4126f27156ed8a75abebe02e5d67f35695f5235f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 23eacd0fdb85eea43c534fc0f98a14188b954502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061622"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG-stroomlogboeken lezen
 
@@ -116,7 +116,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Lees de blok-blob
 
-Vervolgens moet u om te lezen de `$blocklist` variabele om de gegevens te halen. In dit voorbeeld die wordt de blokkeringslijst hebt doorlopen, het aantal bytes lezen uit elk blok en ze in een matrix van artikel. Gebruik de [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode voor het ophalen van de gegevens.
+Vervolgens moet u om te lezen de `$blocklist` variabele om de gegevens te halen. In dit voorbeeld die wordt de blokkeringslijst hebt doorlopen, het aantal bytes lezen uit elk blok en ze in een matrix van artikel. Gebruik de [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode voor het ophalen van de gegevens.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ceae908b37c825721a42c49db4503382eb35c71c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055093"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Zelfstudie: Id-providers toevoegen aan uw toepassingen in Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Om in te schakelen aanmelding voor gebruikers van Azure AD, moet u een toepassin
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zorg ervoor dat u de map met uw Azure AD-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map met uw Azure AD-tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties**.
+3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties (verouderd)** .
 4. Selecteer **Nieuwe toepassing registreren**.
 5. Voer een naam in voor de toepassing. Bijvoorbeeld `Azure AD B2C App`.
 6. Voor de **toepassingstype**, selecteer `Web app / API`.
@@ -106,7 +106,7 @@ Nadat u de toepassing voor de id-provider die u wilt toevoegen hebt gemaakt, kun
     Bijvoorbeeld `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. Voor **Client-ID**, voer de toepassings-ID die u eerder hebt genoteerd en voor **clientgeheim**, voer de waarde van de sleutel die u eerder hebt genoteerd.
-9. Geef eventueel een waarde voor **Domain_hint**. Bijvoorbeeld `ContosoAD`. 
+9. Geef eventueel een waarde voor **Domain_hint**. Bijvoorbeeld `ContosoAD`. Domein-hints (https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) richtlijnen die zijn opgenomen in de verificatieaanvraag van een toepassing zijn. Ze kunnen worden gebruikt om te versnellen van de gebruiker naar de federatieve IdP-aanmelden pagina. Of ze kunnen worden gebruikt door een toepassing met meerdere tenants te versnellen van de gebruiker rechtstreeks naar de merknaam Azure AD-aanmeldingspagina voor hun tenant.
 10. Klik op **OK**.
 11. Selecteer **deze id-provider claims toewijzen** en stel de volgende claims:
     

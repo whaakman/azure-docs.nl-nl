@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939654"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147494"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: Uitpakken, verbinden en ontgrendelen van Azure Data Box-schijf
 
@@ -123,7 +123,9 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
     ```  
 8. Wanneer de schijf is ontgrendeld, kunt u de inhoud van de schijf bekijken.    
 
-    ![Inhoud van de Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Inhoud van de Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+Als u problemen ondervindt tijdens het ontgrendelen van de schijven, Zie hoe u [oplossen van problemen ontgrendelen](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="unlock-disks-on-linux-client"></a>Schijven ontgrendelen op Linux-client
 
@@ -253,6 +255,9 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
 8. Als de schijf is ontgrendeld, kunt u naar het koppelpunt gaan en de inhoud van de schijf bekijken. U kunt de gegevens nu kopiëren naar de map *BlockBlob* of *PageBlob*. 
 
     ![Inhoud van de Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+Als u problemen ondervindt tijdens het ontgrendelen van de schijven, Zie hoe u [oplossen van problemen ontgrendelen](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

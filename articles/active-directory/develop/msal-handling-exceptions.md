@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f1972a870ac15e1ca8dde963eef6cf7f1caf3039
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 30ab8a3fec459bef1a85c44e9a7cdb91b541fa2d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111379"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Afhandeling van uitzonderingen en fouten met MSAL
 Uitzonderingen in de Microsoft Authentication Library (MSAL) zijn bedoeld voor app-ontwikkelaars om op te lossen en niet voor de weergave voor eindgebruikers. Uitzondering berichten zijn niet gelokaliseerd.
@@ -29,9 +29,9 @@ Uitzonderingen in de Microsoft Authentication Library (MSAL) zijn bedoeld voor a
 Bij het verwerken van uitzonderingen en fouten, kunt u het uitzonderingstype zelf en de foutcode onderscheid maken tussen uitzonderingen.  Zie voor een lijst met foutcodes, [foutcodes voor verificatie en autorisatie](reference-aadsts-error-codes.md).
 
 ## <a name="net-exceptions"></a>.NET-uitzonderingen
-Bij het verwerken van uitzonderingen, kunt u het uitzonderingstype zelf en de `ErrorCode` lid onderscheid maken tussen uitzonderingen. De waarden van `ErrorCode` zijn constanten van het type [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet#fields).
+Bij het verwerken van uitzonderingen, kunt u het uitzonderingstype zelf en de `ErrorCode` lid onderscheid maken tussen uitzonderingen. De waarden van `ErrorCode` zijn constanten van het type [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
-U kunt ook een overzicht van de velden van hebben [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet#fields), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet#fields).
+U kunt ook een overzicht van de velden van hebben [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
 Als [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) wordt gegenereerd, de fout code bevat mogelijk een code die u kunt vinden in [foutcodes voor verificatie en autorisatie](reference-aadsts-error-codes.md).
 
@@ -42,8 +42,8 @@ Hier volgen de algemene uitzonderingen die mogelijk worden gegenereerd en enige 
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: De gebruiker of beheerder heeft niet toegestaan voor het gebruik van de toepassing met de ID {appId} met de naam {appName}. Een interactieve autorisatieaanvraag voor deze gebruiker en resource verzenden.| U moet eerst ophalen van toestemming van de gebruiker. Als u geen gebruikmaakt van .NET Core (waarvoor geen elke Web-UI), belt u (slechts eenmaal) `AcquireTokeninteractive`. Als u van .NET core gebruikmaakt of als u niet wilt doen een `AcquireTokenInteractive`, de gebruiker kunt navigeren naar een URL om toestemming te geven: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . Om aan te roepen `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: De gebruiker is vereist voor multi-factor authentication gebruiken.| Er is geen beperking - als MFA is geconfigureerd voor uw tenant en AAD besluit om af te dwingen het, moet u terugvallen op een interactieve stroom zoals `AcquireTokenInteractive` of `AcquireTokenByDeviceCode`.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) |AADSTS90010: Het machtigingstype wordt niet ondersteund via de */algemene* of */consumers* eindpunten. Gebruik de */organizations* of tenant-specifieke eindpunt. U gebruikt */algemene*.| Zoals uitgelegd in het bericht van Azure AD, moet de instantie van een tenant of anderszins */organizations*.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) | AADSTS70002: De aanvraagbody moet bevatten de volgende parameter: ' waarde voor client_secret of client_assertion'.| Dit kan gebeuren als uw toepassing is niet geregistreerd als een openbare client-toepassing in Azure AD. Bewerken in Azure portal, het manifest voor uw toepassing en stel de `allowPublicClient` naar `true`. |
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: Het machtigingstype wordt niet ondersteund via de */algemene* of */consumers* eindpunten. Gebruik de */organizations* of tenant-specifieke eindpunt. U gebruikt */algemene*.| Zoals uitgelegd in het bericht van Azure AD, moet de instantie van een tenant of anderszins */organizations*.|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: De aanvraagbody moet bevatten de volgende parameter: ' waarde voor client_secret of client_assertion'.| Dit kan gebeuren als uw toepassing is niet geregistreerd als een openbare client-toepassing in Azure AD. Bewerken in Azure portal, het manifest voor uw toepassing en stel de `allowPublicClient` naar `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user bericht: Kan de aangemelde gebruiker niet identificeren.| De bibliotheek kan de huidige Windows bent aangemeld bij de gebruiker vragen of deze gebruiker is geen AD of AAD zijn toegevoegd (-toevoeging is toegevoegd aan gebruikers worden niet ondersteund). Risicobeperking 1: Controleer op UWP, of dat de toepassing de volgende mogelijkheden heeft: Enterprise-verificatie, particuliere netwerken (Client en Server), gebruikersaccountgegevens. Risicobeperking 2: Implementeren van uw eigen logica om op te halen van de gebruikersnaam (bijvoorbeeld john@contoso.com) en gebruik de `AcquireTokenByIntegratedWindowsAuth` formulier die met de gebruikersnaam.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Deze methode is gebaseerd op een protocol dat wordt weergegeven door Active Directory (AD). Als een gebruiker is gemaakt in Azure Active Directory zonder een back-up AD ('beheerd' gebruiker), wordt deze methode niet. Gebruikers die zijn gemaakt in AD en ondersteund door AAD ('federatieve' gebruikers) kunnen profiteren van deze niet-interactieve methode voor verificatie. Risicobeperking: Interactieve verificatie gebruiken.|
 
@@ -142,7 +142,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ## <a name="conditional-access-and-claims-challenges"></a>Voorwaardelijke toegang en claims uitdagingen
 Bij het ophalen van tokens op de achtergrond, uw toepassing kan er fouten optreden wanneer een [voorwaardelijke toegang claims challenge](conditional-access-dev-guide.md) zoals MFA-beleid is vereist voor een API u probeert te openen.
 
-Het patroon voor het afhandelen van deze fout is een token met MSAL interactief te verkrijgen. Interactief ophalen van een token wordt de gebruiker gevraagd en geeft u hen de mogelijkheid om te voldoen aan het beleid voor voorwaardelijke toegang vereist.
+Het patroon voor het afhandelen van deze fout is een token met MSAL interactief te verkrijgen. Interactief ophalen van een token wordt de gebruiker gevraagd en geeft u hen de mogelijkheid om te voldoen aan het vereiste beleid voor voorwaardelijke toegang.
 
 In bepaalde gevallen bij het aanroepen van een API voor voorwaardelijke toegang vereisen, kunt u een uitdaging claims in de volgende fout ontvangen van de API. Voor exemplaar als het beleid voor voorwaardelijke toegang is een beheerd apparaat (Intune) de fout hebben er ongeveer als [AADSTS53000: Uw apparaat is vereist om te worden beheerd voor toegang tot deze resource](reference-aadsts-error-codes.md) of iets vergelijkbaars. In dit geval kunt u de claims in de aanroep van de token ophalen doorgeven, zodat de gebruiker wordt gevraagd om te voldoen aan het juiste beleid.
 
@@ -151,7 +151,7 @@ Bij het aanroepen van een API voor voorwaardelijke toegang van MSAL.NET vereisen
 
 Voor het afhandelen van de claim-uitdaging, moet u gebruiken de `.WithClaim()` -methode van de `PublicClientApplicationBuilder` klasse.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 Bij het ophalen van tokens op de achtergrond (met behulp van `acquireTokenSilent`) met behulp van MSAL.js, kan uw toepassing er fouten optreden wanneer een [voorwaardelijke toegang claims challenge](conditional-access-dev-guide.md) zoals MFA-beleid is vereist voor een API u probeert te openen.
 
 Het patroon voor het afhandelen van deze fout is een interactieve bellen om token te verkrijgen in MSAL.js zoals `acquireTokenPopup` of `acquireTokenRedirect` zoals in het volgende voorbeeld:
@@ -170,7 +170,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 });
 ```
 
-Interactief verkrijgen van het token wordt de gebruiker gevraagd en geeft u hen de mogelijkheid om te voldoen aan het beleid voor voorwaardelijke toegang vereist.
+Interactief verkrijgen van het token wordt de gebruiker gevraagd en geeft u hen de mogelijkheid om te voldoen aan het vereiste beleid voor voorwaardelijke toegang.
 
 Bij het aanroepen van een API voor voorwaardelijke toegang vereisen, ontvangt u een uitdaging claims in de fout van de API. In dit geval kunt u de claims geretourneerd in de fout als doorgeven `extraQueryParameters` in de aanroep voor het verkrijgen van tokens, zodat de gebruiker wordt gevraagd om te voldoen aan het juiste beleid:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
 ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938724"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Maak een zelftest-client voor het vooraf valideren van een installatiekopie van een virtuele machine van Azure
@@ -65,7 +65,7 @@ De volgende tabel beschrijft de API-velden.
 |      Veld         |    Description    |
 |  ---------------   |  ---------------  |
 |  Autorisatie     |  De tekenreeks 'Bearer xxxx-xxxx-xxxx-xxxxx' bevat het clienttoken van Azure Active Directory (AD), die kan worden gemaakt met behulp van PowerShell.          |
-|  DSN-naam           |  DNS-naam van de virtuele machine om te testen    |
+|  DNS-naam           |  DNS-naam van de virtuele machine om te testen    |
 |  Gebruiker              |  Gebruikersnaam voor de aanmelding bij de virtuele machine         |
 |  Wachtwoord          |  Wachtwoord voor de aanmelding bij de virtuele machine          |
 |  OS                |  Besturingssysteem van de virtuele machine: ofwel `Linux` of `Windows`          |

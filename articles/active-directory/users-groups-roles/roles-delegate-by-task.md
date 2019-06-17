@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752238"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083789"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Beheerdersrollen door admin-taak in Azure Active Directory
 
@@ -274,19 +274,19 @@ Alle configuratie lezen | Globale beheerder |
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Configureer MFA vertrouwde IP-adressen | Voorwaardelijke-toegangsbeheerder | 
-Maken van aangepaste besturingselementen | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Benoemde locaties maken | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Beleidsregels maken | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Gebruiksvoorwaarden maken | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-VPN-connectiviteit certificaat maken | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Klassiek beleid verwijderen | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Gebruiksvoorwaarden verwijderen | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-VPN-connectiviteit certificaat verwijderen | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Klassiek beleid uitschakelen | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Aangepaste besturingselementen beheren | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Benoemde locaties beheren | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
-Gebruiksvoorwaarden beheren | Voorwaardelijke-toegangsbeheerder | Beveiligingsbeheerder
+Configureer MFA vertrouwde IP-adressen | Voorwaardelijke toegang beheerder | 
+Maken van aangepaste besturingselementen | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Benoemde locaties maken | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Beleidsregels maken | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Gebruiksvoorwaarden maken | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+VPN-connectiviteit certificaat maken | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Klassiek beleid verwijderen | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Gebruiksvoorwaarden verwijderen | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+VPN-connectiviteit certificaat verwijderen | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Klassiek beleid uitschakelen | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Aangepaste besturingselementen beheren | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Benoemde locaties beheren | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
+Gebruiksvoorwaarden beheren | Voorwaardelijke toegang beheerder | Beveiligingsbeheerder
 Alle configuratie lezen | Beveiligingslezer | Beveiligingsbeheerder
 Lezen benoemde locaties | Beveiligingslezer | Voorwaardelijke toegang beheerder, beveiligingsbeheerder
 

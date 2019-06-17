@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935553"
 ---
 # <a name="cancel-operation"></a>Bewerking annuleren 
@@ -29,7 +29,7 @@ U kunt een door komma's gescheiden lijst met e-mailadressen opgeven met de aanvr
 | ------------ |     ----------------                                  |     -----------   |
 | publisherId  |  Uitgever-ID, bijvoorbeeld: `contoso`         |   String          |
 | offerId      |  Aanbiedings-id                                     |   String          |
-| API-versie  |  Huidige versie van API                               |    Date           |
+| api-version  |  Huidige versie van API                               |    Date           |
 |  |  |  |
 
 

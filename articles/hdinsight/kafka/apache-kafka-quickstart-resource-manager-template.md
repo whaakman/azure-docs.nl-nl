@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
-ms.openlocfilehash: c1b8f711a6984a6134e6df0ae6ae12bf0b62cc0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: a9ce3d67d0a394e583d7b512f74cbd2d0c61c22f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060584"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Quickstart: een Apache Kafka-cluster maken in HDInsight
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Quickstart: Apache Kafka-cluster maken in Azure HDInsight met behulp van Resource Manager-sjabloon
 
 [Apache Kafka](https://kafka.apache.org/) is een open-source, gedistribueerd streamingplatform. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten. 
 
@@ -27,9 +27,9 @@ In deze snelstartgids leert u hoe u met een sjabloon van Azure Resource Manager 
 >
 > Zie het document [Verbinding maken met Apache Kafka via een virtueel netwerk](apache-kafka-connect-vpn-gateway.md) voor meer informatie.
 
-## <a name="prerequisites"></a>Vereisten
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+## <a name="prerequisites"></a>Vereisten
 
 * Een SSH-client. In de stappen in dit document wordt SSH gebruikt om verbinding te maken met het cluster.
 
@@ -167,7 +167,7 @@ In deze sectie gaat u de hostgegevens opvragen met de Ambari REST-API in het clu
 
 ## <a name="manage-apache-kafka-topics"></a>Apache Kafka-onderwerpen beheren
 
-Kafka slaat gegevensstromen op in zogenaamde *onderwerpen (topics)*. U kunt het hulpprogramma `kafka-topics.sh` gebruiken om onderwerpen te beheren.
+Kafka slaat gegevensstromen op in zogenaamde *onderwerpen (topics)* . U kunt het hulpprogramma `kafka-topics.sh` gebruiken om onderwerpen te beheren.
 
 * **Als u een onderwerp wilt maken**, gebruikt u de volgende opdracht in de SSH-verbinding:
 

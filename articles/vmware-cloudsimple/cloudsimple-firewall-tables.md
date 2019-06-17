@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 861c2e86d623c46c14366f19457d1f689386a316
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577343"
 ---
 # <a name="firewall-tables-overview"></a>Overzicht van de firewall-tabellen
@@ -26,7 +26,7 @@ De volgende tabel beschrijft de parameters in een firewallregel.
 | Eigenschap | Details |
 | ---------| --------|
 | **Naam** | Een naam die een unieke identificatie van de firewallregel en het doel. |
-| **Prioriteit** | Een getal tussen 100 en 4096, met de hoogste prioriteit 100. Regels worden verwerkt in volgorde van prioriteit. Wanneer verkeer in een overeenkomende regel binnenkomt, stopt de regelverwerking. Als gevolg hiervan worden niet worden regels met een lagere prioriteit die dezelfde kenmerken als regels met een hogere prioriteit hebben verwerkt.  Let erop dat het voorkomen van conflicterende regels. |
+| **prioriteit** | Een getal tussen 100 en 4096, met de hoogste prioriteit 100. Regels worden verwerkt in volgorde van prioriteit. Wanneer verkeer in een overeenkomende regel binnenkomt, stopt de regelverwerking. Als gevolg hiervan worden niet worden regels met een lagere prioriteit die dezelfde kenmerken als regels met een hogere prioriteit hebben verwerkt.  Let erop dat het voorkomen van conflicterende regels. |
 | **Status bijhouden** | Tracering kan worden stateless is (Private Cloud, Internet of VPN) of stateful (openbaar IP-adres).  |
 | **Protocol** | Opties zijn onder andere een, TCP of UDP. Als u ICMP vereist, gebruiken. |
 | **Richting** | Hiermee wordt aangegeven of de regel van toepassing is op binnenkomend of uitgaand verkeer. |
@@ -53,11 +53,11 @@ Aanvullende regels mogelijk zijn vereist voor de verkeersstroom in omgekeerde ri
 
 Volgende standaardregels worden voor elke tabel firewall gemaakt.
 
-|Prioriteit|Name|Status bijhouden|Direction|Type netwerkverkeer|Protocol|Bron|Bronpoort|Doel|Doelpoort|Bewerking|
+|Prioriteit|Name|Status bijhouden|Direction|Type netwerkverkeer|Protocol|source|Bronpoort|Doel|Doelpoort|Bewerking|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|toestaan dat alle-met internet|Stateful|Uitgaand|Openbare IP-adres of internet-verkeer|Alle|Alle|Alle|Alle|Alle|Toestaan|
+|65000|toestaan dat alle-met internet|Stateful|Uitgaande|Openbare IP-adres of internet-verkeer|Alle|Alle|Alle|Alle|Alle|Toestaan|
 |65001|DENY-all-van-internet|Stateful|Inkomend|Openbare IP-adres of internet-verkeer|Alle|Alle|Alle|Alle|Alle|Weigeren|
-|65002|toestaan-alles-naar-intranet|Stateless|Uitgaand|Interne Privécloud of VPN-verkeer|Alle|Alle|Alle|Alle|Alle|Toestaan|
+|65002|toestaan-alles-naar-intranet|Stateless|Uitgaande|Interne Privécloud of VPN-verkeer|Alle|Alle|Alle|Alle|Alle|Toestaan|
 |65003|toestaan-all-van-intranet|Stateless|Inkomend|Interne Privécloud of VPN-verkeer|Alle|Alle|Alle|Alle|Alle|Toestaan|
 
 ## <a name="next-steps"></a>Volgende stappen

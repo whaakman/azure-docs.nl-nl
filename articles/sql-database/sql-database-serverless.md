@@ -11,35 +11,38 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/05/2019
-ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/12/2019
+ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734763"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116208"
 ---
-# <a name="sql-database-serverless-preview"></a>SQL-Database zonder server (preview)
+# <a name="azure-sql-database-serverless-preview"></a>Azure SQL-Database zonder server (preview)
+
+Azure SQL Database zonder server (preview) is een compute-laag voor individuele databases die automatisch wordt geschaald op basis van vraag van de werkbelasting en facturen uit voor de hoeveelheid rekenkracht compute gebruikt per seconde. De serverloze compute-laag wordt ook automatisch databases onderbroken tijdens inactieve perioden wanneer alleen opslag wordt in rekening gebracht en databases automatisch hervat wanneer activiteit retourneert.
 
 ## <a name="serverless-compute-tier"></a>Serverloze compute-laag
 
-SQL-Database zonder server (preview) is een individuele database rekenlaag dat automatisch wordt geschaald compute en kosten in rekening voor de hoeveelheid rekenkracht die per seconde wordt gebruikt gebracht. 
-
-Een database in de laag serverless Computing met parameters door het compute-bereik dat kan worden gebruikt en een vertraging autopause.
+De serverloze compute-laag voor één database is door een bereik compute-automatisch schalen en een vertraging autopause parameters.  De configuratie van deze parameters vorm van de database-prestaties en kosten berekenen.
 
 ![serverloze facturering](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance"></a>Prestaties
+### <a name="performance-configuration"></a>Prestaties configureren
 
-- Het aantal vCores minimale en maximale vCores zijn configureerbare parameters die het bereik van de rekencapaciteit die beschikbaar zijn voor de database te definiëren. Geheugen en i/o-limieten zijn in verhouding met het vCore-bereik dat is opgegeven.  
-- De vertraging autopause is een configureerbare parameter waarmee wordt gedefinieerd welke periode die de database inactief zijn moet voordat deze automatisch is onderbroken. De database wordt automatisch hervat wanneer de volgende aanmelding plaatsvindt.
+- De **minimale vCores** en **maximale vCores** configureerbare parameters die het bereik van de rekencapaciteit die beschikbaar zijn voor de database te definiëren. Geheugen en i/o-limieten zijn in verhouding met het vCore-bereik dat is opgegeven.  
+- De **autopause vertraging** is een configureerbare parameter die wordt gedefinieerd welke periode de database inactief moet zijn voordat deze automatisch is onderbroken. De database wordt automatisch hervat wanneer de volgende aanmelding of andere activiteit plaatsvindt.  U kunt ook kan autopausing worden uitgeschakeld.
 
-### <a name="pricing"></a>Prijzen
+### <a name="cost"></a>Kosten
 
-- De totale factuur voor een database zonder servers is de som van de compute-factuur en de factuur voor opslag.
-Facturering voor compute is gebaseerd op de hoeveelheid vCores gebruikt en het geheugen dat per seconde wordt gebruikt.
-- Aan de minimale rekenresources in rekening gebracht is gebaseerd op min vCores en min-geheugen.
-- Terwijl de database is onderbroken, wordt alleen opslag in rekening gebracht.
+- De kosten voor een database zonder servers is de som van de compute-kosten en de kosten voor gegevensopslag.
+- Wanneer compute-gebruik tussen de minimale en maximale limieten die zijn geconfigureerd is, wordt de compute-kosten zijn gebaseerd op vCore en geheugen dat wordt gebruikt.
+- Wanneer compute-gebruik lager dan de min-limieten geconfigureerd is, worden de kosten is gebaseerd op de min-vCores en de minimale geheugen dat is geconfigureerd.
+- Wanneer de database is onderbroken, wordt de rekenkosten gelijk is aan nul en alleen de opslagkosten worden in rekening gebracht.
+- De opslagkosten voor wordt bepaald op dezelfde manier als in de ingerichte Computing-laag.
+
+Zie voor meer informatie voor kosten, [facturering](sql-database-serverless.md#billing).
 
 ## <a name="scenarios"></a>Scenario's
 
@@ -73,7 +76,7 @@ De volgende tabel geeft een overzicht van de verschillen tussen de serverloze co
 
 SQL-Database zonder server is momenteel alleen ondersteund in de categorie Algemeen gebruik op 5 generatie hardware in de vCore model kopen.
 
-## <a name="autoscale"></a>Automatisch schalen
+## <a name="autoscaling"></a>Automatisch schalen
 
 ### <a name="scaling-responsiveness"></a>Reactiesnelheid schalen
 
@@ -98,9 +101,9 @@ Compute-databases, cache vermeldingen kunnen worden verwijderd als alle beschikb
 
 De SQL-cache neemt toe naarmate er gegevens worden opgehaald van de schijf op dezelfde manier en met dezelfde snelheid als voor de ingerichte databases. Als de database bezet is, wordt de cache te laten groeien onbeperkte maximaal de maximale geheugenlimiet toegestaan.
 
-## <a name="autopause-and-autoresume"></a>Autopause en autoresume
+## <a name="autopausing-and-autoresuming"></a>Autopausing en autoresuming
 
-### <a name="autopause"></a>Autopause
+### <a name="autopausing"></a>Autopausing
 
 Autopausing wordt geactiveerd als alle volgende voorwaarden waar voor de duur van de vertraging autopause zijn:
 
@@ -117,7 +120,7 @@ De volgende functies bieden geen ondersteuning voor autopausing.  Dat wil zeggen
 
 Autopausing wordt tijdelijk voorkomen tijdens de implementatie van een service-updates waarvoor dat de database online zijn.  In dergelijke gevallen wordt autopausing toegestaan opnieuw zodra de service-update is voltooid.
 
-### <a name="autoresume"></a>Autoresume
+### <a name="autoresuming"></a>Autoresuming
 
 Autoresuming wordt geactiveerd als een van de volgende voorwaarden voldaan op elk gewenst moment wordt:
 
@@ -148,7 +151,7 @@ De latentie autoresume en autopause een database zonder servers is doorgaans om 
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding naar serverloze compute-laag
 
-Het maken van een nieuwe database of het verplaatsen van dat een bestaande database in een serverloze compute-laag volgt hetzelfde patroon als het maken van een nieuwe database in compute-laag ingericht en omvat de volgende twee stappen:
+Het maken van een nieuwe database of het verplaatsen van dat een bestaande database in een serverloze compute-laag volgt hetzelfde patroon als het maken van een nieuwe database in compute-laag ingericht en omvat de volgende twee stappen.
 
 1. Geef de naam van de serviceniveaudoelstelling. De servicedoelstelling schrijft de servicelaag, hardware-generatie en maximale vCores. De volgende tabel ziet u de service objectieve opties:
 
@@ -163,18 +166,20 @@ Het maken van een nieuwe database of het verplaatsen van dat een bestaande datab
    |Parameter|Opties voor waarde|Standaardwaarde|
    |---|---|---|---|
    |Min vCores|Een van de {0,5, 1, 2, 4} niet meer dan max vCores|0,5 vCores|
-   |Autopause vertraging|Min: 360 minuten (6 uur)<br>Max.: 10080 minuten (7 dagen)<br>Stappen: 60 minuten<br>Autopause uitschakelen: -1|360 minuten|
+   |Autopause vertraging|Minimum: 360 minuten (6 uur)<br>Maximum aantal: 10080 minuten (7 dagen)<br>Stappen: 60 minuten<br>Autopause uitschakelen: -1|360 minuten|
 
 > [!NOTE]
 > Met behulp van T-SQL te verplaatsen van een bestaande database naar serverloze of te wijzigen van de compute-grootte wordt momenteel niet ondersteund, maar kan worden gedaan via de Azure portal of PowerShell.
 
-### <a name="create-new-serverless-database-using-azure-portal"></a>Nieuwe zonder Server-database met behulp van Azure portal maken
+### <a name="create-new-database-in-serverless-compute-tier"></a>Nieuwe database maken in een serverloze compute-laag 
+
+#### <a name="use-azure-portal"></a>Azure Portal gebruiken
 
 Zie [Quickstart: Een individuele database maken in Azure SQL Database met behulp van de Azure-portal](sql-database-single-database-get-started.md).
 
-### <a name="create-new-serverless-database-using-powershell"></a>Maken van nieuwe zonder Server-database met behulp van PowerShell
+#### <a name="use-powershell"></a>PowerShell gebruiken
 
-Het volgende voorbeeld wordt een nieuwe database in de serverloze compute-laag gedefinieerd door de servicedoelstelling GP_S_Gen5_4 met standaardwaarden met de naam voor de min-vCores en autopause vertraging.
+Het volgende voorbeeld wordt een nieuwe database in de serverloze compute-laag.  In dit voorbeeld geeft expliciet de vCores min, max vCores en autopause vertraging.
 
 ```powershell
 New-AzSqlDatabase `
@@ -189,9 +194,11 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Ingerichte Computing-database verplaatsen naar serverloze compute-laag
+### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Database overstappen van ingerichte Computing in serverloze compute-laag
 
-Het volgende voorbeeld wordt een bestaande database voor één van de ingerichte Computing-laag naar de serverloze compute-laag. In dit voorbeeld geeft expliciet de vCores min, max vCores en autopause vertraging.
+#### <a name="use-powershell"></a>PowerShell gebruiken
+
+Het volgende voorbeeld wordt een database van de ingerichte Computing-laag verplaatst naar de serverloze compute-laag. In dit voorbeeld geeft expliciet de vCores min, max vCores en autopause vertraging.
 
 ```powershell
 Set-AzSqlDatabase
@@ -206,7 +213,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Serverloze database verplaatsen naar de ingerichte Computing-laag
+### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Database verplaatsen van serverloze compute-laag naar ingerichte Computing-laag
 
 Een database zonder servers kan worden verplaatst naar een laag ingerichte Computing op dezelfde manier als het verplaatsen van een database van de ingerichte Computing in een serverloze compute-laag.
 
@@ -214,13 +221,19 @@ Een database zonder servers kan worden verplaatst naar een laag ingerichte Compu
 
 ### <a name="maximum-vcores"></a>Maximum vCores
 
+#### <a name="use-powershell"></a>PowerShell gebruiken
+
 Wijzigen van de maximale vCores is uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `MaxVcore` argument.
 
 ### <a name="minimum-vcores"></a>Minimum vCores
 
+#### <a name="use-powershell"></a>PowerShell gebruiken
+
 Wijzigen van de min-vCores wordt uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `MinVcore` argument.
 
 ### <a name="autopause-delay"></a>Autopause vertraging
+
+#### <a name="use-powershell"></a>PowerShell gebruiken
 
 Wijzigen van de vertraging autopause wordt uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `AutoPauseDelayInMinutes` argument.
 
@@ -228,7 +241,7 @@ Wijzigen van de vertraging autopause wordt uitgevoerd met behulp van de [Set AzS
 
 ### <a name="resources-used-and-billed"></a>Resources die worden gebruikt en in rekening gebracht
 
-De resources van een database zonder servers worden ingekapseld door de volgende entiteiten:
+De resources van een database zonder servers worden door het app-pakket, SQL-exemplaar en gebruikersentiteiten resource pool ingekapseld.
 
 #### <a name="app-package"></a>App-pakket
 

@@ -1,8 +1,8 @@
 ---
-title: Wat is de wat als hulpprogramma voor de voorwaardelijke toegang van Azure Active Directory?
+title: Wat is de wat als hulpprogramma Azure Active Directory voor de voorwaardelijke toegang?
 description: Meer informatie over hoe u begrijp de gevolgen van beleid voor voorwaardelijke toegang in uw omgeving.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 11/20/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0f1fa0630a58054a138b730141b982af427475
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111922"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Wat is de wat als hulpprogramma voor de voorwaardelijke toegang van Azure Active Directory?
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Wat is de wat als hulpprogramma Azure Active Directory voor de voorwaardelijke toegang?
 
 [Voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) is een functie van Azure Active Directory (Azure AD) waarmee u om te bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. Hoe u weet wat u kunt verwachten formulier beleid voor voorwaardelijke toegang in uw omgeving? Als u wilt deze vraag te beantwoorden, kunt u de **voorwaardelijke toegang hulpprogramma what-if**.
 
@@ -33,7 +33,7 @@ In dit artikel wordt uitgelegd hoe u dit hulpprogramma kunt gebruiken voor het t
 
 ## <a name="what-it-is"></a>Wat is het?
 
-De **voor voorwaardelijke toegang in wat als beleid hulpprogramma** kunt u begrijp de gevolgen van het beleid voor voorwaardelijke toegang in uw omgeving. In plaats van uw beleid te testen door handmatig meerdere aanmeldingen uit te voeren, kunt u met dit hulpprogramma een gesimuleerde gebruikersaanmelding evalueren. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport. Het rapport alleen de lijst bevat niet de toegepaste voorwaardelijke toegangsbeleid, maar ook [klassieke beleidsregels](policy-migration.md#classic-policies) als deze bestaan.    
+De **voor voorwaardelijke toegang in wat als beleid hulpprogramma** kunt u begrijp de gevolgen van het beleid voor voorwaardelijke toegang in uw omgeving. In plaats van uw beleid te testen door handmatig meerdere aanmeldingen uit te voeren, kunt u met dit hulpprogramma een gesimuleerde gebruikersaanmelding evalueren. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport. Het rapport de toegepaste beleidsregels voor voorwaardelijke toegang niet alleen weergeven, maar ook [klassieke beleidsregels](policy-migration.md#classic-policies) als deze bestaan.    
 
 Wat bepalen als hulpprogramma's biedt ook een manier om snel de beleidsregels die betrekking hebben op een specifieke gebruiker. U kunt de informatie, bijvoorbeeld gebruiken als u nodig hebt om een probleem te verhelpen.  
 
@@ -86,11 +86,11 @@ Het IP-adres is één IPv4-adres om na te bootsen de [locatievoorwaarde](locatio
 
 ### <a name="device-platforms"></a>Apparaatplatformen
 
-Deze instelling imiteert de [apparaat platforms voorwaarde](conditions.md#device-platforms) en Hiermee geeft u het equivalent van **alle platformen (inclusief niet-ondersteunde)**. 
+Deze instelling imiteert de [apparaat platforms voorwaarde](conditions.md#device-platforms) en Hiermee geeft u het equivalent van **alle platformen (inclusief niet-ondersteunde)** . 
 ### <a name="client-apps"></a>Client-apps
 
 Deze instelling imiteert de [client-apps voorwaarde](conditions.md#client-apps).
-Standaard deze instelling zorgt ervoor dat een evaluatie van alle beleidsregels die **Browser** of **mobiele apps en bureaubladclients** ofwel afzonderlijk of beide geselecteerd. Ook wordt gedetecteerd voor die afdwingen **Exchange ActiveSync (EAS)**. U kunt deze instelling verfijnen door te selecteren:
+Standaard deze instelling zorgt ervoor dat een evaluatie van alle beleidsregels die **Browser** of **mobiele apps en bureaubladclients** ofwel afzonderlijk of beide geselecteerd. Ook wordt gedetecteerd voor die afdwingen **Exchange ActiveSync (EAS)** . U kunt deze instelling verfijnen door te selecteren:
 
 - **Browser** om te evalueren van alle beleidsregels met ten minste **Browser** geselecteerde. 
 
@@ -123,8 +123,8 @@ In de lijst met beleidsregels die niet van toepassing op de gebruiker, u kunt en
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
 
-- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren. 
+- Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 
 
 - Als u migreren van klassiek beleid wilt, raadpleegt u [klassiek beleid migreren in Azure portal](policy-migration.md)  

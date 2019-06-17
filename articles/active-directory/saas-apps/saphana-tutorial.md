@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 231b9b6d217a9ad1fe5f4a6478f5e8799257b92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Zelfstudie: Azure Active Directory-integratie met SAP HANA
 
@@ -64,7 +64,7 @@ Voor het configureren van de integratie van SAP HANA met Azure AD moet u SAP HAN
 
 **Als u SAP HANA vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -87,12 +87,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 Voor het configureren en testen van eenmalige aanmelding via Azure AD bij SAP HANA moet u de volgende bouwstenen uitvoeren:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor SAP HANA configureren](#configure-sap-hana-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[De testgebruiker voor SAP HANA maken](#create-sap-hana-test-user)**: als u een equivalent van Britta Simon in SAP HANA wilt hebben dat gekoppeld is aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor SAP HANA configureren](#configure-sap-hana-single-sign-on)** : als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[De testgebruiker voor SAP HANA maken](#create-sap-hana-test-user)** : als u een equivalent van Britta Simon in SAP HANA wilt hebben dat gekoppeld is aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -135,7 +135,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP HANA moet u de v
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
-    b. Selecteer in de lijst **Transformatie** **ExtractMailPrefix()**.
+    b. Selecteer in de lijst **Transformatie** **ExtractMailPrefix()** .
 
     c. In de lijst **Parameter 1** selecteert u **user.mail**.
 
@@ -160,7 +160,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP HANA moet u de v
 
     ![Instellingen voor het toevoegen van een id-provider](./media/saphana-tutorial/sap2.png)
 
-    b. Als de inhoud van het XML-document geldig is, wordt bij het parseren de informatie geëxtraheerd die nodig is voor de velden **Onderwerp, Entiteits-id en Verlener** in het schermgedeelte **Algemene gegevens**. Er wordt ook informatie uitgepakt die nodig is voor de URL-velden in het schermgedeelte **Bestemming**, bijvoorbeeld de **basis-URL en de URL voor eenmalige aanmelding(*)**.
+    b. Als de inhoud van het XML-document geldig is, wordt bij het parseren de informatie geëxtraheerd die nodig is voor de velden **Onderwerp, Entiteits-id en Verlener** in het schermgedeelte **Algemene gegevens**. Er wordt ook informatie uitgepakt die nodig is voor de URL-velden in het schermgedeelte **Bestemming**, bijvoorbeeld de **basis-URL en de URL voor eenmalige aanmelding(*)** .
 
     ![Instellingen voor het toevoegen van een id-provider](./media/saphana-tutorial/sap3.png)
 

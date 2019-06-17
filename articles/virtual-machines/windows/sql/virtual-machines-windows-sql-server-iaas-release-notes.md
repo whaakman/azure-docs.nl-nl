@@ -13,16 +13,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ee3aeb9f44d1b98d6307c6a72d1e4786ea1ec664
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076892"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server op de opmerkingen bij de release van de virtuele Machine van Azure
 
 Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server ingebouwde implementeren. In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de recente versies van [SQL Server op Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Het artikel bevat ook belangrijke updates van inhoud die niet direct verband houden met de release maar gepubliceerd in dezelfde periode. Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates)
+
+## <a name="may-2019"></a>Mei 2019
+
+### <a name="service-improvements"></a>Verbeteringen van de services
+
+| Verbeteringen van de services | Details |
+| --- | --- |
+| **Nieuwe SQL-VM-beheer in Azure portal** | Er is nu een nieuwe manier voor het beheren van uw SQL Server-machine in Azure portal. Zie voor meer informatie, [SQL Server-VM beheren in Azure portal](virtual-machines-windows-sql-manage-portal.md).  | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij
+
+| Documentatie | Details |
+| --- | --- |
+| **Nieuwe SQL-VM-portal beheren** | Ongeveer tien artikelen zijn bijgewerkt naar de nieuwe portal ervaring van de SQL-VM-beheer. | 
+| &nbsp; | &nbsp; |
+
 
 ## <a name="april-2019"></a>April 2019
 
@@ -33,9 +50,6 @@ Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server in
 | **Ondersteuning voor SQL Server 2008/2008R2 uitbreiden** | [Ondersteuning voor](virtual-machines-windows-sql-server-2008-eos-extend-support.md) voor SQL Server 2008 en SQL Server 2008 R2 door te migreren *as-is* met een Azure-VM. | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij
-
-Geen
 
 ## <a name="march-2019"></a>Maart 2019
 

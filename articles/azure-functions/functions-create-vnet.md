@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 07c7d7fb682708bf813820440d9c790c28b1f3e5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063275"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Zelfstudie: functies integreert met een Azure-netwerk
 
@@ -113,7 +113,7 @@ Een WordPress-site die wordt uitgevoerd in een virtuele machine in een virtueel 
 
     ![Status voor het configureren van een netwerk-functie](./media/functions-create-vnet/Networking-1.png)
 
-1. Selecteer op de pagina van de integratie van virtueel netwerk **VNet toevoegen (preview)**.
+1. Selecteer op de pagina van de integratie van virtueel netwerk **VNet toevoegen (preview)** .
 
     ![Toevoegen van de VNet-integratie-preview](./media/functions-create-vnet/networking-2.png)
 
@@ -124,7 +124,7 @@ Een WordPress-site die wordt uitgevoerd in een virtuele machine in een virtueel 
     | Instelling      | Voorgestelde waarde  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Virtueel netwerk** | MyResourceGroup-vnet | Dit virtuele netwerk is degene die u eerder hebt gemaakt. |
-    | **Subnet** | Nieuw subnet maken | Maak een subnet in het virtuele netwerk voor uw functie-app te gebruiken. VNet-integratie moet worden geconfigureerd voor het gebruik van een leeg subnet. Het maakt niet uit dat uw functies een ander subnet dan uw virtuele machine gebruiken. Het virtuele netwerk routeert automatisch verkeer tussen de twee subnetten. |
+    | **Subnet** | Nieuw Subnet maken | Maak een subnet in het virtuele netwerk voor uw functie-app te gebruiken. VNet-integratie moet worden geconfigureerd voor het gebruik van een leeg subnet. Het maakt niet uit dat uw functies een ander subnet dan uw virtuele machine gebruiken. Het virtuele netwerk routeert automatisch verkeer tussen de twee subnetten. |
     | **Subnetnaam** | Function-Net | Naam van het nieuwe subnet. |
     | **Virtueel netwerkadresblok** | 10.10.0.0/16 | Kies de dezelfde-Adresblok die worden gebruikt door de WordPress-site. U mag slechts één-Adresblok gedefinieerd hebben. |
     | **Adresbereik** | 10.10.2.0/24   | De grootte van het gatewaysubnet beperkt het totale aantal exemplaren die uw functie-app van de Premium-plan naar uitschalen kunt. In dit voorbeeld wordt een `/24` subnet met 254 beschikbare host-adressen. Dit subnet is te weinig ingerichte, maar gemakkelijk te berekenen. |
@@ -137,7 +137,7 @@ De functie-app kan nu toegang tot het virtuele netwerk waar de WordPress-site wo
 
 Met VNet-integratie is ingeschakeld, kunt u een proxy maken in uw functie-app voor het doorsturen van aanvragen naar de virtuele machine die wordt uitgevoerd in het virtuele netwerk.
 
-1. Selecteer in uw functie-app **proxy's** > **+**, gebruikt u de proxy-instellingen in de tabel onder de afbeelding:
+1. Selecteer in uw functie-app **proxy's** >  **+** , gebruikt u de proxy-instellingen in de tabel onder de afbeelding:
 
     ![De proxy-instellingen definiëren](./media/functions-create-vnet/create-proxy.png)
 
@@ -149,7 +149,7 @@ Met VNet-integratie is ingeschakeld, kunt u een proxy maken in uw functie-app vo
 
 1. Selecteer **maken** de proxy toevoegen aan uw functie-app.
 
-## <a name="try-it-out"></a>Uitproberen
+## <a name="try-it-out"></a>Probeer het
 
 1. Probeer in uw browser voor toegang tot de URL die u als gebruikt de **back-end-URL**. Zoals verwacht, wordt de aanvraag verloopt. Er is een time-out treedt op omdat uw WordPress-site wordt alleen gekoppeld aan het virtuele netwerk en niet via internet.
 
@@ -170,4 +170,4 @@ Functies die worden uitgevoerd in een Premium-abonnement delen de dezelfde onder
 > [!div class="nextstepaction"]
 > [Meer informatie over de netwerkopties van functies](./functions-networking-options.md)
 
-[Premium-abonnement]: functions-scale.md#premium-plan-public-preview
+[Premium-abonnement]: functions-scale.md#premium-plan

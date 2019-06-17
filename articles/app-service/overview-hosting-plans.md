@@ -17,10 +17,10 @@ ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60839008"
 ---
 # <a name="azure-app-service-plan-overview"></a>Overzicht van Azure App Service-plan
@@ -81,7 +81,7 @@ Met uitzondering van **gratis** laag, een App Service-plan wordt een uurtarief v
 - In de **gedeelde** laag, elke app ontvangt een quotum van CPU-minuten, dus _elke app_ wordt in rekening gebracht per uur voor het CPU-quotum.
 - In de compute-lagen (**Basic**, **Standard**, **Premium**, **PremiumV2**), het App Service-plan definieert het aantal virtuele machine exemplaren van de apps worden geschaald, zodat _elk VM-exemplaar_ in de App Service-plan heeft een uurtarief. Deze VM-exemplaren worden in rekening gebracht de hetzelfde, ongeacht hoeveel apps zijn die daarop worden uitgevoerd. Om te voorkomen van onverwachte kosten, Zie [opschonen van een App Service-plan](app-service-plan-manage.md#delete).
 - In de **geïsoleerd** laag, de App Service-omgeving bepaalt het aantal van de geïsoleerde werknemers die uw apps worden uitgevoerd en _elke werknemer_ per uur in rekening wordt gebracht. Er is bovendien een base uurtarief voor de actieve App Service Environment zelf. 
-- (Alleen voor azure Functions) De **verbruik** laag dynamisch toegewezen VM-exemplaren te reserveren voor een functie-app werkbelasting en dynamisch wordt berekend per seconde door Azure. Zie [Prijzen voor Azure Functions](https://azure.microsoft.com/pricing/details/functions/) voor meer informatie.
+- (Alleen voor azure Functions) De **verbruik** laag dynamisch toegewezen VM-exemplaren te reserveren voor een functie-app werkbelasting en dynamisch wordt berekend per seconde door Azure. Zie voor meer informatie, [prijzen van Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 U niet in rekening gebracht voor het gebruik van de App Service-functies die beschikbaar zijn voor u (configureren van aangepaste domeinen, SSL-certificaten, implementatiesleuven, back-ups, enz.). De uitzonderingen zijn:
 

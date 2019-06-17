@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8396f682558b71ca99af845bd51f7b2c8059f79b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721576"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072017"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Apache Hadoop YARN oplossen met behulp van Azure HDInsight
 
@@ -132,7 +132,7 @@ Deze wijzigingen zijn zichtbaar onmiddellijk op de gebruikersinterface van YARN 
 ### <a name="additional-reading-2"></a>Meer lezen
 
 - [Verbinding maken met HDInsight (Apache Hadoop) via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Apache Hadoop YARN-concepten en toepassingen](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
+- [Apache Hadoop YARN-concepten en toepassingen](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 
 ### <a name="see-also"></a>Zie ook
