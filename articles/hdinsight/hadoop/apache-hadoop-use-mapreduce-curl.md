@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716112"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
@@ -77,7 +77,7 @@ Informatie over het gebruik van de REST API Apache Hive-WebHCat MapReduce-taken 
    * **-u**: Geeft aan dat de gebruikersnaam en wachtwoord voor het verifiëren van de aanvraag
    * **-G**: Geeft aan dat deze bewerking een GET-aanvraag is
 
-   Het begin van de URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is hetzelfde voor alle aanvragen.
+   Het begin van de URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** , is hetzelfde voor alle aanvragen.
 
 4. Als u wilt een MapReduce-taak, gebruik de volgende opdracht:
 

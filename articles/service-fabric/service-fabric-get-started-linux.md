@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470228"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
@@ -177,10 +177,10 @@ sudo yum install servicefabricsdkcommon
 
 De Service Fabric-runtime die wordt geleverd met de installatie omvat de pakketten in de volgende tabel. 
 
- | | DotNetCore | Java | Python | NodeJS | 
+ | | DotNetCore | Java | Python | Node.js | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit van npm | nieuwste |
-RHEL | - | OpenJDK 1.8 | Implicit van npm | nieuwste |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit van npm | meest recente |
+RHEL | - | OpenJDK 1.8 | Implicit van npm | meest recente |
 
 ## <a name="set-up-a-local-cluster"></a>Een lokaal cluster instellen
 Start een lokaal cluster nadat de installatie is voltooid.

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60904916"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Data-driven Style Expressions (Web SDK)
@@ -79,7 +79,7 @@ Alle voorbeelden in dit document wordt de volgende functie gebruiken om aan te t
 
 Gegevensexpressies bieden toegang tot de gegevens van de eigenschap een functie. 
 
-| Expressie | Retourtype | Description |
+| expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Een item wordt opgehaald uit een matrix. |
 | `['geometry-type']` | string | Hiermee wordt opgehaald van de functie geometrie-type: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
@@ -137,7 +137,7 @@ Op dezelfde manier worden de omtrek van veelhoeken weergegeven in de lagen van d
 
 Wiskundige expressies bevatten rekenkundige operatoren voor het uitvoeren van gegevensgestuurde berekeningen in het kader van de expressie.
 
-| Expressie | Retourtype | Description |
+| expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | getal | Berekent de som van de opgegeven getallen. |
 | `['-', number]` | getal | Trekt 0 door het opgegeven getal. |
@@ -171,7 +171,7 @@ Booleaanse expressies bevatten een set met Booleaanse operators expressies voor 
 
 Bij het vergelijken van waarden, wordt de vergelijking strikt hebt getypt. Waarden van verschillende typen worden altijd als ongelijk beschouwd. Gevallen waar de typen bekend is dat deze verschillende tijdens het parseren ongeldig worden beschouwd en treedt er een parseringsfout. 
 
-| Expressie | Retourtype | Description |
+| expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['! ', boolean]` | booleaans | Logische negatie. Retourneert `true` als de invoer `false`, en `false` als de invoer `true`. |
 | `['!= ', value, value]` | booleaans | Retourneert `true` als de ingevoerde waarden niet gelijk aan, `false` anders. |
@@ -334,7 +334,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Type expressies over hulpprogramma's voor het testen en te converteren van verschillende gegevenstypen, zoals tekenreeksen, cijfers en Booleaanse waarden.
 
-| Expressie | Retourtype | Description |
+| expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matrix \| object | Retourneert een letterlijke waarde van de matrix of één object. Deze expressie gebruiken om te voorkomen dat een matrix of een object wordt geëvalueerd als een expressie. Dit is nodig als een matrix of een object moet worden geretourneerd door een expressie. |
 | `['to-boolean', value]` | booleaans | De invoerwaarde converteert naar een Booleaanse waarde. Het resultaat is `false` wanneer de invoer een lege tekenreeks is `0`, `false`, `null`, of `NaN`; anders de `true`. |
@@ -369,7 +369,7 @@ Type expressies over hulpprogramma's voor het testen en te converteren van versc
 
 Kleur expressies wordt het eenvoudiger maken en manipuleren van kleurwaarden.
 
-| Expressie | Retourtype | Description |
+| expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Hiermee maakt u een kleurwaarde van *rode*, *groen*, en *blauwe* onderdelen die tussen liggen moeten `0` en `255`, en een alpha-component van `1`. Als een onderdeel buiten het bereik is, is de expressie een fout. |
 | `['rgba', number, number, number, number]` | color | Hiermee maakt u een kleurwaarde van *rode*, *groen*, *blauw* onderdelen die tussen liggen moeten `0` en `255`, en binnen een bereik van een alpha-component `0` en `1`. Als een onderdeel buiten het bereik is, is de expressie een fout. |
@@ -397,7 +397,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Expressies voor verbindingsreeksen operator uitvoeren conversiebewerkingen op tekenreeksen, zoals samenvoegen en omzetten van de aanvraag. 
 
-| Expressie | Retourtype | Description |
+| expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Meerdere tekenreeksen samen worden samengevoegd. Elke waarde moet een tekenreeks zijn. Gebruik de `to-string` expressie andere waardetypen converteren naar tekenreeks, indien nodig. |
 | `['downcase', string]` | string | De opgegeven tekenreeks converteren naar kleine letters. |
@@ -751,10 +751,10 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Expressies voor variabele netwerkverbinding opslaan de resultaten van een berekening in een variabele, zodat deze kan worden verwezen elders in een expressie meerdere keren zonder deze opnieuw te berekenen. Dit is een nuttig optimalisatie voor expressies die betrekking hebben op veel berekeningen
 
-| Expressie | Retourtype | Description |
+| expressie | Retourtype | Description |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'laat'<br/>&nbsp;&nbsp;&nbsp;&nbsp;Name1: tekenreeks<br/>&nbsp;&nbsp;&nbsp;&nbsp;Value1: alle,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Name2: tekenreeks<br/>&nbsp;&nbsp;&nbsp;&nbsp;Value2: alle,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Een of meer waarden worden opgeslagen als variabelen voor gebruik door de `var` expressie in de onderliggende-expressie die het resultaat wordt geretourneerd. |
-| `['var', name: string]` | willekeurig | Verwijst naar een variabele die is gemaakt met de `let` expressie. |
+| `['var', name: string]` | Alle | Verwijst naar een variabele die is gemaakt met de `let` expressie. |
 
 **Voorbeeld**
 

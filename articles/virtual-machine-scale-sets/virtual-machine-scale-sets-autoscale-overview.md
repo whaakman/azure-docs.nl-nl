@@ -17,10 +17,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883667"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Overzicht van automatisch schalen met Azure VM-schaalset wordt ingesteld
@@ -52,7 +52,7 @@ Regels voor automatisch schalen die gebruikmaken van hostgebaseerde metrische ge
 ### <a name="metric-sources"></a>Metrische bronnen
 Regels voor automatisch schalen kunnen u metrische gegevens gebruiken uit een van de volgende bronnen:
 
-| Bron van metrische gegevens        | Toepassing                                                                                                                     |
+| Bron van metrische gegevens        | Use-case                                                                                                                     |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Huidige schaalset    | Voor hostgebaseerde metrische gegevens waarvoor geen extra agents worden geïnstalleerd of geconfigureerd.                                  |
 | Storage-account      | Diagnostische Azure-extensie schrijft prestatiegegevens naar Azure storage, die vervolgens wordt gebruikt voor het activeren van regels voor automatisch schalen. |
@@ -68,10 +68,10 @@ De volgende hostgebaseerde metrische gegevens zijn beschikbaar voor gebruik bij 
 | Percentage CPU            |
 | Netwerk in                |
 | Netwerk uit               |
-| Gelezen bytes op de schijf           |
-| Geschreven bytes op de schijf          |
-| Leesbewerkingen op de schijf/seconde  |
-| Schrijfbewerkingen op de schijf/seconde |
+| Schijf gelezen Bytes           |
+| Geschreven Bytes op de schijf          |
+| Schijf lezen per seconde  |
+| Schijf schrijven per seconde |
 | Resterend CPU-tegoed     |
 | Verbruikt CPU-tegoed      |
 
@@ -101,7 +101,7 @@ De regels voor automatisch schalen worden vervolgens geactiveerd wanneer de metr
 ### <a name="actions-when-rules-trigger"></a>Acties bij het activeren van regels
 Wanneer een regel voor automatisch schalen triggers wordt uw schaalset kunt automatisch schalen in een van de volgende manieren:
 
-| Schaalbewerking     | Toepassing                                                                                                                               |
+| Schaalbewerking     | Use-case                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Aantal verhogen met   | Een vast aantal VM-exemplaren te maken. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
 | Percentage verhogen met | Een toename op basis van een percentage van de VM-exemplaren. Goed voor grotere schaal wordt ingesteld wanneer een toename van de vaste niet merkbaar om prestaties te optimaliseren. |

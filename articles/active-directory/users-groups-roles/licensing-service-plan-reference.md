@@ -17,10 +17,10 @@ ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f96a7ad1c67fab9354daaafa129d15dfbff12064
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729376"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Productnamen- en service-plan-id's voor licentieverlening
@@ -31,7 +31,7 @@ Bij het beheren van licenties in [de Azure-portal](https://portal.azure.com/#bla
 - **De tekenreeks-ID**: Door PowerShell v1.0-cmdlets worden gebruikt bij het uitvoeren van bewerkingen op licenties
 - **GUID**: GUID die wordt gebruikt door Azure AD Graph en Microsoft Graph
 - **Service-abonnementen die zijn opgenomen**: Een lijst met service-abonnementen in het product die met de tekenreeks-ID en de GUID overeenkomen
-- **Service-plannen die is opgenomen (beschrijvende namen)**: Een lijst met service-plannen (beschrijvende namen) in het product die met de tekenreeks-ID en de GUID overeenkomen
+- **Service-plannen die is opgenomen (beschrijvende namen)** : Een lijst met service-plannen (beschrijvende namen) in het product die met de tekenreeks-ID en de GUID overeenkomen
 
 >[!NOTE]
 >Deze informatie is nauwkeurig op 15 April 2019.

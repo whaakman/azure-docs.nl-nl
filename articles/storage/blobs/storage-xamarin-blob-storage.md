@@ -10,10 +10,10 @@ ms.date: 05/11/2017
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.openlocfilehash: 1953a0af89e5ea018bd3654c3b82087331b3d565
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65141285"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Het Blob Storage gebruiken met Xamarin
@@ -30,7 +30,7 @@ Voor deze zelfstudie maakt we een app die is gericht op Android, iOS en Windows.
 Volg deze stappen om uw toepassing te maken:
 
 1. Als u dat nog niet gedaan hebt, downloadt en installeert [Xamarin for Visual Studio](https://www.xamarin.com/download).
-2. Open Visual Studio en maakt een lege App (systeemeigen draagbare): **Bestand > Nieuw > Project > platformoverschrijdende > lege App (systeemeigen Portable)**.
+2. Open Visual Studio en maakt een lege App (systeemeigen draagbare): **Bestand > Nieuw > Project > platformoverschrijdende > lege App (systeemeigen Portable)** .
 3. Met de rechtermuisknop op uw oplossing in het deelvenster Solution Explorer en selecteer **NuGet-pakketten beheren voor oplossing**. Zoeken naar **WindowsAzure.Storage** en installeer de nieuwste stabiele versie voor alle projecten in uw oplossing.
 4. Ontwikkel en voer uw project.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937834"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlijnen voor Azure Marketplace-vermelding
@@ -70,7 +70,7 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 |  | Aanbieding-Element | Algemene vereisten | Vereisten voor optimale | 
 |:--- |:--- |:--- |:--- |
 |1 |Aanbiedingsinstellingen | <br>• Aanbiedings-ID: Maximaal 50 tekens <br>• Uitgevers-ID: Selecteer in vervolgkeuzelijst <br>• Naam: Maximaal 50 tekens | Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl. | 
-| 2 | Voorraadeenheden | Partners klikken op de nieuwe SKU 's| Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl.  |
+| 2 | SKU 's | Partners klikken op de nieuwe SKU 's| Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl.  |
 | 3 | Marketplace-artefacten | Logo's weergegeven correct |<br>• Logo bevat 'hero installatiekopie,' dit de installatiekopie van de grote-indeling in de Azure Portal is <br>• Logo's: Klein (48 x 48) en grote (216 x 216) zijn vereisten <br>• Hero afbeeldingsvereisten: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Schermafbeelding (maximaal 5):  CPP moet een PNG-afbeelding met een resolutie van 1280 x 720.|
 | 4 | Leads beheren |<br>•    Lead Management: Selecteer het systeem waar de leads worden opgeslagen. <br>• Meer informatie over het verbinding maken met uw CRM-systeem [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 

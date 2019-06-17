@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926233"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het klassieke opslag-resource
@@ -99,7 +99,7 @@ In de portal, kunnen er twee ervaringen, afhankelijk van de lijst met blobs die 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Als de gebruiker ervoor kiest om te verwijderen met behulp van PowerShell, resulteert dit in de volgende fout. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : De externe server heeft een fout geretourneerd: (412) er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag... HTTP-statuscode: 412 - HTTP-foutbericht: Er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag.</span>
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687453"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Ontwikkeling van scriptacties met HDInsight
@@ -337,7 +337,7 @@ Hier volgen de fouten die optreden kunnen bij het gebruik van scripts die u hebt
 
 Dit probleem treedt meestal wanneer het script is geschreven in een Windows-omgeving, zoals CRLF is een algemene regel beëindigen voor veel teksteditors op Windows.
 
-*Oplossing*: Als deze optie in een teksteditor, selecteert u de Unix-indeling of LF voor het einde van regel. U kunt ook de volgende opdrachten gebruiken voor een Unix-systeem de CRLF wijzigen in een LF:
+*Resolutie*: Als deze optie in een teksteditor, selecteert u de Unix-indeling of LF voor het einde van regel. U kunt ook de volgende opdrachten gebruiken voor een Unix-systeem de CRLF wijzigen in een LF:
 
 > [!NOTE]  
 > De volgende opdrachten zijn grofweg gelijk in dat ze moeten de regeleinden CRLF LF wijzigen. Selecteer een op basis van de hulpprogramma's die beschikbaar zijn op uw systeem.
@@ -353,7 +353,7 @@ Dit probleem treedt meestal wanneer het script is geschreven in een Windows-omge
 
 *Oorzaak*: Deze fout treedt op wanneer het script is opgeslagen als UTF-8 met een Byte Order Mark (BOM).
 
-*Oplossing*: Sla het bestand als ASCII-, of als UTF-8 zonder een stuklijst. U kunt ook de volgende opdracht uit op een Linux- of Unix-systeem te maken van een bestand zonder de stuklijst:
+*Resolutie*: Sla het bestand als ASCII-, of als UTF-8 zonder een stuklijst. U kunt ook de volgende opdracht uit op een Linux- of Unix-systeem te maken van een bestand zonder de stuklijst:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

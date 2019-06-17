@@ -10,10 +10,10 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813446"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Data Lake Analytics met Azure portal beheren
@@ -111,7 +111,7 @@ Gebruik de functie Data Lake Analytics-ontwikkelaar zodat U-SQL-ontwikkelaars ku
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Gebruikers of beveiligingsgroepen toevoegen aan een Data Lake Analytics-account
 
 1. In de Azure-portal, gaat u naar uw Data Lake Analytics-account.
-2. Klik op **toegangsbeheer (IAM)** > **roltoewijzing toevoegen**.
+2. Klik op **toegangsbeheer (IAM)**  > **roltoewijzing toevoegen**.
 3. Selecteer een rol.
 4. Voeg een gebruiker toe.
 5. Klik op **OK**.

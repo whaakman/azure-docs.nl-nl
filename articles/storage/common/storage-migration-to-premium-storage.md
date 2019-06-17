@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
 ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153764"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
@@ -111,7 +111,7 @@ Als u bestaande Azure-VM's migreert, moet de virtuele machine stoppen, VHD's per
 
 De virtuele machine moet volledig omlaag voor het migreren van een oude toestand. Er zijn een uitvaltijd totdat de migratie is voltooid.
 
-#### <a name="step-1-prepare-vhds-for-migration"></a>Step 1. VHD voorbereiden voor migratie
+#### <a name="step-1-prepare-vhds-for-migration"></a>Stap 1. VHD voorbereiden voor migratie
 Als u een bestaande Azure-VM's naar Premium Storage migreert, wordt uw VHD kan zijn:
 
 * Een gegeneraliseerde installatiekopie
@@ -180,11 +180,11 @@ Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan ti
 
     Hier volgen beschrijvingen van de parameters in de AzCopy-opdracht:
 
-   * **/ Bron:  *&lt;bron&gt;:*** Locatie van de map of de URL van de opslag-container met de VHD.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Opslagaccountsleutel van de bron-storage-account.
-   * **/ Dest:  *&lt;bestemming&gt;:*** Opslag container-URL te kopiëren van de VHD op.
-   * **/ DestKey:  *&lt;dest accountsleutel&gt;:*** Opslagaccountsleutel van het doelopslagaccount.
-   * **/ Patroon:  *&lt;-bestandsnaam&gt;:*** Geef de bestandsnaam op van de VHD te kopiëren.
+   * **/ Bron:  *&lt;bron&gt;:* ** Locatie van de map of de URL van de opslag-container met de VHD.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** Opslagaccountsleutel van de bron-storage-account.
+   * **/ Dest:  *&lt;bestemming&gt;:* ** Opslag container-URL te kopiëren van de VHD op.
+   * **/ DestKey:  *&lt;dest accountsleutel&gt;:* ** Opslagaccountsleutel van het doelopslagaccount.
+   * **/ Patroon:  *&lt;-bestandsnaam&gt;:* ** Geef de bestandsnaam op van de VHD te kopiëren.
 
 Voor meer informatie over het gebruik van AzCopy hulpprogramma [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md).
 
@@ -219,7 +219,7 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
 ### <a name="scenario2"></a>Scenario 2: "Ik ben VM's migreren vanaf andere platforms naar Azure Premium Storage."
 Als u VHD van niet - Azure-Cloudopslag in Azure migreert, moet u eerst de VHD exporteren naar een lokale map. Het pad van de volledige broncode van de lokale directory waar VHD is opgeslagen bij de hand hebt, en vervolgens met behulp van AzCopy te uploaden naar Azure Storage.
 
-#### <a name="step-1-export-vhd-to-a-local-directory"></a>Step 1. VHD naar een lokale map exporteren
+#### <a name="step-1-export-vhd-to-a-local-directory"></a>Stap 1. VHD naar een lokale map exporteren
 ##### <a name="copy-a-vhd-from-aws"></a>Kopieer een VHD van AWS
 1. Als u van AWS gebruikmaakt, exporteert u de EC2-instantie op een VHD in een Amazon S3-bucket. Volg de stappen beschreven in de Amazon-documentatie voor Amazon EC2-instanties exporteren van het hulpprogramma Amazon EC2-opdrachtregelinterface (CLI) installeren en uitvoeren van de opdracht instantie-export-taak maken voor het exporteren van de EC2-instantie naar een VHD-bestand. Zorg ervoor dat u **VHD** voor de schijf&#95;INSTALLATIEKOPIE&#95;indeling variabele bij het uitvoeren van de **-exemplaar-export-taak maken** opdracht. De geëxporteerde VHD-bestand wordt opgeslagen in de Amazon S3-bucket die u tijdens dat proces opgeeft.
 
@@ -277,12 +277,12 @@ Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan ti
 
     Hier volgen beschrijvingen van de parameters in de AzCopy-opdracht:
 
-   * **/ Bron:  *&lt;bron&gt;:*** Locatie van de map of de URL van de opslag-container met de VHD.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Opslagaccountsleutel van de bron-storage-account.
-   * **/ Dest:  *&lt;bestemming&gt;:*** Opslag container-URL te kopiëren van de VHD op.
-   * **/ DestKey:  *&lt;dest accountsleutel&gt;:*** Opslagaccountsleutel van het doelopslagaccount.
+   * **/ Bron:  *&lt;bron&gt;:* ** Locatie van de map of de URL van de opslag-container met de VHD.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** Opslagaccountsleutel van de bron-storage-account.
+   * **/ Dest:  *&lt;bestemming&gt;:* ** Opslag container-URL te kopiëren van de VHD op.
+   * **/ DestKey:  *&lt;dest accountsleutel&gt;:* ** Opslagaccountsleutel van het doelopslagaccount.
    * **/ BlobType: pagina:** Geeft aan dat de bestemming een pagina-blob.
-   * **/ Patroon:  *&lt;-bestandsnaam&gt;:*** Geef de bestandsnaam op van de VHD te kopiëren.
+   * **/ Patroon:  *&lt;-bestandsnaam&gt;:* ** Geef de bestandsnaam op van de VHD te kopiëren.
 
 Voor meer informatie over het gebruik van AzCopy hulpprogramma [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md).
 

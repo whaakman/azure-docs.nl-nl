@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c57feb33967732481d78e0ddaba5e90f4f82f327
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544430"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Overwegingen voor Xamarin Android-specifieke met MSAL.NET
@@ -56,16 +56,16 @@ De volgende tabel geeft een lijst van de apparaten en browsers die zijn getest.
 
 | | Browser&ast;     |  Resultaat  | 
 | ------------- |:-------------:|:-----:|
-| Huawei / één + | Chrome&ast; | Geslaagd|
-| Huawei / één + | Edge&ast; | Geslaagd|
-| Huawei / één + | Firefox&ast; | Geslaagd|
-| Huawei / één + | Dapper&ast; | Geslaagd|
-| Een + | Ecosia&ast; | Geslaagd|
-| Een + | Kiwi&ast; | Geslaagd|
-| Huawei / één + | Opera | Geslaagd|
-| Huawei | OperaMini | Geslaagd|
-| Huawei / één + | InBrowser | Geslaagd|
-| Een + | Maxthon | Geslaagd|
+| Huawei / één + | Chrome&ast; | Pass|
+| Huawei / één + | Edge&ast; | Pass|
+| Huawei / één + | Firefox&ast; | Pass|
+| Huawei / één + | Dapper&ast; | Pass|
+| Een + | Ecosia&ast; | Pass|
+| Een + | Kiwi&ast; | Pass|
+| Huawei / één + | Opera | Pass|
+| Huawei | OperaMini | Pass|
+| Huawei / één + | InBrowser | Pass|
+| Een + | Maxthon | Pass|
 | Huawei / één + | DuckDuckGo | Verificatie van de gebruiker geannuleerd|
 | Huawei / één + | UC-Browser | Verificatie van de gebruiker geannuleerd|
 | Een + | Programma | Verificatie van de gebruiker geannuleerd|

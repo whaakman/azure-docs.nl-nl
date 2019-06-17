@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707824"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Apache Spark-taken die worden uitgevoerd op Azure HDInsight
@@ -24,7 +24,7 @@ U hebt het volgende:
 
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Een Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
-* U moet zijn gestart voor het uitvoeren van de notebook  **[Machine learning: Voorspellende analyse van voedsel inspectie gegevens met behulp van MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Volg de koppeling voor instructies over het uitvoeren van dit notitieblok.  
+* U moet zijn gestart voor het uitvoeren van de notebook  **[Machine learning: Voorspellende analyse van voedsel inspectie gegevens met behulp van MLLib](apache-spark-machine-learning-mllib-ipython.md)** . Volg de koppeling voor instructies over het uitvoeren van dit notitieblok.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Bijhouden van een toepassing in de gebruikersinterface van YARN
 1. Start de gebruikersinterface van YARN. Klik op **Yarn** onder **Clusterdashboards**.

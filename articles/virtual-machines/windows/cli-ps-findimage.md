@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 893b71d3a1cc6ece8272cb1a372302ff384003dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500012"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693773"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Windows-VM-installatiekopieën zoeken in de Azure Marketplace met Azure PowerShell
 
@@ -28,7 +28,7 @@ In dit artikel wordt beschreven hoe u Azure PowerShell gebruiken voor het VM-ins
 
 U kunt ook bladeren beschikbare installatiekopieën en aanbiedingen met behulp van de [Azure Marketplace](https://azuremarketplace.microsoft.com/) winkel, de [Azure-portal](https://portal.azure.com), of de [Azure CLI](../linux/cli-ps-findimage.md). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -48,8 +48,8 @@ Deze tabel toont een subset van de beschikbare SKU's voor de opgegeven uitgevers
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
-| MicrosoftRServer |RServer-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2019-WS2016 |Zakelijk |
+| MicrosoftRServer |RServer-WS2016 |Zakelijk |
 
 ## <a name="navigate-the-images"></a>De installatiekopieën doorzoeken
 

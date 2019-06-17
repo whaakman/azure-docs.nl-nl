@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473736"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Een Linux VM maken via de klassieke Azure-CLI
@@ -50,7 +50,7 @@ In het volgende overzicht wordt een virtuele UbuntuLTS-machine stapsgewijs geïm
 
 Als u snel een distributie wilt kiezen, kunt u de Azure CLI-aliassen gebruiken die aan de meest voorkomende OS-distributies zijn toegewezen. De volgende tabel bevat de aliassen (vanaf Azure-CLI versie 0.10). Alle implementaties die gebruikmaken van `quick-create` zijn standaard virtuele machines die worden ondersteund door SSD-opslag (Solid-State Drive). Dit staat garant voor snelle inrichting en snelle toegang tot de schijf. (Deze aliassen vertegenwoordigen een klein gedeelte van de beschikbare distributies in Azure. Meer installatiekopieën vindt u in de Azure Marketplace door te [zoeken naar een installatiekopie in PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [op het web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) maar u kunt ook [uw eigen aangepaste installatiekopie uploaden](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Uitgever | Aanbieding | SKU | Versie |
+| Alias | Uitgever | Aanbieding | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7.2 |meest recente |
 | CoreOS |CoreOS |CoreOS |Stabiel |meest recente |
@@ -67,7 +67,7 @@ In het vorige voorbeeld van `quick-create` wordt alleen de vlag `-M` gebruikt om
 * VM-naam
 * locatie (`westus` of `westeurope` zijn goede standaardwaarden)
 * Linux (om in Azure aan te geven welk besturingssysteem u wilt)
-* gebruikersnaam
+* username
 
 In het volgende voorbeeld worden alle waarden opgegeven, zodat er geen verdere vragen worden gesteld. Als u een `~/.ssh/id_rsa.pub` als openbaar-sleutelbestand met ssh-rsa-indeling hebt, werkt alles:
 

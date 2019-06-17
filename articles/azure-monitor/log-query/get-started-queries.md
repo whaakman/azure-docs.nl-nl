@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
 ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519004"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Aan de slag met Azure Monitor logboeken-query 's
@@ -108,7 +108,7 @@ SecurityEvent
 
 Bij het schrijven van de filtervoorwaarden, kunt u de volgende expressies:
 
-| Expressie | Description | Voorbeeld |
+| expressie | Description | Voorbeeld |
 |:---|:---|:---|
 | == | Gelijkheid controleren<br>(hoofdlettergevoelig) | `Level == 8` |
 | =~ | Gelijkheid controleren<br>(niet hoofdlettergevoelig) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Samenvatten op een time-kolom
 Resultaten groeperen kan ook worden gebaseerd op een time-kolom, of een andere continue waarde. Samenvatting van gewoon `by TimeGenerated` echter zou groepen maken voor elke één milliseconde gedurende het tijdsbereik, omdat dit unieke waarden zijn. 
 
-Voor het maken van groepen op basis van doorlopende waarden, het is raadzaam om het bereik in beheerbare eenheden met behulp van **bin**. De volgende query worden geanalyseerd *Perf* records die het meten van beschikbaar geheugen (*beschikbare megabytes (MB)*) op een specifieke computer. De gemiddelde waarde van elke periode van één uur wordt berekend in de afgelopen 7 dagen:
+Voor het maken van groepen op basis van doorlopende waarden, het is raadzaam om het bereik in beheerbare eenheden met behulp van **bin**. De volgende query worden geanalyseerd *Perf* records die het meten van beschikbaar geheugen (*beschikbare megabytes (MB)* ) op een specifieke computer. De gemiddelde waarde van elke periode van één uur wordt berekend in de afgelopen 7 dagen:
 
 ```Kusto
 Perf 

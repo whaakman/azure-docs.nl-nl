@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596758"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Definitietaal van werkstroom in Azure Logic Apps-schemaverwijzing

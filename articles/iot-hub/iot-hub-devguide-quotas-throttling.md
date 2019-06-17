@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.openlocfilehash: ea9bea8b314d00db87ad7addacc49a976e0da08e
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550473"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
@@ -76,7 +76,7 @@ IoT Hub dwingt andere operationele beperkingen:
 | Bewerking | Limiet |
 | --------- | ----- |
 | Apparaten | Het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt is 1.000.000. De enige manier om deze limiet te verhogen, is contact opnemen met [Microsoft Support](https://azure.microsoft.com/support/options/).| 
-| Bestand laden URI 's | 10.000 SAS URI's kan zijn uitgeschakeld voor een opslagaccount in één keer. <br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
+| Bestand laden URI 's | 10\.000 SAS URI's kan zijn uitgeschakeld voor een opslagaccount in één keer. <br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
 | Jobs<sup>1</sup> | Maximum aantal gelijktijdige taken is 1 (voor gratis en S1), 5 (voor S2) en 10 (voor S3). Echter, de maximale gelijktijdige [apparaat import/export-taken](iot-hub-bulk-identity-mgmt.md) is 1 voor alle lagen. <br/>Taakgeschiedenis blijft tot 30 dagen. |
 | Extra eindpunten | Betaalde SKU kunnen hubs 10 extra eindpunten hebben. Gratis SKU-hubs kunnen één extra eindpunt hebben. |
 | Regels voor berichtroutering | Betaalde SKU mogelijk hubs 100 regels voor doorsturen. Gratis SKU-hubs mogelijk vijf regels voor doorsturen. |

@@ -16,17 +16,17 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3fb7fbba7ec48da580d2a630ae51aa20b3307848
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074618"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Web-app waarmee gebruikers worden aangemeld: Meld u aan
 
 Informatie over het aanmelden toevoegen aan de code voor uw web-app waarmee gebruikers zich aanmeldt.
 
-## <a name="sign-in"></a>aanmelden
+## <a name="sign-in"></a>Aanmelden
 
 De code die we in het vorige artikel hebben [de configuratie van app-code](scenario-web-app-sign-user-app-configuration.md) is alles wat u nodig voor het implementeren van afmelden. Als de gebruiker zich heeft aangemeld bij uw app, wilt u waarschijnlijk kunnen ze zich afmelden. ASP.NET core verwerkt afmelden voor u.
 

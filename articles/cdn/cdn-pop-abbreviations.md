@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: magattus
 ms.openlocfilehash: 3de7f36228bba4cfc84e17dd056683a1a76df684
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869620"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP-locaties op afkorting
@@ -131,7 +131,7 @@ POX | Parijs, Frankrijk | Europa
 QRO | Santiago de Querétaro, Mexico | Noord-Amerika
 RHV | San Jose, Californië, VS | Noord-Amerika: Westkust VS
 RIB | Rio de Janeiro, Brazilië | Latijns-Amerika
-RIX | Riga, Letland | Europa
+RIX | Riga, Latvia | Europa
 RTM | Amsterdam, Nederland | Europa
 SAA | San Jose, Californië, VS | Noord-Amerika: Westkust VS
 SAB | San Jose, Californië, VS | Noord-Amerika: Westkust VS

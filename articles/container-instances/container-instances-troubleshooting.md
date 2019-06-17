@@ -10,10 +10,10 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070855"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
@@ -24,7 +24,7 @@ In dit artikel laat zien hoe algemene problemen voor het beheren of containers i
 
 Bij het definiëren van uw container-specificatie vereisen bepaalde parameters voldoet aan de naamgeving van beperkingen. Hieronder ziet u een tabel met specifieke vereisten voor container groepseigenschappen. Zie voor meer informatie over naamgevingsregels voor Azure [naamconventies] [ azure-name-restrictions] in het Azure Architecture Center.
 
-| Bereik | Lengte | Hoofdlettergebruik | Geldige tekens | Voorgesteld patroon | Voorbeeld |
+| Scope | Lengte | Hoofdlettergebruik | Geldige tekens | Voorgesteld patroon | Voorbeeld |
 | --- | --- | --- | --- | --- | --- |
 | Naam van container | 1-64 |Niet hoofdlettergevoelig |Alfanumeriek en afbreekstreepje overal behalve de eerste of laatste teken |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Containernaam | 1-64 |Niet hoofdlettergevoelig |Alfanumeriek en afbreekstreepje overal behalve de eerste of laatste teken |`<name>-<role>-CG<number>` |`web-batch-CG1` |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098693"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Pushmeldingen toevoegen aan uw Xamarin.Forms-app
@@ -232,7 +232,7 @@ De eerste twee stappen zijn vereist, alleen wanneer u op een emulator test.
 2. Een Google-account toevoegen aan de Android-apparaat door te klikken op **Apps** > **instellingen** > **account toevoegen**. Volg de instructies in een bestaand Google-account toevoegen aan het apparaat of een nieuwe maken.
 3. In Visual Studio of Xamarin Studio, met de rechtermuisknop op de **Droid** project en klik op **instellen als opstartproject**.
 4. Klik op **uitvoeren** bouw het project en de app op uw Android-apparaat of emulator te starten.
-5. In de app, typt u een taak en klik vervolgens op het plusteken (**+**) pictogram.
+5. In de app, typt u een taak en klik vervolgens op het plusteken ( **+** ) pictogram.
 6. Controleer of dat er een melding wordt ontvangen wanneer een item wordt toegevoegd.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Configureren en uitvoeren van het iOS-project (optioneel)
@@ -326,7 +326,7 @@ Uw app wordt nu bijgewerkt ter ondersteuning van pushmeldingen.
    > [!NOTE]
    > U moet expliciet pushmeldingen te verzenden vanuit uw app accepteren. Deze aanvraag treedt alleen op de eerste keer is dat de app wordt uitgevoerd.
 
-3. In de app, typt u een taak en klik vervolgens op het plusteken (**+**) pictogram.
+3. In de app, typt u een taak en klik vervolgens op het plusteken ( **+** ) pictogram.
 4. Controleer of een melding wordt ontvangen, en klik vervolgens op **OK** voor het verwijderen van de melding.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Configureren en uitvoeren van Windows-projecten (optioneel)
@@ -398,7 +398,7 @@ Deze sectie is voor het uitvoeren van de Xamarin.Forms-WinApp en WinPhone81-proj
 
 1. Met de rechtermuisknop op een Windows-project in Visual Studio, en klikt u op **instellen als opstartproject**.
 2. Druk op de knop **Uitvoeren** om het project te bouwen en de app te starten.
-3. Typ een naam voor een nieuwe taken in de app, en klik vervolgens op het plusteken (**+**) pictogram toe te voegen.
+3. Typ een naam voor een nieuwe taken in de app, en klik vervolgens op het plusteken ( **+** ) pictogram toe te voegen.
 4. Controleer of dat er een melding wordt ontvangen wanneer het item wordt toegevoegd.
 
 ## <a name="next-steps"></a>Volgende stappen

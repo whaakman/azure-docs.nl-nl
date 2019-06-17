@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095439"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Systeemupdates in Azure Security Center toepassen
@@ -56,7 +56,7 @@ In dit voorbeeld gebruiken we **Compute**.
     - ERNST: Hierin wordt de ernst van deze bepaalde aanbeveling beschreven:
 
       - Hoog: Een beveiligingslek in de bestaat een belangrijke resource (toepassing, virtuele machine of netwerkbeveiligingsgroep) en aandacht vereist.
-      - Normaal: Niet-kritieke of extra stappen zijn vereist om een proces te voltooien of een beveiligingsprobleem.
+      - Gemiddeld: Niet-kritieke of extra stappen zijn vereist om een proces te voltooien of een beveiligingsprobleem.
       - Laag: Een beveiligingsprobleem moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Aanbevelingen met de ernstaanduiding Laag worden niet standaard weergegeven, maar u kunt hierop filteren als u deze aanbevelingen wilt bekijken.)
 
 3. Selecteer een ontbrekende update in de lijst om details weer te geven.
@@ -77,7 +77,7 @@ In dit voorbeeld gebruiken we **Compute**.
    ![Opnieuw opstarten na systeemupdates][6]
 2. Selecteer **opnieuw opstarten na systeemupdates**. Hiermee opent u **opnieuw opstarten is in behandeling voor het voltooien van systeemupdates** blade weergegeven met een lijst van virtuele machines die u nodig hebt om opnieuw te starten voor het voltooien van het systeem toepassen proces werkt.
 
-   ![Opnieuw opstarten is in behandeling][7]
+   ![Opnieuw opstarten in behandeling][7]
 
 Start opnieuw op de virtuele machine van Azure om het proces te voltooien.
 

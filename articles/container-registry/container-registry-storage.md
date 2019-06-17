@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
 ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827269"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Afbeeldingopslag container in Azure Container Registry
@@ -40,7 +40,7 @@ De volgende tabel beschrijft de container-installatiekopie en de opslaglimieten 
 | Installatiekopieën | Geen limiet |
 | Lagen | Geen limiet |
 | Tags | Geen limiet|
-| Storage | 5 TB |
+| Opslag | 5 TB |
 
 Zeer groot aantal opslagplaatsen en tags kan invloed hebben op de prestaties van uw register. Regelmatig ongebruikte opslagplaatsen, labels en afbeeldingen als onderdeel van uw register onderhoud routine verwijderen. Register-resources, zoals opslagplaatsen, installatiekopieën en tags verwijderd *kan geen* worden hersteld na verwijdering. Zie voor meer informatie over het verwijderen van register resources [verwijderen van installatiekopieën van containers in Azure Container Registry](container-registry-delete.md).
 

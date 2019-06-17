@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816449"
 ---
 # <a name="migrate-to-the-30-api"></a>Migreren naar de 3.0 API
@@ -37,7 +37,7 @@ De 2.x API's gebruikt dezelfde voorspelling aanroep voor zowel beeldclassificeer
 
 ## <a name="use-the-new-iteration-publishing-workflow"></a>De nieuwe werkstroom voor het publiceren van iteratie gebruikt
 
-De 2.x API's gebruikt de standaard-iteratie of een opgegeven herhaling-ID voor het kiezen van de iteratie moet worden gebruikt voor de voorspelling. 3.0 vanaf biedt hebben we vastgesteld dat een publishing stroom Gegevensbeheerders, waarin u eerst een iteratie onder de naam van een opgegeven van de training-API hebt gepubliceerd. Vervolgens geeft u de naam voor de voorspelling methoden om op te geven welke iteratie te gebruiken.
+De 2.x API's gebruikt de standaard-iteratie of een opgegeven herhaling-ID voor het kiezen van de iteratie moet worden gebruikt voor de voorspelling. 3\.0 vanaf biedt hebben we vastgesteld dat een publishing stroom Gegevensbeheerders, waarin u eerst een iteratie onder de naam van een opgegeven van de training-API hebt gepubliceerd. Vervolgens geeft u de naam voor de voorspelling methoden om op te geven welke iteratie te gebruiken.
 
 > [!IMPORTANT]
 > De 3.0 API's gebruik niet de standaard iteratie-functie. Totdat we de oudere API's afschaffen, kunt u echter ook doorgaan met de 2.x API's in een iteratie als de standaard-of uitschakelen. Deze API's voor een bepaalde periode worden onderhouden en roept u de **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** methode voor het markeren van een iteratie als standaard.

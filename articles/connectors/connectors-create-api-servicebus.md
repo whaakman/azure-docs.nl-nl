@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105577"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Exchange-berichten in de cloud met Azure Service Bus en Azure Logic Apps
@@ -79,7 +79,7 @@ Controleer of uw logische app machtigingen voor toegang tot uw Service Bus-naamr
    ![Service Bus-trigger selecteren](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Sommige triggers als resultaat geven of berichten, bijvoorbeeld de trigger **als een of meer berichten aankomen in een wachtrij (automatisch voltooien)**. Wanneer deze triggers worden geactiveerd, retourneren ze tussen één en het aantal berichten dat is opgegeven door een van de trigger **bericht maximumaantal** eigenschap.
+   > Sommige triggers als resultaat geven of berichten, bijvoorbeeld de trigger **als een of meer berichten aankomen in een wachtrij (automatisch voltooien)** . Wanneer deze triggers worden geactiveerd, retourneren ze tussen één en het aantal berichten dat is opgegeven door een van de trigger **bericht maximumaantal** eigenschap.
 
    *Alle Service Bus-triggers zijn long-polling triggers*, wat betekent dat wanneer de trigger wordt geactiveerd, wordt de trigger alle berichten worden verwerkt en wordt vervolgens gewacht 30 seconden voor meer berichten worden weergegeven in het abonnement wachtrij of onderwerp. 
    Als er geen berichten in 30 seconden weergegeven, wordt de trigger uitvoeren wordt overgeslagen. 
@@ -90,7 +90,7 @@ Controleer of uw logische app machtigingen voor toegang tot uw Service Bus-naamr
    1. Kies onder de laatste stap waar u een actie toevoegen, **nieuwe stap**. 
 
       Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
-      Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+      Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
    1. Typ 'Azure Service Bus' als filter in het zoekvak. 
    Selecteer de actie die u wilt onder de lijst met acties. 

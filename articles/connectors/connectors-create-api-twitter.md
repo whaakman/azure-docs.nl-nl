@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104983"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Controleren en beheren van Twitter met behulp van Azure Logic Apps
@@ -59,7 +59,7 @@ U kunt triggers die te antwoorden krijgen van uw Twitter-account en de uitvoer b
        -of-
 
      * Tussen de stappen waar u een actie toevoegen, de aanwijzer over de pijl tussen fasen. 
-     Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+     Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
      
        Typ 'twitter' als filter in het zoekvak. 
        Selecteer de actie die u wilt onder de lijst met acties.

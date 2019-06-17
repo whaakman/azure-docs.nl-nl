@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465674"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator gebruiken voor het detecteren van mogelijk erotische en ongepaste inhoud 
@@ -46,7 +46,7 @@ De JSON-uitvoer bevat de volgende elementen:
 
 | Element | Description |
 | --- | --- |
-| versie |De versie van de Content Moderator. |
+| version |De versie van de Content Moderator. |
 | tijdschaal |'Tikken"per seconde van de video. |
 | offset |De tijd-offset voor tijdstempels. Versie 1.0 van Video-API's, wordt deze waarde altijd 0 zijn. Deze waarde kan in de toekomst worden gewijzigd. |
 | framerate |Aantal frames per seconde video. |
@@ -60,7 +60,7 @@ De JSON-uitvoer bevat de volgende elementen:
 |Element|Description|
 |---|---|
 | start |De begintijd van de eerste gebeurtenis in "tikken." |
-| duur |De lengte van het fragment, in "tikken." |
+| Duur |De lengte van het fragment, in "tikken." |
 | interval |Het interval van elke vermelding in het fragment, in "tikken." |
 | [gebeurtenissen](#events-json-elements) |Elke gebeurtenis stelt een clip en elke clip hoofdframes gedetecteerd en bijgehouden binnen deze tijdsduur bevat. Er is een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De binnenste matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden gedurende de interval.|
 

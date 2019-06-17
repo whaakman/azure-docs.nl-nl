@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64873431"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met behulp van de extensie voor Network Policy Server (NPS) en Azure AD integreren
@@ -186,14 +186,14 @@ Verbinding met extern bureaublad-autorisatiebeleid (RD CAP's) worden de vereiste
 
 1. Open op de server extern bureaublad-Gateway **Serverbeheer**.
 1. In het menu, klikt u op **extra**, wijst u **extern bureaublad-Services**, en klik vervolgens op **extern bureaublad-gatewaybeheer**.
-1. In de RD-gatewaybeheer met de rechtermuisknop op  **\[servernaam\] (lokaal)**, en klikt u op **eigenschappen**.
+1. In de RD-gatewaybeheer met de rechtermuisknop op  **\[servernaam\] (lokaal)** , en klikt u op **eigenschappen**.
 1. Selecteer in het dialoogvenster Eigenschappen van de **RD CAP Store** tabblad.
 1. Selecteer op het tabblad RD CAP Store **centrale server waarop NPS wordt uitgevoerd**. 
 1. In de **Voer een naam of IP-adres voor de server met NPS** veld, typt u het IP-adres of de naam van de server waarop u de NPS-extensie geïnstalleerd.
 
    ![Voer de naam of IP-adres van de NPS-Server](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. Klik op **Add**.
+1. Klik op **Toevoegen**.
 1. In de **gedeeld geheim** in het dialoogvenster, Geef een gedeeld geheim, en klik vervolgens op **OK**. Zorg ervoor dat u dit gedeelde geheim en het veilig opslaan van de record.
 
    >[!NOTE]
@@ -254,7 +254,7 @@ Werkt alleen goed in dit scenario, als moet de NPS-server worden geregistreerd i
 
 1. Open op de NPS-server **Serverbeheer**.
 1. Klik in Serverbeheer op **extra**, en klik vervolgens op **Network Policy Server**.
-1. In de console van Network Policy Server met de rechtermuisknop op **NPS (lokaal)**, en klik vervolgens op **server registreren in Active Directory**.
+1. In de console van Network Policy Server met de rechtermuisknop op **NPS (lokaal)** , en klik vervolgens op **server registreren in Active Directory**.
 1. Klik op **OK** twee keer.
 
    ![De NPS-server registreren in Active Directory](./media/howto-mfa-nps-extension-rdg/image16.png)
@@ -327,7 +327,7 @@ Nadat u bent geverifieerd met behulp van de secundaire verificatiemethode, kunt 
 
 Als u wilt weergeven van de geslaagde aanmeldingsgebeurtenissen in de Windows-Logboeken, kunt u de volgende Windows PowerShell-opdracht om op te vragen de logboeken van Windows Terminal Services en Windows-beveiliging uitgeven.
 
-Query uitvoeren op gebeurtenissen voor geslaagde aanmelding in de operationele logboeken van de Gateway _(gebeurtenis Viewer\Applications en Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, gebruikt u de volgende PowerShell-opdrachten:
+Query uitvoeren op gebeurtenissen voor geslaagde aanmelding in de operationele logboeken van de Gateway _(gebeurtenis Viewer\Applications en Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_ , gebruikt u de volgende PowerShell-opdrachten:
 
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '300'} | FL`
 * Met deze opdracht bevat de Windows-gebeurtenissen waarin de gebruiker aan de resource autorisatie beleid vereisten voldoet (RD RAP) en heeft toegang gekregen.

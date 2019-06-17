@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 219899c2e336f544ff6572589cc79f84f555490d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233834"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight versnelde schrijfbewerkingen voor Apache HBase
@@ -26,7 +26,7 @@ In HBase, een **rij** bestaat uit een of meer **kolommen** en wordt geïdentific
 
 ## <a name="write-ahead-log-for-apache-hbase"></a>Ahead van logboek schrijven voor Apache HBase
 
-Gegevensupdates schrijft HBase eerst naar een type doorvoerlogboek een schrijven vooruit logboek (WAL) genoemd. Nadat de update wordt opgeslagen in de WAL, ze worden geschreven naar de in-memory **setSize()**. Wanneer de gegevens in het geheugen de maximale capaciteit bereikt, is geschreven naar de schijf als een **HFile**.
+Gegevensupdates schrijft HBase eerst naar een type doorvoerlogboek een schrijven vooruit logboek (WAL) genoemd. Nadat de update wordt opgeslagen in de WAL, ze worden geschreven naar de in-memory **setSize()** . Wanneer de gegevens in het geheugen de maximale capaciteit bereikt, is geschreven naar de schijf als een **HFile**.
 
 Als een **RegionServer** vastloopt of niet beschikbaar is voordat de geheugenopslag is leeggemaakt, het schrijven vooruit logboek kan worden gebruikt voor de replay van updates. Zonder de WAL als een **RegionServer** vastloopt voordat updates voor een **HFile**, alle updates zijn verloren gaan.
 

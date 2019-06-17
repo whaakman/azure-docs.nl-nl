@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877635"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>HDInsight-clusters maken met Azure Data Lake Storage Gen1 met behulp van Azure portal
@@ -56,7 +56,7 @@ In deze sectie maakt u een HDInsight-cluster met Data Lake Storage Gen1 accounts
     ![Service-principal toevoegen aan HDInsight-cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "service-principal toevoegen aan HDInsight-cluster")
 
     - **Selecteer Data Lake Store-account**: Selecteer een bestaand Data Lake Storage Gen1-account. Een bestaand Data Lake Storage Gen1-account is vereist.  Zie [Vereisten](#prerequisites).
-    - **Het pad naar hoofdmap**: Geef een pad op de cluster-specifieke-bestanden die moeten worden opgeslagen. Op de schermafbeelding is het __/clusters/myhdiadlcluster/__, waarin de __/clusters__ map moet aanwezig zijn, en de Portal maakt *myhdicluster* map.  De *myhdicluster* is de naam van het cluster.
+    - **Het pad naar hoofdmap**: Geef een pad op de cluster-specifieke-bestanden die moeten worden opgeslagen. Op de schermafbeelding is het __/clusters/myhdiadlcluster/__ , waarin de __/clusters__ map moet aanwezig zijn, en de Portal maakt *myhdicluster* map.  De *myhdicluster* is de naam van het cluster.
     - **Data Lake Store-toegang**: Configureer de toegang tussen de Gen1 van Data Lake Storage-account en het HDInsight-cluster. Zie voor instructies, configureren van Data Lake Storage Gen1 toegang.
     - **Extra opslagaccounts**: Azure storage-accounts toevoegen als extra opslagaccounts voor het cluster. Als u wilt toevoegen van extra Gen1 van Data Lake Storage-accounts wordt gedaan door te geven van de cluster-machtigingen op gegevens in meer Gen1 van Data Lake Storage-accounts tijdens het configureren van een Data Lake Storage Gen1-account als de primaire opslag. Zie Configure Data Lake Storage Gen1 toegang.
 

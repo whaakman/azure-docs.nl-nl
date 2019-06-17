@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596073"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Duurzame functies 2.0 preview (Azure Functions)
@@ -154,8 +154,8 @@ Entiteit-ondersteuning omvat verschillende API's. Voor een is er een nieuwe API 
 De uitvoering van een bewerking op een entiteit deze leden van het contextobject kan aanroepen (`IDurableEntityContext` in .NET):
 
 * **OperationName**: haalt u de naam van de bewerking.
-* **GetInput\<T >**: Hiermee haalt u de invoer voor de bewerking.
-* **GetState\<T >**: Hiermee wordt de huidige status van de entiteit.
+* **GetInput\<T >** : Hiermee haalt u de invoer voor de bewerking.
+* **GetState\<T >** : Hiermee wordt de huidige status van de entiteit.
 * **SetState**: updates van de status van de entiteit.
 * **SignalEntity**: verzendt een eenzijdige bericht naar een entiteit.
 * **Selfservice**: de ID van de entiteit opgehaald.
@@ -172,7 +172,7 @@ Bewerkingen zijn minder dan indelingen met beperkte toegang:
 
 Duurzame entiteiten kunnen worden aangeroepen vanuit de gewone functies via het `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). De volgende methoden worden ondersteund:
 
-* **ReadEntityStateAsync\<T >**: de status van een entiteit leest.
+* **ReadEntityStateAsync\<T >** : de status van een entiteit leest.
 * **SignalEntityAsync**: verzendt een eenzijdige bericht naar een entiteit en wacht deze naar de wachtrij worden gezet.
 
 Deze methoden prioriteren prestaties via consistentiecontrole: `ReadEntityStateAsync` kunt een verouderde waarde retourneren en `SignalEntityAsync` kunt terugkeren voordat de bewerking is voltooid. Daarentegen, is het zeer consistent entiteiten aanroepen vanuit indelingen (zoals hierna wordt beschreven).
@@ -183,7 +183,7 @@ Indelingen hebben toegang tot entiteiten met behulp van het context-object. Ze k
 
 * **SignalEntity**: verzendt een eenzijdige bericht naar een entiteit.
 * **CallEntityAsync**: verzendt een bericht naar een entiteit en wacht op een reactie waarmee wordt aangegeven dat de bewerking is voltooid.
-* **CallEntityAsync\<T >**: verzendt een bericht naar een entiteit en wachten op antwoord met een resultaat van het type T.
+* **CallEntityAsync\<T >** : verzendt een bericht naar een entiteit en wachten op antwoord met een resultaat van het type T.
 
 Wanneer u communicatie in twee richtingen, worden eventuele uitzonderingen tijdens het uitvoeren van de bewerking ook verzonden naar de aanroepende orchestration en rethrown. Daarentegen, wanneer u fire-and-forgetstromen, worden uitzonderingen niet waargenomen.
 

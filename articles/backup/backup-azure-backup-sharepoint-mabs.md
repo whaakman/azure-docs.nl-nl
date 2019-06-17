@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
 ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60645327"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Een back-up maken in Azure van een SharePoint-farm
@@ -21,7 +21,7 @@ U back-up van een SharePoint-farm naar Microsoft Azure met behulp van Microsoft 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint ondersteunde versies en verwante scenario's voor gegevensbescherming
 Azure Backup voor DPM ondersteunt de volgende scenario's:
 
-| Workload | Versie | SharePoint-implementatie | Beveiliging en herstel |
+| Workload | Version | SharePoint-implementatie | Beveiliging en herstel |
 | --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint geïmplementeerd als een fysieke server of Hyper-V-/ VMware virtuele machine <br> -------------- <br> Sqlalwayson | Opties voor herstel van SharePoint-Farm beveiligen: Farm voor herstel, een database en een bestand of lijstitem van herstelpunten van de schijf.  Farm en databaseherstel uit Azure herstelpunten. |
 

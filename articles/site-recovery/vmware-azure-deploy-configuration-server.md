@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
 ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125692"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
@@ -195,7 +195,7 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
 
 Raadpleeg voor meer veelgestelde vragen over configuratieserver, onze [documentatie over veelgestelde vragen over configuratie server](vmware-azure-common-questions.md#configuration-server) .
 
-## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
+## <a name="troubleshoot-deployment-issues"></a>Problemen met implementatie
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 

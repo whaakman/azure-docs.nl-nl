@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104819"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
@@ -79,11 +79,11 @@ Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel besch
 | Eigenschap | Description |
 |:--- |:--- |
 | category | De categorie voor de opgeslagen zoekopdracht.  Alle opgeslagen zoekopdrachten in dezelfde oplossing delen vaak één categorie, zodat ze samen worden gegroepeerd in de console. |
-| displayname | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
+| DisplayName | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
 | query | De query wilt uitvoeren. |
 
 > [!NOTE]
-> Mogelijk moet u het escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON. Bijvoorbeeld, als uw query is **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, ze moet worden geschreven in het oplossingsbestand als **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
+> Mogelijk moet u het escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON. Bijvoorbeeld, als uw query is **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , ze moet worden geschreven in het oplossingsbestand als **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
 
 ## <a name="alerts"></a>Waarschuwingen
 [Waarschuwingen voor Azure](../../azure-monitor/platform/alerts-unified-log.md) zijn gemaakt door Azure waarschuwingsregels die opgegeven logboeken-query's met regelmatige tussenpozen uitvoeren. Als de resultaten van de query aan opgegeven criteria voldoen, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd met behulp van [actiegroepen](../../azure-monitor/platform/action-groups.md).
@@ -123,7 +123,7 @@ De eigenschappen voor schema-resources worden in de volgende tabel beschreven.
 
 | De naam van element | Vereist | Description |
 |:--|:--|:--|
-| ingeschakeld       | Ja | Hiermee geeft u op of de waarschuwing is ingeschakeld wanneer deze wordt gemaakt. |
+| enabled       | Ja | Hiermee geeft u op of de waarschuwing is ingeschakeld wanneer deze wordt gemaakt. |
 | interval      | Ja | Hoe vaak de query wordt uitgevoerd in minuten. |
 | queryTimeSpan | Ja | De lengte van de tijd in minuten op voor het evalueren van de resultaten. |
 
@@ -272,7 +272,7 @@ De eigenschappen voor Webhook actie resources worden in de volgende tabellen bes
 | De naam van element | Vereist | Description |
 |:--|:--|:--|
 | type | Ja | Het type van de actie. Dit is **Webhook** voor webhookacties. |
-| naam | Ja | De weergavenaam voor de actie. Dit wordt niet weergegeven in de console. |
+| name | Ja | De weergavenaam voor de actie. Dit wordt niet weergegeven in de console. |
 | webhookUri | Ja | URI voor de webhook. |
 | customPayload | Nee | Aangepaste nettolading wordt verzonden naar de webhook. De indeling is afhankelijk van wat de webhook wordt verwacht. |
 

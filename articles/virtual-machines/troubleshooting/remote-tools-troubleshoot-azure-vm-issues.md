@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717283"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Externe hulpprogramma's gebruiken om problemen met virtuele Azure-machine te
 
 Wanneer u problemen op een Azure-machine (VM), kunt u verbinding met de virtuele machine met behulp van de externe hulpprogramma's die worden beschreven in dit artikel in plaats van Remote Desktop Protocol (RDP).
 
-## <a name="serial-console"></a>Seriële Console
+## <a name="serial-console"></a>Seriële console
 
 Gebruik [seriële Console van virtuele Machine](serial-console-windows.md) opdrachten uitvoeren op de externe Azure-VM.
 
@@ -43,7 +43,7 @@ psexec \\<computer>-u user -s cmd
 >* De parameter -s zorgt ervoor dat de opdracht wordt aangeroepen met behulp van systeem-Account (beheerdersrechten).
 >* PsExec maakt gebruik van TCP-poort 135 en 445. Daarom moeten de twee poorten op de Firewall zijn geopend.
 
-## <a name="run-commands"></a>Uitvoeropdrachten
+## <a name="run-commands"></a>Opdrachten uitvoeren
 
 Zie [uitvoeren PowerShell-scripts in uw Windows-VM met de opdracht uitvoeren](../windows/run-command.md) voor meer informatie over het gebruik van de functie opdrachten uitvoeren scripts uit te voeren op de virtuele machine.
 
@@ -236,7 +236,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. Uit een andere virtuele machine in hetzelfde VNET, opent u een exemplaar van **Services.msc**.
 
-2. Met de rechtermuisknop op **Services (lokaal)**.
+2. Met de rechtermuisknop op **Services (lokaal)** .
 
 3. Selecteer **verbinding maken met een andere computer**.
 

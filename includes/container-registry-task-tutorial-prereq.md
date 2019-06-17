@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 6e0175173f17ae0958522517360b94ee80f3b2f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133118"
 ---
 ## <a name="prerequisites"></a>Vereisten
 
@@ -27,9 +27,12 @@ Voor het activeren van een taak op een wijziging aan een Git-opslagplaats, moet 
 
 1. Navigeer naar de pagina PAT maken op GitHub op https://github.com/settings/tokens/new
 1. Geef een korte **beschrijving** voor het token op, bijvoorbeeld 'Demo ACR Tasks'
-1. Onder **opslagplaats** schakelt u **opslagplaats:status** en **public_repo** in
+1. Selecteer bereiken voor ACR voor toegang tot de opslagplaats. Toegang krijgen tot een openbare opslagplaats, zoals in deze zelfstudie onder **opslagplaats**, inschakelen **opslagplaats: status** en **public_repo**
 
    ![Schermafbeelding van de pagina Persoonlijk toegangstoken genereren in GitHub][build-task-01-new-token]
+
+   > [!NOTE]
+   > Voor het genereren van een PAT voor toegang tot een *persoonlijke* opslagplaats, selecteert u het bereik voor volledige **opslagplaats** besturingselement.
 
 1. Selecteer de knop **Token genereren** (u wordt mogelijk gevraagd om uw wachtwoord te bevestigen)
 1. Kopieer en bewaar het gegenereerde token in een **beveiligde locatie** (u gebruikt dit token bij het definiëren van een taak in de volgende sectie)

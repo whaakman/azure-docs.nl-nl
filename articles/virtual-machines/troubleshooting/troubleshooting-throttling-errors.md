@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
 ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233780"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Oplossen van problemen met API beperkingsfouten 
@@ -32,7 +32,7 @@ Wanneer een Azure API App client een beperking-fout ontvangt, wordt de HTTP-stat
 
 ## <a name="call-rate-informational-response-headers"></a>Tarief informatief antwoordheaders aanroepen 
 
-| Koptekst                            | Waarde-indeling                           | Voorbeeld                               | Description                                                                                                                                                                                               |
+| Header                            | Waarde-indeling                           | Voorbeeld                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Resterend aantal van de API-aanroepen voor het beperkingsbeleid die betrekking hebben op de bucket of bewerking resourcegroep met inbegrip van het doel van deze aanvraag                                                                   |
 | x-ms-request-kosten               | ```<count>```                             | 1                                     | Het aantal oproep telt "kosten in rekening gebracht" voor deze HTTP-aanvraag voor de limiet van het beleid van toepassing. Dit is doorgaans 1. Batchaanvragen, bijvoorbeeld voor het schalen van een virtuele-machineschaalset, kunnen kosten in rekening gebracht meerdere aantallen. |

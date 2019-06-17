@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730533"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Upgrade van uw big data analytics-oplossingen van Azure Data Lake Storage Gen1 naar Azure Data Lake Storage Gen2
@@ -51,7 +51,7 @@ Als u een oplossing uit met behulp van Data Lake Storage Gen1 naar Data Lake Sto
 
 De volgende secties bevatten informatie over u betere beslissingen kunt komen:
 
-:heavy_check_mark: Platformfunctionaliteiten
+:heavy_check_mark: Mogelijkheden van het platform
 
 :heavy_check_mark: Programmeerinterfaces
 
@@ -131,7 +131,7 @@ Wanneer u Data Lake Storage Gen1 gebruikt, kunt u diverse Microsoft-services en 
 | Verbruik          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Excel](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
-| Productiviteit         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Niet ondersteund*                                                                                                                                                              | Accountbeheer *– nu beschikbaar* <br><br>Gegevensbewerkingen *–**nog niet beschikbaar*                                                                   |
+| Productiviteit         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Niet ondersteund*                                                                                                                                                              | Accountbeheer *– nu beschikbaar* <br><br>Gegevensbewerkingen *–* *nog niet beschikbaar*                                                                   |
 |                      | [Data Lake Tools voor Visual Studio](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-install)                                   | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Azure-opslagverkenner](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)                                                          | *Nu beschikbaar*                                                                                                                                                              | *Nu beschikbaar*                                                                                                                                 |
 |                      | [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext)                                                                     | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |

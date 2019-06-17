@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61221851"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
@@ -47,7 +47,7 @@ In deze sectie maakt u een nieuwe build-pijplijn. Configureren van de pijplijn w
 >
 >Zie voor meer informatie, [maken van een build-pijplijn](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Meld u aan bij uw organisatie Azure DevOps (**https:\//dev.azure.com/{your organisatie} /**) en open het project met de opslagplaats van uw IoT Edge-oplossing.
+1. Meld u aan bij uw organisatie Azure DevOps (**https:\//dev.azure.com/{your organisatie} /** ) en open het project met de opslagplaats van uw IoT Edge-oplossing.
 
    In dit artikel hebben we een opslagplaats met de naam gemaakt **IoTEdgeRepo**. Deze opslagplaats bevat **IoTEdgeSolution** die is de code voor een module met de naam **filtermodule**. 
 
@@ -77,7 +77,7 @@ In deze sectie maakt u een nieuwe build-pijplijn. Configureren van de pijplijn w
     
      ![Build-agentpool configureren](./media/how-to-ci-cd/configure-env.png)
 
-5. De pijplijn is vooraf geconfigureerd met een taak met de naam **Agent-taak 1**. Selecteer het plusteken (**+**) drie taken toevoegen aan de taak: **Azure IoT Edge** twee keer, en **Build-artefacten publiceren** zodra. (Beweeg de muisaanwijzer over de naam van de afzonderlijke taken om te zien de **toevoegen** knop.)
+5. De pijplijn is vooraf geconfigureerd met een taak met de naam **Agent-taak 1**. Selecteer het plusteken ( **+** ) drie taken toevoegen aan de taak: **Azure IoT Edge** twee keer, en **Build-artefacten publiceren** zodra. (Beweeg de muisaanwijzer over de naam van de afzonderlijke taken om te zien de **toevoegen** knop.)
 
    ![Azure IoT Edge-taak toevoegen](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ In deze sectie maakt u een nieuwe build-pijplijn. Configureren van de pijplijn w
 
    * **Weergavenaam**: Accepteer de standaardwaarde **Azure IoT Edge - Build-module installatiekopieën**.
    * **Actie**: Accepteer de standaardwaarde **maken van installatiekopieën van de module**. 
-   * **. template.json-bestand**: Selecteer het weglatingsteken (**...** ) en navigeer naar de **deployment.template.json** bestand in de opslagplaats met uw IoT Edge-oplossing. 
+   * **. template.json-bestand**: Selecteer het weglatingsteken ( **...** ) en navigeer naar de **deployment.template.json** bestand in de opslagplaats met uw IoT Edge-oplossing. 
    * **Standaard platform**: Selecteer het juiste platform voor uw modules op basis van de gewenste IoT Edge-apparaat. 
    * **Variabelen voor de uitvoer**: De uitvoervariabelen bevatten een naam die u gebruiken kunt voor het configureren van het bestandspad waar uw bestand deployment.json wordt gegenereerd. De naam van verwijzing ingesteld op iets gemakkelijk te onthouden, zoals **edge**. 
 
@@ -98,7 +98,7 @@ In deze sectie maakt u een nieuwe build-pijplijn. Configureren van de pijplijn w
    * **Weergavenaam**: De weergavenaam wordt automatisch bijgewerkt wanneer het actieveld wordt gewijzigd. 
    * **Actie**: Gebruik de vervolgkeuzelijst om te selecteren **module installatiekopieën pushen**. 
    * **Type containerregister**: Selecteer het type van het containerregister dat u gebruiken voor het opslaan van uw module-installatiekopieën. Afhankelijk van welke register dat u kiest, het formulier verandert. Als u ervoor kiest **Azure Container Registry**, gebruik de vervolgkeuzelijsten om te selecteren van het Azure-abonnement en de naam van het containerregister. Als u ervoor kiest **algemene Containerregister**, selecteer **nieuw** een register-serviceverbinding te maken. 
-   * **. template.json-bestand**: Selecteer het weglatingsteken (**...** ) en navigeer naar de **deployment.template.json** bestand in de opslagplaats met uw IoT Edge-oplossing. 
+   * **. template.json-bestand**: Selecteer het weglatingsteken ( **...** ) en navigeer naar de **deployment.template.json** bestand in de opslagplaats met uw IoT Edge-oplossing. 
    * **Standaard platform**: Selecteer het platform dat dezelfde als de ingebouwde module afbeeldingen.
 
    Als u meerdere containerregisters voor het hosten van uw installatiekopieën module hebt, moet u het dupliceren van deze taak, selecteert u andere container registry en gebruiken **overslaan van modules die zijn** in de geavanceerde instellingen om de installatiekopieën die niet voor dit over te slaan specifieke register.
@@ -152,7 +152,7 @@ Een nieuwe pijplijn maken en configureren van de eerste fase voor kwaliteit assu
 
 8. In de fase QA ziet u een standaard **Agent-taak**. U meer informatie over de agent-taak kunt configureren, maar de Implementatietaak is het platform ongevoelig zodat u een kunt **gehost VS2017** of **gehost Ubuntu 1604** in de **agentpool**(of een andere agent worden beheerd door uzelf). 
 
-9. Selecteer het plusteken (**+**) een taak wordt toegevoegd. Zoeken en toevoegen **Azure IoT Edge**. 
+9. Selecteer het plusteken ( **+** ) een taak wordt toegevoegd. Zoeken en toevoegen **Azure IoT Edge**. 
 
     ![Taken toevoegen voor QA](./media/how-to-ci-cd/add-task-qa.png)
 

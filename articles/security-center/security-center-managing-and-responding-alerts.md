@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
 ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235766"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
@@ -65,7 +65,7 @@ Onder aan deze pagina ziet u de details voor elke waarschuwing. Als u wilt sorte
 >
 
 
-### <a name="alert-severity"></a>Ernst van waarschuwingen
+### <a name="alert-severity"></a>Ernst van waarschuwing
 
 -   **Hoge**: Er is een hoge kans dat de resource is aangetast. U ziet in het meteen. Security Center heeft een hoge betrouwbaarheid in zowel de kwade bedoelingen en in de bevindingen gebruikt voor het uitgeven van de waarschuwing. Bijvoorbeeld, een waarschuwing die wordt gedetecteerd tijdens de uitvoering van een bekende schadelijke hulpprogramma zoals Mimikatz, een veelgebruikt hulpprogramma gebruikt voor de diefstal van referenties. 
 -   **Gemiddeld**: Dit is waarschijnlijk een verdachte activiteit die aangeven mogelijk dat een resource is aangetast.

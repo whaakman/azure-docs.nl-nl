@@ -8,10 +8,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: f5f5915e6fdb240fa519ee10526c935a524cb5b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61042213"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Afhandeling van tijdelijke connectiviteitsfouten voor Azure Database voor MariaDB
@@ -46,4 +46,4 @@ Zorg ervoor dat voor het testen van u logica voor opnieuw proberen. Bijvoorbeeld
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Oplossen van verbindingsproblemen met Azure Database voor MariaDB](howto-troubleshoot-common-connection-issues.md)
+* [Verbindingsproblemen met Azure Database for MariaDB oplossen](howto-troubleshoot-common-connection-issues.md)

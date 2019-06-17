@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467452"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Uw eerste serverloze app bouwen met Azure Logic Apps en Azure Functions - Visual Studio
@@ -88,7 +88,7 @@ Als u wilt beginnen, maakt u een [Azure-resourcegroepproject](../azure-resource-
    > [!TIP]
    > In scenario's waar u uw oplossing gebruikersapparaat in een Azure-resourcegroep niet wilt, kunt u het leeg **logische App** sjabloon die u zojuist hebt gemaakt een lege logische app.
 
-1. Uit de **sjablonen vanaf deze locatie weergeven** in de lijst met **Azure Quickstart (github.com/Azure/azure-quickstart-templates)**.
+1. Uit de **sjablonen vanaf deze locatie weergeven** in de lijst met **Azure Quickstart (github.com/Azure/azure-quickstart-templates)** .
 
 1. Typ 'logica-app' als filter in het zoekvak. Selecteer deze sjabloon in de resultaten: **101-logic-app-and-function-app**
 
