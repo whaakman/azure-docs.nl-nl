@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848244"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop-Streaming-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-hadoop-streaming-activity.md)
 > * [Huidige versie](transform-data-using-hadoop-streaming.md)
 
@@ -70,7 +70,7 @@ Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Fa
 
 | Eigenschap          | Description                              | Vereist |
 | ----------------- | ---------------------------------------- | -------- |
-| naam              | Naam van de activiteit                     | Ja      |
+| name              | Naam van de activiteit                     | Ja      |
 | description       | Beschrijving van het doel waarvoor de activiteit wordt gebruikt | Nee       |
 | type              | Voor Hadoop-Streamingactiviteit is het activiteitstype HDInsightStreaming | Ja      |
 | linkedServiceName | Verwijzing naar het HDInsight-cluster geregistreerd als een gekoppelde service in Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
@@ -79,11 +79,11 @@ Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Fa
 | combiner          | Hiermee geeft u de naam van het uitvoerbare bestand combiner | Nee       |
 | fileLinkedService | Verwijzing naar een gekoppelde Azure Storage-Service gebruikt voor het opslaan van de programma's toewijzen, Combiner en Reducer moet worden uitgevoerd. Als u deze gekoppelde Service niet opgeeft, wordt de Azure Storage gekoppelde Service gedefinieerd in de gekoppelde HDInsight-Service wordt gebruikt. | Nee       |
 | filePath          | Een matrix van pad naar de Mapper, Combiner, bieden en Reducer programma's die zijn opgeslagen in Azure Storage waarnaar wordt verwezen door fileLinkedService. Het pad is hoofdlettergevoelig. | Ja      |
-| input             | Hiermee geeft u het WASB-pad naar het invoerbestand voor het toewijzen van de. | Ja      |
-| output            | Hiermee geeft u het WASB-pad naar het uitvoerbestand voor de Reducer. | Ja      |
+| invoer             | Hiermee geeft u het WASB-pad naar het invoerbestand voor het toewijzen van de. | Ja      |
+| uitvoer            | Hiermee geeft u het WASB-pad naar het uitvoerbestand voor de Reducer. | Ja      |
 | getDebugInfo      | Geeft aan wanneer de logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door scriptLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee       |
-| argumenten         | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten worden doorgegeven als opdrachtregelargumenten aan elke taak. | Nee       |
-| Hiermee worden gedefinieerd           | Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script. | Nee       | 
+| arguments         | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten worden doorgegeven als opdrachtregelargumenten aan elke taak. | Nee       |
+| defines           | Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script. | Nee       | 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegevens op andere manieren: 

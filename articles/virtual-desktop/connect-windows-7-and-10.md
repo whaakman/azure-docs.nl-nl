@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145991"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>Verbinding maken vanaf Windows 10 of Windows 7
 
-> Van toepassing op Windows 7 en Windows 10.
+> Van toepassing op: Windows 7 en Windows 10.
 
 Een downloadbare client beschikbaar is dat toegang biedt tot Windows Virtual Desktop Preview resources op apparaten met Windows 7 en Windows 10.
 
@@ -51,7 +51,7 @@ Zodra u zich hebt geabonneerd op een feed, wordt de inhoud van de feed automatis
 
 Nadat u een abonnement, kunt u aanvullende informatie over de feed weergeven door het openen van het deelvenster met details.
 
-1. Op de hoofdpagina van de client, selecteer het weglatingsteken (**...** ) aan de rechterkant van de naam van de feed.
+1. Op de hoofdpagina van de client, selecteer het weglatingsteken ( **...** ) aan de rechterkant van de naam van de feed.
 1. Selecteer in het vervolgkeuzemenu **Details**.
 1. Het deelvenster met Details wordt weergegeven aan de rechterkant van de client.
 
@@ -68,7 +68,7 @@ Indien nodig, kunt u een handmatige update starten door te selecteren op **nu bi
 
 In deze sectie leert u hoe u afmelden voor een feed. U kunt zich afmelden op te abonneren opnieuw met een ander account of uw resources te verwijderen uit het systeem.
 
-1. Op de hoofdpagina van de client, selecteer het weglatingsteken (**...** ) aan de rechterkant van de naam van de feed.
+1. Op de hoofdpagina van de client, selecteer het weglatingsteken ( **...** ) aan de rechterkant van de naam van de feed.
 1. Selecteer in het vervolgkeuzemenu **Afmelden**.
 1. Bekijk en selecteer **doorgaan** in het dialoogvenster.
 

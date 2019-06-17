@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83f9cc050694344cdc5f4f5a2070bc875fcba3d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071661"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Het oplossen van problemen met de Log Analytics-agent voor Linux 
 
@@ -187,6 +187,33 @@ Onder de uitvoer-invoegtoepassing, verwijder opmerkingen bij de volgende sectie 
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Probleem: U ziet een 500 en 404-fout in het logboekbestand direct na de onboarding
 Dit is een bekend probleem dat zich op de eerste uploaden van gegevens van Linux in een Log Analytics-werkruimte voordoet. Dit heeft geen invloed op gegevens die worden verzonden of service-ervaring.
+
+
+## <a name="issue-you-see-omiagent-using-100-cpu"></a>Probleem: U ziet omiagent 100% van de CPU
+
+### <a name="probable-causes"></a>Waarschijnlijke oorzaken
+Een regressie in nss pem pakket [v1.0.3 5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) veroorzaakt een ernstige prestatieprobleem, die we hebben gezien komen veel in Redhat/Centos 7.x distributies. Voor meer informatie over dit probleem, controleert u de volgende documentatie: Bug [1667121 prestaties regressie in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+
+Prestaties gerelateerde fouten die niet voortdurend gebeuren, en ze zijn zeer moeilijk is om te reproduceren. Als u dit probleem is met omiagent ondervindt moet u het script omiHighCPUDiagnostics.sh die de stack-trace van de omiagent worden verzameld wanneer een bepaalde drempelwaarde overschrijden.
+
+1. Het script downloaden <br/>
+`wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/LogCollector/source/omiHighCPUDiagnostics.sh`
+
+2. Diagnose uitvoeren voor 24 uur aan 30% CPU-drempel <br/>
+`bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
+
+3. Aanroepstack zal worden gedumpt in omiagent_trace-bestand als u merkt dat veel Curl en NSS functieaanroepen, volgt u onderstaande stappen voor het oplossen.
+
+### <a name="resolution-step-by-step"></a>Resolutie (stap voor stap)
+
+1. Upgrade van het pakket nss pem [v1.0.3 5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html). <br/>
+`sudo yum upgrade nss-pem`
+
+2. Als nss pem niet beschikbaar voor de upgrade is (meestal gebeurt op Centos), klikt u vervolgens downgraden curl naar 7.29.0-46. Als per ongeluk hebt u 'yum-update' uitvoert, curl worden geüpgraded naar 7.29.0-51 en het probleem opnieuw wordt uitgevoerd. <br/>
+`sudo yum downgrade curl libcurl`
+
+3. OMI opnieuw: <br/>
+`sudo scxadmin -restart`
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Probleem: U ziet geen gegevens in Azure portal
 
@@ -399,7 +426,7 @@ sudo sh ./onboard_agent.sh --purge
 
 U kunt reonboard nadat u de `--purge` optie
 
-## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Log Analytics agent-extensie in de Azure-portal is gemarkeerd met een mislukte status: Inrichten is mislukt
+## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Log Analytics agent-extensie in de Azure-portal is gemarkeerd met een mislukte status: Het inrichten is mislukt
 
 ### <a name="probable-causes"></a>Waarschijnlijke oorzaken
 * Log Analytics-agent is verwijderd uit het besturingssysteem

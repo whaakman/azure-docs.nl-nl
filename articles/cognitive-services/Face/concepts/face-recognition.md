@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: fa38c492530cb8938e49bc15e13fdd39ed5b6f1c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890877"
 ---
 # <a name="face-recognition-concepts"></a>Face-opname-concepten
@@ -37,7 +37,7 @@ De opname-bewerkingen gebruik voornamelijk de volgende gegevensstructuren. Deze 
 
 In deze sectie wordt uitgelegd hoe de vier erkenning bewerkingen gebruiken voor de gegevensstructuren die eerder is beschreven. Zie voor een uitgebreide beschrijving van elke bewerking erkenning [overzicht](../Overview.md).
 
-### <a name="verify"></a>Bevestigen
+### <a name="verify"></a>Verifiëren
 
 De [controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) bewerking nodig is een gezichts-ID van het DetectedFace of PersistedFace en een andere face ID of een object persoon en bepaalt u of ze deel uitmaken van dezelfde persoon. Als u in een persoon-object doorgeeft, kunt u eventueel doorgeven in een PersonGroup waartoe deze persoon behoort om prestaties te verbeteren.
 

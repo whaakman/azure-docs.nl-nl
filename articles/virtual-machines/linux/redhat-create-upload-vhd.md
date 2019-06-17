@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: szark
 ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966108"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Een op Red Hat gebaseerde virtuele machine voor Azure voorbereiden
@@ -904,7 +904,7 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
     c.  Stel het BIOS om op te starten vanaf de CD.
 
-1. Hiermee wordt de virtuele machine gestart. Wanneer de installatiehandleiding wordt weergegeven, drukt u op **tabblad** het configureren van de opstartopties.
+1. Start de virtuele machine. Wanneer de installatiehandleiding wordt weergegeven, drukt u op **tabblad** het configureren van de opstartopties.
 
 1. ENTER `inst.ks=<the location of the kickstart file>` aan het einde van de opstartopties en druk op **Enter**.
 

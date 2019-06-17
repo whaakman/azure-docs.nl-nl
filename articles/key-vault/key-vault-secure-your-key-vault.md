@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: a88451403f242c39212c80e3c7425a901c6819cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725281"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118988"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Beveiligde toegang tot een key vault
 
@@ -125,7 +125,7 @@ De volgende tabel geeft een overzicht van de toegangsmachtigingen voor onze func
 
 | Rol | Machtigingen voor de beheerlaag | Machtigingen voor de gegevenslaag |
 | --- | --- | --- |
-| Beveiligingsteam | Inzender voor Key Vault | Sleutels: back-up maken, maken, verwijderen, ophalen, importeren, lijsten, herstellen<br>Geheimen: alle bewerkingen |
+| Beveiligingsteam | Inzender voor Key Vault | Sleutels: back-ups maken, verwijderen, ophalen, importeren, sorteren, herstellen<br>Geheimen: alle bewerkingen |
 | Ontwikkelaars en&nbsp;operators | Implementatiemachtigingen voor Key Vault<br><br> **Opmerking**: Deze machtiging kan geïmplementeerde VM's voor het ophalen van geheimen in een key vault. | Geen |
 | Auditors | Geen | Sleutels: weergeven<br>Geheimen: weergeven<br><br> **Opmerking**: Deze machtiging kunt auditors kenmerken (tags, activering datums, vervaldatums) voor sleutels en geheimen die niet worden weergegeven in de logboeken controleren. |
 | Toepassing | Geen | Sleutels: ondertekenen<br>Geheimen: ophalen |

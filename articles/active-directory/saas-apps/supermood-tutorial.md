@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e54d0b1ef3173fd1ec709927c7c9842b428bd3a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Zelfstudie: Azure Active Directory-integratie met Supermood
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van Supermood in Azure AD, moet u Superm
 
 **Als u wilt toevoegen Supermood uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Supermood, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding Supermood](#configure-supermood-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker Supermood](#create-supermood-test-user)**  : als u wilt een equivalent van Britta Simon in Supermood die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -154,7 +154,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Supermood, moet u de
 
 1. Ga naar het deelvenster van de beheerder Supermood.co als beveiligingsbeheerder.
 
-1. Klik op **Mijn account** (onderaan links) en **eenmalige aanmelding (SSO)**.
+1. Klik op **Mijn account** (onderaan links) en **eenmalige aanmelding (SSO)** .
 
     ![Het certificaat dat één](./media/supermood-tutorial/tutorial_supermood_single.png)
 
@@ -170,7 +170,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Supermood, moet u de
 
     b. In de **een metagegevens-URL gebruiken** tekstvak, plak de **App-Url voor federatieve metagegevens** die u hebt gekopieerd vanuit Azure portal.
 
-    c. Klik op **Add**.
+    c. Klik op **Toevoegen**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 

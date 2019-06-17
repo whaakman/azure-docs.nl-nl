@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccffef1af896f28eed8f7684a629aa41fbae522
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0087288bed06a09b3a78b190f3d60e8985d7ad29
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Zelfstudie: Azure Active Directory-integratie met LoginRadius
 
@@ -54,7 +54,7 @@ Voor het configureren van de integratie van LoginRadius in Azure AD, moet u Logi
 
 **Als u wilt toevoegen LoginRadius uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met LoginRadius, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding LoginRadius](#configure-loginradius-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker LoginRadius](#create-loginradius-test-user)**  : als u wilt een equivalent van Britta Simon in LoginRadius die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -108,7 +108,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met LoginRadius, moet u 
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://secure.loginradius.com/login`
 
-    b. Typ een URL in het vak **Id (Entiteits-id)**: `https://LoginRadius.hub.loginradius.com/`
+    b. Typ een URL in het vak **Id (Entiteits-id)** : `https://LoginRadius.hub.loginradius.com/`
 
     > [!NOTE]
     > Open de pagina aanmeldings-URL. Klik op **Single Sign-On** tabblad en voer **de naam van de invoegtoepassing** verstrekt door de [LoginRadius ondersteuningsteam](mailto:support@loginradius.com) klikt u vervolgens op **aanmelden** knop en u wordt omgeleid naar de Azure AD-pagina voor de aanmelding.

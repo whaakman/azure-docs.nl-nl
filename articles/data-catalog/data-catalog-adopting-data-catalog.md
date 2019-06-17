@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 3943332179a6d283a8ed3ca66ea559d5cea53a10
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953189"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Aanpak en proces voor het overstappen op Azure Data Catalog
@@ -68,7 +68,7 @@ Hier volgen enkele tips voor het identificeren van gebruiksvoorbeelden:
 
 * **Definieer de doelstellingen van het team** - hoe bereikt het team hun doelstellingen? Richt u nog niet op Data Catalog, omdat u in deze fase objectief wilt zijn. Vergeet niet dat het om de bedrijfsresultaten en niet om de technologie draait.
 * **Definieer het zakelijke probleem** - wat zijn de problemen van het team met betrekking tot het zoeken en leren over gegevensassets? Bijvoorbeeld, er staat informatie over belangrijke gegevensbronnen in Excel-werkmappen in een netwerkmap, en het team spendeert mogelijk veel tijd aan het vinden van de werkmappen.
-* **Krijg inzicht in de teamcultuur met betrekking tot verandering** - veel uitdagingen met betrekking tot acceptatie hebben te maken met weerstand tegen verandering, in plaats van met de implementatie van een nieuw hulpprogramma. Hoe een team reageert op verandering is belangrijk bij het identificeren van gebruiksvoorbeelden, omdat processen mogelijk bestaan met de redenering "dit hebben we altijd zo hebben gedaan" of "waarom zouden we het veranderen als het niet stuk is?". De overstap op een nieuw hulpprogramma of proces is altijd het gemakkelijkst als de betrokken mensen weten welke meerwaarde ze kunnen realiseren door de verandering, en erkennen dat het belangrijk is dat de problemen worden opgelost. 
+* **Krijg inzicht in de teamcultuur met betrekking tot verandering** - veel uitdagingen met betrekking tot acceptatie hebben te maken met weerstand tegen verandering, in plaats van met de implementatie van een nieuw hulpprogramma. Hoe een team reageert op verandering is belangrijk bij het identificeren van gebruiksvoorbeelden, omdat processen mogelijk bestaan met de redenering "dit hebben we altijd zo hebben gedaan" of "waarom zouden we het veranderen als het niet stuk is?". De overstap op een nieuw hulpprogramma of proces is altijd het gemakkelijkst als de betrokken mensen weten welke meerwaarde ze kunnen realiseren door de verandering, en erkennen dat het belangrijk is dat de problemen worden opgelost.
 * **Blijf gefocust met betrekking tot gegevensassets** -wanneer u de bedrijfsproblemen die een team bespreekt, moet u 'het onkruid inzichtelijk', en u richten op wat relevant is voor effectiever gebruik te maken van zakelijke gegevensassets.
 
 Hier volgen enkele gebruiksvoorbeelden met betrekking tot Data Catalog:

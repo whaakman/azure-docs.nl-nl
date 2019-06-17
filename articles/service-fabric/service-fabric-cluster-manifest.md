@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209706"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Configuratie-instellingen voor een zelfstandige Windows-cluster
@@ -85,7 +85,7 @@ De sectie met eigenschappen in de ClusterConfig.json wordt gebruikt om het clust
 ### <a name="reliability"></a>Betrouwbaarheid
 Het concept van kunt reliabilityLevel definieert het aantal replica's of exemplaren van de Service Fabric-systeemservices die kunnen worden uitgevoerd op de primaire knooppunten van het cluster. Bepaalt de betrouwbaarheid van deze services en wordt daarmee het cluster. De waarde wordt berekend door het systeem gelijktijdig met cluster maken en bijwerken.
 
-### <a name="diagnostics"></a>Diagnostische gegevens
+### <a name="diagnostics"></a>Diagnostiek
 In de sectie diagnosticsStore kunt u parameters voor het inschakelen van diagnostische gegevens en het oplossen van fouten in de knooppunt- of -cluster, zoals wordt weergegeven in het volgende codefragment: 
 
 ```json

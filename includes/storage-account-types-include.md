@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d96e69fb526cff633c78e9ac8a1679762014cd4b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114946"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133192"
 ---
 Azure Storage biedt verschillende typen opslagaccounts. Elk type biedt ondersteuning voor verschillende functies en heeft een eigen prijsmodel. Houd rekening met deze verschillen voordat u een opslagaccount om te bepalen welk type account dat wordt aanbevolen voor uw toepassingen kunt maken. De typen opslagaccounts zijn:
 
@@ -25,20 +25,20 @@ Azure Storage biedt verschillende typen opslagaccounts. Elk type biedt ondersteu
 
 De volgende tabel beschrijft de soorten opslagaccounts en de bijbehorende mogelijkheden:
 
-| Type opslagaccount | Ondersteunde services                       | Ondersteunde prestatielagen      | Ondersteunde toegangslagen         | Opties voor gegevensreplicatie               | Implementatiemodel<sup>1</sup> | Versleuteling<sup>2</sup> |
+| Type opslagaccount | Ondersteunde services                       | Ondersteunde prestatielagen      | Ondersteunde toegangslagen         | Opties voor gegevensreplicatie               | Implementatiemodel<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Versleuteling<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Algemeen gebruik V2   | BLOB, bestand, wachtrij, tabel en schijf       | Standard, Premium<sup>5</sup> | Hot, Cool, Archive<sup>3</sup> | LRS-, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager             | Versleuteld              |
-| Algemeen gebruik V1   | BLOB, bestand, wachtrij, tabel en schijf       | Standard, Premium<sup>5</sup> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, klassiek    | Versleuteld              |
+| Algemeen gebruik V2   | BLOB, bestand, wachtrij, tabel en schijf       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Hot, Cool en Archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Versleuteld              |
+| Algemeen gebruik V1   | BLOB, bestand, wachtrij, tabel en schijf       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, klassiek    | Versleuteld              |
 | Blok-blobopslag   | BLOB (blok-blobs en toevoeg-blobs alleen) | Premium                       | N/A                            | LRS                               | Resource Manager             | Versleuteld              |
 | FileStorage (preview)   | U kunt alleen bestanden | Premium                       | N/A                            | LRS                               | Resource Manager             | Versleuteld              |
-| Blob Storage         | BLOB (blok-blobs en toevoeg-blobs alleen) | Standard                      | Hot, Cool, Archive<sup>3</sup> | LRS, GRS, RA-GRS                  | Resource Manager             | Versleuteld              |
+| Blob Storage         | BLOB (blok-blobs en toevoeg-blobs alleen) | Standard                      | Hot, Cool en Archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Versleuteld              |
 
-<sup>1</sup>met het Azure Resource Manager-implementatiemodel wordt aanbevolen. Opslagaccounts met behulp van het klassieke implementatiemodel kunnen nog steeds worden gemaakt op bepaalde locaties en bestaande klassieke accounts worden nog steeds ondersteund. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie: Implementatiemodellen en de status van uw resources begrijpen](../articles/azure-resource-manager/resource-manager-deployment-model.md).
+<div id="deployment-model"><sup>1</sup>met het Azure Resource Manager-implementatiemodel wordt aanbevolen. Opslagaccounts met behulp van het klassieke implementatiemodel kunnen nog steeds worden gemaakt op bepaalde locaties en bestaande klassieke accounts worden nog steeds ondersteund. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager en klassieke implementatie: Implementatiemodellen en de status van uw resources begrijpen</a>.</div>
 
-<sup>2</sup>alle opslagaccounts zijn versleuteld met behulp van Storage Service Encryption (SSE) voor data-at-rest. Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](../articles/storage/common/storage-service-encryption.md).
+<div id="encryption"><sup>2</sup>alle opslagaccounts zijn versleuteld met behulp van Storage Service Encryption (SSE) voor data-at-rest. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Azure Storage-Serviceversleuteling voor Data-at-Rest</a>.</div>
 
-<sup>3</sup>de Archive-laag is beschikbaar op het niveau van een afzonderlijke blob alleen, niet op het niveau van de storage-account. Alleen blok-blobs en toevoeg-blobs kunnen worden gearchiveerd. Zie voor meer informatie, [Azure Blob-opslag: Hot, Cool, en Archiefopslaglaag](../articles/storage/blobs/storage-blob-storage-tiers.md).
+<div id="archive"><sup>3</sup>de Archive-laag is beschikbaar op het niveau van een afzonderlijke blob alleen, niet op het niveau van de storage-account. Alleen blok-blobs en toevoeg-blobs kunnen worden gearchiveerd. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob-opslag: Hot, Cool, en Archiefopslaglaag</a>.</div>
 
-<sup>4</sup>zone-redundante opslag (ZRS) is alleen beschikbaar voor algemeen gebruik v2 standard storage-accounts. Zie voor meer informatie over ZRS [Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage](../articles/storage/common/storage-redundancy-zrs.md). Zie voor meer informatie over andere opties voor gegevensreplicatie [Azure Storage-replicatie](../articles/storage/common/storage-redundancy.md).
+<div id="zone-redundant-storage"><sup>4</sup>zone-redundante opslag (ZRS) is alleen beschikbaar voor algemeen gebruik v2 standard storage-accounts. Zie voor meer informatie over ZRS <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage</a>. Zie voor meer informatie over andere opties voor gegevensreplicatie <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage-replicatie</a>.</div>
 
-<sup>5</sup> premium-prestaties voor algemeen gebruik v2 en algemeen gebruik v1-accounts is beschikbaar voor schijven en pagina-blob.
+<div id="premium-performance"><sup>5</sup>premium-prestaties voor algemeen gebruik v2 en algemeen gebruik v1-accounts is beschikbaar voor schijven en pagina-blob.</div>

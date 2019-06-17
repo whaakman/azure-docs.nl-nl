@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882389"
 ---
 # <a name="replicas-and-instances"></a>Replica's en instanties 
@@ -116,11 +116,11 @@ De replicarol is niet relevant in de stand-by-status.
 ## <a name="replica-role"></a>Replicarol 
 De rol van de replica is bepalend voor de functie in de replicaset:
 
-- **Primaire (P)**: Er is een primaire in de replica die verantwoordelijk is voor het uitvoeren van lees- en schrijfbewerkingen. 
-- **ActiveSecondary (S)**: Dit zijn de replica's die zijn ontvangen van updates van de status van de primaire, past deze toe en verzend back bevestigingen. Er zijn meerdere actieve secundaire databases in de replicaset. Het nummer van deze actieve secundaire databases bepaalt het aantal fouten die kan worden verwerkt door de service.
-- **IdleSecondary (I)**: Deze replica's zijn gebouwd op de primaire. Ze ontvangen status van de primaire voordat ze kunnen worden gepromoveerd tot de actieve secundaire. 
-- **Geen (N)**: Deze replica's geen een verantwoordelijkheid in de replicaset.
-- **Onbekend (U)**: Dit is de eerste rol van een replica voordat er een **ChangeRole** API-aanroep van Service Fabric.
+- **Primaire (P)** : Er is een primaire in de replica die verantwoordelijk is voor het uitvoeren van lees- en schrijfbewerkingen. 
+- **ActiveSecondary (S)** : Dit zijn de replica's die zijn ontvangen van updates van de status van de primaire, past deze toe en verzend back bevestigingen. Er zijn meerdere actieve secundaire databases in de replicaset. Het nummer van deze actieve secundaire databases bepaalt het aantal fouten die kan worden verwerkt door de service.
+- **IdleSecondary (I)** : Deze replica's zijn gebouwd op de primaire. Ze ontvangen status van de primaire voordat ze kunnen worden gepromoveerd tot de actieve secundaire. 
+- **Geen (N)** : Deze replica's geen een verantwoordelijkheid in de replicaset.
+- **Onbekend (U)** : Dit is de eerste rol van een replica voordat er een **ChangeRole** API-aanroep van Service Fabric.
 
 Het volgende diagram illustreert de replica rol overgangen en enkele voorbeeld-scenario's waarin ze kunnen optreden:
 

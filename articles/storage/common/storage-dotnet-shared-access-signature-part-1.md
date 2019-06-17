@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65907244"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Shared access signatures (SAS) gebruiken
@@ -119,7 +119,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Machtigingen |`sp=rw` |De machtigingen die zijn verleend door de SAS Read (r) bevatten en schrijven (s). |
 | IP-bereik |`sip=168.1.5.60-168.1.5.70` |Het bereik van IP-adressen van waaruit u een aanvraag wordt geaccepteerd. |
 | Protocol |`spr=https` |Alleen aanvragen via HTTPS zijn toegestaan. |
-| Handtekening |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Gebruikt voor de autorisatie van toegang tot de blob. De handtekening is een HMAC berekend voor een tekenreeks te ondertekenen en een sleutel met behulp van de algoritme SHA256 en klik vervolgens gecodeerd met Base64-codering. |
+| handtekening |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Gebruikt voor de autorisatie van toegang tot de blob. De handtekening is een HMAC berekend voor een tekenreeks te ondertekenen en een sleutel met behulp van de algoritme SHA256 en klik vervolgens gecodeerd met Base64-codering. |
 
 ### <a name="account-sas-uri-example"></a>Voorbeeld van de account-SAS-URI
 

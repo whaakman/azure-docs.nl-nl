@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242926c0821e4951d2a2bd2f858f63691baf1017
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ae7c823b9aea262556081354a108ac9509a284ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307225"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110689"
 ---
 # <a name="deploy-a-secure-workstation"></a>Implementeren van een beveiligd werkstation
 
@@ -102,11 +102,11 @@ Als u wilt meer versterking van het proces van het toevoegen van apparaten aan A
 
 Vanuit de Azure-portal, blader naar **Azure Active Directory** > **Mobility (MDM en MAM)**  > **Microsoft Intune**. Wijzig de instelling **gebruikersbereik van MDM** naar **alle** en kies **opslaan** als we elk apparaat kan worden beheerd door Intune in dit scenario toestaat. Meer informatie vindt u in het artikel [Intune Quickstart: Instellen van automatische inschrijving voor Windows 10-apparaten](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). In een toekomstige stap maken we Intune-beleid voor configuratie en nalevingsbeleid.
 
-#### <a name="azure-ad-conditional-access"></a>Voorwaardelijke toegang van Azure AD
+#### <a name="azure-ad-conditional-access"></a>Azure AD Conditional Access
 
-Voorwaardelijke toegang van Azure AD kunt deze bevoegde administratieve taken bewaren op compatibele apparaten. Gebruikers die we hebben gedefinieerd als leden van de **beveiligd werkstation gebruikers** groep moeten multi-factor authentication uitvoeren tijdens het aanmelden bij toepassingen in de cloud. We de richtlijnen voor best practices te volgen en onze accounts voor toegang in noodgevallen uitsluiten van het beleid. Als u meer informatie vindt u in het artikel [toegang in noodgevallen accounts beheren in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+Azure AD voorwaardelijke toegang kunt houden deze bevoegde administratieve taken op compatibele apparaten. Gebruikers die we hebben gedefinieerd als leden van de **beveiligd werkstation gebruikers** groep moeten multi-factor authentication uitvoeren tijdens het aanmelden bij toepassingen in de cloud. We de richtlijnen voor best practices te volgen en onze accounts voor toegang in noodgevallen uitsluiten van het beleid. Als u meer informatie vindt u in het artikel [toegang in noodgevallen accounts beheren in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
-Als u wilt configureren voor voorwaardelijke toegang van Azure portal, blader naar **Azure Active Directory** > **voorwaardelijke toegang** > **nieuw beleid**.
+Als u wilt configureren voor voorwaardelijke toegang vanuit de Azure-portal, blader naar **Azure Active Directory** > **voorwaardelijke toegang** > **nieuw beleid**.
 
 * **Naam** -apparaat beveiligen beleid vereist
 * Toewijzingen
@@ -122,7 +122,7 @@ Als u wilt configureren voor voorwaardelijke toegang van Azure portal, blader na
       * Voor meerdere besturingselementen - **alle geselecteerde besturingselementen vereisen**
 * Beleid - inschakelen **op**
 
-Organisaties kunnen eventueel maken voor beleid voor het blok landen waar gebruikers geen toegang bedrijfsbronnen tot zouden. Meer informatie over het beleid voor voorwaardelijke toegang op basis van locatie van IP-kan worden gevonden in het artikel [wat is er met de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+Organisaties kunnen eventueel maken voor beleid voor het blok landen waar gebruikers geen toegang bedrijfsbronnen tot zouden. Meer informatie over IP-locatie op basis van beleid voor voorwaardelijke toegang kan worden gevonden in het artikel [wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ## <a name="intune-configuration"></a>Intune-configuratie
 

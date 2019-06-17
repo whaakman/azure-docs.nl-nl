@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64405881"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (Python)
 
@@ -35,7 +35,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 - Telemetrie, waaronder de volgende metingen die het apparaat wordt verzameld:
   - Vochtigheid
   - Temperatuur
-  - Druk
+  - Druk te verlichten
   - Magnetometer (X, Y, Z)
   - Accelerometer (X, Y, Z)
   - Gyroscope (X, Y, Z)
@@ -94,7 +94,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 Numerieke instellingen
 
-| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
+| `Display name` | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage      | setVoltage | Voltage | 0              | 0       | 240     | 0       |
 | Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
@@ -102,16 +102,16 @@ Numerieke instellingen
 
 Instellingen voor in-/ uitschakelen
 
-| Weergavenaam | Veldnaam | Van tekst | Uit tekst | Oorspronkelijk |
+| `Display name` | Veldnaam | Van tekst | Uit tekst | Oorspronkelijk |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AAN      | UIT      | Uit     |
 
 ### <a name="properties"></a>Properties
 
-| Type            | Weergavenaam | Veldnaam | Gegevenstype |
+| Type            | `Display name` | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |
 | Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
-| Tekst            | Locatie     | location   | N/A       |
+| Text            | Locatie     | location   | N/A       |
 
 ## <a name="next-steps"></a>Volgende stappen
 

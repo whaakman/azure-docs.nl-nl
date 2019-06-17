@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453440"
+ms.locfileid: "67109029"
 ---
 # <a name="how-to-close-active-risk-events"></a>Procedure: Actieve risicogebeurtenissen sluiten
 
@@ -48,7 +48,7 @@ Als u wilt sluiten active risicogebeurtenissen, hebt u de volgende opties:
 
 ## <a name="require-password-reset-with-a-user-risk-policy"></a>Wachtwoord opnieuw instellen met een beleid voor gebruikersrisico 's
 
-Door het [beleid voor voorwaardelijke toegang op basis van gebruikersrisico](howto-user-risk-policy.md) te configureren, kunt u een wachtwoordwijziging eisen als er automatisch een opgegeven gebruikersrisiconiveau is gedetecteerd. 
+Door het configureren van de [gebruikersrisico beleid voor voorwaardelijke toegang](howto-user-risk-policy.md), kunt u een wachtwoordwijziging vereisen als een risiconiveau van de opgegeven gebruiker is automatisch gedetecteerd. 
 
 ![Wachtwoord opnieuw instellen](./media/howto-close-active-risk-events/13.png)
 

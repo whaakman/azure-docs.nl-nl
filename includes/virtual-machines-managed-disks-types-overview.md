@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133302"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Welke schijftypen zijn beschikbaar in Azure?
 
@@ -23,17 +23,17 @@ Azure-beheerde schijven biedt momenteel vier schijftypen, drie die algemeen besc
 
 De volgende tabel bevat een vergelijking van ultra solid-state-stations (SSD) (preview), premium SSD, standard-SSD en standaard harde schijven (HDD) voor beheerde schijven om te bepalen wat u wilt gebruiken.
 
-|   | Ultra SSD (preview)   | Premium SSD   | Standard - SSD   | Standard - HDD   |
+|   | Ultra SSD (preview)   | Premium SSD   | Standard - SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
 |Schijftype   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensieve workloads zoals SAP HANA, databases van de bovenste laag (bijvoorbeeld SQL, Oracle) en andere transactie zware workloads.   |Productie- en prestatiegevoelige workloads   |Webservers, bedrijfstoepassingen weinig wordt gebruikt en ontwikkelen en testen   |Back-up, niet-kritieke, incidentele toegang   |
-|Schijfgrootte   |65.536 gibibyte (GiB) (Preview)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|Schijfgrootte   |65\.536 gibibyte (GiB) (Preview)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
 |Max. doorvoer   |2000 MiB/s (Preview)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Max. IOP's   |160.000 (preview)   |20,000   |6,000   |2,000   |
+|Max. aantal IOP 's   |160\.000 (preview)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (preview)
 
-Azure ultra SSD (preview) bieden hoge doorvoer, hoge IOPS en consistente lage latentie schijfopslag voor Azure IaaS VM's. Enkele aanvullende voordelen van ultra SSD zijn de mogelijkheid om de prestaties van de schijf, samen met uw workloads, zonder dat uw virtuele machines opnieuw moet worden dynamisch te wijzigen. Ultra SSD zijn geschikt voor gegevensintensieve workloads, zoals SAP HANA, databases van de bovenste laag en transactie-zware workloads. Ultra SSD kan alleen worden gebruikt als gegevensschijven. We adviseren premium SSD's gebruiken als de OS-schijven.
+Azure ultra SSD (preview) biedt hoge doorvoer, een hoge IOPS en consistente lage latentie disk-opslag voor Azure IaaS VM's. Enkele aanvullende voordelen van ultra SSD zijn de mogelijkheid om de prestaties van de schijf, samen met uw workloads, zonder dat uw virtuele machines opnieuw moet worden dynamisch te wijzigen. Ultra SSD's zijn geschikt voor gegevensintensieve workloads, zoals SAP HANA, databases van de bovenste laag en transactie-zware workloads. Ultra SSD kan alleen worden gebruikt als gegevensschijven. We adviseren premium SSD's gebruiken als de OS-schijven.
 
 ### <a name="performance"></a>Prestaties
 
@@ -73,7 +73,8 @@ Tijdens de preview, ultra SSD:
 - Worden alleen ondersteund op ES/DS v3-VM 's
 - Zijn alleen beschikbaar als gegevensschijven en alleen ondersteuning voor 4k die fysieke sectorgrootte  
 - Kunnen alleen worden gemaakt als de lege schijven  
-- Momenteel kan alleen worden geïmplementeerd met behulp van Azure Resource Manager-sjablonen, CLI en de python-SDK.
+- Momenteel kan alleen worden geïmplementeerd met behulp van Azure Resource Manager-sjablonen, CLI, PowerShell en de Python-SDK.
+- Kan niet worden geïmplementeerd met de Azure-portal (nog).
 - Ondersteunt nog geen momentopnamen van de schijf, VM-installatiekopieën, beschikbaarheidssets, virtuele-machineschaalsets en Azure disk encryption.
 - Integratie met Azure Backup of Azure Site Recovery biedt geen nog ondersteuning.
 - Net als bij [meeste previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), deze functie mag niet worden gebruikt voor werkbelastingen voor productie tot algemene beschikbaarheid (GA).

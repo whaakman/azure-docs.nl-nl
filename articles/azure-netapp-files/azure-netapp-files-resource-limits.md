@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
 ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826381"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resourcelimieten voor Azure NetApp Files
@@ -43,7 +43,7 @@ De volgende tabel beschrijft de resourcelimieten voor Azure NetApp bestanden:
 |  Maximum aantal toegewezen quotum van een enkel volume *   |   92 TiB   |    Nee   |
 |  Maximale grootte van een enkel volume *     |    100 TiB    |    Nee       |
 
-* Een volume kan handmatig worden gemaakt of gewijzigd in bewaartemperatuur 92 TiB. Een volume kan echter maximaal 100 TiB in een overschrijding scenario groeien. Zie [Kostenmodel voor Azure NetApp Files](azure-netapp-files-cost-model.md) voor meer informatie over capaciteit overschrijding. 
+\* Een volume kan handmatig worden gemaakt of gewijzigd in bewaartemperatuur 92 TiB. Een volume kan echter maximaal 100 TiB in een overschrijding scenario groeien. Zie [Kostenmodel voor Azure NetApp Files](azure-netapp-files-cost-model.md) voor meer informatie over capaciteit overschrijding. 
 
 ## <a name="request-limit-increase"></a>Limiet verhoging aanvragen 
 
@@ -54,7 +54,7 @@ In het vlak van de navigatie in de Azure portal:
 1. Klik op **Help en ondersteuning**.
 2. Klik op **+ nieuw ondersteuningsverzoek**.
 3. Geef op het tabblad grondbeginselen van de volgende informatie: 
-    1. Type probleem: Selecteer **limieten voor Service en -abonnement (quota)**.
+    1. Type probleem: Selecteer **limieten voor Service en -abonnement (quota)** .
     2. Abonnementen: Selecteer het abonnement voor de resource die u het quotamaximum te verhogen moet.
     3. Quotumtype: Selecteer **opslag: Azure Files met NetApp beperkt**.
     4. Klik op **Next: Oplossingen**.
@@ -64,7 +64,7 @@ In het vlak van de navigatie in de Azure portal:
         |  Resource  |    Bovenliggende resources      |    Nieuwe grenzen aangevraagd     |    Reden voor verhoging       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Account |  *Subscription ID*   |  *Aangevraagde nieuwe maximum **account** getal*    |  *Welke scenario of gebruik het geval u hierom wordt gevraagd de aanvraag?*  |
-        |  Groep    |  *Abonnements-ID, Account URI*  |  *Aangevraagde nieuwe maximum **pool** getal*   |  *Welke scenario of gebruik het geval u hierom wordt gevraagd de aanvraag?*  |
+        |  Pool    |  *Abonnements-ID, Account URI*  |  *Aangevraagde nieuwe maximum **pool** getal*   |  *Welke scenario of gebruik het geval u hierom wordt gevraagd de aanvraag?*  |
         |  Volume  |  *Abonnements-ID, Account URI, Pool URI*   |  *Aangevraagde nieuwe maximum **volume** getal*     |  *Welke scenario of gebruik het geval u hierom wordt gevraagd de aanvraag?*  |
 
     2. Geef de juiste methode ondersteund en geef uw contractinformatie.

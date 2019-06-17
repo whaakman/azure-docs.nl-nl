@@ -11,10 +11,10 @@ ms.date: 10/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507643"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Gebruikersmigratie
@@ -266,7 +266,7 @@ Als u wilt wijzigen van het wachtwoord bijhouden, moet u een Azure-tabel gebruik
     }
     ```
 
-### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>4.2 stap: Uw web-App in Azure App Service implementeren
+### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>4\.2 stap: Uw web-App in Azure App Service implementeren
 Klik in Solution Explorer met de rechtermuisknop op de `AADB2C.UserMigration.API`, selecteert u 'Publiceren...'. Volg de instructies voor het publiceren naar Azure App Service. Zie voor meer informatie, [uw app implementeren in Azure App Service][AppService-Deploy].
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Stap 4.3: Een technisch profiel en de validatie van het technische profiel toevoegen aan uw beleid
@@ -315,7 +315,7 @@ De voorgaande technisch profiel definieert een invoer claim: `signInName` (verze
 
 Nadat u het technische profiel gedefinieerd voor uw RESTful-API, laat u uw Azure AD B2C-beleid voor het aanroepen van het technische profiel. De XML-fragment onderdrukt `SelfAsserted-LocalAccountSignin-Email`, die is gedefinieerd in het Basisbeleid. De XML-fragment wordt ook toegevoegd `ValidationTechnicalProfile`, met ReferenceId die verwijst naar het technische profiel `LocalAccountUserMigration`.
 
-### <a name="step-44-upload-the-policy-to-your-tenant"></a>4.4 stap: Uploaden van het beleid aan uw tenant
+### <a name="step-44-upload-the-policy-to-your-tenant"></a>4\.4 stap: Uploaden van het beleid aan uw tenant
 1. In de [Azure-portal][Portal], Ga naar de [context van uw Azure AD B2C-tenant][B2C-NavContext], en selecteer vervolgens **Azure AD B2C**.
 
 1. Selecteer **Identity-Ervaringsframework**.

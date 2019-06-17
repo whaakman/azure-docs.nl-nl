@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957241"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Gedistribueerde traceringen verzamelen van Python (Preview)
@@ -47,7 +47,7 @@ U moet eerst maken van een Application Insights-resource die een key(ikey) instr
    | **Naam**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
    | **Toepassingstype** | Algemeen | Type app dat u wilt controleren |
    | **Resourcegroep**     | myResourceGroup      | Naam voor de nieuwe resourcegroep waarin App Insights-gegevens worden gehost |
-   | **Locatie** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
+   | **Location** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 2. Klik op **Create**.
 
@@ -183,7 +183,7 @@ U moet eerst maken van een Application Insights-resource die een key(ikey) instr
 
     Omdat we alleen een methodeaanroep traceren zijn, is onze overzicht van de toepassing niet zo interessant. Maar overzicht van de toepassing kunt schalen om te visualiseren veel gedistribueerde toepassingen:
 
-   ![Toepassingsoverzicht](media/opencensus-python/application-map.png)
+   ![Toepassingskaart](media/opencensus-python/application-map.png)
 
 4. Selecteer **prestaties onderzoeken** gedetailleerde prestatieanalyse uitvoeren en de hoofdoorzaak van trage prestaties vast.
 

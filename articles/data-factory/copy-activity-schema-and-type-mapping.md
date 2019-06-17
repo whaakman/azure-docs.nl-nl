@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875800"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in kopieeractiviteit
@@ -105,7 +105,7 @@ De volgende eigenschappen worden ondersteund onder `translator`  ->  `mappings` 
 
 ### <a name="alternative-column-mapping"></a>Alternatieve kolomtoewijzing
 
-Kunt u copy activity -> `translator`  ->  `columnMappings` om toe te wijzen tussen gegevens in tabelvorm vormgegeven. In dit geval is "structuur" sectie vereist voor zowel invoer- en uitvoergegevenssets. Kolom toewijzing ondersteunt **toewijzing van alle of een subset van kolommen in de brongegevensset "structuur" voor alle kolommen in de sink-gegevensset "structuur"**. Hier volgen foutcondities die leiden tot een uitzondering:
+Kunt u copy activity -> `translator`  ->  `columnMappings` om toe te wijzen tussen gegevens in tabelvorm vormgegeven. In dit geval is "structuur" sectie vereist voor zowel invoer- en uitvoergegevenssets. Kolom toewijzing ondersteunt **toewijzing van alle of een subset van kolommen in de brongegevensset "structuur" voor alle kolommen in de sink-gegevensset "structuur"** . Hier volgen foutcondities die leiden tot een uitzondering:
 
 * Brongegevens opgeslagen resultaat heeft geen naam van een kolom die is opgegeven in de invoergegevensset "structuur" sectie query.
 * Sink-gegevensopslag (als met vooraf gedefinieerd schema) heeft geen naam van een kolom die is opgegeven in de sectie uitvoer gegevensset "structuur".

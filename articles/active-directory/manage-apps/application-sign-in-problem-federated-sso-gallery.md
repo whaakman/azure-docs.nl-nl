@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825197"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing in de galerie geconfigureerd voor federatieve eenmalige aanmelding
@@ -61,7 +61,7 @@ Zorg ervoor dat de `Issuer` kenmerk in de SAML-aanvraag overeenkomt met de id-wa
 
 
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres komt niet overeen met de antwoordadressen die zijn geconfigureerd voor de toepassing
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres op dat komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing
 
 *Fout AADSTS50011: Het antwoordadres op dat ' https:\//contoso.com' komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing*
 
@@ -146,7 +146,7 @@ Na een korte periode, is de gebruikers die u hebt geselecteerd mogelijk om deze 
 Azure AD biedt geen ondersteuning voor de SAML-aanvraag verzonden door de toepassing voor eenmalige aanmelding. Enkele veelvoorkomende problemen zijn:
 
 -   Ontbrekende vereiste velden in de SAML-aanvraag
--   Gecodeerde methode voor SAML-aanvraag
+-   Methode voor SAML-aanvraag gecodeerd
 
 **Resolutie**
 
@@ -263,7 +263,7 @@ Verwijder de ongebruikte antwoord-URL's geconfigureerd voor de toepassing.
 
 6.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-7.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)**, niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
+7.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)** , niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Probleem bij het aanpassen van de SAML-claims verzonden naar een toepassing
 

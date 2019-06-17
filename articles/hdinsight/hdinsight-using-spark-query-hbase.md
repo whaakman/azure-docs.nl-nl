@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: e3f5cb726dddbdbfbd1b1f48c800ac681e7a174c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/06/2019
+ms.openlocfilehash: e747f39ca84bb859b37550efef51e01cffd96876
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056748"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark gebruiken om Apache HBase-gegevens te lezen en schrijven
 
@@ -21,11 +21,11 @@ Apache HBase is meestal een query uitgevoerd met de laag niveau API (scans, opge
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Twee HDInsight-clusters, één HBase en een Spark met ten minste afzonderlijke Spark 2.1 (HDInsight 3.6) geïnstalleerd.
-* Het Spark-cluster moet communiceren rechtstreeks met de HBase-cluster met een minimale latentie, zodat beide clusters in hetzelfde virtuele netwerk is de implementatie van de aanbevolen configuratie. Zie voor meer informatie, [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).
-* Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-* De [URI-schema](hdinsight-hadoop-linux-information.md#URI-and-scheme) voor uw clusters primaire opslag. Zou dit wasb: / / voor Azure Blob Storage, abfs: / / voor Azure Data Lake Storage Gen2 of adl: / / voor Azure Data Lake Storage Gen1. Als veilige overdracht is ingeschakeld voor Blob Storage of Data Lake Storage Gen2, zou de URI wasbs: / / of abfss: / /, respectievelijk Zie ook [veilige overdracht](../storage/common/storage-require-secure-transfer.md).
+* Twee afzonderlijke HDInsight-clusters die zijn geïmplementeerd in hetzelfde virtuele netwerk. Een HBase- en een Spark-met ten minste Spark 2.1 (HDInsight 3.6) geïnstalleerd. Zie voor meer informatie, [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
+* Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* De [URI-schema](hdinsight-hadoop-linux-information.md#URI-and-scheme) voor uw clusters primaire opslag. Zou dit wasb: / / voor Azure Blob Storage, abfs: / / voor Azure Data Lake Storage Gen2 of adl: / / voor Azure Data Lake Storage Gen1. Als veilige overdracht is ingeschakeld voor Blob Storage of Data Lake Storage Gen2, zou de URI wasbs: / / of abfss: / /, respectievelijk Zie ook [veilige overdracht](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Algehele proces
 
@@ -40,38 +40,47 @@ Het proces op hoog niveau voor het inschakelen van uw Spark-cluster query uitvoe
 
 ## <a name="prepare-sample-data-in-apache-hbase"></a>Voorbeeldgegevens in Apache HBase voorbereiden
 
-In deze stap maakt u maken en vullen van een eenvoudige tabel in Apache HBase die u kunt vervolgens een query met behulp van Spark.
+In deze stap maakt u maken en vullen van een tabel in Apache HBase die u kunt vervolgens een query met behulp van Spark.
 
-1. Verbinding maken met het hoofdknooppunt van het HBase-cluster via SSH. Zie voor meer informatie, [verbinding maken met HDInsight met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  De onderstaande opdracht bewerken door te vervangen `HBASECLUSTER` met de naam van uw HBase-cluster `sshuser` met de ssh gebruiker de accountnaam en voer vervolgens de opdracht.
+1. Gebruik de `ssh` opdracht verbinding maken met uw HBase-cluster. De onderstaande opdracht bewerken door te vervangen `HBASECLUSTER` met de naam van uw HBase-cluster en voer vervolgens de opdracht:
 
-    ```
+    ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Voer de onderstaande opdracht om te beginnen de HBase-shell:
+2. Gebruik de `hbase shell` opdracht om te beginnen de interactieve HBase-shell. Voer de volgende opdracht in uw SSH-verbinding:
 
-        hbase shell
+    ```bash
+    hbase shell
+    ```
 
-3. Voer de onderstaande opdracht maakt een `Contacts` tabel met de kolomfamilies `Personal` en `Office`:
+3. Gebruik de `create` opdracht voor het maken van een HBase-tabel met twee kolomfamilies. Voer de volgende opdracht in:
 
-        create 'Contacts', 'Personal', 'Office'
+    ```hbase
+    create 'Contacts', 'Personal', 'Office'
+    ```
 
-4. Voer de onderstaande opdrachten laden een paar voorbeeldrijen met gegevens in:
+4. Gebruik de `put` opdracht voor het invoegen van waarden op een opgegeven kolom in een opgegeven rij in een bepaalde tabel. Voer de volgende opdracht in:
 
-        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-        put 'Contacts', '8396', 'Personal:Name', 'Calvin Raji'
-        put 'Contacts', '8396', 'Personal:Phone', '230-555-0191'
-        put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
-        put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
+    ```hbase
+    put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+    put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+    put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+    put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+    put 'Contacts', '8396', 'Personal:Name', 'Calvin Raji'
+    put 'Contacts', '8396', 'Personal:Phone', '230-555-0191'
+    put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
+    put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
+    ```
 
-5. Voer de onderstaande opdracht om af te sluiten van de HBase-shell:
+5. Gebruik de `exit` opdracht om te stoppen van de interactieve HBase-shell. Voer de volgende opdracht in:
 
-        exit 
+    ```hbase
+    exit
+    ```
 
 ## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Hbase-site.xml kopiëren naar Spark-cluster
+
 Kopieer de hbase-site.xml van lokale opslag naar de hoofdmap van de standaardopslag voor uw Spark-cluster.  Bewerk de volgende opdracht in overeenstemming met uw configuratie.  Voer vervolgens de opdracht uit uw open SSH-sessie met de HBase-cluster:
 
 | Van de syntaxiswaarde | Nieuwe waarde|
@@ -80,9 +89,11 @@ Kopieer de hbase-site.xml van lokale opslag naar de hoofdmap van de standaardops
 |`SPARK_STORAGE_CONTAINER`|Vervangen door de containernaam van de standaard opslag gebruikt voor het Spark-cluster.|
 |`SPARK_STORAGE_ACCOUNT`|Vervangen door de naam van het standaardopslagaccount gebruikt voor het Spark-cluster.|
 
-```
+```bash
 hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
 ```
+
+Sluit de ssh-verbinding met uw HBase-cluster.
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Hbase-site.xml plaatsen op uw Spark-cluster
 
@@ -90,13 +101,15 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
 2. Voer de volgende opdracht om te kopiëren `hbase-site.xml` uit uw Spark-cluster standaardopslag naar de map Spark 2-configuratie op de lokale opslag van het cluster:
 
-        sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
+    ```bash
+    sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
+    ```
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Uitvoeren van Spark-Shell die verwijst naar de Spark-Connector voor HBase
 
 1. Voer de onderstaande opdracht om te beginnen een spark-shell uit uw open SSH-sessie met de Spark-cluster:
 
-    ```
+    ```bash
     spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
     ```  
 
@@ -185,12 +198,14 @@ In deze stap definieert u een catalogusobject dat het schema van Apache Spark vo
 
 9. Hier ziet u de resultaten zoals deze:
 
-        +-------------+--------------------+
-        | personalName|       officeAddress|
-        +-------------+--------------------+
-        |    John Dole|1111 San Gabriel Dr.|
-        |  Calvin Raji|5415 San Gabriel Dr.|
-        +-------------+--------------------+
+    ```output
+    +-------------+--------------------+
+    | personalName|       officeAddress|
+    +-------------+--------------------+
+    |    John Dole|1111 San Gabriel Dr.|
+    |  Calvin Raji|5415 San Gabriel Dr.|
+    +-------------+--------------------+
+    ```
 
 ## <a name="insert-new-data"></a>Nieuwe gegevens invoegen
 
@@ -229,13 +244,21 @@ In deze stap definieert u een catalogusobject dat het schema van Apache Spark vo
 
 5. De uitvoer ziet er als volgt uit:
 
-        +------+--------------------+--------------+------------+--------------+
-        |rowkey|       officeAddress|   officePhone|personalName| personalPhone|
-        +------+--------------------+--------------+------------+--------------+
-        |  1000|1111 San Gabriel Dr.|1-425-000-0002|   John Dole|1-425-000-0001|
-        | 16891|        40 Ellis St.|  674-555-0110|John Jackson|  230-555-0194|
-        |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
-        +------+--------------------+--------------+------------+--------------+
+    ```output
+    +------+--------------------+--------------+------------+--------------+
+    |rowkey|       officeAddress|   officePhone|personalName| personalPhone|
+    +------+--------------------+--------------+------------+--------------+
+    |  1000|1111 San Gabriel Dr.|1-425-000-0002|   John Dole|1-425-000-0001|
+    | 16891|        40 Ellis St.|  674-555-0110|John Jackson|  230-555-0194|
+    |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
+    +------+--------------------+--------------+------------+--------------+
+    ```
+
+6. Sluit de spark-shell met de volgende opdracht:
+
+    ```scala
+    :q
+    ```
 
 ## <a name="next-steps"></a>Volgende stappen
 

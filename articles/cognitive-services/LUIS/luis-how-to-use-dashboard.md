@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236950"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Het gebruik van het Dashboard voor het verbeteren van uw app
@@ -33,7 +33,7 @@ De drie problemen die worden behandeld in het dashboard zijn:
 |Probleem|Grafiekkleur|Uitleg|
 |--|--|--|
 |Gegevens imbalance|-|Dit gebeurt wanneer de hoeveelheid van voorbeeld-uitingen aanzienlijk varieert. Alle intents moeten beschikken over _ongeveer_ hetzelfde aantal uitingen van de voorbeeld -, behalve de intentie geen. Er mag slechts 10-15% van de totale hoeveelheid uitingen hebben in de app.<br><br> Als de gegevens imbalanced zijn, maar de nauwkeurigheid van de intentie hoger dan een bepaalde drempelwaarde komt is, wordt deze imbalance niet gerapporteerd als een probleem.<br><br>**Beginnen met dit probleem - de hoofdoorzaak van de andere problemen kan zijn.**|
-|Onduidelijk voorspellingen|Oranje|Dit wordt weergegeven wanneer het belangrijkste doel en de volgende bedoeling scores dicht genoeg bij elkaar dat ze op de volgende training vanwege spiegelen kunnen [negatieve steekproeven](luis-how-to-train.md#train-with-all-data) of meer voorbeeld uitingen toegevoegd aan de bedoeling. |
+|Onduidelijk voorspellingen|Orange|Dit wordt weergegeven wanneer het belangrijkste doel en de volgende bedoeling scores dicht genoeg bij elkaar dat ze op de volgende training vanwege spiegelen kunnen [negatieve steekproeven](luis-how-to-train.md#train-with-all-data) of meer voorbeeld uitingen toegevoegd aan de bedoeling. |
 |Onjuiste voorspellingen|Rood|Dit gebeurt wanneer een voorbeeld-utterance niet voor de gelabelde intentie (de bedoeling dat deel uitmaakt) wordt voorspeld.|
 
 Juiste voorspellingen worden weergegeven met de kleur blauw.

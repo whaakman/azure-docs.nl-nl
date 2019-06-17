@@ -11,17 +11,17 @@ ms.date: 10/08/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912157"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in September 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Nieuwe lagere toegangspunt voor SQL Data Warehouse Gen2
-In April 2018, [presenteerde Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 met 5 x de prestaties, 5 x de schaal van compute, 4 x de gelijktijdigheid van taken en onbeperkte opslag. Zoals vermeld in de [datawarehouse in de cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) door Onderzoeksanalist, SQL Data Warehouse Gen2 **behaalt u betere resultaten dan Amazon Redshift 42%**.
+In April 2018, [presenteerde Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 met 5 x de prestaties, 5 x de schaal van compute, 4 x de gelijktijdigheid van taken en onbeperkte opslag. Zoals vermeld in de [datawarehouse in de cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) door Onderzoeksanalist, SQL Data Warehouse Gen2 **behaalt u betere resultaten dan Amazon Redshift 42%** .
 
 Gen2 is nu algemeen beschikbaar op een lagere vermelding punt van DWU500c zodat u kunt een kleinere grootte data warehouse of dev/test-omgevingen met alle van de meest recente verbeteringen van de service worden uitgevoerd. Het nieuwe toegangspunt behoudt alle Gen2 functies waaronder [adaptieve cache-opslag](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [belichting snel gegevens volgorde wijzigen](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), en ondersteuning voor [realtime datawarehouse](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 

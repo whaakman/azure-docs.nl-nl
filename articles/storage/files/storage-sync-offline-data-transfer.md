@@ -9,10 +9,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d1ec5168b898d0aa75c12e6eb435e20c09de1929
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700278"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Grote hoeveelheden gegevens migreren naar Azure File Sync
@@ -49,9 +49,9 @@ Dit is hoe u Azure File Sync instelt op een manier die compatibel is met het hul
 
 ![Diagram waarin wordt getoond hoe u Azure File Sync kunt instellen](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Stap | Detail |
+| Stap | Details |
 |---|---------------------------------------------------------------------------------------|
-| ![Stap 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Uw Data Box bestellen](../../databox/data-box-deploy-ordered.md). De Data Box-familie aanbiedingen [verschillende producten](https://azure.microsoft.com/services/storage/databox/data) om te voldoen aan uw behoeften. Wanneer u uw Data Box ontvangt, volgt u de [documentatie om uw gegevens te kopiëren](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) naar deze UNC-pad op de Data Box:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>*. Hier *ShareName* is de naam van de staging-share. Data Box terug naar Azure verzenden. |
+| ![Stap 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Uw Data Box bestellen](../../databox/data-box-deploy-ordered.md). De Data Box-familie aanbiedingen [verschillende producten](https://azure.microsoft.com/services/storage/databox/data) om te voldoen aan uw behoeften. Wanneer u uw Data Box ontvangt, volgt u de [documentatie om uw gegevens te kopiëren](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) naar deze UNC-pad op de Data Box:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>* . Hier *ShareName* is de naam van de staging-share. Data Box terug naar Azure verzenden. |
 | ![Stap 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Wacht totdat de bestanden weergegeven in de Azure-bestandsshares die u hebt gekozen als tijdelijke staging shares. *Schakel geen worden gesynchroniseerd met deze shares.* |
 | ![Stap 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Maak een nieuwe lege share voor elke bestandsshare die Data Box voor u gemaakt. Deze nieuwe share moet zich in hetzelfde opslagaccount als de Data Box-share. [Over het maken van een nieuwe Azure-bestandsshare](storage-how-to-create-file-share.md). |
 | ![Stap 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Maak een synchronisatiegroep](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in een opslagsynchronisatieservice. Verwijzen naar de share leeg zijn als een cloudeindpunt. Herhaal deze stap voor elke bestandsshare Data Box. [Instellen van Azure File Sync](storage-sync-files-deployment-guide.md). |

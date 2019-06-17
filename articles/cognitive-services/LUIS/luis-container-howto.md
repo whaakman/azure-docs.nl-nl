@@ -3,20 +3,20 @@ title: Docker-containers
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: De LUIS-container in een docker-container, wordt uw app getrainde of gepubliceerd geladen en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 68ff6a156e0d159816b184452f1f945cbce65216
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052015"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -337,7 +337,7 @@ Als u wilt afsluiten van de container, in de opdrachtregelomgeving waarop de con
 
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](luis-container-configuration.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 De LUIS container verzendt factuurgegevens naar Azure, met behulp van een _Cognitive Services_ resource voor uw Azure-account. 
 
@@ -366,7 +366,7 @@ Niet-ondersteunde app-configuraties|Details|
 |Niet-ondersteunde entiteiten voor alle culturen|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) vooraf gemaakte entiteiten voor alle culturen|
 |Niet-ondersteunde entiteiten voor de cultuur Engels (en-US)|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) vooraf gemaakte entiteiten|
 |Spraak voorbereiden|Externe afhankelijkheden worden niet ondersteund in de container.|
-|Stemmingsanalyse|Externe afhankelijkheden worden niet ondersteund in de container.|
+|Sentimentanalyse|Externe afhankelijkheden worden niet ondersteund in de container.|
 
 <!--blogs/samples/video coures -->
 

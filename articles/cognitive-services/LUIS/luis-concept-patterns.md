@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813561"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
@@ -68,7 +68,7 @@ Patroon-syntaxis ondersteunt de volgende syntaxis:
 |Function|Syntaxis|Genest niveau|Voorbeeld|
 |--|--|--|--|
 |entiteit| {} -accolades|2|Waar bevindt zich formulier {entiteitnaam}?|
-|optioneel|[] - vierkante haken<BR><BR>Er is een limiet van 3 voor geneste niveaus van een combinatie van optioneel en groeperen |2|Het vraagteken is optioneel [?]|
+|Optioneel|[] - vierkante haken<BR><BR>Er is een limiet van 3 voor geneste niveaus van een combinatie van optioneel en groeperen |2|Het vraagteken is optioneel [?]|
 |Groeperen|() - haakjes|2|is (a \| b)|
 |of| \| -verticale streep (pipe)<br><br>Er is een limiet van 2 op de verticale balken (of) in één groep |-|Waar is vorm ({naam-formulier-korte} &#x7c; {naam-formulier-jaren} &#x7c; {formulier-number})| 
 |begin-en/of einde van utterance|^-caret-teken|-|^ begin van de utterance<br>de utterance gebeurt ^<br>^ strikte letterlijke overeenkomen met de volledige utterance met de entiteit {number} ^|
@@ -170,7 +170,7 @@ Optionele tekst in de utterance met behulp van de syntaxis van reguliere express
 |Patroon met optionele tekst|Betekenis|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` en `from {person}` zijn optioneel|
-|' U me kan helpen [?] | De markering interpunctie is optioneel|
+|' U me kan helpen [?]|De markering interpunctie is optioneel|
 
 Leestekens (`?`, `!`, `.`) moeten worden genegeerd en u moet deze met behulp van de syntaxis van de vierkant haakje in patronen genegeerd. 
 

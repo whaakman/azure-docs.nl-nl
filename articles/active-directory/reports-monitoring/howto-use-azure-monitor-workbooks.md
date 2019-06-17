@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107668"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Het gebruik van Azure Monitor werkmappen voor Azure Active Directory-rapporten
 
@@ -76,7 +76,7 @@ Deze werkmap bevat de volgende aanmelding trends in de:
 
 - Geslaagd
 
-- Gebruikersactie in behandeling
+- In behandeling gebruikersactie
 
 - Fout
 
@@ -146,12 +146,12 @@ Deze werkmap bevat de trends voor uitgeschakelde aanmeldingen. U kunt elke trend
 
 - Gebruikers
 
-![Aanmeldingen met behulp van voorwaardelijke toegang](./media/howto-use-azure-monitor-workbooks/49.png)
+![Aanmeldingen via voorwaardelijke toegang](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
 Voor uitgeschakelde aanmeldingen krijgt u een uitsplitsing van de status voor voorwaardelijke toegang.
 
-![Status voor voorwaardelijke toegang](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Status van voorwaardelijke toegang](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 
@@ -198,7 +198,7 @@ Voor elke trend krijgt u een uitsplitsing per-app en -protocol.
 Gebruik de **foutanalyses voor aanmeldingen** werkmap oplossen door het volgende:
 
 - Aanmeldingen
-- Voorwaardelijk toegangsbeleid
+- Beleid voor voorwaardelijke toegang
 - Verouderde verificatie 
 
 
@@ -210,7 +210,7 @@ Deze werkmap bevat de volgende aanmelding trends in de:
 
 - Geslaagd
 
-- Wachtend op actie
+- In behandeling zijnde actie
 
 - Fout
 

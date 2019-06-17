@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4ae02a494949e92ad8e59cd35e46b6ce246ae7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228152"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115008"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met een Windows-machine in .NET
 
@@ -53,35 +53,37 @@ Wanneer u MSI voor een Azure-service, zoals virtuele Machines van Azure, Azure A
 
 Vervolgens roept de code voor een toegangstoken, een lokale metadata-service die beschikbaar is op de Azure-resource. Om te verifiëren met een Azure Key Vault-service, wordt uw code gebruikt het toegangstoken dat wordt opgehaald uit het lokale eindpunt van de MSI-bestand. 
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="create-resources-and-assign-permissions"></a>Resources maken en machtigingen toewijzen
 
-Als u zich bij Azure wilt aanmelden met de Azure CLI, voert u het volgende in:
+Voordat u code schrijven moet u enkele resources maken, een geheim in uw key vault plaatsen en machtigingen toe te wijzen.
+
+### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+
+Als u zich met behulp van Azure CLI wilt aanmelden bij Azure, voert u het volgende in:
 
 ```azurecli
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Een resourcegroep maken
+### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). 
 
-Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). 
-
-Vervolgens selecteert u een Resourcegroepnaam en vul in de tijdelijke aanduiding. In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio US - west:
+In dit voorbeeld wordt een resourcegroep gemaakt in de locatie VS-West:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-U uw zojuist gemaakte resource-groep in deze zelfstudie.
+Uw nieuwe resourcegroep wordt gebruikt in deze zelfstudie.
 
-## <a name="create-a-key-vault"></a>Een sleutelkluis maken
+### <a name="create-a-key-vault-and-populate-it-with-a-secret"></a>Een sleutelkluis maken en deze vullen met een geheim
 
-Voor het maken van een key vault in de resourcegroep die u in de vorige stap hebt gemaakt, moet u de volgende informatie leveren:
+Een sleutelkluis maken in de resourcegroep door te geven de [az keyvault maken](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) opdracht met de volgende informatie:
 
 * Key vault-naam: een reeks van 3 tot 24 tekens die mag alleen cijfers (0-9), letters (a-z, A-Z) en afbreekstreepjes (-)
-* Resourcegroepnaam
+* Naam van de resourcegroep
 * Locatie: **US - west**
 
 ```azurecli
@@ -89,9 +91,8 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 ```
 Op dit moment is uw Azure-account de enige die is gemachtigd voor het uitvoeren van bewerkingen op deze nieuwe sleutelkluis.
 
-## <a name="add-a-secret-to-the-key-vault"></a>Een geheim toevoegen aan de sleutelkluis
+Nu een geheim toevoegen aan uw sleutelkluis met de [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) opdracht
 
-We gaan een geheim toevoegen om te laten zien hoe dit werkt. De geheime sleutel is mogelijk een SQL-verbindingsreeks of andere informatie die u nodig hebt om veilig en beschikbaar zijn voor uw toepassing te houden.
 
 Een geheim maken in de key vault met de naam **AppSecret**, voer de volgende opdracht:
 
@@ -101,15 +102,15 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Met dit geheim wordt de waarde **MijnGeheim** opgeslagen.
 
-## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-U kunt een virtuele machine maken met behulp van een van de volgende methoden:
+### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
+Een virtuele machine maken met behulp van een van de volgende methoden:
 
 * [De Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 * [Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="assign-an-identity-to-the-vm"></a>Een identiteit toewijzen aan de virtuele machine
-In deze stap maakt maken u een systeem toegewezen identiteit voor de virtuele machine met de volgende opdracht in de Azure CLI:
+### <a name="assign-an-identity-to-the-vm"></a>Een identiteit toewijzen aan de virtuele machine
+Maken van een systeem toegewezen identiteit voor de virtuele machine met de [az vm identiteit toewijzen](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) opdracht:
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -124,31 +125,47 @@ Houd er rekening mee de door het systeem toegewezen identiteit die wordt weergeg
 }
 ```
 
-## <a name="assign-permissions-to-the-vm-identity"></a>Machtigingen toewijzen aan de identiteit van VM
-U kunt nu de eerder gemaakte Identiteitsmachtigingen toewijzen aan uw key vault met de volgende opdracht:
+### <a name="assign-permissions-to-the-vm-identity"></a>Machtigingen toewijzen aan de identiteit van VM
+Wijs de eerder gemaakte Identiteitsmachtigingen voor uw key met Vault de [az keyvault-beleid instellen](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) opdracht:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="log-on-to-the-virtual-machine"></a>Aanmelden bij de virtuele machine
+### <a name="sign-in-to-the-virtual-machine"></a>Meld u aan de virtuele machine
 
-Als u wilt aanmelden bij de virtuele machine, volg de instructies in [verbinding maken met en meld u aan bij een virtuele Azure-machine waarop Windows wordt uitgevoerd](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Als u wilt aanmelden bij de virtuele machine, volg de instructies in [verbinding maken met en meld u aan met een Azure-machine waarop Windows wordt uitgevoerd](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
-## <a name="install-net-core"></a>.NET Core installeren
+## <a name="set-up-the-console-app"></a>Instellen van de console-app
+
+Een console-app maken en installeer de vereiste pakketten met behulp van de `dotnet` opdracht.
+
+### <a name="install-net-core"></a>.NET Core installeren
 
 Als u wilt installeren .NET Core, gaat u naar de [.NET downloads](https://www.microsoft.com/net/download) pagina.
 
-## <a name="create-and-run-a-sample-net-app"></a>Maken en uitvoeren van een .NET-voorbeeld-app
+### <a name="create-and-run-a-sample-net-app"></a>Maken en uitvoeren van een .NET-voorbeeld-app
 
 Open een opdrachtprompt.
 
 U kunt "Hallo wereld" in de console afdrukken door het uitvoeren van de volgende opdrachten:
 
-```batch
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
+```
+
+### <a name="install-the-packages"></a>De pakketten installeren
+
+ Installeer de .NET-pakketten zijn vereist voor deze Quick Start vanuit het consolevenster:
+
+ ```console
+dotnet add package System.IO;
+dotnet add package System.Net;
+dotnet add package System.Text;
+dotnet add package Newtonsoft.Json;
+dotnet add package Newtonsoft.Json.Linq;
 ```
 
 ## <a name="edit-the-console-app"></a>De console-app bewerken

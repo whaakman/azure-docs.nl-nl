@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
 ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967756"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Regio-overschrijdende noodherstel voor B2B-integratie-accounts in Azure Logic Apps
@@ -112,7 +112,7 @@ Als herstel na noodgevallen voor inkomende berichten, schakelt u de instellingen
 
 6. Zoeken op **X12**, en selecteer **X12-toevoegen of bijwerken van de controlenummers**.   
 
-   ![Controlenummers toevoegen of bijwerken](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Toevoegen of bijwerken van de controlenummers](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Selecteer voor een actie verbinding met een secundaire regio integratie-account, **verbinding wijzigen** > **nieuwe verbinding toevoegen** voor een lijst van de beschikbare integratieaccounts. Voer de naam van een verbinding, selecteert u uw *secundaire regio van het integratieaccount* in de lijst en kies **maken**. 
 
@@ -167,7 +167,7 @@ Als herstel na noodgevallen voor inkomende berichten, schakelt u de instellingen
 
 7. Zoeken op **EDIFACT**, en selecteer **EDIFACT - toevoegen of bijwerken van de controlenummers**.   
 
-   ![Controlenummers toevoegen of bijwerken](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Toevoegen of bijwerken van de controlenummers](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Selecteer voor een actie verbinding met een secundaire regio integratie-account, **verbinding wijzigen** > **nieuwe verbinding toevoegen** voor een lijst van de beschikbare integratieaccounts. Voer de naam van een verbinding, selecteert u uw *secundaire regio van het integratieaccount* in de lijst en kies **maken**.
 

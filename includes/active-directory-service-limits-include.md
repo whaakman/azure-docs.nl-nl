@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 3b1019d45f4fee60e0e197f283ef38f4f3fca875
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143067"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133416"
 ---
 Hier vindt u de beperkingen voor gebruik en andere servicelimieten voor de Azure Active Directory-service (Azure AD).
 
@@ -29,4 +29,4 @@ Hier vindt u de beperkingen voor gebruik en andere servicelimieten voor de Azure
 | Toegangsvenster |<ul><li>Er is geen limiet voor het aantal toepassingen dat per gebruiker kan worden weergegeven in het toegangsvenster. Dit geldt voor gebruikers met licenties voor Azure AD Premium of de Enterprise Mobility Suite.</li><li>Er worden maximaal 10 app-tegels weergegeven in het toegangsvenster voor iedere gebruiker. Deze limiet geldt voor gebruikers met licenties voor de gratis editie of de Azure AD Basic-editie van Azure Active Directory. Voorbeelden van app-tegels zijn Box, Salesforce en Dropbox. Deze limiet geldt niet voor beheerdersaccounts.</li></ul> |
 | Rapporten | Er kunnen maximaal 1000 rijen worden bekeken of gedownload in elk rapport. Aanvullende gegevens worden afgekapt. |
 | Beheereenheden | Een object kan lid zijn van maximaal dertig beheereenheden. |
-| Beheerdersrollen en -machtigingen | <li>Een groep kan niet worden toegevoegd als eigenaar.<li>Een groep kan niet worden toegewezen aan een rol.<li>Standaard gebruikersmachtigingen kunnen niet worden gewijzigd, met uitzondering van tenantwijzigingen, die worden ingesteld als gebruikersinstelling in Azure AD. |
+| Beheerdersrollen en -machtigingen | <ul><li>Een groep kan niet worden toegevoegd als een [eigenaar](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Een groep kan niet worden toegewezen aan een [rol](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Gebruikers de mogelijkheid om te lezen van directory-informatie voor andere gebruikers kan niet worden beperkt buiten de tenant-brede switch om uit te schakelen van alle niet-beheerders gebruikers toegang tot alle directorygegevens (niet aanbevolen) zijn. Meer informatie over de standaardmachtigingen [hier](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Het duurt maximaal 15 minuten of ondertekening out/aanmelden voordat u beheerder rol lidmaatschap toevoegingen en intrekking van kracht.</li></ul> |

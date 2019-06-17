@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304141"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Een zelfstandige één tenant-toepassing die gebruikmaakt van Azure SQL Database implementeren en verkennen
@@ -76,16 +76,16 @@ De app worden venues die als host gebeurtenissen fungeren gepresenteerd.  De ven
 
 1. Open de pagina gebeurtenissen voor elk van de drie tenants in afzonderlijke browsertabbladen:
 
-   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;user&gt;.trafficmanager.net
 
      (In elke URL vervangen &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)
 
-   ![Gebeurtenissen](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Voor het beheren van de distributie van inkomende aanvragen, de app gebruikt [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Elke tenant-specifieke app-instantie bevat de naam van de tenant als onderdeel van de domeinnaam in de URL. Alle tenant URL's bevatten uw specifieke **gebruiker** waarde. De URL volgt u de volgende indeling:
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt ;venuename&gt;.&lt; user&gt;.trafficmanager.net
 
 Van elke tenantdatabase **locatie** is opgenomen in de app-instellingen van de bijbehorende geïmplementeerde app.
 

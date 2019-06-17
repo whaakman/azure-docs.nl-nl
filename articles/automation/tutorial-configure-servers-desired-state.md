@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 582533d23757de748b9cc7d40e45acc00240d384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 83a65be50a3cec9cea47682ab5e207bd4ad9e984
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072562"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Servers configureren met een gewenste status en afwijking beheren
 
@@ -145,6 +145,27 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 # Display the most recent report
 $reports[0]
 ```
+
+## <a name="removing-nodes-from-service"></a>Verwijderen van knooppunten van service
+
+Wanneer u een knooppunt aan de configuratie van Azure Automation-status toevoegt, worden de instellingen in Local Configuration Manager ingesteld om te registreren bij de service- en pull-configuraties en de vereiste modules om de machine te configureren.
+Als u verwijderen van het knooppunt uit de service wilt, kunt u doen met behulp van de Azure-portal of de Az-cmdlets.
+
+> [!NOTE]
+> Registratie van een knooppunt van de service alleen Hiermee stelt u de Local Configuration Manager-instellingen, zodat het knooppunt niet langer verbinding met de service maken is.
+> Dit heeft geen invloed op de configuratie die momenteel wordt toegepast op het knooppunt.
+> Als u wilt verwijderen van de huidige configuratie, gebruikt u de [PowerShell](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) of verwijderen van het lokale configuratiebestand (dit is de enige optie voor Linux-knooppunten).
+
+### <a name="azure-portal"></a>Azure Portal
+
+Met Azure Automation, klikt u op **State configuration (DSC)** in de inhoudsopgave.
+Klik daarna op **knooppunten** om de lijst met knooppunten die zijn geregistreerd bij de service weer te geven.
+Klik op de naam van het knooppunt dat u wilt verwijderen.
+In de weergave van het knooppunt dat wordt geopend, klikt u op **registratie**.
+
+### <a name="powershell"></a>PowerShell
+
+Om de registratie van een knooppunt uit een Azure Automation State Configuration-service met behulp van PowerShell, volgt u de documentatie voor de cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Volgende stappen
 

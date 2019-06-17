@@ -1,8 +1,8 @@
 ---
-title: Wat is de migratie van een beleid voor voorwaardelijke toegang van Azure Active Directory? | Microsoft Docs
+title: Wat is de migratie van een beleid in Azure Active Directory voor voorwaardelijke toegang? | Microsoft Docs
 description: Meer informatie over wat u moet weten voor het migreren van klassieke beleidsregels in Azure portal.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
+keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,17 +18,17 @@ ms.date: 07/24/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3246a7efa36e6c6ef0dac93e659a73dac17090a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 25161a6317392274ccce8865f7cc0071f0ec89b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60301568"
+ms.locfileid: "67112186"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Wat is de migratie van een beleid voor voorwaardelijke toegang van Azure Active Directory? 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Wat is de migratie van een beleid in Azure Active Directory voor voorwaardelijke toegang? 
 
 
-[Voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) is een mogelijkheid van Azure Active directory (Azure AD) waarmee u om te bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. Terwijl het doel nog steeds hetzelfde is, is de versie van de nieuwe Azure-portal aanzienlijke verbeteringen aan hoe voorwaardelijke toegang werkt geïntroduceerd.
+[Voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) is een mogelijkheid van Azure Active directory (Azure AD) waarmee u om te bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. Terwijl het doel nog steeds hetzelfde is, is de versie van de nieuwe Azure-portal aanzienlijke verbeteringen voor de werking van voorwaardelijke toegang geïntroduceerd.
 
 U moet rekening houden met de beleidsregels die u hebt gemaakt in Azure portal omdat migreren:
 
@@ -80,9 +80,9 @@ Door de geselecteerde groepen wijzigen of door specifieke groepen uitsluit, kunt
 
 
 
-## <a name="azure-ad-conditional-access-policies"></a>Azure AD-beleidsregels voor voorwaardelijke toegang
+## <a name="azure-ad-conditional-access-policies"></a>Beleid voor Azure AD voor voorwaardelijke toegang
 
-U kunt alle beleidsregels op één centrale locatie kunt beheren met voorwaardelijke toegang in Azure portal. Omdat de implementatie van hoe voorwaardelijke toegang is aanzienlijk gewijzigd, moet u vertrouwd raken met de basisconcepten voordat u uw klassieke beleidsregels migreert.
+U kunt alle beleidsregels op één centrale locatie kunt beheren met voorwaardelijke toegang in Azure portal. Omdat de implementatie van hoe u voorwaardelijke toegang is aanzienlijk gewijzigd, moet u vertrouwd raken met de basisconcepten voordat u uw klassieke beleidsregels migreert.
 
 Zie:
 
@@ -90,13 +90,13 @@ Zie:
 
 - [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) voor enkele richtlijnen over het implementeren van voorwaardelijke toegang in uw organisatie.
 
-- [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md) om vertrouwd te raken met de gebruikersinterface in Azure portal.
+- [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md) om vertrouwd te raken met de gebruikersinterface in Azure portal.
 
 
  
 ## <a name="migration-considerations"></a>Overwegingen bij migraties
 
-In dit artikel wordt Azure AD-beleidsregels voor voorwaardelijke toegang worden ook aangeduid als *nieuwe beleidsregels*.
+In dit artikel wordt Azure AD voorwaardelijk toegangsbeleid worden ook aangeduid als *nieuwe beleidsregels*.
 Uw klassieke beleidsregels blijven werken samen met uw nieuwe beleid totdat u ze verwijderen of uitschakelen. 
 
 De volgende aspecten zijn belangrijk in de context van een beleid voor consolidatie:
@@ -171,6 +171,6 @@ In een nieuw beleid, moet u selecteert de [apparaatplatformen](technical-referen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+- Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
 
-- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren. 
+- Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 

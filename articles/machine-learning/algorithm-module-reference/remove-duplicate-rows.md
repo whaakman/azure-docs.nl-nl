@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: dce90d911085c1f7330a2e0952bb9576c1d765fa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029293"
 ---
 # <a name="remove-duplicate-rows-module"></a>Dubbele rijen module verwijderen
@@ -25,13 +25,13 @@ Gebruik deze module om mogelijke dubbele waarden verwijderen uit een gegevensset
 
 Bijvoorbeeld, wordt ervan uitgegaan dat uw gegevens uitziet en meerdere records voor patiënten vertegenwoordigt. 
 
-| PatientID | Intialen| Geslacht|Leeftijd|Toegelaten|
+| PatientID | Initialen| Geslacht|Leeftijd|Toegelaten|
 |----|----|----|----|----|
-|1|F.M.| M| 53| jan|
-|2| F.A.M.| M| 53| jan|
-|3| F.A.M.| M| 24| jan|
-|3| F.M.| M| 24| feb|
-|4| F.M.| M| 23| feb|
+|1|F.M.| M| 53| Jan|
+|2| F.A.M.| M| 53| Jan|
+|3| F.A.M.| M| 24| Jan|
+|3| F.M.| M| 24| Feb|
+|4| F.M.| M| 23| Feb|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
 |6| F.A.M.| M| NaN| |

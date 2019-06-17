@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057284"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
 
@@ -36,6 +36,7 @@ Nadat de functie voor een redelijke termijn in de controlemodus gestart is, kunt
 
 ## <a name="deployment-requirements"></a>Vereisten voor de implementatie
 
+* Vereisten voor licentieverlening voor Azure AD-wachtwoordbeveiliging in het artikel gevonden [onjuiste wachtwoorden in uw organisatie te elimineren](concept-password-ban-bad.md#license-requirements).
 * Alle domeincontrollers die aan de DC-Agent service voor Windows Server 2012 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger. Deze vereiste betekent niet dat het Active Directory-domein of forest ook op Windows Server 2012-domein of forest functionele niveau zijn moet. Zoals vermeld in [ontwerpprincipes](concept-password-ban-bad-on-premises.md#design-principles), is er geen minimale DFL of FFL vereist voor een van beide de DC-agent of proxy software om uit te voeren.
 * Alle machines die aan de DC-agent-service geïnstalleerd moeten .NET 4.5 geïnstalleerd hebben.
 * Alle machines die aan de proxy service voor Windows Server 2012 R2 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger.

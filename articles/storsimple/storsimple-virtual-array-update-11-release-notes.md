@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
 ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789634"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Opmerkingen bij de release van de StorSimple Virtual Array Update 1.1
@@ -34,7 +34,7 @@ Update 1.1 komt overeen met de softwareversie **10.0.10307.0**.
 > [!IMPORTANT]
 > - Updates opnieuw moet worden opgestart en uw apparaat opnieuw opstarten. Als i/o's uitgevoerd worden, heeft het apparaat leidt tot downtime. Ga voor gedetailleerde instructies voor het toepassen van de update naar [bijwerken 1.1 installeren](storsimple-virtual-array-install-update-11.md).
 >
-> - 1.1 update is beschikbaar voor u via de Azure-portal alleen als uw apparaat Update 1.0 wordt uitgevoerd.
+> - 1\.1 update is beschikbaar voor u via de Azure-portal alleen als uw apparaat Update 1.0 wordt uitgevoerd.
 
 ## <a name="whats-new-in-update-11"></a>Wat is er nieuw in Update 1.1
 

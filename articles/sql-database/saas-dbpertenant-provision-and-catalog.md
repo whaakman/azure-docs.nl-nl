@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388339"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Leer hoe u nieuwe tenants inrichten en deze in de catalogus registreren
@@ -84,7 +84,7 @@ Voeg een onderbrekingspunt toe om te begrijpen hoe de Wingtip Tickets-toepassing
    * **$VenueType** = een van de vooraf gedefinieerde locatietypen: _blues, classicalmusic, dance, jazz, judo, motor racing, multipurpose, opera, rockmusic, soccer_.
    * **$DemoScenario** = **1**, *één tenant in te richten*.
 
-2. Als u wilt een onderbrekingspunt toevoegen, plaats de cursor ergens op de regel met de melding dat *New-Tenant '*. Druk op F9.
+2. Als u wilt een onderbrekingspunt toevoegen, plaats de cursor ergens op de regel met de melding dat *New-Tenant '* . Druk op F9.
 
    ![Onderbrekingspunt](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 

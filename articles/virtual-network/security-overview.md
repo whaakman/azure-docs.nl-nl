@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ee976f163bdb00511e2a8f85906aa59aaebbfa47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478863"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056536"
 ---
 # <a name="security-groups"></a>Beveiligingsgroepen
 <a name="network-security-groups"></a>
@@ -81,6 +81,7 @@ Uitgebreide beveiligingsregels vereenvoudigen de beveiligingsdefinitie voor virt
 * **Service fabric** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de service fabric-service. Als u opgeeft *ServiceFabric* voor de waarde moet verkeer is toegestaan of geweigerd voor service fabric. 
 * **AzureMachineLearning** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de service AzureMachineLearning. Als u opgeeft *AzureMachineLearning* voor de waarde moet verkeer is toegestaan of geweigerd voor AzureMachineLearning. 
 * **BatchNodeManagement** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de service Azure BatchNodeManagement. Als u opgeeft *BatchNodeManagement* voor de waarde moet verkeer is toegestaan of geweigerd vanuit de Batch-service om knooppunten te berekenen.
+* **Met AzureBackup**(alleen Resource Manager): deze tag geeft de adresvoorvoegsels van de AzureBackup-service. Als u Backup van Azure voor de waarde opgeeft, wordt verkeer toegestaan of geweigerd voor Backup van Azure.
 
 > [!NOTE]
 > Met servicetags van Azure-services worden de adresvoorvoegsels aangeduid van de specifieke cloud die wordt gebruikt. 
@@ -96,19 +97,19 @@ Azure maakt de volgende standaardregels in elke netwerkbeveiligingsgroep die u m
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
+|Prioriteit|source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alle|Toestaan|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
+|Prioriteit|source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alle|Toestaan|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
+|Prioriteit|source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alle|Weigeren|
 
@@ -116,19 +117,19 @@ Azure maakt de volgende standaardregels in elke netwerkbeveiligingsgroep die u m
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alle | Toestaan |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alle | Toestaan |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alle | Weigeren |
 
@@ -148,7 +149,7 @@ In de vorige afbeelding zijn *NIC1* en *NIC2* leden van de toepassingsbeveiligin
 
 Deze regel is vereist om verkeer van internet naar de webservers te laten lopen. Binnenkomend verkeer van internet wordt geweigerd door de standaardbeveiligingsregel [DenyAllInbound](#denyallinbound). Daarom is er geen extra regel nodig voor de toepassingsbeveiligingsgroepen *AsgLogic* of *AsgDb*.
 
-|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Toestaan |
 
@@ -156,7 +157,7 @@ Deze regel is vereist om verkeer van internet naar de webservers te laten lopen.
 
 De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat communicatie toe tussen resources in hetzelfde virtuele netwerk. Daarom is deze regel vereist voor het weigeren van verkeer dat van een willekeurige resource afkomstig is.
 
-|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alle | Weigeren |
 
@@ -164,7 +165,7 @@ De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat commun
 
 Deze regel staat verkeer toe van de toepassingsbeveiligingsgroep *AsgLogic* naar de toepassingsbeveiligingsgroep *AsgDb*. De prioriteit voor deze regel is hoger dan de prioriteit voor de regel *Deny-Database-All*. Als gevolg hiervan wordt deze regel verwerkt vóór de regel *Deny-Database-All*, zodat verkeer van de toepassingsbeveiligingsgroep *AsgLogic* wordt toegestaan, terwijl al het andere verkeer wordt geblokkeerd.
 
-|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Toestaan |
 

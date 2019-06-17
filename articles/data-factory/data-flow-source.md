@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67117883"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>De transformatie van de bron voor het toewijzen van gegevensstroom 
 
@@ -65,13 +65,13 @@ U kunt de namen van de kolommen in een select transformatie later wijzigen. Gebr
 
 Op de **optimaliseren** tabblad voor de bron-transformatie, ziet u mogelijk een **bron** partitietype. Deze optie is beschikbaar, alleen wanneer de bron Azure SQL Database is. Dit komt doordat Data Factory wil verbindingen te grote query's uitvoeren op de bron van uw SQL-Database maken.
 
-![Partitie-instellingen van de gegevensbron](media/data-flow/sourcepart2.png "partitioneren")
+![Partitie-instellingen van de gegevensbron](media/data-flow/sourcepart3.png "partitioneren")
 
 U hoeft te partitioneren van gegevens op uw bron-SQL-Database, maar partities zijn handig voor grote query's. U kunt uw partitie baseren op een kolom of een query.
 
 ### <a name="use-a-column-to-partition-data"></a>Een kolom met partitiegegevens gebruiken
 
-Selecteer in de brontabel een kolom toe aan de partitie op. Ook het maximum aantal verbindingen instellen.
+Selecteer in de brontabel een kolom toe aan de partitie op. Ook het aantal partities instellen.
 
 ### <a name="use-a-query-to-partition-data"></a>Gebruik van een query voor het partitioneren van gegevens
 
@@ -84,9 +84,39 @@ Kies de instellingen voor het beheren van bestanden in de bron.
 ![Nieuwe instellingen voor gegevensbron](media/data-flow/source2.png "nieuwe instellingen")
 
 * **Pad met jokertekens**: Kies in de bronmap, een reeks van bestanden die overeenkomen met een patroon. Deze instelling overschrijft elk bestand in de gegevenssetdefinitie van de.
+
+Wildcard-voorbeelden:
+
+* ```*``` Vertegenwoordigt een reeks tekens
+* ```**``` Hiermee geeft u recursieve directory nesten
+* ```?``` Hiermee vervangt u één teken
+* ```[]``` Komt overeen met een van de meer tekens in de vierkante haken
+
+* ```/data/sales/**/*.csv``` Alle CSV-bestanden onder /data/sales opgehaald
+* ```/data/sales/20??/**``` Hiermee haalt u alle bestanden in de twintigste eeuw
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Hiermee haalt u alle csv-bestanden in 2004 in December beginnen met X- of Y voorafgegaan door een getal van 2 cijfers
+
+Heeft de container worden opgegeven in de gegevensset. Het pad met jokertekens moet daarom ook het pad naar map vanuit de hoofdmap.
+
 * **Lijst met bestanden**: Dit is een bestandsset. Maak een tekstbestand met een lijst van bestanden voor het verwerken van relatief pad. Verwijzen naar dit tekstbestand.
 * **Kolom voor het opslaan van bestandsnaam**: De naam van het bronbestand Store in een kolom in uw gegevens. Voer hier een nieuwe naam voor het opslaan van de tekenreeks met de bestandsnaam.
 * **Na voltooiing**: Wilt u niets met het bronbestand doen nadat de gegevens stroomuitvoeringen, het bronbestand verwijderen of verplaatsen van het bronbestand. De paden voor de verplaatsing zijn relatief.
+
+Voor het verplaatsen van de bronbestanden op een andere locatie na verwerking, selecteert u eerst 'Verplaatsen' voor file-bewerking. Vervolgens stelt u de map 'van'. Als u niet alle jokertekens voor het pad, dan zal de instelling ' van' worden dezelfde map als de bronmap.
+
+Hebt u een jokerteken bronpad, bijvoorbeeld:
+
+```/data/sales/20??/**/*.csv```
+
+U kunt als 'van' opgeven
+
+```/data/sales```
+
+En 'naar' als
+
+```/backup/priorSales```
+
+In dit geval worden alle submappen onder /data/sales die afkomstig zijn verplaatst ten opzichte van /backup/priorSales.
 
 ### <a name="sql-datasets"></a>SQL-gegevenssets
 

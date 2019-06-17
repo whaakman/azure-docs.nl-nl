@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020984"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
@@ -81,8 +81,8 @@ Bijvoorbeeld, als een proxy heeft een Routesjabloon, zoals `/pets/{petId}`, de U
 Naast de parameters van de route, kunnen de volgende waarden worden gebruikt in configuratiewaarden:
 
 * **{request.method}** : De HTTP-methode die wordt gebruikt op de oorspronkelijke aanvraag.
-* **{request.headers. \<Headernaam\>}**: Een header die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
-* **{request.querystring. \<ParameterName\>}**: Een queryreeks-parameter die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt lezen. Als de parameter niet is opgenomen in de aanvraag, wordt de waarde een lege tekenreeks zijn.
+* **{request.headers. \<Headernaam\>}** : Een header die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{request.querystring. \<ParameterName\>}** : Een queryreeks-parameter die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt lezen. Als de parameter niet is opgenomen in de aanvraag, wordt de waarde een lege tekenreeks zijn.
 
 ### <a name="response-parameters"></a>Naslaginformatie over back-end antwoord parameters
 
@@ -90,7 +90,7 @@ Antwoord parameters kunnen worden gebruikt als onderdeel van het wijzigen van he
 
 * **{backend.response.statusCode}** : De HTTP-statuscode die op de back-end-antwoord wordt geretourneerd.
 * **{backend.response.statusReason}** : De HTTP-reden dat op de back-end-antwoord wordt geretourneerd.
-* **{backend.response.headers. \<Headernaam\>}**: Een header die kan worden gelezen uit het antwoord van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in het antwoord opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{backend.response.headers. \<Headernaam\>}** : Een header die kan worden gelezen uit het antwoord van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in het antwoord opgenomen is, wordt de waarde een lege tekenreeks zijn.
 
 ### <a name="use-appsettings"></a>Naslaginformatie over toepassingsinstellingen
 
@@ -189,8 +189,8 @@ Proxy's lezen alle tekenreeksen uit een JSON-bestand, met behulp van \ als een e
 Het object requestOverrides definieert wijzigingen aangebracht in de aanvraag wanneer de back-end-bron wordt aangeroepen. Het object wordt gedefinieerd door de volgende eigenschappen:
 
 * **backend.Request.Method**: De HTTP-methode die wordt gebruikt voor het aanroepen van de back-end.
-* **backend.Request.QueryString. \<ParameterName\>**: Een queryreeks-parameter die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt instellen. Als de lege tekenreeks is opgegeven, wordt de parameter is niet opgenomen in de back-end-aanvraag.
-* **backend.Request.headers. \<Headernaam\>**: Een header die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in de back-end-aanvraag.
+* **backend.Request.QueryString. \<ParameterName\>** : Een queryreeks-parameter die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt instellen. Als de lege tekenreeks is opgegeven, wordt de parameter is niet opgenomen in de back-end-aanvraag.
+* **backend.Request.headers. \<Headernaam\>** : Een header die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in de back-end-aanvraag.
 
 Waarden kunnen verwijzen naar toepassings- en parameters van de oorspronkelijke clientaanvraag.
 
@@ -222,7 +222,7 @@ Het object requestOverrides definieert wijzigingen die worden aangebracht in de 
 * **response.statusCode**: De HTTP-statuscode die wordt geretourneerd naar de client.
 * **response.statusReason**: De HTTP-reden wordt geretourneerd naar de client.
 * **response.body**: De tekenreeksweergave van de instantie moet worden geretourneerd naar de client.
-* **Response.headers. \<Headernaam\>**: Een header die kan worden ingesteld voor het antwoord op de client. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in het antwoord.
+* **Response.headers. \<Headernaam\>** : Een header die kan worden ingesteld voor het antwoord op de client. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in het antwoord.
 
 Waarden kunnen verwijzen naar toepassingsinstellingen, de parameters van de aanvraag van de oorspronkelijke client en de parameters uit het antwoord van de back-end.
 

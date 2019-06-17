@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
 ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336514"
 ---
 # <a name="similarity-method"></a>Methode gelijkenis
@@ -29,7 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Parameter        |Gegevenstype      |Vereist | Beschrijving
+Parameter        |Gegevenstype      |Vereist | Description
 ----------|----------|----------|------------
 **s1**        |String   |Ja  |Tekenreeks * moet worden vergeleken
 **s2**        |String   |Ja  |Tekenreeks * moet worden vergeleken
@@ -47,7 +47,7 @@ Name | Description
 
 ## <a name="successerror-conditions"></a>Geslaagde of mislukte voorwaarden
 
-HTTP-Status | Reden | Antwoord
+HTTP-Status | Reason | Antwoord
 -----------|----------|--------
 **200**         |Geslaagd | Drijvendekommagetal
 **400**         | Ongeldige aanvraag of aanvraag ongeldig | Foutbericht      

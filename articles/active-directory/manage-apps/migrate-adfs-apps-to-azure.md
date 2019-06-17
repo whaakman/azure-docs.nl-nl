@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 272d5194b2922e57aca0d63fd62c222e17a29c53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108260"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Toepassingen van AD FS verplaatsen naar Azure AD 
 
@@ -46,7 +46,7 @@ Veel organisaties beschikken over SaaS- of line-of-business (LOB)-apps die recht
 Voor een organisatie die al gebruikmaakt van AD FS, Ping of een andere on-premises verificatieprovider, kunt apps verplaatsen naar Azure AD de volgende voordelen:
 
 **Veiliger toegang**
-- Gedetailleerde besturingselementen voor toegang per toepassing, waaronder Azure Multi-Factor Authentication, met behulp van [Voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md). Het beleid kan worden toegepast op SaaS- en aangepaste apps op dezelfde manier als u voor Office 365 zou doen.
+- Besturingselementen voor toegang van gedetailleerde per toepassing, met inbegrip van Azure multi-factor Authentication, met behulp van [Azure AD voor voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md). Het beleid kan worden toegepast op SaaS- en aangepaste apps op dezelfde manier als u voor Office 365 zou doen.
 - Voor de detectie van bedreigingen en het helpen beveiligen van de aanmelding op basis van machine learning en heuristieken waarmee risicovol verkeer wordt geïdentificeerd, kunt u profiteren van [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 **B2B-samenwerking van Azure AD**
@@ -155,7 +155,7 @@ Apps die u vandaag gemakkelijk kunt verplaatsen zijn SAML 2.0-apps die gebruikma
 - Aangepaste claims. Zie voor informatie over het toewijzen van ondersteunde claims [Claims toewijzen in Azure Active Directory](../develop/active-directory-claims-mapping.md) en [Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](../develop/active-directory-saml-claims-customization.md).
 
 Naast aangepaste claims en **NameID**-elementen, zijn configuraties waarvoor extra configuratiestappen in Azure AD nodig zijn als onderdeel van de migratie:
-- Aangepaste autorisatie-of Multi-Factor Authentication-regels in AD FS. U configureert deze met behulp van de functie [Voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md).
+- Aangepaste autorisatie-of Multi-Factor Authentication-regels in AD FS. U ze configureren met behulp van de [Azure AD voor voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) functie.
 - Apps met meerdere SAML-eindpunten. U configureert deze in Azure AD met behulp van PowerShell. (Deze mogelijkheid is niet beschikbaar in de portal.)
 - WS-Federation-apps, zoals SharePoint-apps waarvoor versie 1.1-SAML-tokens vereist zijn. U moet deze handmatig configureren met behulp van PowerShell.
 

@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 27315bf562f7b221b19747aca4809f2be5fd1121
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152218"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147464"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Zelfstudie: Builds van containerinstallatiekopieën automatiseren wanneer een basisinstallatiekopie wordt bijgewerkt in een Azure-containerregister 
 
@@ -69,9 +69,23 @@ Een basisinstallatiekopie wordt vaak door de installatiekopie-maintainer bijgewe
 
 Wanneer een basisinstallatiekopie wordt bijgewerkt, is het noodzakelijk dat u op basis hiervan de containerinstallatiekopieën in uw register opnieuw bouwt om de nieuwe functies en oplossingen op te nemen. Met ACR Tasks hebt u de mogelijkheid om automatisch installatiekopieën te maken wanneer een containerinstallatiekopie wordt bijgewerkt.
 
+### <a name="tasks-triggered-by-a-base-image-update"></a>Taken die zijn geactiveerd door een basisinstallatiekopie-update
+
+* Op dit moment voor het compileren van de installatiekopieën van een docker-bestand detecteert een ACR-taak afhankelijk is van de basisinstallatiekopieën in dezelfde Azure container registry, een openbare opslagplaats voor Docker Hub of een openbare opslagplaats in Microsoft Container Registry. Als de basisinstallatiekopie die is opgegeven in de `FROM` instructie bevinden zich in een van deze locaties, wordt de ACR-taak toegevoegd een haakje om te controleren of de installatiekopie is opnieuw opgebouwd elk gewenst moment de basis is bijgewerkt.
+
+* Wanneer u een ACR-taak met maakt de [az acr-taak maken] [ az-acr-task-create] opdracht, de taak wordt standaard *ingeschakeld* voor de trigger door een update van de basisinstallatiekopie. Dat wil zeggen, de `base-image-trigger-enabled` eigenschap is ingesteld op True. Als u dit gedrag in een taak uitschakelt wilt, werkt u de eigenschap op False. Bijvoorbeeld, voer de volgende [az acr taakupdate] [ az-acr-task-update] opdracht:
+
+  ```azurecli
+  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  ```
+
+* Om in te schakelen van een taak ACR om te bepalen en bijhouden van de containerinstallatiekopie van een afhankelijkheden, waaronder de basisinstallatiekopie--moet u eerst de taak activeren **ten minste één keer**. Bijvoorbeeld, activeert de taak handmatig met behulp van de [az acr-taak uitvoeren] [ az-acr-task-run] opdracht.
+
+* Voor het activeren van een taak op updates van basisinstallatiekopieën, de basisinstallatiekopie moet hebben een *stabiel* labels, zoals `node:9-alpine`. Deze labels is normaal dat voor een basisinstallatiekopie die wordt bijgewerkt met het besturingssysteem en framework patches voor een laatste stabiele versie. Als de basisinstallatiekopie met een nieuwe versie-tag is bijgewerkt, wordt er een taak niet geactiveerd. Zie voor meer informatie over afbeeldingen taggen, het [best practices richtlijnen](https://blogs.msdn.microsoft.com/stevelasker/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+
 ### <a name="base-image-update-scenario"></a>Bijwerkscenario van basisinstallatiekopieën
 
-In deze zelfstudie wordt u door een bijwerkscenario van een basisinstallatiekopie geleid. Het [codevoorbeeld] [ code-sample] bevat twee Dockerfiles: een toepassingsinstallatiekopie en een installatiekopie als basis. In de volgende gedeeltes maakt u een ACR-taak waarmee automatisch een build van de toepassingsinstallatiekopie wordt geactiveerd wanneer een nieuwe versie van de basisinstallatiekopie naar uw containerregister wordt gepusht.
+In deze zelfstudie wordt u door een bijwerkscenario van een basisinstallatiekopie geleid. Het [codevoorbeeld] [ code-sample] bevat twee Dockerfiles: een toepassingsinstallatiekopie en een installatiekopie als basis. In de volgende secties maakt u een ACR-taak die een versie van de installatiekopie van de toepassing automatisch wordt geactiveerd wanneer een nieuwe versie van de basisinstallatiekopie wordt doorgestuurd naar dezelfde container registry.
 
 [Dockerfile-app][dockerfile-app]: Een kleine Node.js-webtoepassing die een statische webpagina maakt waarop de Node.js-versie ervan wordt weergegeven. De versietekenreeks wordt gesimuleerd: deze geeft de inhoud weer van een omgevingsvariabele, `NODE_VERSION`, die is gedefinieerd in de basisinstallatiekopie.
 
@@ -79,7 +93,7 @@ In deze zelfstudie wordt u door een bijwerkscenario van een basisinstallatiekopi
 
 In de volgende gedeeltes maakt u een taak, werkt u de waarde `NODE_VERSION` in het Docker-bestand van de basisinstallatiekopie bij en gebruikt u ACR Tasks om de basisinstallatiekopie te maken. Zodra de ACR-taak de nieuwe basisinstallatiekopie naar uw register pusht, wordt er automatisch een build van de toepassingsinstallatiekopie geactiveerd. Optioneel kunt u de containerinstallatiekopie van de toepassing lokaal uitvoeren om de verschillende versietekenreeksen in de ingebouwde installatiekopieën te bekijken.
 
-In deze zelfstudie wordt met uw ACR-taak één containerinstallatiekopie gemaakt en gepusht, die is opgegeven in een Dockerfile. ACR-taken kunnen ook uitgevoerd [taken meerdere stappen](container-registry-tasks-multi-step.md), met behulp van een YAML-bestand voor het definiëren van de stappen voor het bouwen, push en eventueel meerdere containers te testen.
+In deze zelfstudie, uw ACR-taak bouwt en een containerinstallatiekopie toepassing is opgegeven in een Dockerfile pushes. ACR-taken kunnen ook uitgevoerd [taken meerdere stappen](container-registry-tasks-multi-step.md), met behulp van een YAML-bestand voor het definiëren van de stappen voor het bouwen, push en eventueel meerdere containers te testen.
 
 ## <a name="build-the-base-image"></a>De basisinstallatiekopie bouwen
 
@@ -108,21 +122,17 @@ az acr task create \
 > [!IMPORTANT]
 > Als u eerder taken hebt gemaakt tijdens de preview met de opdracht `az acr build-task`, moeten deze taken opnieuw worden gemaakt met de opdracht [az acr task][az-acr-task].
 
-Deze taak is vergelijkbaar met de snelle taak die u hebt gemaakt in de [vorige zelfstudie](container-registry-tutorial-build-task.md). De taak geeft ACR Tasks de opdracht om een installatiekopiebuild te activeren wanneer doorvoeracties worden gepusht naar de opslagplaats die met `--context` is opgegeven.
-
-Het verschil zit in het gedrag. Er wordt ook een build van de installatiekopie geactiveerd wanneer de *basisinstallatiekopie*  ervan wordt bijgewerkt. De Dockerfile die is opgegeven door het argument `--file`, [Dockerfile-app][dockerfile-app], ondersteunt het opgeven van een installatiekopie uit hetzelfde register als de basis:
+Deze taak is vergelijkbaar met de snelle taak die u hebt gemaakt in de [vorige zelfstudie](container-registry-tutorial-build-task.md). De taak geeft ACR Tasks de opdracht om een installatiekopiebuild te activeren wanneer doorvoeracties worden gepusht naar de opslagplaats die met `--context` is opgegeven. Terwijl het Dockerfile dat is gebruikt voor het bouwen van de installatiekopie in de vorige zelfstudie geeft u de installatiekopie van een openbare basis (`FROM node:9-alpine`), het Dockerfile in deze taak [Dockerfile-app][dockerfile-app], Hiermee geeft u een basisinstallatiekopie in dezelfde register:
 
 ```Dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
-Wanneer u een taak uitvoert, detecteert ACR Tasks de afhankelijkheden van de installatiekopie. Als de basisinstallatiekopie die in de instructie `FROM` is opgegeven, onderdeel is van hetzelfde register of van een openbare Docker Hub-opslagplaats, wordt een hook toegevoegd om ervoor te zorgen dat deze installatiekopie ook opnieuw wordt gebouwd wanneer de basis wordt bijgewerkt.
+Deze configuratie kunt eenvoudig een patch framework in de basisinstallatiekopie simuleren verderop in deze zelfstudie.
 
 ## <a name="build-the-application-container"></a>De toepassingscontainer bouwen
 
-Als u ACR Tasks wilt inschakelen voor het bepalen en volgen van de afhankelijkheden van een containerinstallatiekopie, inclusief de basisinstallatiekopie, **moet** u eerst de taak **minstens één keer** activeren.
-
-Gebruik [az acr task run][az-acr-task-run] om handmatig de taak te activeren en de toepassingsinstallatiekopie te bouwen:
+Gebruik [az acr-taak uitvoeren] [ az-acr-task-run] handmatig activeren van de taak en de installatiekopie van de toepassing te bouwen. Deze stap zorgt ervoor dat de taak van de installatiekopie van de toepassing afhankelijkheid op de basisinstallatiekopie volgt.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -134,21 +144,27 @@ Zodra de taak is voltooid, moet u de **run-id** (bijvoorbeeld 'da6') noteren als
 
 Als u lokaal werkt (niet in Cloud Shell) en Docker hebt geïnstalleerd, voert u de container uit om de toepassing te bekijken in een webbrowser voordat u de basisinstallatiekopie opnieuw bouwt. Als u Cloud Shell gebruikt, slaat u deze sectie over (Cloud Shell biedt geen ondersteuning voor `az acr login` of `docker run`).
 
-Meld u eerst aan bij uw containerregister met [az acr login][az-acr-login]:
+Eerst worden geverifieerd bij uw containerregister met [az acr login][az-acr-login]:
 
 ```azurecli
 az acr login --name $ACR_NAME
 ```
 
-Voer de container nu lokaal uit met `docker run`. Vervang **\<run-id\>** door de gevonden run-id in de uitvoer van de vorige stap (bijvoorbeeld 'da6').
+Voer de container nu lokaal uit met `docker run`. Vervang **\<run-id\>** door de gevonden run-id in de uitvoer van de vorige stap (bijvoorbeeld 'da6'). In dit voorbeeld-namen van de container `myapp` en bevat de `--rm` parameter voor de container verwijderen wanneer u deze stoppen.
 
-```azurecli
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
+```bash
+docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Ga naar `http://localhost:8080` in uw browser. U ziet nu het weergegeven nummer van de Node.js-versie op de webpagina, zoals hieronder weergegeven. In een latere stap verhoogt u de versie door een 'a' toe te voegen aan de versietekenreeks.
 
 ![Schermafbeelding van de voorbeeldtoepassing die wordt weergegeven in de browser][base-update-01]
+
+Als u wilt stoppen en verwijderen van de container, moet u de volgende opdracht uitvoeren:
+
+```bash
+docker stop myapp
+```
 
 ## <a name="list-the-builds"></a>De builds weergeven
 
@@ -221,7 +237,7 @@ Als u de volgende optionele stap van de nieuw gebouwde container wilt uitvoeren 
 Als u lokaal werkt (niet in Cloud Shell) en u hebt Docker geïnstalleerd, voert u de nieuwe toepassingsinstallatiekopie uit zodra de build is voltooid. Vervang `<run-id>` door de run-id uit de vorige stap. Als u Cloud Shell gebruikt, slaat u deze sectie over (Cloud Shell biedt geen ondersteuning voor `docker run`).
 
 ```bash
-docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
+docker run -d -p 8081:80 --name updatedapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Ga naar http://localhost:8081 in uw browser. U ziet nu het bijgewerkte nummer van de Node.js-versie (met de 'a') op de webpagina:
@@ -229,6 +245,12 @@ Ga naar http://localhost:8081 in uw browser. U ziet nu het bijgewerkte nummer va
 ![Schermafbeelding van de voorbeeldtoepassing die wordt weergegeven in de browser][base-update-02]
 
 U hebt uw **basis**installatiekopie bijgewerkt met een nieuw versienummer, maar de **toepassings**installatiekopie die als laatste is gebouwd, geeft nieuwe versie weer. ACR Tasks heeft uw wijziging van de basisinstallatiekopie herkend en heeft de toepassingsinstallatiekopie automatisch opnieuw opgebouwd.
+
+Als u wilt stoppen en verwijderen van de container, moet u de volgende opdracht uitvoeren:
+
+```bash
+docker stop updatedapp
+```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -258,8 +280,9 @@ In deze zelfstudie hebt u geleerd hoe u een taak configureert om automatisch bui
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr#az-acr-run
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr

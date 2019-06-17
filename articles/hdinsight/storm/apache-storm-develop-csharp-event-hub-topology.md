@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078269"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Verwerken van gebeurtenissen uit Azure Event Hubs met Apache Storm op HDInsight (C#)
 
@@ -38,7 +38,7 @@ Het Microsoft.scp.NET.SDK dat NuGet-pakket dat u voor uw project moet overeenkom
 > [!IMPORTANT]  
 > Het voorbeeld in dit document wordt verwacht dat een HDInsight 3.5 of 3.6-cluster.
 >
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. 
 
 C#-topologieën ook verwijst naar .NET 4.5.
 
@@ -138,7 +138,7 @@ Eventhubs is de gegevensbron voor dit voorbeeld. Gebruik de informatie in de sec
    | Name | Machtigingen |
    | --- | --- |
    | schrijver |Verzenden |
-   | lezer |Luisteren |
+   | Lezer |Luisteren |
 
     ![Schermafbeelding van de Share beleid Toegangsvenster](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
 

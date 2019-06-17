@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466471"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067916"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Inleiding tot de Azure IoT-referentiearchitectuur
 
 Dit artikel bevat de [Azure IoT-referentiearchitectuur](https://aka.ms/iotrefarchitecture) en worden voorbeelden gegeven van hoe de [Azure IoT-oplossingsversnellers](about-iot-accelerators.md) Volg de aanbevelingen.
 
-De open-source [bewaking op afstand](iot-accelerators-remote-monitoring-sample-walkthrough.md) en [verbonden Factory](iot-accelerators-connected-factory-sample-walkthrough.md) oplossingsversnellers Volg veel van de aanbevelingen van referentie-architectuur. U kunt de oplossingsversnellers gebruiken als uitgangspunt voor uw eigen IoT-oplossing of als het leren werken met hulpprogramma's.
+De open-source [bewaking op afstand](iot-accelerators-remote-monitoring-sample-walkthrough.md) en [verbonden Factory](iot-accelerators-connected-factory-features.md) oplossingsversnellers Volg veel van de aanbevelingen van referentie-architectuur. U kunt de oplossingsversnellers gebruiken als uitgangspunt voor uw eigen IoT-oplossing of als het leren werken met hulpprogramma's.
 
 ## <a name="overview"></a>Overzicht
 
@@ -81,7 +81,7 @@ Routering kan telemetrie naar een of meer eindpunten voor opslag, analyse van pr
 
 Maakt gebruik van de oplossing voor externe controle [Azure Stream Analytics](/azure/stream-analytics/) voor de verwerking. De regelengine in de oplossing maakt gebruik van Stream Analytics-query's voor het genereren van waarschuwingen en acties. De oplossing kan bijvoorbeeld een query gebruiken om te bepalen wanneer de gemiddelde temperatuur van een vrachtwagen opslag compartiment meer dan vijf minuten lager dan 36 graden.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 IoT-oplossingen kunnen grote hoeveelheden gegevens, wat vaak time series-gegevens genereren. Deze gegevens moet worden bewaard waar deze kan worden gebruikt voor visualisatie en rapportage. Een oplossing moet mogelijk ook toegang tot gegevens later voor analyse of verdere verwerking. Het is gebruikelijk om gegevens te splitsen in warme en koude gegevensarchieven. De warme data store bevat de recente gegevens voor toegang met lage latentie. De opslag van koude gegevens meestal historische gegevens worden opgeslagen.
 

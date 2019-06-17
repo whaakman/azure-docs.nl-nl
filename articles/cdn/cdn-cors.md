@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 5092872433529f11f699aa8a0c5e87d110cb59f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077431"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Azure CDN gebruiken met CORS
 ## <a name="what-is-cors"></a>Wat is CORS?
@@ -85,7 +85,7 @@ Als de reguliere expressie die overeenkomt met de regel wordt vervangen door de 
 ![Voorbeeld van de regels met reguliere expressie](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Regel voor het aanvragen header voor de oorsprong.
-In plaats van reguliere expressies, kunt u een afzonderlijke regel voor elke bron die u wilt verlenen met behulp van in plaats daarvan maakt de **aanvragen Header jokertekens** [overeenkomen met de voorwaarde](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1). Net als bij de methode reguliere expressie stelt de zelfstandig regelengine de CORS-headers. 
+In plaats van reguliere expressies, kunt u een afzonderlijke regel voor elke bron die u wilt verlenen met behulp van in plaats daarvan maakt de **aanvragen Header jokertekens** [overeenkomen met de voorwaarde](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). Net als bij de methode reguliere expressie stelt de zelfstandig regelengine de CORS-headers. 
 
 ![Voorbeeld van de regels zonder reguliere expressie](./media/cdn-cors/cdn-cors-no-regex.png)
 

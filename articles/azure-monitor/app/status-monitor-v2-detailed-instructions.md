@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d0960c749d74903acc778c0f21d5c49f380195ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734186"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074164"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Status Monitor v2: Gedetailleerde instructies
 
@@ -204,7 +204,7 @@ Zie voor meer informatie, [een PowerShell-Module installeren](https://docs.micro
 
 ### <a name="option-2-unzip-and-import-nupkg-manually"></a>Optie 2: Uitpakken en nupkg handmatig importeren
 De handmatig gedownloade PowerShell-module installeren in een PowerShell-map zodat deze kunnen worden gedetecteerd door de PowerShell-sessies.
-Zie voor meer informatie, [een PowerShell-Module installeren](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module).
+Zie voor meer informatie, [een PowerShell-Module installeren](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 Als u de module in een andere adreslijst die installeert, moet u handmatig de module importeren met behulp van [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 

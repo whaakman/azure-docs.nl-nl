@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258655"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens verplaatsen van SAP Business Warehouse met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-sap-business-warehouse-connector.md)
 > * [Versie 2 (huidige versie)](../connector-sap-business-warehouse.md)
 
@@ -66,9 +66,9 @@ Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 server | Naam van de server waarop de SAP BW-instantie zich bevindt. | string | Ja
 systemNumber | Het systeemnummer van de SAP BW-systeem. | Decimaal getal van twee cijfers weergegeven als een tekenreeks. | Ja
-ClientId | Client-ID van de client in het W SAP-systeem. | Decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja
-gebruikersnaam | Naam van de gebruiker die toegang tot de SAP-server heeft | string | Ja
-wachtwoord | Het wachtwoord voor de gebruiker. | string | Ja
+clientId | Client-ID van de client in het W SAP-systeem. | Decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja
+username | Naam van de gebruiker die toegang tot de SAP-server heeft | string | Ja
+password | Het wachtwoord voor de gebruiker. | string | Ja
 gatewayName | De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises SAP BW-exemplaar. | string | Ja
 encryptedCredential | De versleutelde referentie-tekenreeks. | string | Nee
 
@@ -308,8 +308,8 @@ PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-TEKENREEKS | String
-EENHEID | String
+STRING | String
+UNIT | String
 DATS | String
 NUMC | String
 TIMS | String

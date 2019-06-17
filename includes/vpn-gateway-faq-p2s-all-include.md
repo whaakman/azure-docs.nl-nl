@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66455124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056476"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hoeveel VPN-clienteindpunten kan mijn punt-naar-site-configuratie hebben?
 
@@ -40,11 +40,11 @@ De volgende clientbesturingssystemen worden ondersteund:
 
 Azure ondersteunt drie typen van punt-naar-site VPN-opties:
 
-* Secure Socket Tunneling Protocol (SSTP). SSTP is een bedrijfseigen, op SSL gebaseerde oplossing van Microsoft die firewalls kan passeren, omdat de meeste firewalls de TCP-poort 443 openen die door SSL wordt gebruikt.
+* Secure Socket Tunneling Protocol (SSTP). SSTP is een Microsoft bedrijfseigen SSL gebaseerde oplossing die firewalls passeren kan, omdat de meeste firewalls openen de uitgaande TCP-poort 443 SSL wordt gebruikt.
 
-* OpenVPN. OpenVPN is een op SSL gebaseerde oplossing die firewalls passeren kan, omdat de meeste firewalls de TCP-poort 443 SSL wordt gebruikt is geopend.
+* OpenVPN. OpenVPN is een op SSL gebaseerde oplossing die firewalls passeren kan, omdat de meeste firewalls openen de uitgaande TCP-poort 443 SSL wordt gebruikt.
 
-* IKEv2 VPN. IKEv2 VPN is een op standaarden gebaseerde IPsec VPN-oplossing die gebruikmaakt van UDP-poort 500 en 4500 en IP-protocol nr. 50. Firewalls openen deze poorten niet altijd, zodat de kans bestaat dat een IKEv2 VPN proxy's en firewalls niet kan passeren.
+* IKEv2 VPN. IKEv2 VPN is een op standaarden gebaseerde IPsec VPN-oplossing die gebruikmaakt van uitgaande UDP-poort 500 en 4500 en IP-protocol niet. 50. Firewalls openen deze poorten niet altijd, zodat de kans bestaat dat een IKEv2 VPN proxy's en firewalls niet kan passeren.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Als ik een clientcomputer die is geconfigureerd voor punt-naar-site opnieuw start, wordt de VPN-verbinding dan automatisch opnieuw tot stand gebracht?
 

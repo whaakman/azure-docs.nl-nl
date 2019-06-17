@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002130"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instellen en configureren van AWS-kosten en gebruik rapport-integratie
@@ -100,7 +100,7 @@ Machtiging voor kosten Explorer configureren:
 
 1. Selecteer **kiest u een service**.
 2. Voer **kosten Explorer-Service**.
-3. Selecteer **acties voor alle kosten Explorer-Service (ce:\*)**. Deze actie wordt gecontroleerd of de verzameling juist is.
+3. Selecteer **acties voor alle kosten Explorer-Service (ce:\*)** . Deze actie wordt gecontroleerd of de verzameling juist is.
 4. Selecteer **aanvullende machtigingen**.
 
 Machtiging voor AWS-organisaties toevoegen:

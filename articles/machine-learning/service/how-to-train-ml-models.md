@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075020"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modellen trainen met Azure Machine Learning met behulp van estimator
 
@@ -66,7 +66,7 @@ Parameter | Description
 
 De constructor heeft een andere parameter met de naam `pip_packages` die u gebruikt voor een pip-pakketten die nodig zijn
 
-Nu dat u hebt uw `Estimator` object, verzenden van de trainingstaak om te worden uitgevoerd op de externe compute met een aanroep naar de `submit` functioneren in uw [Experiment](concept-azure-machine-learning-architecture.md#experiment) object `experiment`. 
+Nu dat u hebt uw `Estimator` object, verzenden van de trainingstaak om te worden uitgevoerd op de externe compute met een aanroep naar de `submit` functioneren in uw [Experiment](concept-azure-machine-learning-architecture.md#experiments) object `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -125,10 +125,10 @@ print(run.get_portal_url())
 Wanneer u een training uitgevoerd waarbij de bronmap is een lokale Git-opslagplaats start, wordt informatie over de opslagplaats opgeslagen in de uitvoeringsgeschiedenis. Bijvoorbeeld, wordt de huidige doorvoer-ID voor de opslagplaats die vastgelegd als onderdeel van de geschiedenis.
 
 ## <a name="examples"></a>Voorbeelden
-Zie voor een notitieblok waarin de basisbeginselen van estimator patroon:
+Zie voor een notitieblok waarin de basisbeginselen van een estimator-patroon:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Voor een laptop die binnen een scikit-model meer estimator gebruikt, Zie:
+Voor een laptop die binnen een scikit-model met behulp van estimator informatie, Zie:
 * [zelfstudies/img-classificatie-deel 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 Voor laptops voor het trainen van modellen met behulp van specifieke loopt deep-learning-framework, Zie:

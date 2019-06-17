@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059400"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Apache Hive-query's in Azure HDInsight optimaliseren
 
@@ -39,7 +39,7 @@ Zie voor meer informatie over het schalen van HDInsight [schaal HDInsight-cluste
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>Apache Tez gebruiken in plaats van Mapreduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) is een engine voor het alternatieve uitvoeren met de MapReduce-engine. HDInsight-clusters op basis van Linux hebben Tez standaard ingeschakeld.
+[Apache Tez](https://tez.apache.org/) is een engine voor het alternatieve uitvoeren met de MapReduce-engine. HDInsight-clusters op basis van Linux hebben Tez standaard ingeschakeld.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -51,7 +51,7 @@ Tez is sneller, omdat:
 * **Containers hergebruikt**. Wanneer mogelijk Tez is niet opnieuw gebruiken van containers om ervoor te zorgen dat de latentie vanwege het opstarten van containers wordt verminderd.
 * **Continue optimalisatietechnieken**. Optimalisatie is gewoonlijk gedaan tijdens de compilatie-fase. Maar meer informatie over de invoer beschikbaar is waarmee voor betere optimalisatie tijdens runtime. Continue optimalisatietechnieken die toe te staan om het optimaliseren van het plan verder in de fase van de runtime maakt gebruik van Tez.
 
-Zie voor meer informatie over deze concepten [Apache TEZ](https://hortonworks.com/hadoop/tez/).
+Zie voor meer informatie over deze concepten [Apache TEZ](https://tez.apache.org/).
 
 U kunt elke query Hive Tez ingeschakeld door het voorvoegsel van de query met de volgende set-opdracht:
 

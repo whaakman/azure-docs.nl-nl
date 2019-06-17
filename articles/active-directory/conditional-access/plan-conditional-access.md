@@ -13,16 +13,16 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 44a64611d4e31767b4705f41e47234af7b0848c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112229"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedure: De implementatie van voorwaardelijke toegang in Azure Active Directory plannen
 
-Plannen van uw implementatie van voorwaardelijke toegang is van essentieel belang om ervoor te zorgen dat u de strategie van de vereiste toegang voor apps en resources in uw organisatie bereiken. U moet het merendeel van uw moment tijdens de planningsfase van uw implementatie te ontwerpen van de verschillende beleidsregels die u nodig hebt om te verlenen of Blokkeer de toegang tot uw gebruikers in de voorwaarden die u kiest. Dit document worden de stappen beschreven die u nemen moet voor het implementeren van beleid voor voorwaardelijke toegang voor veilig en effectief. Voordat u begint, zorg ervoor dat u begrijpt hoe [voorwaardelijke toegang](overview.md) werkt en wanneer u deze moet gebruiken.
+Plannen van uw implementatie van voorwaardelijke toegang is van essentieel belang om ervoor te zorgen dat u de strategie van de vereiste toegang voor apps en resources in uw organisatie bereiken. U moet het merendeel van uw moment tijdens de planningsfase van uw implementatie te ontwerpen van de verschillende beleidsregels die u nodig hebt om te verlenen of Blokkeer de toegang tot uw gebruikers in de voorwaarden die u kiest. Dit document worden de stappen beschreven die u nemen moet voor het implementeren van veilige en efficiënte beleid voor voorwaardelijke toegang. Voordat u begint, zorg ervoor dat u begrijpt hoe [voorwaardelijke toegang](overview.md) werkt en wanneer u deze moet gebruiken.
 
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
@@ -31,23 +31,23 @@ Voorwaardelijke toegang beschouwen als een framework waarmee u toegang tot de ap
 
 Als aanvullende functies vereist zijn, moet u mogelijk ook verwante licenties ophalen. Voor voorwaardelijke toegang is een functie van Azure AD Premium P1, moet identiteitsbeveiliging bijvoorbeeld een Azure AD Premium P2-licentie.
 
-Er zijn twee soorten beleid voor voorwaardelijke toegang: basislijn- en standard. Een [Basisbeleid](baseline-protection.md) is een vooraf gedefinieerde voorwaardelijk toegangsbeleid. Het doel van dit beleid is om ervoor te zorgen dat u ten minste het niveau van de basislijn van de beveiliging is ingeschakeld hebt. Basislijn-beleid. Basislijn-beleidsregels zijn beschikbaar in alle edities van Azure AD en bieden alleen beperkte aanpassingsopties. Als een scenario meer flexibiliteit vereist, dient u het beleid van de basislijn en implementeren van uw vereisten in een aangepast beleid voor standard.
+Er zijn twee soorten beleid voor voorwaardelijke toegang: basislijn- en standard. Een [Basisbeleid](baseline-protection.md) is een vooraf gedefinieerd beleid voor voorwaardelijke toegang. Het doel van dit beleid is om ervoor te zorgen dat u ten minste het niveau van de basislijn van de beveiliging is ingeschakeld hebt. Basislijn-beleid. Basislijn-beleidsregels zijn beschikbaar in alle edities van Azure AD en bieden alleen beperkte aanpassingsopties. Als een scenario meer flexibiliteit vereist, dient u het beleid van de basislijn en implementeren van uw vereisten in een aangepast beleid voor standard.
 
-In een standard-voorwaardelijk toegangsbeleid kunt u alle instellingen voor het aanpassen van het beleid aan uw bedrijfsvereisten aanpassen. Standaardbeleid voor nodig een Azure AD Premium P1-licentie.
+In een standard beleid voor voorwaardelijke toegang, kunt u alle instellingen voor het aanpassen van het beleid aan uw bedrijfsvereisten aanpassen. Standaardbeleid voor nodig een Azure AD Premium P1-licentie.
 
 
 
 
 ## <a name="draft-policies"></a>Concept-beleid
 
-Voorwaardelijke toegang van Azure Active Directory kunt u de beveiliging van uw cloud-apps naar een nieuw niveau te brengen. In dit nieuwe niveau, is hoe u toegang hebt tot een cloud-app gebaseerd op een dynamische beleidsevaluatie in plaats van een statische access-configuratie. Met beleid voor voorwaardelijke toegang, definieert u een antwoord (**hiervoor**) aan een voorwaarde toegang (**wanneer dit gebeurt**).
+Azure Active Directory voor voorwaardelijke toegang kunt u de beveiliging van uw cloud-apps naar een nieuw niveau te brengen. In dit nieuwe niveau, is hoe u toegang hebt tot een cloud-app gebaseerd op een dynamische beleidsevaluatie in plaats van een statische access-configuratie. Met beleid voor voorwaardelijke toegang, definieert u een antwoord (**hiervoor**) aan een voorwaarde toegang (**wanneer dit gebeurt**).
 
 ![Reden en het antwoord](./media/plan-conditional-access/10.png)
 
 Elk beleid voor voorwaardelijke toegang die u wilt implementeren met behulp van deze planning model definiëren. De planning oefening:
 
 - Helpt u bij overzicht van de antwoorden en voorwaarden voor elk beleid.
-- De resultaten in een goed gedocumenteerde voorwaardelijk beleid catalogus voor uw organisatie. 
+- De resultaten in een goed gedocumenteerde catalogus van de beleid voor voorwaardelijke toegang voor uw organisatie. 
 
 U kunt uw catalogus gebruiken om te beoordelen of de implementatie van uw beleid de bedrijfsbehoeften van uw organisatie weerspiegelt. 
 
@@ -55,16 +55,16 @@ Gebruik de volgende voorbeeldsjabloon om te maken van beleid voor voorwaardelijk
 
 |Wanneer *dit* gebeurt:|Voer *dit*:|
 |-|-|
-|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Toegang tot de toepassing blokkeren|
-|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Verlenen van toegang met (en):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
-|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Verlenen van toegang met (of):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
+|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app *<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Toegang tot de toepassing blokkeren|
+|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app *<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Verlenen van toegang met (en):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
+|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app *<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Verlenen van toegang met (of):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
 
-Ten minste **wanneer dit gebeurt** definieert de principal (**die**) die probeert te krijgen tot een cloud-app (**wat**). Indien nodig, kunt u ook opnemen **hoe** een poging tot toegang wordt uitgevoerd. Voorwaardelijke toegang, de elementen die definiëren in het wie, wat, hoe voorwaarden worden genoemd. Zie voor meer informatie, [wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory?](conditions.md) 
+Ten minste **wanneer dit gebeurt** definieert de principal (**die**) die probeert te krijgen tot een cloud-app (**wat**). Indien nodig, kunt u ook opnemen **hoe** een poging tot toegang wordt uitgevoerd. Voorwaardelijke toegang, de elementen die definiëren in het wie, wat, hoe voorwaarden worden genoemd. Zie voor meer informatie, [wat zijn de voorwaarden in Azure Active Directory voor voorwaardelijke toegang?](conditions.md) 
 
 Met **voert u deze**, definieert u het antwoord van uw beleid aan een voorwaarde voor toegang. Uw reactie, kunt u blokkeren of verlenen van toegang met aanvullende vereisten, bijvoorbeeld: multi-factor authentication (MFA). Zie voor een volledig overzicht [wat toegang zijn besturingselementen in Azure Active Directory voor voorwaardelijke toegang?](controls.md)  
  
 
-De combinatie van voorwaarden en uw besturingselementen voor toegang stellen een beleid voor voorwaardelijke toegang voor.
+De combinatie van voorwaarden met de besturingselementen voor toegang vertegenwoordigt een beleid voor voorwaardelijke toegang.
 
 ![Reden en het antwoord](./media/plan-conditional-access/51.png)
 
@@ -211,18 +211,18 @@ Beheren van beleid voor voorwaardelijke toegang is een handmatige taak. U kunt i
 ![Voorwaardelijke toegang](media/plan-conditional-access/03.png)
 
 
-Als u wilt meer informatie over het maken van beleid voor voorwaardelijke toegang, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md). In deze snelstartgids helpt u bij:
+Als u wilt meer informatie over het maken van beleid voor voorwaardelijke toegang, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md). In deze snelstartgids helpt u bij:
 
 - Vertrouwd raken met de gebruikersinterface.
-- Krijg een eerste indruk van hoe voorwaardelijke toegang werkt. 
+- Krijg een eerste indruk van de werking van voorwaardelijke toegang. 
 
 
 ### <a name="evaluate-a-simulated-sign-in"></a>Een gesimuleerde aanmelding evalueren
 
-Nu u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u weten of het werkt zoals u wilt. Als een eerste stap gebruikt u de voorwaardelijke toegang [wat gebeurt er als beleid hulpprogramma](what-if-tool.md) voor het simuleren van een aanmelding van uw testgebruiker. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport.
+Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waarschijnlijk weet of deze werkt zoals verwacht. Als een eerste stap gebruikt u de voorwaardelijke toegang [wat gebeurt er als beleid hulpprogramma](what-if-tool.md) voor het simuleren van een aanmelding van uw testgebruiker. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport.
 
 >[!NOTE]
-> Hoewel een gesimuleerde uitvoeren geeft u de indruk van het effect heeft een beleid voor voorwaardelijke toegang, het is geen vervanging voor een werkelijke testuitvoering.
+> Hoewel een gesimuleerde uitvoeren u indruk van de impact is van een beleid voor voorwaardelijke toegang geeft, is het geen vervanging voor een werkelijke testuitvoering.
 
 
 ### <a name="test-your-policy"></a>Het beleid testen

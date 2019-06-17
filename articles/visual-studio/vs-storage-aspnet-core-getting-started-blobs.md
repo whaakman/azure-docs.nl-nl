@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110507"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET Core)
@@ -51,7 +51,7 @@ In deze sectie helpt bij het instellen van de ontwikkelomgeving. Dit omvat het m
 
     ![Schermopname van Visual Studio het dialoogvenster Nieuw Project](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. In de **nieuwe ASP.NET Core-webtoepassing** in het dialoogvenster, selecteer **.NET Core** > **ASP.NET Core 2.0** > **(Web-App Model-View-Controller)**. Selecteer vervolgens **OK**.
+1. In de **nieuwe ASP.NET Core-webtoepassing** in het dialoogvenster, selecteer **.NET Core** > **ASP.NET Core 2.0** >  **(Web-App Model-View-Controller)** . Selecteer vervolgens **OK**.
 
     ![Schermafbeelding van de nieuwe ASP.NET Core-webtoepassing-dialoogvenster](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 

@@ -17,10 +17,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: edf5f2b681123243f55b1c2bf19a500e68171c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165738"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Over het inrichten van SQL Server-machines met Azure PowerShell
@@ -69,7 +69,7 @@ Definieert de eigenschappen kunnen worden gebruikt door het netwerk in de virtue
 
 - Netwerkinterface
 - TCP/IP-toewijzingsmethode
-- Naam van virtueel netwerk
+- Virtuele-netwerknaam
 - De naam van het virtuele subnet
 - Bereik van IP-adressen voor het virtuele netwerk
 - Bereik van IP-adressen voor het subnet
@@ -427,7 +427,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName
 ## <a name="next-steps"></a>Volgende stappen
 Nadat de virtuele machine is gemaakt, kunt u het volgende doen:
 
-- Verbinding maken met de virtuele machine met RDP.
+- Verbinding maken met de virtuele machine via RDP
 - SQL Server-instellingen configureren in de portal voor uw virtuele machine, met inbegrip van:
    - [Opslaginstellingen](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [Geautomatiseerde beheertaken](virtual-machines-windows-sql-server-agent-extension.md)

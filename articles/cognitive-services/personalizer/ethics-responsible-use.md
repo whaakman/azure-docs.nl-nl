@@ -2,19 +2,20 @@
 title: Ethiek en verantwoordelijk gebruik - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Deze richtlijnen zijn gericht op helpen u bij het implementeren van persoonlijke instellingen op een manier die helpt u bij het bouwen van vertrouwen in uw bedrijf en de service. Zorg dat onderbreken om te onderzoeken, informatie en opzettelijke over de gevolgen van de persoonlijke instellingen op het leven van mensen. Bij twijfel proberen richtlijnen.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a5bdee7ec99367d004260bd77e3b0695a1877dd6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055517"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Richtlijnen voor verantwoordelijk Personalizer-implementatie
 

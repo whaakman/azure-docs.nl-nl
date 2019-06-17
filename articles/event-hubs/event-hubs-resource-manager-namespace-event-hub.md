@@ -12,175 +12,78 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 06/13/2019
 ms.author: shvija
-ms.openlocfilehash: d5dc65dc225d11a996d9b9d3c329151a17321fb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c020a7673fe018565a6f1aeb9f7cb2124024a2c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118867"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Quickstart: Een event hub met behulp van Azure Resource Manager-sjabloon maken
+# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Quickstart: Een event hub maken met behulp van een Azure Resource Manager-sjabloon
+
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
 
-In deze quickstart maakt u een event hub met behulp van een Azure Resource Manager-sjabloon. Een Azure Resource Manager-sjabloon maakt u een naamruimte van het type [Event Hubs](event-hubs-what-is-event-hubs.md), met één gebeurtenishub, en een consumentengroep beperkt. Het artikel wordt beschreven hoe om te definiëren welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen. Zie voor meer informatie over het maken van sjablonen [Authoring Azure Resource Manager-sjablonen][Authoring Azure Resource Manager templates]. Zie [Microsoft.EventHub resource types](/azure/templates/microsoft.eventhub/allversions) (Microsoft.EventHub-resourcetypen) voor de JSON-syntaxis en eigenschappen die u kunt gebruiken in een sjabloon.
+In deze quickstart maakt u een event hub maken met behulp van een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-overview.md). Implementeren van een Azure Resource Manager-sjabloon voor het maken van een naamruimte van het type [Event Hubs](event-hubs-what-is-event-hubs.md), met een event hub. Het artikel wordt beschreven hoe om te definiëren welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen. Zie voor meer informatie over het maken van sjablonen [Authoring Azure Resource Manager-sjablonen][Authoring Azure Resource Manager templates]. Zie [Microsoft.EventHub resource types](/azure/templates/microsoft.eventhub/allversions) (Microsoft.EventHub-resourcetypen) voor de JSON-syntaxis en eigenschappen die u kunt gebruiken in een sjabloon.
 
-> [!NOTE]
-> Zie voor de volledige sjabloon, de [Event hub- en klanttoepassingen groep sjabloon] [ Event Hub and consumer group template] op GitHub. Deze sjabloon gemaakt van een consumergroep naast een event hub-naamruimte en een event hub. Om te controleren op de meest recente sjablonen, gaat u naar de galerie [Azure-snelstartsjablonen][Azure Quickstart Templates] en zoekt u naar Event Hubs.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="create-an-event-hub"></a>Een Event Hub maken
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+In deze quickstart maakt u een [bestaande Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json). Meer voorbeelden van de sjabloon, Zie [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
-U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Voor het implementeren van de sjabloon:
 
-Als u wilt gebruiken **Azure PowerShell** om de Resource Manager-sjabloon te implementeren [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/install-az-ps).
+1. Selecteer **uitproberen** uit het volgende codeblok en volg de instructies om aan te melden bij de Azure Cloud shell.
 
-Als u wilt gebruiken **Azure CLI** om de Resource Manager-sjabloon te implementeren [Azure CLI installeren]( /cli/azure/install-azure-cli).
+   ```azurepowershell-interactive
+   $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
 
-## <a name="create-the-resource-manager-template-json"></a>De JSON van de Resource Manager-sjabloon maken
-Maak een JSON-bestand met de naam MyEventHub.json met de volgende inhoud en sla deze op een map (bijvoorbeeld: C:\EventHubsQuickstarts\ResourceManagerTemplate).
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "eventhub-namespace-name": {
-            "type": "String"
-        },
-        "eventhub_name": {
-            "type": "String"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.EventHub/namespaces",
-            "sku": {
-                "name": "Standard",
-                "tier": "Standard",
-                "capacity": 1
-            },
-            "name": "[parameters('eventhub-namespace-name')]",
-            "apiVersion": "2017-04-01",
-            "location": "East US",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "isAutoInflateEnabled": false,
-                "maximumThroughputUnits": 0
-            },
-            "dependsOn": []
-        },
-        {
-            "type": "Microsoft.EventHub/namespaces/eventhubs",
-            "name": "[concat(parameters('eventhub-namespace-name'), '/', parameters('eventhub_name'))]",
-            "apiVersion": "2017-04-01",
-            "location": "East US",
-            "scale": null,
-            "properties": {
-                "messageRetentionInDays": 7,
-                "partitionCount": 1,
-                "status": "Active"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.EventHub/namespaces', parameters('eventhub-namespace-name'))]"
-            ]
-        }
-    ]
-}
-```
-
-## <a name="create-the-parameters-json"></a>De parameters-JSON maken
-Maak een JSON-bestand met de naam MyEventHub-Parameters.json met parameters voor de Azure Resource Manager-sjabloon. 
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-        "eventhub-namespace-name": {
-            "value": "<specify a name for the event hub namespace>"
-        },
-        "eventhub_name": {
-            "value": "<Specify a name for the event hub in the namespace>"
-        }
-  }
-}
-```
-
-
-
-## <a name="use-azure-powershell-to-deploy-the-template"></a>Azure PowerShell gebruiken om de sjabloon te implementeren
-
-### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-1. Start Azure PowerShell
-
-2. Voer de volgende opdracht uit om u aan te melden bij Azure:
-
-   ```azurepowershell
-   Login-AzAccount
-   ```
-3. Als u hebt voert u de volgende opdrachten om in te stellen de huidige context van het abonnement:
-
-   ```azurepowershell
-   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Write-Host "Press [ENTER] to continue ..."
    ```
 
-### <a name="provision-resources"></a>Resources inrichten
-Als u de resources met behulp van Azure PowerShell implementeren/inrichten, wilt overschakelen naar de map C:\EventHubsQuickStart\ARM\, voer de volgende opdrachten uit:
+   Het duurt een paar minuten naar een event hub maken.
 
-> [!IMPORTANT]
-> Geef een naam voor de Azure-resourcegroep gemaakt als een waarde voor $resourceGroupName voordat u de opdrachten uitvoert. 
+1. Selecteer **Kopiëren** om het PowerShell-script te kopiëren.
+1. Met de rechtermuisknop op de shell-console en selecteer vervolgens **plakken**.
 
-```azurepowershell
-$resourceGroupName = "<Specify a name for the Azure resource group>"
+## <a name="verify-the-deployment"></a>De implementatie controleren
 
-# Create an Azure resource group
-New-AzResourceGroup $resourceGroupName -location 'East US'
+Als u wilt controleren of de implementatie, kunt u de resourcegroep van openen de [Azure-portal](https://portal.azure.com), of gebruik de volgende Azure PowerShell-script.  Als de cloudshell nog steeds geopend is, moet u niet de eerste regel (Read-Host) kopiëren of uitgevoerd.
 
-# Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+$namespaceName = "${projectName}ns"
+
+Get-AzEventHub -ResourceGroupName $resourceGroupName -Namespace $namespaceName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="use-azure-cli-to-deploy-the-template"></a>Azure CLI gebruiken om de sjabloon te implementeren
+## <a name="clean-up-resources"></a>Resources opschonen
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen. Als de cloudshell nog steeds geopend is, moet u niet de eerste regel (Read-Host) kopiëren of uitgevoerd.
 
-De volgende stappen zijn niet vereist als u opdrachten in Cloud Shell uitvoert. Als u de CLI lokaal uitvoert, moet u de volgende stappen uitvoeren om u aan te melden bij Azure en uw huidige abonnement in te stellen:
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
 
-Voer de volgende opdracht uit om u aan te melden bij Azure:
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
-```azurecli
-az login
+Write-Host "Press [ENTER] to continue ..."
 ```
-
-Stel de context van het huidige abonnement in. Vervang `MyAzureSub` door de naam van het Azure-abonnement dat u wilt gebruiken:
-
-```azurecli
-az account set --subscription <Name of your Azure subscription>
-``` 
-
-### <a name="provision-resources"></a>Resources inrichten
-Voor het implementeren van de resources met behulp van Azure CLI, Ga naar de map C:\EventHubsQuickStart\ARM\ en voer de volgende opdrachten uit:
-
-> [!IMPORTANT]
-> Geef een naam voor de Azure-resourcegroep in de groep az-opdracht maken. .
-
-```azurecli
-# Create an Azure resource group
-az group create --name <YourResourceGroupName> --location eastus
-
-# # Deploy the Resource Manager template. Specify the names of resource group, deployment, JSON file for the template, JSON file for parameters
-az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyEventHub.json --parameters @MyEventHub-Parameters.json
-```
-
-Gefeliciteerd! U hebt de Azure Resource Manager-sjabloon gebruikt om een Event Hubs-naamruimte en een event hub binnen deze naamruimte te maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u de Event Hubs-naamruimte gemaakt en voorbeeldtoepassingen gebruikt om gebeurtenissen te verzenden en ontvangen vanuit uw Event Hub. Zie voor stapsgewijze instructies voor het verzenden van gebeurtenissen naar (of) gebeurtenissen ontvangen van een event hub, de **verzenden en ontvangen van gebeurtenissen** zelfstudies: 
+In dit artikel hebt u de Event Hubs-naamruimte gemaakt en voorbeeldtoepassingen gebruikt om gebeurtenissen te verzenden en ontvangen vanuit uw Event Hub. Zie voor stapsgewijze instructies voor het verzenden van gebeurtenissen naar (of) gebeurtenissen ontvangen van een event hub, de **verzenden en ontvangen van gebeurtenissen** zelfstudies:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

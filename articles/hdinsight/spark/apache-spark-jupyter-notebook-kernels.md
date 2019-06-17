@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
 ms.openlocfilehash: b2ae24c0449b009db6fcecdd8a1366ea5154629a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257798"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook op Apache Spark-clusters in Azure HDInsight 
@@ -72,7 +72,7 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
    | Magic-pakket | Voorbeeld | Description |
    | --- | --- | --- |
    | Help |`%%help` |Genereert een tabel met alle beschikbare magics met voorbeeld en beschrijving |
-   | Info |`%%info` |Uitvoer sessie-informatie voor het eindpunt van de huidige Livy |
+   | info |`%%info` |Uitvoer sessie-informatie voor het eindpunt van de huidige Livy |
    | Configureren |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Hiermee configureert u de parameters voor het maken van een sessie. De markering forceren (-f) is verplicht als een sessie al is gemaakt, die zorgt ervoor dat de sessie verwijderd en opnieuw gemaakt. Bekijk [van Livy POST /sessions aanvraagtekst](https://github.com/cloudera/livy#request-body) voor een lijst met geldige parameters op. Parameters moeten worden doorgegeven als een JSON-tekenreeks en moeten op de volgende regel na de Magic-pakket, zoals wordt weergegeven in de voorbeeldkolom. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Voert een Hive-query op de sqlContext. Als de `-o` parameter is doorgegeven, het resultaat van de query worden bewaard de %% lokale Python-context als een [Pandas](https://pandas.pydata.org/) dataframe. |
    | lokale |`%%local`<br>`a=1` |De code in de volgende regels wordt lokaal uitgevoerd. Code moet geldige Python2-code ook, ongeacht de kernel die u gebruikt. Dit het geval is, zelfs als u hebt geselecteerd **PySpark3** of **Spark** kernels tijdens het maken van het notitieblok, als u de `%%local` magic in een cel, die cel moet alleen geldige Python2 code hebben. |

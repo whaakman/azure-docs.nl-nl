@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141049"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080043"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
@@ -98,7 +98,7 @@ Nadat de entiteit is uitgepakt, kunt u de entiteitsgegevens weergegeven als éé
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Samengestelde**](#composite-entity)|Groepering van entiteiten, ongeacht het entiteitstype.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
-|Gemengd||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|De entiteit waarin einde van de entiteit moeilijk is te bepalen.|
+|Gemengde modus||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|De entiteit waarin einde van de entiteit moeilijk is te bepalen.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Eenvoudige**](#simple-entity)|Een enkele concept in woord of woordgroep bevat.|
@@ -108,6 +108,30 @@ Alleen entiteiten hebt geleerd van een Machine moeten worden gemarkeerd in de vo
 Pattern.any entiteiten moeten worden gemarkeerd de [patroon](luis-how-to-model-intent-pattern.md) sjabloonvoorbeelden, niet de bedoeling gebruiker voorbeelden. 
 
 Gemengde entiteiten maken gebruik van een combinatie van detectiemethoden entiteit.
+
+## <a name="machine-learned-entities-use-context"></a>Machine geleerde entiteiten maken gebruik van context
+
+Entiteiten machine geleerd informatie uit de context in de utterance. Dit maakt variatie van plaatsing in voorbeeld-uitingen aanzienlijke. 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>Entiteiten hebt geleerd van niet-machine context niet gebruiken
+
+De volgende niet-machine hebt geleerd entiteiten niet utterance context in aanmerking nemen wanneer die overeenkomen met entiteiten: 
+
+* [Vooraf gemaakte entiteiten](#prebuilt-entity)
+* [Regex-entiteiten](#regular-expression-entity)
+* [Lijst met entiteiten](#list-entity) 
+
+Deze entiteiten vereisen geen labels of het model te trainen. Zodra u toevoegen of configureren van de entiteit, worden de entiteiten worden opgehaald. Het verschil is dat deze entiteiten kunnen worden overmatched, waar of context rekening is gehouden, het resultaat zou niet zijn aangebracht. 
+
+Dit gebeurt met de lijst met entiteiten op nieuwe modellen vaak. U bouwen en testen van uw model met een lijst met entiteit, maar wanneer u uw model publiceert en query's van het eindpunt ontvangen, ontdekt u dat uw model is overmatching vanwege een gebrek aan context. 
+
+Als u wilt vergelijken woorden of zinsdelen en rekening gehouden met context, hebt u twee opties. De eerste is met een enkele entiteit die is gekoppeld aan een woordgroepenlijst met. De woordgroepenlijst met wordt niet gebruikt voor het afstemmen van, maar in plaats daarvan helpt signaal relatief gelijksoortige woorden (uitwisselbaar lijst). Als u een exacte overeenkomst in plaats van een woordgroepenlijst van de variaties hebt moet, gebruikt u een entiteit van de lijst met een rol, zoals hieronder wordt beschreven.
+
+### <a name="context-with-non-machine-learned-entities"></a>Context met niet-machine-geleerde entiteiten
+
+Als u de context van de utterance naar het van belang voor niet-machine geleerde entiteiten wilt, moet u [rollen](luis-concept-roles.md).
+
+Als u beschikt over een entiteit niet machine is geleerd, zoals [vooraf gemaakte entiteiten](#prebuilt-entity), [regex](#regular-expression-entity) entiteiten of [lijst](#list-entity) entiteiten, deze is die overeenkomen met meer dan het exemplaar dat u wilt, kunt u het maken van een entiteit met twee rollen. Een rol wordt vastgelegd wat u zoekt en één rol wordt vastgelegd wat u niet zoekt. Beide versies moet worden met het label in de voorbeeld-uitingen.  
 
 ## <a name="composite-entity"></a>Samengestelde entiteit
 
@@ -133,8 +157,9 @@ Lijst met entiteiten vertegenwoordigen een vaste en gesloten set verwante woorde
 De entiteit is een goede passen wanneer de gegevens:
 
 * Een bekende set zijn.
+* Niet veranderen vaak. Als u wilt de lijst regelmatig te wijzigen of de lijst om uit te breiden zelf, is een eenvoudige entiteit heeft de klantenopbrengst met een woordgroepenlijst een betere keuze. 
 * De set maximale [begrenzingen](luis-boundaries.md) van LUIS voor dit entiteitstype niet overschrijdt.
-* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. LUIS gebruikt de lijst alleen voor exact tekstovereenkomsten. Als gevolg meervouden en andere variaties niet worden opgelost met een lijst met entiteit. Hiervoor kunt u overwegen een [patroon](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) met de optionele tekstsyntaxis te gebruiken.
+* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. LUIS gebruikt de lijst alleen voor exact tekstovereenkomsten. Zoeken bij benadering, hoofdlettergevoeligheid, afleiding, meervouden en andere variaties niet worden opgelost met een lijst met entiteit. Hiervoor kunt u overwegen een [patroon](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) met de optionele tekstsyntaxis te gebruiken.
 
 ![lijst met entiteiten](./media/luis-concept-entities/list-entity.png)
 
@@ -158,10 +183,11 @@ In de volgende tabel heeft elke rij twee versies van de utterance. De bovenste u
 
 |Utterance|
 |--|
-|' De Man die aangezien zijn vrouw is voor een Hat en andere klinische verhalen die is geschreven door een Amerikaans dit jaar?<br>Is **de Man die aangezien zijn vrouw voor een Hat en andere klinische verhalen** geschreven door een Amerikaans dit jaar?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+|Is de Man die aangezien zijn vrouw voor een Hat en andere klinische verhalen geschreven door een Amerikaans dit jaar?<br><br>Is **de Man die aangezien zijn vrouw voor een Hat en andere klinische verhalen** geschreven door een Amerikaans dit jaar?|
+|Is de helft slaapstand in kikker Pajamas geschreven door een Amerikaans dit jaar?<br><br>Is **halve slaapstand in kikker Pajamas** geschreven door een Amerikaans dit jaar?|
+|De specifieke verdriet van citroensap taart is: Een nieuwe geschreven door een Amerikaans dit jaar?<br><br>Is **de bepaalde verdriet van citroensap taart: Een nieuwe** die is geschreven door een Amerikaans dit jaar?|
+|Is dat er sprake is van een Wocket In mijn Pocket! die is geschreven door een Amerikaans dit jaar?<br><br>Is **er is een Wocket In mijn Pocket!** die is geschreven door een Amerikaans dit jaar?|
+||
 
 ## <a name="prebuilt-entity"></a>Vooraf gemaakte entiteiten
 
@@ -225,6 +251,18 @@ De entiteit is een goede aanpassen wanneer:
 
 [Zelfstudie](luis-quickstart-intents-regex-entity.md)<br>
 [Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+Reguliere expressies kunnen meer dan u verwacht dat overeenkomt met overeen. Een voorbeeld hiervan is numerieke woord die overeenkomt met zoals `one` en `two`. Een voorbeeld is de volgende reguliere expressie, die overeenkomt met het aantal `one` samen met andere getallen:
+
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+Deze expressie regex ook overeenkomt met de woorden die met deze getallen zoals eindigen `phone`. Houdt rekening word grenzen om te kunnen oplossen van problemen als volgt, zorg ervoor dat de reguliere expressie komt overeen met. De reguliere expressie met word grenzen voor dit voorbeeld wordt gebruikt in de volgende reguliere expressie:
+
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
 
 ## <a name="simple-entity"></a>Eenvoudige entiteit 
 

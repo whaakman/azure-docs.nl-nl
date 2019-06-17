@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
 ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684692"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric-knooppunttypen en VM-schaalsets
@@ -34,7 +34,7 @@ Zoals u in de afbeelding hierboven, schaalsetinstanties begint bij het exemplaar
 Wanneer u een schaalset opschalen, wordt een nieuw exemplaar gemaakt. De nieuwe scale set-exemplaarnaam is meestal dat de schaalset naam plus de volgende instantienummer. In ons voorbeeld is het BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Scale set load balancers worden toegewezen aan knooppunttypen en schaalsets
-Als u uw cluster in Azure portal is geïmplementeerd of het voorbeeld van Azure Resource Manager-sjabloon gebruikt, worden alle resources onder een resourcegroep worden weergegeven. Hier ziet u de load balancers voor elk scale set of knooppunt. De naam van de load balancer maakt gebruik van de volgende indeling: **LB -&lt;de naam van knooppunttype&gt;**. Een voorbeeld is de LB-sfcluster4doc-0, zoals wordt weergegeven in de volgende afbeelding:
+Als u uw cluster in Azure portal is geïmplementeerd of het voorbeeld van Azure Resource Manager-sjabloon gebruikt, worden alle resources onder een resourcegroep worden weergegeven. Hier ziet u de load balancers voor elk scale set of knooppunt. De naam van de load balancer maakt gebruik van de volgende indeling: **LB -&lt;de naam van knooppunttype&gt;** . Een voorbeeld is de LB-sfcluster4doc-0, zoals wordt weergegeven in de volgende afbeelding:
 
 ![Resources][Resources]
 
@@ -82,7 +82,7 @@ Hier volgen eigenschapbeschrijvingen van de:
 | publisher | Microsoft.Azure.ServiceFabric | --- | naam van de uitgever van de extensie Service Fabric |
 | clusterEndpont | string | --- | URI:Port met beheereindpunt |
 | nodeTypeRef | string | --- | naam van knooppunttype |
-| durabilityLevel | brons, Zilver, gold, platinum | --- | tijd om te onderbreken onveranderbare infrastructuur van Azure |
+| Duurzaamheidsniveau | brons, Zilver, gold, platinum | --- | tijd om te onderbreken onveranderbare infrastructuur van Azure |
 | enableParallelJobs | waar of ONWAAR | --- | Compute ParallelJobs als een VM verwijderen en opnieuw opstarten van virtuele machine in de dezelfde schaalset parallel inschakelen |
 | nicPrefixOverride | string | --- | Het subnetvoorvoegsel, zoals '10.0.0.0/24' |
 | commonNames | string[] | --- | Algemene namen van de geïnstalleerde clustercertificaten |

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: cba13012bf165a097bd1382da8ef9897b0584d28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066882"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Zelfstudie: App-groepen beheren voor Windows Virtual Desktop Preview
 
@@ -73,7 +73,7 @@ Voordat u begint, [downloaden en importeren van de Windows virtuele bureaublad P
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u app-groepen maken, deze vullen met RemoteApps en gebruikers toewijzen aan de app-groep. Voor meer informatie over hoe u zich aanmeldt bij Windows virtueel bureaublad, blijven het verbinding maken met Windows virtuele bureaublad uitleg.
+In deze zelfstudie hebt u geleerd hoe u app-groepen maken, deze vullen met RemoteApps en gebruikers toewijzen aan de app-groep. Zie voor meer informatie over het maken van een groep van de host validatie, waarmee u service-updates voordat uitrollen naar uw productieomgeving controleren, maak een groep host om te valideren van de zelfstudie over service-updates.
 
-- [Verbinding maken met de extern bureaublad-client op Windows 7 en Windows 10](connect-windows-7-and-10.md)
-- [Verbinding maken met de webclient Windows Virtual Desktop Preview](connect-web.md)
+> [!div class="nextstepaction"]
+> [Maken van een groep host voor het valideren van de zelfstudie over service-updates](./create-validation-host-pool.md)

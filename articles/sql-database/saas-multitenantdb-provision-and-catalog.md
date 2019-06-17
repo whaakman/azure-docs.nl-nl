@@ -13,10 +13,10 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485898"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Nieuwe tenants inrichten en catalogiseren in een SaaS-toepassing met behulp van een shard Azure SQL database voor meerdere tenants
@@ -161,7 +161,7 @@ Om te begrijpen hoe de Wingtip-app voor nieuwe tenants worden ingericht in een g
    - **$VenueType** = **blues**, een van de vooraf gedefinieerde typen venues: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (kleine letters, zonder spaties).
    - **$DemoScenario** = **1**, voor het inrichten van een tenant in een gedeelde database met andere tenants.
 
-2. Voeg een onderbrekingspunt toe door de cursor ergens in de regel 38, de regel met de tekst plaatsen: *Nieuwe Tenant '*, en druk vervolgens op **F9**.
+2. Voeg een onderbrekingspunt toe door de cursor ergens in de regel 38, de regel met de tekst plaatsen: *Nieuwe Tenant '* , en druk vervolgens op **F9**.
 
    ![onderbrekingspunt](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -201,7 +201,7 @@ Nu stapsgewijs door het scriptproces bij het maken van een tenant in een eigen d
    - **$VenueType** = **voetbal**, een van de vooraf gedefinieerde typen venues: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (kleine letters, zonder spaties).
    - **$DemoScenario** = **2**, voor het inrichten van een tenant in een eigen database.
 
-2. Voeg een nieuwe onderbrekingspunt toe door het plaatsen van de cursor ergens op regel 57, de regel met de tekst:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*, en druk op **F9**.
+2. Voeg een nieuwe onderbrekingspunt toe door het plaatsen van de cursor ergens op regel 57, de regel met de tekst:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '* , en druk op **F9**.
 
    ![onderbrekingspunt](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 

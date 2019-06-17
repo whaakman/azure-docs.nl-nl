@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/19/2019
-ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067058"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastische query overzicht (preview)
 
@@ -140,7 +140,7 @@ Elastische query's is opgenomen in de kosten van Azure SQL Database-databases. H
 * Scripts van externe gegevensbronnen of externe tabellen van SSMS of SSDT is nog niet ondersteund.
 * Import/Export voor SQL DB ondersteunt nog geen externe gegevensbronnen en externe tabellen. Als u gebruiken voor importeren/exporteren wilt, deze objecten verwijderen voordat u exporteert en vervolgens opnieuw maken na het importeren.
 * Elastische query's ondersteunt momenteel alleen alleen-lezen toegang tot externe tabellen. U kunt volledige T-SQL-functionaliteit echter gebruiken voor de database waarin de externe tabel is gedefinieerd. Dit kan handig zijn bij, zoals tijdelijke resultaten met, bijvoorbeeld voordoen, < column_list > in < local_table > Selecteer of voor het definiëren van opgeslagen procedures op de database elastische query's die verwijzen naar externe tabellen zijn.
-* Met uitzondering van nvarchar(max), worden LOB-typen niet ondersteund in de definities van de externe tabel. Als tijdelijke oplossing, kunt u een weergave op de externe database die het type LOB in nvarchar(max) geworpen maken, uw externe tabel over de weergave in plaats van de basistabel definiëren en vervolgens geconverteerd naar het oorspronkelijke LOB-type in uw query's.
+* Met uitzondering van nvarchar(max), worden LOB-typen (met inbegrip van ruimtelijke typen) niet ondersteund in de definities van de externe tabel. Als tijdelijke oplossing, kunt u een weergave op de externe database die het type LOB in nvarchar(max) geworpen maken, uw externe tabel over de weergave in plaats van de basistabel definiëren en vervolgens geconverteerd naar het oorspronkelijke LOB-type in uw query's.
 * Kolommen van het gegevenstype nvarchar(max) in resultaat set uitschakelen geavanceerde batchverwerking technics gebruikt in een elastische Query-implementatie en kunnen invloed hebben op prestaties van query voor een orde van grootte, of zelfs twee orde van grootte in niet-standaard use-cases waar grote hoeveelheid niet-samengevoegde gegevens worden overgebracht als gevolg van de query.
 * Kolomstatistieken over externe tabellen worden momenteel niet ondersteund. Tabelstatistieken worden ondersteund, maar moeten handmatig worden gemaakt.
 

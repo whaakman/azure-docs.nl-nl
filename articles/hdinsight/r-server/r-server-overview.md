@@ -6,20 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67130623"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Wat is ML-Services in Azure HDInsight
 
 Microsoft Machine Learning Server is beschikbaar als een implementatie-opties wanneer u een HDInsight-clusters in Azure maken. Het clustertype waarmee u deze optie wordt aangeroepen **ML-Services**. Deze mogelijkheid biedt gegevenswetenschappers, statistici en R-programmeurs on-demandtoegang tot schaalbare, gedistribueerde analysemethoden in HDInsight.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ML-Services op HDInsight biedt de nieuwste mogelijkheden voor analyses op basis van R op gegevenssets van vrijwel elke grootte, geladen in Azure Blob of Data Lake-opslag. Omdat het cluster ML-Services is gebouwd op open-source R, de toepassingen op basis van R die u bouwt gebruik kunnen maken van de 8000 + open source R-pakketten. De routines in ScaleR van Microsoft big data analytics-pakket zijn ook beschikbaar.
 

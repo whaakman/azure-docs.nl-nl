@@ -7,20 +7,19 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077684"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Waarschuwingen instellen voor Azure Stream Analytics-taken
 
 Het is belangrijk voor het bewaken van uw Azure Stream Analytics-taak om te controleren of dat de taak continu wordt uitgevoerd zonder problemen. In dit artikel wordt beschreven hoe u waarschuwingen instellen voor algemene scenario's die moeten worden bewaakt. 
 
-Regels kunnen worden ingesteld op de metrische gegevens via de portal en kan worden geconfigureerd [programmatisch](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) Bewerkingslogboeken gegevens.
+U kunt regels definiëren voor metrische gegevens van gegevens via de portal, logboeken voor bewerkingen, evenals [programmatisch](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Stel waarschuwingen in Azure portal
 
@@ -30,7 +29,7 @@ Het volgende voorbeeld ziet u hoe u waarschuwingen instellen voor wanneer de taa
 
 2. Op de **taak** pagina, gaat u naar de **bewaking** sectie.  
 
-3. Selecteer **metrische gegevens**, en klik vervolgens op **nieuwe waarschuwingsregel**.
+3. Selecteer **metrische gegevens**, en vervolgens **nieuwe waarschuwingsregel**.
 
    ![Azure portal Stream Analytics waarschuwingen instellen](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -38,7 +37,7 @@ Het volgende voorbeeld ziet u hoe u waarschuwingen instellen voor wanneer de taa
 
    ![Selecteer de signaalnaam voor Stream Analytics-waarschuwing](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Onder **signaallogica configureren**, wijzigen **gebeurtenisniveau** naar **alle** en wijzig **Status** naar **mislukt** . Laat **gebeurtenis gestart door** leeg en klik op **gedaan**.
+5. Onder **signaallogica configureren**, wijzigen **gebeurtenisniveau** naar **alle** en wijzig **Status** naar **mislukt** . Laat **gebeurtenis gestart door** leeg en selecteer **gedaan**.
 
    ![Signaallogica voor Stream Analytics-waarschuwing configureren](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 

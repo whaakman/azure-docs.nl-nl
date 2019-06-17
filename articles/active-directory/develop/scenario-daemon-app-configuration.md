@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8d377db827a6548c380128624c21f4ae7896aff
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055766"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app dat aanroepen van web-API's - code configureren
 
@@ -39,9 +39,11 @@ De Microsoft-bibliotheken ondersteunende daemon-apps zijn:
 
 ## <a name="configuration-of-the-authority"></a>Configuratie van de instantie
 
-Gezien het feit dat de toepassingen die daemon gebruik geen gedelegeerde machtigingen, maar de machtigingen van de toepassing, hun *ondersteund accounttype* kan niet worden *Accounts in een organisatie-map en persoonlijke Microsoft-accounts () bijvoorbeeld, Skype, Xbox, Outlook.com)*. Er is namelijk geen tenantbeheerder toestemming om de daemon-toepassing voor persoonlijke Microsoft-accounts te verlenen. U moet kiezen *accounts in mijn organisatie* of *accounts in elke organisatie*.
+Gezien het feit dat de toepassingen die daemon gebruik geen gedelegeerde machtigingen, maar de machtigingen van de toepassing, hun *ondersteund accounttype* kan niet worden *Accounts in een organisatie-map en persoonlijke Microsoft-accounts () bijvoorbeeld, Skype, Xbox, Outlook.com)* . Er is namelijk geen tenantbeheerder toestemming om de daemon-toepassing voor persoonlijke Microsoft-accounts te verlenen. U moet kiezen *accounts in mijn organisatie* of *accounts in elke organisatie*.
 
-Daarom moet de instantie die is opgegeven in de configuratie van de toepassing de tenant-ed (voor het opgeven van een Tenant-ID of een domeinnaam die is gekoppeld aan uw organisatie). Als u een ISV en wilt u een hulpprogramma voor meerdere tenants bieden, kunt u `organizations`. Maar houd er rekening mee dat u moet ook uitleggen aan uw klanten het verlenen van toestemming van een beheerder. Zie [aanvragen van toestemming voor een hele tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) voor meer informatie
+Daarom moet de instantie die is opgegeven in de configuratie van de toepassing de tenant-ed (voor het opgeven van een Tenant-ID of een domeinnaam die is gekoppeld aan uw organisatie).
+
+Als u een ISV en wilt u een hulpprogramma voor meerdere tenants bieden, kunt u `organizations`. Maar houd er rekening mee dat u moet ook uitleggen aan uw klanten het verlenen van toestemming van een beheerder. Zie [aanvragen van toestemming voor een hele tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) voor meer informatie. Er is ook op dat moment een beperking in MSAL die `organizations` is alleen toegestaan als de referenties van de client een toepassingsgeheim (niet een certificaat). Zie [MSAL.NET fout #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>Toepassingsconfiguratie en instantiëring
 

@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25f0258b9e6b11e505bd48222dfbca176f963a5e
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: d88462f705a89d02ab69700d0c15669deb44da98
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921044"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058202"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Aangepaste rollen voor Azure-resources
 
 Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen, kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource-bereiken.
 
-Aangepaste rollen worden opgeslagen in een directory van Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke directory kan maximaal hebben **5000** aangepaste rollen. (Voor speciale clouds, zoals Azure Government, Azure Duitsland en Azure China 21Vianet, is de limiet van 2000 aangepaste rollen.) Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
+Aangepaste rollen worden opgeslagen in een directory van Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke directory kan maximaal hebben **5000** aangepaste rollen. (Voor speciale clouds, zoals Azure Government, Azure Duitsland en Azure China 21Vianet, is de limiet 2000 aangepaste rollen.) Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
 
 ## <a name="custom-role-example"></a>Voorbeeld van de aangepaste rol
 
@@ -100,7 +100,7 @@ Een aangepaste rol heeft de volgende eigenschappen.
 | `NotActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die zijn uitgesloten van het toegestane aantal `Actions`. Zie voor meer informatie, [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Zie voor meer informatie, [DataActions (Preview)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen voor gegevens die zijn uitgesloten van het toegestane aantal `DataActions`. Zie voor meer informatie, [NotDataActions (Preview)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Ja | String[] | Een matrix met tekenreeksen die de scopes geeft die de aangepaste rol beschikbaar voor toewijzing is. Op dit moment niet worden ingesteld op het bereik van de hoofdmap (`"/"`) of een beheerbereik van de groep. Zie voor meer informatie, [AssignableScopes](role-definitions.md#assignablescopes) en [organiseren van uw resources met Azure-beheergroepen](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Ja | String[] | Een matrix met tekenreeksen die de scopes geeft die de aangepaste rol beschikbaar voor toewijzing is. Voor aangepaste rollen u momenteel niet instellen `AssignableScopes` aan het bereik van de hoofdmap (`"/"`) of een beheerbereik van de groep. Zie voor meer informatie, [AssignableScopes](role-definitions.md#assignablescopes) en [organiseren van uw resources met Azure-beheergroepen](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Wie kunt maken, verwijderen, bijwerken of weergeven van een aangepaste rol
 

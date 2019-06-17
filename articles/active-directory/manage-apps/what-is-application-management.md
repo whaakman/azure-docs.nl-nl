@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80680de6602b26488a8bade8a69fdd85b7f83ed1
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 9246d7bd48579def171986606e88c09593029aa2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108156"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Toepassingsbeheer met Azure Active Directory
 
@@ -40,8 +40,8 @@ Er zijn vier soorten toepassingen die u kunt toevoegen aan uw **bedrijfstoepassi
 
 -   **Niet-galerietoepassingen** : Breng uw eigen toepassingen. Ondersteuning voor eenmalige aanmelding voor andere apps door ze toe te voegen aan Azure AD. U kunt een webkoppeling die u wilt, of een toepassing die een gebruikersnaam en wachtwoord veld wordt weergegeven, biedt ondersteuning voor SAML- of OpenID Connect-protocol of SCIM ondersteunt integreren. Zie voor meer informatie, [configureren van eenmalige aanmelding voor apps van buiten de galerie](configure-single-sign-on-non-gallery-applications.md).
 
-## <a name="manage-risk-with-conditional-access-policies"></a>Beheer de risico’s met een voorwaardelijk toegangsbeleid
-Azure AD eenmalige aanmelding (SSO) met koppeling [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) biedt een hoge mate van beveiliging voor toegang tot toepassingen. Mogelijkheden voor beveiliging zijn schaalbare cloud-identiteitsbeveiliging, risicogebaseerde meervoudige verificatie en beleid voor voorwaardelijke toegang. Dankzij deze mogelijkheden kunt een nauwkeurig beheer creëren op basis van toepassingen of van groepen die een hoger niveau van beveiliging nodig hebben.
+## <a name="manage-risk-with-conditional-access-policies"></a>Risico's beheren met beleid voor voorwaardelijke toegang
+Azure AD eenmalige aanmelding (SSO) met koppeling [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) biedt een hoge mate van beveiliging voor toegang tot toepassingen. Mogelijkheden voor beveiliging zijn schaalbare identiteitsbeveiliging, op basis van de risico's, systeemeigen meervoudige verificatie en beleid voor voorwaardelijke toegang. Dankzij deze mogelijkheden kunt een nauwkeurig beheer creëren op basis van toepassingen of van groepen die een hoger niveau van beveiliging nodig hebben.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Verhoog de productiviteit met eenmalige aanmelding
 Eenmalige aanmelding (SSO) voor toepassingen en Office 365 biedt een superieure aanmeldingservaring voor bestaande gebruikers door verschillende aanmeldingen te elimineren. Er wordt een samenhangende gebruikersomgeving gecreëerd zonder afleiding door meerdere aanmeldschermen of de noodzaak om meerdere wachtwoorden te beheren. De bedrijfsgroep kan toegang beheren en goedkeuren via selfservice en dynamisch lidmaatschap. De zorg dat alleen de juiste personen in het bedrijf toegang hebben tot een toepassing verbetert de beveiliging van het identiteitssysteem.

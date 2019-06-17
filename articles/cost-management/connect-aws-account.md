@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: b39296e18b38180e1081866d6e8197973dc782b1
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002164"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Verbinding maken met een Amazon Web Services-account
@@ -36,7 +36,7 @@ De eerste stap is de unieke verbindings-wachtwoordzin ophalen uit de Cloudyn-por
 
 1. Open de Cloudyn-portal vanuit Azure portal of Ga naar [ https://azure.cloudyn.com ](https://azure.cloudyn.com) en meld u aan.
 2. Klik op het tandwiel-symbool en selecteer vervolgens **Cloudaccounts**.
-3. Selecteer in het beheer van Accounts de **AWS-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
+3. Selecteer in het beheer van Accounts de **AWS-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +** .
 4. In de **AWS-Account toevoegen** dialoogvenster, Kopieer de **externe ID** en sla de waarde voor het maken van de stappen in de volgende sectie AWS-rol. De externe ID is uniek is voor uw account. In de volgende afbeelding, in het voorbeeld externe ID wordt _Contoso_ gevolgd door een getal. Uw ID verschilt.  
     ![Externe ID wordt weergegeven in het AWS-Account toevoegen](./media/connect-aws-account/external-id.png)
 
@@ -57,7 +57,7 @@ De eerste stap is de unieke verbindings-wachtwoordzin ophalen uit de Cloudyn-por
 
 1. Open de Cloudyn-portal vanuit Azure portal of Ga naar https://azure.cloudyn.com/ en meld u aan.
 2. Klik op het tandwiel-symbool en selecteer vervolgens **Cloudaccounts**.
-3. Selecteer in het beheer van Accounts de **AWS-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
+3. Selecteer in het beheer van Accounts de **AWS-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +** .
 4. In **accountnaam**, typ een naam voor het account.
 5. Naast **toegangstype**, selecteer **IAM-rol**.
 6. In de **rol informatie** veld, plak de waarde die u eerder hebt gekopieerd en klik vervolgens op **opslaan**.  
@@ -94,7 +94,7 @@ De volgende secties helpen u bij het maken van een gebruiker alleen-lezen toegan
 
 1. Open de Cloudyn-portal vanuit Azure Portal of ga naar https://azure.cloudyn.com/ en meld u aan.
 2. Klik op het tandwiel-symbool en selecteer vervolgens **Cloudaccounts**.
-3. Selecteer in het beheer van Accounts de **AWS-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
+3. Selecteer in het beheer van Accounts de **AWS-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +** .
 4. Voor **accountnaam**, typ de naam van een account.
 5. Naast **toegangstype**, selecteer **IAM gebruiker**.
 6. In **toegangssleutel**, plak de **toegang ID sleutel** waarde uit het bestand credentials.csv.

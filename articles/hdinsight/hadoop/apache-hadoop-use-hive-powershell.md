@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 108a3e7d899eef4ca78ae7507bf4852b861e74d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 243713d7961c911cdda93d3d680a952d424da22b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078377"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Apache Hive-query's uitvoeren met behulp van PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -28,9 +28,6 @@ Dit document bevat een voorbeeld van het gebruik van Azure PowerShell in de modu
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Een Linux-gebaseerde Apache Hadoop op HDInsight-clusterversie 3.4 of hoger.
-
-  > [!IMPORTANT]  
-  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een client met Azure PowerShell.
 
@@ -60,7 +57,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoere
 
         .\hivejob.ps1
 
-    Wanneer het script wordt uitgevoerd, wordt u gevraagd de naam van het cluster en de referenties van het HTTPS-/ Cluster-Admin-account in te voeren. U kunt ook gevraagd zich aanmelden bij uw Azure-abonnement.
+    Wanneer het script wordt uitgevoerd, wordt u gevraagd de naam van het cluster en de referenties van het HTTPS-/ Cluster-Admin-account in te voeren. U kunt ook gevraagd zich aanmeldt bij uw Azure-abonnement.
 
 3. Wanneer de taak is voltooid, retourneert deze informatie die vergelijkbaar is met de volgende tekst:
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432633"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080762"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het servicemodel van Cloud en hoe ik een pakket?
-Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)*, de configuratie van de service *(.cscfg)*, en een servicepakket *(.cspkg)*. Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn gebaseerd op XML en beschrijven de structuur van de cloudservice en hoe deze geconfigureerd, samen met de naam het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en bevat onder andere alle vereiste binaire bestanden op basis van afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.
+Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)* , de configuratie van de service *(.cscfg)* , en een servicepakket *(.cspkg)* . Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn gebaseerd op XML en beschrijven de structuur van de cloudservice en hoe deze geconfigureerd, samen met de naam het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en bevat onder andere alle vereiste binaire bestanden op basis van afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.
 
 Zodra de service in de cloud wordt uitgevoerd in Azure, kunt u het configureren via de **ServiceConfig.cscfg** bestand, maar kan de definitie niet wijzigen.
 
@@ -186,7 +186,7 @@ Het volgende voorbeeld ziet u de configuratie voor een Webrol aan een toepassing
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">

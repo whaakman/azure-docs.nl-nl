@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761976"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
@@ -238,7 +238,7 @@ GROUP BY
 ```
 
 
-**Uitleg:**
+**Uitleg:** 
 **aantal (uniek zorg)** retourneert het aantal distinctieve waarden in de **maken** kolom binnen een periode.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Voorbeeld: Bepalen of een waarde is gewijzigd
@@ -424,12 +424,12 @@ Bijvoorbeeld, hebt 2 opeenvolgende auto's uit het hetzelfde merk mobiel nummer i
 
 | Gebruiker | Functie | Gebeurtenis | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Starten |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Einde |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |einde |2015-01-01T00:00:08.0000000Z |
 
 **Uitvoer**:  
 
-| Gebruiker | Functie | Duur |
+| Gebruiker | Functie | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -443,7 +443,7 @@ Bijvoorbeeld, hebt 2 opeenvolgende auto's uit het hetzelfde merk mobiel nummer i
         Event = 'end'
 ```
 
-**Uitleg bij**: Gebruik de **laatste** functie voor het ophalen van de laatste **tijd** waarde wanneer het gebeurtenistype is **Start**. De **laatste** functie maakt gebruik **PARTITION BY [user]** om aan te geven dat het resultaat wordt berekend per unieke gebruiker. De query heeft een maximale drempelwaarde van 1 uur voor het tijdsverschil tussen **Start** en **stoppen** gebeurtenissen, maar kan worden geconfigureerd naar behoefte **(LIMIET DURATION(hour, 1)**.
+**Uitleg bij**: Gebruik de **laatste** functie voor het ophalen van de laatste **tijd** waarde wanneer het gebeurtenistype is **Start**. De **laatste** functie maakt gebruik **PARTITION BY [user]** om aan te geven dat het resultaat wordt berekend per unieke gebruiker. De query heeft een maximale drempelwaarde van 1 uur voor het tijdsverschil tussen **Start** en **stoppen** gebeurtenissen, maar kan worden geconfigureerd naar behoefte **(LIMIET DURATION(hour, 1)** .
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Voorbeeld: De duur van een voorwaarde detecteren
 **Beschrijving**: Zoek uit hoe lang die een voorwaarde is opgetreden.
@@ -506,7 +506,7 @@ Stel bijvoorbeeld dat een fout heeft geresulteerd in alle auto's met een onjuist
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Uitvoer (eerste 10 rijen)**:
+**Uitvoer (eerste 10 rijen)** :
 
 | windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
@@ -696,7 +696,7 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 **Uitleg bij**: [AANTAL (uniek tijd)](/stream-analytics-query/count-azure-stream-analytics) retourneert het aantal unieke waarden in de Time-kolom binnen een periode. U kunt vervolgens de uitvoer van deze stap gebruiken voor het berekenen van de gemiddelde per apparaat door het verwijderen van duplicaten.
 
-## <a name="get-help"></a>Hulp vragen
+## <a name="get-help"></a>Help opvragen
 
 Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

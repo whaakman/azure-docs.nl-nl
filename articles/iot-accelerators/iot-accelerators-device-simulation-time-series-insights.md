@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834920"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights gebruiken om te visualiseren van telemetrie vanaf de oplossingsverbetering voor Apparaatsimulatie verzonden
@@ -98,15 +98,15 @@ Maak een nieuwe gebeurtenisbron verbinding maken met uw IoT-hub. Gebruik de cons
     | Instelling | Value |
     | ------- | ----- |
     | De naam van de bron van gebeurtenis | De volgende schermafbeelding wordt gebruikt voor de naam van de **contoso-iot-hub**. Gebruik uw eigen unieke naam wanneer u deze stap hebt voltooid. |
-    | Source | **IoT Hub** |
-    | Optie importeren | **IoT-Hub uit de beschikbare abonnementen gebruiken** |
+    | source | **IoT Hub** |
+    | Importoptie | **IoT-Hub uit de beschikbare abonnementen gebruiken** |
     | Abonnements-id | Selecteer uw Azure-abonnement in de vervolgkeuzelijst. |
-    | Naam van IoT Hub | **contoso-simulation7d894**. Gebruik de naam van uw IoT-hub in uw oplossingenaccelerator Apparaatsimulatie. |
-    | Naam van het IoT Hub-beleid | **iothubowner** |
-    | Sleutel voor het IoT Hub-beleid | Dit veld wordt automatisch gevuld. |
-    | Consumentengroep voor IoT Hub | **devicesimulationtsi** |
+    | De naam van de IOT-hub | **contoso-simulation7d894**. Gebruik de naam van uw IoT-hub in uw oplossingenaccelerator Apparaatsimulatie. |
+    | Naam van IOT hub-beleid | **iothubowner** |
+    | Beleidssleutel voor IOT hub | Dit veld wordt automatisch gevuld. |
+    | IOT hub-consumentengroep | **devicesimulationtsi** |
     | Serialisatie-indeling voor gebeurtenissen | **JSON** |
-    | Naam van de timestamp-eigenschap | Leeg laten |
+    | Naam van de eigenschap timestamp | Leeg laten |
 
     ![Gebeurtenisbron maken](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 

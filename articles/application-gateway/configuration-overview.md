@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073969"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -71,7 +71,10 @@ Voor dit scenario gebruikt u nsg's op de Application Gateway-subnet. Plaats de v
 
 Gebruiker gedefinieerde routes (udr's) worden ondersteund op de Application Gateway-subnet voor de v1-SKU, zolang ze end-to-end verzoek/reactie-communicatie niet wijzigen. U kunt bijvoorbeeld een UDR in het subnet voor Application Gateway instellen om te verwijzen naar een firewallapparaat voor inspecties van pakketten. Maar u moet ervoor zorgen dat het pakket de beoogde bestemming na controle kan bereiken. Dit niet doet, kan leiden tot onjuiste statustest of gedrag routering van verkeer. Dit omvat geleerde routes of 0.0.0.0/0 standaardroutes die zijn doorgegeven door de Azure ExpressRoute of VPN-gateways in het virtuele netwerk.
 
-Voor de v2-SKU, worden niet udr's ondersteund op de Application Gateway-subnet. Zie voor meer informatie, [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+Voor de v2-SKU, worden udr's niet ondersteund in de Application Gateway-subnet. Zie voor meer informatie, [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+
+> [!NOTE]
+> Udr's worden niet ondersteund voor de v2-SKU.  Als u nodig udr's hebt moet u nog steeds implementeren v1-SKU.
 
 > [!NOTE]
 > Met behulp van udr's op het subnet voor Application Gateway zorgt ervoor dat de status in de [back-endstatus weergave](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) wordt weergegeven als 'Onbekend'. Het is ook ervoor zorgt dat het genereren van Application Gateway-logboeken en metrische gegevens mislukken. U wordt aangeraden dat u udr's niet in de Application Gateway-subnet gebruikt zodat u de back-endstatus, logboeken en metrische gegevens kunt weergeven.
@@ -84,7 +87,7 @@ Een openbaar IP-adres is niet vereist voor een intern eindpunt dat niet wordt bl
 
 Slechts 1 openbaar IP-adres of 1 privé-IP-adres wordt ondersteund. U kunt het front-end-IP-adres kiezen wanneer u de toepassingsgateway maakt.
 
-- U kunt voor een openbaar IP-adres, maak een nieuwe openbare IP-adres of een bestaande openbare IP-adres gebruiken op dezelfde locatie als de toepassingsgateway. Als u een nieuwe openbare IP-adres, het type van de IP-adres dat u maakt (statische of dynamische) kunnen niet later worden gewijzigd. Zie voor meer informatie, [statische versus dynamische openbare IP-adres](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- U kunt voor een openbaar IP-adres, maak een nieuwe openbare IP-adres of een bestaande openbare IP-adres gebruiken op dezelfde locatie als de toepassingsgateway. Als u een nieuwe openbare IP-adres, het type van de IP-adres dat u maakt (statische of dynamische) kunnen niet later worden gewijzigd. Zie voor meer informatie, [statische versus dynamische openbare IP-adres](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
 - Voor een privé IP-adres, kunt u een privé IP-adres van het subnet waarin de application gateway wordt gemaakt. Als u er geen opgeeft, wordt automatisch een willekeurige IP-adres geselecteerd uit het subnet. Zie voor meer informatie, [een toepassingsgateway maken met een interne load balancer](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -124,7 +127,7 @@ Kies HTTP of HTTPS:
 
 - Als u HTTP kiest, wordt het verkeer tussen de client en de application gateway is niet versleuteld.
 
-- Kies HTTPS als u wilt dat [SSL-beëindiging](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) of [end-to-end SSL-versleuteling](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Het verkeer tussen de client en de application gateway is versleuteld. En de SSL-verbinding wordt beëindigd bij de application gateway. Als u end-to-end SSL-versleuteling wilt gebruiken, moet u HTTPS kiezen en configureert de **back-end-HTTP** instelling. Dit zorgt ervoor dat verkeer wordt opnieuw versleuteld wanneer ze uit de application gateway naar de back-end.
+- Kies HTTPS als u wilt dat [SSL-beëindiging](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) of [end-to-end SSL-versleuteling](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Het verkeer tussen de client en de application gateway is versleuteld. En de SSL-verbinding wordt beëindigd bij de application gateway. Als u end-to-end SSL-versleuteling wilt gebruiken, moet u HTTPS kiezen en configureert de **back-end-HTTP** instelling. Dit zorgt ervoor dat verkeer wordt opnieuw versleuteld wanneer ze uit de application gateway naar de back-end.
 
 Voor het configureren van SSL-beëindiging en end-to-end SSL-versleuteling, moet u een certificaat toevoegen aan de listener om in te schakelen van de toepassingsgateway voor het afleiden van een symmetrische sleutel. Dit wordt bepaald door de specificatie van het SSL-protocol. De symmetrische sleutel wordt gebruikt voor het versleutelen en ontsleutelen van het verkeer dat wordt verzonden naar de gateway. Het gatewaycertificaat moet zich in Personal Information Exchange (PFX)-indeling. Deze indeling kunt u exporteert de persoonlijke sleutel die de gateway gebruikt voor het versleutelen en ontsleutelen van verkeer.
 
@@ -172,7 +175,7 @@ Wanneer u een toepassingsgateway met behulp van Azure portal maakt, maakt u een 
 
 ### <a name="rule-type"></a>Regeltype
 
-Wanneer u een regel maakt, kiest u tussen [ *basic* en *op pad gebaseerde*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule).
+Wanneer u een regel maakt, kiest u tussen [ *basic* en *op pad gebaseerde*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
 - Kies basic als u wilt doorsturen van alle aanvragen op de bijbehorende listener (bijvoorbeeld *blog<i></i>.contoso.com/\*)* naar één back-end-groep.
 - Kies op pad gebaseerde als u wilt routeren van aanvragen van specifieke URL-paden naar specifieke back-end-pools. De pad-patroon wordt alleen toegepast op het pad van de URL, niet naar de queryparameters.
@@ -245,7 +248,7 @@ Zie voor meer informatie over omleiding:
 Deze instelling wordt toegevoegd, verwijderd of updates van HTTP-aanvraag- en reactieheaders terwijl de aanvraag en antwoordpakketten verplaatsen tussen de client en de back-end-pools. U kunt alleen deze mogelijkheid via PowerShell configureren. Azure portal en CLI-ondersteuning zijn nog niet beschikbaar. Zie voor meer informatie:
 
  - [Herschrijf de HTTP-kopteksten, overzicht](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [HTTP-header herschrijven configureren](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
+ - [HTTP-header herschrijven configureren](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>HTTP-instellingen
 

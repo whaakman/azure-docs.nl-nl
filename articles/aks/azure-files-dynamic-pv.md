@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072227"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061095"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met Azure Files in Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Een opslagklasse wordt gebruikt om te definiëren hoe een Azure-bestandsshare wo
 * *Standard_RAGRS* -standard read-access geo-redundant storage (RA-GRS)
 
 > [!NOTE]
-> Azure-bestanden op dit moment werkt alleen met de Standard-opslag. Als u Premium-opslag gebruikt, kan het volume niet inrichten.
+> Azure Files ondersteuning voor premium-opslag in AKS clusters waarop Kubernetes 1.13 of hoger wordt uitgevoerd.
 
 Zie voor meer informatie over Kubernetes-Opslagklassen voor Azure Files, [Kubernetes Opslagklassen][kubernetes-storage-classes].
 

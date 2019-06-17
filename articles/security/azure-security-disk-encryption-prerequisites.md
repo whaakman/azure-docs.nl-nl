@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6874258c31d4dd7d2a0aa0042624ee57616c0a89
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 16a556264cda3ed4eb93e8fb738765ddcb379f69
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234288"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068577"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption
 
@@ -39,7 +39,7 @@ Voor Windows Server 2008 R2 moet u .NET Framework 4.5 zijn geïnstalleerd voorda
 ## <a name="bkmk_LinuxPrereq"></a> Aanvullende vereisten voor Linux IaaS-VM 's 
 
 - Azure Disk Encryption voor Linux is vereist voor 7 GB aan RAM-geheugen op de virtuele machine om te schakelen van OS-schijfversleuteling op [installatiekopieën ondersteund](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Zodra het versleutelingsproces voor OS-schijf voltooid is, kan de virtuele machine worden geconfigureerd om te worden uitgevoerd met minder geheugen.
-- Azure Disk Encryption is vereist voor de module vfat aanwezig zijn op het systeem.  Verwijderen of uitschakelen van deze module op basis van de standaardinstallatiekopie van dat het systeem wordt het lezen van de belangrijkste volume en ophalen van de sleutel die nodig zijn voor het ontgrendelen van de schijven op de volgende opnieuw wordt opgestart. Systeem-beveiligingsstappen die de module vfat uit het systeem verwijderen zijn niet compatibel met Azure Disk Encryption. 
+- Azure Disk Encryption is vereist voor de dm-crypt en vfat modules moet aanwezig zijn op het systeem. Verwijderen of uitschakelen van vfat van de standaardinstallatiekopie wordt voorkomen dat het systeem na het lezen van het volume van de sleutel en het verkrijgen van de sleutel die nodig zijn voor het ontgrendelen van de schijven op de volgende opnieuw wordt opgestart. Systeem-beveiligingsstappen die de module vfat uit het systeem verwijderen zijn niet compatibel met Azure Disk Encryption. 
 - Voordat u versleuteling inschakelt, moeten de gegevensschijven moeten worden versleuteld goed worden weergegeven in/etc/fstab. Gebruik een permanente blok apparaatnaam op voor deze vermelding als apparaat namen in de indeling '/ dev/sdX' kunnen niet worden gebruikt om te worden gekoppeld aan dezelfde schijf tijdens opnieuw opstarten, met name als versleuteling wordt toegepast. Zie voor meer informatie over dit gedrag: [Wijzigingen van de apparaatnaam Linux-VM oplossen](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Zorg ervoor dat de/etc/fstab-instellingen juist zijn geconfigureerd voor koppelen. Deze instellingen configureren, uitvoeren van de opdracht mount- of opnieuw opstarten van de virtuele machine en activeren van de beschadigingsgebeurtenissen op die manier. Zodra dat is voltooid, controleert u de uitvoer van de opdracht lsblk om te controleren dat de schijf nog steeds is gekoppeld. 
   - Als het bestand/etc/fstab niet naar behoren het station koppelen voordat versleuteling is ingeschakeld, kunnen Azure Disk Encryption correct koppelen niet mogelijk.
@@ -61,9 +61,9 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
 **Groepsbeleid:**
  - De Azure Disk Encryption-oplossing maakt gebruik van de externe BitLocker-sleutelbeveiliging voor Windows IaaS-VM's. Voor virtuele machines van een domein, niet een Groepsbeleid TPM beveiligingstoepassingen afdwingen pushen. Zie voor meer informatie over het groepsbeleid voor "Toestaan BitLocker zonder een compatibele TPM" [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  BitLocker-Groepsbeleid op virtuele machines van een domein voor de aangepaste moet zijn onder andere de volgende instelling: [Configureren van opslag van de gebruiker van bitlocker-herstelgegevens > toestaan 256-bits herstelsleutel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption mislukt wanneer u aangepaste instellingen voor Groepsbeleid voor BitLocker niet compatibel zijn. Het nieuwe beleid toepassen op virtuele machines die niet de juiste instelling hebben, en vervolgens opnieuw te starten is mogelijk vereist afdwingen dat het nieuwe beleid om bij te werken (gpupdate.exe/Force).
+-  BitLocker-Groepsbeleid op virtuele machines van een domein voor de aangepaste moet zijn onder andere de volgende instelling: [Configureren van opslag van de gebruiker van BitLocker-herstelgegevens > toestaan 256-bits herstelsleutel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption mislukt wanneer u aangepaste instellingen voor Groepsbeleid voor BitLocker niet compatibel zijn. Het nieuwe beleid toepassen op virtuele machines die niet de juiste instelling hebben, en vervolgens opnieuw te starten is mogelijk vereist afdwingen dat het nieuwe beleid om bij te werken (gpupdate.exe/Force).
 
-- Azure Disk Encryption mislukt als de op Groepsbeleid voor domein blokkeert de AES-CBC-algoritme, die wordt gebruikt door Bitlocker.
+- Azure Disk Encryption mislukt als de op Groepsbeleid voor domein blokkeert de AES-CBC-algoritme, die wordt gebruikt door BitLocker.
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -243,7 +243,7 @@ Gebruik [az keyvault update](/cli/azure/keyvault#az-keyvault-update) om in te sc
 3. Selecteer **toegang tot Azure Virtual Machines voor implementatie inschakelen** en/of **inschakelen toegang tot Azure Resource Manager voor sjabloonimplementatie**, indien nodig. 
 4. Klik op **Opslaan**.
 
-![Azure-sleutelkluis geavanceerde toegangsbeleid](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
+    ![Azure-sleutelkluis geavanceerde toegangsbeleid](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="bkmk_KEK"></a> Instellen van een sleutel van versleutelingssleutel (optioneel)

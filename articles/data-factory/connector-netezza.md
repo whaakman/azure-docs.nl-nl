@@ -3,21 +3,20 @@ title: Gegevens kopiëren van Netezza met behulp van Azure Data Factory | Micros
 description: Leer hoe u gegevens kopiëren van Netezza naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 02/01/2019
+ms.author: jingwang
 ms.openlocfilehash: 9bf90c9d3ce593ba5bf6339cd9cec31bb49f14f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61399924"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Gegevens kopiëren van Netezza met behulp van Azure Data Factory
@@ -50,7 +49,7 @@ Een gebruikelijke verbindingsreeks is `Server=<server>;Port=<port>;Database=<dat
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| SecurityLevel | Het niveau van beveiliging (SSL/TLS) die gebruikmaakt van het stuurprogramma voor de verbinding met het gegevensarchief. Voorbeeld: `SecurityLevel=preferredSecured`. Ondersteunde waarden zijn:<br/>- **Alleen niet-beveiligde** (**onlyUnSecured**): Het stuurprogramma biedt geen gebruik van SSL.<br/>- **Niet-beveiligde (preferredUnSecured) (standaard) bij voorkeur**: Als de server een keuze biedt, gebruik niet het stuurprogramma van SSL. <br/>- **Beveiligd (preferredSecured) bij voorkeur**: Als de server een keuze biedt, betekent dit dat het stuurprogramma SSL gebruikt. <br/>- **Alleen beveiligd (onlySecured)**: Het stuurprogramma biedt geen verbinding maken als een SSL-verbinding beschikbaar is. | Nee |
+| SecurityLevel | Het niveau van beveiliging (SSL/TLS) die gebruikmaakt van het stuurprogramma voor de verbinding met het gegevensarchief. Voorbeeld: `SecurityLevel=preferredSecured`. Ondersteunde waarden zijn:<br/>- **Alleen niet-beveiligde** (**onlyUnSecured**): Het stuurprogramma biedt geen gebruik van SSL.<br/>- **Niet-beveiligde (preferredUnSecured) (standaard) bij voorkeur**: Als de server een keuze biedt, gebruik niet het stuurprogramma van SSL. <br/>- **Beveiligd (preferredSecured) bij voorkeur**: Als de server een keuze biedt, betekent dit dat het stuurprogramma SSL gebruikt. <br/>- **Alleen beveiligd (onlySecured)** : Het stuurprogramma biedt geen verbinding maken als een SSL-verbinding beschikbaar is. | Nee |
 | CaCertFile | Het volledige pad naar het SSL-certificaat dat wordt gebruikt door de server. Voorbeeld: `CaCertFile=<cert path>;`| Ja, als SSL is ingeschakeld |
 
 **Voorbeeld**

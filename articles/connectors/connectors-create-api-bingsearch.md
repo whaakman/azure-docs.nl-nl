@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952542"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Nieuwsartikelen met zoeken in Bing en Azure Logic Apps zoeken
@@ -89,7 +89,7 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
    ![Actie toevoegen](./media/connectors-create-api-bing-search/add-action.png)
 
    Als u wilt toevoegen een actie tussen bestaande stappen, Beweeg de muis boven de verbindende pijl. 
-   Kies het plusteken (**+**) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
+   Kies het plusteken ( **+** ) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
 
 3. Typ 'Zoeken in Bing' als filter in het zoekvak.
 Selecteer de actie die u wilt in de lijst met acties.

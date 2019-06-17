@@ -69,6 +69,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores op Gen5 hardware generatie</a>'
+          - html: 'Ondersteuning voor abonnementen met <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > maandelijkse Azure-tegoed voor Visual Studio-abonnees </a>'
+          - html: 'Ondersteuning voor <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 en SharePoint 2019 </a> en <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configureren van de tijdzone</a> tijdens het maken van het exemplaar.'
           - html: 'Maken van instanties met <a href="https://aka.ms/managed-instance-collation">sortering van uw keuze op serverniveau</a>.'
           - html: 'Functionaliteit voor geo-restore kunt u <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">de database herstellen naar een ander datacenter met behulp van PowerShell</a>.'

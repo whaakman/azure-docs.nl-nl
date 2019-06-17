@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 18e1bb486c47baf7648a74e31451e2db73f72250
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063187"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Voorbereiden van gegevens voor het maken van een aangepaste spraak
 
@@ -49,7 +49,7 @@ U kunt opnamen van afzonderlijke uitingen en het overeenkomende transcript op tw
 Produceren van een goede spraakstijl opnamen in een rustige ruimte te maken met een hoge kwaliteit microfoon. Consistente volume, prijs, spreekstijl inspiratie en expressieve gebaren van spraak spreken zijn essentieel.
 
 > [!TIP]
-> Voor het maken van een stem voor gebruik in productieomgevingen, is het raadzaam dat een professionele opname studio en toon talent te gebruiken. Zie voor meer informatie, [vastleggen voice-voorbeelden voor een aangepaste spraak](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples).
+> Voor het maken van een stem voor gebruik in productieomgevingen, is het raadzaam dat een professionele opname studio en toon talent te gebruiken. Zie voor meer informatie, [vastleggen voice-voorbeelden voor een aangepaste spraak](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Audio-bestanden
 

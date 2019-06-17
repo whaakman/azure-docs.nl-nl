@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963570"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Beheer van gebruikersaccount inrichten voor enterprise-apps in Azure portal
@@ -56,7 +56,7 @@ De **Provisioning** deelvenster begint met een **modus** menu, die de inrichting
 
 Selecteer de **automatische** optie voor het opgeven van instellingen voor beheerdersreferenties, toewijzingen, starten en stoppen, en synchronisatie.
 
-### <a name="admin-credentials"></a>Referenties voor beheerder
+### <a name="admin-credentials"></a>Beheerdersreferenties
 
 Vouw **beheerdersreferenties** in te voeren van de referenties die nodig zijn voor Azure AD verbinding maken met de API voor gebruikersbeheer van de toepassing. De invoer is vereist, is afhankelijk van de toepassing. Zie voor meer informatie over de referenties en de vereisten voor specifieke toepassingen, de [zelfstudie voor de configuratie voor de specifieke toepassing](user-provisioning.md).
 

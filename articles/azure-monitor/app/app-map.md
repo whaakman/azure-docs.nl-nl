@@ -14,10 +14,10 @@ ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964033"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
@@ -66,7 +66,7 @@ Selecteer voor het oplossen van problemen met prestaties, **prestaties onderzoek
 
 ![Schermafbeelding van prestaties](media/app-map/performance.png)
 
-### <a name="go-to-details"></a>Naar de details gaan
+### <a name="go-to-details"></a>Ga naar details
 
 Selecteer **Ga naar details** verkennen van de transactie voor end-to-end-ervaring, weergaven op het niveau van call stack kan bieden.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238358"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
@@ -31,7 +31,7 @@ ms.locfileid: "66238358"
 | Variabelen |256 |256 |
 | Bronnen (zoals aantal kopieën) |800 |800 |
 | Uitvoer |64 |64 |
-| Sjabloonexpressie |24.576 tekens |24.576 tekens |
+| Sjabloonexpressie |24\.576 tekens |24\.576 tekens |
 | Resources in de geëxporteerde sjablonen |200 |200 | 
 | Sjabloongrootte |1 MB |1 MB |
 | De grootte van parameter |64 kB |64 kB |

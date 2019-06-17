@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560570"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Zelfstudie: Azure Active Directory-integratie met Percolate
 
@@ -105,7 +105,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Percolate, de volgen
 
     ![Domein en URL's één aanmelding informatie percolate](common/preintegrated.png)
 
-5. Als u configureren van de toepassing in de modus SP geïnitieerde wilt, selecteert u **extra URL's instellen** en in de **aanmeldings-URL** Voer **https://percolate.com/app/login**:
+5. Als u configureren van de toepassing in de modus SP geïnitieerde wilt, selecteert u **extra URL's instellen** en in de **aanmeldings-URL** Voer **https://percolate.com/app/login** :
 
    ![Domein en URL's één aanmelding informatie percolate](common/metadata-upload-additional-signon.png)
 6. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, selecteer de **kopie** pictogram kopiëren de **App-Url voor federatieve metagegevens** . Sla deze URL.
@@ -168,7 +168,7 @@ In deze sectie maakt u een testgebruiker Britta Simon met de naam in Azure porta
 
     1. Voer in het vak **Naam** **Britta Simon**in.
   
-    1. In de **gebruikersnaam** Voer **BrittaSimon @\<uwbedrijfsdomein >.\< extensie >**. (Bijvoorbeeld BrittaSimon@contoso.com.)
+    1. In de **gebruikersnaam** Voer **BrittaSimon @\<uwbedrijfsdomein >.\< extensie >** . (Bijvoorbeeld BrittaSimon@contoso.com.)
 
     1. Selecteer **wachtwoord weergeven**, en noteer de waarde in de **wachtwoord** vak.
 
@@ -228,7 +228,7 @@ Nu moet u uw configuratie Azure AD eenmalige aanmelding testen met behulp van he
 
 Wanneer u de tegel Percolate in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de Percolate-exemplaar waarvoor u eenmalige aanmelding hebt ingesteld. Zie voor meer informatie, [toegang en gebruik apps op de portal mijn Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 - [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

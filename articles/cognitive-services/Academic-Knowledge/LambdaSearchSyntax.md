@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61337785"
 ---
 # <a name="lambda-search-syntax"></a>Lambda-Zoeksyntaxis
@@ -33,13 +33,13 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Als we niet geïnteresseerd in het type van de edge(s) bent te volgen, laat *FollowEdge()* tussen twee knooppunten: de query helpt bij de mogelijke randen tussen deze twee knooppunten.
 
-We kunnen de traversal acties worden uitgevoerd op een knooppunt via opgeven *VisitNode()*, dat wil zeggen, of om te stoppen op dit knooppunt en het huidige pad als het resultaat te retourneren, of om door te gaan naar het verkennen van de grafiek.  Het type enum *actie* definieert u twee soorten acties: *Action.Return* en *Action.Continue*. Die kunnen worden doorgegeven die een enum-waarde rechtstreeks in *VisitNode()*, of ze worden gecombineerd met bitwise- en de operator '&'. Als twee actie worden gecombineerd, betekent dit dat beide acties worden uitgevoerd. Opmerking: gebruik geen Bitsgewijs- of -operator ' |' op acties. In dat geval zorgt ervoor dat de query te beëindigen zonder iets te retourneren. Overgeslagen *VisitNode()* tussen twee *FollowEdge()* aanroepen zorgt ervoor dat de query in de grafiek onvoorwaardelijk verkennen nadat zij op een knooppunt.
+We kunnen de traversal acties worden uitgevoerd op een knooppunt via opgeven *VisitNode()* , dat wil zeggen, of om te stoppen op dit knooppunt en het huidige pad als het resultaat te retourneren, of om door te gaan naar het verkennen van de grafiek.  Het type enum *actie* definieert u twee soorten acties: *Action.Return* en *Action.Continue*. Die kunnen worden doorgegeven die een enum-waarde rechtstreeks in *VisitNode()* , of ze worden gecombineerd met bitwise- en de operator '&'. Als twee actie worden gecombineerd, betekent dit dat beide acties worden uitgevoerd. Opmerking: gebruik geen Bitsgewijs- of -operator ' |' op acties. In dat geval zorgt ervoor dat de query te beëindigen zonder iets te retourneren. Overgeslagen *VisitNode()* tussen twee *FollowEdge()* aanroepen zorgt ervoor dat de query in de grafiek onvoorwaardelijk verkennen nadat zij op een knooppunt.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-Voor *VisitNode()*, die ook kunnen worden doorgegeven in een lambda-expressie van het type *expressie\<Func\<Inodes, actie\>\>*, die een duurt*Inodes* en retourneert een transport-actie:
+Voor *VisitNode()* , die ook kunnen worden doorgegeven in een lambda-expressie van het type *expressie\<Func\<Inodes, actie\>\>* , die een duurt*Inodes* en retourneert een transport-actie:
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -65,11 +65,11 @@ Geeft aan of een veld met de opgegeven naam in het huidige knooppunt bestaat.
 
 ##### <a name="string-getstring-fieldname"></a>tekenreeks (tekenreeks veldnaam) ophalen
 
-Werkt als *GetField\<tekenreeks\>(veldnaam)*. Echter deze komt niet uitzonderingen genereren wanneer het veld niet wordt gevonden, resulteert dit in een lege string("") in plaats daarvan.
+Werkt als *GetField\<tekenreeks\>(veldnaam)* . Echter deze komt niet uitzonderingen genereren wanneer het veld niet wordt gevonden, resulteert dit in een lege string("") in plaats daarvan.
 
 ##### <a name="bool-hasstring-fieldname"></a>BOOL heeft (veldnaam tekenreeks)
 
-Geeft aan of de opgegeven eigenschap in het huidige knooppunt bestaat. Hetzelfde als *ContainsField(fieldName)*.
+Geeft aan of de opgegeven eigenschap in het huidige knooppunt bestaat. Hetzelfde als *ContainsField(fieldName)* .
 
 ##### <a name="bool-hasstring-fieldname-string-value"></a>BOOL heeft (veldnaam string, string-waarde)
 

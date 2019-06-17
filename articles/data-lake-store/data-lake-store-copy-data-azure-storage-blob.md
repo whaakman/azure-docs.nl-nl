@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878828"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Gegevens kopiëren van Azure Storage-Blobs naar Azure Data Lake Storage Gen1
@@ -54,7 +54,7 @@ De parameters in de syntaxis worden hieronder beschreven:
 
 | Optie | Description |
 | --- | --- |
-| Bron |Hiermee geeft u de locatie van de brongegevens in de Azure storage-blob. De bron mag een blob-container, een blob of een ander Gen1 van Data Lake Storage-account. |
+| source |Hiermee geeft u de locatie van de brongegevens in de Azure storage-blob. De bron mag een blob-container, een blob of een ander Gen1 van Data Lake Storage-account. |
 | Doel |Hiermee geeft u de Data Lake Storage Gen1 bestemming om naar te kopiëren. |
 | SourceKey |Hiermee geeft u de toegangssleutel voor opslag voor de Azure storage blob-bron. Dit is alleen vereist als de bron een blob-container of een blob is. |
 | Account |**Optioneel**. Gebruik deze optie als u wilt gebruiken van Azure Data Lake Analytics-account om uit te voeren van de taak voor het kopiëren. Als u de optie /Account in de syntaxis van de gebruiken maar een Data Lake Analytics-account niet opgeeft, AdlCopy maakt gebruik van een standaardaccount voor de taak uit te voeren. Ook als u deze optie gebruikt, moet u toevoegen de bron (Azure Storage-Blob)- en doelserver (Azure Data Lake Storage Gen1) als gegevensbronnen voor uw Data Lake Analytics-account. |

@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
 ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61063243"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
@@ -289,11 +289,11 @@ Hier vindt u de id's van de meest gebruikte ingebouwde rollen:
 | Inzender |b24988ac-6180-42a0-ab88-20f7382dd24c |
 | Inzender voor virtuele machines |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Inzender voor virtuele netwerken |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
-| Inzender voor opslagaccounts |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
+| Inzender voor Opslagaccounts |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 | Inzender voor websites |de139f84-1756-47ae-9be6-808fbbe84772 |
 | Inzender voor webabonnementen |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | Inzender voor SQL Server |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-| Inzender voor SQL-databases |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+| ' SQL DB Contributor ' |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>RBAC-rol toewijzen aan toepassing
 Hebt u alles wat u de juiste RBAC-rol toewijzen aan uw service-principal moet met behulp van de [Resource Manager roltoewijzing maken](https://docs.microsoft.com/rest/api/authorization/roleassignments) API.

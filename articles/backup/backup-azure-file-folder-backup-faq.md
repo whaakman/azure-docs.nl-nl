@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808297"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Veelgestelde vragen over back-ups van bestanden en mappen 
 
@@ -83,11 +83,11 @@ Wanneer u de naam van een Windows-machine, worden alle back-ups op dat moment ge
 - Als u nodig hebt om een back-up naar de kluis met de naam van de oude gegevens te herstellen, moet u de optie gebruiken om te herstellen naar een andere locatie in de Wizard gegevens herstellen. [Meer informatie](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Wat is de maximale padlengte voor back-up?
-De MARS-agent is afhankelijk van NTFS en maakt gebruik van de lengtespecificatie beperkt door de [Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Als de bestanden die u wilt beveiligen zich langer zijn dan de toegestane waarde, maak een back-up van de bovenliggende map of het schijfstation.  
+De MARS-agent is afhankelijk van NTFS en maakt gebruik van de lengtespecificatie beperkt door de [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Als de bestanden die u wilt beveiligen zich langer zijn dan de toegestane waarde, maak een back-up van de bovenliggende map of het schijfstation.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Welke tekens zijn toegestaan in bestandspaden?
 
-De MARS-agent is afhankelijk van NTFS en kunt [-ondersteunde tekens](/windows/desktop/FileIO/naming-a-file#naming_conventions) in bestandspaden namen.
+De MARS-agent is afhankelijk van NTFS en kunt [-ondersteunde tekens](/windows/desktop/FileIO/naming-a-file#naming-conventions) in bestandspaden namen.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>De waarschuwing 'Azure back-ups zijn niet geconfigureerd voor deze server' wordt weergegeven.
 Deze waarschuwing kan verschijnen, ondanks dat u hebt een back-upbeleid geconfigureerd wanneer de instellingen van de back-upschema die zijn opgeslagen op de lokale server niet overeenkomen met de instellingen die zijn opgeslagen in de back-upkluis.
