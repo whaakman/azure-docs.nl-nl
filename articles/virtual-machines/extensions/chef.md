@@ -70,16 +70,16 @@ De volgende JSON bevat het schema voor de Chef-VM-extensie. De extensie vereist 
 
 | Name | Waarde / voorbeeld | Gegevenstype
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | tekenreeks (datum) |
+| apiVersion | `2017-12-01` | string (datum) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | tekenreeks (double) |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Instellingen
 
 | Name | Waarde / voorbeeld | Gegevenstype | Vereist?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | tekenreeks (url) | J |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | J |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | J |
 | settings/runlist | `recipe[mycookbook::default]` | string | J |
 
