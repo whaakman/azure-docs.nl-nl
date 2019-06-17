@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511805"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-binding voor Azure Functions
 
@@ -403,10 +403,10 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|---------|----------------------|
 |**type**|**type**| Moet worden ingesteld op `twilioSms`.|
 |**direction**|**direction**| Moet worden ingesteld op `out`.|
-|**De naam**|**De naam**| Naam van de variabele die wordt gebruikt in de functiecode aan te geven voor de Twilio-SMS-bericht. |
+|**name**|**name**| Naam van de variabele die wordt gebruikt in de functiecode aan te geven voor de Twilio-SMS-bericht. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-Account-Sid bijvoorbeeld TwilioAccountSid. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsTwilioAccountSid'. |
 |**authToken**|**authTokenSetting**|**authTokenSetting**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-verificatietoken bijvoorbeeld TwilioAccountAuthToken. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsTwilioAuthToken'. |
-|**Aan**| N.V.T. - opgeven in code | **Aan**| Deze waarde is ingesteld voor het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
+|**to**| N.V.T. - opgeven in code | **Aan**| Deze waarde is ingesteld voor het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
 |**from**|**from** | **From**| Deze waarde is ingesteld voor het telefoonnummer dat door de SMS-tekst wordt verzonden.|
 |**body**|**body** | **Hoofdtekst**| Deze waarde kan harde code voor de SMS-bericht als u niet wilt dynamisch instellen in de code voor uw functie worden gebruikt. |  
 

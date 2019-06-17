@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573037"
 ---
 # <a name="streaming-endpoints-overview"></a>Overzicht van streaming eindpunten  
@@ -77,7 +77,7 @@ Als uw **versie "1.0"** streaming-eindpunt is > = 1 premium-streaming-eenheden (
 
 |Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klassiek|1.0|0|N.v.t.|Gratis|
+|Klassiek|1.0|0|N.V.T.|Gratis|
 |Standard Streaming-eindpunt (preview)|2.0|0|Ja|Betaald|
 |Premium streamingeenheden|1.0|>0|Ja|Betaald|
 |Premium streamingeenheden|2.0|>0|Ja|Betaald|
@@ -104,7 +104,7 @@ Voor SLA-informatie, Zie [prijzen en SLA](https://azure.microsoft.com/pricing/de
 
 ## <a name="migration-between-types"></a>Migratie tussen verschillende typen
 
-Vanaf | Handeling | Bewerking
+Van | Naar | Bewerking
 ---|---|---
 Klassiek|Standard|Moet u aanmelden
 Klassiek|Premium| Schalen (extra streaming-eenheden)

@@ -51,6 +51,8 @@
     - name: Handleidingen
       expanded: true
       items:
+        - name: B2B delen beheren
+          href: delegate-invitations.md
         - name: Uitnodigingen beheren
           items:
             - name: Beheerders die B2B-gebruikers toevoegen
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: Verificatie met eenmalige wachtwoordcode
               href: one-time-passcode.md
-            - name: Beleid voor B2B-deling
-              href: delegate-invitations.md
             - name: Uitnodigingen toestaan of blokkeren
               href: allow-deny-list.md
             - name: B2B-gebruikers zonder uitnodiging toevoegen

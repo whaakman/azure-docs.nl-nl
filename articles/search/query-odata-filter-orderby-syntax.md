@@ -1,7 +1,7 @@
 ---
-title: Syntaxis voor OData-expressie voor filters en volgorde van de EU - Azure Search
-description: Filteren en sorteren expressie OData-syntaxis voor Azure Search-query's.
-ms.date: 05/02/2019
+title: Overzicht van OData taal - Azure Search
+description: Overzicht van de OData-taal voor filters, selecteer en volgorde door voor Azure Search-query's.
+ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,309 +19,217 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b1f77a9e0a3308098e5f6c699f2fc79e5c437f17
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 166c23088fe0388199ca51efde05153bb5697e38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063704"
 ---
-# <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxis voor OData-expressie voor filters en order by-componenten in Azure Search
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-search"></a>Overzicht van de OData-taal voor `$filter`, `$orderby`, en `$select` in Azure Search
 
-Azure Search ondersteunt een subset van de syntaxis van de OData-expressie voor **$filter** en **$orderby** expressies. Filterexpressies worden geëvalueerd tijdens query parseren, zoeken naar specifieke velden beperken of toe te voegen overeenkomen met criteria die zijn gebruikt tijdens scans index. Order by-expressies worden toegepast als een stap na verwerking via een resultatenset. Zowel filters en order by-expressies zijn opgenomen in een queryaanvraag aan een OData-syntaxis, onafhankelijk van de [eenvoudige](query-simple-syntax.md) of [volledige](query-lucene-syntax.md) querysyntaxis gebruikt in een **zoeken** de parameter. Dit artikel bevat de referentiedocumentatie voor OData-expressies die worden gebruikt in filters en sorteerexpressies.
+Azure Search ondersteunt een subset van de syntaxis van de OData-expressie voor **$filter**, **$orderby**, en **$select** expressies. Filterexpressies worden geëvalueerd tijdens query parseren, zoeken naar specifieke velden beperken of toe te voegen overeenkomen met criteria die zijn gebruikt tijdens scans index. Order by-expressies worden toegepast als een stap na verwerking via een resultatenset voor het sorteren van de documenten die worden geretourneerd. Selecteer expressies te bepalen welke documentvelden u zijn opgenomen in de resultatenset. De syntaxis van deze expressies is hetzelfde als de [eenvoudige](query-simple-syntax.md) of [volledige](query-lucene-syntax.md) querysyntaxis die wordt gebruikt in de **zoeken** parameter, hoewel er een thema's besproken in de syntaxis voor verwijzen naar velden.
 
-## <a name="filter-syntax"></a>Filtersyntaxis
+Dit artikel bevat een overzicht van de OData-expressietaal die wordt gebruikt in filters, order by en selecteer expressies. De taal die wordt gepresenteerd "beneden", beginnen met de belangrijkste elementen en het bouwen van op deze. De syntaxis van de op het hoogste niveau voor elke parameter wordt in een apart artikel beschreven:
 
-Een **$filter** expressie zelfstandige als een volledig uitgedrukt query uitvoeren, of een query met extra parameters verfijnen. De volgende voorbeelden ziet u enkele belangrijke scenario's. Het filter is in het eerste voorbeeld wordt de inhoud van de query.
+- [$filter syntaxis](search-query-odata-filter.md)
+- [$orderby syntaxis](search-query-odata-orderby.md)
+- [$select syntaxis](search-query-odata-select.md)
 
+OData-expressies variëren van eenvoudige tot complexe, maar ze alle delen gemeenschappelijke elementen. De belangrijkste onderdelen van een OData-expressie in Azure Search zijn:
 
-```POST
-POST /indexes/hotels/docs/search?api-version=2019-05-06
-    {
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
-    }
-```
+- **Veld paden**, die verwijzen naar specifieke velden van uw index.
+- **Constanten**, letterlijke waarden van een bepaald gegevenstype zijn.
 
-Een ander gebruikelijk is filters gecombineerd facetten, waarbij het filter vermindert het query-gebied op basis van een selectie van de navigatie door gebruikers geïnitieerde facet:
+> [!NOTE]
+> Belangrijkste termen in Azure Search wijkt af van de [OData-standaard](https://www.odata.org/documentation/) in een aantal manieren. Noemen we een **veld** in Azure Search heet een **eigenschap** in OData en op dezelfde manier voor **pad naar veld** versus **eigenschapspad**. Een **index** met **documenten** in Azure Search wordt genoemd in het algemeen in OData als een **entiteitsset** met **entiteiten**. De Azure Search-terminologie wordt overal in deze referentie gebruikt.
 
-```POST
-POST /indexes/hotels/docs/search?api-version=2019-05-06
-    {
-      "search": "test",
-      "facets": [ "tags", "baseRate,values:80|150|220" ],
-      "filter": "rating eq 3 and category eq 'Motel'"
-    }
-```
+## <a name="field-paths"></a>Veld paden
 
-### <a name="filter-operators"></a>Voor de filteroperators  
+De volgende EBNF ([uitgebreid Backus Naur formulier](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definieert de grammatica van veld paden.
 
-- Logische operators (en, of niet).  
-
-- Vergelijkingsexpressies (`eq, ne, gt, lt, ge, le`). Tekenreeksvergelijkingen zijn hoofdlettergevoelig.  
-
-- Constanten van de ondersteunde [Entiteitgegevensmodel](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDP)-typen (Zie [ondersteunde gegevenstypen &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een lijst met ondersteunde typen). Constanten van verzamelingtypen worden niet ondersteund.  
-
-- Verwijzingen naar de veldnamen. Alleen `filterable` velden kunnen worden gebruikt in filterexpressies.  
-
-- `any` zonder parameters. Deze test of een veld van het type `Collection(Edm.String)` worden elementen bevat.  
-
-- `any` en `all` met ondersteuning voor beperkte lambda-expressie. 
-    
-  -   `any/all` worden ondersteund in de velden van het type `Collection(Edm.String)`. 
-    
-  -   `any` kan alleen worden gebruikt met eenvoudige gelijkheid expressies of een `search.in` functie. Eenvoudige expressies bestaan uit een vergelijking tussen één veld en een letterlijke waarde, bijvoorbeeld `Title eq 'Magna Carta'`.
-    
-  -   `all` kan alleen worden gebruikt met eenvoudige ongelijkheid expressies of een `not search.in`.   
-
-- Georuimtelijke functies `geo.distance` en `geo.intersects`. De `geo.distance` functie wordt de afstand in kilometer zijn verwijderd tussen de twee punten, één wordt een veld en één een constante wordt doorgegeven als onderdeel van het filter. De `geo.intersects` functie retourneert ' True ' als een opgegeven punt zich binnen een bepaalde veelhoek, waar het punt een veld is en de veelhoek is opgegeven als een constante doorgegeven als onderdeel van het filter.  
-
-  De veelhoek is een tweedimensionale oppervlak opgeslagen als een reeks punten definiëren van een selectiekader ring (Zie het onderstaande voorbeeld). De veelhoek moet worden gesloten, wat betekent dat de eerste en laatste punt sets moeten hetzelfde zijn. [Punten in een polygoon moeten zich in tegen de klok in volgorde](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
-
-  `geo.distance` retourneert de afstand in kilometer zijn verwijderd in Azure Search. Dit wijkt af van andere services die ondersteuning bieden voor OData georuimtelijke bewerkingen, die doorgaans afstanden in meters te retourneren.  
-
-  > [!NOTE]  
-  >  Wanneer u geo.distance in een filter, moet u de afstand die zijn geretourneerd door de functie met een constante met vergelijken `lt`, `le`, `gt`, of `ge`. De operators `eq` en `ne` worden niet ondersteund bij het vergelijken van afstanden. Dit is bijvoorbeeld een correct gebruik van geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
-
-- De `search.in` functie test of een opgegeven tekenreeks-veld gelijk aan een van een opgegeven lijst met waarden is. Het kan ook worden gebruikt in een of meer aan een enkele waarde van een verzameling tekenreeksveld met een opgegeven lijst met waarden te vergelijken. Gelijkheid van het veld en van elke waarde in de lijst wordt bepaald op een hoofdlettergevoelige manier, dezelfde manier als voor de `eq` operator. Daarom een expressie, zoals `search.in(myfield, 'a, b, c')` is gelijk aan `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, behalve dat `search.in` leidt tot veel betere prestaties. 
-
-   De eerste parameter voor de `search.in` functie is de tekenreeks veldverwijzing (of een variabele bereik via een tekenreeksveld verzameling in het geval waarbij `search.in` wordt gebruikt binnen een `any` of `all` expressie). 
-  
-   De tweede parameter is een tekenreeks met de lijst met waarden, gescheiden door spaties en/of komma's. 
-  
-   De derde parameter is een tekenreeks waarin elk teken van de tekenreeks of een subset van deze tekenreeks wordt beschouwd als scheidingsteken bij het parseren van de lijst met waarden in de tweede parameter. Als u gebruiken, scheidingstekens dan spaties en komma's wilt omdat de waarden die tekens bevatten, kunt u een optionele derde parameter `search.in`. 
-
-  > [!NOTE]   
-  > Sommige scenario's vereist een veld op basis van een groot aantal constante waarden vergelijken. Bijvoorbeeld: implementatie van security trimming wordt geregeld met filters mogelijk vergelijken van het document-ID-veld op basis van een lijst met id's waarvoor de aanvragende gebruiker leestoegang wordt verleend. In scenario's zoals dit is het raadzaam met behulp van de `search.in` functie in plaats van een meer complexe scheiding van gelijkheid expressies. Gebruik bijvoorbeeld `search.in(Id, '123, 456, ...')` in plaats van `Id eq 123 or Id eq 456 or ....`. 
-  >
-  > Als u `search.in`, u krijgt dan een seconde reactietijd wanneer de tweede parameter een lijst met honderden of duizenden waarden bevat. Houd er rekening mee dat er geen expliciete limiet voor het aantal items dat u kunt doorgeven is aan `search.in`, hoewel u nog steeds worden beperkt door de grootte van de maximale aanvraag. Echter, de latentie zal toenemen naarmate het aantal waarden groeit.
-
-- De `search.ismatch` functie zoekopdracht wordt geëvalueerd als onderdeel van een filterexpressie. De documenten die overeenkomen met de zoekopdracht worden geretourneerd in de resultatenset. De volgende overloads van deze functie zijn beschikbaar:
-  - `search.ismatch(search)`
-  - `search.ismatch(search, searchFields)`
-  - `search.ismatch(search, searchFields, queryType, searchMode)`
-
-  Waar: 
-  
-  - `search`: de query (in een [eenvoudige](query-simple-syntax.md) of [volledige](query-lucene-syntax.md) querysyntaxis). 
-  - `queryType`: 'eenvoudige' of 'volledig' standaard 'simple'. Hiermee geeft u op welke querytaal is gebruikt in de `search` parameter.
-  - `searchFields`: door komma's gescheiden lijst met doorzoekbare velden om te zoeken, standaard ingesteld op alle doorzoekbare velden in de index.    
-  - `searchMode`: 'een' of 'alle' standaard ingesteld op 'alle'. Geeft aan of een of meer van de zoektermen overeen moeten komen voor het tellen van het document als een overeenkomst.
-
-  De bovenstaande parameters gelijk zijn aan de bijbehorende [zoeken aanvraagparameters](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-
-- De `search.ismatchscoring` functioneren, zoals de `search.ismatch` functie, retourneert ' True ' voor documenten die overeenkomen met de query doorgegeven als parameter. Het verschil is dat de relevantie score van documenten die overeenkomt met de `search.ismatchscoring` query dragen bij aan de totale score document, terwijl in het geval van `search.ismatch`, de document-score niet meer gewijzigd. De volgende overloads van deze functie zijn beschikbaar met parameters die identiek zijn aan die van `search.ismatch`:
-  - `search.ismatchscoring(search)`
-  - `search.ismatchscoring(search, searchFields)`
-  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
-
-  De `search.ismatch` en `search.ismatchscoring` functies zijn volledig rechthoekige met elkaar en met de rest van de wiskundige filter. Dit betekent dat beide functies in de dezelfde filterexpressie kunnen worden gebruikt. 
-
-### <a name="geospatial-queries-and-polygons-spanning-the-180th-meridian"></a>Georuimtelijke query's en de 180th kaartmeridiaan spanning veelhoeken  
- Voor veel georuimtelijke query bibliotheken formuleren van een query uitvoert met de 180th kaartmeridiaan (in de buurt van de datumgrens) is een off-limits of een tijdelijke oplossing, zoals het splitsen van de veelhoek in twee, een aan beide zijden van de kaartmeridiaan vereist.  
-
- In Azure Search, georuimtelijke query's die 180 graden lengtegraad zijn werkt zoals verwacht als de query-shape rechthoekige en uw coördinaten uitgelijnd met een rasterindeling langs de lengtegraad en breedtegraad (bijvoorbeeld `geo.intersects(location, geography'POLYGON((179 65,179 66,-179 66,-179 65,179 65))'`). Anders voor niet-rechthoekige of niet-uitgelijnd vormen, kunt u de benadering van de polygoon splitsen.  
-
-<a name="bkmk_limits"></a>
-
-## <a name="filter-size-limitations"></a>Beperkingen van de bestandsgrootte filteren 
-
- Er gelden beperkingen voor de grootte en complexiteit van filterexpressies die u naar Azure Search verzenden kunt. De limieten zijn ongeveer gebaseerd op het aantal in de filterexpressie van de EU. Een goede vuistregel is dat als u honderden componenten hebt, u risico van het uitvoeren van de limiet. Het is raadzaam om het ontwerpen van uw toepassing zodanig dat deze filters van niet-gebonden grootte wordt gegenereerd.  
-
-
-## <a name="filter-examples"></a>Voorbeelden van filters  
-
- Zoek alle hotels met een basistarief kleiner is dan $200 die worden beoordeeld op of boven de 4:  
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=baseRate lt 200.0 and rating ge 4
+field_path ::= identifier('/'identifier)*
+
+identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 ```
 
- Zoek alle hotels dan "Roach Motel" hebben is renovated sinds 2010:  
+Een diagram van een interactieve syntaxis is ook beschikbaar:
+
+> [!div class="nextstepaction"]
+> [Diagram van de OData-syntaxis voor Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
+
+> [!NOTE]
+> Zie [naslaginformatie over expressiesyntaxis voor Azure Search OData](search-query-odata-syntax-reference.md) voor de volledige EBNF.
+
+Het pad naar een veld bestaat uit een of meer **id's** gescheiden door slashes. Elke-id is een reeks tekens dat moet beginnen met een ASCII-letter of onderstrepingsteken en alleen ASCII-letters, cijfers of onderstrepingstekens bevatten. De letters mag hoofdletters of kleine letters.
+
+Een id kan verwijzen naar de naam van een veld of naar een **bereik variabele** in de context van een [verzameling expressie](search-query-odata-collection-operators.md) (`any` of `all`) in een filter. Een variabele bereik is vergelijkbaar met een lusvariabele die staat voor de huidige element van de verzameling. Voor complexe verzamelingen vertegenwoordigt die variabele een object, dat is de reden waarom u veld paden gebruiken kunt om te verwijzen naar de onderliggende velden van de variabele. Dit is vergelijkbaar met puntnotatie in veel programmeertalen.
+
+Voorbeelden van veld paden worden weergegeven in de volgende tabel:
+
+| Pad naar veld | Description |
+| --- | --- |
+| `HotelName` | Verwijst naar een veld op het hoogste niveau van de index |
+| `Address/City` | Verwijst naar de `City` subplan veld van een complexe veld in de index; `Address` is van het type `Edm.ComplexType` in dit voorbeeld |
+| `Rooms/Type` | Verwijst naar de `Type` subplan veld van een verzameling complexe-veld in de index; `Rooms` is van het type `Collection(Edm.ComplexType)` in dit voorbeeld |
+| `Stores/Address/Country` | Verwijst naar de `Country` subplan veld van de `Address` subplan veld van een verzameling complexe-veld in de index; `Stores` is van het type `Collection(Edm.ComplexType)` en `Address` is van het type `Edm.ComplexType` in dit voorbeeld |
+| `room/Type` | Verwijst naar de `Type` subplan veld van de `room` bereik-variabele, bijvoorbeeld in de filterexpressie `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Verwijst naar de `Country` subplan veld van de `Address` subplan veld van de `store` bereik-variabele, bijvoorbeeld in de filterexpressie `Stores/any(store: store/Address/Country eq 'Canada')` |
+
+De betekenis van het pad naar een veld is afhankelijk van de context. In de filters, het pad naar een veld verwijst naar de waarde van een *één exemplaar* van een veld in het huidige document. In een andere context, zoals **$orderby**, **$select**, of in [fielded zoeken in de volledige Lucene-syntaxis](query-lucene-syntax.md#bkmk_fields), een pad naar veld verwijst naar het veld zelf. Dit verschil heeft enkele gevolgen voor hoe u een veld paden in filters gebruikt.
+
+Houd rekening met het pad naar veld `Address/City`. Dit verwijst naar een enkele plaats voor het huidige document, zoals "San Francisco" in een filter. Daarentegen `Rooms/Type` verwijst naar de `Type` lagere veld voor veel ruimten (zoals 'standaard' voor de eerste ruimte 'deluxe' voor de tweede ruimte, enzovoort). Aangezien `Rooms/Type` verwijst niet naar een *één exemplaar* van het onderliggende veld `Type`, deze rechtstreeks in een filter kan niet worden gebruikt. In plaats daarvan om te filteren op type ruimte, gebruikt u een [lambda-expressie](search-query-odata-collection-operators.md) met een bereik-variabele, als volgt:
+
+    Rooms/any(room: room/Type eq 'deluxe')
+
+In dit voorbeeld wordt de variabele bereik `room` wordt weergegeven in de `room/Type` pad naar veld. Op die manier `room/Type` verwijst naar het type van de huidige ruimte in het huidige document. Dit is slechts één exemplaar van de `Type` veld, zodat deze rechtstreeks in het filter kan worden gebruikt.
+
+### <a name="using-field-paths"></a>Met behulp van de paden van veld
+
+Veld paden worden gebruikt in veel parameters van de [Azure Search-API](https://docs.microsoft.com/rest/api/searchservice/). De volgende tabel geeft een lijst van alle locaties waar ze kunnen worden gebruikt, plus eventuele beperkingen van hun gebruik:
+
+| API | Parameternaam | Beperkingen |
+| --- | --- | --- |
+| [Maak](https://docs.microsoft.com/rest/api/searchservice/create-index) of [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `suggesters/sourceFields` | Geen |
+| [Maak](https://docs.microsoft.com/rest/api/searchservice/create-index) of [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `scoringProfiles/text/weights` | Kan alleen verwijzen naar **doorzoekbare** velden |
+| [Maak](https://docs.microsoft.com/rest/api/searchservice/create-index) of [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `scoringProfiles/functions/fieldName` | Kan alleen verwijzen naar **Filterbaar** velden |
+| [Zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` Wanneer `queryType` is `full` | Kan alleen verwijzen naar **doorzoekbare** velden |
+| [Zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Kan alleen verwijzen naar **geschikt voor facetten** velden |
+| [Zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Kan alleen verwijzen naar **doorzoekbare** velden |
+| [Zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Kan alleen verwijzen naar **doorzoekbare** velden |
+| [Voorstellen](https://docs.microsoft.com/rest/api/searchservice/suggestions) en [automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Kan alleen verwijzen naar velden die deel van uitmaken een [suggestie](index-add-suggesters.md) |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents), [voorstellen](https://docs.microsoft.com/rest/api/searchservice/suggestions), en [automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Kan alleen verwijzen naar **Filterbaar** velden |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) en [voorstellen](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Kan alleen verwijzen naar **sorteerbaar** velden |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents), [voorstellen](https://docs.microsoft.com/rest/api/searchservice/suggestions), en [opzoeken](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Kan alleen verwijzen naar **ophaalbaar** velden |
+
+## <a name="constants"></a>Constanten
+
+Constanten in OData worden letterlijke waarden van een bepaalde [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDP)-type. Zie [ondersteunde gegevenstypen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een lijst met ondersteunde typen in Azure Search. Constanten van verzamelingtypen worden niet ondersteund.
+
+De volgende tabel ziet u voorbeelden van constanten voor elk van de gegevens die worden ondersteund door Azure Search:
+
+| Gegevenstype | Voorbeeld van de constanten |
+| --- | --- |
+| `Edm.Boolean` | `true`, `false` |
+| `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
+| `Edm.Double` | `3.14159`, `-1.2e7`, `NaN`, `INF`, `-INF` |
+| `Edm.GeographyPoint` | `geography'POINT(-122.131577 47.678581)'` |
+| `Edm.GeographyPolygon` | `geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'` |
+| `Edm.Int32` | `123`, `-456` |
+| `Edm.Int64` | `283032927235` |
+| `Edm.String` | `'hello'` |
+
+De volgende EBNF ([uitgebreid Backus Naur formulier](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definieert de grammatica voor het merendeel van de constanten die worden weergegeven in de bovenstaande tabel. De grammatica voor geo-ruimtelijk typen kunt u vinden in [OData, georuimtelijke functies in Azure Search](search-query-odata-geo-spatial-functions.md).
+
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
+constant ::=
+    string_literal
+    | date_time_offset_literal
+    | integer_literal
+    | float_literal
+    | boolean_literal
+    | 'null'
+
+string_literal ::= "'"([^'] | "''")*"'"
+
+date_time_offset_literal ::= date_part'T'time_part time_zone
+
+date_part ::= year'-'month'-'day
+
+time_part ::= hour':'minute(':'second('.'fractional_seconds)?)?
+
+zero_to_fifty_nine ::= [0-5]digit
+
+digit ::= [0-9]
+
+year ::= digit digit digit digit
+
+month ::= '0'[1-9] | '1'[0-2]
+
+day ::= '0'[1-9] | [1-2]digit | '3'[0-1]
+
+hour ::= [0-1]digit | '2'[0-3]
+
+minute ::= zero_to_fifty_nine
+
+second ::= zero_to_fifty_nine
+
+fractional_seconds ::= integer_literal
+
+time_zone ::= 'Z' | sign hour':'minute
+
+sign ::= '+' | '-'
+
+/* In practice integer literals are limited in length to the precision of
+the corresponding EDM data type. */
+integer_literal ::= digit+
+
+float_literal ::=
+    sign? whole_part fractional_part? exponent?
+    | 'NaN'
+    | '-INF'
+    | 'INF'
+
+whole_part ::= integer_literal
+
+fractional_part ::= '.'integer_literal
+
+exponent ::= 'e' sign? integer_literal
+
+boolean_literal ::= 'true' | 'false'
 ```
 
- Zoek alle hotels met een basistarief kleiner is dan $200 die u hebt zijn renovated sinds 2010, met een letterlijke datetime-waarde die informatie over de tijdzone voor Pacific (standaardtijd bevat):  
+Een diagram van een interactieve syntaxis is ook beschikbaar:
+
+> [!div class="nextstepaction"]
+> [Diagram van de OData-syntaxis voor Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+
+> [!NOTE]
+> Zie [naslaginformatie over expressiesyntaxis voor Azure Search OData](search-query-odata-syntax-reference.md) voor de volledige EBNF.
+
+## <a name="building-expressions-from-field-paths-and-constants"></a>Building expressies van het veld paden en constanten
+
+Veld paden en constanten zijn het meest eenvoudige deel van een OData-expressie, maar ze al volledige expressies zelf. In feite de **$select** parameter in Azure Search is alleen een door komma's gescheiden lijst met paden veld, en **$orderby** is niet veel ingewikkelder dan **$select**. Als u een veld van het type `Edm.Boolean` in uw index, kunt u ook een filter dat niets, maar het pad van dat veld te schrijven. De constanten `true` en `false` worden eveneens geldig filters.
+
+Echter, de meeste gevallen moet u meer complexe expressies die naar meer dan één veld en constante verwijzen. Deze expressies zijn gebouwd op verschillende manieren, afhankelijk van de parameter.
+
+De volgende EBNF ([uitgebreid Backus Naur formulier](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definieert de grammatica voor de **$filter**, **$orderby**, en **$select** parameters. Deze zijn gebouwd op basis van eenvoudiger expressies die naar paden veld en constanten verwijzen:
+
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
+filter_expression ::= boolean_expression
+
+order_by_expression ::= order_by_clause(',' order_by_clause)*
+
+select_expression ::= '*' | field_path(',' field_path)*
 ```
 
- Zoek alle hotels die van de vervangende domeinpagina opgenomen en soorten niet toestaan:  
+Een diagram van een interactieve syntaxis is ook beschikbaar:
 
-```
-$filter=parkingIncluded and not smokingAllowed
-```
+> [!div class="nextstepaction"]
+> [Diagram van de OData-syntaxis voor Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
- \- OR-  
+> [!NOTE]
+> Zie [naslaginformatie over expressiesyntaxis voor Azure Search OData](search-query-odata-syntax-reference.md) voor de volledige EBNF.
 
-```
-$filter=parkingIncluded eq true and smokingAllowed eq false
-```
+De **$orderby** en **$select** parameters zijn beide met door komma's gescheiden lijsten zijn van eenvoudiger expressies. De **$filter** parameter is een Booleaanse expressie die is samengesteld, van de onderliggende expressies eenvoudiger. Deze onderliggende expressies worden gecombineerd met behulp van de logische operators zoals [ `and`, `or`, en `not` ](search-query-odata-logical-operators.md), vergelijkingsoperators zoals [ `eq`, `lt`, `gt`, enzovoort](search-query-odata-comparison-operators.md), en verzameling operatoren zoals [ `any` en `all` ](search-query-odata-collection-operators.md).
 
- Alle hotels die luxe of vervangende domeinpagina bevatten en hebben een classificatie van 5 zoeken:  
+De **$filter**, **$orderby**, en **$select** parameters worden verkend gedetailleerd besproken in de volgende artikelen:
 
-```
-$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5
-```
-
- Zoek alle hotels met het label 'Wi-Fi' (waarbij elke hotel heeft voor labels die zijn opgeslagen in een veld Collection(Edm.String)):  
-
-```
-$filter=tags/any(t: t eq 'wifi')
-```
-
- Zoek alle hotels zonder de tag "motel":  
-
-```
-$filter=tags/all(t: t ne 'motel')
-```
-
- Alle hotels met alle tags vinden:  
-
-```
-$filter=tags/any()
-```
-
-Zoek alle hotels waarvoor geen codes:  
-
-```
-$filter=not tags/any()
-```
-
-
- Zoek alle hotels binnen 10 kilometer van een opgegeven punt (locatie is een veld van het type Edm.GeographyPoint):  
-
-```
-$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
-```
-
- Zoek alle hotels binnen een bepaalde viewport beschreven als een veelhoek (locatie is een veld van het type Edm.GeographyPoint). Houd er rekening mee dat de veelhoek is gesloten (de eerste en laatste punt sets moet hetzelfde) en [de punten moeten worden weergegeven in tegen de klok in volgorde](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
-
-```
-$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
-```
-
- Zoek alle hotels die geen waarde in het veld 'description' hebben of waarde expliciet is ingesteld op null:  
-
-```
-$filter=description eq null
-```
-
-Zoek alle hotels met de naam gelijk is aan 'Roach motel' of 'Budget hotel'). Zinnen bevatten spaties, dit is een standaardscheidingsteken. U kunt specicfy een alternatieve scheidingsteken tussen enkele aanhalingstekens als de derde tekenreeksparameter:  
-
-```
-$filter=search.in(name, 'Roach motel,Budget hotel', ',')
-```
-
-Zoek alle hotels met de naam gelijk is aan een van beide Roach motel' of 'Budget hotel' gescheiden door ' |'):  
-
-```
-$filter=search.in(name, 'Roach motel|Budget hotel', '|')
-```
-
-Zoek alle hotels met de tag 'Wi-Fi' of 'groep':  
-
-```
-$filter=tags/any(t: search.in(t, 'wifi, pool'))
-```
-
-Een overeenkomst op zinnen binnen een verzameling, zoals 'hete handdoeken rekken' of 'hairdryer opgenomen' niet vinden in tags. 
-
-```
-$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
-```
-
-Alle hotels zonder de tag 'motel' en 'handbagage' niet vinden:  
-
-```
-$filter=tags/all(t: not search.in(t, 'motel, cabin'))
-```
-
-Documenten met het woord "afgebakend" zoeken. Dit filterquery is gelijk aan een [zoekaanvraag](https://docs.microsoft.com/rest/api/searchservice/search-documents) met `search=waterfront`.
-
-```
-$filter=search.ismatchscoring('waterfront')
-```
-
-Documenten met het woord 'hostel' en waardering groter of gelijk zijn aan 4 of documenten met het woord "motel" en waardering gelijk is aan 5 zoeken. Opmerking: deze aanvraag kan niet worden weergegeven zonder de `search.ismatchscoring` functie.
-
-```
-$filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
-```
-
-Documenten zonder het woord "luxe" zoeken.
-
-```
-$filter=not search.ismatch('luxury') 
-```
-
-Documenten met de woordgroep in de Indische Oceaan "view" of de classificatie die gelijk is aan 5 zoeken. De `search.ismatchscoring` query wordt uitgevoerd alleen op basis van velden `hotelName` en `description`.
-Houd er rekening mee, worden documenten die overeenkomen met alleen de tweede component van de scheiding te worden geretourneerd: hotels met een classificatie gelijk is aan 5. Om deze documenten duidelijk te maken is niet overeen met een van de beoordeelde onderdelen van de expressie, wordt deze geretourneerd met score gelijk zijn aan nul.
-
-```
-$filter=search.ismatchscoring('"ocean view"', 'description,hotelName') or rating eq 5
-```
-
-Zoeken naar documenten, waarbij de termen "Hotels" en "luchthaven" zijn binnen 5 woorden uit elkaar in de beschrijving van het hotel en waar soorten is niet toegestaan. Deze query gebruikt de [volledige Lucene-querytaal](query-lucene-syntax.md).
-
-```
-$filter=search.ismatch('"hotel airport"~5', 'description', 'full', 'any') and not smokingAllowed 
-```
-
-## <a name="order-by-syntax"></a>Volgorde-by-syntaxis
-
-De **$orderby** parameter accepteert een door komma's gescheiden lijst met maximaal 32 expressies van het formulier `sort-criteria [asc|desc]`. De sorteercriteria kunnen de naam van een `sortable` veld of een aanroep van hetzij de `geo.distance` of de `search.score` functies. U kunt een gebruiken `asc` of `desc` expliciet de sorteervolgorde opgeven. De standaard wordt oplopend.
-
-Als meerdere documenten dezelfde criteria sorteren hebben en `search.score` functie wordt niet gebruikt (bijvoorbeeld, als u op een numerieke sorteren `rating` veld en drie documenten hebt u een classificatie van 4), ties zullen niet werken op document score in aflopende volgorde. Wanneer het document scores dezelfde (bijvoorbeeld wanneer er geen query zoeken in volledige tekst is opgegeven in de aanvraag) zijn, klikt u vervolgens is de relatieve positie van de gebonden documenten onbepaald.
- 
-U kunt meerdere criteria voor sorteren opgeven. De volgorde van de expressies bepaalt de volgorde van de laatste sorteren. Bijvoorbeeld, de syntaxis van de zou zijn als u wilt sorteren op Aflopend op score, gevolgd door classificatie `$orderby=search.score() desc,rating desc`.
-
-De syntaxis voor `geo.distance` in **$orderby** is hetzelfde als het zich in **$filter**. Bij het gebruik van `geo.distance` in **$orderby**, het veld waarop deze van toepassing is moet van het type `Edm.GeographyPoint` en moet ook `sortable`.  
-
-De syntaxis voor `search.score` in **$orderby** is `search.score()`. De functie `search.score` neemt geen parameters.  
- 
-
-## <a name="order-by-examples"></a>Volgorde van voorbeelden
-
-Hotels door basistarief Oplopend sorteren:
-
-```
-$orderby=baseRate asc
-```
-
-Sorteren door te beoordelen en vervolgens basistarief oplopende aflopende hotels (Houd er rekening mee dat de standaardinstelling oplopend is):
-
-```
-$orderby=rating desc,baseRate
-```
-
-Hotels Aflopend op classificatie en klik vervolgens op afstand van de opgegeven coördinaten Oplopend sorteren:
-
-```
-$orderby=rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
-```
-
-Sorteren hotels in aflopende volgorde door search.score en classificatie en klik vervolgens in oplopende volgorde op afstand van de opgegeven coördinaten zodat tussen twee hotels met identieke beoordeling, het beste een eerste wordt weergegeven:
-
-```
-$orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
-```
-<a name="bkmk_unsupported"></a>
-
-## <a name="unsupported-odata-syntax"></a>Niet-ondersteunde OData-syntaxis
-
--   Rekenkundige expressies  
-
--   Functies (met uitzondering van de afstand en snijdt georuimtelijke functies)  
-
--   `any/all` met willekeurige lambda-expressies  
+- [Syntaxis voor OData $filter in Azure Search](search-query-odata-filter.md)
+- [Syntaxis voor OData $orderby in Azure Search](search-query-odata-orderby.md)
+- [Syntaxis voor OData $select in Azure Search](search-query-odata-select.md)
 
 ## <a name="see-also"></a>Zie ook  
 
-+ [Facetnavigatie in Azure Search](search-faceted-navigation.md) 
-+ [Filters in Azure Search](search-filters.md) 
-+ [Documenten zoeken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
-+ [Lucene-querysyntaxis](query-lucene-syntax.md)
-+ [Vereenvoudigde querysyntaxis in Azure Search](query-simple-syntax.md)   
+- [Facetnavigatie in Azure Search](search-faceted-navigation.md)
+- [Filters in Azure Search](search-filters.md)
+- [Documenten zoeken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Lucene-querysyntaxis](query-lucene-syntax.md)
+- [Vereenvoudigde querysyntaxis in Azure Search](query-simple-syntax.md)
