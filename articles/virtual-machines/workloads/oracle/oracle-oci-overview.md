@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 711fce9627537e68171c3b170121900d6b14ca1e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743648"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808616"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oplossingen voor Oracle-toepassingen integreren van Microsoft Azure en Oracle Cloud-infrastructuur (preview)
 
@@ -45,7 +45,7 @@ U in een configuratie met meerdere cloud uitvoeren kunt-toepassingen zijn:
 * Oracle Retail-toepassingen
 * Oracle Hyperion financieel beheer
 
-Het volgende diagram wordt een overzicht op hoog niveau van de oplossing voor verbonden. Voor het gemak toont het diagram alleen de toepassingslaag van een en een gegevenslaag. Afhankelijk van de toepassing architecutre, kan uw oplossing meer lagen, zoals een weblaag opnemen in Azure. Zie de volgende secties voor meer informatie.
+Het volgende diagram wordt een overzicht op hoog niveau van de oplossing voor verbonden. Voor het gemak toont het diagram alleen de toepassingslaag van een en een gegevenslaag. Afhankelijk van de toepassingsarchitectuur, kan uw oplossing meer lagen, zoals een weblaag opnemen in Azure. Zie de volgende secties voor meer informatie.
 
 ![Overzicht van de oplossing Azure OCI](media/oracle-oci-overview/crosscloud.png)
 

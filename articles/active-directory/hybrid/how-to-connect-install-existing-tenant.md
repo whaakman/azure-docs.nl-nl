@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571374"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Wanneer u een bestaande tenant hebt
@@ -34,7 +34,7 @@ U kunt sommige gebruikers on-premises en andere beheren in de cloud. Een veelvoo
 Als u aan de slag voor het beheren van gebruikers in Azure AD die zich ook in on-premises AD en later wilt verbinding maken met de, en er zijn enkele aanvullende problemen u moet overwegen.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchroniseren met bestaande gebruikers in Azure AD
-Wanneer u Azure AD Connect installeert en u begint met het synchroniseren, wordt de Azure AD sync-service (in Azure AD) biedt een controle op elk nieuw object en proberen te vinden van een bestaand object zodat deze overeenkomt met. Er zijn drie kenmerken die worden gebruikt voor dit proces: **userPrincipalName**, **proxyAddresses**, en **sourceAnchor**/**immutableID** . Een overeenkomst op **userPrincipalName** en **proxyAddresses** wordt ook wel een **zachte match**. Een overeenkomst op **sourceAnchor** staat bekend als **harde overeenkomst**. Voor de **proxyAddresses** alleen de waarde met het kenmerk **SMTP:**, dat wil zeggen het primaire e-mailadres wordt gebruikt voor de evaluatie.
+Wanneer u Azure AD Connect installeert en u begint met het synchroniseren, wordt de Azure AD sync-service (in Azure AD) biedt een controle op elk nieuw object en proberen te vinden van een bestaand object zodat deze overeenkomt met. Er zijn drie kenmerken die worden gebruikt voor dit proces: **userPrincipalName**, **proxyAddresses**, en **sourceAnchor**/**immutableID** . Een overeenkomst op **userPrincipalName** en **proxyAddresses** wordt ook wel een **zachte match**. Een overeenkomst op **sourceAnchor** staat bekend als **harde overeenkomst**. Voor de **proxyAddresses** alleen de waarde met het kenmerk **SMTP:** , dat wil zeggen het primaire e-mailadres wordt gebruikt voor de evaluatie.
 
 De overeenkomst wordt alleen beoordeeld voor nieuwe objecten die afkomstig zijn van Connect. Als u een bestaand object wijzigen zodat deze met een van deze kenmerken overeen komt, klikt u vervolgens ziet u een fout in plaats daarvan.
 

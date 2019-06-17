@@ -11,10 +11,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235947"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation-status
@@ -62,7 +62,7 @@ Voor de knooppunten waarop Linux wordt uitgevoerd, zijn de volgende distributies
 
 De DSC-Linux-extensie biedt ondersteuning voor alle Linux-distributies [goedgekeurd op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , met uitzondering:
 
-Distributie | Versie
+Distributie | Version
 -|-
 Debian  | Alle versies
 Ubuntu  | 18.04

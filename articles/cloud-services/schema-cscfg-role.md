@@ -1,9 +1,8 @@
 ---
 title: Azure Cloud Services-Rolschema | Microsoft Docs
 ms.custom: ''
-origin.date: 12/07/2016
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 12/07/2016
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: ''
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: aa6f8a821edea6261d64bb411154e82fdf212a8d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130242"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services-rol Config-Schema
@@ -48,14 +47,14 @@ De volgende tabel beschrijft de kenmerken voor de `Role` element.
 
 | Kenmerk | Description |
 | --------- | ----------- |
-| naam   | Vereist. Hiermee geeft u de naam van de rol. De naam moet overeenkomen met de naam opgegeven voor de rol in het servicedefinitiebestand.|
+| name   | Vereist. Hiermee geeft u de naam van de rol. De naam moet overeenkomen met de naam opgegeven voor de rol in het servicedefinitiebestand.|
 | vmName | Optioneel. Hiermee geeft u de DNS-naam voor een virtuele Machine. De naam moet uit 10 tekens of minder.|
 
 De volgende tabel beschrijft de onderliggende elementen van de `Role` element.
 
 | Element | Description |
 | ------- | ----------- |
-| Exemplaren | Vereist. Hiermee geeft u het aantal exemplaren moeten worden geïmplementeerd voor de rol. Het aantal exemplaren wordt gedefinieerd door een geheel getal voor de `count` kenmerk.|
+| exemplaren | Vereist. Hiermee geeft u het aantal exemplaren moeten worden geïmplementeerd voor de rol. Het aantal exemplaren wordt gedefinieerd door een geheel getal voor de `count` kenmerk.|
 | Instelling   | Optioneel. Hiermee geeft u een naam van de instelling en waarde in een verzameling instellingen voor een rol. Naam van de instelling wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk en de waarde van de instelling wordt gedefinieerd door een tekenreeks op voor de `value` kenmerk.|
 | Certificaat | Optioneel. Hiermee geeft u de naam, de vingerafdruk en het algoritme van het certificaat van een service die moet worden gekoppeld aan de rol. Naam van het certificaat wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk. Vingerafdruk van het certificaat wordt gedefinieerd door een reeks hexadecimale cijfers die bevat geen spaties bevatten voor de `thumbprint` kenmerk. De hexadecimale cijfers moet worden weergegeven met cijfers en alfanumerieke tekens in hoofdletters. De certificaat-algoritme wordt gedefinieerd door een tekenreeks op voor de `thumbprintAlgorithm` kenmerk.|
 

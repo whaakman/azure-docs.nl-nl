@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409602"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Azure-infrastructuur voor hoge beschikbaarheid van SAP met behulp van een Windows failover cluster en de bestandsshare voor SAP ASCS/SCS-instanties voorbereiden
@@ -219,7 +219,7 @@ Voordat u de installatie begint, lees dan het volgende artikel:
 
 ## <a name="host-names-and-ip-addresses"></a>Host-namen en IP-adressen
 
-| Rol van de virtuele host-naam | Naam van virtuele host | Vast IP-adres | Beschikbaarheidsset |
+| Rol van de virtuele host-naam | Naam van virtuele host | Statisch IP-adres | Beschikbaarheidsset |
 | --- | --- | --- | --- |
 | Eerste cluster knooppunt ASCS/SCS-cluster | ascs-1 | 10.0.6.4 | ascs-als |
 | Tweede cluster knooppunt ASCS/SCS-cluster | ascs-2 | 10.0.6.5 | ascs-als |
@@ -236,7 +236,7 @@ Voordat u de installatie begint, lees dan het volgende artikel:
 **Tabel 2**: Exemplaardetails van de SAP ASCS/SCS
 
 
-| Rol van de virtuele host-naam | Naam van virtuele host | Vast IP-adres | Beschikbaarheidsset |
+| Rol van de virtuele host-naam | Naam van virtuele host | Statisch IP-adres | Beschikbaarheidsset |
 | --- | --- | --- | --- |
 | Eerste clusterknooppunt | sofs-1 | 10.0.6.10 | sofs-as |
 | Tweede clusterknooppunt | sofs-2 | 10.0.6.11 | sofs-as |
@@ -317,7 +317,7 @@ U kunt ook de implementatie van Scale-Out bestandsserver automatiseren met behul
 > De Scale-Out File Server Resource Manager-sjabloon gebruikersinterface, moet u het aantal VM's opgeven.
 >
 
-### <a name="use-managed-disks"></a>Managed Disks gebruiken
+### <a name="use-managed-disks"></a>Beheerde schijven gebruiken
 
 De Azure Resource Manager-sjabloon voor het implementeren van Scale-Out bestandsserver met Storage Spaces Direct- en Azure Managed Disks is beschikbaar op [GitHub][arm-sofs-s2d-managed-disks].
 

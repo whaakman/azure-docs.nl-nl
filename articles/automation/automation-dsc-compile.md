@@ -10,10 +10,10 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919806"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>DSC-configuraties in Azure Automation-staat configuratie compileren
@@ -41,7 +41,7 @@ Nadat u hebt besloten van een methode voor het compileren, gebruikt u de volgend
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compileren van een DSC-configuratie met de Azure-portal
 
-1. Via uw Automation-account, klikt u op **State configuration (DSC)**.
+1. Via uw Automation-account, klikt u op **State configuration (DSC)** .
 1. Klik op de **configuraties** tabblad en klik vervolgens op de naam van de configuratie compileren.
 1. Klik op **compileren**.
 1. Als de configuratie geen parameters heeft, wordt u gevraagd om te bevestigen of u wilt dit compileren. Als de configuratie van de parameters, heeft de **configuratie compileren** blade wordt geopend, zodat u parameterwaarden kunt opgeven. Zie de volgende [ **eenvoudige Parameters** ](#basic-parameters) sectie voor meer informatie over parameters.

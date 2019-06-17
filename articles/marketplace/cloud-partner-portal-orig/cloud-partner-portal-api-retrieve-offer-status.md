@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935460"
 ---
 <a name="retrieve-offer-status"></a>Aanbiedingsstatus ophalen 
@@ -28,7 +28,7 @@ Hiermee haalt u de huidige status van de aanbieding.
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | Uitgever-ID, bijvoorbeeld `Contoso`  |     String     |
 |  offerId        | GUID die de unieke identificatie van de aanbieding      |     String     |
-|  API-versie    | Meest recente versie van de API                        |     Date       |
+|  api-version    | Meest recente versie van de API                        |     Date       |
 |  |  |
 
 
@@ -173,7 +173,7 @@ Hiermee haalt u de huidige status van de aanbieding.
 |  WaitingForPublisherReview   | Stap wacht op goedkeuring van de uitgever.      |
 |  WaitingForApproval          | Stap wacht op goedkeuring van proces.        |
 |  Geblokkeerd                     | Stap is geblokkeerd.                             |
-|  Afgewezen                    | Stap wordt geweigerd.                            |
+|  Geweigerd                    | Stap wordt geweigerd.                            |
 |  Voltooien                    | Stap is voltooid.                            |
 |  Geannuleerd                    | Stap is geannuleerd.                           |
 |  |  |

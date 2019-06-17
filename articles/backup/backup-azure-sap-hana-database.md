@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237805"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Back-up van een SAP HANA-database
@@ -40,7 +40,7 @@ ms.locfileid: "65237805"
 - U kunt back-up van databaselogboeken om de 15 minuten. Logboekback-ups wordt alleen beginnen met flow nadat een geslaagde volledige back-up voor de database is voltooid.
 - U kunt volledige en differentiële back-ups op te nemen. Incrementele back-up wordt momenteel niet ondersteund.
 - U kunt het back-upbeleid niet wijzigen nadat u deze voor back-ups van SAP HANA toepast. Als u back wilt-up maken met verschillende instellingen, een nieuw beleid maken of toewijzen van een ander beleid. 
-    - Als u wilt een nieuw beleid hebt gemaakt, klik in de kluis op **beleid** > **back-upbeleid** > **+ toevoegen** > **SAP HANA in Azure-VM**, en geeft u beleidsinstellingen.
+    - Als u wilt een nieuw beleid hebt gemaakt, klik in de kluis op **beleid** > **back-upbeleid** >  **+ toevoegen** > **SAP HANA in Azure-VM**, en geeft u beleidsinstellingen.
     - Klik op de naam van het huidige beleid om te wijzen aan een ander beleid, in de eigenschappen van de virtuele machine waarop de database wordt uitgevoerd. Klik op de **back-upbeleid** pagina kunt u een ander beleid moet worden gebruikt voor de back-up selecteren.
 
 
@@ -91,7 +91,7 @@ Onboarding van de openbare preview-versie als volgt te werk:
 ## <a name="discover-the-databases"></a>De databases detecteren
 
 
-1. In de kluis in **aan de slag**, klikt u op **back-up**. In **waar wordt uw werkbelasting uitgevoerd?**, selecteer **SAP HANA in virtuele Azure-machine**.
+1. In de kluis in **aan de slag**, klikt u op **back-up**. In **waar wordt uw werkbelasting uitgevoerd?** , selecteer **SAP HANA in virtuele Azure-machine**.
 2. Klik op **detectie starten**. Hiermee initieert detectie van niet-beveiligde Linux-machines in de kluisregio.
 
    - Na de detectie, niet-beveiligde virtuele machines worden weergegeven in de portal, gesorteerd op naam en resourcegroep.

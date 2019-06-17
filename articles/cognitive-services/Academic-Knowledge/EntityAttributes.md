@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61340176"
 ---
 # <a name="entity-attributes"></a>Entiteitkenmerken
@@ -24,7 +24,7 @@ De academic graph van 7 typen entiteit bestaat. Alle entiteiten hebben een entit
 ## <a name="common-entity-attributes"></a>Algemene entiteitskenmerken
 Name    |Description                |Type       | Bewerkingen
 ------- | ------------------------- | --------- | ----------------------------
-Id      |Entiteits-id                  |Int64      |Is gelijk aan
+Id      |Entiteit-ID                  |Int64      |Is gelijk aan
 Ty      |Entiteitstype                |enum   |Is gelijk aan
 
 ## <a name="entity-type-enum"></a>Entiteit type enum

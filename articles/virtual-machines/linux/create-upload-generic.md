@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ef273b65bb3a8b8536d27c70e8ba05e74faa39b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702488"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informatie over niet-goedgekeurde distributies
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -74,7 +74,7 @@ Het mechanisme voor het opnieuw opbouwen van de initrd of initramfs afbeelding k
 ### <a name="resizing-vhds"></a>Wijzigen van de grootte VHD 's
 VHD-installatiekopieën op Azure beschikken over een virtuele grootte die is afgestemd op 1 MB.  Normaal gesproken zijn VHD's die zijn gemaakt met behulp van Hyper-V correct uitgelijnd.  Als de VHD is niet correct uitgelijnd, ontvangt u mogelijk een vergelijkbaar met het volgende foutbericht weergegeven wanneer u probeert te maken van een installatiekopie van uw VHD.
 
-* De VHD- http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd heeft een niet-ondersteunde virtuele grootte van 21475270656 bytes. De grootte moet een geheel getal (in MB/s).
+* De VHD-http:\//\<mystorageaccount >.blob.core.windows.net/vhds/MyLinuxVM.vhd heeft een niet-ondersteunde virtuele grootte van 21475270656 bytes. De grootte moet een geheel getal (in MB/s).
 
 In dit geval vergroten of verkleinen van de virtuele machine met behulp van de Hyper-V Manager-console of de [grootte VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell-cmdlet.  Als u niet worden uitgevoerd in een Windows-omgeving, wordt u aangeraden `qemu-img` te converteren (indien nodig) en het formaat van de VHD.
 

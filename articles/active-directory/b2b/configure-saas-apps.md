@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65811949"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configureren van SaaS-apps voor B2B-samenwerking
@@ -81,7 +81,7 @@ U kunt gebruikers vak Gast om gebruikers te verifiëren met hun Azure AD-account
 
    ![Schermopname van de configuratie voor eenmalige aanmelding-instellingen](media/configure-saas-apps/configure-box-sso.png)
 
-   a. In de **aanmeldings-URL** vak, zorg ervoor dat de aanmeldings-URL is ingesteld op de juiste wijze voor Box in Azure portal. Deze URL is de URL van uw Box.com-tenant. Deze moet de naamconventie volgen *https://.box.com*.  
+   a. In de **aanmeldings-URL** vak, zorg ervoor dat de aanmeldings-URL is ingesteld op de juiste wijze voor Box in Azure portal. Deze URL is de URL van uw Box.com-tenant. Deze moet de naamconventie volgen *https://.box.com* .  
    De **id** geldt niet voor deze app, maar deze nog steeds wordt weergegeven als een verplicht veld.
 
    b. In de **gebruikers-id** Voer **user.mail** (voor eenmalige aanmelding voor Gast-accounts).

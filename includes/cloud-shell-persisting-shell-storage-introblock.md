@@ -5,10 +5,10 @@ ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
 ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66125191"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Bestanden in Azure Cloud Shell behouden
@@ -49,7 +49,7 @@ Gekoppelde Azure storage-accounts moeten bevinden zich in dezelfde regio als de 
 
 Cloud Shell machines bevinden zich in de volgende regio's:
 
-|Gebied|Regio|
+|Onderwerp|Regio|
 |---|---|
 |Noord- en Zuid-Amerika|VS-Oost, VS Zuid-centraal, VS-West|
 |Europa|Europa - noord, Europa - west|

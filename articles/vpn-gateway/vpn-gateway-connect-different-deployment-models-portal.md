@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62124004"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken van verschillende implementatiemodellen met behulp van de portal
@@ -76,7 +76,7 @@ Voor deze configuratie kunt u een VPN-gatewayverbinding maken via een IPsec/IKE 
 
 De volgende tabel toont een voorbeeld van hoe het voorbeeld VNets en lokale sites worden gedefinieerd:
 
-| Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |
+| Virtueel netwerk | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |US - west | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |US - oost |ClassicVNetLocal (10.0.0.0/24) |
@@ -175,7 +175,7 @@ Voordat u een virtuele netwerkgateway maakt, moet u eerst het gatewaysubnet make
 
 **Voorbeelden van waarden:** Lokale netwerkgateway ClassicVNetLocal =
 
-| Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |Openbare IP-adres van gateway|
+| Virtueel netwerk | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |Openbare IP-adres van gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |US - west | RMVNetLocal (192.168.0.0/16) |Het openbare IP-adres dat is toegewezen aan de gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |US - oost |ClassicVNetLocal (10.0.0.0/24) |Het openbare IP-adres dat is toegewezen aan de gateway RMVNet.|

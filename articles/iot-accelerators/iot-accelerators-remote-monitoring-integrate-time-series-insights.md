@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442931"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integreer Azure Time Series Insights met Externe bewaking
@@ -80,7 +80,7 @@ Maak een nieuwe gebeurtenisbron verbinding maken met uw IoT-hub. Zorg ervoor dat
 
     ![Bronnen van gebeurtenissen weergeven](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
 
-1. Klik op **Add**.
+1. Klik op **Toevoegen**.
 
     ![De bron van gebeurtenis toevoegen](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
 
@@ -88,16 +88,16 @@ Maak een nieuwe gebeurtenisbron verbinding maken met uw IoT-hub. Zorg ervoor dat
 
     | Instelling | Value |
     | ------- | ----- |
-    | Naam van gebeurtenisbron | De volgende schermafbeelding wordt gebruikt voor de naam van de **contosorm-iot-hub**. Gebruik uw eigen unieke naam wanneer u deze stap hebt voltooid. |
-    | Bron | **IoT Hub** |
+    | Naam van bron | De volgende schermafbeelding wordt gebruikt voor de naam van de **contosorm-iot-hub**. Gebruik uw eigen unieke naam wanneer u deze stap hebt voltooid. |
+    | source | **IoT Hub** |
     | Importoptie | **IoT-Hub uit de beschikbare abonnementen gebruiken** |
     | Abonnements-id | Selecteer uw Azure-abonnement in de vervolgkeuzelijst. |
-    | Naam van IoT Hub | **contosorma57a6**. Gebruik de naam van uw IoT-hub in uw oplossing voor externe controle. |
-    | Naam van het IoT Hub-beleid | **iothubowner** Zorg ervoor dat het beleid op waarmee een beleid voor de eigenaar van is. |
-    | Sleutel voor het IoT Hub-beleid | Dit veld wordt automatisch gevuld. |
-    | Consumentengroep voor IoT Hub | **timeseriesinsights** |
+    | De naam van de IOT-hub | **contosorma57a6**. Gebruik de naam van uw IoT-hub in uw oplossing voor externe controle. |
+    | Naam van IOT hub-beleid | **iothubowner** Zorg ervoor dat het beleid op waarmee een beleid voor de eigenaar van is. |
+    | Beleidssleutel voor IOT hub | Dit veld wordt automatisch gevuld. |
+    | IOT hub-consumentengroep | **timeseriesinsights** |
     | Serialisatie-indeling voor gebeurtenissen | **JSON**     | 
-    | Naam van de timestamp-eigenschap | Leeg laten |
+    | Naam van de eigenschap timestamp | Leeg laten |
 
     ![Gebeurtenisbron maken](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -136,7 +136,7 @@ De volgende stap is het configureren van de Manager van Azure Stream Analytics-m
 
 1. Kies de **ContosoRM** resourcegroep.
 
-1. De Azure Stream Analytics (ASA) streaming-taak in de lijst met resources vinden. Naam van de resource wordt gestart met **streamingjobs -**.
+1. De Azure Stream Analytics (ASA) streaming-taak in de lijst met resources vinden. Naam van de resource wordt gestart met **streamingjobs -** .
 
 1. Klik op de knop als u wilt stoppen van de ASA streamingtaken aan de bovenkant.
 

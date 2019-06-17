@@ -1,20 +1,20 @@
 ---
-title: Een Apache Spark-cluster maken in Azure HDInsight met Azure CLI
+title: 'Quickstart: Een Apache Spark-cluster maken in Azure HDInsight met Azure CLI'
 description: Deze quickstart laat zien hoe u Azure CLI gebruiken voor het maken van een Apache Spark-cluster in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9478ca8e1b31c1761e063a6789e96043f9a2c68
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.openlocfilehash: 72bdab9d7fb5c3019d97ffc4c92257c49ec2b8e5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066249"
 ---
-# <a name="create-an-apache-spark-cluster-in-azure-hdinsight-with-azure-cli"></a>Een Apache Spark-cluster maken in Azure HDInsight met Azure CLI
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Quickstart: Apache Spark-cluster maken in Azure HDInsight met behulp van Azure CLI
 
 In deze snelstartgids leert u hoe u een Apache Spark-cluster maken in Azure HDInsight met behulp van Azure CLI. Apache Spark maakt het mogelijk om snelle gegevensanalyses en clusterberekeningen uit te voeren met behulp van verwerking in het geheugen. De [Azure-opdrachtregelinterface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) is de ervaring van Microsoft platformoverschrijdende opdrachtregelprogramma voor het beheren van Azure-resources.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719814"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
@@ -35,7 +35,7 @@ Als u problemen ondervindt bij het inschakelen van de beveiliging voor Hyper-V-m
     - [Controleer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) dat u de meest recente versie hebt.
     - [Houd](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
     
-## <a name="replication-issues"></a>Problemen met replicatie
+## <a name="replication-issues"></a>Replicatieproblemen
 
 Problemen oplossen met initiële en lopende replicatie als volgt:
 
@@ -145,7 +145,7 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
 
 Alle Hyper-V-replicatie gebeurtenis worden vastgelegd in het logboek voor Hyper-V-VMMS\Admin, zich in **logboeken toepassingen en Services** > **Microsoft** > **Windows**. Bovendien kunt u inschakelen een analytische logboek voor de Hyper-V Virtual Machine Management-Service als volgt:
 
-1. Controleer de logboeken voor analyse en foutopsporing in de Event Viewer kan worden weergegeven. De logboeken om beschikbaar te maken, in de logboeken, klikt u op **weergave** > **weergeven analytische en foutopsporing in Logboeken.**. De analytische logboek wordt weergegeven onder **Hyper-V-VMMS**.
+1. Controleer de logboeken voor analyse en foutopsporing in de Event Viewer kan worden weergegeven. De logboeken om beschikbaar te maken, in de logboeken, klikt u op **weergave** > **weergeven analytische en foutopsporing in Logboeken.** . De analytische logboek wordt weergegeven onder **Hyper-V-VMMS**.
 2. In de **acties** deelvenster, klikt u op **logboek inschakelen**. 
 
     ![Logboek inschakelen](media/hyper-v-azure-troubleshoot/enable-log.png)

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129550"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>AlwaysOn-beschikbaarheidsgroepen configureren in Azure Virtual Machines automatisch: Resource Manager
@@ -206,7 +206,7 @@ Volg deze stappen voor RDP naar een SQL Server:
 1. Controleer in de Azure portal-dashboard, of dat de implementatie is voltooid.
 2. Klik op **Resources**.
 3. In de **Resources** blade, klikt u op **sqlserver-0**, dit is de naam van de computer van een van de virtuele machines die SQL Server wordt uitgevoerd.
-4. Op de blade voor **sqlserver-0**, klikt u op **Connect**. Uw browser wordt gevraagd of u wilt openen of opslaan van de verbinding met extern-object. Klik op **Openen**.
+4. Op de blade voor **sqlserver-0**, klikt u op **Connect**. Uw browser wordt gevraagd of u wilt openen of opslaan van de verbinding met extern-object. Klik op **Open**.
 5. **Verbinding met extern bureaublad** gewaarschuwd dat de uitgever van deze externe verbinding kan niet worden geïdentificeerd. Klik op **Verbinden**.
 6. Windows-beveiliging vraagt u uw referenties verbinding maken met het IP-adres van de primaire domeincontroller in te voeren. Klik op **gebruik een ander account**. Voor **gebruikersnaam**, type **contoso\DomainAdmin**. U kunt dit account geconfigureerd wanneer u de beheerder van de gebruikersnaam in de sjabloon. Het complex wachtwoord dat u hebt gekozen bij het configureren van de sjabloon gebruiken.
 7. **Extern bureaublad** gewaarschuwd dat de externe computer niet kan worden geverifieerd vanwege problemen met het beveiligingscertificaat. Hier ziet u de naam van de beveiliging. Als u de zelfstudie hebt gevolgd, is de naam **sqlserver 0.contoso.com**. Klik op **Ja**.

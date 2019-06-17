@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
 ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683991"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informatie over de voorwaarden in uw Azure-gebruik en de kosten-bestand
@@ -42,9 +42,9 @@ De lijst bevat informatie over betalen naar gebruik (betalen per gebruik), Enter
 
 Termijn | Accounttype | Description
 --- | --- | ---
-Accountnaam | EA | Weergavenaam van het inschrijvingsaccount.
-Id van de accounteigenaar | EA | De unieke id voor het inschrijvingsaccount.
-Extra informatie | Alle | Servicespecifieke metagegevens. Bijvoorbeeld, een type installatiekopie voor een virtuele machine.
+AccountName | EA | Weergavenaam van het inschrijvingsaccount.
+AccountOwnerId | EA | De unieke id voor het inschrijvingsaccount.
+Aanvullende informatie | Alle | Servicespecifieke metagegevens. Bijvoorbeeld, een type installatiekopie voor een virtuele machine.
 BillingAccountId | EA, MCA | De unieke id voor de basis-account.
 BillingAccountName | EA, MCA | De naam van het factureringsaccount.
 BillingCurrency | EA, MCA | De valuta die zijn gekoppeld aan het factureringsaccount.
@@ -54,10 +54,10 @@ BillingPeriodStartDate | EA, MCA | De begindatum van de factureringsperiode.
 BillingProfileId | EA, MCA | De unieke id van de EA-inschrijving of MCA profiel facturering.
 BillingProfileName | EA, MCA | Naam van de EA-inschrijving of MCA profiel facturering.
 ChargeType | EA, MCA | Geeft aan of de kosten voor gebruik vertegenwoordigt (**gebruik**), een aankoop (**kopen**), of een restitutie (**restitutie**).
-Verbruikte hoeveelheid | BETALEN PER GEBRUIK | Hoeveelheid bekijken.
-Verbruikte service | Alle | Naam van de kosten van de service is gekoppeld.
+ConsumedQuantity | BETALEN PER GEBRUIK | Hoeveelheid bekijken.
+ConsumedService | Alle | Naam van de kosten van de service is gekoppeld.
 Kosten | EA | Zie CostInBillingCurrency.
-Kostenplaats | EA, MCA | De kostenplaats gedefinieerd voor het abonnement voor het bijhouden van kosten (alleen beschikbaar in open factureringsperioden voor MCA accounts).
+CostCenter | EA, MCA | De kostenplaats gedefinieerd voor het abonnement voor het bijhouden van kosten (alleen beschikbaar in open factureringsperioden voor MCA accounts).
 CostInBillingCurrency | MCA | Kosten van de kosten in rekening gebracht in de factureringsvaluta voordat tegoeden of belastingen.
 CostInPricingCurrency | MCA | Kosten van de kosten in rekening gebracht in de prijscategorie valuta voordat tegoeden of belastingen.
 Valuta | BETALEN PER GEBRUIK | Zie BillingCurrency.
@@ -66,50 +66,50 @@ ExchangeRateDate | MCA | De datum waarop die de wisselkoers tot stand is gebrach
 ExchangeRatePricingToBilling | MCA | Wisselkoers gebruikt voor het converteren van de kosten in de prijscategorie valuta naar de factureringsvaluta.
 Frequentie | EA, MCA | Geeft aan of een post wordt verwacht te herhalen. Kosten vindt een keer (**OneTime**), op basis van de maandelijkse of jaarlijkse herhalen (**periodiek**), of worden op basis van gebruik (**UsageBased**).
 includedQuantity | BETALEN PER GEBRUIK | De hoeveelheid van de meter die is opgenomen gratis inbegrepen in uw huidige factureringsperiode.
-Instantie-id | PAGY | Zie ResourceId.
+InstanceId | PAGY | Zie ResourceId.
 InvoiceId | EA, MCA | De unieke document-ID weergegeven op de factuur PDF-bestand.
 invoiceSection | MCA | Zie InvoiceSectionName.
 InvoiceSectionId | EA, MCA | De unieke id voor de EA-afdeling of een gedeelte van de factuur MCA.
 InvoiceSectionName | EA, MCA | De naam van de EA-afdeling of een gedeelte van de factuur MCA.
 IsAzureCreditEligible | EA, MCA | Geeft aan of de kosten in rekening gebracht in aanmerking komende te betalen voor het gebruik van Azure-tegoed (waarden: True, False).
 Locatie | EA, MCA | Datacenter-locatie waar de resource wordt uitgevoerd.
-Metercategorie | Alle | De naam van de classificatiecategorie voor de meter. Bijvoorbeeld, *Cloudservices* en *netwerken*.
+MeterCategory | Alle | De naam van de classificatiecategorie voor de meter. Bijvoorbeeld, *Cloudservices* en *netwerken*.
 Meter-id | Alle | De unieke id voor de meter.
-Meternaam | Alle | De naam van de meter.
-Meterregio | Alle | Naam van de locatie van het datacenter voor services waarbij de prijs is gebaseerd op locatie. Locatie wordt weergegeven.
-Metersubcategorie | Alle | De naam van de meter subclassificatie categorie.
+MeterName | Alle | De naam van de meter.
+MeterRegion | Alle | Naam van de locatie van het datacenter voor services waarbij de prijs is gebaseerd op locatie. Locatie wordt weergegeven.
+MeterSubCategory | Alle | De naam van de meter subclassificatie categorie.
 OfferId | EA, MCA | De naam van de aanbieding hebt aangeschaft.
 PartNumber | EA | De id die wordt gebruikt om op te halen specifieke meter prijzen.
 PlanName | EA | Naam van Marketplace-abonnement.
 PreviousInvoiceId | MCA | Verwijzing naar een oorspronkelijke factuur als dit regelitem een terugbetaling.
 pricingCurrency | MCA | Valuta gebruikt wanneer de classificatie op basis van overeengekomen prijzen.
 Product | MCA | Zie de productnaam.
-Product-id | EA, MCA | De unieke id voor het product.
-ProductName | EA | De naam van het product.
+ProductId | EA, MCA | De unieke id voor het product.
+Productnaam | EA | De naam van het product.
 ProductOrderId | EA, MCA | De unieke id voor de volgorde van het product.
 productOrderName | EA, MCA | Unieke naam op voor de volgorde van het product.
 PublisherName | EA, MCA | De uitgever voor Marketplace-services.
 PublisherType | EA, MCA | Type van de uitgever (waarden: firstParty, thirdPartyReseller, thirdPartyAgency).
-Hoeveelheid | EA, MCA | Het aantal eenheden die zijn aangeschaft of die worden gebruikt.
+Aantal | EA, MCA | Het aantal eenheden die zijn aangeschaft of die worden gebruikt.
 Tarief | BETALEN PER GEBRUIK | Zie de prijs per eenheid.
 ReservationId | EA, MCA | De unieke id voor het exemplaar van de aangeschafte reservering.
 reservationName | EA, MCA | De naam van het exemplaar van de aangeschafte reservering.
 resourceGroupId | EA, MCA | De unieke id voor de [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) de resource heeft.
 ResourceGroupName | EA, MCA | Naam van de [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) de resource heeft.
 ResourceId | EA, MCA | De unieke id van de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) resource.
-Resourcelocatie | EA, MCA | Datacenter-locatie waar de resource wordt uitgevoerd. Locatie wordt weergegeven.
-ResourceName | EA | Naam van de resource
+resourceLocation | EA, MCA | Datacenter-locatie waar de resource wordt uitgevoerd. Locatie wordt weergegeven.
+ResourceName | EA | Naam van de resource.
 ResourceType | MCA | Het type resource-exemplaar.
 serviceFamily | EA, MCA | Service-familie die deel uitmaakt van de service op.
-Servicegegevens 1 | Alle | Servicespecifieke metagegevens.
-Servicegegevens 2 | Alle | Ouder veld met optionele servicespecifieke metagegevens.
+ServiceInfo1 | Alle | Servicespecifieke metagegevens.
+ServiceInfo2 | Alle | Ouder veld met optionele servicespecifieke metagegevens.
 ServicePeriodEndDate | MCA | De einddatum van de periode voor de classificatie die gedefinieerd en vergrendeld prijsgegevens voor de service verbruikt of worden gekocht.
 ServicePeriodStartDate | MCA | De begindatum van de periode voor de classificatie die gedefinieerd en vergrendeld prijsgegevens voor de service verbruikt of worden gekocht.
 SubscriptionId | Alle | De unieke id voor het abonnement.
-Abonnementsnaam | Alle | De naam van het abonnement.
+subscriptionName | Alle | De naam van het abonnement.
 Tags | Alle | Tags die zijn toegewezen aan de resource. Geen groep resourcetags. Kan worden gebruikt te groeperen of kosten voor interne terugstorting te distribueren. Zie voor meer informatie, [ordenen van uw Azure-resources met tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
 Eenheid | BETALEN PER GEBRUIK | Zie UnitOfMeasure.
-Maateenheid | Alle | De maateenheid voor de service wordt gefactureerd. Bijvoorbeeld, worden compute-services gefactureerd per uur.
+unitOfMeasure | Alle | De maateenheid voor de service wordt gefactureerd. Bijvoorbeeld, worden compute-services gefactureerd per uur.
 UnitPrice | EA | De prijs per eenheid voor de kosten in rekening gebracht.
 UsageDate | BETALEN PER GEBRUIK | Datum bekijken.
 

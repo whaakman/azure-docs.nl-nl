@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336963"
 ---
 # <a name="json-search-syntax"></a>JSON-zoeksyntaxis
@@ -33,7 +33,7 @@ ms.locfileid: "61336963"
 }
 ```
 
-De knooppuntnamen van de in een query-pad (_v0, v1,..._ ) fungeren als knooppunt-id's die kunnen worden verwezen in de queryobject. de namen van de rand (_e0, e1,..._ ) vertegenwoordigen de typen van de bijbehorende randen in het pad. We kunnen een sterretje gebruiken _*_ als de naam van een knooppunt of randtabel (met uitzondering van het eerste knooppunt, die moet worden gegeven) om aan te geven dat er zijn geen beperkingen met betrekking tot deze een element. Bijvoorbeeld, een query pad `/v0/*/v1/e1/*/` paden opgehaald uit de grafiek zonder het beperken van het type van de rand _(v0, v1)_. In de tussentijd zorgen, de query heeft geen beperkingen met betrekking tot de bestemming (het laatste knooppunt) van het pad naar een.
+De knooppuntnamen van de in een query-pad (_v0, v1,..._ ) fungeren als knooppunt-id's die kunnen worden verwezen in de queryobject. de namen van de rand (_e0, e1,..._ ) vertegenwoordigen de typen van de bijbehorende randen in het pad. We kunnen een sterretje gebruiken _*_ als de naam van een knooppunt of randtabel (met uitzondering van het eerste knooppunt, die moet worden gegeven) om aan te geven dat er zijn geen beperkingen met betrekking tot deze een element. Bijvoorbeeld, een query pad `/v0/*/v1/e1/*/` paden opgehaald uit de grafiek zonder het beperken van het type van de rand _(v0, v1)_ . In de tussentijd zorgen, de query heeft geen beperkingen met betrekking tot de bestemming (het laatste knooppunt) van het pad naar een.
 
 Wanneer een pad slechts één knooppunt bevat, zeg _v0_, de query retourneert alle entiteiten die voldoen aan de beperkingen. Een beperking-object dat is toegepast op het eerste knooppunt heet een *queryobject vanaf*, waarvan is niet opgegeven als volgt.
 

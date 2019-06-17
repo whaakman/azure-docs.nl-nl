@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832563"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Apps bewaken in Azure App Service
@@ -53,7 +53,7 @@ Zie voor meer informatie over de specifieke quota's, limieten en functies die be
 
 ### <a name="quota-enforcement"></a>Het afdwingen van quota
 
-Als een app is groter dan de *CPU (kort)*, *CPU (dag)*, of *bandbreedte* quotum, de app is gestopt, totdat het quotum wordt opnieuw ingesteld. Gedurende deze periode worden resulteert alle binnenkomende aanvragen in een HTTP 403-fout.
+Als een app is groter dan de *CPU (kort)* , *CPU (dag)* , of *bandbreedte* quotum, de app is gestopt, totdat het quotum wordt opnieuw ingesteld. Gedurende deze periode worden resulteert alle binnenkomende aanvragen in een HTTP 403-fout.
 
 ![bericht 403-fout][http403]
 

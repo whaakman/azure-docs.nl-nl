@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097926"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure Cache voor Redis met Azure PowerShell beheren
@@ -84,8 +84,8 @@ of
 
 Voor het maken van een cache in de Azure Government-Cloud, gebruikt u een van de volgende locaties.
 
-* USGov Virginia
-* USGov Iowa
+* Virginia USGov
+* Iowa USGov
 
 Zie voor meer informatie over de Azure Government-Cloud, [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) en [Ontwikkelaarshandleiding voor Microsoft Azure Government](../azure-government-developer-guide.md).
 
@@ -130,7 +130,7 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | Name |Naam van de cache | |
 | Locatie |Locatie van de cache | |
 | ResourceGroupName |Naam van resourcegroep waarin u kunt de cache maken | |
-| Grootte |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1 GB |
+| Grootte |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |Het aantal shards te maken bij het maken van een premium-cache met clustering is ingeschakeld. Geldige waarden zijn: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Hiermee geeft u de SKU van de cache. Geldige waarden zijn: Basic, Standard en Premium |Standard |
 | RedisConfiguration |Hiermee geeft u een Redis-configuratie-instellingen. Zie voor meer informatie over elke instelling de volgende [RedisConfiguration eigenschappen](#redisconfiguration-properties) tabel. | |

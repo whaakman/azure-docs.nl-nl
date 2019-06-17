@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507929"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor virtuele Linux-machines
@@ -75,11 +75,11 @@ Als de virtuele machine niet binnen een Virtueelnetwerk, de standaard-aanvragen 
 ### <a name="version-and-region-availability"></a>Versie en beschikbaarheid in regio
 De geplande gebeurtenissen-service is samengesteld. Versies zijn verplicht. de huidige versie is `2017-11-01`.
 
-| Versie | Releasetype | Regio's | Releaseopmerkingen | 
+| Version | Releasetype | Regio's | Releaseopmerkingen | 
 | - | - | - | - | 
 | 2017-11-01 | Algemene beschikbaarheid | Alle | <li> Er is ondersteuning toegevoegd voor de VM met lage prioriteit verwijdering type gebeurtenis 'Voorrang nemen'<br> | 
 | 2017-08-01 | Algemene beschikbaarheid | Alle | <li> Voorafgegaan onderstrepingsteken verwijderd uit de namen van voorbeeldresources voor IaaS-VM 's<br><li>Metagegevens-header vereiste afgedwongen voor alle aanvragen | 
-| 2017-03-01 | Voorbeeld | Alle | <li>Eerste release
+| 2017-03-01 | Preview | Alle | <li>Eerste release
 
 
 > [!NOTE] 
@@ -130,16 +130,16 @@ In het geval waarbij er geplande gebeurtenissen, het antwoord bevat een matrix v
 |Eigenschap  |  Description |
 | - | - |
 | Gebeurtenis-id | Unieke id voor deze gebeurtenis. <br><br> Voorbeeld: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Type gebeurtenis | Impact die deze gebeurtenis is veroorzaakt. <br><br> Waarden: <br><ul><li> `Freeze`: De virtuele Machine is gepland voor een paar seconden onderbreken. CPU- en -connectiviteit wordt mogelijk onderbroken, maar er is geen invloed op geheugen of geopende bestanden.<li>`Reboot`: De virtuele Machine is gepland voor opnieuw opstarten (niet-permanent geheugen is verloren gegaan). <li>`Redeploy`: De virtuele Machine is gepland om te verplaatsen naar een ander knooppunt (tijdelijke schijven zijn verloren). <li>`Preempt`: De VM met lage prioriteit wordt verwijderd (tijdelijke schijven zijn verloren).|
+| EventType | Impact die deze gebeurtenis is veroorzaakt. <br><br> Waarden: <br><ul><li> `Freeze`: De virtuele Machine is gepland voor een paar seconden onderbreken. CPU- en -connectiviteit wordt mogelijk onderbroken, maar er is geen invloed op geheugen of geopende bestanden.<li>`Reboot`: De virtuele Machine is gepland voor opnieuw opstarten (niet-permanent geheugen is verloren gegaan). <li>`Redeploy`: De virtuele Machine is gepland om te verplaatsen naar een ander knooppunt (tijdelijke schijven zijn verloren). <li>`Preempt`: De VM met lage prioriteit wordt verwijderd (tijdelijke schijven zijn verloren).|
 | ResourceType | Het type resource dat deze gebeurtenis is van invloed op. <br><br> Waarden: <ul><li>`VirtualMachine`|
-| Bronnen| Lijst met resources die deze gebeurtenis is van invloed op. De lijst kan worden gegarandeerd machines van maximaal één bevatten [updatedomein](manage-availability.md), maar deze bevat mogelijk niet alle machines in de UD. <br><br> Voorbeeld: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Resources| Lijst met resources die deze gebeurtenis is van invloed op. De lijst kan worden gegarandeerd machines van maximaal één bevatten [updatedomein](manage-availability.md), maar deze bevat mogelijk niet alle machines in de UD. <br><br> Voorbeeld: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | De status van deze gebeurtenis. <br><br> Waarden: <ul><li>`Scheduled`: Deze gebeurtenis is gepland om te starten na de tijd die is opgegeven de `NotBefore` eigenschap.<li>`Started`: Deze gebeurtenis is gestart.</ul> Geen `Completed` of soortgelijke status ooit wordt aangeboden. De gebeurtenis wordt niet meer worden geretourneerd wanneer de gebeurtenis is voltooid.
 | NotBefore| De tijd waarna deze gebeurtenis kunt starten. <br><br> Voorbeeld: <br><ul><li> Ma, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Gebeurtenis plannen
 Elke gebeurtenis is gepland een minimale hoeveelheid tijd in de toekomst op basis van het gebeurtenistype. Dit moment wordt weergegeven in van een gebeurtenis `NotBefore` eigenschap. 
 
-|Type gebeurtenis  | Minimale kennisgeving |
+|EventType  | Minimale kennisgeving |
 | - | - |
 | Blokkeren| 15 minuten |
 | Opnieuw opstarten | 15 minuten |

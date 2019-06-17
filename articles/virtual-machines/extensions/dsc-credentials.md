@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 723d0cfe6e292c4b8013de4da55779a6c675d610
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705941"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Doorgeven van referenties aan de handler Azure DSCExtension
 
 In dit artikel bevat informatie over de extensie Desired State Configuration (DSC) voor Azure. Zie voor een overzicht van de DSC-extensie-handler [Inleiding tot de Azure Desired State Configuration-extensie-handler](dsc-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="pass-in-credentials"></a>Referenties worden doorgegeven
 
@@ -61,7 +61,7 @@ configuration Main
 }
 ```
 
-Het is belangrijk om op te nemen **knooppunt localhost** als onderdeel van de configuratie. De extensie-handler specifiek gekeken naar de **knooppunt localhost** instructie. Als deze verklaring ontbreekt, wordt werken de volgende stappen niet. Het is ook belangrijk om de typecast **[PsCredential]**. Dit specifieke type activeert de extensie voor het versleutelen van de referentie.
+Het is belangrijk om op te nemen **knooppunt localhost** als onderdeel van de configuratie. De extensie-handler specifiek gekeken naar de **knooppunt localhost** instructie. Als deze verklaring ontbreekt, wordt werken de volgende stappen niet. Het is ook belangrijk om de typecast **[PsCredential]** . Dit specifieke type activeert de extensie voor het versleutelen van de referentie.
 
 Met dit script publiceren naar Azure Blob-opslag:
 
@@ -84,7 +84,7 @@ $vm | Update-AzVM
 
 Uitvoering van deze code wordt gevraagd om een referentie. Nadat de referentie op die is opgegeven, wordt deze korte tijd opgeslagen in het geheugen. Wanneer de referentie op die is gepubliceerd met behulp van de **Set AzVMDscExtension** cmdlet, de referentie op die wordt verzonden via HTTPS naar de virtuele machine. In de virtuele machine slaat Azure de referentie op schijf versleuteld met behulp van het lokale certificaatarchief van de virtuele machine. De referentie is kort ontsleuteld in het geheugen en vervolgens opnieuw versleuteld als u wilt deze doorgeven aan DSC.
 
-Dit proces is anders dan [met behulp van veilige configuraties zonder de extensie-handler](/powershell/dsc/securemof). De Azure-omgeving biedt een manier voor het verzenden van configuratiegegevens ontvangen via certificaten veilig. Wanneer u de handler voor DSC-extensie gebruikt, moet u niet opgeven **$CertificatePath** of een **$CertificateID**/ **$Thumbprint** vermelding in **ConfigurationData**.
+Dit proces is anders dan [met behulp van veilige configuraties zonder de extensie-handler](/powershell/dsc/securemof). De Azure-omgeving biedt een manier voor het verzenden van configuratiegegevens ontvangen via certificaten veilig. Wanneer u de handler voor DSC-extensie gebruikt, moet u niet opgeven **$CertificatePath** of een **$CertificateID**/  **$Thumbprint** vermelding in **ConfigurationData**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

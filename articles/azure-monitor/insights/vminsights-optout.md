@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
 ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522124"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Het uitschakelen van de bewaking van uw virtuele machines met Azure Monitor voor virtuele machines (preview)
@@ -53,8 +53,8 @@ De volgende stappen wordt beschreven hoe u voor het verwijderen van Azure Monito
 2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources Log Analytics. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte die u hebt gekozen wanneer onboarding van Azure Monitor voor virtuele machines.
 4. Selecteer in het linkerdeelvenster **oplossingen**.  
-5. Selecteer in de lijst met oplossingen **InfrastructureInsights (Werkruimtenaam)**, en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
-6. Selecteer in de lijst met oplossingen **ServiceMap (Werkruimtenaam)**, en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
+5. Selecteer in de lijst met oplossingen **InfrastructureInsights (Werkruimtenaam)** , en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
+6. Selecteer in de lijst met oplossingen **ServiceMap (Werkruimtenaam)** , en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
 
 Voordat u onboarding van Azure Monitor voor virtuele machines, zijn als u niet [verzamelen van de prestatiemeteritems ingeschakeld](vminsights-enable-overview.md#performance-counters-enabled) voor de Windows- of Linux gebaseerde VM's in uw werkruimte, moet u deze regels uitschakelen door de stappen die worden beschreven [hier](../platform/data-sources-performance-counters.md#configuring-performance-counters) voor Windows en Linux.
 

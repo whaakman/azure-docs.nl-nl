@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977311"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
@@ -26,7 +26,7 @@ Toonaangevende bedrijven vertellen u niet hetzelfde wachtwoord gebruiken op meer
 
 Microsoft stelt altijd alles in het werk om cybercriminelen een stap voor te blijven. Het Azure AD Identity Protection-team zoeken daarom voortdurend voor wachtwoorden voor vaak gebruikte en waarmee is geknoeid. Ze vervolgens blokkeren deze wachtwoorden op dat te veel voorkomt in wat de lijst met algemene uitgesloten wachtwoorden heet worden geacht. Cybercriminelen maken gebruik van vergelijkbare strategieën in hun aanvallen, dus Microsoft niet publiceert de inhoud van deze lijst openbaar. Deze kwetsbare wachtwoorden worden geblokkeerd voordat ze een echte bedreiging voor klanten van Microsoft. Zie voor meer informatie over de inspanningen de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="custom-banned-password-list"></a>Aangepaste lijst met verboden wachtwoorden
+## <a name="custom-banned-password-list"></a>Aangepaste lijst met wachtwoorden verboden
 
 Sommige organisaties kunt voor een beveiligingsstap verder door hun eigen aanpassingen boven op de lijst met uitgesloten wachtwoorden globale toe te voegen in wat Microsoft de lijst met aangepaste uitgesloten wachtwoorden. Zakelijke klanten, zoals Contoso kiest u kan voor het blokkeren van varianten van hun merknamen, bedrijfsspecifieke termen of andere items.
 

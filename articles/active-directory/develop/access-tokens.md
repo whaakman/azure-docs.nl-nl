@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 355e61fdfd9847e54a4bd13ac3b0f2d416c05812
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111959"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Toegangstokens voor Microsoft identity-platform
 
@@ -74,7 +74,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app al d
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Notatie | Description |
+|Claim | Indeling | Description |
 |--------|--------|-------------|
 | `typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
 | `nonce` | String | Een unieke id gebruikt om te beveiligen tegen token opnieuw afspelen aanvallen. Je kunt deze waarde om te beveiligen tegen replays bronrecord. |
@@ -84,7 +84,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app al d
 
 ### <a name="payload-claims"></a>De nettolading van claims
 
-| Claim | Notatie | Description |
+| Claim | Indeling | Description |
 |-----|--------|-------------|
 | `aud` | Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In de toegangstokens te geven is de doelgroep van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 | `iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token dat is uitgegeven, een v2.0-token is (Zie de `ver` claim), de URI eindigt `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
@@ -119,7 +119,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app al d
 
 De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar worden niet standaard opgenomen in v2.0-tokens. Als u versie 2.0 en moet u een van deze claims, deze aanvragen met behulp van [optionele claims](active-directory-optional-claims.md).
 
-| Claim | Notatie | Description |
+| Claim | Indeling | Description |
 |-----|--------|-------------|
 | `ipaddr`| String | De gebruiker is geverifieerd vanaf het IP-adres. |
 | `onprem_sid`| Tekenreeks, in [SID-indeling](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In gevallen waar de gebruiker een on-premises-verificatie heeft, biedt deze claim hun SID. U kunt `onprem_sid` voor autorisatie voor oudere toepassingen.|

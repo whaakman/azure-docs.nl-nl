@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: bwren
 ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357579"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
@@ -25,7 +25,7 @@ ms.locfileid: "66357579"
 
 
 > [!NOTE]
-> De aanbevolen methode om te installeren en configureren van de Office 365-oplossing is het inschakelen van de [Office 365-connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) in plaats van de stappen in dit artikel. Dit is een bijgewerkte versie van de Office 365-oplossing met een verbeterde configuratie-ervaring. Als u wilt verbinding maken met Azure AD-Logboeken, gebruikt u de [Azure Sentinel Azure AD-connector](../../sentinel/connect-azure-active-directory.md), waarmee u uitgebreidere logboekgegevens dan de Office 365-management-Logboeken. 
+> De aanbevolen methode om te installeren en configureren van de Office 365-oplossing is het inschakelen van de [Office 365-connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) in plaats van de stappen in dit artikel. Dit is een bijgewerkte versie van de Office 365-oplossing met een verbeterde configuratie-ervaring. Als u verbinding wilt maken met Azure AD-logboeken, gebruikt u de [Azure Sentinel Azure AD-connector](../../sentinel/connect-azure-active-directory.md), die uitgebreidere logboekgegevens biedt dan de Office 365-beheerlogboeken. 
 >
 > Wanneer u [onboarding Azure Sentinel](../../sentinel/quickstart-onboard.md), geef de Log Analytics-werkruimte die u wilt dat de Office 365-oplossing die is geïnstalleerd. Wanneer u de connector hebt ingeschakeld, wordt de oplossing is beschikbaar in de werkruimte en gebruikt precies hetzelfde als andere bewakingsoplossingen die u hebt geïnstalleerd.
 >

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733713"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Duurzame functies publiceren naar Azure Event Grid (preview)
@@ -250,19 +250,19 @@ Zie de logboeken van de functie die u hebt gemaakt in Azure portal.
 
 De volgende lijst wordt het schema van de levenscyclus van gebeurtenissen beschreven:
 
-* **`id`**: De unieke id voor de event grid-gebeurtenis.
-* **`subject`**: Pad naar het onderwerp van de gebeurtenis. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` worden `Running`, `Completed`, `Failed`, en `Terminated`.  
-* **`data`**: Duurzame functies specifieke Parameters.
-  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) naam.
-  * **`functionName`**: Naam van de orchestrator-functie.
-  * **`instanceId`**: Duurzame functies instanceId.
-  * **`reason`**: Aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`**: Status van de Orchestration-Runtime. Actieve, voltooid, is mislukt, geannuleerd.
-* **`eventType`**: "orchestratorEvent"
-* **`eventTime`**: Tijd van de gebeurtenis (UTC).
-* **`dataVersion`**: De versie van het schema van de gebeurtenis levenscyclus.
-* **`metadataVersion`**:  De versie van de metagegevens.
-* **`topic`**: Event grid-onderwerp resource.
+* **`id`** : De unieke id voor de event grid-gebeurtenis.
+* **`subject`** : Pad naar het onderwerp van de gebeurtenis. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` worden `Running`, `Completed`, `Failed`, en `Terminated`.  
+* **`data`** : Duurzame functies specifieke Parameters.
+  * **`hubName`** : [TaskHub](durable-functions-task-hubs.md) naam.
+  * **`functionName`** : Naam van de orchestrator-functie.
+  * **`instanceId`** : Duurzame functies instanceId.
+  * **`reason`** : Aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`** : Status van de Orchestration-Runtime. Actieve, voltooid, is mislukt, geannuleerd.
+* **`eventType`** : "orchestratorEvent"
+* **`eventTime`** : Tijd van de gebeurtenis (UTC).
+* **`dataVersion`** : De versie van het schema van de gebeurtenis levenscyclus.
+* **`metadataVersion`** :  De versie van de metagegevens.
+* **`topic`** : Event grid-onderwerp resource.
 
 ## <a name="how-to-test-locally"></a>Lokaal testen
 

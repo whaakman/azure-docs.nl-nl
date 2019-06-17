@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
 ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66134062"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
@@ -167,9 +167,9 @@ Volg de volgende stappen uit voor het implementeren van de Azure Resource Manage
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (of --name)**. Naam voor de nieuwe resourcegroep. In ons scenario is dit *appgatewayRG*.
+    **-n (of --name)** . Naam voor de nieuwe resourcegroep. In ons scenario is dit *appgatewayRG*.
     
-    **-l (of --location)**. De Azure-regio waar de nieuwe resourcegroep wordt gemaakt. In ons scenario heeft *westus*.
+    **-l (of --location)** . De Azure-regio waar de nieuwe resourcegroep wordt gemaakt. In ons scenario heeft *westus*.
 
 1. Voer de `az group deployment create` cmdlet voor het implementeren van het nieuwe virtuele netwerk met behulp van de sjabloon en de parameter-bestanden u hebt gedownload en gewijzigd in de vorige stap. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
 

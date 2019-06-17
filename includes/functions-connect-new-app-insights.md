@@ -9,10 +9,10 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131440"
 ---
 Functies kunt u eenvoudig integratie van Application Insights toevoegen aan een functie-app uit de [Azure Portal].
@@ -28,7 +28,7 @@ Functies kunt u eenvoudig integratie van Application Insights toevoegen aan een 
     | Instelling      | Voorgestelde waarde  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam** | Unieke app-naam | Het is eenvoudigst te gebruiken dezelfde naam als uw functie-app moet uniek zijn in uw abonnement. | 
-    | **Locatie** | Europa -west | Gebruik zo mogelijk dezelfde [regio](https://azure.microsoft.com/regions/) als uw functie-app, of bij het. |
+    | **Location** | Europa -west | Gebruik zo mogelijk dezelfde [regio](https://azure.microsoft.com/regions/) als uw functie-app, of bij het. |
 
 1. Kies **OK**. De Application Insights-resource wordt gemaakt in dezelfde resourcegroep en abonnement als uw functie-app. Nadat het maken is voltooid, sluit u het venster Application Insights.
 

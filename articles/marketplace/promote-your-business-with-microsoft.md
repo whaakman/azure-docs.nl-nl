@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937653"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promoot uw bedrijf met Microsoft 
@@ -29,7 +29,7 @@ MPN biedt richtlijnen voor de volgende onderwerpen.
 
 Gebruik de volgende tabel voor toegang tot meer voordelen en bronnen ter bevordering van uw aanbieding of de app. 
 
-| Voordeel | bronnen |  
+| Voordeel | resources |  
 |:--- |:--- |  
 | Profiteer van uw belangrijkste voordelen | Als onderdeel van het Microsoft Partner Network ontvangt u een set van de belangrijkste voordelen waarmee u tijd en geld besparen. De voordelen kunnen ook helpen u versterken van de mogelijkheden, beter klanten van dienst en verbindingen voor uw volledige bedrijf mogelijke bereiken.<ul> <li>Voor meer informatie over de belangrijkste voordelen, gaat u naar de belangrijkste voordelen en vereisten pagina zich bevindt op [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
 | Uw competentie voor het Cloudplatform behalen | Een competentie voor het verdienen, kunt u zelf te onderscheiden van andere Microsoft-partners. Verdienen een competentie helpt u bij gebruik van de technische expertise en klantsucces op de markt. Competentie is een vereiste voor veel belangrijke partner-programma's zoals gezamenlijke verkoop.<ul> <li>Voor meer informatie over Cloud Platform-competentie, gaat u naar de Platform-competentie voor het pagina zich bevindt op [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  

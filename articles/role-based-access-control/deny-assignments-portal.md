@@ -1,6 +1,6 @@
 ---
-title: Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal | Microsoft Docs
-description: Informatie over het weergeven van de gebruikers, groepen, service-principals en beheerde identiteiten die toegang tot specifieke Azure-resource die op een bepaald bereik met behulp van de Azure-portal is geweigerd.
+title: Lijst weigeren toewijzingen voor Azure-resources met behulp van de Azure portal | Microsoft Docs
+description: Leer hoe u de gebruikers, groepen, service-principals en beheerde identiteiten die toegang tot specifieke Azure-resource die aan bepaalde bereiken met behulp van de Azure-portal is geweigerd.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194324"
+ms.locfileid: "67127492"
 ---
-# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal
+# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Lijst weigeren toewijzingen voor Azure-resources met behulp van de Azure portal
 
-[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. In dit artikel wordt beschreven hoe u Azure portal gebruiken om weer te weigeren toewijzingen.
+[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. In dit artikel wordt beschreven hoe u aan de lijst weigeren toewijzingen met behulp van de Azure portal.
 
 > [!NOTE]
-> Op dit moment de enige manier waarop u kunt toevoegen uw eigen weigeren toewijzingen met behulp van Azure blauwdrukken is. Zie voor meer informatie, [nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen](../governance/blueprints/tutorials/protect-new-resources.md).
+> U kunt geen rechtstreeks maken uw eigen toewijzingen weigeren. Zie voor informatie over hoe u weigeren toewijzingen worden gemaakt, [weigeren toewijzingen](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,9 +34,9 @@ Voor informatie over de toewijzing van een weigeren, moet u het volgende hebben:
 
 - `Microsoft.Authorization/denyAssignments/read` machtiging die is opgenomen in de meeste [ingebouwde rollen voor Azure-resources](built-in-roles.md).
 
-## <a name="view-deny-assignments"></a>Weergave weigeren toewijzingen
+## <a name="list-deny-assignments"></a>Lijst met toewijzingen weigeren
 
-Volg deze stappen om weer te geven weigeren toewijzingen aan het abonnement of beheergroep groepsbereik.
+Volg deze stappen om een lijst te weigeren toewijzingen aan het abonnement of beheergroep groepsbereik.
 
 1. Klik in de Azure-portal op **alle services** en vervolgens **beheergroepen** of **abonnementen**.
 
@@ -67,9 +67,9 @@ Volg deze stappen om weer te geven weigeren toewijzingen aan het abonnement of b
 
 1. Een selectievakje toevoegen aan een van de ingeschakelde items en klik vervolgens op **OK** om weer te geven van de geselecteerde kolommen.
 
-## <a name="view-details-about-a-deny-assignment"></a>Details weergeven over de toewijzing van een weigeren
+## <a name="list-details-about-a-deny-assignment"></a>Details weergeven over de toewijzing van een weigeren
 
-Volg deze stappen om aanvullende informatie over de toewijzing van een weigeren weer te geven.
+Volg deze stappen aan de lijst met aanvullende informatie over de toewijzing van een weigeren.
 
 1. Open de **weigeren toewijzingen** deelvenster zoals beschreven in de vorige sectie.
 
@@ -110,4 +110,4 @@ Volg deze stappen om aanvullende informatie over de toewijzing van een weigeren 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Informatie over toewijzingen voor Azure-resources te weigeren](deny-assignments.md)
-* [Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API](deny-assignments-rest.md)
+* [Lijst met toewijzingen voor Azure-resources met behulp van Azure PowerShell weigeren](deny-assignments-powershell.md)

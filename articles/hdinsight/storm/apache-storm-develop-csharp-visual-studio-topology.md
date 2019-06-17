@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
 ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687757"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van de Data Lake-tools voor Visual Studio
@@ -28,7 +28,7 @@ Voor het gebruik van een C#-topologie met een cluster op basis van Linux, moet u
 
 | HDInsight-versie | Apache Storm-versie | SCP.NET-versie | Standaard-Mono-versie |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3,3 |0.10.x |0.10.x.x</br>(alleen op Windows gebaseerde HDInsight) | N.v.t. |
+| 3.3 |0.10.x |0.10.x.x</br>(alleen op Windows gebaseerde HDInsight) | N.V.T. |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |

@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126438"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
@@ -46,7 +46,7 @@ De release van deze oplossing is bedoeld voor degenen die niet bekend bent met d
 
 Omdat er is een proof-of-authority afhankelijk van een lijst van netwerk-instanties voor het netwerk gezond te houden, is het belangrijk om te voorzien van een geoorloofd mechanisme om de wijzigingen aanbrengen in deze lijst met machtigingen. Elke implementatie wordt geleverd met een set van smart-contracten en -portal voor in de chain beheer van deze toegestane lijst. Zodra een voorgestelde wijziging een meerderheid van stemmen door consortium leden bereikt, wordt de wijziging van kracht. Hierdoor kan nieuwe consensus deelnemers worden toegevoegd of aangetast deelnemers moet worden verwijderd op een transparante manier die een eerlijk netwerk worden gebruikers aangemoedigd.
 
-### <a name="admin-account"></a>Beheeraccount
+### <a name="admin-account"></a>Beheerdersaccount
 
 Tijdens de implementatie van de knooppunten proof-of-authority, zult u worden gevraagd om een Admin Ethereum-adres. U kunt meerdere verschillende mechanismen te genereren en deze Ethereum-account te beveiligen. Wanneer dit adres is toegevoegd als een instantie in het netwerk, kunt u dit account gebruiken om deel te nemen in governance. Dit beheerdersaccount wordt ook gebruikt om te delegeren consensus deelname aan de validator knooppunten die zijn gemaakt als onderdeel van deze implementatie. Omdat alleen de openbare Ethereum-adres wordt gebruikt, heeft elke beheerder de flexibiliteit voor het beveiligen van de persoonlijke sleutels op een manier die volgt op de gewenste beveiligingsmodel.
 
@@ -152,7 +152,7 @@ Na de installatie van MetaMask, gaat u naar de DApp Governance in de browser.  U
 #### <a name="becoming-an-admin"></a>Een beheerder uw account
 Als u het eerste lid dat geïmplementeerd op het netwerk bent, klikt u vervolgens automatisch raakt u een beheerder en uw pariteit knooppunten worden vermeld als Systeemstatuscontrolepunten.  Als u bent lid wordt van het netwerk, moet u ophalen gestemd als beheerder door een meerderheid (groter dan 50%) van de bestaande set van de beheerder.  Als u ervoor kiest niet te worden van een beheerder en vervolgens uw knooppunten wordt nog steeds synchroniseren en valideren van de blockchain; Deze wordt echter niet opgenomen in het maakproces blokkeren. Voor het starten van de stemmende proces om te worden van een beheerder, klikt u op __Nominate__ en geef uw Ethereum-adres en de alias.
 
-![Benoemen](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
+![Nomineer](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
 #### <a name="candidates"></a>Kandidaten
 Selecteren van de __kandidaten__ tabblad ziet u de huidige reeks candidate beheerders.  Wanneer een kandidaat een stem meerderheid van de huidige beheerders is bereikt, ophalen de uiteindelijke gepromoot naar een beheerder.  Selecteer de rij om te stemmen op een kandidaat, en klik op 'Stem ' aan de bovenkant.  Als u van op een stem gedachten, kunt u de uiteindelijke selecteren en klikt u op 'Rescind stem'.
@@ -175,7 +175,7 @@ Het adres van elke validator wordt automatisch toegewezen de [identiteitsarchief
 #### <a name="consortium-name"></a>De naam van de Consortium
 Een beheerder kan de naam van de Consortium, weergegeven aan de bovenkant van de pagina bijgewerkt.  Selecteer het tandwielpictogram in de linkerbovenhoek om bij te werken van de naam van de Consortium.
 
-#### <a name="account-menu"></a>Menu Account
+#### <a name="account-menu"></a>Menu account
 Is uw Ethereum-accountalias en identicon in de rechterbovenhoek.  Als u een beheerder bent hebt u de mogelijkheid uw alias bij te werken.
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
@@ -210,7 +210,7 @@ Hier volgt een gedetailleerde beschrijving van elke parameter:
 
 Parameternaam|Description|Toegestane waarden|Standaardwaarden
 ---|---|---|---
-Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Nieuwe maken
+Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
 E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.V.T.
 VM-gebruikersnaam|Gebruikersnaam voor de beheerder van elke geïmplementeerde VM (alleen alfanumerieke tekens)|1 tot 64 tekens|N.V.T.
 Verificatietype|De methode voor verificatie bij de virtuele machine.|Wachtwoord of openbare SSH-sleutel|Wachtwoord
@@ -260,9 +260,9 @@ Virtuele Machine en Storage-laag heeft invloed op de prestaties van het netwerk.
 
   Virtuele Machine SKU|Storage-laag|Prijs|Doorvoer|Latentie
   ---|---|---|---|---
-  F1|Standard - SSD|laag|laag|Hoog
-  D2_v3|Standard - SSD|gemiddeld|gemiddeld|gemiddeld
-  F16s|Premium SSD|Hoog|Hoog|laag
+  F1|Standard - SSD|Laag|Laag|Hoog
+  D2_v3|Standard - SSD|Gemiddeld|Gemiddeld|Gemiddeld
+  F16s|Premium SSD|Hoog|Hoog|Laag
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![netwerk grootte en prestaties](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -275,10 +275,10 @@ Hier volgt een gedetailleerde beschrijving van elke parameter:
   Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Consortium lid-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. Lid-ID moet in het geval van een particulier netwerk, uniek zijn in verschillende organisaties in hetzelfde netwerk.  Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's. Noteer de waarde van deze parameter omdat, moet u deze delen met andere leden van de gekoppelde om ervoor te zorgen dat er geen conflicten.|0-255|N.V.T.
-Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999,999,999|10101010
+Netwerk-ID|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999,999,999|10101010
 Ethereum-mailadres van beheerder|Het adres Ethereum die wordt gebruikt voor uw deelname aan PoA governance.  We adviseren MetaMask gebruiken voor het genereren van een Ethereum-adres.|42 alfanumerieke tekens beginnen met 0 x|N.V.T.
 Geavanceerde opties|Geavanceerde opties voor Ethereum-instellingen|In- of uitschakelen|Uitschakelen
-Openbaar IP-adres (geavanceerde opties = inschakelen)|Het netwerk achter een VNet-Gateway implementeert en peering toegang verwijderd. Als deze optie is geselecteerd, moeten alle leden van een VNet-Gateway voor de verbinding gebruiken om compatibel te zijn.|Openbaar IP-adres privé VNet|Openbaar IP
+Openbaar IP-adres (geavanceerde opties = inschakelen)|Het netwerk achter een VNet-Gateway implementeert en peering toegang verwijderd. Als deze optie is geselecteerd, moeten alle leden van een VNet-Gateway voor de verbinding gebruiken om compatibel te zijn.|Openbaar IP-adres privé VNet|Openbare IP
 Limiet voor Gas blokkeren (geavanceerde opties = inschakelen)|De eerste blok gas limiet van het netwerk|Een numerieke waarde|50000000
 Verzegelen Blokkeringsperiode (sec)|De frequentie waarmee leeg blokken worden gemaakt wanneer er geen transacties in het netwerk zijn. Een hogere frequentie hebben sneller definitieve karakter maar hogere opslagkosten.|Een numerieke waarde|15
 Transactie machtiging Contract (geavanceerde opties = inschakelen)|Bytecode voor de transactie-rollen-contract. Hiermee beperkt u de slimme contract implementatie en uitvoering aan een lijst met toegestane van Ethereum-accounts.|Contract bytecode|N.V.T.
@@ -294,7 +294,7 @@ De blade controle kunt u een resource van Azure Monitor-logboeken voor uw netwer
   Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Bewaking|Optie voor het inschakelen van bewaking|In- of uitschakelen|Inschakelen
-Verbinding maken met bestaande Azure Monitor-Logboeken|Maak een nieuw exemplaar van Azure Monitor Logboeken of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuw
+Verbinding maken met bestaande Azure Monitor-Logboeken|Maak een nieuw exemplaar van Azure Monitor Logboeken of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken
 Locatie controleren (verbinding maken met bestaande Azure Monitor-logboeken = maken nieuw)|De regio waar de nieuwe Azure Monitor-exemplaar Logboeken wordt geïmplementeerd|Monitor voor alle Azure-regio's Logboeken|N.V.T.
 Bestaande log analytics-werkruimte-ID (verbinding maken met bestaande Azure Monitor-logboeken = bestaande Join)|Werkruimte-ID van de bestaande Azure Monitor-logboeken exemplaar||N.V.T.
 Primaire sleutel van bestaande log analytics (verbinding maken met bestaande Azure Monitor-logboeken = bestaande Join)|De primaire sleutel gebruikt voor verbinding met de bestaande instantie van de Azure Monitor-Logboeken||N.V.T.
@@ -413,7 +413,7 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-### <a name="service-monitoring"></a>Servicebewaking
+### <a name="service-monitoring"></a>Servicecontrole
 
 U kunt uw Azure Monitor-portal door de koppeling in de implementatie van e-mailadres of zoeken naar de parameter in de uitvoer van de implementatie vinden \[OMS\_PORTAL\_URL\].
 

@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248142"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure-activiteitenlogboek exporteren naar storage of Azure Event Hubs
@@ -156,7 +156,7 @@ Als een logboekprofiel al bestaat, moet u eerst de bestaande logboekprofiel verw
     | --- | --- | --- |
     | name |Ja |Naam van uw logboekprofiel. |
     | storage-account-id |Ja |Resource-ID van het Opslagaccount waarin u de activiteitenlogboeken worden opgeslagen. |
-    | locaties |Ja |Spaties gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `az account list-locations --query [].name`. |
+    | locations |Ja |Spaties gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `az account list-locations --query [].name`. |
     | days |Ja |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 365. De waarde nul worden de logboeken voor onbepaalde tijd opgeslagen (permanent).  Als nul is, klikt u vervolgens de ingeschakelde parameter moet worden ingesteld op true. |
     |enabled | Ja |Waar of ONWAAR.  Gebruikt voor het in- of uitschakelen van het bewaarbeleid.  Indien waar, moet de parameter dagen een waarde die groter is dan 0 zijn.
     | categorieën |Ja |Spaties gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
@@ -235,7 +235,7 @@ De elementen in deze JSON worden beschreven in de volgende tabel.
 | callerIpAddress |IP-adres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
 | correlationId |Meestal een GUID in de indeling van de verbindingsreeks. Gebeurtenissen die delen van een correlationId behoren tot dezelfde uber actie. |
 | identity |JSON-blob met een beschrijving van de autorisatie en claims. |
-| Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
+| authorization |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: _Kritieke_, _fout_, _waarschuwing_, _informatief_, en _uitgebreide_ |
 | location |De regio in de locatie is opgetreden (of globale). |
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen woordenboek) met een beschrijving van de details van de gebeurtenis. |

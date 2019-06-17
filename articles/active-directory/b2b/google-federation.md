@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65891900"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google als id-provider voor B2B-gastgebruikers toevoegen
@@ -101,7 +101,7 @@ U kunt uw Google-federatie-instellingen verwijderen. Als u dit doet, Google-gast
 1. Ga naar de [Azure Portal](https://portal.azure.com). Selecteer de knop **Azure Active Directory** in het linkerdeelvenster. 
 2. Selecteer **organisatie relaties**.
 3. Selecteer **id-providers**.
-4. Op de **Google** regel, selecteer het snelmenu (**...** ) en selecteer vervolgens **verwijderen**. 
+4. Op de **Google** regel, selecteer het snelmenu ( **...** ) en selecteer vervolgens **verwijderen**. 
    
    ![Schermopname van de optie voor het verwijderen van de sociale id-provider](media/google-federation/google-social-identity-providers.png)
 

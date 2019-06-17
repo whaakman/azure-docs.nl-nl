@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520151"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter rij transformatie
@@ -24,7 +24,7 @@ Gebruik de transformatie Alter rij invoegen, verwijderen, bijwerken en upsert be
 > [!NOTE]
 > Database sinks in de gegevensstroom wordt alleen ALTER rij transformaties uitgevoerd. De acties die u aan rijen (insert, update, delete, upsert toewijst) wordt niet uitgevoerd tijdens de foutopsporing sessies. U moet een taak uitvoeren gegevensstroom toevoegen aan een pijplijn en gebruik van pijplijn foutopsporing of triggers op te nemen van de beleidsregels van de rij wijzigen op uw database-tabellen.
 
-## <a name="view-policies"></a>Inhoudbeleidsregels weergeven
+## <a name="view-policies"></a>Beleid weergeven
 
 Overschakelen van de gegevens stromen foutopsporingsmodus bij en bekijk vervolgens de resultaten van uw beleid van de rij wijzigen in het voorbeeld van gegevens. Uitvoeren van een rij wijzigen in gegevens Flow foutopsporingsmodus produceert DDL of DML acties op basis van het doel niet. Om deze acties optreden, voert u de gegevensstroom in een activiteit gegevensstroom uitvoeren binnen een pijplijn.
 

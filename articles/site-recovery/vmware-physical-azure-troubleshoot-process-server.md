@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: raynew
 ms.openlocfilehash: 6e31308800f72d60381f1e4ecd540482ba263851
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969369"
 ---
 # <a name="troubleshoot-the-process-server"></a>De processerver oplossen
@@ -69,7 +69,7 @@ De processerver wordt een aantal health waarschuwingen gegenereerd. Deze waarsch
 
 Services die moeten worden uitgevoerd op de processerver worden samengevat in de volgende tabel. Er zijn kleine verschillen in services, afhankelijk van hoe de processerver is geïmplementeerd. 
 
-Voor alle services, met uitzondering van de Microsoft Azure Recovery Services-Agent (obengine), Controleer of het StartType is ingesteld op **automatische** of **automatisch (vertraagd starten)**.
+Voor alle services, met uitzondering van de Microsoft Azure Recovery Services-Agent (obengine), Controleer of het StartType is ingesteld op **automatische** of **automatisch (vertraagd starten)** .
  
 **Implementatie** | **Actieve services**
 --- | ---

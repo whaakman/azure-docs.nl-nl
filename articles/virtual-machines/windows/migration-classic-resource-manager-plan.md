@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d3e1995682569e5ef7b356bd85ad6c7dba6cdbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689493"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planning voor de migratie van IaaS-resources van klassiek naar Azure Resource Manager
 Azure Resource Manager biedt veel geweldige functies, is het essentieel is voor het plannen van de migratie om ervoor zaken soepel verloopt. Tijd besteed aan het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van migratieactiviteiten.
@@ -92,7 +92,7 @@ De volgende zijn problemen gedetecteerd in veel van de grotere migraties. Dit is
   - De volgende items moeten worden opgelost voordat het droge uitvoeren, maar een test testmodus wordt ook gewoon leegmaken van deze stappen voor gegevensvoorbereiding als ze zijn gemist. Tijdens de migratie van de onderneming, hebben we het droge uitvoeren op een veilige en waardevolle manier om te controleren of de gereedheid van de migratie worden ontdekt.
   - Als voorbereiding wordt uitgevoerd, het besturingselement vlak (Azure management-bewerkingen) wordt vergrendeld voor het hele virtuele netwerk, zodat er kunnen geen wijzigingen aangebracht in de metagegevens van de virtuele machine tijdens het valideren/voorbereiden/afbreken.  Maar anders een functie van de toepassing (extern bureaublad-Sessiehost, VM-gebruik, enzovoort), worden niet.  Gebruikers van de virtuele machines weet niet dat de uitvoering droge wordt uitgevoerd.
 
-- **Express Route-Circuits en VPN-**. Express Route-Gateways met autorisatielinks kunnen momenteel niet worden gemigreerd zonder downtime. Zie voor een tijdelijke oplossing, [migreren ExpressRoute-circuits en gekoppelde virtuele netwerken van het klassieke naar het Resource Manager-implementatiemodel](../../expressroute/expressroute-migration-classic-resource-manager.md).
+- **Express Route-Circuits en VPN-** . Express Route-Gateways met autorisatielinks kunnen momenteel niet worden gemigreerd zonder downtime. Zie voor een tijdelijke oplossing, [migreren ExpressRoute-circuits en gekoppelde virtuele netwerken van het klassieke naar het Resource Manager-implementatiemodel](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **VM-extensies** -extensies voor virtuele machines worden mogelijk een van de grootste obstakels voor migratie van actieve VM's. Herstel van VM-extensies kan nemen al 1-2 dagen, dus dienovereenkomstig te plannen.  Een werkende Azure-agent is nodig voor het rapporteren van VM-extensie-status van actieve virtuele machines. Als de status voor een actieve virtuele machine terug als beschadigd gaat, wordt deze migratie stoppen. De agent zelf hoeft niet in staat om in te schakelen van de migratie, maar als extensies op de virtuele machine bestaat, klikt u vervolgens zowel een agent werkt en uitgaande internetverbinding (met DNS) er nodig zijn voor migratie naar voren verplaatsen.
   - Als de verbinding met een DNS-server verbroken tijdens de migratie van alle VM-extensies, met uitzondering BGInfo versie 1 is. \* moet eerst worden verwijderd uit elke virtuele machine voordat het voorbereiden van de migratie en weer opnieuw vervolgens toegevoegd aan de virtuele machine na de migratie van Azure Resource Manager.  **Dit is alleen voor virtuele machines die worden uitgevoerd.**  Als de virtuele machines zijn gestopt toewijzing ongedaan wordt gemaakt, hoeft VM-extensies niet worden verwijderd.
@@ -116,7 +116,7 @@ De volgende zijn problemen gedetecteerd in veel van de grotere migraties. Dit is
 
 - **Web/Worker-Rolimplementaties** -Cloud Services met web-en werkrollen niet migreren naar Azure Resource Manager. De web-/ werkrollen moeten eerst worden verwijderd van het virtuele netwerk voordat de migratie kunt starten.  Een typische oplossing is alleen in een afzonderlijke klassiek virtueel netwerk dat is ook gekoppeld aan een ExpressRoute-circuit naar instanties van de web-/ werkrol of voor het migreren van de code naar nieuwere PaaS-App-Services (deze bespreking is buiten het bereik van dit document). In het eerste geval implementeren, een nieuwe klassiek virtueel netwerk maken, verplaatsen/implementeert u opnieuw de web-/ werkrollen naar deze nieuw virtueel netwerk en verwijderen van de implementaties van het virtuele netwerk wordt verplaatst. Er zijn geen codewijzigingen vereist. De nieuwe [Peering in virtuele netwerken](../../virtual-network/virtual-network-peering-overview.md) mogelijkheid kan worden gebruikt om samen het klassieke virtuele netwerk met de web-/ werkrollen en andere virtuele netwerken in dezelfde Azure-regio, zoals het virtuele netwerk dat wordt gemigreerd (**nadat het virtuele netwerkmigratie is voltooid als de gekoppelde virtuele netwerken kunnen niet worden gemigreerd**), daarom bieden dezelfde mogelijkheden met zonder prestatieverlies van en geen sancties latentie/bandbreedte. Het toevoegen van gegeven [Peering in virtuele netwerken](../../virtual-network/virtual-network-peering-overview.md), web/worker-rolimplementaties nu eenvoudig kan worden verholpen en blokkeert de migratie naar Azure Resource Manager.
 
-- **Azure Resource Manager-quota** -Azure-regio's hebben afzonderlijke quota/limieten voor zowel klassieke als Azure Resource Manager. Hoewel in een migratiescenario nieuwe hardware is niet wordt verbruikt *(we bent wisselen van bestaande VM's van klassiek naar Azure Resource Manager)*, Azure Resource Manager-quota nog moeten worden voldaan met voldoende capaciteit voor migratie kunt starten. Hieronder volgen de belangrijkste limieten die we hebben gezien problemen veroorzaken.  Open een ondersteuningsticket quotum te verhogen van de limieten.
+- **Azure Resource Manager-quota** -Azure-regio's hebben afzonderlijke quota/limieten voor zowel klassieke als Azure Resource Manager. Hoewel in een migratiescenario nieuwe hardware is niet wordt verbruikt *(we bent wisselen van bestaande VM's van klassiek naar Azure Resource Manager)* , Azure Resource Manager-quota nog moeten worden voldaan met voldoende capaciteit voor migratie kunt starten. Hieronder volgen de belangrijkste limieten die we hebben gezien problemen veroorzaken.  Open een ondersteuningsticket quotum te verhogen van de limieten.
 
     > [!NOTE]
     > Deze limieten moeten worden gegenereerd in dezelfde regio als uw huidige omgeving moeten worden gemigreerd.
@@ -132,7 +132,7 @@ De volgende zijn problemen gedetecteerd in veel van de grotere migraties. Dit is
 
     U kunt uw huidige Azure Resource Manager-quota's die met de volgende opdrachten met de meest recente versie van Azure PowerShell controleren.
     
-    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **COMPUTE** *(kernen, Beschikbaarheidssets)*
 

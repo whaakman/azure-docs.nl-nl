@@ -16,10 +16,10 @@ ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779561"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
@@ -106,9 +106,9 @@ De volgende tabel bevat een verwijzing van de opmaak van andere gegevens die API
 
 API | Standaardindeling voor gegevens | Andere indelingen
 --------|---------------------|--------------
-/ Instance | JSON | tekst
-/scheduledevents | JSON | geen
-/ blijkt | JSON | geen
+/ Instance | json | text
+/scheduledevents | json | Geen
+/ blijkt | json | Geen
 
 Geef de vereiste indeling als een queryreeks-parameter in de aanvraag voor toegang tot een niet-standaard antwoordindeling. Bijvoorbeeld:
 
@@ -132,7 +132,7 @@ HTTP-statuscode | Reason
 ----------------|-------
 200 OK |
 400-Ongeldige aanvraag | Ontbrekende `Metadata: true` kop- of de indeling ontbreekt bij het opvragen van een leaf-knooppunt
-404 Niet gevonden | Het gevraagde element bestaat niet
+404 – Niet gevonden | Het gevraagde element bestaat niet
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
 429 te veel aanvragen | De API ondersteunt momenteel een maximum van 5 query's per seconde
 500 servicefout     | Voer na enige tijd opnieuw uit
@@ -344,7 +344,7 @@ Gegevens | Description | Versie geïntroduceerd
 -----|-------------|-----------------------
 Attestation | Zie [Attestation-gegevens](#attested-data) | 10-01-2018
 identity | Beheerde identiteiten voor Azure-resources. Zie [een toegangstoken verkrijgen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-exemplaar | Zie [exemplaar van API](#instance-api) | 2017-04-02
+instance | Zie [exemplaar van API](#instance-api) | 2017-04-02
 scheduledevents | Zie [geplande gebeurtenissen](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>Exemplaar van API
@@ -358,7 +358,7 @@ Gegevens | Description | Versie geïntroduceerd
 azEnvironment | Azure-omgeving waarop de virtuele machine wordt uitgevoerd in | 10-01-2018
 customData | Zie [aangepaste gegevens](#custom-data) | 2019-02-01
 location | Azure-regio de virtuele machine wordt uitgevoerd in | 2017-04-02
-naam | Naam van de virtuele machine | 2017-04-02
+name | Naam van de virtuele machine | 2017-04-02
 aanbieding | Bieden van informatie voor de VM-installatiekopie en wordt alleen aanwezig zijn voor installatiekopieën geïmplementeerd vanuit de galerie met installatiekopieën van Azure | 2017-04-02
 besturingssysteemtype | Linux of Windows | 2017-04-02
 placementGroupId | [Plaatsingsgroep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) instellen van uw virtuele-machineschaalset | 2017-08-01
@@ -367,7 +367,7 @@ platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele ma
 platformFaultDomain | [Foutdomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 provider | Provider van de virtuele machine | 10-01-2018
 publicKeys | [Verzameling van openbare sleutels](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) toegewezen aan de virtuele machine en de paden | 2018-04-02
-Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
+publisher | Uitgever van de VM-installatiekopie | 2017-04-02
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
 sku | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
 subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
@@ -723,11 +723,11 @@ My custom data.
 Taal | Voorbeeld
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Start  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Aan de slag  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl

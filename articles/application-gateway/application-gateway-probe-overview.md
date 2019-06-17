@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/06/2018
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 8/6/2018
+ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135197"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway overzicht van statuscontrole
@@ -57,7 +56,7 @@ Zodra de overeenkomen met criteria die is opgegeven, wordt deze kan worden gekop
 
 | Test-eigenschap | Value | Description |
 | --- | --- | --- |
-| Test-URL |http://127.0.0.1:\<port\>/ |URL-pad |
+| WebTest-URL |http://127.0.0.1:\<port\>/ |URL-pad |
 | Interval |30 |De hoeveelheid tijd in seconden dat moet worden gewacht voordat de volgende statustest wordt verzonden.|
 | Time-out |30 |De hoeveelheid tijd in seconden de toepassingsgateway moet wachten op een reactie test voordat u markeert de test is beschadigd. Als een test worden geretourneerd als in orde is, kunnen de bijbehorende back-end wordt onmiddellijk gemarkeerd als in orde.|
 | Drempelwaarde voor onjuiste status |3 |Bepaalt hoeveel tests om te verzenden als er een storing van de reguliere statustest. Deze aanvullende tests snel achter elkaar worden verzonden om de status van de back-end snel te bepalen en niet wachten tot het testinterval. De back-endserver is gemarkeerd omlaag nadat het aantal opeenvolgende fouten de drempelwaarde voor onjuiste status heeft bereikt. |
@@ -86,7 +85,7 @@ De volgende tabel bevat de definities voor de eigenschappen van een aangepaste s
 | Name |De naam van de test. Deze naam wordt gebruikt om te verwijzen naar de test in de back-end-HTTP-instellingen. |
 | Protocol |Het protocol dat wordt gebruikt voor het verzenden van de test. De test wordt gebruikt voor het protocol dat is gedefinieerd in de back-end-HTTP-instellingen |
 | Host |De naam van de host voor het verzenden van de test. Van toepassing alleen als er meerdere sites is geconfigureerd in Application Gateway, anders gebruiken '127.0.0.1'. Deze waarde verschilt van de VM-hostnaam. |
-| `Path` |Relatief pad van de test. Ongeldig pad begint met '/'. |
+| Pad |Relatief pad van de test. Ongeldig pad begint met '/'. |
 | Interval |Testinterval in seconden. Deze waarde is het tijdsinterval tussen twee opeenvolgende tests. |
 | Time-out |Test time-out in seconden. Als een geldige reactie niet binnen deze time-outperiode ontvangen is is, wordt de test is gemarkeerd als mislukt.  |
 | Drempelwaarde voor onjuiste status |Aantal nieuwe pogingen-test. De back-endserver is gemarkeerd omlaag nadat het aantal opeenvolgende fouten de drempelwaarde voor onjuiste status heeft bereikt. |
@@ -105,5 +104,3 @@ Bovendien uitgaande verbinding met Internet kan niet worden geblokkeerd en binne
 Nadat u meer over Application Gateway-statuscontrole, kunt u een [aangepaste statustest](application-gateway-create-probe-portal.md) in Azure portal of een [aangepaste statustest](application-gateway-create-probe-ps.md) met behulp van PowerShell en Azure Resource Manager implementatiemodel.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-<!-- Update_Description: wording update -->

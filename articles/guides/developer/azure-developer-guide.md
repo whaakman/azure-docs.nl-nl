@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570564"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
@@ -158,7 +158,7 @@ Azure biedt verschillende manieren voor het gebruik van containers in uw toepass
 
 Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te voorkomen dat onbevoegde toegang tot uw resources. Azure biedt verschillende manieren om uw app-clients te verifiëren.
 
-- **Azure Active Directory (Azure AD)**: De Microsoft multitenant, cloud-gebaseerde identiteits- en toegangsbeheer management-service. U kunt eenmalige aanmelding (SSO) aan uw toepassingen toevoegen door te integreren met Azure AD. U kunt toegang krijgen tot de eigenschappen van de map met behulp van de Azure AD Graph-API rechtstreeks of de Microsoft Graph API. U kunt integreren met Azure AD-ondersteuning voor OAuth 2.0 machtiging framework en Open ID Connect met behulp van native HTTP-/ REST-eindpunten en de multiplatform Azure AD-verificatiebibliotheken.
+- **Azure Active Directory (Azure AD)** : De Microsoft multitenant, cloud-gebaseerde identiteits- en toegangsbeheer management-service. U kunt eenmalige aanmelding (SSO) aan uw toepassingen toevoegen door te integreren met Azure AD. U kunt toegang krijgen tot de eigenschappen van de map met behulp van de Azure AD Graph-API rechtstreeks of de Microsoft Graph API. U kunt integreren met Azure AD-ondersteuning voor OAuth 2.0 machtiging framework en Open ID Connect met behulp van native HTTP-/ REST-eindpunten en de multiplatform Azure AD-verificatiebibliotheken.
 
   > **Wanneer u**: Als u een SSO-ervaring bieden wilt, werken met gegevens op basis van een grafiek of verificatie van gebruikers op basis van een domein.
   > 
@@ -281,7 +281,7 @@ Azure Resource Explorer is een uitstekend hulpprogramma voor het visualiseren va
 
 Wanneer u toegang tot Azure-resources toestaan, maar het is altijd een aanbevolen procedure zodat gebruikers beschikken over de minimale bevoegdheden die is vereist voor het uitvoeren van een bepaalde taak.
 
-- **Op rollen gebaseerd toegangsbeheer (RBAC)**: In Azure, verleent u toegang tot accounts voor gebruikers (principals) bij een opgegeven bereik: abonnement, resourcegroep of afzonderlijke resources. Met RBAC kunt u een set met resources implementeren in een resourcegroep en machtigingen verlenen aan een specifieke gebruiker of groep. Ook kunt u de toegang beperken tot alleen de resources die deel uitmaken van de doelresourcegroep. U kunt ook toegang verlenen tot een enkele resource, zoals een virtuele machine of virtuele netwerk. Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker, groep of service-principal. Er zijn veel vooraf gedefinieerde rollen, en u kunt ook uw eigen aangepaste rollen definiëren. Zie voor meer informatie, [wat is op rollen gebaseerd toegangsbeheer (RBAC)?](../../role-based-access-control/overview.md).
+- **Op rollen gebaseerd toegangsbeheer (RBAC)** : In Azure, verleent u toegang tot accounts voor gebruikers (principals) bij een opgegeven bereik: abonnement, resourcegroep of afzonderlijke resources. Met RBAC kunt u een set met resources implementeren in een resourcegroep en machtigingen verlenen aan een specifieke gebruiker of groep. Ook kunt u de toegang beperken tot alleen de resources die deel uitmaken van de doelresourcegroep. U kunt ook toegang verlenen tot een enkele resource, zoals een virtuele machine of virtuele netwerk. Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker, groep of service-principal. Er zijn veel vooraf gedefinieerde rollen, en u kunt ook uw eigen aangepaste rollen definiëren. Zie voor meer informatie, [wat is op rollen gebaseerd toegangsbeheer (RBAC)?](../../role-based-access-control/overview.md).
 
   > **Wanneer u**: Wanneer moet u over Geavanceerd toegangsbeheer voor gebruikers en groepen, of wanneer u moet een gebruiker of een eigenaar van een abonnement maken.
   > 

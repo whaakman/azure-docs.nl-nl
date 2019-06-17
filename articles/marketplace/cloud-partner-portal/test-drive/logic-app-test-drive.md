@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64940009"
 ---
 <a name="logic-app-test-drive"></a>Logische App Test Drive
@@ -61,11 +61,11 @@ De volgende sectie om in te vullen is waar u uw logische App testen station conf
 
 ![Technische Testconfiguratie station](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Regio** - *[vereist veld]* de regio die u selecteert is waar u kiezen waar uw Test Drive logische App-resources worden geïmplementeerd.
+- **Regio** -  *[vereist veld]* de regio die u selecteert is waar u kiezen waar uw Test Drive logische App-resources worden geïmplementeerd.
 
     *Opmerking:* Als uw logische App een aangepaste resources die zijn opgeslagen in een regio, moet u dat die regio hier is geselecteerd. De beste manier om dit te doen is om te **volledig uw logische App lokaal op uw Azure-abonnement in de portal implementeren en controleren of deze werkt** voordat deze zich hier worden geschreven.
 
-- **Maximum aantal gelijktijdige Test Drives** - *[vereist veld]* nummer van Test Drive-exemplaren die al zijn geïmplementeerd en wacht op toegang tot per geselecteerde regio. Klanten kunnen onmiddellijk toegang krijgen tot deze Test Drives in plaats van dat moet worden gewacht voor een implementatie.
+- **Maximum aantal gelijktijdige Test Drives** -  *[vereist veld]* nummer van Test Drive-exemplaren die al zijn geïmplementeerd en wacht op toegang tot per geselecteerde regio. Klanten kunnen onmiddellijk toegang krijgen tot deze Test Drives in plaats van dat moet worden gewacht voor een implementatie.
 
     *Opmerking:* Als u een webinar/klasse waar u al uw N aantal studenten uitvoert om een Test uitvoeren, is het raadzaam om te publiceren met N-aantal van Hot-exemplaren en vervolgens één keer de klasse is meer dan opnieuw te publiceren naar uw normale aantal Hot-exemplaren.
 
@@ -77,7 +77,7 @@ De volgende sectie om in te vullen is waar u uw logische App testen station conf
 
 - **Naam van de logische App - inrichting** *[vereist veld]* schrijven in de logische App-naam voor het opheffen van inrichting van alle resources die in de Test Drive gemaakt. Zorg ervoor dat dit bestand wordt opgeslagen in de bovenstaande resourcegroep.
 
-- **Toegang tot informatie -** *[vereist veld]* nadat de Test Drive wordt door een klant, de toegang tot informatie weergegeven. Deze instructies zijn bedoeld voor het delen van de parameters die handig zijn in uw Test Drive Resource Manager-sjabloon. Gebruiken om op te nemen output-parameters, dubbele gekrulde haken (bijvoorbeeld **{{outputname}}**), en ze correct zal worden ingevoegd in de locatie. (HTML-indeling van tekenreeks wordt aanbevolen hier moeten worden weergegeven in de front-end).
+- **Toegang tot informatie -** *[vereist veld]* nadat de Test Drive wordt door een klant, de toegang tot informatie weergegeven. Deze instructies zijn bedoeld voor het delen van de parameters die handig zijn in uw Test Drive Resource Manager-sjabloon. Gebruiken om op te nemen output-parameters, dubbele gekrulde haken (bijvoorbeeld **{{outputname}}** ), en ze correct zal worden ingevoegd in de locatie. (HTML-indeling van tekenreeks wordt aanbevolen hier moeten worden weergegeven in de front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Abonnementsgegevens van Test Drive-implementatie
 
@@ -119,7 +119,7 @@ Klik op Opslaan. De laatste stap is om te halen van de toepassings-ID voor deze 
 Krijgen we de toepassing gebruiken om te implementeren voor het abonnement, moet de toepassing toevoegen als Inzender van het abonnement. De instructies voor deze zijn als hieronder:
 
 1. Navigeer naar de blade abonnementen en selecteer het juiste abonnement dat u voor de Test Drive gebruikt.
-1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 1. Klik op de **roltoewijzingen** tabblad.  ![Azure Active Directory, een nieuwe Access Control-principal toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Klik op **roltoewijzing toevoegen**.
 1. Instellen van de rol als **Inzender**.

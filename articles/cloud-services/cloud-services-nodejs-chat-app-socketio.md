@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61433132"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Een Node.js-chattoepassing met Socket.IO bouwen op een Azure Cloud Service
@@ -113,7 +113,7 @@ Na het opslaan van de wijzigingen in **server.js**, gebruikt u de volgende stapp
    > 
    > Installeer AzureAuthoringTools v 2.7.1 en AzureComputeEmulator v 2.7: Zorg ervoor dat versie overeenkomt met.
 
-2. Open een browser en navigeer naar **http://127.0.0.1**.
+2. Open een browser en navigeer naar **http://127.0.0.1** .
 3. Als het browservenster wordt geopend, voer een bijnaam in en klik vervolgens op ENTER drukken.
    Hiermee kunt u berichten plaatsen als een specifieke bijnaam. Test de functionaliteit voor meerdere gebruikers, opent u extra browservensters met dezelfde URL en voer verschillende bijnamen.
    

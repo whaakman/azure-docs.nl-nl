@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148004"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Tenant-brede inzicht voor Azure Security Center
@@ -178,7 +178,7 @@ U kunt abonnementen toevoegen aan de beheergroep die u hebt gemaakt. Deze stappe
 
 2. Selecteer **bestaande toevoegen**.
 
-    ![Bestaand item toevoegen](./media/security-center-management-groups/add-existing.png)
+    ![Bestaande toevoegen](./media/security-center-management-groups/add-existing.png)
 
 3. Voer abonnement onder **bestaande resource toevoegen** en klikt u op **opslaan**.
 

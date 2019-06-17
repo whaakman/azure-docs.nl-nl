@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131758"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Uw media analyseren met de Azure-portal 
@@ -53,7 +53,7 @@ De **Azure Media Indexer** Mediaprocessor kunt u media-bestanden en inhoud doorz
 ### <a name="language"></a>Taal
 De natuurlijke taal moet worden herkend in het multimediabestand. Bijvoorbeeld Engels of Spaans. 
 
-### <a name="captions"></a>Bijschriften
+### <a name="captions"></a>bijschriften
 U kunt een bijschrift-indeling die zal worden gegenereerd op basis van uw inhoud. Een indexeringstaak kunt ondertitelingsbestand genereren in de volgende indelingen:  
 
 * **SAMI**
@@ -65,7 +65,7 @@ Gesloten bijschrift (CC) bestanden in de volgende indelingen kunnen worden gebru
 ### <a name="aib-file"></a>AIB-bestand
 Selecteer deze optie als u wilt voor het genereren van de Audio Index Blob-bestand voor gebruik met het aangepaste IFilter van SQL Server. Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
-### <a name="keywords"></a>Trefwoorden
+### <a name="keywords"></a>trefwoorden
 Selecteer deze optie als u wilt voor het genereren van een XML-bestand. Dit bestand bevat sleutelwoorden die van de gesproken inhoud, met de frequentie en offset informatie.
 
 ### <a name="job-name"></a>Taaknaam
@@ -136,7 +136,7 @@ Deze processor helpt u bij het detecteren van mogelijke erotische en ongepaste i
 
 ![Gemiddeld video 's](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>Versie 
+### <a name="version"></a>Version 
 '2.0' gebruiken.
 
 ### <a name="mode"></a>Modus

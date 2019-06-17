@@ -10,10 +10,10 @@ ms.date: 05/03/2019
 ms.author: mhopkins
 ms.subservice: common
 ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209696"
 ---
 # <a name="azure-storage-samples-using-net"></a>Voorbeelden van Azure Storage met .NET
@@ -25,11 +25,11 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Eindpunt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Voorbeeldcode</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Blob toevoegen</td> 
+<td>Toevoeg-Blob</td> 
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Aan de slag met Blobs</a></td> 
 </tr> 
 <tr> 
-<td>Blok-blob</td>
+<td>Blok-Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web-App</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met Blobs</a></td>
 </tr> 
 <tr> 
-<td>Pagina-blob</td>
+<td>Pagina-blobs</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met Blobs</a></td>
 </tr>
 <tr> 

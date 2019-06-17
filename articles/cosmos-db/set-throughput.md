@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389254"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067503"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
@@ -87,7 +87,7 @@ U kunt de minimale doorvoer van een container of een database programmatisch met
 
 Bij het gebruik van de .NET SDK, de [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) methode kunt u de minimale doorvoer van een container of een database ophalen. 
 
-U kunt de ingerichte doorvoer van een container of een database schalen op elk gewenst moment. 
+U kunt de ingerichte doorvoer van een container of een database schalen op elk gewenst moment. Wanneer een schaalbewerking wordt uitgevoerd om de doorvoer te vergroten, duurt het langer vanwege de systeemtaken voor het inrichten van de vereiste resources. U kunt de status van de schaalbewerking in Azure portal of programmatisch met behulp van de SDK's controleren. Wanneer u de .net SDK gebruikt, kunt u de status van de schaalbewerking ophalen met behulp van de `DocumentClient.ReadOfferAsync` methode.
 
 ## <a name="comparison-of-models"></a>Vergelijking van modellen
 

@@ -16,18 +16,18 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107641"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Quickstart: Benoemde locaties configureren in Azure Active Directory
 
 Met benoemde locaties, kunt u vertrouwde IP-adresbereiken in uw organisatie een label geven. Azure AD maakt gebruik van benoemde locaties om:
 - Fout-positieven in [risicogebeurtenissen](concept-risk-events.md) te detecteren. Aanmelden van een vertrouwde benoemde locaties verlaagt het aanmeldingsrisico van een gebruiker.   
-- [Voorwaardelijke toegang op basis van locatie](../conditional-access/location-condition.md) configureren.
+- Configureer [voorwaardelijke toegang op basis van locatie](../conditional-access/location-condition.md).
 
 In deze snelstartgids leert u hoe benoemde locaties in uw omgeving te configureren.
 
@@ -45,7 +45,7 @@ U hebt het volgende nodig om deze quickstart te voltooien:
 
 2. Selecteer in het linkerdeelvenster **Azure Active Directory**en selecteer vervolgens **voorwaardelijke toegang** uit de **Security** sectie.
 
-    ![Tabblad Voorwaardelijke toegang](./media/quickstart-configure-named-locations/entrypoint.png)
+    ![Tabblad voor voorwaardelijke toegang](./media/quickstart-configure-named-locations/entrypoint.png)
 
 3. Op de pagina **Voorwaardelijke toegang**, selecteer **Benoemde locaties** en selecteer **Nieuwe locatie**.
 
@@ -63,6 +63,6 @@ U hebt het volgende nodig om deze quickstart te voltooien:
 
 Zie voor meer informatie:
 
-- [Voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md).
+- [Azure AD voorwaardelijke toegang van](../active-directory-conditional-access-azure-portal.md).
 - [Locatievoorwaarden in Azure AD voor voorwaardelijke toegang](../conditional-access/location-condition.md)
 - [Rapport voor riskante aanmeldingen](concept-risky-sign-ins.md).  

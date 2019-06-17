@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521776"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Oplossen van problemen met Azure Monitor voor containers
@@ -34,7 +34,7 @@ U kunt ook handmatig deze rol verlenen vanuit Azure portal door de volgende stap
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 2. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Kubernetes**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Azure Kubernetes**.
 3. Selecteer in de lijst met Kubernetes-clusters, een in de lijst.
-2. Klik in het menu links op **toegangsbeheer (IAM)**.
+2. Klik in het menu links op **toegangsbeheer (IAM)** .
 3. Selecteer **+ toevoegen** een roltoewijzing toevoegen en selecteer de **Publisher van metrische gegevens controleren** rol en klikt u onder de **selecteren** vak **AKS** naar filter de resultaten op alleen de clusters service-principals die zijn gedefinieerd in het abonnement. Selecteer in de lijst die specifiek is voor dat cluster.
 4. Selecteer **opslaan** voltooien van de rol toe te wijzen. 
 
