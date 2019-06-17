@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 06/06/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: d309765e6c4b0b0cc8a7e92977134d4135a69a13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be05cec8e3d755f1b04e5ecc5ec7c740053a74d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073039"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Naslaginformatie over de gebruiker gedefinieerde functies-clientbibliotheek
 
@@ -50,7 +50,7 @@ Een apparaat-id worden gegeven, haalt deze functie het apparaat in de grafiek.
 
 **Type**: globale functie
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *id* | `guid` | Apparaat-id |
 
@@ -60,7 +60,7 @@ Deze functie een sensor-id en het gegevenstype opgegeven, worden de huidige waar
 
 **Type**: globale functie
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | sensor-id |
 | *dataType*  | `string` | gegevens van het sensortype |
@@ -71,7 +71,7 @@ Deze functie is een ruimte-id en de naam van de opgegeven, haalt de huidige waar
 
 **Type**: globale functie
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | ruimte-id |
 | *valueName* | `string` | naam van de eigenschap ruimte |
@@ -82,7 +82,7 @@ Deze functie opgegeven een sensor-id en het gegevenstype, worden de historische 
 
 **Type**: globale functie
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensor-id |
 | *dataType* | `string` | gegevens van het sensortype |
@@ -124,7 +124,7 @@ Deze functie een ruimte-id wordt opgegeven, worden de onderliggende apparaten vo
 
 **Type**: globale functie
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | ruimte-id |
 
@@ -134,7 +134,7 @@ Een apparaat-id worden gegeven, haalt deze functie de onderliggende sensoren voo
 
 **Type**: globale functie
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Apparaat-id |
 
@@ -164,7 +164,7 @@ Een apparaat-id worden gegeven, haalt deze functie de bovenliggende ruimte.
 
 **Type**: globale functie
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Apparaat-id |
 
@@ -360,7 +360,7 @@ Deze functie retourneert de uitgebreide eigenschap en de waarde voor het huidige
 
 Deze functie verzendt een melding met de nettolading van de opgegeven.
 
-| Parameter  | Type                | Beschrijving  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | JSON-nettolading in de melding moeten worden opgenomen |
 

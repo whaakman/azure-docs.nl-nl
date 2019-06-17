@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867968"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metrische gegevens in Azure Monitor
@@ -52,7 +52,7 @@ Gegevens die worden verzameld door Azure Monitor metrische gegevens worden opges
 * Sommige metrische gegevens kan meerdere dimensies hebben, zoals beschreven in [multi-dimensionale metrische gegevens](#multi-dimensional-metrics). Aangepaste metrische gegevens kan maximaal 10 dimensies hebben.
 
 ## <a name="multi-dimensional-metrics"></a>Multi-dimensionale metrische gegevens
-Een van de uitdagingen bij het metrische gegevens is dat het vaak heeft beperkte informatie voor meer context voor waarden die worden verzameld. Azure Monitor lost deze uitdaging met multi-dimensionale metrische gegevens. De grootte van een metrische waarde zijn naam / waarde-paren die aanvullende gegevens om te beschrijven van de metrische waarde bevatten. Bijvoorbeeld, een metrische waarde _beschikbare ruimte op schijf_ kan hebben een dimensie met de naam _station_ met waarden _C:_, _D:_, waarmee zou weergeven de beschikbare schijfruimte op alle stations of voor elk station afzonderlijk.
+Een van de uitdagingen bij het metrische gegevens is dat het vaak heeft beperkte informatie voor meer context voor waarden die worden verzameld. Azure Monitor lost deze uitdaging met multi-dimensionale metrische gegevens. De grootte van een metrische waarde zijn naam / waarde-paren die aanvullende gegevens om te beschrijven van de metrische waarde bevatten. Bijvoorbeeld, een metrische waarde _beschikbare ruimte op schijf_ kan hebben een dimensie met de naam _station_ met waarden _C:_ , _D:_ , waarmee zou weergeven de beschikbare schijfruimte op alle stations of voor elk station afzonderlijk.
 
 In het volgende voorbeeld ziet u twee gegevenssets voor een hypothetische metrische gegevens met de naam _netwerkdoorvoer_. De eerste gegevensset heeft geen dimensies. De tweede gegevensset bevat de waarden met twee dimensies _IP-adres_ en _richting_:
 

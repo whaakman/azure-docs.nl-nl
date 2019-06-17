@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
 ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125777"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Netwerkdoorvoer van virtuele machines van Azure optimaliseren
 
 Azure virtuele machines (VM) hebben standaard-netwerkinstellingen die verder kunnen worden geoptimaliseerd voor de netwerkdoorvoer. In dit artikel wordt beschreven hoe u netwerkdoorvoer optimaliseren voor Microsoft Azure Windows en Linux-VM's, met inbegrip van grote distributies zoals Ubuntu, CentOS en Red Hat.
 
-## <a name="windows-vm"></a>Windows-VM
+## <a name="windows-vm"></a>Windows VM
 
 Als uw Windows-VM ondersteunt [versnelde netwerken](create-vm-accelerated-networking-powershell.md), inschakelen van deze functie is de optimale configuratie voor de doorvoer. Met behulp van ontvangen aan clientzijde schalen (RSS) bereiken hogere maximale doorvoer dan een virtuele machine zonder RSS voor alle andere Windows-VM's. RSS kan worden standaard uitgeschakeld in een Windows-VM. Om te bepalen of RSS is ingeschakeld en inschakelen als deze momenteel uitgeschakeld, voert u de volgende stappen uit:
 

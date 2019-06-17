@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922902"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
@@ -45,7 +45,7 @@ Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [e
 
 1. Klik op het abonnement waar u om toegang te verlenen.
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 
 1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen voor dit abonnement.
 
@@ -72,6 +72,6 @@ Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [e
 * [Procedure: Een Azure-abonnement aan Azure Active Directory koppelen of toevoegen](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Machtigingen voor beheerrol in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

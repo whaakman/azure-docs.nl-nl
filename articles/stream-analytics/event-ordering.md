@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789475"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configureren van beleid voor gebeurtenisvolgordes voor Azure Stream Analytics
@@ -41,7 +41,7 @@ We bekijken een voorbeeld van het beleid in actie.
 <br> **Laat aankomst beleid:** 15 seconden
 <br> **Beleid voor out-van-volgorde:** 8 seconden
 
-| Nee. de gebeurtenis | Tijdstip van gebeurtenis | Ontvangsttijd | System.Timestamp | Uitleg |
+| Nee. de gebeurtenis | Tijd van de gebeurtenis | Ontvangsttijd | System.Timestamp | Uitleg |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Gebeurtenis laat en buiten tolerantieniveau is aangekomen. Tijd van de gebeurtenis wordt dus aangepast aan maximale laat aankomst tolerantie.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Gebeurtenis is aangekomen laat maar binnen de toegestane niveau. Tijd van de gebeurtenis wordt dus niet ophalen aangepast.  |
@@ -73,7 +73,9 @@ Als meerdere partities van de dezelfde invoerstroom worden gecombineerd, is de l
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Dit bericht om u te informeren dat ten minste één partitie in uw invoer leeg is en de uitvoer van de latere aankomst drempelwaarde wordt vertraagd. Als u wilt dit ondervangen, u kunt het beste een van beide: 1. Zorg ervoor dat alle partities van de Event Hub/IoT-Hub invoer ontvangen. 2. Gebruik Partition by PartitionID-component in uw query. 
+Dit bericht om u te informeren dat ten minste één partitie in uw invoer leeg is en de uitvoer van de latere aankomst drempelwaarde wordt vertraagd. Als u wilt dit ondervangen, u kunt het beste een van beide: 
+1. Zorg ervoor dat alle partities van de Event Hub/IoT-Hub invoer ontvangen. 
+2. Gebruik Partition by PartitionID-component in uw query. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overwegingen bij het verwerken van tijd](stream-analytics-time-handling.md)

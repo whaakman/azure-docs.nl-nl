@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721135"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensies voor virtuele machines en functies voor Linux
 
@@ -57,7 +57,7 @@ Als u wilt de best mogelijke ervaring bieden, zijn er minimaal vereiste versies 
 De Linux-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensions een limiet voor de besturingssystemen die uitbreidingen heeft. Raadpleeg [dit artikel](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ) voor meer informatie.
 
-Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteund besturingssysteem'*. Raadpleeg de documentatie van de afzonderlijke-extensie voor ondersteuning.
+Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteund besturingssysteem'* . Raadpleeg de documentatie van de afzonderlijke-extensie voor ondersteuning.
 
 #### <a name="network-access"></a>Netwerktoegang
 
@@ -264,7 +264,7 @@ Het is raadzaam dat u altijd automatisch bijwerken voor de agent hebt [AutoUpdat
 
 #### <a name="extension-updates"></a>Extensie-updates
 
-Wanneer een update van de extensie beschikbaar is, wordt de Linux-Agent downloadt en de extensie wordt bijgewerkt. Automatische verlenging updates zijn *kleine* of *Hotfix*. U kunt aanmelden of afmelden voor extensies *kleine* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch upgraden van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': ' True ','*:
+Wanneer een update van de extensie beschikbaar is, wordt de Linux-Agent downloadt en de extensie wordt bijgewerkt. Automatische verlenging updates zijn *kleine* of *Hotfix*. U kunt aanmelden of afmelden voor extensies *kleine* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch upgraden van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': ' True ','* :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -337,7 +337,7 @@ De volgende stappen voor probleemoplossing van toepassing op alle VM-extensies.
 
 1. Om te controleren of het logboek van de Linux-Agent, de activiteit kijken wanneer de extensie is ingericht in */var/log/waagent.log*
 
-2. Raadpleeg de werkelijke extensie-logboeken voor meer informatie in   */var/aanmelden/azure /<extensionName>*
+2. Raadpleeg de werkelijke extensie-logboeken voor meer informatie in */var/aanmelden/azure/\<Extensienaam >*
 
 3. Raadpleeg de documentatie van extensie-specifieke secties voor foutcodes, bekende problemen enzovoort oplossen van problemen.
 
@@ -404,7 +404,7 @@ U kunt ook verwijderen een extensie in de Azure-portal als volgt:
 
 ## <a name="common-vm-extension-reference"></a>Algemene VM-extensie-referentie
 
-| Extensienaam | Beschrijving | Meer informatie |
+| Extensienaam | Description | Meer informatie |
 | --- | --- | --- |
 | Aangepaste scriptextensie voor Linux |Scripts uitvoeren op een virtuele machine van Azure |[Aangepaste scriptextensie voor Linux](custom-script-linux.md) |
 | VM-extensie voor toegang |Opnieuw toegang krijgen tot een virtuele machine van Azure |[VM-extensie voor toegang](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

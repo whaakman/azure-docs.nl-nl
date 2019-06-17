@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: 98eb537a5c064cd22b995ae214c8d61db7a8b6b5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942486"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Een nieuwe aanbieding van de IoT Edge-module maken met de Cloud Partner-Portal
@@ -20,7 +20,7 @@ In dit artikel wordt beschreven hoe u maken en publiceren van een vermelding in 
 
 |  **Activa-groep**   |  **Beschrijving**  |
 |  ---------------   |  ---------------  |
-|    Voorraadeenheden            |  De kleinste implementeerbare eenheid van een aanbieding. Één aanbieding (productklasse) kan meerdere SKU's die zijn gekoppeld aan de aanbieding hebben. SKU's kunt u onderscheid maken tussen ondersteunde functies en factureringsmodellen. |
+|    SKU 's            |  De kleinste implementeerbare eenheid van een aanbieding. Één aanbieding (productklasse) kan meerdere SKU's die zijn gekoppeld aan de aanbieding hebben. SKU's kunt u onderscheid maken tussen ondersteunde functies en factureringsmodellen. |
 |  Marketplace       | Marketing, juridische en potentiële klanten beheer activa en specificaties bevat.  <ul><li> Marketing activa omvatten aanbiedingsnaam, beschrijving en logo 's</li> <li> Juridische activa omvatten een privacybeleid, gebruiksvoorwaarden en andere juridische documentatie</li>  <li> Potentiële klanten beleid kunt u opgeven hoe worden verwerkt via de portal van Azure Marketplace door eindgebruikers leidt.</li> </ul> |
 | Ondersteuning            | Bevat informatie over ondersteuning en neem contact op met het beleid |
 

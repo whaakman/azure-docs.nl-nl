@@ -7,16 +7,16 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 0e67a56e3d723874ed93fc8dcad91e3063d923ed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076162"
 ---
-# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Zelfstudie: Stream Analytics en Power BI: Een realtime analytics-dashboard voor het streamen van gegevens
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics en Power BI: Een realtime analytics-dashboard voor het streamen van gegevens
+
 Azure Stream Analytics kunt u profiteren van een van de toonaangevende hulpprogramma's voor bedrijfsinformatie [Microsoft Power BI](https://powerbi.com/). In dit artikel leert u hoe business intelligence-hulpmiddelen te maken met behulp van Power BI als uitvoer voor uw Azure Stream Analytics-taken. U leert ook hoe u het maken en gebruiken van een realtime dashboard.
 
 Dit artikel gaat verder uit de Stream Analytics [fraudebewaking in realtime](stream-analytics-real-time-fraud-detection.md) zelfstudie. Het bouwt voort op de werkstroom in deze zelfstudie hebt gemaakt en wordt toegevoegd een Power BI uitvoeren zodat u frauduleuze telefoongesprekken die zijn gedetecteerd door een stream Analytics-taak kunt visualiseren. 
@@ -38,41 +38,31 @@ In de zelfstudie realtime fraude-detectie wordt de uitvoer verzonden naar Azure 
 
 1. Open de stream Analytics-taak die u eerder hebt gemaakt in de Azure-portal. Als u de voorgestelde naam gebruikt, wordt de taak met de naam `sa_frauddetection_job_demo`.
 
-2. Selecteer de **uitvoer** vak in het midden van het dashboard van de taak en selecteer vervolgens **+ toevoegen**.
+2. Selecteer in het menu links **uitvoer** onder **taaktopologie**. Selecteer **+ toevoegen** en kies **Power BI** in de vervolgkeuzelijst.
 
-3. Voor **uitvoeralias**, voer `CallStream-PowerBI`. U kunt ook een andere naam gebruiken. Als u dit doet, noteer, omdat u de naam van de later nodig. 
+3. Selecteer **+ Toevoegen** > **Power BI**. Vul vervolgens het formulier in met de volgende gegevens en selecteer **Autoriseren**:
 
-4. Onder **Sink**, selecteer **Power BI**.
+   |**Instelling**  |**Voorgestelde waarde**  |
+   |---------|---------|
+   |Uitvoeralias  |  CallStream-PowerBI  |
+   |Naam van de gegevensset  |   sa-dataset  |
+   |Tabelnaam |  fraudulent-calls  |
 
-   ![Uitvoer maken voor Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
+   ![Azure Stream Analytics-uitvoer configureren](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
-5. Klik op **autoriseren**.
+   > [!WARNING]
+   > Als Power BI een gegevensset en een tabel met dezelfde namen als degene die u in de Stream Analytics-taak opgeeft heeft, worden de bestaande bestanden overschreven.
+   > Het is raadzaam dat u geen expliciet deze gegevensset en de tabel in uw Power BI-account maakt. Ze worden automatisch gemaakt wanneer u uw Stream Analytics-taak starten en de taak wordt gestart reageert uitvoer naar Power BI. Als uw job query geen resultaten oplevert, worden de gegevensset en de tabel niet gemaakt.
+   >
 
-    Een venster geopend waarin u uw Azure-referenties kunt opgeven voor een account voor werk of school. 
-
-    ![Geef referenties voor toegang tot Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
-
-6. Voer uw referenties. Klik wanneer u uw referenties invoert, u ook toestemming voor de Streaming Analytics-taak geeft bent voor toegang tot uw Power BI-omgeving, worden op de hoogte.
-
-7. Als u terug naar de **nieuwe uitvoer** blade, voer de volgende informatie:
-
-   * **Werkruimte groep**: Selecteer een werkruimte in uw Power BI-tenant waar u om de gegevensset te maken.
-   * **Naam van de gegevensset**:  Voer `sa-dataset` in. U kunt ook een andere naam gebruiken. Als u dit doet, moet u een notitie van deze voor later.
-   * **Tabelnaam**: Voer `fraudulent-calls` in. Power BI-uitvoer van Stream Analytics-taken kan op dit moment slechts één tabel hebt in een gegevensset.
-
-     ![Gegevensset van Power BI-werkruimte en tabel](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
-
-     > [!WARNING]
-     > Als Power BI een gegevensset en een tabel met dezelfde namen als degene die u in de Stream Analytics-taak opgeeft heeft, worden de bestaande bestanden overschreven.
-     > Het is raadzaam dat u geen expliciet deze gegevensset en de tabel in uw Power BI-account maakt. Ze worden automatisch gemaakt wanneer u uw Stream Analytics-taak starten en de taak wordt gestart reageert uitvoer naar Power BI. Als uw job query geen resultaten oplevert, worden de gegevensset en de tabel niet gemaakt.
-     >
+4. Als u **Autoriseren** hebt geselecteerd, wordt er een pop-upvenster geopend en wordt u gevraagd referenties te verstrekken als verificatie voor uw Power BI-account. Zodra de autorisatie geslaagd is, kunt u de instellingen **Opslaan**.
 
 8. Klik op **Create**.
 
 De gegevensset is gemaakt met de volgende instellingen:
 
-* **defaultRetentionPolicy: BasicFIFO**: Gegevens zijn FIFO, met een maximum van 200.000 rijen.
-* **defaultMode: pushStreaming**: De gegevensset ondersteunt zowel streamingtegels en traditionele rapport op basis van visuele elementen (ook wel) push).
+* **defaultRetentionPolicy: BasicFIFO** -gegevens zijn FIFO, met een maximum van 200.000 rijen.
+* **defaultMode: pushStreaming** -de gegevensset ondersteunt zowel streamingtegels en traditionele rapport op basis van visuele elementen (ook wel bekend als push).
 
 U kunt op dit moment gegevenssets maken met andere vlaggen.
 
@@ -90,54 +80,52 @@ Zie voor meer informatie over Power BI-gegevenssets, de [Power BI REST-API](http
     >[!NOTE]
     >Als u de invoer heeft niet de naam `CallStream` vervangen door uw naam in de zelfstudie van fraude `CallStream` in de **FROM** en **JOIN** componenten in de query.
 
-        ```SQL
-        /* Our criteria for fraud:
-        Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
+   ```SQL
+   /* Our criteria for fraud:
+   Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
-        SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-        INTO "CallStream-PowerBI"
-        FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-        JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+   INTO "CallStream-PowerBI"
+   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
 
-        /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
-        ON CS1.CallingIMSI = CS2.CallingIMSI
+   /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+   ON CS1.CallingIMSI = CS2.CallingIMSI
 
-        /* ...and date between CS1 and CS2 is between one and five seconds */
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+   /* ...and date between CS1 and CS2 is between one and five seconds */
+   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
 
-        /* Where the switch location is different */
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        GROUP BY TumblingWindow(Duration(second, 1))
-        ```
+   /* Where the switch location is different */
+   WHERE CS1.SwitchNum != CS2.SwitchNum
+   GROUP BY TumblingWindow(Duration(second, 1))
+   ```
 
 4. Klik op **Opslaan**.
 
 
 ## <a name="test-the-query"></a>De query testen
+
 Deze sectie is optioneel, maar wordt aanbevolen. 
 
 1. Als de app TelcoStreaming is niet wordt uitgevoerd, start de service door de volgende stappen:
 
-    * Open een opdrachtvenster.
+    * Open de opdrachtprompt.
     * Ga naar de map waar de telcogenerator.exe en de gewijzigde telcodatagen.exe.config bestanden zijn.
     * Voer de volgende opdracht uit:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. In de **Query** blade, klik op de puntjes naast de `CallStream` invoer en selecteer vervolgens **voorbeeldgegevens van uitvoer**.
+2. Op de **Query** pagina voor uw Stream Analytics-taak, klikt u op de puntjes naast de `CallStream` invoer en selecteer vervolgens **voorbeeldgegevens van uitvoer**.
 
 3. Opgeven dat u drie minuten aan gegevens en klik op **OK**. Wacht tot u een melding krijgt dat de gegevens zijn verzameld.
 
-4. Klik op **Test** en controleer of u resultaten krijgt.
-
+4. Klik op **Test** en bekijk de resultaten.
 
 ## <a name="run-the-job"></a>De taak uitvoeren
 
 1. Zorg ervoor dat de TelcoStreaming-app wordt uitgevoerd.
 
-2. Sluit de **Query** blade.
-
-3. Klik op de taakblade **Start**.
+2. Navigeer naar de **overzicht** pagina voor uw Stream Analytics-taak en selecteer **Start**.
 
     ![De Stream Analytics-taak starten](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 

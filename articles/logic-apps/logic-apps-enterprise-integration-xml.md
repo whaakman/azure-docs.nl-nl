@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
 ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996561"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML-berichten en platte bestanden in Azure Logic Apps met Enterprise Integration Pack
@@ -30,7 +30,7 @@ Het Enterprise Integration Pack bevat:
 * [Bestandscodering en ontsleuteling van plat bestand met de platte](logic-apps-enterprise-integration-flatfile.md "meer informatie over de platte bestandsindeling codering/decodering") - codering of een plat bestand decoderen. Bijvoorbeeld, SAP accepteert en verzendt IDOC-bestanden in de platte bestandsindeling. Veel platforms met integratie van maken XML-berichten, met inbegrip van logische Apps. U kunt dus een logische app die gebruikmaakt van het coderingsprogramma plat bestand "" XML-bestanden converteren naar platte bestanden maken. 
 * [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - verrijken van een bericht en specifieke eigenschappen onttrekken aan het bericht. U kunt vervolgens de uitgepakte eigenschappen gebruiken voor het routeren van het bericht naar een locatie, of een tussenliggende eindpunt.
 
-## <a name="try-it-out"></a>Uitproberen
+## <a name="try-it-out"></a>Probeer het
 [Een volledig operationeel logische app implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (voorbeeld van GitHub) met behulp van de XML-functies in Azure Logic Apps.
 
 ## <a name="learn-more"></a>Meer informatie

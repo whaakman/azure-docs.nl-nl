@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160288"
 ---
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
@@ -23,8 +23,8 @@ ms.locfileid: "66160288"
     ![Virtuele machine bijwerken](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 4. De **Status** wordt gewijzigd in *vanaf* als de virtuele machine wordt opgestart op een nieuwe Azure-host, zoals wordt weergegeven in het volgende voorbeeld:
    
-    ![VM gestart](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
+    ![VM starten](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 5. Nadat de virtuele machine klaar is met het opstartproces, de **Status** retourneert vervolgens naar *met*, die wijzen op de virtuele machine is opnieuw is gedistribueerd:
    
-    ![VM uitgevoerd](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+    ![Virtuele machine wordt uitgevoerd](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 

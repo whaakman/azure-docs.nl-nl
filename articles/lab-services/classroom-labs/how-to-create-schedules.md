@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60695948"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Maken en beheren van schema's voor leslokaallabs in Azure Lab Services 
@@ -35,7 +35,7 @@ Schema's kunt u een leslokaallab configureren zodat virtuele machines in het lab
 3. Voor **datum (vereist) plannen**, de datum invoeren of Selecteer het kalenderpictogram een datum te selecteren. 
 4. Voor **begintijd**, selecteert u het tijdstip waarop de virtuele machines worden gestart. De begintijd is vereist als de tijd voor het stoppen is niet ingesteld. Selecteer **verwijderen start gebeurtenis** als u wilt om op te geven alleen de tijd voor het stoppen. Als de **begintijd** is uitgeschakeld, selecteer **toevoegen begingebeurtenis** naast de vervolgkeuzelijst zodat het. 
 5. Voor **stoptijd**, selecteert u het tijdstip waarop de virtuele machines worden afgesloten. De tijd voor het stoppen is vereist als de begintijd is niet ingesteld. Selecteer **stop-gebeurtenis Remove** als u wilt opgeven voor alleen de begintijd. Als de **stoptijd** is uitgeschakeld, selecteer **stop-gebeurtenis toevoegen** naast de vervolgkeuzelijst zodat het.
-6. Voor **tijdzone (vereist)**, selecteert u de tijdzone voor het starten en stoppen keren dat u hebt opgegeven. 
+6. Voor **tijdzone (vereist)** , selecteert u de tijdzone voor het starten en stoppen keren dat u hebt opgegeven. 
 7. Voor **opmerkingen bij de**, geen beschrijving of notities invoeren voor de planning. 
 8. Selecteer **Opslaan**. 
 
@@ -47,12 +47,12 @@ Schema's kunt u een leslokaallab configureren zodat virtuele machines in het lab
 
     ![Schema-knop op de pagina schema toevoegen](../media/how-to-create-schedules/add-schedule-button.png)
 2. Op de **toevoegen planning** pagina, gaat u naar **wekelijkse** aan de bovenkant. 
-3. Voor **plannen dagen (vereist)**, selecteer de dagen waarop de planning van kracht. In het volgende voorbeeld, is maandag tot vrijdag geselecteerd. 
+3. Voor **plannen dagen (vereist)** , selecteer de dagen waarop de planning van kracht. In het volgende voorbeeld, is maandag tot vrijdag geselecteerd. 
 4. Voor de **van** en voer de **plannen begindatum** of kies een datum selecteert de **agenda** knop. Dit veld is vereist. 
 5. Voor **planning einddatum**Typ of Selecteer een einddatum waarop de virtuele machines moeten worden afgesloten. 
 6. Voor **begintijd**, selecteert u het tijdstip waarop u wilt dat de virtuele machines worden gestart. De begintijd is vereist als de tijd voor het stoppen is niet ingesteld. Selecteer **verwijderen start gebeurtenis** als u wilt om op te geven alleen de tijd voor het stoppen. Als de **begintijd** is uitgeschakeld, selecteer **toevoegen begingebeurtenis** naast de vervolgkeuzelijst zodat het. 
 7. Voor **stoptijd**, selecteert u het tijdstip waarop u wilt dat de virtuele machines worden afgesloten. De tijd voor het stoppen is vereist als de begintijd is niet ingesteld. Selecteer **stop-gebeurtenis Remove** als u wilt opgeven voor alleen de begintijd. Als de **stoptijd** is uitgeschakeld, selecteer **stop-gebeurtenis toevoegen** naast de vervolgkeuzelijst zodat het.
-8. Voor **tijdzone (vereist)**, selecteert u de tijdzone voor het starten en stoppen keren dat u hebt opgegeven.  
+8. Voor **tijdzone (vereist)** , selecteert u de tijdzone voor het starten en stoppen keren dat u hebt opgegeven.  
 9. Voor **opmerkingen bij de**, geen beschrijving of notities invoeren voor de planning. 
 10. Selecteer **Opslaan**. 
 

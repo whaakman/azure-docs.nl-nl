@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: bwren
 ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425930"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Weergeven en analyseren van logboekgegevens in Azure Monitor
@@ -55,7 +55,7 @@ De volgende opties zijn nog niet beschikbaar via de weergave van resources van L
 ## <a name="firewall-requirements"></a>Firewall-vereisten
 Uw browser vereist toegang tot de volgende adressen voor toegang tot Log Analytics.  Als uw browser de Azure-portal via een firewall openen is, moet u toegang tot deze adressen inschakelen.
 
-| URI | IP | Poorten |
+| Uri | IP | Poorten |
 |:---|:---|:---|
 | portal.loganalytics.io | Dynamisch | 80,443 |
 | api.loganalytics.io    | Dynamisch | 80,443 |

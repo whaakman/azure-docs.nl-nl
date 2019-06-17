@@ -9,17 +9,17 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116147"
 ---
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
 Als u de optie 'Vereist clientautorisatie' hebt uitgeschakeld tijdens het maken van de relay, kunt u met elke browser aanvragen verzenden naar de URL van de hybride verbindingen. Voor toegang tot beveiligde eindpunten moet u een token maken en doorgeven in de header `ServiceBusAuthorization`, die hier wordt weergegeven.
 
-Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project.
+Maak in Visual Studio een nieuw **Console-app (.NET Framework)** -project.
 
 ### <a name="add-the-relay-nuget-package"></a>Het pakket Relay NuGet toevoegen
 

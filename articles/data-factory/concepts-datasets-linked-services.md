@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866477"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-create-datasets.md)
 > * [Huidige versie](concepts-datasets-linked-services.md)
 
@@ -69,9 +69,9 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
 Eigenschap | Description | Vereist |
 -------- | ----------- | -------- |
-naam | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
+name | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
 type | Het type van de gegevensset. Geef een van de typen die worden ondersteund door Data Factory (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie, [gegevenssettypen](#dataset-type). | Ja |
-structuur | Het schema van de gegevensset. Zie voor meer informatie, [gegevensset schema](#dataset-structure-or-schema). | Nee |
+structure | Het schema van de gegevensset. Zie voor meer informatie, [gegevensset schema](#dataset-structure-or-schema). | Nee |
 typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob-, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#dataset-type). | Ja |
 
 ### <a name="data-flow-compatible-dataset"></a>Gegevensstroom compatibel gegevensset
@@ -114,7 +114,7 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
 Eigenschap | Description | Vereist |
 -------- | ----------- | -------- |
-naam | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
+name | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
 type | Het type van de gegevensset. Geef een van de typen die worden ondersteund door Data Factory (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie, [gegevenssettypen](#dataset-type). | Ja |
 schema | Het schema van de gegevensset. Zie voor meer informatie, [compatibel gegevenssets gegevensstroom](#dataset-type). | Nee |
 typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob-, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#dataset-type). | Ja |
@@ -182,9 +182,9 @@ Elke kolom in de structuur bevat de volgende eigenschappen:
 
 Eigenschap | Description | Vereist
 -------- | ----------- | --------
-naam | Naam van de kolom. | Ja
+name | Naam van de kolom. | Ja
 type | Het gegevenstype van de kolom. Data Factory ondersteunt de volgende tijdelijke gegevenstypen als toegestane waarden: **Int16, Int32 Int64, één, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, datum/tijd, Datetimeoffset en Timespan** | Nee
-cultuur | . NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee
+culture | . NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee
 Indeling | Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee
 
 ### <a name="example"></a>Voorbeeld

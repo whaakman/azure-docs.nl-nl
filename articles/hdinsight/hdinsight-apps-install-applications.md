@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
 ms.openlocfilehash: b916cbf690544d5887569e052a0456ca952140c8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409545"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Apache Hadoop-toepassingen van derden installeren op Azure HDInsight
@@ -26,7 +26,7 @@ De volgende lijst bevat de gepubliceerde toepassingen:
 |Toepassing |Cluster-type | Description |
 |---|---|---|
 |[AtScale Intelligence Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale schakelt het HDInsight-cluster in een scale-out van de OLAP-server, zodat u kunt query miljarden rijen met gegevens interactief met behulp van de BI-hulpprogramma's u al kent, eigenaar en vertrouwt: van Microsoft Excel, Power BI, Tableau Software tot QlikView. |
-|[CDAP voor HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |Hbase |CDAP is het eerste uniforme integratieplatform voor big data die versnelt de tijd aan de waarde voor Hadoop en kunnen IT-Self-servicegebruikers gegevens te verstrekken. Open-source en uitbreidbaar CDAP Hiermee verwijdert u de barrières voor innovatie. Vereisten: 4 regio knooppunten, min D3 v2. |
+|[CDAP voor HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP is het eerste uniforme integratieplatform voor big data die versnelt de tijd aan de waarde voor Hadoop en kunnen IT-Self-servicegebruikers gegevens te verstrekken. Open-source en uitbreidbaar CDAP Hiermee verwijdert u de barrières voor innovatie. Vereisten: 4 regio knooppunten, min D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datameer.datameer) |Hadoop |Datameer van selfservice schaalbaar platform voor het voorbereiden, verkennen en uw gegevens voor analyse van bestuur versnelt complexe meerdere bronnen gegevens omzetten in waardevolle informatie bedrijfsklare, sneller, slimmer inzichten leveren op een enterprise-schaal. |
 |[Dataiku DSS op HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS in een enterprise data science-platform waarmee gegevenswetenschappers en gegevensanalisten samenwerken om te ontwerpen en uitvoeren van nieuwe gegevens producten en diensten efficiënter, onbewerkte gegevens omzetten in indrukwekkende voorspellingen. |
 |[WANdisco Fusion HDI-App](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |Gegevens in een gedistribueerde omgeving consistent blijven is van een grootschalige gegevens bewerkingen. WANdisco Fusion, een hoogwaardige software-platform, lost dit probleem op door in te schakelen van de consistentie van niet-gestructureerde gegevens in elke omgeving. |
@@ -83,9 +83,9 @@ De portal toont een lijst van de geïnstalleerde HDInsight-toepassingen voor een
 
     |Eigenschap | Description |
     |---|---|
-    |App-naam |De naam van de toepassing. |
+    |Naam van app |De naam van de toepassing. |
     |Status |Toepassingsstatus. |
-    |Webpagina |De URL van de web-App die u hebt geïmplementeerd op het edge-knooppunt. De referenties zijn dezelfde als de HTTP-gebruikersreferenties die u hebt geconfigureerd voor het cluster. |
+    |Webpage |De URL van de web-App die u hebt geïmplementeerd op het edge-knooppunt. De referenties zijn dezelfde als de HTTP-gebruikersreferenties die u hebt geconfigureerd voor het cluster. |
     |SSH-eindpunt |U kunt SSH gebruiken om te verbinden met het edge-knooppunt. De SSH-referenties zijn dezelfde als de SSH-gebruikersreferenties die u hebt geconfigureerd voor het cluster. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie. |
     |Description | Beschrijving van de toepassing. |
 

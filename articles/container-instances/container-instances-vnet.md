@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712803"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
@@ -88,7 +88,7 @@ U kunt [az container maken] [ az-container-create] groepen met containers implem
 
 Als u wilt implementeren naar een nieuw virtueel netwerk en Azure automatisch de netwerkbronnen voor u te maken, geeft u de volgende wanneer u [az container maken][az-container-create]:
 
-* Naam van virtueel netwerk
+* Virtuele-netwerknaam
 * Adresvoorvoegsel van virtueel netwerk in CIDR-indeling
 * Subnetnaam
 * Adresvoorvoegsel subnet in CIDR-indeling
@@ -251,7 +251,7 @@ appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-hel
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-### <a name="delete-container-instances"></a>Containerinstanties verwijderen
+### <a name="delete-container-instances"></a>Containerexemplaren verwijderen
 
 Wanneer u klaar bent met de containerinstanties werkt u hebt gemaakt, verwijdert deze met de volgende opdrachten:
 

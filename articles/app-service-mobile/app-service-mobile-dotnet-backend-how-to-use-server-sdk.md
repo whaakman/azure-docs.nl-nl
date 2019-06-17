@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119511"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Werken met de .NET-back-endserver-SDK voor Azure Mobile Apps
@@ -53,7 +53,7 @@ Installeer de Azure-workload via de Visual Studio Installer publiceren naar Azur
 
 1. Open de **nieuw Project** dialoogvenster (van **bestand** > **nieuw** > **Project wordt gemaakt...** ).
 2. Vouw **Visual C#** en selecteer **Web**.
-3. Selecteer **ASP.NET-webtoepassing (.NET Framework)**.
+3. Selecteer **ASP.NET-webtoepassing (.NET Framework)** .
 4. Vul de projectnaam in. Klik vervolgens op **OK**.
 5. Selecteer **Azure Mobile App** uit de lijst met sjablonen.
 6. Klik op **OK** om de oplossing te maken.
@@ -65,7 +65,7 @@ Installeer de Azure-workload via de Visual Studio Installer publiceren naar Azur
 Installeer de [Azure SDK voor .NET] [ 4] (versie 2.9.0 of hoger) om te maken van een Azure Mobile Apps-project in Visual Studio. Wanneer u de SDK hebt geïnstalleerd, maakt u een ASP.NET-toepassing met behulp van de volgende stappen uit:
 
 1. Open de **nieuw Project** dialoogvenster (van **bestand** > **nieuw** > **Project wordt gemaakt...** ).
-2. Vouw **sjablonen** > **Visual C#**, en selecteer **Web**.
+2. Vouw **sjablonen** > **Visual C#** , en selecteer **Web**.
 3. Selecteer **ASP.NET-webtoepassing**.
 4. Vul de projectnaam in. Klik vervolgens op **OK**.
 5. Onder *ASP.NET 4.5.2-sjablonen sjablonen*, selecteer **Azure Mobile App**. Controleer **Host in de cloud** te maken van een mobiele back-end in de cloud waarmee u dit project kunt publiceren.
@@ -104,7 +104,7 @@ Om in te schakelen afzonderlijke functies, moet u uitbreidingsmethoden aanroepen
         .MapApiControllers()
         .ApplyTo(config);
 
-De server Quick Start van het aanroepen van de Azure portal **UseDefaultConfiguration()**. Dit is gelijk aan de volgende instellingen:
+De server Quick Start van het aanroepen van de Azure portal **UseDefaultConfiguration()** . Dit is gelijk aan de volgende instellingen:
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -203,7 +203,7 @@ Als u de Azure-SDK geïnstalleerd hebt, kunt u een sjabloon kontroler tabulek nu
    * In de **Modelklasse** vervolgkeuzelijst, selecteer uw nieuwe DTO.
    * In de **DbContext** vervolgkeuzelijst, selecteert u de mobiele Service DbContext-klasse.
    * De naam van de domeincontroller is voor u gemaakt.
-4. Klik op **Add**.
+4. Klik op **Toevoegen**.
 
 De Quick Start-serverproject bevat een voorbeeld van een eenvoudige **TodoItemController**.
 

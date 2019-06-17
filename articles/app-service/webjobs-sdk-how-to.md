@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831789"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
@@ -130,7 +130,7 @@ static void Main()
 
 In versie 3. *x*, de verbindingslimiet standaard ingesteld op onbeperkt verbindingen. Als om een bepaalde reden u deze limiet wijzigen moet, kunt u de [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) eigenschap van de [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) klasse.
 
-In versie 2. *x*, beheren van het aantal gelijktijdige verbindingen met een host met behulp van de [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, moet u deze waarde van de standaardwaarde van 2 verhogen voordat u begint met de WebJobs-host.
+In versie 2. *x*, beheren van het aantal gelijktijdige verbindingen met een host met behulp van de [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2\. *x*, moet u deze waarde van de standaardwaarde van 2 verhogen voordat u begint met de WebJobs-host.
 
 Alle uitgaande HTTP-aanvragen die u in een functie met behulp van aanbrengt `HttpClient` langs `ServicePointManager`. Nadat u de waarde in bereiken `DefaultConnectionLimit`, `ServicePointManager` begint queueing aanvragen voordat ze worden verzonden. Stel dat uw `DefaultConnectionLimit` is ingesteld op 2 en de code maakt 1000 HTTP-aanvragen. In eerste instantie zijn slechts twee aanvragen via toegestaan voor het besturingssysteem. De andere 998 in de wachtrij geplaatst totdat er ruimte voor hen. Dit betekent dat uw `HttpClient` time-out mogelijk omdat deze wordt weergegeven aan de aanvraag hebt ingediend, maar de aanvraag is nooit verzonden door het besturingssysteem naar de doelserver. Zo ziet u mogelijk gedrag op dat lijkt niet te zijn: uw lokale `HttpClient` duurt 10 seconden om een aanvraag te voltooien, maar uw service retourneert elke aanvraag in 200 ms. 
 
@@ -836,7 +836,7 @@ Elk logboek wordt gemaakt door een `ILogger` exemplaar heeft een bijbehorende `C
 |LogLevel    |Code|
 |------------|---|
 |Tracering       | 0 |
-|Fouten opsporen       | 1 |
+|fouten opsporen       | 1 |
 |Informatie | 2 |
 |Waarschuwing     | 3 |
 |Fout       | 4 |

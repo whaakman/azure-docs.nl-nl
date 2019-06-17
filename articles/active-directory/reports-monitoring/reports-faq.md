@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 09270d89ecaff02716d9916527d21ba2c5d30716
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437036"
+ms.locfileid: "67107536"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Veelgestelde vragen over Azure Active Directory-rapporten
 
@@ -147,7 +147,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
     
 **V: Wat zijn alle mogelijke waarden voor de status voor voorwaardelijke toegang?**
 
-**A:** Status voor voorwaardelijke toegang kan de volgende waarden hebben:
+**A:** Status van voorwaardelijke toegang kan de volgende waarden hebben:
 
 * **Niet toegepast**: Dit betekent dat er geen CA-beleid met de gebruiker en de app binnen het bereik is. 
 * **Geslaagd**: Dit betekent dat er een CA-beleid met de gebruiker en de app binnen het bereik is en CA-beleid is voldaan. 

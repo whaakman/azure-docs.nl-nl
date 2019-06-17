@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f52f5200f33d11db44d94b5a5f26d246f711e224
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023806"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Sentiment cognitieve vaardigheden
@@ -48,7 +48,7 @@ Parameters zijn hoofdlettergevoelig.
 
 | Voer een naam in | Description |
 |--------------------|-------------|
-| tekst | De tekst die moet worden geanalyseerd.|
+| text | De tekst die moet worden geanalyseerd.|
 | languageCode  |  (Optioneel) Een tekenreeks die aangeeft van de taal van de records. Als deze parameter niet is opgegeven, is de standaardwaarde 'en'. <br/>Zie [volledige lijst met ondersteunde talen](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790907"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Taalanalyse toevoegen aan een Azure Search-index
@@ -95,7 +95,7 @@ Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Az
 |Litouws|lt.microsoft||  
 |Malayalam|ml.microsoft||  
 |Maleis (Latijns)|ms.microsoft||  
-|Mahratti|mr.microsoft||  
+|Marathi|mr.microsoft||  
 |Noors|nb.microsoft|no.lucene|  
 |Perzisch||fa.lucene|  
 |Pools|pl.microsoft|pl.lucene|  

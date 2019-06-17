@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 9cf9e1aabc0898ef025c7c2f517e631a812e67d7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969017"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Change feed processor in Azure Cosmos DB 
@@ -41,7 +41,7 @@ Er zijn vier belangrijke onderdelen van de implementatie van de change feed proc
 
    * Voortzetting van: Hiermee geeft u de positie (vervolgtoken) in de feed voor een bepaalde partitie wijzigen.
 
-   * Timestamp: Laatste keer dat de lease is bijgewerkt. de tijdstempel kan worden gebruikt om te controleren of de lease is verlopen.
+   * Tijdstempel: Laatste keer dat de lease is bijgewerkt. de tijdstempel kan worden gebruikt om te controleren of de lease is verlopen.
 
 1. **De processor host:** Elke host bepaalt het aantal partities verwerken op basis van hoeveel andere instanties van hosts actieve leases hebben.
 

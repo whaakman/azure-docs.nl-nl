@@ -10,10 +10,10 @@ ms.service: automation
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133122"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen van een virtuele machine van Azure
@@ -51,7 +51,7 @@ Als de geselecteerde werkruimte niet al de oplossingen voor beheer van updates o
 
 Als de geselecteerde werkruimte is al de oplossing, de oplossing niet is geïmplementeerd en configuratie van het bereik is niet toegevoegd.
 
-Selecteer het beletselteken (**...** ) op een van de configuraties en selecteer vervolgens **bewerken**. In de **scopeconfiguratie bewerken** venster **computergroepen selecteren**. De **computergroepen** deelvenster ziet u de opgeslagen zoekopdrachten die worden gebruikt voor het maken van de configuratie van het bereik.
+Selecteer het beletselteken ( **...** ) op een van de configuraties en selecteer vervolgens **bewerken**. In de **scopeconfiguratie bewerken** venster **computergroepen selecteren**. De **computergroepen** deelvenster ziet u de opgeslagen zoekopdrachten die worden gebruikt voor het maken van de configuratie van het bereik.
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
 

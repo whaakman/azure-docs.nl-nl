@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341740"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper tegels in Azure Monitor
@@ -31,7 +31,7 @@ Zie voor meer informatie over Designer bekijken:
 
 De beschikbare Weergaveontwerper-tegels worden in de volgende tabel beschreven:  
 
-| Naast elkaar | Description |
+| tegel | Description |
 |:--- |:--- |
 | [Number](#number-tile) |Het aantal records uit een query. |
 | [Twee getallen](#two-numbers-tile) |Het aantal records uit twee verschillende query's. |
@@ -60,7 +60,7 @@ De **getal** tegel zowel het aantal records uit een logbestand-query en een labe
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
 | Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
-| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
+| Message |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="two-numbers-tile"></a>Twee getallen tegel
@@ -81,7 +81,7 @@ Deze tegel toont het aantal records uit twee verschillende logboeken-query's en 
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
 | Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
-| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
+| Message |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="donut-tile"></a>Ring-tegel
@@ -105,7 +105,7 @@ De **ring** tegel geeft één getal met een overzicht van de kolom van een waard
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
 | Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
-| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
+| Message |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="line-chart-tile"></a>Regel grafiek tegel
@@ -126,7 +126,7 @@ Deze tegel is een lijndiagram met meerdere reeksen uit een logboekquery na verlo
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
 | Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
-| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
+| Message |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="line-chart-and-callout-tile"></a>Regel grafiek en een bijschrift tegel
@@ -151,7 +151,7 @@ Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's ui
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
 | Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
-| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
+| Message |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="two-timelines-tile"></a>Twee tijdlijnen tegel
@@ -176,7 +176,7 @@ De **twee tijdlijnen** tegel toont de resultaten van de twee logboeken-query's n
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
 | Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
-| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
+| Message |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122920"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (webtaak projecten)
@@ -144,7 +144,7 @@ Het maximum aantal nieuwe pogingen worden geconfigureerd. Dezelfde **MaxDequeueC
 
 Bericht uit de wachtrij voor beheer van onverwerkbare blobs is een JSON-object met de volgende eigenschappen:
 
-* FunctionId (in de indeling *{naam van een webtaak}*. Functies. *{Functienaam}*, bijvoorbeeld: WebJob1.Functions.CopyBlob)
+* FunctionId (in de indeling *{naam van een webtaak}* . Functies. *{Functienaam}* , bijvoorbeeld: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" of "PageBlob")
 * ContainerName
 * BlobName
@@ -193,7 +193,7 @@ De WebJobs SDK zorgt ervoor dat er geen **BlobTrigger** functie wordt meerdere k
 
 BLOB ontvangstbevestigingen worden opgeslagen in een container met de naam *azure-webtaken-hosts* in de Azure storage-account dat is opgegeven door de verbindingstekenreeks AzureWebJobsStorage. De ontvangst van een blob bevat de volgende informatie:
 
-* De functie is aangeroepen voor de blob ("*{naam van een webtaak}*. Functies. *{Functienaam}*', bijvoorbeeld: "WebJob1.Functions.CopyBlob")
+* De functie is aangeroepen voor de blob (" *{naam van een webtaak}* . Functies. *{Functienaam}* ', bijvoorbeeld: "WebJob1.Functions.CopyBlob")
 * De containernaam van de
 * Het blobtype ("BlockBlob" of "PageBlob")
 * Naam van de blob

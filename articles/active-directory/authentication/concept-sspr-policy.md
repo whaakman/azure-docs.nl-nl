@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823392"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
@@ -37,20 +37,20 @@ Het beleid voor twee-gate vereist twee soorten verificatiegegevens, zoals een **
   * Laag1-ondersteuning voor partner
   * Laag2-ondersteuning voor partner
   * Exchange-beheerder
-  * Skype voor Bedrijven-beheerder
-  * Gebruikersbeheerder
-  * Adreslijstschrijvers
+  * Skype voor bedrijven-beheerder
+  * Gebruikerbeheerder
+  * Schrijvers van mappen
   * Globale beheerder of bedrijfsbeheerder
   * SharePoint-beheerder
   * Beheerder voor naleving
   * Toepassingsbeheerder
   * Beveiligingsbeheerder
-  * Beheerder voor bevoorrechte rollen
+  * Beheerder met bevoorrechte rol
   * Intune-beheerder
   * Servicebeheerder voor toepassingsproxy
   * Dynamics 365-beheerder
   * Power BI-servicebeheerder
-  * Verificatiebeheerder
+  * Authentication-beheerder
   * Beheerder met bevoorrechte verificatie
 
 * Als de 30 dagen zijn verstreken in een proefabonnement; of

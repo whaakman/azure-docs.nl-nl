@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 5bb5f39ef5f5bce09a8639ba9eedc6d042e60c1d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942344"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 voor Customer Engagement toepassing Test Drive-tabblad
@@ -54,7 +54,7 @@ Waarin de velden hebben de volgende doeleinden.  Verplichte velden zijn indicted
 
 |      Veld                    |    Description                  |
 |    ---------                  |  ---------------                |
-| Type Test Drive\*            | Kies **Microsoft die worden gehost (Dynamics 365 voor Customer Engagement)**.  |
+| Type Test Drive\*            | Kies **Microsoft die worden gehost (Dynamics 365 voor Customer Engagement)** .  |
 | Maximale aantal gelijktijdige Test Drives\*    | Het aantal gelijktijdige exemplaren van een actieve Test Drive op een willekeurig moment tijd wordt opgelost. Elke gebruiker wordt een Dynamics-licentie gebruiken tijdens de Test Drive actief, is daarom u moet om ervoor te zorgen dat u ten minste dit aantal Dynamics licenties beschikbaar voor gebruikers van Test Drive. Aanbevolen waarde van 3 tot 5.  |
 | Test Drive duur (uren)\*   | Maximum aantal uren van de gebruiker Test Drive-exemplaar zijn. Na deze periode wordt overschreden, wordt het exemplaar van uw tenant inrichting ongedaan gemaakt. Aanbevolen waarde van 2 tot 24 uur, afhankelijk van de complexiteit van uw app. De gebruiker kan een andere Test Drive altijd aanvragen als ze weinig tijd en u wilt opnieuw te evalueren.  |
 | URL van instantie\*                  | URL die de Test Drive in eerste instantie u naar gaat. Dit is meestal de URL van uw Dynamics 365-exemplaar waarop uw app en voorbeeldgegevens op geïnstalleerd.  |

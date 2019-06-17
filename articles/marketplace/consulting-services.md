@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964125"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Adviesdiensten voor Azure Marketplace en AppSource
@@ -116,7 +116,7 @@ Uw aanbieding consulting-service op de Azure Marketplace en AppSource aanbieding
 2. **Validatie**: Uw aanvraag is gecontroleerd om ervoor te zorgen dat u voldoet aan de criteria in aanmerking te komen. We ontvangt u vervolgens de instructies voor het weergeven van uw aanbieding adviesservices. 
 3. **Indienen**: Geef de vereiste gegevens op die wordt vermeld in de volgende instructies. Alle inhoud en ondersteunende materiaal moeten in het Engels worden ingediend. 
 4. **Beoordeling**: Ons team marketing- en redactionele controleert uw inzending en optimaliseert voor leesbaarheid, grammatica en effectiviteit. 
-5. **Staging-**: Uw inzending tijdelijk worden opgeslagen voor uw beoordeling. 
+5. **Staging-** : Uw inzending tijdelijk worden opgeslagen voor uw beoordeling. 
 6. **Publiceren van**: Wanneer u en Microsoft met de tijdelijk opgeslagen inhoud wordt voldaan, wordt uw aanbieding is gereed om live te gaan op de marketplace. De startdatum van uw aanbieding, is afhankelijk van het land/de regio die opgegeven in uw aanbieding. Als de catalogus voor het geselecteerde land/regio in de Azure Marketplace of AppSource al live is, wordt uw aanbieding binnen een paar uur weergegeven. De aanbieding wordt anders weergegeven zodra de catalogus live meteen.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Vermeldingen voor aanbiedingen en inhoud controleren Criteria
@@ -166,7 +166,7 @@ In de Cloud Partner-Portal, kunt u toevoegen opmaak die voldoet aan uw aanbiedin
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>ruimte voor de kop (Ex: ###(space)Agenda/Deliverables)
 * Regeleinde na kop
 * ** = vet 
-* * Aanbieding samenvatting cursief
+* \* Aanbieding samenvatting cursief
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60796305"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Kies de prijscategorie van Azure Maps rechts
 
-Azure kaarten biedt twee Prijscategorieën. Het doel van dit artikel is bij het recht voor prijscategorie voor uw behoeften te kiezen. Om te helpen de juiste prijscategorie kiezen, Stel uzelf de volgende twee vragen.
+Azure Maps biedt twee prijscategorieën. Het doel van dit artikel is bij het recht voor prijscategorie voor uw behoeften te kiezen. Om te helpen de juiste prijscategorie kiezen, Stel uzelf de volgende twee vragen.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Welke mogelijkheden georuimtelijke plan ik gebruiken?
 De S0-laag is geschikt voor u als de georuimtelijke core API's te voldoen aan de servicevereisten van uw. Als u meer geavanceerde mogelijkheden voor uw toepassing wilt, kunt u overwegen voor de prijscategorie S1. Voorbeeld van de mogelijkheden zijn areal plus gecombineerde beelden, aan een bereik van de route en geocodering van batch. De **prijzen laag mogelijkheden** tabel die volgt, kunt u een beter idee van de behoeften van uw toepassing. Hiermee kunt u ook Kies een prijscategorie meest geschikt is voor uw toepassing.

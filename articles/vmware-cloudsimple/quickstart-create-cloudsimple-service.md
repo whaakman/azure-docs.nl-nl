@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577568"
 ---
 # <a name="quickstart---create-service"></a>Quick Start - service maken
@@ -71,7 +71,7 @@ Volg onderstaande stappen voor het inschakelen van de resourceprovider voor Clou
 
 De service is gemaakt en toegevoegd aan de lijst met services.
 
-## <a name="purchase-nodes"></a>Kopen van knooppunten
+## <a name="purchase-nodes"></a>Knooppunten kopen
 
 Als u betaalt u Ga capaciteit voor een omgeving CloudSimple Private Cloud instelt, eerst knooppunten in te richten in Azure portal.
 

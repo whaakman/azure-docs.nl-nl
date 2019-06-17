@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65227929"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Aanbevolen procedures voor het gebruik van Key Vault
@@ -32,7 +32,7 @@ Suggesties tijdens het beheren van toegang tot de kluis zijn als volgt:
 
 Onze aanbeveling is het gebruik van een sleutelkluis per toepassing per omgeving (ontwikkeling, Pre-productie en productie). Dit kunt u geen geheimen delen tussen omgevingen en verlaagt u ook de bedreiging in het geval van een inbreuk.
 
-## <a name="backup"></a>Back-up
+## <a name="backup"></a>Backup
 
 Zorg ervoor dat u ondernemen regelmatig terug ups van uw [kluis](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) op update/delete/maken van objecten in een kluis.
 

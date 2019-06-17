@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485367"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Problemen met Azure VM RDP-verbinding oplossen op basis van gebeurtenis-id 
@@ -56,7 +56,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Logboeknaam:**      Systeem <br />
 **Bron:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tijd* <br />
+**Datum:** *tijd* <br />
 **Gebeurtenis-ID:**      1058 <br />
 **Taakcategorie:** Geen <br />
 **Niveau:**         Fout <br />
@@ -67,7 +67,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Logboeknaam:**      Systeem <br />
 **Bron:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tijd* <br />
+**Datum:** *tijd* <br />
 **Gebeurtenis-ID:**      1058 <br />
 **Taakcategorie:** Geen <br />
 **Niveau:**         Fout <br />
@@ -78,7 +78,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Logboeknaam:**      Systeem <br />
 **Bron:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tijd* <br />
+**Datum:** *tijd* <br />
 **Gebeurtenis-ID:**      1057 <br />
 **Taakcategorie:** Geen <br />
 **Niveau:**         Fout <br />
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Logboeknaam:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
 **Bron:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Datum:***tijd* <br />
+**Datum:** *tijd* <br />
 **Gebeurtenis-ID:**      2056 <br />
 **Taakcategorie:** (109) <br />
 **Niveau:**         Fout <br />
 **Trefwoorden:**       <br />
 **Gebruiker:**          NETWERKSERVICE <br />
-**Computer:***computer FQDN-naam* <br />
+**Computer:** *computer FQDN-naam* <br />
 **Beschrijving:** De beschrijving van gebeurtenis-ID 2056 van bron Microsoft-Windows-TerminalServices-SessionBroker kan niet worden gevonden. Het onderdeel dat deze gebeurtenis is niet geïnstalleerd op uw lokale computer of de installatie is beschadigd. U kunt installeren of herstellen van het onderdeel op de lokale computer. <br />
 Als de gebeurtenis is opgetreden op een andere computer, wordt de weergave-informatie moest worden opgeslagen met de gebeurtenis. <br />
 De volgende informatie is opgenomen in de gebeurtenis: <br />
@@ -264,13 +264,13 @@ Meld u aan de database is mislukt.
 
 **Logboeknaam:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
 **Bron:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Datum:***tijd* <br />
+**Datum:** *tijd* <br />
 **Gebeurtenis-ID:**      1296 <br />
 **Taakcategorie:** (104) <br />
 **Niveau:**         Fout <br />
 **Trefwoorden:**       <br />
 **Gebruiker:**          NETWERKSERVICE <br />
-**Computer:***computer FQDN-naam* <br />
+**Computer:** *computer FQDN-naam* <br />
 **Beschrijving:** De beschrijving van gebeurtenis-ID 1296 van bron Microsoft-Windows-TerminalServices-SessionBroker-Client kan niet worden gevonden. Het onderdeel dat deze gebeurtenis is niet geïnstalleerd op uw lokale computer of de installatie is beschadigd. U kunt installeren of herstellen van het onderdeel op de lokale computer.
 Als de gebeurtenis is opgetreden op een andere computer, wordt de weergave-informatie moest worden opgeslagen met de gebeurtenis.
 De volgende informatie is opgenomen in de gebeurtenis:  <br />

@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955705"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
@@ -50,7 +50,7 @@ Gebruik de volgende tabel om u te helpen u bij het configureren van het certific
 | Instelling | Description |
 |-|-|
 | Name | Een beschrijvende naam voor uw App Service-certificaat. |
-| Hostnaam van domein zonder voorvoegsel | Als u het hoofddomein hier opgeeft, krijgt u een certificaat dat wordt beveiligd *beide* het hoofddomein en de `www` subdomein. Aan beveiligde elk subdomein alleen, geef de volledig gekwalificeerde domeinnaam van het subdomein hier (bijvoorbeeld `mysubdomain.contoso.com`). |
+| Hostnaam van domein zonder voorvoegsel zijn | Als u het hoofddomein hier opgeeft, krijgt u een certificaat dat wordt beveiligd *beide* het hoofddomein en de `www` subdomein. Aan beveiligde elk subdomein alleen, geef de volledig gekwalificeerde domeinnaam van het subdomein hier (bijvoorbeeld `mysubdomain.contoso.com`). |
 | Abonnement | Het datacenter waar de web-app wordt gehost. |
 | Resourcegroep | De resourcegroep die het certificaat bevat. U kunt een nieuwe resourcegroep gebruiken of u kunt bijvoorbeeld dezelfde resourcegroep bevinden als uw App Service-app selecteren. |
 | Certificaat-SKU | Bepaalt het type certificaat te maken, of een standaard-certificaat of een [jokertekencertificaat](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -75,7 +75,7 @@ In de **Key Vault-Status** pagina, klikt u op **Key Vault-opslagplaats** te make
 | Locatie | Selecteer de dezelfde locatie als uw App Service-app. |
 | Prijscategorie | Zie voor meer informatie, [Azure Key Vault prijsinformatie](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Toegangsbeleid| Definieert de toepassingen en de toegang hebben tot de resources van de kluis. U kunt deze later configureren de stappen in [verschillende toepassingen toegang verlenen tot een key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Toegang tot virtueel netwerk | Kluis-toegang beperken tot bepaalde virtuele netwerken van Azure. U kunt deze later configureren de stappen in [configureren van Azure Key Vault Firewalls en virtuele netwerken](../key-vault/key-vault-network-security.md) |
+| Toegang tot het virtuele netwerk | Kluis-toegang beperken tot bepaalde virtuele netwerken van Azure. U kunt deze later configureren de stappen in [configureren van Azure Key Vault Firewalls en virtuele netwerken](../key-vault/key-vault-network-security.md) |
 
 Nadat u de kluis hebt geselecteerd, sluit u de **Key Vault-opslagplaats** pagina. De **Store** optie moet een groen vinkje voor succes worden weergegeven. Houd de pagina geopend zodat de volgende stap.
 
@@ -97,9 +97,9 @@ Selecteer **App Service-verificatie**. Nadat u het domein al aan uw web-app toeg
 
 ## <a name="bind-certificate-to-app"></a>Certificaat binden aan de app
 
-In de  **[Azure-portal](https://portal.azure.com/)**, selecteert u in het menu links **App Services** > **\<your_ app >**.
+In de  **[Azure-portal](https://portal.azure.com/)** , selecteert u in het menu links **App Services** >  **\<your_ app >** .
 
-Selecteer in het linkernavigatievenster van uw app, **SSL-instellingen** > **persoonlijke certificaten (.pfx)** > **importeren van App Service Certificate**.
+Selecteer in het linkernavigatievenster van uw app, **SSL-instellingen** > **persoonlijke certificaten (.pfx)**  > **importeren van App Service Certificate**.
 
 ![afbeelding van het certificaat importeren invoegen](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
@@ -114,8 +114,8 @@ Gebruik de volgende tabel om u te helpen u bij het configureren van de binding i
 | Instelling | Description |
 |-|-|
 | Hostnaam | De domeinnaam om toe te voegen voor SSL-binding. |
-| Vingerafdruk van het persoonlijke certificaat | Het certificaat te binden. |
-| SSL-type | <ul><li>**SNI SSL** -op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](https://wikipedia.org/wiki/Server_Name_Indication).</li><li>**Op IP gebaseerde SSL**: er kan slechts één op IP gebaseerde SSL-binding worden toegevoegd. Met deze optie kan slechts één SSL-certificaat een specifiek openbaar IP-adres beveiligen. Nadat u de binding geconfigureerd, volg de stappen in [opnieuw toewijzen van een record voor IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| Persoonlijke de vingerafdruk van certificaat | Het certificaat te binden. |
+| SSL-Type | <ul><li>**SNI SSL** -op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](https://wikipedia.org/wiki/Server_Name_Indication).</li><li>**Op IP gebaseerde SSL**: er kan slechts één op IP gebaseerde SSL-binding worden toegevoegd. Met deze optie kan slechts één SSL-certificaat een specifiek openbaar IP-adres beveiligen. Nadat u de binding geconfigureerd, volg de stappen in [opnieuw toewijzen van een record voor IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Controleren of de HTTPS-toegang
 

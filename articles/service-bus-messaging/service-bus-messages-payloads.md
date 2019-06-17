@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
 ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61315636"
 ---
 # <a name="messages-payloads-and-serialization"></a>Berichten, nettoladingen en serialisatie
@@ -32,7 +32,7 @@ Eigenschappen van de vooraf gedefinieerde broker worden in de volgende tabel wee
  
 De equivalente namen gebruikt op het niveau van het AMQP-protocol worden weergegeven tussen haakjes. 
 
-| Naam van eigenschap                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| De naam van eigenschap                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (inhoud-type)           | (Optioneel) wordt beschreven hoe u de nettolading van het bericht een descriptor volgende de indeling van RFC2045, sectie 5; bijvoorbeeld, `application/json`.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (correlatie-id)       | Hiermee wordt een toepassing om op te geven van een context voor het bericht voor de doeleinden van correlatie; bijvoorbeeld, dit weerspiegelt het **MessageId** van een bericht dat wordt beantwoord.                                                                                                                                                                                                                                                                  |

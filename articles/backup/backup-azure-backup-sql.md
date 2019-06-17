@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60643973"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back-up van SQL Server naar Azure als een DPM-workload
@@ -66,7 +66,7 @@ Voordat u begint, zorg ervoor dat alle de [vereisten](backup-azure-dpm-introduct
     Als **volumes automatisch vergroten** optie is geselecteerd, DPM kan rekening voor de verbeterde back-upvolume wanneer de productiegegevens groeit. Als **volumes automatisch vergroten** optie niet is ingeschakeld, DPM Hiermee beperkt u de back-upopslag gebruikt met de gegevensbronnen in de beveiligingsgroep.
 9. Beheerders, krijgen de keuze van het overdragen van deze eerste back-up handmatig (uit netwerk) om te voorkomen opstoppingen in het bandbreedte of via het netwerk. Ze kunnen ook de tijd waarop de initiële overdracht kan gebeuren configureren. Klik op **volgende**.
 
-    ![Methode van initiële replicatie](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Methode voor eerste replicatie](./media/backup-azure-backup-sql/pg-manual.png)
 
     De eerste back-up is vereist voor overdracht van de gehele gegevensbron (SQL Server-database) van productieserver (SQL Server-machine) naar de DPM-server. Deze gegevens zijn mogelijk grote, en bandbreedte als de gegevens worden overgebracht via het netwerk kunt overschrijden. Beheerders kunnen kiezen om deze reden om over te dragen van de eerste back-up: **Handmatig** (met behulp van verwijderbare media) om te voorkomen opstoppingen in het bandbreedte, of **automatisch via het netwerk** (op een bepaald tijdstip).
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e46c77d3204cc6cd037e5ef8252aa7598d624d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e52b5478bc4b483b793f155eab2f41246552d49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289073"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Zelfstudie: Azure Active Directory-integratie met BitaBIZ
 
@@ -53,7 +53,7 @@ Om de integratie van BitaBIZ te configureren in Azure AD moet u BitaBIZ vanuit d
 
 **Voer de volgende stappen uit om BitaBIZ toe te voegen vanuit de galerie:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 Als u eenmalige aanmelding van Azure AD wilt configureren en testen met BitaBIZ, moet u de volgende procedures uitvoeren:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[BitaBIZ-eenmalige aanmelding configureren](#configure-bitabiz-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[BitaBIZ-testgebruiker maken](#create-bitabiz-test-user)**: als u een tegenhanger van Britta Simon in BitaBIZ wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[BitaBIZ-eenmalige aanmelding configureren](#configure-bitabiz-single-sign-on)** : als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[BitaBIZ-testgebruiker maken](#create-bitabiz-test-user)** : als u een tegenhanger van Britta Simon in BitaBIZ wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -152,7 +152,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     c. Plak in het tekstvak **IDP-entiteits-id** de **Azure AD-id** die u hebt gekopieerd in de Azure-portal.
 
-    d. Open het gedownloade bestand **Certificaat (Base64)** in kladblok, kopieer de inhoud ervan naar het klembord, en plak deze vervolgens in het tekstvak **Azure AD-handtekeningcertificaat (Base64-gecodeerd)**.
+    d. Open het gedownloade bestand **Certificaat (Base64)** in kladblok, kopieer de inhoud ervan naar het klembord, en plak deze vervolgens in het tekstvak **Azure AD-handtekeningcertificaat (Base64-gecodeerd)** .
 
     e. Voeg de naam van uw zakelijke e-maildomein - mijnbedrijf.com - toe in het tekstvak **Domeinnaam** om eenmalige aanmelding toe te wijzen aan de gebruikers in uw bedrijf met dit e-maildomein (NIET VERPLICHT).
 
