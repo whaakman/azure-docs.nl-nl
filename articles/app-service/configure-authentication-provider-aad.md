@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851372"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Uw App Service-app voor het gebruik van Azure Active Directory-aanmelding configureren
@@ -79,12 +79,12 @@ U kunt registreren systeemeigen clients waarmee u meer controle over de machtigi
 1. Navigeer naar **Azure Active Directory** in de [Azure Portal].
 2. Selecteer in het linkernavigatievenster **App-registraties**. Klik op **nieuwe app-registratie** aan de bovenkant.
 4. In de **maken** pagina een **naam** voor uw app-registratie. Selecteer **systeemeigen** in **toepassingstype**.
-5. In de **omleidings-URI** voert u uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done*. Als het maken van een Windows-toepassing, in plaats daarvan gebruikt de [pakket-SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) als de URI.
+5. In de **omleidings-URI** voert u uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done* . Als het maken van een Windows-toepassing, in plaats daarvan gebruikt de [pakket-SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) als de URI.
 5. Klik op **Create**.
 6. Zodra de app-registratie is toegevoegd, selecteert u deze om dit te openen. Zoek de **toepassings-ID** en noteer deze waarde.
 7. Klik op **alle instellingen** > **vereiste machtigingen** > **toevoegen** > **Select an API**.
 8. Typ de naam van de App Service-app die u eerder hebt geregistreerd, om te zoeken en vervolgens selecteert u deze en klikt u op **Selecteer**.
-9. Selecteer **toegang \<app_name >**. Klik vervolgens op **Selecteren**. Klik vervolgens op **Gereed**.
+9. Selecteer **toegang \<app_name >** . Klik vervolgens op **Selecteren**. Klik vervolgens op **Gereed**.
 
 U hebt nu een systeemeigen clienttoepassing die krijgen uw App Service-app tot toegang geconfigureerd.
 

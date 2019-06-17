@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073618"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service
@@ -39,11 +39,11 @@ In de volgende afbeelding worden deze implementatieopties weergegeven:
 
 SQL Database deelt de codebasis met de [database-engine van Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In het kader van de cloudstrategie van Microsoft worden nieuwe mogelijkheden van SQL Server eerst uitgebracht in SQL Database en vervolgens in SQL Server zelf. Dankzij deze aanpak kunt u beschikken over de nieuwste mogelijkheden van SQL Server zonder overhead voor patching en upgrading, en zijn de nieuwe functies getest op miljoenen databases. Ga voor informatie over aangekondigde nieuwe mogelijkheden naar:
 
-- **[Azure-Roadmap voor SQL-Database](https://azure.microsoft.com/roadmap/?category=databases)**:
+- **[Azure-Roadmap voor SQL-Database](https://azure.microsoft.com/roadmap/?category=databases)** :
 
   Een plaats om te ontdekken wat is er nieuw is en wat binnenkort verschijnt.
 
-- **[Azure SQL Database-blog](https://azure.microsoft.com/blog/topics/database)**:
+- **[Azure SQL Database-blog](https://azure.microsoft.com/blog/topics/database)** :
 
   Een plaats waar SQL Server-productteam leden blog over SQL Database-nieuws en -functies.
 
@@ -110,20 +110,20 @@ Azure Availability Zones is een afspelen op het probleem met hoge beschikbaarhei
 
 In feite van Azure voor de bedrijfstak toonaangevende 99,99% beschikbaarheid serviceovereenkomst [(SLA)](https://azure.microsoft.com/support/legal/sla/), dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, helpt bij het beveiligen van uw app 24/7 wordt uitgevoerd. Het Azure-platform volledig elke database wordt beheerd en zonder verlies van gegevens en een hoog percentage van de beschikbaarheid van gegevens wordt gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de integratie van compute en opslag op een enkel knooppunt voor de prestaties en vervolgens implementeren technologie die vergelijkbaar is met Always On Availability Groups op de achtergrond. Zie voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database, [beschikbaarheid van de SQL-Database](sql-database-high-availability.md). Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
 
-- **[Automatische back-ups](sql-database-automated-backups.md)**:
+- **[Automatische back-ups](sql-database-automated-backups.md)** :
 
   SQL-Database wordt automatisch uitgevoerd volledige, differentiële en transactielogboekback-ups van Azure SQL-databases waarmee u kunt herstellen naar een bepaald tijdstip. U kunt SQL-Database voor het opslaan van volledige databaseback-ups op Azure storage voor langetermijnretentie van back-up configureren voor individuele databases en gepoolde databases. Voor beheerde exemplaren, kunt u ook kopie-alleen back-ups voor langetermijnretentie van back-up uitvoeren.
 
-- **[Point-in-time-herstelbewerkingen](sql-database-recovery-using-backups.md)**:
+- **[Point-in-time-herstelbewerkingen](sql-database-recovery-using-backups.md)** :
 
   Implementatieopties voor alle SQL-Database ondersteunt herstel naar ieder bepaald tijdstip dankzij de automatische back-up bewaarperiode voor een Azure SQL-database.
-- **[Actieve geo-replicatie](sql-database-active-geo-replication.md)**:
+- **[Actieve geo-replicatie](sql-database-active-geo-replication.md)** :
 
   Individuele databases en gepoolde databases kunnen u maximaal vier leesbare secundaire databases configureren in ofwel de dezelfde of een wereldwijd gedistribueerde Azure-datacenters.  Als u bijvoorbeeld een SaaS-toepassing hebt met een catalogusdatabase met een groot volume aan gelijktijdige alleen-lezen transacties, kunt u actieve geo-replicatie gebruiken om het lezen wereldwijd te schalen en knelpunten weg te nemen die ontstaan door de lees-workloads op de primaire database. Voor beheerde exemplaren, automatische failover-groepen te gebruiken.
-- **[Automatische failovergroepen](sql-database-auto-failover-group.md)**:
+- **[Automatische failovergroepen](sql-database-auto-failover-group.md)** :
 
   Implementatieopties voor alle SQL-Database kunnen u failover-groepen gebruiken voor het inschakelen van hoge beschikbaarheid en taakverdeling op wereldwijde schaal, inclusief transparante geo-replicatie en failover van omvangrijke sets databases, elastische pools en beheerde exemplaren. Failover-groepen kunnen worden gemaakt van wereldwijd gedistribueerde SaaS-toepassingen met minimaal beheer overhead verlaten alle complexe bewaking, routering, en failover-indeling overlaat aan SQL-Database.
-- **[Zone-redundante databases](sql-database-high-availability.md)**:
+- **[Zone-redundante databases](sql-database-high-availability.md)** :
 
   SQL Database kunt inrichten premium of business-kritische databases of elastische pools in meerdere beschikbaarheidszones. Omdat deze databases en elastische pools meerdere redundante replica's hebben om een hoge beschikbaarheid te garanderen, biedt het plaatsen van deze replica's in meerdere beschikbaarheidszones betere weerbaarheid, inclusief de mogelijkheid om zonder verlies van gegevens automatisch te herstellen van schalingsfouten in het datacenter.
 
@@ -191,16 +191,16 @@ SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse
 
 SQL Database maakt het bouwen en onderhouden van toepassingen makkelijker en productiever. Met SQL Database kunt u zich concentreren op dat waar u het beste in bent: fantastische apps bouwen. In SQL Database kunt u beheren en ontwikkelen met de hulpprogramma’s en vaardigheden die u al hebt.
 
-- **[De Azure-portal](https://portal.azure.com/)**:
+- **[De Azure-portal](https://portal.azure.com/)** :
 
   Een webgebaseerde toepassing voor het beheren van alle Azure-services
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**:
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** :
 
   Een gratis, downloadbare client-toepassing voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL-Database
-- **[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**:
+- **[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** :
 
   Een gratis, downloadbare client-toepassing voor het ontwikkelen van relationele SQL Server-databases, Azure SQL-databases, Integration Services-pakketten, Analysis Services-gegevensmodellen en Reporting Services-rapporten.
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**:
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** :
 
   Een gratis, downloadbare, open-source code-editor voor Windows, macOS en Linux die ondersteuning biedt voor extensies, waaronder de [mssql-extensie](https://aka.ms/mssql-marketplace) voor query's in Microsoft SQL Server, Azure SQL Database en SQL Data Warehouse.
 

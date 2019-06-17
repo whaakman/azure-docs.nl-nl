@@ -16,10 +16,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65782970"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Verwijderen van persoonlijke gegevens voor Azure Active Directory-toepassingsproxy  
@@ -60,9 +60,9 @@ Zoeken om te vinden van persoonlijke gegevens, logboekbestanden voor gebruikers-
 
 Als u persoonlijke gegevens die zijn geregistreerd door een toepassing die gebruikmaakt van beperkte Kerberos-delegering zoekt, zoeken naar deze onderdelen van het type gebruikersnaam:
 
-- On-premises user principal name
-- Het deel van de user principal name dat de gebruikersnaam omvat
-- Het deel van de on-premises user principal name dat de gebruikersnaam omvat
+- On-premises UPN-naam
+- Deel van de principal-gebruikersnaam gebruikersnaam
+- Onderdeel van de gebruikersnaam van on-premises UPN-naam
 - On-premises security accounts manager (SAM)-accountnaam 
 
 

@@ -10,10 +10,10 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61226910"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
@@ -21,13 +21,13 @@ De meeste Azure Automation-runbooks hebben een vorm van uitvoer. Deze uitvoer mo
 
 De volgende tabel bevat een korte beschrijving van elk van de stromen en hun gedrag in de Azure-portal voor gepubliceerde runbooks en wanneer [testen van een runbook](automation-testing-runbook.md). In latere secties vindt u meer informatie over elke stroom.
 
-| Streamen | Description | Gepubliceerd | Test |
+| Stream | Description | Gepubliceerd | Test |
 |:--- |:--- |:--- |:--- |
 | Uitvoer |Objecten die zijn bedoeld om te worden verbruikt door andere runbooks. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
 | Waarschuwing |Waarschuwingsbericht bedoeld voor de gebruiker. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
 | Fout |Foutbericht bedoeld voor de gebruiker. In tegenstelling tot een uitzondering blijft het runbook standaard na een foutbericht weergegeven. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
 | Uitgebreid |Berichten die algemene of foutopsporing informatie geven. |Naar de taakgeschiedenis geschreven alleen als uitgebreide logboekregistratie is ingeschakeld voor het runbook. |In het deelvenster Testuitvoer weergegeven alleen als $VerbosePreference is ingesteld om verder te gaan in het runbook. |
-| Voortgang |Records automatisch worden gegenereerd voor en na elke activiteit in het runbook. Het runbook mag niet probeert te maken van een eigen voortgangsrecords omdat ze zijn bedoeld voor een interactieve gebruiker. |Naar de taakgeschiedenis alleen geschreven als voortgangslogboekregistratie is ingeschakeld voor het runbook. |Niet weergegeven in het deelvenster Testuitvoer. |
+| Wordt uitgevoerd |Records automatisch worden gegenereerd voor en na elke activiteit in het runbook. Het runbook mag niet probeert te maken van een eigen voortgangsrecords omdat ze zijn bedoeld voor een interactieve gebruiker. |Naar de taakgeschiedenis alleen geschreven als voortgangslogboekregistratie is ingeschakeld voor het runbook. |Niet weergegeven in het deelvenster Testuitvoer. |
 | fouten opsporen |Berichten die zijn bedoeld voor een interactieve gebruiker. Mag niet worden gebruikt in runbooks. |Niet naar Taakgeschiedenis geschreven. |Niet naar het deelvenster Testuitvoer geschreven. |
 
 ## <a name="output-stream"></a>Uitvoerstroom
@@ -178,7 +178,7 @@ De volgende tabel geeft een lijst van het gedrag van de voorkeursvariabelewaarde
 ### <a name="azure-portal"></a>Azure Portal
 U kunt de details van een runbooktaak weergeven in Azure portal vanaf het tabblad taken van een runbook. De samenvatting van de taak geeft de invoerparameters en de [uitvoer Stream](#output-stream) naast algemene informatie over de taak en eventuele uitzonderingen als ze zijn opgetreden. De geschiedenis bevat berichten van de [uitvoer Stream](#output-stream) en [waarschuwings- en Foutstromen](#warning-and-error-streams) , evenals de [uitgebreide Stream](#verbose-stream) en [Voortgangsrecords](#progress-records) als het runbook is geconfigureerd voor logboekregistratie van uitgebreide records en voortgangsrecords.
 
-### <a name="windows-powershell"></a>Windows Powershell
+### <a name="windows-powershell"></a>Windows PowerShell
 In Windows PowerShell, kunt u uitvoer en berichten ophalen vanuit een runbook met de [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) cmdlet. Deze cmdlet is vereist voor de ID van de taak en heeft een parameter genaamd Stream waarin u opgeeft welke stroom moet worden geretourneerd. U kunt opgeven **eventuele** om te retourneren van alle stromen voor de taak.
 
 Het volgende voorbeeld wordt een voorbeeldrunbook gestart en wacht dan tot deze is voltooid. Zodra het is voltooid, wordt de uitvoerstroom verzameld van de taak.

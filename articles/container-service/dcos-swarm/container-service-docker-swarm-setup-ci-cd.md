@@ -10,10 +10,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60643579"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(AFGESCHAFT) Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met Docker Swarm met Azure DevOps-Services
@@ -180,7 +180,7 @@ Azure DevOps-Services kunt u [versies beheren in omgevingen](https://www.visuals
 
 ### <a name="initial-release-setup"></a>Installatie van de eerste release
 
-1. Klik op om een release-pijplijn **Releases** > **+ Release**
+1. Klik op om een release-pijplijn **Releases** >  **+ Release**
 
 1. Als u wilt de artefact configureren, klikt u op **artefacten** > **een artefact koppelingsbron**. Hier, koppelt u deze nieuwe release-pijplijn aan de build die u hebt gedefinieerd in de vorige stap. Op deze manier is de docker-compose.yml-bestand beschikbaar in het uitgifteproces.
 

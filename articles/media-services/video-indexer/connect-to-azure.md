@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799846"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
@@ -142,7 +142,7 @@ Geef in het dialoogvenster de volgende informatie:
 |Video Indexer-accountregio|De naam van de regio van de Video Indexer-account. Voor betere prestaties en lagere kosten, is het raadzaam om op te geven van de naam van de regio waar de resource van Azure Media Services en Azure Storage-account zich bevinden. |
 |Azure Active Directory (AAD)-tenant|De naam van de Azure AD-tenant, bijvoorbeeld 'contoso.onmicrosoft.com'. De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek. Zoek de naam aan de rechterkant van **domein**.|
 |Abonnements-id|De Azure-abonnement waarmee deze verbinding moet worden gemaakt. De abonnements-ID kan worden opgehaald uit de Azure-portal. Klik op **alle services** in het linkerdeelvenster en zoek naar 'abonnementen'. Selecteer **abonnementen** en kiest u de gewenste-ID in de lijst met uw abonnementen.|
-|Naam van Azure Media Services-resourcegroep|De naam voor de resourcegroep waarin u de Media Services-account hebt gemaakt.|
+|Azure Media Services de naam van resourcegroep|De naam voor de resourcegroep waarin u de Media Services-account hebt gemaakt.|
 |Media service-resourcenaam|De naam van het Azure Media Services-account dat u in de vorige sectie hebt gemaakt.|
 |Toepassings-id|De Azure AD-ID (met machtigingen voor de opgegeven Media Services-account) die u in de vorige sectie hebt gemaakt.|
 |Toepassingssleutel|De sleutel van de Azure AD-toepassing die u hebt gemaakt in de vorige sectie. |

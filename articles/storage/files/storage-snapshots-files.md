@@ -9,10 +9,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235813"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van share-momentopnamen voor Azure Files 
@@ -29,7 +29,7 @@ Stel dat u in een tekstbestand in een bestandsshare werkt. Nadat het tekstbestan
 ### <a name="general-backup-purposes"></a>Algemene back-updoeleinden
 Nadat u een bestandsshare maakt, kunt u periodiek een share-momentopname van de bestandsshare te gebruiken voor de back-up maken. Een momentopname, wanneer er periodiek gemaakt share kunt onderhouden van vorige versies van gegevens die kunnen worden gebruikt voor toekomstige controle vereisten of herstel na noodgevallen.
 
-## <a name="capabilities"></a>Mogelijkheden
+## <a name="capabilities"></a>Functionaliteit
 Momentopname van een share is een point-in-time, alleen-lezen kopie van uw gegevens. U kunt maken, verwijderen en momentopnamen beheren met behulp van de REST-API. Dezelfde mogelijkheden zijn ook beschikbaar in de client-bibliotheek, Azure CLI en Azure portal. 
 
 U kunt momentopnamen van een share weergeven met behulp van de REST-API en de SMB. U kunt de lijst met versies van de map of het bestand ophalen en u kunt een specifieke versie rechtstreeks als een station koppelen (alleen beschikbaar op Windows - Zie [limieten](#limits)). 

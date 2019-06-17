@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545486"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Het invullen van specifieke velden voor een aangepaste toepassing
@@ -51,13 +51,13 @@ Nadat u de bovenstaande velden hebt ingevuld, de toepassing is geregistreerd in 
 | Veld           | Description                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Toepassings-id  | Als u een toepassing registreert, wijst Azure AD uw toepassing een toepassings-ID. De aanvraag-ID kan worden gebruikt voor het aanduiden van uw toepassing in verificatieaanvragen naar Azure AD, evenals voor toegang tot resources, zoals de Graph API.                                                          |
-| URI voor de app-id      | Dit moet een unieke URI, meestal van het formulier **https://&lt;tenant\_naam&gt;/&lt;toepassing\_naam&gt;.** Dit wordt gebruikt tijdens de stroom voor het verlenen van machtiging als een unieke id om op te geven van de resource waarvoor het token moet worden uitgegeven. Ook wordt de claim 'aud' in het toegangstoken verleende. |
+| App-ID-URI      | Dit moet een unieke URI, meestal van het formulier **https://&lt;tenant\_naam&gt;/&lt;toepassing\_naam&gt;.** Dit wordt gebruikt tijdens de stroom voor het verlenen van machtiging als een unieke id om op te geven van de resource waarvoor het token moet worden uitgegeven. Ook wordt de claim 'aud' in het toegangstoken verleende. |
 | Nieuw logo uploaden | U kunt dit gebruiken voor het uploaden van een logo voor uw toepassing. Het logo moet bmp-, JPG of PNG-indeling en de bestandsgrootte moet minder dan 100KB. Voor de afmetingen van de installatiekopie moet 215 x 215 pixels, met een centrale afmetingen van 94 x 94 pixels.                                                       |
 | URL van startpagina   | Dit is de aanmeldings-URL die is opgegeven tijdens de toepassingsregistratie.                                                                                                                                                                                                                                              |
 | Afmeldings-URL      | Dit de URL voor eenmalige afmelding afmelding. Azure AD verzendt een afmeldingsaanvraag naar deze URL als de gebruiker hun sessie wist met Azure AD met behulp van andere geregistreerde toepassing.                                                                                                                                       |
-| Met meerdere tenants  | Deze schakeloptie geeft aan of de toepassing kan worden gebruikt door meerdere tenants. Dit betekent doorgaans dat externe organisaties uw toepassing door deze in hun tenant te registreren en toegang verlenen tot gegevens van hun organisatie kunnen gebruiken.                                                                   |
+| Meerdere tenants  | Deze schakeloptie geeft aan of de toepassing kan worden gebruikt door meerdere tenants. Dit betekent doorgaans dat externe organisaties uw toepassing door deze in hun tenant te registreren en toegang verlenen tot gegevens van hun organisatie kunnen gebruiken.                                                                   |
 | Antwoord-URL's      | Het antwoord-URL's zijn de eindpunten waarop Azure AD tokens retourneert die die uw toepassing worden aangevraagd.                                                                                                                                                                                                          |
-| Omleidings-URI's   | Dit is waar de gebruiker wordt verzonden na een geslaagde autorisatie voor systeemeigen toepassingen. Azure AD-Controleer of de omleidings-URI van uw toepassing wordt verstrekt in de OAuth 2.0-aanvraag komt overeen met een van de geregistreerde waarden in de portal.                                                            |
+| Omleidings-URI 's   | Dit is waar de gebruiker wordt verzonden na een geslaagde autorisatie voor systeemeigen toepassingen. Azure AD-Controleer of de omleidings-URI van uw toepassing wordt verstrekt in de OAuth 2.0-aanvraag komt overeen met een van de geregistreerde waarden in de portal.                                                            |
 | Sleutels            | U kunt sleutels om programmatisch toegang tot web-API's die zijn beveiligd door Azure AD zonder tussenkomst van de gebruiker te maken. Uit de \* \*sleutels\* \* pagina, voer een beschrijving van de sleutel en de vervaldatum en opslaan als de sleutel wilt genereren. Zorg ervoor dat u Sla deze ergens veilig, omdat het niet mogelijk toegang tot het later opnieuw.             |
 
 ## <a name="next-steps"></a>Volgende stappen

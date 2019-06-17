@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925658"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB-extensie-opdrachten gebruiken voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB 
@@ -163,7 +163,7 @@ De volgende tabel beschrijft de parameters in de opdracht:
 |**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 | CustomAction    | string | Naam van de aangepaste opdracht. Moet "CreateCollection"     |
-| verzameling      | string | Naam van de verzameling                                   |
+| Verzameling      | string | Naam van de verzameling                                   |
 | offerThroughput | int    | Ingerichte doorvoer om in te stellen op de database. Er is een optionele parameter |
 | shardKey        | string | Shard-sleutelpad voor het maken van een shard-verzameling. Er is een optionele parameter |
 
@@ -208,7 +208,7 @@ De volgende tabel beschrijft de parameters in de opdracht:
 |**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 |  CustomAction   |   string      |   Naam van de aangepaste opdracht. Moet 'UpdateCollection'.      |
-|  verzameling   |   string      |   Naam van de verzameling.       |
+|  Verzameling   |   string      |   Naam van de verzameling.       |
 | offerThroughput   |int|   Ingerichte doorvoer om in te stellen op de verzameling.|
 
 ## <a name="output"></a>Uitvoer
@@ -243,7 +243,7 @@ De volgende tabel beschrijft de parameters in de opdracht:
 |**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 | CustomAction    |   string      |   Naam van de aangepaste opdracht. Moet 'GetCollection'.      |
-| verzameling    |    string     |    Naam van de verzameling.     |
+| Verzameling    |    string     |    Naam van de verzameling.     |
 
 ### <a name="output"></a>Uitvoer
 

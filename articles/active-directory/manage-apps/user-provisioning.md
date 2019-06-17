@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963981"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
@@ -91,7 +91,7 @@ Voor meer informatie over het algemeen verbinding maken met toepassingen die SCI
 
 Gebruikt de Azure Active Directory-portal voor het configureren van de Azure AD-inrichtingsservice voor een geselecteerde toepassing.
 
-1. Open de  **[Azure Active Directory-portal](https://aad.portal.azure.com)**.
+1. Open de  **[Azure Active Directory-portal](https://aad.portal.azure.com)** .
 
 1. Selecteer **bedrijfstoepassingen** in het linkerdeelvenster. Een lijst met alle geconfigureerde apps wordt weergegeven.
 
@@ -179,7 +179,7 @@ Als een afzonderlijke gebruiker kan niet worden toegevoegd, bijgewerkt of verwij
 
 Deze fouten kunnen worden opgelost door aan te passen van de kenmerkwaarden voor de betrokken gebruiker in het bronsysteem, of door de kenmerktoewijzingen als u wilt niet leiden tot conflicten aan te passen.   
 
-### <a name="quarantine"></a>Quarantaine
+### <a name="quarantine"></a>In quarantaine plaatsen
 
 Als de meeste of alle van de oproepen die aan het doelsysteem consistent mislukt vanwege een fout (zoals ongeldig beheerdersreferenties), klikt u vervolgens gaat de inrichtingstaak in een status 'in quarantaine plaatsen'. Deze status wordt aangegeven in de [inrichting overzichtsrapport](check-status-user-account-provisioning.md) en via e-mail als e-mailmeldingen zijn geconfigureerd in Azure portal. 
 
@@ -202,13 +202,13 @@ De volgende tabel geeft een overzicht van synchronisatieschema de synchronisatie
 | Scopeconfiguratie | Gebruikers, groepen en leden binnen het bereik | Tijd van de initiële synchronisatie | Tijd van incrementele synchronisatie |
 | -------- | -------- | -------- | -------- |
 | Toegewezen gebruikers en groepen alleen synchroniseren |  < 1,000 |  < 30 minuten | < 30 minuten |
-| Toegewezen gebruikers en groepen alleen synchroniseren |  1.000 - 10.000 | 142 - 708 minuten | < 30 minuten |
+| Toegewezen gebruikers en groepen alleen synchroniseren |  1\.000 - 10.000 | 142 - 708 minuten | < 30 minuten |
 | Toegewezen gebruikers en groepen alleen synchroniseren |   10,000 - 100,000 | 1,170 - 2,340 minuten | < 30 minuten |
 | Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  < 1,000 | < 30 minuten  | < 30 minuten |
-| Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  1.000 - 10.000 | < 30 tot 120 minuten | < 30 minuten |
+| Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  1\.000 - 10.000 | < 30 tot 120 minuten | < 30 minuten |
 | Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  10,000 - 100,000  | 713 - 1,425 minuten | < 30 minuten |
 | Alle gebruikers in Azure AD worden gesynchroniseerd|  < 1,000  | < 30 minuten | < 30 minuten |
-| Alle gebruikers in Azure AD worden gesynchroniseerd | 1.000 - 10.000  | 43 - 86 minuten | < 30 minuten |
+| Alle gebruikers in Azure AD worden gesynchroniseerd | 1\.000 - 10.000  | 43 - 86 minuten | < 30 minuten |
 
 
 Voor de configuratie van **synchronisatie toegewezen gebruikers en groepen alleen**, kunt u de volgende formules om te bepalen van de geschatte minimale en maximale verwacht **voor de eerste synchronisatie** tijden:

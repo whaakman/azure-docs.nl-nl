@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291886"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Voorbeeld: Model van de inventaris van de AdventureWorks-database van Azure Search
@@ -43,7 +43,7 @@ Het oplossen van dit probleem is niet zo eenvoudig als het verplaatsen van de do
 
 ## <a name="use-a-collection-data-type"></a>Het gegevenstype van een verzameling gebruiken
 
-De 'juiste aanpak"is het zoekschema functie heeft geen een directe parallelle in het databasemodel gebruiken: **Collection(Edm.String)**. Het gegevenstype van een verzameling wordt gebruikt wanneer u een lijst van afzonderlijke tekenreeksen, in plaats van een zeer lange tekenreeks (single). Als u tags of trefwoorden hebt, gebruikt u het gegevenstype van een verzameling op voor dit veld.
+De 'juiste aanpak"is het zoekschema functie heeft geen een directe parallelle in het databasemodel gebruiken: **Collection(Edm.String)** . Het gegevenstype van een verzameling wordt gebruikt wanneer u een lijst van afzonderlijke tekenreeksen, in plaats van een zeer lange tekenreeks (single). Als u tags of trefwoorden hebt, gebruikt u het gegevenstype van een verzameling op voor dit veld.
 
 Met het definiëren van meerdere waarden indexvelden van **Collection(Edm.String)** voor 'kleur', 'grootte' en 'afbeelding', de bijkomende informatie wordt behouden voor onderverdeling en filteren zonder de index met dubbele vermeldingen vervuilende. Statistische functies op dezelfde manier van toepassing op de numerieke velden van het Product indexeren **minListPrice** in plaats van elk één product **listPrice**.
 

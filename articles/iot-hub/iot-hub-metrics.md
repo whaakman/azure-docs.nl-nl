@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: 8eac70db0c563f102dfa0e3fcece9d4604582cce
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595675"
 ---
 # <a name="understand-iot-hub-metrics"></a>Informatie over metrische gegevens van IoT Hub
@@ -40,7 +40,7 @@ Metrische gegevens zijn standaard ingeschakeld. U kunt IoT Hub metrische gegeven
 
 IoT Hub biedt verschillende metrische gegevens zodat u een overzicht van de status van uw hub en het totale aantal verbonden apparaten. U kunt gegevens uit meerdere metrische gegevens tekenen van een grotere beeld van de status van de IoT-hub kunt combineren. De volgende tabel beschrijft de metrische gegevens die elke IoT-hub worden bijgehouden, en hoe alle gegevens zich verhoudt tot de algemene status van de IoT-hub.
 
-|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |d2c<br>.telemetry<br>.ingress.<br>allProtocol|Telemetrie-bericht verzenden pogingen|Count|Totaal|Aantal telemetrieberichten dat apparaat-naar-cloud heeft geprobeerd om te worden verzonden naar uw IoT-hub|Er zijn geen dimensies|
 |d2c<br>.telemetry<br>.ingress<br>.success|Berichten over telemetrie verzonden|Count|Totaal|Aantal telemetrieberichten dat is verzonden naar uw IoT hub apparaat-naar-cloud|Er zijn geen dimensies|
@@ -67,7 +67,7 @@ IoT Hub biedt verschillende metrische gegevens zodat u een overzicht van de stat
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Routering: gegevens geleverd aan opslag|Bytes|Totaal|De hoeveelheid gegevens (bytes) routering IoT-Hub die worden geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Routering: blobs die worden geleverd aan opslag|Count|Totaal|Het aantal keren dat het IoT-Hub routering blobs geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
 |EventGridDeliveries|Event Grid levering (preview)|Count|Totaal|Het aantal aanvragen voor IoT Hub kunt u gebeurtenissen naar Event Grid verzenden. Dit is inclusief geslaagde en mislukte aanvragen. Gebruik de resultaat-dimensie voor het aantal verschillende type reactie. Zien de waar de aanvragen afkomstig zijn van, gebruikt u de dimensie van het type gebeurtenis.|Result, EventType|
-|EventGridLatency|Event Grid latentie (preview)|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen event inkomend verkeer naar IoT Hub en event inkomend verkeer in Event Grid. Dit nummer is een gemiddelde tussen alle gebeurtenistypen. Gebruik de dimensie van het type gebeurtenis om te zien van de latentie van een specifiek type gebeurtenis.|Type gebeurtenis|
+|EventGridLatency|Event Grid latentie (preview)|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen event inkomend verkeer naar IoT Hub en event inkomend verkeer in Event Grid. Dit nummer is een gemiddelde tussen alle gebeurtenistypen. Gebruik de dimensie van het type gebeurtenis om te zien van de latentie van een specifiek type gebeurtenis.|EventType|
 |d2c<br>.twin<br>.read<br>.success|Geslaagde dubbele leesbewerkingen van apparaten|Count|Totaal|Het aantal voltooide dubbele apparaat geïnitieerde leesbewerkingen.|Er zijn geen dimensies|
 |d2c<br>.twin<br>.read<br>.failure|Dubbele leesbewerkingen van apparaten is mislukt|Count|Totaal|De telling van alle dubbele apparaat geïnitieerde leesbewerkingen mislukt.|Er zijn geen dimensies|
 |d2c<br>.twin<br>.read<br>.size|Reactiegrootte van dubbele leesbewerkingen van apparaten|Bytes|Gemiddeld|De gemiddelde, de minimale en het maximale van alle geslaagde apparaat geïnitieerde twin leesbewerkingen.|Er zijn geen dimensies|
@@ -87,18 +87,18 @@ IoT Hub biedt verschillende metrische gegevens zodat u een overzicht van de stat
 |twinQueries<br>.success|Geslaagde apparaatdubbel-query 's|Count|Totaal|De telling van alle geslaagde apparaatdubbel-query's.|Er zijn geen dimensies|
 |twinQueries<br>.failure|Mislukte apparaatdubbel-query 's|Count|Totaal|De telling van alle mislukte apparaatdubbel-query's.|Er zijn geen dimensies|
 |twinQueries<br>.resultSize|Grootte van apparaatdubbel-query 's|Bytes|Gemiddeld|De gemiddelde, minimale en maximale van de grootte van het resultaat van alle geslaagde apparaatdubbel-query's.|Er zijn geen dimensies|
-|taken<br>.createTwinUpdateJob<br>.success|Geslaagde bewerkingen voor het maken van dubbele taken bijwerken|Count|Totaal|De telling van alle is gemaakt van dubbele update taken.|Er zijn geen dimensies|
-|taken<br>.createTwinUpdateJob<br>.failure|Mislukte bewerkingen voor het maken van dubbele taken bijwerken|Count|Totaal|De telling van alle mislukte aanmaak van dubbele taken bijwerken.|Er zijn geen dimensies|
-|taken<br>.createDirectMethodJob<br>.success|Geslaagde bewerkingen voor het maken van de methode aanroepen van taken|Count|Totaal|De telling van alle is gemaakt van een rechtstreekse methode aanroepen van taken.|Er zijn geen dimensies|
-|taken<br>.createDirectMethodJob<br>.failure|Mislukte bewerkingen voor het maken van de methode aanroepen van taken|Count|Totaal|De telling van alle mislukte aanmaak van rechtstreekse methode aanroepen van taken.|Er zijn geen dimensies|
-|taken<br>.listJobs<br>.success|Geslaagde aanroepen naar de lijst met taken|Count|Totaal|Het aantal geslaagde aanroepen naar de lijst met taken.|Er zijn geen dimensies|
-|taken<br>.listJobs<br>.failure|Mislukte aanroepen naar de lijst met taken|Count|Totaal|Het aantal mislukte aanroepen naar de lijst met taken.|Er zijn geen dimensies|
-|taken<br>.cancelJob<br>.success|Geslaagde taakannuleringen|Count|Totaal|Het aantal geslaagde aanroepen naar een taak annuleren.|Er zijn geen dimensies|
-|taken<br>.cancelJob<br>.failure|Mislukte taakannuleringen|Count|Totaal|Het aantal mislukte aanroepen naar een taak annuleren.|Er zijn geen dimensies|
-|taken<br>.queryJobs<br>.success|Taak query 's|Count|Totaal|Het aantal geslaagde aanroepen naar query taken.|Er zijn geen dimensies|
-|taken<br>.queryJobs<br>.failure|Taak query's is mislukt|Count|Totaal|Het aantal mislukte aanroepen naar query taken.|Er zijn geen dimensies|
-|taken<br>.completed|Voltooide taken|Count|Totaal|De telling van alle voltooide taken.|Er zijn geen dimensies|
-|taken<br>.failed|Mislukte taken|Count|Totaal|De telling van alle mislukte taken.|Er zijn geen dimensies|
+|jobs<br>.createTwinUpdateJob<br>.success|Geslaagde bewerkingen voor het maken van dubbele taken bijwerken|Count|Totaal|De telling van alle is gemaakt van dubbele update taken.|Er zijn geen dimensies|
+|jobs<br>.createTwinUpdateJob<br>.failure|Mislukte bewerkingen voor het maken van dubbele taken bijwerken|Count|Totaal|De telling van alle mislukte aanmaak van dubbele taken bijwerken.|Er zijn geen dimensies|
+|jobs<br>.createDirectMethodJob<br>.success|Geslaagde bewerkingen voor het maken van de methode aanroepen van taken|Count|Totaal|De telling van alle is gemaakt van een rechtstreekse methode aanroepen van taken.|Er zijn geen dimensies|
+|jobs<br>.createDirectMethodJob<br>.failure|Mislukte bewerkingen voor het maken van de methode aanroepen van taken|Count|Totaal|De telling van alle mislukte aanmaak van rechtstreekse methode aanroepen van taken.|Er zijn geen dimensies|
+|jobs<br>.listJobs<br>.success|Geslaagde aanroepen naar de lijst met taken|Count|Totaal|Het aantal geslaagde aanroepen naar de lijst met taken.|Er zijn geen dimensies|
+|jobs<br>.listJobs<br>.failure|Mislukte aanroepen naar de lijst met taken|Count|Totaal|Het aantal mislukte aanroepen naar de lijst met taken.|Er zijn geen dimensies|
+|jobs<br>.cancelJob<br>.success|Geslaagde taakannuleringen|Count|Totaal|Het aantal geslaagde aanroepen naar een taak annuleren.|Er zijn geen dimensies|
+|jobs<br>.cancelJob<br>.failure|Mislukte taakannuleringen|Count|Totaal|Het aantal mislukte aanroepen naar een taak annuleren.|Er zijn geen dimensies|
+|jobs<br>.queryJobs<br>.success|Taak query 's|Count|Totaal|Het aantal geslaagde aanroepen naar query taken.|Er zijn geen dimensies|
+|jobs<br>.queryJobs<br>.failure|Taak query's is mislukt|Count|Totaal|Het aantal mislukte aanroepen naar query taken.|Er zijn geen dimensies|
+|jobs<br>.completed|Voltooide taken|Count|Totaal|De telling van alle voltooide taken.|Er zijn geen dimensies|
+|jobs<br>.failed|Mislukte taken|Count|Totaal|De telling van alle mislukte taken.|Er zijn geen dimensies|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|Aantal beperkingsfouten|Count|Totaal|Aantal beperkingsfouten vanwege apparaat doorvoer beperkt|Er zijn geen dimensies|
 |dailyMessage<br>QuotaUsed|Totaal aantal berichten dat is gebruikt|Count|Gemiddeld|Het aantal totaal aantal berichten momenteel gebruikt. Dit is een cumulatieve waarde die is ingesteld op nul om 00:00 UTC elke dag.|Er zijn geen dimensies|
 |deviceDataUsage|Totaal aantal apparaat gegevensgebruik|Bytes|Totaal|Bytes overgebracht naar en van alle apparaten die zijn verbonden met IotHub|Er zijn geen dimensies|

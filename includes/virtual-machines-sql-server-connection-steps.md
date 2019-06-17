@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165513"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>TCP-poorten in de Windows-firewall openen voor het standaardexemplaar van de database-engine
@@ -74,7 +74,7 @@ De database-engine van SQL Server kan Windows-verificatie niet gebruiken zonder 
 Als u vanaf een andere computer verbinding wilt maken met de database-engine, moet u ten minste één aanmelding voor SQL Server-verificatie maken.
 
 1. Open de SQL Server Management Studio-objectverkenner en breid de map uit van het serverexemplaar waarvoor u de nieuwe aanmelding wilt maken.
-2. Klik met de rechtermuisknop op de map **Beveiliging**, wijs **Nieuw** aan en selecteer **Aanmelding...**.
+2. Klik met de rechtermuisknop op de map **Beveiliging**, wijs **Nieuw** aan en selecteer **Aanmelding...** .
    
     ![Nieuwe aanmelding](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. Het dialoogvenster **Aanmelding - nieuw** wordt geopend. Geef op de pagina **Algemeen** de naam van de nieuwe gebruiker op in het vak **Aanmeldingsnaam**.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812532"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hoe gebruikers in uw organisatie kunnen uitnodigen van gastgebruikers ook kunnen aan een app
@@ -35,11 +35,11 @@ Na een Gast is gebruiker toegevoegd aan de directory in Azure AD wordt de eigena
 Nadat een app is geconfigureerd voor self-service, kunnen toepassingseigenaren hun eigen Toegangsvenster gebruiken om uit te nodigen een gastgebruiker de app die zij willen delen. De gastgebruiker hoeft niet per se te worden toegevoegd aan Azure AD vooraf. 
 
 1. Uw Toegangsvenster openen door te gaan naar `https://myapps.microsoft.com`.
-2. Verwijzen naar de app, selecteer het beletselteken (**...** ), en selecteer vervolgens **beheren app**.
+2. Verwijzen naar de app, selecteer het beletselteken ( **...** ), en selecteer vervolgens **beheren app**.
  
    ![Schermopname van het Manage app-submenu voor de Salesforce-app](media/add-users-iw/access-panel-manage-app.png)
  
-3. Aan de bovenkant van de lijst met gebruikers, selecteert u **+**.
+3. Aan de bovenkant van de lijst met gebruikers, selecteert u **+** .
    
    ![Schermopname van het plusteken voor het toevoegen van leden aan de app.](media/add-users-iw/access-panel-manage-app-add-user.png)
    
@@ -62,7 +62,7 @@ Nadat u een app is geconfigureerd voor self-service, kunnen toepassingseigenaren
    
    ![Schermopname die laat zien waar een groep onder mijn groepen selecteren](media/add-users-iw/access-panel-groups-i-own.png)
    
-5. Selecteer aan de bovenkant van de lijst met groepsleden **+**.
+5. Selecteer aan de bovenkant van de lijst met groepsleden **+** .
    
    ![Schermopname van het plusteken voor het toevoegen van leden aan de groep](media/add-users-iw/access-panel-groups-add-member.png)
    

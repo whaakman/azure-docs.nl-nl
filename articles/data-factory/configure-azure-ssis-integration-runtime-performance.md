@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232537"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>De Azure-SSIS Integration Runtime voor hoge prestaties configureren
@@ -122,21 +122,21 @@ U kunt een schatting maken van de juiste waarde op basis van de kosten van het p
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1500                                       |
-| Standard\_D3\_v2 | 4    | 14          | 200                    | 12.000 / 187 / 93                                           | 8 / 8 x 500                         | 4 / 3000                                       |
-| Standard\_D4\_v2 | 8    | 28          | 400                    | 24.000 / 375 / 187                                          | 16 / 16 x 500                       | 8 / 6000                                       |
+| Standard\_D3\_v2 | 4    | 14          | 200                    | 12\.000 / 187 / 93                                           | 8 / 8 x 500                         | 4 / 3000                                       |
+| Standard\_D4\_v2 | 8    | 28          | 400                    | 24\.000 / 375 / 187                                          | 16 / 16 x 500                       | 8 / 6000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8 x 500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16 x 500                       | 8 / 2000                                       |
 | Standard\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6 x 500                         | 2 / 1000                                       |
 | Standard\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12 x 500                        | 2 / 2000                                       |
-| Standard\_D8\_v3 | 8    | 32          | 200                    | 12.000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
-| Standard\_D16\_v3| 16   | 64          | 400                    | 24.000 / 375 / 187                                          | 32 / 48 x 500                        | 8 / 8000                                       |
-| Standard\_D32\_v3| 32   | 128         | 800                    | 48.000 / 750 / 375                                          | 32 / 96 x 500                       | 8 / 16000                                      |
+| Standard\_D8\_v3 | 8    | 32          | 200                    | 12\.000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
+| Standard\_D16\_v3| 16   | 64          | 400                    | 24\.000 / 375 / 187                                          | 32 / 48 x 500                        | 8 / 8000                                       |
+| Standard\_D32\_v3| 32   | 128         | 800                    | 48\.000 / 750 / 375                                          | 32 / 96 x 500                       | 8 / 16000                                      |
 | Standard\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192 x 500                      | 8 / 30000                                      |
 | Standard\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6 x 500                         | 2 / 1000                                       |
 | Standard\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12 x 500                        | 2 / 2000                                       |
-| Standard\_E8\_v3 | 8    | 64          | 200                    | 12.000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
-| Standard\_E16\_v3| 16   | 128         | 400                    | 24.000 / 375 / 187                                          | 32 / 48 x 500                       | 8 / 8000                                       |
-| Standard\_E32\_v3| 32   | 256         | 800                    | 48.000 / 750 / 375                                          | 32 / 96 x 500                       | 8 / 16000                                      |
+| Standard\_E8\_v3 | 8    | 64          | 200                    | 12\.000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
+| Standard\_E16\_v3| 16   | 128         | 400                    | 24\.000 / 375 / 187                                          | 32 / 48 x 500                       | 8 / 8000                                       |
+| Standard\_E32\_v3| 32   | 256         | 800                    | 48\.000 / 750 / 375                                          | 32 / 96 x 500                       | 8 / 16000                                      |
 | Standard\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192 x 500                      | 8 / 30000                                      |
 
 Hier vindt u de richtlijnen voor het instellen van de juiste waarde voor de **AzureSSISMaxParallelExecutionsPerNode** eigenschap: 

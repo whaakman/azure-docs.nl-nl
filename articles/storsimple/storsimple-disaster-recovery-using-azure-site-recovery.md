@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150498"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatisch herstel na noodgevallen oplossing met behulp van Azure Site Recovery voor bestandsshares die worden gehost op StorSimple
@@ -171,16 +171,16 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
 1. Klik in het automation-account op **variabelen** &gt; **toevoegen van een variabele** en voeg de volgende variabelen. U kunt kiezen voor het versleutelen van deze elementen. Deze variabelen zijn specifiek plan voor herstel. Als uw herstelplan, die in de volgende stap maakt u de naam is TestPlan, en vervolgens uw variabelen moeten worden TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, enzovoort.
 
    - **BaseUrl**: De Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName***-ResourceGroupName**: De Resource Manager-groep met de StorSimple-resource.
-   - * RecoveryPlanName ***- ManagerName**: De StorSimple-resource met de StorSimple-apparaat.
-   - * RecoveryPlanName ***- DeviceName**: Het StorSimple-apparaat dat is failover mogelijk is.
-   - *RecoveryPlanName***-DeviceIpAddress**: Het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **netwerk** &gt; **DNS-instellingen** groep).
-   - * RecoveryPlanName ***- VolumeContainers**: Een door komma's gescheiden tekenreeks op het apparaat waarvoor failover; volumecontainers bijvoorbeeld: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName***-TargetDeviceName**: De StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: Het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
-   - *RecoveryPlanName***-StorageAccountName**: Naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
-   - *RecoveryPlanName***-StorageAccountKey**: De toegangssleutel voor de bovenstaande storage-account.
-   - *RecoveryPlanName***-VMGUIDS**: Bij het beveiligen van een virtuele machine, wordt elke virtuele machine een unieke ID waarmee de details van de mislukte via VM Azure Site Recovery toegewezen. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
+   - *RecoveryPlanName* **-ResourceGroupName**: De Resource Manager-groep met de StorSimple-resource.
+   - \* RecoveryPlanName * **- ManagerName**: De StorSimple-resource met de StorSimple-apparaat.
+   - \* RecoveryPlanName * **- DeviceName**: Het StorSimple-apparaat dat is failover mogelijk is.
+   - *RecoveryPlanName* **-DeviceIpAddress**: Het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **netwerk** &gt; **DNS-instellingen** groep).
+   - \* RecoveryPlanName * **- VolumeContainers**: Een door komma's gescheiden tekenreeks op het apparaat waarvoor failover; volumecontainers bijvoorbeeld: volcon1, volcon2, volcon3.
+   - *RecoveryPlanName* **-TargetDeviceName**: De StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress**: Het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
+   - *RecoveryPlanName* **-StorageAccountName**: Naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
+   - *RecoveryPlanName* **-StorageAccountKey**: De toegangssleutel voor de bovenstaande storage-account.
+   - *RecoveryPlanName* **-VMGUIDS**: Bij het beveiligen van een virtuele machine, wordt elke virtuele machine een unieke ID waarmee de details van de mislukte via VM Azure Site Recovery toegewezen. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
 
      Bijvoorbeeld, als de naam van het herstelplan is fileServerpredayRP, vervolgens uw **variabelen**, **verbindingen** en **certificaten** tabblad moet als volgt worden weergegeven nadat u hebt toegevoegd alle assets.
 
@@ -269,7 +269,7 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
    > [!NOTE]
    > Wanneer u een failovertest uitvoert, moet u controleren of alles bij de stap van de handmatige actie omdat de StorSimple-volumes die was op het doelapparaat is gekloond als onderdeel van opschoning worden verwijderd nadat de handmatige actie is voltooid.
        
-      ![Herstelplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
+      ![Plan voor herstel](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## <a name="perform-a-test-failover"></a>Een testfailover uitvoeren
 Raadpleeg de [Active Directory-DR-oplossing](../site-recovery/site-recovery-active-directory.md) handleiding voor overwegingen met betrekking tot specifieke naar Active Directory tijdens de testfailover. Het instellen van de lokale is niet helemaal wordt verstoord wanneer de testfailover plaatsvindt. De StorSimple-volumes die zijn gekoppeld aan de on-premises VM worden gekloond naar de StorSimple-Cloudapparaat in Azure. Een virtuele machine voor testdoeleinden wordt opgeroepen in Azure en de gekloonde volumes zijn gekoppeld aan de virtuele machine.
@@ -294,7 +294,7 @@ Raadpleeg de [Active Directory-DR-oplossing](../site-recovery/site-recovery-acti
 1. Selecteer in de Azure portal, **herstelservices** kluis &gt; **herstelplannen (Site Recovery)** &gt; **recoveryplan_name** gemaakt voor de VM-bestandsserver.
 1. Klik op de blade Recovery plan **meer** &gt; **geplande failover**.
 
-   ![Herstelplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Plan voor herstel](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Op de **geplande Failover bevestigen** blade, kiest u de bron- en doellocaties voor- en doel selecteren, netwerk en klik op het vinkje ✓ om de failoverproces te starten.
 1. Nadat de replica virtuele machines zijn gemaakt nog in behandeling staat. Klik op **doorvoeren** om door te voeren van de failover.
 1. Nadat de replicatie is voltooid, starten de virtuele machines op de secundaire locatie.
@@ -321,7 +321,7 @@ Tijdens een failback volumecontainers StorSimple zijn een failover naar het fysi
    
    ![Starten van Failback](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
-## <a name="best-practices"></a>Aanbevolen procedures
+## <a name="best-practices"></a>Beste praktijken
 ### <a name="capacity-planning-and-readiness-assessment"></a>Capaciteit plannen en readiness assessment
 #### <a name="hyper-v-site"></a>Hyper-V-site
 Gebruik de [gebruiker Capaciteitsplanner](https://www.microsoft.com/download/details.aspx?id=39057) ontwerpen van de server-, opslag- en netwerkinfrastructuur voor uw Hyper-V replica-omgeving.

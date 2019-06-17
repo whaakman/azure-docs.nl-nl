@@ -1,6 +1,6 @@
 ---
-title: Richtlijnen voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
-description: Richtlijnen voor ontwikkelaars en scenario's voor voorwaardelijke toegang voor Azure AD
+title: Richtlijnen voor ontwikkelaars voor Azure Active Directory voor voorwaardelijke toegang
+description: Richtlijnen voor ontwikkelaars en scenario's voor Azure AD voor voorwaardelijke toegang
 services: active-directory
 keywords: ''
 author: rwike77
@@ -15,24 +15,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0674934f7105df3874048308e98fd582d32e72bc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9e4e0eb830d5ede910e72ec3193cfd613561811b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111527"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor Azure Active Directory voor voorwaardelijke toegang
 
 De functie voor voorwaardelijke toegang in Azure Active Directory (Azure AD) biedt verschillende manieren die u gebruiken kunt voor het beveiligen van uw app en het beveiligen van een service. Voorwaardelijke toegang kan ontwikkelaars en enterprise-klanten services in een groot aantal manieren beveiligen:
 
-* Meervoudige verificatie
+* Multi-Factor Authentication
 * Zodat alleen Intune ingeschreven apparaten toegang krijgen tot specifieke services
 * Beperken van de gebruikerslocaties en IP-bereiken
 
 Zie voor meer informatie over de volledige functionaliteit van voorwaardelijke toegang, [voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
-Dit artikel wordt beschreven hoe u voorwaardelijke toegang kunt gebruiken voor het bouwen van apps voor Azure AD-ontwikkelaars, en u leert ook over de impact van de toegang tot bronnen die u hebt geen controle over die mogelijk beleid voor voorwaardelijke toegang toegepast. Het artikel behandelt ook de gevolgen van voorwaardelijke toegang in de stroom op-andere gebruikers-of web-apps, toegang tot Microsoft Graph en het aanroepen van API's.
+Voor het bouwen van apps voor Azure AD-ontwikkelaars, ziet in dit artikel u hoe u voorwaardelijke toegang kunt gebruiken en u leert ook over de impact van de toegang tot bronnen die u hebt geen controle over die mogelijk beleid voor voorwaardelijke toegang toegepast. Het artikel behandelt ook de gevolgen van voorwaardelijke toegang in de stroom op-andere gebruikers-of web-apps, toegang tot Microsoft Graph en het aanroepen van API's.
 
 Kennis van [één](quickstart-v1-integrate-apps-with-azure-ad.md) en [multitenant](howto-convert-app-to-be-multi-tenant.md) apps en [algemene verificatiepatronen](authentication-scenarios.md) wordt uitgegaan.
 
@@ -40,16 +40,16 @@ Kennis van [één](quickstart-v1-integrate-apps-with-azure-ad.md) en [multitenan
 
 ### <a name="app-types-impacted"></a>Beïnvloed App-typen
 
-In de meest voorkomende gevallen voor voorwaardelijke toegang niet verandert het gedrag van een app of vereist wijzigingen van de ontwikkelaar. Wanneer een app op de achtergrond of indirect vraagt om een token voor een service, vereist een app alleen in bepaalde gevallen wijzigingen in de code voor het afhandelen van voorwaardelijke toegang 'uitdagingen'. Kan het zijn net zo eenvoudig als het uitvoeren van een aanvraag voor interactief aanmelden.
+In de meest voorkomende gevallen voor voorwaardelijke toegang niet verandert het gedrag van een app of vereist wijzigingen van de ontwikkelaar. Wanneer een app op de achtergrond of indirect vraagt om een token voor een service, vereist een app alleen in bepaalde gevallen wijzigingen in de code voor het afhandelen van voorwaardelijke toegang "uitdagingen'. Kan het zijn net zo eenvoudig als het uitvoeren van een aanvraag voor interactief aanmelden.
 
-Met name vereisen de volgende scenario's code voor het verwerken van voorwaardelijke toegang 'uitdagingen':
+Met name vereisen de volgende scenario's code voor het verwerken van voorwaardelijke toegang "uitdagingen':
 
 * Apps uitvoeren van de stroom op-andere gebruikers-of
 * Apps die toegang tot meerdere services/resources
 * Apps van één pagina met behulp van ADAL.js
 * Web Apps aanroepen van een resource
 
-Voorwaardelijk beleid kunnen worden toegepast op de app, maar kunnen ook worden toegepast op een web-API uw app wordt geopend. Zie voor meer informatie over het configureren van beleid voor voorwaardelijke toegang, [Quick Start: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](../conditional-access/app-based-mfa.md).
+Voorwaardelijk beleid kunnen worden toegepast op de app, maar kunnen ook worden toegepast op een web-API uw app wordt geopend. Zie voor meer informatie over het configureren van beleid voor voorwaardelijke toegang, [Quick Start: MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](../conditional-access/app-based-mfa.md).
 
 Afhankelijk van het scenario, een zakelijke klant toepassen en beleid voor voorwaardelijke toegang op elk gewenst moment verwijderen. In volgorde voor uw app blijven werken wanneer een nieuw beleid wordt toegepast, moet u voor het implementeren van de verwerking 'challenge'. De volgende voorbeelden ziet u challenge-verwerking.
 
@@ -100,9 +100,9 @@ De volgende informatie is alleen van toepassing in deze scenario's voor voorwaar
 * Apps die toegang tot meerdere services/resources
 * Apps van één pagina met behulp van ADAL.js
 
-De volgende secties worden besproken algemene scenario's die, hoe complexer. De belangrijkste operationele principe is voorwaardelijke toegang beleidsregels worden geëvalueerd op het moment dat het token is aangevraagd voor de service een beleid voor voorwaardelijke toegang toegepast heeft.
+De volgende secties worden besproken algemene scenario's die, hoe complexer. De belangrijkste operationele principe is beleid voor voorwaardelijke toegang worden geëvalueerd op het moment dat het token is aangevraagd voor de service een beleid voor voorwaardelijke toegang toegepast heeft.
 
-## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: Uitvoeren van de stroom op-andere gebruikers-of App
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App voert de on-behalf-of-stroom uit
 
 In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Deze service wordt op zijn beurt de stroom 'op-andere gebruikers-of' om aan te roepen een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app. 
 

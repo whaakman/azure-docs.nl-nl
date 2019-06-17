@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: barclayn
 ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596381"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
@@ -116,7 +116,7 @@ Client-coderingsmodel verwijst naar versleuteling die door de service of de aanr
 
 Server-side Encryption modellen verwijzen naar versleuteling die wordt uitgevoerd door de Azure-service. In dit model voert de Resourceprovider de bewerkingen voor versleutelen en ontsleutelen. Bijvoorbeeld Azure Storage kan ontvangen van gegevens in operations in tekst zonder opmaak en neemt de versleuteling en ontsleuteling intern. De Resourceprovider kunt versleutelingssleutels die worden beheerd door Microsoft of door de klant, afhankelijk van de opgegeven configuratie.
 
-![Server ](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![Server](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>Server-side encryption Sleutelbeheer modellen
 
@@ -271,7 +271,7 @@ Client-side-versleuteling van gegevens uit een Azure SQL Database is alleen besc
 | Azure Data Lake Store            | Ja                | Ja, RSA 2048-bits  | -                  |
 | **Compute**                      |                    |                    |                    |
 | Virtuele machines                 | -                  | Ja, RSA 2048-bits  | -                  |
-| Virtuele-machineschaalset        | -                  | Ja, RSA 2048-bits  | -                  |
+| Virtuele-Machineschaalset        | -                  | Ja, RSA 2048-bits  | -                  |
 | **Databases**                    |                    |                    |                    |
 | SQL Server op Virtual Machines   | Ja                | Ja, RSA 2048-bits  | Ja                |
 | Azure SQL Database               | Ja                | Ja, RSA 2048-bits  | Ja                |
@@ -287,7 +287,7 @@ Client-side-versleuteling van gegevens uit een Azure SQL Database is alleen besc
 | Azure Active Directory Domain Services | Ja          | Ja, RSA 2048-bits  | -                  |
 | **Integratie**                  |                    |                    |                    |
 | Service Bus                      | Ja                | -                  | Ja                |
-| Gebeurtenisraster                       | Ja                | -                  | -                  |
+| Event Grid                       | Ja                | -                  | -                  |
 | API Management                   | Ja                | -                  | -                  |
 | **IoT-Services**                 |                    |                    |                    |
 | IoT Hub                          | -                  | -                  | Ja                |
@@ -296,11 +296,11 @@ Client-side-versleuteling van gegevens uit een Azure SQL Database is alleen besc
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Ja                | -                  | Ja                |
 | **Storage**                      |                    |                    |                    |
-| Blob-opslag                     | Ja                | Ja, RSA 2048-bits  | Ja                |
+| Blob Storage                     | Ja                | Ja, RSA 2048-bits  | Ja                |
 | Disk Storage                     | Ja                | -                  | -                  |
 | Beheerde schijfopslag             | Ja                | -                  | -                  |
 | File Storage                     | Ja                | Ja, RSA 2048-bits  | -                  |
-| Opslagwachtrij                    | Ja                | -                  | Ja                |
+| Queue Storage                    | Ja                | -                  | Ja                |
 | Avere vFXT                       | Ja                | -                  | -                  |
 | Archive Storage                  | Ja                | Ja, RSA 2048-bits  | -                  |
 | StorSimple                       | Ja                | -                  | Ja                |

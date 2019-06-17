@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61066022"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Hoe een model voor Machine Learning Studio wordt uitgevoerd van een experiment met een webservice
@@ -67,7 +67,7 @@ In dit conversieproces het trainingsexperiment niet worden verwijderd. Wanneer h
 >
 
 ### <a name="the-web-service"></a>De webservice
-Als u tevreden bent dat uw Voorspellend experiment klaar is, u uw service als een klassieke webservice implementeren kunt of een nieuwe webservice gebaseerd op Azure Resource Manager. Aan uw model operationeel maken door te implementeren als een *klassieke Machine Learning-webservice*, klikt u op **webservice implementeren** en selecteer **webservice implementeren [klassieke]**. Om te implementeren als *nieuwe Machine Learning-webservice*, klikt u op **webservice implementeren** en selecteer **Web Service implementeren [Nieuw]**. Gebruikers kunnen nu gegevens aan uw model met behulp van de REST-API-webservice verzenden en ontvangen van de resultaten. Zie [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Azure Machine Learning-webservice gebruiken) voor meer informatie.
+Als u tevreden bent dat uw Voorspellend experiment klaar is, u uw service als een klassieke webservice implementeren kunt of een nieuwe webservice gebaseerd op Azure Resource Manager. Aan uw model operationeel maken door te implementeren als een *klassieke Machine Learning-webservice*, klikt u op **webservice implementeren** en selecteer **webservice implementeren [klassieke]** . Om te implementeren als *nieuwe Machine Learning-webservice*, klikt u op **webservice implementeren** en selecteer **Web Service implementeren [Nieuw]** . Gebruikers kunnen nu gegevens aan uw model met behulp van de REST-API-webservice verzenden en ontvangen van de resultaten. Zie [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Azure Machine Learning-webservice gebruiken) voor meer informatie.
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>Niet-standaard: het maken van een niet-voorspellende webservice
 Als uw experiment heeft niet de trein een predictive Analytics-model, dan hebt u niet nodig hebt om zowel een opleidingsexperiment en een score experiment te maken: Er is slechts één experiment en kunt u deze als een webservice implementeren. Machine Learning Studio wordt gedetecteerd of uw experiment een Voorspellend model bevat door het analyseren van de modules die u hebt gebruikt.

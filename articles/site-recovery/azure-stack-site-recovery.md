@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399596"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack-VM's repliceren naar Azure
@@ -43,7 +43,7 @@ Met deze stappen is voltooid, kunt u vervolgens een volledige failover uitvoeren
 
 ![Architectuur](./media/azure-stack-site-recovery/architecture.png)
 
-**Locatie** | **Onderdeel** |**Details**
+**Location** | **Onderdeel** |**Details**
 --- | --- | ---
 **Configuratieserver** | Wordt uitgevoerd op een enkele virtuele machine een Azure-Stack. | In elk abonnement moet u de virtuele machine van een configuratieserver instellen. Deze virtuele machine wordt uitgevoerd de volgende Site Recovery-onderdelen:<br/><br/> -Server configuratie: Coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie. -Server proces: Fungeert als replicatiegateway. Deze ontvangt replicatiegegevens, optimaliseert met caching, compressie en codering; en verzendt dit naar Azure storage.<br/><br/> Als VM's die u wilt repliceren van de hieronder vermelde limieten overschrijdt, kunt u een afzonderlijke zelfstandige processerver instellen. [Meer informatie](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **Mobility-service** | Geïnstalleerd op elke virtuele machine die u wilt repliceren. | In de stappen in dit artikel wordt een account voorbereiden, zodat de Mobility-service wordt automatisch geïnstalleerd op een virtuele machine wanneer replicatie is ingeschakeld. Als u niet wilt dat de service automatisch te installeren, zijn er een aantal andere methoden die u kunt gebruiken. [Meer informatie](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).

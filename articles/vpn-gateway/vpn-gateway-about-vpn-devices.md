@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: yushwang
 ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388854"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
@@ -42,7 +42,7 @@ Om te helpen uw VPN-apparaat configureren, raadpleegt u de koppelingen die overe
 |**Leverancier**          |**Apparaatfamilie**     |**Minimale versie van het besturingssysteem** |**PolicyBased configuratie-instructies** |**RouteBased configuratie-instructies** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Niet compatibel  |[Configuratiehandleiding](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
-| Allied Telesis     |VPN-routers uit AR-serie |5.4.7+ AR-serie               |Binnenkort beschikbaar     |[Configuratiehandleiding](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
+| Allied Telesis     |VPN-routers uit AR-serie |5\.4.7+ AR-serie               |Binnenkort beschikbaar     |[Configuratiehandleiding](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall F-serie |PolicyBased: 5.4.3<br>Op route gebaseerd: 6.2.0 |[Configuratiehandleiding](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Configuratiehandleiding](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-serie |Barracuda Firewall 6.5 |[Configuratiehandleiding](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Niet compatibel |
 | Check Point |Security Gateway |R80.10 |[Configuratiehandleiding](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Configuratiehandleiding](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
@@ -133,7 +133,7 @@ In de volgende tabellen:
 | Diffie-Hellman-groep  |Groep 2 (1024 bits) |Groep 2 (1024 bits) |
 | Verificatiemethode |Vooraf gedeelde sleutel     |Vooraf gedeelde sleutel     |
 | Versleutelings- en hash-algoritmen |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| SA-levensduur           |28.800 seconden     |28.800 seconden     |
+| SA-levensduur           |28\.800 seconden     |28\.800 seconden     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parameters voor IKE Phase 2 (Quick Mode)
 
@@ -141,8 +141,8 @@ In de volgende tabellen:
 | ---                           | ---           | ---                                         |
 | IKE-versie                   |IKEv1          |IKEv2                                        |
 | Versleutelings- en hash-algoritmen |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-aanbiedingen](#RouteBasedOffers) |
-| SA-levensduur (tijd)            |3.600 seconden  |27.000 seconden                                |
-| SA-levensduur (bytes)           |102.400.000 kB | -                                           |
+| SA-levensduur (tijd)            |3\.600 seconden  |27\.000 seconden                                |
+| SA-levensduur (bytes)           |102\.400.000 kB | -                                           |
 | Perfect Forward Secrecy (PFS) |Nee             |[RouteBased QM SA-aanbiedingen](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Niet ondersteund  |Ondersteund                                    |
 

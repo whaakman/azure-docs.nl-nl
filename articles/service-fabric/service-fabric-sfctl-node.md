@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258733"
 ---
 # <a name="sfctl-node"></a>sfctl node
@@ -30,12 +30,12 @@ Beheren van de knooppunten die een cluster wordt gevormd.
 | --- | --- |
 | Uitschakelen | Deactiveer het knooppunt van een Service Fabric-cluster met de bedoeling opgegeven deactiveren. |
 | Inschakelen | Activeren van een Service Fabric-cluster-knooppunt dat is gedeactiveerd. |
-| gezondheidszorg | Hiermee haalt u de status van een Service Fabric-knooppunt. |
-| Info | Hiermee haalt de informatie over een bepaald knooppunt in het Service Fabric-cluster. |
+| health | Hiermee haalt u de status van een Service Fabric-knooppunt. |
+| info | Hiermee haalt de informatie over een bepaald knooppunt in het Service Fabric-cluster. |
 | list | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster. |
-| laden | Hiermee haalt u de gegevens laden van een Service Fabric-knooppunt. |
+| load | Hiermee haalt u de gegevens laden van een Service Fabric-knooppunt. |
 | Remove-status | Service Fabric de hoogte gebracht dat de permanente status op een knooppunt is definitief verwijderd of verloren gaan. |
-| rapport-en statusbewaking | Verzendt een statusrapport over de Service Fabric-knooppunt. |
+| report-health | Verzendt een statusrapport over de Service Fabric-knooppunt. |
 | restart | Start opnieuw op het knooppunt van een Service Fabric-cluster. |
 | overgang | Wordt gestart of gestopt een clusterknooppunt. |
 | overgang-status | Hiermee haalt u de voortgang van een bewerking aan de slag met StartNodeTransition. |

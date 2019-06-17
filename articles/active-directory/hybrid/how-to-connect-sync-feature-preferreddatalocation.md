@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473019"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
@@ -137,7 +137,7 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
 5. Houd de **Scoping filter** leeg is, om op te nemen van alle objecten. U moet mogelijk de bereikfilter op basis van uw Azure AD Connect-implementatie aanpassen.
 6. Ga naar de **transformatie tabblad**, en implementeren van de volgende transformatieregel:
 
-    | Type gebruikersstroom | Doelkenmerk | Source | Eenmaal toepassen | Type samenvoeging |
+    | Type gebruikersstroom | Doelkenmerk | source | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     |Direct | preferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
 
@@ -174,7 +174,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 
 6. Ga naar de **transformatie** tabblad en implementeren van de volgende transformatieregel:
 
-    | Type gebruikersstroom | Doelkenmerk | Source | Eenmaal toepassen | Type samenvoeging |
+    | Type gebruikersstroom | Doelkenmerk | source | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     | Direct | preferredDataLocation | preferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
 

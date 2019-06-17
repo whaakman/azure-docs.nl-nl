@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61364007"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Apparaat-naar-cloud-berichten lezen van het geïntegreerde eindpunt
@@ -46,7 +46,7 @@ Wanneer u Event Hubs-SDK's of productintegraties gebruikt die zich niet bewust v
 
 3. De **gebeurtenissen** sectie bevat de volgende waarden: **Partities**, **Event Hub-compatibele naam**, **Event Hub-compatibele eindpunt**, **bewaartijd**, en **consumentengroepen**.
 
-    ![Apparaat-naar-cloudinstellingen](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![Instellingen voor apparaat-naar-cloud](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 In de portal bevat het veld van Event Hub-compatibele eindpunt een volledige Event Hubs-verbindingsreeks dat lijkt op: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Als de SDK u andere waarden vereist, zouden ze zijn:
 

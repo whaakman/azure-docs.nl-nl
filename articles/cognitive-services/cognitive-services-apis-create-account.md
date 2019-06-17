@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/11/2019
 ms.author: garye
-ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1149cc6bd4fa41514056342a06d31016123eb88c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062155"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Quickstart: Een Cognitive Services-account maken in Azure portal
 
@@ -54,7 +54,7 @@ De volgende secties helpen u bij het maken van een abonnement één of meerdere 
     |--|--|
     | **Naam** | Een beschrijvende naam voor uw cognitive services-resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyCognitiveServicesAccount*. |
     | **Abonnement** | Selecteer een van uw beschikbare Azure-abonnementen. |
-    | **Locatie** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
+    | **Location** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
     | **Prijscategorie** | De kosten van uw Cognitive Services-account, is afhankelijk van de opties die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) waarin uw Cognitive Services-resource. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
 
@@ -76,7 +76,7 @@ De volgende secties helpen u bij het maken van een abonnement één of meerdere 
     |--|--|
     | **Naam** | Een beschrijvende naam voor uw cognitive services-resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyNameFaceAPIAccount*. |
     | **Abonnement** | Selecteer een van uw beschikbare Azure-abonnementen. |
-    | **Locatie** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
+    | **Location** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
     | **Prijscategorie** | De kosten van uw Cognitive Services-account, is afhankelijk van de opties die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) waarin uw Cognitive Services-resource. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
 
@@ -105,4 +105,4 @@ Noteer de locatie en de sleutels. U kunt de sleutels krijgen door het selecteren
 * [Snelstart: Extraheer handgeschreven tekst uit een installatiekopie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
 * [Zelfstudie: Maak een app om te detecteren en frame gezichten in een installatiekopie](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
 * [Bouw een webpagina aangepast zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
-* [Language Understanding (LUIS) integreren met een bot met behulp van Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
+* [Language Understanding (LUIS) integreren met een bot met behulp van Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-bf-v4)

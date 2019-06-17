@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095486"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: Afhandeling van LargeObject-fouten die zijn veroorzaakt door userCertificate kenmerk
@@ -70,7 +70,7 @@ De stappen kunnen worden samengevat als:
 8. Exporteer de wijzigingen naar Azure AD.
 9. Synchronisatieplanning opnieuw in te schakelen.
 
-### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Step 1. Synchronisatieplanning uitschakelen en controleer of dat er is geen synchronisatie wordt uitgevoerd
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Stap 1. Synchronisatieplanning uitschakelen en controleer of dat er is geen synchronisatie wordt uitgevoerd
 Zorg ervoor dat er geen synchronisatie vindt plaats wanneer u zich in het midden van implementatie van een nieuwe synchronisatieregel voor om te voorkomen dat onbedoelde wijzigingen wordt geëxporteerd naar Azure AD. De ingebouwde Synchronisatieplanning uitschakelen:
 1. PowerShell-sessie starten op de Azure AD Connect-server.
 
@@ -122,7 +122,7 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereikfilter** en **hogere 
     | Verbonden systeem | *Selecteer de Azure AD-Connector* |
     | Verbonden systeem objecttype | **user** | |
     | Metaverse-objecttype | **person** | |
-    | Type koppeling | **Koppelen** | |
+    | Koppelingstype | **Koppelen** | |
     | Prioriteit | *Een getal tussen 1 en 99 gekozen* | Het aantal gekozen mogen niet worden gebruikt door een bestaande synchronisatieregel en heeft een lagere waarde (en dus hogere prioriteit) dan de bestaande synchronisatieregel. |
 
 3. Ga naar de **Scoping filter** tabblad en implementeren van de dezelfde bereikfilter wordt met behulp van de bestaande synchronisatieregel.

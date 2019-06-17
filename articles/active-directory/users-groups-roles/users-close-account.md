@@ -14,10 +14,10 @@ ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39b359ef7feeaec541ba17e98a5d1e9b74c6403a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957998"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Sluit uw werk of school-account in een niet-beheerde adreslijst
@@ -39,7 +39,7 @@ Voordat u uw account sluit kunt, moet u bevestigen dat de volgende items:
 > [!WARNING]
 > Sluit uw account is niet ongedaan worden gemaakt. Wanneer u uw account sluit, worden alle persoonlijke gegevens worden verwijderd. U hebt toegang tot uw account en gegevens die zijn gekoppeld aan uw account niet meer.
 
-## <a name="close-your-account"></a>Je account sluiten
+## <a name="close-your-account"></a>Uw account sluiten
 
 Volg deze stappen een niet-beheerde werk- of schoolaccount om af te sluiten:
 

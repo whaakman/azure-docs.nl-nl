@@ -13,10 +13,10 @@ ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484915"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>SaaS-analytics met Azure SQL Database, SQL Data Warehouse, Data Factory en Power BI verkennen
@@ -87,7 +87,7 @@ Deze zelfstudie worden analytics via verkoopgegevens ticket. In deze stap kunt u
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>SQL datawarehouse, Data Factory, implementeren en Blob Storage 
 In de app Wingtip Tickets transactionele gegevens van de tenants verdeeld over verschillende databases. Azure Data Factory (ADF) wordt gebruikt voor het indelen van de Extract, Load en Transform (ELT) van deze gegevens in het datawarehouse. Om gegevens te laden in SQL Data Warehouse meest efficiënt, ADF haalt u gegevens in de tussenliggende blob-bestanden en gebruikt vervolgens [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) de gegevens laden in het datawarehouse.   
 
-In deze stap implementeert u de extra resources die tijdens deze zelfstudie: een SQL Data Warehouse met de naam _tenantanalytics_, een Azure-Gegevensfactory met de naam _dbtodwload -\<gebruiker\>_  , en een Azure storage-account met de naam _wingtipstaging\<gebruiker\>_. Het opslagaccount dat wordt gebruikt om tijdelijk uitgepakte bestanden als blobs voordat ze geladen in het datawarehouse worden. Deze stap implementeert u de datawarehouse-schema ook en definieert de ADF-pijplijnen die de ELT-proces indelen.
+In deze stap implementeert u de extra resources die tijdens deze zelfstudie: een SQL Data Warehouse met de naam _tenantanalytics_, een Azure-Gegevensfactory met de naam _dbtodwload -\<gebruiker\>_  , en een Azure storage-account met de naam _wingtipstaging\<gebruiker\>_ . Het opslagaccount dat wordt gebruikt om tijdelijk uitgepakte bestanden als blobs voordat ze geladen in het datawarehouse worden. Deze stap implementeert u de datawarehouse-schema ook en definieert de ADF-pijplijnen die de ELT-proces indelen.
 1. Open in PowerShell ISE, *...\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* en ingesteld:
     - **$DemoScenario** = **2** tenant analytics-datawarehouse, blob-opslag en data factory implementeren 
 1. Druk op **F5** de demoscript uitvoeren en implementeren van de Azure-resources. 
@@ -126,7 +126,7 @@ In de [Azure Portal](https://ms.portal.azure.com) Controleer in de resourcegroep
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 In deze sectie behandelt de data factory hebt gemaakt. Volg onderstaande stappen voor het starten van de data factory:
-1. Klik in de portal op de data factory met de naam **dbtodwload -\<gebruiker\>**.
+1. Klik in de portal op de data factory met de naam **dbtodwload -\<gebruiker\>** .
 2. Klik op **Author & Monitor** tegel om te starten van de ontwerpfunctie voor Data Factory's in een afzonderlijk tabblad. 
 
 ## <a name="extract-load-and-transform-data"></a>Extraheren, laden, en gegevens transformeren

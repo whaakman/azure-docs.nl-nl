@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057948"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Toewijzing van gegevensstromen prestaties en afstemmen van de handleiding
 
@@ -41,7 +41,7 @@ Als u dit pictogram te klikken op weergegeven de uitvoeringsplan en latere prest
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimaliseren voor Azure SQL Database en Azure SQL datawarehouse
 
-![Deel de gegevensbron](media/data-flow/sourcepart2.png "deel uit van bron")
+![Deel de gegevensbron](media/data-flow/sourcepart3.png "deel uit van bron")
 
 ### <a name="partition-your-source-data"></a>Partities voor uw brongegevens
 
@@ -122,8 +122,8 @@ Als u dit pictogram te klikken op weergegeven de uitvoeringsplan en latere prest
 * Om te voorkomen dat knooppunt rekenresources voor drempelwaardemeldingen, kunt u de standaard- of expliciete partitieschema houden in ADF, die is geoptimaliseerd voor prestaties, en voegt u een volgende activiteit kopiëren in de pijplijn die wordt samengevoegd alles van het onderdeel één nieuwe bestanden van de map voor uitvoer het bestand. Deze techniek wordt in wezen worden gescheiden van de actie van de transformatie van het bestand samenvoegen en geven hetzelfde resultaat als de instelling 'uitvoer naar één bestand'.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de andere gegevensstroom artikelen:
+Zie de andere gegevensstroom artikelen die betrekking hebben op prestaties:
 
-- [Overzicht van stroom](concepts-data-flow-overview.md)
+- [Gegevensstroom tabblad optimaliseren](concepts-data-flow-optimize-tab.md)
 - [Gegevens Stroomactiviteit controleren](control-flow-execute-data-flow-activity.md)
 - [Gegevensoverdracht-prestaties bewaken](concepts-data-flow-monitoring.md)

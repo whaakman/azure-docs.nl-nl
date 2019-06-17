@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141019"
 ---
 Het vorige voorbeeld hebt u een standaard geleerd aanmelden, waarvoor de client verbinding maken met zowel de id-provider en de back-end Azure-service telkens wanneer de app wordt gestart. Deze methode is inefficiënt en u kunt problemen met betrekking tot gebruik hebben als veel klanten uw app tegelijkertijd start. Een betere benadering is het verificatietoken dat is geretourneerd door de Azure-service in de cache en probeer het gebruik van deze eerste voordat u een aanmelding op basis van een provider.

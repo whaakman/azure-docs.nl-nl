@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835692"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059646"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -75,7 +75,7 @@ Voor **webserverlogboeken**, kunt u **opslag** of **bestandssysteem**. Selectere
 
 Als u Logboeken op het bestandssysteem opslaat, kunnen de bestanden worden geopend door de FTP of gedownload als een Zip-archief met behulp van Azure CLI.
 
-Standaard logboeken worden niet automatisch verwijderd (met uitzondering van **toepassingslogboeken (bestandssysteem)**). Als u wilt verwijderen automatisch logboeken, instellen de **bewaarperiode (dagen)** veld.
+Standaard logboeken worden niet automatisch verwijderd (met uitzondering van **toepassingslogboeken (bestandssysteem)** ). Als u wilt verwijderen automatisch logboeken, instellen de **bewaarperiode (dagen)** veld.
 
 > [!NOTE]
 > Als u [opnieuw genereren van toegangssleutels voor uw opslagaccount](../storage/common/storage-create-storage-account.md), moet u de configuratie van de respectieve logboekregistratie voor het gebruik van de bijgewerkte sleutels opnieuw instellen. Om dit te doen:
@@ -192,12 +192,12 @@ Tijdens de registratie van BLOB storage, kunnen gegevens worden opgeslagen in de
 | Date |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
 | Niveau |Gebeurtenisniveau (bijvoorbeeld fout, waarschuwing, informatie) |
 | ApplicationName |Naam van de app |
-| Instantie-id |Exemplaar van de app die de gebeurtenis heeft plaatsgevonden op |
+| InstanceId |Exemplaar van de app die de gebeurtenis heeft plaatsgevonden op |
 | EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (grotere precisie) |
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>Standaard ingesteld op 0 als er niets opgegeven |
-| PID |Proces-id |
+| PID |Proces-ID |
 | TID |De thread-ID van de thread die de gebeurtenis heeft geproduceerd |
-| Bericht |Details van gebeurtenisbericht |
+| Message |Details van gebeurtenisbericht |
 
 De gegevens die zijn opgeslagen in een blob wordt het volgende voorbeeld als volgt uitzien:
 
@@ -205,7 +205,7 @@ De gegevens die zijn opgeslagen in een blob wordt het volgende voorbeeld als vol
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Voor ASP.NET Core, logboekregistratie wordt gerealiseerd met behulp van de [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider deze provider deposito's aanvullende in de blob-container logboekbestanden. Zie voor meer informatie, [ASP.NET Core logboekregistratie in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
+> Voor ASP.NET Core, logboekregistratie wordt gerealiseerd met behulp van de [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider deze provider deposito's aanvullende in de blob-container logboekbestanden. Zie voor meer informatie, [ASP.NET Core logboekregistratie in Azure](/aspnet/core/fundamentals/logging).
 >
 >
 
@@ -225,7 +225,7 @@ Logboeken met details zijn HTML-documenten die bieden meer gedetailleerde inform
 De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](/windows/desktop/Http/w3c-logging). Deze informatie kan worden gelezen met behulp van een teksteditor of met behulp van hulpprogramma's zoals geparseerd [Logboekparser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
-> De logboeken die worden geproduceerd door Azure App Service bieden geen ondersteuning voor de **s-computername**, **s-IP-**, of **cs-version** velden.
+> De logboeken die worden geproduceerd door Azure App Service bieden geen ondersteuning voor de **s-computername**, **s-IP-** , of **cs-version** velden.
 >
 >
 

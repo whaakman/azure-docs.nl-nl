@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431314"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053162"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Bot met QnA Maker en LUIS gebruiken voor het distribueren van uw knowledge base
 Als uw QnA Maker knowledge base grote groeit, wordt het moeilijk te onderhouden als één monolithische ingesteld en er behoefte aan de knowledge base splitsen in kleinere logische segmenten.
@@ -27,7 +27,7 @@ Dit artikel wordt gebruikgemaakt van Bot Framework v3 SDK. Lees dit [Bot Framewo
 
 ## <a name="architecture"></a>Architectuur
 
-![QnA Maker luis-architectuur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker met Language Understanding-architectuur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 In dit scenario, QnA Maker eerst de bedoeling van de binnenkomende vraag opgehaald uit een LUIS-model, en gebruik vervolgens die aan deze wordt doorgestuurd naar de juiste QnA Maker knowledge base.
 
@@ -51,7 +51,7 @@ In dit scenario, QnA Maker eerst de bedoeling van de binnenkomende vraag opgehaa
 
 ## <a name="web-app-bot"></a>Web app-Bot
 
-1. [Maken van een Web-App-bot](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) met de LUIS-sjabloon. Selecteer de 3.x SDK en de programmeertaal C#.
+1. [Maak een 'Basic' Web-App-bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) waaronder automatisch een LUIS-app. Selecteer de 4.x SDK en de C# programmeertaal.
 
 1. Zodra de web-app-bot wordt gemaakt in Azure portal, selecteert u de web-app-bot.
 1. Selecteer **toepassingsinstellingen** in de navigatiebalk van Web-app-bot service en schuif vervolgens omlaag naar **toepassingsinstellingen** sectie van de beschikbare instellingen.

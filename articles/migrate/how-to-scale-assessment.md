@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518761"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
@@ -58,9 +58,9 @@ Plan uw detecties en evaluaties op basis van de volgende beperkingen:
 
 | **Entiteit** | **Limiet voor computer** |
 | ---------- | ----------------- |
-| PROJECT    | 1,500             |
+| Project    | 1,500             |
 | Detectie  | 1,500             |
-| Evaluatie | 1,500             |
+| Beoordeling | 1,500             |
 
 Houd rekening met deze overwegingen bij het plannen:
 

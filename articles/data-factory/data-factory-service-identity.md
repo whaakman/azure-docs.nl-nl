@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153438"
 ---
 # <a name="managed-identity-for-data-factory"></a>Beheerde identiteit voor Data Factory
@@ -158,8 +158,8 @@ U kunt de beheerde identiteit in Azure portal of via een programma ophalen. De v
 
 U vindt de beheerde identiteitsgegevens uit Azure portal -> uw data factory -> eigenschappen:
 
-- Object-id van beheerde identiteit
-- Tenant van beheerde identiteit
+- Beheerde identiteit Object-ID
+- Tenant-beheerde identiteit
 - **Identiteitstoepassings-ID beheerd** > deze waarde kopiëren
 
 ![Ophalen van beheerde identiteit](media/data-factory-service-identity/retrieve-service-identity-portal.png)

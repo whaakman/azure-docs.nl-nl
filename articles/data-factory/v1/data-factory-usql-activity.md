@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248144"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Gegevens transformeren met U-SQL-scripts uitgevoerd op Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-usql-activity.md)
 > * [Versie 2 (huidige versie)](../transform-data-using-data-lake-analytics.md)
 
@@ -214,7 +214,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | scriptLinkedService | Gekoppelde service die is gekoppeld aan de opslag met het script aan de data factory | Nee (als u een script gebruiken)                   |
 | Script              | Geef inline script in plaats van scriptPath en scriptLinkedService op te geven. Bijvoorbeeld: `"script": "CREATE DATABASE test"`. | Nee (als u gebruik scriptPath en scriptLinkedService) |
 | degreeOfParallelism | Het maximale aantal knooppunten dat tegelijk wordt gebruikt voor het uitvoeren van de taak. | Nee                                       |
-| priority            | Hiermee bepaalt u welke taken uit in de wachtrij moeten worden geselecteerd moeten eerst worden uitgevoerd. Des te lager het nummer, hoe hoger de prioriteit. | Nee                                       |
+| prioriteit            | Hiermee bepaalt u welke taken uit in de wachtrij moeten worden geselecteerd moeten eerst worden uitgevoerd. Des te lager het nummer, hoe hoger de prioriteit. | Nee                                       |
 | parameters          | Parameters voor de U-SQL-script          | Nee                                       |
 | runtimeVersion      | Runtime-versie van de U-SQL-engine te gebruiken | Nee                                       |
 | compilationMode     | <p>Compilatiemodus van U-SQL. Moet een van deze waarden:</p> <ul><li>**Semantische:** Alleen uitvoeren semantische controles en nodig bevestigingen.</li><li>**Volledige:** Voer de volledige compilatie, met inbegrip van syntaxiscontrole, optimalisatie, genereren van code, enzovoort.</li><li>**SingleBox:** De volledige compilatie, met TargetType instelling SingleBox uitvoeren.</li></ul><p>Als u een waarde voor deze eigenschap niet opgeeft, betekent dit dat de server de optimale compilatiemodus bepaalt. </p> | Nee                                       |

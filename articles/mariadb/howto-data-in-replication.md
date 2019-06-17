@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065653"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Azure Database voor MariaDB-gegevens in replicatie configureren
 
-In dit artikel leert u over het instellen van gegevens in replicatie in de Azure Database voor MariaDB-service door de hoofd- en replica-servers te configureren. Gegevens in replicatie kunt u gegevens synchroniseren met een master MariaDB-server die on-premises worden uitgevoerd in virtuele machines of database-services die door andere cloudproviders worden gehost in een replica in de Azure Database voor MariaDB-service. 
+In dit artikel leert u over het instellen van gegevens in replicatie in de Azure Database voor MariaDB-service door de hoofd- en replica-servers te configureren. Gegevens in replicatie kunt u gegevens synchroniseren met een master MariaDB-server die on-premises worden uitgevoerd in virtuele machines of database-services die door andere cloudproviders worden gehost in een replica in de Azure Database voor MariaDB-service. Er werd aanbevolen instellingen van de replicatie gegevens in met [globale transactie-ID](https://mariadb.com/kb/en/library/gtid/) wanneer de versie van de hoofdserver 10.2 of hoger.
 
 In dit artikel wordt ervan uitgegaan dat u ten minste enige ervaring met MariaDB-servers en databases hebt.
 
@@ -116,7 +116,16 @@ De volgende stappen uit voorbereiden en configureren van de MariaDB-server die g
    De resultaten moeten als volgende. Zorg ervoor dat u de naam van het binaire bestand Opmerking zoals deze worden gebruikt in latere stappen.
 
    ![Resultaten van master-Status](./media/howto-data-in-replication/masterstatus.png)
+   
+6. GTID positie (optioneel, die nodig zijn voor replicatie met GTID) ophalen
+
+   De functie uitvoeren [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) opdracht voor het ophalen van de positie GTID voor de naam binlog overeenkomen en offset.
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## <a name="dump-and-restore-master-server"></a>Dump maken en terugzetten van hoofd-server
 
 1. Dump van alle databases van hoofd-server
@@ -142,10 +151,16 @@ De volgende stappen uit voorbereiden en configureren van de MariaDB-server die g
 
    Alle gegevens in replicatie-functies worden uitgevoerd door opgeslagen procedures. U vindt alle procedures op [gegevens in door replicatie opgeslagen Procedures](reference-data-in-stored-procedures.md). De opgeslagen procedures kunnen worden uitgevoerd in de MySQL-shell of MySQL Workbench.
 
-   Om te koppelen van twee servers en replicatie, meld u aan bij de doelserver van de replica in de Azure database voor MariaDB-service starten en het externe exemplaar instellen als de hoofd-server. Dit wordt gedaan met behulp van de `mysql.az_replication_change_master` opgeslagen procedure uit op de Azure database voor MariaDB-server.
+   Om te koppelen van twee servers en replicatie, meld u aan bij de doelserver van de replica in de Azure database voor MariaDB-service starten en het externe exemplaar instellen als de hoofd-server. Dit wordt gedaan met behulp van de `mysql.az_replication_change_master` of `mysql.az_replication_change_master_with_gtid` opgeslagen procedure uit op de Azure database voor MariaDB-server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   of
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host: hostnaam van de hoofd-server
@@ -153,6 +168,7 @@ De volgende stappen uit voorbereiden en configureren van de MariaDB-server die g
    - master_password: wachtwoord voor de hoofd-server
    - master_log_file: binaire logboekbestandsnaam die worden uitgevoerd `show master status`
    - master_log_pos: binaire logboekpositie die worden uitgevoerd `show master status`
+   - master_gtid_pos: GTID positie die worden uitgevoerd `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: Context van de CA-certificaat. Als u geen gebruik van SSL, geeft u lege tekenreeks.
        - Het verdient aanbeveling om door te geven van deze parameter in als een variabele. Zie de volgende voorbeelden voor meer informatie.
 
@@ -199,6 +215,10 @@ De volgende stappen uit voorbereiden en configureren van de MariaDB-server die g
 
    Als de status van `Slave_IO_Running` en `Slave_SQL_Running` zijn 'Ja' en de waarde van `Seconds_Behind_Master` is '0', replicatie goed werkt. `Seconds_Behind_Master` Geeft aan hoe laat de replica is. Als de waarde geen is '0', betekent dit dat de replica is worden gebruikt voor het verwerken van updates. 
 
+4. Update komen overeen met de servervariabelen voor de om gegevens in replicatie meer veilige (alleen vereist voor replicatie zonder GTID)
+    
+    Vanwege MariaDB systeemeigen replicatie, moet u setup [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) en [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variabelen op replicatie zonder GTID scenario. Wij u van uw ondergeschikte server controleren recommand `sync_master_info` en `sync_relay_log_info` variabelen en wijzig deze ot `1` als u wilt controleren of de replicatie van gegevens in stabiel is.
+    
 ## <a name="other-stored-procedures"></a>Andere opgeslagen procedures
 
 ### <a name="stop-replication"></a>Replicatie stoppen

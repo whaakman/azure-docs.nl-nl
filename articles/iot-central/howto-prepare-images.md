@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236483"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Voorbereiden en afbeeldingen uploaden naar uw Azure IoT Central-toepassing
@@ -59,7 +59,7 @@ De volgende tabel geeft een overzicht van de grootte van de installatiekopie die
 | Locatie | Grootten |
 | -------- | ------ |
 | Toepassingsbeheer | 268x160 px |
-| Apparaatsjabloon | 64 x 64 pixels |
+| Apparaat-sjabloon | 64 x 64 pixels |
 | Dashboard-tegels | De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px |
 
 Voor de beste weergave in de toepassing, moet u de installatiekopieën die overeenkomen met de dimensies die wordt weergegeven in de vorige tabel maken.
@@ -86,7 +86,7 @@ Onder **installatiekopie configureren**, selecteer de **installatiekopie** tegel
 
 **Sla** de geüploade installatiekopie. U kunt het formaat van het in de bewerkingsmodus. Selecteer **gedaan** wanneer u klaar bent.
 
-### <a name="device-template"></a>Apparaatsjabloon
+### <a name="device-template"></a>Apparaat-sjabloon
 
 Als u wilt uploaden een installatiekopie van een sjabloon van het apparaat, gaat u naar **Apparaatsjablonen** en kies de sjabloon van het apparaat. U moet een opbouwfunctie om deze taak te voltooien:
 

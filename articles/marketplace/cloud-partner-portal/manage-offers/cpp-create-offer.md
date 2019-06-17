@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pabutler
 ms.openlocfilehash: cc0d8e68578500d4fa5f1b167790d60c8f7c5067
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942154"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Azure Marketplace en AppSource aanbiedingen maken
@@ -44,7 +44,7 @@ De horizontale werkbalk bevindt zich boven het gebied van de gegevens-invoer, wo
 
 Bij het maken van een aanbieding, u opgeven dat de vereiste en optionele gegevens op elk tabblad zich in de verticale kolom links van de **nieuwe aanbieding** pagina.  Standaard besturingselementen voor de gebruikersinterface, zoals tekstvakken, vervolgkeuzelijsten en selectievakjes--worden weergegeven voor het verzamelen van gegevens.  Hoewel de specifieke verzameling van bewerken tabbladen is afhankelijk van het aanbiedingtype, wordt de volgende tabel bevat enkele van de algemene tabbladen.
 
-|      Naam van het tabblad       |   Doel                                                            |
+|      Tabbladnaam       |   Doel                                                            |
 |      --------       |   -------                                                            |
 | **Aanbiedingsinstellingen**  | Verzamelt aanbieding en uitgever identiteitsgegevens.                    |
 | **SKU's**            | Definieert de technische en zakelijke kenmerken voor elke versie voorraadeenheid (SKU) van uw aanbieding |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235560"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112322"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Beleid: Verouderde blok-verificatie (preview)
 
@@ -118,6 +118,6 @@ Dit beleid inschakelt en bescherming van uw organisatie:
 
 Zie voor meer informatie:
 
-* [Basislijn protection-beleid voor voorwaardelijke toegang](concept-baseline-protection.md)
+* [Beleid voor voorwaardelijke toegang basislijn-beveiliging](concept-baseline-protection.md)
 * [Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten](../../security/azure-ad-secure-steps.md)
 * [Wat is voorwaardelijke toegang in Azure Active Directory?](overview.md)

@@ -14,10 +14,10 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413992"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Wat is er gebeurd met mijn MVC-project (Visual Studio Azure Active Directory verbonden service)?
@@ -34,7 +34,7 @@ Zie voor meer informatie over het werken met de gekoppelde service [aan de slag]
 
 Is van invloed op de projectverwijzingen voor bestand *.NET) en `packages.config` (NuGet-verwijzingen).
 
-| Type | Verwijzing |
+| Type | Referentie |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -49,7 +49,7 @@ Is van invloed op de projectverwijzingen voor bestand *.NET) en `packages.config
 
 Aanvullende verwijzingen als u hebt geselecteerd de **mapgegevens lezen** optie:
 
-| Type | Verwijzing |
+| Type | Referentie |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 alleen) |
@@ -63,7 +63,7 @@ Aanvullende verwijzingen als u hebt geselecteerd de **mapgegevens lezen** optie:
 
 De volgende verwijzingen worden verwijderd (ASP.NET 4 projecten, zoals in Visual Studio 2015):
 
-| Type | Verwijzing |
+| Type | Referentie |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

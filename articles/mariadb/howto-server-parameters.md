@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: c618a4035e9ec9b1ca1986e898ea1060ac05712d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60922492"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Parameters van de server in Azure Database voor MariaDB configureren met behulp van Azure portal
@@ -46,12 +46,12 @@ InnoDB-buffergroep en maximum aantal verbindingen zijn niet kunnen worden geconf
 |Algemeen doel| 8| 15360| 1250|
 |Algemeen doel| 16| 31232| 2500|
 |Algemeen doel| 32| 62976| 5000|
-|Algemeen doel| 64| 125952| 10.000|
+|Algemeen doel| 64| 125952| 10\.000|
 |Geoptimaliseerd geheugen| 2| 7168| 600|
 |Geoptimaliseerd geheugen| 4| 15360| 1250|
 |Geoptimaliseerd geheugen| 8| 30720| 2500|
 |Geoptimaliseerd geheugen| 16| 62464| 5000|
-|Geoptimaliseerd geheugen| 32| 125952| 10.000|
+|Geoptimaliseerd geheugen| 32| 125952| 10\.000|
 
 Deze extra server-parameters zijn niet kunnen worden geconfigureerd in het systeem:
 

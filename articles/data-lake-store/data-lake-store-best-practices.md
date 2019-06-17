@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878947"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Azure Active Directory-service-principals worden meestal gebruikt voor toegang t
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>De firewall van de Data Lake Storage Gen1 met toegang tot Azure-service inschakelen
 
-Data Lake Storage Gen1 ondersteunt de mogelijkheid om een firewall inschakelen en alleen toegang tot Azure-services, die wordt aanbevolen voor een kleinere aanvalsvector van buitenaf indringers te beperken. Firewall kan worden ingeschakeld op de Gen1 van Data Lake Storage-account in Azure portal via de **Firewall** > **Firewall inschakelen (aan)** > **toestaan van toegang tot Azure Services** opties.
+Data Lake Storage Gen1 ondersteunt de mogelijkheid om een firewall inschakelen en alleen toegang tot Azure-services, die wordt aanbevolen voor een kleinere aanvalsvector van buitenaf indringers te beperken. Firewall kan worden ingeschakeld op de Gen1 van Data Lake Storage-account in Azure portal via de **Firewall** > **Firewall inschakelen (aan)**  > **toestaan van toegang tot Azure Services** opties.
 
 ![Firewall-instellingen in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewall-instellingen in Data Lake Storage Gen1")
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61338449"
 ---
 # <a name="interpret-method"></a>Methode interpreteren
@@ -42,7 +42,7 @@ Name     | Value | Vereist?  | Description
   
 ## <a name="response-json"></a>Antwoord (JSON)
 
-Name     | Beschrijving
+Name     | Description
 ---------|---------
 **query** |De *query* parameter van de aanvraag.
 **interpretations** |Een matrix van 0 of meer verschillende methoden die overeenkomt met de invoer van de gebruiker op basis van de grammatica.

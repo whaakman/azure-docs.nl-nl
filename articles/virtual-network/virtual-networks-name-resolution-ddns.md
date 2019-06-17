@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640375"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Dynamische DNS gebruiken om hostnamen te registreren in uw eigen DNS-server
@@ -35,7 +35,7 @@ Windows-clients domein voor het registreren van hun IP-adressen met de domeincon
 ## <a name="linux-clients"></a>Linux-clients
 Linux-clients in het algemeen niet registreren bij de DNS-server bij het opstarten, ze wordt ervan uitgegaan dat de DHCP-server doet het allemaal. DHCP-servers van Azure hoeft niet de referenties om records te registreren in uw DNS-server. U kunt een hulpprogramma met de naam `nsupdate`, die is opgenomen in het pakket Bind, voor het verzenden van DDNS bijgewerkt. Omdat het DDNS-protocol is gestandaardiseerd, kunt u `nsupdate` , zelfs wanneer niet u afhankelijk van de DNS-server.
 
-U kunt de hooks die worden geleverd door de DHCP-client maken en onderhouden van de hostnaam-vermelding in de DNS-server gebruiken. Tijdens de cyclus van een DHCP-, de client voert de scripts in */etc/dhcp/dhclient-exit-hooks.d/*. U kunt de hooks gebruiken voor het registreren van het nieuwe IP-adres met `nsupdate`. Bijvoorbeeld:
+U kunt de hooks die worden geleverd door de DHCP-client maken en onderhouden van de hostnaam-vermelding in de DNS-server gebruiken. Tijdens de cyclus van een DHCP-, de client voert de scripts in */etc/dhcp/dhclient-exit-hooks.d/* . U kunt de hooks gebruiken voor het registreren van het nieuwe IP-adres met `nsupdate`. Bijvoorbeeld:
 
 ```bash
 #!/bin/sh

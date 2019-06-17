@@ -9,10 +9,10 @@ ms.date: 02/19/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 97387e24d5b55c1438a69da1a1fd0a9bc1720e47
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136168"
 ---
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**.
@@ -30,6 +30,6 @@ ms.locfileid: "66136168"
     | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app uniek wordt aangeduid. |
     | **Abonnement** | Kies uw abonnement | Het te gebruiken Azure-abonnement. |
     | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Naam van de resourcegroep waarin uw functie-app moet worden gemaakt. Kies **Nieuw** om een nieuwe resourcegroep te maken.|
-    | **[Hostingabonnement](../articles/app-service/overview-hosting-plans.md)** | App Service-abonnement | Een [App Service-plan](../articles/app-service/overview-hosting-plans.md) geeft de locatie, de grootte en de functies van de webserverfarm aan die als host fungeert voor uw app. U kunt geld besparen bij het hosten van meerdere apps door de web-apps te configureren voor het delen van één App Service-plan. App Service-abonnementen definieert de regio, instantiegrootte, schaal en SKU (Free, Shared, Basic, Standard of Premium). Kies **nieuw** te maken van een nieuwe App Service-plan. |
+    | **[Hostingabonnement](../articles/app-service/overview-hosting-plans.md)** | App Service-plan | Een [App Service-plan](../articles/app-service/overview-hosting-plans.md) geeft de locatie, de grootte en de functies van de webserverfarm aan die als host fungeert voor uw app. U kunt geld besparen bij het hosten van meerdere apps door de web-apps te configureren voor het delen van één App Service-plan. App Service-abonnementen definieert de regio, instantiegrootte, schaal en SKU (Free, Shared, Basic, Standard of Premium). Kies **nieuw** te maken van een nieuwe App Service-plan. |
 
 1. Klik op **maken** te maken van een webtaak en gerelateerde resources in Azure met deze instellingen en implementeer de projectcode van uw.

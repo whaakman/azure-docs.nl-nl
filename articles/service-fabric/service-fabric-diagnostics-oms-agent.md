@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: 819f6ee4ab079361279a567bceeb74c33fe14186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952358"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestaties controleren met Azure Monitor-Logboeken
@@ -76,7 +76,7 @@ U kunt downloaden en wijzigen van deze sjabloon voor het implementeren van een c
 
 Nu dat u hebt de Log Analytics-agent, head toegevoegd op wilt naar de Log Analytics-portal om te kiezen welke prestatiemeteritems die u verzamelen.
 
-1. In de Azure-portal, gaat u naar de resourcegroep waarin u de Service Fabric-analyse-oplossing hebt gemaakt. Selecteer **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
+1. In de Azure-portal, gaat u naar de resourcegroep waarin u de Service Fabric-analyse-oplossing hebt gemaakt. Selecteer **ServiceFabric\<nameOfLog AnalyticsWorkspace\>** .
 
 2. Klik op **Log Analytics**.
 

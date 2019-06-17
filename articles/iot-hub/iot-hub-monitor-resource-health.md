@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166194"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
@@ -66,7 +66,7 @@ De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen lo
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>Cloud-naar-apparaat-opdrachten
+#### <a name="cloud-to-device-commands"></a>Cloud-naar-apparaatopdrachten
 
 De categorie cloud-naar-apparaatopdrachten houdt bij of fouten die optreden bij de IoT-hub en zijn gerelateerd aan de pijplijn cloud-naar-apparaat bericht. Deze categorie bevat fouten die vanaf optreden:
 
@@ -345,7 +345,7 @@ Hier `durationMs` niet is berekend als de klok van de IoT Hub mogelijk niet gesy
 
 | Eigenschap | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Integer | De grootte van apparaat-naar-cloud bericht in bytes |
+| **messageSize** | Geheel getal | De grootte van apparaat-naar-cloud bericht in bytes |
 | **deviceId** | Tekenreeks van ASCII-7-bits alfanumerieke tekens | De identiteit van het apparaat |
 | **callerLocalTimeUtc** | UTC timestamp | De aanmaaktijd van het bericht, zoals gemeld door de lokale klok van apparaat |
 | **calleeLocalTimeUtc** | UTC timestamp | De tijd van aankomst bericht bij de IoT-Hub gateway zoals gemeld door IoT Hub-service kant klok |

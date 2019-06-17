@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Zelfstudie: Azure Active Directory-integratie met SAP Fiori
 
@@ -193,7 +193,7 @@ In deze sectie configureert u Azure AD eenmalige aanmelding met SAP Fiori in Azu
 
     1. Selecteer **bewerken** openen de **gebruikersclaims beheren** deelvenster.
 
-    1. In de **transformatie** in de lijst met **ExtractMailPrefix()**.
+    1. In de **transformatie** in de lijst met **ExtractMailPrefix()** .
 
     1. In de **Parameter 1** in de lijst met **user.userprinicipalname**.
 
@@ -272,7 +272,7 @@ In deze sectie configureert u Azure AD eenmalige aanmelding met SAP Fiori in Azu
 
     **Scenario 1**: SAP-gebruiker toewijzing van de Azure AD-gebruiker
 
-    1. In SAP onder **Details van NameID-indeling 'Onbekend'**, noteert u de details:
+    1. In SAP onder **Details van NameID-indeling 'Onbekend'** , noteert u de details:
 
         ![De Details van NameID-indeling 'Onbekende' dialoogvenster in SAP](./media/sapfiori-tutorial/nameiddetails.png)
 
@@ -282,7 +282,7 @@ In deze sectie configureert u Azure AD eenmalige aanmelding met SAP Fiori in Azu
 
     **Scenario 2**: Selecteer de gebruikers-ID van SAP op basis van de geconfigureerde e-mailadres in SU01. In dit geval moet de e-mail-ID in SU01 worden geconfigureerd voor elke gebruiker die eenmalige aanmelding is vereist.
 
-    1.  In SAP onder **Details van NameID-indeling 'Onbekend'**, noteert u de details:
+    1.  In SAP onder **Details van NameID-indeling 'Onbekend'** , noteert u de details:
 
         ![De Details van NameID-indeling 'Onbekende' dialoogvenster in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
@@ -314,7 +314,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
     1. Voer in het vak **Naam** **Britta Simon**in.
   
-    1. In de **gebruikersnaam** Voer **brittasimon\@\<uw-bedrijfsdomein >.\< extensie >**. Bijvoorbeeld, **brittasimon\@contoso.com**.
+    1. In de **gebruikersnaam** Voer **brittasimon\@\<uw-bedrijfsdomein >.\< extensie >** . Bijvoorbeeld, **brittasimon\@contoso.com**.
 
     1. Selecteer de **Show wachtwoord** selectievakje. Noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
