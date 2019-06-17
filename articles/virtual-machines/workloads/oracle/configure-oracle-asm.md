@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154181"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Oracle ASM installeren op een virtuele Azure Linux-machine  
@@ -530,7 +530,7 @@ Als u de installatie van de Oracle ASM instelt, moet u de volgende stappen uitvo
 5. In de **schijfgroep maken** in het dialoogvenster:
 
    - Voer de naam van de schijf **FRA**.
-   - Onder **redundantie**, selecteer **extern (geen)**.
+   - Onder **redundantie**, selecteer **extern (geen)** .
    - Onder **lidschijven selecteren**, selecteer **ORCL_FRA**.
    - Onder **clustergrootte**, selecteer **4**.
    - Klik op `ok` om de schijfgroep te maken.

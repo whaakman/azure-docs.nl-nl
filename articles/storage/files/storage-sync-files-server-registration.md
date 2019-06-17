@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991827"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Geregistreerde servers met Azure File Sync beheren
@@ -152,7 +152,7 @@ Nu dat alle gegevens is ingetrokken en de server is verwijderd uit alle synchron
 1. In de Azure-portal, gaat u naar de *servers geregistreerd* sectie van de Opslagsynchronisatieservice.
 2. Met de rechtermuisknop op de server die u wilt de registratie ongedaan maken en klikt u op 'Registratie van Server'.
 
-    ![De registratie van de server opheffen](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Registratie van server](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Ervoor zorgen dat Azure File Sync is een goede buur in uw datacenter 
 Omdat Azure File Sync zelden de enige service die wordt uitgevoerd in uw datacenter worden, kunt u de netwerk- en -gebruik van Azure File Sync beperken.

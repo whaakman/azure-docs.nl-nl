@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752858"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Over het beheren van uw commerciële Marketplace-account in Partnercentrum 
@@ -84,7 +84,7 @@ Als u wilt uw betalings-account hebt ingesteld, moet u **uw Microsoft-Account ko
 
 Nu dat uw Microsoft-Account gekoppeld is, om toe te voegen een betalings-account, gaat u te werk:
 - **Kies een betalingsmethode**: Bank- of PayPal
-- **Voeg betalingsgegevens**: Dit omvat mogelijk een accounttype (controleren of besparingen) te kiezen, geven de naam van houder, het account en routering, getal, factuuradres, telefoonnummer of e-mailadres of PayPal-nummer. * Zie voor meer informatie over het gebruik of PayPal-nummer als betalingswijze voor uw account en wilt weten of deze wordt ondersteund in de regio van uw markt [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Voeg betalingsgegevens**: Dit omvat mogelijk een accounttype (controleren of besparingen) te kiezen, geven de naam van houder, het account en routering, getal, factuuradres, telefoonnummer of e-mailadres of PayPal-nummer. \* Zie voor meer informatie over het gebruik of PayPal-nummer als betalingswijze voor uw account en wilt weten of deze wordt ondersteund in de regio van uw markt [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Wijzigen van uw betalings-account, kan uw betalingen door maximaal één betalingscyclus uitstellen. Deze vertraging treedt op omdat we nodig hebt om te controleren of het account wijzigen, net zoals we doen wanneer het account payout eerst instelt. U hebt nog steeds te verkopen het volledige bedrag nadat uw account is geverifieerd; alle betalingen vervaldatum voor de huidige betaling cyclus wordt toegevoegd aan de volgende uit.  
@@ -174,7 +174,7 @@ Gebruikers toevoegen aan uw Partner Center-account die al bestaan in uw bedrijf 
 
 1. Ga naar **gebruikers** (onder **Accountinstellingen**) en selecteer **gebruikers toevoegen**.
 2. Selecteer een of meer gebruikers in de lijst die wordt weergegeven. U kunt het zoekvak gebruiken om te zoeken naar specifieke gebruikers.
-* Als u meer dan één gebruiker toevoegen aan uw Partner Center-account selecteert, moet u ze toewijzen dezelfde rol of aangepaste machtigingen. Als u wilt toevoegen van meerdere gebruikers met verschillende rolmachtigingen, Herhaal deze stappen voor elke functie of een set met aangepaste machtigingen.
+\* Als u meer dan één gebruiker toevoegen aan uw Partner Center-account selecteert, moet u ze toewijzen dezelfde rol of aangepaste machtigingen. Als u wilt toevoegen van meerdere gebruikers met verschillende rolmachtigingen, Herhaal deze stappen voor elke functie of een set met aangepaste machtigingen.
 3.  Wanneer u klaar bent met gebruikers kiezen, klikt u op **toevoegen geselecteerd**.
 5.  In de **rollen** sectie, geeft u de rollen zijn of aangepaste machtigingen voor de geselecteerde gebruiker (s).
 6.  Selecteer **Opslaan**.

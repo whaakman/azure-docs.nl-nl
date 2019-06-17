@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
 ms.openlocfilehash: 02312a19c687908b0e1c0e6417dc6b0a9df23912
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125082"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Een Service Fabric-cluster maken in Azure met behulp van de Azure-portal
@@ -41,7 +41,7 @@ Dit is een stapsgewijze handleiding die u helpt bij de stappen voor het instelle
 ## <a name="cluster-security"></a>Clusterbeveiliging 
 Er worden in Service Fabric certificaten gebruikt voor verificatie en versleuteling om verschillende aspecten van een cluster en de bijbehorende toepassingen te beveiligen. Zie voor meer informatie over het gebruik van certificaten in Service Fabric [Service Fabric-clusterbeveiligingsscenario's][service-fabric-cluster-security].
 
-Als dit de eerste keer dat u het maken van een service fabric-cluster of een cluster voor test-workloads implementeert, kunt u doorgaan met de volgende sectie (**-cluster maken in Azure Portal**) en het genereren van certificaten die nodig zijn voor systeem de clusters die testwerkbelastingen uitvoeren. Als u het instellen van een cluster voor werkbelastingen voor productie zijn en vervolgens doorgaan met lezen.
+Als dit de eerste keer dat u het maken van een service fabric-cluster of een cluster voor test-workloads implementeert, kunt u doorgaan met de volgende sectie ( **-cluster maken in Azure Portal**) en het genereren van certificaten die nodig zijn voor systeem de clusters die testwerkbelastingen uitvoeren. Als u het instellen van een cluster voor werkbelastingen voor productie zijn en vervolgens doorgaan met lezen.
 
 #### <a name="cluster-and-server-certificate-required"></a>Cluster en de server-certificaat (vereist)
 Dit certificaat is vereist voor een cluster beveiligen en te voorkomen dat onbevoegde toegang toe. Het biedt beveiliging voor clusters in een aantal manieren:
@@ -105,7 +105,7 @@ In de blade grondbeginselen moet u de algemene gegevens opgeven voor uw cluster.
    > 
 5. Selecteer de **locatie** waarin u wilt maken van het cluster. Als u van plan bent een bestaand certificaat dat u al hebt geüpload naar een key vault gebruiken, moet u dezelfde regio waarin uw Key vault zich bevindt. 
 
-### <a name="2-cluster-configuration"></a>2. Clusterconfiguratie
+### <a name="2-cluster-configuration"></a>2. Configuratie van het cluster
 ![Maken van een knooppunttype][CreateNodeType]
 
 Configureer uw clusterknooppunten. Knooppunttypen definiëren de VM-grootten, het aantal virtuele machines en hun eigenschappen. Uw cluster kan meer dan één knooppunttype hebben, maar het primaire knooppunttype (de eerste optie die u in de portal definieert) moet ten minste vijf VM's, hebben als dit het knooppunttype is waar Service Fabric-systeemservices worden geplaatst. Configureer geen **plaatsingseigenschappen** omdat een eigenschap van de plaatsing standaard van 'NodeTypeName' wordt automatisch toegevoegd.

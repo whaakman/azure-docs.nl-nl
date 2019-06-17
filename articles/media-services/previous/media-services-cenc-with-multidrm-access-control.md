@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466475"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Ontwerp van een systeem van de beveiliging van inhoud met toegangsbeheer met Azure Media Services 
@@ -337,7 +337,7 @@ Als u wilt registreren en configureren van de wijzer-app in Azure AD, moet u de 
 
 3. Het manifestbestand van de app bijwerken zodat de eigenschap groupMembershipClaims de waarde 'groupMembershipClaims heeft': 'Alle'.
 
-4. In de Azure AD-app die naar de player-web-app, in de sectie verwijst **machtigingen voor andere toepassingen**, toevoegen van de resource-app die is toegevoegd in stap 1. Onder **overgedragen machtiging**, selecteer **toegang [resource_name]**. Met deze optie geeft de web-app-machtiging voor het maken van toegangstokens die toegang hebben tot de resource-app. Als u met Visual Studio en de Azure-web-app ontwikkelt, moet u dit doen voor de lokale en geïmplementeerde versie van de web-app.
+4. In de Azure AD-app die naar de player-web-app, in de sectie verwijst **machtigingen voor andere toepassingen**, toevoegen van de resource-app die is toegevoegd in stap 1. Onder **overgedragen machtiging**, selecteer **toegang [resource_name]** . Met deze optie geeft de web-app-machtiging voor het maken van toegangstokens die toegang hebben tot de resource-app. Als u met Visual Studio en de Azure-web-app ontwikkelt, moet u dit doen voor de lokale en geïmplementeerde versie van de web-app.
 
 De JWT dat is uitgegeven door Azure AD is het toegangstoken dat wordt gebruikt voor toegang tot de resource van de wijzer.
 

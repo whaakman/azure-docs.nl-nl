@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575577"
 ---
 # <a name="virtual-appliance-scenario"></a>Virtueel apparaat scenario
@@ -42,11 +42,11 @@ De onderstaande oplossing maakt gebruik van virtuele firewallapparaten voor het 
 ## <a name="considerations"></a>Overwegingen
 U kunt de omgeving die hierboven is uitgelegd in Azure met behulp van verschillende functies die beschikbaar vandaag, als volgt implementeren.
 
-* **Virtueel netwerk (VNet)**. Een Azure VNet fungeert in soortgelijke wijze als bij een on-premises netwerk en kan worden gesegmenteerd in een of meer subnetten om netwerkverkeer te isoleren en scheiding van taken te bieden.
+* **Virtueel netwerk (VNet)** . Een Azure VNet fungeert in soortgelijke wijze als bij een on-premises netwerk en kan worden gesegmenteerd in een of meer subnetten om netwerkverkeer te isoleren en scheiding van taken te bieden.
 * **Virtueel apparaat**. Diverse partners bieden virtuele apparaten in de Azure Marketplace die kunnen worden gebruikt voor de drie firewalls die hierboven worden beschreven. 
-* **Gebruiker gedefinieerde Routes (UDR)**. Routetabellen mag udr's die door Azure-netwerken worden gebruikt voor het beheren van de stroom van pakketten binnen een VNet. Deze routetabellen kunnen worden toegepast op subnetten. Een van de nieuwste functies van Azure is de mogelijkheid een routetabel toepassen op het GatewaySubnet, biedt de mogelijkheid om alle verkeer die in het Azure-VNet afkomstig zijn van een hybride verbinding naar een virtueel apparaat te sturen.
+* **Gebruiker gedefinieerde Routes (UDR)** . Routetabellen mag udr's die door Azure-netwerken worden gebruikt voor het beheren van de stroom van pakketten binnen een VNet. Deze routetabellen kunnen worden toegepast op subnetten. Een van de nieuwste functies van Azure is de mogelijkheid een routetabel toepassen op het GatewaySubnet, biedt de mogelijkheid om alle verkeer die in het Azure-VNet afkomstig zijn van een hybride verbinding naar een virtueel apparaat te sturen.
 * **Doorsturen via IP**. Standaard de Azure VPN-engine doorsturen van pakketten naar virtuele netwerkinterfacekaarten (NIC's) alleen als het pakket doel-IP-adres overeenkomt met het NIC-IP-adres. Als in een UDR gedefinieerd dat een pakket moet worden verzonden naar een bepaald virtueel apparaat, wordt de Azure VPN-engine daarom dat pakket verwijderen. Om te controleren of dat het pakket aan een virtuele machine (in dit geval een virtueel apparaat) dat niet het werkelijke doel van het pakket wordt geleverd, moet u doorsturen via IP inschakelen voor het virtuele apparaat.
-* **Netwerkbeveiligingsgroepen (nsg's)**. In het volgende voorbeeld maakt geen gebruik van nsg's, maar u kunt nsg's die worden toegepast op de subnetten en/of NIC's in deze oplossing gebruiken om het verkeer naar en uit deze subnetten en NIC's, verder te filteren.
+* **Netwerkbeveiligingsgroepen (nsg's)** . In het volgende voorbeeld maakt geen gebruik van nsg's, maar u kunt nsg's die worden toegepast op de subnetten en/of NIC's in deze oplossing gebruiken om het verkeer naar en uit deze subnetten en NIC's, verder te filteren.
 
 ![IPv6-connectiviteit](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -78,30 +78,30 @@ Om ervoor te zorgen communicatie vindt plaats via de juiste firewall-apparaat, o
 ### <a name="azgwudr"></a>azgwudr
 In dit scenario wordt het alleen verkeer van on-premises naar Azure worden gebruikt voor het beheren van de firewalls door verbinding te maken met **AZF3**, en dat verkeer via de interne firewall moet gaan **AZF2**. Slechts één route is daarom noodzakelijk zijn in de **GatewaySubnet** zoals hieronder wordt weergegeven.
 
-| Doel | Volgende hop | Uitleg |
+| Bestemming | Volgende hop | Uitleg |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Hiermee kunt u on-premises verkeer management firewall bereiken **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Doel | Volgende hop | Uitleg |
+| Bestemming | Volgende hop | Uitleg |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Hiermee kunt u verkeer naar de back endsubnet die als host fungeert voor de toepassingsserver via **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Hiermee kunt u al het andere verkeer worden gerouteerd via **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Doel | Volgende hop | Uitleg |
+| Bestemming | Volgende hop | Uitleg |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Hiermee kunt u verkeer naar **azsn2** aan stroom vanaf de appserver naar de webserver via **AZF2** |
 
 U moet ook routetabellen voor de subnetten in maken **onpremvnet** om na te bootsen van het on-premises datacenter.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Doel | Volgende hop | Uitleg |
+| Bestemming | Volgende hop | Uitleg |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Hiermee kunt u verkeer naar **onpremsn2** via **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Doel | Volgende hop | Uitleg |
+| Bestemming | Volgende hop | Uitleg |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Hiermee kunt u verkeer naar het subnet van de back-ups in Azure via **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Hiermee kunt u verkeer naar **onpremsn1** via **OPFW** |

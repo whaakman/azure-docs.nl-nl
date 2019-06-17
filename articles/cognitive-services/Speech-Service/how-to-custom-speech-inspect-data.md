@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064046"
 ---
 # <a name="inspect-custom-speech-data"></a>Aangepaste spraak-gegevens controleren
 
@@ -34,7 +34,7 @@ Volg deze instructies voor het maken van een test:
 
 1. Navigeer naar **spraak-naar-tekst > aangepaste spraak > testen**.
 2. Klik op **Test toevoegen**.
-3. Selecteer **inspecteren kwaliteit (alleen Audio-gegevens)**. Geef de test een naam en beschrijving, en selecteer uw audio-gegevensset.
+3. Selecteer **inspecteren kwaliteit (alleen Audio-gegevens)** . Geef de test een naam en beschrijving, en selecteer uw audio-gegevensset.
 4. Selecteer maximaal twee modellen die u wilt testen.
 5. Klik op **Create**.
 
@@ -46,7 +46,7 @@ Wanneer de status van de test is *geslaagd*, klikt u in de naam van het test-ite
 
 Om te controleren van de side-by-side-vergelijking, kunt u verschillende fouttypen, inclusief invoegen, verwijderen en vervangen van kunt schakelen. Door te luisteren naar de audio en vergelijken herkenningsresultaten in elke kolom (met human etiket transcriptie en de resultaten van de twee modellen met spraak naar tekst), kunt u bepalen welk model u voldoet aan uw behoeften en waar verbeteringen nodig zijn.
 
-Inspecteren kwaliteitstests is handig om te controleren of de kwaliteit van een spraakherkenningseindpunt voldoende voor een toepassing is.  Volg de instructies in testen voor een objectieve meting van nauwkeurigheid, getranscribeerde audio vereisen: Nauwkeurigheid van de gegevens worden geëvalueerd.
+Inspecteren kwaliteitstests is handig om te controleren of de kwaliteit van een spraakherkenningseindpunt voldoende voor een toepassing is.  Voor een objectieve meting van de nauwkeurigheid vereisen getranscribeerde audio, volgt u de instructies in [evalueren nauwkeurigheid](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

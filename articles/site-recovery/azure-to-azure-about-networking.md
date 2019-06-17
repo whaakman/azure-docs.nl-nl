@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
 ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789755"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
@@ -128,7 +128,7 @@ In dit voorbeeld laat zien hoe het configureren van NSG-regels voor een virtuele
 
 3. Uitgaande HTTPS (443)-regels maken voor de Site Recovery IP-adressen die overeenkomen met de doellocatie:
 
-   **Locatie** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
+   **Location** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
     --- | --- | ---
    US - centraal | 40.69.144.231 | 52.165.34.144
 
@@ -142,7 +142,7 @@ Deze regels zijn vereist voor replicatie kan worden ingeschakeld in de doelregio
 
 3. Uitgaande HTTPS (443)-regels maken voor de Site Recovery IP-adressen die overeenkomen met de bronlocatie:
 
-   **Locatie** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
+   **Location** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
     --- | --- | ---
    US - centraal | 13.82.88.226 | 104.45.147.24
 

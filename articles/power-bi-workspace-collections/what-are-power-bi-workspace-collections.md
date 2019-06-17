@@ -11,10 +11,10 @@ ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: rkarlin
 ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705140"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Wat zijn Power BI-werkruimteverzamelingen?
@@ -60,7 +60,7 @@ In de cache gegevenssets kan worden gebruikt.  Echter, u gegevens in de cache ni
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Verificatie en autorisatie met app-tokens
 
-**Microsoft Power BI Workspace Collections** wordt uitgesteld tot uw toepassing tot het uitvoeren van alle benodigde verificatie en autorisatie. Er is geen expliciete vereiste dat uw eindgebruikers klanten van Azure Active Directory (Azure AD worden).  In plaats daarvan uw toepassing om te worden uitgedrukt **Microsoft Power BI Workspace Collections** autorisatie om weer te geven van een Power BI-rapport met behulp van **verificatietokens toepassing (App-Tokens)**.  Deze **App-Tokens** worden gemaakt die nodig zijn wanneer uw app wil om een rapport weer te geven.
+**Microsoft Power BI Workspace Collections** wordt uitgesteld tot uw toepassing tot het uitvoeren van alle benodigde verificatie en autorisatie. Er is geen expliciete vereiste dat uw eindgebruikers klanten van Azure Active Directory (Azure AD worden).  In plaats daarvan uw toepassing om te worden uitgedrukt **Microsoft Power BI Workspace Collections** autorisatie om weer te geven van een Power BI-rapport met behulp van **verificatietokens toepassing (App-Tokens)** .  Deze **App-Tokens** worden gemaakt die nodig zijn wanneer uw app wil om een rapport weer te geven.
 
 ![Diagram van App-gebruik](media/what-are-power-bi-workspace-collections/app-tokens.png)
 

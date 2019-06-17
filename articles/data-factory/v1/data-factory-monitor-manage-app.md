@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826567"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Controleren en beheren van Azure Data Factory-pijplijnen met behulp van de app bewaking en beheer
@@ -61,7 +61,7 @@ Als u een Data Factory-toepassing voor het testen van deze stappen niet hebt, ga
 ## <a name="understand-the-monitoring-and-management-app"></a>Informatie over de bewaking en beheer van app
 Aan de linkerkant ziet u drie tabbladen: **Resource Explorer**, **Monitoring-weergaven**, en **waarschuwingen**. Het eerste tabblad (**Resource Explorer**) is standaard geselecteerd.
 
-### <a name="resource-explorer"></a>Resourceverkenner
+### <a name="resource-explorer"></a>Resource Explorer
 U ziet het volgende:
 
 * De Resource Explorer **structuurweergave** in het linkerdeelvenster.
@@ -76,7 +76,7 @@ In Resource Explorer ziet u alle resources (pijplijnen, gegevenssets, gekoppelde
 * De eigenschappen van het geselecteerde object worden weergegeven in het venster Eigenschappen in het rechter deelvenster.
 * De JSON-definitie van het geselecteerde object wordt weergegeven, indien van toepassing. Bijvoorbeeld: een gekoppelde service, een gegevensset of een pijplijn.
 
-![Resourceverkenner](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Zie de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel voor gedetailleerde informatie over activiteitsvensters.
 
@@ -163,7 +163,7 @@ Activiteit windows, kunnen zich in een van de volgende statussen:
     <th align="left">Status</th><th align="left">Substatus</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">Wachten</td><td>ScheduleTime</td><td>De tijd is niet afkomstig zijn van het activiteitvenster om uit te voeren.</td>
+    <td rowspan="8">Wachten op</td><td>ScheduleTime</td><td>De tijd is niet afkomstig zijn van het activiteitvenster om uit te voeren.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>De upstream-afhankelijkheden zijn niet gereed.</td>
@@ -200,7 +200,7 @@ Activiteit windows, kunnen zich in een van de volgende statussen:
 <td>Geannuleerd</td><td>Het venster van de activiteit is geannuleerd door gebruikersactie.</td>
 </tr>
 <tr>
-<td>Validatie</td><td>De validatie is mislukt.</td>
+<td>Validatie</td><td>Validatie is mislukt.</td>
 </tr>
 <tr>
 <td>-</td><td>Het activiteitvenster kan niet worden gegenereerd of gevalideerd.</td>

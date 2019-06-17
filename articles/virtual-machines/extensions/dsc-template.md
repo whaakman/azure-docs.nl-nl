@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475521"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
@@ -186,7 +186,7 @@ Zie voor een lijst van de argumenten die beschikbaar voor een script voor de con
 | settings.configuration.function |string |Hiermee geeft u de naam van de DSC-configuratie. De configuratie met de naam moet worden opgenomen in het script dat **settings.configuration.script** definieert. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
 | settings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is niet versleuteld. |
 | settings.configurationData.url |string |Geeft de URL waaruit u uw gegevens (.psd1)-configuratiebestand te downloaden om te gebruiken als invoer voor uw DSC-configuratie. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationDataUrlSasToken** eigenschap met de waarde van uw SAS-token. |
-| settings.privacy.dataCollection |string |Hiermee of verzamelen van telemetriegegevens uitgeschakeld. De enige mogelijke waarden voor deze eigenschap zijn **inschakelen**, **uitschakelen**, **''**, of **$null**. Deze eigenschap verlaten leeg of null zijn, kunt telemetrie. De standaardwaarde is **''**. Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.privacy.dataCollection |string |Hiermee of verzamelen van telemetriegegevens uitgeschakeld. De enige mogelijke waarden voor deze eigenschap zijn **inschakelen**, **uitschakelen**, **''** , of **$null**. Deze eigenschap verlaten leeg of null zijn, kunt telemetrie. De standaardwaarde is **''** . Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Verzameling |Hiermee definieert u alternatieve locaties van waaruit WMF gedownload. Zie voor meer informatie, [Azure DSC-extensie 2.8 en downloaden van de extensie afhankelijkheden toewijzen aan uw eigen locatie](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is versleuteld. |
 | protectedSettings.configurationUrlSasToken |string |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **settings.configuration.url** definieert. Deze eigenschap is versleuteld. |

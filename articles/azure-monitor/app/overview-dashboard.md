@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mbullwin
 ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497155"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights een dashboard
@@ -37,7 +37,7 @@ Selectie van het tijdsbereik is vereenvoudigd naar een eenvoudige interface met 
 
 Algehele zijn prestaties aanzienlijk toegenomen. U hebt één klik toegang tot populaire functies zoals **zoeken** en **Analytics**. Elke dynamisch bijwerken van de KPI-tegel standaard biedt inzicht in de bijbehorende Application Insights-functies. Kunnen geen aanvragen selecteren voor meer informatie over **fouten** onder de **onderzoeken** header:
 
-![fouten](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![Fouten](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Toepassingsdashboard
 

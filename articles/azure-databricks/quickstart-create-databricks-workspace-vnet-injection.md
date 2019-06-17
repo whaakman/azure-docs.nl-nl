@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770611"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Quickstart: Een Azure Databricks-werkruimte in een Virtueelnetwerk maken
@@ -61,7 +61,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
     |Locatie|\<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\>|Kies de dezelfde locatie als het virtuele netwerk.|
     |Prijscategorie|Kiezen tussen Standard of Premium.|Zie voor meer informatie over Prijscategorieën, de [pagina met prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
     |Azure Databricks-werkruimte in uw Virtueelnetwerk implementeren|Ja|Deze instelling kunt u een Azure Databricks-werkruimte in uw virtuele netwerk te implementeren.|
-    |Virtual Network|databricks-quickstart|Selecteer het virtuele netwerk dat u in de vorige sectie hebt gemaakt.|
+    |Virtueel netwerk|databricks-quickstart|Selecteer het virtuele netwerk dat u in de vorige sectie hebt gemaakt.|
     |Openbare subnetnaam|public-subnet|Gebruik de standaardnaam van de openbare subnet.|
     |Openbaar Subnet CIDR-bereik|10.179.64.0/18|CIDR-bereik voor dit subnet moet liggen tussen /18 en /26.|
     |De naam van de privé-Subnet|private-subnet|Gebruik de standaardnaam van de privé-subnet.|
@@ -84,7 +84,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 1. Ga terug naar uw Azure Databricks-service en selecteer **werkruimte starten** op de **overzicht** pagina.
 
-2. Selecteer **Clusters** > **+ -Cluster maken**. Maak vervolgens een clusternaam op, zoals *databricks-snelstartgids-cluster*, en de overige standaardinstellingen accepteren. Selecteer **Cluster maken**.
+2. Selecteer **Clusters** >  **+ -Cluster maken**. Maak vervolgens een clusternaam op, zoals *databricks-snelstartgids-cluster*, en de overige standaardinstellingen accepteren. Selecteer **Cluster maken**.
 
     ![Azure Databricks-cluster maken](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 

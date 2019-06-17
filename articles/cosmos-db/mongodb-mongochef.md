@@ -5,16 +5,15 @@ description: Leer hoe u verbinding maken met Cosmos DB met behulp van Studio 3T 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-origin.date: 12/26/2018
-ms.date: 03/18/2019
-author: rockboyfor
-ms.author: v-yeche
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
 ms.custom: seodec18
 ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331951"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Verbinding maken met Cosmos-account Studio 3T gebruiken
@@ -114,5 +113,3 @@ Voor het maken van een database, verzameling en documenten Studio 3T gebruiken, 
 
 - Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met de API voor MongoDB van Azure Cosmos DB.
 - Verken [voorbeelden](mongodb-samples.md) van MongoDB met de API voor MongoDB van Azure Cosmos DB.
-
-<!-- Update_Description: update meta properties, wording update -->

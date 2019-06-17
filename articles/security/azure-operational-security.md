@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119267"
 ---
 # <a name="azure-operational-security"></a>Azure operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -143,7 +143,7 @@ Met Security Center worden gegevens van uw virtuele machines (VM's) verzameld om
 
 -   Uw virtuele Machines: Maakt gebruik van configuratie-informatie en informatie over beveiligingsgebeurtenissen, zoals Logboeken voor Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines.
 
-### <a name="data-protection"></a>Gegevensbeveiliging
+### <a name="data-protection"></a>Gegevensbescherming
 
 Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over beveiliging, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
 
@@ -153,7 +153,7 @@ Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reagere
 
 -   **Gegevensgebruik**: Microsoft maakt gebruik van patronen en bedreigingsinformatie gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; We doen in overeenstemming met de privacyverplichtingen beschreven in onze [privacyverklaring](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
-### <a name="data-location"></a>Gegevenslocatie
+### <a name="data-location"></a>Locatie van gegevens
 
 Azure Security Center verzamelt tijdelijke kopieën van uw crashdumpbestanden en analyseert deze op bewijs van pogingen tot misbruik en geslaagde aanvallen. Azure Security Center voert deze analyse uit binnen hetzelfde geografische gebied als de werkruimte en verwijdert de tijdelijke kopieën wanneer de analyse is voltooid. Machine-artefacten worden centraal opgeslagen in dezelfde regio als de virtuele machine.
 
@@ -224,7 +224,7 @@ Controle van de netwerkbeveiliging van uw is het essentieel is voor het netwerk 
 
 Netwerk-Watcher heeft momenteel de volgende mogelijkheden:
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Auditlogboeken</a>**-bewerkingen die worden uitgevoerd als onderdeel van de configuratie van netwerken worden geregistreerd. Deze logboeken kunnen worden weergegeven in de Azure-portal of opgehaald met behulp van Microsoft-hulpprogramma's zoals Power BI of hulpprogramma's van derden. Auditlogboeken zijn beschikbaar via de portal, PowerShell, CLI en Rest-API. Zie voor meer informatie over de logboeken voor controle, bewerkingen controleren met Resource Manager. Auditlogboeken zijn beschikbaar voor bewerkingen die op alle netwerkbronnen.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Auditlogboeken</a>** -bewerkingen die worden uitgevoerd als onderdeel van de configuratie van netwerken worden geregistreerd. Deze logboeken kunnen worden weergegeven in de Azure-portal of opgehaald met behulp van Microsoft-hulpprogramma's zoals Power BI of hulpprogramma's van derden. Auditlogboeken zijn beschikbaar via de portal, PowerShell, CLI en Rest-API. Zie voor meer informatie over de logboeken voor controle, bewerkingen controleren met Resource Manager. Auditlogboeken zijn beschikbaar voor bewerkingen die op alle netwerkbronnen.
 
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP-stroom wordt gecontroleerd </a>**  -controleert of een pakket wordt toegestaan of geweigerd op basis van flow informatie 5-tuple pakket parameters (doel-IP, bron-IP, doelpoort, bronpoort en Protocol). Als het pakket is geweigerd door een Netwerkbeveiligingsgroep, wordt de regel en de Netwerkbeveiligingsgroep die het pakket geweigerd geretourneerd.

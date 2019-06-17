@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071632"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
@@ -36,6 +36,8 @@ Stel dat u hebt een enkelvoudige statische drempelwaarde waarschuwingsregel voor
 - Drempelwaarde voor: 70
 
 Vanaf het moment dat de waarschuwingsregel wordt gemaakt, de monitor wordt uitgevoerd elke 1 minuut en gecontroleerd metrische waarden voor de laatste 5 minuten en als het gemiddelde van deze waarden is groter dan 70 wordt gecontroleerd. Als aan de voorwaarde is voldaan dat wil zeggen, de gemiddelde CPU-Percentage voor de laatste vijf minuten hoger is dan 70, een melding geactiveerd door de waarschuwingsregel wordt geactiveerd. Als u een e-mailbericht of een web-hook-actie in de actiegroep die zijn gekoppeld aan de waarschuwingsregel hebt geconfigureerd, ontvangt u een melding geactiveerd op beide.
+
+Als u gebruik van meerdere voorwaarden in één regel, de regel 'en' de voorwaarden samen.  Dat wil zeggen, wordt de waarschuwing geactiveerd wanneer aan de voorwaarden in de waarschuwing als waar evalueren en op te lossen wanneer een van de voorwaarden niet langer waar is. En voorbeeld van dit type waarschuwing waarschuwen bij 'CPU hoger is dan 90% ' en 'de wachtrijlengte is meer dan 300 items'. 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Waarschuwingsregel met dynamische voorwaardetype
 

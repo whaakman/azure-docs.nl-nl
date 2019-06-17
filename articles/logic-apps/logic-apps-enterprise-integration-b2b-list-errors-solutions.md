@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998814"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B-fouten en oplossingen voor Azure Logic Apps
@@ -52,7 +52,7 @@ Dit artikel helpt bij het oplossen van fouten die mogelijk in Logic Apps B2B-sce
 
 |   |   |  
 |---|---|
-| Foutbeschrijving | De aanvraaginhoud is null of leeg. | 
+| Foutbeschrijving | De aanvraaginhoud is null of leeg zijn. | 
 | Actie van de gebruiker | Een AS2-bericht is ontvangen dat geen hoofdtekst van het bericht. |
 |  |  | 
 
@@ -105,7 +105,7 @@ Bijvoorbeeld:
 
 ## <a name="x12-and-edifact"></a>X12 en EDIFACT
 
-### <a name="leading-or-trailing-space-found"></a>Er is een voorloop- of volgspatie gevonden    
+### <a name="leading-or-trailing-space-found"></a>Voorloop- of volgspatie gevonden    
     
 |   |   | 
 |---|---|
@@ -135,7 +135,7 @@ Bijvoorbeeld:
 
 |   |   | 
 |---|---| 
-| Foutbeschrijving | Het bericht bevat een onbekend documenttype en is niet omgezet in een van de bestaande schema's die in de overeenkomst zijn geconfigureerd. |
+| Foutbeschrijving | Het bericht heeft een onbekend documenttype en is niet omgezet in een van de bestaande schema's geconfigureerd in de overeenkomst. |
 | Actie van de gebruiker | Juiste schema in de overeenkomst-instellingen configureren. |
 |   |   |
 

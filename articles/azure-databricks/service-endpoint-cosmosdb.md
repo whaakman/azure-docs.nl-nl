@@ -1,18 +1,18 @@
 ---
 title: Azure Databricks implementeren met een Cosmos DB-eindpunt
 description: In deze zelfstudie wordt beschreven hoe u Azure Databricks implementeren in een virtueel netwerk met een Service-eindpunt ingeschakeld voor Cosmos DB.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126695"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054466"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Zelfstudie: Azure Databricks implementeren met een Cosmos DB-eindpunt
 
@@ -63,13 +63,13 @@ Voordat u begint, het volgende doen:
    |API|Core (SQL)|
    |Locatie|US - west|
    |Geo-redundantie|Uitschakelen|
-   |Schrijfbewerkingen voor meedere regio's|Inschakelen|
+   |Schrijfbewerkingen in meerdere regio 's|Inschakelen|
 
    ![Een Cosmos DB-service-eindpunt toevoegen](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
 3. Selecteer de **netwerk** tabblad en uw virtuele netwerk configureren. 
 
-   a. Kies het virtuele netwerk dat u hebt gemaakt als een vereiste en selecteer vervolgens *openbaar subnet*. U ziet dat *particuliere subnetten* de opmerking heeft *eindpunt 'Microsoft AzureCosmosDB' ontbreekt '*. Dit is omdat u alleen het Cosmos DB-service-eindpunt is ingeschakeld op de *openbaar subnet*.
+   a. Kies het virtuele netwerk dat u hebt gemaakt als een vereiste en selecteer vervolgens *openbaar subnet*. U ziet dat *particuliere subnetten* de opmerking heeft *eindpunt 'Microsoft AzureCosmosDB' ontbreekt '* . Dit is omdat u alleen het Cosmos DB-service-eindpunt is ingeschakeld op de *openbaar subnet*.
 
    b. Zorg ervoor dat u hebt **zodat toegang vanaf Azure portal** ingeschakeld. Deze instelling kunt u toegang tot uw Cosmos DB-account vanuit Azure portal. Als deze optie is ingesteld op **weigeren**, ontvangt u fouten bij het toegang tot uw account. 
 

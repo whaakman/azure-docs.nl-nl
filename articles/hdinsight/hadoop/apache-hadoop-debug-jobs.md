@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720994"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop-logboeken analyseren
@@ -32,7 +32,7 @@ Wanneer u een HDInsight-cluster maakt, worden automatisch zes tabellen voor op b
 * ambariserverlog
 * ambariagentlog
 
-De namen van de tabel zijn **u\<ClusterName > DDMonYYYYatHHMMSSsss\<tabelnaam >**.
+De namen van de tabel zijn **u\<ClusterName > DDMonYYYYatHHMMSSsss\<tabelnaam >** .
 
 Deze tabellen bevatten de volgende velden:
 
@@ -41,13 +41,13 @@ Deze tabellen bevatten de volgende velden:
 * EventTimestamp
 * Host
 * MALoggingHash
-* Bericht
+* Message
 * N
 * PreciseTimeStamp
 * Rol
 * RowIndex
 * Tenant
-* TIJDSTEMPEL
+* TIMESTAMP
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>Hulpprogramma's voor toegang tot de logboeken
@@ -142,7 +142,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Beschrijving**: De server kan de aangevraagde cluster-record niet vinden.  
-* **Risicobeperking**: De bewerking opnieuw proberen.
+* **Risicobeperking**: Probeer het opnieuw.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **Beschrijving**: Cluster DNS-naam *yourDnsName* is ongeldig. Controleer of de naam begint en eindigt met alfanumerieke tekens en mag alleen '-' speciaal teken  
@@ -170,7 +170,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
 * **Beschrijving**: Ongeldige clusterconfiguratie. Kan niet alle gegevens Knooppuntdefinities in de grootte van knooppunt vinden.  
-* **Risicobeperking**: De bewerking opnieuw proberen.
+* **Risicobeperking**: Probeer het opnieuw.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
 * **Beschrijving**: Verwijderen van de implementatie is mislukt voor het Cluster  
@@ -190,7 +190,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
 * **Beschrijving**: De server kan de status van de implementatie van het cluster niet bijwerken.  
-* **Risicobeperking**: De bewerking opnieuw proberen. Als dit herhaaldelijk gebeurt, moet u contact op met CSS.
+* **Risicobeperking**: Probeer het opnieuw. Als dit herhaaldelijk gebeurt, moet u contact op met CSS.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
 * **Beschrijving**: Cluster *yourClusterName* is verwijderd als onderdeel van onderhoud. Maak een nieuwe het cluster.
@@ -198,7 +198,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
 * **Beschrijving**: Ongeldige clusterconfiguratie. De configuratie van de vereiste hoofdknooppunt is niet gevonden in de grootte van.
-* **Risicobeperking**: De bewerking opnieuw proberen.
+* **Risicobeperking**: Probeer het opnieuw.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **Beschrijving**: Kan niet worden gemaakt van de gehoste service *nameOfYourHostedService*. Probeer de aanvraag.  
@@ -225,7 +225,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 * **Risicobeperking**: Resources in uw abonnement vrij te maken of de beschikbare resources voor het abonnement te verhogen en probeer het opnieuw maken van het cluster.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Beschrijving**: Er is een interne fout opgetreden op de server. Probeer de aanvraag.  
+* **Beschrijving**: Er is een interne fout opgetreden in de server. Probeer de aanvraag.  
 * **Risicobeperking**: De aanvraag opnieuw.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation

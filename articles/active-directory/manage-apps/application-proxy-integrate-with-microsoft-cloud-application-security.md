@@ -1,6 +1,6 @@
 ---
 title: On-premises apps integreren met Cloud App Security - Azure Active Directory | Microsoft Docs
-description: Configureer een on-premises toepassing in Azure Active Directory om te werken met Microsoft Cloud App Security (MCAS). De MCAS voorwaardelijke toegang tot App-beheer gebruiken voor het bewaken van en controle-sessies in realtime op basis van beleid voor voorwaardelijke toegang. U kunt deze beleidsregels toepassen op de on-premises toepassingen die gebruikmaken van Application Proxy in Azure Active Directory (Azure AD).
+description: Configureer een on-premises toepassing in Azure Active Directory om te werken met Microsoft Cloud App Security (MCAS). Gebruik de MCAS voorwaardelijke toegang tot App-beheer te bewaken en beheren van sessies in realtime op basis van beleid voor voorwaardelijke toegang. U kunt deze beleidsregels toepassen op de on-premises toepassingen die gebruikmaken van Application Proxy in Azure Active Directory (Azure AD).
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -11,12 +11,12 @@ ms.date: 12/19/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c614d636e572eb261ec28c55ac49fec0e2b58b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a7b9b27a3b8329f906b1adfd48d28892a7edc4d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108449"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Realtime toegang toepassingsbewaking configureren met Microsoft Cloud App Security en Azure Active Directory
 Een on-premises toepassing in Azure Active Directory (Azure AD) naar Microsoft Cloud App Security (MCAS) gebruiken voor realtime-controle configureren. MCAS maakt gebruik van App-beheer voor voorwaardelijke toegang voor het bewaken van en controle-sessies in realtime op basis van beleid voor voorwaardelijke toegang. U kunt deze beleidsregels toepassen op de on-premises toepassingen die gebruikmaken van Application Proxy in Azure Active Directory (Azure AD).

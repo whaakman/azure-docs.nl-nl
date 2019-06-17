@@ -10,10 +10,10 @@ ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
 ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728316"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gelijktijdigheid beheren in Microsoft Azure Storage
@@ -106,7 +106,7 @@ De volgende tabel geeft een overzicht van de blob-bewerkingen die voorwaardelijk
 | Blob ophalen |Ja |Ja |
 | Blobeigenschappen ophalen |Ja |Ja |
 | Blobeigenschappen instellen |Ja |Ja |
-| De metagegevens van de blob ophalen |Ja |Ja |
+| De Blobmetagegevens van de ophalen |Ja |Ja |
 | Instellen van de metagegevens van de Blob |Ja |Ja |
 | Lease-Blob (*) |Ja |Ja |
 | Momentopname maken van Blob |Ja |Ja |
@@ -163,7 +163,7 @@ De volgende blob-bewerkingen kunnen leases gebruiken voor het beheren van Pessim
 * Blob ophalen
 * Blobeigenschappen ophalen
 * Blobeigenschappen instellen
-* De metagegevens van de blob ophalen
+* De Blobmetagegevens van de ophalen
 * Instellen van de metagegevens van de Blob
 * Blob verwijderen
 * Blok plaatsen
@@ -240,10 +240,10 @@ De volgende tabel geeft een overzicht van hoe de entiteit tabelbewerkingen ETag 
 | Entiteiten opvragen |Ja |Nee |
 | Entiteit invoegen |Ja |Nee |
 | Een entiteit bijgewerkt |Ja |Ja |
-| Entiteit samenvoegen |Ja |Ja |
+| Samenvoegen van entiteit |Ja |Ja |
 | Entiteit verwijderen |Nee |Ja |
-| Entiteit invoegen of vervangen |Ja |Nee |
-| Entiteit invoegen of samenvoegen |Ja |Nee |
+| Invoegen of vervangen van entiteit |Ja |Nee |
+| Invoegen of samenvoegen van entiteit |Ja |Nee |
 
 Houd er rekening mee dat de **invoegen of vervangen entiteit** en **invoegen of samenvoegen entiteit** bewerkingen uitvoeren *niet* gelijktijdigheid controles niet uitvoeren omdat ze een ETag-waarde niet naar de tabel verzenden de service.  
 

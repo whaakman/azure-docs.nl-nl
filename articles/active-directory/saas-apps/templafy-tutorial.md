@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843a4ef36d633b8b72453ba5eb2b969af4649531
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 674e2178ad5e9f58bbe691fd92f643750e0b91e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Zelfstudie: Azure Active Directory-integratie met Templafy
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van Templafy in Azure AD, moet u Templaf
 
 **Als u wilt toevoegen Templafy uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Templafy, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding Templafy](#configure-templafy-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker Templafy](#create-templafy-test-user)**  : als u wilt een equivalent van Britta Simon in Templafy die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -132,7 +132,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Templafy, moet u de 
     | Afdeling | user.department | `http://schemas.templafy.com/2016/06/identity/claims`|
     | Telefoonnummer | user.telephonenumber | `http://schemas.templafy.com/2016/06/identity/claims` |
     | facsimilenumber | user.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | UPN | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | upn | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | nameidentifier | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
 
@@ -160,9 +160,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Templafy, moet u de 
 
 ### <a name="configure-templafy-single-sign-on"></a>Templafy voor eenmalige aanmelding configureren
 
-Het configureren van eenmalige aanmelding op **Templafy** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [Templafy ondersteuningsteam](mailto:support@templafy.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+Het configureren van eenmalige aanmelding op **Templafy** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [Templafy ondersteuningsteam](mailto:support@templafy.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 

@@ -9,10 +9,10 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244936"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
@@ -112,7 +112,7 @@ Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie b
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | De naam van element | Description |
 | --- | --- |
-| Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
+| authorization |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
 | Beller |E-mailadres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
 | kanalen |Een van de volgende waarden: 'Admin', "Bewerking" |
 | claims |De JWT-token die wordt gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing voor deze bewerking in Resource Manager. |
@@ -743,7 +743,7 @@ Deze categorie bevat records voor alle bewerkingen met effect actie uitgevoerd d
 
 | De naam van element | Description |
 | --- | --- |
-| Autorisatie | Matrix van RBAC-eigenschappen van de gebeurtenis. Dit is de actie en het bereik van de aanvraag waarmee evaluatie is geactiveerd voor nieuwe resources. Voor bestaande resources is de actie 'Microsoft.Resources/checkPolicyCompliance/read'. |
+| authorization | Matrix van RBAC-eigenschappen van de gebeurtenis. Dit is de actie en het bereik van de aanvraag waarmee evaluatie is geactiveerd voor nieuwe resources. Voor bestaande resources is de actie 'Microsoft.Resources/checkPolicyCompliance/read'. |
 | Beller | Voor nieuwe resources, de identiteit die een implementatie wordt gestart. Voor bestaande bronnen, de GUID van de Microsoft Azure Policy Insights RP. |
 | kanalen | Voor Beleidsgebeurtenissen gebruiken alleen het kanaal 'Bewerking'. |
 | claims | De JWT-token die wordt gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing voor deze bewerking in Resource Manager. |

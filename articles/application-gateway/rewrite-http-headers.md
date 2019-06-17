@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
 ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476030"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Herschrijf de HTTP-headers met Application Gateway
@@ -20,7 +20,7 @@ ms.locfileid: "66476030"
 
 HTTP-headers kunnen een client en server om door te geven aanvullende informatie met een aanvraag of antwoord. Deze headers herschrijven, kunt u belangrijke taken, zoals beveiligingsgerelateerde kopvelden, zoals HSTS / X-XSS-beveiliging toe te voegen en verwijderen van informatie over de poort van verwijderen van antwoord-header-velden die mogelijk gevoelige informatie onthullen uitvoeren X-doorgestuurd-voor-headers.
 
-Application Gateway kunt u toevoegen, verwijderen of bijwerken van de HTTP-aanvraag- en reactieheaders terwijl de aanvraag en antwoordpakketten verplaatsen tussen de client en de back-end-pools. En Hiermee kunt u condities om ervoor te zorgen dat de opgegeven headers worden herschreven alleen als aan bepaalde voorwaarden wordt voldaan.
+In Application Gateway kunt u headers van HTTP-aanvragen en -antwoorden toevoegen, verwijderen of bijwerken terwijl aanvraag- en antwoordpakketten zich verplaatsen tussen de client en back-endpools. En u kunt voorwaarden toevoegen om ervoor te zorgen dat de opgegeven headers alleen worden herschreven wanneer is voldaan aan bepaalde voorwaarden.
 
 Application Gateway ondersteunt ook meerdere [servervariabelen](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) waarmee u meer informatie over aanvragen en antwoorden opslaan. Dit maakt het eenvoudiger voor u om krachtige herschrijvingsregels te maken.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157133"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs integreren in uw Azure DevOps, continue integratie en van leveringspijplijn
@@ -179,7 +179,7 @@ De volgende fase is het maken van een installatiekopie van de geïmplementeerde 
 
    d. (Optioneel) Voor **beschrijving**, voer een beschrijving kunt u eenvoudig de juiste installatiekopie later selecteren.
 
-   e. Voor **bron-VM voor Lab - VM-ID van bron-Lab**, als u de standaardnaam van de omgevingsvariabele die automatisch is gevuld met de ID van het lab VM door een eerdere taak gewijzigd hier bewerken. De standaardwaarde is **$(labVMId)**.
+   e. Voor **bron-VM voor Lab - VM-ID van bron-Lab**, als u de standaardnaam van de omgevingsvariabele die automatisch is gevuld met de ID van het lab VM door een eerdere taak gewijzigd hier bewerken. De standaardwaarde is **$(labVMId)** .
 
    f. Voor **Uitvoervariabelen - aangepaste installatiekopie-ID**, moet u de ID van de installatiekopie van het zojuist gemaakte als u wilt beheren of te verwijderen. De standaardnaam van de omgevingsvariabele die automatisch wordt ingevuld met deze ID is ingesteld in de **Uitvoervariabelen** sectie. Indien nodig, kunt u de variabele bewerken.
 
@@ -194,7 +194,7 @@ De laatste fase is het verwijderen van de virtuele machine die u hebt geïmpleme
 
    a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
-   b. Voor **Lab VM-ID**, als u de standaardnaam van de omgevingsvariabele die automatisch is gevuld met de ID van het lab VM door een eerdere taak gewijzigd hier bewerken. De standaardwaarde is **$(labVMId)**.
+   b. Voor **Lab VM-ID**, als u de standaardnaam van de omgevingsvariabele die automatisch is gevuld met de ID van het lab VM door een eerdere taak gewijzigd hier bewerken. De standaardwaarde is **$(labVMId)** .
 
 1. Voer een naam voor de release-pijplijn en vervolgens op te slaan.
 1. Maak een nieuwe versie, selecteert u de nieuwste build en deze implementeren in één omgeving in de pijplijn.

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-pawal
 ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387564"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text-API 3.0: BreakSentence
@@ -37,7 +37,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   <th width="20%">Queryparameter</th>
   <th>Description</th>
   <tr>
-    <td>API-versie</td>
+    <td>api-version</td>
     <td>*Vereiste queryparameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
   </tr>
   <tr>
@@ -45,7 +45,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>*Optionele queryparameter*.<br/>De taalcode voor het identificeren van de taal van de invoertekst. Als een code niet opgegeven is, wordt automatische taaldetectie worden toegepast.</td>
   </tr>
   <tr>
-    <td>Script</td>
+    <td>script</td>
     <td>*Optionele queryparameter*.<br/>Script-code voor het identificeren van het script dat wordt gebruikt door de invoertekst. Als een script niet opgegeven is, wordt aangenomen dat het standaardscript van de taal.</td>
   </tr>
 </table> 

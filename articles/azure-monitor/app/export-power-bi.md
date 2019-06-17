@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900229"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
@@ -42,7 +42,7 @@ Installeer [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="export-an-analytics-query"></a>Exporteren van een Analytics-query
 1. [Analytics openen en uw query schrijven](../../azure-monitor/log-query/get-started-portal.md).
 2. Test en de query te verfijnen totdat u tevreden met de resultaten bent. Zorg ervoor dat de query correct wordt uitgevoerd in Analytics voordat u het exporteren.
-3. Op de **exporteren** menu, kiest u **Power BI (M)**. Bewaar het tekstbestand.
+3. Op de **exporteren** menu, kiest u **Power BI (M)** . Bewaar het tekstbestand.
    
     ![Schermafbeelding van de analyses, met uitvoer menu gemarkeerd](./media/export-power-bi/analytics-export-power-bi.png)
 4. Selecteer in Power BI Desktop, **gegevens ophalen** > **lege Query**. Klik in de query-editor onder **weergave**, selecteer **geavanceerde Editor**.

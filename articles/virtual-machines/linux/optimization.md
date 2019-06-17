@@ -18,10 +18,10 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473906"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
@@ -31,7 +31,7 @@ Het maken van een Linux virtuele machine (VM) is heel gemakkelijk vanaf de opdra
 In dit onderwerp wordt ervan uitgegaan dat u al een werkende Azure-abonnement hebt ([registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)) en een virtuele machine al in uw Azure-abonnement hebt ingericht. Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az login](/cli/azure/reference-index) voordat u [maken van een virtuele machine](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS Disk
-Als u een Linux-VM in Azure maakt, heeft twee schijven zijn gekoppeld. **/ dev/sda** is van de besturingssysteemschijf **/dev/sdb** is de tijdelijke schijf.  Gebruik niet de belangrijkste OS-schijf (**/dev/sda**) voor alles wat met uitzondering van het besturingssysteem die is geoptimaliseerd voor snelle VM boot-tijd en biedt geen goede prestaties voor uw workloads. U wilt een of meer schijven aansluiten op uw virtuele machine om op te halen permanente en geoptimaliseerd voor opslag voor uw gegevens. 
+Als u een Linux-VM in Azure maakt, heeft twee schijven zijn gekoppeld. **/ dev/sda** is van de besturingssysteemschijf **/dev/sdb** is de tijdelijke schijf.  Gebruik niet de belangrijkste OS-schijf ( **/dev/sda**) voor alles wat met uitzondering van het besturingssysteem die is geoptimaliseerd voor snelle VM boot-tijd en biedt geen goede prestaties voor uw workloads. U wilt een of meer schijven aansluiten op uw virtuele machine om op te halen permanente en geoptimaliseerd voor opslag voor uw gegevens. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Schijven toe te voegen voor grootte- en prestatiedoelen
 Op basis van de VM-grootte, kunt u maximaal 16 extra schijven op een A-serie, 32 schijven op een D-serie koppelen en 64 schijven op een G-serie-machine - elke tot 1 TB in grootte. U kunt extra schijven toevoegen per ruimte en IOps-vereisten van uw behoefte. Elke schijf heeft een prestatiedoel van 500 IOps voor Standard-opslag en maximaal 5000 IOP's per schijf voor Premium-opslag.
@@ -51,7 +51,7 @@ Bij het afhandelen van hoge IOps werkbelastingen en u ervoor hebt gekozen voor S
  
 
 ## <a name="your-vm-temporary-drive"></a>Uw virtuele machine tijdelijk station
-Standaard bij het maken van een virtuele machine, biedt Azure u een besturingssysteemschijf (**/dev/sda**) en een tijdelijke schijf (**/dev/sdb**).  Alle extra schijven u, weergeven als toevoegen **/dev/sdc**, **/dev/sdd**, **/dev/sde** enzovoort. Alle gegevens op de tijdelijke schijf (**/dev/sdb**) is niet duurzame, en kunnen verloren gaan als specifieke gebeurtenissen, zoals VM-formaat, opnieuw te implementeren of onderhoud zorgt ervoor dat uw virtuele machine opnieuw worden opgestart.  De grootte en het type van de tijdelijke schijf is gekoppeld aan de VM-grootte die u hebt gekozen tijdens de implementatie. Alle van de premium-grootte van virtuele machines (DS, G en DS_V2-serie) het tijdelijke station worden ondersteund door een lokale SSD voor extra prestaties van maximaal 48 kB IOps. 
+Standaard bij het maken van een virtuele machine, biedt Azure u een besturingssysteemschijf ( **/dev/sda**) en een tijdelijke schijf ( **/dev/sdb**).  Alle extra schijven u, weergeven als toevoegen **/dev/sdc**, **/dev/sdd**, **/dev/sde** enzovoort. Alle gegevens op de tijdelijke schijf ( **/dev/sdb**) is niet duurzame, en kunnen verloren gaan als specifieke gebeurtenissen, zoals VM-formaat, opnieuw te implementeren of onderhoud zorgt ervoor dat uw virtuele machine opnieuw worden opgestart.  De grootte en het type van de tijdelijke schijf is gekoppeld aan de VM-grootte die u hebt gekozen tijdens de implementatie. Alle van de premium-grootte van virtuele machines (DS, G en DS_V2-serie) het tijdelijke station worden ondersteund door een lokale SSD voor extra prestaties van maximaal 48 kB IOps. 
 
 ## <a name="linux-swap-file"></a>Wisselbestand voor Linux
 Als uw Azure-VM van een installatiekopie van een Ubuntu of CoreOS is, kunt u CustomData gebruiken voor het verzenden van een cloud-configuratie voor cloud-init. Als u [geüpload van een aangepaste installatiekopie van Linux](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die gebruikmaakt van cloud-init, u swap-partities cloud-init gebruiken voor het ook configureren.

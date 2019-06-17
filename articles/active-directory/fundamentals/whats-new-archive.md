@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55d11fa44aca65e2d4e487852bd242a4ba75a5f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43b5a051913ac762fe6b5a0ad11776ae911df864
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474181"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110371"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archief voor de wat is er nieuw? in Azure Active Directory
 
@@ -177,7 +177,7 @@ Zie voor meer informatie over het gebruik van aangepaste extensie-eigenschappen 
 
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde apps voor op Azure AD-app gebaseerde voorwaardelijke toegang
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde client-apps voor Azure AD op Apps gebaseerde voorwaardelijke toegang
 
 **Type:** Plan voor wijziging  
 **Categorie van de service:** Voorwaardelijke toegang  
@@ -439,7 +439,7 @@ Zie onze blog voor meer informatie over deze nieuwe mogelijkheden, [Azure AD-act
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Er is informatie over voorwaardelijke toegang toegevoegd aan het rapport Azure AD-aanmeldingen
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Voorwaardelijke toegang hebben tot informatie toegevoegd aan het rapport van Azure AD-aanmeldingen
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Rapportage  
@@ -707,13 +707,13 @@ Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie geb
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nieuwe 'aangepaste' voorwaardelijk beleidssjabloon gemaakt tijdens de voorwaarden dat gebruik wordt gemaakt
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nieuwe 'aangepaste' voorwaardelijk beleidssjabloon hebt gemaakt tijdens de voorwaarden dat gebruik wordt gemaakt
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
 **Product-mogelijkheid:** Beheer
 
-Tijdens het maken van de gebruiksrechtovereenkomst, wordt ook een nieuwe 'aangepaste' voorwaardelijk beleidssjabloon gemaakt. Deze nieuwe beleidssjabloon kunt u de gebruiksvoorwaarden lezen maken en onmiddellijk gaat u naar de blade voor voorwaardelijke toegang beleid voor het maken, zonder handmatig via de portal navigeren.
+Tijdens het maken van de gebruiksrechtovereenkomst, wordt ook een nieuwe sjabloon voor 'aangepaste' voorwaardelijk beleid gemaakt. Deze nieuwe beleidssjabloon kunt u de gebruiksvoorwaarden lezen maken en onmiddellijk gaat u naar de blade voor voorwaardelijke toegang beleid voor het maken, zonder handmatig via de portal navigeren.
 
 Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -891,7 +891,7 @@ Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app
 **Categorie van de service:** Overige  
 **Product-mogelijkheid:** Directory
  
-Nieuwe, stapsgewijze richtlijnen over het implementeren van Azure Active Directory (Azure AD), inclusief selfservice voor wachtwoordherstel (SSPR), eenmalige aanmelding (SSO), voorwaardelijke toegang (CA), App-proxy, gebruikers inrichten, Active Directory Federation Services (ADFS) op Pass through-verificatie (PTA) en ADFS voor synchronisatie van wachtwoordhashes (WHS).
+Nieuwe, stapsgewijze instructies over het implementeren van Azure Active Directory (Azure AD), met inbegrip van self-service voor wachtwoord opnieuw instellen (SSPR), eenmalige aanmelding (SSO), voorwaardelijke toegang (CA), App-proxy, gebruikers inrichten, Active Directory Federation Services (ADFS) op Pass through-verificatie (PTA) en ADFS voor synchronisatie van wachtwoordhashes (WHS).
 
 Als u de implementatiehandleidingen, gaat u naar de [identiteit implementatiehandleidingen](https://aka.ms/DeploymentPlans) op GitHub. Voor feedback over de implementatiehandleidingen, gebruikt u de [implementatie plannen feedbackformulier](https://aka.ms/deploymentplanfeedback). Hebt u vragen hebt over de implementatiehandleidingen, contact met ons op [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -1137,7 +1137,7 @@ Zie voor meer informatie, [wat is Azure AD B2B-samenwerking?](https://docs.micro
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Beperken van toegang via de browser met behulp van Intune Managed Browser voor iOS en Android met Azure AD-toepassing gebaseerde voorwaardelijke toegang
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Beperken van toegang via de browser met behulp van Intune Managed Browser met Azure AD voor voorwaardelijke toegang op basis van een toepassing voor iOS en Android
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Voorwaardelijke toegang  
@@ -1494,7 +1494,7 @@ Deze release bevat de volgende updates en wijzigingen:
 
 ---
  
-### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Toepassingen ondersteunende Intune App Protection-beleid toegevoegd voor gebruik met Azure AD-toepassing gebaseerde voorwaardelijke toegang
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Toepassingen die ondersteuning van Intune App Protection-beleid toegevoegd voor gebruik met Azure AD-toepassing gebaseerde voorwaardelijke toegang
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Voorwaardelijke toegang  
@@ -1797,7 +1797,7 @@ Zie voor meer informatie, [voorwaardelijke toegang in Azure AD](https://docs.mic
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde apps voor op Azure AD-app gebaseerde voorwaardelijke toegang
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde client-apps voor Azure AD op Apps gebaseerde voorwaardelijke toegang
 
 **Type:** Plan voor wijziging  
 **Categorie van de service:** Voorwaardelijke toegang  
@@ -1848,7 +1848,7 @@ Zie voor meer informatie, [on-premises integratie](https://docs.microsoft.com/az
 **Categorie van de service:** Azure AD  
 **Product-mogelijkheid:** , Identiteitbeveiliging en bescherming
 
-U kunt toegang nu beperken tot Office 365 en andere Azure AD verbonden cloud-apps naar [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) die ondersteuning bieden voor Intune beveiligingsbeleid voor apps met behulp van [voorwaardelijke toegang van Azure AD-app op basis van](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune beveiligingsbeleid voor apps worden gebruikt voor het configureren en beveiligen van bedrijfsgegevens op deze clienttoepassingen.
+U kunt toegang nu beperken tot Office 365 en andere Azure AD verbonden cloud-apps naar [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) die ondersteuning bieden voor Intune beveiligingsbeleid voor apps met behulp van [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune beveiligingsbeleid voor apps worden gebruikt voor het configureren en beveiligen van bedrijfsgegevens op deze clienttoepassingen.
 
 Door te combineren [op basis van app](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) met [apparaatgebaseerde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) beleid voor voorwaardelijke toegang hebt u de flexibiliteit om gegevens voor persoonlijke en bedrijfsapparaten te beveiligen.
 
@@ -1867,7 +1867,7 @@ De volgende voorwaarden en besturingselementen zijn nu beschikbaar voor gebruik 
 
 - Goedgekeurde client-apps vereisen
 
-Zie voor meer informatie, [voorwaardelijke toegang van Azure AD-app op basis van](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
+Zie voor meer informatie, [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1888,17 +1888,17 @@ Zie voor meer informatie, [apparaten beheren met behulp van de Azure-portal](htt
 
 ---
 
-### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Ondersteuning voor macOS als een platform voor apparaten voor voorwaardelijke toegang van Azure AD 
+### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Ondersteuning voor macOS als een platform voor apparaten voor Azure AD voor voorwaardelijke toegang 
 
 **Type:** Nieuwe functie    
 **Categorie van de service:** Voorwaardelijke toegang  
 **Product-mogelijkheid:** , Identiteitbeveiliging en bescherming 
 
-U kunt nu opnemen of uitsluiten macOS als een voorwaarde voor het platform van apparaat in uw Azure AD-beleid voor voorwaardelijke toegang. Met de toevoeging van macOS om de ondersteunde apparaatplatformen, kunt u het volgende doen:
+U kunt nu opnemen (of uitsluiten) macOS als een voorwaarde voor het platform van apparaat in het beleid van uw Azure AD voor voorwaardelijke toegang. Met de toevoeging van macOS om de ondersteunde apparaatplatformen, kunt u het volgende doen:
 
 - **Registreren en macOS-apparaten beheren met behulp van Intune.** Net als bij andere platformen, zoals iOS en Android, een bedrijf portal toepassing beschikbaar is voor macOS geïntegreerde inschrijvingen doen. De nieuwe bedrijfsportal-app voor macOS kunt u een apparaat met Intune inschrijven en Registreer het bij Azure AD.
 - **Zorg ervoor dat op macOS-apparaten voldoen aan uw organisatie-nalevingsbeleid dat is gedefinieerd in Intune.** In Intune in Azure portal kunt kunt u nu instellen nalevingsbeleid voor macOS-apparaten. 
-- **Toegang tot toepassingen in Azure AD om alleen compatibele macOS-apparaten te beperken.** Voorwaardelijk beleid ontwerpen heeft macOS als een afzonderlijk apparaat platform-optie. Nu kunt u macOS-specifieke voorwaardelijk toegangsbeleid voor de betreffende toepassing instellen in Azure maken.
+- **Toegang tot toepassingen in Azure AD om alleen compatibele macOS-apparaten te beperken.** Beleid voor voorwaardelijke toegang maken heeft macOS als een afzonderlijk apparaat platform-optie. Nu kunt u macOS-specifieke voorwaardelijk toegangsbeleid voor de doeltoepassing is ingesteld in Azure maken.
 
 Zie voor meer informatie:
 
@@ -1942,7 +1942,7 @@ In het beheercentrum van Azure AD kunt u nu:
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde apps voor op Azure AD-app gebaseerde voorwaardelijke toegang
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde client-apps voor Azure AD op Apps gebaseerde voorwaardelijke toegang
  
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Voorwaardelijke toegang  
@@ -1966,7 +1966,7 @@ Zie voor meer informatie:
 **Categorie van de service:** Voorwaardelijke toegang  
 **Product-mogelijkheid:** , Identiteitbeveiliging en bescherming
  
-Nu kunt u gebruiken ' of ' (een van de geselecteerde besturingselementen vereisen) voor besturingselementen voor voorwaardelijke toegang. U kunt deze functie gebruiken om beleid te maken met 'of' tussen de besturingselementen voor toegang. Bijvoorbeeld, kunt u deze functie om een beleid waarvoor een gebruiker zich aanmeldt met behulp van multi-factor Authentication 'of' op een compatibel apparaat te maken.
+Nu kunt u gebruiken ' of ' (een van de geselecteerde besturingselementen vereisen) voor voor voorwaardelijke toegang besturingselementen. U kunt deze functie gebruiken om beleid te maken met 'of' tussen de besturingselementen voor toegang. Bijvoorbeeld, kunt u deze functie om een beleid waarvoor een gebruiker zich aanmeldt met behulp van multi-factor Authentication 'of' op een compatibel apparaat te maken.
 
 Zie voor meer informatie, [besturingselementen in Azure AD voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
  

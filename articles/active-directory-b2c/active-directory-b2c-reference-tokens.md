@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509084"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Overzicht van de tokens in Azure Active Directory B2C
@@ -57,7 +57,7 @@ De volgende tabel bevat de claims die u kunt verwachten in de ID-tokens en token
 | Uitgegeven op | `iat` | `1438535543` | De tijd waarop het token is uitgegeven, weergegeven in epoche-tijd. |
 | Verlooptijd | `exp` | `1438539443` | De tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Deze claim moet in uw toepassing gebruiken om te controleren of de geldigheid van de levensduur van tokens. |
 | Niet voor | `nbf` | `1438535543` | De tijd waarop het token geldig is, wordt weergegeven in epoche-tijd. Deze tijd is meestal hetzelfde als de tijd die het token is uitgegeven. Deze claim moet in uw toepassing gebruiken om te controleren of de geldigheid van de levensduur van tokens. |
-| Versie | `ver` | `1.0` | De versie van de ID-token, zoals gedefinieerd door Azure AD B2C. |
+| Version | `ver` | `1.0` | De versie van de ID-token, zoals gedefinieerd door Azure AD B2C. |
 | Code-hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Een code-hash is opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-autorisatiecode. Een code-hash kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Access token-hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Een access token-hash opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-toegangstoken. Een access token-hash kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce | `nonce` | `12345` | Een nonce is een strategie gebruikt voor het beperken van token opnieuw afspelen aanvallen. Uw toepassing een nonce kunt opgeven in een autorisatieaanvraag met behulp van de `nonce` queryparameter. De waarde die u in de aanvraag opgeeft is verzonden niet gewijzigd de `nonce` claimen van een ID-token dat alleen. Deze claim kan uw toepassing om te controleren of de waarde op basis van de waarde die is opgegeven in de aanvraag. Uw toepassing moeten deze validatie tijdens de validatie van tokens proces-ID worden uitgevoerd. |

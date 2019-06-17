@@ -9,10 +9,10 @@ ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114818"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestaties blok-blobopslag
@@ -21,13 +21,13 @@ Een premium prestaties block blob storage-account is geoptimaliseerd voor toepas
 
 ### <a name="premium-performance-filestorage-preview"></a>Premium-prestaties FileStorage (preview)
 
-Premium-bestanden gebruiken een unieke storage-account met de naam **FileStorage (preview)**. Dit accounttype is ontworpen voor werkbelastingen met hoge IOPS, hoge doorvoer met consistente lage latentie. Premium-bestand storage schaalt met de ingerichte sharegrootte.
+Premium-bestanden gebruiken een unieke storage-account met de naam **FileStorage (preview)** . Dit accounttype is ontworpen voor werkbelastingen met hoge IOPS, hoge doorvoer met consistente lage latentie. Premium-bestand storage schaalt met de ingerichte sharegrootte.
 
-|Gebied  |Doel  |
+|Onderwerp  |Doel  |
 |---------|---------|
 |Maximale grootte van ingericht     |100 TiB     |
 |Shares   |Onbeperkt  |
-|IOPS     |100.000    |
+|IOPS     |100\.000    |
 |Inkomend verkeer|4,136 MiB/s     |
 |Uitgaand verkeer|6,204 MiB/s |
 

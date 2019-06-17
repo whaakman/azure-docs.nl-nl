@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075068"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prijsmodel voor Azure Logic Apps
 
@@ -89,7 +89,7 @@ Nadat u een logische app uitschakelen, kunnen alle exemplaren die momenteel word
 
 ## <a name="integration-accounts"></a>Integratieaccounts
 
-Verbruiksprijzen is van toepassing op [integratieaccounts](logic-apps-enterprise-integration-create-integration-account.md) waar u kunt verkennen, ontwikkelen en testen van de [B2B en EDI](logic-apps-enterprise-integration-b2b.md) en [XML-verwerking](logic-apps-enterprise-integration-xml.md) functies in Azure Logic Apps zonder extra kosten.
+Het vaste prijsmodel is van toepassing op [integratieaccounts](logic-apps-enterprise-integration-create-integration-account.md) waar u kunt verkennen, ontwikkelen en testen van de [B2B en EDI](logic-apps-enterprise-integration-b2b.md) en [XML-verwerking](logic-apps-enterprise-integration-xml.md) functies in Azure Logic Apps zonder extra kosten.
 U kunt een integratie-account hebben in elke Azure-regio. Elke integratie-account kan maximaal opslaan op specifieke [aantallen artefacten](../logic-apps/logic-apps-limits-and-config.md), waaronder trading partners, overeenkomsten, kaarten, schema's, assembly's, certificaten, batchconfiguraties enzovoort.
 
 Met Azure Logic Apps biedt gratis, Basic en Standard-integratieaccounts. De lagen basis en standaard worden ondersteund door de Logic Apps service level agreement (SLA), terwijl de gratis laag wordt niet ondersteund door een SLA en limieten is over doorvoer en het gebruik.

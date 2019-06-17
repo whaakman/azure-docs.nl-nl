@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924655"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Beheerders van de klassieke Azure-abonnement
@@ -38,7 +38,7 @@ Dit artikel wordt beschreven hoe u wilt toevoegen of wijzigen van de rollen Mede
 
     CO-beheerders kunnen alleen worden toegewezen op het abonnementsbereik.
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 
 1. Klik op de **klassieke administrators** tabblad.
 
@@ -71,7 +71,7 @@ Houd er rekening mee dat de [ingebouwde rollen voor Azure-resources](../role-bas
 
 1. Open [abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en een abonnement te selecteren.
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Klik op **toegangsbeheer (IAM)** .
 
 1. Klik op de **klassieke administrators** tabblad.
 
@@ -87,7 +87,7 @@ Houd er rekening mee dat de [ingebouwde rollen voor Azure-resources](../role-bas
 
 Alleen de accountbeheerder kan de Service-beheerder voor een abonnement wijzigen. Wanneer u zich aanmeldt voor een Azure-abonnement, is de servicebeheerder standaard hetzelfde als de accountbeheerder. De gebruiker met de rol beheerder van de Account heeft geen toegang tot de Azure-portal. De gebruiker met de rol servicebeheerder heeft volledige toegang tot de Azure-portal. Als de servicebeheerder en accountbeheerder dezelfde gebruiker zijn en u de servicebeheerder in een andere gebruiker wijzigen, verliest u de accountbeheerder bent toegang tot Azure portal. De accountbeheerder kan echter altijd Accountcentrum gebruiken om te wijzigen van de servicebeheerder terug naar zichzelf.
 
-Er zijn twee manieren om te wijzigen van de Service-beheerder. U kunt wijzigen de **Azure-portal** of **Accountcentrum**.
+Er zijn twee manieren om de servicebeheerder te wijzigen. U kunt wijzigen de **Azure-portal** of **Accountcentrum**.
 
 ### <a name="azure-portal"></a>Azure Portal
 

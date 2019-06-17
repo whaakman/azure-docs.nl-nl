@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141194"
 ---
 Vanwege de lopende ontwikkeling mogelijk de Android SDK-versie is geïnstalleerd in Android Studio niet overeen met de versie in de code. De Android SDK waarnaar wordt verwezen in deze zelfstudie is versie 26, het laatste nieuws op het moment van schrijven. Het versienummer verhogen als nieuwe versies van de SDK worden weergegeven en wordt geadviseerd om de meest recente beschikbare versie.
@@ -22,7 +22,7 @@ Als een van deze wordt weergegeven, de versie van de Android SDK geïnstalleerd 
 
 1. In Android Studio, klikt u op **extra** > **Android** > **SDK Manager**. Als u niet de nieuwste versie van het Platform SDK hebt geïnstalleerd, klikt u op om het te installeren. Noteer het versienummer.
 
-2. Op de **Projectverkenner** tabblad onder **Gradle-Scripts**, open het bestand **build.gradle (Module: app)**. Zorg ervoor dat de **compileSdkVersion** en **targetSdkVersion** zijn ingesteld op de meest recente SDK-versie geïnstalleerd. De `build.gradle` als volgt uitzien:
+2. Op de **Projectverkenner** tabblad onder **Gradle-Scripts**, open het bestand **build.gradle (Module: app)** . Zorg ervoor dat de **compileSdkVersion** en **targetSdkVersion** zijn ingesteld op de meest recente SDK-versie geïnstalleerd. De `build.gradle` als volgt uitzien:
 
     ```gradle
     android {

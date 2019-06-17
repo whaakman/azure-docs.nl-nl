@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
 ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035720"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Handmatig installeren of bijwerken van Azure Functions-bindinguitbreidingen van de portal
@@ -30,7 +30,7 @@ Gebruik de volgende stappen handmatig installeren of bijwerken van uitbreidingen
 
 1. In de [Azure-portal](https://portal.azure.com), zoek uw functie-app en selecteer deze. Kies de **overzicht** tabblad en selecteer **stoppen**.  Stoppen van de functie-app, ontgrendelt bestanden zodat de wijzigingen worden doorgevoerd.
 
-1. Kies de **platformfuncties** tabblad en klik vervolgens onder **ontwikkelprogramma's** Selecteer **geavanceerde hulpmiddelen (Kudu)**. Het eindpunt van de Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) in een nieuw venster wordt geopend.
+1. Kies de **platformfuncties** tabblad en klik vervolgens onder **ontwikkelprogramma's** Selecteer **geavanceerde hulpmiddelen (Kudu)** . Het eindpunt van de Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) in een nieuw venster wordt geopend.
 
 1. Selecteer in het venster Kudu **Foutopsporingsconsole** > **CMD**.  
 

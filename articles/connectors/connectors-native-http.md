@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713811"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Aanroepen van HTTP of HTTPS-eindpunten met Azure Logic Apps
@@ -71,7 +71,7 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
    ![HTTP-actie selecteren](./media/connectors-native-http/select-http-action.png)
 
    Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
-   Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+   Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
 1. Geef de [HTTP-actie parameters en waarden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) u wilt opnemen in de aanroep naar de doel-eindpunt. 
 

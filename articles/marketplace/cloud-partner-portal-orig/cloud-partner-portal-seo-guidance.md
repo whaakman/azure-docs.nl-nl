@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
 ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935131"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Azure Marketplace SEO-richtlijnen
@@ -30,10 +30,10 @@ Hieronder vindt u de meest relevante velden om te overwegen.
 |  Veld                   | Urgentie | Richtlijnen                                                                                            |
 |  --------------------    | ----------                   | ---------------                                                                   |
 | Naam van aanbieding:               |  Hoog      | Exacte of dicht bij een volledige overeenkomst met search query resulteert in hoge classificatie.                       |
-| Naam van de uitgever           |  Hoog      | Exacte of dicht bij een volledige overeenkomst met search query resulteert in hoge classificatie.                       |
-| Korte beschrijving        |  Middelgroot    | Naamgeving van apps en uitgever opgegeven namen wordt bijna een hoge ranking garanderen, kan dit niet het meest relevant. In dit geval is een korte beschrijving essentieel. De tekst behouden beknopt en het herstelpunt. Trefwoorden en verwachte zoektermen moeten worden opgenomen voor de beste resultaten.  Bijvoorbeeld "Dit is de beste Retail POS volledig gebaseerd op Dynamics 365" is minder effectief dan ' Retail POS (punt van verkoop) voor Dynamics 365 ".  | 
+| De naam van uitgever           |  Hoog      | Exacte of dicht bij een volledige overeenkomst met search query resulteert in hoge classificatie.                       |
+| Korte beschrijving        |  Gemiddeld    | Naamgeving van apps en uitgever opgegeven namen wordt bijna een hoge ranking garanderen, kan dit niet het meest relevant. In dit geval is een korte beschrijving essentieel. De tekst behouden beknopt en het herstelpunt. Trefwoorden en verwachte zoektermen moeten worden opgenomen voor de beste resultaten.  Bijvoorbeeld "Dit is de beste Retail POS volledig gebaseerd op Dynamics 365" is minder effectief dan ' Retail POS (punt van verkoop) voor Dynamics 365 ".  | 
 | Lange beschrijving         |  Laag       | Beschrijving biedt een manier om dieper. De beschrijvingen van de meest effectieve redelijke lengte en trefwoorden worden gebruikt.  Een aan de-punten beschrijvingen met trefwoorden profiteren meer dan lang lange tekst. Zorg ervoor dat belangrijkste termen, zoals 'IoT' zijn aanwezig in de beschrijving.  |
-| Productcategorieën       | Middelgroot     |  Productcategorieën worden bepaald door een combinatie van opties van de uitgever en Microsoft. Selecteer deze categorieën op de juiste wijze, zodat gebruikers de apps in de juiste categorie eenvoudig kunnen vinden. |
+| Productcategorieën       | Gemiddeld     |  Productcategorieën worden bepaald door een combinatie van opties van de uitgever en Microsoft. Selecteer deze categorieën op de juiste wijze, zodat gebruikers de apps in de juiste categorie eenvoudig kunnen vinden. |
 |  |  |  |
 
 

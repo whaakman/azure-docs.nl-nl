@@ -8,10 +8,10 @@ ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991405"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Web application firewall voor Azure Application Gateway
@@ -46,7 +46,7 @@ Deze sectie beschrijft de belangrijkste voordelen van Application Gateway en de 
 
 * De Application Gateway WAF is geïntegreerd met Azure Security Center. Security Center biedt een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
 
-### <a name="customization"></a>Aanpassen
+### <a name="customization"></a>Aanpassing
 
 * U kunt aanpassen WAF-regels en regelgroepen om te stemmen op de toepassingsvereisten van uw en fout-positieven te elimineren.
 
@@ -133,7 +133,7 @@ Verkeer dat overeenkomt met elke regel is niet in de modus voor Anomaliedetectie
 |Kritiek     |5|
 |Fout        |4|
 |Waarschuwing      |3|
-|Kennisgeving       |2|
+|U ziet       |2|
 
 Er is een drempelwaarde van 5 voor de Score van afwijkingen verkeer blokkeert. Dus een enkel *Kritiek* overeenkomst van de regel is voldoende voor de Application Gateway WAF een aanvraag, zelfs in preventiemodus blokkeren. Maar één *waarschuwing* regel overeen verhoogt alleen de anomalie Score door 3, die niet voldoende zelf om het verkeer te blokkeren.
 

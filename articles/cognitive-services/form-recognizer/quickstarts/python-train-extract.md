@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e799e4ae745d2dc2dea91aa0094b5ffb79ae6f77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475255"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063879"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Een formulier herkenning-model te trainen en gegevens ophalen met behulp van de REST-API met Python
 
@@ -36,7 +36,7 @@ Wanneer u toegang tot het gebruik van formulier herkenning zijn verleend, ontvan
 |--|--|
 | **Naam** | Een beschrijvende naam voor uw resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyNameFormRecognizer*. |
 | **Abonnement** | Selecteer het Azure-abonnement dat toegang heeft gekregen. |
-| **Locatie** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
+| **Location** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
 | **Prijscategorie** | De kosten van uw resource is afhankelijk van de prijscategorie die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
 | **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) die uw resource bevat. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
 
@@ -127,7 +127,7 @@ Houd er rekening mee de `"modelId"` waarde. U hebt deze nodig voor de volgende s
 Vervolgens u een document analyseren en extraheren van sleutel / waarde-paren en tabellen uit. Roep de **Model - analyseren** API door het uitvoeren van het Python-script dat volgt. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
 
 1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen met uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
-1. Vervang `<File Path>` met het bestandspad of de URL van de locatie van de vorm van waaruit gegevens moeten worden opgehaald.
+1. Vervang `<path to your form>` met het pad van het formulier (bijvoorbeeld C:\temp\file.pdf).
 1. Vervang `<modelID>` met de model-ID die u hebt ontvangen in de vorige sectie.
 1. Vervang `<file type>` met het bestandstype. Ondersteunde typen: pdf-, afbeelding/jpeg, afbeelding/png.
 1. Vervang `<subscription key>` door uw abonnementssleutel.
@@ -138,7 +138,7 @@ Vervolgens u een document analyseren en extraheren van sleutel / waarde-paren en
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers

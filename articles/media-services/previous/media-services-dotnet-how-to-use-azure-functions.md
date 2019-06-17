@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217465"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Azure Functions met mediaservices ontwikkelen
@@ -64,11 +64,11 @@ Wanneer uw functie-app is geïmplementeerd, kunt u het vinden van **App Services
 2. Kies de **C#** taal en **gegevensverwerking** scenario.
 3. Kies **BlobTrigger** sjabloon. Deze functie wordt geactiveerd wanneer een blob is geüpload naar de **invoer** container. De **invoer** naam is opgegeven in de **pad**, in de volgende stap.
 
-    ![bestanden weergeven](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Wanneer u selecteert **BlobTrigger**, sommige meer besturingselementen worden weergegeven op de pagina.
 
-    ![bestanden weergeven](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Klik op **Create**. 
 
@@ -76,7 +76,7 @@ Wanneer uw functie-app is geïmplementeerd, kunt u het vinden van **App Services
 
 Uw Azure-functie is gekoppeld aan de codebestanden en andere bestanden die in deze sectie worden beschreven. Wanneer u de Azure portal gebruiken voor het maken van een functie **function.json** en **run.csx** worden voor u gemaakt. U wilt toevoegen of upload een **project.json** bestand. De rest van deze sectie geeft een korte uitleg van elk bestand en bevat de definities.
 
-![bestanden weergeven](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 

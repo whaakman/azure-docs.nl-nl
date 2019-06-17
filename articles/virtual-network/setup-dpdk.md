@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731597"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>DPDK instellen in een virtuele Linux-machine
@@ -33,7 +33,7 @@ DPDK kunt uitvoeren op Azure virtual machines die ondersteuning voor meerdere be
 
 ## <a name="benefit"></a>Voordeel
 
-**Hogere pakketten per seconde (PPS)**: Het aantal cyclus overslaan van de kernel en met inachtneming van pakketten in de gebruikersruimte worden beperkt door het elimineren van context switches. Het verbetert ook het aantal pakketten dat per seconde in virtuele Azure Linux-machines worden verwerkt.
+**Hogere pakketten per seconde (PPS)** : Het aantal cyclus overslaan van de kernel en met inachtneming van pakketten in de gebruikersruimte worden beperkt door het elimineren van context switches. Het verbetert ook het aantal pakketten dat per seconde in virtuele Azure Linux-machines worden verwerkt.
 
 
 ## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
@@ -77,7 +77,7 @@ sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
 
-### <a name="rhel75centos-75"></a>7.5 RHEL7.5/CentOS
+### <a name="rhel75centos-75"></a>7\.5 RHEL7.5/CentOS
 
 ```bash
 yum -y groupinstall "Infiniband Support"

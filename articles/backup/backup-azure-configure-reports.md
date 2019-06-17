@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60642581"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
@@ -87,7 +87,7 @@ Als u wilt aanpassen en delen van het rapport, een werkruimte maken en voer de v
       ![Inhoudspakket ophalen](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Voer de naam van het opslagaccount dat is geconfigureerd in de vorige stap 5 en selecteer **volgende**.
 
-    ![De opslagaccountnaam invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![Voer de naam van opslagaccount](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. Met behulp van verificatiemethode 'Key', voer de opslagaccountsleutel voor dit opslagaccount. Naar [bekijken en kopiëren van de toegangssleutels voor opslag](../storage/common/storage-account-manage.md#access-keys), gaat u naar uw opslagaccount in Azure portal.
 
      ![Storage-account invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>

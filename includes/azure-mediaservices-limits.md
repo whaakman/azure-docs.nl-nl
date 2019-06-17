@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116341"
 ---
 >[!NOTE]
@@ -18,9 +18,9 @@ ms.locfileid: "66116341"
 | --- | --- | 
 | Azure Media Services-accounts in één abonnement | 25 (vast) |
 | Gereserveerde Media-eenheden per Media Services-account |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Taken per Media Services-account | 50.000<sup>2</sup> |
+| Taken per Media Services-account | 50\.000<sup>2</sup> |
 | Gekoppelde taken per taak | 30 (vast) |
-| Activa per Media Services-account | 1.000.000|
+| Activa per Media Services-account | 1\.000.000|
 | Activa per taak | 50 |
 | Activa per taak | 100 |
 | Unieke locators die aan één activum tegelijk zijn gekoppeld | 5<sup>4</sup> |
@@ -29,7 +29,7 @@ ms.locfileid: "66116341"
 | Programma's met de status Wordt uitgevoerd per kanaal |3|
 | Streaming-eindpunten die zijn gestopt of het uitvoeren van per Media Services-account|2|
 | Streaming-eenheden per streaming-eindpunt |10 |
-| Opslagaccounts | 1.000<sup>5</sup> (vast) |
+| Opslagaccounts | 1\.000<sup>5</sup> (vast) |
 | Beleidsregels | 1,000,000<sup>6</sup> |
 | Bestandsgrootte| In sommige scenario's, moet u er een limiet is op de maximale bestandsgrootte voor verwerking in Media Services wordt ondersteund. <sup>7</sup> |
 

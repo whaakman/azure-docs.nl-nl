@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133751"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met de interne omleiding met de Azure CLI
@@ -217,7 +217,7 @@ Voer uw domeinnaam in de adresbalk van de browser in. Bijvoorbeeld http://www.co
 
 ![Contoso-site testen in toepassingsgateway](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Wijzig het adres naar het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor de www\.contoso.com.
+Wijzig het adres naar het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor de www\. contoso.com.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
 ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60830004"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Problemen oplossen met Azure Cache voor Redis
@@ -202,12 +202,12 @@ Dit foutbericht bevat metrische gegevens waarmee u verwijzen naar de oorzaak en 
 | --- | --- |
 | inst |In de afgelopen tijdsperiode: 0-opdrachten zijn uitgegeven |
 | mgr |Het gaat met de manager socket `socket.select`, wat het betekent dat het besturingssysteem om aan te geven van een socket dat er iets wordt gevraagd. De lezer is niet actief lezen van het netwerk, omdat deze niet denkt er dat te doen |
-| wachtrij |Er zijn 73 totaal aantal lopende bewerkingen |
+| queue |Er zijn 73 totaal aantal lopende bewerkingen |
 | qu |6 van de bewerkingen wordt uitgevoerd in de wachtrij staan niet verzonden en nog niet hebt zijn geschreven voor uitgaand netwerkverkeer |
 | qs |67 van de bewerkingen in uitvoering zijn verzonden naar de server, maar een antwoord is nog niet beschikbaar. Het antwoord kan worden `Not yet sent by the server` of `sent by the server but not yet processed by the client.` |
 | qc |0 van de bewerkingen in uitvoering antwoorden hebt gezien, maar nog niet hebt zijn gemarkeerd als voltooid omdat ze op de lus is voltooid verwachten |
 | wR |Er is een actieve writer (wat betekent dat het 6 unsent aanvragen worden niet genegeerd) bytes/activewriters |
-| in |Er zijn geen actieve lezers en nul bytes zijn beschikbaar om te lezen op de NIC-bytes/activereaders |
+| In |Er zijn geen actieve lezers en nul bytes zijn beschikbaar om te lezen op de NIC-bytes/activereaders |
 
 ### <a name="steps-to-investigate"></a>Stappen voor het onderzoeken
 
