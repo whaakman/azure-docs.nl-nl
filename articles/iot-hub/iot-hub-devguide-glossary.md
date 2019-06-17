@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119806"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
@@ -21,7 +21,7 @@ In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artik
 ## <a name="advanced-message-queueing-protocol"></a>Geavanceerde Message Queueing Protocol
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is een van de berichten die protocollen [IoT-Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub worden ondersteund, [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="automatic-device-management"></a>Automatisch apparaatbeheer
+## <a name="automatic-device-management"></a>Automatic Device Management
 Automatische Apparaatbeheer in Azure IoT Hub automatiseert veel herhaalde en complexe taken van grote apparaat vloten via het geheel van de levenscycli hiervan te beheren. Met automatisch beheer van apparaten, kunt u een set met apparaten op basis van hun eigenschappen als doel, definieert een gewenste configuratie en IoT Hub-apparaten bijgewerkt wanneer ze bereik binnenkomen, kunnen.  Bestaat uit [automatische apparaatconfiguraties](iot-hub-auto-device-config.md) en [IoT Edge-automatische implementaties](../iot-edge/how-to-deploy-monitor.md).
 
 ## <a name="automatic-device-configuration"></a>Configuratie van automatische inrichting
@@ -138,7 +138,7 @@ Een IoT-hub toont meerdere [eindpunten](iot-hub-devguide-endpoints.md) waarmee u
 ## <a name="event-hubs-service"></a>Event Hubs-service
 [Eventhubs](../event-hubs/event-hubs-what-is-event-hubs.md) is een zeer schaalbare service voor die van miljoenen opnemen kan gebeurtenissen per seconde. De service kunt u om te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door uw verbonden apparaten en toepassingen. Zie voor een vergelijking met de IoT Hub-service, [vergelijking van Azure IoT Hub en Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
-## <a name="event-hub-compatible-endpoint"></a>Event Hub-compatibel eindpunt
+## <a name="event-hub-compatible-endpoint"></a>Event Hub-compatibele eindpunt
 Om te lezen [apparaat-naar-cloud](#device-to-cloud) berichten verzonden naar uw IoT-hub, u kunt verbinding maken met een eindpunt op uw hub en een Event Hub-compatibele-methode gebruiken om deze berichten te lezen. Event Hub-compatibele methoden zijn onder meer met behulp van de [Event Hubs-SDK's](../event-hubs/event-hubs-programming-guide.md) en [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Veldgateway
@@ -229,7 +229,7 @@ SASL zonder opmaak is een protocol dat het AMQP-protocol wordt gebruikt om over 
 ## <a name="service-rest-api"></a>Service REST API
 U kunt de [REST API voor Service](https://docs.microsoft.com/rest/api/iothub/service) van de oplossing back-end om uw apparaten te beheren. De API kunt u voor het ophalen en bijwerken [apparaatdubbel](#device-twin) eigenschappen aangeroepen [directe methoden](#direct-method), en de planning [taken](#job). Normaal gesproken moet u een van de hogere [service-SDK's](#azure-iot-service-sdks) zoals wordt weergegeven in de IoT Hub-zelfstudies.
 
-## <a name="shared-access-signature"></a>Shared Access Signature
+## <a name="shared-access-signature"></a>Handtekening voor gedeelde toegang
 Shared Access Signatures (SAS) zijn een verificatiemechanisme voor op basis van beveiligde SHA-256-hashes of URI's. SAS-verificatie bestaat uit twee onderdelen: een _beleid voor gedeelde toegang_ en een _Shared Access Signature_ (ook wel een token). Een apparaat maakt gebruik van SAS te verifiëren met een IoT-hub. [Back-end-apps](#back-end-app) SAS ook gebruiken om te verifiëren met de service gerichte eindpunten voor een IoT hub. Normaal gesproken het opnemen van de SAS-token in de [verbindingsreeks](#connection-string) dat een app wordt gebruikt om een verbinding naar een IoT-hub te maken.
 
 ## <a name="shared-access-policy"></a>Beleid voor gedeelde toegang

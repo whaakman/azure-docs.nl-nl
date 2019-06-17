@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698166"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Gebruik Apache Kafka in HDInsight met Azure IoT Hub
@@ -167,7 +167,7 @@ Om op te halen van IoT Hubgegevens die door de connector gebruikt, gebruikt u de
 
 1. Verkrijg de Event Hub-compatibele eindpunt en de naam van de Event Hub-compatibele eindpunt voor uw IoT-hub. Als u deze informatie, gebruikt u een van de volgende methoden:
 
-   * __Uit de [Azure-portal](https://portal.azure.com/)__, gebruikt u de volgende stappen uit:
+   * __Uit de [Azure-portal](https://portal.azure.com/)__ , gebruikt u de volgende stappen uit:
 
      1. Navigeer naar uw IoT-Hub en selecteer __eindpunten__.
      2. Van __ingebouwde eindpunten__, selecteer __gebeurtenissen__.
@@ -180,7 +180,7 @@ Om op te halen van IoT Hubgegevens die door de connector gebruikt, gebruikt u de
         > [!IMPORTANT]  
         > De eindpuntwaarde vanuit de portal bevat mogelijk extra tekst die in dit voorbeeld niet nodig is. De tekst die overeenkomt met dit patroon extraheren `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Uit de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, gebruikt u de volgende opdracht:
+   * __Uit de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , gebruikt u de volgende opdracht:
 
        ```azure-cli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -196,13 +196,13 @@ Om op te halen van IoT Hubgegevens die door de connector gebruikt, gebruikt u de
 
 2. Krijgen de __gedeeld toegangsbeleid__ en __sleutel__. Voor dit voorbeeld gebruikt u de __service__ sleutel. Als u deze informatie, gebruikt u een van de volgende methoden:
 
-    * __Uit de [Azure-portal](https://portal.azure.com/)__, gebruikt u de volgende stappen uit:
+    * __Uit de [Azure-portal](https://portal.azure.com/)__ , gebruikt u de volgende stappen uit:
 
         1. Selecteer __beleid voor gedeelde toegang__, en selecteer vervolgens __service__.
         2. Kopieer de __primaire sleutel__ waarde.
         3. Kopieer de __verbindingsreeks - primaire sleutel__ waarde.
 
-    * __Uit de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, gebruikt u de volgende opdracht:
+    * __Uit de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , gebruikt u de volgende opdracht:
 
         1. Als u de waarde van de primaire sleutel, gebruikt u de volgende opdracht uit:
 
