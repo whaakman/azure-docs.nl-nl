@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 190394481f17310784f87c9e2f642eeea0b2597f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141163"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062236"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met On-premises gegevensgateway
 De on-premises gegevensgateway biedt veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio bevinden, worden de meest recente versie van de gateway ook werkt met Azure Logic Apps, Power BI, Powerapps en Microsoft Flow. U kunt meerdere services in hetzelfde abonnement en dezelfde regio koppelen met een enkele gateway. 
 
 Installatie met behulp van de gateway aan de eerste keer is een vierdelige proces:
 
-- **Downloaden en uitvoeren van setup** -in deze stap installeert u een gatewayservice op een computer in uw organisatie. U ook aanmelden bij Azure met behulp van een account in uw [van tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (Gast)-accounts worden niet ondersteund.
+- **Downloaden en uitvoeren van setup** -in deze stap installeert u een gatewayservice op een computer in uw organisatie. U ook aanmelden bij Azure met behulp van een account in uw [van tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (Gast)-accounts worden niet ondersteund.
 
 - **Registreren van uw gateway** : In deze stap maakt u een naam en herstel voor uw gateway sleutel en selecteer een regio, uw gateway registreren bij de Gateway-Cloudservice. Uw gateway-resource kan worden geregistreerd in andere regio's, maar het is raadzaam dat deze zich in dezelfde regio als de Analysis Services-servers. 
 

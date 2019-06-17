@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fdabd237fa128326673d84e889387d03f184b00
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236578"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Zelfstudie: Azure Active Directory-integratie met InsideView
 
@@ -143,13 +143,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met InsideView, de volge
 
     1. Open het certificaat met onbewerkte gegevens die u hebt gedownload van de Azure-portal. Kopieer de inhoud van het certificaat naar het Klembord en plak de inhoud in de **STS Certificate** vak.
 
-    1. In de **Crm-Id Gebruikerstoewijzing** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. In de **Crm-Id Gebruikerstoewijzing** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-    1. In de **Crm-e-mailbericht toewijzen** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. In de **Crm-e-mailbericht toewijzen** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-    1. In de **Crm voornaam toewijzing** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    1. In de **Crm voornaam toewijzing** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-    1. In de **Crm lastName toewijzing** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
+    1. In de **Crm lastName toewijzing** Voer **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .  
 
     1. Selecteer **Opslaan**.
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977573"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
@@ -25,7 +25,7 @@ Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillen
 
 * Azure Diagnostics-extensies
 * Log Analytics-Agent voor Linux en Windows
-* Dependency Agent
+* Agent voor afhankelijkheden
 
 Dit artikel beschrijft de verschillen tussen deze en de bijbehorende mogelijkheden in volgorde voor u om te bepalen welke sjabloon biedt ondersteuning voor uw IT-servicebeheer of algemene controlevereisten.  
 
@@ -37,7 +37,7 @@ U kunt kiezen voor het verzamelen van:
 * Een vooraf gedefinieerde set besturingssysteem prestatiemeteritems en gebeurtenislogboeken, of u kunt aangeven welke te verzamelen. 
 * Alle aanvragen en/of mislukte aanvragen op een IIS-webserver
 * .NET-app voor het traceren van logboeken met uitvoergegevens
-* Gebeurtenissen van Event tracing for Windows (ETW) 
+* Van Event tracing for Windows (ETW)-gebeurtenissen 
 * Gebeurtenissen verzamelen van syslog  
 * Crashdumps 
 
@@ -69,7 +69,7 @@ Voorheen verschillende Azure-services zijn gebundeld in de *Operations Managemen
 * Bijhouden van wijzigingen in de configuratie met [Azure Automation wijzigingen bijhouden en inventaris](../../automation/change-tracking.md).
 * Azure-services zoals [Application Insights](https://docs.microsoft.com/azure/application-insights/) en [Azure Security Center](https://docs.microsoft.com/azure/security-center/), welke systeemeigen slaan hun gegevens rechtstreeks in Log Analytics.  
 
-## <a name="dependency-agent"></a>Dependency Agent
+## <a name="dependency-agent"></a>Agent voor afhankelijkheden
 De agent voor afhankelijkheden is ontwikkeld als onderdeel van de oplossing Serviceoverzicht die oorspronkelijk niet door Microsoft is ontwikkeld. [Serviceoverzicht](../insights/service-map.md) en [Azure Monitor voor virtuele machines](../insights/vminsights-overview.md) vereist een Agent voor afhankelijkheden in Windows en Linux virtuele machines en deze kan worden geïntegreerd met de Log Analytics-agent voor het verzamelen van gedetecteerde gegevens over de processen die worden uitgevoerd op de virtuele machine en extern Procesafhankelijkheden. Het deze gegevens worden opgeslagen in een Log Analytics-werkruimte en visualiseert de gedetecteerde onderling verbonden onderdelen.
 
 Mogelijk moet u een combinatie van deze agenten voor het bewaken van uw virtuele machine. De agents kunnen worden geïnstalleerd naast elkaar als Azure-extensies, maar op Linux, de Log Analytics-agent *moet* worden geïnstalleerd eerste anders de installatie mislukken. 

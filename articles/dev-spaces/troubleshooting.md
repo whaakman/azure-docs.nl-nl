@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058552"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -36,24 +36,26 @@ Op dit moment werkt Azure Dev spaties aanbevolen bij het opsporen van fouten in 
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Fout 'Failed to Azure Dev spaties controller maken'
 
+### <a name="reason"></a>Reason
 U kunt deze fout tegenkomen wanneer er iets met het maken van de controller misgaat. Als het een tijdelijke fout, verwijderen en opnieuw maken van de controller om dit te corrigeren.
 
-### <a name="try"></a>Probeer:
+### <a name="try"></a>Proberen
 
-Als u wilt verwijderen van de controller, gebruikt u Azure Dev spaties CLI. Het is niet mogelijk om dat te doen in Visual Studio of Cloud Shell. AZDS CLI installeren, installeert eerst de Azure CLI en voer vervolgens deze opdracht uit:
+De controller verwijderen:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Verwijderen van een domeincontroller, moet u de CLI van Azure Dev opslagruimten gebruiken. Het is niet mogelijk om te verwijderen van een domeincontroller vanuit Visual Studio. U ook installeren niet de CLI van Azure Dev spaties in de Azure Cloud Shell, zodat u een domeincontroller niet uit de Azure Cloud Shell verwijderen.
+
+Als u geen Azure Dev spaties CLI is geïnstalleerd, kunt u dit eerst installeren met behulp van de volgende opdracht vervolgens verwijderen van de controller:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-En voer vervolgens deze opdracht voor het verwijderen van de controller:
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-De controller opnieuw kan worden gedaan in de CLI of Visual Studio. Volg de instructies in de zelfstudies als voor de eerste keer starten.
-
+De controller opnieuw kan worden gedaan in de CLI of Visual Studio. Zie de [Team development](quickstart-team-development.md) of [ontwikkelen met .NET Core](quickstart-netcore-visualstudio.md) snelstartgidsen voor voorbeelden.
 
 ## <a name="error-service-cannot-be-started"></a>Fout 'Service kan niet worden gestart.'
 
@@ -408,4 +410,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Inschakelen van Dev spaties mislukken wanneer Windows-knooppuntgroepen worden toegevoegd aan een AKS-cluster
 
 ### <a name="reason"></a>Reason
-Op dit moment is Azure Dev opslagruimten bedoeld om uit te voeren op Linux-schillen en alleen de knooppunten. Op dit moment kunt u Azure Dev spaties niet inschakelen op een AKS-cluster met een groep Windows-knooppunt.
+Op dit moment is Azure Dev opslagruimten bedoeld om uit te voeren op Linux-schillen en alleen de knooppunten. Wanneer u een AKS-cluster met een Windows-knooppuntgroep hebt, moet u ervoor zorgen dat Azure Dev spaties schillen alleen op Linux-knooppunten worden gepland. Als een pod Azure Dev opslagruimten is gepland om uit te voeren op een Windows-knooppunt, deze pod kan niet worden gestart en inschakelen van Dev spaties mislukken.
+
+### <a name="try"></a>Proberen
+[Toevoegen van een beïnvloeding](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) naar uw AKS-cluster om ervoor te zorgen Linux schillen niet zijn gepland om uit te voeren op een Windows-knooppunt.

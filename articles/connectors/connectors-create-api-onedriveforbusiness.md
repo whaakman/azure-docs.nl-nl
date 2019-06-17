@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104915"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Aan de slag met de OneDrive voor bedrijven-connector
@@ -28,7 +28,7 @@ Als u wilt maken van logische apps met OneDrive voor bedrijven, moet u eerst mak
 
 | Eigenschap | Vereist | Description |
 | --- | --- | --- |
-| Token |Ja |OneDrive voor Bedrijven-referenties opgeven |
+| Token |Ja |OneDrive voor bedrijven-referenties opgeven |
 
 Nadat u de verbinding hebt gemaakt, kunt u deze uit te voeren van de acties en luisteren naar de triggers die in dit artikel beschreven.
 

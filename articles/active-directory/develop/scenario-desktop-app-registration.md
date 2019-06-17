@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da934709274d90668d94dfea3a9c223e191d032
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ab2701a82da0b8f7bc4e23a3d947be905593e85
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057214"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Desktop-app dat aanroepen van web-API's - app-registratie
 
@@ -42,16 +42,17 @@ Als uw bureaubladtoepassing interactieve verificatie gebruikt, kunt u zich in de
 - Als u de stroom van het apparaat gebruikt wilt, u kunt zich niet in de gebruikers met hun persoonlijke Microsoft-account nog
 - Als u gebruikers met sociale identiteiten doorgeven van een B2C-instantie en het beleid voor aanmelden, kunt u alleen de verificatie van de interactieve en gebruikersnaam-wachtwoord.
 
-## <a name="redirect-uris"></a>Omleidings-URI's
+## <a name="redirect-uris"></a>Omleidings-URI 's
 
 Opnieuw afhankelijk de omleidings-URI's in desktop toepassing van de stroom die u wilt gebruiken.
 
-- Als u de interactieve verificatie, moet u gebruiken `https://login.microsoftonline.com/common/oauth2/nativeclient`. U kunt deze configuratie bereiken door te klikken op de bijbehorende URL in de **verificatie** sectie voor uw toepassing
+- Als u de **interactieve verificatie** of **apparaat Code Flow**, wilt u gebruiken `https://login.microsoftonline.com/common/oauth2/nativeclient`. U kunt deze configuratie bereiken door te klikken op de bijbehorende URL in de **verificatie** sectie voor uw toepassing
   
   > [!IMPORTANT]
   > Vandaag MSAL.NET maakt gebruik van een andere omleidings-URI in die wordt uitgevoerd op Windows-bureaubladtoepassingen standaard (`urn:ietf:wg:oauth:2.0:oob`). In de toekomst we willen u kunt deze standaardwaarde wijzigen en daarom raden wij aan dat u `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- Als uw app alleen van geïntegreerde Windows-verificatie, gebruikersnaam en wachtwoord of apparaat Code Flow gebruikmaakt, moet u niet een omleidings-URI voor uw toepassing registreren. Inderdaad, deze stromen doen een retour naar het v2.0-eindpunt van Microsoft identity-platform en uw toepassing wordt niet terug worden aangeroepen op een specifieke URI. Om u te onderscheiden van een vertrouwelijke clientstroom toepassing, dat niet beschikt over omleidings-URI's beide (de referentie stroom gebruikt in toepassingen daemon), moet u express dat uw toepassing een openbare client-toepassing is. Deze configuratie wordt bereikt door te gaan naar de **verificatie** sectie voor uw toepassing en in de **geavanceerde instellingen** subsectie, kiest u **Ja**, op de vraag **Toepassing behandelen als een openbare client** (in de **standaard clienttype** lid)
+- Als uw app alleen van geïntegreerde Windows-verificatie, gebruikersnaam en wachtwoord gebruikmaakt, moet u niet een omleidings-URI voor uw toepassing registreren. Inderdaad, deze stromen doen een retour naar het v2.0-eindpunt van Microsoft identity-platform en uw toepassing wordt niet terug worden aangeroepen op een specifieke URI. 
+- Om u te onderscheiden van de stroom van apparaat, geïntegreerde Windows-verificatie en de gebruikersnaam en wachtwoord van een vertrouwelijke clientstroom toepassing, dat niet beschikt over omleidings-URI's beide (de referentie stroom gebruikt in toepassingen daemon), moet u express dat uw toepassing een openbare client-toepassing is. Deze configuratie wordt bereikt door te gaan naar de **verificatie** sectie voor uw toepassing en in de **geavanceerde instellingen** subsectie, kiest u **Ja**, op de vraag **Toepassing behandelen als een openbare client** (in de **standaard clienttype** lid)
 
   ![Openbare client toestaan](media/scenarios/default-client-type.png)
 

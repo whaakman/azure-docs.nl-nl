@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6e7d0ff396a4d264ee1f724d192c6c36abb400b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051568"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Snelstart: IoT-telemetrie verzenden vanaf een Android-apparaat
 
@@ -31,7 +31,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Android Studio vanaf https://developer.android.com/studio/. Zie [Android-installatie](https://developer.android.com/studio/install) voor meer informatie over de installatie van Android Studio. 
+* Android Studio vanaf https://developer.android.com/studio/. Zie [Android-installatie](https://developer.android.com/studio/install) voor meer informatie over de installatie van Android Studio.
 
 * Voor het voorbeeld in dit artikel wordt Android SDK 27 gebruikt.
 
@@ -113,11 +113,10 @@ In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.m
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     In de volgende schermafbeelding ziet u de uitvoer op het moment dat de IoT-hub de telemetrie ontvangt die is verzonden met het Android-apparaat:
 
       ![Lees de apparaatberichten met de Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
-
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
@@ -130,4 +129,3 @@ Ga verder met de volgende snelstartgids als u wilt weten hoe u een gesimuleerd a
 
 > [!div class="nextstepaction"]
 > [Snelstart: Een apparaat beheren dat is verbonden met een IoT-hub](quickstart-control-device-android.md)
-

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ccb12ca5daf7a57ed50f6ed471e62f61b335466
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f45fc1d5128811f04ca96224551dde969f4fe9d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552056"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>Zelfstudie: Azure Active Directory-integratie met algemene Meta4-uur
 
@@ -81,12 +81,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Meta4 globale HR, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureer Meta4 globale HR Single Sign-On](#configure-meta4-global-hr-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Globale HR Meta4 testgebruiker maken](#create-meta4-global-hr-test-user)**  : als u wilt een equivalent van Britta Simon in Meta4 globale HR die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -133,13 +133,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met Meta4 globale HR, mo
 
     b. Azure AD-id
 
-    c. URL voor afmelden
+    c. Afmeldings-URL
 
 ### <a name="configure-meta4-global-hr-single-sign-on"></a>Meta4 globale HR eenmalige aanmelding configureren
 
-Het configureren van eenmalige aanmelding op **Meta4 globale HR** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Meta4 globale HR-ondersteuning team](mailto:victors@meta4.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+Het configureren van eenmalige aanmelding op **Meta4 globale HR** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Meta4 globale HR-ondersteuning team](mailto:victors@meta4.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -191,7 +191,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-meta4-global-hr-test-user"></a>Globale HR Meta4 testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in globale HR Meta4. Werken met [Meta4 globale HR-ondersteuningsteam](mailto:victors@meta4.com) om toe te voegen de gebruikers in het Meta4 globale HR-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in globale HR Meta4. Werken met [Meta4 globale HR-ondersteuningsteam](mailto:victors@meta4.com) om toe te voegen de gebruikers in het Meta4 globale HR-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
@@ -199,9 +199,9 @@ In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met 
 
 Wanneer u op de tegel Meta4 globale HR in het toegangsvenster, moet u worden automatisch aangemeld bij de Meta4 globale HR waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 

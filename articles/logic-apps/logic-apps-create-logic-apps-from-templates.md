@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459626"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Het maken van de logic app workflows met vooraf gedefinieerde sjablonen
@@ -51,7 +51,7 @@ Als u nog geen abonnement op Azure hebt, [meld u dan aan voor een gratis Azure-a
    | **Naam** | *naam-van-uw-logische-app* | Geef een unieke naam voor de logische app op. | 
    | **Abonnement** | *naam-van-uw-Azure-abonnement* | Selecteer het Azure-abonnement dat u wilt gebruiken. | 
    | **Resourcegroep** | *naam-van-uw-Azure-resourcegroep* | Maak of Selecteer een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) voor deze logische app en alle resources die zijn gekoppeld aan deze app te organiseren. | 
-   | **Locatie** | *uw-Azure-datacenter-regio* | Selecteer de regio van het datacenter voor het implementeren van uw logische app, bijvoorbeeld US - west. | 
+   | **Location** | *uw-Azure-datacenter-regio* | Selecteer de regio van het datacenter voor het implementeren van uw logische app, bijvoorbeeld US - west. | 
    | **Log Analytics** | **Uit** (standaard) of **op** | Schakel [registratie in diagnoselogboek](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) voor uw logische app via [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md). Vereist dat u al een Log Analytics-werkruimte. | 
    |||| 
 

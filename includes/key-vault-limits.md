@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238824"
 ---
 #### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Sleutel transacties (maximum aantal transacties die zijn toegestaan in 10 seconden kluis per regio<sup>1</sup>):
@@ -30,7 +30,7 @@ ms.locfileid: "66238824"
 >
 > In een bepaald interval van 10 seconden, een Azure Key Vault-client kunt doen *slechts één* van de volgende bewerkingen voordat er een `429` beperking van HTTP-statuscode:
 > - 2000 RSA 2048-bits softwaresleutel GET-transacties
-> - 1.000 transacties van RSA 2048-bits HSM-sleutel ophalen
+> - 1\.000 transacties van RSA 2048-bits HSM-sleutel ophalen
 > - Transacties van 125 4.096 RSA-bits HSM-sleutel ophalen
 > - 124 4.096 RSA-bits-HSM-sleutel GET-transacties en transacties van 8 RSA 2048-bits HSM-sleutel ophalen
 

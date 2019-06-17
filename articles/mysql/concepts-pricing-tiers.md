@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062429"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -54,6 +54,25 @@ De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar zijn voor
 U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server, en dat het systeem om te groeien opslag automatisch op basis van het opslagverbruik van uw workload. De Basic-laag biedt geen een garantie IOPS. In het algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën, schalen de IOPS-waarde met de grootte van de ingerichte opslag in een verhouding van 3:1.
 
 U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kunt bewaken. De relevante metrische gegevens voor het bewaken van zijn [-limiet voor opslag, opslagpercentage, opslag die wordt gebruikt en i/o-percentage](concepts-monitoring.md).
+
+### <a name="large-storage-preview"></a>Grote storage (Preview)
+
+De opslaglimieten verhogen we in onze lagen voor algemeen gebruik en geoptimaliseerd voor geheugen. Nieuw gemaakte servers kunt die zich aanmelden voor de Preview-versie inrichten maximaal 16 TB aan opslag. De IOP's schalen met een verhouding van 3:1 tot 20.000 IOP's. Net als bij de huidige algemeen beschikbare opslag, kunt u extra opslagcapaciteit toevoegen na het maken van de server en dat het systeem om te groeien opslag automatisch op basis van het opslagverbruik van uw workload.
+
+|              | **Algemeen gebruik** | **Geoptimaliseerd voor geheugen** |
+|:-------------|:--------------------|:---------------------|
+| Opslagtype | Azure Premium Storage | Azure Premium Storage |
+| Opslaggrootte | 32 GB tot 16 TB| 32 tot 16 TB |
+| Maximale grootte van de verhoging | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's| 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's |
+
+> [!IMPORTANT]
+> Grote opslag is momenteel in openbare preview in de volgende regio's: VS-Oost, VS-Oost 2, VS-midden, VS-West, VS-West 2, Noord-Europa, West-Europa, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Oost.
+>
+> De preview van grote storage biedt momenteel geen ondersteuning:
+>
+> * Geografisch redundante back-ups
+> * Cross-replicatie voor regio 's
 
 ### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 

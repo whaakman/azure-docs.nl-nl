@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387934"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120184"
 ---
 Oplossen van problemen met een cloudservice van Microsoft Azure, moet de logboekbestanden van de service op virtuele machines verzamelen als de problemen optreden. U kunt de AzureLogCollector-extensie op aanvraag voor het uitvoeren van eenmalige verzamelen van Logboeken van een of meer Cloud-Service-VM's (van webrollen en werkrollen) en de verzamelde bestanden overbrengen naar Azure storage-account – zonder extern aanmelden bij een van de virtuele machines.
 
@@ -20,8 +20,8 @@ Oplossen van problemen met een cloudservice van Microsoft Azure, moet de logboek
 
 Er zijn twee modi van verzameling afhankelijk van de typen bestanden die worden verzameld.
 
-* **Azure Guest Agent-logboeken alleen (GA)**. In deze modus verzameling bevat alle logboeken met betrekking tot Azure-gastagents en andere Azure-onderdelen.
-* **Alle logboeken (volledig)**. In deze modus verzameling verzamelt alle bestanden in de modus voor algemene beschikbaarheid plus:
+* **Azure Guest Agent-logboeken alleen (GA)** . In deze modus verzameling bevat alle logboeken met betrekking tot Azure-gastagents en andere Azure-onderdelen.
+* **Alle logboeken (volledig)** . In deze modus verzameling verzamelt alle bestanden in de modus voor algemene beschikbaarheid plus:
   
   * systeem- en gebeurtenislogboeken
   * HTTP-fout-Logboeken

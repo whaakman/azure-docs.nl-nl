@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c131f034b4a8b5afaa2556c5c8d053b3e6793b4d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: d2dc6dcbcdee8df93f34cf4d68b5e08453554bc8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987206"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090014"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Zelfstudie: Soloinsight CloudGate SSO integreren met Azure Active Directory
 
@@ -118,7 +118,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
 6. **SAML-handtekeningcertificaat**
 
-    * Ga naar de bron van het certificaat (Base64)-bestand dat is gedownload van Azure portal SAML-handtekeningcertificaat lijsten en met de rechtermuisknop op het. Kies in de lijst de optie **Bewerken met Notepad++**. 
+    * Ga naar de bron van het certificaat (Base64)-bestand dat is gedownload van Azure portal SAML-handtekeningcertificaat lijsten en met de rechtermuisknop op het. Kies in de lijst de optie **Bewerken met Notepad++** . 
 
         ![SAMLcertificate](./media/soloinsight-cloudgate-sso-tutorial/certificate-file.png)
 

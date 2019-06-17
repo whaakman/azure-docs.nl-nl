@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108889"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Wat is Azure Active Directory Identity Protection (vernieuwd)?
 
@@ -56,7 +56,7 @@ Om te reageren op deze bedreigingen, dankzij u Azure AD Identity Protection:
 
  
 
-Azure AD Identity Protection is een functie van Azure Active Directory Premium P2 waarmee u kunt beleid configureren voor het automatisch reageren wanneer de identiteit van een gebruiker ermee is geknoeid of wanneer iemand anders dan de eigenaar van het account probeert aan te melden met hun de identiteit. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang wordt geboden door Azure AD kan ofwel automatisch blokkeren toegang of initiëren risicobeperking acties, zoals wachtwoord opnieuw instellen of multi-factor authentication afdwingen. Identity Protection biedt ook mogelijkheden voor bewaking en rapportage voor beter inzicht krijgen in risico en de mogelijke inbreuk in uw organisatie. 
+Azure AD Identity Protection is een functie van Azure Active Directory Premium P2 waarmee u kunt beleid configureren voor het automatisch reageren wanneer de identiteit van een gebruiker ermee is geknoeid of wanneer iemand anders dan de eigenaar van het account probeert aan te melden met hun de identiteit. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang is geleverd door Azure AD kunnen ofwel automatisch blokkeren van toegang of initiëren risicobeperking acties, zoals wachtwoord opnieuw instellen of multi-factor authentication afdwingen. Identity Protection biedt ook mogelijkheden voor bewaking en rapportage voor beter inzicht krijgen in risico en de mogelijke inbreuk in uw organisatie. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -69,11 +69,11 @@ Azure AD Identity Protection detecteert de volgende risicogebeurtenissen:
 
 | Type risicogebeurtenis | Description | Detectietype |
 | ---             | ---         | ---            |
-| Ongewoon traject | Zich aanmelden vanaf een ongewone locatie op basis van de gebruiker recente aanmeldingen. | Offline |
-| Anoniem IP-adres | Zich aanmelden vanaf een anoniem IP-adres (bijvoorbeeld: Tor browser, anonymizer VPN's). | Realtime |
-| Onbekende aanmeldingseigenschappen | Meld u aan met eigenschappen die we niet hebben gezien onlangs voor de opgegeven gebruiker. | Realtime |
-| Aan malware gekoppeld IP-adres | Zich aanmelden vanaf een IP-adres van schadelijke software gekoppeld | Offline |
-| Gelekte referenties | Deze risicogebeurtenis duidt erop dat de geldige referenties van de gebruiker zijn gelekt | Offline |
+| Ongewone reizen | Zich aanmelden vanaf een ongewone locatie op basis van de gebruiker recente aanmeldingen. | Offline |
+| Anonieme IP-adres | Zich aanmelden vanaf een anoniem IP-adres (bijvoorbeeld: Tor browser, anonymizer VPN's). | Realtime |
+| Onbekende eigenschappen voor aanmelden | Meld u aan met eigenschappen die we niet hebben gezien onlangs voor de opgegeven gebruiker. | Realtime |
+| Malware gekoppelde IP-adres | Zich aanmelden vanaf een IP-adres van schadelijke software gekoppeld | Offline |
+| Gelekte referenties | Deze risicogebeurtenis geeft aan dat van de gebruiker geldige referenties zijn gelekt | Offline |
 
 
 
@@ -153,7 +153,7 @@ Bekijk het voorbeeld van een werknemer van Contoso.
 
 2. Azure AD detecteert dat de werknemer vanaf een anoniem IP-adres aanmeldt zich, een risiconiveau voor middelgrote aanmelding wordt geactiveerd. 
 
-3. De werknemer is sprake van een MFA-prompt, omdat het beleid voor voorwaardelijke toegang aanmeldingsrisico Identity Protection IT-beheerder van Contoso is geconfigureerd. Het beleid vereist MFA voor een aanmeldingsrisico van gemiddeld of hoger. 
+3. De werknemer is sprake van een MFA-prompt, omdat de IT-beheerder van Contoso is geconfigureerd de Identity Protection aanmeldingsrisico beleid voor voorwaardelijke toegang. Het beleid vereist MFA voor een aanmeldingsrisico van gemiddeld of hoger. 
 
 4. De werknemer geeft de MFA-prompt en heeft toegang tot Exchange Online en het risiconiveau van de gebruiker is niet gewijzigd. 
 
@@ -212,9 +212,9 @@ Zie voor meer informatie, [beheerdersrollen toewijzen in Azure Active Directory]
 
 | Mogelijkheid | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/gratis |
 | --- | --- | --- | --- |
-| Beleid voor gebruikersrisico's | Ja | Nee | Nee |
-| Beleid voor aanmeldingsrisico's | Ja | Nee | Nee |
-| Rapport over riskante gebruikers | Volledige toegang | Beperkte informatie | Beperkte informatie |
+| Beleid voor gebruikersrisico 's | Ja | Nee | Nee |
+| Beleid voor aanmeldingsrisico | Ja | Nee | Nee |
+| Rapport riskante gebruikers | Volledige toegang | Beperkte informatie | Beperkte informatie |
 | Rapport Riskante aanmeldingen | Volledige toegang | Beperkte informatie | Beperkte informatie |
 | MFA-registratiebeleid | Ja | Nee | Nee |
 

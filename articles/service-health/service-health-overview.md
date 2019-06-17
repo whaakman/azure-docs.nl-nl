@@ -1,26 +1,27 @@
 ---
 title: Status van de service-overzicht | Microsoft Docs
 description: Persoonlijke informatie over hoe uw Azure-apps worden beïnvloed door problemen met de huidige en toekomstige Azure-service en onderhoud.
-services: service-health
 author: stephbaron
 ms.author: stbaron
-documentationcenter: service-health
+services: service-health
 ms.service: service-health
 ms.topic: article
-ms.workload: Supportability
-ms.date: 03/27/2018
-ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067103"
 ---
-# <a name="service-health"></a>Service Health
+# <a name="service-health-overview"></a>Status van de service-overzicht
+
 Status van de service biedt u een aanpasbaar dashboard houdt de status van uw Azure-services in de regio's waar u ze gebruiken. In dit dashboard, kunt u actieve gebeurtenissen, zoals problemen van de serviceonderbreking gepland onderhoud of relevante statusadvies bijhouden. Wanneer gebeurtenissen niet-actief worden, krijgen ze in de geschiedenis van uw geplaatst voor maximaal 90 dagen. Ten slotte kunt u de Service Health-dashboard maken en beheren van waarschuwingen van de health service die u proactief te waarschuwen wanneer er problemen met de service van invloed zijn op u.
 
 ## <a name="service-health-events"></a>Service Health-gebeurtenissen
+
 Status van de service houdt drie typen van de health-gebeurtenissen die mogelijk van invloed op uw resources:
+
 1. **Problemen met service** -problemen in de Azure-services die u nu direct invloed hebben op. 
 2. **Gepland onderhoud** -toekomstig onderhoud die de beschikbaarheid van uw services in de toekomst kan beïnvloeden.  
 3. **Statusadvies** -wijzigingen in de Azure-services die uw aandacht nodig hebben. Voorbeelden zijn wanneer de Azure-functies zijn afgeschaft of als u een quotum voor gebruik.
@@ -29,11 +30,13 @@ Status van de service houdt drie typen van de health-gebeurtenissen die mogelijk
 > Als u Service Health-gebeurtenissen, moeten gebruikers de rol van lezer voor een abonnement hebben.
 
 ## <a name="get-started-with-service-health"></a>Aan de slag met Service Health
+
 Selecteer de tegel status van de Service op uw portaldashboard voor het starten van uw Service Health-dashboard. Als u de tegel eerder hebt verwijderd of u aangepaste dashboard, zoekt u Service Health-service in 'Meer services' (rechtsonder op uw dashboard).
 
 ![Aan de slag met Service Health](./media/service-health-overview/azure-service-health-overview-1.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Zie de huidige problemen die invloed hebben op uw services
+
 De **Service problemen** weergave toont de lopende problemen in Azure-services die van invloed zijn op de resources. U kunt begrijpen wanneer het probleem is begonnen en op welke services en regio's worden beïnvloed. U kunt ook de meest recente update voor meer informatie over wat Azure doet het probleem op te lossen lezen. 
 
 ![Serviceprobleem beheren](./media/service-health-overview/azure-service-health-overview-2.png)
@@ -43,14 +46,17 @@ Kies de **mogelijke invloed op** tabblad om te bekijken van de specifieke lijst 
 ![Serviceprobleem - Impact beheren](./media/service-health-overview/azure-service-health-overview-4.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Get-koppelingen en downloadbare uitleg 
+
 U kunt een koppeling voor het probleem te gebruiken in uw probleembeheersysteem ophalen. U kunt downloaden PDF- en soms CSV-bestanden te delen met mensen die geen toegang tot de Azure-portal hebt.   
 
 ![Beheren van serviceprobleem - probleembeheer](./media/service-health-overview/azure-service-health-overview-3.png)
 
 ## <a name="get-support-from-microsoft"></a>Ondersteuning krijgen van Microsoft
+
 Neem contact op met ondersteuning als uw resource in een slechte status blijft, zelfs nadat het probleem opgelost is.  Gebruik de koppelingen aan de rechterkant van de pagina.  
 
 ## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Een aangepaste status toewijzen aan uw dashboard vastmaken
+
 Service Health om weer te geven uw bedrijfskritische abonnementen, regio's en resourcetypen filteren. Het filter hebt opgeslagen en een persoonlijke health wereldkaart aan uw portal-dashboard vastmaken. 
 
 ![Filter de gezondheid van aangepaste kaart](./media/service-health-overview/azure-service-health-overview-6a.png)
@@ -58,9 +64,11 @@ Service Health om weer te geven uw bedrijfskritische abonnementen, regio's en re
 ![Pincode een persoonlijke health-kaart](./media/service-health-overview/azure-service-health-overview-6b.png)
 
 ## <a name="configure-service-health-alerts"></a>Service health waarschuwingen configureren
+
 Status van de service kan worden geïntegreerd met Azure Monitor om u te waarschuwen via e-mails, SMS-berichten en webhook-meldingen wanneer er gevolgen zijn voor uw bedrijfskritische resources. Instellen van een waarschuwing voor activiteitenlogboek voor de betreffende service health-gebeurtenis. Deze waarschuwing gerouteerd naar de juiste mensen in uw organisatie met behulp van Actiegroepen. Zie voor meer informatie, [waarschuwingen configureren voor servicestatus](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Stel waarschuwingen in zodat u een melding van statusproblemen ontvangt. Zie voor meer informatie, [aanbevolen procedures voor het instellen van waarschuwingen van Azure Service Health](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

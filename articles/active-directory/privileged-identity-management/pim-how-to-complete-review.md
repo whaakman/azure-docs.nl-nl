@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602159"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Een toegangscontrole van Azure AD-rollen in PIM voltooien
@@ -35,7 +35,7 @@ Op de blade van de details van de toegangsbeoordeling zijn er een aantal opties 
 
 ![PIM-knoppen voor het controleren van toegang - schermafbeelding](./media/pim-how-to-complete-review/review-buttons.png)
 
-### <a name="remind"></a>Herinneren
+### <a name="remind"></a>Herinnering
 Als een toegangsbeoordeling is ingesteld zodat de gebruikers zelf, Controleer de **herinnering sturen** knop verstuurt een melding. 
 
 ### <a name="stop"></a>Stoppen

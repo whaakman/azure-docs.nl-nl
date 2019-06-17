@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570639"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
@@ -143,7 +143,7 @@ Werkt alleen goed in dit scenario, als moet de NPS-server worden geregistreerd i
 
 2. Selecteer in Serverbeheer **extra**, en selecteer vervolgens **Network Policy Server**.
 
-3. In de console van Network Policy Server met de rechtermuisknop op **NPS (lokaal)**, en selecteer vervolgens **server registreren in Active Directory**. Selecteer **OK** twee keer.
+3. In de console van Network Policy Server met de rechtermuisknop op **NPS (lokaal)** , en selecteer vervolgens **server registreren in Active Directory**. Selecteer **OK** twee keer.
 
     ![Server registreren in Active Directory-menuoptie](./media/howto-mfa-nps-extension-vpn/image2.png)
 
@@ -153,7 +153,7 @@ Werkt alleen goed in dit scenario, als moet de NPS-server worden geregistreerd i
 
 U kunt een standaard (wizard-indeling) of geavanceerde configuratieoptie voor het configureren van de RADIUS-server. In deze sectie wordt ervan uitgegaan dat u de standaardconfiguratie op basis van een wizard-optie.
 
-1. Selecteer in de beheerconsole Network Policy Server **NPS (lokaal)**.
+1. Selecteer in de beheerconsole Network Policy Server **NPS (lokaal)** .
 
 2. Onder **standaardconfiguratie**, selecteer **RADIUS-Server voor inbel- of VPN-verbindingen**, en selecteer vervolgens **configureren van VPN- of inbelverbinding tot stand brengen**.
 
@@ -230,7 +230,7 @@ In deze sectie configureert u de VPN-server voor het gebruik van RADIUS-verifica
 
 2. Selecteer in Serverbeheer **extra**, en selecteer vervolgens **Routing and Remote Access**.
 
-3. In de **Routing and Remote Access** venster met de rechtermuisknop op  **\<servernaam > (lokaal)**, en selecteer vervolgens **eigenschappen**.
+3. In de **Routing and Remote Access** venster met de rechtermuisknop op  **\<servernaam > (lokaal)** , en selecteer vervolgens **eigenschappen**.
 
 4. In de  **\<servernaam > (lokaal) eigenschappen** venster de **Security** tabblad.
 
@@ -269,7 +269,7 @@ In deze sectie maakt bevestigen u dat de VPN-client is geverifieerd en geautoris
 
 4. Selecteer **een VPN-verbinding toevoegen**.
 
-5. In de **toevoegen van een VPN-verbinding** venster in de **VPN-provider** Schakel **Windows (ingebouwd)**, vult u de resterende velden, waar nodig, en selecteer vervolgens **Opslaan**.
+5. In de **toevoegen van een VPN-verbinding** venster in de **VPN-provider** Schakel **Windows (ingebouwd)** , vult u de resterende velden, waar nodig, en selecteer vervolgens **Opslaan**.
 
     ![Het venster 'Een VPN-verbinding toevoegen'](./media/howto-mfa-nps-extension-vpn/image17.png)
 
@@ -372,7 +372,7 @@ Voor het gebruik van het script, bieden u de extensie met uw beheerdersreferenti
 
 1. Windows PowerShell ook uitvoeren als beheerder.
 
-2. Voer vanaf de PowerShell-opdrachtprompt **cd "c:\Program Files\Microsoft\AzureMfa\Config"**, en selecteer vervolgens Enter.
+2. Voer vanaf de PowerShell-opdrachtprompt **cd "c:\Program Files\Microsoft\AzureMfa\Config"** , en selecteer vervolgens Enter.
 
 3. Voer op de volgende opdrachtregel het volgende **.\AzureMfaNpsExtnConfigSetup.ps1**, en selecteer vervolgens Enter. Het script wordt gecontroleerd of de Azure AD PowerShell-module is geïnstalleerd. Als dit niet is geïnstalleerd, installeert u de module met het script voor u.
 

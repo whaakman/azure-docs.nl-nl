@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544488"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>On-premises gegevensgateway installeren voor Azure Logic Apps
@@ -430,7 +430,7 @@ Hier volgen andere locaties waar u verschillende logboeken kunt vinden:
 Als u zoekt de gebeurtenislogboeken voor de gateway, de volgende stappen uit:
 
 1. Open op de computer met de gatewayinstallatie, de **logboeken**. 
-2. Vouw **Logboeken (lokaal)** > **logboeken toepassingen en Services**. 
+2. Vouw **Logboeken (lokaal)**  > **logboeken toepassingen en Services**. 
 3. Selecteer **On-premises gegevensgatewayservice**.
 
    ![De gebeurtenislogboeken weergeven voor gateway](./media/logic-apps-gateway-install/event-viewer.png)

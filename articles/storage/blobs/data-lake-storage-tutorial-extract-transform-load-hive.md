@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cae639f74005a9d0c7509b38c9e68a9cb0a281a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061375"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight
 
@@ -43,10 +43,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 * **Azure CLI**: Als u de Azure CLI nog niet hebt geïnstalleerd, raadpleegt u [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Een SSH-client (Secure Shell)**: Zie voor meer informatie [Verbinding maken met HDInsight (Hadoop) via SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!IMPORTANT]
-> Voor de stappen in dit artikel hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in Azure HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+* **Een SSH-client (Secure Shell)** : Zie voor meer informatie [Verbinding maken met HDInsight (Hadoop) via SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>De vluchtgegevens downloaden
 
@@ -120,7 +117,7 @@ In deze sectie gaat u gegevens uploaden in uw HDInsight-cluster en vervolgens di
 
    Gebruik aanhalingstekens rond de bestandsnaam als de bestandsnaam spaties of speciale tekens bevat.
 
-## <a name="transform-the-data"></a>De gegevens transformeren
+## <a name="transform-the-data"></a>De gegevens te transformeren
 
 In deze sectie gebruikt u Beeline om een Apache Hive-taak uit te voeren.
 

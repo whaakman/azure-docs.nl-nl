@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059608"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -232,6 +232,27 @@ Volg deze instructies voor het vastleggen van logboeken met probleemoplossing vo
 3. Het proces opnieuw starten zodat deze nieuwe instellingen worden bemerkt door SDK
 
 4. Wanneer u klaar bent, kunt u deze wijzigingen ongedaan maken.
+
+
+## <a name="PerfView"></a> Logboeken verzamelen met voorbeeld
+[Voorbeeld](https://github.com/Microsoft/perfview) is een gratis hulpprogramma Diagnostische gegevens en analyse van prestaties, die helpen bij het isoleren van CPU, geheugen en andere problemen te verzamelen en visualiseren van diagnostische gegevens uit verschillende bronnen.
+
+De Application Insights-SDK melden EventSource zelf oplossen van problemen met Logboeken die kunnen worden vastgelegd door het voorbeeld.
+
+Voor het verzamelen van Logboeken, voorbeeld downloaden en uitvoeren van deze opdracht:
+```cmd
+PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+```
+
+U kunt deze parameters zo nodig wijzigen.
+
+- **MaxCollectSec**. Stel deze parameter om te voorkomen dat voorbeeld uit voor onbepaalde tijd worden uitgevoerd en die betrekking hebben op de prestaties van uw server.
+- **OnlyProviders**. Stel deze parameter alleen om Logboeken te verzamelen van de SDK. U kunt deze lijst op basis van uw specifieke onderzoeken. 
+
+
+Voor meer informatie
+- [Prestatietraces met voorbeeld opnemen](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Bronnen van gebeurtenissen van Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>Nog steeds werkt niet...
 * [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

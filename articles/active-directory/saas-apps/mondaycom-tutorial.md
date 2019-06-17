@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc142bf02a44ea85861f4cc648fd7ee8602c7520
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 08108a1718ee917a317b4864de81959ae139eaa5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896881"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Zelfstudie: Azure Active Directory-integratie met monday.com
 
@@ -154,7 +154,7 @@ In deze sectie configureert u Azure AD eenmalige aanmelding met monday.com in Az
 
        ![De claims van de gebruiker beheren](common/new-attribute-details.png)
 
-1. In de **instellen van eenmalige aanmelding met SAML** deelvenster onder **SAML-handtekeningcertificaat**, selecteer **downloaden** naast **certificaat (Base64)**. Selecteer een optie voor downloaden op basis van uw vereisten. Sla het certificaat op uw computer.
+1. In de **instellen van eenmalige aanmelding met SAML** deelvenster onder **SAML-handtekeningcertificaat**, selecteer **downloaden** naast **certificaat (Base64)** . Selecteer een optie voor downloaden op basis van uw vereisten. Sla het certificaat op uw computer.
 
     ![De optie voor het downloaden van certificaat (Base64)](common/certificatebase64.png)
 
@@ -186,7 +186,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
     1. Voer in het vak **Naam** **Britta Simon**in.
   
-    1. In de **gebruikersnaam** Voer **brittasimon\@\<uw-bedrijfsdomein >.\< extensie >**. Bijvoorbeeld, **brittasimon\@contoso.com**.
+    1. In de **gebruikersnaam** Voer **brittasimon\@\<uw-bedrijfsdomein >.\< extensie >** . Bijvoorbeeld, **brittasimon\@contoso.com**.
 
     1. Selecteer de **Show wachtwoord** selectievakje. Noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
