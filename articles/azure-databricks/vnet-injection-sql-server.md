@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770636"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Zelfstudie: Query uitvoeren op een SQL Server Linux Docker-container in een virtueel netwerk van een Azure Databricks-notebook
@@ -64,10 +64,10 @@ In deze zelfstudie leert u het volgende:
     
     |Instelling|Voorgestelde waarde|Description|
     |-------|---------------|-----------|
-    |Bron|IP-adressen|IP-adressen bevat die binnenkomend verkeer van een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
-    |IP-adressen van bron|< uw openbare IP-adres\>|Voer de uw openbare IP-adres. U kunt uw openbare IP-adres vinden door naar de pagina [bing.com](https://www.bing.com/) en te zoeken naar **'Mijn IP'**.|
+    |source|IP-adressen|IP-adressen bevat die binnenkomend verkeer van een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
+    |IP-adressen van bron|< uw openbare IP-adres\>|Voer de uw openbare IP-adres. U kunt uw openbare IP-adres vinden door naar de pagina [bing.com](https://www.bing.com/) en te zoeken naar **'Mijn IP'** .|
     |Poortbereiken van bron|*|Verkeer van een willekeurige poort toestaan.|
-    |Doel|IP-adressen|IP-adressen bevat die uitgaand verkeer voor een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
+    |Bestemming|IP-adressen|IP-adressen bevat die uitgaand verkeer voor een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
     |Doel-IP-adressen|< uw vm openbaar IP-adres\>|Voer het openbare IP-adres van de virtuele machine. U kunt dit vinden op de **overzicht** pagina van uw virtuele machine.|
     |Poortbereiken van doel|22|Open poort 22 voor SSH.|
     |Prioriteit|290|De regel een prioriteit geven.|
@@ -80,10 +80,10 @@ In deze zelfstudie leert u het volgende:
 
     |Instelling|Voorgestelde waarde|Description|
     |-------|---------------|-----------|
-    |Bron|IP-adressen|IP-adressen bevat die binnenkomend verkeer van een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
+    |source|IP-adressen|IP-adressen bevat die binnenkomend verkeer van een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
     |IP-adressen van bron|10.179.0.0/16|Voer het adresbereik voor het virtuele netwerk.|
     |Poortbereiken van bron|*|Verkeer van een willekeurige poort toestaan.|
-    |Doel|IP-adressen|IP-adressen bevat die uitgaand verkeer voor een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
+    |Bestemming|IP-adressen|IP-adressen bevat die uitgaand verkeer voor een specifieke bron-IP-adres wordt toegestaan of geweigerd door deze regel.|
     |Doel-IP-adressen|< uw vm openbaar IP-adres\>|Voer het openbare IP-adres van de virtuele machine. U kunt dit vinden op de **overzicht** pagina van uw virtuele machine.|
     |Poortbereiken van doel|1433|Open poort 22 voor SQL Server.|
     |Prioriteit|300|De regel een prioriteit geven.|

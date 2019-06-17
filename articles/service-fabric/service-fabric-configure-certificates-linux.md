@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
 ms.openlocfilehash: c0580b75544a9613bc8caf2faaac11ba1ba6708e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881365"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificaten en beveiliging op Linux-clusters
@@ -53,7 +53,7 @@ De **X509** verwijzing wordt gezocht naar het certificaat in een certificaatarch
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Voor een service op Linux, **LocalMachine /**/**mijn** verwijst naar de standaardlocatie voor certificaten, de */var/lib/sfcerts* directory. Voor Linux, alle andere combinaties van **CertificateStoreLocation** en **NaamCertificaatarchief** zijn gedefinieerd. 
+Voor een service op Linux, **LocalMachine /** /**mijn** verwijst naar de standaardlocatie voor certificaten, de */var/lib/sfcerts* directory. Voor Linux, alle andere combinaties van **CertificateStoreLocation** en **NaamCertificaatarchief** zijn gedefinieerd. 
 
 Geef altijd **LocalMachine /** voor de **CertificateStoreLocation** parameter. Er is niet nodig om op te geven de **NaamCertificaatarchief** parameter omdat deze standaard ingesteld op 'My'. Met een **X509** ter referentie de certificaatbestanden moeten zich in de */var/lib/sfcerts* map op het clusterknooppunt.  
 

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127116"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
@@ -70,7 +70,7 @@ Om te delegeren van beheer van toegang voor een reservering:
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **alle Services** > **reservering** aan lijst reserveringen waartoe u toegang hebt.
 3. Selecteer de reservering die u wilt toegang tot andere gebruikers delegeren.
-4. Selecteer **toegangsbeheer (IAM)**.
+4. Selecteer **toegangsbeheer (IAM)** .
 5. Selecteer **roltoewijzing toevoegen** > **rol** > **eigenaar**. Als u beperkte toegang wilt geven, selecteert u een andere rol.
 6. Typ het e-mailadres van de gebruiker die u wilt toevoegen als eigenaar.
 7. Selecteer de gebruiker en selecteer vervolgens **Opslaan**.

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: cc301855e4cdcb8eb687e753835577399cfe72b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789544"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Met Geofencing en georuimtelijke aggregatie-scenario's met Azure Stream Analytics
@@ -46,7 +46,7 @@ De volgende tabel is een voorbeeld van de geofence verwijzen naar gegevens die k
 
 Apparaten kunnen verzenden hun-ID en de locatie van elke minuut tot en met een stroom met de naam `DeviceStreamInput`. De volgende tabel is een stream van invoer.
 
-|Apparaat-id|GeoPosition|
+|DeviceID|GeoPosition|
 |--------|-----------|
 |"A"|"POINT(-122.13292341559497 47.636318374032726)"|
 |"B"|"POINT(-122.13338475554553 47.63743531308874)"|

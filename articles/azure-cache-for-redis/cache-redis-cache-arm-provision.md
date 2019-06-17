@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132820"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Een Azure-Cache voor Redis met behulp van een sjabloon maken
@@ -91,7 +91,7 @@ Een waarde die aangeeft of de diagnostische gegevens is ingeschakeld. Gebruik aa
     }
 
 ## <a name="resources-to-deploy"></a>Resources om te implementeren
-### <a name="azure-cache-for-redis"></a>Azure-cache voor Redis
+### <a name="azure-cache-for-redis"></a>Azure Cache voor Redis
 Hiermee maakt u de Azure Cache voor Redis.
 
     {

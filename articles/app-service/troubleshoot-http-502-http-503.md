@@ -18,10 +18,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833040"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>HTTP-fouten '502 Ongeldige gateway' en '503 service niet beschikbaar' in Azure App Service oplossen
@@ -83,7 +83,7 @@ Voor toegang tot App Service-diagnostics, gaat u naar uw App Service-app of een 
 #### <a name="use-the-kudu-debug-console"></a>Gebruik de Kudu-Console voor foutopsporing
 App Service wordt geleverd met een console voor foutopsporing die u gebruiken kunt voor foutopsporing, verkennen, het uploaden van bestanden, evenals de JSON-eindpunten voor het ophalen van gegevens over uw omgeving. Dit heet de *Kudu-Console* of de *SCM-Dashboard* voor uw app.
 
-U kunt dit dashboard openen door te gaan naar de koppeling **https://&lt;uw app-naam >.scm.azurewebsites.net/**.
+U kunt dit dashboard openen door te gaan naar de koppeling **https://&lt;uw app-naam >.scm.azurewebsites.net/** .
 
 Enkele van de dingen die Kudu biedt, zijn:
 

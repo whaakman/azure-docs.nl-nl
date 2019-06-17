@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119367"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
@@ -33,7 +33,7 @@ Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aanta
 | E-mailadres | Alleen SSPR |
 | Microsoft Authenticator-app | MFA en preview-versie voor SSPR |
 | OATH-token van Hardware | Openbare preview-versie van MFA en Self-service voor Wachtwoordherstel |
-| SMS | MFA en Self-service voor Wachtwoordherstel |
+| Sms | MFA en Self-service voor Wachtwoordherstel |
 | Spraakoproep | MFA en Self-service voor Wachtwoordherstel |
 | App-wachtwoorden | MFA alleen in bepaalde gevallen |
 
@@ -60,40 +60,40 @@ Als u vragen over de beveiliging gebruikt, raden wij deze gebruikt in combinatie
 
 ### <a name="predefined-questions"></a>Vooraf gedefinieerde vragen
 
-* In welke stad hebt u uw eerste partner ontmoet?
-* In welke plaats hebben uw ouders elkaar leren kennen?
-* In welke stad woont uw jongste of oudste broer of zus?
+* In welke stad u voldoet aan uw eerste partner ontmoet?
+* In welke plaats hebben uw ouders?
+* In welke plaats uw dichtstbijzijnde op hetzelfde niveau live?
 * In welke plaats is uw vader geboren?
-* In welke plaats hebt u uw eerste baan gehad?
+* In welke plaats is uw eerste taak?
 * In welke plaats is uw moeder geboren?
-* In welke plaats bevond u zich op nieuwjaarsavond 2000?
+* Welke plaats bevond u zich op Nieuwjaarsavond 2000?
 * Wat is de achternaam van uw favoriete leraar op de middelbare school?
-* Voor welke universiteit bent u uitgeloot?
-* Waar hebt u uw trouwreceptie gehouden?
+* Wat is de naam van een college u toegepast op, maar niet hebben bijgewoond?
+* Wat is de naam van de plaats waar u uw trouwreceptie gehouden?
 * Wat is de tweede voornaam van uw vader?
 * Wat is uw lievelingseten?
-* Wat zijn de voor- en achternaam van uw grootmoeder van moeders kant?
+* Wat is uw moeder grootmoeder eerst en achternaam van?
 * Wat is de tweede voornaam van uw moeder?
 * Wat is uw oudste Broer of zus geboren maand en jaar? (bijvoorbeeld November 1985.)
-* Wat is de tweede voornaam van uw oudste broer of zus?
-* Wat zijn de voor- en achternaam van uw grootvader van vaders kant?
-* Wat is de tweede voornaam van uw jongste broer of zus?
-* Op welke school zat u in de brugklas?
-* Wat zijn de voor- en achternaam van uw beste jeugdvriend?
-* Wat zijn de voor- en achternaam van uw eerste partner?
-* Wat is de achternaam van uw favoriete leraar op de lagere school?
-* Wat zijn het merk en model van uw eerste auto of motor?
-* Wat is de naam van uw eerste school?
-* In welk ziekenhuis bent u geboren?
-* In welke straat staat of stond het huis waar u bent opgegroeid?
+* Wat is er van uw oudste Broer of zus?
+* Wat is uw uw grootvader eerst en achternaam van?
+* Wat is er van uw jongste Broer of zus?
+* Op welke school u Brugklas?
+* Wat is de eerste en laatste naam van uw beste jeugdvriend?
+* Wat is de eerste en laatste naam van uw eerste andere belangrijke?
+* Wat is de achternaam van uw favoriete geavanceerde school leraar?
+* Wat is het merk en model van uw eerste auto of motor?
+* Wat is de naam van de eerste school?
+* Wat is de naam van het ziekenhuis waarin u geboren?
+* Wat is de naam van de straat van uw eerste home jeugd?
 * Wat is de naam van uw jeugdidool?
 * Wat is de naam van uw favoriete knuffeldier?
 * Wat is de naam van uw eerste huisdier?
 * Wat was uw bijnaam als kind?
 * Wat was uw favoriete sport op de middelbare school?
 * Wat was uw eerste baan?
-* Wat zijn of waren de laatste vier cijfers van het telefoonnummer van uw ouderlijk huis?
-* Wat wilde u worden toen u klein was?
+* Wat zijn de laatste vier cijfers van het telefoonnummer van uw Ouderlijk huis?
+* Als u jonge zijn, wat u wilt worden toen u klein?
 * Wie is de grootste beroemdheid die u ooit hebt ontmoet?
 
 Alle van de vooraf gedefinieerde beveiligingsvragen zijn vertaald en gelokaliseerd in de volledige set met Office 365-talen op basis van landinstellingen van de browser van de gebruiker.
@@ -180,7 +180,7 @@ Wanneer er fouten zijn opgelost, de beheerder vervolgens kan activeren elke sleu
 
 Gebruikers hebben mogelijk een combinatie van maximaal vijf OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
 
-## <a name="mobile-phone"></a>Telefoon (mobiel)
+## <a name="mobile-phone"></a>Mobiele telefoon
 
 Er zijn twee opties beschikbaar voor gebruikers met mobiele telefoons.
 
@@ -197,7 +197,7 @@ Voor een goede werking telefoonnummers moet zich in de indeling *+ CountryCode P
 
 Een SMS-bericht is verzonden naar het mobiele nummer met een verificatiecode. Voer de verificatiecode die is opgegeven in de interface aanmelden om door te gaan.
 
-### <a name="phone-call"></a>Telefoonoproep
+### <a name="phone-call"></a>Telefonische oproep
 
 Een geautomatiseerd telefoongesprek is naar het telefoonnummer dat u opgeeft gemaakt. Beantwoord de oproep en druk op # in het toetsenblok telefoon verifiëren
 
@@ -220,7 +220,7 @@ Het kenmerk van de telefoon office wordt beheerd door uw beheerder.
 >
 > Wachtwoord opnieuw instellen biedt geen ondersteuning voor extensies van de telefoon. Zelfs in de indeling van de 4255551234 + 1 X-12345, worden de extensies worden verwijderd voordat de oproep wordt gedaan.
 
-## <a name="app-passwords"></a>Appwachtwoorden
+## <a name="app-passwords"></a>App-wachtwoorden
 
 Bepaalde niet-browsertoepassingen geen ondersteuning voor meervoudige verificatie, als een gebruiker is ingeschakeld voor multi-factor authentication en proberen te gebruiken van niet-browsertoepassingen, kan niet worden geverifieerd zijn. Een app-wachtwoord kan gebruikers om door te gaan om te verifiëren
 

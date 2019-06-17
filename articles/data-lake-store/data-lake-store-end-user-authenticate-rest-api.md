@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877819"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van REST-API
@@ -33,9 +33,9 @@ In dit artikel leert u over het gebruik van de REST-API voor verificatie van ein
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Maken van een Azure Active Directory-toepassing voor 'Native'**. U moet zijn voltooid de stappen in [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Maken van een Azure Active Directory-toepassing voor 'Native'** . U moet zijn voltooid de stappen in [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](https://curl.haxx.se/)**. In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
+* **[cURL](https://curl.haxx.se/)** . In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
 
 ## <a name="end-user-authentication"></a>Verificatie van de eindgebruiker
 Verificatie van de eindgebruiker is de aanbevolen aanpak als u wilt dat een gebruiker zich aanmelden bij uw toepassing met behulp van Azure AD. Uw toepassing is toegang kunnen krijgen tot Azure-resources met dezelfde mate van toegang als de gebruiker is aangemeld. De gebruiker moet hun referenties periodiek in volgorde voor uw toepassing om toegang te behouden.
@@ -49,7 +49,7 @@ In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden 
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > \<REDIRECT-URI> moet zijn gecodeerd om te worden gebruikt in een URL. Ja, voor https://localhost, gebruikt u `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI> moet zijn gecodeerd om te worden gebruikt in een URL. Ja, voor https://localhost , gebruikt u `https%3A%2F%2Flocalhost` )
 
     Voor deze zelfstudie kunt u de waarden van de tijdelijke aanduiding in bovenstaande URL vervangen en deze in de adresbalk van de webbrowser plakken. U wordt omgeleid om u te verifiëren met uw Azure-aanmelding. Wanneer u bent aangemeld, wordt het antwoord weergegeven in de adresbalk van de browser. Het antwoord heeft de volgende indeling:
 

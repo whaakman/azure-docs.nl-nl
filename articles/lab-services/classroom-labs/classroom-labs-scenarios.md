@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: spelluru
 ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60695278"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Leslokaallabs gebruikt voor trainingen
@@ -39,7 +39,7 @@ In dit artikel leert u over verschillende functies van Azure Lab-Services die ku
 ## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Het lab-account als de beheerder van een lab maken
 De eerste stap bij het gebruik van Azure Lab Services is het maken van een lab-account in Azure portal. Nadat de beheerder van een lab-account het lab-account wordt gemaakt, voegt de beheerder gebruikers die willen labs te maken de **Labmaker** rol. De trainers maken labs met virtuele machines voor studenten te doen voor de cursus die ze geven. Zie voor meer informatie, [maken en beheren van lab-account](how-to-manage-lab-accounts.md).
 
-## <a name="create-and-manage-classroom-labs"></a>Maken en beheren van leslokaallabs
+## <a name="create-and-manage-classroom-labs"></a>Leslokaallabs maken en beheren
 Een trainer, die een lid van de rol Labmaker in een lab-account, kunt u een of meer labs maken in het lab-account. U maakt en configureert een VM-sjabloon met de vereiste software voor het uitvoeren van oefeningen in de cursus. U kiest een kant-en-installatiekopie uit de beschikbare installatiekopieën voor het maken van een leslokaallab en vervolgens aanpassen door de software die is vereist voor de testomgeving te installeren. Zie voor meer informatie, [maken en beheren van leslokaallabs](how-to-manage-classroom-labs.md).
 
 ## <a name="configure-usage-settings-and-policies"></a>Instellingen voor het gebruik en het beleid configureren

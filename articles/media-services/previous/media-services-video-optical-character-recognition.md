@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825605"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure Media Analytics gebruiken om te converteren tekstinhoud in video's naar digitale tekst  
@@ -107,19 +107,19 @@ De uitvoer bevat de volgende kenmerken:
 | --- | --- |
 | Tijdschaal |'maatstreepjes' per seconde van de video |
 | Offset |tijd offset voor tijdstempels. Versie 1.0 van Video-API's, wordt dit altijd 0 zijn. |
-| Framesnelheid |Frames per seconde van de video |
+| Framerate |Frames per seconde van de video |
 | Breedte |breedte van de video in pixels |
 | Hoogte |hoogte van de video in pixels |
-| Fragmenten |matrix van segmenten van de video waarin de metagegevens van de gesegmenteerde overdrachtscodering op basis van tijd |
+| Fragments |matrix van segmenten van de video waarin de metagegevens van de gesegmenteerde overdrachtscodering op basis van tijd |
 | start |Begintijd van een fragment in 'maatstreepjes' |
-| duur |lengte van een fragment in 'maatstreepjes' |
+| Duur |lengte van een fragment in 'maatstreepjes' |
 | interval |interval van elke gebeurtenis in het opgegeven fragment |
 | events |matrix met regio 's |
 | regio |object voor woorden of zinsdelen gedetecteerd |
 | language |taal van de tekst gedetecteerd binnen een regio |
 | Afdrukstand |richting van de tekst gedetecteerd binnen een regio |
 | regels |matrix van regels tekst gedetecteerd binnen een regio |
-| tekst |de werkelijke tekst |
+| text |de werkelijke tekst |
 
 ### <a name="json-output-example"></a>Voorbeeld van JSON-uitvoer
 Het volgende Uitvoervoorbeeld bevat de algemene informatie over de video en verschillende video fragmenten. In elke video fragment bevat elke regio die wordt gedetecteerd door OCR MP met de taal en de richting van de tekst. De regio bevat ook elke regel woord in deze regio met een van de regel tekst, positie van de regel en elke word-gegevens (word-inhoud, positie en vertrouwen) in deze regel. Hier volgt een voorbeeld en ik bepaalde inline opmerkingen plaatsen.

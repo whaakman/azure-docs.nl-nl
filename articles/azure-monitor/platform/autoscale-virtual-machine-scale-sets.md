@@ -9,10 +9,10 @@ ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787779"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Geavanceerd automatisch schalen configureren met behulp van Resource Manager-sjablonen voor VM-Schaalsets
@@ -31,7 +31,7 @@ In dit scenario gebruiken we [Azure Resource Explorer](https://resources.azure.c
 
     ![Azure Explorer](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    De uitvoering van de sjabloon voor een standaard-instelling voor automatisch schalen is gemaakt met de naam **'autoscalewad'**. Aan de rechterkant vindt u de volledige definitie van deze instelling voor automatisch schalen. In dit geval wordt de instelling voor automatisch schalen wordt geleverd met een CPU % op basis van scale-out en schalen in de regel.  
+    De uitvoering van de sjabloon voor een standaard-instelling voor automatisch schalen is gemaakt met de naam **'autoscalewad'** . Aan de rechterkant vindt u de volledige definitie van deze instelling voor automatisch schalen. In dit geval wordt de instelling voor automatisch schalen wordt geleverd met een CPU % op basis van scale-out en schalen in de regel.  
 
 3. U kunt nu meer profielen en regels op basis van de specifieke vereisten of schema toevoegen. We maken een instelling voor automatisch schalen met drie profielen. Bekijk voor meer informatie over profielen en regels voor automatisch schalen, [aanbevolen procedures voor automatisch schalen](autoscale-best-practices.md).  
 

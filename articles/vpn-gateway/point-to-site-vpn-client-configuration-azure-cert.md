@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113881"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Maken en VPN-clientconfiguratiebestanden voor native Azure certificate authentication P2S-configuraties installeren
@@ -94,7 +94,7 @@ Gebruik de volgende stappen uit het configureren van de systeemeigen VPN-client 
 
    De **Interface** waarde is 'VPN' en **VPN-Type** waarde is 'IKEv2'. Geef een naam voor het profiel in de **servicenaam** veld en klik vervolgens op **maken** het profiel voor VPN-client verbinding maken.
 
-   ![netwerk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![Netwerk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. In de **algemene** map van de **VpnSettings.xml** bestand, kopieert u de **VpnServer** tagwaarde. Plak deze waarde in de **serveradres** en **externe ID** velden van het profiel.
 
    ![de gegevens van uw](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -109,7 +109,7 @@ Gebruik de volgende stappen uit het configureren van de systeemeigen VPN-client 
    ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. In de **lokale ID** veld, geeft u de naam van het certificaat (uit stap 6). In dit voorbeeld is 'ikev2Client.com'. Klik vervolgens op **toepassen** knop de wijzigingen op te slaan.
 
-   ![toepassen](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![Van toepassing](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Op de **netwerk** dialoogvenster, klikt u op **toepassen** alle wijzigingen op te slaan. Klik vervolgens op **Connect** om te beginnen de P2S-verbinding met het Azure-VNet.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)

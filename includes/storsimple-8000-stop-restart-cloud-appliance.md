@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159735"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Een cloudapparaat starten en stoppen
@@ -24,7 +24,7 @@ ms.locfileid: "66159735"
 
     ![StorSimple-cloudapparaat - virtuele machine](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. Wanneer u een virtuele machine stopt, wordt de toewijzing ervan opgeheven. Terwijl het cloudapparaat wordt gestopt, is de status ervan **Toewijzing ongedaan maken**. Nadat het cloudapparaat is gestopt, is de status ervan **Gestopt (toewijzing opgeheven)**.
+4. Wanneer u een virtuele machine stopt, wordt de toewijzing ervan opgeheven. Terwijl het cloudapparaat wordt gestopt, is de status ervan **Toewijzing ongedaan maken**. Nadat het cloudapparaat is gestopt, is de status ervan **Gestopt (toewijzing opgeheven)** .
 
     ![StorSimple-cloudapparaat - virtuele machine](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 

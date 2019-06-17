@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881475"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Logboeken weergeven voor een Service Fabric containerservice
@@ -29,7 +29,7 @@ Logboeken voor containers kunnen worden geopend met behulp van [Service Fabric E
 
 Containerlogboeken bevinden zich op het clusterknooppunt waarop de container service-exemplaar wordt uitgevoerd op. Als voorbeeld krijgen de logboeken van de web-front-container van de [voorbeeldtoepassing Linux stemmen](service-fabric-quickstart-containers-linux.md). Vouw in de structuurweergave wordt weergegeven, **Cluster**>**toepassingen**>**VotingType**>**fabric: / Voting / azurevotefront**.  Vervolgens vouwt u de partitie (d1aa737e-f22a-e347-be16-eec90be24bc1, in dit voorbeeld) en Zie dat de container wordt uitgevoerd op clusterknooppunt *_lnxvm_0*.
 
-Zoek in de structuurweergave wordt weergegeven, het codepakket op de *_lnxvm_0* knooppunt door uit te vouwen **knooppunten**>**_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**codepakketten**>**code**.  Selecteer vervolgens de **Containerlogboeken** optie om de containerlogboeken van de weer te geven.
+Zoek in de structuurweergave wordt weergegeven, het codepakket op de *_lnxvm_0* knooppunt door uit te vouwen **knooppunten**> **_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**codepakketten**>**code**.  Selecteer vervolgens de **Containerlogboeken** optie om de containerlogboeken van de weer te geven.
 
 ![Service Fabric-platform][Image1]
 

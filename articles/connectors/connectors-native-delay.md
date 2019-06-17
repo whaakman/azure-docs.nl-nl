@@ -11,10 +11,10 @@ tags: connectors
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297636"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Vertraging voor het uitvoeren van de volgende actie in Azure Logic Apps
@@ -55,7 +55,7 @@ Hier volgen enkele manieren voorbeeld om het gebruik van deze acties:
 
    | Eigenschap | JSON-naam | Vereist | Type | Description |
    |----------|-----------|----------|------|-------------|
-   | Count | count | Ja | Integer | Het aantal tijdseenheden vertraging |
+   | Count | count | Ja | Geheel getal | Het aantal tijdseenheden vertraging |
    | Eenheid | Eenheid | Ja | String | De eenheid van de tijd, bijvoorbeeld: `Second`, `Minute`, `Hour`, `Day`, `Week`, of `Month` |
    ||||||
 
@@ -81,7 +81,7 @@ Hier volgen enkele manieren voorbeeld om het gebruik van deze acties:
 
    | Eigenschap | JSON-naam | Vereist | Type | Description |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | Ja | String | De einddatum en -tijd voor het hervatten van de werkstroom met behulp van deze indeling: <p>JJJJ-MM-ddTHH <p>Bijvoorbeeld als u wilt dat 18 September 2017 om 14:00 uur, geeft ' 2017-09-18T14:00:00Z '. <p>**Opmerking:** Deze tijd-indeling moet volgen de [ISO 8601 datum tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Zonder een tijdzone, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze "Z" verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Tijdstempel | timestamp | Ja | String | De einddatum en -tijd voor het hervatten van de werkstroom met behulp van deze indeling: <p>JJJJ-MM-ddTHH <p>Bijvoorbeeld als u wilt dat 18 September 2017 om 14:00 uur, geeft ' 2017-09-18T14:00:00Z '. <p>**Opmerking:** Deze tijd-indeling moet volgen de [ISO 8601 datum tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Zonder een tijdzone, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze "Z" verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
 1. Voeg eventuele andere vereiste acties uit te voeren in uw werkstroom.

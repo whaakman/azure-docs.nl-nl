@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
 ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258007"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface
@@ -159,7 +159,7 @@ De **Hosts** pagina geeft een lijst van alle hosts in het cluster. Volg deze sta
     |Onderhoudsmodus inschakelen|Onderdrukt waarschuwingen voor de host. In deze modus moet worden ingeschakeld als u bij het uitvoeren van acties die waarschuwingen genereren. Bijvoorbeeld een service starten en stoppen.|
     |De onderhoudsmodus uitschakelen|Retourneert de host de normale waarschuwingen.|
     |Stoppen|DataNode of NodeManagers stopt op de host.|
-    |start|Start DataNode of NodeManagers op de host.|
+    |Start|Start DataNode of NodeManagers op de host.|
     |Opnieuw starten|Stopt en DataNode of NodeManagers op de host wordt gestart.|
     |Uit bedrijf nemen|Hiermee verwijdert u een host uit het cluster. **Deze actie niet gebruiken op HDInsight-clusters.**|
     |Recommission|Hiermee wordt een eerder buiten gebruik gestelde host aan het cluster toegevoegd. **Deze actie niet gebruiken op HDInsight-clusters.**|

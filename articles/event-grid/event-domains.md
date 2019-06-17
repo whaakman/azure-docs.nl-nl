@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304299"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Inzicht in de domeinen van de gebeurtenis voor het beheren van Event Grid-onderwerpen
@@ -99,9 +99,9 @@ Gebeurtenis domeinen verwerken publiceren naar onderwerpen die voor u. In plaats
 ## <a name="limits-and-quotas"></a>Limieten en quota
 Hier worden de limieten en quota's met betrekking tot domeinen van de gebeurtenis:
 
-- 100.000 onderwerpen per domein van de gebeurtenis 
+- 100\.000 onderwerpen per domein van de gebeurtenis 
 - 100 gebeurtenis domeinen per Azure-abonnement 
-- 500 gebeurtenisabonnementen per onderwerp in het domein van een gebeurtenis
+- 500 gebeurtenisabonnementen per onderwerp in een gebeurtenisdomein
 - 50 abonnementen voor domein-bereik 
 - 5000 gebeurtenissen per seconde opnemen snelheid (in een domein)
 

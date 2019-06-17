@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459439"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Maken en beheren van Azure Database voor MySQL-server met behulp van Azure portal
@@ -41,7 +41,7 @@ Volg deze stappen voor het maken van een Azure Database for MySQL-server met de 
     | *Aanmeldgegevens van serverbeheerder* | myadmin (stel accountnaam van beheerder in) |
     | *Wachtwoord* | wachtwoord voor beheerdersaccount instellen |
     | *Wachtwoord bevestigen* | bevestig wachtwoord voor beheerdersaccount |
-    | *Locatie* | Zuidoost-Azië (selecteren tussen Noord-Europa en VS-West) |
+    | *Location* | Zuidoost-Azië (selecteren tussen Noord-Europa en VS-West) |
     | *Versie* | 5.7 (Kies Azure Database voor MySQL-server-versie) |
 
 4. Klik op **prijscategorie** om op te geven van het serviceniveau voor servicelaag en het prestatieniveau voor uw nieuwe server. Selecteer de **algemeen** tabblad. *Gen 5*, *2 vCores*, *5 GB* en *7 dagen* zijn de standaardwaarden voor **Bewerking voor compute**, **vCore**, **Opslag** en **Bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals ze zijn. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**.

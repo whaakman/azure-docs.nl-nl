@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123911"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Instellen van de configuratieserver voor herstel na noodgeval voor fysieke servers naar Azure
@@ -50,7 +50,7 @@ De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor 
    ![Bron instellen](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. In de **-Server toevoegen** blade, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
 4. Download het installatiebestand van de geïntegreerde Setup van Site Recovery.
-5. Download de registratiesleutel voor de kluis. Wanneer u geïntegreerde Setup uitvoert moet u de registratiesleutel. De sleutel blijft vijf dagen na het genereren ervan geldig.
+5. Download de kluisregistratiesleutel. Wanneer u geïntegreerde Setup uitvoert moet u de registratiesleutel. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
     ![Bron instellen](./media/physical-azure-set-up-source/set-source2.png)
 6. Voer op de computer die u als de configuratieserver gebruikt, **geïntegreerde Setup van Azure Site Recovery** voor het installeren van de configuratieserver, de processerver en de hoofddoelserver.
