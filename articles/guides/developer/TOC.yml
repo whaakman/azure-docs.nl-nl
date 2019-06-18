@@ -83,7 +83,7 @@
     - name: Plannen
       items:
         - name: Webtoepassingsarchitecturen
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: VM-architecturen
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
         - name: Verbinding maken met on-premises-netwerken
