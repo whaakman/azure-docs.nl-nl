@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922288"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
@@ -26,17 +26,17 @@ ms.locfileid: "64922288"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]:https://launchpad.support.sap.com/#/notes/401162
+[401162]: https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -113,7 +113,7 @@ Volg deze stappen voor het implementeren van de sjabloon:
     - **Beschikbaarheid van het systeem**: Selecteer **HA**.
     - **Gebruikersnaam voor de beheerder en het wachtwoord van beheerder**: Een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
     - **Nieuw of bestaand Subnet**: Bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet gebruikt. Als u al een virtueel netwerk dat verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-    - **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**.
+    - **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >** .
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
@@ -204,11 +204,11 @@ Volg de stappen in [Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 ## <a name="install-sap-hana"></a>SAP HANA installeren
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
-- **[A]**: De stap is van toepassing op alle knooppunten.
-- **[1]**: De stap is van toepassing op knooppunt 1 alleen.
-- **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+- **[A]** : De stap is van toepassing op alle knooppunten.
+- **[1]** : De stap is van toepassing op knooppunt 1 alleen.
+- **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
-1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)**.
+1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)** .
 
    U wordt aangeraden LVM voor volumes die opslaan van gegevens en logboekbestanden. Het volgende voorbeeld wordt ervan uitgegaan dat de virtuele machines vier gegevensschijven die zijn gekoppeld die worden gebruikt om twee volumes te maken.
 
@@ -356,9 +356,9 @@ Volg voor het installeren van SAP HANA-Systeemreplicatie hoofdstuk 4 van de [SAP
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]**: De stap is van toepassing op alle knooppunten.
-* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
-* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]** : De stap is van toepassing op alle knooppunten.
+* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
+* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[1]**  Maken van de tenant-database.
 
@@ -401,9 +401,9 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]**: De stap is van toepassing op alle knooppunten.
-* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
-* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]** : De stap is van toepassing op alle knooppunten.
+* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
+* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[1]**  Maken van de juiste gebruikers.
 
