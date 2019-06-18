@@ -37,9 +37,9 @@ Deze uitbreiding ondersteunt de volgende OSs:
 
 | Distributie | Version |
 |---|---|
-| Windows 10 (maximaal versie 1803)| Kern |
-| Windows Server 2016 | Kern |
-| Windows Server 2012R2 | Kern |
+| Windows 10 (maximaal versie 1803)| Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
