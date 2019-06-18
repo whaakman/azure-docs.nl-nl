@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922137"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hoge beschikbaarheid van SAP HANA op Azure Virtual machines van Red Hat Enterprise Linux
@@ -28,18 +28,18 @@ ms.locfileid: "64922137"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -109,7 +109,7 @@ Volg deze stappen voor het implementeren van de sjabloon:
     * **SAP-systeem grootte**: Voer het nummer van SAP's die voor u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's van het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
     * **Beschikbaarheid van het systeem**: Selecteer **HA**.
     * **Admin Username, Administrator-wachtwoord of SSH-sleutel**: Een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
-    * **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**. Leeg laat, als u wilt een nieuw virtueel netwerk maken
+    * **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >** . Leeg laat, als u wilt een nieuw virtueel netwerk maken
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
@@ -191,11 +191,11 @@ Lees voor meer informatie over de vereiste poorten voor SAP HANA, het hoofdstuk 
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]**: De stap is van toepassing op alle knooppunten.
-* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
-* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]** : De stap is van toepassing op alle knooppunten.
+* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
+* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
-1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)**.
+1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)** .
 
    U wordt aangeraden LVM voor volumes die opslaan van gegevens en logboekbestanden. Het volgende voorbeeld wordt ervan uitgegaan dat de virtuele machines vier gegevensschijven die zijn gekoppeld die worden gebruikt om twee volumes te maken.
 
@@ -352,9 +352,9 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]**: De stap is van toepassing op alle knooppunten.
-* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
-* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]** : De stap is van toepassing op alle knooppunten.
+* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
+* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[A]**  Firewall configureren
 
@@ -443,9 +443,9 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]**: De stap is van toepassing op alle knooppunten.
-* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
-* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]** : De stap is van toepassing op alle knooppunten.
+* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
+* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[A]**  Firewall configureren
 

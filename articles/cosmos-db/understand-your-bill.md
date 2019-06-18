@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965639"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Meer informatie over uw factuur voor Azure Cosmos DB
@@ -212,7 +212,7 @@ Laten we eens een ander voorbeeld, waarin u wilt proactief schatting van uw fact
 
 |**Doorvoer kosten** | | | |
 |----|----|----|----|
-|Bewerkingstype| Aanvragen/sec| Gem. RU/request| RU's die nodig zijn|
+|Type bewerking| Aanvragen/sec| Gem. RU/request| RU's die nodig zijn|
 |Schrijven| 100 | 5 | 500|
 |Lezen| 400| 1| 400|
 
@@ -252,7 +252,7 @@ Wat u daadwerkelijk hebt aangeschaft, is een tegoed van $8 per uur voor 100 K RU
 |----|----|----|----|----|
 |US - oost|$0.008 |50 K|$4|$2,880 |
 |Japan - oost|$0.009 |50 K| $4.50 |$3,240 |
-|||Betalen per gebruik|$8.50|$6120|
+|||Betalen naar gebruik|$8.50|$6120|
 |Aangeschafte gereserveerde capaciteit|$0.0064 (20% korting) |100 RU/sec. of vooraf aangeschafte $8-capaciteit |-$8|-$5,760 |
 |Nettofactuur|||$0.50 |$360 |
 
