@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
 ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555835"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Nul instrumentatie-toepassingsbewaking voor Kubernetes gehoste toepassingen
@@ -34,7 +34,7 @@ Azure Monitor maakt nu gebruik van service mesh tech op uw Kubernetes-cluster vo
 - Een [Application Insights-resource](create-new-resource.md)
 - Een service-net hebben. Als uw cluster geen Istio geïmplementeerd, leert u hoe u [installeren en gebruiken van Istio in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Mogelijkheden
+## <a name="capabilities"></a>Functionaliteit
 
 Met behulp van nul instrumentation toepassingsbewaking voor Kubernetes gehoste apps, zich kunt u kunt gebruiken:
 
@@ -78,7 +78,7 @@ Toepassingen die worden uitgevoerd buiten het NET service worden niet beïnvloed
 3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
     - Bewerk de waarde van *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* omgevingsvariabele bevat de instrumentatiesleutel van de Application Insights-resource in Azure portal om de telemetrie bevatten.
     - Indien nodig, bewerkt u de waarde van *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* omgevingsvariabele naar een door komma's gescheiden lijst met naamruimten waarvoor u wilt inschakelen bewaking bevatten. Laat dit veld leeg voor het bewaken van alle naamruimten.
-4. Van toepassing *elke* YAML-bestand te vinden onder *src/kubernetes/* door het uitvoeren van de volgende (u moet nog steeds binnen */src/kubernetes/*):
+4. Van toepassing *elke* YAML-bestand te vinden onder *src/kubernetes/* door het uitvoeren van de volgende (u moet nog steeds binnen */src/kubernetes/* ):
 
    ```console
    kubectl apply -f .

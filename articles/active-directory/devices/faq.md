@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110654"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -263,7 +263,7 @@ Hybride Azure AD join heeft voorrang op de status geregistreerd bij Azure AD. Du
 
 **Opmerking:**
 
-- De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moeten een [een ondersteunde versie van Office voor Mac OS](../conditional-access/technical-reference.md#client-apps-condition) voor toegang tot resources. 
+- De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moet een [een ondersteunde versie van Office voor Mac OS](../conditional-access/technical-reference.md#client-apps-condition) voor toegang tot resources. 
 
 - Tijdens de eerste toegang, wordt gebruikers gevraagd het apparaat te registreren met behulp van de bedrijfsportal-App.
 

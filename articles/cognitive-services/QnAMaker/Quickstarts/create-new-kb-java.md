@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 85d5fa1cc036737497e276413985e0828e3b51f6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c6fddec80da1baa852a2f3712a94b785d775919e
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788719"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151049"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Snelstartgids: Een knowledge base maken in QnA Maker met behulp van Java
 
@@ -100,7 +100,7 @@ Herhaal de aanroep totdat deze lukt of mislukt:
 ```
 
 ## <a name="add-a-main-method"></a>Een hoofdmethode toevoegen
-De hoofdmethode maakt de KB en vraagt vervolgens de status na. De _create_ **Bewerkings-id** wordt geretourneerd in het header-veld **Locatie** van het POST-antwoord, en vervolgens gebruikt als onderdeel van de route in de GET-aanvraag. ** De `while`-lus probeert de status opnieuw op te vragen als deze nog niet is voltooid.
+De hoofdmethode maakt de KB en vraagt vervolgens de status na. De bewerking ID is die wordt geretourneerd in het veld bericht antwoord header **locatie**, klikt u vervolgens worden gebruikt als onderdeel van de route in de GET-aanvraag. De `while` lus probeert om opnieuw de status als deze nog niet is voltooid.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

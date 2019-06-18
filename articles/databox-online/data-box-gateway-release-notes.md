@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60754196"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Azure Data Box Edge/Azure Data Box Gateway General Availability opmerkingen bij de release
@@ -44,7 +44,7 @@ De volgende tabel bevat een overzicht van de bekende problemen voor de Data Box-
 | --- | --- | --- | --- |
 | **1.** |Bestandstypen | De volgende bestandstypen worden niet ondersteund: teken bestanden, bestanden blokkeren, sockets, pipes, symbolische koppelingen.  |Deze bestanden zijn gekopieerd resultaten in 0 heeft een lengte van bestanden die worden gemaakt op de NFS delen. Deze bestanden blijven in een foutstatus en er wordt ook gerapporteerd *error.xml*. <br> Symbolische koppelingen naar de directory's leiden tot mappen ophalen nooit offline gemarkeerd. U mag de grijze cross als gevolg hiervan niet weergegeven in de mappen die aangeeft dat de mappen zijn offline en alle gekoppelde inhoud is volledig geüpload naar Azure. |
 | **2.** |Verwijderen | Vanwege een fout in deze release, als een NFS-share is verwijderd, kan klikt u vervolgens de share niet worden verwijderd. De status van de share wordt weergegeven *verwijderen*.  |Dit gebeurt alleen als de share met behulp van de naam van een niet-ondersteund bestandstype. |
-| **3.** |Exemplaar | Het kopiëren van gegevens is mislukt met fout:  De aangevraagde bewerking kan niet worden voltooid vanwege een beperking van bestand system.  |De alternatieve gegevens Stream (AD) die zijn gekoppeld aan groter zijn dan 128 KB wordt niet ondersteund.   |
+| **3.** |kopiëren | Het kopiëren van gegevens is mislukt met fout:  De aangevraagde bewerking kan niet worden voltooid vanwege een beperking van bestand system.  |De alternatieve gegevens Stream (AD) die zijn gekoppeld aan groter zijn dan 128 KB wordt niet ondersteund.   |
 
 
 ## <a name="next-steps"></a>Volgende stappen

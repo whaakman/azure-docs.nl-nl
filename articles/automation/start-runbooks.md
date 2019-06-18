@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880184"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation starten
@@ -84,7 +84,7 @@ De webservice Azure Automation biedt speciale functionaliteit voor parameters di
 
 ### <a name="named-values"></a>Benoemde waarden
 
-Als de parameter gegevenstype [object] is, dan kunt u de volgende JSON-indeling voor het verzenden van een lijst met naamwaarden: *{Name1: 'Value1', Name2: 'Value2', Naam3: 'Value3'}*. Deze waarden moeten eenvoudige typen. Het runbook ontvangt de parameter als een [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) met eigenschappen die overeenkomen met elke benoemde waarde.
+Als de parameter gegevenstype [object] is, dan kunt u de volgende JSON-indeling voor het verzenden van een lijst met naamwaarden: *{Name1: 'Value1', Name2: 'Value2', Naam3: 'Value3'}* . Deze waarden moeten eenvoudige typen. Het runbook ontvangt de parameter als een [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) met eigenschappen die overeenkomen met elke benoemde waarde.
 
 Houd rekening met de volgende runbook-test die een parameter met de naam van gebruiker accepteert.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>matrices
 
-Als de parameter een matrix, zoals [array is] of [string []], kunt u de volgende JSON-indeling gebruiken voor het verzenden van een lijst met waarden: *[Value1, Value2, Value3]*. Deze waarden moeten eenvoudige typen.
+Als de parameter een matrix, zoals [array is] of [string []], kunt u de volgende JSON-indeling gebruiken voor het verzenden van een lijst met waarden: *[Value1, Value2, Value3]* . Deze waarden moeten eenvoudige typen.
 
 Houd rekening met de volgende runbook-test die een parameter met de naam accepteert *gebruiker*.
 

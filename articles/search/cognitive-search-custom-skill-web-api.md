@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023861"
 ---
 # <a name="custom-web-api-skill"></a>Aangepaste Web-API-kwalificatie
@@ -38,7 +38,7 @@ Parameters zijn hoofdlettergevoelig.
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| uri | De URI van de Web-API die de _JSON_ nettolading wordt verzonden. Alleen **https** URI-schema is toegestaan |
+| URI | De URI van de Web-API die de _JSON_ nettolading wordt verzonden. Alleen **https** URI-schema is toegestaan |
 | HttpMethod | De methode die u wilt gebruiken tijdens het verzenden van de nettolading. Toegestane methoden zijn `PUT` of `POST` |
 | httpHeaders | Een verzameling van sleutel / waarde-paren waarbij de sleutels headernamen en waarden staan vertegenwoordigen headerwaarden die worden verzonden naar uw Web-API, samen met de nettolading. De volgende headers zijn niet toegestaan in deze verzameling wordt: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Optioneel) Als u opgeeft, geeft u de time-out voor de http-client die van de API-aanroep. Deze moet zijn opgemaakt als een "dayTimeDuration" XSD-waarde (een beperkte subset van een [duur van de ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Bijvoorbeeld, `PT60S` gedurende 60 seconden. Als dat niet is ingesteld, een standaardwaarde van 30 seconden wordt gekozen. De time-out kan worden ingesteld op een maximum van 90 seconden en een minimum van 1 seconde. |

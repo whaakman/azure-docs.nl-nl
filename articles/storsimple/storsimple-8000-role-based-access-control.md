@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159157"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Toegangsbeheer op basis van rollen voor StorSimple
@@ -165,7 +165,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 U verleent toegang vanuit de resource en resourcegroep die of het abonnement dat het bereik van de roltoewijzing is. Bij toegang, draagt u er rekening mee dat de toegang is verleend op het bovenliggende knooppunt wordt overgenomen door het onderliggende object. Ga voor meer informatie naar [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md).
 
-1. Ga naar **toegangsbeheer (IAM)**. Klik op **+ toevoegen** op de blade toegangsbeheer.
+1. Ga naar **toegangsbeheer (IAM)** . Klik op **+ toevoegen** op de blade toegangsbeheer.
 
     ![Toegang tot met RBAC-rol toevoegen](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

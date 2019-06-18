@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550510"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Beperkingen in Azure Database voor MariaDB
@@ -28,12 +28,12 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Algemeen doel| 8| 1250|
 |Algemeen doel| 16| 2500|
 |Algemeen doel| 32| 5000|
-|Algemeen doel| 64| 10.000|
+|Algemeen doel| 64| 10\.000|
 |Geoptimaliseerd geheugen| 2| 600|
 |Geoptimaliseerd geheugen| 4| 1250|
 |Geoptimaliseerd geheugen| 8| 2500|
 |Geoptimaliseerd geheugen| 16| 5000|
-|Geoptimaliseerd geheugen| 32| 10.000|
+|Geoptimaliseerd geheugen| 32| 10\.000|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 > ERROR 1040 (08004): Te veel verbindingen

@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
 ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66239707"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Naleving in Azure Cosmos DB 
@@ -32,7 +32,7 @@ Om klanten te helpen te voldoen aan hun eigen verplichtingen in gereguleerde ind
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB-certificeringen  
 
-Azure Cosmos DB is de certificaatdekking voortdurend uitgebreid. Azure Cosmos DB is op dit moment gecertificeerd met de volgende certificaten:
+De certificaatdekking van Azure Cosmos DB wordt voortdurend uitgebreid. Azure Cosmos DB is op dit moment gecertificeerd met de volgende certificaten:
 
 | **Globaal van toepassing** | **Amerikaanse overheid** | **Specifieke branche** | **Regio of land/regio specifieke** |
 | --- | --- | --- | --- |

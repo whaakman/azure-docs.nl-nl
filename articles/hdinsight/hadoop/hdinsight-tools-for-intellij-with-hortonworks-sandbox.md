@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696133"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken
@@ -49,7 +49,7 @@ In deze sectie maakt maken u een Scala-voorbeeldproject met behulp van IntelliJ 
 
 1. Open IntelliJ IDEA op uw computer. In de **nieuw Project** dialoogvenster vak, voert u deze stappen uit:
 
-   1. Selecteer **HDInsight** > **Spark in HDInsight (Scala)**.
+   1. Selecteer **HDInsight** > **Spark in HDInsight (Scala)** .
    2. In de **Build-hulpprogramma** lijst, selecteert u een van de volgende, afhankelijk van uw scenario:
 
       * **Maven**: Voor ondersteuning van Scala maken van het project wizard.

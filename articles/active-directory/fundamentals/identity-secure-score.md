@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65988695"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Wat is de id-beveiligingsscore in Azure Active Directory?
@@ -26,7 +26,7 @@ Hoe veilig is uw Azure AD-tenant? Als u niet hoe u deze vragen te beantwoorden w
 
 De identiteit beveiligde score is getal tussen 1 tot 223 op die fungeert als een indicator van hoe uitgelijnde u bent met de aanbevelingen van Microsoft voor beveiliging. Elke actie verbetering in beveiligde score identiteit wordt aangepast aan uw specifieke configuratie.  
 
-![Veiligheidsscore](./media/identity-secure-score/identity-secure-score-overview.png)
+![Beveiligingsscore](./media/identity-secure-score/identity-secure-score-overview.png)
 
 De score helpt bij het volgende:
 
@@ -50,7 +50,7 @@ Door de verbeteringsacties te volgen, kunt u het volgende doen:
 
 De identiteit beveiligde score is beschikbaar in alle edities van Azure AD. U kunt de score bekijken door naar het [dashboard Overzicht van Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore) te gaan.
 
-## <a name="how-does-it-work"></a>Hoe werkt dit?
+## <a name="how-does-it-work"></a>Hoe werkt het?
 
 Elke 48 uur wordt uw beveiligingsconfiguratie geanalyseerd door Azure en worden uw instellingen vergeleken met de aanbevolen procedures. Op basis van het resultaat van deze evaluatie, wordt een nieuwe score berekend voor uw directory. Het is mogelijk dat de beveiligingsconfiguratie is niet volledig afgestemd op de richtlijnen voor best practices en de acties voor verbetering slechts gedeeltelijk wordt voldaan. In deze scenario's worden u alleen toegekend in een deel van de maximale score die beschikbaar zijn voor het besturingselement.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069999"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>High performance computing-grootten van virtuele machines
 
@@ -72,7 +72,7 @@ De Azure Marketplace bevat veel Linux-distributies die ondersteuning bieden voor
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  Zie voor meer informatie over het inschakelen van InfiniBand, instellen van de MPI, [InfiniBand inschakelen](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+  Zie voor meer informatie over het inschakelen van InfiniBand, instellen van de MPI, [InfiniBand inschakelen](../workloads/hpc/enable-infiniband.md).
 
 
 ### <a name="cluster-configuration-options"></a>Cluster-configuratie-opties
@@ -107,5 +107,5 @@ Azure biedt verschillende opties voor het maken van clusters van Linux HPC-VM's 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het instellen, optimaliseren en te schalen [HPC-workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) op Azure.
+- Meer informatie over het instellen, optimaliseren en te schalen [HPC-workloads](../workloads/hpc/configure.md) op Azure.
 - Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.

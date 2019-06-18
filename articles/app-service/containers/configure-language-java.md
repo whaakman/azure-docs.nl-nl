@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063859"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Een Linux Java-app configureren voor Azure App Service
 
@@ -480,9 +480,7 @@ App Service for Linux ondersteunt twee runtimes voor het beheerde hosten van Jav
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK versies en onderhoud
 
-Azure ondersteunde Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) geleverd via [Azul Systems](https://www.azul.com/).
-
-Belangrijke versieupdates wordt geleverd door de nieuwe runtime-opties in Azure App Service voor Linux. Klanten hebben bijgewerkt naar deze nieuwere versies van Java door het configureren van de App Service-implementatie en zijn verantwoordelijk voor het testen en ervoor te zorgen dat de grote update aan hun eisen voldoen.
+Azul Zulu Enterprise builds van OpenJDK zijn kosteloze, meerdere platforms, gereed voor productie verdeling van de OpenJDK voor Azure en Azure Stack ondersteund door Microsoft en Azul Systems. Ze bevatten de onderdelen voor het bouwen en uitvoeren van Java SE toepassingen. U kunt de JDK van installeren [Java JDK installatie](https://aka.ms/azure-jdks).
 
 Ondersteunde JDK worden automatisch gevuld op basis van een kwartaal in januari, April, juli en oktober van elk jaar.
 
@@ -493,18 +491,6 @@ Patches en oplossingen voor bekende beveiligingsproblemen wordt uitgebracht zodr
 ### <a name="deprecation-and-retirement"></a>Afschaffing en buiten gebruik stellen
 
 Als een ondersteunde Java-runtime wordt beëindigd, Azure-ontwikkelaars met behulp van de betrokken runtime krijgt een kennisgeving over afschaffing ten minste zes maanden voordat de runtime is buiten gebruik gesteld.
-
-### <a name="local-development"></a>Lokale ontwikkeling
-
-Ontwikkelaars kunnen de productie-editie van Azul Zulu Enterprise JDK voor lokale ontwikkeling van downloaden [site voor het downloaden van Azul](https://www.azul.com/downloads/azure-only/zulu/).
-
-### <a name="development-support"></a>Ontwikkelingsondersteuning voor
-
-Ondersteuning voor het product voor de [Azure wordt ondersteund Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) is beschikbaar via bij het ontwikkelen voor Azure of [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) met een [gekwalificeerde Azure-ondersteuningsplan](https://azure.microsoft.com/support/plans/).
-
-### <a name="runtime-support"></a>Runtime-ondersteuning
-
-Ontwikkelaars kunnen [opent u een probleem](/azure/azure-supportability/how-to-create-azure-support-request) met de JDK Azul Zulu via ondersteuning voor Azure als ze beschikken over een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

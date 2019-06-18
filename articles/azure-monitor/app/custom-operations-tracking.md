@@ -13,10 +13,10 @@ ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900886"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Aangepaste bewerkingen met Application Insights .NET-SDK bijhouden
@@ -170,7 +170,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Verwerken
+#### <a name="process"></a>Process
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -229,8 +229,8 @@ Omdat Storage-wachtrijen de HTTP-API ondersteunen, worden alle bewerkingen aan d
 
 In dit voorbeeld laat zien hoe voor het bijhouden van de `Enqueue` bewerking. U kunt:
 
- - **Nieuwe pogingen correleren (indien aanwezig)**: Ze hebben een gemeenschappelijke bovenliggende die heeft de `Enqueue` bewerking. Ze zijn anders als onderliggende items van de inkomende aanvraag bijgehouden. Als er meerdere logische aanvragen naar de wachtrij worden, is het mogelijk dat het moeilijk te vinden waarvan het gesprek leidde tot nieuwe pogingen.
- - **Opslaglogboeken correleren (of en wanneer nodig)**: Ze worden gecorreleerd met Application Insights telemetry.
+ - **Nieuwe pogingen correleren (indien aanwezig)** : Ze hebben een gemeenschappelijke bovenliggende die heeft de `Enqueue` bewerking. Ze zijn anders als onderliggende items van de inkomende aanvraag bijgehouden. Als er meerdere logische aanvragen naar de wachtrij worden, is het mogelijk dat het moeilijk te vinden waarvan het gesprek leidde tot nieuwe pogingen.
+ - **Opslaglogboeken correleren (of en wanneer nodig)** : Ze worden gecorreleerd met Application Insights telemetry.
 
 De `Enqueue` bewerking is het onderliggende lid van een bovenliggende bewerking (bijvoorbeeld, een binnenkomende HTTP-aanvraag). De HTTP-afhankelijkheidsaanroep is het onderliggende lid van de `Enqueue` bewerking en de onderliggend van de inkomende aanvraag:
 
@@ -335,7 +335,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Verwerken
+#### <a name="process"></a>Process
 
 In het volgende voorbeeld wordt wordt een binnenkomend bericht bijgehouden in een manier op dezelfde manier naar binnenkomende HTTP-aanvraag:
 

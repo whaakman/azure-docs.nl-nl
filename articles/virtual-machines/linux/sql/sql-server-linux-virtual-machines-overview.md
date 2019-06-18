@@ -14,10 +14,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: c97793dc28b4ef097d8baa34678aeb92bf123809
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473474"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Overzicht van SQL Server op virtuele machines in Azure (Linux)
@@ -37,7 +37,7 @@ Als u aan de slag wilt, kiest u een installatiekopie voor een virtuele machine v
 > [!TIP]
 > Zie [de prijzenpagina voor virtuele Linux-machines met SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) voor informatie over de prijzen voor SQL-installatiekopieën.
 
-| Versie | Besturingssysteem | Editie |
+| Version | Besturingssysteem | Editie |
 | --- | --- | --- |
 | **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74) |
 | **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2) |
@@ -62,7 +62,7 @@ Wanneer u SQL Server op Linux configureert, installeert u het database-engine-pa
 
 * [Overzicht van Virtual Machines](../overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 * [Inleiding tot Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 

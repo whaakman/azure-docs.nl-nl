@@ -11,10 +11,10 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024644"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
@@ -84,7 +84,7 @@ Voor services beperkt het document de volgende maximale limieten gelden:
 
 |  Gratis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10.000 |1&nbsp;miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
+|  10\.000 |1&nbsp;miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
 
 Als uw service limiet die u blokkeren een, een nieuwe service maken en alle inhoud die service vervolgens opnieuw te publiceren. Er is geen mechanisme voor het naadloos beëindiging van uw service op de nieuwe hardware op de achtergrond.
 
@@ -110,7 +110,7 @@ Maximum aantal actieve keren herhaald bestaan voor het saldo en stabiliteit naar
 | Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |10 |10 |
 | Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
 | Maximale kennis en vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
-| Indexering maximumbelasting per aanroep |10.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |Geen limiet |Geen limiet |
+| Indexering maximumbelasting per aanroep |10\.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |Geen limiet |Geen limiet |
 | Minimale plannen | 5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten | 5 minuten |
 | Maximale uitvoeringstijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |24 uur |24 uur |
 | Maximale uitvoeringstijd voor cognitief zoeken kennis en vaardigheden of blob-indexering met analyse van de afbeelding <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |2 uur |2 uur |

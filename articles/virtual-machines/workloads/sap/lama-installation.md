@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463001"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-connector voor Azure
 
-[1877727]:https://launchpad.support.sap.com/#/notes/1877727
-[2343511]:https://launchpad.support.sap.com/#/notes/2343511
-[2350235]:https://launchpad.support.sap.com/#/notes/2350235
-[2562184]:https://launchpad.support.sap.com/#/notes/2562184
-[2628497]:https://launchpad.support.sap.com/#/notes/2628497
-[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[1877727]: https://launchpad.support.sap.com/#/notes/1877727
+[2343511]: https://launchpad.support.sap.com/#/notes/2343511
+[2350235]: https://launchpad.support.sap.com/#/notes/2350235
+[2562184]: https://launchpad.support.sap.com/#/notes/2562184
+[2628497]: https://launchpad.support.sap.com/#/notes/2628497
+[2445033]: https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -103,7 +103,7 @@ Open de website die SAP LaMa en navigeer naar de infrastructuur. Ga naar het tab
 * Wachtwoord: Service-Principal-sleutel en wachtwoord
 * URL: Standaardwaarde https://management.azure.com/
 * Controle-Interval (seconden): Moet ten minste 300
-* Abonnements-id: Azure-abonnement-ID
+* Abonnements-ID: Azure-abonnement-ID
 * Azure Active Directory-Tenant-ID: ID van de Active Directory-tenant
 * Proxyhost: Hostnaam van de proxy als SAP LaMa moet een proxy verbinding maken met internet
 * Proxypoort: TCP-poort van de proxy
@@ -385,7 +385,7 @@ Gebruik *as1-di-0* voor de *Pa's Host exemplaarnaam* in dialoogvenster *primaire
    Zorg ervoor dat de share sapmnt in de ASCS/SCS volledige toegang voor SAP_AS1_GlobalAdmin heeft
 
 * Fout in de stap *opstarten-beveiliging inschakelen voor klonen*
-  * Kan bestand niet openen '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' oorzaak: Bestand of map niet bestaat
+  * Kan bestand niet openen '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' oorzaak: Een dergelijk(e) bestand of map bestaat niet
   * Oplossing  
     Het computeraccount van de toepassingsserver moet schrijftoegang tot het profiel
 

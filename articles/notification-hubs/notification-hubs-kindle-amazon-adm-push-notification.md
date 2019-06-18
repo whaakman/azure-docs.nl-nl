@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/29/2019
 ms.author: jowargo
-ms.openlocfilehash: edd0e12460e07cfd2990cc43a9056ed06b84fb1d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abc77ad4d06dc719ee1a89cd8fcf29d42d96b483
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927015"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147674"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Aan de slag met Azure Notification Hubs voor Kindle-apps
 
@@ -58,24 +58,35 @@ In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te vo
     5. Selecteer **Opslaan**.
 
         ![Nieuwe App-verzendpagina](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
-2.  Aan de bovenkant en schakel over naar de **Mobile advertenties** tabblad en voer de volgende stappen uit: 
+2.  Aan de bovenkant en schakel over naar de **App Services** tabblad.
+
+    ![Tabblad App-Services](./media/notification-hubs-kindle-get-started/app-services-tab.png)
+1. Op de **App Services** tabblad, schuif naar beneden en selecteer **weergave Mobile advertenties** in de **Mobile advertenties** sectie. U ziet de **Mobile advertenties** pagina in een nieuw tabblad in de webbrowser. 
+
+    ![Mobiele advertenties sectie - weergave Mobile advertenties koppeling](./media/notification-hubs-kindle-get-started/view-mobile-ads-link.png)
+1. Op de **Mobile advertenties** pagina, de volgende stappen uit: 
     1. Geef op of uw app voornamelijk op kinderen onder de 13 jaar wordt omgeleid. Selecteer voor deze zelfstudie **Nee**.
-    2. Selecteer **Indienen**. 
+    1. Selecteer **Indienen**. 
 
         ![De pagina mobiele advertenties](./media/notification-hubs-kindle-get-started/mobile-ads-page.png)
     3. Kopiëren de **Toepassingssleutel** uit de **Mobile advertenties** pagina. 
 
         ![Toepassingssleutel](./media/notification-hubs-kindle-get-started/application-key.png)
-3.  Selecteer **Apps en Services** menu aan de bovenkant en selecteer uw toepassing in de lijst. 
+3.  Ga naar de webbrowser tabblad met de **App Services** tabblad openen en voer de volgende stappen uit:
+    1. Schuif naar de **Device Messaging** sectie.     
+    1. Vouw **bestaande beveiligingsprofiel Selecteer of maak een nieuwe**, en selecteer vervolgens **beveiligingsprofiel maken**. 
 
-    ![Selecteer uw app in lijst](./media/notification-hubs-kindle-get-started/all-apps-select.png)
-4. Schakel over naar de **Device Messaging** tabblad, en als volgt te werk: 
-    1. Selecteer **maken van een nieuw beveiligingsprofiel**.
-    2. Voer een **naam** voor uw beveiligingsprofiel. 
-    3. Voer **beschrijving** voor uw beveiligingsprofiel. 
-    4. Selecteer **Opslaan**. 
-    5. Selecteer **weergave beveiligingsprofiel** op de pagina. 
-5. Nu op de **beveiligingsprofiel** pagina, de volgende stappen uit: 
+        ![Knop voor beveiliging-profiel maken](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
+    1. Voer een **naam** voor uw beveiligingsprofiel. 
+    2. Voer **beschrijving** voor uw beveiligingsprofiel. 
+    3. Selecteer **Opslaan**. 
+
+        ![Het beveiligingsprofiel opslaan](./media/notification-hubs-kindle-get-started/save-security-profile.png)
+    1. Selecteer **Device Messaging inschakelen** berichten op deze beveiligingsprofiel apparaat inschakelen. 
+
+        ![Apparaat-berichten inschakelen](./media/notification-hubs-kindle-get-started/enable-device-messaging.png)
+    1. Selecteer **weergave beveiligingsprofiel** op de pagina. 
+1. Nu op de **beveiligingsprofiel** pagina, de volgende stappen uit: 
     1. Schakel over naar de **Webinstellingen** tabblad en kopieer de **Client-ID** en **Clientgeheim** waarde voor later gebruik. 
 
         ![Client-ID en -geheim ophalen](./media/notification-hubs-kindle-get-started/client-id-secret.png) 
@@ -314,6 +325,36 @@ In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te vo
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
+## <a name="create-an-adm-object"></a>Een ADM-object maken
+1 in de `MainActivity.java` bestand, het toevoegen van de volgende importinstructie toe:
+
+    ```java
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import com.amazon.device.messaging.ADM;
+    ```
+2. Voeg de volgende code toe aan het einde van de methode `OnCreate`:
+
+    ```java
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
+    ```
+
 
 ## <a name="add-your-api-key-to-your-app"></a>Uw API-sleutel aan uw app toevoegen
 1. Volg deze stappen voor het toevoegen van een elementenmap aan het project. 

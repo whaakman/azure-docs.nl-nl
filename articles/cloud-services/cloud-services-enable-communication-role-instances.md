@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808091"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Inschakelen van de communicatie voor rolinstanties in azure
 Cloud service-rollen communiceren via de interne en externe verbindingen. Externe verbindingen worden genoemd **invoer eindpunten** tijdens interne verbindingen heten **interne eindpunten**. Dit onderwerp wordt beschreven hoe u wijzigt de [servicedefinition](cloud-services-model-and-package.md#csdef) om eindpunten te maken.
 
 ## <a name="input-endpoint"></a>Invoereindpunt
-Het eindpunt van de invoer wordt gebruikt als u wilt om een poort voor de buitenwereld zichtbaar te maken. U geeft het protocoltype en de poort van het eindpunt dat wordt toegepast voor de interne en externe poorten voor het eindpunt. Als u wilt, kunt u een andere interne poort voor het eindpunt met de [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) kenmerk.
+Het eindpunt van de invoer wordt gebruikt als u wilt om een poort voor de buitenwereld zichtbaar te maken. U geeft het protocoltype en de poort van het eindpunt dat wordt toegepast voor de interne en externe poorten voor het eindpunt. Als u wilt, kunt u een andere interne poort voor het eindpunt met de [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) kenmerk.
 
 Het invoereindpunt kunt de volgende protocollen: **http, https, tcp, udp**.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700292"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Storage-account gebruiken
@@ -50,14 +50,14 @@ Zie voor instructies over het maken van een AAD-toepassing (die ook wordt een Se
 
 Enkele belangrijke punten om te overwegen.
 
-- De twee niveau mapstructuur (**/clusters/financiën/**) moeten worden gemaakt en kan worden ingericht met de juiste machtigingen door de beheerder van de Data Lake Storage **voordat** voor clusters met behulp van het storage-account. Deze structuur wordt niet automatisch gemaakt tijdens het maken van clusters.
+- De twee niveau mapstructuur ( **/clusters/financiën/** ) moeten worden gemaakt en kan worden ingericht met de juiste machtigingen door de beheerder van de Data Lake Storage **voordat** voor clusters met behulp van het storage-account. Deze structuur wordt niet automatisch gemaakt tijdens het maken van clusters.
 - Het bovenstaande voorbeeld wordt aanbevolen voor het instellen van de groep die eigenaar is van **/clusters/financiën** als **FINGRP** en waardoor **l-** toegang tot FINGRP aan de hiërarchie van de hele map starten in de hoofdmap. Dit zorgt ervoor dat de leden van FINGRP de mapstructuur starten vanaf de basis kunnen navigeren.
 - In het geval wanneer andere AAD-Service-Principals kunt clusters onder maken **/clusters/financiën**, de vergrendelde bit (wanneer ingesteld op de **financiën** map) zorgt ervoor dat mappen door een Service-Principal gemaakt kan niet worden verwijderd door de andere.
-- Nadat de mapstructuur en de machtigingen gemaakt zijn, proces voor het maken van HDInsight-cluster maakt een cluster-specifieke opslaglocatie onder **/clusters/financiën/**. Bijvoorbeeld, de opslag voor een cluster met de naam fincluster01 mogelijk **/clusters/finance/fincluster01**. De eigenaar en de machtigingen voor de mappen die zijn gemaakt door HDInsight-cluster wordt weergegeven in de tabel hier.
+- Nadat de mapstructuur en de machtigingen gemaakt zijn, proces voor het maken van HDInsight-cluster maakt een cluster-specifieke opslaglocatie onder **/clusters/financiën/** . Bijvoorbeeld, de opslag voor een cluster met de naam fincluster01 mogelijk **/clusters/finance/fincluster01**. De eigenaar en de machtigingen voor de mappen die zijn gemaakt door HDInsight-cluster wordt weergegeven in de tabel hier.
 
     |Map  |Machtigingen  |Gebruiker die eigenaar is  |Groep die eigenaar is  | Benoemde gebruiker | Benoemde gebruikersmachtigingen | De benoemde groep | De benoemde groepsmachtigingen |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finanace/fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  | 
+    |/clusters/finanace/fincluster01 | rwxr-x---  |Service-principal |FINGRP  |- |-  |-   |-  | 
    
 
 
@@ -88,7 +88,7 @@ Deze instellingen bekend is dat ze invloed hebben op een specifieke HDInsight-us
 Zoals vermeld in de YARN-JIRA eerder gekoppeld tijdens het lokaliseren van openbare-resources, wordt de localizer valideert dat de aangevraagde resources inderdaad openbaar zijn door het controleren van hun machtigingen op het externe bestand-systeem. Alle LocalResource die niet zijn voor die voorwaarde geschikt is is geweigerd voor lokalisatie. De controle voor machtigingen, bevat leestoegang tot het bestand voor 'anderen'. In dit scenario werkt niet out-of-the-box bij het hosten van HDInsight-clusters in Azure Data Lake, omdat Azure Data Lake "anderen" alle toegang weigert op hoofdniveau van de map.
 
 #### <a name="workaround"></a>Tijdelijke oplossing
-Set lezen-machtigingen voor uitvoeren voor **anderen** via de hiërarchie, bijvoorbeeld op **/**, **/clusters** en   **/clusters/financiën** zoals wordt weergegeven in de bovenstaande tabel.
+Set lezen-machtigingen voor uitvoeren voor **anderen** via de hiërarchie, bijvoorbeeld op **/** , **/clusters** en   **/clusters/financiën** zoals wordt weergegeven in de bovenstaande tabel.
 
 ## <a name="see-also"></a>Zie ook
 

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824746"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
@@ -30,11 +30,11 @@ In dit artikel is alleen relevant voor apps die zijn geconfigureerd voor het geb
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Automatisch gegenereerde certificaat voor de galerie en niet toepassingen
 
-Wanneer u een nieuwe toepassing uit de galerie toevoegen en configureren van een aanmelding op basis van SAML (hiervoor **eenmalige aanmelding** > **SAML** overzichtspagina voor de toepassing), genereert Azure AD een certificaat voor de toepassing die is geldig gedurende drie jaar. Voor het downloaden van het actieve certificaat als een beveiligingscertificaat (**.cer**)-bestand, Ga terug naar die pagina (**SAML gebaseerde aanmelding**) en selecteer een downloadkoppeling in de **SAML-handtekeningcertificaat** kop. U kunt kiezen tussen het certificaat met onbewerkte gegevens (binaire) of het certificaat van Base64 (base 64 gecodeerde tekenreeks). Voor galerietoepassingen, weergeven in deze sectie mogelijk ook een koppeling naar het certificaat downloaden als federatiemetagegevens XML (een **.xml** bestand), afhankelijk van de vereiste van de toepassing.
+Wanneer u een nieuwe toepassing uit de galerie toevoegen en configureren van een aanmelding op basis van SAML (hiervoor **eenmalige aanmelding** > **SAML** overzichtspagina voor de toepassing), genereert Azure AD een certificaat voor de toepassing die is geldig gedurende drie jaar. Voor het downloaden van het actieve certificaat als een beveiligingscertificaat ( **.cer**)-bestand, Ga terug naar die pagina (**SAML gebaseerde aanmelding**) en selecteer een downloadkoppeling in de **SAML-handtekeningcertificaat** kop. U kunt kiezen tussen het certificaat met onbewerkte gegevens (binaire) of het certificaat van Base64 (base 64 gecodeerde tekenreeks). Voor galerietoepassingen, weergeven in deze sectie mogelijk ook een koppeling naar het certificaat downloaden als federatiemetagegevens XML (een **.xml** bestand), afhankelijk van de vereiste van de toepassing.
 
 ![SAML active ondertekenen certificaat Downloadinstellingen](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
-U kunt ook een actieve of inactieve-certificaat downloaden door te selecteren de **SAML-handtekeningcertificaat** van de kop **bewerken** pictogram (een potlood), waarin de **SAML-handtekeningcertificaat** pagina. Selecteer het weglatingsteken (**...** ) naast het certificaat dat u wilt downloaden, en kies vervolgens welke certificaatindeling dat u wilt. U hebt de extra optie voor het downloaden van het certificaat in de indeling van mailcertificaten met verbeterde beveiliging van e-mail (PEM). Deze indeling is identiek aan de met Base64, maar met een **.pem** bestandsnaamextensie wordt niet herkend in Windows als een certificaatindeling.
+U kunt ook een actieve of inactieve-certificaat downloaden door te selecteren de **SAML-handtekeningcertificaat** van de kop **bewerken** pictogram (een potlood), waarin de **SAML-handtekeningcertificaat** pagina. Selecteer het weglatingsteken ( **...** ) naast het certificaat dat u wilt downloaden, en kies vervolgens welke certificaatindeling dat u wilt. U hebt de extra optie voor het downloaden van het certificaat in de indeling van mailcertificaten met verbeterde beveiliging van e-mail (PEM). Deze indeling is identiek aan de met Base64, maar met een **.pem** bestandsnaamextensie wordt niet herkend in Windows als een certificaatindeling.
 
 ![SAML-handtekeningcertificaten certificaat Downloadinstellingen (actieve en inactieve)](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
@@ -88,7 +88,7 @@ Vervolgens het nieuwe certificaat in de juiste indeling downloaden, uploaden naa
 
 3. Volg de instructies in de [automatisch gegenereerde certificaat voor de galerie en buiten de galerie toepassingen](#auto-generated-certificate-for-gallery-and-non-gallery-applications) eerdere sectie. Deze stap downloadt het certificaat in de coderingsindeling die is vereist voor het uploaden van voor de toepassing.
 
-4. Als u meenemen naar het nieuwe certificaat wilt, gaat u terug naar de **SAML-handtekeningcertificaat** pagina en in de certificaatrij van de nieuw opgeslagen, selecteer het weglatingsteken (**...** ) en selecteer **certificaat activeren**. Verandert de status van het nieuwe certificaat in **Active**, en het eerder actieve certificaat verandert in een status van **inactief**.
+4. Als u meenemen naar het nieuwe certificaat wilt, gaat u terug naar de **SAML-handtekeningcertificaat** pagina en in de certificaatrij van de nieuw opgeslagen, selecteer het weglatingsteken ( **...** ) en selecteer **certificaat activeren**. Verandert de status van het nieuwe certificaat in **Active**, en het eerder actieve certificaat verandert in een status van **inactief**.
 
 5. Volgende van de toepassing SAML-aanmelding configuratie-instructies die u eerder weergegeven zodat u het ondertekenen van SAML uploaden kunt-in de juiste coderingsindeling certificaat blijven.
 
@@ -116,7 +116,7 @@ Als een certificaat bijna verlopen is, kunt u met behulp van een procedure die i
 
 2. Als de toepassing kan automatisch rollover van een certificaat, stelt u het nieuwe certificaat actief door de volgende stappen:
    1. Ga terug naar de **SAML-handtekeningcertificaat** pagina.
-   2. Selecteer in de certificaatrij van de nieuw opgeslagen, het weglatingsteken (**...** ) en selecteer vervolgens **certificaat activeren**.
+   2. Selecteer in de certificaatrij van de nieuw opgeslagen, het weglatingsteken ( **...** ) en selecteer vervolgens **certificaat activeren**.
    3. De volgende twee stappen overslaan.
 
 3. Als de app slechts één certificaat tegelijk verwerken kan, kiest u een interval van downtime om uit te voeren van de volgende stap. (Anders als de toepassing niet automatisch het nieuwe certificaat ophalen, maar meer dan één handtekeningcertificaat kan verwerken, kunt u uitvoeren de volgende stap op elk gewenst moment.)

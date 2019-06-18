@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061153"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Probleemoplossing voor en antwoorden op vragen over Application Insights voor Java
 Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen enkele tips.
@@ -27,7 +27,7 @@ Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen 
 
 * Als de afhankelijkheid `<version>` element is met een patroon met jokertekens bevatten (bijvoorbeeld) (Maven) `<version>[2.0,)</version>` of (Gradle) `version:'2.0.+'`), kunt u in plaats daarvan een specifieke versie opgeven, zoals `2.0.1`. Zie de [opmerkingen bij de release](https://github.com/Microsoft/ApplicationInsights-Java/releases) voor de meest recente versie.
 
-## <a name="no-data"></a>Geen gegevens
+## <a name="no-data"></a>Er zijn geen gegevens
 **Ik Application Insights is toegevoegd en is mijn app wordt uitgevoerd, maar ik heb nooit gezien de gegevens in de portal.**
 
 * Wacht even en klikt u op vernieuwen. De grafieken worden regelmatig vernieuwd, maar u kunt ook handmatig vernieuwen. Het interval voor vernieuwen, is afhankelijk van het tijdsbereik van de grafiek.

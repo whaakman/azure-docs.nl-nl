@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Zelfstudie: Azure Active Directory-integratie met Absorb LMS
 
@@ -54,7 +54,7 @@ Om de integratie van Absorb LMS in Azure AD te configureren, moet u Absorb LMS v
 
 **Ga als volgt te werk om Absorb LMS vanuit de galerie toe te voegen:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 
 Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Absorb LMS, moet u de volgende procedures uitvoeren:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor Absorb LMS configureren](#configure-absorb-lms-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Testgebruiker voor Absorb LMS maken](#create-absorb-lms-test-user)**: een tegenhanger voor Britta Simon maken in Absorb LMS die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Absorb LMS configureren](#configure-absorb-lms-single-sign-on)** : de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Absorb LMS maken](#create-absorb-lms-test-user)** : een tegenhanger voor Britta Simon maken in Absorb LMS die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -163,7 +163,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     b. Selecteer **SAML** bij **Method**.
 
-    c. Open in Kladblok het certificaat dat u hebt gedownload van de Azure-portal. Verwijder de tags **---BEGIN CERTIFICATE---** en **---END CERTIFICATE---**. Plak vervolgens de resterende inhoud in het vak **Key**.
+    c. Open in Kladblok het certificaat dat u hebt gedownload van de Azure-portal. Verwijder de tags **---BEGIN CERTIFICATE---** en **---END CERTIFICATE---** . Plak vervolgens de resterende inhoud in het vak **Key**.
 
     d. Selecteer **Identity Provider Initiated** in de lijst **Mode**.
 

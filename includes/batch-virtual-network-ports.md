@@ -16,10 +16,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127516"
 ---
 ### <a name="general-requirements"></a>Algemene vereisten
@@ -71,7 +71,7 @@ U hoeft netwerkbeveiligingsgroepen niet op te geven op subnetniveau omdat Batch 
 
 **Uitgaande beveiligingsregels**
 
-| Source | Bronpoorten | Bestemming | Doelservicetag | Protocol | Bewerking |
+| source | Bronpoorten | Bestemming | Doelservicetag | Protocol | Bewerking |
 | --- | --- | --- | --- | --- | --- |
 | Alle | 443 | [Servicetag](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (in dezelfde regio als uw Batch-account en een VNet)  | Alle | Toestaan |
 
@@ -104,6 +104,6 @@ Alle <br /><br />Hoewel dit in feite 'alles toestaan' vereist, past de Batch-ser
 
 **Uitgaande beveiligingsregels**
 
-| Source | Bronpoorten | Bestemming | Doelpoorten | Protocol | Bewerking |
+| source | Bronpoorten | Bestemming | Doelpoorten | Protocol | Bewerking |
 | --- | --- | --- | --- | --- | --- |
 | Alle | * | Alle | 443  | Alle | Toestaan |

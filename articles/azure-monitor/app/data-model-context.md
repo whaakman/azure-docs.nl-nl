@@ -13,10 +13,10 @@ ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900707"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetrie-context: Application Insights-gegevensmodel
@@ -126,7 +126,7 @@ SDK-versie. Zie https://github.com/Microsoft/ApplicationInsights-Home/blob/maste
 Maximumlengte: 64
 
 
-## <a name="internal-node-name"></a>Interne: Naam van het knooppunt
+## <a name="internal-node-name"></a>Interne: De naam van knooppunt
 
 Dit veld geeft de naam van het knooppunt wordt gebruikt voor factureringsdoeleinden. Gebruik dit voor het overschrijven van de standaard detectie van knooppunten.
 

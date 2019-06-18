@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 89cee70c9d7c5dffdb3078756cf4fa94d7cd1a9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695648"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078228"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Maken van een Apache Storm-topologie in Java
 
-Informatie over het maken van een topologie op basis van Java voor [Apache Storm](https://storm.apache.org/). Hier kunt maken u een Storm-topologie die u een word-count-toepassing implementeert. U gebruikt [Apache Maven](https://maven.apache.org/) te bouwen en inpakken van het project. Vervolgens leert u hoe u voor het definiëren van de topologie met behulp van de [Apache Storm lichtstroom](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) framework.
+Informatie over het maken van een topologie op basis van Java voor [Apache Storm](https://storm.apache.org/). Hier kunt maken u een Storm-topologie die u een word-count-toepassing implementeert. U gebruikt [Apache Maven](https://maven.apache.org/) te bouwen en inpakken van het project. Vervolgens leert u hoe u voor het definiëren van de topologie met behulp van de [Apache Storm lichtstroom](https://storm.apache.org/releases/2.0.0/flux.html) framework.
 
 Na het voltooien van de stappen in dit document, kunt u de topologie implementeren voor Apache Storm op HDInsight.
 
@@ -621,7 +621,7 @@ Er is een interval van 5 seconden tussen uitstoot van woorden en aantallen. De *
 
 ## <a name="convert-the-topology-to-flux"></a>De topologie converteren naar lichtstroom
 
-[Lichtstroom](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) is een nieuw framework beschikbaar met Storm 0.10.0 of hoger, zodat u kunt het scheiden van de configuratie van de toepassing. Onderdelen van uw nog steeds zijn gedefinieerd in Java, maar de topologie is gedefinieerd met behulp van een YAML-bestand. U kunt de definitie van een standaard-topologie inpakken met uw project, of een zelfstandig bestand gebruiken bij het indienen van de topologie. Bij het indienen van de Storm-topologie, kunt u omgevingsvariabelen of configuratiebestanden kunt gebruiken voor het vullen van waarden in de definitie van de topologie YAML.
+[Lichtstroom](https://storm.apache.org/releases/2.0.0/flux.html) is een nieuw framework beschikbaar met Storm 0.10.0 of hoger, zodat u kunt het scheiden van de configuratie van de toepassing. Onderdelen van uw nog steeds zijn gedefinieerd in Java, maar de topologie is gedefinieerd met behulp van een YAML-bestand. U kunt de definitie van een standaard-topologie inpakken met uw project, of een zelfstandig bestand gebruiken bij het indienen van de topologie. Bij het indienen van de Storm-topologie, kunt u omgevingsvariabelen of configuratiebestanden kunt gebruiken voor het vullen van waarden in de definitie van de topologie YAML.
 
 Het YAML-bestand definieert de onderdelen moet worden gebruikt voor de topologie en de gegevens stroom tussen beide. U kunt een YAML-bestand opnemen als onderdeel van het jar-bestand of kunt u een externe YAML-bestand.
 

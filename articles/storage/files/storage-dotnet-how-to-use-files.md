@@ -10,10 +10,10 @@ ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779469"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Ontwikkelen voor Azure Files met .NET
@@ -46,7 +46,7 @@ API | Wanneer gebruikt u dit? | Opmerkingen
 Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen laten zien hoe u een consoletoepassing maakt in Visual Studio 2017, maar de stappen zijn hetzelfde in andere versies van Visual Studio.
 
 1. Selecteer **Bestand** > **Nieuw** > **Project**
-2. Selecteer **Geïnstalleerd** > **Sjablonen** > **Visual C#** > **Klassiek Windows-bureaublad**
+2. Selecteer **Geïnstalleerd** > **Sjablonen** > **Visual C#**  > **Klassiek Windows-bureaublad**
 3. Selecteer **Consoletoepassing (.NET Framework)**
 4. Typ een naam voor de toepassing in het veld **Naam:**
 5. Selecteer **OK**

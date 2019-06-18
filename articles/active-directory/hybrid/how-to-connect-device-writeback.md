@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785715"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109506"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Apparaat terugschrijven inschakelen
 > [!NOTE]
@@ -82,7 +82,7 @@ Write-back van apparaat, moet nu goed werkt. Let erop dat duurt tot 3 uur voor a
 
    ![Active Directory-beheercentrum geregistreerd lijst met apparaten](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
-## <a name="enable-conditional-access"></a>Voorwaardelijke toegang inschakelen (Engelstalig artikel)
+## <a name="enable-conditional-access"></a>Inschakelen van voorwaardelijke toegang
 Gedetailleerde instructies voor het inschakelen van dit scenario zijn beschikbaar binnen [instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
@@ -125,7 +125,7 @@ Controleer of de configuratie in Active Directory:
 
 ![Problemen op, Controleer de machtigingen op de configuratie van apparaatregistratie](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Aanvullende gegevens
+## <a name="additional-information"></a>Aanvullende informatie
 * [Risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
 * [Instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

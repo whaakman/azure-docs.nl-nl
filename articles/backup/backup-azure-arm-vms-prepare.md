@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076789"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back-up van virtuele Azure-machines in een Recovery Services-kluis
 
@@ -70,6 +70,9 @@ Er zijn bovendien een aantal dingen die u moet uitvoeren in sommige gevallen:
  Nadat de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen. Als u uw kluis niet ziet, selecteert u **vernieuwen**.
 
 ![Lijst met back-upkluizen](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+
+> [!NOTE]
+> Azure Backup-service wordt een afzonderlijke resourcegroep (met uitzondering van de VM-resourcegroep) voor het opslaan van de momentopname, met de naamgevingsindeling **AzureBackupRG_geography_number** (voorbeeld: AzureBackupRG_northeurope_1). De gegevens die in deze resourcegroep bewaard voor de duur in dagen zoals opgegeven in *behouden met instant herstelmomentopname* sectie van de virtuele Machine back-up van Azure-beleid.  Toepassen van een vergrendeling op deze resourcegroep kan leiden tot mislukte back-ups.
 
 ### <a name="modify-storage-replication"></a>Wijzigen van de storage-replicatie
 

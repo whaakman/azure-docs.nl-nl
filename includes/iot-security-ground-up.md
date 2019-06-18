@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166306"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Beveiliging van Internet of Things (IoT) vanaf de grond
@@ -49,7 +49,7 @@ De [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) binnen de [IoT-oplossin
 
 Om te communiceren beste beveiliging en privacy-functies die zijn ingebouwd in de Azure IoT-oplossingsversnellers, wordt in dit artikel het pakket in de drie beveiligingsgebieden van de primaire.
 
-![Oplossingsverbeteringen van Azure IoT](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Azure IoT-oplossingsversnellers](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Beveiligde apparaten inrichten en verificatie
 

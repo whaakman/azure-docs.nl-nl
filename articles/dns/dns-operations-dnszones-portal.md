@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
 ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60926322"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Over het beheren van DNS-Zones in Azure portal
@@ -44,7 +44,7 @@ Dit artikel ziet u hoe u uw DNS-zones beheren met behulp van de Azure-portal. U 
    |**Naam**|contoso.com|De naam van de DNS-zone|
    |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin de DNS-zone moet worden gemaakt.|
    |**Resourcegroep**|**Nieuwe maken:** contosoDNSRG|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. Lees het overzichtsartikel over [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) voor meer informatie over resourcegroepen.|
-   |**Locatie**|US - west||
+   |**Location**|US - west||
 
 > [!NOTE]
 > De resourcegroep verwijst naar de locatie van de resourcegroep en heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.

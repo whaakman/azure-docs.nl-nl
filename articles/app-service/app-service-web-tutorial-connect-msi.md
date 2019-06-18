@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dd84f9b3b68d7a34903241caed7f1f93e685fb57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 548cd3de6d2eff9f2077ca66b66d5c60aa84f7e2
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138974"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154216"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Zelfstudie: Azure SQL Database-verbinding vanuit App Service beveiligen met een beheerde identiteit
 
@@ -77,13 +77,22 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Database toegang verlenen tot identiteit
 
-Vervolgens verleent u databasetoegang tot de beheerde identiteit van uw app, met behulp van de opdracht [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) in de Cloud Shell. Vervang *\<server_name>* en <principalid_from_last_step> in de volgende opdracht. Typ de naam van een beheerder bij *\<admin_user>*.
+Vervolgens verleent u databasetoegang tot de beheerde identiteit van uw app, met behulp van de opdracht [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) in de Cloud Shell. Vervang *\<server_name>* en <principalid_from_last_step> in de volgende opdracht. Typ de naam van een beheerder bij *\<admin_user>* .
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
 De beheerde identiteit heeft nu toegang tot uw Azure SQL Database-server.
+
+> [!IMPORTANT]
+> Deze stap wordt de identiteit van de Azure AD die worden beheerd voor het gemak geconfigureerd als de beheerder van de SQL-Database. De methode heeft de volgende beperkingen:
+>
+> - Beheerderstoegang van de app wordt niet aanbevolen beveiligingsprocedures volgen.
+> - Omdat de identiteit van de beheerde app die specifiek is, kunt u de dezelfde beheerde identiteit niet gebruiken voor het verbinding maken met SQL Database vanuit een andere app.
+> - De beheerde identiteit kan niet aanmelden bij de SQL-Database interactief, dus is het niet mogelijk toegang te verlenen tot beheerde identiteiten van aanvullende apps. 
+>
+> De beveiliging te verbeteren en om te beheren van Azure AD-accounts in SQL-Database, volg de stappen in [minimale bevoegdheden verlenen aan identiteit](#grant-minimal-privileges-to-identity).
 
 ## <a name="modify-connection-string"></a>De verbindingsreeks wijzigen
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807197"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Gebruikskenmerken van klanten van Azure-partners
 
@@ -267,11 +267,13 @@ Wanneer u implementeert \<PARTNER > software, Microsoft is in staat om te identi
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-Als u problemen ondervindt met het rapport of aanmelden bij de Partner Center, moet u een ondersteuningsaanvraag maken met het Partnercentrum-ondersteuningsteam hier: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Er zijn twee ondersteuningskanalen, afhankelijk van de problemen die u ondervindt.
+
+Als u problemen ondervindt in het Partnercentrum, zoals het rapport klant gebruik attribution zien of het aanmelden, moet u een ondersteuningsaanvraag maken met het Partnercentrum-ondersteuningsteam hier: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-Als u hulp nodig voor Onboarding van de Marketplace en/of klant gebruik attribution hebt, volgt u deze stappen.
+Als u hulp nodig hebt voor Onboarding van de Marketplace en/of klant gebruik attribution in het algemeen, zoals over het instellen van de klant gebruik attribution, volgt u de volgende stappen uit:
 
 1. Ga naar de [ondersteuningspagina](https://go.microsoft.com/fwlink/?linkid=844975).
 

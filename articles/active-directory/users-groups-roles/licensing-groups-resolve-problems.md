@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466288"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificeren en oplossen van problemen toewijzing voor een groep in Azure Active Directory
@@ -52,7 +52,7 @@ Wanneer u op basis van een groep licenties, wordt de dezelfde fouten kunnen optr
 
 De volgende secties geven een beschrijving van elke mogelijke problemen en de manier om dit te verhelpen.
 
-## <a name="not-enough-licenses"></a>Er zijn niet genoeg licenties
+## <a name="not-enough-licenses"></a>Niet genoeg licenties
 
 **Probleem:** Er zijn niet voldoende beschikbare licenties voor een van de producten die is opgegeven in de groep. U moet koop meer licenties voor het product of niet-gebruikte licenties van andere gebruikers of groepen vrij.
 

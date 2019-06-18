@@ -18,10 +18,10 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128446"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Problemen met trage app-prestaties oplossen in Azure App Service
@@ -136,7 +136,7 @@ Voor toegang tot App Service-diagnostics, gaat u naar uw App Service-app of een 
 #### <a name="use-the-kudu-debug-console"></a>Gebruik de Kudu-Console voor foutopsporing
 App Service wordt geleverd met een console voor foutopsporing die u gebruiken kunt voor foutopsporing, verkennen, het uploaden van bestanden, evenals de JSON-eindpunten voor het ophalen van gegevens over uw omgeving. Deze console heet de *Kudu-Console* of de *SCM-Dashboard* voor uw app.
 
-U kunt dit dashboard openen door te gaan naar de koppeling **https://&lt;uw app-naam >.scm.azurewebsites.net/**.
+U kunt dit dashboard openen door te gaan naar de koppeling **https://&lt;uw app-naam >.scm.azurewebsites.net/** .
 
 Enkele van de dingen die Kudu biedt, zijn:
 

@@ -3,16 +3,16 @@ title: 'Een virtuele netwerkgateway verwijderen: Azure Portal: Resource Manager 
 description: De gateway van een virtueel netwerk met behulp van de Azure-portal in het Resource Manager-implementatiemodel verwijderen.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
-origin.date: 10/23/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/23/2018
+ms.author: cherylmc
+ms.topic: conceptual
 ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845683"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>De gateway van een virtueel netwerk met behulp van de portal verwijderen
@@ -63,5 +63,3 @@ Als u zich geen zorgen over een van uw resources in de resourcegroep te blijven 
 1. In **alle resources**, zoek de resourcegroep en klik op om de blade te openen.
 2. Klik op **Verwijderen**. Bekijk de betrokken resources op de blade verwijderen. Zorg ervoor dat u wilt verwijderen van al deze resources. Als dit niet het geval is, gebruik dan de stappen in verwijderen een VPN-gateway aan de bovenkant van dit artikel.
 3. Als u wilt doorgaan, typ de naam van de resourcegroep die u wilt verwijderen en klik vervolgens op **verwijderen**.
-
-<!--Update_Description: wording update-->

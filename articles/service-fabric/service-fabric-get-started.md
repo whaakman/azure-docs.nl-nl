@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: aljo
-ms.openlocfilehash: 68a91bfba07b31117f553e4d689adc51bf51824c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 4d7fb257c932d84d8ddcb6c69e5286373f9b6adf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297254"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067224"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -69,8 +69,8 @@ Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 De huidige versies zijn:
-* Service Fabric SDK en hulpprogramma's 3.3.664
-* Service Fabric-runtime 6.4.664
+* Service Fabric SDK en hulpprogramma's 3.4.639
+* Service Fabric-runtime 6.5.639
 * Service Fabric Tools voor Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15,9 inch bevat Service Fabric Tools voor Visual Studio 2.4.11024.1 
 
@@ -99,7 +99,7 @@ Nu u uw ontwikkelingsomgeving hebt ingesteld, kunt u apps ontwikkelen en uitvoer
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric-campagnepagina"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI-koppeling"
-[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI-koppeling"
-[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI-koppeling"
+[full-bundle-vs2015]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI-koppeling"
+[full-bundle-dev15]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI-koppeling"
+[core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI-koppeling"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953118"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Compute voor uw Azure Data Box-edge-apparaten beheren
@@ -76,7 +76,7 @@ De volgende stappen uitvoeren in Azure portal om te verwijderen van een trigger.
 
 3. Klik op **Ja** als u om bevestiging wordt gevraagd.
 
-    ![Verwijderen bevestigen](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![De verwijdering bevestigen](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 De lijst met updates van triggers in overeenstemming met het verwijderen.
 

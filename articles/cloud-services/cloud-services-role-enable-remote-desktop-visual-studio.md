@@ -4,27 +4,25 @@ description: Uw Azure-cloud service-toepassing om toe te staan van verbindingen 
 services: cloud-services
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/06/2018
-ms.date: 10/22/2018
-ms.author: v-yiso
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.topic: conceptual
+ms.workload: azure-vs
+ms.date: 03/06/2018
+ms.author: ghogen
 ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717751"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Verbinding met extern bureaublad inschakelen voor een rol in Azure Cloud Services met behulp van Visual Studio
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -48,10 +46,8 @@ Wanneer u Visual Studio 2017 versie 15.4 of eerder gebruikt, kunt u de **extern 
 
    > [!Note]
    > De certificaten die u nodig hebt voor een verbinding met extern bureaublad verschillen van de certificaten die u voor andere Azure-bewerkingen gebruikt. De RAS-certificaat moet een persoonlijke sleutel hebben.
-   >
-   >
 
-5. Selecteer een certificaat in de lijst of kies  **&lt;maken... &gt;**. Als u een nieuw certificaat maakt, Geef een beschrijvende naam voor het nieuwe certificaat wanneer u hierom wordt gevraagd en selecteert u **OK**. Het nieuwe certificaat wordt weergegeven in de vervolgkeuzelijst lijst.
+5. Selecteer een certificaat in de lijst of kies  **&lt;maken... &gt;** . Als u een nieuw certificaat maakt, Geef een beschrijvende naam voor het nieuwe certificaat wanneer u hierom wordt gevraagd en selecteert u **OK**. Het nieuwe certificaat wordt weergegeven in de vervolgkeuzelijst lijst.
 
 6. Geef een gebruikersnaam en wachtwoord. U kunt een bestaand account niet gebruiken. Gebruik niet 'Beheerder' als de naam van de gebruiker voor het nieuwe account.
 

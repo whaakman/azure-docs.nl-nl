@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471958"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Service Bus
@@ -79,7 +79,7 @@ Sjabloonparameters:
 > Er zijn geen regels voor weigeren mogelijk, de Azure Resource Manager-sjabloon is de standaardactie die is ingesteld op **'Toestaan'** die verbindingen niet beperken.
 > Bij het maken van regels voor Virtueelnetwerk of Firewalls, moeten we wijzigen de ***"defaultAction"***
 > 
-> uit
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

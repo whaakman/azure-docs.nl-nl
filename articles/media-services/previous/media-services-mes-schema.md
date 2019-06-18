@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131556"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
@@ -30,7 +30,7 @@ Hiermee definieert u een vooraf ingestelde standaardcodering.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Root-element geeft aan dat de invoerbronnen moeten worden gecodeerd. |
+| **Codering** |[Codering](media-services-mes-schema.md#Encoding) |Root-element geeft aan dat de invoerbronnen moeten worden gecodeerd. |
 | **Uitvoer** |[Uitvoer](media-services-mes-schema.md#Output) |Verzameling van gewenste uitvoerbestanden. |
 | **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:String|Bepalen van het formaat van de video frame uitvoer, opvulling, pixel of hoogte-breedteverhouding weergegeven. **StretchMode** mogelijk een van de volgende waarden: **Geen**, **AutoSize** (standaard), of **AutoAanpassen**.<br/><br/>**Geen**: Strikt gaat u als volgt de uitvoer-oplossing (bijvoorbeeld de **breedte** en **hoogte** in de voorinstelling) zonder rekening te houden de pixel hoogte-breedteverhouding of hoogte-breedteverhouding weergegeven van de invoervideo. Aanbevolen in scenario's zoals [bijsnijden](media-services-crop-video.md), waar de uitvoervideo heeft een andere hoogte-breedteverhouding ten opzichte van de invoer. <br/><br/>**AutoSize**: De uitvoerresolutie van de wordt in het venster past (breedte * hoogte) opgegeven door de voorinstelling. Het coderingsprogramma levert echter een uitvoervideo met vierkante (1:1) pixels hoogte-breedteverhouding. Daarom op uitvoer van de breedte of hoogte uitvoer kan worden overschreven als u wilt overeenkomen met de hoogte-breedteverhouding van de weergave van de invoer, zonder opvulling. Als de invoer 1920 x 1080 is en de vooraf ingestelde standaardcodering 1280 x 1280 gevraagd, klikt u vervolgens de Height-waarde in de voorinstelling is genegeerd en de uitvoer worden op 1280 x 720, waarmee de invoer hoogte-breedteverhouding van 16:9 worden bewaard. <br/><br/>**AutoAanpassen**: Indien nodig, opvullen met het teken van de uitvoervideo (met letterbox of pillarbox) om te voldoen aan de gewenste uitvoerresolutie, terwijl u ervoor te zorgen dat de actieve video regio in de uitvoer de dezelfde hoogte-breedteverhouding als invoer heeft. Stel bijvoorbeeld dat de invoer is 1920 x 1080 en de vooraf ingestelde standaardcodering 1280 x 1280 gevraagd. Vervolgens worden de video-uitvoer op 1280 x 1280, maar deze bevat een binnenste rechthoek 1280 x 720 van 'active video' met hoogte-breedteverhouding van 16:9 en letterbox regio's 280 pixels hoog boven of onder. Voor een ander voorbeeld: als de invoer 1440 x 1080 is en de vooraf ingestelde standaardcodering om 1280 x 720 vraagt, klikt u vervolgens de uitvoer worden weergegeven op 1280 x 720, waarin een binnenste rechthoek van 960 x 720 op de hoogte-breedteverhouding 4:3 en pijler vak regio's 160 pixels breed bij de links en rechts. 
 
@@ -38,7 +38,7 @@ Hiermee definieert u een vooraf ingestelde standaardcodering.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| **Versie**<br/><br/> Vereist |**xs: decimaal** |De vooraf ingestelde versie. De volgende beperkingen zijn van toepassing: xs:fractionDigits waarde = "1" en xs:minInclusive value = "1" bijvoorbeeld **versie = "1.0"**. |
+| **Versie**<br/><br/> Vereist |**xs: decimaal** |De vooraf ingestelde versie. De volgende beperkingen zijn van toepassing: xs:fractionDigits waarde = "1" en xs:minInclusive value = "1" bijvoorbeeld **versie = "1.0"** . |
 
 ## <a name="Encoding"></a> Codering
 Bevat een reeks van de volgende elementen:  
@@ -160,7 +160,7 @@ Audio Codec|Details
 
 | Name | Type | Description |
 | --- | --- | --- |
-| **FileName** |**xs:String** |De naam van het uitvoerbestand.<br/><br/> Macro's die worden beschreven in de volgende tabel kunt u de namen van de uitvoer te bouwen. Bijvoorbeeld:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"}}]** |
+| **FileName** |**xs:String** |De naam van het uitvoerbestand.<br/><br/> Macro's die worden beschreven in de volgende tabel kunt u de namen van de uitvoer te bouwen. Bijvoorbeeld:<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type": "MP4Format"}}]** |
 
 ### <a name="macros"></a>Macro 's
 

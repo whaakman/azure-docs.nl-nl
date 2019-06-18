@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
 ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966390"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
@@ -78,7 +78,7 @@ Mogelijk worden aan te bieden u deze fout omdat u de tags in de agentknooppunten
 Deze fout treedt op wanneer clusters een foutstatus voor meerdere redenen invoeren. Volg de stappen hieronder om de status van uw cluster is niet opgelost voordat u de eerder mislukte bewerking opnieuw uitvoert:
 
 1. Tot het cluster van is `failed` staat, `upgrade` en `scale` upbewerkingen wordt niet voltooid. Algemene root problemen en oplossingen zijn onder andere:
-    * Schalen met **onvoldoende rekenquota (CRP)**. Om op te lossen, moet u eerst uw cluster naar een stabiele doelstatus binnen quota schalen. Volg deze [stappen om aan te vragen een compute-quotum verhogen](../azure-supportability/resource-manager-core-quotas-request.md) voordat u probeert opnieuw buiten de eerste quotalimieten kan worden uitgebreid.
+    * Schalen met **onvoldoende rekenquota (CRP)** . Om op te lossen, moet u eerst uw cluster naar een stabiele doelstatus binnen quota schalen. Volg deze [stappen om aan te vragen een compute-quotum verhogen](../azure-supportability/resource-manager-core-quotas-request.md) voordat u probeert opnieuw buiten de eerste quotalimieten kan worden uitgebreid.
     * Schalen van een cluster met geavanceerde netwerken en **onvoldoende (netwerk) subnetresources**. Om op te lossen, moet u eerst uw cluster naar een stabiele doelstatus binnen quota schalen. Volg [deze stappen om aan te vragen van een resourcequotum verhogen](../azure-resource-manager/resource-manager-quota-errors.md#solution) voordat u probeert opnieuw buiten de eerste quotalimieten kan worden uitgebreid.
 2. Als de onderliggende oorzaak van de upgrade mislukt, opgelost is, moet uw cluster zich in een status geslaagd. Zodra de status van een geslaagd is geverifieerd, moet u de oorspronkelijke bewerking opnieuw proberen.
 

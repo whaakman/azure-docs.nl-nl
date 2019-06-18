@@ -15,10 +15,10 @@ ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230043"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
@@ -30,7 +30,7 @@ Dit artikel helpt u bij het instellen van uw **werk- of schoolaccount**. Als u i
 
 Wanneer het ondersteuningsteam van uw bedrijf vereist dat u aan de slag met verificatie in twee stappen, ziet u een scherm waarin wordt gemeld **uw beheerder heeft ingesteld dat u dit account voor aanvullende beveiligingsverificatie instellen**:
 
-![Installatie](./media/multi-factor-authentication-end-user-first-time/first.png)
+![Instellen](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 Selecteer om te beginnen, **nu instellen.**
 
@@ -40,7 +40,7 @@ Als u een scherm zoals dit niet ziet wanneer u zich aanmeldt, volg de aanwijzing
 
 De eerste vraag in het inschrijvingsproces is hoe u moet er contact met u wilt. Bekijk de opties in de tabel en gebruik de koppelingen naar de installatiestappen uit voor elke methode.
 
-| Contactmethode | Description |
+| Contactmethode | Beschrijving |
 | --- | --- |
 | [Mobiele app](#use-a-mobile-app-as-the-contact-method) |- **Meldingen ontvangen voor verificatie.** Deze optie wordt een melding naar de authenticator-app op uw smartphone of tablet gepusht. Bekijk de melding en, als deze geldig is, selecteert u **verifiëren** in de app. Uw werk of school mogelijk dat u een PINCODE invoeren voordat u gaat verifiëren.<br>- **Verificatiecode gebruiken.** In deze modus genereert de authenticator-app een verificatiecode waarmee elke 30 seconden wordt bijgewerkt. Voer de meest recente verificatiecode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594) en [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
 | [Mobiele telefoon telefoongesprek of tekstbericht](#use-your-mobile-phone-as-the-contact-method) |- **Telefonische oproep** plaatst een geautomatiseerd telefoongesprek naar het telefoonnummer dat u opgeeft. Beantwoord de oproep en druk op # in het toetsenblok van de telefoon om te verifiëren.<br>- **SMS-bericht** een SMS-bericht met een verificatiecode wordt beëindigd. Na de prompt in de tekst, beantwoord het SMS-bericht of Voer de verificatiecode die is opgegeven in de interface van aanmelding. |
@@ -80,7 +80,7 @@ Volg deze stappen als u een account handmatig toevoegen aan de mobiele app wilt,
 1. Selecteer de **account handmatig invoeren** knop.  
 2. Voer de code en de URL die beschikbaar zijn op de pagina die leest u de streepjescode. Deze informatie wordt de **Code** en **URL** vakken op de mobiele app.
 
-    ![Installatie](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
+    ![Instellen](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. Wanneer de activering is voltooid, selecteert u **Contact me**. Deze stap wordt een melding of een verificatiecode naar uw telefoon verzonden. Selecteer **controleren**.
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>Uw mobiele telefoon gebruiken als de primaire contactmethode
@@ -97,7 +97,7 @@ Volg deze stappen als u een account handmatig toevoegen aan de mobiele app wilt,
 ## <a name="use-your-office-phone-as-the-contact-method"></a>Uw zakelijke telefoon gebruiken als de primaire contactmethode
 1. Selecteer **telefoon (werk)** in de vervolgkeuzelijst  
 
-    ![Installatie](./media/multi-factor-authentication-end-user-first-time/office.png)  
+    ![Instellen](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. Het vak telefoonnummer wordt automatisch gevuld met de contactgegevens van uw bedrijf. Als het nummer onjuist of ontbreekt is, vraag uw beheerder te wijzigen.
 3. Selecteer **Contact me** om te controleren of uw telefoon-nummer en we het nummer van uw worden gebeld. Volg de instructies op het scherm en selecteer vervolgens **controleren**.
 4. Op dit moment wordt u gevraagd voor het instellen van app-wachtwoorden voor niet-browsertoepassingen zoals Outlook 2010 of ouder bent, of de systeemeigen e-mail-app voor Apple-apparaten. Dit is omdat sommige apps bieden geen ondersteuning voor verificatie in twee stappen. Als u deze apps niet gebruikt, klikt u op **gedaan** en de rest van de stappen overslaan.

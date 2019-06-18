@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 6bb587de2f0f3ef9c4e8c4a856ee4b7430e9b9cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631547"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715214"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Oplossen van problemen met de implementatie van de StorSimple-apparaat
 ## <a name="overview"></a>Overzicht
@@ -82,7 +82,7 @@ De volgende tabellen worden de algemene fouten die wanneer optreden mogelijk u:
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Fouten tijdens de optionele web proxy-instellingen
 | Nee. | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 | --- | --- | --- | --- |
-| 1 |Invoke-hcssetupwizard uit: Ongeldige parameter (uitzondering van HRESULT: 0x80070057) |Een van de opgegeven parameters voor de proxy-instellingen is niet geldig. |De URI is niet opgegeven in de juiste indeling. Gebruik de volgende indeling: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 1 |Invoke-hcssetupwizard uit: Ongeldige parameter (uitzondering van HRESULT: 0x80070057) |Een van de opgegeven parameters voor de proxy-instellingen is niet geldig. |De URI is niet opgegeven in de juiste indeling. Gebruik de volgende indeling: http:// *\<IP-adres of FQDN-naam van de webproxyserver >* : *\<TCP-poortnummer >* |
 | 2 |Invoke-hcssetupwizard uit: RPC-server niet beschikbaar (uitzondering van HRESULT: 0x800706ba) |De hoofdoorzaak is een van de volgende opties:<ol><li>Het cluster is niet maximaal.</li><li>De passieve controller niet kan communiceren met de actieve controller en de opdracht wordt uitgevoerd vanaf de passieve controller.</li></ol> |Afhankelijk van de hoofdoorzaak:<ol><li>[Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) om ervoor te zorgen dat het cluster actief is.</li><li>Voer de opdracht uit vanaf de actieve controller. Als u de opdracht uitvoeren vanaf de passieve controller wilt, moet u om ervoor te zorgen dat de passieve controller met de actieve controller communiceren kan. U moet [Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) als deze verbinding verbroken is.</li></ol> |
 | 3 |Invoke-hcssetupwizard uit: RPC-aanroep is mislukt (uitzondering van HRESULT: 0x800706be) |Cluster is niet actief. |[Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) om ervoor te zorgen dat het cluster actief is. |
 | 4 |Invoke-hcssetupwizard uit: Cluster-bron is niet gevonden (uitzondering van HRESULT: 0x8007138f) |De cluster-bron is niet gevonden. Dit kan gebeuren wanneer de installatie niet juist is. |Mogelijk moet u het apparaat opnieuw instellen op de standaardfabrieksinstellingen. [Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) om de clusterbron van een te maken. |
@@ -111,7 +111,7 @@ U kunt een of meer van de volgende fouten tegenkomen bij het instellen van de ap
 | 4 |Het wachtwoord moet tekens bevatten. |Wachtwoorden moeten 3 van de volgende tekentypen van 4 bevatten: kleine letters, hoofdletters, numerieke en speciale. Zorg ervoor dat uw wachtwoord voldoet aan deze vereisten. |
 | 5 |Het wachtwoord moet tekens bevatten. |Wachtwoorden moeten 3 van de volgende tekentypen van 4 bevatten: kleine letters, hoofdletters, numerieke en speciale. Zorg ervoor dat uw wachtwoord voldoet aan deze vereisten. |
 | 6 |Het wachtwoord moet 3 van de volgende tekentypen van 4 bevatten: hoofdletters, kleine letters, cijfers en speciale. |Uw wachtwoord bevat niet de vereiste typen tekens. Zorg ervoor dat uw wachtwoord voldoet aan deze vereisten. |
-| 7 |De parameter komt niet overeen met de bevestiging. |Zorg ervoor dat uw wachtwoord voldoet aan alle vereisten en dat u deze correct ingevoerd. |
+| 7 |Parameter komt niet overeen met de bevestiging. |Zorg ervoor dat uw wachtwoord voldoet aan alle vereisten en dat u deze correct ingevoerd. |
 | 8 |Uw wachtwoord mag niet overeenkomen met de standaardwaarde. |Is het standaardwachtwoord *Wachtwoord1*. U moet dit wachtwoord wijzigen nadat u zich aanmeldt voor de eerste keer. |
 | 9 |Het wachtwoord die u hebt ingevoerd komt niet overeen met het wachtwoord van het apparaat. Geef het wachtwoord. |Controleer het wachtwoord en typ het opnieuw. |
 

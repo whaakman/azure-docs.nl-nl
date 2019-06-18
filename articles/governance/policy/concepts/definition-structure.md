@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979554"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
@@ -70,7 +70,7 @@ Alle voorbeelden van Azure Policy lopen [voorbeelden voor Azure Policy](../sampl
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="mode"></a>modus
+## <a name="mode"></a>Modus
 
 De **modus** bepaalt welke resourcetypen voor een beleid wordt geëvalueerd. De ondersteunde modi zijn:
 
@@ -385,7 +385,7 @@ Azure-beleid ondersteunt de volgende typen effect:
 
 - **Weigeren**: genereert een gebeurtenis in het activiteitenlogboek en de aanvraag is mislukt
 - **Audit**: genereert een waarschuwingsgebeurtenis in het activiteitenlogboek, maar niet de aanvraag mislukt
-- **Toevoeg-**: voegt de gedefinieerde set velden toe aan de aanvraag
+- **Toevoeg-** : voegt de gedefinieerde set velden toe aan de aanvraag
 - **AuditIfNotExists**: kunt controleren als een resource bestaat niet
 - **DeployIfNotExists**: implementeert een resource als deze nog niet bestaat
 - **Uitgeschakelde**: resources voor naleving van de beleidsregel niet evalueren
@@ -505,7 +505,7 @@ Aantal van de aliassen die beschikbaar zijn hebben een versie die wordt weergege
 
 De alias 'normale' vertegenwoordigt het veld als één waarde. Dit veld is voor de exacte overeenkomst vergelijking scenario's als de volledige set van waarden exact zoals is gedefinieerd, moet niet meer en niet kleiner.
 
-De **[\*]** alias maakt het mogelijk om te vergelijken met de waarde van elk element in de matrix en specifieke eigenschappen van elk element. Deze aanpak maakt het mogelijk om te vergelijken van de eigenschappen van het element voor 'als geen van', 'als', of ' als alle van de scenario's. Met behulp van **ipRules [\*]**, een voorbeeld zou worden valideren die elke _actie_ is _weigeren_, maar niet bezig te houden hoeveel regels bestaan of wat het IP-adres _waarde_ is. In dit voorbeeldregel controleert of er overeenkomsten van **ipRules [\*] .value** naar **10.0.4.1** en past de **effectType** alleen als er ten minste één overeenkomst niet gevonden:
+De **[\*]** alias maakt het mogelijk om te vergelijken met de waarde van elk element in de matrix en specifieke eigenschappen van elk element. Deze aanpak maakt het mogelijk om te vergelijken van de eigenschappen van het element voor 'als geen van', 'als', of ' als alle van de scenario's. Met behulp van **ipRules [\*]** , een voorbeeld zou worden valideren die elke _actie_ is _weigeren_, maar niet bezig te houden hoeveel regels bestaan of wat het IP-adres _waarde_ is. In dit voorbeeldregel controleert of er overeenkomsten van **ipRules [\*] .value** naar **10.0.4.1** en past de **effectType** alleen als er ten minste één overeenkomst niet gevonden:
 
 ```json
 "policyRule": {

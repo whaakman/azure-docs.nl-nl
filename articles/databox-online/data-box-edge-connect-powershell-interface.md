@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717498"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Een Azure Data Box-Edge-apparaat via Windows PowerShell beheren
@@ -43,7 +43,7 @@ In dit artikel bevat de volgende procedures:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-U kunt ook IoT Edge-certificaten om in te schakelen van een beveiligde verbinding tussen uw IoT Edge-apparaat en de downstream-apparaten die verbinding met het maken kunnen uploaden. Er zijn drie certificaten voor IoT Edge (*.pem* indeling) die u nodig hebt om te installeren:
+U kunt ook IoT Edge-certificaten om in te schakelen van een beveiligde verbinding tussen uw IoT Edge-apparaat en de downstream-apparaten die verbinding met het maken kunnen uploaden. Er zijn drie certificaten voor IoT Edge ( *.pem* indeling) die u nodig hebt om te installeren:
 
 - Basis-CA-certificaat of de eigenaar van de CA
 - Device CA-certificaat

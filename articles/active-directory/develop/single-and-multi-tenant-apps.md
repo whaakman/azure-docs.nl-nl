@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db590c8c79db9bc47edbbef69a11d3b0e4b51f6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111070"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenants in Azure Active Directory
 
@@ -38,8 +38,8 @@ U kunt uw app om te worden van één tenant of meerdere tenants door in te stell
 
 | Doelgroep | Eén/meerdere-tenant | Wie zich kan aanmelden | 
 |----------|--------| ---------|
-| Accounts in deze map alleen | Eén tenant | Alle gebruikers- en gastaccounts in uw map kunnen gebruikmaken van uw toepassing of API.<br>*Gebruik deze optie als uw doelgroep intern voor uw organisatie is.* |
-| Accounts in een Azure AD-map | Multitenant | Alle gebruikers en gasten met een werk- of schoolaccount van Microsoft kunnen u uw toepassing of de API gebruiken. Dit omvat scholen en bedrijven die gebruikmaken van Office 365.<br>*Gebruik deze optie als de doelgroep bestaat uit bedrijf of onderwijsinstelling klanten.* |
+| Accounts in deze map alleen | Eén tenant | Alle gebruikers- en gastaccounts in uw directory kunnen u uw toepassing of de API gebruiken.<br>*Gebruik deze optie als uw doelgroep intern voor uw organisatie is.* |
+| Accounts in een Azure AD-directory | Multitenant | Alle gebruikers en gasten met een werk- of schoolaccount van Microsoft kunnen u uw toepassing of de API gebruiken. Dit omvat scholen en bedrijven die gebruikmaken van Office 365.<br>*Gebruik deze optie als de doelgroep bestaat uit bedrijf of onderwijsinstelling klanten.* |
 | Accounts in een Azure AD-directory en persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com) | Multitenant | Alle gebruikers met een werk- of school- of persoonlijk Microsoft-account kunnen gebruiken voor uw toepassing of de API. Het bevat scholen en bedrijven die gebruikmaken van Office 365, evenals persoonlijke accounts die worden gebruikt om aan te melden bij services als Xbox en Skype.<br>*Gebruik deze optie om het doel van de uitgebreide set Microsoft-accounts.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Aanbevolen procedures voor apps met meerdere tenants

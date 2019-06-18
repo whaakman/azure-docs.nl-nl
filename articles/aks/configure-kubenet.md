@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808569"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Gebruik van kubenet netwerken met uw eigen IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,7 @@ De volgende eenvoudige berekeningen Vergelijk het verschil in netwerk modellen:
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering op virtueel netwerk- en ExpressRoute-verbindingen
 
-Voor on-premises-connectiviteit, beide *kubenet* en *Azure CNI* netwerk benaderingen kunt [peering op virtueel netwerk] [ vnet-peering]of [ExpressRoute-verbindingen][express-route]. Plan de IP-adresbereiken zorgvuldig om te voorkomen dat overlapping en onjuiste verkeersroutering. Bijvoorbeeld: veel on-premises netwerken gebruiken een *10.0.0.0/8* adresbereik die wordt geadverteerd via de ExpressRoute-verbinding. Het is raadzaam om te maken van uw AKS-clusters in Azure-netwerksubnetten buiten dit adresbereik zoals *172.26.0.0/16*.
+Voor on-premises-connectiviteit, beide *kubenet* en *Azure CNI* netwerk benaderingen kunt [peering op virtueel netwerk] [ vnet-peering]of [ExpressRoute-verbindingen][express-route]. Plan de IP-adresbereiken zorgvuldig om te voorkomen dat overlapping en onjuiste verkeersroutering. Bijvoorbeeld: veel on-premises netwerken gebruiken een *10.0.0.0/8* adresbereik die wordt geadverteerd via de ExpressRoute-verbinding. Het is raadzaam om te maken van uw AKS-clusters in Azure-netwerksubnetten buiten dit adresbereik zoals *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Kies een netwerk-model te gebruiken
 
@@ -92,15 +92,15 @@ Aan de slag met het gebruik van *kubenet* en het subnet van uw eigen virtuele ne
 az group create --name myResourceGroup --location eastus
 ```
 
-Als u geen een bestaand virtueel netwerk en subnet te gebruiken, maakt u deze netwerkbronnen met behulp van de [az network vnet maken] [ az-network-vnet-create] opdracht. In het volgende voorbeeld wordt het virtuele netwerk met de naam *myVnet* met het adresvoorvoegsel van *10.0.0.0/8*. Een subnet wordt gemaakt met de naam *myAKSSubnet* met het adresvoorvoegsel *10.240.0.0/16*.
+Als u geen een bestaand virtueel netwerk en subnet te gebruiken, maakt u deze netwerkbronnen met behulp van de [az network vnet maken] [ az-network-vnet-create] opdracht. In het volgende voorbeeld wordt het virtuele netwerk met de naam *myVnet* met het adresvoorvoegsel van *192.168.0.0/16*. Een subnet wordt gemaakt met de naam *myAKSSubnet* met het adresvoorvoegsel *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroup \
     --name myAKSVnet \
-    --address-prefixes 10.0.0.0/8 \
+    --address-prefixes 192.168.0.0/16 \
     --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
+    --subnet-prefix 192.168.1.0/24
 ```
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>Een service-principal maken en toewijzen van machtigingen
@@ -150,7 +150,7 @@ De volgende IP-adresbereiken zijn ook worden gedefinieerd als onderdeel van het 
 
 * De *--pod-cidr* moet een grote adresruimte die zich niet in gebruik ergens anders in uw netwerkomgeving. Dit bereik omvat alle on-premises netwerkbereiken als u verbinding maken of van plan bent om uw virtuele netwerken van Azure Express Route of Site-naar-Site VPN-verbinding verbinding te maken.
     * Dit adresbereik moet groot genoeg is voor het aantal knooppunten die u verwacht te schalen tot. U kunt dit adresbereik niet wijzigen nadat het cluster is geïmplementeerd als u meer adressen voor extra knooppunten nodig hebt.
-    * De schil IP-adresbereik wordt gebruikt om toe te wijzen een */24* -adresruimte aan elk knooppunt in het cluster. In het volgende voorbeeld wordt de *--pod-cidr* van *192.168.0.0/16* het eerste knooppunt toegewezen *192.168.0.0/24*, het tweede knooppunt *192.168.1.0/24*, en het derde knooppunt *192.168.2.0/24*.
+    * De schil IP-adresbereik wordt gebruikt om toe te wijzen een */24* -adresruimte aan elk knooppunt in het cluster. In het volgende voorbeeld wordt de *--pod-cidr* van *10.244.0.0/16* het eerste knooppunt toegewezen *10.244.0.0/24*, het tweede knooppunt *10.244.1.0/24*, en het derde knooppunt *10.244.2.0/24*.
     * Als het cluster schalen of upgrades worden uitgevoerd blijft het Azure-platform een pod IP-adresbereik toewijzen aan elke nieuwe knooppunt.
     
 * De *--docker-bridge-adres* kiest, kunnen de AKS-knooppunten met het onderliggende management-platform communiceren. Dit IP-adres mag niet binnen het virtuele netwerk IP-adresbereik van het cluster, en mag niet overlappen met andere adresbereiken in gebruik is op uw netwerk.
@@ -163,7 +163,7 @@ az aks create \
     --network-plugin kubenet \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
-    --pod-cidr 192.168.0.0/16 \
+    --pod-cidr 10.244.0.0/16 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal <appId> \

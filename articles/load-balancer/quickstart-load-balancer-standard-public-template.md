@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 0e47560ca43b23f4779da701f3e6f11f53a6b1ce
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c418041c5de343d7210dbd153ebe6cea0af95c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480401"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066804"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Quickstart: Een Standard Load Balancer om taken te verdelen VM's met behulp van Azure Resource Manager-sjabloon maken
 
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 In deze sectie maakt u een Standard Load Balancer die helpt bij het laden van verdelen over virtuele machines. Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Als u een Standard Load Balancer maakt, moet u ook een nieuw, standaard, openbaar IP-adres maken dat als de front-end (standaard *LoadBalancerFrontend* genoemd) wordt geconfigureerd voor de Standard Load Balancer. Er zijn veel methoden die kunnen worden gebruikt voor het maken van een standard load balancer. In deze snelstartgids hebt u Azure PowerShell gebruiken om te implementeren een [Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie voor meer informatie over de concepten die zijn gekoppeld aan het implementeren en beheren van uw Azure-oplossingen, [Azure Resource Manager-documentatie](/azure/azure-resource-manager/). Als u meer gerelateerde Azure Load Balancer-sjabloon, bezoekt [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-Als u wilt implementeren de sjabloon, selecteert u **uitproberen** Azure Cloud shell openen en plak het volgende PowerShell-script in de shell-venster. Als u de code, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**.
+Als u wilt implementeren de sjabloon, selecteert u **uitproberen** Azure Cloud shell openen en plak het volgende PowerShell-script in de shell-venster. Als u de code, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**. Zie voor een lijst met regio's die ondersteuning bieden voor binnen een beschikbaarheidszone voor virtuele machines van Azure, [hier](../availability-zones/az-overview.md).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
@@ -45,9 +45,13 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+
+Write-Host "Press [ENTER] to continue."
+
 ```
 
-U ziet dat de naam van de resource is de naam van het project met **rg** toegevoegd. U moet de naam van de resourcegroep in de volgende sectie.  Het duurt een paar minuten om de resources te maken.
+ >[!NOTE]
+ >Naam van de resourcegroep met de naam van het project is **rg** toegevoegd. U moet de naam van de resourcegroep in de volgende sectie.  Het duurt een paar minuten om de resources te maken.
 
 ## <a name="test-the-load-balancer"></a>Test de Load Balancer
 

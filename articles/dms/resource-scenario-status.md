@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473005"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status van het migratiescenario's ondersteund door Azure Database Migration Service
@@ -39,7 +39,7 @@ De volgende tabellen ziet welke migratiescenario's worden ondersteund bij het ge
 ### <a name="offline-one-time-migration-support"></a>Ondersteuning voor offline (eenmalig) worden gemigreerd
 De volgende tabel ziet u Azure Database Migration Service ondersteuning voor offline migraties.
 
-| Doel  | Bron | Ondersteuning | Status |
+| Doel  | source | Ondersteuning | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Algemene beschikbaarheid |
 |   | RDS SQL |  |  |
@@ -58,7 +58,7 @@ De volgende tabel ziet u Azure Database Migration Service ondersteuning voor off
 ### <a name="online-continuous-sync-migration-support"></a>Ondersteuning voor online (doorlopende synchronisatie)
 De volgende tabel ziet u Azure Database Migration Service ondersteuning voor online migraties.
 
-| Doel  | Bron | Ondersteuning | Status |
+| Doel  | source | Ondersteuning | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Algemene beschikbaarheid |
 |   | RDS SQL | ✔ | Algemene beschikbaarheid |

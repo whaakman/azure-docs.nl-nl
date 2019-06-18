@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035714"
 ---
 # <a name="in-memory-sample"></a>In-Memory-voorbeeld
@@ -406,7 +406,7 @@ In een database met de prijscategorie P2, kunt u verwachten dat ongeveer negen k
 
 - Zie [algemene patronen van de werkbelasting en overwegingen bij migraties](https://msdn.microsoft.com/library/dn673538.aspx) (welke optie beschrijft werkbelasting patronen waar In-Memory OLTP vaak aanzienlijke prestatievoordelen biedt)
 
-#### <a name="application-design"></a>Het ontwerp van toepassing
+#### <a name="application-design"></a>Toepassingsontwerp
 
 - [In-Memory OLTP (optimalisatie In het geheugen)](https://msdn.microsoft.com/library/dn133186.aspx)
 

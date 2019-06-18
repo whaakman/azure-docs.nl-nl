@@ -1,7 +1,7 @@
 ---
-title: Bot - C# - v4
+title: Language Understanding Bot C# v4-processors
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot maakt gebruik van de app Human Resources om snel een botoplossing te implementeren. De bot is gebouwd met Bot Framework versie 4 en de Azure-web-app-bot.
+description: Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). De bot is gebouwd met de Bot Framework-versie 4 en de Azure-Web-app-bot-service.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -9,26 +9,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 06/17/2019
 ms.author: diberry
-ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f74becc24e5d04cefdd05066b8431946578cc35e
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710080"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151057"
 ---
-# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Zelfstudie: LUIS-bot in C# met Bot Framework 4.x en de Azure-web-app-bot
-Met C# kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt gebruik van de app HomeAutomation om een botoplossing te implementeren. De bot is gebouwd aan de hand van de Azure-[web-app-bot](https://docs.microsoft.com/azure/bot-service/) en [Bot Framework versie](https://github.com/Microsoft/botbuilder-js) 4.
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Zelfstudie: Gebruik een Web-App-Bot ingeschakeld met Language Understanding inC#
+
+Gebruik C# een chatbot bouwen die is geïntegreerd met taalbegrip (LUIS). De bot is gebouwd met de Azure [Web-app-bot](https://docs.microsoft.com/azure/bot-service/) resource en [Bot Framework-versie](https://github.com/Microsoft/botbuilder-dotnet) V4-processors.
 
 **In deze zelfstudie leert u het volgende:**
 
 > [!div class="checklist"]
 > * Een web-app-bot maken. Bij dit proces wordt een nieuwe LUIS-app gemaakt.
-> * Een vooraf gemaakt domein toevoegen aan het nieuwe LUIS-model
-> * Het project downloaden dat is gemaakt door de webbotservice
+> * De bot-project hebt gemaakt door de webservice van de bot gedownload
 > * De bot en emulator lokaal op uw computer starten
-> * De botcode wijzigen voor nieuwe LUIS-intenties
 > * De uitingsresultaten in de bot bekijken
 
 ## <a name="prerequisites"></a>Vereisten
@@ -37,13 +36,13 @@ Met C# kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 
-## <a name="create-web-app-bot"></a>Een web-app-bot maken
+## <a name="create-a-web-app-bot-resource"></a>Maak een web-app-bot-resource
 
 1. Selecteer in de [Azure-portal](https://portal.azure.com) de optie **Nieuwe resource maken**.
 
-2. Zoek via het zoekvak naar **Web-app-bot** en selecteer deze optie. Selecteer **Maken**.
+1. Zoek via het zoekvak naar **Web-app-bot** en selecteer deze optie. Selecteer **Maken**.
 
-3. In **Bot Service** geeft u de vereiste informatie op:
+1. In **Bot Service** geeft u de vereiste informatie op:
 
     |Instelling|Doel|Aanbevolen instelling|
     |--|--|--|
@@ -55,253 +54,322 @@ Met C# kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt
     |Naam van app|Deze naam wordt gebruikt als subdomein wanneer uw bot wordt geïmplementeerd in de cloud (bijvoorbeeld humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, bijvoorbeeld, `luis-csharp-bot-johnsmith`|
     |Botsjabloon|Instellingen voor het botframework - zie de volgende tabel|
     |Locatie van LUIS-app|Moet hetzelfde zijn als de regio waarin de LUIS-resource zich bevindt|`westus`|
+    |App service-plan/locatie|Niet wijzigen van de opgegeven standaardwaarde.|
+    |Application Insights|Niet wijzigen van de opgegeven standaardwaarde.|
+    |Microsoft App-ID en wachtwoord|Niet wijzigen van de opgegeven standaardwaarde.|
 
-4. In de **botsjablooninstellingen** selecteert u het volgende en kiest u onder deze instellingen de knop **Selecteren**:
+1. In de **Bot sjabloon**, selecteert u het volgende, en kies vervolgens de **Selecteer** knop onder deze instellingen:
 
     |Instelling|Doel|Selectie|
     |--|--|--|
     |SDK-versie|Versie van het botframework|**SDK v4**|
     |SDK-taal|Computertaal van de bot|**C#**|
-    |Echo-/basisbot|Type bot|**Basisbot**|
+    |Bot|Type bot|**Basisbot**|
     
-5. Selecteer **Maken**. Hiermee maakt u de botservice en implementeert u deze in Azure. Bij dit proces wordt een LUIS-app gemaakt met de naam `luis-csharp-bot-XXXX`. Deze naam is gebaseerd op de bot en de app-naam uit het vorige gedeelte.
+1. Selecteer **Maken**. Hiermee maakt u de botservice en implementeert u deze in Azure. Bij dit proces wordt een LUIS-app gemaakt met de naam `luis-csharp-bot-XXXX`. Deze naam is gebaseerd op de naam van de /Azure Bot Service-app.
 
     [![Een web-app-bot maken](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
-6. Laat dit browsertabblad open. Voor alle stappen die u in de LUIS-portal moet uitvoeren, opent u een nieuw tabblad in de browser. Ga door naar het volgende gedeelte zodra de nieuwe botservice is geïmplementeerd.
+    Wacht totdat de botservice is gemaakt voordat u doorgaat.
 
-## <a name="add-prebuilt-domain-to-model"></a>Een vooraf gemaakt domein toevoegen aan een model
-Als onderdeel van de botservice-implementatie wordt er een nieuwe LUIS-app gemaakt met intenties en voorbeelduitingen. Met de bot kunnen de volgende intenties worden toegewezen aan de nieuwe LUIS-app: 
+## <a name="the-bot-has-a-language-understanding-model"></a>De bot is een model Language Understanding
+
+Het proces voor het maken van bot service maakt ook een nieuwe LUIS-app met intents en voorbeeld-uitingen. Met de bot kunnen de volgende intenties worden toegewezen aan de nieuwe LUIS-app: 
 
 |LUIS-intenties van de basisbot|voorbeelduiting|
 |--|--|
-|Annuleren|`stop`|
-|Begroeting|`hello`|
-|Help|`help`|
+|Vlucht|`Travel to Paris`|
+|Annuleren|`bye`|
 |Geen|Alles buiten het domein van de app.|
 
-Voeg de vooraf gemaakte HomeAutomation-app toe aan het model om uitingen als de volgende te kunnen verwerken: `Turn off the living room lights`
+## <a name="test-the-bot-in-web-chat"></a>De bot in Web Chat testen
 
-1. Ga naar de [LUIS](https://www.luis.ai)-portal en meld u aan.
-2. Op de pagina **Mijn apps** selecteert u de kolom **Gemaakt op** om te sorteren op de datum waarop de app is gemaakt. Azure Bot Service heeft in het vorige gedeelte een nieuwe app gemaakt. De naam ervan is `luis-csharp-bot-` + `<your-name>` plus vier willekeurige tekens.
-3. Open de app en selecteer het gedeelte **Bouwen** in de bovenste navigatiebalk.
-4. Selecteer **Vooraf gemaakte domeinen** in het navigatiedeelvenster links.
-5. Selecteer het domein **HomeAutomation** door op de kaart **Domein toevoegen** te selecteren.
-6. Selecteer **Trainen** in het menu rechtsboven.
-7. Selecteer **Publiceren** in het menu rechtsboven. 
+1. Selecteer terwijl u nog in de Azure-portal voor de nieuwe bot **Test in Web Chat**. 
+1. In de **Typ uw bericht** tekstvak, voert u de tekst `hello`. De bot reageert met informatie over de botframework, evenals de voorbeelden van query's voor het specifieke LUIS-model, zoals een vlucht naar Parijs reservering. 
 
-    De app die is gemaakt door Azure Bot Service, heeft nu nieuwe intenties:
+    ![Schermopname van Azure-portal, voer de tekst 'Hallo'.](./media/bfv4-csharp/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    |Nieuwe basisbotintenties|voorbeelduiting|
-    |--|--|
-    |HomeAutomation.TurnOn|`turn the fan to high`
-    |HomeAutomation.TurnOff|`turn off ac please`|
+    U kunt de test-functionaliteit gebruiken voor het snel testen van uw bot. Voor meer voltooien testen, inclusief foutopsporing, downloaden de bot-code en Visual Studio gebruiken. 
 
-## <a name="download-the-web-app-bot"></a>De web-app-bot downloaden 
+## <a name="download-the-web-app-bot-source-code"></a>De code van de bot bron voor de web-app downloaden
 Als u de code van de web-app-bot verder wilt ontwikkelen, downloadt u de code en gebruikt u deze op uw lokale computer. 
 
-1. In de Azure-portal, in de resource van de web-app-bot, selecteert u de **toepassingsinstellingen** en kopieert u de waarden van **botFilePath** en **botFileSecret**. U moet deze later toevoegen aan een omgevingsbestand. 
+1. In de Azure-portal selecteert u **Bouwen** in het gedeelte **Botbeheer**. 
 
-2. In de Azure-portal selecteert u **Bouwen** in het gedeelte **Botbeheer**. 
-
-3. Selecteer **Broncode bot downloaden**. 
+1. Selecteer **Broncode bot downloaden**. 
 
     [![Download de broncode van de web-app-bot voor de basisbot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-4. Als de broncode is ingepakt, ziet u een bericht met een link voor het downloaden van de code. Selecteer de link. 
+1. Wanneer het pop-updialoogvenster vraagt **app-instellingen in het gedownloade zip-bestand opnemen?** , selecteer **Ja**.
 
-5. Sla het zip-bestand op uw lokale computer op en pak de bestanden uit. Open het project. 
+1. Als de broncode is ingepakt, ziet u een bericht met een link voor het downloaden van de code. Selecteer de link. 
 
-6. Open het bestand bot.cs en zoek naar `_services.LuisServices`. Hier wordt de uiting die de gebruiker heeft ingevoerd in de bot naar LUIS verzonden.
+1. Sla het zip-bestand op uw lokale computer op en pak de bestanden uit. Open het project met Visual Studio. 
+
+## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Code utterance naar LUIS verzenden en ophalen van antwoord bekijken
+
+1. Open de **LuisHelper.cs** bestand. Hier wordt de uiting die de gebruiker heeft ingevoerd in de bot naar LUIS verzonden. De reactie van LUIS wordt geretourneerd vanaf de methode als een **BookDetails** object. Wanneer u uw eigen bot maakt, moet u ook uw eigen object om de details van LUIS terug te maken. 
+
 
     ```csharp
-    /// <summary>
-    /// Run every turn of the conversation. Handles orchestration of messages.
-    /// </summary>
-    /// <param name="turnContext">Bot Turn Context.</param>
-    /// <param name="cancellationToken">Task CancellationToken.</param>
-    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-    public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken)
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    using System;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Bot.Builder;
+    using Microsoft.Bot.Builder.AI.Luis;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Logging;
+    
+    namespace Microsoft.BotBuilderSamples
     {
-        var activity = turnContext.Activity;
-
-        if (activity.Type == ActivityTypes.Message)
+        public static class LuisHelper
         {
-            // Perform a call to LUIS to retrieve results for the current activity message.
-            var luisResults = await _services.LuisServices[LuisConfiguration].RecognizeAsync(turnContext, cancellationToken).ConfigureAwait(false);
-
-            // If any entities were updated, treat as interruption.
-            // For example, "no my name is tony" will manifest as an update of the name to be "tony".
-            var topScoringIntent = luisResults?.GetTopScoringIntent();
-
-            var topIntent = topScoringIntent.Value.intent;
-            switch (topIntent)
+            public static async Task<BookingDetails> ExecuteLuisQuery(IConfiguration configuration, ILogger logger, ITurnContext turnContext, CancellationToken cancellationToken)
             {
-                case GreetingIntent:
-                    await turnContext.SendActivityAsync("Hello.");
-                    break;
-                case HelpIntent:
-                    await turnContext.SendActivityAsync("Let me try to provide some help.");
-                    await turnContext.SendActivityAsync("I understand greetings, being asked for help, or being asked to cancel what I am doing.");
-                    break;
-                case CancelIntent:
-                    await turnContext.SendActivityAsync("I have nothing to cancel.");
-                    break;
-                case NoneIntent:
-                default:
-                    // Help or no intent identified, either way, let's provide some help.
-                    // to the user
-                    await turnContext.SendActivityAsync("I didn't understand what you just said to me.");
-                    break;
-            }
-        }
-        else if (activity.Type == ActivityTypes.ConversationUpdate)
-        {
-            if (activity.MembersAdded.Any())
-            {
-                // Iterate over all new members added to the conversation.
-                foreach (var member in activity.MembersAdded)
+                var bookingDetails = new BookingDetails();
+    
+                try
                 {
-                    // Greet anyone that was not the target (recipient) of this message.
-                    // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards for more details.
-                    if (member.Id != activity.Recipient.Id)
+                    // Create the LUIS settings from configuration.
+                    var luisApplication = new LuisApplication(
+                        configuration["LuisAppId"],
+                        configuration["LuisAPIKey"],
+                        "https://" + configuration["LuisAPIHostName"]
+                    );
+    
+                    var recognizer = new LuisRecognizer(luisApplication);
+    
+                    // The actual call to LUIS
+                    var recognizerResult = await recognizer.RecognizeAsync(turnContext, cancellationToken);
+    
+                    var (intent, score) = recognizerResult.GetTopScoringIntent();
+                    if (intent == "Book_flight")
                     {
-                        var welcomeCard = CreateAdaptiveCardAttachment();
-                        var response = CreateResponse(activity, welcomeCard);
-                        await turnContext.SendActivityAsync(response).ConfigureAwait(false);
+                        // We need to get the result from the LUIS JSON which at every level returns an array.
+                        bookingDetails.Destination = recognizerResult.Entities["To"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
+                        bookingDetails.Origin = recognizerResult.Entities["From"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
+    
+                        // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
+                        // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
+                        bookingDetails.TravelDate = recognizerResult.Entities["datetime"]?.FirstOrDefault()?["timex"]?.FirstOrDefault()?.ToString().Split('T')[0];
                     }
                 }
+                catch (Exception e)
+                {
+                    logger.LogWarning($"LUIS Exception: {e.Message} Check your LUIS configuration.");
+                }
+    
+                return bookingDetails;
             }
         }
-
     }
     ```
 
-    De bot verzendt de uiting van de gebruiker naar LUIS en haalt de resultaten op. De belangrijkste intentie bepaalt hoe de conversatie verder verloopt. 
+1. Open **BookingDetails.cs** om weer te geven hoe het object isoleert de LUIS-informatie. 
 
-
-## <a name="start-the-bot"></a>De bot starten
-Voordat u code of instellingen wijzigt, controleert u of de bot werkt. 
-
-1. Open het oplossingenbestand in Visual Studio. 
-
-2. Maak een `appsettings.json`-bestand voor het opslaan van de botvariabelen waar de botcode naar op zoek gaat:
-
-    ```JSON
+    ```csharp
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    namespace Microsoft.BotBuilderSamples
     {
-    "botFileSecret": "",
-    "botFilePath": ""
-
+        public class BookingDetails
+        {
+            public string Destination { get; set; }
+    
+            public string Origin { get; set; }
+    
+            public string TravelDate { get; set; }
+        }
     }
     ```
 
-    Stel de waarden van de variabelen in op de waarden die u hebt gekopieerd uit de toepassingsinstellingen van Azure Bot Service. Dit is gebeurd in stap 1 van het gedeelte **[De web-app-bot downloaden](#download-the-web-app-bot)**.
-
-3. Start de bot in Visual Studio. Er wordt een browservenster geopend met de website van de web-app-bot op `http://localhost:3978/`.
-
-## <a name="start-the-emulator"></a>De emulator starten
-
-1. Open de botemulator.
-
-2. In de botemulator selecteert u het *.bot-bestand in de hoofdmap van het project. Het `.bot`-bestand bevat het URL-eindpunt die de bot gebruikt voor berichten:
-
-    [![Botemulator versie 4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
-
-3. Voer het botgeheim in dat u hebt gekopieerd uit de toepassingsinstellingen van Azure Bot Service. Dit is gebeurd in stap 1 van het gedeelte **[De web-app-bot downloaden](#download-the-web-app-bot)**. Hiermee krijgt de emulator toegang tot alle versleutelde velden in het `.bot`-bestand.
-
-    ![Geheim in botemulator versie 4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
-
-4. Voer `Hello` in de botemulator in en haal het juiste antwoord op bij de basisbot.
-
-    [![Antwoord van de basisbot in de emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
-
-## <a name="modify-bot-code"></a>Botcode wijzigen 
-
-In het bestand `BasicBot.cs` voegt u code toe om de nieuwe intenties te verwerken. 
-
-1. Boven in het bestand gaat u naar het gedeelte **Ondersteunde LUIS-intenties** en voegt u constanten toe voor de HomeAutomation-intenties:
+1. Open **dialoogvensters -> BookingDialog.cs** om te begrijpen hoe de BookingDetails-object wordt gebruikt voor het beheren van de conversatie-stroom. Reizen details in stappen wordt gevraagd, wordt de hele boeking is bevestigd en ten slotte terug naar de gebruiker wordt herhaald. 
 
     ```csharp
-    // Supported LUIS Intents
-    public const string GreetingIntent = "Greeting";
-    public const string CancelIntent = "Cancel";
-    public const string HelpIntent = "Help";
-    public const string NoneIntent = "None";
-    public const string TurnOnIntent = "HomeAutomation_TurnOn"; // new intent
-    public const string TurnOffIntent = "HomeAutomation_TurnOff"; // new intent
-    ```
-
-    De punt (`.`) tussen het domein en de intentie uit de LUIS-portal-app is vervangen door een onderstrepingsteken (`_`). 
-
-2. Zoek de **OnTurnAsync**-methode die de LUIS-voorspelling van de uiting ontvangt. Voeg code toe in de switch-instructie om de LUIS-reactie te retourneren voor de twee HomeAutomation-intenties. 
-
-    ```csharp
-    case TurnOnIntent:
-        await turnContext.SendActivityAsync("TurnOn intent found, JSON response: " + luisResults?.Entities.ToString());
-        break;
-    case TurnOffIntent:
-        await turnContext.SendActivityAsync("TurnOff intent found, JSON response: " + luisResults?.Entities.ToString());
-        break;
-    ```
-
-    De bot heeft niet precies hetzelfde antwoord als een LUIS REST API-aanvraag. Het is dus belangrijk om de verschillen te leren kennen door naar de JSON-reactie te kijken. De tekst- en intentie-eigenschappen zijn hetzelfde, maar de eigenschapswaarden van de entiteiten zijn gewijzigd. 
-
-    ```JSON
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Bot.Builder;
+    using Microsoft.Bot.Builder.Dialogs;
+    using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
+    
+    namespace Microsoft.BotBuilderSamples.Dialogs
     {
-        "$instance": {
-            "HomeAutomation_Device": [
+        public class BookingDialog : CancelAndHelpDialog
+        {
+            public BookingDialog()
+                : base(nameof(BookingDialog))
+            {
+                AddDialog(new TextPrompt(nameof(TextPrompt)));
+                AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt)));
+                AddDialog(new DateResolverDialog());
+                AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
                 {
-                    "startIndex": 23,
-                    "endIndex": 29,
-                    "score": 0.9776345,
-                    "text": "lights",
-                    "type": "HomeAutomation.Device"
-                }
-            ],
-            "HomeAutomation_Room": [
+                    DestinationStepAsync,
+                    OriginStepAsync,
+                    TravelDateStepAsync,
+                    ConfirmStepAsync,
+                    FinalStepAsync,
+                }));
+    
+                // The initial child Dialog to run.
+                InitialDialogId = nameof(WaterfallDialog);
+            }
+    
+            private async Task<DialogTurnResult> DestinationStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                if (bookingDetails.Destination == null)
                 {
-                    "startIndex": 12,
-                    "endIndex": 22,
-                    "score": 0.9079433,
-                    "text": "livingroom",
-                    "type": "HomeAutomation.Room"
+                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where would you like to travel to?") }, cancellationToken);
                 }
-            ]
-        },
-        "HomeAutomation_Device": [
-            "lights"
+                else
+                {
+                    return await stepContext.NextAsync(bookingDetails.Destination, cancellationToken);
+                }
+            }
+    
+            private async Task<DialogTurnResult> OriginStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                bookingDetails.Destination = (string)stepContext.Result;
+    
+                if (bookingDetails.Origin == null)
+                {
+                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where are you traveling from?") }, cancellationToken);
+                }
+                else
+                {
+                    return await stepContext.NextAsync(bookingDetails.Origin, cancellationToken);
+                }
+            }
+            private async Task<DialogTurnResult> TravelDateStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                bookingDetails.Origin = (string)stepContext.Result;
+    
+                if (bookingDetails.TravelDate == null || IsAmbiguous(bookingDetails.TravelDate))
+                {
+                    return await stepContext.BeginDialogAsync(nameof(DateResolverDialog), bookingDetails.TravelDate, cancellationToken);
+                }
+                else
+                {
+                    return await stepContext.NextAsync(bookingDetails.TravelDate, cancellationToken);
+                }
+            }
+    
+            private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                bookingDetails.TravelDate = (string)stepContext.Result;
+    
+                var msg = $"Please confirm, I have you traveling to: {bookingDetails.Destination} from: {bookingDetails.Origin} on: {bookingDetails.TravelDate}";
+    
+                return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions { Prompt = MessageFactory.Text(msg) }, cancellationToken);
+            }
+    
+            private async Task<DialogTurnResult> FinalStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                if ((bool)stepContext.Result)
+                {
+                    var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                    return await stepContext.EndDialogAsync(bookingDetails, cancellationToken);
+                }
+                else
+                {
+                    return await stepContext.EndDialogAsync(null, cancellationToken);
+                }
+            }
+    
+            private static bool IsAmbiguous(string timex)
+            {
+                var timexProperty = new TimexProperty(timex);
+                return !timexProperty.Types.Contains(Constants.TimexTypes.Definite);
+            }
+        }
+    }
+    ```
+
+
+## <a name="start-the-bot-code-in-visual-studio"></a>De bot-code in Visual Studio starten
+
+Start de bot in Visual Studio. Er wordt een browservenster geopend met de website van de web-app-bot op `http://localhost:3978/`. Er wordt een startpagina weergegeven met informatie over uw bot.
+
+![Er wordt een startpagina weergegeven met informatie over uw bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
+
+## <a name="use-the-bot-emulator-to-test-the-bot"></a>De bot-emulator gebruikt voor het testen van de bot
+
+1. Beginnen met de Bot-Emulator en selecteer **Open Bot**.
+1. In de **openen van een bot** pop-upvenster, voer de URL van uw bot, zoals `http://localhost:3978/api/messages`. De `/api/messages` route is het webadres van de bot.
+1. Voer de **Microsoft App-ID** en **Microsoft App-wachtwoord**vindt u in de **appsettings.json** bestand in de hoofdmap van de bot-code die u hebt gedownload.
+
+    (Optioneel) u een nieuwe bot kunt maken, configuratie en kopieer de `appId` en `appPassword` uit de **appsettings.json** bestand in de Visual Studio-project voor de bot. De naam van het configuratiebestand van de bot moet hetzelfde zijn als de botnaam van de. 
+
+    ```json
+    {
+        "name": "<bot name>",
+        "description": "<bot description>",
+        "services": [
+            {
+                "type": "endpoint",
+                "appId": "<appId from appsettings.json>",
+                "appPassword": "<appPassword from appsettings.json>",
+                "endpoint": "http://localhost:3978/api/messages",
+                "id": "<don't change this value>",
+                "name": "http://localhost:3978/api/messages"
+            }
         ],
-        "HomeAutomation_Room": [
-            "livingroom"
-        ]
+        "padlock": "",
+        "version": "2.0",
+        "overrides": null,
+        "path": "<local path to .bot file>"
     }
     ```
 
+1. Voer in de emulator bot `Hello` en hetzelfde antwoord voor de basic-bot als u hebt ontvangen de **Test in Web Chat**.
+
+    [![Antwoord van de basisbot in de emulator](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 
-## <a name="view-results-in-bot"></a>Resultaten in de bot bekijken
+## <a name="ask-bot-a-question-for-the-book-flight-intent"></a>Een vraag stellen bot voor het doel vlucht
 
-1. Voer in de botemulator de volgende uiting in: `Turn on the livingroom lights to 50%`
+1. Boek een vlucht door in te voeren van de volgende utterance in de emulator bot: 
 
-2. De bot reageert met:
+    ```bot
+    Book a flight from Paris to Berlin on March 22, 2020
+    ```
 
-    ```JSON
-    TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    
+    De bot-emulator wordt gevraagd om te bevestigen. 
 
-## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework
+1. Selecteer **Ja**. De bot reageert met een overzicht van de acties. 
+1. Selecteer in het logboek van de emulator bot, de regel met `Luis Trace`. U ziet nu het JSON-antwoord van LUIS voor het doel en de entiteiten van de utterance.
+
+    [![Antwoord van de basisbot in de emulator](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+
+## <a name="learn-more-about-the-web-app-bot-and-framework"></a>Meer informatie over de Web App-Bot en framework
+
 Azure Bot Service maakt gebruik van de Bot Framework-SDK. Meer informatie over de SDK en het botframework:
 
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4-documentatie
 * [Bot Builder-voorbeelden](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder-SDK](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder C# SDK](https://github.com/Microsoft/botbuilder-dotnet)
 * [Bot Builder-hulpprogramma's](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt een Azure-botservice gemaakt, u hebt het botgeheim en het `.bot`-bestandspad gekopieerd en u hebt het zip-bestand van de code gedownload. U hebt het vooraf gebouwde HomeAutomation-domein toegevoegd aan de LUIS-app. Deze app is gemaakt als onderdeel van de nieuwe Azure-botservice. Vervolgens id de app getraind en opnieuw gepubliceerd. U hebt het codeproject uitgepakt, een omgevingsbestand (`.env`) gemaakt en het botgeheim en het `.bot`-bestandspad ingesteld. In het bestand bot.js hebt u code toegevoegd om de twee nieuwe intenties te kunnen verwerken. Vervolgens hebt u de bot in de botemulator getest om de LUIS-reactie op een uiting van een van de nieuwe intenties te bekijken. 
-
-Bekijk meer [voorbeelden](https://github.com/Microsoft/AI) met gespreksbots. 
+Bekijk meer [voorbeelden](https://github.com/microsoft/botframework-solutions) met gespreksbots. 
 
 > [!div class="nextstepaction"]
-> [Een aangepast domein bouwen in LUIS](luis-quickstart-intents-only.md)
+> [Een Language Understanding bouwen met het domein van een aangepast onderwerp](luis-quickstart-intents-only.md)

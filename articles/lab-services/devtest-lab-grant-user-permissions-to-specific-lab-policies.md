@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127375"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Gebruikersmachtigingen verlenen aan specifieke lab-beleid
@@ -28,7 +28,7 @@ In dit artikel ziet u hoe u PowerShell gebruikt om gebruikersmachtigingen aan ee
 ## <a name="policies-as-resources"></a>Beleid als resources
 Zoals beschreven in de [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md) RBAC-artikel kunt u over Geavanceerd toegangsbeheer van resources voor Azure. Met RBAC kunt u taken scheiden binnen uw DevOps-team en alleen de mate van toegang verlenen aan gebruikers die ze nodig hebben om hun werk te kunnen.
 
-In DevTest Labs, een beleid is een resourcetype waarmee de RBAC-actie **Microsoft.DevTestLab/labs/policySets/policies/**. Elk lab-beleid is een resource in het resourcetype en kan worden toegewezen als een bereik aan een RBAC-rol.
+In DevTest Labs, een beleid is een resourcetype waarmee de RBAC-actie **Microsoft.DevTestLab/labs/policySets/policies/** . Elk lab-beleid is een resource in het resourcetype en kan worden toegewezen als een bereik aan een RBAC-rol.
 
 Bijvoorbeeld, om te kunnen gebruikers lezen/schrijven toestemming te geven de **toegestaan VM-grootten** beleid, maakt u een aangepaste rol die geschikt is voor de **Microsoft.DevTestLab/labs/policySets/policies/** actie , en vervolgens de juiste gebruikers toewijzen aan deze aangepaste rol binnen het bereik van **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 

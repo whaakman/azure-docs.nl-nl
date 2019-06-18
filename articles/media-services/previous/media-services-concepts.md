@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681564"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten 
@@ -159,7 +159,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 - [Beveiligen met AES-128](media-services-protect-with-aes128.md)
 - [Beveiligen met PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
-## <a name="delivering"></a>Afleveren
+## <a name="delivering"></a>Leveren
 ### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dynamische verpakking
 Als u werkt met Media Services, het wordt aanbevolen om Codeer uw tussentijds-bestanden in een adaptive bitrate MP4-set en zet de set met de gewenste indeling via de [dynamische verpakking](media-services-dynamic-packaging-overview.md).
 
@@ -194,7 +194,7 @@ Voor gebruikers met URL's voor progressief downloaden, moet u eerst een OnDemand
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>Streaming-URL's
+### <a name="streaming-urls"></a>Streaming-URL 's
 Streaming van uw inhoud aan clients. Voor gebruikers met het streaming-URL's, moet u eerst een OnDemandOrigin-locator maken. De locator maakt, geeft u het basispad tot de asset die met de inhoud die u wilt streamen. Als u deze inhoud streamen moet u echter verder dit pad wijzigen. Kan geen volledige URL naar het manifestbestand van streaming, samenvoegen van de locator padwaarde en het manifest (filename.ism) bestandsnaam. Vervolgens voegt u /Manifest en een juiste indeling (indien nodig) naar het pad locator.
 
 U kunt ook uw inhoud streamen via een SSL-verbinding. Om dit te doen, zorg ervoor dat uw streaming-URL's beginnen met HTTPS. Op dit moment biedt geen AMS ondersteuning voor SSL met aangepaste domeinen.  

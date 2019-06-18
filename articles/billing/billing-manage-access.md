@@ -17,10 +17,10 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918522"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Beheer de toegang tot factureringsgegevens voor Azure
@@ -71,7 +71,7 @@ De functie factureren voor lezer is in preview en biedt niet-globale clouds nog 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 1. Selecteer uw abonnement op de [blade Abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in de Azure-portal.
 
-1. Selecteer **toegangsbeheer (IAM)**.
+1. Selecteer **toegangsbeheer (IAM)** .
 1. Selecteer **roltoewijzingen** om de roltoewijzingen voor dit abonnement weer te geven.
 1. Selecteer **roltoewijzing toevoegen**.
 1. In de **rol** vervolgkeuzelijst Kies **factureren voor lezer**.

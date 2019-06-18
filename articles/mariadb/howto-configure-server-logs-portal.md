@@ -1,21 +1,21 @@
 ---
-title: Configureren en logboeken van de access-server voor Azure Database voor MariaDB in Azure Portal
-description: Dit artikel wordt beschreven hoe u configureert en toegang krijgen tot de serverlogboeken in Azure Database voor MariaDB vanuit de Azure-Portal.
+title: Configureren en toegang tot van serverlogboeken voor Azure Database voor MariaDB in Azure portal
+description: Dit artikel wordt beschreven hoe u configureert en toegang krijgen tot de serverlogboeken in Azure Database voor MariaDB vanuit Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065640"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configureren en access-server beschikbaar zijn in Azure portal
 
-U kunt configureren, weergeven en downloaden de [Azure Database voor MariaDB serverlogboeken](concepts-server-logs.md) vanuit Azure portal.
+U kunt configureren, weergeven en downloaden de [Azure Database voor MariaDB langzame-querylogboeken](concepts-server-logs.md) vanuit Azure portal.
 
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
@@ -42,7 +42,7 @@ Configureer de toegang tot het logboek voor langzame query's.
 6. Ga terug naar de lijst met Logboeken door te klikken op de **knop Sluiten** (het pictogram X) op de **serverparameters** pagina.
 
 ## <a name="view-list-and-download-logs"></a>Weergeven en logboeken downloaden
-Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare logboeken weergeven en downloaden van afzonderlijke logboekbestanden op de Server Logs-deelvenster. 
+Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare langzame-querylogboeken weergeven en downloaden van afzonderlijke logboekbestanden op de Server Logs-deelvenster. 
 
 1. Open Azure Portal.
 
@@ -62,7 +62,7 @@ Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare logboek
    ![Klik op het downloadpictogram](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [serverlogboeken](concepts-server-logs.md) in Azure Database voor MariaDB.
+- Meer informatie over [langzame-querylogboeken](concepts-server-logs.md) in Azure Database voor MariaDB.
 - Zie de MariaDB-documentatie voor meer informatie over de parameterdefinities en logboekregistratie op [logboeken](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

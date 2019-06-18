@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 607e5aded52375190878de6b48ffa4aa2ab49767
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Zelfstudie: Azure Active Directory-integratie met DocuSign
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van DocuSign in Azure AD, moet u DocuSig
 
 **Als u wilt toevoegen DocuSign uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met DocuSign, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding DocuSign](#configure-docusign-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[DocuSign testgebruiker maken](#create-docusign-test-user)**  : als u wilt een equivalent van Britta Simon in DocuSign die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -134,31 +134,31 @@ Voor het configureren van Azure AD eenmalige aanmelding met DocuSign, moet u de 
 
 2. In de rechterbovenhoek klikt u rechts van de pagina op profiel **logo** en klik vervolgens op **gaat u naar de beheerder**.
   
-    ![Eenmalige aanmelding configureren][51]
+    ![Configureren van eenmalige aanmelding][51]
 
 3. Klik op de pagina van uw domein-oplossingen op **domeinen**
 
-    ![Eenmalige aanmelding configureren][50]
+    ![Configureren van eenmalige aanmelding][50]
 
 4. Onder de **domeinen** sectie, klikt u op **CLAIM domein**.
 
-    ![Eenmalige aanmelding configureren][52]
+    ![Configureren van eenmalige aanmelding][52]
 
 5. Op de **claimen van een domein** dialoogvenster in de **domeinnaam** tekstvak typt u het domein van uw bedrijf, en klik vervolgens op **CLAIM**. Zorg ervoor dat u het domein controleren en de status actief is.
 
-    ![Eenmalige aanmelding configureren][53]
+    ![Configureren van eenmalige aanmelding][53]
 
 6. Klik op de pagina van uw domein-oplossingen op **id-Providers**.
   
-    ![Eenmalige aanmelding configureren][54]
+    ![Configureren van eenmalige aanmelding][54]
 
 7. Onder **id-Providers** sectie, klikt u op **id-PROVIDER toevoegen**. 
 
-    ![Eenmalige aanmelding configureren][55]
+    ![Configureren van eenmalige aanmelding][55]
 
 8. Op de **instellingen van de identiteit** pagina, voert u de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren][56]
+    ![Configureren van eenmalige aanmelding][56]
 
     a. In de **naam** tekstvak typt u een unieke naam voor uw configuratie. Gebruik geen spaties.
 
@@ -176,26 +176,26 @@ Voor het configureren van Azure AD eenmalige aanmelding met DocuSign, moet u de 
 
     h. In de **toewijzing van aangepast kenmerk** sectie, klikt u op **nieuwe toewijzing toevoegen**.
 
-    ![Eenmalige aanmelding configureren][62]
+    ![Configureren van eenmalige aanmelding][62]
 
-    i. Kies het veld dat u wilt toewijzen met Azure AD-Claim. In dit voorbeeld wordt de **emailaddress** claim is toegewezen door de waarde van **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Dit is de standaardnaam van de claim van Azure AD voor e-mailbericht claim en klik vervolgens op **opslaan**.
+    i. Kies het veld dat u wilt toewijzen met Azure AD-Claim. In dit voorbeeld wordt de **emailaddress** claim is toegewezen door de waarde van **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** . Dit is de standaardnaam van de claim van Azure AD voor e-mailbericht claim en klik vervolgens op **opslaan**.
 
-    ![Eenmalige aanmelding configureren][57]
+    ![Configureren van eenmalige aanmelding][57]
 
     > [!NOTE]
     > Gebruik het juiste **gebruikers-id** om toe te wijzen van de gebruiker uit Azure AD DocuSign gebruiker toewijzen. Selecteer het juiste veld en voer de juiste waarde op basis van de instellingen van uw organisatie.
 
     j. In de **Identity Provider certificaten** sectie, klikt u op **certificaat toevoegen**, en upload het certificaat dat u hebt gedownload van Azure AD-portal en klikt u op **opslaan**.
 
-    ![Eenmalige aanmelding configureren][58]
+    ![Configureren van eenmalige aanmelding][58]
 
     k. In de **id-Providers** sectie, klikt u op **acties**, en klik vervolgens op **eindpunten**.
 
-    ![Eenmalige aanmelding configureren][59]
+    ![Configureren van eenmalige aanmelding][59]
 
     l. In de **SAML 2.0-eindpunten weergeven** sectie op **DocuSign-beheerportal**, voer de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren][60]
+    ![Configureren van eenmalige aanmelding][60]
 
     * Kopiëren de **URL voor Service Provider-verlener**, en plak deze in de **id** -tekstvak in **SAML-basisconfiguratie** sectie in Azure portal.
 

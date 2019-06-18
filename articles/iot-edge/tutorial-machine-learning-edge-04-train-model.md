@@ -8,14 +8,14 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4a94560bcb66c2ed59f78eef4f6a08b3f0227dc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af91dc09f8ed68d7bd4f2378c13d99eb67c52e9e
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057636"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155639"
 ---
-# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Zelfstudie: Trainen en implementeren van een Azure Machine Learning-model
+# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Zelfstudie: Een Azure Machine Learning-model trainen en implementeren
 
 > [!NOTE]
 > In dit artikel maakt deel uit van een reeks voor een zelfstudie over het gebruik van Azure Machine Learning op IoT Edge. Als u rechtstreeks in dit artikel zijn ontvangen, u wordt aangeraden te beginnen met de [eerste artikel](tutorial-machine-learning-edge-01-intro.md) in de reeks voor de beste resultaten.
@@ -98,7 +98,7 @@ Een nieuw project maken en de bestanden uploaden naar uw laptop.
 
 ## <a name="run-azure-notebooks"></a>Azure-notitieblokken uitvoeren
 
-Nu dat project is gemaakt, voert de **01-turbofan\_regression.ipynb** notebook.
+Nu het project is gemaakt, voert de **01-turbofan\_regression.ipynb** notebook.
 
 1. Selecteer in de projectpagina turbofan **01-turbofan\_regression.ipynb**.
 

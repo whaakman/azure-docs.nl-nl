@@ -12,10 +12,10 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401182"
 ---
 # <a name="analyze-method"></a>Analysemethode
@@ -26,7 +26,7 @@ ms.locfileid: "61401182"
 De **analyseren** REST-API wordt gebruikt voor het analyseren van de invoer van een bepaalde natuurlijke taal.
 Dat kan worden te vinden de [zinnen en tokens](Sentences-and-Tokens.md) binnen die invoer, zoeken de [part-of-speech tags](POS-tagging.md), of het vinden van de [op basis van ontleding structuur](Constituency-Parsing.md).
 U kunt opgeven welke u wilt dat door het verzamelen van de relevante analyzers resultaten.
-Als u alle beschikbare analyzers, bekijk de  **[analyzers](AnalyzersMethod.md)**.
+Als u alle beschikbare analyzers, bekijk de  **[analyzers](AnalyzersMethod.md)** .
 
 Houd er rekening mee dat u nodig hebt om op te geven van de taal van de ingevoerde tekenreeks.
 
@@ -50,7 +50,7 @@ Een matrix van analysis-uitvoer, één voor elk kenmerk dat is opgegeven in de a
 
 De resultaten er als volgt uitzien:
 
-Name | Type | Beschrijving
+Name | Type | Description
 -----|------|--------------
 analyzerId | string | GUID van de opgegeven analyzer
 Resultaat | object | resultaat van de Analyzer
@@ -59,7 +59,7 @@ Houd er rekening mee dat het type van het resultaat is afhankelijk van het type 
 
 ### <a name="tokens-response-json"></a>Tokens antwoord (JSON)
 
-Name | Type | Beschrijving
+Name | Type | Description
 -----|------|-------------
 Resultaat | lijst met objecten zin | zin grenzen geïdentificeerd binnen de tekst |
 result[x].Offset | int | tekenverschuiving van de eerste van elke zin |

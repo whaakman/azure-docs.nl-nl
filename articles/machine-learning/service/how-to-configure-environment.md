@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606425"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
@@ -297,10 +297,10 @@ Gebruik deze instellingen:
 
 | Instelling |Van toepassing op| Value |
 |----|---|---|
-| Clusternaam |altijd| yourclustername |
-| Databricks Runtime |altijd| Een runtime niet ML (niet ML 4.x, 5.x) |
-| Python-versie |altijd| 3 |
-| Medewerkers |altijd| 2 of hoger |
+| Clusternaam |Altijd| yourclustername |
+| Databricks Runtime |Altijd| Een runtime niet ML (niet ML 4.x, 5.x) |
+| Python-versie |Altijd| 3 |
+| Werknemers |Altijd| 2 of hoger |
 | VM-typen voor worker-knooppunt <br>(bepaalt het maximum aantal gelijktijdige herhalingen) |Geautomatiseerde machine learning<br>alleen| Virtuele machine bij voorkeur is geoptimaliseerd voor geheugen |
 | Automatisch schalen inschakelen |Geautomatiseerde machine learning<br>alleen| Schakel het selectievakje |
 
@@ -311,7 +311,7 @@ Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.datab
 
 1. Kies **slechts één** optie (Er is geen andere SDK-installatie worden ondersteund)
 
-   |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;package&nbsp;extras|source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Voor Databricks| Uploaden van Python EI of PyPI | azureml-sdk[databricks]|
    |Voor Databricks - met-<br> geautomatiseerde ML-mogelijkheden| Uploaden van Python EI of PyPI | azureml-sdk[automl_databricks]|
@@ -378,7 +378,7 @@ U kunt dit bestand vanuit uw code gebruiken `ws=Workspace.from_config()`. Deze c
 
 U kunt het configuratiebestand op drie manieren maken:
 
-* **Volg de stappen in [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#sdk)**: Een *config.json* bestand wordt gemaakt in uw Azure-notitieblokken-bibliotheek. Het bestand bevat de configuratiegegevens voor uw werkruimte. U kunt downloaden of kopieer de *config.json* in andere omgevingen ontwikkeling.
+* **Volg de stappen in [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#sdk)** : Een *config.json* bestand wordt gemaakt in uw Azure-notitieblokken-bibliotheek. Het bestand bevat de configuratiegegevens voor uw werkruimte. U kunt downloaden of kopieer de *config.json* in andere omgevingen ontwikkeling.
 
 * **Download het bestand**: In de [Azure-portal](https://ms.portal.azure.com), selecteer **downloaden config.json** uit de **overzicht** sectie van uw werkruimte.
 

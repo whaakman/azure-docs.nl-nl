@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471093"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Bekijk het rapport met kostenramingen in de Site Recovery Deployment Planner voor noodherstel van VMware naar Azure
@@ -122,17 +122,17 @@ Handmatig VM's toevoegen:
 
 **Aantal virtuele machines**: Het aantal virtuele machines die overeenkomen met de configuratie. U kunt het aantal bestaande virtuele machines bijwerken als vergelijkbare configuratie-VM's niet zijn geprofileerd maar toch worden beveiligd.
 
-**Grootte van IaaS (aanbeveling)**: Het is de grootte van de VM-rol van de compatibele VM die het hulpprogramma wordt aanbevolen. 
+**Grootte van IaaS (aanbeveling)** : Het is de grootte van de VM-rol van de compatibele VM die het hulpprogramma wordt aanbevolen. 
 
-**Grootte van IaaS (uw selectie)**: Standaard is dit hetzelfde als aanbevolen grootte van de VM-rol. U kunt de rol aanpassen aan uw behoefte. De kosten voor het rekenen zijn gebaseerd op de geselecteerde grootte van de VM-rol.
+**Grootte van IaaS (uw selectie)** : Standaard is dit hetzelfde als aanbevolen grootte van de VM-rol. U kunt de rol aanpassen aan uw behoefte. De kosten voor het rekenen zijn gebaseerd op de geselecteerde grootte van de VM-rol.
 
 **Opslagtype**: Het type van de opslag die wordt gebruikt door de virtuele machine. Dit is Standard- of Premium-opslag.
 
-**Grootte van VM-totale opslag (GB)**: De totale opslagruimte van de virtuele machine.
+**Grootte van VM-totale opslag (GB)** : De totale opslagruimte van de virtuele machine.
 
 **Aantal DR-oefeningen in een jaar**: Het aantal keren dat die u DR-oefeningen in een jaar uitvoert. Dit is standaard vier keer per jaar. U kunt de periode voor specifieke virtuele machines wijzigen of op alle VM's toepassen door de nieuwe waarde in de bovenste rij in te voeren en op de knop Op alles toepassen te klikken. Op basis van het aantal DR-oefeningen in een jaar en de duur van elke DR-oefening worden de totale kosten van de DR-oefening berekend.  
 
-**De duur van elke DR-oefening (dagen)**: De duur van elke DR-oefening. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). U kunt de periode voor specifieke virtuele machines wijzigen of op alle VM's toepassen door een nieuwe waarde in de bovenste rij in te voeren en op de knop 'Op alles toepassen' te klikken. De totale kosten voor DR-oefeningen worden berekend op basis van het aantal DR-oefeningen in een jaar en de duur van elke DR-oefening.
+**De duur van elke DR-oefening (dagen)** : De duur van elke DR-oefening. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). U kunt de periode voor specifieke virtuele machines wijzigen of op alle VM's toepassen door een nieuwe waarde in de bovenste rij in te voeren en op de knop 'Op alles toepassen' te klikken. De totale kosten voor DR-oefeningen worden berekend op basis van het aantal DR-oefeningen in een jaar en de duur van elke DR-oefening.
   
 **Type besturingssysteem**: Het type besturingssysteem van de virtuele machine. Dit is Windows of Linux. Als het type besturingssysteem Windows is, kan Azure Hybrid Use Benefit op die VM worden toegepast. 
 
@@ -144,7 +144,7 @@ Handmatig VM's toevoegen:
 
 **Replicatiekosten juiste gereedstatus**: Dit omvat de opslagkosten voor replicatie.
 
-**Totale kosten DR-oefening (gemiddeld)**: Dit omvat reken- en opslagkosten voor Noodherstelanalyse.
+**Totale kosten DR-oefening (gemiddeld)** : Dit omvat reken- en opslagkosten voor Noodherstelanalyse.
 
 **Kosten ASR-licentie**: Kosten voor Azure Site Recovery-licentie.
 

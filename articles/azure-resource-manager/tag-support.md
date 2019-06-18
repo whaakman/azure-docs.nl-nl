@@ -4,14 +4,14 @@ description: Laat zien welke typen Azure-resource bieden ondersteuning voor tags
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ef37323fb8150e3a6b52800bfafa2585ae328c2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056879"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md). De kolom met het label **ondersteunt tags** geeft aan of het resourcetype een eigenschap voor het label heeft. De kolom met het label **Tag op in het rapport** geeft aan of dat resourcetype wordt de tag aan het rapport cost doorgegeven.
@@ -40,10 +40,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ----------- |
 | aadsupportcases | Nee |  Nee |
 | addsservices | Nee |  Nee |
-| agents | Nee |  Nee |
+| Agents | Nee |  Nee |
 | anonymousapiusers | Nee |  Nee |
 | configuratie | Nee |  Nee |
-| logboeken | Nee |  Nee |
+| logs | Nee |  Nee |
 | rapporten | Nee |  Nee |
 | services | Nee |  Nee |
 
@@ -52,7 +52,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ----------- |
 | Configuraties | Nee |  Nee |
 | generateRecommendations | Nee |  Nee |
-| aanbevelingen | Nee |  Nee |
+| Aanbevelingen | Nee |  Nee |
 | suppressions | Nee |  Nee |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -239,7 +239,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | reservationOrders/splitsen | Nee |  Nee |
 | reservationOrders/wisselen | Nee |  Nee |
 | reserveringen | Nee |  Nee |
-| bronnen | Nee |  Nee |
+| resources | Nee |  Nee |
 | validateReservationOrder | Nee |  Nee |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -301,8 +301,8 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
 | Mogelijkheden | Nee |  Nee |
-| schijven | Nee |  Nee |
-| afbeeldingen | Nee |  Nee |
+| Schijven | Nee |  Nee |
+| images | Nee |  Nee |
 | osImages | Nee |  Nee |
 | osPlatformImages | Nee |  Nee |
 | publicImages | Nee |  Nee |
@@ -328,13 +328,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
 | availabilitySets | Ja | Ja |
-| schijven | Ja | Ja |
-| afbeeldingen | Ja | Ja |
+| Schijven | Ja | Ja |
+| images | Ja | Ja |
 | restorePointCollections | Ja | Ja |
 | restorePointCollections/restorePoints | Nee |  Nee |
 | sharedVMImages | Ja | Ja |
 | sharedVMImages /-versies | Ja | Ja |
-| momentopnamen | Ja | Ja |
+| Momentopnamen | Ja | Ja |
 | virtualMachines | Ja | Ja |
 | virtualMachines/diagnosticSettings | Nee |  Nee |
 | virtualMachines/extensions | Ja | Ja |
@@ -351,21 +351,21 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | AggregatedCost | Nee |  Nee |
 | Tegoeden | Nee |  Nee |
 | Budgetten | Nee |  Nee |
-| Kosten | Nee |  Nee |
+| Kosten in rekening gebracht | Nee |  Nee |
 | CostTags | Nee |  Nee |
 | credits | Nee |  Nee |
-| gebeurtenissen | Nee |  Nee |
+| events | Nee |  Nee |
 | Prognoses | Nee |  Nee |
 | veel | Nee |  Nee |
 | Marktplaatsen | Nee |  Nee |
 | Pricesheets | Nee |  Nee |
-| producten | Nee |  Nee |
+| Producten | Nee |  Nee |
 | ReservationDetails | Nee |  Nee |
 | ReservationRecommendations | Nee |  Nee |
 | ReservationSummaries | Nee |  Nee |
 | ReservationTransactions | Nee |  Nee |
 | Tags | Nee |  Nee |
-| Gebruiksrechtovereenkomst | Nee |  Nee |
+| Voorwaarden | Nee |  Nee |
 | UsageDetails | Nee |  Nee |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -423,10 +423,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Waarschuwingen | Nee |  Nee |
 | BillingAccounts | Nee |  Nee |
 | Connectors | Ja | Ja |
-| Afdelingen | Nee |  Nee |
+| afdelingen | Nee |  Nee |
 | Dimensies | Nee |  Nee |
 | EnrollmentAccounts | Nee |  Nee |
-| Query | Nee |  Nee |
+| Query’s uitvoeren | Nee |  Nee |
 | Registreren | Nee |  Nee |
 | Reportconfigs | Nee |  Nee |
 | Rapporten | Nee |  Nee |
@@ -451,7 +451,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| taken | Ja | Ja |
+| jobs | Ja | Ja |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -461,7 +461,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| werkruimten | Ja | Nee |
+| workspaces | Ja | Nee |
 | workspaces/virtualNetworkPeerings | Nee |  Nee |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -586,7 +586,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
 | Clusters | Ja | Nee |
-| naamruimten | Ja | Nee |
+| Naamruimten | Ja | Nee |
 | naamruimten/authorizationrules | Nee |  Nee |
 | naamruimten/disasterrecoveryconfigs | Nee |  Nee |
 | namespaces/eventhubs | Nee |  Nee |
@@ -612,7 +612,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | myareas/areas/galleryitems | Nee |  Nee |
 | myareas/galleryitems | Nee |  Nee |
 | Registreren | Nee |  Nee |
-| bronnen | Nee |  Nee |
+| resources | Nee |  Nee |
 | retrieveresourcesbyid | Nee |  Nee |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -635,7 +635,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| taken | Ja | Ja |
+| jobs | Ja | Ja |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -654,7 +654,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | alertrules | Ja | Ja |
 | automatedExportSettings | Nee |  Nee |
 | autoscalesettings | Ja | Ja |
-| basislijn | Nee |  Nee |
+| Basislijn | Nee |  Nee |
 | calculatebaseline | Nee |  Nee |
 | Onderdelen | Ja | Ja |
 | onderdelen/gebeurtenissen | Nee |  Nee |
@@ -667,7 +667,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | extendedDiagnosticSettings | Nee |  Nee |
 | logDefinitions | Nee |  Nee |
 | logprofiles | Nee |  Nee |
-| logboeken | Nee |  Nee |
+| logs | Nee |  Nee |
 | metricAlerts | Ja | Ja |
 | migrateToNewPricingModel | Nee |  Nee |
 | myWorkbooks | Nee |  Nee |
@@ -692,7 +692,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| Grafiek | Ja | Ja |
+| Graph | Ja | Ja |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -714,7 +714,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
 | labaccounts | Ja | Ja |
-| Gebruikers | Nee |  Nee |
+| gebruikers | Nee |  Nee |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -729,7 +729,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| logboeken | Nee |  Nee |
+| logs | Nee |  Nee |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -742,7 +742,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ----------- |
 | commitmentPlans | Ja | Ja |
 | webServices | Ja | Ja |
-| Werkruimten | Ja | Ja |
+| Workspaces | Ja | Ja |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -762,7 +762,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| werkruimten | Ja | Ja |
+| workspaces | Ja | Ja |
 | workspaces/computes | Nee |  Nee |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -776,7 +776,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ----------- |
 | getEntities | Nee |  Nee |
 | managementGroups | Nee |  Nee |
-| bronnen | Nee |  Nee |
+| resources | Nee |  Nee |
 | startTenantBackfill | Nee |  Nee |
 | tenantBackfillStatus | Nee |  Nee |
 
@@ -798,7 +798,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | offerTypes/publishers/offers/plans/configs | Nee |  Nee |
 | offerTypes/publishers/offers/plans/configs/importImage | Nee |  Nee |
 | privategalleryitems | Nee |  Nee |
-| producten | Nee |  Nee |
+| Producten | Nee |  Nee |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -845,7 +845,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | azureFirewallFqdnTags | Nee |  Nee |
 | azureFirewalls | Ja | Nee |
 | bgpServiceCommunities | Nee |  Nee |
-| verbindingen | Ja | Ja |
+| Verbindingen | Ja | Ja |
 | ddosCustomPolicies | Ja | Ja |
 | ddosProtectionPlans | Ja | Ja |
 | dnsOperationStatuses | Nee |  Nee |
@@ -864,7 +864,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | dnszones/TXT | Nee |  Nee |
 | expressRouteCircuits | Ja  | Nee |
 | expressRouteServiceProviders | Nee |  Nee |
-| ingangen | Ja | Ja |
+| frontdoors | Ja | Ja |
 | frontdoorWebApplicationFirewallPolicies | Ja | Ja |
 | getDnsResourceReference | Nee |  Nee |
 | interfaceEndpoints | Ja | Ja |
@@ -902,7 +902,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| naamruimten | Ja | Nee |
+| Naamruimten | Ja | Nee |
 | namespaces/notificationHubs | Ja | Nee |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -911,7 +911,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | apparaten | Nee |  Nee |
 | linkTargets | Nee |  Nee |
 | storageInsightConfigs | Nee |  Nee |
-| werkruimten | Ja | Ja |
+| workspaces | Ja | Ja |
 | workspaces/dataSources | Nee |  Nee |
 | workspaces/linkedServices | Nee |  Nee |
 | workspaces/query | Nee |  Nee |
@@ -922,7 +922,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | managementassociations | Nee |  Nee |
 | managementconfigurations | Ja | Ja |
 | oplossingen | Ja | Ja |
-| weergaven | Ja | Ja |
+| Weergaven | Ja | Ja |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -963,7 +963,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| naamruimten | Ja | Ja |
+| Naamruimten | Ja | Ja |
 | naamruimten/authorizationrules | Nee |  Nee |
 | namespaces/hybridconnections | Nee |  Nee |
 | namespaces/hybridconnections/authorizationrules | Nee |  Nee |
@@ -973,7 +973,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| bronnen | Nee |  Nee |
+| resources | Nee |  Nee |
 | subscriptionsStatus | Nee |  Nee |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -982,21 +982,21 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | availabilityStatuses | Nee |  Nee |
 | childAvailabilityStatuses | Nee |  Nee |
 | childResources | Nee |  Nee |
-| gebeurtenissen | Nee |  Nee |
+| events | Nee |  Nee |
 | impactedResources | Nee |  Nee |
-| meldingen | Nee |  Nee |
+| Meldingen | Nee |  Nee |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| implementaties | Nee |  Nee |
+| Implementaties | Nee |  Nee |
 | Implementaties/operations | Nee |  Nee |
 | Koppelingen | Nee |  Nee |
 | notifyResourceJobs | Nee |  Nee |
 | Providers | Nee |  Nee |
 | resourceGroups | Nee |  Nee |
-| bronnen | Nee |  Nee |
-| abonnementen | Nee |  Nee |
+| resources | Nee |  Nee |
+| Abonnementen | Nee |  Nee |
 | Abonnementen/providers | Nee |  Nee |
 | abonnementen/resourcegroepen | Nee |  Nee |
 | abonnementen/resourcegroups/resources | Nee |  Nee |
@@ -1038,11 +1038,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | externalSecuritySolutions | Nee |  Nee |
 | InformationProtectionPolicies | Nee |  Nee |
 | jitNetworkAccessPolicies | Nee |  Nee |
-| bewaking | Nee |  Nee |
+| Bewaking | Nee |  Nee |
 | monitoring/antimalware | Nee |  Nee |
 | bewaking/basislijn | Nee |  Nee |
 | bewaking/patch | Nee |  Nee |
-| beleidsregels | Nee |  Nee |
+| Beleid | Nee |  Nee |
 | prijzen | Nee |  Nee |
 | securityContacts | Nee |  Nee |
 | securitySolutions | Nee |  Nee |
@@ -1067,7 +1067,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
-| naamruimten | Ja | Nee |
+| Naamruimten | Ja | Nee |
 | naamruimten/authorizationrules | Nee |  Nee |
 | naamruimten/disasterrecoveryconfigs | Nee |  Nee |
 | naamruimten/eventgridfilters | Nee |  Nee |
@@ -1194,7 +1194,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Ondersteunt tags | Code in het rapport |
 | ------------- | ----------- | ----------- |
 | providerRegistrations | Ja | Ja |
-| bronnen | Ja | Ja |
+| resources | Ja | Ja |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Resourcetype | Ondersteunt tags | Code in het rapport |
@@ -1225,19 +1225,19 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | apiManagementAccounts/connectionAcls | Nee |  Nee |
 | apiManagementAccounts/connections | Nee |  Nee |
 | billingMeters | Nee |  Nee |
-| certificaten | Ja | Ja |
+| Certificaten | Ja | Ja |
 | connectionGateways | Ja | Ja |
-| verbindingen | Ja | Ja |
+| Verbindingen | Ja | Ja |
 | customApis | Ja | Ja |
 | deletedSites | Nee |  Nee |
 | functions | Nee |  Nee |
-| hostingEnvironments | Ja | Nee |
+| hostingEnvironments | Ja | Ja |
 | hostingEnvironments/multiRolePools | Nee |  Nee |
 | hostingEnvironments/multiRolePools/instances | Nee |  Nee |
 | hostingEnvironments/workerPools | Nee |  Nee |
 | hostingEnvironments/workerPools/instances | Nee |  Nee |
 | publishingUsers | Nee |  Nee |
-| aanbevelingen | Nee |  Nee |
+| Aanbevelingen | Nee |  Nee |
 | resourceHealthMetadata | Nee |  Nee |
 | runtimes | Nee |  Nee |
 | serverFarms | Ja | Ja |

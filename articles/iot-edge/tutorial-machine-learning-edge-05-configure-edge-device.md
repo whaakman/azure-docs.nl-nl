@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 86efbaa053e087885f0dbfea24000781d41ac5d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2096004a7b389f627c528a8dfb4768ac001f390
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057713"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155622"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Zelfstudie: Een IoT Edge-apparaat configureren
 
@@ -35,7 +35,7 @@ In deze sectie maakt u de zelfondertekende certificaten met behulp van een Docke
 2. Open een opdrachtprompt en voer de volgende opdracht voor het maken van een map op de virtuele machine.
 
     ```cmd
-    mkdir C:\edgecertificates
+    mkdir c:\edgeCertificates
     ```
 
 3. Start **Docker voor Windows** vanuit het menu Start van Windows.
@@ -56,21 +56,19 @@ In deze sectie maakt u de zelfondertekende certificaten met behulp van een Docke
 9. Voer de container createcertificates in het terminalvenster van Visual Studio Code.
 
     ```cmd
-    docker run --name createcertificates --rm -v
-    C:\edgeCertificates:/edgeCertificates createcertificates
-    /edgeCertificates
+    docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker wordt u gevraagd de toegang tot de **C:\\**  station. Selecteer **delen**.
+10. Docker wordt u gevraagd de toegang tot de **c:\\**  station. Selecteer **delen**.
 
 11. Geef uw referenties in wanneer hierom wordt gevraagd.
 
-12. Zodra de container is voltooid wordt uitgevoerd, controleren op de volgende bestanden in **c:\\edgecertificates**:
+12. Zodra de container is voltooid wordt uitgevoerd, controleren op de volgende bestanden in **c:\\edgeCertificates**:
 
-    * C:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
+    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
     * C:\\edgeCertificates\\certificaten\\nieuwe-edge-device.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
     * C:\\edgeCertificates\\persoonlijke\\nieuwe-edge-device.key.pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Certificaten uploaden naar Azure Key Vault
@@ -86,8 +84,7 @@ Voor het opslaan van onze certificaten veilig en waardoor deze toegankelijk is v
 3. Op uw ontwikkelcomputer, de certificaten te uploaden naar Key Vault. Vervang **\<subscriptionId\>** en **\<keyvaultname\>** met de gegevens van resources.
 
     ```powershell
-    C:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1
-    -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
+    c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
 4. Als u hierom wordt gevraagd, moet u zich aanmelden bij Azure.
@@ -145,7 +142,7 @@ Voer vervolgens het script voor het maken van de virtuele machine voor uw IoT Ed
 1. Open een PowerShell-venster en navigeer naar de **EdgeVM** directory.
 
     ```powershell
-    cd C:\source\IoTEdgeAndMlSample\EdgeVM”
+    cd c:\source\IoTEdgeAndMlSample\EdgeVM
     ```
 
 2. Voer het script voor het maken van de virtuele machine.
@@ -210,7 +207,7 @@ Eerder in dit artikel, we certificaten geüpload naar Key Vault, zodat ze beschi
 1. De Azure-abonnement dat u wilt gebruiken voor Azure CLI-opdrachten uit.
 
     ```bash
-    az account set --subscription <subscription id>
+    az account set --subscription <subscriptionId>
     ```
 
 1. Maak een map op de virtuele machine voor de certificaten.

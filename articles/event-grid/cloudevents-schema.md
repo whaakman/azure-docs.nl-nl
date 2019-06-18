@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436593"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
@@ -73,7 +73,7 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 | schemaURL          | URI      | "https:\//myschema.com"           | Een koppeling naar het schema dat het kenmerk heeft (optioneel) | *niet gebruikt*
 | contentType        | String   | "application/json"               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
 | Extensies         | Kaart      | { "extA": "vA", "extB", "vB" }  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
-| gegevens               | Object   | { "objA": "vA", "objB", "vB" }  | De nettolading van de gebeurtenis (optioneel)                                       | gegevens
+| data               | Object   | { "objA": "vA", "objB", "vB" }  | De nettolading van de gebeurtenis (optioneel)                                       | data
 
 Zie voor meer informatie de [een CloudEvents-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

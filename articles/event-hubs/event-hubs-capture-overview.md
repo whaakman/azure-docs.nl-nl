@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: ee64d25afcb2be73bed26c6c4dec87f216a0fd82
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66383869"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Vastleggen van gebeurtenissen tot en met Azure Event Hubs in Azure Blob Storage of Azure Data Lake Storage
@@ -36,7 +36,7 @@ Eventhubs is een duurzame buffer retentietijd voor telemetrie inkomend verkeer, 
 
 Event Hubs Capture kunt u uw eigen Azure Blob storage-account en een container of een Azure Data Lake Store-account, die worden gebruikt voor het opslaan van de vastgelegde gegevens opgeven. Deze accounts kunnen zich in dezelfde regio als uw event hub of in een andere regio toe te voegen aan de flexibiliteit van de Event Hubs Capture-functie.
 
-Vastgelegde gegevens worden geschreven [Apache Avro] [ Apache Avro] indeling: een compacte, snel, binaire indeling die uitgebreide gegevensstructuren met inline-schema biedt. Deze indeling wordt veel gebruikt in de Hadoop-ecosysteem, Stream Analytics en Azure Data Factory. Meer informatie over het werken met Avro vindt u verderop in dit artikel.
+Vastgelegde gegevens worden geschreven [Apache Avro][Apache Avro] indeling: een compacte, snel, binaire indeling die uitgebreide gegevensstructuren met inline-schema biedt. Deze indeling wordt veel gebruikt in de Hadoop-ecosysteem, Stream Analytics en Azure Data Factory. Meer informatie over het werken met Avro vindt u verderop in dit artikel.
 
 ### <a name="capture-windowing"></a>Windowing vastleggen
 
@@ -162,4 +162,4 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[Schaalbaar streamen: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
+[Schaalbaar streamen: Event Hubs Capture]: https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

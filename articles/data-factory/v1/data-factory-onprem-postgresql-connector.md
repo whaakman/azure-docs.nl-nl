@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462000"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Gegevens verplaatsen van PostgreSQL met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-onprem-postgresql-connector.md)
 > * [Versie 2 (huidige versie)](../connector-postgresql.md)
 
@@ -336,7 +336,7 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 | money | |Decimal |
 | numerieke [(p, s)] |decimale waarde [(p, s)] |Decimal |
 | numrange | |String |
-| OID | |Int32 |
+| oid | |Int32 |
 | pad | |Byte[], String |
 | pg_lsn | |Int64 |
 | punt | |Byte[], String |

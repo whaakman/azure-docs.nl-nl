@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138560"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
@@ -26,9 +26,9 @@ We hebben alleen een momentopname van de beschikbare hulpprogramma's voor Azure 
 <table>
   <tr>
     <th rowspan="2">Azure Storage-clienthulpprogramma</th>
-    <th rowspan="2">Blok-blob</th>
-    <th rowspan="2">Pagina-blob</th>
-    <th rowspan="2">Blob toevoegen</th>
+    <th rowspan="2">Blok-Blob</th>
+    <th rowspan="2">Pagina-blobs</th>
+    <th rowspan="2">Toevoeg-Blob</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>
     <th rowspan="2">Bestanden</th>
@@ -92,9 +92,9 @@ We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volge
 <table>
   <tr>
     <th rowspan="2">Azure Storage-clienthulpprogramma</th>
-    <th rowspan="2">Blok-blob</th>
-    <th rowspan="2">Pagina-blob</th>
-    <th rowspan="2">Blob toevoegen</th>
+    <th rowspan="2">Blok-Blob</th>
+    <th rowspan="2">Pagina-blobs</th>
+    <th rowspan="2">Toevoeg-Blob</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>
     <th rowspan="2">Bestanden</th>

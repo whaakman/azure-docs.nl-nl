@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026297"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Taal en regio ondersteuning voor de API van de Ink-herkenning
@@ -30,7 +30,7 @@ In dit artikel wordt uitgelegd welke talen worden ondersteund voor de herkenning
 | Baskisch                                     |     `eu-ES`     |
 | Bosnisch (Latijns)                            | `bs-Latn-BA`    |
 | Catalaans                                    |     `ca-ES`     |
-| Chinees (Vereenvoudigd, China)                |     `zh-CN`     |
+| Chinees (vereenvoudigd, China)                |     `zh-CN`     |
 | Chinees (Traditioneel, Taiwan)              |     `zh-TW`     |
 | Kroatisch (Kroatië)                         |     `hr-HR`     |
 | Tsjechisch                                      |     `cs-CZ`     |
@@ -54,14 +54,14 @@ In dit artikel wordt uitgelegd welke talen worden ondersteund voor de herkenning
 | Italiaans (Italië)                            |     `it-IT`     |
 | Japans                                   |     `ja-JP`     |
 | Kinyarwanda                                |     `rw-RW`     |
-| Swahili (Kenia)                          |     `sw-KE`     |
+| Kiswahili (Kenya)                          |     `sw-KE`     |
 | Koreaans                                     |     `ko-KR`     |
 | Luxemburgs                              |     `lb-LU`     |
 | Maleis (Brunei Darussalam)                  |     `ms-BN`     |
 | Maleis (Maleisië)                           |     `ms-MY`     |
 | Maori                                      |     `mi-NZ`     |
-| Noors (Bokmål)                         |     `nb-NO`     |
-| Noors (Nynorsk)                        |     `nn-NO`     |
+| Noors (Bokmal)                         |     `nb-NO`     |
+| Norwegian (Nynorsk)                        |     `nn-NO`     |
 | Pools                                     |     `pl-PL`     |
 | Portugees (Brazilië)                        |     `pt-BR`     |
 | Portugees (Portugal)                      |     `pt-PT`     |
@@ -71,7 +71,7 @@ In dit artikel wordt uitgelegd welke talen worden ondersteund voor de herkenning
 | Schots Gaelic                            |     `gd-GB`     |
 | Noord-Sotho                           |    `nso-ZA`     |
 | Servisch (Cyrillisch, Bosnië en Herzegovina) |  `sr-Cyrl-BA`   |
-| Servisch (Cyrillisch, Montenegro)             |  `sr-Cyrl-ME`   |
+| Serbian (Cyrillic, Montenegro)             |  `sr-Cyrl-ME`   |
 | Servisch (Cyrillisch, Servië)                 |  `sr-Cyrl-RS`   |
 | Servisch (Latijns, Bosnië en Herzegovina)    |  `sr-Latn-BA`   |
 | Servisch (Latijns, Montenegro)                |  `sr-Latn-ME`   |

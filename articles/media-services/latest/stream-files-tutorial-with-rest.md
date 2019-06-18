@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 15b2408113d8bd19d2e988643442ac5e3b305237
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055298"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Zelfstudie: Extern bestand coderen op basis van URL en video streamen - REST
 
@@ -236,7 +236,7 @@ Wanneer de coderingstaak is voltooid, gaat u in de volgende stap de video in de 
 
 Het proces van het maken van een **streaming-locator** wordt publiceren genoemd. De **streaming-locator** is standaard onmiddellijk geldig nadat u de API-aanroepen hebt gemaakt en totdat deze wordt verwijderd, tenzij u de optionele start- en eindtijden configureert. 
 
-Bij het maken van een [streaming-locator](https://docs.microsoft.com/rest/api/media/streaminglocators) moet u de gewenste **StreamingPolicyName** opgeven. In dit voorbeeld zult u in-the-clear (of niet-versleutelde) inhoud streamen, zodat het vooraf gedefinieerde duidelijke streamingbeleid, **PredefinedStreamingPolicy.ClearStreamingOnly** wordt gebruikt.
+Bij het maken van een [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators), moet u opgeven de gewenste **StreamingPolicyName**. In dit voorbeeld zal u worden streaming in-the-wissen (of niet-versleutelde) inhoud, zodat de vooraf gedefinieerde streaming beleid 'Predefined_ClearStreamingOnly wissen' wordt gebruikt.
 
 > [!IMPORTANT]
 > Wanneer u een aangepast [streamingbeleid](https://docs.microsoft.com/rest/api/media/streamingpolicies) gebruikt, moet u een beperkte set met dergelijke beleidsregels ontwerpen voor uw Media Service-account, en deze opnieuw gebruiken voor de StreamingLocators wanneer dezelfde versleutelingsopties en protocollen nodig zijn. 
@@ -343,7 +343,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 In dit artikel gebruiken we Azure Media Player om de stream te testen. 
 
 1. Open een browser en ga naar [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Plak in de gemaakte URL in het vak **URL:**. 
+2. Plak in de gemaakte URL in het vak **URL:** . 
 3. Klik op **Update Player**.
 
 Azure Media Player kan worden gebruikt voor testdoeleinden, maar mag niet worden gebruikt in een productieomgeving. 

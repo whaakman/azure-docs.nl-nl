@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 66aca7be9a2df93d846d7e78bc64c93279afc2d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160693"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Over het installeren van IoT Edge op Kubernetes (Preview)
@@ -78,7 +78,7 @@ Elk onderdeel van de edge-implementatie is afgestemd op een Kubernetes-naamruimt
     minikube dashboard
     ```
 
-    Onder de cluster-naamruimten, ziet u een voor de IoT Edge-apparaat na de overeenkomst *msiot -\<iothub-naam >-\<edgedevice-name >*. De IoT Edge-agent en iotedged schillen moet actief en werkend in deze naamruimte.
+    Onder de cluster-naamruimten, ziet u een voor de IoT Edge-apparaat na de overeenkomst *msiot -\<iothub-naam >-\<edgedevice-name >* . De IoT Edge-agent en iotedged schillen moet actief en werkend in deze naamruimte.
 
 1. Toevoegen van een gesimuleerde temperatuur sensor-module met behulp van de stappen in de [implementeren van een module](quickstart-linux.md#deploy-a-module) sectie van de Quick Start. IoT Edge module management wordt gedaan via de portal voor IoT Hub net als elk ander IoT Edge-apparaat. Lokale wijzigingen aanbrengen in de moduleconfiguratie via Kubernetes-hulpprogramma's wordt niet aanbevolen omdat ze mogelijk overschreven.
 

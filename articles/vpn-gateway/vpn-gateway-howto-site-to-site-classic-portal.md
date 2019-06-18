@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105945"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Een site-naar-site-verbinding maken met behulp van Azure Portal (klassiek)
@@ -72,13 +72,13 @@ Als u een virtueel netwerk maakt om te gebruiken met een S2S-verbinding, moet u 
 ### <a name="to-create-a-virtual-network"></a>Een virtueel netwerk maken
 
 1. Navigeer via een browser naar de [Azure Portal](https://portal.azure.com) en log, indien nodig, in met uw Azure-account.
-2. Klik op **+**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
+2. Klik op **+** . In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
 
    ![Pagina voor zoeken van virtueel netwerk](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Kies onder aan de pagina Virtueel netwerk in de vervolgkeuzelijst **Een implementatiemodel selecteren** de optie **Klassiek** en klik vervolgens op **Maken**.
 
    ![Een implementatiemodel selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. Configureer de VNet-instellingen op de pagina **Virtueel netwerk maken (klassiek)**. Voeg op deze pagina de eerste adresruimte en één adresbereik voor het subnet toe. Nadat u het VNet hebt aangemaakt, kunt u terugkeren en aanvullende subnets en adresruimten toevoegen.
+4. Configureer de VNet-instellingen op de pagina **Virtueel netwerk maken (klassiek)** . Voeg op deze pagina de eerste adresruimte en één adresbereik voor het subnet toe. Nadat u het VNet hebt aangemaakt, kunt u terugkeren en aanvullende subnets en adresruimten toevoegen.
 
    ![Pagina Virtueel netwerk maken](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Pagina Virtueel netwerk maken")
 5. Controleer of het **Abonnement** het juiste is. U kunt abonnementen wijzigen met behulp van de vervolgkeuzelijst.
@@ -166,7 +166,7 @@ In deze stap stelt u de gedeelde sleutel in en maakt u de verbinding. De sleutel
 > Deze stap is momenteel niet beschikbaar in Azure Portal. Gebruik de SM-versie (Service Management) van de Azure PowerShell-cmdlets.
 >
 
-### <a name="step-1-connect-to-your-azure-account"></a>Step 1. Verbinding maken met uw Azure-account
+### <a name="step-1-connect-to-your-azure-account"></a>Stap 1. Verbinding maken met uw Azure-account
 
 1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 

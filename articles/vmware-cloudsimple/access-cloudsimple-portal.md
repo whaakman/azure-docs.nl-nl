@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 30882899e5be4101ae3d77f9840d8bdef567e53f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 8c7bb080b350742d0722cdb4e07b82a6881ba05b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66676981"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073671"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Toegang tot de VMware-oplossing door CloudSimple portal van Azure-portal
 
 Eenmalige aanmelding wordt ondersteund voor toegang tot de portal CloudSimple. Nadat u zich bij Azure portal aanmelden, kunt u de toegang tot de portal CloudSimple zonder meldt u zich opnieuw. De eerste keer dat u toegang tot de CloudSimple portal u wordt gevraagd om te machtigen de [CloudSimple Service autorisatie](#consent-to-cloudsimple-service-authorization-application) toepassing.  Autorisatie is een eenmalige bewerking.
+
+## <a name="before-you-begin"></a>Voordat u begint
+
+Alleen gebruikers met ingebouwde **eigenaar** en **Inzender** rollen kunnen CloudSimple portal openen.  De rollen die moeten worden geconfigureerd voor het abonnement.  Zie voor meer informatie over het controleren van uw rol [weergeven roltoewijzingen](https://docs.microsoft.com/azure/role-based-access-control/check-access) artikel.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

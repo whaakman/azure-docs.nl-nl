@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696405"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Verbinding maken met SQL Server of Azure SQL Database van Azure Logic Apps
@@ -90,7 +90,7 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
    ![Kies de optie 'Nieuwe stap', 'Een actie toevoegen'](./media/connectors-create-api-sqlazure/add-action.png)
    
    Als u wilt toevoegen een actie tussen bestaande stappen, Beweeg de muis boven de verbindende pijl. 
-   Kies het plusteken (**+**) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
+   Kies het plusteken ( **+** ) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
 
 2. Typ 'sql server' als filter in het zoekvak. Selecteer een SQL-actie op die u wilt dat in de lijst met acties. 
 

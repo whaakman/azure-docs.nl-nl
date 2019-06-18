@@ -18,10 +18,10 @@ ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409770"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
@@ -34,14 +34,14 @@ ms.locfileid: "65409770"
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
-[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619720]: https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
@@ -53,24 +53,24 @@ ms.locfileid: "65409770"
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
-[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -582,7 +582,7 @@ Als u het gedeelte van de DS-serie VM's in zijn uitgecheckt [in dit artikel (Lin
 
 Meer informatie over Premium Storage vindt u hier: <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
-#### <a name="azure-storage-accounts"></a>Azure-opslagaccounts
+#### <a name="azure-storage-accounts"></a>Azure Storage Accounts
 
 Bij het implementeren van services of virtuele machines in Azure, kan de implementatie van VHD's en VM-installatiekopieën worden georganiseerd in eenheden die Azure Storage-Accounts genoemd. Wanneer u een Azure-implementatie plant, moet u zorgvuldig rekening houden met de beperkingen van Azure. Op de een-zijde is er een beperkt aantal Storage-Accounts per Azure-abonnement. Hoewel elke Azure Storage-Account een groot aantal VHD-bestanden bevatten kan, moet u er een vaste limiet is op de totale IOP's per Opslagaccount. Bij het implementeren van honderden VM's SAP DBMS-systemen aanzienlijke i/o-aanroepen maakt, is het aanbevolen voor het distribueren van hoge IOPS DBMS-VM's tussen meerdere Azure-Opslagaccounts. Wees voorzichtig niet aan de huidige limiet van Azure Storage-Accounts per abonnement. Omdat opslag een essentieel onderdeel van de implementatie van de database voor een SAP-systeem, dit concept wordt besproken in de al waarnaar wordt verwezen in meer detail [DBMS-Implementatiehandleiding][dbms-guide].
 
@@ -1332,7 +1332,7 @@ Kan het nodig zijn de firewall te configureren op uw virtuele machines waarmee i
 > ![Windows][Logo_Windows] Windows
 >
 > De Windows Firewall in een Azure geïmplementeerde VM is standaard ingeschakeld. U nu wilt toestaan dat de SAP-poort moet worden geopend, anders de SAP-gebruikersinterface is niet mogelijk om verbinding te maken.
-> Dit kunt u op de volgende manier doen:
+> Om dit te doen:
 >
 > * Configuratiescherm\systeem en beveiliging\windows Firewall te openen **geavanceerde instellingen**.
 > * Nu met de rechtermuisknop op de regels voor binnenkomende verbindingen en ervoor kiest **nieuwe regel**.
@@ -1629,12 +1629,12 @@ In de tabel onder normale SAP worden communicatiepoorten weergegeven. Het is in 
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Service | Poortnaam | Voorbeeld `<nn`> = 01 | Standaardbereik (min-max.) | Opmerkingen plaatsen |
+| Service | Poortnaam | Voorbeeld `<nn`> = 01 | Standaardbereik (min-max.) | Opmerking |
 | --- | --- | --- | --- | --- |
 | Functie voor berichtverzending |sapdp`<nn>` Zie * |3201 |3200 - 3299 |SAP-Webdispatcher, die worden gebruikt door SAP GUI voor Windows en Java |
 | -Berichtenserver |sapms`<sid`> Zie ** |3600 |gratis sapms`<anySID`> |beveiligings-id = SAP-systeem-ID |
-| Gateway |sapgw`<nn`> Zie * |3301 |gratis |SAP-gateway, die wordt gebruikt voor CPIC en RFC communicatie |
-| SAP-router |sapdp99 |3299 |gratis |Namen van alleen CI (centrale exemplaar)-Service kunnen opnieuw worden toegewezen in /etc/services op een willekeurige waarde na de installatie. |
+| Gateway |sapgw`<nn`> Zie * |3301 |Gratis |SAP-gateway, die wordt gebruikt voor CPIC en RFC communicatie |
+| SAP-router |sapdp99 |3299 |Gratis |Namen van alleen CI (centrale exemplaar)-Service kunnen opnieuw worden toegewezen in /etc/services op een willekeurige waarde na de installatie. |
 
 *) nn = getal voor SAP-exemplaar
 
@@ -1658,7 +1658,7 @@ Instellen van uw on-premises TCP/IP op basis van netwerkprinters in een Azure VM
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Dit kunt u op de volgende manier doen:
+> Om dit te doen:
 >
 > * Sommige netwerkprinters worden geleverd met een configuratiewizard Hierdoor is het eenvoudig om in te stellen de printer in een Azure-VM. Als er geen wizardsoftware met de printer is gedistribueerd, wordt de handmatige manier voor het instellen van de printer is het maken van een nieuwe TCP/IP-printerpoort.
 > * Open het Configuratiescherm -> apparaten en Printers > een printer toevoegen

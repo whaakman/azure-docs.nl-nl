@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480212"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabel standaard .NET-API: Download en opmerkingen bij de release
@@ -65,7 +65,7 @@ Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik
 
 Deze platformoverschrijdende .NET Standard-bibliotheek [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) wordt vervangen door de .NET Framework-bibliotheek [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
-| Versie | Releasedatum | Vervaldatum |
+| Version | Releasedatum | Vervaldatum |
 | --- | --- | --- |
 | [1.0.1](#1.0.1) |19 april 2019 |--- |
 | [1.0.0](#1.0.0) |13 maart 2019 |--- |

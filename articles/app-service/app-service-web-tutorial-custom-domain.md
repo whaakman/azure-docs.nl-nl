@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069400"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155531"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service
 
@@ -156,7 +156,7 @@ Het duurt even voordat de nieuwe aangepast gebruikt domein worden weergegeven in
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Een **Opmerking Secure** label voor uw aangepaste domein-betekent dat deze nog niet gebonden aan een SSL-certificaat en een HTTPS-aanvraag vanuit een browser naar uw aangepaste domein ontvangt en fout of waarschuwing, afhankelijk van de browser. Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat verbinden met Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Een **niet beveiligen** label voor uw aangepaste domein-betekent dat deze nog niet gebonden aan een SSL-certificaat en een HTTPS-aanvraag vanuit een browser naar uw aangepaste domein ontvangt en fout of waarschuwing, afhankelijk van de browser. Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat verbinden met Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u een verificatie-foutmelding aan de onderkant van de pagina.
 
@@ -240,7 +240,7 @@ Het duurt even voordat de nieuwe aangepast gebruikt domein worden weergegeven in
 ![A-record toegevoegd](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Een **Opmerking Secure** label voor uw aangepaste domein-betekent dat deze nog niet gebonden aan een SSL-certificaat en een HTTPS-aanvraag vanuit een browser naar uw aangepaste domein ontvangt en fout of waarschuwing, afhankelijk van de browser. Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat verbinden met Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Een **niet beveiligen** label voor uw aangepaste domein-betekent dat deze nog niet gebonden aan een SSL-certificaat en een HTTPS-aanvraag vanuit een browser naar uw aangepaste domein ontvangt en fout of waarschuwing, afhankelijk van de browser. Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat verbinden met Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u een verificatie-foutmelding aan de onderkant van de pagina.
 

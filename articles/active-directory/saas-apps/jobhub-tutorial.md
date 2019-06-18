@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd8374bfce62184df5619b76f4b9e64dd86f900
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 7fe2f9531c7dc5ab5bde0fb5669fa448d1113a2b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65862708"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099323"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Zelfstudie: JOBHUB integreren met Azure Active Directory
 
@@ -63,8 +63,8 @@ Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met JOBHUB, 
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van SSO JOBHUB](#configure-jobhub-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker JOBHUB](#create-jobhub-test-user)**  : als u wilt een equivalent van Britta Simon in JOBHUB die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 

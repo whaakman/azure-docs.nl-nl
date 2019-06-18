@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511146"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR-servicebindingen voor Azure Functions
 
@@ -601,7 +601,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type**|| Moet worden ingesteld op `signalRConnectionInfo`.|
 |**direction**|| Moet worden ingesteld op `in`.|
-|**De naam**|| Naam van de variabele in functiecode gebruikt voor de connection-info-object. |
+|**name**|| Naam van de variabele in functiecode gebruikt voor de connection-info-object. |
 |**hubName**|**HubName**| Deze waarde moet worden ingesteld op de naam van het SignalR-hub waarvoor de verbindingsgegevens is gegenereerd.|
 |**userId**|**UserId**| Optioneel: De waarde van de gebruikers-id claim moet worden ingesteld in het toegangstoken van de sleutel. |
 |**connectionStringSetting**|**connectionStringSetting**| De naam van de app-instelling met de verbindingsreeks SignalR-Service (standaard ingesteld op "AzureSignalRConnectionString") |
@@ -614,7 +614,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type**|| Moet worden ingesteld op `signalR`.|
 |**direction**|| Moet worden ingesteld op `out`.|
-|**De naam**|| Naam van de variabele in functiecode gebruikt voor de connection-info-object. |
+|**name**|| Naam van de variabele in functiecode gebruikt voor de connection-info-object. |
 |**hubName**|**HubName**| Deze waarde moet worden ingesteld op de naam van het SignalR-hub waarvoor de verbindingsgegevens is gegenereerd.|
 |**connectionStringSetting**|**connectionStringSetting**| De naam van de app-instelling met de verbindingsreeks SignalR-Service (standaard ingesteld op "AzureSignalRConnectionString") |
 
@@ -626,4 +626,4 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 > [Meer informatie over Azure functions-triggers en bindingen](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure Functions-ontwikkeling en configuratie met Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [Ontwikkeling en configuratie van Azure Functions met Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
