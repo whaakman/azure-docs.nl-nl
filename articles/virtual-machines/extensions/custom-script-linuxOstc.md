@@ -124,10 +124,10 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
-| typeHandlerVersion | 1,5 | int |
+| typeHandlerVersion | 1.5 | int |
 | fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (bijvoorbeeld) | python MyPythonScript.py \<my-param1\> | string |
-| enableInternalDNSCheck | true | booleaans |
+| enableInternalDNSCheck | true | boolean |
 | storageAccountName (bijvoorbeeld) | examplestorageacct | string |
 | storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
