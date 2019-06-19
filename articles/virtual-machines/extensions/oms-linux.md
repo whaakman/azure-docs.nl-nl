@@ -60,7 +60,7 @@ De volgende tabel ziet u de pakketten zijn vereist voor de ondersteunde Linux-di
 |Vereist pakket |Description |Minimale versie |
 |-----------------|------------|----------------|
 |Glibc |    GNU C-bibliotheek | 2.5-12 
-|openssl    | OpenSSL-bibliotheken | 1.0.x of 1.1.x |
+|Openssl    | OpenSSL-bibliotheken | 1.0.x of 1.1.x |
 |Curl | cURL webclient | 7.15.5 |
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
@@ -135,7 +135,7 @@ De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De exte
 | Name | Waarde / voorbeeld |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
-| Uitgever | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
 | werkruimte-id (bijvoorbeeld) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
