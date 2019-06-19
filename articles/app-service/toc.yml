@@ -70,14 +70,17 @@
     - name: OS-functionaliteit
       href: operating-system-functionality.md
     - name: Beveiliging
-      href: overview-security.md
       items:
+        - name: Aanbevelingen
+          href: security-recommendations.md
         - name: Verificatie en autorisatie
           href: overview-authentication-authorization.md
         - name: Patches toepassen voor het besturingssysteem en de runtime
           href: overview-patch-os-runtime.md
         - name: Beveiligingskenmerken
           href: app-service-security-attributes.md
+        - name: Beveiligingsoverzicht
+          href: overview-security.md
     - name: Netwerkfuncties
       href: networking-features.md
     - name: Inkomende en uitgaande IP-adressen
