@@ -93,7 +93,7 @@ De volgende JSON ziet u het schema voor de Log Analytics-agent-extensie. De exte
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| werkruimte-id (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceId (bijvoorbeeld)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (bijvoorbeeld) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 \* De werkruimte-id heet de consumerId in de Log Analytics-API.
