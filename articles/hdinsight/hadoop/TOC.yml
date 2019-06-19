@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: Overzicht
   items:
-    - name: Over Apache Hadoop in HDInsight
+    - name: Wat is Apache Hadoop in HDInsight?
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: Apache Hadoop-architectuur in HDInsight
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: Apache Hadoop-onderdelen in HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: Snelstartgidsen
   items:
-    - name: Een Apache Hadoop-cluster maken - Portal
+    - name: Een Apache Hadoop-cluster maken - portal
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Een Apache Hadoop-cluster maken - Resource Manager-sjabloon
+    - name: Een Apache Hadoop-cluster maken - sjabloon
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Zelfstudies
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: Concepten
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: Apache Hadoop-architectuur in HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: Apache Hadoop-onderdelen in HDInsight
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Planning clustercapaciteit
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Windows-clusters
       items:
-        - name: Windows-clusters migreren naar Linux-clusters
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: .NET-oplossingen migreren naar Linux-clusters
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true

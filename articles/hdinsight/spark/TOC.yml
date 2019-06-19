@@ -7,13 +7,13 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een Apache Spark-cluster maken - Portal
+    - name: Een Apache Spark-cluster maken - portal
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Een Apache Spark-cluster maken - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
     - name: Een Apache Spark-cluster maken - Azure CLI
       href: apache-spark-create-cluster-cli.md
-    - name: Een Apache Spark-cluster maken - Resource Manager-sjabloon
+    - name: Een Apache Spark-cluster maken - sjabloon
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-spark-jupyter-spark-sql.md
 - name: Zelfstudies

@@ -3,20 +3,20 @@ title: Betrouwbaarheidsscore - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: De betrouwbaarheidsscore geeft aan dat het vertrouwen dat het antwoord de juiste overeenkomst voor de opgegeven gebruiker-query is.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792751"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165144"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Betrouwbaarheidsscore van een kennisdatabase QnA Maker
 Wanneer de aanvraag voor een gebruiker wordt vergeleken met een knowledge base, retourneert de QnA Maker relevante antwoorden, samen met een betrouwbaarheidsscore. Deze score geeft aan dat het vertrouwen dat het antwoord de juiste overeenkomst voor de opgegeven gebruiker-query is. 
@@ -46,7 +46,7 @@ De volgende tabel staan de typische vertrouwen die voor een bepaald scorebereik 
 |0|Er is geen overeenkomst, zodat het antwoord niet wordt geretourneerd.|"Wat de service kost"|
 
 ## <a name="choose-a-score-threshold"></a>Kies een score drempelwaarde
-De bovenstaande tabel bevat de scores dat wordt verwacht dat op de meeste kB's. Echter omdat elke KB anders is en verschillende typen woorden heeft, intents en doelstellingen-aangeraden u testen en de drempelwaarde kiezen die het meest werkt voor u. De drempelwaarde is standaard ingesteld op 0, zodat alle mogelijke antwoorden worden geretourneerd. De aanbevolen drempelwaarde die moet werken voor de meeste kB's, is **50**.
+De bovenstaande tabel bevat de scores dat wordt verwacht dat op de meeste kB's. Echter omdat elke KB anders is en verschillende typen woorden, intents en doelstellingen heeft-aangeraden u testen en de drempelwaarde kiezen die het meest voor u geschikt. De drempelwaarde is standaard ingesteld op 0, zodat alle mogelijke antwoorden worden geretourneerd. De aanbevolen drempelwaarde die moet werken voor de meeste kB's, is **50**.
 
 Bij het kiezen van de drempelwaarde, houd rekening met de balans tussen nauwkeurigheid en dekking en de drempelwaarde op basis van uw behoeften aanpassen.
 
@@ -56,6 +56,12 @@ Bij het kiezen van de drempelwaarde, houd rekening met de balans tussen nauwkeur
 
 > [!NOTE]
 > Nieuwere versies van QnA Maker zijn verbeteringen aangebracht aan scoring logica en invloed kunnen zijn op de drempelwaarde. Elk gewenst moment bijwerken van de service, zorg ervoor dat voor het testen en aanpassen van de drempelwaarde, indien nodig. U kunt uw versie van de QnA-Service controleren [hier](https://www.qnamaker.ai/UserSettings), en zien hoe u de meest recente updates [hier](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Ingestelde drempelwaarde 
+
+De score drempel instellen als een eigenschap van de [GenerateAnswer API JSON-hoofdtekst](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Dit betekent dat u dit voor elke aanroep van GenerateAnswer instellen. 
+
+Instellen van de botframework, de score als onderdeel van het optiesobject met [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) of [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Vertrouwen van de scores verbeteren
 Ter verbetering van de betrouwbaarheidsscore van een bepaald antwoord op de gebruikersquery van een, kunt u de gebruikersquery toevoegen aan de knowledge base als een alternatieve vraag op dat-antwoord. U kunt ook niet-hoofdlettergevoelige [wijzigingen in word](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) synoniemen toevoegen aan trefwoorden in uw KB.

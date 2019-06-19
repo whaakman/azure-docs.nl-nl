@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 06/18/2019
 ms.author: rosh
-ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78584c2c0419bb27fb58c07eb97b1aa38501951f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65909391"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204065"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Vergelijkbare afbeeldingen uit eerdere zoekacties met behulp van ImageInsightsToken zoeken
 
 De Visual Search-SDK kunt u installatiekopieën online uit eerdere zoekacties die retourneren vindt u een `ImageInsightsToken`. Deze toepassing wordt een `ImageInsightsToken` en gebruikt het token in een toekomstige zoekopdracht. Verzendt vervolgens de `ImageInsightsToken` Bing en retourneert resultaten die zijn onder andere Bing zoeken-URL's en URL's van vergelijkbare afbeeldingen online gevonden.
 
-De volledige broncode voor deze zelfstudie vindt u aanvullende foutafhandeling en aantekeningen op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs).
+De volledige broncode voor deze zelfstudie vindt u aanvullende foutafhandeling en aantekeningen op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,10 +38,10 @@ De volledige broncode voor deze zelfstudie vindt u aanvullende foutafhandeling e
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>De ImageInsightsToken ophalen uit de Bing afbeeldingen zoeken SDK
 
-Deze toepassing gebruikt een `ImageInsightsToken` hebben verkregen via de [Bing afbeeldingen zoeken SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Een nieuwe C# consoletoepassing, maakt u een client voor het aanroepen van de API kunnen doen met `ImageSearchAPI()`. Gebruik vervolgens `SearchAsync()` met uw query:
+Deze toepassing gebruikt een `ImageInsightsToken` hebben verkregen via de [Bing afbeeldingen zoeken SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Een nieuwe C# consoletoepassing, maakt u een client voor het aanroepen van de API kunnen doen met `ImageSearchClient()`. Gebruik vervolgens `SearchAsync()` met uw query:
 
 ```csharp
-var client = new ImageSearchAPI(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
+var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
 var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 ```

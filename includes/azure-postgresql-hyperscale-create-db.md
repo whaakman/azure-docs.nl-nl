@@ -9,11 +9,11 @@ ms.date: 05/14/2019
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66154496"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176278"
 ---
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -64,7 +64,7 @@ De Azure Database voor PostgreSQL – grootschalige (Citus) (preview)-service wo
 
 Wanneer u uw Azure Database for PostgreSQL-server maakt, een standaarddatabase met de naam **citus** wordt gemaakt. Voor verbinding met uw databaseserver, moet u een verbindingsreeks en het beheerderswachtwoord.
 
-1. Haal de verbindingsreeks. Klik in de pagina van de server-groep op de **verbindingsreeksen** menu-item. (Is onder **instellingen**.) De tekenreeks die is gemarkeerd als  **C++ (libpq)**. Dit is van het formulier:
+1. Haal de verbindingsreeks. Klik in de pagina van de server-groep op de **verbindingsreeksen** menu-item. (Is onder **instellingen**.) De tekenreeks die is gemarkeerd als  **C++ (libpq)** . Dit is van het formulier:
 
    ```
    host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require

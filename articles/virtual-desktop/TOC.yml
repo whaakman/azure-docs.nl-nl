@@ -44,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Sessiehosts automatisch schalen
       href: set-up-scaling-script.md
+    - name: Feed aanpassen voor Windows Virtual Desktop-gebruikers
+      href: customize-feed-for-virtual-desktop-users.md
     - name: RDP-eigenschappen aanpassen
       href: customize-rdp-properties.md
 - name: Concepten

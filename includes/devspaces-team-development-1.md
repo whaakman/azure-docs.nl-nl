@@ -11,11 +11,11 @@ ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
 ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157861"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176473"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamontwikkeling met Azure Dev Spaces
 
@@ -58,7 +58,7 @@ We moeten eerst een basislijn voor onze services implementeren. Deze implementat
 
 1. De [Dev Spaces-voorbeeldtoepassing](https://github.com/Azure/dev-spaces) klonen: `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. De externe branch *azds_updates* uitchecken: `git checkout -b azds_updates origin/azds_updates`
-1. Selecteer de _dev_-ruimte: `azds space select --name dev`. Wanneer u wordt gevraagd een bovenliggende dev-ruimte te selecteren, selecteert u _\<geen\>_.
+1. Selecteer de _dev_-ruimte: `azds space select --name dev`. Wanneer u wordt gevraagd een bovenliggende dev-ruimte te selecteren, selecteert u _\<geen\>_ .
 1. Navigeer naar de _mywebapi_-map en voer deze opdracht uit: `azds up -d`
 1. Navigeer naar de _webfrontend_-map en voer deze opdracht uit: `azds up -d`
 1. Voer `azds list-uris` uit om het openbare eindpunt voor de _webfrontend_ weer te geven

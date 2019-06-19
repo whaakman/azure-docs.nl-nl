@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 704a1193eb47f9346900c6c8a003122c30c8ab44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417323"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203975"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Ondersteuning voor taal en regio voor de Tekstanalyse-API
 
@@ -31,7 +31,14 @@ Als u inhoud, uitgedrukt in een minder vaak gebruikte taal hebt, kunt u proberen
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Sentimentanalyse, Sleuteltermextractie en herkenning van benoemde entiteiten
 
-Voor sentimentanalyse, sleuteltermextractie en herkenning entiteit wordt de lijst met ondersteunde talen selectiever omdat de analyzers verfijnd om aan de regels voor linguïstische van extra talen te kunnen zijn.
+Voor sentimentanalyse, sleuteltermextractie en herkenning entiteit wordt de lijst met ondersteunde talen selectiever omdat de analyzers verfijnd om aan de regels voor linguïstische van extra talen te kunnen zijn. Ondersteuning voor de volledige set [Entiteitstypen](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) is momenteel beperkt tot de volgende talen: 
+* Nederlands
+* Chinees (Vereenvoudigd)
+* Frans
+* Duits
+* Spaans
+
+Alleen de `Person`, `Location` en `Organization` benoemde entiteiten worden geretourneerd voor de andere talen.
 
 ## <a name="language-list-and-status"></a>Talenlijst met en status
 
@@ -64,7 +71,7 @@ Taalondersteuning wordt in eerste instantie in de Preview-versie opwaarderen naa
 
 \* Ondersteuning is beschikbaar als preview
 
-\*\* Met de naam van entiteit erkenning en [entiteiten koppelen](how-tos/text-analytics-how-to-entity-linking.md) zijn beide beschikbaar voor deze taal.    
+\*\* [Met de naam van entiteit erkenning](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) en [entiteiten koppelen](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) zijn beide beschikbaar voor deze taal.    
 
 ## <a name="see-also"></a>Zie ook
 

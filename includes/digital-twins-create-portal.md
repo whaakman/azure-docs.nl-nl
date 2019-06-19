@@ -9,15 +9,15 @@ ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
 ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153715"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176698"
 ---
 1. Meld u aan bij [Azure Portal](http://portal.azure.com).
 
-1. Selecteer **Een resource maken** in het linkerdeelvenster. Zoek op **digital twins** en selecteer **Digital Twins (preview)**. Selecteer **Maken** om het implementatieproces te starten.
+1. Selecteer **Een resource maken** in het linkerdeelvenster. Zoek op **digital twins** en selecteer **Digital Twins (preview)** . Selecteer **Maken** om het implementatieproces te starten.
 
    ![Selecties voor het maken van een nieuw Digital Twins-exemplaar](./media/create-digital-twins-portal/create-digital-twins.png)
 
@@ -37,4 +37,4 @@ ms.locfileid: "66153715"
 
     Wijzig de URL van de **Beheer API** als volgt: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Uw toepassing gebruikt de aangepaste URL als de basis-URL voor toegang tot uw instantie. Kopieer deze gewijzigde URL naar een tijdelijk bestand. U hebt deze URL nodig in de volgende sectie.
 
-    ![Beheer API](./media/create-digital-twins-portal/digital-twins-management-api.png)
+    ![Beheer-API](./media/create-digital-twins-portal/digital-twins-management-api.png)

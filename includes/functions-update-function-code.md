@@ -10,11 +10,11 @@ ms.date: 03/12/2019
 ms.author: glenga
 ms.custom: include file, fasttrack-edit
 ms.openlocfilehash: 5b009fafc818a06bdda309b3e025251cc0997e47
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132185"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175808"
 ---
 ## <a name="update-the-function"></a>Functie bijwerken
 
@@ -31,7 +31,7 @@ public static async Task<IActionResult> Run(
     ILogger log)
 ```
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 Open het bestand function.json voor de nieuwe functie in een teksteditor, bij te werken de **authLevel** eigenschap in **bindingen** naar `anonymous`, en sla de wijzigingen.
 

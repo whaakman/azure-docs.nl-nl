@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8faa524d7d88f09835d26439b772b8d57c84cc73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ebc3d9f3339e2f703a1f374363b72b86f63d903
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122243"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204038"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Ondersteuning voor containers in Azure Cognitive Services
 
@@ -106,6 +106,8 @@ Afzonderlijke containers kunnen hun eigen vereisten, evenals, met inbegrip van d
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Meer informatie over [container recepten](/containers/container-reuse-recipe.md) kunt u met de Cognitive Services.
 
 Installeren en de functionaliteit van containers in Azure Cognitive Services verkennen:
 

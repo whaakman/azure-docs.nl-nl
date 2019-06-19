@@ -6,14 +6,14 @@ author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfe48fb1bf6a361ce79d0ddc5281a6380a5367e4
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016480"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203478"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
 
@@ -33,7 +33,7 @@ In dit artikel wordt uitgelegd hoe u een back-up naar een Azure Backup Recovery 
 Voordat u een back-up van uw SQL Server-database maakt, controleert u de volgende voorwaarden:
 
 1. Bepalen of [maken](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) een Recovery Services-kluis in dezelfde regio of land als de virtuele machine die als host fungeert voor de SQL Server-exemplaar.
-2. [Controleer de VM-machtigingen](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) die nodig zijn voor de back-up van de SQL-databases.
+2. [Controleer de VM-machtigingen](backup-azure-sql-database.md#set-vm-permissions) die nodig zijn voor de back-up van de SQL-databases.
 3. Controleer of de virtuele machine [netwerkverbinding](backup-sql-server-database-azure-vms.md#establish-network-connectivity) heeft.
 4. Controleer of de SQL Server-databases zijn benoemd in overeenstemming met de [naamgevingsrichtlijnen](#verify-database-naming-guidelines-for-azure-backup) van Azure Backup.
 5. Controleer of er geen andere back-upoplossingen zijn ingeschakeld voor de database. Schakel alle andere SQL Server-back-ups uit voordat u dit scenario instelt. U kunt zonder problemen Azure Backup inschakelen voor een Azure-VM en tegelijkertijd voor een SQL Server-database die wordt uitgevoerd op de virtuele machine.
@@ -61,7 +61,7 @@ Azure Backup doet een aantal dingen wanneer u een back-up voor een SQL Server-da
 - Om databases op de virtuele machine te detecteren, wordt door Azure Backup het account **NT SERVICE\AzureWLBackupPluginSvc** gemaakt. Dit account wordt gebruikt voor back-up en herstel en vereist systeembeheerdersrechten voor SQL.
 - Het account **NT AUTHORITY\SYSTEM** wordt door Azure Backup gebruikt voor databasedetectie/-aanvragen, dus dit account moet een openbare aanmelding via SQL zijn.
 
-Als u de SQL Server-VM niet hebt gemaakt vanuit de Azure Marketplace, ontvangt u mogelijk het foutbericht **UserErrorSQLNoSysadminMembership**. Volg in dit geval [deze instructies](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Als u de SQL Server-VM niet hebt gemaakt vanuit de Azure Marketplace, ontvangt u mogelijk het foutbericht **UserErrorSQLNoSysadminMembership**. Volg in dit geval [deze instructies](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Controleer de naamgevingsrichtlijnen voor databases van Azure Backup
 
@@ -114,7 +114,7 @@ Detecteer databases die op de virtuele machine worden uitgevoerd.
     - Azure Backup maakt het serviceaccount **NT Service\AzureWLBackupPluginSvc** op de virtuele machine.
       - Het serviceaccount wordt gebruikt voor alle back-up- en herstelbewerkingen.
       - Voor **NT-Service\AzureWLBackupPluginSvc** zijn systeembeheerdersrechten voor SQL vereist. Op alle SQL Server-VM's die in de Azure Marketplace zijn gemaakt, is **SqlIaaSExtension** geïnstalleerd. De extensie **AzureBackupWindowsWorkload** maakt gebruik van de extensie **SQLIaaSExtension** om automatische de benodigde machtigingen op te halen.
-    - Als u de virtuele machine niet vanuit de marketplace hebt gemaakt, beschikt de virtuele machine niet over **SqlIaaSExtension** en niet over de detectiebewerkingsfouten met het foutbericht **UserErrorSQLNoSysAdminMembership**. Ga als volgt de [instructies](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) om dit probleem te verhelpen.
+    - Als u de virtuele machine niet vanuit de marketplace hebt gemaakt, beschikt de virtuele machine niet over **SqlIaaSExtension** en niet over de detectiebewerkingsfouten met het foutbericht **UserErrorSQLNoSysAdminMembership**. Ga als volgt de [instructies](backup-azure-sql-database.md#set-vm-permissions) om dit probleem te verhelpen.
 
         ![De VM en database selecteren](./media/backup-azure-sql-database/registration-errors.png)
 

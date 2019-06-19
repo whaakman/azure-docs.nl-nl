@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/01/2018
+ms.date: 06/18/2019
 ms.author: ghogen
-ms.openlocfilehash: 6f697c91851e7ddc95f84239987bb4378bafd094
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85afae087b1b1e572759943142412743744ee806
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798641"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203425"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Zelfstudie: Verbinding maken met de Bing Nieuws zoeken-API met behulp van Connected Services in Visual Studio en C#
 
@@ -26,13 +26,13 @@ Dit artikel bevat informatie voor het gebruik van de functie Connected Services 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versie 15.7 of hoger, met de ontwikkeling van Web-werkbelasting geïnstalleerd. [Download nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual 2019 van het Studio, in de met de ontwikkeling van Web-werkbelasting geïnstalleerd. [Download nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Ondersteuning voor de Bing Nieuws zoeken-API toevoegen aan uw project
 
-1. Maak een nieuw ASP.NET Core-web-project met de naam MyWebApplication. Gebruik de projectsjabloon **Web Application (Model-View-Controller)**, met alle standaardinstellingen. Het is belangrijk om het project de naam MyWebApplication te geven, zodat de naamruimte overeenkomt wanneer u code naar het project kopieert. 
+1. Maak een nieuw ASP.NET Core-web-project met de naam MyWebApplication. Gebruik de projectsjabloon **Web Application (Model-View-Controller)** , met alle standaardinstellingen. Het is belangrijk om het project de naam MyWebApplication te geven, zodat de naamruimte overeenkomt wanneer u code naar het project kopieert. 
 
 1. Kies in **Solution Explorer** **Add** > **Connected Service**.
    De pagina Connected Service-pagina wordt weergegeven, met services die u aan uw project kunt toevoegen.

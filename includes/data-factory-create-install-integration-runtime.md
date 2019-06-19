@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66168216"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176504"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Een zelf-hostende Integration Runtime maken
 
@@ -106,7 +106,7 @@ In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppel
 
     ![Registratie is voltooid](media/data-factory-create-install-integration-runtime/registered-successfully.png)
 
-12. Selecteer **Volgende** op de pagina **Nieuw knooppunt voor Integration Runtime (zelf-hostend)**. 
+12. Selecteer **Volgende** op de pagina **Nieuw knooppunt voor Integration Runtime (zelf-hostend)** . 
 
     ![Pagina Nieuw knooppunt voor Integration Runtime](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
 

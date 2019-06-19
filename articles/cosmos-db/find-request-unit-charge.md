@@ -4,14 +4,14 @@ description: Meer informatie over het vinden van de aanvraageenheid (RU) kosten 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416036"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163827"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>De kosten van de aanvraag-eenheden niet vinden in Azure Cosmos DB
 
@@ -297,8 +297,9 @@ Zie voor meer informatie [Snelstart: Een tabel-API-app bouwen met behulp van de 
 Voor meer informatie over het optimaliseren van uw RU-verbruik, Zie de volgende artikelen:
 
 * [Aanvraageenheden en doorvoer in Azure Cosmos DB](request-units.md)
-* [Kosten van de ingerichte doorvoer in Azure Cosmos DB optimaliseren](optimize-cost-throughput.md)
+* [Kosten voor ingerichte doorvoer optimaliseren in Azure Cosmos DB](optimize-cost-throughput.md)
 * [Kosten van de query in Azure Cosmos DB optimaliseren](optimize-cost-queries.md)
 * [Ingerichte doorvoer wereldwijd schalen](scaling-throughput.md)
 * [Doorvoer voor containers en databases inrichten](set-throughput.md)
 * [Inrichten doorvoer voor een container](how-to-provision-container-throughput.md)
+* [Monitor en fouten opsporen met metrische gegevens in Azure Cosmos DB](use-metrics.md)

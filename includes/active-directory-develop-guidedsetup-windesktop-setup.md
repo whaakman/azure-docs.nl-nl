@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121627"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176210"
 ---
 ## <a name="set-up-your-project"></a>Uw project instellen
 
@@ -34,8 +34,8 @@ De toepassing die u met deze handleiding maakt geeft een knop die wordt gebruikt
 Voor het maken van uw toepassing, het volgende doen:
 
 1. Selecteer in Visual Studio **Bestand** > **Nieuw** > **Project**.
-2. Onder **sjablonen**, selecteer **Visual C#**.
-3. Selecteer **WPF-App (.NET Framework)**, afhankelijk van de versie van Visual Studio-versie die u gebruikt.
+2. Onder **sjablonen**, selecteer **Visual C#** .
+3. Selecteer **WPF-App (.NET Framework)** , afhankelijk van de versie van Visual Studio-versie die u gebruikt.
 
 ## <a name="add-msal-to-your-project"></a>MSAL toevoegen aan uw project
 

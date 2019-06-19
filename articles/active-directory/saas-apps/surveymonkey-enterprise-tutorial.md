@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55438e2a853094bc26b3cb672687733f206f104
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089592"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met SurveyMonkey Enterprise
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SurveyMonkey voor on
 
     ![SurveyMonkey Enterprise domein en URL's, eenmalige aanmelding informatie](common/both-signonurl.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL: ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
 6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

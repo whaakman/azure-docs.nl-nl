@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925308"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206046"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Zelfstudie: De gegevenskopieerservice gebruiken om gegevens te kopiëren naar Azure Data Box (preview)
 
@@ -59,7 +59,7 @@ U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevensko
     |-------------------------------|---------|
     |**Taaknaam**                       |Een unieke naam van maximaal 230 tekens voor de taak. De volgende tekens zijn niet toegestaan in de naam van de taak: \<, \>, \|, \?, \*, \\, \:, \/ en \\\.         |
     |**Bronlocatie**                |Geef het SMB-pad naar de gegevensbron op in de indeling: `\\<ServerIPAddress>\<ShareName>` of `\\<ServerName>\<ShareName>`.        |
-    |**Gebruikersnaam**                       |Gebruikersnaam in de notatie `\\<DomainName><UserName>` voor toegang tot de gegevensbron.        |
+    |**Gebruikersnaam**                       |Gebruikersnaam in de notatie `\\<DomainName><UserName>` voor toegang tot de gegevensbron. Als een lokale beheerder verbinding maakt, moet ze expliciete machtigingen. Met de rechtermuisknop op de map, selecteert u **eigenschappen** en selecteer vervolgens **Security**. Dit moet toevoegen de lokale beheerder in de **Security** tabblad.       |
     |**Wachtwoord**                       |Wachtwoord voor toegang tot de gegevensbron.           |
     |**Doelopslagaccount**    |Selecteer in de lijst het doelopslagaccount waarnaar u de gegevens wilt uploaden.         |
     |**Doeltype**       |Selecteer het doelopslagtype in de lijst: **Blok-blob**, **Pagina-blob** of **Azure Files**.        |

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Nieuws zoeken - Bing News Search-SDK voor Python'
+title: 'Quickstart: Nieuws zoeken in met de Bing nieuws zoeken-SDK voor Python'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om nieuws te zoeken met de Bing News Search-SDK voor Python en om het antwoord te verwerken.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e9a24084e025723febf854fad7ba83db55d1f824
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13c500359c185d36a2e89914a1c112ee2e82cbc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798604"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206113"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Snelstartgids: Nieuws zoeken met de Bing News Search-SDK voor Python
 

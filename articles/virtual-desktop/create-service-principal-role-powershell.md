@@ -1,32 +1,32 @@
 ---
-title: Windows virtuele bureaublad Preview-service-principals en roltoewijzingen maken met PowerShell - Azure
-description: Het service-principals maken en toewijzen van rollen met PowerShell in Windows Virtual Desktop Preview.
+title: Windows virtuele bureaublad Preview-service-principals en roltoewijzingen maken met behulp van PowerShell - Azure
+description: Over het maken van service-principals en rollen toewijzen met behulp van PowerShell in Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523318"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206665"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Zelfstudie: Service-principals en roltoewijzingen maken met PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Zelfstudie: Service-principals en roltoewijzingen maken met behulp van PowerShell
 
 Service-principals zijn identiteiten die u in Azure Active Directory maken kunt voor het toewijzen van rollen en machtigingen voor een specifiek doel. In Windows Virtual Desktop Preview, kunt u een service principal te maken:
 
-- Specifieke virtuele Windows-bureaublad-beheertaken automatiseren
-- Gebruiken als de referenties in plaats van gebruikers MFA is vereist bij het uitvoeren van een Windows virtuele bureaublad Azure Resource Manager-sjabloon
+- Specifieke virtuele Windows-bureaublad-beheertaken automatiseren.
+- Als de referenties in plaats van gebruikers MFA vereist gebruiken bij het uitvoeren van een Azure Resource Manager-sjabloon voor virtuele Windows-bureaublad.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een service-principal maken in Azure Active Directory
-> * Een roltoewijzing maken in een virtuele Windows-bureaublad
-> * Aanmelden bij virtuele Windows-bureaublad met de service-principal
+> * Een serviceprincipal maken in Azure Active Directory.
+> * Maak een roltoewijzing in virtuele Windows-bureaublad.
+> * Meld u aan virtuele Windows-bureaublad met behulp van de service-principal.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -48,7 +48,7 @@ Voordat u service-principals en roltoewijzingen maken kunt, moet u drie dingen d
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Een service-principal maken in Azure Active Directory
 
-Nadat u de vereisten hebt voldaan in de PowerShell-sessie, voer de volgende PowerShell-cmdlets voor het maken van een multitenant service principal in Azure.
+Nadat u de vereisten hebt voldaan in de PowerShell-sessie, voert u de volgende PowerShell-cmdlets voor het maken van een multitenant service principal in Azure.
 
 ```powershell
 Import-Module AzureAD
@@ -72,18 +72,18 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Meld u aan met de service-principal
 
-Na het maken van een roltoewijzing voor de service principal, moet u controleren of dat de service-principal kan zich aanmelden bij virtuele Windows-bureaublad door de volgende cmdlet:
+Nadat u een roltoewijzing voor de service principal gemaakt, zorg er dan voor dat de service-principal kan zich aanmelden bij virtuele Windows-bureaublad door de volgende cmdlet:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
 ```
 
-Nadat u zich hebt aangemeld, zorg ervoor dat alles werkt door te testen van een paar Windows virtuele bureaublad PowerShell-cmdlets met de service-principal.
+Nadat u zich hebt aangemeld, zorg er dan voor dat alles werkt door een paar Windows virtuele bureaublad PowerShell-cmdlets met de service-principal te testen.
 
 ## <a name="view-your-credentials-in-powershell"></a>Uw referenties in PowerShell weergeven
 
-Voordat u de PowerShell-sessie beëindigen, moet u uw referenties weergeven en schrijf ze op voor toekomstig gebruik. Het wachtwoord is vooral belangrijk omdat u niet meer ophalen nadat u deze PowerShell-sessie sluit.
+Voordat u de PowerShell-sessie beëindigen, weergeven van uw referenties en schrijf ze op voor toekomstig gebruik. Het wachtwoord is vooral belangrijk omdat u niet meer ophalen nadat u deze PowerShell-sessie sluit.
 
 Dit zijn de drie referenties die te noteren en de cmdlets die u moet uitvoeren om op te halen ze:
 
@@ -93,13 +93,13 @@ Dit zijn de drie referenties die te noteren en de cmdlets die u moet uitvoeren o
     $svcPrincipalCreds.Value
     ```
 
-- Tenant-id:
+- Tenant-ID:
 
     ```powershell
     $aadContext.TenantId.Guid
     ```
 
-- Toepassings-id:
+- Toepassings-ID:
 
     ```powershell
     $svcPrincipal.AppId
@@ -107,7 +107,7 @@ Dit zijn de drie referenties die te noteren en de cmdlets die u moet uitvoeren o
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u hebt gemaakt van de service-principal en een rol in uw tenant virtuele Windows-bureaublad toegewezen, kunt u deze kunt gebruiken om een host-pool te maken. Voor meer informatie over pools host, verder met de zelfstudie voor het maken van een host van toepassingen in virtuele Windows-bureaublad.
+Nadat u hebt gemaakt van de service-principal en een rol in uw tenant virtuele Windows-bureaublad toegewezen, kunt u het maken van een groep host. Voor meer informatie over pools host, verder met de zelfstudie voor het maken van een host van toepassingen in virtuele Windows-bureaublad.
 
  > [!div class="nextstepaction"]
  > [Zelfstudie voor virtuele Windows-bureaublad host pool](./create-host-pools-azure-marketplace.md)

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128080"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205309"
 ---
 # <a name="mock-api-responses"></a>Gesimuleerde antwoorden van een API
 
@@ -64,7 +64,7 @@ De stappen in deze sectie laten zien hoe u een lege API zonder back-end maakt. O
 1. Selecteer de API die u in de vorige stap hebt gemaakt.
 2. Klik op **+ Bewerking toevoegen**.
 
-    | Instelling             | Waarde                             | Beschrijving                                                                                                                                                                                   |
+    | Instelling             | Waarde                             | Description                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Weergavenaam**    | *Testaanroep*                       | Deze naam wordt weergegeven in de **ontwikkelaarsportal**.                                                                                                                                       |
     | **URL** (HTTP-woord) | GET                               | U kunt kiezen uit een van de vooraf gedefinieerde HTTP-woorden.                                                                                                                                         |

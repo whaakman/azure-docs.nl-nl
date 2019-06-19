@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/17/2019
 ms.author: tulasim
-ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1e7a29e4ca94405e2d6b2000309ef6e2c3a777c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693245"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164612"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord met de GenerateAnswer API en metagegevens
 
@@ -144,6 +144,40 @@ Een geslaagde respons retourneert een status van 200 en een JSON-antwoord.
     ]
 }
 ```
+
+## <a name="use-qna-maker-with-a-bot-in-c"></a>Gebruik QnA Maker met een bot inC#
+
+Botframework biedt toegang tot de QnA Maker-eigenschappen:
+
+```csharp
+using Microsoft.Bot.Builder.AI.QnA;
+var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
+var qnaOptions = new QnAMakerOptions();
+
+qnaOptions.Top = Constants.DefaultTop;
+qnaOptions.ScoreThreshold = 0.3F;
+var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
+```
+
+De bot ondersteuning heeft [een voorbeeld](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) met deze code.
+
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Gebruik QnA Maker met een bot in Node.js
+
+Botframework biedt toegang tot de QnA Maker-eigenschappen:
+
+```javascript
+const { QnAMaker } = require('botbuilder-ai');
+this.qnaMaker = new QnAMaker(endpoint);
+
+// Default QnAMakerOptions
+var qnaMakerOptions = {
+    ScoreThreshold: 0.03,
+    Top: 3
+};
+var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
+```
+
+De bot ondersteuning heeft [een voorbeeld](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) met deze code.
 
 <a name="metadata-example"></a>
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a034e7dc06defd701b58ec283ee161f5557c075d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095450"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164158"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Zelfstudie: Oracle Cloud-infrastructuur Console integreren met Azure Active Directory
 
@@ -92,7 +92,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
       > [!NOTE]
       > Als de waarden voor **Id** en **Antwoord-URL** niet automatisch worden ingevuld, kunt u de waarden zelf invullen afhankelijk van uw behoeften.
 
-      In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: ` https://console.<REGIONNAME>.oraclecloud.com/`
+      In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
       > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Oracle Cloud-infrastructuur-Console-Client-ondersteuningsteam](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

@@ -9,29 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198577"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204162"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Abonnementssleutels gebruiken met uw LUIS-app
 
-U hoeft niet te maken van abonnementssleutels voor het gebruik van uw gratis eindpunt van de eerste 1000 query's. Wanneer de eindpunt-query's worden gebruikt, maakt u een Azure-resource in de [Azure-portal](https://portal.azure.com), die resource vervolgens toewijzen aan een LUIS-app in de [LUIS portal](https://www.luis.ai).
-
-Als u ontvangt een _buiten het quotum_ fout opgetreden in de vorm van een HTTP 403 of 429, moet u een sleutel maken en toewijzen aan uw app. 
+Wanneer u Language Understanding (LUIS) voor het eerst gebruikt, hoeft u niet te abonnementssleutels maken. U begint met, 1000 endpoint-query's wordt verstrekt. 
 
 Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor productiesystemen, een [betaalde](https://aka.ms/luis-price-tier) laag. Gebruik niet de [ontwerpen sleutel](luis-concept-keys.md#authoring-key) voor eindpunt query's in de productieomgeving.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Voorspelling endpoint runtime-resource maken in Azure portal
 
-Meer informatie in de [een app bouwen](get-started-portal-build-app.md) Quick Start.
+U maakt de [voorspelling eindpuntresource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in Azure portal. Deze resource moet alleen worden gebruikt voor eindpunt voorspelling query's. Gebruik deze resource niet voor schrijven wijzigingen in de app.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +48,7 @@ Meer informatie in de [een app bouwen](get-started-portal-build-app.md) Quick St
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Resource toewijzen aan een LUIS-app in de Portal LUIS
 
-Meer informatie in de [implementatie](get-started-portal-deploy-app.md) Quick Start.
+Telkens wanneer u een nieuwe resource van LUIS maakt, moet u [de resource toewijzen aan de LUIS-app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Nadat deze toegewezen, hoeft u deze stap opnieuw uitvoert, tenzij u een nieuwe resource maken. U kunt een nieuwe resource om uit te breiden, de regio's van uw app of voor de ondersteuning van een hoger aantal voorspelling query's maken.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -155,10 +154,30 @@ Voor automation-doeleinden, zoals een CI/CD-pijplijn, kunt u de toewijzing van e
     ![Controleer of uw LUIS betaling-laag](./media/luis-usage-tiers/updated.png)
 1. Houd er rekening mee te [toewijzen van deze eindpuntsleutel](#assign-endpoint-key) op de **publiceren** pagina en deze gebruiken in alle endpoint-query's. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>Voor het oplossen van fouten voor out-van-quotum wanneer de sleutel is groter dan prijzen laag gebruik
-Elke laag kunt eindpunt aanvragen naar uw LUIS-account met een specifieke snelheid. Als het aantal aanvragen hoger dan het toegestane aantal uw naar gebruik-account per minuut of per maand is, aanvragen ontvangen van een HTTP-fout "429: Te veel aanvragen."
+## <a name="fix-http-status-code-403-and-429"></a>HTTP-statuscode 403 en 429 oplossen
 
-Elke laag kan wél cumulatief aanvragen per maand. Als het totaal aantal aanvragen dat hoger is dan de toegestane frequentie, aanvragen ontvangen van een HTTP-fout ' 403: verboden '.  
+U krijgt fout 403 en 429 statuscodes wanneer u de transacties per seconde of transacties per maand voor uw prijscategorie overschrijdt.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Wanneer u de statuscode van een HTTP 403-fout ontvangt
+
+Wanneer u alle deze gratis 1000 eindpunt query's gebruiken of u uw prijscategorie maandelijkse transacties quota overschrijdt, ontvangt u de statuscode van een HTTP 403-fout. 
+
+U kunt deze fout oplossen, moet u een [uw prijscategorie wijzigen](luis-how-to-azure-subscription.md#change-pricing-tier) naar een hogere laag of [Maak een nieuwe resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) en [toewijzen aan uw app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Oplossingen voor deze fout zijn onder andere:
+
+* In de [Azure-portal](https://portal.azure.com), op uw Taalbegrip resource, op de **Resource Management-prijscategorie >** , uw prijscategorie wijzigen naar een hogere TPS-laag. U hoeft te doen in de portal van Language Understanding als uw resource al aan uw app Language Understanding toegewezen is.
+*  Als uw gebruik groter is dan de hoogste prijscategorie, moet u meer Language Understanding-resources met een load balancer vóór ze toevoegen. De [Language Understanding container](luis-container-howto.md) met Kubernetes of Docker Compose met dit kan helpen.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Wanneer u een HTTP 429 foutstatuscode ontvangt
+
+Deze statuscode is geretourneerd wanneer de transacties per seconde is groter dan uw prijscategorie.  
+
+Oplossingen omvatten:
+
+* U kunt [verhogen van uw prijscategorie](#change-pricing-tier), als u niet op het hoogste niveau.
+* Als uw gebruik groter is dan de hoogste prijscategorie, moet u meer Language Understanding-resources met een load balancer vóór ze toevoegen. De [Language Understanding container](luis-container-howto.md) met Kubernetes of Docker Compose met dit kan helpen.
+* U kunt uw toepassingsaanvragen van clients met gate een [beleid voor opnieuw proberen](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) u zelf implementeren wanneer u deze statuscode. 
 
 ## <a name="viewing-summary-usage"></a>Overzicht gebruik weergeven
 U kunt informatie over het gebruik van LUIS weergeven in Azure. De **overzicht** pagina toont recente samenvattende informatie, inclusief aanroepen en fouten. Als u een LUIS-aanvraag voor het claimeindpunt aanbrengt, klikt u vervolgens onmiddellijk volgen het **overzichtspagina**, leiden tot vijf minuten voor het gebruik worden weergegeven.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
 ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145507"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176328"
 ---
 1. Start Visual Studio 2017.
 
@@ -19,11 +19,11 @@ ms.locfileid: "66145507"
 
    ![.NET-desktopontwikkeling inschakelen](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. Vervolgens gaat u een project maken. Selecteer **Bestand > Nieuw > Project** in de menubalk. Selecteer in het linkerdeelvenster van het dialoogvenster de secties **Geïnstalleerd > Visual C# > Windows-bureaublad** en selecteer **Consoletoepassing (.NET Framework)**. Geef dit project de naam *hallowereld*.
+1. Vervolgens gaat u een project maken. Selecteer **Bestand > Nieuw > Project** in de menubalk. Selecteer in het linkerdeelvenster van het dialoogvenster de secties **Geïnstalleerd > Visual C# > Windows-bureaublad** en selecteer **Consoletoepassing (.NET Framework)** . Geef dit project de naam *hallowereld*.
 
     ![Visual C#-consoletoepassing maken (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Visual C#-consoletoepassing maken (.NET Framework)")
 
-1. Nu het project is ingesteld, moet het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) worden geïnstalleerd en moet er in de code een verwijzing naar het pakket worden opgenomen. Zoek de Solution Explorer en klik met de rechtermuisknop op hallowereld. Selecteer in het menu de optie **NuGet-pakketten beheren...**.
+1. Nu het project is ingesteld, moet het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) worden geïnstalleerd en moet er in de code een verwijzing naar het pakket worden opgenomen. Zoek de Solution Explorer en klik met de rechtermuisknop op hallowereld. Selecteer in het menu de optie **NuGet-pakketten beheren...** .
 
    ![Met de rechtermuisknop klikken op NuGet-pakketten beheren voor oplossing](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "NuGet-pakketten beheren voor oplossing")
 

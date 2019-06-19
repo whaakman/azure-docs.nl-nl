@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107224"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203622"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Revisies gebruiken om vaste wijzigingen veilig in Azure API Management aan te brengen
 Wanneer uw API klaar is voor gebruik en daadwerkelijk wordt ingezet door ontwikkelaars, moet u op een bepaald moment wijzigingen aanbrengen aan die API, zonder dat dit gevolgen heeft voor clients die de API aanroepen. Het is ook handig om ontwikkelaars te informeren over de aangebrachte wijzigingen. We kunnen dit doen in Azure API Management met **revisies**. Zie voor meer informatie [Versies en revisies](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) en [API-versies met Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -50,7 +50,7 @@ In deze zelfstudie leert u het volgende:
 4. Selecteer **+ Revisie toevoegen**
 
     > [!TIP]
-    > U kunt ook **Revisie toevoegen** kiezen uit het contextmenu (**...** ) van de API.
+    > U kunt ook **Revisie toevoegen** kiezen uit het contextmenu ( **...** ) van de API.
 
 5. Geef een beschrijving voor de nieuwe revisie, om te onthouden waar deze voor wordt gebruikt.
 6. Selecteer **Maken**
@@ -82,7 +82,7 @@ In deze zelfstudie leert u het volgende:
 
     ![Het menu Revisie op het scherm Revisie.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. Open het contextmenu (**...** ) voor **Revisie 2**.
+2. Open het contextmenu ( **...** ) voor **Revisie 2**.
 3. Selecteer **Instellen als huidige**.
 4. Controleer **Op het openbare wijzigingenlogboek voor deze API plaatsen**, als u opmerkingen over deze wijziging wilt plaatsen. Geef een beschrijving voor de wijziging die ontwikkelaars wordt weergegeven, bijvoorbeeld: **Revisies testen. Nieuwe 'test'-bewerking toegevoegd.**
 5. **Revisie 2** is nu actueel.

@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121631"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176211"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
@@ -44,7 +44,7 @@ Ga als volgt te werk om de toepassing te registreren en de registratiegegevens v
    - Selecteer **Registreren** om de toepassing te maken.
 1. Selecteer in de lijst met pagina’s voor de app de optie **Verificatie**.
    1. In de **omleidings-URI's** sectie in de lijst van de omleidings-URI's:
-   1. In de **TYPE** kolomselectie **openbare client (mobiele en desktop)**.
+   1. In de **TYPE** kolomselectie **openbare client (mobiele en desktop)** .
    1. Voer `urn:ietf:wg:oauth:2.0:oob` in de **OMLEIDINGS-URI** kolom.
 1. Selecteer **Opslaan**.
 1. Ga naar Visual Studio, open de *App.xaml.cs* bestand en vervang `Enter_the_Application_Id_here` met toepassings-ID die u zojuist hebt geregistreerd en gekopieerd.

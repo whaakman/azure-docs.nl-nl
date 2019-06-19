@@ -3,20 +3,20 @@ title: Met behulp van de positie om weer te geven van zoekresultaten
 titleSuffix: Azure Cognitive Services
 description: Ziet u hoe u het antwoord Bing RankingResponse zoekresultaten in positie volgorde weergeven.
 services: cognitive-services
-author: bradumbaugh
+author: aahill
 manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: conceptual
-ms.date: 05/08/2017
-ms.author: bking
-ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: tutorial
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384842"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203242"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bouw een console-client-app zoeken in C#
 
