@@ -66,8 +66,8 @@ Content-Type | application/ssml+xml | De invoer inhoudstype.
 X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bits-mono-tts <br> **2.** raw-16 khz-16-bits-mono-pcm <br>**3.** audio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16-bits-mono-pcm <br> **6.** audio-16 khz-128kbitrate-mono-mp3 <br> **7.** audio-16 khz-64kbitrate-mono-mp3 <br> **8.** audio-16 khz-32kbitrate-mono-mp3 | De uitvoer audio-indeling.
 X-Search-AppId | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de clienttoepassing wordt aangeduid. Dit kan de opslag-ID voor apps zijn. Als een niet beschikbaar is, kan de ID gebruiker gegenereerd voor een toepassing zijn.
 X-Search-ClientID | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de instantie van een toepassing voor elke installatie wordt aangeduid.
-Gebruikersagent | De naam van de toepassing | De toepassingsnaam is vereist en moet minder dan 255 tekens.
-Autorisatie | Autorisatietoken |  Zie de <a href="#Subscription">Autorisatietoken</a> sectie.
+User-Agent | De naam van de toepassing | De toepassingsnaam is vereist en moet minder dan 255 tekens.
+Authorization | Autorisatietoken |  Zie de <a href="#Subscription">Autorisatietoken</a> sectie.
 
 ### <a name="InputParam"></a>Invoerparameters
 
