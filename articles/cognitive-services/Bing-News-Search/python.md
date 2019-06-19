@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Nieuws zoeken met Python - REST API voor Bing News Search'
+title: 'Quickstart: Uitvoeren van een nieuws zoeken met Python en de REST-API van Bing nieuws zoeken'
 titlesuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om een aanvraag naar de REST API van Bing News Search te verzenden via Python en een JSON-antwoord te ontvangen.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7745db722d1862e5254c0e0fb07605799a8f7457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c598a9e879cf2f48b6b038f0688d7394075ef521
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578926"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206091"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Snelstartgids: Nieuws zoeken met behulp van Python en de REST API voor Bing News Search
 

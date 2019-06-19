@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/19/2019
 ms.author: diberry
-ms.openlocfilehash: f8d2f6d9fce6a249a782f959ac7672ac8e123fbc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b73884e544ea1b8ee76c8a891048e6a8e17d6ab3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075166"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204083"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van uw knowledge base
 
@@ -195,7 +195,7 @@ De hoofdtekst van de JSON bevat verschillende instellingen:
 |--|--|--|--|
 |`feedbackRecords`|array|Lijst van de feedback.|
 |`userId`|string|De gebruikers-ID van de persoon die de voorgestelde vragen accepteren. De indeling van de gebruiker-ID is aan u. Een e-mailadres kan bijvoorbeeld een geldige gebruikers-ID in uw architectuur. Optioneel.|
-|`userQuestion`|string|Exact overeenkomende tekst van de vraag. Vereist.|
+|`userQuestion`|string|Exact overeenkomende tekst van de query van de gebruiker. Vereist.|
 |`qnaID`|getal|ID van de vraag, gevonden in de [GenerateAnswer antwoord](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
@@ -213,6 +213,36 @@ Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
 ```
 
 Een geslaagde respons retourneert een status van 204 en er is geen JSON-antwoordtekst. 
+
+### <a name="batch-many-feedback-records-into-a-single-call"></a>Batch-aantal feedback records in één aanroep
+
+In de client-side '-toepassing, zoals een bot, kunt u de gegevens worden opgeslagen en vervolgens verzenden van meerdere records in een enkele JSON-instantie in de `feedbackRecords` matrix. 
+
+Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "How do I ...",
+            "qnaId": 1
+        },
+        {
+            "userId": "2",
+            "userQuestion": "Where is ...",
+            "qnaId": 40
+        },
+        {
+            "userId": "3",
+            "userQuestion": "When do I ...",
+            "qnaId": 33
+        }
+    ]
+}
+```
+
+
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 

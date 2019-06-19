@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b656bbb7c5924f14b300f0352551530bb47f2a53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa3548a71e403728cbec4b8df2b0dce1cf6abde7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097123"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164479"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Zelfstudie: Azure Active Directory-integratie met Mitel MiCloud Connect
 
@@ -210,7 +210,7 @@ Een gebruiker maken voor uw account MiCloud verbinding maken met de volgende det
 * **Zakelijke e-mailadres:** `brittasimon@<yourcompanydomain>.<extension>`   
 (Voorbeeld: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com))
 
-* **Gebruikersnaam:** `brittasimon@<yourcompanydomain>.<extension> `  
+* **Gebruikersnaam:** `brittasimon@<yourcompanydomain>.<extension>`  
 (Voorbeeld: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com); gebruikersnaam van de gebruiker is meestal hetzelfde als zakelijk e-mailadres van de gebruiker)
 
 **OPMERKING:** Van de gebruiker MiCloud verbinding maken met gebruikersnaam moet identiek zijn aan e-mailadres van de gebruiker in Azure.

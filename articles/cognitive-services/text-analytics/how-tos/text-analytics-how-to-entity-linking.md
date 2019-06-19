@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 881c829424124cca843beb7005306edd53be2673
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231422"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203989"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Herkenning van entiteit met de naam in Text Analytics gebruiken
 
@@ -31,7 +31,7 @@ Entiteiten koppelen, is de mogelijkheid om te bepalen en dubbelzinnigheid van de
 ### <a name="named-entity-recognition-ner"></a>Herkenning van benoemde entiteiten (NER)
 Met de naam van entiteit recognition is (NER) de mogelijkheid om te bepalen van de verschillende entiteiten in de tekst en verdeel ze in categorieën in de vooraf gedefinieerde klassen. De ondersteunde klassen van entiteiten worden hieronder vermeld.
 
-In de Text Analytics [versie 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), entiteiten koppelen en herkenning van benoemde entiteiten (NER) beschikbaar zijn.
+In de Text Analytics [versie 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), entiteiten koppelen en herkenning van benoemde entiteiten (NER) zijn beschikbaar voor verschillende talen. Zie de [taalondersteuning](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) artikel voor meer informatie. 
 
 ### <a name="language-support"></a>Taalondersteuning
 
@@ -56,7 +56,7 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 | DateTime      | Date          | 2 mei 2017, 05-02-2017   | 
 | DateTime      | Time          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | 2 mei tot 5 mei    | 
-| DateTime      | TimeRange     | 18\.00 uur tot 19.00 uur     | 
+| DateTime      | TimeRange     | 18.00 uur tot 19.00 uur     | 
 | DateTime      | Duration      | 1 minuut en 45 seconden   | 
 | DateTime      | Set           | elke dinsdag     | 
 | DateTime      | Tijdzone      |    | 

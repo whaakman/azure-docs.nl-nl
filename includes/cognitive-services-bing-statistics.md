@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124739"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176318"
 ---
 Bing statistieken biedt analytics voor Bing zoeken-API's. Analytics bevat aanroepvolume, top queryreeksen en geografische verdeling. Om in te schakelen Bing statistieken in uw Bing Search betaald abonnement, gaat u naar uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), selecteert u uw betaalde abonnement en klikt u op inschakelen Bing statistieken. Het aantal abonnementen iets inschakelen van Bing statistieken verhoogt (Zie [prijzen](https://aka.ms/bingstatisticspricing)).
 

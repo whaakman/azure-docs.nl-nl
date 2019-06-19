@@ -1,21 +1,21 @@
 ---
 title: Configureren voor meerdere masters in Azure Cosmos DB
 description: Informatie over het configureren van meerdere masters in uw toepassingen in Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: mjbrown
+ms.openlocfilehash: e33aa10673f4c4b061f8961959f20b7b3416ec84
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244752"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204791"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configureren van meerdere masters in uw toepassingen die gebruikmaken van Azure Cosmos DB
 
-Voor het gebruik van de functie voor meerdere masters in uw toepassing, moet u schrijfbewerkingen in meerdere regio's inschakelen en configureren van de multihoming-functie in Azure Cosmos DB. Voor het configureren van multihoming, stelt u de regio waar de toepassing is geïmplementeerd.
+Voor het gebruik van de functie voor meerdere masters in uw toepassing, moet u schrijfbewerkingen in meerdere regio's inschakelen en configureren van de multihoming-functie in Azure Cosmos DB. Voor het configureren van multihoming, moet u de naam van de regio waar de toepassing is geïmplementeerd met de eigenschap SetCurrentLocation doorgeeft. Dit automatisch doet, vult de eigenschap PreferredLocations op basis van de geo-nabijheid van de locatie die is ingevoerd. Als een nieuwe regio wordt later toegevoegd aan het account, de toepassing hoeft niet te worden bijgewerkt of opnieuw geïmplementeerd, detecteert automatisch de dichter bij de regio en wordt automatisch-startpagina bij deze moet een regionale gebeurtenis worden uitgevoerd.
 
 ## <a id="netv2"></a>.NET SDK v2
 

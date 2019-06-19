@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148823"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176587"
 ---
 > [!WARNING]
 >  **Azure Container Service (ACS) wordt afgeschaft. Er worden geen nieuwe functies of functionaliteit meer aan ACS toegevoegd. Alles van de API's, portal, CLI-opdrachten en documentatie is gemarkeerd als afgeschaft.**

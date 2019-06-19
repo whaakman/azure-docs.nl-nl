@@ -7,11 +7,11 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een Apache Kafka-cluster maken - Portal
+    - name: Een Apache Kafka-cluster maken - portal
       href: apache-kafka-get-started.md
     - name: Een Apache Kafka-cluster maken - PowerShell
       href: apache-kafka-quickstart-powershell.md
-    - name: Een Apache Kafka-cluster maken - Resource Manager-sjabloon
+    - name: Een Apache Kafka-cluster maken - sjabloon
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: Zelfstudies

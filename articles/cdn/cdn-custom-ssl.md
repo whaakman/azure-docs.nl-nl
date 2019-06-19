@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9cca4cd113115a1acf676b46cc65dc4ed7021fa
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 6a41df70340da626a849804155ca245d95b6da46
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144075"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190507"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast domein van Azure CDN configureren
 
@@ -189,10 +189,10 @@ Automatische validatie duurt gewoonlijk enkele uren. Als u uw domein gevalideerd
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Er is geen aangepast domein toegewezen aan uw CDN-eindpunt
 
-Als de CNAME-record voor uw eindpunt niet meer bestaat of als deze het subdomein cdnverify bevat, volgt u de rest van de instructies in deze stap.
-
 >[!NOTE]
->E-mailvalidatie van aangepast domeineigendom is momenteel niet beschikbaar voor profielen van **Azure CDN van Akamai**. Deze functie staat momenteel op onze planning. 
+>E-mailvalidatie van aangepast domeineigendom is momenteel niet beschikbaar voor profielen van **Azure CDN van Akamai**. Als u **Azure CDN van Akamai**, uw aangepaste domein moet worden toegewezen aan uw cdn-eindpunt met een CNAME-record zoals hierboven vermeld.  Deze functie staat momenteel op onze planning. 
+
+Als de CNAME-record vermelding het subdomein cdnverify bevat, volgt u de rest van de instructies in deze stap.
 
 Nadat u een aanvraag voor het inschakelen van HTTPS voor uw aangepaste domein hebt ingediend, valideert de DigiCert-CA eigendom van het domein in contact opnemen met de bijbehorende registrator, op basis van het domein [WHOIS](http://whois.domaintools.com/) registratiegegevens. Contact verloopt via het e-mailadres (standaard) of het telefoonnummer dat staat vermeld in de WHOIS-registratie. U moet de domeinvalidatie voltooien voordat HTTPS actief is voor uw aangepaste domein. U hebt zes werkdagen de tijd om het domein goed te keuren. Aanvragen die niet binnen zes werkdagen zijn goedgekeurd, worden automatisch geannuleerd. 
 

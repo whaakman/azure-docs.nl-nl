@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Nieuws zoeken met PHP - REST API voor Bing News Search'
+title: 'Quickstart: Uitvoeren van een nieuws zoeken met PHP en de REST-API van Bing nieuws zoeken'
 titlesuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om een aanvraag naar de REST API van Bing News Search te verzenden via PHP en een JSON-antwoord te ontvangen.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fa253f95c01e35505e154d9709ca88033735fa52
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9fd03b433580444c2fc3f956dded6deb1a2be7f1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390467"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203339"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Snelstartgids: Nieuws zoeken met PHP en de REST API van Bing News Search
 

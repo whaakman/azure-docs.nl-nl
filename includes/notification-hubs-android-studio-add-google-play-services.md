@@ -9,11 +9,11 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156833"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176285"
 ---
 1. Selecteer in **Android Studio** in het menu de optie **Hulpprogramma’s**, en selecteer **SDK Manager**. 
 2. Selecteer de doelversie van de Android SDK die wordt gebruikt in het project, en selecteer **Pakketgegevens weergeven**. 

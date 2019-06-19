@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 2a6319565aa05f34ce31a14c5fc57e591248f4ee
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: cb8b188f8d5313852ce57481031faafc28e247b3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399695"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204307"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 
@@ -50,6 +50,17 @@ Voordat u begint, controleert u of de onderstaande:
 **Ondersteunde besturingssystemen** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux wordt momenteel niet ondersteund.
 **Ondersteunde SQL Server-versies** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Ondersteunde versies van .NET** | .NET framework 4.5.2 en hoger is geïnstalleerd op de virtuele machine
+
+### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Ondersteuning voor SQL Server 2008 en SQL Server 2008 R2
+
+Azure Backup heeft onlangs aangekondigd voor ondersteuning voor [EOS SQL-servers](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) -SQL Server 2008 en SQL Server 2008 R2. De oplossing is momenteel in preview voor EOS SQL Server en ondersteunt de volgende configuratie:
+
+1. SQL Server 2008 en SQL Server 2008 R2 die worden uitgevoerd op Windows 2008 R2 SP1
+2. .NET framework 4.5.2 of hoger moet zijn geïnstalleerd op de virtuele machine
+3. Back-up voor FCI en gespiegelde databases wordt niet ondersteund
+
+Alle andere [functie overwegingen en beperkingen](#feature-consideration-and-limitations) zijn van toepassing op deze versies ook. De klant niet in rekening worden gebracht voor deze functie tot het moment dat deze algemeen beschikbaar is.
+
 
 ## <a name="feature-consideration-and-limitations"></a>Functie overwegingen en beperkingen
 
@@ -114,9 +125,19 @@ Differentiële | Primair
 Logboek |  Secundair
 Kopie-alleen volledige |  Secundair
 
-## <a name="fix-sql-sysadmin-permissions"></a>Problemen met systeembeheerdersrechten voor SQL oplossen
+## <a name="set-vm-permissions"></a>VM-machtigingen instellen
 
-  Als u nodig hebt om op te lossen machtigingen vanwege **UserErrorSQLNoSysadminMembership** fout, voer de onderstaande stappen te volgen:
+  Wanneer u detectie op een SQL Server uitvoert, is Azure Backup doet het volgende:
+
+* De extensie AzureBackupWindowsWorkload toegevoegd.
+* Hiermee maakt u een account NT SERVICE\AzureWLBackupPluginSvc voor het detecteren van databases op de virtuele machine. Dit account wordt gebruikt voor een back-up en herstellen en SQL sysadmin-machtigingen vereist.
+* Databases die worden uitgevoerd op een virtuele machine, detecteert de account NT AUTHORITY\SYSTEM maakt gebruik van Azure Backup. Dit account moet een openbare-aanmelding op SQL.
+
+Als u de SQL Server-VM hebt gemaakt in de Azure Marketplace of als u van SQL 2008 en 2008 R2 gebruikmaakt, ontvangt u mogelijk een **UserErrorSQLNoSysadminMembership** fout.
+
+Voor het verlenen van machtigingen in geval van **SQL 2008** en **2008 R2** uitgevoerd op Windows 2008 R2, verwijzen [hier](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+
+Corrigeer machtigingen met de volgende stappen uit voor alle andere versies:
 
   1. Meld u bij SQL Server Management Studio (SSMS) aan met een account met systeembeheerdersrechten voor SQL Server. Windows-verificatie zou moeten werken, tenzij u speciale machtigingen nodig hebt.
   2. Open de map **Security/Logins** op de SQL-server.
@@ -146,8 +167,72 @@ Kopie-alleen volledige |  Secundair
 > [!NOTE]
 > Als uw SQL-Server meerdere exemplaren van SQL Server is geïnstalleerd heeft, wordt u sysadmin-machtigingen voor moet toevoegen **NT Service\AzureWLBackupPluginSvc** account op alle SQL-exemplaren.
 
+### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>SQL sysadmin-machtigingen geven voor SQL 2008 en SQL 2008 R2
+
+Voeg **NT AUTHORITY\SYSTEM** en **NT Service\AzureWLBackupPluginSvc** aanmeldingen bij de SQL Server-exemplaar:
+
+1. Ga op de SQL Server-exemplaar in Object explorer.
+2. Ga naar Security aanmeldingen ->
+3. Klik met de rechtermuisknop op de aanmeldingen en klikt u op *nieuwe aanmelding...*
+
+    ![Nieuwe aanmelding met behulp van SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+
+4. Ga naar het tabblad Algemeen en voer **NT AUTHORITY\SYSTEM** als de naam van de aanmelding.
+
+    ![aanmeldingsnaam voor SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+
+5. Ga naar *serverfuncties* en kies *openbare* en *sysadmin* rollen.
+
+    ![rollen kiezen in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+
+6. Ga naar *Status*. *Verleen* de machtiging voor het verbinding maken met database-engine en meld u aan als *ingeschakeld*.
+
+    ![Machtigingen verlenen in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+
+7. Klik op OK.
+8. Herhaal stappen (1-7 hierboven) in dezelfde volgorde NT Service\AzureWLBackupPluginSvc aanmelding toevoegen aan de SQL Server-exemplaar. Als de aanmelding al bestaat, zorg ervoor dat de serverrol sysadmin en onder Status van het verlenen van machtiging voor het verbinding maken met database-engine en meld u aan als ingeschakeld heeft.
+9. Na het toewijzen van machtigingen, **DB's opnieuw detecteren** in de portal: Kluis **->** back-up maken van infrastructuur **->** werkbelasting in Azure-VM:
+
+    ![DB's in Azure Portal opnieuw detecteren](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+
+U kunt ook automatiseren zodat de machtigingen door het uitvoeren van de volgende PowerShell-opdrachten in de beheermodus. Naam van het exemplaar is standaard ingesteld op MSSQLSERVER. Wijzig de instantienaam argument in script als moet worden:
+
+```powershell
+param(
+    [Parameter(Mandatory=$false)] 
+    [string] $InstanceName = "MSSQLSERVER"
+)
+if ($InstanceName -eq "MSSQLSERVER")
+{
+    $fullInstance = $env:COMPUTERNAME   # In case it is the default SQL Server Instance
+}
+else
+{
+    $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
+}
+try
+{ 
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+try
+{ 
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+```
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over](backup-sql-server-database-azure-vms.md) back-ups van SQL Server-databases.
-- [Meer informatie](restore-sql-database-azure-vm.md) over het herstellen van SQL Server-databases vanuit back-up.
-- [Meer informatie](manage-monitor-sql-database-backup.md) over het beheren van SQL Server-databases vanuit back-up.
+* [Meer informatie over](backup-sql-server-database-azure-vms.md) back-ups van SQL Server-databases.
+* [Meer informatie](restore-sql-database-azure-vm.md) over het herstellen van SQL Server-databases vanuit back-up.
+* [Meer informatie](manage-monitor-sql-database-backup.md) over het beheren van SQL Server-databases vanuit back-up.

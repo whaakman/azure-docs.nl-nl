@@ -1,6 +1,6 @@
 ---
 title: Verificatie
-titleSuffix: Cognitive Services - Azure
+titleSuffix: Azure Cognitive Services
 description: 'Er zijn drie manieren om te verifiëren van een aanvraag voor een bron voor Azure Cognitive Services: een abonnementssleutel, een bearer-token of een abonnement op meerdere services. In dit artikel leert u over elke methode en hoe u een aanvraag.'
 services: cognitive-services
 author: erhopf
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06cc5509598cb6227a64e2cf375a5686c89312eb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336764"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163682"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Verifiëren van aanvragen voor Azure Cognitive Services
 
@@ -29,7 +29,7 @@ Elke aanvraag aan een Azure Cognitive Service moet een verificatieheader bevatte
 Voordat u een aanvraag indienen, moet u een Azure-account en een Azure Cognitive Services-abonnement. Als u al een account hebt, gaat u verder en gaat u verder met de volgende sectie. Als u geen account hebt, hebben we een handleiding waarmee u binnen minuten opzet: [Een Cognitive Services-account maken voor Azure](cognitive-services-apis-create-account.md).
 
 U krijgt de abonnementssleutel van uw uit de [Azure-portal](cognitive-services-apis-create-account.md#access-your-resource) na het maken van uw account of activeren van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/my-apis).
- 
+
 ## <a name="authentication-headers"></a>Verificatieheaders
 
 Laten we snel bekijken de verificatieheaders die beschikbaar zijn voor gebruik met Azure Cognitive Services.

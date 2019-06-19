@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 06/14/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3469e4f7fe1c234a6df694d7bdd6d9e2c46407a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072425"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204893"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
@@ -26,13 +25,13 @@ Text to Speech-technologie kunnen makers van inhoud om te communiceren met hun g
 
 ### <a name="standard-voices"></a>Standard stemmen
 
-Standard stemmen worden gemaakt met behulp van statistische parametrische synthese en/of samenvoeging synthese technieken. Deze stemmen zijn zeer begrijpelijke en geluid helemaal natuurlijke. U kunt eenvoudig uw toepassingen te spreken in meer dan 45 talen, met een breed scala aan Spraakopties voor inschakelen. Deze stemmen bieden hoge uitspraak van nauwkeurigheid, inclusief ondersteuning voor afkortingen, acroniem uitbreidingen, datum/tijd interpretaties, polyphones en meer. Standard stem gebruiken voor het verbeteren van toegankelijkheid voor uw toepassingen en services doordat gebruikers kunnen communiceren met de inhoud van uw hoorbaar.
+Standard stemmen worden gemaakt met behulp van statistische parametrische synthese en/of samenvoeging synthese technieken. Deze stemmen zijn zeer begrijpelijke en geluid natuurlijke. U kunt eenvoudig uw toepassingen te spreken in meer dan 45 talen, met een breed scala aan Spraakopties voor inschakelen. Deze stemmen bieden hoge uitspraak van nauwkeurigheid, inclusief ondersteuning voor afkortingen, acroniem uitbreidingen, datum/tijd interpretaties, polyphones en meer. Standard stem gebruiken voor het verbeteren van toegankelijkheid voor uw toepassingen en services doordat gebruikers kunnen communiceren met de inhoud van uw hoorbaar.
 
 ### <a name="neural-voices"></a>Neurale stemmen
 
-Stemmen neurale deep neural networks te strijden tegen de beperkingen van traditionele Text to Speech systemen in die overeenkomen met de patronen van stress en intonation in gesproken taal en in de stof de eenheden van spraak in de stem van een computer voor de synthese gebruiken Standard tekst naar spraak een uitsplitsing van prosody in afzonderlijke linguïstische analyse- en akoestische voorspelling stappen die onafhankelijke modellen gelden. Dat kan resulteren in spellen, buzzy gesproken synthese. Onze mogelijkheid voor neurale biedt prosody voorspelling en toon synthese tegelijkertijd, wat resulteert in een meer vloeiende en natuurlijk klinkende spraak.
+Stemmen neurale deep neural networks te strijden tegen de beperkingen van traditionele Text to Speech systemen in die overeenkomen met de patronen van stress en intonation in gesproken taal en in de stof de eenheden van spraak in de stem van een computer voor de synthese gebruiken Standard tekst naar spraak een uitsplitsing van prosody in afzonderlijke linguïstische analyse- en akoestische voorspelling stappen die onafhankelijk modellen, dit in spellen gesproken synthese resulteren kunnen gelden. Onze mogelijkheid voor neurale biedt prosody voorspelling en toon synthese tegelijkertijd, wat resulteert in een meer vloeiende en natuurlijk klinkende spraak.
 
-Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele assistenten natuurlijker maken en aantrekkelijke digitale teksten, zoals e-books converteren naar audiobooks en in de auto-navigatiesystemen te verbeteren. Met de menselijke natuurlijke prosody en duidelijke afbakening van woorden verkorten neural stemmen aanzienlijk luisterende intensief gebruik wanneer u met AI-systemen communiceren. 
+Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele assistenten natuurlijker maken en aantrekkelijke digitale teksten, zoals e-books converteren naar audiobooks en in de auto-navigatiesystemen te verbeteren. Met de menselijke natuurlijke prosody en duidelijke afbakening van woorden verkorten neural stemmen aanzienlijk luisterende intensief gebruik wanneer u met AI-systemen communiceren.
 
 Neurale stemmen ondersteuning voor verschillende stijlen, zoals neutraal en vrolijke. De stem Jessa (en-US) kan bijvoorbeeld cheerfully, die is geoptimaliseerd voor warme, blij conversatie spreken. U kunt de uitvoer van de gesproken zoals toon, verkopen, aanpassen en versnellen met behulp van [spraak synthese Markup Language](speech-synthesis-markup.md). Zie voor een volledige lijst van beschikbare stemmen, [ondersteunde talen](language-support.md#text-to-speech).
 
@@ -41,6 +40,26 @@ Zie voor meer informatie over de voordelen van neurale stemmen, [van Microsoft n
 ### <a name="custom-voices"></a>Aangepaste stemmen
 
 Stem aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken. Voor het maken van uw aangepaste spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze aangepaste spraakstijl gebruiken om na te bootsen spraak. Zie voor meer informatie, [aangepaste stemmen](how-to-customize-voice-font.md).
+
+## <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
+
+Spraak synthese Markup Language (SSML) is een op XML gebaseerde opmaakcodetaal waarmee ontwikkelaars opgeven hoe invoertekst wordt omgezet in kunstmatige spraak met behulp van de Text to Speech-service. Vergeleken met de tekst zonder opmaak, kan SSML ontwikkelaars voor het afstemmen van de presentatie, uitspraak, spreken snelheid, volume en meer van de Text to Speech-uitvoer. Normale interpunctie, zoals na een periode onderbreken of met behulp van de juiste intonation wanneer een zin met een vraagteken eindigt worden automatisch verwerkt.
+
+Alle tekst-invoer voor verzonden naar de Text to Speech-service moeten worden gestructureerd als SSML. Zie voor meer informatie, [spraak synthese Markup Language](speech-synthesis-markup.md).
+
+### <a name="pricing-note"></a>Houd er rekening mee prijzen
+
+Wanneer u de Text to Speech-service gebruikt, worden in rekening gebracht voor elk teken dat wordt geconverteerd naar spraak, met inbegrip van leestekens. Hoewel het document SSML zelf niet te factureren, worden optionele elementen die worden gebruikt om aan te passen hoe de tekst wordt geconverteerd naar spraak, zoals Fonemen en verkopen, gerekend als factureerbare tekens. Hier volgt een lijst van wat gefactureerd wordt:
+
+* Tekst die wordt doorgegeven aan de Text to Speech-service in de hoofdtekst SSML van de aanvraag
+* Alle aantekeningen in het tekstveld van de hoofdtekst van de aanvraag in de indeling SSML, met uitzondering van `<speak>` en `<voice>` tags
+* Letters, interpunctie, spaties, tabs, aantekeningen en alle spatietekens
+* Elk codepunt is gedefinieerd in Unicode
+
+Zie voor gedetailleerde informatie [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> Elke taal Chinese, Japans en Koreaanse teken wordt geteld als twee tekens voor facturering.
 
 ## <a name="core-features"></a>Belangrijkste functies
 

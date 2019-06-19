@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66167225"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176113"
 ---
 ## <a name="c-program-example"></a>Voorbeeld van C#-programma
 
@@ -37,7 +37,7 @@ Op de ERD wordt de relatie tussen de twee tabellen weergegeven. De waarden in de
 
 Het C#-programma is logischerwijs één .cs-bestand en fysiek onderverdeeld in verschillende codeblokken, waardoor elk blok gemakkelijker te begrijpen is. Ga als volgt te werk om dit programma te compileren en uit te voeren:
 
-1. Maak een C#-project in Visual Studio. Het projecttype moet *Console* zijn. U vindt dit onder **Sjablonen** > **Visual C#** > **Windows Desktop** > **Console App (.NET Framework)**.
+1. Maak een C#-project in Visual Studio. Het projecttype moet *Console* zijn. U vindt dit onder **Sjablonen** > **Visual C#**  > **Windows Desktop** > **Console App (.NET Framework)** .
 
 1. In het bestand *Program.cs* vervangt u de beginregels van de code aan de hand van de volgende stappen:
 

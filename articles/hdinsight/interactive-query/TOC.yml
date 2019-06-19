@@ -2,11 +2,8 @@
   href: /azure/hdinsight
 - name: Overzicht
   items:
-    - name: Apache Hadoop-onderdelen in HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
+    - name: Wat is een interactieve query in HDInsight?
+      href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Snelstartgidsen
   items:
@@ -14,8 +11,6 @@
       href: ./hdinsight-connect-hive-zeppelin.md
 - name: Aan de slag
   items:
-    - name: Beginnen met Interactive Query
-      href: ./apache-interactive-query-get-started.md
     - name: HDInsight-apps installeren
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
