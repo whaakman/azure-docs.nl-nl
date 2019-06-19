@@ -41,10 +41,10 @@ De extensie voor Network Watcher-Agent kan worden geconfigureerd voor de volgend
 | Ubuntu | 12+ |
 | Debian | 7 en 8 |
 | Red Hat | 6 en 7 |
-| Oracle Linux | 6,8 + en 7 |
+| Oracle Linux | 6,8+ en 7 |
 | SUSE Linux Enterprise Server | 11 en 12 |
 | OpenSUSE Leap | 42.3+ |
-| CentOS | 6.5 + en 7 |
+| CentOS | 6.5+ en 7 |
 | CoreOS | 899.17.0+ |
 
 
