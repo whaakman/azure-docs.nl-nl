@@ -1,0 +1,42 @@
+- name: Documentatie voor Bastion
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over Azure Bastion
+      href: bastion-overview.md
+- name: Handleidingen
+  items:
+    - name: Een Bastion-host maken
+      href: bastion-create-host-portal.md
+    - name: Verbinding maken met een virtuele machine
+      items:
+        - name: SSH (Linux)
+          href: bastion-connect-vm-ssh.md
+        - name: RDP (Windows)
+          href: bastion-connect-vm-rdp.md
+    - name: Werken met een sessie van een virtuele machine
+      items:
+        - name: Kopiëren en plakken
+          href: bastion-vm-copy-paste.md
+        - name: Weergave op volledig scherm
+          href: bastion-vm-full-screen.md
+    - name: Werken met NSG's
+      href: bastion-nsg.md
+- name: Naslaginformatie
+  items:
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/network-gateway'
+- name: Resources
+  items:
+    - name: Veelgestelde vragen over Bastion
+      href: bastion-faq.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Preview van SLA
+      href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'

@@ -58,6 +58,8 @@
       href: 'https://aka.ms/adpricing'
     - name: Regionale beschikbaarheid
       href: 'https://aka.ms/adregion'
+    - name: Word lid van de Anomaly Detector-adviesgroep van Microsoft Teams
+      href: 'https://aka.ms/adadvisorsjoin'
     - name: Referentiearchitectuur voor de oplossing
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: Naleving
@@ -66,8 +68,6 @@
   items:
     - name: Ondersteuning krijgen
       href: 'https://aka.ms/adsupport'
-    - name: Lid worden van openbare community
-      href: 'https://aka.ms/adadvisorsjoin'
     - name: Stack Overflow
       href: 'https://aka.ms/adso'
     - name: MSDN

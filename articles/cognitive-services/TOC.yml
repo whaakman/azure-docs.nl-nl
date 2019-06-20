@@ -7,8 +7,28 @@
       href: Welcome.md
     - name: Taalondersteuning
       href: language-support.md
+- name: Ondersteuning voor containers
+  items:
     - name: Ondersteuning voor containers
       href: cognitive-services-container-support.md
+    - name: Containerrecepten
+      items:
+        - name: Container opnieuw gebruiken
+          href: ./containers/container-reuse-recipe.md
+        - name: Implementeren in Azure-containerinstantie
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Implementeren in Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Implementeren met Docker Compose
+          href: ./containers/docker-compose-recipe.md
+    - name: Overige containerservices
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Snelstartgidsen
   items:
     - name: Een account maken

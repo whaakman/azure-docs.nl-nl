@@ -124,9 +124,10 @@
               href: resource-manager-powershell-sas-token.md
         - name: Implementeren naar meerdere resourcegroepen of abonnementen
           href: resource-manager-cross-resource-group-deployment.md
-        - name: Continue integratie met Azure DevOps Services
-          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-          maintainContext: true
+    - name: CI/CD
+      items:
+        - name: VS-project met pijplijnen
+          href: vs-resource-groups-project-devops-pipelines.md
     - name: Sjabloon exporteren
       href: export-template-portal.md
     - name: Beheren

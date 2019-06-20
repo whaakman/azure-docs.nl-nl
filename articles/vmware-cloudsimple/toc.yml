@@ -10,7 +10,7 @@
     - name: Snelstartgids
       expanded: true
       items:
-        - name: Capaciteit initialiseren en kopen
+        - name: Capaciteit initialiseren en inrichten
           href: quickstart-create-cloudsimple-service.md
         - name: Privécloudomgeving configureren
           href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
           href: access-cloudsimple-portal.md
         - name: Knooppunten beheren
           items:
-            - name: Knooppunten kopen
+            - name: Knooppunten inrichten
               href: create-nodes.md
         - name: Privécloudresources beheren
           items:
