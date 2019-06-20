@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e2d66db2ae3c379db86d40603d919489fdf15eed
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480537"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144262"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die worden ondersteund door Azure Security Center
 
@@ -78,7 +78,7 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||||Prijzen|
+|Server|Windows|||Linux|||Prijzen|
 |----|----|----|----|----|----|----|----|
 |**Omgeving**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtuele machine**|**Virtuele-Machineschaalset**||**Virtuele machine**|**Virtuele-Machineschaalset**|

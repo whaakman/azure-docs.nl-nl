@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 8eac70db0c563f102dfa0e3fcece9d4604582cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6afebfe9a5db713e31fed0acd2e8ad7244f30037
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595675"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274922"
 ---
 # <a name="understand-iot-hub-metrics"></a>Informatie over metrische gegevens van IoT Hub
 
@@ -60,14 +60,14 @@ IoT Hub biedt verschillende metrische gegevens zodat u een overzicht van de stat
 |d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|Routering: bericht latentie voor Service Bus-wachtrij|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer in een Service Bus-wachtrij-eindpunt.|Er zijn geen dimensies|
 |d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|Routering: berichten worden afgeleverd bij Service Bus-onderwerp|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan Service Bus-onderwerp eindpunten geleverd.|Er zijn geen dimensies|
 |d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|Routering: bericht latentie voor Service Bus-onderwerp|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer in een Service Bus-onderwerp-eindpunt.|Er zijn geen dimensies|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routering: berichten worden afgeleverd bij berichten/gebeurtenissen|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan het ingebouwde eindpunt (berichten/gebeurtenissen) geleverd.|Er zijn geen dimensies|
-|d2c<br>.endpoints<br>.latency<br>. builtIn.events|Routering: bericht latentie voor berichten/gebeurtenissen|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer naar het eindpunt van de ingebouwde (berichten/gebeurtenissen).|Er zijn geen dimensies|
+|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routering: berichten worden afgeleverd bij berichten/gebeurtenissen|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan het ingebouwde eindpunt (berichten/gebeurtenissen) geleverd. Met deze metriek wordt alleen gestart werken wanneer routering is ingeschakeld (https://aka.ms/iotrouting) voor de IoT hub.|Er zijn geen dimensies|
+|d2c<br>.endpoints<br>.latency<br>. builtIn.events|Routering: bericht latentie voor berichten/gebeurtenissen|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer naar het eindpunt van de ingebouwde (berichten/gebeurtenissen). Met deze metriek wordt alleen gestart werken wanneer routering is ingeschakeld (https://aka.ms/iotrouting) voor de IoT hub.|Er zijn geen dimensies|
 |d2c<br>.endpoints<br>.egress<br>.storage|Routering: berichten die naar de opslag worden geleverd|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan opslag eindpunten geleverd.|Er zijn geen dimensies|
 |d2c<br>.endpoints<br>.latency<br>.storage|Routering: bericht latentie voor opslag|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer in een storage-eindpunt.|Er zijn geen dimensies|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Routering: gegevens geleverd aan opslag|Bytes|Totaal|De hoeveelheid gegevens (bytes) routering IoT-Hub die worden geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Routering: blobs die worden geleverd aan opslag|Count|Totaal|Het aantal keren dat het IoT-Hub routering blobs geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
-|EventGridDeliveries|Event Grid levering (preview)|Count|Totaal|Het aantal aanvragen voor IoT Hub kunt u gebeurtenissen naar Event Grid verzenden. Dit is inclusief geslaagde en mislukte aanvragen. Gebruik de resultaat-dimensie voor het aantal verschillende type reactie. Zien de waar de aanvragen afkomstig zijn van, gebruikt u de dimensie van het type gebeurtenis.|Result, EventType|
-|EventGridLatency|Event Grid latentie (preview)|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen event inkomend verkeer naar IoT Hub en event inkomend verkeer in Event Grid. Dit nummer is een gemiddelde tussen alle gebeurtenistypen. Gebruik de dimensie van het type gebeurtenis om te zien van de latentie van een specifiek type gebeurtenis.|EventType|
+|EventGridDeliveries|Event Grid levering (preview)|Count|Totaal|Het aantal IoT Hub-gebeurtenissen naar Event Grid worden gepubliceerd. Gebruik de resultaat-dimensie voor het aantal geslaagde en mislukte aanvragen. Type gebeurtenis dimensie ziet u het type gebeurtenis (https://aka.ms/ioteventgrid). Zien de waar de aanvragen afkomstig zijn van, gebruikt u de dimensie van het type gebeurtenis.|Result, EventType|
+|EventGridLatency|Event Grid latentie (preview)|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) als de Iot Hub-gebeurtenis is gegenereerd wanneer de gebeurtenis is gepubliceerd naar Event Grid. Dit nummer is een gemiddelde tussen alle gebeurtenistypen. Gebruik de dimensie van het type gebeurtenis om te zien van de latentie van een specifiek type gebeurtenis.|EventType|
 |d2c<br>.twin<br>.read<br>.success|Geslaagde dubbele leesbewerkingen van apparaten|Count|Totaal|Het aantal voltooide dubbele apparaat geïnitieerde leesbewerkingen.|Er zijn geen dimensies|
 |d2c<br>.twin<br>.read<br>.failure|Dubbele leesbewerkingen van apparaten is mislukt|Count|Totaal|De telling van alle dubbele apparaat geïnitieerde leesbewerkingen mislukt.|Er zijn geen dimensies|
 |d2c<br>.twin<br>.read<br>.size|Reactiegrootte van dubbele leesbewerkingen van apparaten|Bytes|Gemiddeld|De gemiddelde, de minimale en het maximale van alle geslaagde apparaat geïnitieerde twin leesbewerkingen.|Er zijn geen dimensies|

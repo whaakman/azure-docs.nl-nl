@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937834"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202683"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlijnen voor Azure Marketplace-vermelding
 
@@ -39,14 +39,14 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 | 11 | Ondersteuning van de oplossing en Help-informatie | Een koppeling naar ten minste een van de volgende: <br>o telefoonnummers <br>o e-mailondersteuning <br>o Chat-agents <br>o-communityforums |<br>• Ondersteuning voor alle methoden die worden vermeld: ondersteuning voor telefoonnummer en e-mailbericht. <br>• Betaalde ondersteuning met gratis aangeboden tijdens de proef of test drive-periode | 
 | 12 | Juridische informatie | Beleidsregels of voorwaarden die beschikbaar zijn via een openbare URL |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>Vereisten voor de proefversie
 
 |  | Aanbieding-Element | Algemene vereisten | Vereisten voor optimale | 
 |:--- |:--- |:--- |:--- |
 |  | Lijst met Status | Koppeling moet leiden tot testervaring onder leiding van klant | Andere CTAs (bijvoorbeeld nu kopen) ook beschikbaar | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>Vereisten voor SaaS-apps
 
 |  | Aanbieding-Element | Algemene vereisten | Vereisten voor optimale | 
@@ -63,7 +63,7 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 | 10 | Contacts: Ondersteuning van de oplossing en Help-informatie | <br>• Technische contactpersoon: Voer de naam van de technische contactpersoon voor uw app. Deze contactpersoon, ontvangen een technische bericht van Microsoft.<br>• Technische e-mailadres contactpersoon:  Voer het e-mailadres van de technische contactpersoon voor uw app.<br>• Engineering contactpersonen telefoon: Voer het telefoonnummer van de technische contactpersoon. ISO phone aantal notaties worden ondersteund. Zie voor meer informatie, https://en.wikipedia.org/wiki/E.123.<br>• Ondersteuning contact op met de naam: Voer de naam van de contactpersoon voor ondersteuning voor uw app. Deze contactpersoon, ontvangen een bericht met betrekking tot ondersteuning van Microsoft.<br>• Ondersteuning contact op met de e-mailadres: Voer het e-mailadres van de contactpersoon voor ondersteuning voor uw app. <br>• Ondersteuning contact op met de telefoon: Voer het telefoonnummer van de contactpersoon voor ondersteuning. ISO phone aantal notaties worden ondersteund. Zie voor meer informatie, https://en.wikipedia.org/wiki/E.123. <br>• Ondersteuning voor URL: Voer de URL naar uw ondersteuningspagina. | <br>• Ondersteuning voor alle methoden die worden vermeld: ondersteuning voor telefoonnummer en e-mailbericht. <br>• Betaalde ondersteuning met gratis aangeboden tijdens de proef of test drive-periode |
 | 11 | Juridische informatie |<br>URL privacybeleid •: Voer de URL naar het privacybeleid van uw app in het veld Privacy-URL in CPP. <br>• Gebruiksvoorwaarden: Voer de gebruiksvoorwaarden van uw app. Klanten moeten deze voorwaarden accepteren voordat ze uw app kunnen uitproberen. |  Beleidsregels of voorwaarden die beschikbaar zijn via een openbare URL-site |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>Containervereisten van aanbieding
 
@@ -74,7 +74,7 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 | 3 | Marketplace-artefacten | Logo's weergegeven correct |<br>• Logo bevat 'hero installatiekopie,' dit de installatiekopie van de grote-indeling in de Azure Portal is <br>• Logo's: Klein (48 x 48) en grote (216 x 216) zijn vereisten <br>• Hero afbeeldingsvereisten: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Schermafbeelding (maximaal 5):  CPP moet een PNG-afbeelding met een resolutie van 1280 x 720.|
 | 4 | Leads beheren |<br>•    Lead Management: Selecteer het systeem waar de leads worden opgeslagen. <br>• Meer informatie over het verbinding maken met uw CRM-systeem [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>Advies aanbieding-vereisten
 
@@ -97,6 +97,3 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de verschillende typen in de marketplace. <br>[SaaS-apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Adviesservices](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Bepaalt het type aanbieding voor uw oplossing](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
-
- 
----

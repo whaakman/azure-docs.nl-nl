@@ -16,7 +16,7 @@ ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128709"
@@ -136,8 +136,8 @@ Retourneert de eerste niet-null-waarde van de parameters. Lege tekenreeksen, leg
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int, string, matrix of object |De eerste waarde om te testen op null-waarden. |
-| aanvullende argumenten |Nee |int, string, matrix of object |Aanvullende waarden om te testen op null-waarden. |
+| arg1 |Ja |int, string, array of object |De eerste waarde om te testen op null-waarden. |
+| aanvullende argumenten |Nee |int, string, array of object |Aanvullende waarden om te testen op null-waarden. |
 
 ### <a name="return-value"></a>Retourwaarde
 

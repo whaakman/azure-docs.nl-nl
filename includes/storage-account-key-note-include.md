@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115522"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176254"
 ---
 > [!IMPORTANT]
 > De sleutel van uw opslagaccount is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw account altijd is beveiligd. Let erop dat u deze aan andere gebruikers doorgeeft, codeert of in leesbare vorm opslaat op een plek waartoe anderen ook toegang hebben. Genereer uw accountsleutel opnieuw met Azure Portal als u vermoedt dat de sleutel is uitgelekt.

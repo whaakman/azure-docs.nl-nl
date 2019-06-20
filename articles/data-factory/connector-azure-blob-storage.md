@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233200"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206038"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob-opslag met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -60,7 +60,10 @@ Azure Blob-connector ondersteunt de volgende verificatietypen, verwijzen naar de
 - [Beheerde identiteiten voor verificatie van de Azure-resources](#managed-identity)
 
 >[!NOTE]
->HDInsights, Azure Machine Learning en Azure SQL Data Warehouse PolyBase load alleen ondersteuning voor verificatie met Azure Blob storage-account sleutel.
+>Bij het gebruik van PolyBase om gegevens te laden in SQL Data Warehouse, als de bron- of Blob-opslag staging met eindpunt voor Virtueelnetwerk is geconfigureerd, moet u verificatie van de beheerde identiteit gebruiken zoals vereist door PolyBase en zelfgehoste Integration Runtime met versie gebruiken 3,18 of hoger. Zie de [verificatie van de beheerde identiteit](#managed-identity) sectie met meer configuratievereisten.
+
+>[!NOTE]
+>HDInsights en Azure Machine Learning-activiteiten ondersteunen alleen verificatie van Azure Blob storage-account sleutel.
 
 ### <a name="account-key-authentication"></a>Verificatie van account-sleutel
 
@@ -272,6 +275,9 @@ Raadpleeg [verifiëren van toegang tot Azure Storage met behulp van Azure Active
 
     - **Als bron**, toegang beheren (IAM), ten minste verlenen **gegevenslezer voor Opslagblob** rol.
     - **Als sink**, toegang beheren (IAM), ten minste verlenen **Gegevensbijdrager voor Blob** rol.
+
+>[!IMPORTANT]
+>Als u PolyBase om gegevens te laden uit de Blob (als bron of als fasering) in SQL Data Warehouse bij het gebruik van verificatie van de beheerde identiteit voor de Blob, zorg ervoor dat u ook stappen 1 en 2 in [deze richtlijnen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) op 1) uw SQL-Database registreren Server met Azure Active Directory (Azure AD) en 2) toewijzen de Gegevensbijdrager voor Blob-rol aan uw SQL-Database-server. de rest worden verwerkt door Data Factory. Als de Blob-opslag is geconfigureerd met een Azure Virtual Network-eindpunt, voor het gebruik van PolyBase om gegevens te laden, moet u verificatie van de beheerde identiteit zoals vereist door PolyBase.
 
 Deze eigenschappen worden ondersteund voor een Azure Blob storage gekoppelde service:
 

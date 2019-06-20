@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916038"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206713"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
@@ -59,7 +59,7 @@ Tijdelijke (tijdgebaseerde) query-elementen zijn de kernset aan stateful operato
 
 Houd er rekening mee dat een taak met de logica van complexe query gebruikspercentage voor hoge hebben kan, zelfs wanneer deze niet voortdurend invoergebeurtenissen ontvangt. Dit kan gebeuren wanneer een plotselinge piek in de invoer- en gebeurtenissen. De taak kan blijven onderhouden van de status in het geheugen als de query complex is.
 
-Gebruikspercentage kan plotseling verwijderen op 0 voor een korte periode voordat binnenkort terug naar de verwachte niveaus. Dit gebeurt vanwege tijdelijke fouten of door systeem gestarte upgrades worden uitgevoerd.
+Gebruikspercentage kan plotseling verwijderen op 0 voor een korte periode voordat binnenkort terug naar de verwachte niveaus. Dit gebeurt vanwege tijdelijke fouten of door systeem gestarte upgrades worden uitgevoerd. Het aantal streaming-eenheden te verhogen voor een taak geen voor SU-% gebruik gevolgen kan als de query niet is [volledig parallelle](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Stateful querylogica in de tijdelijke elementen
 Een van de unieke mogelijkheid van Azure Stream Analytics-taak is stateful verwerking, zoals statische functies in vensters, tijdelijke joins en tijdelijke analytische functies uit te voeren. Elk van deze operators houdt de statusinformatie. De maximale venstergrootte voor deze query-elementen is zeven dagen. 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 2d555908007f4e43a38b6d0eff909ef5050878ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069681"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205276"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Ondersteunde versies van Kubernetes in Azure Kubernetes Service (AKS)
 
@@ -52,9 +52,9 @@ Dit staat bekend als 'N-3'-(N (meest recente versie) - 3 (secundaire versies)).
 
 Bijvoorbeeld, als u AKS introduceert *1.13.x* vandaag de dag wordt ondersteuning geboden voor de volgende versies:
 
-Nieuwe secundaire versie van de lijst met ondersteunde
------------------        ----------------------
-1.13.x 1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+Nieuwe secundaire versie    |    Lijst met ondersteunde versie
+-----------------    |    ----------------------
+1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
 Waarbij 'x' en 'een' en ".b" representatieve patch-versies.
 
@@ -84,11 +84,15 @@ Als upstream Kubernetes 1.12.3 en 1.11.6 uitgebracht en AKS releases die vullen 
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
 
+> [!NOTE]
+> Klanten moeten niet worden vastgemaakt maken van een cluster, CI of andere geautomatiseerde taken op versies van de specifieke patch. 
+
 ### <a name="communications"></a>Communicatie
 
 * Voor nieuwe **kleine** versies van Kubernetes
-  * Alle gebruikers worden geïnformeerd over de nieuwe versie en welke versie wordt verwijderd.
-  * Klanten met de versie **moet worden verwijderd** wordt op de hoogte dat ze hebben **60 dagen** om te upgraden naar een ondersteunde versie (bijvoorbeeld secundaire versie).
+  * Alle gebruikers zijn openbaar geïnformeerd over de nieuwe versie en welke versie wordt verwijderd.
+  * Wanneer een nieuwe patchversie wordt uitgebracht, wordt de oudste patch-release op hetzelfde moment verwijderd.
+  * Klanten hebben **60 dagen** vanaf de datum van de melding om te upgraden naar een ondersteunde versie van de secundaire versie.
 * Voor nieuwe **patch** versies van Kubernetes
   * Alle gebruikers zijn op de hoogte gesteld van de nieuwe patchversie wordt uitgebracht en om bij te werken naar de meest recente versie van de patch.
   * Gebruikers hebben **30 dagen** om te upgraden naar een nieuwere, ondersteunde patch-release. Gebruikers hebben **30 dagen** om te upgraden naar een ondersteunde patch-release voordat de oudste wordt verwijderd.

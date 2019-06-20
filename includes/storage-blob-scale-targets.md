@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 4/20/2019
 ms.author: tamram
 ms.openlocfilehash: aab17966862c57a52f252b3c4e9b757673078b0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114819"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176247"
 ---
 | Resource | Doel        |
 |----------|---------------|
 | Maximale grootte van één blob-container | Hetzelfde als de maximale capaciteit-account |
-| Maximum aantal blokken in een blok-blob of toevoeg-blob | 50\.000 blokken |
+| Maximum aantal blokken in een blok-blob of toevoeg-blob | 50.000 blokken |
 | Maximale grootte van een blok in een blok-blob | 100 MiB |
-| Maximale grootte van een blok-blob | 50\.000 x 100 MiB (ongeveer 4.75 TiB) |
+| Maximale grootte van een blok-blob | 50.000 x 100 MiB (ongeveer 4.75 TiB) |
 | Maximale grootte van een blok in een toevoeg-blob | 4 MiB |
-| Maximale grootte van een toevoeg-blob | 50\.000 x 4 MiB (ongeveer 195 GiB) |
+| Maximale grootte van een toevoeg-blob | 50.000 x 4 MiB (ongeveer 195 GiB) |
 | Maximale grootte van een pagina-blob | 8 TiB |
 | Maximum aantal opgeslagen toegangsbeleid per blob-container | 5 |
 |Doeldoorvoer van één blob |Maximaal Inkomend/uitgaand verkeer opslagaccountlimieten<sup>1</sup> |

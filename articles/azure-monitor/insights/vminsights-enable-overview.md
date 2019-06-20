@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122581"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273375"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Azure Monitor inschakelen voor virtuele machines (preview)-overzicht
 
@@ -42,10 +42,10 @@ Azure Monitor voor virtuele machines ondersteunt een Log Analytics-werkruimte in
 - US - west-centraal
 - VS-West 2<sup>1</sup>
 - US - oost
-- Canada centraal<sup>1</sup>
-- UK-Zuid<sup>1</sup>
+- Canada - midden
+- Verenigd Koninkrijk Zuid
 - Europa -west
-- Zuidoost-Azië<sup>1</sup>
+- Azië - zuidoost
 
 <sup>1</sup> deze regio momenteel de status-functie van Azure Monitor biedt geen ondersteuning voor virtuele machines.
 
@@ -90,6 +90,10 @@ De volgende tabel bevat de besturingssystemen Windows en Linux die ondersteuning
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> prestaties van de functie van Azure Monitor voor virtuele machines is alleen beschikbaar via Azure Monitor. Het is niet beschikbaar rechtstreeks vanuit het linkerdeelvenster van de Azure-VM.
+
+>[!NOTE]
+>De Health-functie van Azure Monitor voor virtuele machines biedt geen ondersteuning voor [geneste virtualisatie](../../virtual-machines/windows/nested-virtualization.md) in een Azure-VM.
+>
 
 >[!NOTE]
 >In het Linux-besturingssysteem:

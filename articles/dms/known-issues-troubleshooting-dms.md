@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/18/2019
+ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002211"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190949"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Veelvoorkomende problemen met Azure Database Migration Service en-fouten oplossen
 
@@ -59,6 +59,16 @@ U ontvangt de volgende fout bij het stoppen van de Azure Database Migration Serv
 | Oorzaak         | Oplossing |
 | ------------- | ------------- |
 | Deze fout wordt weergegeven wanneer de service-exemplaar dat u probeert te stoppen bevat activiteiten die nog wordt uitgevoerd of die aanwezig zijn in migration-projecten. <br><br><br><br><br><br> | Zorg ervoor dat er geen activiteiten worden uitgevoerd in het exemplaar van Azure Database Migration Service u probeert te stoppen. U kunt ook de activiteiten of projecten verwijderen voordat u probeert de service te stoppen. De volgende stappen laten zien hoe u projecten voor het opschonen van het exemplaar van de migratie door het verwijderen van alle actieve taken verwijderen:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+
+## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Fout bij het starten van de Azure Database Migration Service
+
+U ontvangt de volgende fout bij het starten van de Azure Database Migration Service-exemplaar:
+
+* **Fout**: Service niet starten. Fout: {'errorDetail': de service niet starten, neem contact op met Microsoft ondersteuning}
+
+| Oorzaak         | Oplossing |
+| ------------- | ------------- |
+| Deze fout wordt weergegeven wanneer het vorige exemplaar intern is mislukt. Deze fout treedt op zelden en het technische team is op de hoogte van het. <br> | Verwijder het exemplaar van de service die u kunt geen start en vervolgens inrichten nieuw wachtwoord om deze te vervangen. |
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Fout bij het herstellen van database tijdens het migreren van SQL met Azure SQL DB beheerd exemplaar
 

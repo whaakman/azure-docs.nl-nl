@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620287"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275178"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web application firewall-aanvraaglimieten grootte en uitsluitingslijsten
 
@@ -35,16 +35,16 @@ WAF biedt ook een knop kunnen worden geconfigureerd om in te schakelen van de co
 
 WAF-uitsluitingslijsten kunnen u bepaalde kenmerken van een evaluatie WAF weglaten. Een veelvoorkomend voorbeeld is de dat Active Directory-tokens die worden gebruikt voor verificatie of wachtwoordvelden ingevoegd. Deze kenmerken zijn gevoelig zijn voor de speciale tekens bevatten die een fout-positief vanaf de WAF-regels kunnen activeren. Wanneer een kenmerk is toegevoegd aan de uitsluitingslijst WAF, niet wordt dit beschouwd als door geen enkele regel van de WAF geconfigureerd en actief. Uitsluitingslijsten zijn globaal binnen het bereik.
 
-De volgende kenmerken kunnen worden toegevoegd aan een lijst met uitgesloten:
+De volgende kenmerken kunnen worden toegevoegd aan uitsluitingslijsten. De waarden van uw gekozen veld niet worden geëvalueerd op basis van de WAF-regels. De uitsluiting geeft een lijst verwijderen inspectie van de waarde van het veld.
 
 * Aanvraagheaders
 * Cookies van de aanvraag
-* Naam van de aanvraag-kenmerk (argumenty)
+* Naam van de aanvraag-kenmerk (argumenten) kan worden toegevoegd als een uitsluiting-element, zoals:
 
-   * Meerdelige formuliergegevens
-   * XML
-   * JSON
-   * Argumenten voor URL-query
+   * Naam van het formulierveld
+   * XML-entiteit
+   * JSON-entiteit
+   * URL-query-tekenreeks argumenten
 
 U kunt een exacte aanvraagheader, hoofdtekst, cookie opgeven of kenmerk tekenreeksovereenkomst query.  Of u kunt optioneel gedeeltelijke overeenkomsten opgeven. De uitsluiting is altijd op een headerveld nooit op de waarde ervan. Uitsluitingsregels zijn van toepassing binnen het bereik en van toepassing op alle pagina's en alle regels.
 

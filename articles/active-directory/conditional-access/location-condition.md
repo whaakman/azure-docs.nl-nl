@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd62cda209a8ac95a41fa271ce3a96001a3b4811
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112300"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164780"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -56,7 +56,10 @@ Een benoemde locatie heeft de volgende onderdelen:
 - **Landen/regio's** -deze optie kunt u een of meer land of regio voor het definiëren van een benoemde locatie selecteren.
 - **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land of regio. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Gebruik deze instelling wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties.
 
-Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. Organisaties kunnen maximaal 90 benoemde locaties configureren, elk geconfigureerd met maximaal 1200 IP-adresbereiken.
+Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. U kunt configureren locaties op basis van de volgende beperkingen:
+
+- Een locatie met maximaal 1200 IP-bereiken met de naam.
+- Maximaal 90 benoemde locaties met één IP-adresbereik dat is toegewezen aan elk van deze.
 
 Beleid voor voorwaardelijke toegang is van toepassing op IPv4 en IPv6-verkeer. Op dit moment benoemde locaties Sta geen IPv6-adresbereiken op die moeten worden geconfigureerd. Deze beperking zorgt ervoor dat de volgende situaties:
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429673"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202744"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenario's voor geavanceerde analyses in Azure Machine Learning
 In dit artikel bevat een overzicht van de verschillende gegevensbronnen van voorbeeld en doelscenario's mogelijk die kunnen worden verwerkt door de [Team Data Science Process (TDSP)](overview.md). De TDSP biedt een systematische benadering voor teams kunnen samenwerken op het bouwen van intelligente toepassingen. De scenario's die hier wordt gepresenteerd illustreren opties beschikbaar zijn in de werkstroom gegevensverwerking die afhankelijk van de gegevenskenmerken, bronlocaties en doel-opslagplaatsen in Azure zijn.
@@ -239,7 +239,7 @@ Als u wilt repliceren van de volledige SQL Server-database in uw SQL Server-VM, 
 1. Eenvoudige Azure Machine Learning-experiment stroom beginnen met geüploade gegevensset.
 
 ## <a name="decisiontree"></a>Beslissingsstructuur voor de selectie van het scenario
-- - -
+---
 Het volgende diagram geeft een overzicht van de scenario's die hierboven worden beschreven en de Advanced Analytics Process and technologiekeuzes die u voor elk van de gespecificeerde scenario's kunt uitvoeren. Houd er rekening mee dat gegevensverwerking, verkennen, feature-engineering en steekproeven kunnen duren voordat plaats in een of meer methode/omgeving--op de bronlocatie, tussenliggende, en/of doelomgevingen – en iteratief indien nodig kan doorgaan. Het diagram alleen fungeert als een afbeelding van een aantal mogelijke stromen en biedt een volledige inventarisatie.
 
 ![Voorbeeldscenario's DS proces scenario][8]

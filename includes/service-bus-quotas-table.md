@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1c4a0384342db82ee9c1f6b9e806188d5949681
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171219"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235295"
 ---
 De volgende tabel bevat quotumgegevens die specifiek zijn voor Azure Service Bus-berichten. Zie voor informatie over prijzen en andere quota's voor Service Bus [prijzen van Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Naam van quotum | Scope | Opmerkingen | Value |
 | --- | --- | --- | --- |
 | Maximum aantal Basic of Standard-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra Basic of Standard-naamruimten worden geweigerd door de Azure-portal. |100|
-| Maximum aantal Premium-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra Premium-naamruimten worden geweigerd door de portal. |25 |
+| Maximum aantal Premium-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra Premium-naamruimten worden geweigerd door de portal. |50 |
 | Grootte van de wachtrij of onderwerp |Entiteit |Gedefinieerd bij het maken van de wachtrij of onderwerp. <br/><br/> Binnenkomende berichten worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |1, 2, 3, 4 of 5 GB.<br /><br />In de Premium-SKU, en de standaard-SKU met [partitioneren](/azure/service-bus-messaging/service-bus-partitioning) ingeschakeld, is de maximale grootte van de wachtrij of onderwerp 80 GB. |
 | Aantal gelijktijdige verbindingen voor een naamruimte |Naamruimte |De volgende aanvragen voor extra verbindingen worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. REST-bewerkingen tellen niet mee voor gelijktijdige TCP-verbindingen. |NetMessaging: 1,000.<br /><br />AMQP: 5,000. |
 | Aantal gelijktijdige aanvragen voor een entiteit wachtrij, onderwerp of abonnement ontvangen |Entiteit |Volgende ontvangen aanvragen zijn afgewezen en een uitzondering is ontvangen door de aanroepende code. Dit quotum is van toepassing op het gecombineerde aantal gelijktijdige bewerkingen voor alle abonnementen op een onderwerp ontvangen. |5,000 |
@@ -34,7 +34,7 @@ De volgende tabel bevat quotumgegevens die specifiek zijn voor Azure Service Bus
 | De eigenschap berichtgrootte voor een entiteit wachtrij, onderwerp of abonnement |Entiteit | De uitzondering **SerializationException** wordt gegenereerd. |Maximale berichtgrootte eigenschap voor elke eigenschap is 32.000. Cumulatieve grootte van alle eigenschappen niet langer zijn dan 64.000. Deze limiet geldt voor de hele koptekst van de [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), die is voorzien zowel gebruikersgegevens en -eigenschappen, zoals [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), en [ MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
 | Aantal abonnementen per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende abonnementen voor het onderwerp worden geweigerd. Als gevolg hiervan als geconfigureerd via de portal, wordt een foutbericht weergegeven. Als met de naam van de beheer-API, wordt een uitzondering ontvangen door de aanroepende code. |Standard en Premium-laag: Elk abonnement telt mee voor het quotum van 1000 entiteiten, dat wil zeggen, wachtrijen, onderwerpen en abonnementen, per naamruimte. |
 | Het aantal SQL-filters per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende filters op het onderwerp worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |2,000 |
-| Aantal correlatiefilters per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende filters op het onderwerp worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |100\.000 |
+| Aantal correlatiefilters per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende filters op het onderwerp worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |100.000 |
 | Grootte van de SQL-filters of acties |Naamruimte |De volgende aanvragen voor het maken van extra filters worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |Maximale lengte van de filtertekenreeks voor de voorwaarde: 1024 (1 K).<br /><br />Maximale lengte van de regel actie tekenreeks: 1024 (1 K).<br /><br />Maximum aantal expressies per regelactie: 32. |
 | Aantal [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) regels per naamruimte, wachtrij of onderwerp |Entiteit, naamruimte |De volgende aanvragen voor het maken van aanvullende regels worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |Maximum aantal regels: 12. <br /><br /> Regels die zijn geconfigureerd op een Service Bus-naamruimte van toepassing op alle wachtrijen en onderwerpen in die naamruimte. |
 | Aantal berichten per transactie | Transactie | Extra binnenkomende berichten worden geweigerd en een uitzondering met de mededeling ' kan niet meer dan 100 berichten verzenden in één transactie"is ontvangen door de aanroepende code. | 100 <br /><br /> Voor beide **Send()** en **SendAsync()** bewerkingen. |

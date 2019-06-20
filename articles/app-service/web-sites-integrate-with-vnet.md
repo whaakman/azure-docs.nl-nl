@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067714"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147309"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de functie voor integratie met virtueel netwerk Azure App Service en hoe u om in te stellen met apps in de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure] [ VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-routeerbare internetnetwerk plaatsen.  
@@ -102,6 +102,10 @@ Zodra uw app is geïntegreerd met uw VNet, wordt de DNS-server die uw VNet is ge
 Als u wilt verbreken uw app van het VNet, selecteer **verbinding verbreken**. Hiermee wordt uw web-app opnieuw opgestart. 
 
 De nieuwe functie voor VNet-integratie kunt u gebruikmaken van service-eindpunten.  Als u service-eindpunten met uw app, gebruikt u de nieuwe VNet-integratie verbinding maken met een geselecteerde VNet en configureer vervolgens de service-eindpunten op het subnet dat u hebt gebruikt voor de integratie. 
+
+#### <a name="web-app-for-containers"></a>Web App for Containers
+
+Als u App Service op Linux met de ingebouwde installatiekopieën gebruikt, wordt het regionale VNet-integratiefunctie werkt zonder aanvullende wijzigingen. Als u Web App for Containers gebruikt, moet u uw docker-installatiekopie wijzigen als u wilt gebruiken van VNet-integratie. In uw docker-installatiekopie, gebruikt u de omgevingsvariabele poort als de luisterende poort van de belangrijkste webserver, in plaats van een poortnummer vastgelegd. De omgevingsvariabele poort bij het opstarten van de container automatisch ingesteld door App Service-platform.
 
 ### <a name="how-vnet-integration-works"></a>De werking van VNet-integratie
 

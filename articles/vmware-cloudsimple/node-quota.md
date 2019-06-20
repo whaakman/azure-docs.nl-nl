@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1416befb74a7299136ea497eccc8a06b7f0f6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160168"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164871"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>De quotalimieten voor CloudSimple knooppunt
 
-Vier knooppunten is beschikbaar voor aankoop, de standaardhoeveelheid wanneer uw abonnement is ingeschakeld voor CloudSimple-service.  U kunt een koopt [knooppunttype](cloudsimple-node.md) vanuit Azure portal.  Minimaal drie knooppunten van de dezelfde SKU zijn vereist voor het maken van een Private Cloud.  Als u de knooppunten hebt aangeschaft, ziet u mogelijk een foutmelding wanneer u probeert om aan te schaffen als u meer knooppunten.
+Vier knooppunten is de standaardhoeveelheid beschikbaar voor het inrichten, wanneer uw abonnement is ingeschakeld voor CloudSimple-service.  U kunt een inrichten [knooppunttype](cloudsimple-node.md) vanuit Azure portal.  Minimaal drie knooppunten van de dezelfde SKU zijn vereist voor het maken van een Private Cloud.  Als u de knooppunten hebt ingericht, kan er een fout weergegeven wanneer u extra knooppunten in te richten.
 
 ## <a name="quota-increase"></a>Verhoging
 
@@ -40,5 +40,5 @@ U kunt ook contact opnemen met uw Microsoft-accountvertegenwoordiger op [ azurev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Kopen van knooppunten](create-nodes.md)
+* [Inrichten knooppunten](create-nodes.md)
 * [Overzicht van de knooppunten CloudSimple](cloudsimple-node.md)

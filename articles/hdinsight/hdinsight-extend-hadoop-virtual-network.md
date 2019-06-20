@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/17/2019
+ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055407"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163661"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -211,13 +211,13 @@ Als u wilt verbinding maken met Apache Ambari en andere webpagina's met het virt
 
 ## <a id="networktraffic"></a> Beheren van netwerkverkeer
 
-### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>Binnenkomend verkeer naar HDInsight-clusters beheren
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Technieken voor het beheren van binnenkomend en uitgaand verkeer naar HDInsight-clusters
 
 Het netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp van de volgende methoden:
 
 * **Netwerkbeveiligingsgroepen** (NSG) kunt u binnenkomend en uitgaand verkeer met het netwerk te filteren. Zie voor meer informatie de [netwerkverkeer filteren met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) document.
 
-* **Virtuele netwerkapparaten** repliceren van de functionaliteit van apparaten, zoals firewalls en routers. Zie voor meer informatie de [netwerkapparaten](https://azure.microsoft.com/solutions/network-appliances) document.
+* **Virtuele netwerkapparaten** (NVA) kan worden gebruikt met alleen uitgaand verkeer. NVA's in repliceren de functionaliteit van apparaten, zoals firewalls en routers.  Zie voor meer informatie de [netwerkapparaten](https://azure.microsoft.com/solutions/network-appliances) document.
 
 Als een beheerde service HDInsight vereist onbeperkte toegang tot de HDInsight-status en beheer van services voor binnenkomende en uitgaande verkeer van het VNET. Wanneer u nsg's gebruikt, moet u ervoor zorgen dat deze services nog steeds met HDInsight-cluster communiceren kunnen.
 

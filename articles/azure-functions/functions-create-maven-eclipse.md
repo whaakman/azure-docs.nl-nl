@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341412"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154595"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Uw eerste functie maken met Java en Eclipse 
 
@@ -43,15 +43,15 @@ Het raadzaam ook installeren [versie 2 van Azure Functions Core Tools](functions
 
 ## <a name="create-a-functions-project"></a>Een Functions-project maken
 
-1. Selecteer in Eclipse het **bestand** in het menu Selecteer vervolgens **Project**. 
-1. Open de **Java-Project** map in de **nieuw Project** venster en selecteer **Maven-Project**en selecteer vervolgens **volgende**.
+1. Selecteer in Eclipse het **bestand** in het menu Selecteer vervolgens **New -&gt; Maven-Project**. 
 1. Accepteer de standaardwaarden in de **nieuw Maven-Project** dialoog en selecteer **volgende**.
 1. Selecteer **toevoegen Archetype** en toevoegen van de vermeldingen voor de [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype groeps-ID: com.microsoft.azure
     - Archetype artefact-ID: azure-functions-archetype
-    - Versie: De meest recente versie gebruikt van [de centrale opslagplaats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Versie: De meest recente versie gebruikt **1.22** van [de centrale opslagplaats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven maken](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Klik op **OK** en details invoeren voor het huidige project en uiteindelijk **voltooien**.
+1. Klik op **OK** en klik vervolgens op **volgende** waarden, zoals de momentopname van het volgende in te voeren (gebruik een andere appName dan **fabrikam-functie-20170920120101928**), en uiteindelijk **voltooien**.
+    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_. De gegenereerde code in het project is een eenvoudige [HTTP-geactiveerde](/azure/azure-functions/functions-bindings-http-webhook) -functie die kan de hoofdtekst van de activerende HTTP-aanvraag.
 
@@ -68,7 +68,7 @@ De runtime in het consolevenster beëindigen wanneer u bent met klaar testen van
 
 ### <a name="debug-the-function-in-eclipse"></a>Fouten opsporen in de functie in Eclipse
 
-In uw **uitvoeren als** configuratie instellen in de vorige stap, wijziging `azure-functions:run` naar `mvn azure-functions:run -DenableDebug` en voer de bijgewerkte configuratie voor het starten van de functie-app in de foutopsporingsmodus.
+In uw **uitvoeren als** configuratie instellen in de vorige stap, wijziging `azure-functions:run` naar `azure-functions:run -DenableDebug` en voer de bijgewerkte configuratie voor het starten van de functie-app in de foutopsporingsmodus.
 
 Selecteer de **uitvoeren** menu's en open **Debug Configurations**. Kies **Remote Java Application** en een nieuw wachtwoord maken. Geef een naam op voor uw configuratie en vul de instellingen in. De poort moet consistent zijn met de poort voor foutopsporing openen door de functie host, die standaard is `5005`. Nadat Setup is voltooid, klikt u op `Debug` foutopsporing te starten.
 

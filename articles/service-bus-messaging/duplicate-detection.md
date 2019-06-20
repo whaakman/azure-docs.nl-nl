@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413647"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273214"
 ---
 # <a name="duplicate-detection"></a>Detectie van duplicaten
 
@@ -37,7 +37,7 @@ Voor een bedrijfsproces waarin meerdere berichten worden verzonden tijdens het v
 De *MessageId* kunnen altijd worden sommige GUID, maar de id voor het bedrijfsproces verankering levert voorspelbare herhaalbaarheid, die vereist is voor een effectief gebruik te maken van de functie voor detectie van duplicaten.
 
 > [!NOTE]
-> Als de detectie van duplicaten is ingeschakeld en de sleutel-ID of partitie sesion niet zijn ingesteld, wordt de bericht-ID gebruikt als de partitiesleutel. Als de bericht-ID is ook niet is ingesteld, wordt een bericht-ID voor het bericht automatisch genereren door bibliotheken voor .NET en AMQP. Zie voor meer informatie, [gebruik van sleutels van de partitie](service-bus-partitioning.md#use-of-partition-keys).
+> Als de detectie van duplicaten is ingeschakeld en de sleutel-ID of partitie sesion niet zijn ingesteld, wordt de bericht-ID gebruikt als de partitiesleutel. Als de bericht-ID is ook niet is ingesteld, wordt een bericht-ID voor het bericht automatisch genereren door bibliotheken voor .NET en AMQP. Zie voor meer informatie, [gebruik van partitiesleutels](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Duplicaatdetectie inschakelen
 

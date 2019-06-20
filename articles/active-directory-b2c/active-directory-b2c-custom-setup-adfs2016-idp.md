@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c469b333c6896d33b440bfadf0ebbdbeece71a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510436"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272145"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -101,6 +101,10 @@ U hebt nu uw beleid geconfigureerd zodat Azure AD B2C weet hoe om te communicere
 1. Op de **aangepast beleid** pagina in uw Azure AD B2C-tenant, selecteer **uploaden beleid**.
 2. Schakel **het beleid overschrijven als deze bestaat**, en blader vervolgens naar en selecteer de *TrustFrameworkExtensions.xml* bestand.
 3. Klik op **Uploaden**.
+
+> [!NOTE]
+> De Visual Studio code-extensie B2C maakt gebruik van "socialIdpUserId." Een beleid voor sociale netwerken is ook vereist voor AD FS.
+>
 
 ## <a name="register-the-claims-provider"></a>De claimprovider registreren
 

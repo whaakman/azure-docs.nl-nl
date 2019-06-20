@@ -1,6 +1,6 @@
 ---
-title: Het uitschakelen controleren met Azure Monitor voor virtuele machines (preview) | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u kunt niet meer controleren van uw virtuele machines met Azure Monitor voor virtuele machines.
+title: Schakel bewaking in Azure Monitor voor virtuele machines (preview) | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u bewaking van uw virtuele machines in Azure Monitor voor virtuele machines stoppen.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,61 +13,66 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb667486a6e3279cb78fefe02723f14d9f7c9b4f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522124"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155684"
 ---
-# <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Het uitschakelen van de bewaking van uw virtuele machines met Azure Monitor voor virtuele machines (preview)
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Schakel bewaking van uw virtuele machines in Azure Monitor voor virtuele machines (preview)
 
-Als u dat u niet meer wilt ze te controleren met Azure Monitor voor virtuele machines besluit nadat u bewaking van uw virtuele machines hebt ingeschakeld, kunt u de bewaking kunt uitschakelen. In dit artikel laat zien hoe om dit te doen voor een of meer virtuele machines.  
+Nadat u de bewaking van uw virtuele machines (VM's) hebt ingeschakeld, kunt u later uitschakelen bewaking in Azure Monitor voor virtuele machines. In dit artikel laat zien hoe om uit te schakelen voor een of meer virtuele machines bewaken.  
 
-Azure Monitor voor virtuele machines ondersteunt op dit moment niet selectief uitschakelen van de bewaking van uw VM's. Als uw Log Analytics-werkruimte is geconfigureerd voor ondersteuning van deze oplossing en andere oplossingen, evenals andere bewakingsgegevens verzamelen, is het belangrijk dat u begrijpt de impact en de methoden die hieronder worden beschreven voordat u doorgaat.
+Op dit moment biedt geen Azure Monitor voor virtuele machines ondersteuning voor selectief uit te schakelen van de VM-bewaking. Uw Log Analytics-werkruimte kan ondersteuning voor Azure Monitor voor VM's en andere oplossingen. Het kan ook andere bewakingsgegevens verzamelen. Als uw Log Analytics-werkruimte deze services biedt, moet u informatie over de kracht en methoden voor het uitschakelen van de bewaking voordat u begint.
 
 Azure Monitor voor virtuele machines, is afhankelijk van de volgende onderdelen om de ervaring te leveren:
 
-* Een Log Analytics-werkruimte, waarin gegevens worden opgeslagen die worden verzameld van VM's en andere bronnen.
-* Verzamelen van prestatiemeteritems die zijn geconfigureerd in de werkruimte, die updates van de configuratie van de bewaking op alle virtuele machines verbonden met de werkruimte.
-* Twee bewakingsoplossingen geconfigureerd in de werkruimte - **InfrastructureInsights** en **ServiceMap**, welke configuratie van de bewaking update op alle virtuele machines die zijn verbonden met de werkruimte.
-* Twee virtuele Azure-machine-uitbreidingen, de **MicrosoftMonitoringAgent** en de **DependencyAgent**, die verzamelen en verzenden van gegevens naar de werkruimte.
+* Een Log Analytics-werkruimte, waarin de bewakingsgegevens van VM's en andere bronnen worden opgeslagen.
+* Een verzameling van prestatiemeteritems die zijn geconfigureerd in de werkruimte. De verzameling updates voor de configuratie van de bewaking op alle virtuele machines die zijn verbonden met de werkruimte.
+* `InfrastructureInsights` en `ServiceMap`, die zijn oplossingen die zijn geconfigureerd in de werkruimte bewaking. Deze oplossingen werk de configuratie van de bewaking op alle virtuele machines die zijn verbonden met de werkruimte.
+* `MicrosoftMonitoringAgent` en `DependencyAgent`, welke Azure-VM-extensies zijn. Deze uitbreidingen verzamelen en verzenden van gegevens naar de werkruimte.
 
-Overweeg het volgende bij de voorbereiding op het controleren van uw virtuele machines met virtuele machines met Azure Monitor uitschakelen:
+Bij het uitschakelen van de bewaking van uw virtuele machines voorbereiden, houd rekening met deze overwegingen:
 
-* Als u met een enkele virtuele machine wordt geëvalueerd en u de vooraf geselecteerde Log Analytics-werkruimte hebt geaccepteerd, kunt u de bewaking in door te verwijderen van de agent voor afhankelijkheden van de virtuele machine en het verbreken van de Log Analytics-agent uit deze werkruimte kunt uitschakelen. Deze methode is geschikt als u van plan bent over het gebruik van de virtuele machine voor andere doeleinden en later besluit het opnieuw verbinding maken met een andere werkruimte.
-* Als u van de Log Analytics-werkruimte gebruikmaakt voor de ondersteuning van andere oplossingen en verzamelen van gegevens uit andere bronnen, kunt u Azure Monitor voor virtuele machines oplossingsonderdelen vanuit de werkruimte zonder onderbreking of gevolgen voor uw werkruimte verwijderen.  
-
->[!NOTE]
-> Na het verwijderen van de onderdelen van de oplossing uit uw werkruimte, kunt u doorgaan met de status van uw Azure-VM's, Zie specifiek prestaties en de kaart gegevens wanneer u gaat u naar de weergave in de portal. Gegevens wordt uiteindelijk niet meer weergegeven in de weergave prestaties en de kaart na enige tijd; de statusweergave blijven echter wel om de integriteitsstatus van de voor uw VM's weer te geven. De **Probeer nu** optie is beschikbaar in de geselecteerde Azure-virtuele machine waarmee u het opnieuw inschakelen bewaking in de toekomst.  
-
-## <a name="complete-removal-of-azure-monitor-for-vms"></a>Verwijderen van Azure Monitor voor virtuele machines
-
-De volgende stappen wordt beschreven hoe u voor het verwijderen van Azure Monitor voor virtuele machines als u nog steeds de Log Analytics-werkruimte nodig hebt. U gaat verwijderen de **InfrastructureInsights** en **ServiceMap** oplossingen van de werkruimte.  
+* Als u met een enkele virtuele machine geëvalueerd en gebruikt de vooraf geselecteerde standaard Log Analytics-werkruimte, kunt u de bewaking in door te verwijderen van de agent voor afhankelijkheden van de virtuele machine en het verbreken van de Log Analytics-agent uit deze werkruimte kunt uitschakelen. Deze aanpak is geschikt als u van plan bent te gebruiken van de virtuele machine voor andere doeleinden en later besluit het opnieuw verbinding maken met een andere werkruimte.
+* Als u een bestaande Log Analytics-werkruimte die ondersteuning biedt voor andere bewakingsoplossingen en verzamelen van gegevens uit andere bronnen hebt geselecteerd, kunt u oplossingsonderdelen vanuit de werkruimte verwijderen zonder dat wordt onderbroken of die betrekking hebben op uw werkruimte.  
 
 >[!NOTE]
->Als u het Serviceoverzicht bewakingsoplossing voor het inschakelen van Azure Monitor voor virtuele machines en u nog steeds afhankelijk van deze zijn, zijn niet verwijderd die oplossing zoals beschreven in stap 6 hieronder.  
+> Na het verwijderen van de onderdelen van de oplossing uit uw werkruimte, blijft u mogelijk de status van uw Azure-VM's; zien specifiek, u prestaties zien en gegevens toewijzen wanneer u gaat u naar een van beide weergaven in de portal. Gegevens wordt uiteindelijk niet meer weergegeven in de **prestaties** en **kaart** weergaven. Maar de **Health** weergave blijft om de integriteitsstatus van de voor uw VM's weer te geven. De **Probeer nu** optie is beschikbaar via de geselecteerde Azure-VM, zodat u kunt opnieuw inschakelen voor bewaking in de toekomst.  
+
+## <a name="remove-azure-monitor-for-vms-completely"></a>Azure Monitor voor virtuele machines geheel verwijderen
+
+Als u nog steeds de Log Analytics-werkruimte, volg deze stappen om volledig te verwijderen Azure Monitor voor virtuele machines. Verwijdert u de `InfrastructureInsights` en `ServiceMap` oplossingen van de werkruimte.  
+
+>[!NOTE]
+>Als u de oplossing voor de controle voordat u Azure Monitor ingeschakeld voor virtuele machines en u nog steeds afhankelijk van het zijn Serviceoverzicht gebruikt, geen oplossing te verwijderen die zoals beschreven in de laatste stap van de volgende procedure.  
 >
 
-1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
-2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources Log Analytics. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-3. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte die u hebt gekozen wanneer onboarding van Azure Monitor voor virtuele machines.
-4. Selecteer in het linkerdeelvenster **oplossingen**.  
-5. Selecteer in de lijst met oplossingen **InfrastructureInsights (Werkruimtenaam)** , en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
-6. Selecteer in de lijst met oplossingen **ServiceMap (Werkruimtenaam)** , en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer in de Azure-portal de optie **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u te typen begint, filtert de lijst met suggesties op basis van uw invoer. Selecteer **Log Analytics**.
+3. Selecteer de werkruimte in de lijst met Log Analytics-werkruimten, u hebt gekozen wanneer u Azure Monitor ingeschakeld voor virtuele machines.
+4. Selecteer aan de linkerkant **oplossingen**.  
+5. Selecteer in de lijst met oplossingen **InfrastructureInsights (Werkruimtenaam)** . Op de **overzicht** pagina voor de oplossing, selecteer **verwijderen**. Wanneer u hierom wordt gevraagd om te bevestigen, selecteert u **Ja**.  
+6. Selecteer in de lijst met oplossingen **ServiceMap (Werkruimtenaam)** . Op de **overzicht** pagina voor de oplossing, selecteer **verwijderen**. Wanneer u hierom wordt gevraagd om te bevestigen, selecteert u **Ja**.  
 
-Voordat u onboarding van Azure Monitor voor virtuele machines, zijn als u niet [verzamelen van de prestatiemeteritems ingeschakeld](vminsights-enable-overview.md#performance-counters-enabled) voor de Windows- of Linux gebaseerde VM's in uw werkruimte, moet u deze regels uitschakelen door de stappen die worden beschreven [hier](../platform/data-sources-performance-counters.md#configuring-performance-counters) voor Windows en Linux.
+Voordat u Azure Monitor ingeschakeld voor virtuele machines, als u niet hebt gedaan [verzamelen van prestatiemeteritems](vminsights-enable-overview.md#performance-counters-enabled) voor de Windows- of Linux-VM's in uw werkruimte [uitschakelen van deze regels](../platform/data-sources-performance-counters.md#configuring-performance-counters) voor Windows en Linux.
 
-## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Schakel bewaking voor een Azure-VM en bewaren van werkruimte  
+## <a name="disable-monitoring-and-keep-the-workspace"></a>Schakel bewaking en het behouden van de werkruimte  
 
-De volgende stappen wordt beschreven hoe u bewaking voor een virtuele machine die is ingeschakeld voor de evaluatie van Azure Monitor voor virtuele machines uitschakelen, maar de Log Analytics-werkruimte is nog steeds vereist zijn ter ondersteuning van de bewaking van andere bronnen. Als dit een virtuele Azure-machine, gaat u naar de agent voor afhankelijkheden VM-extensie en de Log Analytics-agent VM-extensie voor Windows/Linux rechtstreeks vanuit de virtuele machine verwijderen. 
+Als uw Log Analytics-werkruimte moet ondersteuning bieden voor bewaking van andere bronnen, de volgende stappen om uit te schakelen op de virtuele machine die u gebruikt voor het evalueren van Azure Monitor voor virtuele machines bewaken. Voor Azure VM's verwijdert u de agent voor afhankelijkheden VM-extensie en de Log Analytics-agent VM-extensie voor Windows of Linux rechtstreeks vanuit de virtuele machine. 
 
 >[!NOTE]
->Als de virtuele machine wordt beheerd door Azure Automation voor het indelen van processen, configuratie, beheren of beheren van updates, of beheerd door Azure Security Center voor security management en detectie van bedreigingen, de Log Analytics-agent mogen niet worden verwijderd. Anders u wordt voorkomen dat deze services en oplossingen proactief beheren van uw virtuele machine. 
+>De Log Analytics-agent niet worden verwijderd als: 
+>
+> * Azure Automation beheert de virtuele machine voor het indelen van processen of voor het beheren van configuratie- of -updates. 
+> * Azure Security Center Hiermee beheert u de virtuele machine voor beveiliging en detectie van bedreigingen. 
+>
+> Als u de Log Analytics-agent verwijdert, u wordt voorkomen dat deze services en oplossingen proactief beheren van uw virtuele machine. 
 
-1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 2. Selecteer in de Azure portal, **virtuele Machines**. 
 3. Selecteer een VM in de lijst. 
-4. Selecteer in het linkerdeelvenster **extensies** en klik op de **extensies** weergeeft, schakelt **DependencyAgent**.
-5. Klik op de pagina van de extensie-eigenschappen, **verwijderen**.
-6. Op de **extensies** weergeeft, schakelt **MicrosoftMonitoringAgent** en klik op de pagina van de extensie-eigenschappen, **verwijderen**.  
+4. Selecteer aan de linkerkant **extensies**. Op de **extensies** weergeeft, schakelt **DependencyAgent**.
+5. Selecteer op de eigenschappenpagina van de extensie **verwijderen**.
+6. Op de **extensies** weergeeft, schakelt **MicrosoftMonitoringAgent**. Selecteer op de eigenschappenpagina van de extensie **verwijderen**.  

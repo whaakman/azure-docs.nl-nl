@@ -9,11 +9,11 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148216"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176026"
 ---
 **Harde schijf van Standard beheerde schijven**
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
@@ -28,5 +28,5 @@ ms.locfileid: "66148216"
 
 | Resource | Standaardlimiet |
 | --- | --- |
-| Maximale IOPS Per VM |80\.000 IOP's met GS5-VM 's |
+| Maximale IOPS Per VM |80.000 IOP's met GS5-VM 's |
 | Maximale doorvoer per VM |2000 MB/s met GS5-VM 's |

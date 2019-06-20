@@ -2,18 +2,18 @@
 title: Veelgestelde vragen over Azure Backup
 description: 'Antwoorden op veelgestelde vragen over: Functies van Azure Backup Recovery Services-kluizen, wat back-up kan, hoe het werkt, versleuteling en limieten. '
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.author: raynew
-ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688741"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275562"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -119,9 +119,9 @@ Limieten voor grootte zijn als volgt:
 
 Besturingssysteem/machine | De maximale grootte van de gegevensbron
 --- | --- 
-Windows 8 of hoger | 54\.400 GB
+Windows 8 of hoger | 54.400 GB
 Windows 7 |1700 GB
-Windows Server 2012 of hoger | 54\.400 GB
+Windows Server 2012 of hoger | 54.400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
 Azure VM | 16 gegevensschijven<br/><br/> Gegevens schijf maximaal 4095 GB
 

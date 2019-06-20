@@ -5,38 +5,36 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f012d3e228a2730423c0d5a6f2cea7a8f2f9eab4
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126357"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190434"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementeren en bewaken van IoT Edge-modules op schaal met Azure portal
 
-[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
+Maak een **automatische implementatie van IoT Edge** in Azure portal voor het beheren van doorlopende implementaties voor een groot aantal apparaten in één keer. Automatische implementaties voor IoT Edge maken deel uit van de [automatische Apparaatbeheer](/iot-hub/iot-hub-automatic-device-management.md) functie van IoT-Hub. Implementaties zijn dynamische processen waarmee u kunt meerdere modules implementeren op meerdere apparaten, de status en integriteit van de modules volgen en wijzig indien nodig. 
 
-Azure IoT Edge kunt u analytics verplaatsen naar de rand en biedt een cloudinterface, zodat u kunt beheren en controleren van uw IoT Edge-apparaten zonder fysieke toegang tot elkaar. De mogelijkheid voor het beheren van apparaten op afstand is belangrijker zoals Internet of Things-oplossingen er die grotere en complexere groeien zijn. Azure IoT Edge is ontworpen ter ondersteuning van uw zakelijke doelstellingen, ongeacht het aantal apparaten die u toevoegt.
-
-U kunt afzonderlijke apparaten beheren en implementeren van modules op deze één voor één. Echter, als u wilt om apparaten op grote schaal te wijzigen, kunt u een **automatische implementatie van IoT Edge**, die deel uitmaakt van automatische Apparaatbeheer in IoT Hub. Implementaties zijn dynamische processen waarmee u kunt meerdere modules in één keer implementeren op meerdere apparaten, de status en integriteit van de modules volgen en wijzig indien nodig. 
+Zie voor meer informatie, [inzicht in IoT Edge-automatische implementaties voor individuele apparaten of op schaal](module-deployment-monitoring.md).
 
 ## <a name="identify-devices-using-tags"></a>Identificatie van apparaten met behulp van tags
 
-Voordat u een implementatie maken kunt, moet u opgeven welke apparaten die u wilt toepassen. Azure IoT Edge-apparaten met identificeert **tags** op het dubbele apparaat. Elk apparaat kan meerdere labels, en u ze een manier die zinvol is voor uw oplossing kunt definiëren. Als u een campus van slimme gebouwen beheert, kunt u bijvoorbeeld de volgende codes toevoegen aan een apparaat:
+Voordat u een implementatie maken kunt, moet u opgeven welke apparaten die u wilt toepassen. Azure IoT Edge-apparaten met identificeert **tags** op het dubbele apparaat. Elk apparaat kan hebben meerdere labels die u op een manier die zinvol is voor uw oplossing definieert. Als u een campus van slimme gebouwen beheert, kunt u bijvoorbeeld de volgende codes toevoegen aan een apparaat:
 
 ```json
 "tags":{
-    "location":{
-        "building": "20",
-        "floor": "2"
-    },
-    "roomtype": "conference",
-    "environment": "prod"
+  "location":{
+    "building": "20",
+    "floor": "2"
+  },
+  "roomtype": "conference",
+  "environment": "prod"
 }
 ```
 
@@ -58,24 +56,21 @@ Er zijn vijf stappen voor het maken van een implementatie. De volgende secties h
 
 ### <a name="step-2-add-modules-optional"></a>Stap 2: (Optioneel) Modules toevoegen
 
-Er zijn twee soorten modules die u aan een implementatie toevoegen kunt. De eerste is een module op basis van een Azure-service, zoals Opslagaccount of Stream Analytics. De tweede is een module met behulp van uw eigen code. U kunt meerdere modules van elk type toevoegen aan een implementatie. 
+U kunt maximaal 20 modules toevoegen aan een implementatie. 
 
-Als u een implementatie met geen modules maakt, worden alle huidige modules van de apparaten verwijderd. 
-
->[!NOTE]
->Azure Functions biedt geen ondersteuning voor de implementatie geautomatiseerde Azure-service nog. De aangepaste module-implementatie gebruiken om de service handmatig toevoegen aan uw implementatie. 
+Als u een implementatie met geen modules maakt, worden alle huidige modules verwijderd uit de doelapparaten. 
 
 Als u wilt toevoegen een module van Azure Stream Analytics, de volgende stappen uit:
 
 1. In de **implementatie Modules** sectie van de pagina, klikt u op **toevoegen**.
 1. Selecteer **Azure Stream Analytics-module**.
 1. Kies uw **abonnement** uit de vervolgkeuzelijst.
-1. Kies uw **Edge-taak** uit de vervolgkeuzelijst.
+1. Kies uw IoT **Edge-taak** uit de vervolgkeuzelijst.
 1. Selecteer **opslaan** uw module toevoegen aan de implementatie. 
 
 Aangepaste code als een module toevoegen of handmatig toevoegen van een Azure-service-module, als volgt te werk:
 
-1. In de **Container Registry Settings** sectie van de pagina, geeft u de namen en referenties voor een persoonlijke containerregisters die de module-afbeeldingen voor deze implementatie bevatten. De Edge Agent wordt fout 500 rapporteren als deze de container registry-referentie niet voor een Docker-installatiekopie vinden kan.
+1. In de **Container Registry Settings** sectie van de pagina, geeft u de namen en referenties voor een persoonlijke containerregisters die de module-afbeeldingen voor deze implementatie bevatten. De IoT Edge-Agent wordt fout 500 rapporteren als deze de container registry-referentie niet voor een Docker-installatiekopie vinden kan.
 1. In de **implementatie Modules** sectie van de pagina, klikt u op **toevoegen**.
 1. Selecteer **IoT Edge-Module**.
 1. Geef uw module een **naam**.
@@ -84,13 +79,13 @@ Aangepaste code als een module toevoegen of handmatig toevoegen van een Azure-se
 1. Gebruik de vervolgkeuzelijst om te selecteren een **beleid voor opnieuw opstarten**. Kies in de volgende opties: 
    * **Altijd** -de module wordt altijd opnieuw opgestart als deze uitgeschakeld voor een bepaalde reden wordt.
    * **Nooit** -de module nooit wordt opnieuw opgestart als deze wordt afgesloten om een bepaalde reden.
-   * **Op is mislukt** -de module wordt opnieuw opgestart als deze vastloopt, maar niet als deze wordt afgesloten foutloos. 
+   * **bij fout** -de module wordt opnieuw opgestart als deze vastloopt, maar niet als deze wordt afgesloten foutloos. 
    * **Op de slechte** -de module wordt opnieuw opgestart als het systeem vastloopt of een slechte status retourneert. Het is aan elke module voor het implementeren van de functie voor health-status. 
 1. Gebruik de vervolgkeuzelijst om te selecteren de **gewenste Status** voor de module. Kies in de volgende opties:
-   * **Met** -dit is de standaardoptie. De module wordt gestart onmiddellijk na de implementatie wordt uitgevoerd.
+   * **met** -wordt uitgevoerd, is de standaardoptie. De module wordt gestart onmiddellijk na de implementatie wordt uitgevoerd.
    * **Gestopt** -na de implementatie, de module blijft niet-actieve totdat opgevraagd door u of een andere module op te starten.
 1. Selecteer **de gewenste eigenschappen van de moduledubbel Set** als u wilt toevoegen van labels of andere eigenschappen aan de moduledubbel.
-1. Voer **omgevingsvariabelen** voor deze module. Omgevingsvariabelen bevatten aanvulling op de informatie aan een module om het configuratieproces te vergemakkelijken.
+1. Voer **omgevingsvariabelen** voor deze module. Omgevingsvariabelen bevatten configuratie-informatie aan een module.
 1. Selecteer **opslaan** uw module toevoegen aan de implementatie. 
 
 Zodra u alle modules voor een implementatie die is geconfigureerd hebt, selecteer **volgende** verplaatsen naar stap 3.
@@ -109,20 +104,20 @@ Metrische gegevens bieden samenvatting tellingen van de verschillende statussen 
 
 1. Voer een query voor **metriek Criteria**. De query is gebaseerd op IoT Edge hub moduledubbel [gerapporteerde eigenschappen](module-edgeagent-edgehub.md#edgehub-reported-properties). De metrische waarde geeft het aantal rijen dat wordt geretourneerd door de query.
 
-Bijvoorbeeld:
+   Bijvoorbeeld:
 
-```sql
-SELECT deviceId FROM devices
-  WHERE properties.reported.lastDesiredStatus.code = 200
-```
+   ```sql
+   SELECT deviceId FROM devices
+     WHERE properties.reported.lastDesiredStatus.code = 200
+   ```
 
 ### <a name="step-5-target-devices"></a>Stap 5: Doelapparaten
 
 Gebruik de eigenschap tags van uw apparaten gericht op de specifieke apparaten die deze implementatie moeten worden ontvangen. 
 
-Omdat meerdere implementaties zijn op hetzelfde apparaat gericht kunnen, moet u elke implementatie enkele prioriteit geven. Als er een conflict optreedt is, wordt de implementatie met de hoogste prioriteit (hogere waarden geven aan hogere prioriteit) wins. Als twee implementaties hetzelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
+Omdat meerdere implementaties zijn op hetzelfde apparaat gericht kunnen, moet u elke implementatie enkele prioriteit geven. Als er een conflict optreedt is, wordt de implementatie met de hoogste prioriteit (hogere waarden geven hogere prioriteit) wins. Als twee implementaties hetzelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
 
-1. Voer een positief geheel getal voor de implementatie **prioriteit**. In het geval dat twee of meer implementaties zijn gericht op hetzelfde apparaat, wordt de implementatie met de hoogste numerieke waarde voor prioriteit wordt toegepast.
+1. Voer een positief geheel getal voor de implementatie **prioriteit**.
 1. Voer een **voorwaarde als doel** om te bepalen welke apparaten doelgroepen voor deze implementatie. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.reported.devicemodel='4000x'`. 
 1. Selecteer **volgende** om door te gaan naar de laatste stap.
 
@@ -134,7 +129,7 @@ Lees de informatie van uw implementatie, en selecteer vervolgens **indienen**.
 
 Azure Marketplace is een online-toepassingen en services waar u door een breed scala aan bedrijfstoepassingen en -oplossingen die zijn gecertificeerd en geoptimaliseerd bladeren kan voor het uitvoeren op Azure, met inbegrip van [IoT Edge-modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan ook worden geopend via de Azure-portal onder **een Resource maken**.
 
-U kunt een IoT Edge-module installeren via Azure Marketplace of de Azure-portal:
+U kunt een IoT Edge-module van Azure Marketplace of in Azure portal implementeren:
 
 1. Zoek een module en met het implementatieproces begint.
 
@@ -168,8 +163,8 @@ Bekijk de details van een implementatie en controleren van de apparaten waarop d
    * **Doel van de voorwaarde** -het label dat wordt gebruikt voor het definiëren van de betreffende apparaten.
    * **Prioriteit** -het getal prioriteit is toegewezen aan de implementatie.
    * **Systeemmeetgegevens** - **Targeted** Hiermee geeft u het aantal dubbele apparaten in IoT-Hub die overeenkomen met de doelitems voorwaarde, en **toegepast** geeft het aantal apparaten waarvoor was de implementatie-inhoud toegepast op hun moduledubbels in IoT Hub. 
-   * **Metrische gegevens apparaat** -het aantal Edge-apparaten in de implementatie is geslaagd of fouten in de IoT Edge-runtime client melden.
-   * **Aangepaste metrische gegevens** -het aantal Edge-apparaten in de implementatie rapportagegegevens voor alle metrische gegevens die u hebt gedefinieerd voor de implementatie.
+   * **Metrische gegevens apparaat** -het aantal IoT Edge-apparaten in de implementatie is geslaagd of fouten in de IoT Edge-runtime client melden.
+   * **Aangepaste metrische gegevens** -het aantal IoT Edge-apparaten in de implementatie rapportagegegevens voor alle metrische gegevens die u hebt gedefinieerd voor de implementatie.
    * **Aanmaaktijd** -de timestamp van wanneer de implementatie is gemaakt. Dit tijdstempel wordt gebruikt om ties afbreken wanneer twee implementaties dezelfde prioriteit hebben. 
 1. Selecteer de implementatie die u wilt bewaken.  
 1. Controleer de details van de implementatie. Tabbladen kunt u de details van de implementatie controleren.
@@ -217,4 +212,4 @@ Wanneer u een implementatie verwijdert, worden alle apparaten op de volgende imp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [modules naar Edge-apparaten implementeren](module-deployment-monitoring.md).
+Meer informatie over [modules op IoT Edge-apparaten implementeren](module-deployment-monitoring.md).

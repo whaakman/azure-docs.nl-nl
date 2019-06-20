@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508962"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154034"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Meld u één pagina in met behulp van de impliciete stroom voor OAuth 2.0 in Azure Active Directory B2C
 
-Veel moderne toepassingen hebben een app met één pagina front-end die voornamelijk in JavaScript is geschreven. De app is vaak het geval is, met behulp van een framework zoals AngularJS, Ember.js of Durandal geschreven. Apps van één pagina en andere JavaScript-apps die worden uitgevoerd in een browser voornamelijk hebt enkele aanvullende uitdagingen voor verificatie:
+Veel moderne toepassingen hebben een app met één pagina front-end die voornamelijk in JavaScript is geschreven. De app is vaak het geval is, met behulp van een framework zoals React, Angular of Vue.js geschreven. Apps van één pagina en andere JavaScript-apps die worden uitgevoerd in een browser voornamelijk hebt enkele aanvullende uitdagingen voor verificatie:
 
 - De beveiligingskenmerken van de van deze apps zijn anders dan traditionele server-gebaseerde webtoepassingen.
 - Veel autorisatieservers en id-providers bieden geen ondersteuning voor cross-origin resource sharing (CORS) aanvragen.

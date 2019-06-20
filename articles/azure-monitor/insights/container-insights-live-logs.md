@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075304"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274225"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Om weer te geven van Logboeken en gebeurtenissen in realtime (preview)
 Azure Monitor voor containers bevat een functie, die zich momenteel in preview, waarmee een liveweergave van uw Azure Kubernetes Service (AKS) containerlogboeken (stdout/stderr) en -gebeurtenissen zonder kubectl-opdrachten uit te voeren. Wanneer u een van de opties selecteert, een nieuw deelvenster wordt weergegeven onder de tabel met prestaties op de **knooppunten**, **Controllers**, en **Containers** weergeven. Live logboekregistratie en gebeurtenissen die worden gegenereerd door de engine container om verder te helpen bij het oplossen van problemen in realtime worden weergegeven.
@@ -77,6 +77,9 @@ AKS kan worden geconfigureerd voor het gebruik van Azure Active Directory (AD) v
 
 >[!NOTE]
 >Configureren van verificatie met Azure Active Directory voor eenmalige aanmelding kan alleen worden uitgevoerd tijdens de initiële implementatie van een nieuw AKS-cluster. U kunt eenmalige aanmelding niet configureren op voor een AKS-cluster die al zijn geïmplementeerd.
+  
+>[!IMPORTANT]
+>Als u Azure AD voor verificatie met behulp van de bijgewerkte URI hebt geconfigureerd, schakelt u de cache van uw browser om te controleren of het bijgewerkte verificatietoken is gedownload en toegepast.   
 
 ## <a name="view-live-logs-and-events"></a>Live-logboeken en gebeurtenissen
 

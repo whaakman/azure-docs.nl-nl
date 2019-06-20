@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690572"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203472"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Instellen van herstel na noodgevallen naar Azure voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager
 
@@ -113,6 +113,15 @@ De context van de kluis als volgt instellen:
 5. Controleer of dat de Hyper-V-host is geregistreerd bij de site als volgt:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+Als u een Hyper-V-core-server uitvoert, wordt het setup-bestand downloaden en als volgt te werk:
+1. Pak de bestanden van AzureSiteRecoveryProvider.exe naar een lokale map met deze opdracht: ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Voer ```.\setupdr.exe /i``` resultaten worden geregistreerd in % Programdata%\ASRLogs\DRASetupWizard.log.
+
+3. Registreer de server door het uitvoeren van deze opdracht:
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## <a name="step-6-create-a-replication-policy"></a>Stap 6: Een replicatiebeleid maken
 

@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67113542"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176006"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
 
@@ -199,7 +199,7 @@ Hoge schaal VM's zijn beschikbaar in verschillende grootten met een verschillend
 | VM-grootte | CPU-kernen | Geheugen | Schijf-VM-grootten | Met maximaal Gegevensschijven | Cachegrootte | IOPS | Bandbreedte Cache i/o-limieten |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokale SSD 224 GB = |32 |576 GB |MAAR LIEFST 50.000 IOPS <br> 512 MB per seconde |4000 IOPS en 33 MB per seconde |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD 896 GB = |64 |4224 GB |80\.000 IOP 'S <br> 2\.000 MB per seconde |5000 IOP's en 50 MB per seconde |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD 896 GB = |64 |4224 GB |80.000 IOP 'S <br> 2\.000 MB per seconde |5000 IOP's en 50 MB per seconde |
 
 Als u wilt weergeven van een volledige lijst van alle beschikbare Azure-VM-grootten, verwijzen naar [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md) of [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md). Kies een VM-grootte die kan voldoen en aanpassen aan uw prestatievereisten van de gewenste toepassing. Daarnaast rekening mee dat volgende belangrijke overwegingen bij het kiezen van VM-grootten.
 
@@ -236,7 +236,7 @@ Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en
 | Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
-| IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12\.500              | 15\.000              | 20,000              |
+| IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20,000              |
 | Doorvoer per schijf | 25 MiB per seconde  | 50 MiB per seconde  | 100 MiB per seconde |125 MiB per seconde | 150 MiB per seconde | 200 MiB per seconde | 250 MiB per seconde | 250 MiB per seconde | 480 MiB per seconde | 750 MiB per seconde | 750 MiB per seconde |
 
 Het aantal schijven die u kiest is afhankelijk van de schijf het formaat van de gekozen. U kunt één P50 schijf of meerdere P10-schijven gebruiken om te voldoen aan de vereisten van uw toepassing. Aandachtspunten voor gebruikersaccounts die hieronder worden vermeld bij het maken van de keuze rekening.

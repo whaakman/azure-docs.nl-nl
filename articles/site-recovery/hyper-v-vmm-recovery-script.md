@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362268"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700463"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Een VMM-script toevoegen aan een plan voor herstel
 
@@ -45,7 +45,7 @@ U kunt PowerShell-scripts gebruiken in uw plannen voor herstel. Zodat ze toegank
   
   1. Open de Register-Editor en ga vervolgens naar **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Wijzig de waarde voor **ScriptLibraryPath** naar  **\\\libserver2.contoso.com\share\\**. Geef de volledige FQDN-naam. Machtigingen opgeven voor de locatie van de bestandsshare. Dit is het hoofdknooppunt van de share. Om te controleren of het hoofdknooppunt in VMM, gaat u naar het hoofdknooppunt in de bibliotheek. Het pad dat wordt geopend, is de hoofdmap van het pad. Dit is het pad dat u in de variabele moet gebruiken.
+  1. Wijzig de waarde voor **ScriptLibraryPath** naar  **\\\libserver2.contoso.com\share\\** . Geef de volledige FQDN-naam. Machtigingen opgeven voor de locatie van de bestandsshare. Dit is het hoofdknooppunt van de share. Om te controleren of het hoofdknooppunt in VMM, gaat u naar het hoofdknooppunt in de bibliotheek. Het pad dat wordt geopend, is de hoofdmap van het pad. Dit is het pad dat u in de variabele moet gebruiken.
 
   1. Test het script met behulp van een gebruikersaccount dat de hetzelfde niveau van gebruikersrechten als het VMM-serviceaccount is. Met behulp van deze rechten, verifieert die zelfstandige, geteste scripts die de dezelfde manier waarop ze worden uitgevoerd in plannen voor herstel worden uitgevoerd. Stel op de VMM-server het uitvoeringsbeleid om over te slaan, als volgt:
 

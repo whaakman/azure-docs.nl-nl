@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506364"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64693089"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Gedetailleerde stappen voor probleemoplossing voor problemen met extern bureaublad-verbinding Windows virtuele machines in Azure
 In dit artikel bevat gedetailleerde stappen voor probleemoplossing kunt vaststellen en oplossen van complexe extern bureaublad-fouten voor Azure-machines op basis van Windows.

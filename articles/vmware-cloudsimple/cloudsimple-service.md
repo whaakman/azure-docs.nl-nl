@@ -1,5 +1,5 @@
 ---
-title: VMware-oplossingen door CloudSimple - Service
+title: VMware-oplossing door CloudSimple-service
 description: Hierin wordt beschreven in het overzicht van CloudSimple service en concepten.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,21 +8,21 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f7b4be0ff3997e27dd5b5321dd44b5006ae52102
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 6a4c0bc6070d372a279b74f81ac1f84f565559c3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66358106"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165245"
 ---
-# <a name="cloudsimple-service-overview"></a>CloudSimple Service-overzicht
+# <a name="cloudsimple-service-overview"></a>Overzicht van de service CloudSimple
 
-De service CloudSimple kunt u Azure VMware-oplossing door CloudSimple gebruiken.  Het maken van de service, kunt u knooppunten kopen, knooppunten reserveren en Privéclouds te maken.  U maakt de CloudSimple-service in elke Azure-regio waar de service CloudSimple beschikbaar is.  De service definieert het edge-netwerk van Azure VMware-oplossing door CloudSimple.  Het edge-netwerk biedt ondersteuning voor services, zoals VPN, ExpressRoute en internetverbinding met uw Privéclouds.
+U kunt met de service CloudSimple Azure VMware-oplossing door CloudSimple gebruiken. Nadat u de service hebt gemaakt, kunt u knooppunten in te richten, knooppunten reserveren en persoonlijke clouds te maken. U maakt de CloudSimple-service in elke Azure-regio waar de service CloudSimple beschikbaar is. De service definieert het edge-netwerk van Azure VMware-oplossing door CloudSimple. Het edge-netwerk biedt ondersteuning voor services, zoals VPN, Azure ExpressRoute en internetverbinding met uw persoonlijke clouds.
 
 ## <a name="gateway-subnet"></a>Gatewaysubnet
 
-Een gateway-subnet is vereist volgens CloudSimple service en is uniek is voor de regio waarin deze gemaakt. Het gatewaysubnet wordt gebruikt bij het maken van het edge-netwerk en vereist een/28 CIDR-blok.  De adresruimte van de gateway-subnet moet uniek zijn. Deze mag niet overlappen met een netwerk die met de CloudSimple-omgeving communiceert. De netwerken die met CloudSimple communiceren zijn on-premises netwerken en virtuele Azure-netwerk.  Een gateway-subnet kan niet worden verwijderd zodra deze gemaakt.  Het gatewaysubnet wordt verwijderd wanneer de service is verwijderd.
+Een gateway-subnet is vereist volgens CloudSimple service en is uniek is voor de regio waarin deze gemaakt. Het gatewaysubnet wordt gebruikt bij het maken van het edge-netwerk en vereist een/28 CIDR-blok. De adresruimte van de gateway-subnet moet uniek zijn. Deze mag niet overlappen met een netwerk die met de CloudSimple-omgeving communiceert. De netwerken die met CloudSimple communiceren zijn on-premises netwerken en virtuele netwerken van Azure. Een gateway-subnet kan niet worden verwijderd nadat deze gemaakt. Het gatewaysubnet wordt verwijderd wanneer de service is verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [een CloudSimple-service in Azure maken](quickstart-create-cloudsimple-service.md)
+* Meer informatie over het [een CloudSimple-service in Azure maken](quickstart-create-cloudsimple-service.md).

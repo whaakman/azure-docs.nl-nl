@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743106"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147697"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamisch schalen database-resources met minimale downtime
 
@@ -41,7 +41,7 @@ Azure SQL Database biedt de [DTU gebaseerde aankoopmodel](sql-database-service-t
 U kunt uw eerste app ontwikkelen op een kleine, één database tegen lage kosten per maand in de servicelaag Basic, Standard- of algemeen gebruik en wijzig vervolgens de servicelaag handmatig of via een programma op elk gewenst moment in de servicelaag Premium en bedrijfskritiek om te voldoen aan de ne EDS van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
 
 > [!NOTE]
-> Dynamische schaalbaarheid is iets anders dan automatisch schalen. Automatisch schalen vindt plaats wanneer een service automatisch wordt geschaald op basis van criteria, terwijl u met dynamische schaalbaarheid handmatig kunt schalen zonder uitvaltijd.
+> Dynamische schaalbaarheid is iets anders dan automatisch schalen. Voor automatisch schalen is als een service automatisch op basis van criteria schaalt, terwijl dynamische schaalbaarheid kunt u handmatig schalen met een minimale downtime.
 
 Eén Azure SQL Database ondersteunt handmatige dynamische schaalbaarheid, maar niet automatisch schalen. Voor een meer *automatische* ervaring zou u elastische pools kunnen gebruiken. Hiermee kunnen databases resources in een pool delen op basis van afzonderlijke databasebehoeften.
 Er zijn echter scripts die kunnen worden geautomatiseerd schaalbaarheid voor één Azure SQL Database. Zie [PowerShell gebruiken voor het controleren en schalen van één Azure SQL-database](scripts/sql-database-monitor-and-scale-database-powershell.md) voor een voorbeeld.

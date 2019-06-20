@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1c0da1a768b894f543b9089643622c31d6a8758d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34a94a1b9c38070f5c9de22d9a9e4f24183a876c
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730151"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151010"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
@@ -52,7 +52,7 @@ Voordat u begint met een van de stappen in dit artikel, moet u de URL van uw pro
 
 Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_poort**.
 
-* De **protocol** via HTTP of HTTPS is. De Docker-daemon-protocol een van beide, afhankelijk van uw container registry-instellingen kunt gebruiken, maar de IoT Edge-daemon en runtime containers moeten altijd gebruik van HTTPS.
+* De **protocol** via HTTP of HTTPS is. De Docker-daemon-protocol een van beide, afhankelijk van uw container registry-instellingen kunt gebruiken, maar de IoT Edge-daemon en runtime containers moeten HTTP altijd verbinding maken met de proxy gebruiken.
 
 * De **proxy_host** is een adres voor de proxyserver. Als uw proxyserver verificatie is vereist, kunt u uw referenties opgeven als onderdeel van de proxyhost met de volgende indeling: **gebruiker**:**wachtwoord**\@**proxy_host** .
 
@@ -250,7 +250,7 @@ Met de omgevingsvariabelen die is opgenomen, moet de definitie van de module edg
     },
     "env": {
         "https_proxy": {
-            "value": "https://proxy.example.com:3128"
+            "value": "http://proxy.example.com:3128"
         }
     },
     "status": "running",

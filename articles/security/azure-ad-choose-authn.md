@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: cc41581232b331368b44fc7190eadb94516824c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119314"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274277"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -101,7 +101,7 @@ Als u meer informatie over de beslissing vragen:
 * **Overwegingen met betrekking tot**. Op dit moment afdwingen geen wachtwoord-hashsynchronisatie direct wijzigingen in on-premises account Staten. In dit geval heeft een gebruiker toegang tot cloud-apps totdat de status van de gebruiker is gesynchroniseerd met Azure AD. Organisaties kunt strijden tegen deze beperking door het uitvoeren van een nieuwe synchronisatiecyclus nadat beheerders bulksgewijs updates voor de status van de on-premises gebruiker-account. Een voorbeeld is het uitschakelen van accounts.
 
 > [!NOTE]
-> Het wachtwoord verlopen en account vergrendelde Staten op dit moment niet worden gesynchroniseerd met Azure AD met Azure AD Connect. 
+> Het wachtwoord verlopen en account vergrendelde Staten op dit moment niet worden gesynchroniseerd met Azure AD met Azure AD Connect. Wanneer u het wachtwoord van een gebruiker wijzigt en stel de *gebruiker moet wachtwoord bij volgende aanmelding wijzigen* vlag, de wachtwoord-hash wordt niet gesynchroniseerd naar Azure AD met Azure AD Connect, totdat de gebruiker het wachtwoord wijzigen.
 
 Raadpleeg [implementatie van wachtwoord-hashsynchronisatie](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) voor instructies voor implementatie.
 

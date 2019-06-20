@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d04677362e0ba3ace59d55ede9bd6241f17130e9
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514643"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269223"
 ---
 # <a name="request-limits-for-translator-text"></a>Aanvraaglimieten voor Translator tekst
 
@@ -31,14 +31,14 @@ De volgende tabel lijsten matrix-element en teken limieten voor elke bewerking v
 |:----|:----|:----|:----|
 | Translate | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 10\.000 | 100 |   50,000 |
-| BreakSentence | 10\.000    | 100 | 5,0000 |
+| Detect | 10.000 | 100 |   50,000 |
+| BreakSentence | 10.000    | 100 | 5,0000 |
 | Opzoeken in woordenlijst| 100 |  10  | 1000 |
 | Voorbeelden in woordenlijst | 100 voor tekst en 100 voor vertaling (200 totaal)| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>Teken limieten per uur
 
-Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. De uurquotum moet gelijkmatig worden gebruikt tijdens het uur. Als u bereiken of groter zijn dan deze limieten, of een gedeelte van het quotum te grote in een korte periode verzenden, ontvangt u waarschijnlijk een out-of quotum antwoord.
+Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. De uurquotum moet gelijkmatig worden gebruikt tijdens het uur. Als u bereiken of groter zijn dan deze limieten, of een gedeelte van het quotum te grote in een korte periode verzenden, ontvangt u waarschijnlijk een out-of quotum antwoord. Er zijn geen beperkingen voor gelijktijdige aanvragen.
 
 | Laag | Maximum aantal tekens |
 |------|-----------------|

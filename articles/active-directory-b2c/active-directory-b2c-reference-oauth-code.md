@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b3e94bfdb513016015320dfcdf7db30981466303
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509248"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272070"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2.0-autorisatiecodestroom in Azure Active Directory B2C
 
@@ -116,7 +117,9 @@ error=access_denied
 | state |Zie de beschrijving van het volledige in de voorgaande tabel. Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of de `state` waarden in de aanvraag en respons identiek zijn. |
 
 ## <a name="2-get-a-token"></a>2. Een token verkrijgen
-Nu dat u hebt een autorisatiecode hebt verkregen, kun je de `code` voor een token dat de beoogde resource door te sturen van een POST-aanvraag naar de `/token` eindpunt. In Azure AD B2C is de enige resource die u kunt aanvragen een token voor uw web-API van de back-end in de app. De overeenkomst die wordt gebruikt voor het aanvragen van een token aan uzelf is het gebruik van client-ID van uw app als het bereik:
+Nu dat u hebt een autorisatiecode hebt verkregen, kun je de `code` voor een token dat de beoogde resource door te sturen van een POST-aanvraag naar de `/token` eindpunt. In Azure AD B2C, kunt u [toegangstokens aanvragen voor andere API's](active-directory-b2c-access-tokens.md#request-a-token) gewoon door op te geven hun of meer bereiken in de aanvraag.
+
+U kunt ook een toegangstoken voor uw back-end Web-API van de app vragen volgens de conventies van het gebruik van de client-ID van de app als het aangevraagde bereik (die resulteert in een toegangstoken met deze client-ID als de "doelgroep"):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

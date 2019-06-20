@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66145891"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175999"
 ---
 Gedeelde Afbeeldingsgalerieën kunt u installatiekopieën van de share met RBAC. U kunt RBAC gebruiken voor het delen van afbeeldingen in uw tenant, en zelfs personen buiten uw tenant. Maar als u wilt delen van installatiekopieën buiten uw Azure-tenant, op schaal, moet u de registratie van een app delen in het kader maken.  Met behulp van een app-registratie kunt complexere scenario's voor delen, zoals: 
 

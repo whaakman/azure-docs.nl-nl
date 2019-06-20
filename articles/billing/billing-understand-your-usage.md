@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683991"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275068"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informatie over de voorwaarden in uw Azure-gebruik en de kosten-bestand
 
@@ -72,6 +72,7 @@ invoiceSection | MCA | Zie InvoiceSectionName.
 InvoiceSectionId | EA, MCA | De unieke id voor de EA-afdeling of een gedeelte van de factuur MCA.
 InvoiceSectionName | EA, MCA | De naam van de EA-afdeling of een gedeelte van de factuur MCA.
 IsAzureCreditEligible | EA, MCA | Geeft aan of de kosten in rekening gebracht in aanmerking komende te betalen voor het gebruik van Azure-tegoed (waarden: True, False).
+IsEstimated | Alle | Hiermee wordt aangegeven of de factureringsperiode gesloten/voltooid. Gebruiksgegevens kunt wijzigen in de factureringsperiode tot de factuur is gegenereerd. Deze records zijn gemarkeerd als 'geschatte'.
 Locatie | EA, MCA | Datacenter-locatie waar de resource wordt uitgevoerd.
 MeterCategory | Alle | De naam van de classificatiecategorie voor de meter. Bijvoorbeeld, *Cloudservices* en *netwerken*.
 Meter-id | Alle | De unieke id voor de meter.

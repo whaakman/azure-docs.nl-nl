@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd26f7bdf928dcbd2cf841526857dc44623f133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a2c036265049bf4b87435e96f779482da404caa
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057418"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164819"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Hoe u verificatie in twee stappen vereist voor een gebruiker
 
 U kunt een van de twee benaderingen voor het vereisen van verificatie in twee stappen, beide met behulp van een globale beheerdersaccount moet nemen. De eerste mogelijkheid is het inschakelen van MFA voor een gebruiker. Wanneer gebruikers afzonderlijk zijn ingeschakeld, worden ze gevraagd zich te authenticeren met behulp van hun tweede stap telkens wanneer ze zich aanmelden (met enkele uitzonderingen, zoals wanneer ze zich vanaf vertrouwde-IP-adressen aanmelden of wanneer de functie _dit apparaat onhouden_ is ingeschakeld). De tweede optie is voor het instellen van een beleid voor voorwaardelijke toegang waarvoor verificatie in twee stappen onder bepaalde omstandigheden.
 
 > [!TIP]
-> Kies een van deze methoden voor het vereisen van verificatie in twee stappen, niet beide. Inschakelen van een gebruiker voor de Azure multi-factor Authentication heeft voorrang op eventuele beleidsregels voor voorwaardelijke toegang.
+> Azure multi-factor Authentication inschakelen is met behulp van beleid voor voorwaardelijke toegang de aanbevolen methode. Wijzigen van de status van de gebruiker is niet meer wordt aanbevolen, tenzij uw licenties omvatten geen voorwaardelijke toegang, zoals deze gebruikers MFA uitvoeren telkens wanneer ze zich moeten, aanmelden.
 
 ## <a name="choose-how-to-enable"></a>Kiezen hoe u om in te schakelen
 

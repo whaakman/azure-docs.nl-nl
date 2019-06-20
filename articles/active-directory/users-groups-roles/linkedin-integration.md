@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64920239"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164722"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>LinkedIn-accountverbindingen in Azure Active Directory integreren
 
@@ -44,7 +44,7 @@ U kunt de LinkedIn-accountverbindingen voor alleen de gebruikers die u toegang v
 1. Onder **LinkedIn-accountverbindingen**, kunnen gebruikers verbinding maken met hun accounts voor toegang tot hun LinkedIn-verbindingen in sommige Microsoft-apps. Er zijn geen gegevens worden gedeeld totdat gebruikers toestemming geven voor hun accounts koppelen.
 
     * Selecteer **Ja** om in te schakelen van de service voor alle gebruikers in uw organisatie
-    * Selecteer **geselecteerde** zodat alleen een groep van geselecteerde gebruikers in uw organisatie
+    * Selecteer **geselecteerde groep** om in te schakelen van de service voor alleen een groep van geselecteerde gebruikers in uw organisatie
     * Selecteer **Nee** toestemming in te trekken van alle gebruikers in uw organisatie
 
     ![LinkedIn-accountverbindingen in de organisatie integreren](./media/linkedin-integration/linkedin-integration.png)

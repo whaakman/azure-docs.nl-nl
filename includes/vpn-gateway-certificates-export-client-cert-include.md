@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b657d54c3ebbe5afc20fc98c1348bb783410df60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150324"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175909"
 ---
 Wanneer u een clientcertificaat genereert, wordt deze automatisch geïnstalleerd op de computer die u hebt gebruikt voor het genereren. Als u het clientcertificaat installeren op een andere clientcomputer wilt, moet u voor het exporteren van het clientcertificaat dat u hebt gegenereerd.
 

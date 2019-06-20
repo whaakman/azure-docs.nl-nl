@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dfdfb9e38f16d0077175587933b0800b87cc1931
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727057"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144117"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure functie-activiteit in Azure Data Factory
 
@@ -64,6 +64,10 @@ Azure Functions time-out na 230 seconden, ongeacht de `functionTimeout` instelli
 
 Meer informatie over duurzame functies in [in dit artikel](../azure-functions/durable/durable-functions-overview.md). U kunt een activiteit van de functie Azure instellen voor het aanroepen van de functie duurzame, die wordt een antwoord met een andere URI, zoals [in dit voorbeeld](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Omdat `statusQueryGetUri` retourneert HTTP-Status 202 terwijl de functie wordt uitgevoerd, kunt u de status van de functie opvragen met behulp van een Web-activiteit. Eenvoudig instellen van een Web-activiteit met de `url` veld ingesteld op `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Wanneer de functie duurzame is voltooid, is de uitvoer van de functie is de uitvoer van de Web-activiteit.
 
+
+## <a name="sample"></a>Voorbeeld
+
+U vindt een voorbeeld van een Data Factory die gebruikmaakt van een Azure-functie om op te halen van de inhoud van een bestand met tar [hier](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## <a name="next-steps"></a>Volgende stappen
 

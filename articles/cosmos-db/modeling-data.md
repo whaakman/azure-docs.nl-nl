@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953851"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203514"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Gegevens modelleren in Azure Cosmos DB
 
@@ -176,9 +176,9 @@ Voorraad *zaza* mogen worden verhandeld veel honderd keer in één dag en duizen
 
 ## <a name="referencing-data"></a>Verwijst naar gegevens
 
-Dus gegevens insluiten goed werkt voor veel gevallen maar het is duidelijk dat er scenario's zijn wanneer uw gegevens denormalizing meer problemen dan de moeite waard. Dus wat we doen nu?
+Gegevens insluiten goed werkt voor veel gevallen, maar er zijn scenario's wanneer uw gegevens denormalizing meer problemen dan de moeite waard. Dus wat we doen nu?
 
-Relationele databases zijn niet de enige plaats waar u relaties tussen entiteiten kunt maken. U kunt de informatie in één document die daadwerkelijk zijn gekoppeld aan gegevens in andere documenten hebben in een documentdatabase. Nu ik ben niet dat pleit voor zelfs één minuut dat we bij het bouwen van systemen die beter zou zijn geschikt voor een relationele database in Azure Cosmos DB, of een andere documentdatabase, maar eenvoudig relaties in orde zijn en kunnen nuttig zijn.
+Relationele databases zijn niet de enige plaats waar u relaties tussen entiteiten kunt maken. U kunt de informatie in een document dat is gekoppeld aan gegevens in andere documenten hebben in een documentdatabase. We raden niet aan het bouwen van systemen die beter zou zijn geschikt voor een relationele database in Azure Cosmos DB, of een andere documentdatabase, maar eenvoudig relaties in orde zijn en kunnen nuttig zijn.
 
 In de onderstaande JSON, we hebben gekozen voor het voorbeeld van een voorraad portfolio van eerder gebruik, maar deze keer verwijzen we naar het aandeel item in de portfolio in plaats van het insluiten van inhoud. Deze manier wordt de voorraad item vaak wijzigen gedurende de dag het enige document dat moet worden bijgewerkt, is één aandelen document.
 

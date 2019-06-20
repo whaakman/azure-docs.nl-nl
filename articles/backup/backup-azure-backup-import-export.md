@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648256"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155310"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de offline back-upgegevens uploaden naar Azure.
@@ -76,7 +76,7 @@ Deze sectie beschrijft de werkstroom voor offline back-ups, zodat uw gegevens ku
    De beschrijving van de invoer is als volgt:
 
     * **Faseringslocatie**: De tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
-    * **Azure Resource Manager-Opslagaccount**: De naam van het Resource Manager type opslagaccount dat in elk Azure-abonnement.
+    * **Azure Resource Manager-Opslagaccount**: De naam van het Resource Manager type opslagaccount (algemeen gebruik v1 of algemeen gebruik v2) in elk Azure-abonnement.
     * **Azure-Opslagcontainer**: De naam van de bestemmings-blob-opslag in de Azure Storage-account waarin de back-upgegevens wordt geïmporteerd voordat ze worden gekopieerd naar de Recovery Services-kluis.
     * **Azure-abonnement-ID**: De ID voor de Azure-abonnement waarin de Azure Storage-account is gemaakt.
     * **Azure Import-taaknaam**: De unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden. 

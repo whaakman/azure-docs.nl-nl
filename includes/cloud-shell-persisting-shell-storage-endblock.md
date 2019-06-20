@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66125224"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176372"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Lokale bestanden overbrengen naar de Cloud Shell
 De `clouddrive` directory wordt gesynchroniseerd met de opslag van Azure portal-blade. Gebruik deze blade om over te dragen van lokale bestanden naar of van de bestandsshare. Bijwerken van de bestanden in Cloud Shell wordt doorgevoerd in de file storage GUI bij het vernieuwen van de blade.

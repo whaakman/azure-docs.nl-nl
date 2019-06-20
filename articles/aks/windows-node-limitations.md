@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475397"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203674"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Huidige beperkingen voor Windows Server-knooppuntgroepen en werkbelastingen van toepassingen in Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van enkele van de beperkingen en OS-concepten
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Beperkingen voor WindowsServer in Kubernetes
 
-Windows Server-containers moeten worden uitgevoerd op een containerhost op basis van een Windows. Voor Windows Server-containers in AKS uitvoert, kunt u [maken van een knooppunt van toepassingen die Windows Server wordt uitgevoerd] [ windows-node-cli] als het gastbesturingssysteem te installeren. Ondersteuning voor Windows Server-knooppunt groep bevat enkele beperkingen die deel van de upstream-Windows-Server in een Kubernetes-project uitmaken. Deze beperkingen zijn niet specifiek zijn voor AKS. Zie voor meer informatie over deze upstream ondersteuning voor Windows Server in Kubernetes [Windows Server-containers in Kubernetes beperkingen][upstream-limitations].
+Windows Server-containers moeten worden uitgevoerd op een containerhost op basis van een Windows. Voor Windows Server-containers in AKS uitvoert, kunt u [maken van een knooppunt van toepassingen die Windows Server wordt uitgevoerd] [ windows-node-cli] als het gastbesturingssysteem te installeren. Ondersteuning voor Windows Server-knooppunt groep bevat enkele beperkingen die deel van de upstream-Windows-Server in een Kubernetes-project uitmaken. Deze beperkingen zijn niet specifiek zijn voor AKS. Zie voor meer informatie over deze upstream ondersteuning voor Windows Server in Kubernetes [Windows Server-containers in Kubernetes beperkingen](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 De volgende upstream beperkingen voor Windows Server-containers in Kubernetes zijn relevant voor AKS:
 

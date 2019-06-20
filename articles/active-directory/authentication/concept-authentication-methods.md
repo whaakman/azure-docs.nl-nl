@@ -1,22 +1,22 @@
 ---
 title: Verificatiemethoden - Azure Active Directory
-description: Welke verificatiemethoden zijn beschikbaar in Azure AD voor MFA en Self-service voor Wachtwoordherstel
+description: Verificatiemethoden die beschikbaar zijn in Azure AD zijn voor MFA en Self-service voor Wachtwoordherstel
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119367"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164831"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -180,7 +180,9 @@ Wanneer er fouten zijn opgelost, de beheerder vervolgens kan activeren elke sleu
 
 Gebruikers hebben mogelijk een combinatie van maximaal vijf OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
 
-## <a name="mobile-phone"></a>Mobiele telefoon
+## <a name="phone-options"></a>Telefoonopties
+
+### <a name="mobile-phone"></a>Mobiele telefoon
 
 Er zijn twee opties beschikbaar voor gebruikers met mobiele telefoons.
 
@@ -193,18 +195,18 @@ Voor een goede werking telefoonnummers moet zich in de indeling *+ CountryCode P
 >
 > Wachtwoord opnieuw instellen biedt geen ondersteuning voor extensies van de telefoon. Zelfs in de indeling van de 4255551234 + 1 X-12345, worden de extensies worden verwijderd voordat de oproep wordt gedaan.
 
-### <a name="text-message"></a>Sms-bericht
+#### <a name="text-message"></a>Sms-bericht
 
 Een SMS-bericht is verzonden naar het mobiele nummer met een verificatiecode. Voer de verificatiecode die is opgegeven in de interface aanmelden om door te gaan.
 
-### <a name="phone-call"></a>Telefonische oproep
+#### <a name="phone-call"></a>Telefonische oproep
 
 Een geautomatiseerd telefoongesprek is naar het telefoonnummer dat u opgeeft gemaakt. Beantwoord de oproep en druk op # in het toetsenblok telefoon verifiëren
 
 > [!IMPORTANT]
 > Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
 
-## <a name="office-phone"></a>Telefoon (werk)
+### <a name="office-phone"></a>Telefoon (werk)
 
 Een geautomatiseerd telefoongesprek is naar het telefoonnummer dat u opgeeft gemaakt. Beantwoord het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren.
 
@@ -219,6 +221,25 @@ Het kenmerk van de telefoon office wordt beheerd door uw beheerder.
 > Er moet een spatie tussen de landcode en het telefoonnummer.
 >
 > Wachtwoord opnieuw instellen biedt geen ondersteuning voor extensies van de telefoon. Zelfs in de indeling van de 4255551234 + 1 X-12345, worden de extensies worden verwijderd voordat de oproep wordt gedaan.
+
+### <a name="troubleshooting-phone-options"></a>Telefoonopties voor probleemoplossing
+
+Veelvoorkomende problemen met betrekking tot verificatiemethoden met behulp van een telefoonnummer:
+
+* Geblokkeerde beller-ID op één apparaat
+   * Apparaat oplossen
+* Onjuist telefoonnummer, onjuist landnummer, een telefoonnummer thuis ten opzichte van zakelijke telefoonnummer
+   * Problemen oplossen gebruikersobject en verificatiemethoden geconfigureerd. Zorg ervoor dat de juiste telefoonnummers worden geregistreerd.
+* Onjuiste PINCODE ingevoerd
+   * Controleer of de gebruiker heeft de juiste PINCODE geregistreerd in Azure MFA-Server gebruikt.
+* Aanroep doorgestuurd naar voicemail
+   * Zorg ervoor dat de gebruiker heeft de telefoon is ingeschakeld en dat de service beschikbaar in het gebied is of alternatieve methode gebruiken.
+* Gebruiker is geblokkeerd
+   * Blokkering van de gebruiker in Azure portal beheerder hebben.
+* SMS is niet geabonneerd op het apparaat
+   * Laat de gebruiker methoden wijzigen of SMS op het apparaat te activeren.
+* Beschadigde telecom-providers (geen telefooninvoer ontbreken, problemen in de DTMF-tonen, geblokkeerde beller-ID op meerdere apparaten, of SMS geblokkeerd op meerdere apparaten)
+   * Microsoft maakt gebruik van meerdere telecom-providers voor het routeren van telefoongesprekken en SMS-berichten voor verificatie. Als er een van de bovenstaande problemen hebt een gebruiker poging tot het gebruik van de methode ten minste 5 keer binnen 5 minuten en beschikken over van de gebruiker informatie tijdens de verbinding met Microsoft ondersteuning.
 
 ## <a name="app-passwords"></a>App-wachtwoorden
 

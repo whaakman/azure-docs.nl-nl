@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054743"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205001"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisch schalen en zoneredundante toepassingsgateway v2 
 
@@ -24,7 +24,7 @@ De nieuwe v2-SKU bevat de volgende verbeteringen:
 - **Zone redundantie**: Een Application Gateway of een WAF-implementatie kan omvatten meerdere Beschikbaarheidszones, verwijderen van de noodzaak voor het inrichten van afzonderlijke Application Gateway-instanties in elke zone met een Traffic Manager. U kunt een enkele zone of meerdere zones waarop Application Gateway-instanties zijn geïmplementeerd, waardoor het beter bestand is tegen bij een storing van de zone. De back-endpool voor toepassingen kan op dezelfde manier worden verdeeld in meerdere beschikbaarheidszones.
 
   Zoneredundantie is beschikbaar alleen waar Zones van Azure beschikbaar zijn. In andere regio's, worden alle andere functies ondersteund. Zie voor meer informatie, [wat zijn Beschikbaarheidszones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
-- **Statische VIP**: Application gateway v2 SKU ondersteunt de statische VIP Typ exclusief. Dit zorgt ervoor dat het VIP-adres dat is gekoppeld aan application-gateway niet voor de levenscyclus van de implementatie, zelfs na het opnieuw opstarten verandert.
+- **Statische VIP**: Application Gateway-v2 SKU ondersteunt uitsluitend de statische VIP-type. Dit zorgt ervoor dat het VIP-adres dat is gekoppeld aan de toepassingsgateway niet voor de levenscyclus van de implementatie, zelfs na het opnieuw opstarten wijzigen.  Is er een statische VIP-adres niet in v1, zodat u de URL van de application gateway in plaats van het IP-adres gebruiken moet voor het domein naam routering naar App Services via de application gateway.
 - **Koptekst herschrijven**: Application Gateway kunt u toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders met v2-SKU. Zie voor meer informatie, [Herschrijf de HTTP-headers met Application Gateway](rewrite-http-headers.md)
 - **Key Vault-integratie (preview)** : Application Gateway v2 ondersteunt de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).
 - **Azure Kubernetes Service Controller voor binnenkomend verkeer (preview)** : De Controller voor binnenkomend verkeer van Application Gateway v2 kunt de Azure Application Gateway moet worden gebruikt als de ingang voor een Azure Kubernetes Service (AKS) wel AKS-Cluster. Zie voor meer informatie de [documentatiepagina](https://azure.github.io/application-gateway-kubernetes-ingress/).
@@ -42,7 +42,7 @@ De Standard_v2 en WAF_v2 SKU is beschikbaar in de volgende regio's: Noord-centra
 Met de v2-SKU, het prijsmodel wordt aangedreven door verbruik en niet meer is gekoppeld aan het aantal instanties of grootten. De prijzen van v2 SKU bestaat uit twee onderdelen:
 
 - **Vaste prijs** -dit is per uur (of een gedeelte van het uur) prijs voor het inrichten van een Standard_v2 of WAF_v2-Gateway.
-- **Capaciteit eenheidsprijs** -dit is op basis van gebruik kosten in rekening naast de vaste kosten gebracht. Capaciteitseenheid kosten in rekening gebracht, wordt ook berekend per uur of gedeeltelijke per uur. Er zijn drie dimensies capaciteitseenheid - compute-eenheid, permanente verbindingen en doorvoer. COMPUTE-eenheid is een maateenheid voor de capaciteit van de processor is verbruikt. Factoren die invloed hebben op rekeneenheid zijn TLS-verbindingen per seconde, berekeningen herschrijven van URL's en verwerking van de WAF-regels. Permanente verbinding is een maateenheid tot stand gebrachte TCP-verbindingen met de application gateway in een bepaald interval van de facturering. Doorvoer is gemiddelde Megabits per seconde is verwerkt door het systeem in een bepaald interval van de facturering.
+- **Capaciteit eenheidsprijs** -dit is op basis van gebruik kosten in rekening naast de vaste kosten gebracht. Kosten voor capaciteitseenheden worden ook per uur of per deel van een uur berekend. Er zijn drie dimensies voor capaciteitseenheden: rekeneenheid, permanente verbinding en doorvoer. Rekeneenheid is een maateenheid voor de verbruikte processorcapaciteit. Factoren die invloed hebben op rekeneenheid zijn TLS-verbindingen per seconde, berekeningen herschrijven van URL's en verwerking van de WAF-regels. Permanente verbinding is een maateenheid tot stand gebrachte TCP-verbindingen met de application gateway in een bepaald interval van de facturering. Doorvoer is gemiddelde Megabits per seconde is verwerkt door het systeem in een bepaald interval van de facturering.
 
 Elke capaciteitseenheid bestaat uit maximaal: 1 compute-eenheid of 2500 permanente verbindingen of 2,22 Mbps doorvoer.
 

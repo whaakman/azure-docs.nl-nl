@@ -15,12 +15,12 @@ ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d88462f705a89d02ab69700d0c15669deb44da98
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b628086a67f1d76357fda4f753350b6411b8f15
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058202"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273713"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Aangepaste rollen voor Azure-resources
 
@@ -98,8 +98,8 @@ Een aangepaste rol heeft de volgende eigenschappen.
 | `Description` | Ja | String | De beschrijving van de aangepaste rol. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 1024. |
 | `Actions` | Ja | String[] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die de rol kan worden uitgevoerd. Zie voor meer informatie, [acties](role-definitions.md#actions). |
 | `NotActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die zijn uitgesloten van het toegestane aantal `Actions`. Zie voor meer informatie, [NotActions](role-definitions.md#notactions). |
-| `DataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Zie voor meer informatie, [DataActions (Preview)](role-definitions.md#dataactions-preview). |
-| `NotDataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen voor gegevens die zijn uitgesloten van het toegestane aantal `DataActions`. Zie voor meer informatie, [NotDataActions (Preview)](role-definitions.md#notdataactions-preview). |
+| `DataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Zie voor meer informatie, [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen voor gegevens die zijn uitgesloten van het toegestane aantal `DataActions`. Zie voor meer informatie, [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes` | Ja | String[] | Een matrix met tekenreeksen die de scopes geeft die de aangepaste rol beschikbaar voor toewijzing is. Voor aangepaste rollen u momenteel niet instellen `AssignableScopes` aan het bereik van de hoofdmap (`"/"`) of een beheerbereik van de groep. Zie voor meer informatie, [AssignableScopes](role-definitions.md#assignablescopes) en [organiseren van uw resources met Azure-beheergroepen](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Wie kunt maken, verwijderen, bijwerken of weergeven van een aangepaste rol

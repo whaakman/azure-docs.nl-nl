@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824647"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204474"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -40,7 +40,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 ## <a name="list-of-functions"></a>Lijst met functies
 [Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Splitsen](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Toevoegen
 **Functie:**<br> Append(Source, suffix)
 
@@ -53,7 +53,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **suffix** |Vereist |Reeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>formatDateTime
 **Functie:**<br> FormatDateTime (bron, inputFormat, uitvoerindeling)
 
@@ -67,7 +67,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | **inputFormat** |Vereist |Reeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [ https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **Uitvoerindeling** |Vereist |Reeks |Indeling van de uitvoerdatum. |
 
-- - -
+---
 ### <a name="join"></a>Koppelen
 **Functie:**<br> Deelnemen aan (scheidingsteken, bron1, bron2,...)
 
@@ -82,7 +82,7 @@ Als een van de bronwaarden een kenmerk meerdere waarden is, wordt klikt u vervol
 | **separator** |Vereist |Reeks |De tekenreeks die wordt gebruikt om de bronwaarden scheiden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
 | **bron1... bronN** |Vereist, variabele-aantal keren |Reeks |De tekenreeks die waarden die moeten worden samengevoegd. |
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Functie:**<br> Mid (bron, start, lengte)
 
@@ -96,7 +96,7 @@ Als een van de bronwaarden een kenmerk meerdere waarden is, wordt klikt u vervol
 | **start** |Vereist |geheel getal |Indexeren de **bron** tekenreeks waar de subtekenreeks moet beginnen. Het eerste teken in de tekenreeks index 1 hebben, tweede teken wordt index 2 hebben, enzovoort. |
 | **Lengte** |Vereist |geheel getal |De lengte van de subtekenreeks. Als de lengte buiten eindigt de **bron** tekenreeks, functie retourneert de subtekenreeks uit **start** index tot het einde van **bron** tekenreeks. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Functie:**<br> NormalizeDiacritics(source)
 
@@ -108,7 +108,7 @@ Als een van de bronwaarden een kenmerk meerdere waarden is, wordt klikt u vervol
 | --- | --- | --- | --- |
 | **Bron** |Vereist |String | Doorgaans de naam van een eerste of laatste naamkenmerk. |
 
-- - -
+---
 ### <a name="not"></a>niet
 **Functie:**<br> NOT(Source)
 
@@ -120,7 +120,7 @@ Als een van de bronwaarden een kenmerk meerdere waarden is, wordt klikt u vervol
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Booleaanse tekenreeks |Verwacht **bron** waarden zijn 'True' of 'False'. |
 
-- - -
+---
 ### <a name="replace"></a>Vervangen
 **Functie:**<br> Vervang (bron, oldValue, regexPattern, regexGroupName, vervangende waarde, replacementAttributeName, sjabloon)
 
@@ -153,7 +153,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **replacementAttributeName** |Optioneel |Reeks |Naam van het kenmerk moet worden gebruikt voor de vervangende waarde, wanneer de gegevensbron heeft geen waarde. |
 | **sjabloon** |Optioneel |Reeks |Wanneer **sjabloon** waarde is opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Functie:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
 
@@ -171,7 +171,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **uniqueValueRule1... uniqueValueRuleN** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |String | Lijst met regels voor het genereren van unieke waarde om te evalueren. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Functie:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -183,7 +183,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Vereist |Reeks |**[appRoleAssignments]**  object. |
 
-- - -
+---
 ### <a name="split"></a>splitsen
 **Functie:**<br> Splitsen (bron, scheidingsteken)
 
@@ -196,7 +196,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 | **delimiter** |Vereist |String |Hiermee geeft u het teken dat wordt gebruikt om de tekenreeks gesplitst (voorbeeld: ",") |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **Functie:**<br> StripSpaces(source)
 
@@ -208,7 +208,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **Functie:**<br> Switch (bron, defaultValue, key1, value1, key2, waarde2,...)
 
@@ -223,7 +223,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **sleutel** |Vereist |Reeks |**Sleutel** vergelijken **bron** met de waarde. |
 | **value** |Vereist |Reeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
 
-- - -
+---
 ### <a name="tolower"></a>toLower
 **Functie:**<br> ToLower (bron, cultuur)
 
@@ -236,7 +236,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
 | **culture** |Optioneel |String |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **Functie:**<br> ToUpper (bron, cultuur)
 

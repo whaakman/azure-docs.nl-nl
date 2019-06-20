@@ -1,26 +1,19 @@
 ---
 title: Veelvoorkomende fouten voor Azure-implementatie oplossen | Microsoft Docs
 description: Beschrijft hoe u veelvoorkomende fouten oplossen wanneer u resources implementeren op Azure met behulp van Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: implementatiefout optreedt, azure-implementatie implementeren in azure
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128581"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206322"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -86,18 +79,18 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 
 ## <a name="find-error-code"></a>Foutcode vinden
 
-Er zijn twee typen fouten die u kunt ontvangen:
+U kunt twee typen foutmeldingen krijgen:
 
 * validatiefouten
-* fouten bij de implementatie
+* implementatiefouten
 
-Validatiefouten voortvloeien uit scenario's die vóór de implementatie kunnen worden bepaald. Ze bevatten syntaxisfouten in de sjabloon of proberen resources te implementeren waarmee uw abonnementquota worden overschreden. Er ontstaan fouten bij de implementatie van voorwaarden die tijdens het implementatieproces optreden. Bijvoorbeeld wanneer deze toegang proberen te krijgen tot een resource die parallel wordt geïmplementeerd.
+Validatiefouten ontstaan door scenario's en kunnen vóór de implementatie worden vastgesteld. Ze bevatten syntaxisfouten in de sjabloon of proberen resources te implementeren waarmee uw abonnementquota worden overschreden. Implementatiefouten ontstaan als gevolg van voorwaarden die tijdens het implementatieproces optreden. Bijvoorbeeld wanneer deze toegang proberen te krijgen tot een resource die parallel wordt geïmplementeerd.
 
-Beide typen fouten retourneren een foutcode die u gebruikt om de problemen met de implementatie op te lossen. Beide typen fouten worden weergegeven in de [activiteitenlogboek](resource-group-audit.md). Validatiefouten worden echter niet weergegeven in de implementatiegeschiedenis omdat de implementatie niet is gestart.
+Beide typen fouten retourneren een foutcode die u gebruikt om de problemen met de implementatie op te lossen. Beide typen fouten worden weergegeven in het [activiteitenlogboek](resource-group-audit.md). Validatiefouten worden echter niet weergegeven in de implementatiegeschiedenis omdat de implementatie niet is gestart.
 
 ### <a name="validation-errors"></a>validatiefouten
 
-Wanneer u implementeert via de portal, ziet u een validatiefout na het indienen van uw waarden.
+Wanneer u een implementatie uitvoert via de portal, ziet u een validatiefout na het indienen van uw waarden.
 
 ![Validatiefout van de portal weergeven](./media/resource-manager-common-deployment-errors/validation-error.png)
 
@@ -107,21 +100,21 @@ Selecteer het bericht voor meer informatie. In de volgende afbeelding ziet u een
 
 ### <a name="deployment-errors"></a>fouten bij de implementatie
 
-Als de bewerking is gevalideerd, maar niet tijdens de implementatie, krijgt u een implementatiefout opgetreden.
+Als de bewerking is gevalideerd, maar mislukt tijdens de implementatie, treedt er een implementatiefout op.
 
-Als u wilt zien van implementatie-foutcodes en berichten met PowerShell, gebruikt u:
+Om foutcodes en meldingen van implementatiefouten weer te geven in PowerShell, gebruikt u:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 
-Als u wilt zien van implementatie-foutcodes en berichten met Azure CLI, gebruikt u:
+Om foutcodes en meldingen van implementatiefouten weer te geven in de Azure-CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
-Selecteer de melding in de portal.
+In de portal selecteert u de melding.
 
 ![Fout met melding](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -129,7 +122,7 @@ U vindt u meer over de implementatie. Selecteer de optie voor meer informatie ov
 
 ![de implementatie is mislukt](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Ziet u het foutbericht en foutcodes. Er zijn twee foutcodes. De eerste foutcode (**implementatie mislukt**) is een algemene fout dat biedt geen informatie die u nodig hebt voor het oplossen van de fout. De tweede foutcode (**StorageAccountNotFound**) bevat de details die u nodig hebt. 
+Het foutbericht en de foutcodes worden dan weergegeven. U ziet twee foutcodes. De eerste foutcode (**DeploymentFailed**) is een algemene fout die geen informatie biedt die u nodig hebt om het probleem op te lossen. De tweede foutcode (**StorageAccountNotFound**) bevat de details die u nodig hebt. 
 
 ![Details van fout](./media/resource-manager-common-deployment-errors/error-details.png)
 

@@ -8,31 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cacd5510147ce997efec922f4b4656956a098d88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2553aa95d5028c510b4e1a1b7f51a9f410bcea51
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676936"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154859"
 ---
 # <a name="register-the-microsoftvmwarecloudsimple-resource-provider-on-your-azure-subscription"></a>Registreer de resourceprovider Microsoft.VMwareCloudSimple op uw Azure-abonnement
 
-De service CloudSimple kunt u Azure VMware-oplossing door CloudSimple gebruiken. Als u wilt de CloudSimple-service gebruikt, moet dit eerst worden ingeschakeld op uw Azure-abonnement. U kunt de service Microsoft.VMwareCloudSimple vervolgens registreren als resourceprovider.
-
-## <a name="enable-the-cloudsimple-service"></a>De service CloudSimple inschakelen
-
-Om in te schakelen de CloudSimple-service op uw Azure-abonnement, opent u een ondersteuningsaanvraag met [Microsoft ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Selecteer de volgende opties wanneer u de aanvraag indient.
-
-* Type probleem: **Technische**
-* Abonnement: **Uw abonnements-ID**
-* Service type: **VMware-oplossing door CloudSimple**
-* Probleemtype: **Toegewezen knooppunten quotum**
-* Probleem-subtype: **Verhoog het quotum van toegewezen knooppunten**
-* Onderwerp: **CloudSimple-service inschakelen**
-
-U kunt ook contact opnemen met uw Microsoft-accountvertegenwoordiger op [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com). Geef uw Azure-abonnement-ID in het e-mailbericht.  
-
-Nadat de service CloudSimple is ingeschakeld voor uw abonnement, kunt u de resourceprovider van het abonnement.
+De service CloudSimple kunt u Azure VMware-oplossing door CloudSimple gebruiken. U kunt de Microsoft.VMwareCloudSimple service registreren als resourceprovider.
 
 ## <a name="register-the-resource-provider"></a>De resourceprovider registreren
 
