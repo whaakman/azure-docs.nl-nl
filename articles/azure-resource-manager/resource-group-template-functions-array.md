@@ -58,7 +58,7 @@ De waarde omgezet in een matrix.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Ja |int, string, matrix of object |De waarde moet worden geconverteerd naar een matrix. |
+| convertToArray |Ja |int, string, array of object |De waarde moet worden geconverteerd naar een matrix. |
 
 ### <a name="return-value"></a>Retourwaarde
 
