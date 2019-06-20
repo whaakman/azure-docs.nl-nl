@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b7b90b63ffebc14498183fc179b9c8ae76a722
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237850"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273061"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Zelfstudie: Een Time Series Insights Preview-omgeving instellen
 
@@ -29,9 +29,12 @@ In deze zelfstudie leert u het volgende:
 * Voer een eenvoudige analyse van de gegevens uit.
 * Een type Time Series Model en een hiërarchie definiëren en deze koppelen aan uw exemplaren.
 
+>[!TIP]
+> [IoT-oplossingsversnellers](https://www.azureiotsolutions.com/Accelerators) zakelijke vooraf geconfigureerde oplossingen die u gebruiken kunt om de ontwikkeling van aangepaste IoT-oplossingen bieden.
+
 ## <a name="create-a-device-simulation"></a>Een apparaatsimulatie maken
 
-In deze sectie maakt u drie gesimuleerde apparaten die gegevens naar een exemplaar van Azure IoT Hub verzenden.
+In deze sectie maakt u drie gesimuleerde apparaten die gegevens naar een Azure IoT Hub-instantie verzenden.
 
 1. Ga naar [de pagina Azure IoT-oplossingsverbeteringen](https://www.azureiotsolutions.com/Accelerators). Op de pagina worden enkele vooraf gedefinieerde voorbeelden weergegeven. Meld u aan met uw Azure-account. Selecteer vervolgens **Apparaatsimulatie**.
 
@@ -43,58 +46,18 @@ In deze sectie maakt u drie gesimuleerde apparaten die gegevens naar een exempla
 
     | Parameter | Bewerking |
     | --- | --- |
-    | **Naam van de oplossing** | Voer een unieke waarde voor een nieuwe resourcegroep. De vermelde Azure-resources worden gemaakt en toegewezen aan de resourcegroep. |
-    | **Abonnement** | Selecteer het abonnement dat u gebruikt om uw Time Series Insights-omgeving te maken. |
-    | **Regio** | Selecteer de regio die u hebt gebruikt om uw Time Series Insights-omgeving te maken. |
-    | **Optionele Azure-resources implementeren** | Laat de **IoT-Hub** selectievakje is ingeschakeld. De gesimuleerde apparaten gebruikt IoT-Hub verbinding maken met en gegevens streamen. |
+    | **Naam van de implementatie** | Voer een unieke waarde voor een nieuwe resourcegroep. De vermelde Azure-resources worden gemaakt en toegewezen aan de resourcegroep. |
+    | **Azure-abonnement** | Selecteer het abonnement dat u gebruikt om uw Time Series Insights-omgeving te maken. |
+    | **Azure-locatie** | Selecteer de regio die u hebt gebruikt om uw Time Series Insights-omgeving te maken. |
+    | **Implementatie-opties** | Selecteer **nieuwe IoT-Hub inrichten**. |
  
-    Selecteer **oplossing maken**. Wacht 10-15 minuten totdat uw oplossing is geïmplementeerd.
+    Selecteer **oplossing maken**. Het duurt maximaal 20 minuten voor de oplossing voor het voltooien van de implementatie.
 
     [![De pagina van de Apparaatsimulatie-oplossing maken](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-1. Selecteer in het oplossingsdashboard accelerator **starten**:
-
-    [![De simulatie apparaat oplossing starten](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
-
-1. U wordt omgeleid naar de pagina **Microsoft Azure IoT-apparaatsimulatie**. Selecteer in de rechterbovenhoek van de pagina **nieuwe simulatie**.
-
-    [![Pagina van Azure IoT-simulatie](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. In de **simulatie setup** in het deelvenster de volgende parameters instellen:
-
-    | Parameter | Bewerking |
-    | --- | --- |
-    | **Naam** | Voer een unieke naam voor een simulator in. |
-    | **Beschrijving** | Voer een definitie in. |
-    | **Simulatieduur** | Stel de simulatieduur in op **Voor onbepaalde tijd uitvoeren**. |
-    | **Apparaatmodel** | **Naam**: Voer **Koelunit** in. <br />**Aantal**: Voer **3** in. |
-    | **Doel-IoT-hub** | Stel **Vooraf ingerichte IoT-hub gebruiken** in. |
-
-    [![Parameters instellen](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    Selecteer **simulatie starten**.
-
-    Houd er rekening mee de informatie die wordt weergegeven voor in het dashboard van de simulatie apparaat **actieve apparaten** en **berichten per seconde**.
-
-    [![Dashboard van Azure IoT-simulatie](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
-
-## <a name="list-device-simulation-properties"></a>Eigenschappen van apparaatsimulatie vermelden
-
-Voordat u een Azure Time Series Insights-omgeving maakt, moet u de namen van uw IoT-hub, uw abonnement en de resourcegroep.
-
-1. Ga naar de solution accelerator-dashboard. Meld u aan met behulp van hetzelfde account Azure-abonnement. Zoek de apparaatsimulatie die u in de voorgaande sectie hebt gemaakt.
-
-1. Selecteer uw apparaatsimulator, en selecteer vervolgens **starten**. Selecteer in de simulator solution accelerator in het deelvenster apparaat aan de rechterkant, het **Azure Management Portal** optie.
-
-    [![Aanbiedingen met Simulator](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
-
-1. Noteer de namen van de IoT hub-abonnement en resource-groep.
-
-    [![Azure portal simulator dashboard Apparaatdetails](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
-
 ## <a name="create-a-time-series-insights-preview-payg-environment"></a>Een Time Series Insights Preview-omgeving op basis van betalen per gebruik maken
 
-In deze sectie wordt beschreven hoe u een Azure Time Series Insights Preview-omgeving maakt door de [Azure-portal](https://portal.azure.com/).
+In deze sectie wordt beschreven hoe u een Azure Time Series Insights Preview-omgeving maken en verbinden met de IoT-hub gemaakt met behulp van de IoT-oplossingsversnellers de [Azure-portal](https://portal.azure.com/).
 
 1. Meld u aan bij de Azure-portal met uw Azure-abonnementsaccount.
 
@@ -109,7 +72,7 @@ In deze sectie wordt beschreven hoe u een Azure Time Series Insights Preview-omg
     | **Omgevingsnaam** | Voer een unieke naam voor de Azure Time Series Insights Preview-omgeving. |
     | **Abonnement** | Voer het abonnement waarin u wilt maken van de Azure Time Series Insights Preview-omgeving. Een best practice is het gebruik van hetzelfde abonnement als de rest van de IoT-resources die zijn gemaakt door de apparaatsimulator. |
     | **Resourcegroep** | Selecteer een bestaande resourcegroep of maak een nieuwe resourcegroep voor de resource van Azure Time Series Insights Preview-omgeving. Een resourcegroep is een container voor Azure-resources. Een best practice is het gebruik van dezelfde resourcegroep bevinden als de andere IoT-resources die zijn gemaakt door de apparaatsimulator. |
-    | **Locatie** | Selecteer de regio van een datacenter voor uw Azure Time Series Insights Preview-omgeving. Om te voorkomen dat extra bandbreedtekosten en latentie, is het raadzaam te maken van uw Azure Time Series Insights Preview-omgeving in dezelfde regio als uw andere IoT-resources. |
+    | **Location** | Selecteer de regio van een datacenter voor uw Azure Time Series Insights Preview-omgeving. Als u wilt voorkomen dat extra latentie, is het raadzaam te maken van uw Azure Time Series Insights Preview-omgeving in dezelfde regio als uw andere IoT-resources. |
     | **Laag** |  Selecteer **PAYG** (*betalen per gebruik*). Dit is de SKU voor het Azure Time Series Insights Preview-product. |
     | **Eigenschaps-ID** | Voer een waarde die een unieke identificatie van uw exemplaar van de reeks tijd. De waarde die u in de **eigenschaps-ID** vak is onveranderbaar. U niet meer deze later wijzigen. Voer voor deze zelfstudie **iothub-verbinding-apparaat-id**. Zie voor meer informatie over Time Series-ID, [aanbevolen procedures voor het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md). |
     | **Naam van opslagaccount** | Voer een unieke naam voor een nieuw opslagaccount te maken. |
@@ -159,6 +122,34 @@ In deze sectie wordt beschreven hoe u een Azure Time Series Insights Preview-omg
       [![Vermeld referenties](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
    Als uw referenties worden niet weergegeven, moet u uzelf machtiging voor toegang tot de omgeving verlenen. Raadpleeg [Gegevenstoegang verlenen](./time-series-insights-data-access.md) voor meer informatie over het instellen van machtigingen.
+
+## <a name="stream-data-into-your-environment"></a>Stream-gegevens in uw omgeving
+
+1. Ga terug naar de [Azure IoT-oplossing accelerators pagina](https://www.azureiotsolutions.com/Accelerators). Zoek uw oplossing op het dashboard van uw oplossing accelerator. Selecteer **starten**:
+
+    [![De simulatie apparaat oplossing starten](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. U wordt omgeleid naar de pagina **Microsoft Azure IoT-apparaatsimulatie**. Selecteer in de rechterbovenhoek van de pagina **nieuwe simulatie**.
+
+    [![Pagina van Azure IoT-simulatie](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+
+1. In de **simulatie setup** in het deelvenster de volgende parameters instellen:
+
+    | Parameter | Bewerking |
+    | --- | --- |
+    | **Naam** | Voer een unieke naam voor een simulator in. |
+    | **Beschrijving** | Voer een definitie in. |
+    | **Simulatieduur** | Stel de simulatieduur in op **Voor onbepaalde tijd uitvoeren**. |
+    | **Apparaatmodel** | **Naam**: Voer **Koelunit** in. <br />**Aantal**: Voer **3** in. |
+    | **Doel-IoT-hub** | Stel **Vooraf ingerichte IoT-hub gebruiken** in. |
+
+    [![Parameters instellen](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+
+    Selecteer **simulatie starten**.
+
+    Houd er rekening mee de informatie die wordt weergegeven voor in het dashboard van de simulatie apparaat **actieve apparaten** en **berichten per seconde**.
+
+    [![Dashboard van Azure IoT-simulatie](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## <a name="analyze-data-in-your-environment"></a>Gegevens analyseren in uw omgeving
 

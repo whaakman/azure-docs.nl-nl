@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704124"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135205"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Maken van een Unity HoloLens-app die gebruikmaakt van Azure ruimtelijke ankers
 
-In deze quickstart maakt u een Unity HoloLens-app die gebruikmaakt van [Azure ruimtelijke ankers](../overview.md). Ruimtelijke ankers is een platformoverschrijdende developer-service waarmee u het maken van gemengde realiteit ervaringen met objecten die hun locatie opslaan op apparaten na verloop van tijd. Als u klaar bent, hebt u een HoloLens-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
+In deze snelstartgids maakt u een Unity HoloLens-app die gebruikmaakt van [Azure ruimtelijke ankers](../overview.md). Ruimtelijke ankers is een platformoverschrijdende developer-service waarmee u het maken van gemengde realiteit ervaringen met objecten die hun locatie opslaan op apparaten na verloop van tijd. Als u klaar bent, hebt u een HoloLens-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
 
 U leert het volgende:
 
@@ -34,18 +34,18 @@ U leert het volgende:
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 
-- U moet een Windows-computer waarop <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> of hoger en <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> of later zijn geïnstalleerd. Uw Visual Studio-installatie omvat de **universele Windows-platformontwikkeling** werkbelasting. U moet ook installeren <a href="https://git-scm.com/download/win" target="_blank">Git voor Windows</a>.
+- U moet een Windows-computer waarop <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> of hoger en <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> of later zijn geïnstalleerd. Uw Visual Studio-installatie omvat de **universele Windows-platformontwikkeling** werkbelasting. Installeer <a href="https://git-scm.com/download/win" target="_blank">Git voor Windows</a>.
 - U moet een HoloLens-apparaat waarop [modus voor ontwikkelaars](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ingeschakeld. [Update voor Windows 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (ook wel bekend als RS5) moet worden geïnstalleerd op het apparaat. Als u wilt bijwerken naar de nieuwste release op HoloLens, opent u de **instellingen** app, gaat u naar **bijwerken en beveiliging**, en selecteer vervolgens **controleren op updates**.
 - Op uw app, moet u inschakelen de **SpatialPerception** mogelijkheid. Deze instelling is in **Build Settings** > **Player Settings** > **publicatie-instellingen**  >   **Mogelijkheden**.
 - Op uw app, moet u inschakelen **Virtual Reality ondersteund** met **Windows Mixed Reality SDK**. Deze instelling is in **Build Settings** > **Player Settings** > **XR instellingen**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Open het voorbeeldproject in Unity
+## <a name="download-and-open-the-unity-sample-project"></a>Downloaden en openen van het voorbeeldproject Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Open het project in de map Unity in Unity.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
@@ -53,7 +53,7 @@ in de sectie **Platform** selecteert u **Universeel Windows-platform**. Wijzig d
 
 Selecteer **Switch Platform** om het platform te wijzigen in **Universeel Windows-platform**. Unity vraagt u mogelijk UWP-ondersteuning om onderdelen te installeren als ze ontbreekt.
 
-   ![Unity Build Settings venster](./media/get-started-unity-hololens/unity-build-settings.png)
+![Unity Build Settings venster](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Sluit het venster **Build Settings**.
 

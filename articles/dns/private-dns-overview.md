@@ -1,5 +1,5 @@
 ---
-title: Wat is Azure privé-DNS?
+title: Wat is privé-DNS in Azure?
 description: Een overzicht van de persoonlijke DNS-server die als host fungeert de service op Microsoft Azure.
 services: dns
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: a8548b4972d5853f09630ae3e9ded05ed6fee32b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076394"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147569"
 ---
-# <a name="what-is-azure-private-dns"></a>Wat is Azure privé-DNS?
+# <a name="what-is-azure-private-dns"></a>Wat is privé-DNS in Azure?
 
 > [!IMPORTANT]
 > Azure privé-DNS is momenteel in openbare preview.
@@ -64,21 +64,11 @@ Azure DNS biedt de volgende mogelijkheden:
 
 Azure DNS heeft de volgende beperkingen:
 
-* Registratie van slechts één virtueel netwerk is toegestaan per privézone.
-* Virtuele netwerken mogen maximaal 10 oplossingen per privézone. Deze limiet wordt verwijderd wanneer deze functie algemeen beschikbaar is.
-* Een specifiek virtueel netwerk kan worden gekoppeld aan de zone met slechts één persoonlijke als een registration virtual network.
-* Een specifiek virtueel netwerk kan maximaal 10 private zones als een virtueel netwerk van het probleem zou moeten worden gekoppeld. Deze limiet wordt verwijderd wanneer deze functie algemeen beschikbaar is.
-* Als u een virtueel netwerk registratie opgeeft, zijn de DNS-records voor de virtuele machines van dit virtuele netwerk die zijn geregistreerd bij de privézone niet kan worden weergegeven of worden opgehaald uit de Azure Powershell en Azure CLI-API's. De VM-records inderdaad worden geregistreerd en is de oplossing.
-* Omgekeerde DNS-geldt alleen voor privé-IP-adresruimte in het registration virtual network.
-* Reverse-DNS voor een privé IP-adres dat niet is geregistreerd bij de privézone (bijvoorbeeld een privé IP-adres voor een virtuele machine in een virtueel netwerk dat is gekoppeld als een resolutie van virtueel netwerk met een particulier zone) retourneert *internal.cloudapp.net* Als de DNS-achtervoegsel. Dit achtervoegsel wordt echter niet omgezet.
-* Het virtuele netwerk moet volledig leeg zijn de eerste keer dat u deze aan een privézone als een registratie- of resolutienetwerken virtueel netwerk koppelen. Het virtuele netwerk kan echter vervolgens worden niet-lege voor toekomstige koppelen als een virtueel netwerk van registratie- of resolutienetwerken naar andere private zones.
-* Voorwaardelijk doorsturen wordt op dit moment niet ondersteund (bijvoorbeeld voor het inschakelen van het probleem zou moeten tussen Azure en on-premises netwerken). Zie voor meer informatie over hoe klanten in dit scenario via andere methoden kunnen realiseren [naamomzetting voor VM's en rolexemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Een specifiek virtueel netwerk kan worden gekoppeld aan slechts één privézone als automatische registratie van VM-DNS-records is ingeschakeld. U kunt echter meerdere virtuele netwerken koppelen aan een enkele DNS-zone.
 * Omgekeerde DNS werkt alleen voor privé-IP-adresruimte in het gekoppelde virtuele netwerk
 * Reverse-DNS voor een privé IP-adres voor een gekoppelde virtuele netwerk retourneert 'internal.cloudapp.net' als het standaard-achtervoegsel voor de virtuele machine. Voor virtuele netwerken die zijn gekoppeld aan een privézone met automatische registratie ingeschakeld, reverse-DNS voor een privé IP-adres 2 FQDN's, één met standaard het achtervoegsel retourneert *internal.cloudapp.net* en een andere met het achtervoegsel privézone.
-* Voorwaardelijk doorsturen wordt niet ondersteund. Als u bijvoorbeeld om in te schakelen resolutie tussen Azure en on-premises netwerken. Meer informatie over hoe u dit scenario met andere methoden kan inschakelen. Zie [naamomzetting voor virtuele machines en rollen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Voorwaardelijk doorsturen is niet systeemeigen worden ondersteund op dit moment. Om in te schakelen resolutie tussen Azure en on-premises netwerken. Zie [naamomzetting voor virtuele machines en rollen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
-
-
 ## <a name="pricing"></a>Prijzen
 
 Zie voor informatie over de prijzen [prijzen voor Azure DNS](https://azure.microsoft.com/pricing/details/dns/).

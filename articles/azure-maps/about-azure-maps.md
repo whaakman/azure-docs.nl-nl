@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 2368d097cc0bfe82d0b869c3c8eb48760cc41616
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807509"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275106"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
 
-Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door de nieuwste kaartgegevens die beschikbaar zijn en uw webtoepassingen en mobiele toepassingen van een nauwkeurige geografische context voorzien. Azure kaarten bestaat uit de REST-API's voor rendering **Maps** in verschillende stijlen en satelliet beeldmateriaal, **zoeken** voor adressen, plaatsen en bezienswaardigheden over de hele wereld; **Routing** point-to-point, multipoint, multipoint optimalisatie, isochrone, commerciële voertuigen, verkeer beïnvloed en matrix routering; toonaangevende netwerkverkeer en incidenten; weergeven **Mobility** services aanvragen van openbare doorvoer, bike share scooter delen en auto delen informatie die u routes gebruik te maken van alternatieve modi van transport en realtimegegevens; tot stand brengen van de locatie van de gebruiker via plannen **Geolocatie**; en de locatie waar u wilt converteren **tijdzones**, alsmede, ophalen van de tijd op een locatie. Bovendien biedt Azure Maps services voor **Geofencing**, kaart **gegevens** opslag - die als host fungeert locatiegegevens in Azure; en **ruimtelijke Operations** locatie bieden Intelligence via georuimtelijke analyses. Azure Maps-services zijn rechtstreeks beschikbaar als REST-API's of via onze robuuste **Web SDK** of **Android SDK**. Met deze hulpprogramma's kunnen ontwikkelaars snel oplossingen ontwikkelen en schalen waarmee locatiegegevens vanuit de Azure-cloud worden geïntegreerd in Azure-oplossingen. Meld u nu aan voor een gratis [Azure Maps-account](https://azure.microsoft.com/services/azure-maps/) en begin met ontwikkelen!
+Azure kaarten is een verzameling van georuimtelijke services, ondersteund door de meest recente toewijzingsgegevens die beschikbaar is voorzien van nauwkeurige geografische context aan uw web- en mobiele toepassingen. Azure kaarten bestaat uit de REST-API's voor rendering **Maps** in verschillende stijlen en satelliet beeldmateriaal, **zoeken** voor adressen, plaatsen en bezienswaardigheden over de hele wereld; **Routing** point-to-point, multipoint, multipoint optimalisatie, isochrone, commerciële voertuigen, verkeer beïnvloed en matrix routering; toonaangevende netwerkverkeer en incidenten; weergeven **Mobility** services aanvragen van openbare doorvoer, bike share scooter delen en auto delen informatie die u routes gebruik te maken van alternatieve modi van transport en realtimegegevens; tot stand brengen van de locatie van de gebruiker via plannen **Geolocatie**; en de locatie waar u wilt converteren **tijdzones**, alsmede, ophalen van de tijd op een locatie. Bovendien biedt Azure Maps services voor **Geofencing**, kaart **gegevens** opslag - die als host fungeert locatiegegevens in Azure; en **ruimtelijke Operations** locatie bieden Intelligence via georuimtelijke analyses. Azure Maps-services zijn rechtstreeks beschikbaar als REST-API's of via onze robuuste **Web SDK** of **Android SDK**. Met deze hulpprogramma's kunnen ontwikkelaars snel oplossingen ontwikkelen en schalen waarmee locatiegegevens vanuit de Azure-cloud worden geïntegreerd in Azure-oplossingen. Meld u nu aan voor een gratis [Azure Maps-account](https://azure.microsoft.com/services/azure-maps/) en begin met ontwikkelen!
 
 In de volgende video wordt Azure Maps in detail uitgelegd:
 
@@ -151,12 +151,12 @@ Controleer of dat de locatie van uw huidige IP-adres niet in een van de niet-ond
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de nieuwe functies van Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Routematrix, isochronen, IP opzoeken en meer](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
-
 Probeer een voorbeeldapp die laat zien de Azure-kaarten:
 
 > [!div class="nextstepaction"]
 > [Snelstart: Een web-app maken](quick-demo-map-app.md)
+
+Blijf up-to-date via de Azure-kaarten: 
+
+> [!div class="nextstepaction"]
+> [Azure Maps-blog](https://azure.microsoft.com/blog/topics/azure-maps/)

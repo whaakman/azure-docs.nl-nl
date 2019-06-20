@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5e667151f0148468e9eda8189c0f249b402b56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095276"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274192"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Zelfstudie: Otsuka Shokai integreren met Azure Active Directory
 
@@ -29,7 +29,6 @@ In deze zelfstudie leert u hoe u Otsuka Shokai integreert met Azure Active Direc
 
 * Beheren in Azure AD die toegang tot Otsuka Shokai heeft.
 * Kunnen uw gebruikers worden automatisch aangemeld Otsuka Shokai met hun Azure AD-accounts.
-* Beheer uw accounts in één centrale locatie - Azure portal.
 
 Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -112,17 +111,15 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     g. Klik op **Opslaan**.
 
-1. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en sla deze op uw Kladblok .
-
-   ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
-
-1. Op de **Otsuka Shokai instellen** sectie, kopieert u de juiste URL's op basis van uw behoeften.
-
-   ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
-
 ### <a name="configure-otsuka-shokai"></a>Otsuka Shokai configureren
 
-Het configureren van eenmalige aanmelding op **Otsuka Shokai** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [Otsuka Shokai ondersteuningsteam](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+1. Wanneer u verbinding met mijn pagina van de klant van SSO-app, de wizard van SSO-instelling wordt gestart.
+
+2. Als Otsuka-ID is niet geregistreerd, gaat u verder met de registratie van nieuwe Otsuka-ID.   Als u Otsuka-ID hebt geregistreerd, gaat u verder met de instelling opeenvolging van koppelingen.
+
+3. Gaat u verder met het einde en wanneer het bovenste scherm wordt weergegeven na het aanmelden op de pagina van de klant, de SSO-instellingen zijn voltooid.
+
+4. De volgende keer dat u verbinding met mijn pagina van de klant van de SSO-app maken nadat het scherm richtlijnen wordt geopend, wordt het bovenste scherm weergegeven na het aanmelden bij mijn pagina van de klant.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -156,7 +153,7 @@ In deze sectie schakelt u B. Simon Azure eenmalige aanmelding door toegang te ve
 
 ### <a name="create-otsuka-shokai-test-user"></a>Otsuka Shokai testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van B.Simon in Otsuka Shokai. Werken met [Otsuka Shokai ondersteuningsteam](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) om toe te voegen de gebruikers in het Otsuka Shokai-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+Registratie van uw SaaS-account wordt op de eerste toegang tot Otsuka Shokai worden uitgevoerd. Bovendien wordt er ook Azure AD-account en SaaS-account koppelen op het moment dat nieuwe gemaakt.
 
 ### <a name="test-sso"></a>Test eenmalige aanmelding
 

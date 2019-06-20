@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953367"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147919"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>De Azure-portal gebruiken om uw Data Box te beheren
 
@@ -129,7 +129,7 @@ Voer de volgende stappen uit om meldingsdetails te bewerken.
 |Ontvangen     | Uw schijven zijn ontvangen door het Azure-datacenter. Het kopiëren van gegevens zal binnenkort starten.        |
 |Gegevens gekopieerd     |Het kopiëren van gegevens is in voortgang.<br> Wacht totdat het kopiëren van gegevens is voltooid.         |
 |Voltooid       |De order is voltooid.<br> Verifieer dat uw gegevens zich in Azure bevinden voordat u de on-premises gegevens van servers verwijdert.         |
-|Voltooid met fouten| Het kopiëren van gegevens is voltooid, maar er zijn fouten ontvangen. <br> Bekijk de logboeken met kopieerbewerkingen via het pad in **Overzicht**. Ga naar [Logboeken met diagnostische gegevens downloaden](data-box-disk-troubleshoot.md#download-diagnostic-logs) voor meer informatie.   |
+|Voltooid met fouten| Het kopiëren van gegevens is voltooid, maar er zijn fouten ontvangen. <br> Controleer de foutenlogboeken voor uploaden met behulp van het pad dat in de **overzicht**. Ga voor meer informatie naar [downloaden uploaden foutenlogboeken](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Geannuleerd            |De order is geannuleerd. <br> U hebt de order zelf geannuleerd, of er is een fout opgetreden waardoor de service de order heeft geannuleerd.     |
 
 

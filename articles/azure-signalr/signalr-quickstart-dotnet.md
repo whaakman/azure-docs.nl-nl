@@ -7,16 +7,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: cda1eddc5fa40e97038274cf9b4c3c2cb9552871
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2020ee02d236ca13431adb736d9f48171d33b4f3
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154505"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147422"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Quickstart: Een chatruimte maken met ASP.NET en SignalR-Service
 
-Azure SignalR-Service is gebaseerd op [SignalR voor ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), die is **niet** 100% compatibel is met ASP.NET SignalR. Azure SignalR-Service wordt opnieuw geïmplementeerd ASP.NET SignalR gegevensprotocol op basis van de meest recente technoledges van ASP.NET Core. Wanneer u Azure SignalR Service voor ASP.NET SignalR, sommige functies van ASP.NET SignalR niet meer worden ondersteund, bijvoorbeeld Azure SignalR wordt niet opnieuw afspelen berichten wanneer de client opnieuw verbinding maakt. De altijd Frame transport- en JSONP zijn ook niet ondersteuning. Sommige wijzigingen in de code en de juiste versie van de afhankelijke bibliotheken zijn vereist voor het werken met SignalR Service ASP.NET SignalR-toepassing maken. 
+Azure SignalR-Service is gebaseerd op [SignalR voor ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), die is **niet** 100% compatibel is met ASP.NET SignalR. Azure SignalR-Service wordt opnieuw geïmplementeerd ASP.NET SignalR gegevensprotocol op basis van de meest recente ASP.NET Core-technologieën. Wanneer u Azure SignalR Service voor ASP.NET SignalR, sommige functies van ASP.NET SignalR niet meer worden ondersteund, bijvoorbeeld Azure SignalR wordt niet opnieuw afspelen berichten wanneer de client opnieuw verbinding maakt. De altijd Frame transport- en JSONP zijn ook niet ondersteuning. Sommige wijzigingen in de code en de juiste versie van de afhankelijke bibliotheken zijn vereist voor het werken met SignalR Service ASP.NET SignalR-toepassing maken. 
 
 Raadpleeg de [versie verschillen doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) voor een volledige lijst van de vergelijking van functies tussen ASP.NET SignalR en ASP.NET Core SignalR.
 
@@ -107,7 +107,7 @@ Terwijl de service wordt geïmplementeerd, gaan we met code werken. Kloon de [vo
 
 Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
-Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor deze snelstart is een resourcegroep met de naam *SignalRTestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...** . In de instructies voor deze snelstart is een resourcegroep met de naam *SignalRTestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 
    
 ![Verwijderen](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad9c50953447c1effee48eec5b0cb9f64386e6cc
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342417"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155571"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Een functie-app maken vanuit Azure Portal
 
@@ -27,7 +27,7 @@ Azure functie-apps maakt gebruik van de Azure App Service-infrastructuur. Dit on
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-Wanneer u een functie-app maakt, moet u een geldige **app-naam** opgeven, die alleen letters, cijfers en afbreekstreepjes mag bevatten. Het onderstrepingsteken (**_**) is niet toegestaan.
+Wanneer u een functie-app maakt, moet u een geldige **app-naam** opgeven, die alleen letters, cijfers en afbreekstreepjes mag bevatten. Het onderstrepingsteken ( **_** ) is niet toegestaan.
 
 Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. De naam van uw opslagaccount moet uniek zijn binnen Azure. 
 
@@ -52,4 +52,7 @@ Zie [Introductie van de Azure Storage-services](../storage/common/storage-introd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+Terwijl de Azure-portal u eenvoudig maken en uitproberen functies kunt, wordt aangeraden [lokale ontwikkeling](functions-develop-local.md). Na het maken van een functie-app in de portal, moet u nog steeds een functie toevoegen. 
+
+> [!div class="nextstepaction"]
+> [Een door HTTP geactiveerde functie toevoegen](functions-create-first-azure-function.md#create-function)

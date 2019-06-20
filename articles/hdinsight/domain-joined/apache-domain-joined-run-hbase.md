@@ -1,17 +1,18 @@
 ---
-title: Apache HBase-beleidsregels configureren in HDInsight met Enterprise Security Package - Azure
-description: Leer hoe u Apache Ranger-beleidsregels voor HBase configureert in Azure HDInsight met Enterprise Security Package.
+title: Zelfstudie - beleid voor Apache HBase in HDInsight met Enterprise-beveiligingspakket - Azure configureren
+description: 'Zelfstudie: informatie over het configureren van Apache Ranger-beleidsregels voor HBase in Azure HDInsight met Enterprise-beveiligingspakket.'
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/18/2019
+ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926102"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274392"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Zelfstudie: Apache HBase-beleid configureren in HDInsight met Enterprise-beveiligingspakket
 
@@ -105,7 +106,7 @@ Maak een Ranger-beleid voor **sales_user1** en **marketing_user1**.
 
    |**Instelling**  |**Voorgestelde waarde**  |
    |---------|---------|
-   |Policy Name  |  sales_customers_name_contact   |
+   |Beleidsnaam  |  sales_customers_name_contact   |
    |HBase Table   |  Customers |
    |HBase Column-family   |  Name, Contact |
    |HBase Column   |  * |
@@ -129,7 +130,7 @@ Maak een Ranger-beleid voor **sales_user1** en **marketing_user1**.
 
    |**Instelling**  |**Voorgestelde waarde**  |
    |---------|---------|
-   |Policy Name  |  marketing_customers_contact   |
+   |Beleidsnaam  |  marketing_customers_contact   |
    |HBase Table   |  Customers |
    |HBase Column-family   |  Contactpersoon |
    |HBase Column   |  * |
@@ -159,7 +160,7 @@ Maak een Ranger-beleid voor **sales_user1** en **marketing_user1**.
    kinit sales_user1
    ```
 
-2. Open de HBase-shell en scan de tabel `Customers`.
+2. Open de HBase-shell en scannen van de tabel `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -201,7 +202,7 @@ Maak een Ranger-beleid voor **sales_user1** en **marketing_user1**.
    kinit marketing_user1
    ```
 
-2. Open de HBase-shell en scan de tabel `Customers`:
+2. Open de HBase-shell en scannen van de tabel `Customers`:
 
     ```hbaseshell
     hbase shell

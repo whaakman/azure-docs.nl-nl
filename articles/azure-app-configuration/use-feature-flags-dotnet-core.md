@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 577cb55ce381976a6d623b272b920d0d1bf2eeb9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144001"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274141"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Zelfstudie: Functie vlaggen gebruiken in een ASP.NET Core-app
 
@@ -189,10 +189,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>Controller-acties
 
-In MVC-controllers, gebruikt u de `Feature` kenmerk om te bepalen of een hele controllerklasse of een specifieke actie is ingeschakeld. De volgende `HomeController` controller vereist `FeatureA` moet *op* voordat een actie die de controllerklasse bevat kan worden uitgevoerd:
+In MVC-controllers, gebruikt u de `FeatureGate` kenmerk om te bepalen of een hele controllerklasse of een specifieke actie is ingeschakeld. De volgende `HomeController` controller vereist `FeatureA` moet *op* voordat een actie die de controllerklasse bevat kan worden uitgevoerd:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +202,7 @@ public class HomeController : Controller
 De volgende `Index` -actie vereist `FeatureA` moet *op* voordat het kan worden uitgevoerd:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +218,25 @@ In MVC weergaven, kunt u een `<feature>` tag om inhoud weer te geven op basis va
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+Alternatieve om inhoud te geven als niet aan de vereisten wordt voldaan de `negate` kenmerk kan worden gebruikt.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+De functie `<feature>` tag kan ook worden gebruikt om inhoud indien van toepassing weer te geven of alle functies in een lijst zijn ingeschakeld.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

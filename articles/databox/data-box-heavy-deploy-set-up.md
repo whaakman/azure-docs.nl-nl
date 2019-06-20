@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427938"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271718"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Zelfstudie: Bekabelen en maak verbinding met uw Azure Data Box zware (preview)
 
@@ -79,7 +79,7 @@ Voer de volgende stappen uit op uw apparaat bekabelen.
 Op een van de knooppunten van het apparaat, moet u de volgende stappen uitvoeren voor netwerk-kabel.
 
 1. Gebruik een CAT 6 RJ-45-netwerkkabel (blauw kabel in de afbeelding) de computer verbinden met de 1 Gbps beheerpoort aan.
-2. Gebruik een Twinax QSFP + koperen kabel (zwarte kabels in de afbeelding) om ten minste één netwerkinterface van 40 Gbps (beter dan 1 Gbps) voor gegevens. Als met behulp van een switch 10 Gbps een Twinax SFP + koperen kabel met een QSFP + SFP + adapter (de adapter QSA) om verbinding te 40 netwerkinterface Gbps voor gegevens.
+2. Verbinding maken ten minste één netwerkinterface van 40 Gbps (beter dan 1 Gbps) voor gegevens via een kabel QSFP + (fiber of koper). Als u een switch 10 Gbps, verbinding maken met de 40 Gbps-netwerkinterface voor gegevens via een kabel SFP + met een QSFP + SFP + adapter (de adapter QSA).
 
     ![Data Box-zwaar poorten bekabelde](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

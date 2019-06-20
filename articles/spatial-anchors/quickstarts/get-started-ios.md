@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b8ee1bdfece35d774cdc79595a495b0b3719a836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56360238db8632e74a95c057a7fe643b5cea3151
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234115"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206835"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Quickstart: een iOS-app maken met Azure Spatial Anchors, in Swift of Objective-C
 
@@ -62,7 +62,7 @@ Navigeer naar `iOS/Objective-C/`.
 cd ./iOS/Objective-C/
 ```
 
-***
+---
 
 Voer `pod install --repo-update` uit om de CocoaPods voor het project te installeren.
 
@@ -80,7 +80,7 @@ open ./SampleSwift.xcworkspace
 open ./SampleObjC.xcworkspace
 ```
 
-***
+---
 
 ## <a name="configure-account-identifier-and-key"></a>Account-id en -sleutel configureren
 
@@ -102,7 +102,7 @@ Zoek het veld `SpatialAnchorsAccountKey` en vervang `Set me` met de accountsleut
 
 Zoek het veld `SpatialAnchorsAccountId` en vervang `Set me` met de account-id.
 
-***
+---
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>De app implementeren op uw iOS-apparaat
 

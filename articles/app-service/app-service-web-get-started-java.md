@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jasonfreeberg
 ms.custom: mvc
-ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bd11b5334fbffc28aa6869c9f37b2b9909692d56
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393247"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154783"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>Quickstart: Een Java-app maken in App Service
 
@@ -66,7 +66,7 @@ Voeg vervolgens de volgende invoegtoepassingsdefinitie toe aan het element `<bui
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
+        <version>1.6.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -105,9 +105,9 @@ Werk de volgende tijdelijke aanduidingen bij in de configuratie van de invoegtoe
 | Tijdelijke aanduiding | Description |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | De unieke ID van het abonnement dat u wilt uw app te implementeren. Standaardabonnement-ID kunt u vinden in de Cloud Shell of CLI met behulp van de `az account show` opdracht. Voor de beschikbare abonnementen, gebruikt u de `az account list` opdracht.|
-| `RESOURCEGROUP_NAME` | Naam voor de nieuwe resourcegroep waarin de app moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u de resourcegroep verwijdert, worden bijvoorbeeld alle resources verwijderd die bij de app behoren. Wijzig deze waarde in een unieke nieuwe resourcegroepnaam, bijvoorbeeld *TestResources*. U gebruikt deze resourcegroepnaam om alle Azure-resources in een volgende sectie op te schonen. |
-| `WEBAPP_NAME` | De app-naam maakt deel uit van de hostnaam voor de app wanneer deze in Azure is geïmplementeerd (NAAM_WEBAPP.azurewebsites.net). Wijzig deze waarde in een unieke naam voor de nieuwe App Service-app, die uw Java-app host, bijvoorbeeld *contoso*. |
-| `REGION` | Een Azure-regio waar de app wordt gehost, bijvoorbeeld `westus2`. U kunt een lijst met regio's van de Cloud Shell of CLI ophalen met behulp van de opdracht `az account list-locations`. |
+| `RESOURCEGROUP_NAME` | Naam voor de nieuwe resourcegroep waarin de app moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u de resourcegroep verwijdert, worden bijvoorbeeld alle resources verwijderd die bij de app behoren. Deze waarde bijvoorbeeld bijwerken met een unieke nieuwe Resourcegroepnaam, *myResourceGroup*. U gebruikt deze resourcegroepnaam om alle Azure-resources in een volgende sectie op te schonen. |
+| `WEBAPP_NAME` | Naam van de app is onderdeel van de hostnaam voor de app bij de implementatie op Azure (WEBAPP_NAME.azurewebsites.net). Wijzig deze waarde in een unieke naam voor de nieuwe App Service-app, die uw Java-app host, bijvoorbeeld *contoso*. |
+| `REGION` | Een Azure-regio waar de app wordt gehost, bijvoorbeeld *westus2*. U kunt een lijst met regio's van de Cloud Shell of CLI ophalen met behulp van de opdracht `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>De app implementeren
 

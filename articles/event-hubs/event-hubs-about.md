@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236246"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275376"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs — Een streamingplatform en service voor het opnemen van big data
 Azure Event Hubs is een streamingplatform en service voor het opnemen van big data. Het kan miljoenen gebeurtenissen per seconde ontvangen en verwerken. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen door gebruik te maken van een provider voor realtime analytische gegevens of batchverwerking/opslagadapters.
@@ -45,9 +45,9 @@ Event Hubs is een volledig beheerde platform as a service (PaaS) met weinig over
 
 ## <a name="support-for-real-time-and-batch-processing"></a>Ondersteuning voor realtime- en batchverwerking
 
-U kunt uw stroom in realtime opnemen, bufferen, opslaan en verwerken om bruikbare inzichten te krijgen. Event Hubs maakt gebruik van een [gepartitioneerd consumermodel](event-hubs-features.md#partitions), waardoor meerdere toepassingen de stroom gelijktijdig kunnen verwerken en u de verwerkingssnelheid kunt regelen.
+U kunt uw stroom in realtime opnemen, bufferen, opslaan en verwerken om bruikbare inzichten te krijgen. Event Hubs maakt gebruik van een [gepartitioneerd consumermodel](event-hubs-scalability.md#partitions), waardoor meerdere toepassingen de stroom gelijktijdig kunnen verwerken en u de verwerkingssnelheid kunt regelen.
 
-[Leg uw gegevens bijna in realtime vast](event-hubs-capture-overview.md) in een [ Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) of [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)  voor langdurige bewaring of microbatchverwerking. U kunt dit gedrag bereiken op dezelfde stroom die u gebruikt voor het afleiden van realtime analyses. Het instellen van het vastleggen van gebeurtenisgegevens gaat snel. Er zijn geen beheerkosten om het uit te voeren en het schaalt automatisch met Event Hubs- [doorvoereenheden](event-hubs-features.md#throughput-units). Met Event Hubs kunt u zich richten op gegevensverwerking in plaats van gegevens vast te leggen.
+[Leg uw gegevens bijna in realtime vast](event-hubs-capture-overview.md) in een [ Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) of [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)  voor langdurige bewaring of microbatchverwerking. U kunt dit gedrag bereiken op dezelfde stroom die u gebruikt voor het afleiden van realtime analyses. Het instellen van het vastleggen van gebeurtenisgegevens gaat snel. Er zijn geen beheerkosten om het uit te voeren en het schaalt automatisch met Event Hubs- [doorvoereenheden](event-hubs-scalability.md#throughput-units). Met Event Hubs kunt u zich richten op gegevensverwerking in plaats van gegevens vast te leggen.
 
 Azure Event Hubs kan ook worden geïntegreerd met [Azure Functions](/azure/azure-functions/) voor een serverloze architectuur.
 

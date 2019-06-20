@@ -3,15 +3,15 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/18/2018
-ms.openlocfilehash: 606734726539397c0be0bc01afb3dbfac08b3a2b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/18/2019
+ms.openlocfilehash: 16ee9ae9a4eec6b38c57b984b3acb75479b437e6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176315"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277200"
 ---
-U hebt een [Account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met toegang tot de Bing Zoeken-API's nodig. Als u verder wilt gaan, hebt u de toegangssleutel nodig die is verstrekt na het starten van een abonnement in de prijscategorie S9, zoals weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API's](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+U hebt een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met toegang tot de Bing Search-API's nodig. Voordat u doorgaat, moet u de toegangssleutel die is opgegeven na het starten van een abonnement op de prijs-S9-laag, zoals wordt weergegeven in [Cognitive Services-prijsinformatie: Bing zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 Zo start u een abonnement in de Azure-portal:
 1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  

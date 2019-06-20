@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 382e342f2144bcc6eeedafd74790bb442b8f9308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11c8fdca595840389f318ce9810674d53ac7f2d2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199294"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273363"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Een Pivotal Cloud Foundry-cluster maken op Azure
 
@@ -64,7 +64,7 @@ Zie voor meer informatie, [SSH-sleutels gebruiken met Windows op Azure](https://
 
     > [!NOTE]
     >
-    > Kies uw eigen toepassingsstartpagina en id-URI, bijvoorbeeld http://www.contoso.com.
+    > Kies uw eigen startpagina van de toepassing en de id-URI, bijvoorbeeld [ http://www.contoso.com ](http://www.contoso.com).
 
 4. Maak een service-principal met uw nieuwe app-id.
 

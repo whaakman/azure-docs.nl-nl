@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175832"
 ---
 ## <a name="publish-the-project-to-azure"></a>Het project naar Azure publiceren
 
@@ -27,7 +27,7 @@ In dit artikel wordt ervan uitgegaan dat u een nieuwe functie-app maakt.
 
 1. In de **Azure: Functies** gebied, selecteer de implementeren naar functie-App-pictogram.
 
-    ![Instellingen voor functie-apps](./media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Instellingen voor functie-app](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Als niet aangemeld, u wordt gevraagd te **aanmelden bij Azure**. U kunt ook **maken van een gratis Azure-account**. Na geslaagde zich heeft aangemeld vanuit de browser, Ga terug naar Visual Studio Code. 
 
@@ -43,9 +43,9 @@ In dit artikel wordt ervan uitgegaan dat u een nieuwe functie-app maakt.
 
     Wanneer u op Enter drukt, worden de volgende Azure-resources in uw abonnement gemaakt:
 
-    * **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)**: Bevat alle van de gemaakte Azure-resources. De naam is gebaseerd op de naam van uw functie-app.
-    * **[Storage-account](../articles/storage/common/storage-quickstart-create-account.md)**: Een standard Storage-account wordt gemaakt met een unieke naam die is gebaseerd op de naam van uw functie-app.
-    * **[Hostingabonnement](../articles/azure-functions/functions-scale.md)**: Een verbruiksabonnement wordt gemaakt in de regio VS-West voor het hosten van uw serverloze functie-app.
+    * **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** : Bevat alle van de gemaakte Azure-resources. De naam is gebaseerd op de naam van uw functie-app.
+    * **[Storage-account](../articles/storage/common/storage-quickstart-create-account.md)** : Een standard Storage-account wordt gemaakt met een unieke naam die is gebaseerd op de naam van uw functie-app.
+    * **[Hostingabonnement](../articles/azure-functions/functions-scale.md)** : Een verbruiksabonnement wordt gemaakt in de regio VS-West voor het hosten van uw serverloze functie-app.
     * **Functie-app**: Uw project wordt geïmplementeerd op en wordt uitgevoerd in deze nieuwe functie-app.
 
     Nadat de functie-app is gemaakt en het implementatiepakket is toegepast, wordt er een melding weergegeven. Selecteer **weergave uitvoer** in deze melding om het maken en de Implementatieresultaten weer te geven, met inbegrip van de Azure-resources die u hebt gemaakt.

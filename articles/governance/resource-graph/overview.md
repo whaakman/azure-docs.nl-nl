@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4724789dd1a0893c5ef4ab112306c185f0e87da7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162083"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274377"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Overzicht van de Azure Resource Graph-service
 
@@ -38,7 +38,7 @@ Met Azure Resource Graph hebt u toegang tot de eigenschappen die de resourceprov
 Met Azure Resource Graph, kunt u het volgende doen:
 
 - Toegang tot de eigenschappen die zijn geretourneerd door de resourceproviders zonder afzonderlijke aanroepen naar elke resourceprovider.
-- Weergeven van de afgelopen 14 dagen van de wijzigingsgeschiedenis die zijn aangebracht in de bron om te zien wat er eigenschappen gewijzigd en wanneer. (preview-versie)
+- Weergeven van de afgelopen 14 dagen van de wijzigingsgeschiedenis die zijn aangebracht in de bron om te zien wat er eigenschappen gewijzigd en wanneer. (preview)
 
 ## <a name="how-resource-graph-is-kept-current"></a>Hoe Resourcegrafiek wordt bijgewerkt
 
@@ -61,7 +61,7 @@ Om Resource Graph te kunnen gebruiken, moet u over de juiste machtigingen beschi
 > [!NOTE]
 > Grafiek van resources maakt gebruik van de abonnementen die beschikbaar zijn voor een principal tijdens het aanmelden. Als u wilt zien van resources van een nieuw abonnement gedurende een actieve sessie toegevoegd, moet de principal de context vernieuwen. Deze actie wordt automatisch uitgevoerd wanneer u zich af te melden en opnieuw aanmelden.
 
-## <a name="throttling"></a>Beperken
+## <a name="throttling"></a>Beperking
 
 Als een gratis service, worden query's voor Resource Graph beperkt voor de beste ervaring en antwoord-tijd voor alle klanten. Als uw organisatie wil de Resource Graph API gebruiken voor grootschalige en regelmatig query's, gebruiken die portal 'Feedback' in de [Resource Graph-portalpagina](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
 Geef uw bedrijfsscenario en schakelt u het selectievakje 'Microsoft kunt u een e-mail over uw feedback, zodat het team contact met u opnemen.
@@ -71,7 +71,7 @@ Grafiek van resources beperkt query's op het gebruikersniveau van de. Antwoord v
 - `x-ms-user-quota-remaining` (int): Het resterende resourcequotum voor de gebruiker. Deze waarde wordt toegewezen aan het aantal query's.
 - `x-ms-user-quota-resets-after` het uu: mm (:): De tijdsduur van de totdat van een gebruiker quotumverbruik wordt opnieuw ingesteld
 
-Zie voor meer informatie, [beperking Resource Manager-aanvragen](../../azure-resource-manager/resource-manager-request-limits.md).
+Zie voor meer informatie, [richtlijnen voor beperkte aanvragen](./concepts/guidance-for-throttled-requests.md).
 
 ## <a name="running-your-first-query"></a>Uw eerste query uitvoeren
 

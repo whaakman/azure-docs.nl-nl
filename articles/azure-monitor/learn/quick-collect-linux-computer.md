@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539527"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147290"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Log Analytics-agent configureren voor Linux-computers in een hybride omgeving
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Linux-computer in uw datacentrum of andere cloudomgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie. In deze Quick Start wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Linux-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](quick-collect-azurevm.md), voor informatie over virtuele Linux-machines in Azure.  
+[Azure Log Analytics](../platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Linux-computer in uw datacentrum of andere cloudomgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie. In deze Quick Start wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Linux-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](quick-collect-azurevm.md), voor informatie over virtuele Linux-machines in Azure.  
 
-Als u meer wilt weten over de ondersteunde configuratie, kunt u de informatie over [ondersteunde Linux-besturingssystemen](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) en de [ netwerkconfiguratie voor de firewall](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) raadplegen.
+Voordat u verdergaat, controleert u eerst de Log Analytics-agent [overzicht](../platform/log-analytics-agent.md) artikel om te begrijpen welke configuraties worden ondersteund, de [ondersteund Linux-besturingssystemen](../platform/log-analytics-agent.md#supported-linux-operating-systems) en [ firewall-netwerkconfiguratie](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -107,7 +107,7 @@ Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics kan gebeurtenissen uit de Linux Syslog en prestatiemeteritems verzamelen die u opgeeft voor langetermijnanalyses en -rapportages en kan actie ondernemen wanneer een bepaalde voorwaarde wordt gedetecteerd.  Volg deze stappen om eerst het verzamelen van gebeurtenissen uit de Linux Syslog en diverse algemene prestatiemeters te configureren.  
 
 1. Selecteer **Syslog**.  
-2. U kunt een gebeurtenislogboek toevoegen door de naam van het logboek te typen. Typ **Syslog** en klik op het plusteken **+**.  
+2. U kunt een gebeurtenislogboek toevoegen door de naam van het logboek te typen. Typ **Syslog** en klik op het plusteken **+** .  
 3. Schakel in de tabel de ernstcategorieën **Info**, **Kennisgeving** en **Fouten opsporen** uit. 
 4. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
 5. Selecteer **Linux-prestatiegegevens** om het verzamelen van prestatiemeteritems op een Linux-computer in te schakelen. 

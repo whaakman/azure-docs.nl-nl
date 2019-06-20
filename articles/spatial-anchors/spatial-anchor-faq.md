@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304200"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273311"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Veelgestelde vragen over Azure Spatial Anchors
 
@@ -78,7 +78,7 @@ Azure Spatial Anchors voldoet aan de [voorwaarden van de serviceovereenkomst van
 Algemene beschikbaarheidsdatums worden binnenkort bekendgemaakt.
 
 **V: Zijn er beperkingslimieten?**
- 
+
 **A**: Ja, er zijn beperkingslimieten.  We verwachten niet dat u hier tegenaan zult lopen bij het ontwikkelen en testen van toepassingen. We zijn gereed om te voldoen aan de grootschalige behoeften voor productie-implementaties van onze klanten. [Neem contact met ons op](mailto:azuremrs@microsoft.com) om uw wensen te bespreken. Omdat Spatial Anchors nog in de preview-fase is, hebben we nog geen laag- en prijsstructuur gepubliceerd, maar we verwachten dit binnenkort te doen.
 
 **V: In welke regio's is Azure Spatial Anchors beschikbaar?**
@@ -125,3 +125,7 @@ Klik [hier](index.yml) om aan de slag te gaan met ontwikkeling.
 **V: Werkt het met Xamarin?**
 
 **A:** Ja. Hoewel we geen SDK voor Xamarin bieden, verwachten we dat ontwikkelaars Azure Spatial Anchors in hun Xamarin-apps kunnen gebruiken via integratie met de Azure Spatial Anchors-API.
+
+**V: Gebruikt Azure ruimtelijke ankers welke poorten en protocollen?**
+
+**A:** Azure ruimtelijke ankers communiceert via TCP-poort 443 met behulp van een versleutelde-protocol. Voor de verificatie wordt gebruikt [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), die communiceert met behulp van HTTPS via poort 443.

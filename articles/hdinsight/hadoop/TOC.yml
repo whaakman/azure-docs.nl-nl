@@ -7,7 +7,7 @@
       maintainContext: true
 - name: Snelstartgidsen
   items:
-    - name: Een Apache Hadoop-cluster maken - portal
+    - name: Een Apache Hadoop-cluster maken - Portal
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
     - name: Een Apache Hadoop-cluster maken - sjabloon
       displayName: 'resource manager template, arm template, resource manager group'
@@ -19,9 +19,6 @@
       maintainContext: true
     - name: On-demand clusters maken
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-      maintainContext: true
-    - name: Beschikbaarheid van het cluster bewaken met Ambari en Azure Monitor-logboeken
-      href: ../hdinsight-cluster-availability.md
       maintainContext: true
 - name: Voorbeelden
   items:
@@ -36,6 +33,9 @@
       maintainContext: true
 - name: Concepten
   items:
+    - name: Beschikbaarheid van het cluster bewaken met Ambari en Azure Monitor-logboeken
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
       maintainContext: true

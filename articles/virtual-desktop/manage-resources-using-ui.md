@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 3635cd422e4c7a064d3317401b734f3bc6ccb6c6
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 4db9e6eaf2d7f7630d3d412d5519d97f8beca3ad
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136452"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272834"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Zelfstudie: Een hulpprogramma voor beheer implementeren
 
@@ -62,9 +62,29 @@ Dit is hoe u parameters opgeven voor het configureren van het hulpprogramma:
 - AAD-referenties met uitgeschakeld om te melden bij Azure MFA gebruiken. Zie [wat u nodig hebt om uit te voeren van de Azure Resource Manager-sjabloon](#what-you-need-to-run-the-azure-resource-manager-template).
 - Gebruik een unieke naam voor de toepassing die wordt geregistreerd in uw Azure Active Directory voor het beheerprogramma; bijvoorbeeld: Apr3UX.
 
-## <a name="use-the-management-tool"></a>Gebruik het hulpprogramma
+## <a name="provide-consent-for-the-management-tool"></a>Geef toestemming voor het beheerprogramma
 
 Na de GitHub Azure Resource Manager sjabloon is voltooid, vindt u een resourcegroep die twee app-services samen met een app service-plan in de Azure-portal.
+
+Voordat u zich hebt aangemeld en gebruik het hulpprogramma moet u toestemming geven voor de nieuwe Azure Active Directory-toepassing die is gekoppeld aan het beheerprogramma. Door te geven toestemming kunt toestaat u het beheerprogramma voor virtuele Windows-bureaublad management aanroepen namens de gebruiker die aangemeld bij het hulpprogramma.
+
+Om te bepalen welke gebruiker kunt u zich aanmeldt bij het hulpprogramma, gaat u naar uw [instellingenpagina voor Azure Active Directory-gebruiker](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) en noteer de waarde voor **gebruikers toestemming kunnen geven voor apps die toegang tot bedrijfsgegevens namens hen**.
+
+- Als de waarde is ingesteld op **Ja**, kunt u zich aanmeldt met een gebruikersaccount in de Azure Active Directory en toestemming geven voor alleen die gebruiker. Als u zich bij het hulpprogramma met een andere gebruiker later aanmelden, moet u opnieuw een dezelfde toestemming heeft gegeven uitvoeren.
+- Als de waarde is ingesteld op **Nee**, moet u aanmelden met een globale beheerder in de Azure Active Directory en geeft u toestemming van een beheerder voor alle gebruikers in de map. U gaat er 
+
+
+Als u welke gebruiker toestemming geven om u gebruikt besluit, volgt u deze instructies te geven van toestemming voor het hulpprogramma:
+
+1. Ga naar uw Azure-resources, selecteert u de Azure App Services-resource met de naam die u hebt opgegeven in de sjabloon (bijvoorbeeld Apr3UX) en navigeer naar de URL die is gekoppeld. bijvoorbeeld, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Meld u aan met het juiste Azure Active Directory-gebruikersaccount.
+3. Als u met een globale beheerder geverifieerd, kunt u nu het selectievakje in om te selecteren **toestemming namens uw organisatie**. Selecteer **accepteren** toestemming geven om.
+
+Dit nu gaat u naar het beheerprogramma.
+
+## <a name="use-the-management-tool"></a>Gebruik het hulpprogramma
+
+Nadat u toestemming voor de organisatie of voor een opgegeven gebruiker, hebt u toegang tot het hulpprogramma op elk gewenst moment.
 
 Volg deze instructies om het hulpprogramma te starten:
 

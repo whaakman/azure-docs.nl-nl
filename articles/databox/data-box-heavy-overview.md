@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f71d9b4400041db50cb3e24940e922acde55edc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991695"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271744"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Wat is Azure Data Box Heavy? (preview-versie)
+# <a name="what-is-azure-data-box-heavy-preview"></a>Wat is Azure Data Box Heavy? (preview)
 
 Azure Data Box zware kunt u honderden terabytes aan gegevens verzenden naar Azure in een snelle, voordelige, en betrouwbare manier. De gegevens worden overgedragen naar Azure door een Data Box zware apparaat verzenden met een 1 PB opslagcapaciteit, die u met uw gegevens invullen en verzenden naar Microsoft. Het apparaat heeft een robuuste hoofdlettergebruik te beschermen en beveiligen van uw gegevens tijdens de overdracht.
 
@@ -62,14 +62,14 @@ De gegevens in het zware apparaat heeft de volgende functies in deze release.
 
 | Specificaties                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Gewicht                                                  | ~ 500 lbs.                |
+| Gewicht                                                  | ~ 500 lbs. <br>Apparaat vergrendelen wheels voor transport|
 | Dimensies                                              | Breedte: 26 inches hoogte: 28 inches lengte: 48 inch |
 | Rackruimte                                              | Kan niet worden rek|
-| Vereiste kabels                                         | 4 X gegrond 120 V/10 A stroomkabels (NEMA 5 tot 15) opgenomen <br> Apparaat ondersteunt maximaal 240 V power en C-13 power recipiënten heeft <br> Gebruik netwerkkabels compatibel is met [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-|Energiebeheer                                                    | 4 ingebouwde power supply-eenheden (PSUs) gedeeld tussen beide knooppunten van het apparaat|
+| Vereiste kabels                                         | 4 gegrond 120 V / 10 A kracht kabels (NEMA 5 tot 15) opgenomen <br> Apparaat ondersteunt maximaal 240 V power en C-13 power recipiënten heeft <br> Gebruik netwerkkabels compatibel is met [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
+| Energiebeheer                                                    | 4 ingebouwde power supply-eenheden (PSUs) gedeeld tussen beide knooppunten van het apparaat <br> 1200 w typische stroomverbruik|
 | Opslagcapaciteit                                        | ~ 1 PB onbewerkte, 70 schijven van 14 TB <br> 770 TB aan bruikbare capaciteit|
-|Aantal knooppunten                                          | 2 onafhankelijke knooppunten per apparaat (500 TB elk) |
-| Netwerkinterfaces per knooppunt                             | 4-netwerkinterfaces per knooppunt <br> MGMT, DATA3 <ul><li> 2 x 1 GbE-netwerkinterfaces </li><li> MGMT is voor het beheer, geen gebruiker worden geconfigureerd, die wordt gebruikt voor de eerste installatie </li><li> DATA3 is een interface van de gebruiker configureerbare gegevens, Dynamic Host Configuration Protocol (DHCP) standaard</li><li>1 GbE-netwerkinterfaces kunnen ook worden geconfigureerd als 10 GbE-interfaces</li></ul>Bestand1, DATA2 gegevensinterfaces <ul><li>2 X 40-GbE interfaces </li><li> DHCP door standaard of statische, gebruiker configureerbare gegevensinterfaces</li>|
+| Aantal knooppunten                                          | 2 onafhankelijke knooppunten per apparaat (500 TB elk) |
+| Netwerkinterfaces per knooppunt                             | 4-netwerkinterfaces per knooppunt <br><br> MGMT, DATA3 <ul><li> 2 x 1 GbE-netwerkinterfaces </li><li> MGMT is voor het beheer en de initiële configuratie, geen gebruiker worden geconfigureerd </li><li> DATA3 wordt de gebruiker configureerbare en Dynamic Host configuratieprotocol (DHCP)-standaard</li><li>De 1 GbE-netwerkinterfaces kunnen ook worden geconfigureerd als 10 GbE-interfaces</li></ul>Bestand1, DATA2 gegevensinterfaces <ul><li>2 X 40-GbE interfaces </li><li> Gebruiker worden geconfigureerd voor DHCP (standaard) of statische</li></ul>|
 
 
 ## <a name="components"></a>Onderdelen
@@ -99,7 +99,7 @@ Een typische stroom bestaat uit de volgende stappen:
 
 Tijdens dit proces krijgt u een melding via e-mail over alle statuswijzigingen aan de.
 
-## <a name="region-availability"></a>Beschikbaarheid voor de regio
+## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
 Gegevens in het zware kunt gegevensoverdracht op basis van de regio waarin de service is geïmplementeerd, land/de regio waaraan het apparaat is verzonden en de doel-Azure storage-account waar u de gegevens overbrengt.
 
@@ -113,7 +113,7 @@ Gegevens in het zware kunt gegevensoverdracht op basis van de regio waarin de se
 
 Voor de meest actuele informatie over beschikbaarheid in regio's voor gegevens in het zware, gaat u naar [Azure-producten per regio](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-## <a name="sign-up"></a>Registreren
+## <a name="sign-up"></a>Aanmelden
 
 Data Box Heavy is in de preview-fase en u moet zich registreren. De volgende stappen om u te registreren voor gegevens in het zware:
 

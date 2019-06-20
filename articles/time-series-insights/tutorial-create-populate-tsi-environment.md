@@ -5,16 +5,16 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/26/2019
+ms.date: 06/18/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: b8b46db043113f29f559ad44855d19f0d6ca73c3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a450c47c7264bdecb663c9f71e3a9753df5e1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244162"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273534"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Zelfstudie: Een Azure Time Series Insights-omgeving maken
 
@@ -40,14 +40,50 @@ In deze zelfstudie leidt u door het proces voor het maken van een Azure Time Ser
 
 ## <a name="overview"></a>Overzicht
 
-De Time Series Insights-omgeving is waar de apparaatgegevens worden verzameld en opgeslagen. Nadat de gegevens worden opgeslagen, de [Azure Time Series Insights explorer](time-series-quickstart.md) en [Time Series Insights Query-API](/rest/api/time-series-insights/ga-query-api) kan worden gebruikt om te zoeken en analyseren van de gegevens. Azure IoT Hub is het verbindingspunt wordt gebruikt door alle apparaten (gesimuleerde of fysieke) veilig verbinding maken met en gegevens verzenden naar de Azure-cloud. De [Time Series Insights-overzicht](time-series-insights-overview.md) opmerkingen bij de dat Azure IoT Hub ook als een gebeurtenisbron fungeert voor het streamen van gegevens naar een Time Series Insights-omgeving. In deze zelfstudie wordt een [IoT-oplossingsversnellers](/azure/iot-accelerators/) te genereren en het streamen van voorbeeldtelemetrie die naar IoT Hub.
+De Time Series Insights-omgeving is waar de apparaatgegevens worden verzameld en opgeslagen. Wanneer deze zijn opgeslagen, de [Azure Time Series Insights explorer](time-series-quickstart.md) en [Time Series Insights Query-API](/rest/api/time-series-insights/ga-query-api) kan worden gebruikt om te zoeken en analyseren van de gegevens.
+
+Azure IoT Hub is de bron van de gebeurtenis die wordt gebruikt door alle apparaten (gesimuleerde of fysieke) in de zelfstudie veilig verbinding maken met en gegevens verzenden naar uw Azure-cloud.
+
+In deze zelfstudie wordt ook een [IoT-oplossingsversnellers](https://www.azureiotsolutions.com) te genereren en het streamen van voorbeeldtelemetrie die naar IoT Hub.
 
 >[!TIP]
-> IoT-oplossingsversnellers bieden geavanceerde vooraf geconfigureerde oplossingen die u gebruiken kunt om de ontwikkeling van aangepaste IoT-oplossingen.
+> [IoT-oplossingsversnellers](https://www.azureiotsolutions.com) zakelijke vooraf geconfigureerde oplossingen die u gebruiken kunt om de ontwikkeling van aangepaste IoT-oplossingen bieden.
+
+## <a name="create-a-device-simulation"></a>Een apparaatsimulatie maken
+
+Maak eerst de oplossing voor het simuleren van apparaten, waardoor testgegevens om in te vullen uw Time Series Insights-omgeving worden gegenereerd.
+
+1. In een apart venster of tabblad, gaat u naar [azureiotsolutions.com](https://www.azureiotsolutions.com). Meld u aan met behulp van hetzelfde account Azure-abonnement en selecteer de **Apparaatsimulatie** accelerator.
+
+   [![Voer de Apparaatsimulatie-accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
+
+1. Voer de vereiste parameters op de **maken Apparaatsimulatie-oplossing** pagina.
+
+   Parameter|Description
+   ---|---
+   **Naam van de implementatie** | Deze unieke waarde wordt gebruikt om een nieuwe resourcegroep te maken. De vermelde Azure-resources worden gemaakt en toegewezen aan de resourcegroep.
+   **Azure-abonnement** | Geef hetzelfde abonnement als dat is gebruikt voor het maken van uw Time Series Insights-omgeving in de vorige sectie.
+   **Implementatie-opties** | Selecteer **nieuwe IoT-Hub inrichten** een nieuwe IoT-hub maken die specifiek zijn voor deze zelfstudie.
+   **Azure-locatie** | Geef dezelfde regio die is gebruikt voor het maken van uw Time Series Insights-omgeving in de vorige sectie.
+
+   Wanneer u klaar bent, selecteert u **oplossing maken** voor het inrichten van de oplossing Azure-resources. Het duurt maximaal 20 minuten om dit proces te voltooien.
+
+   [![De simulatie apparaten inrichten](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
+
+1. Nadat het inrichten is voltooid, verandert de tekst boven de nieuwe oplossing van **Provisioning** naar **gereed**.
+
+   >[!IMPORTANT]
+   > Selecteer niet **starten** nog! Houd deze webpagina geopend, omdat u keert terug naar het later opnieuw.
+
+   [![Simulatie van apparaten inrichten is voltooid](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
+
+1. Nu de zojuist gemaakte resources in Azure portal controleren. Op de **resourcegroepen** pagina, ziet u dat een nieuwe resourcegroep is gemaakt met behulp van de **oplossingsnaam** opgegeven in de vorige stap. Noteer de resources die zijn gemaakt voor de apparaatsimulatie.
+
+   [![Bronnen van de simulatie van apparaat](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
 ## <a name="create-an-environment"></a>Een omgeving maken
 
-Maak eerst een Time Series Insights-omgeving in uw Azure-abonnement.
+Ten tweede, een Time Series Insights-omgeving in uw Azure-abonnement maken.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van de account van uw Azure-abonnement. 
 1. Selecteer linksboven **+ Een resource maken**. 
@@ -59,119 +95,36 @@ Maak eerst een Time Series Insights-omgeving in uw Azure-abonnement.
 
    Parameter|Description
    ---|---
-   **Omgevingsnaam** | Kies een unieke naam voor de Time Series Insights-omgeving. De namen worden gebruikt door de Time Series Insights explorer en de Query-API's.
+   **Omgevingsnaam** | Kies een unieke naam voor de Time Series Insights-omgeving. De namen worden gebruikt door de Time Series Insights explorer en de [Query-API's](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
    **Abonnement** | Abonnementen zijn containers voor Azure-resources. Kies een abonnement om de Time Series Insights-omgeving te maken.
    **Resourcegroep** | Een resourcegroep is een container voor Azure-resources. Kies een bestaande resourcegroep of maak een nieuw wachtwoord voor de resource van Time Series Insights-omgeving.
-   **Locatie** | Kies een regio data center voor uw Time Series Insights-omgeving. Om te voorkomen dat extra bandbreedtekosten en latentie, houden met de Time Series Insights-omgeving in dezelfde regio als andere IoT-resources.
-   **SKU-prijzen** | Kies de benodigde doorvoer. Selecteer voor de laagste kosten en starter capaciteit, `S1`.
-   **Capaciteit** | Capaciteit is de vermenigvuldigingsfactor die wordt toegepast op de invoersnelheid, opslagcapaciteit en kosten die aan de geselecteerde SKU zijn verbonden. U kunt de capaciteit wijzigen nadat de is gemaakt. Voor de laagste kosten, selecteert u een capaciteit van 1.
+   **Location** | Kies een regio data center voor uw Time Series Insights-omgeving. Om te voorkomen dat extra latentie, de Time Series Insights-omgeving in dezelfde regio als andere IoT-resources te maken.
+   **Laag** | Kies de benodigde doorvoer. Selecteer **S1**.
+   **Capaciteit** | Capaciteit is de vermenigvuldiger toegepast op het tarief voor inkomend verkeer en opslagcapaciteit die zijn gekoppeld aan de geselecteerde SKU. U kunt de capaciteit wijzigen nadat de is gemaakt. Selecteer een capaciteit van **1**.
 
-   Wanneer u klaar bent, selecteert u **maken** om te beginnen met het inrichtingsproces.
+   Wanneer u klaar bent, selecteert u **revisie + maken** om door te gaan met de volgende stap.
 
    [![Een resource van Time Series Insights-omgeving maken](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
+
+1. De Time Series Insights-omgeving wordt nu verbinding maken met de IoT-hub gemaakt door de Solution Accelerator. Stel **selecteert u een hub** naar `Select existing`. Kies vervolgens de IoT-hub gemaakt door de Solution Accelerator bij het instellen van **IoT Hub-naam**.
+
+   [![Verbinding maken met de Time Series Insights-omgeving naar de gemaakte IoT-hub](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
 
 1. Controleer de **meldingen** deelvenster voor het bewaken van de implementatie is voltooid. 
 
    [![Time Series Insights-omgeving de implementatie is voltooid](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="create-a-device-simulation"></a>Een apparaatsimulatie maken
-
-Maak vervolgens de oplossing voor het simuleren van apparaten, waardoor testgegevens om in te vullen uw Time Series Insights-omgeving worden gegenereerd.
-
-1. In een apart venster of tabblad, gaat u naar [azureiotsolutions.com](https://www.azureiotsolutions.com). Meld u aan met behulp van hetzelfde account Azure-abonnement en selecteer de **Apparaatsimulatie** accelerator.
-
-   [![Voer de Apparaatsimulatie-accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
-
-1. Voer de vereiste parameters op de **maken Apparaatsimulatie-oplossing** pagina.
-
-   Parameter|Description
-   ---|---
-   **Naam van de oplossing** | Deze unieke waarde wordt gebruikt om een nieuwe resourcegroep te maken. De vermelde Azure-resources worden gemaakt en toegewezen aan de resourcegroep.
-   **Abonnement** | Geef hetzelfde abonnement als dat is gebruikt voor het maken van uw Time Series Insights-omgeving in de vorige sectie.
-   **Regio** | Geef dezelfde regio die is gebruikt voor het maken van uw Time Series Insights-omgeving in de vorige sectie.
-   **Optionele Azure-resources implementeren** | Laat **IoT-Hub** gecontroleerd. De gesimuleerde apparaten gebruiken om verbinding te maken voor het streamen van gegevens.
-
-   Wanneer u klaar bent, selecteert u **oplossing maken** voor het inrichten van de oplossing Azure-resources. Het duurt 6-7 minuten om dit proces te voltooien.
-
-   [![De simulatie apparaten inrichten](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
-
-1. Nadat het inrichten is voltooid, verandert de tekst boven de nieuwe oplossing van **Provisioning** naar **gereed**.
-
-   >[!IMPORTANT]
-   > Selecteer niet **starten** nog! Houd deze webpagina geopend, omdat u keert terug naar het later opnieuw.
-
-   [![Simulatie van apparaten inrichten is voltooid](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
-
-1. Nu gaat u terug naar de Azure-portal en controleren van de zojuist gemaakte resources in uw abonnement. In de portal **resourcegroepen** pagina, ziet u dat een nieuwe resourcegroep is gemaakt met behulp van de **oplossingsnaam** opgegeven in de vorige stap. Let ook op alle resources die zijn gemaakt ter ondersteuning van de oplossing voor het simuleren van apparaten.
-
-   [![Apparaatsimulatieoplossingsresources](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
-
-## <a name="connect-the-environment-to-the-iot-hub"></a>Verbinding maken met de omgeving naar de IoT hub
-
-Op dit punt hebt u geleerd hoe u twee sets resources kunt maken, elk in hun eigen resourcegroep:
-
-- Een lege Time Series Insights-omgeving.
-- Simulatie oplossing apparaatbronnen, waaronder een IoT-hub, die worden gegenereerd door een oplossingsversnellers.
-
-Bedenk dat de gesimuleerde apparaten verbinding moeten maken met een IoT-hub om apparaatgegevens te streamen. Als u wilt laten doorlopen de gegevens in de Time Series Insights-omgeving, moet u configuratiewijzigingen aanbrengt aan zowel uw IoT-hub en de Time Series Insights-omgeving.
-
-### <a name="iot-hub-configuration-define-a-consumer-group"></a>Configuratie van de IoT-hub: Een consumergroep definiëren
-
-IoT Hub biedt verschillende eindpunten voor het delen van de functionaliteit voor andere actoren. Het eindpunt '' gebeurtenissen biedt een manier voor andere toepassingen gebruiken voor gegevens zoals deze wordt gestreamd naar een IoT hub-instantie. Met name bieden "consumentengroepen" een mechanisme voor toepassingen om te luisteren en gegevens ophalen uit de IoT-hub.
-
-Vervolgens definieert u een nieuwe **consumergroep** eigenschap op het apparaat simulatie oplossing van IoT-hub **eindpunt gebeurtenissen**.
-
-1. In de Azure-portal, gaat u naar de **overzicht** pagina van de resourcegroep die u hebt gemaakt voor de oplossing voor het simuleren van apparaten. Selecteer de IoT hub-resource.
-
-   [![Apparaatsimulatieoplossingsresourcegroep](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png#lightbox)
-
-   Noteer de **naam** van de IoT Hub-resource die is gegenereerd voor de oplossing. U kunt hier later naar verwijzen.
-
-1. Schuif omlaag en selecteer de **eindpunten** pagina en selecteer vervolgens de **gebeurtenissen** eindpunt. Op het eindpunt **eigenschappen** pagina, voer een unieke naam voor uw eindpunt onder de consumergroep '$Default'. Selecteer **Opslaan**.
-
-   [![IoT-hub-eindpunten apparaatsimulatieoplossing](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
-
-### <a name="environment-configuration-define-an-event-source"></a>Configuratie van de omgeving: een gebeurtenisbron definiëren
-
-Nu verbinding maken met de nieuwe IoT hub **consumergroep** gebeurtenis eindpunt Time Series Insights-omgeving als een **gebeurtenisbron**.
-
-1. Ga naar de **overzicht** pagina van de resourcegroep die u hebt gemaakt voor de Time Series Insights-omgeving. Selecteer de Time Series Insights-omgeving.
-
-   [![Resourcegroep voor Time Series Insights-omgeving en de omgeving](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png#lightbox)
-
-1. Selecteer op de pagina van de Time Series Insights-omgeving **gebeurtenisbronnen**. Selecteer vervolgens **+ toevoegen**.
-
-   [![Overzicht van Time Series Insights-omgeving](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png#lightbox)
-
-1. Voer de vereiste parameters op de **nieuwe gebeurtenisbron** pagina.
-
-   Parameter|Description
-   ---|---
-   **Naam van gebeurtenisbron** | Vereist een unieke waarde, die wordt gebruikt om de gebeurtenisbron een naam te geven.
-   **Bron** | Selecteer **IoT-Hub**.
-   **Importoptie** | Selecteer de standaard `Use IoT hub from available subscriptions`. Deze optie zorgt ervoor dat de volgende vervolgkeuzelijst om te worden ingevuld met de beschikbare abonnementen.
-   **Abonnement** | Selecteer het hetzelfde abonnement waarin u de Time Series Insights-omgeving en de Apparaatsimulatie-resources gemaakt.
-   **Naam van de IoT-hub** | Als het goed is, wordt standaard de naam van de IoT-hub die u eerder hebt genoteerd ingevuld. Als dat niet het geval is, selecteert u de juiste IoT-hub.
-   **Naam van het IoT-hub-beleid** | Selecteer **iothubowner**.
-   **IoT-hub-consumentengroep** | Als het goed is, wordt standaard de naam van de IoT-hub-consumentengroep ingevuld die u eerder hebt gemaakt. Als dat niet het geval is, selecteert u de naam van de juiste consumentengroep.
-   **Serialisatie-indeling voor gebeurtenissen** | Behoud de rolledover waarde van `JSON`.
-   **Naam van de timestamp-eigenschap** | Geef als `timestamp`.
-
-   Wanneer u klaar bent, selecteert u **maken** om toe te voegen bron van de gebeurtenis. Als u terugkeert naar de resourcegroep **overzicht** pagina, samen met uw omgeving Time Series Insights-resource, ziet u een nieuwe 'Time Series Insights-gebeurtenisbron'-resource.
-
-   [![Een time Series Insights-omgeving nieuwe gebeurtenisbron](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png#lightbox)
-
 ## <a name="run-device-simulation-to-stream-data"></a>Apparaatsimulatie uitvoeren om gegevens te streamen
 
-Nu dat al het configuratiewerk is voltooid, is het tijd voor het vullen van de Time Series Insights-omgeving met voorbeeldgegevens uit de gesimuleerde apparaten.
+Nu dat de implementatie en de eerste configuratie's volledig, vult u de Time Series Insights-omgeving met voorbeeldgegevens uit het [gesimuleerde apparaten die zijn gemaakt door de accelerator](#create-a-device-simulation).
 
-U kunt intrekken van de [maakt u een apparaat simuleren-sectie](#create-a-device-simulation), verschillende Azure-resources zijn gemaakt door de accelerator voor de ondersteuning van de oplossing. Samen met de eerder besproken IoT-hub is een Azure App Service-webtoepassing gegenereerd om telemetrie voor gesimuleerde apparaten te maken en te verzenden.
+Samen met de IoT-hub is een Azure App Service-web-App gegenereerd voor het maken en verzenden van telemetrie van gesimuleerde apparaten.
 
 1. Ga terug naar het dashboard [Oplossingsverbeteringen](https://www.azureiotsolutions.com/Accelerators#dashboard). Meld u opnieuw, indien nodig, met behulp van de dezelfde Azure-account die u hebt gebruikt in deze zelfstudie. Nu kunt u **starten** onder uw oplossing 'Apparaatsimulatie'.
 
      [![Dashboard van de oplossing accelerators](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 
-1. De apparaat-simulatie web app wordt gestart op dit punt en het kunnen enkele seconden bij het initiële laden duren. U wordt ook gevraagd om toestemming te verlenen de web-App in de 'aanmelden en uw profiel te lezen' machtiging. Deze machtiging kan de toepassing om op te halen die nodig zijn voor de ondersteuning van de werking van de toepassing van gebruikersprofielgegevens.
+1. De apparaat-simulatie web-app begint met de vraag of u de web-App verlenen de 'aanmelden en uw profiel te lezen' machtiging. Deze machtiging kan de toepassing om op te halen die nodig zijn voor de ondersteuning van de werking van de toepassing van gebruikersprofielgegevens.
 
      [![Apparaat simulatie web toepassing toestemming](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
@@ -219,7 +172,7 @@ In deze laatste sectie controleert u dat de telemetrische gegevens is gegenereer
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Deze zelfstudie maakt u meerdere actief Azure-services ter ondersteuning van de Time Series Insights-omgeving en apparaat simulatie-oplossing. Als u wilt afbreken of uitstellen van uw werk op in deze reeks zelfstudies, verwijdert u alle resources om te voorkomen dat er onnodige kosten in rekening.
+Deze zelfstudie maakt u meerdere actief Azure-services ter ondersteuning van de Time Series Insights-omgeving en apparaat simulatie-oplossing. U kunt ze verwijderen, gaat u terug naar de Azure portal.
 
 In het menu aan de linkerkant in Azure portal:
 

@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8e6873a1ef44e8919d08d24dbab88c63ebb45bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57c5b7a6044de0413c07538e5f1e6034e210d529
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110518"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155238"
 ---
 # <a name="what-is-a-device-identity"></a>Wat is een apparaat-id?
 
@@ -33,7 +33,7 @@ In een wereld waar mobiliteit en cloud belangrijke begrippen zijn, maakt Azure A
 
 Uw gebruikers krijgen via apparaten in Azure AD toegang tot uw zakelijke assets. Ter bescherming van uw bedrijfsmiddelen, als IT-beheerder, wilt u deze identiteiten apparaten beheren. Zo kunt u ervoor zorgen dat uw gebruikers toegang tot uw bronnen hebben vanaf apparaten die voldoen aan uw normen voor beveiliging en naleving.
 
-Apparaatbeheer-identiteit is ook de basis vormt voor [apparaat gebaseerde voorwaardelijke toegang](../conditional-access/require-managed-devices.md). Met voorwaardelijke toegang op basis van apparaat, kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving is alleen mogelijk met beheerde apparaten.
+Apparaatbeheer-identiteit is ook de basis vormt voor [apparaat gebaseerde voorwaardelijke toegang](../conditional-access/require-managed-devices.md). Met voorwaardelijke toegang op basis van apparaat kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving alleen mogelijk is met beheerde apparaten.
 
 ## <a name="getting-devices-in-azure-ad"></a>Ophalen van apparaten in Azure AD
 
@@ -44,7 +44,7 @@ Als u een apparaat in Azure AD, hebt u twee opties:
 
 **Registratie** van een apparaat bij Azure AD stelt u in staat de identiteit van een apparaat te beheren. Wanneer een apparaat is geregistreerd, geeft Azure AD-apparaatregistratie het apparaat een identiteit die wordt gebruikt om het apparaat te verifiëren wanneer een gebruiker zich aanmeldt bij Azure AD. U kunt de identiteit gebruiken om een apparaat in of uit te schakelen.
 
-In combinatie met een MDM-oplossing (Mobile Device Management), zoals Microsoft Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met extra informatie over het apparaat. Hiermee kunt u het maken van regels voor voorwaardelijke toegang die toegang van apparaten afdwingen om te voldoen aan uw normen voor beveiliging en naleving. Zie [Wat is apparaatinschrijving?](https://docs.microsoft.com/intune/device-enrollment) voor meer informatie over het inschrijven van apparaten in Microsoft Intune.
+In combinatie met een MDM-oplossing (Mobile Device Management), zoals Microsoft Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met extra informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance Zie [Wat is apparaatinschrijving?](https://docs.microsoft.com/intune/device-enrollment) voor meer informatie over het inschrijven van apparaten in Microsoft Intune.
 
 **Koppeling** van een apparaat is een uitbreiding van registratie van een apparaat. Dit betekent dat u niet alleen alle voordelen van registratie krijgt, maar ook dat de lokale status van een apparaat wordt gewijzigd. Wijziging van de lokale status stelt uw gebruikers in staat zich bij een apparaat aan te melden met behulp van een werk- of schoolaccount in plaats van een persoonlijk account.
 
@@ -71,6 +71,7 @@ Het doel van Azure AD-gekoppelde apparaten is vereenvoudiging van:
 - Windows-implementaties van apparaten die eigendom van het bedrijf zijn
 - Toegang tot apps en bronnen van de organisatie vanaf elk Windows-apparaat
 - Cloudgebaseerd beheer van apparaten die eigendom van het bedrijf zijn
+- Gebruikers zich aanmelden op hun apparaten met hun Azure AD of gesynchroniseerde Active Directory werk- of schoolaccount.
 
 ![Azure AD-geregistreerde apparaten](./media/overview/02.png)
 
@@ -137,12 +138,10 @@ Als vuistregel geldt:
 - Gebruik Azure AD-gekoppelde apparaten:
    - Voor apparaten die eigendom van uw organisatie zijn
    - Voor apparaten die **niet** zijn gekoppeld aan een on-premises AD
-   - Om apparaten handmatig te registreren bij Azure AD
    - Om de lokale status van een apparaat te wijzigen
 - Gebruik hybride Azure AD-gekoppelde apparaten:
    - Voor apparaten die eigendom van uw organisatie zijn
    - Voor apparaten die zijn gekoppeld aan een on-premises AD
-   - Om apparaten automatisch te registreren bij Azure AD
    - Om de lokale status van een apparaat te wijzigen
 
 ## <a name="license-requirements"></a>Licentievereisten
@@ -156,4 +155,4 @@ Als vuistregel geldt:
    - Azure Active Directory ingeschreven Windows 10-apparaten, Zie [het configureren van Azure Active Directory geregistreerde Windows 10-apparaten](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
    - Azure Active Directory gekoppelde apparaten, Zie [over het plannen van de implementatie van Azure Active Directory join](azureadjoin-plan.md).
    - Hybride Azure AD-gekoppelde apparaten raadpleegt u [De implementatie van uw hybride Azure Active Directory-koppeling plannen](hybrid-azuread-join-plan.md).
-- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [beleid voor voorwaardelijke toegang van Azure Active Directory configureren op basis van apparaat](../conditional-access/require-managed-devices.md).
+- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory configureren](../conditional-access/require-managed-devices.md).

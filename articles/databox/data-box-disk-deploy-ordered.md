@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 06/17/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 5f8fd9b2ecb58b34476bf8ecca7aa08dfc446040
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603177"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273390"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Zelfstudie: Een Azure Data Box Disk bestellen
 
@@ -49,7 +49,12 @@ Zorg voordat u begint voor het volgende:
 
 ## <a name="order-data-box-disk"></a>Data Box Disk bestellen
 
-Voer de volgende stappen uit in [Azure Portal](https://aka.ms/azuredataboxfromdiskdocs) om een Data Box Disk te bestellen.
+Aanmelden bij:
+
+- De Azure-portal op de volgende URL: https://portal.azure.com te bestellen Data Box-schijf.
+- Of, in de Azure Government-portal op de volgende URL: https://portal.azure.us. Voor meer informatie gaat u naar [verbinding maken met Azure Government met behulp van de portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+De volgende stappen uitvoeren om Data Box-schijf.
 
 1. Klink linksboven in de hoek van de portal op **+ Een resource maken** en zoek naar *Azure Data Box*. Klik op **Azure Data Box**.
     

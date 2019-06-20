@@ -6,19 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/5/2019
+ms.date: 6/20/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: ace0b56ce1ba4c140666c8f2dd6e2187f479446e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753731"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272642"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
-Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die uw Azure Virtual Network-resources beschermt. Er is een volledig stateful firewall als een service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. 
+Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die uw Azure Virtual Network-resources beschermt. Er is een volledig stateful firewall als een service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte.
 
 ![Firewalloverzicht](media/overview/firewall-threat.png)
 
@@ -31,6 +31,21 @@ Azure Firewall biedt de volgende functies:
 ### <a name="built-in-high-availability"></a>Ingebouwde hoge beschikbaarheid
 
 Hoge beschikbaarheid is ingebouwd in, zodat er zijn geen extra load balancers vereist zijn en er u hoeft niets is te configureren.
+
+### <a name="availability-zones-public-preview"></a>Beschikbaarheidszones (preview-versie)
+
+Firewall van Azure kan worden geconfigureerd tijdens de implementatie in meerdere Beschikbaarheidszones voor verhoogde beschikbaarheid omvatten. Met Beschikbaarheidszones, wordt de beschikbaarheid van uw verhoogd naar bedrijfstijd van 99,99%. Zie voor meer informatie, de Azure-Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). De bedrijfstijd van 99,99% SLA wordt aangeboden wanneer twee of meer Beschikbaarheidszones zijn geselecteerd.
+
+U kunt Azure-Firewall ook koppelen aan een specifieke zone alleen omwille van de nabijheid, met behulp van de service standaard 99,95% SLA.
+
+Er is geen extra kosten voor een firewall in een Beschikbaarheidszone is geïmplementeerd. Er zijn echter extra kosten voor binnenkomende en uitgaande gegevensoverdracht die zijn gekoppeld met Beschikbaarheidszones. Zie voor meer informatie, [prijsinformatie voor bandbreedte](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+Azure-Beschikbaarheidszones Firewall zijn beschikbaar in regio's die ondersteuning voor Beschikbaarheidszones. Zie voor meer informatie, [wat zijn Beschikbaarheidszones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
+
+> [!NOTE]
+> Beschikbaarheidszones kan alleen worden geconfigureerd tijdens de implementatie. U kunt een bestaande firewall om op te nemen van de Beschikbaarheidszones niet configureren.
+
+Zie voor meer informatie over Beschikbaarheidszones [wat zijn Beschikbaarheidszones in Azure?](../availability-zones/az-overview.md)
 
 ### <a name="unrestricted-cloud-scalability"></a>Onbeperkte cloudschaalbaarheid
 
@@ -64,6 +79,18 @@ Alle uitgaande IP-adressen van virtueel netwerkverkeer worden geconverteerd naar
 
 Het inkomende netwerkverkeer op het openbare IP-adres van de firewall wordt omgezet (Destination Network Address Translation) en gefilterd op het privé-IP-adres in uw virtuele netwerken.
 
+### <a name="multiple-public-ips-public-preview"></a>Meerdere openbare IP-adressen (openbare preview)
+
+U kunt meerdere openbare IP-adressen (maximaal 600) koppelen aan uw firewall.
+
+Hiermee kunt de volgende scenario's:
+
+- **DNAT** -u kunt meerdere exemplaren van de standaardpoort vertalen naar uw back-endservers. Als u twee openbare IP-adressen hebt, kunt u bijvoorbeeld TCP-poort 3389 (RDP) voor beide IP-adressen vertalen.
+- **SNAT** -aanvullende poorten zijn beschikbaar voor uitgaande SNAT-verbindingen, verminderen de kans op poortuitputting SNAT. Op dit moment selecteert Azure Firewall willekeurig het openbare IP-bronadres te gebruiken voor een verbinding. Als u een downstream filteren op uw netwerk hebt, moet u alle openbare IP-adressen die zijn gekoppeld aan uw firewall toestaan.
+
+> [!NOTE]
+> Tijdens de preview-versie, als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall bestaande binnenkomende verbindingen met behulp van regels DNAT werkt mogelijk niet voor 40-120 seconden.
+
 ### <a name="azure-monitor-logging"></a>Logboekregistratie van Azure Monitor
 
 Alle gebeurtenissen zijn geïntegreerd met Azure Monitor, zodat u logboeken kunt archiveren in een opslagaccount, gebeurtenissen kunt streamen naar uw Event Hub of deze kunt verzenden naar Azure Monitor-logboeken.
@@ -82,7 +109,11 @@ Netwerkfilterregels voor niet-TCP/UDP-protocollen (bijvoorbeeld ICMP) werken nie
 |Poortbereik in netwerk- en toepassingsregels|Het aantal poorten is beperkt tot 64.000 omdat hoge poorten zijn gereserveerd voor beheer en statustests. |Er wordt geprobeerd om deze beperking te versoepelen.|
 |Waarschuwingen van Threat intelligence mogelijk ophalen gemaskeerd.|Netwerkregels met doel 80/443 voor uitgaande filteren maskers threat intelligence waarschuwingen wanneer geconfigureerd voor de waarschuwing alleen-modus.|Maak met behulp van regels voor het toepassen van 80/443 uitgaande filteren. Of wijzig de modus threat intelligence voor **waarschuwen en weigeren**.|
 |Firewall van Azure maakt gebruik van Azure DNS alleen voor het omzetten van|Firewall van Azure wordt omgezet FQDN-namen alleen met behulp van Azure DNS. Een aangepaste DNS-server wordt niet ondersteund. Er is geen invloed op DNS-omzetting in andere subnetten.|Er wordt geprobeerd om deze beperking te versoepelen.|
-|Azure Firewall SNAT/DNAT werkt niet voor persoonlijke IP-bestemmingen|Ondersteuning van Azure Firewall SNAT/DNAT is beperkt tot Internet uitgaand/inkomende. SNAT/DNAT werkt momenteel niet voor persoonlijke IP-doelen. Bijvoorbeeld, spoke-knooppunt.|Dit staat op het overzicht voor een toekomstige update.
+|Azure Firewall SNAT/DNAT werkt niet voor persoonlijke IP-bestemmingen|Ondersteuning van Azure Firewall SNAT/DNAT is beperkt tot Internet uitgaand/inkomende. SNAT/DNAT werkt momenteel niet voor persoonlijke IP-doelen. Bijvoorbeeld, spoke-knooppunt.|Dit is een beperking.|
+|Eerste openbare IP-adres verwijderen niet|U kunt de eerste openbare IP-adres toegewezen aan de firewall, tenzij de firewall is ongedaan gemaakt of verwijderd niet verwijderen.|Dit is standaard.|
+|Als u toevoegen of verwijderen van een openbaar IP-adres, werken de DNAT regels mogen niet tijdelijk.| Als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall, werkt mogelijk niet bestaande binnenkomende verbindingen met behulp van regels DNAT 40-120 seconden.|Dit is een beperking van de openbare preview-versie voor deze functie.|
+|Beschikbaarheidszones kunnen alleen worden geconfigureerd tijdens de implementatie.|Beschikbaarheidszones kunnen alleen worden geconfigureerd tijdens de implementatie. U kunt de Beschikbaarheidszones niet configureren nadat een firewall is geïmplementeerd.|Dit is standaard.|
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Zelfstudie: Azure Firewall implementeren en configureren met Azure Portal](tutorial-firewall-deploy-portal.md)

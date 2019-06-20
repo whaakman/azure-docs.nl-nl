@@ -1,18 +1,18 @@
 ---
-title: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package - Azure
-description: Leer hoe u Apache Ranger-beleidsregels voor Kafka configureert in Azure HDInsight met Enterprise Security Package.
+title: Zelfstudie - beleid van Apache Kafka in HDInsight met Enterprise-beveiligingspakket - Azure configureren
+description: 'Zelfstudie: informatie over het configureren van Apache Ranger-beleidsregels voor Kafka in Azure HDInsight met Enterprise-beveiligingspakket.'
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 01/14/2019
-ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/18/2019
+ms.openlocfilehash: 3a7d3a5d066db349bd3002b244d3a9f88777369b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730249"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274342"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package (preview)
 
@@ -61,7 +61,7 @@ Maak een Ranger-beleid voor **sales_user** en **marketing_user**.
 
    |**Instelling**  |**Voorgestelde waarde**  |
    |---------|---------|
-   |Policy Name  |  hdi sales* policy   |
+   |Beleidsnaam  |  hdi sales* policy   |
    |Onderwerp   |  sales* |
    |Select User  |  sales_user1 |
    |Machtigingen  | Publish, Consume, Create |
@@ -82,7 +82,7 @@ Maak een Ranger-beleid voor **sales_user** en **marketing_user**.
 
    |**Instelling**  |**Voorgestelde waarde**  |
    |---------|---------|
-   |Policy Name  |  hdi marketing policy   |
+   |Beleidsnaam  |  hdi marketing policy   |
    |Onderwerp   |  marketingspend |
    |Select User  |  marketing_user1 |
    |Machtigingen  | Publish, Consume, Create |
@@ -117,7 +117,7 @@ Twee onderwerpen, `salesevents` en `marketingspend`, maken:
    ```
 
    > [!Note]  
-   > Voordat u doorgaat, moet u mogelijk uw ontwikkelomgeving instellen als u dit nog niet hebt gedaan. U hebt onderdelen zoals de Java JDK, Apache Maven en een SSH-client met scp nodig. Zie de [installatie-instructies](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) voor meer informatie.
+   > Voordat u doorgaat, moet u mogelijk uw ontwikkelomgeving instellen als u dit nog niet hebt gedaan. U hebt onderdelen zoals de Java JDK, Apache Maven en een SSH-client met scp nodig. Zie voor meer informatie, [installatie-instructies](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
    
 1. Download de [voorbeelden voor aan een domein gekoppelde Apache Kafka voor producer/consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 

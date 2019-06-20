@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6949824f598194456837544526223b823dcfc3e5
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60948856"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273347"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Quickstart: Uw eerste Bing Custom Search-exemplaar maken
 
@@ -46,7 +46,7 @@ Een exemplaar voor aangepaste zoekopdrachten met Bing maken:
 
 5. Klik op **Publiceren** om uw wijzigingen naar de productieomgeving te publiceren, en werk de eindpunten van het exemplaar bij.
 
-6.  Klik op het tabblad **Productie** onder **Eindpunten**. Kopieer de **id van de aangepaste configuratie**. U hebt deze id nodig om de Custom Search-API aan te roepen waarbij u de id aan de queryparameter `customconfig=` in uw aanroepen moet toevoegen.
+6.  Klik op de **productie** tabblad onder **eindpunten**, en kopieer uw **aangepaste configuratie-ID**. U hebt deze id nodig om de Custom Search-API aan te roepen waarbij u de id aan de queryparameter `customconfig=` in uw aanroepen moet toevoegen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

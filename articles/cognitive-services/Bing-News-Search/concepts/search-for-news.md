@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383416"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274166"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Nieuws zoeken met de Bing Nieuws zoeken-API
 
@@ -51,7 +51,7 @@ Als u nieuws uit een bepaald domein wilt opvragen, gebruikt u de query-operator 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Hieronder ziet u de respons op de vorige query. Als onderdeel van de [vereisten voor gebruik en weergave](../useanddisplayrequirements.md) van de Bing-API's voor zoeken moet u nieuwsartikelen weergeven in de volgorde waarin deze in het antwoord zijn opgenomen. Als het artikel geclusterde artikelen bevat, moet u aangeven dat er gerelateerde artikelen bestaan en dat deze op aanvraag moeten worden weergegeven.
+De volgende JSON-voorbeeld toont het antwoord op de vorige query. Als onderdeel van de [vereisten voor gebruik en weergave](../useanddisplayrequirements.md) van de Bing-API's voor zoeken moet u nieuwsartikelen weergeven in de volgorde waarin deze in het antwoord zijn opgenomen. Als het artikel geclusterde artikelen bevat, moet u aangeven dat er gerelateerde artikelen bestaan en dat deze op aanvraag moeten worden weergegeven.
 
 ```json
 {
@@ -107,7 +107,7 @@ Als Bing de categorie van het nieuwsartikel kan bepalen, bevat het artikel het v
 
 ## <a name="get-todays-top-news"></a>Het belangrijkste nieuws van vandaag ophalen
 
-Als u de belangrijkste nieuwsartikelen van vandaag wilt ophalen, gebruikt u dezelfde aanvraag als bij het ophalen van het algemene nieuws, behalve dat u de parameter `q` nu niet instelt.
+Als u de bovenste nieuwsartikelen van vandaag, kunt u de dezelfde algemene nieuws aanvraag sturen als voorheen, terwijl de `q` parameter uitschakelen.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-De respons voor het ophalen van belangrijk nieuws is bijna hetzelfde als die voor het ophalen van algemeen nieuws, met als verschil dat de respons `news` geen veld `totalEstimatedMatches` bevat omdat het om een bepaald aantal resultaten gaat. Het aantal belangrijke nieuwsartikelen kan variëren, afhankelijk van de nieuwscyclus. Vergeet niet om met `provider` bronvermelding toe te passen voor het artikel.
+Het antwoord voor het ophalen van belangrijk nieuws is bijna hetzelfde als het account dat voor het ophalen van algemene nieuws. met als verschil dat de respons `news` geen veld `totalEstimatedMatches` bevat omdat het om een bepaald aantal resultaten gaat. Het aantal belangrijke nieuwsartikelen kan variëren, afhankelijk van de nieuwscyclus. Zorg ervoor dat u de `provider` veld naar het artikel van het kenmerk.
 
 ## <a name="get-news-by-category"></a>Nieuws ophalen per categorie
 

@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88fb243af7628b159a2255c2cdae2ab86f39ca1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60555941"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275484"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Een CI/CD-pijplijn voor .NET maken met Azure DevOps Projects
 
@@ -44,17 +44,13 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Een voorbeeldtoepassing en Azure-service selecteren
 
-1. Selecteer de .NET-voorbeeldtoepassing. Bij de .NET-voorbeelden kunt u kiezen uit het open source-framework ASP.NET of het platformoverschrijdende .NET Core-framework.
+1. Selecteer de **.NET**-voorbeeldtoepassing. Bij de .NET-voorbeelden kunt u kiezen uit het open source-framework ASP.NET of het platformoverschrijdende .NET Core-framework.
 
     ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Selecteer het .NET Core-toepassingsframework.  
-    Dit voorbeeld gebruikt een ASP.NET Core MVC-toepassing.
+2. Dit voorbeeld gebruikt een ASP.NET Core MVC-toepassing. Selecteer de **.NET Core** toepassingsframework, selecteer vervolgens **volgende**.    
     
-2. Selecteer **Next**.  
-    Web App on Windows is het standaardimplementatiedoel.  Desgewenst kunt u ook kiezen voor Web App on Linux of Web App for Containers.  Het toepassingsframework, dat u eerder hebt gekozen, bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service.  
-    
-3. Laat de standaardservice ongewijzigd en selecteer **Volgende**.
+3. Selecteer **Web-App voor Windows** als het implementatiedoel van een, selecteert u vervolgens **volgende**. U kunt eventueel andere Azure-services voor uw implementatie. Het toepassingsframework, die u eerder hebt gekozen, bepaalt het type van de Azure-service-implementatiedoel beschikbaar hier.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps en een Azure-abonnement configureren 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4464796e655cefd28f858cb732ff3d5721a7aa47
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60908258"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206817"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Quickstart: Uw Azure-abonnement onboarden voor Security Center Standard
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en bedreigingsbeveiliging voor uw verschillende hybride cloudworkloads. De Gratis laag biedt beperkte beveiliging voor alleen uw Azure-resources, maar de prijscategorie Standard biedt deze mogelijkheden ook voor on-premises en andere clouds. Standard van Security Center helpt u beveiligingsproblemen te vinden en op te lossen, toegangs- en toepassingsbesturingselementen toe te passen om schadelijke activiteiten te blokkeren, bedreigingen te detecteren met behulp van analyses en gegevens en snel te reageren bij aanvallen. U kunt Security Center Standard kosteloos proberen. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -77,7 +77,7 @@ Automatische inrichting van de MMA inschakelen:
 2. Selecteer **Instellingen bewerken>** in de rij met het abonnement.
 3. Stel in het tabblad **Gegevensverzameling** **Automatische inrichting** in op **Aan**.
 4. Selecteer **Opslaan**.
-****
+---
   ![Automatische inrichting inschakelen][6]
 
 Security Center kan deze nieuwe inzichten in uw Azure-VM's gebruiken om extra aanbevelingen te doen met betrekking tot de updatestatus van het systeem, de beveiligingsconfiguraties van het besturingssysteem en de eindpuntbeveiliging. Ook kan Security Center aanvullende beveiligingswaarschuwingen genereren.
@@ -95,7 +95,7 @@ Andere snelstartgidsen en zelfstudies in deze verzameling zijn gebaseerd op deze
 Als u automatisch inrichten wilt uitschakelen:
 
 1. Ga terug naar het hoofdmenu van Security Center en selecteer **Beveiligingsbeleid**.
-2. In de rij abonnementen schakelt u automatisch inrichten uit en selecteert u **Instellingen bewerken>**.
+2. In de rij abonnementen schakelt u automatisch inrichten uit en selecteert u **Instellingen bewerken>** .
 3. Stel in het tabblad **Gegevensverzameling** **Automatische inrichting** in op **Uit**.
 4. Selecteer **Opslaan**.
 

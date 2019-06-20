@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Zelfstandig Service Fabric-cluster opschonen - Azure Service Fabric | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u het zelfstandige cluster kunt opschonen
+description: In deze zelfstudie leert u hoe u voor het opschonen van uw zelfstandige cluster
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,55 +15,62 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 67334a0e8ae3e6dcca86830cd088e6e446331aee
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 9127ad1fe148f85779913454adf6578a9a8a1055
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306702"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274087"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Zelfstudie: Opschonen van uw zelfstandige cluster
 
-Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze reeks zelfstudies maakt u een zelfstandig cluster dat in AWS wordt gehost en installeert u vervolgens een toepassing in het cluster.
+Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze zelfstudie, een zelfstandige cluster die worden gehost op AWS- of Azure maken en installeren van een toepassing erin.
 
-Deze zelfstudie is deel vier een serie. In dit deel van de reeks wordt uitgelegd hoe u de AWS-resources kunt opschonen die u hebt gemaakt voor het hosten van uw Service Fabric-cluster.
+Deze zelfstudie is deel vier een serie. Dit deel van de zelfstudie laat zien hoe u voor het opschonen van de AWS- of Azure-resources die u hebt gemaakt voor het hosten van uw Service Fabric-cluster.
 
 In deel vier van de serie leert u het volgende:
 
 > [!div class="checklist"]
 > * Service Fabric-cluster opschonen
-> * AWS-resources opschonen
+> * Opschonen van uw AWS- of Azure-resources
 
 ## <a name="clean-up-service-fabric-cluster"></a>Service Fabric-cluster opschonen
 
-* Ga met behulp van RDP naar het EC2-exemplaar dat u hebt gebruikt voor de installatie van Service Fabric.
-* Open PowerShell.
-* Ga naar de uitgepakte map uit de tweede zelfstudie.
-* Voer de volgende opdracht uit om het Service Fabric-cluster te verwijderen:
+1. Verbinding met de virtuele machine die u voor het geïnstalleerde Service Fabric gebruikt.
+2. Open PowerShell.
+3. Ga naar de uitgepakte map uit de tweede zelfstudie.
+4. Voer de volgende opdracht uit om het Service Fabric-cluster te verwijderen:
 
-```powershell
-.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
-```
+  ```powershell
+  .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
+  ```
 
-* Druk op `Y` als dat wordt gevraagd. Als de opdracht is gelukt, ziet de uitvoer er als volgt uit, maar dan met uw eigen IP-adressen:
+5. Voer `Y` wanneer hierom wordt gevraagd, als deze voltooid is de uitvoer ziet er als volgt met uw eigen IP-adressen vervangen in:
 
-```powershell
-Best Practices Analyzer completed successfully.
-Removing configuration from machine 172.31.21.141
-Removing configuration from machine 172.31.27.1
-Removing configuration from machine 172.31.20.163
-Configuration removed from machine 172.31.21.141
-Configuration removed from machine 172.31.27.1
-Configuration removed from machine 172.31.20.163
-The cluster is successfully removed.
-```
+  ```powershell
+  Best Practices Analyzer completed successfully.
+  Removing configuration from machine 172.31.21.141
+  Removing configuration from machine 172.31.27.1
+  Removing configuration from machine 172.31.20.163
+  Configuration removed from machine 172.31.21.141
+  Configuration removed from machine 172.31.27.1
+  Configuration removed from machine 172.31.20.163
+  The cluster is successfully removed.
+  ```
 
 ## <a name="clean-up-aws-resources"></a>AWS-resources opschonen
 
-* Meld u aan bij uw AWS-Account
-* Ga naar de EC2-console.
-* Selecteer de drie knooppunten die u hebt gemaakt in deel een van de zelfstudie.
-* Klik op **Actions** > **Instance State** > **Terminate**
+1. Meld u aan bij uw AWS-Account.
+2. Ga naar de EC2-console.
+3. Selecteer de drie knooppunten die u hebt gemaakt in deel een van de zelfstudie.
+4. Klik op **acties** > **status exemplaar** > **beëindigen**.
+
+## <a name="clean-up-azure-resources"></a>Opschonen van de Azure-resources
+
+1. Meld u aan bij Azure Portal.
+2. Ga naar de **virtuele Machines** sectie.
+3. Schakel de selectievakjes voor de drie knooppunten die u hebt gemaakt in deel één van de zelfstudie.
+4. Klik op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

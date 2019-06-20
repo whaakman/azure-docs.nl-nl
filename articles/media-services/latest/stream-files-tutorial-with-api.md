@@ -1,6 +1,6 @@
 ---
-title: Uploaden, coderen en streamen met Azure Media Services v3 met .NET | Microsoft Docs
-description: Volg de stappen van deze zelfstudie om een bestand te uploaden, een video te coderen en inhoud te streamen met Azure Media Services v3 via .NET.
+title: Uploaden, coderen en streamen met Azure Media Services v3 | Microsoft Docs
+description: Volg de stappen van deze zelfstudie voor het uploaden van een bestand en de video te coderen en streamen van uw inhoud met Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149151"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273242"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Zelfstudie: Video’s uploaden, coderen en streamen met behulp van .NET
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Zelfstudie: Video's uploaden, coderen en streamen
+
+> [!NOTE]
+> Hoewel de zelfstudie wordt gebruikgemaakt van de [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) voorbeelden van de algemene stappen zijn hetzelfde voor [REST-API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), of een andere ondersteunde [SDK's](media-services-apis-overview.md#sdks) .
 
 Met Azure Media Services kunt u mediabestanden coderen in indelingen die kunnen worden afgespeeld met een groot aantal verschillende browsers en apparaten. Zo kunt u bijvoorbeeld inhoud streamen in de indelingen Apple HLS of MPEG DASH. Voordat u gaat streamen, moet u uw digitale mediabestand van hoge kwaliteit coderen. Zie [Coderen](encoding-concept.md) voor richtlijnen voor codering. In deze zelfstudie wordt een lokaal videobestand geüpload en wordt het geüploade bestand gecodeerd. U kunt ook inhoud coderen die u toegankelijk maakt via een HTTPS-URL. Zie [Taakinvoer maken via een HTTP(s)-URL](job-input-from-http-how-to.md) voor meer informatie.
 
