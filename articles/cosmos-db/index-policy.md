@@ -4,20 +4,23 @@ description: Informatie over het configureren en wijzigen van de standaardbeleid
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431182"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163730"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexering in Azure Cosmos DB
 
 Elke container heeft in Azure Cosmos DB, een indexeringsbeleid die bepaalt hoe de items van de container moeten worden geïndexeerd. De standaardbeleidsregels voor indexering van beleid voor nieuwe gemaakt containers indexen elke eigenschap van elk item, bereik indexen voor een tekenreeks of getal en ruimtelijke indexen voor een GeoJSON-object van type punt. Hiermee kunt u hoge queryprestaties zonder te denken over het indexeren en indexbeheer vooraf ophalen.
 
 In sommige gevallen kunt u dit automatisch gedrag beter aan uw vereisten negeren. U kunt het indexeringsbeleid van een container aanpassen door in te stellen de *indexering modus*, en opnemen of uitsluiten *eigenschappaden*.
+
+> [!NOTE]
+> De methode voor het bijwerken van de indexing beleidsregels die worden beschreven in dit artikel is alleen van toepassing op Azure Cosmos DB SQL (Core) API.
 
 ## <a name="indexing-mode"></a>Indexering modus
 

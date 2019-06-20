@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824170"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190274"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -95,7 +95,7 @@ Wachtwoord gebaseerde eenmalige aanmelding wordt ondersteund voor alle cloud-geb
 - Chrome op Windows 7 of hoger, en op Mac OS X of hoger
 - Firefox 26,0 in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger
 
-Zie configureren van een cloudtoepassing voor wachtwoord gebaseerde eenmalige aanmelding [de toepassing configureren voor eenmalige aanmelding wachtwoord](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+Zie configureren van een cloudtoepassing voor wachtwoord gebaseerde eenmalige aanmelding [de toepassing configureren voor eenmalige aanmelding wachtwoord](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 Zie configureren van een on-premises toepassing voor eenmalige aanmelding via toepassingsproxy [wachtwoord vaulting voor eenmalige aanmelding met Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 

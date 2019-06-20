@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057948"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190637"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Toewijzing van gegevensstromen prestaties en afstemmen van de handleiding
 
@@ -59,6 +59,12 @@ Als u dit pictogram te klikken op weergegeven de uitvoeringsplan en latere prest
 * Instellen van de batchgrootte van de vertelt u ADF voor het opslaan van gegevens in sets in het geheugen in plaats van per rij. Er is een optionele instelling en u buiten resources kan uitvoeren op de rekenknooppunten als ze niet de juiste grootte hebben zijn.
 * Instellen van een query, kunt u rechts op de bronlocatie rijen filteren voordat ze zelfs binnenkomen voor de gegevensstroom voor verwerking, waardoor de aanschaf initiële gegevens sneller.
 * Als u een query gebruikt, kunt u optioneel queryhints toevoegen voor uw Azure SQL DB, dat wil zeggen READ UNCOMMITTED
+
+### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>Het isolatieniveau ingesteld op bron transformatie-instellingen voor SQL-gegevenssets
+
+* Niet-doorgevoerde lezen geven snellere queryresultaten over de transformatie van bron
+
+![Het isolatieniveau](media/data-flow/isolationlevel.png "isolatieniveau")
 
 ### <a name="set-sink-batch-size"></a>Set-sink-batchgrootte
 

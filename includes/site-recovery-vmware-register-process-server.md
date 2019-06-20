@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66169990"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176562"
 ---
 1. Tot stand brengen op een externe bureaubladverbinding met de machine met de processerver. 
 2. Voer cspsconfigtool.exe voor het starten van het configuratieprogramma van Azure Site Recovery voor de processerver.

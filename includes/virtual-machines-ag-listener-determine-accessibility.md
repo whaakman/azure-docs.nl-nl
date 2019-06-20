@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165487"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175988"
 ---
 Het is belangrijk om te profiteren van dat er twee manieren zijn om een listener voor de beschikbaarheidsgroep configureren in Azure. De manieren verschillen in het type van Azure load balancer die u gebruikt wanneer u de listener maakt. De volgende tabel worden de verschillen beschreven:
 

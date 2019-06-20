@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 93f4f74d435cc14130668da102d1246c5fad5872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238605"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176433"
 ---
 | Limiet-id | Limiet | Opmerkingen |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ ms.locfileid: "66238605"
 | Maximum aantal per back-upbeleid bewaarde back-ups |64 | |
 | Maximum aantal planningen per back-upbeleid |10 | |
 | Maximum aantal momentopnamen van elk type per volume kunnen worden bewaard |256 |Dit bedrag omvat lokale momentopnamen en cloud-momentopnamen. |
-| Maximum aantal momentopnamen die gebruikt in elk apparaat worden kunnen |10\.000 | |
+| Maximum aantal momentopnamen die gebruikt in elk apparaat worden kunnen |10.000 | |
 | Maximale aantal volumes dat voor back-up en herstel parallel kunnen worden verwerkt of klonen |16 |<ul><li>Als er meer dan 16 volumes, worden ze opeenvolgend verwerkt; verwerking sleuven beschikbaar komen.</li><li>Nieuwe back-ups van een gekloonde of een herstelde gelaagd volume is niet mogelijk totdat de bewerking is voltooid. Back-ups zijn voor een lokaal volume toegestaan nadat het volume online is.</li></ul> |
 | Terugzetten en herstellen van tijd voor gelaagde volumes klonen |< 2 minuten |<ul><li>Het volume wordt beschikbaar gesteld binnen twee minuten van een herstel of de kloonbewerking, ongeacht de grootte van het volume.</li><li>De prestaties van het volume kan in eerste instantie zijn langzamer dan normaal omdat de meeste van de gegevens en metagegevens is nog steeds bevindt zich in de cloud. Prestaties mogelijk verbeterd als gegevensstromen vanuit de cloud met de StorSimple-apparaat.</li><li>De totale tijd voor het downloaden van metagegevens is afhankelijk van de grootte van het toegewezen. Metagegevens is automatisch in het apparaat op de achtergrond met de snelheid van 5 minuten per TB aan gegevens toegewezen volume gebracht. Deze frequentie kan worden beïnvloed door internetbandbreedte naar de cloud.</li><li>Het terugzetten of de kloonbewerking is voltooid wanneer alle metagegevens op het apparaat is.</li><li>Back-upbewerkingen kunnen niet worden uitgevoerd totdat het herstel of de kloonbewerking is volledig is voltooid. |
 | Herstellen van tijd voor lokaal vastgemaakte volumes herstellen |< 2 minuten |<ul><li>Het volume wordt beschikbaar gesteld binnen twee minuten van de herstelbewerking, ongeacht de grootte van het volume.</li><li>De prestaties van het volume kan in eerste instantie zijn langzamer dan normaal omdat de meeste van de gegevens en metagegevens is nog steeds bevindt zich in de cloud. Prestaties mogelijk verbeterd als gegevensstromen vanuit de cloud met de StorSimple-apparaat.</li><li>De totale tijd voor het downloaden van metagegevens is afhankelijk van de grootte van het toegewezen. Metagegevens is automatisch in het apparaat op de achtergrond met de snelheid van 5 minuten per TB aan gegevens toegewezen volume gebracht. Deze frequentie kan worden beïnvloed door internetbandbreedte naar de cloud.</li><li>In tegenstelling tot gelaagde volumes als er lokaal vastgemaakte volumes is gegevens op het volume ook lokaal gedownload op het apparaat. De herstelbewerking is voltooid wanneer alle gegevens op het volume is ingesteld op het apparaat.</li><li>Het is mogelijk dat de herstelbewerkingen lang en de totale tijd voor de terugzetbewerking niet voltooien is afhankelijk van de grootte van de ingerichte lokaal volume, de Internet-bandbreedte en de bestaande gegevens op het apparaat. Back-upbewerkingen op de lokaal vastgemaakte volume zijn toegestaan terwijl de herstelbewerking uitgevoerd wordt. |

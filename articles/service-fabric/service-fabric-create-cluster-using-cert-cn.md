@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe1adc0aef80066721ce0b80419c787fe25346a9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394265"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190821"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementeren van een Service Fabric-cluster dat gebruik maakt van de algemene certificaatnaam in plaats van vingerafdruk
 Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Een cluster met behulp van algemene naam van het certificaat maakt het veel eenvoudiger Certificaatbeheer. In dit artikel wordt beschreven hoe u een Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat te implementeren.
@@ -84,12 +84,18 @@ Open eerst de *azuredeploy.parameters.json* bestand in een teksteditor en voeg d
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+},
 ```
 
 Vervolgens stelt de *certificateCommonName*, *sourceVaultValue*, en *certificateUrlValue* parameterwaarden die geretourneerd door het vorige script:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 "sourceVaultValue": {
   "value": "/subscriptions/<subscription>/resourceGroups/testvaultgroup/providers/Microsoft.KeyVault/vaults/testvault"
@@ -108,6 +114,12 @@ Open vervolgens de *azuredeploy.json* -bestand in een teksteditor en drie update
       "type": "string",
       "metadata": {
         "description": "Certificate Commonname"
+      }
+    },
+    "certificateIssuerThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Authority Issuer Thumpbrint for Commonname cert"
       }
     },
     ```
@@ -215,8 +227,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 * Meer informatie over het [rollover een clustercertificaat](service-fabric-cluster-rollover-cert-cn.md)
 * [Bijwerken en clustercertificaten beheren](service-fabric-cluster-security-update-certs-azure.md)
 * Vereenvoudig het beheer van het certificaat door [wijzigen-cluster op basis van de vingerafdruk van certificaat in een algemene naam](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
-
-[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
-IC-cluster-Change-CERT-thumbprint-to-CN.MD))
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

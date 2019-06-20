@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734657"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147933"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Lezen-replica's in Azure Database for PostgreSQL - één Server
 
@@ -122,6 +122,9 @@ Een replica wordt gemaakt met behulp van de configuratie van de dezelfde server 
 PostgreSQL vereist dat de waarde van de `max_connections` parameter voor de lezen-replica moet groter zijn dan of gelijk zijn aan de hoofd-waarde; anders wordt de replica niet start. In Azure Database for PostgreSQL, de `max_connections` parameterwaarde is gebaseerd op de SKU. Zie voor meer informatie, [limieten in Azure Database for PostgreSQL](concepts-limits.md). 
 
 Als u probeert om de waarden van de server te werken, maar niet aan de beperkingen voldoen, ontvangt u een foutbericht.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[PostgreSQL vereist](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) de waarde van de `max_prepared_transactions` parameter voor de lezen-replica moet groter zijn dan of gelijk zijn aan de hoofd-waarde; anders wordt de replica niet start. Als u wilt wijzigen `max_prepared_transactions` op de hoofddoelserver eerst wijzigen op de replica's.
 
 ### <a name="stopped-replicas"></a>Gestopte replica 's
 Als u replicatie tussen een hoofd-server en een lezen replica stopt, wordt de replica opnieuw wordt opgestart als de wijziging wilt toepassen. De gestopte replica wordt een zelfstandige server die zowel lees- en schrijfbewerkingen accepteert. De zelfstandige server kan niet opnieuw worden gemaakt in een replica.
