@@ -1,23 +1,35 @@
 ---
-title: De Azure Active Directory-beleid configureren voor Azure Data Catalog
-description: U kunt een situatie kan optreden wanneer u zich kunt aanmelden bij de Azure Data Catalog-portal, maar wanneer u probeert te melden bij het registratiehulpprogramma voor gegevensbronnen, er wordt een foutbericht weergegeven.
+title: Problemen oplossen met Azure Data Catalog
+description: Dit artikel worden algemene problemen voor het oplossen van problemen met voor Azure Data Catalog-resources.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
-ms.date: 04/06/2019
-ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: troubleshooting
+ms.date: 06/13/2019
+ms.openlocfilehash: ed74e90e5e8ed55b75968f51cb50e6a1b4cdd75d
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116598"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203509"
 ---
-# <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory-beleid configureren
+# <a name="troubleshooting-azure-data-catalog"></a>Oplossen van problemen met Azure Data Catalog
+
+Dit artikel worden algemene problemen voor het oplossen van problemen met voor Azure Data Catalog-resources. 
+
+## <a name="functionality-limitations"></a>Beperkingen van de functionaliteit
+
+Wanneer u Azure Data Catalog, zijn de volgende functionaliteit is beperkt:
+
+- Accounts met het type **gastrol** worden niet ondersteund. U kunt geen Gast-accounts toevoegen als gebruikers van Azure Data Catalog en gastgebruikers ook kunnen de portal op www.azuredatacatalog.com niet gebruiken.
+
+- Het maken van Azure Data Catalog-resources met behulp van Azure Resource Manager-sjablonen of Azure PowerShell-opdrachten wordt niet ondersteund.
+
+- De Azure Data Catalog-resource kan niet worden verplaatst tussen Tenants van Azure.
+
+## <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory-beleid configureren
 
 Het kan voorkomen dat u zich wel kunt aanmelden bij de Azure Data Catalog-portal, maar niet bij het hulpprogramma voor gegevensbronregistratie. Er wordt dan een foutmelding weergegeven. Deze fout kan optreden wanneer u zich op het bedrijfsnetwerk bevindt of wanneer u verbinding vanaf buiten het bedrijfsnetwerk bevindt maakt.
-
-## <a name="registration-tool"></a>Hulpprogramma voor registratie
 
 Het registratiehulpprogramma maakt gebruik van *formulierverificatie* om de gebruikersaanmeldingen te valideren bij Azure Active Directory. Als u zich wilt aanmelden, moet een Azure Active Directory-beheerder formulierverificatie inschakelen in het *algemene verificatiebeleid*.
 

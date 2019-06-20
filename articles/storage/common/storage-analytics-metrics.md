@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153943"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165724"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics metrics (klassiek)
 
@@ -90,18 +90,27 @@ De cmdlets waarmee metrische opslaggegevens gebruik de volgende parameters:
 * **Service**: Verzamelt metrische gegevens zoals Inkomend/uitgaand verkeer, beschikbaarheid, latentie en succes percentages, die voor de blob, wachtrij, tabel en Bestandsservices worden samengevoegd.
 * **ServiceAndApi**: Naast de metrische gegevens van services, verzamelt dezelfde set metrische gegevens voor elke opslagbewerking in de API van Azure Storage.
 
-De volgende opdracht wordt bijvoorbeeld met de periode is ingesteld op vijf dagen bewaren op minuut metrische gegevens voor de blob-service in uw storage-standaardaccount:  
+De volgende opdracht wordt bijvoorbeeld op minuut metrische gegevens voor de blob-service in uw storage-account met de periode is ingesteld op vijf dagen bewaren: 
+
+> [!NOTE]
+> Met deze opdracht wordt ervan uitgegaan dat u bent aangemeld bij uw Azure-abonnement met behulp van de `Connect-AzAccount` opdracht.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* Vervang de `<resource-group-name>` aanduidingswaarde met de naam van de resourcegroep.
+
+* Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
+
+
 
 De volgende opdracht haalt de huidige per uur metrische gegevens niveau en retentie dagen voor de blob-service in uw storage-standaardaccount:  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Zie voor informatie over het configureren van de Azure PowerShell-cmdlets om te werken met uw Azure-abonnement en het selecteren van het standaardopslagaccount te gebruiken: [Hoe u Azure PowerShell installeren en configureren](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

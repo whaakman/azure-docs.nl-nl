@@ -1,23 +1,23 @@
 ---
-title: Parameters voor Azure Data Factory-toewijzing stroom
+title: Azure Data Factory-Parameters voor Flow toewijzen
 description: Meer informatie over het voorzien van een gegevensstroom toewijzing van data factory-pijplijnen
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: af5f421cc3802f3a7ad44bb294f5066c32569f8b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef97f17bf159511ce94f90cd00623e05489acb92
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082883"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274713"
 ---
-# <a name="mapping-data-flow-parameters"></a>Parameters voor flow toewijzing
+# <a name="mapping-data-flow-parameters"></a>Toewijzing van Parameters voor stroom
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Toewijzing van gegevens ondersteunt stromen in data factory het gebruik van parameters. U kunt parameters definiëren in de Stroomdefinitie gegevens die u vervolgens in expressies gebruiken kunt. De parameters kunnen vervolgens worden ingesteld door de aanroepende pijplijn via de activiteit gegevens stromen uitvoeren. Hebt u drie opties om te gebruiken om in te stellen van de waarden in de gegevensstroom activiteit expressies:
+Toewijzing van gegevens stromen in Azure Data Factory ondersteunt het gebruik van parameters. U kunt parameters definiëren in de Stroomdefinitie gegevens die u vervolgens in expressies gebruiken kunt. De parameterwaarden kunnen worden ingesteld door de aanroepende pijplijn via de activiteit gegevens stromen uitvoeren. Hebt u drie opties voor het instellen van de waarden in de gegevensstroom activiteit expressies:
 
 * De pijplijn control flow expressietaal gebruiken om in te stellen van een dynamische waarde
 * Gebruik de expressietaal voor stroom van gegevens om in te stellen van een dynamische waarde
@@ -28,40 +28,37 @@ Gebruik deze mogelijkheid om uw gegevensstromen voor algemeen gebruik, flexibel 
 > [!NOTE]
 > Voor het gebruik van expressies voor pijplijn besturingselement flow, moet de parameter van de gegevensstroom van het typetekenreeks.
 
-* Een activiteit Execute gegevensstroom toevoegen aan het pijplijncanvas.
-* Als uw gegevensstroom parameters heeft, ziet u de lijst met beschikbare parameters in de Parameters tab.* * Klik op het tekstvak in naast elke parameter voor de parameterwaarde invoeren.
-* U kunt kiezen om uw parameterexpressie via de pijplijn control flow expressietaal of gegevensstroom expressies te maken.
+## <a name="create-parameters-in-mapping-data-flow"></a>Maak parameters in de gegevensstroom toewijzen
 
-![Gegevensstroom parameters 3](media/data-flow/params3.png "gegevensstroom parameters 3")
+Parameters toevoegen aan uw gegevensstroom, klikt u op het lege gedeelte van het canvas van de gegevensstroom om te zien van de algemene eigenschappen. In het deelvenster instellingen ziet u een tabblad met de naam 'Parameters'. Klik op de knop 'Nieuw' voor het genereren van een nieuwe parameter. Voor elke parameter, moet u een naam toewijzen, selecteer een type en eventueel een standaardwaarde instelt.
 
-## <a name="create-parameters-in-data-flow"></a>Maak parameters in de gegevensstroom
+![Maak parameters gegevensstroom](media/data-flow/create-params.png "parameters gegevensstroom maken")
 
-![Gegevensstroom parameters 1](media/data-flow/params1.png "gegevensstroom parameters 1")
+Parameters kunnen worden gebruikt in een expressie van de gegevensstroom. Parameters beginnen met $ en zijn onveranderd. U vindt de lijst met beschikbare parameters in de opbouwfunctie voor expressies op het tabblad 'Parameters'.
 
-Parameters toevoegen aan uw gegevensstroom, klikt u op het lege gedeelte van het canvas van de gegevensstroom om te zien van de algemene eigenschappen. In het deelvenster instellingen ziet u een tabblad met de naam van de Parameters. Klik op de nieuwe knop voor het genereren van nieuwe parameters, die vervolgens kunnen worden ingesteld vanuit de pipeline, doorgeven van waarden in de gegevensstroom. Voer een parameternaam in en selecteer het gegevenstype voor elke parameter.
+![Gegevensstroom parameterexpressie](media/data-flow/parameter-expression.png "gegevensstroom parameterexpressie")
 
-Binnen uw expressies stroom van gegevens, kunt u gebruikmaken van de parameters van de waarden instellen vanuit de pipeline. Parameters beginnen met $ en zijn onveranderd. U vindt ook de lijst van de beschikbare parameters in de opbouwfunctie voor expressies op het tabblad Parameters. U kunt deze waarden gebruiken binnen uw expressies, maar u geen nieuwe waarden aan de parameters toewijzen kunt.
+## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Parameters gegevensstroom toewijzing van de pijplijn instellen
 
-![Gegevensstroom parameters 2](media/data-flow/params2.png "gegevensstroom parameters 2")
+Nadat u de gegevensstroom met parameters hebt gemaakt, kunt u het uitvoeren van een pijplijn met de activiteit gegevensstroom uitvoeren. Nadat u de activiteit toegevoegd aan uw pijplijncanvas, u krijgt de beschikbare gegevens parameters van de stroom in het tabblad voor 'Parameters' van de activiteit.
 
-## <a name="set-data-flow-parameters-from-pipeline"></a>Set parameters voor flow van pijplijn
+![Als u een parameter gegevensstroom](media/data-flow/parameter-assign.png "als u een parameter gegevensstroom")
 
-Nadat u de gegevensstroom met parameters hebt gemaakt, kunt u die gegevensstroom nu uitvoeren van een pijplijn met de activiteit gegevensstroom uitvoeren. Als u deze activiteit aan uw ontwerp pijplijncanvas toevoegt, u krijgt de beschikbare gegevens stroom parameters van de activiteit parameters tabblad instellen.
+Als uw parametergegevenstype tekenreeks, wanneer u klikt op het tekstvak in op de parameterwaarden instellen, kunt u een pijplijn of een expressie van de gegevensstroom op te geven. Als u een pijplijn expressie kiest, u krijgt de expressiepaneel pijplijn. Zorg ervoor dat u de pijplijn-functies met behulp tekenreeksinterpolatie syntaxis ' @{<expression>}', bijvoorbeeld:
 
-![Gegevensstroom parameters expressietaal](media/data-flow/params4.png "gegevensstroom parameters expressietaal")
+```'@{pipeline().RunId}'```
 
-Wanneer u in het tekstvak aan de parameterwaarden invullen klikt, u krijgt de opbouwfunctie voor gegevens stromen. U kunt hier elke expressie of letterlijke waarden die u die overeenkomen met het gegevenstype van de parameter wilt invoeren. Hieronder volgen enkele voorbeelden van gegevensstroom expressie en een letterlijke tekenreeks van de opbouwfunctie voor expressies:
+Als de parameter niet van het typetekenreeks is, wordt er altijd weergegeven met de opbouwfunctie voor gegevens stromen. U kunt hier elke expressie of letterlijke waarden die u wilt dat overeenkomt met het gegevenstype van de parameter invoeren. Hieronder volgen enkele voorbeelden van gegevensstroom expressie en een letterlijke tekenreeks van de opbouwfunctie voor expressies:
 
 * ```toInteger(Role)```
 * ```'this is my static literal string'```
 
-Als het gegevenstype van de parameter een tekenreeks is, kunt klikt u vervolgens u een pijplijn of een expressie van de gegevensstroom op te geven. Als u een pijplijn expressie kiest, wordt u in plaats daarvan met de pijplijn expressiepaneel weergegeven. Zorg ervoor dat u de pijplijn-functies met behulp tekenreeksinterpolatie syntaxis ' @{<expression>}', bijvoorbeeld:
+Elke gegevensstroom toewijzing kan elke combinatie van de pijplijn en gegevens stroom expressie parameters hebben. 
 
-```'@{pipeline().RunId}'```
+![Steekproef voor flow parameters](media/data-flow/parameter-example.png "stroom parameters steekproef")
 
-![Steekproef voor flow parameters](media/data-flow/params5.png "stroom parameters steekproef")
+
 
 ## <a name="next-steps"></a>Volgende stappen
-
 * [Stroomactiviteit gegevens uitvoeren](control-flow-execute-data-flow-activity.md)
 * [Besturingselement stroom expressies](control-flow-expression-language-functions.md)

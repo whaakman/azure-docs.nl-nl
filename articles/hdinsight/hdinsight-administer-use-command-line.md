@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tyfox
-ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5ae97b17d06fa0a9934a58ac662ef12116cce4f6
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859967"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137407"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Azure HDInsight-clusters met behulp van Azure CLI beheren
 
@@ -85,7 +85,7 @@ az group delete --name RESOURCE_GROUP_NAME
 Gebruik [az hdinsight vergroten of verkleinen](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) formaat van het opgegeven HDInsight-cluster met de opgegeven grootte. De onderstaande opdracht bewerken door te vervangen `RESOURCE_GROUP_NAME`, en `CLUSTER_NAME` met de relevante informatie. Vervang `TARGET_INSTANCE_COUNT` met het gewenste aantal worker-knooppunten voor uw cluster. Zie voor meer informatie over het schalen van clusters [schaal HDInsight-clusters](./hdinsight-scaling-best-practices.md). Voer de opdracht:
 
 ```azurecli-interactive
-az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
+az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

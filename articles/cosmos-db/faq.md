@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 47b1d9720a23c1dbfdee8c2e4cba95ff998a4cc0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954147"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137743"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 
@@ -744,11 +744,11 @@ Ja, kunt u de syntaxis van de reguliere samengestelde partitiesleutel maken.
 
 ### <a name="can-i-use-stable-loader-for-data-loading"></a>Kan ik stabiel loader gebruiken voor het laden van gegevens?
 
-Nee, de Preview-versie moet stabiele loader wordt niet ondersteund.
+Nee, stabiele loader wordt niet ondersteund.
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Kan een on-premises Apache Cassandra-cluster worden gekoppeld met de Cassandra-API van Azure Cosmos DB?
 
-Op dit Azure Cosmos DB heeft een optimale ervaring voor cloudomgeving zonder de overhead van bewerkingen. Als u nodig hebt met het koppelen, verzend een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) met een beschrijving van uw scenario.
+Op dit Azure Cosmos DB heeft een optimale ervaring voor cloudomgeving zonder de overhead van bewerkingen. Als u nodig hebt met het koppelen, verzend een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) met een beschrijving van uw scenario. We werken op de aanbieding voor de on-premises/andere cloud Cassandra-cluster met van Cosomos DB Cassandra-API help-koppeling.
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Biedt Cassandra-API van volledige back-ups?
 
@@ -763,15 +763,12 @@ U kunt zoveel regio's als u wilt gebruiken voor het account en waar het kan fail
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra-API index alle kenmerken van een entiteit standaard?
 
-Ja, alle kenmerken van een entiteit worden geïndexeerd standaard door Azure Cosmos DB. Zie voor meer informatie, [Azure Cosmos DB: Indexeringsbeleid](index-policy.md). Voordelen van de gegarandeerde prestaties met consistente indexeren en duurzame quorum doorgevoerd altijd schrijft.
+Cassandra-API is van plan voor de ondersteuning van secundaire indexering zodat selectief index maken voor bepaalde kenmerken. 
 
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Dit betekent dat ik hoef niet te maken van meer dan één index om te voldoen aan de query's gebruikt?
-
-Ja, Azure Cosmos DB biedt automatische indexering van alle kenmerken zonder eventuele schemadefinitie. Deze automatisering kan ontwikkelaars zich concentreren op de toepassing in plaats van op index maken en beheren. Zie voor meer informatie, [Azure Cosmos DB: Indexeringsbeleid](index-policy.md).
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Kan ik gebruiken de nieuwe SDK van de Cassandra-API lokaal met de emulator?
 
-Wij van plan bent voor de ondersteuning van deze mogelijkheid in de toekomst.
+Ja wordt dit ondersteund.
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Azure Cosmos DB als platform lijkt te veel mogelijkheden, zoals feed wijzigen en andere functionaliteit hebben. Wordt deze mogelijkheden worden toegevoegd aan de Cassandra-API?
 

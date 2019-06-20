@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d54d51a16f4ed94f24f9afa005c63b22778cf9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473115"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190355"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Algemene scenario's in Azure AD waar u recht op beheer (Preview)
 
@@ -124,4 +124,4 @@ Er zijn verschillende manieren waarop u recht management voor uw organisatie kun
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Zelfstudie: Uw eerste toegang-pakket maken](entitlement-management-access-package-first.md)
-- [Een bestaand toegangspakket bewerken en beheren](entitlement-management-access-package-edit.md)
+- [Taken delegeren](entitlement-management-delegate.md)

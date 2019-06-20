@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826455"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205661"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Richtlijnen voor Azure NetApp Files-netwerkplanning
 
@@ -42,7 +42,7 @@ De onderstaande functies worden momenteel niet ondersteund voor Azure NetApp bes
 
 De volgende netwerkbeperkingen van toepassing op Azure NetApp bestanden:
 
-* Het aantal virtuele machines die verbinding met een volume (met een VNet of in gekoppelde VNets maken kunnen) mag niet meer dan 1000.
+* Het aantal IP-adressen in een VNet met Azure NetApp-bestanden (met inbegrip van de gekoppelde VNets) gebruikt, mag niet meer dan 1000.
 * In elk virtueel Azure-netwerk (VNet) kan er slechts één subnet aan Azure NetApp Files worden gedelegeerd.
 
 
@@ -103,13 +103,13 @@ Houd rekening met VNet 2 en 3 van de VNet in het bovenstaande diagram. Als VM 1 
 
 Daarnaast kunt u een scenario waarbij VNet 1 is gekoppeld aan VNet 2 en VNet-2 is gekoppeld aan VNet 3 in dezelfde regio. De resources van VNet-1 verbinding kunnen maken met resources in VNet 2, maar er geen verbinding met resources in de VNet-3, tenzij VNet-1 en 3 van de VNet aan elkaar zijn gekoppeld. 
 
-In het bovenstaande diagram 3 van de virtuele machine kunt verbinding maken met Volume 1, 4 van de virtuele machine kan geen verbinding maken met Volume 2.  De reden is dat het knooppunt VNets aan elkaar zijn niet gekoppeld, en _transitroutering wordt niet ondersteund via VNet-peering_.
+In het bovenstaande diagram 3 van de virtuele machine kunt verbinding maken met Volume 1, 4 van de virtuele machine kan geen verbinding maken met Volume 2.  De reden hiervoor is dat het knooppunt VNets aan elkaar zijn niet gekoppeld, en _transitroutering wordt niet ondersteund via VNet-peering_.
 
 ## <a name="hybrid-environments"></a>Hybride omgevingen
 
 Het volgende diagram ziet u een hybride omgeving: 
 
-![Hybride-netwerkomgeving](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![Hybride-netwerkomgeving](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 In het scenario voor hybride nodig toepassingen van on-premises datacenters toegang tot de resources in Azure.  Dit het geval is, of u wilt uw datacenter uitbreiden naar Azure, of u wilt gebruiken van systeemeigen Azure-services of voor herstel na noodgevallen. Zie [VPN-Gateway opties](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) over verbinding maken tussen meerdere on-premises bronnen en bronnen in Azure via een site-naar-site-VPN of een ExpressRoute.
 
@@ -117,10 +117,10 @@ In een hybride hub-spoke-topologie, wordt de hub VNet in Azure fungeert als een 
 
 Afhankelijk van de configuratie. U kunt resources verbinden met on-premises resources in de hub en de knooppunten.
 
-In de topologie die hierboven wordt geïllustreerd, de on-premises-netwerk is verbonden met een hub VNet in Azure en er zijn 2 knooppunt VNets die zijn gekoppeld met de hub VNet.  In dit scenario zijn de opties voor netwerkconnectiviteit ondersteund voor volumes van Azure NetApp bestanden als volgt:
+In de topologie die hierboven wordt geïllustreerd, de on-premises-netwerk is verbonden met een hub VNet in Azure en er zijn 2 knooppunt VNets in dezelfde regio aan elkaar gekoppeld met de hub VNet.  In dit scenario zijn de opties voor netwerkconnectiviteit ondersteund voor volumes van Azure NetApp bestanden als volgt:
 
-* On-premises bronnen VM 1 en 2 van de virtuele machine kunnen verbinden met Volume 1 in de hub via een site-naar-site-VPN of een ExpressRoute. 
-* On-premises bronnen VM 1 en 2 van de virtuele machine kunnen verbinden met Volume 2 of 3 Volume.
+* On-premises bronnen VM 1 en 2 van de virtuele machine kunnen verbinden met Volume 1 in de hub via een site-naar-site VPN of Express Route. 
+* On-premises bronnen VM 1 en 2 van de virtuele machine kunnen verbinden met Volume 2 of 3 Volume op een site-naar-site VPN- en regionale Vnet-peering.
 * 3 van de virtuele machine in de hub VNet verbinden met volume 2 in knooppunt 1 VNet en Volume 3 in knooppunt VNet 2.
 * 4 van de virtuele machine van knooppunt VNet 1 en 5 van de virtuele machine van knooppunt VNet 2 kunt verbinden met Volume 1 in de hub VNet.
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063758"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274303"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Controleren en afstemmen van Azure Database voor PostgreSQL - één Server
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende controle-opties te bieden inzicht in het gedrag van uw server.
@@ -38,6 +38,8 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 |network_bytes_egress|Netwerk uit|Bytes|Uitgaand netwerkverkeer voor actieve verbindingen.|
 |network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
 |backup_storage_used|Back-upopslag gebruikt|Bytes|De hoeveelheid back-upopslag gebruikt.|
+|pg_replica_log_delay_in_bytes|Maximale vertraging voor replica 's|Bytes|De vertraging in bytes tussen de hoofd- en de meeste achtergebleven-replica. Met deze metriek is beschikbaar op de hoofdserver.|
+|pg_replica_log_delay_in_seconds|Vertraging van replica|Seconden|De tijd sinds de laatste replay transactie. Met deze metriek is beschikbaar voor replica-servers.|
 
 ## <a name="server-logs"></a>Serverlogboeken
 U kunt logboekregistratie op uw server inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in [logboeken van Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.

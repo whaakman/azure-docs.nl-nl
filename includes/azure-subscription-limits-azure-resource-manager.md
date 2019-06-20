@@ -9,15 +9,15 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146221"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176394"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Virtuele machines [per abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |25\.000<sup>1</sup> per regio. |25\.000 per regio. |
+| Virtuele machines [per abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> per regio. |25.000 per regio. |
 | Totaal aantal VM-cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio. | Neem contact op met ondersteuning. |
 | Virtuele machine per serie, zoals Dv2- en F-cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio. | Neem contact op met ondersteuning. |
 | [Medebeheerders](../articles/billing-add-change-azure-subscription-administrator.md) per abonnement |Onbeperkt. |Onbeperkt. |
@@ -26,7 +26,7 @@ ms.locfileid: "66146221"
 | [Beschikbaarheidssets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per abonnement |2000 per regio. |2000 per regio. |
 | Grootte van Azure Resource Manager-API-aanvraag |4,194,304 bytes. |4,194,304 bytes. |
 | Tags per abonnement<sup>2</sup> |Onbeperkt. |Onbeperkt. |
-| De unieke code berekeningen per abonnement<sup>2</sup> | 10\.000 | 10\.000 |
+| De unieke code berekeningen per abonnement<sup>2</sup> | 10.000 | 10.000 |
 | [Cloudservices](../articles/cloud-services/cloud-services-choose-me.md) per abonnement |N.V.T.<sup>3</sup> |N.V.T.<sup>3</sup> |
 | [Affiniteitsgroepen](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per abonnement |N.V.T.<sup>3</sup> |N.V.T.<sup>3</sup> |
 | [Abonnementsniveau implementaties](../articles/azure-resource-manager/deploy-to-subscription.md) per locatie | 800<sup>4</sup> | 800 |

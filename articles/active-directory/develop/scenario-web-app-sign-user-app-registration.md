@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0ae638f8cbef29c5d167a3ab59188169cbd934ef
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074543"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150230"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>Web-app die zich in gebruikers - app-registratie
 
@@ -48,14 +48,14 @@ Als u deze koppeling navigeren, kunt u maken bootstrap het maken van uw webtoepa
 1. Als uw account hebt u toegang tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en instellen van uw portal-sessie op de gewenste Azure AD-tenant.
 1. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer vervolgens **App-registraties** > **registratie van nieuwe**.
 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
-   - Kies de ondersteunde typen voor uw toepassing (Zie [ondersteund accounttypen](./v2-supported-account-types.md))
-   - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `AspNetCore-WebApp`.
-   - In **antwoord-URL**, toevoegen de antwoord-URL voor uw app, bijvoorbeeld `https://localhost:44321/`, en selecteer **registreren**.
+   1. Kies de ondersteunde typen voor uw toepassing (Zie [ondersteund accounttypen](./v2-supported-account-types.md))
+   1. Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `AspNetCore-WebApp`.
+   1. In **omleidings-URI**, het type toepassing toevoegen en de bestemming van de URI die accepteert token antwoorden geretourneerd na de verificatie is gelukt. Bijvoorbeeld `https://localhost:44321/`.  Selecteer **Registreren**.
 1. Selecteer het menu **Verificatie** en voeg dan de volgende gegevens toe:
-- Bij **Antwoord-URL** voegt u `https://localhost:44321/signin-oidc` toe en selecteert u **Registreren**.
-- In de **geavanceerde instellingen** sectie, stelt u de **afmeldings-URL** naar `https://localhost:44321/signout-oidc`.
-- Bij **Impliciete toekenning** controleert u de **id-tokens**.
-- Selecteer **Opslaan**.
+   1. In **antwoord-URL**, toevoegen `https://localhost:44321/signin-oidc`.
+   1. Bij **Geavanceerde instellingen** stelt u de **afmeldings-URL** in op `https://localhost:44321/signout-oidc`.
+   1. Bij **Impliciete toekenning** controleert u de **id-tokens**.
+   1. Selecteer **Opslaan**.
 
 ### <a name="register-an-app-using-powershell"></a>Registreren van een app met behulp van PowerShell
 

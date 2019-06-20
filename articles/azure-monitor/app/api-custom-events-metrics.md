@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478413"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154782"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is afgeschaft in de .NET SDK. Metrische gegevens moet altijd vooraf worden samengevoegd in een bepaalde periode voordat het wordt verzonden. Gebruik een van de overloads GetMetric(..) ophalen van een metrische object voor toegang tot SDK vooraf aggregatie mogelijkheden. Als u uw eigen logica vooraf aggregatie implementeert, kunt u de Track (ITelemetry metricTelemetry)-methode voor het verzenden van de resulterende statistische functies. Als uw toepassing een afzonderlijke Telemetrisch item verzenden bij elke zonder aggregatie in de tijd vereist, hebt u waarschijnlijk een use-case voor telemetrie van gebeurtenissen; Zie TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is niet de aanbevolen methode voor het verzenden van metrische gegevens. Metrische gegevens moet altijd vooraf worden samengevoegd in een bepaalde periode voordat het wordt verzonden. Gebruik een van de overloads GetMetric(..) ophalen van een metrische object voor toegang tot SDK vooraf aggregatie mogelijkheden. Als u uw eigen logica vooraf aggregatie implementeert, kunt u de methode TrackMetric() gebruiken voor het verzenden van de resulterende statistische functies. Als uw toepassing een afzonderlijke Telemetrisch item verzenden bij elke zonder aggregatie in de tijd vereist, hebt u waarschijnlijk een use-case voor telemetrie van gebeurtenissen; Zie TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights kunnen metrische gegevens die niet zijn gekoppeld aan bepaalde gebeurtenissen van grafiek. Bijvoorbeeld, kan u de lengte van een wachtrij met regelmatige tussenpozen controleren. De afzonderlijke metingen zijn minder interessant zijn dan de variaties en trends met metrische gegevens, en dus statistische kolomdiagrammen zijn nuttig.
 

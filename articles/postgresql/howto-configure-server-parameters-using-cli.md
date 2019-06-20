@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9a9312d347f896047a5f8606b2518b63830c4d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067177"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274774"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Parameters voor serverconfiguratie aanpassen voor Azure Database voor PostgreSQL - één Server met behulp van Azure CLI
 U kunt weergeven, weergeven en bijwerken van parameters voor de configuratie voor een Azure PostgreSQL-server met behulp van de opdrachtregelinterface (Azure CLI). Een subset van de engine configuraties op niveau van de server wordt weergegeven en kan worden gewijzigd. 
@@ -50,4 +50,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 Hiermee stelt u deze opdracht de **log\_min\_berichten** configuratie op de standaardwaarde **waarschuwing**. Zie voor meer informatie over de serverconfiguratie en de toegestane waarden voor PostgreSQL-documentatie op [serverconfiguratie](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Volgende stappen
+- [Leer hoe u een server opnieuw starten](howto-restart-server-cli.md)
 - Als u wilt configureren en om toegang tot serverlogboeken, Zie [Server-logboeken in Azure Database for PostgreSQL](concepts-server-logs.md)

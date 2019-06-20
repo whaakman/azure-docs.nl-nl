@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 69dc0e1c14bc88cdbf0aa48700f95058ba759cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140294"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176541"
 ---
 1. In de oplossingsweergave (of **Solution Explorer** in Visual Studio), met de rechtermuisknop op de **onderdelen** map, klikt u op **meer onderdelen ophalen...** , zoek de **Google Cloud Messaging-Client** onderdeel en voeg deze toe aan het project.
 2. Open het bestand ToDoActivity.cs-project en voeg de volgende gebruiksinstructie aan de klasse:

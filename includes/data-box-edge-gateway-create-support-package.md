@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161171"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176494"
 ---
 Als u eventuele problemen met het apparaat ondervindt, kunt u een ondersteuningspakket maken in het systeemlogboek in Logboeken. Microsoft Support maakt gebruik van dit pakket om de problemen op te. Volg deze stappen voor een ondersteuningspakket maken:
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074014"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275037"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informatie over roldefinities voor Azure-resources
 
@@ -52,7 +52,8 @@ De `{action}` gedeelte van een tekenreeks bewerking geeft het type van de bewerk
 | ------------------- | ------------------- |
 | `*` | Het jokerteken verleent toegang tot alle bewerkingen die overeenkomen met de tekenreeks. |
 | `read` | Hiermee leesbewerkingen (GET). |
-| `write` | Hiermee schrijfbewerkingen (PUT, POST en PATCH). |
+| `write` | Hiermee schrijfbewerkingen (PUT of PATCH). |
+| `action` | Hiermee kunt aangepaste bewerkingen, zoals virtuele machines (POST) opnieuw opstarten. |
 | `delete` | Hiermee-verwijderbewerkingen (verwijderen). |
 
 Hier volgt de [Inzender](built-in-roles.md#contributor) roldefinitie in JSON-indeling. Het jokerteken (`*`) uitvoering bij `Actions` geeft aan dat de principal die is toegewezen aan deze rol kan alle acties uitvoeren, of met andere woorden, dit alles kunt beheren. Dit omvat de acties die zijn gedefinieerd in de toekomst, zoals Azure nieuwe resourcetypen voegt. De bewerkingen onder `NotActions` worden afgetrokken van `Actions`. In het geval van de [Inzender](built-in-roles.md#contributor) rol `NotActions` wordt verwijderd van deze rol kunnen toegang tot resources beheren en ook toegang tot resources toewijzen.
@@ -79,7 +80,7 @@ Hier volgt de [Inzender](built-in-roles.md#contributor) roldefinitie in JSON-ind
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>Beheer en bewerkingen (Preview)
+## <a name="management-and-data-operations"></a>Beheer en bewerkingen
 
 Op rollen gebaseerd toegangsbeheer voor beheerbewerkingen is opgegeven in de `Actions` en `NotActions` eigenschappen van een roldefinitie. Hier volgen enkele voorbeelden van bewerkingen in Azure:
 
@@ -89,7 +90,7 @@ Op rollen gebaseerd toegangsbeheer voor beheerbewerkingen is opgegeven in de `Ac
 
 Toegang tot de is niet overgenomen met uw gegevens. Dankzij deze scheiding wordt voorkomen dat functies met jokertekens (`*`) van hebben onbeperkte toegang tot uw gegevens. Bijvoorbeeld, als een gebruiker heeft een [lezer](built-in-roles.md#reader) rol op een abonnement, klikt u vervolgens kunnen ze bekijken de storage-account, maar standaard zij de onderliggende gegevens niet weergeven.
 
-Op rollen gebaseerd toegangsbeheer is eerder, niet gebruikt voor bewerkingen voor gegevens. Autorisatie voor gegevensbewerkingen verschillend voor resourceproviders. Het dezelfde op rollen gebaseerd autorisatie model voor toegangsbeheer gebruikt voor beheerbewerkingen is uitgebreid tot bewerkingen (momenteel in Preview-versie).
+Op rollen gebaseerd toegangsbeheer is eerder, niet gebruikt voor bewerkingen voor gegevens. Autorisatie voor gegevensbewerkingen verschillend voor resourceproviders. Het dezelfde op rollen gebaseerd autorisatie model voor toegangsbeheer gebruikt voor beheerbewerkingen is uitgebreid tot bewerkingen.
 
 Ter ondersteuning van gegevensbewerkingen, zijn gegevenseigenschappen van nieuwe toegevoegd aan de structuur van de definitie rol. Gegevensbewerkingen zijn opgegeven in de `DataActions` en `NotDataActions` eigenschappen. Door de eigenschappen van deze gegevens toe te voegen wordt de scheiding tussen het beheer en de gegevens gehandhaafd. Dit voorkomt dat huidige roltoewijzingen met jokertekens (`*`) plotseling hebben toegang tot gegevens. Hier volgen enkele bewerkingen die kunnen worden opgegeven in `DataActions` en `NotDataActions`:
 
@@ -169,11 +170,7 @@ Als u wilt weergeven en werken met gegevensbewerkingen, moet u de juiste versie 
 
 Als u wilt weergeven en gebruiken van de bewerkingen van de gegevens in de REST-API, moet u instellen de **api-versie** parameter met de volgende versie of hoger:
 
-- 2018-01-01-preview
-
-De Azure-portal ook kan gebruikers bladeren en beheren van de inhoud van wachtrijen en -Blob containers via de Azure AD preview-ervaring. Om te zien en beheren van de inhoud van een wachtrij of Blob-container klikt u op de **verkennen van gegevens met behulp van Azure AD preview** in het overzicht van de storage-account.
-
-![Wachtrijen verkennen en Blob-containers met behulp van Azure AD-preview](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>Acties
 
@@ -195,7 +192,7 @@ De `NotActions` machtiging Hiermee geeft u de beheerbewerkingen die zijn uitgesl
 > Als een gebruiker een rol die niet van toepassing op een bewerking in toegewezen `NotActions`, en een tweede functie die toegang tot dezelfde bewerking verleent, de gebruiker is toegestaan voor deze bewerking is toegewezen. `NotActions` is niet een weigeren regel – het is gewoon een handige manier om u te maken van een set toegestane bewerkingen wanneer specifieke bewerkingen die moeten worden uitgesloten.
 >
 
-## <a name="dataactions-preview"></a>dataActions (Preview)
+## <a name="dataactions"></a>DataActions
 
 De `DataActions` machtiging Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Bijvoorbeeld, als een gebruiker toegang tot blob-gegevens in een storage-account lezen heeft, kan deze lezen de blobs in het storage-account. Hier volgen enkele voorbeelden van bewerkingen voor gegevens die kunnen worden gebruikt in `DataActions`.
 
@@ -206,7 +203,7 @@ De `DataActions` machtiging Hiermee geeft u de bewerkingen die de rol kan worden
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Retourneert het bericht. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Retourneert een bericht of het resultaat van schrijven of verwijderen van een bericht. |
 
-## <a name="notdataactions-preview"></a>NotDataActions (Preview)
+## <a name="notdataactions"></a>NotDataActions
 
 De `NotDataActions` machtiging Hiermee geeft u de bewerkingen voor gegevens die zijn uitgesloten van het toegestane aantal `DataActions`. De toegang wordt verleend door een rol (effectieve machtigingen) wordt berekend door af te trekken van de `NotDataActions` bewerkingen uit de `DataActions` bewerkingen. Elke resourceprovider biedt een bijbehorende set API's om te voldoen aan gegevensbewerkingen.
 

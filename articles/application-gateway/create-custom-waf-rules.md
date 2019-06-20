@@ -1,24 +1,24 @@
 ---
-title: Maken en gebruiken van aangepaste regels voor Azure Web Application Firewall (WAF)
-description: In dit artikel bevat informatie over het maken van aangepaste regels voor Web Application Firewall (WAF) in Azure Application Gateway.
+title: Maken en gebruiken van aangepaste regels voor Azure Web Application Firewall (WAF) v2
+description: In dit artikel bevat informatie over het maken van Web Application Firewall (WAF) v2 aangepaste regels in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689029"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164677"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>Maken en gebruiken van aangepaste Web Application Firewall-regels
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Maken en gebruiken van aangepaste regels voor Web Application Firewall v2
 
-De Azure Application Gateway web application firewall (WAF) biedt beveiliging voor webtoepassingen. Deze beveiliging wordt geboden door de Open Web Application Security Project (OWASP) Core regel ingesteld (CRS). In sommige gevallen moet u mogelijk maken van uw eigen aangepaste regels om te voldoen aan uw specifieke behoeften. Zie voor meer informatie over aangepaste regels voor WAF [aangepaste web application firewall-regels overzicht](custom-waf-rules-overview.md).
+De v2 Azure Application Gateway Web Application Firewall (WAF) biedt beveiliging voor webtoepassingen. Deze beveiliging wordt geboden door de Open Web Application Security Project (OWASP) Core regel ingesteld (CRS). In sommige gevallen moet u mogelijk maken van uw eigen aangepaste regels om te voldoen aan uw specifieke behoeften. Zie voor meer informatie over aangepaste regels voor WAF [aangepaste web application firewall-regels overzicht](custom-waf-rules-overview.md).
 
-Dit artikel ziet u een voorbeeld van de aangepaste regels die u kunt maken en gebruiken met uw WAF. Zie voor meer informatie over het implementeren van een WAF met een aangepaste regel met behulp van Azure PowerShell, [aangepaste regels voor Web Application Firewall configureren met behulp van Azure PowerShell](configure-waf-custom-rules.md).
+Dit artikel ziet u een voorbeeld van de aangepaste regels die u kunt maken en gebruiken met uw WAF v2. Zie voor meer informatie over het implementeren van een WAF met een aangepaste regel met behulp van Azure PowerShell, [aangepaste regels voor Web Application Firewall configureren met behulp van Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > Als uw application gateway niet voor de WAF-laag gebruikt wordt, wordt de optie voor het upgraden van de application gateway naar de WAF-laag wordt weergegeven in het rechter deelvenster.

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 490b96698268fb8717bc1169c2cceb932aad913c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957151"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273782"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 
@@ -676,14 +676,14 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |d2c.endpoints.latency.serviceBusQueues|Routering: bericht latentie voor Service Bus-wachtrij|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer in een Service Bus-wachtrij-eindpunt.|Er zijn geen dimensies|
 |d2c.endpoints.egress.serviceBusTopics|Routering: berichten worden afgeleverd bij Service Bus-onderwerp|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan Service Bus-onderwerp eindpunten geleverd.|Er zijn geen dimensies|
 |d2c.endpoints.latency.serviceBusTopics|Routering: bericht latentie voor Service Bus-onderwerp|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer in een Service Bus-onderwerp-eindpunt.|Er zijn geen dimensies|
-|d2c.endpoints.egress.builtIn.events|Routering: berichten worden afgeleverd bij berichten/gebeurtenissen|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan het ingebouwde eindpunt (berichten/gebeurtenissen) geleverd.|Er zijn geen dimensies|
-|d2c.endpoints.latency.builtIn.events|Routering: bericht latentie voor berichten/gebeurtenissen|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer naar het eindpunt van de ingebouwde (berichten/gebeurtenissen).|Er zijn geen dimensies|
+|d2c.endpoints.egress.builtIn.events|Routering: berichten worden afgeleverd bij berichten/gebeurtenissen|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan het ingebouwde eindpunt (berichten/gebeurtenissen) geleverd. Met deze metriek wordt alleen gestart werken wanneer routering is ingeschakeld (https://aka.ms/iotrouting) voor de IoT hub.|Er zijn geen dimensies|
+|d2c.endpoints.latency.builtIn.events|Routering: bericht latentie voor berichten/gebeurtenissen|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer naar het eindpunt van de ingebouwde (berichten/gebeurtenissen). Met deze metriek wordt alleen gestart werken wanneer routering is ingeschakeld (https://aka.ms/iotrouting) voor de IoT hub.|Er zijn geen dimensies|
 |d2c.endpoints.egress.storage|Routering: berichten die naar de opslag worden geleverd|Count|Totaal|Het aantal keren dat het IoT Hub is routering berichten aan opslag eindpunten geleverd.|Er zijn geen dimensies|
 |d2c.endpoints.latency.storage|Routering: bericht latentie voor opslag|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer in een storage-eindpunt.|Er zijn geen dimensies|
 |d2c.endpoints.egress.storage.bytes|Routering: gegevens geleverd aan opslag|Bytes|Totaal|De hoeveelheid gegevens (bytes) routering IoT-Hub die worden geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
 |d2c.endpoints.egress.storage.blobs|Routering: blobs die worden geleverd aan opslag|Count|Totaal|Het aantal keren dat het IoT-Hub routering blobs geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
-|EventGridDeliveries|Event Grid levering (preview)|Count|Totaal|Het aantal aanvragen voor IoT Hub kunt u gebeurtenissen naar Event Grid verzenden. Dit is inclusief geslaagde en mislukte aanvragen. Gebruik de resultaat-dimensie voor het aantal verschillende type reactie. Zien de waar de aanvragen afkomstig zijn van, gebruikt u de dimensie van het type gebeurtenis.|Result, EventType|
-|EventGridLatency|Event Grid latentie (preview)|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen event inkomend verkeer naar IoT Hub en event inkomend verkeer in Event Grid. Dit nummer is een gemiddelde tussen alle gebeurtenistypen. Gebruik de dimensie van het type gebeurtenis om te zien van de latentie van een specifiek type gebeurtenis.|EventType|
+|EventGridDeliveries|Event Grid levering (preview)|Count|Totaal|Het aantal IoT Hub-gebeurtenissen naar Event Grid worden gepubliceerd. Gebruik de resultaat-dimensie voor het aantal geslaagde en mislukte aanvragen. Type gebeurtenis dimensie ziet u het type gebeurtenis (https://aka.ms/ioteventgrid).|Result, EventType|
+|EventGridLatency|De gemiddelde latentie (in milliseconden) als de Iot Hub-gebeurtenis is gegenereerd wanneer de gebeurtenis is gepubliceerd naar Event Grid. Dit nummer is een gemiddelde tussen alle gebeurtenistypen. Gebruik de dimensie van het type gebeurtenis om te zien van de latentie van een specifiek type gebeurtenis.|EventType|
 |d2c.twin.read.success|Geslaagde dubbele leesbewerkingen van apparaten|Count|Totaal|Het aantal voltooide dubbele apparaat geïnitieerde leesbewerkingen.|Er zijn geen dimensies|
 |d2c.twin.read.failure|Dubbele leesbewerkingen van apparaten is mislukt|Count|Totaal|De telling van alle dubbele apparaat geïnitieerde leesbewerkingen mislukt.|Er zijn geen dimensies|
 |d2c.twin.read.size|Reactiegrootte van dubbele leesbewerkingen van apparaten|Bytes|Gemiddeld|De gemiddelde, de minimale en het maximale van alle geslaagde apparaat geïnitieerde twin leesbewerkingen.|Er zijn geen dimensies|

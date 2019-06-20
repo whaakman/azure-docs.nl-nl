@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce4a57b8c266fe474fc2e6dd8f811fc7440e7ac6
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204485"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190440"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Verbinding maken met gegevens uit Azure Active Directory
 
@@ -34,6 +34,8 @@ Azure Sentinel kunt u het verzamelen van gegevens uit [Azure Active Directory](.
 - Als u wilt aanmelden om gegevens te exporteren uit Active Directory, moet u een Azure AD P1 of P2-licentie hebben.
 
 - Gebruiker met de globale beheerder of beveiliging beheerdersmachtigingen heeft op de tenant die u wilt de logboeken van streamen.
+
+- Als u de verbindingsstatus wilt weergeven, moet u gemachtigd voor toegang tot diagnostische logboeken van Azure AD. 
 
 
 ## <a name="connect-to-azure-ad"></a>Verbinding maken met Azure AD

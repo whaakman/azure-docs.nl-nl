@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122528"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176705"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Structuurdefinitie opgeven voor rechthoekige gegevenssets
 De sectie structuur in de gegevenssets JSON wordt een **optionele** sectie voor rechthoekige tabellen (met rijen en kolommen) en bevat een verzameling van kolommen voor de tabel. U gebruikt de sectie structuur voor beide met type-informatie voor typeconversies of kolomtoewijzingen doen. De volgende secties worden deze functies in detail beschreven. 

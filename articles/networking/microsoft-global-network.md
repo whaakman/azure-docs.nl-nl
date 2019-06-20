@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247287"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144141"
 ---
 # <a name="microsoft-global-network"></a>Wereldwijd Microsoft-netwerk
 
@@ -33,8 +33,10 @@ De [wereldwijde netwerk van Microsoft](https://azure.microsoft.com/global-infras
  
 Voor de [best mogelijke ervaring](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is eenvoudig als u gebruikmaakt van Microsoft cloud. Vanaf het moment dat wanneer klantenverkeer ons wereldwijde netwerk via onze strategische edge-knooppunten invoert, wordt uw gegevens verzonden via de geoptimaliseerde routes op in de buurt van de snelheid van het licht. Dit zorgt ervoor optimale latentie voor de beste prestaties. Deze edge-knooppunten, alle ook verbonden met meer dan 3500 unieke Internet partners (peers) via duizenden verbindingen op meer dan 145 locaties, vormen de basis van onze geheugengebieden strategie. 
  
-Of verbinding te maken van Londen naar Tokio, of van Washington DC naar Los Angeles, is de prestaties van het netwerk (gekwantificeerde) en de beïnvloed door, zoals latentie, jitter, pakketverlies en doorvoer.  Bij Microsoft, we liever en direct gebruiken in plaats van de doorvoer-koppelingen koppelt, dit antwoordverkeer symmetrische houdt en kunt hops, peering partijen en paden kort en eenvoudig mogelijk houden. Deze aanpak premium vaak aangeduid als [koude achtergebleven routering](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), zorgt u ervoor dat klanten verkeer blijft in het Microsoft-netwerk zo lang mogelijk netwerk voordat we aanlevert.  
- 
+Of verbinding te maken van Londen naar Tokio, of van Washington DC naar Los Angeles, is de prestaties van het netwerk (gekwantificeerde) en de beïnvloed door, zoals latentie, jitter, pakketverlies en doorvoer.  Bij Microsoft, we liever en direct gebruiken in plaats van de doorvoer-koppelingen koppelt, dit antwoordverkeer symmetrische houdt en kunt hops, peering partijen en paden kort en eenvoudig mogelijk houden. 
+
+Bijvoorbeeld, als een gebruiker in Londen probeert te krijgen tot een service in Tokio, en vervolgens het internetverkeer krijgt een van onze randen in Londen, gaat via Microsoft WAN via Frankrijk, onze Trans-Arabië-paden tussen Europa en India, en vervolgens naar Japan waar de service wordt gehost. Antwoordverkeer is symmetrische. Dit wordt soms aangeduid als [koude achtergebleven routering](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) wat betekent dat het verkeer in Microsoft blijft network zo lang mogelijk voordat we aanlevert.  
+  
 Dus, betekent dat alle verkeer bij het gebruik van Microsoft-services? Ja, geen verkeer toe tussen data centers, binnen Microsoft Azure of tussen Microsoft-services zoals virtuele Machines, Office 365, XBox, SQL-databases, opslag, en virtuele netwerken worden gerouteerd binnen ons wereldwijde netwerk en nooit via het openbare Internet, om ervoor te zorgen optimale prestaties en integriteit.  
  
 Grote investeringen in de fiber-capaciteit en diversiteit over metro, terrestrische en Onderzeese paden zijn wel belangrijk voor ons te houden van consistente en hoog serviceniveau tijdens fueling de extreme groei van onze cloud en online services. Recente toevoegingen aan ons wereldwijde netwerk zijn onze [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) Onderzeese kabel, de bedrijfstak van de eerste Open regel System (OLS) via Onderzeese tussen Bilbao (Spanje) en Virginia Beach, Virginia, VS, evenals de [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)tussen New York, Verenigde Staten en Dublin, Ierland en [nieuwe Cross-Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) tussen Tokio, Japan, en Portland, Oregon, VS. 
