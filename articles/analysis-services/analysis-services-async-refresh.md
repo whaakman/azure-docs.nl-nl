@@ -104,7 +104,7 @@ Parameters op te geven is niet vereist. De standaardwaarde is toegepast.
 | `CommitMode`     | Enum  | Hiermee bepaalt u als objecten worden vastgelegd in batches of alleen als u klaar bent. Modi opnemen: standaard transactionele partialBatch.  |  transactionele       |
 | `MaxParallelism` | Int   | Deze waarde bepaalt het maximum aantal threads waarop om van verwerkingsopdrachten parallel uit te voeren. Deze waarde wordt uitgelijnd met de eigenschap MaxParallelism die kan worden ingesteld in de TMSL [opdracht sequentiëren](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) of andere methoden gebruiken.       | 10        |
 | `RetryCount`     | Int   | Geeft het aantal keren dat de bewerking opnieuw wordt geprobeerd voordat deze is mislukt.      |     0    |
-| `Objects`        | Matrix | Een matrix met objecten moeten worden verwerkt. Elk object bevat: 'tabel' bij het verwerken van de hele tabel of 'tabel' en "partitie" bij het verwerken van een partitie. Als er geen objecten zijn opgegeven, wordt het hele model wordt vernieuwd. |   Het hele model verwerken      |
+| `Objects`        | Array | Een matrix met objecten moeten worden verwerkt. Elk object bevat: 'tabel' bij het verwerken van de hele tabel of 'tabel' en "partitie" bij het verwerken van een partitie. Als er geen objecten zijn opgegeven, wordt het hele model wordt vernieuwd. |   Het hele model verwerken      |
 
 CommitMode is gelijk aan partialBatch. Deze wordt gebruikt wanneer een initiële laden van grote gegevenssets die hiervoor uren kan duren. Als de vernieuwingsbewerking mislukt na het doorvoeren van een of meer batches is, de doorgevoerd batches blijft toegewezen (dit wordt niet terugdraaien doorgevoerd batches).
 
