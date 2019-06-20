@@ -10,10 +10,10 @@ ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125913"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge
@@ -89,7 +89,7 @@ De volgende stappen laten zien over het maken van een IoT Edge-module in uw favo
 
 1. Voer een naam voor uw module. Kies een naam die uniek is binnen uw containerregister.
 
-1. Geef de naam van de opslagplaats voor installatiekopieën van de module. Visual Studio Code autopopulates de module met naam **localhost:5000 / < modulenaam van uw\>**. Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als ***\<registernaam\>*. azurecr.io**. Het vervangen van slechts de **localhost:5000** deel uitmaakt van de tekenreeks, zodat het uiteindelijke resultaat ziet als eruit **\<* registernaam*\>.azurecr.io/* \<de modulenaam van uw\>***.
+1. Geef de naam van de opslagplaats voor installatiekopieën van de module. Visual Studio Code autopopulates de module met naam **localhost:5000 / < modulenaam van uw\>** . Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als * **\<registernaam\>*. azurecr.io**. Het vervangen van slechts de **localhost:5000** deel uitmaakt van de tekenreeks, zodat het uiteindelijke resultaat ziet als eruit * *\<* registernaam *\>.azurecr.io/* \<de modulenaam van uw\>***.
 
    ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/how-to-develop-csharp-module/repository.png)
 
@@ -116,7 +116,7 @@ Aanvullende modules toevoegen aan uw oplossing, voer de opdracht **Azure IoT Edg
 
 De standaard-module-code die wordt geleverd met de oplossing bevindt zich in de volgende locatie:
 
-- Azure-functie (C#): **modules >  *&lt;de modulenaam van uw&gt;* > *&lt;de modulenaam van uw&gt;*.cs**
+- Azure-functie (C#): **modules >  *&lt;de modulenaam van uw&gt;*  >  *&lt;de modulenaam van uw&gt;* .cs**
 - C#: **modules > *&lt;de modulenaam van uw&gt;* > Program.cs**
 - Python: **modules > *&lt;de modulenaam van uw&gt;* > main.py**
 - Node.js: **modules > *&lt;de modulenaam van uw&gt;* > app.js**
@@ -162,7 +162,7 @@ Als u wilt instellen en de simulator start, voert u de opdracht **Azure IoT Edge
 
      - Open het bestand `Program.cs` en voeg een onderbrekingspunt toe.
 
-     - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ***&lt;de modulenaam van uw&gt;* lokale foutopsporing (.NET Core)** in de vervolgkeuzelijst.
+     - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ** *&lt;de modulenaam van uw&gt;* lokale foutopsporing (.NET Core)** in de vervolgkeuzelijst.
 
         > [!NOTE]
         > Als uw .NET Core `TargetFramework` is niet consistent met het programmapad in `launch.json`, moet u handmatig bijwerken van het programmapad in `launch.json` zodat deze overeenkomen met de `TargetFramework` in uw .csproj-bestand zodat die Visual Studio-Code kunt is dit starten programma.
@@ -176,11 +176,11 @@ Als u wilt instellen en de simulator start, voert u de opdracht **Azure IoT Edge
 
      - Open het bestand `app.js` en voeg een onderbrekingspunt toe.
 
-     - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ***&lt;de modulenaam van uw&gt;* lokale foutopsporing (Node.js)** in de vervolgkeuzelijst.
+     - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ** *&lt;de modulenaam van uw&gt;* lokale foutopsporing (Node.js)** in de vervolgkeuzelijst.
    - **Java**
      - Open het bestand `App.java` en voeg een onderbrekingspunt toe.
 
-     - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ***&lt;de modulenaam van uw&gt;* lokale foutopsporing (Java)** in de vervolgkeuzelijst.
+     - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ** *&lt;de modulenaam van uw&gt;* lokale foutopsporing (Java)** in de vervolgkeuzelijst.
 
 1. Klik op **Start Debugging** of druk op **F5** om de foutopsporingssessie te starten.
 
@@ -228,7 +228,7 @@ Op uw ontwikkelcomputer kun u een IoT Edge-simulator in plaats van installatie v
 
    ![Bekijk variabelen](media/how-to-develop-csharp-module/view-log.png)
 
-1. Navigeer naar de weergave voor foutopsporing van Visual Studio Code en selecteer het configuratiebestand voor de foutopsporing voor de module. De naam van de optie foutopsporing zijn vergelijkbaar met  ***&lt;de modulenaam van uw&gt;* externe foutopsporing**
+1. Navigeer naar de weergave voor foutopsporing van Visual Studio Code en selecteer het configuratiebestand voor de foutopsporing voor de module. De naam van de optie foutopsporing zijn vergelijkbaar met  ** *&lt;de modulenaam van uw&gt;* externe foutopsporing**
 
 1. Selecteer **Start Debugging** of druk op **F5**. Selecteer het proces om aan te koppelen.
 
@@ -316,13 +316,13 @@ U kunt in deze sectie overslaan als de modules worden uitgevoerd op dezelfde com
 
   - Zorg ervoor dat de module op de machine u fouten wilt opsporen wordt uitgevoerd en gereed voor foutopsporing te koppelen, en dat poort 9229 extern toegankelijk is. U kunt dit controleren door het openen van `http://<target-machine-IP>:9229/json` op de machine foutopsporingsprogramma. Deze URL moet informatie over de Node.js-module u fouten wilt opsporen worden weergegeven.
   
-  - Open Visual Studio Code op uw ontwikkelcomputer en bewerk vervolgens `launch.json` zodat de adreswaarde van de  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Node.js)** profiel (of  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Node.js in Windows-Container)** profileren als de module wordt uitgevoerd als een Windows-container) het IP-adres van de machine foutopsporing wordt uitgevoerd.
+  - Open Visual Studio Code op uw ontwikkelcomputer en bewerk vervolgens `launch.json` zodat de adreswaarde van de  ** *&lt;de modulenaam van uw&gt;* externe foutopsporing (Node.js)** profiel (of  ** *&lt;de modulenaam van uw&gt;* externe foutopsporing (Node.js in Windows-Container)** profileren als de module wordt uitgevoerd als een Windows-container) het IP-adres van de machine foutopsporing wordt uitgevoerd.
 
 - **Java**
 
   - Bouw een SSH-tunnel naar de machine u fouten wilt opsporen door uit te voeren `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
   
-  - Op uw ontwikkelcomputer, Visual Studio Code open en bewerk de  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Java)** profiel `launch.json` zodat u kunt koppelen aan de doel-VM. Voor meer informatie over het bewerken van `launch.json` en opsporen van fouten in Java met Visual Studio Code, Zie de sectie over [configureren van het foutopsporingsprogramma](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - Op uw ontwikkelcomputer, Visual Studio Code open en bewerk de  ** *&lt;de modulenaam van uw&gt;* externe foutopsporing (Java)** profiel `launch.json` zodat u kunt koppelen aan de doel-VM. Voor meer informatie over het bewerken van `launch.json` en opsporen van fouten in Java met Visual Studio Code, Zie de sectie over [configureren van het foutopsporingsprogramma](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
@@ -330,16 +330,16 @@ U kunt in deze sectie overslaan als de modules worden uitgevoerd op dezelfde com
 
   - In de code `ptvsd.enable_attach(('0.0.0.0', 5678))` die u eerder hebt ingevoegd in `main.py`, wijzigen **0.0.0.0** naar het IP-adres van de machine op te geven. Bouwen, push en opnieuw implementeren van uw IoT Edge-module.
 
-  - Open Visual Studio Code op uw ontwikkelcomputer en bewerk vervolgens `launch.json` zodat de `host` waarde van de  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Python)** profiel gebruikt het IP-adres van de doel-VM in plaats van `localhost`.
+  - Open Visual Studio Code op uw ontwikkelcomputer en bewerk vervolgens `launch.json` zodat de `host` waarde van de  ** *&lt;de modulenaam van uw&gt;* externe foutopsporing (Python)** profiel gebruikt het IP-adres van de doel-VM in plaats van `localhost`.
 
 ### <a name="debug-your-module"></a>Fouten opsporen in uw module
 
-1. Selecteer het configuratiebestand voor de foutopsporing voor de module in de weergave foutopsporing van Visual Studio Code. De naam van de optie foutopsporing zijn vergelijkbaar met  ***&lt;de modulenaam van uw&gt;* externe foutopsporing**
+1. Selecteer het configuratiebestand voor de foutopsporing voor de module in de weergave foutopsporing van Visual Studio Code. De naam van de optie foutopsporing zijn vergelijkbaar met  ** *&lt;de modulenaam van uw&gt;* externe foutopsporing**
 
 1. Open de module-bestand voor de taal van de ontwikkeling en voeg een onderbrekingspunt toe:
 
-   - **Azure-functie (C#)**: Uw onderbrekingspunt toevoegen aan het bestand `<your module name>.cs`.
-   - **C#**: Uw onderbrekingspunt toevoegen aan het bestand `Program.cs`.
+   - **Azure-functie (C#)** : Uw onderbrekingspunt toevoegen aan het bestand `<your module name>.cs`.
+   - **C#** : Uw onderbrekingspunt toevoegen aan het bestand `Program.cs`.
    - **Node.js**: Uw onderbrekingspunt toevoegen aan het bestand `app.js`.
    - **Java**: Uw onderbrekingspunt toevoegen aan het bestand `App.java`.
    - **Python**: Uw onderbrekingspunt toevoegen aan het bestand `main.py`in de terugbelmethode waaraan u hebt toegevoegd de `ptvsd.break_into_debugger()` regel.

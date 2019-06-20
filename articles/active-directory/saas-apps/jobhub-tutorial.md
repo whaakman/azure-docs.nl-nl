@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fe2f9531c7dc5ab5bde0fb5669fa448d1113a2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: bc5f7bf299465b6af272c9b417a62f121b9a4d82
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099323"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164935"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Zelfstudie: JOBHUB integreren met Azure Active Directory
 
@@ -78,7 +78,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Op de **SAML-basisconfiguratie** sectie, voert u de waarden voor de volgende velden:  In het tekstvak Aanmeldings-URL** typt u een URL met de volgende notatie: `https://pasona.jobhub.jp/saml/init`
+1. Op de **SAML-basisconfiguratie** sectie, voert u de waarden voor de volgende velden:  In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://pasona.jobhub.jp/saml/init`
 
     > [!NOTE]
     > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [JOBHUB Client ondersteuningsteam](mailto:platform@pasonagroup.co.jp) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -145,9 +145,9 @@ Wanneer u de tegel JOBHUB in het toegangsvenster selecteert, moet u worden autom
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
