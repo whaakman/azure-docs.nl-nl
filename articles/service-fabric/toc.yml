@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5 - Een cluster verwijderen
           href: service-fabric-tutorial-delete-cluster.md
-    - name: Een zelfstandige cluster maken in AWS
+    - name: Een zelfstandig cluster maken
       items:
-        - name: 1 - De infrastructuur maken in AWS
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1 - De infrastructuur maken
+          items:
+            - name: Met behulp van AWS
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Met behulp van Azure
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2 - Service Fabric instellen
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3 - Een toepassing implementeren in het cluster
@@ -695,6 +699,8 @@
       items:
         - name: Problemen vaststellen bij algemene scenario’s
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: Codepakketfouten vaststellen
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: Toepassingen bewaken
           items:
             - name: Logboekregistratie toevoegen aan uw toepassing

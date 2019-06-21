@@ -43,6 +43,10 @@
       href: deploy-cli.md
     - name: Implementeren met behulp van een sjabloon
       href: deploy-template.md
+    - name: Implementeren met meerdere openbare IP-adressen
+      href: deploy-multi-public-ip-powershell.md
+    - name: Implementeren met beschikbaarheidszones
+      href: deploy-availability-zone-powershell.md
     - name: Integreren met load balancer
       href: integrate-lb.md
 - name: Naslaginformatie

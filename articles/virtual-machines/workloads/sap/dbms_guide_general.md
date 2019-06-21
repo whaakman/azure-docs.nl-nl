@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836112"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202945"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -150,7 +150,7 @@ De plaatsing van bestanden van de database en de bestanden logboek- en opnieuw u
 Als al is vermeld, saldo als de vereiste IOPS is groter dan wat één VHD kan bieden, het aantal IOP's die nodig zijn voor de databasebestanden naar een aantal VHD's. De eenvoudigste manier om de IOPS verdelen over schijven is het bouwen van een streep software via de verschillende schijven. Vervolgens plaatst u een aantal gegevensbestanden van de SAP DBMS in de LUN's oppervlaktevariaties buiten de software-stripe. het aantal schijven in de streep wordt aangestuurd door IOPs eisen, schijf doorvoer eisen en volume eisen.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > U wordt aangeraden gebruik te maken van Windows Storage Spaces aan te brengen stripesets op meerdere Azure-VHD's. Ten minste Windows Server 2012 R2 of Windows Server 2016.
@@ -164,7 +164,7 @@ Als al is vermeld, saldo als de vereiste IOPS is groter dan wat één VHD kan bi
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Omdat Azure Storage kan drie kopieën van de VHD's voldoen, verstandig niet het om te configureren van een redundantie wanneer u stripe. U hoeft alleen striping configureren zodat de i/o's worden verdeeld over de verschillende VHD's.
@@ -230,7 +230,7 @@ Azure-VM's bieden een niet-persistente schijven na de implementatie van een virt
 
 Zie voor meer informatie, [het tijdelijke station op Windows-VM's in Azure begrijpen](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Station D in een Azure VM is een persistente station, die wordt ondersteund door sommige lokale schijven op de Azure compute-knooppunt. Omdat het persistente, alle wijzigingen aan de inhoud op station D gaan verloren wanneer de virtuele machine opnieuw wordt opgestart. Wijzigingen zijn bestanden die zijn opgeslagen, mappen die zijn gemaakt en toepassingen die zijn geïnstalleerd.
@@ -241,7 +241,7 @@ Zie voor meer informatie, [het tijdelijke station op Windows-VM's in Azure begri
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Om de netwerklatentie tussen virtuele Azure-machines te verminderen, wordt aange
 > Niet alle VM-typen bieden ondersteuning voor versnelde netwerken. Het vorige artikel geeft een lijst van de VM-typen die ondersteuning bieden voor versnelde netwerken.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Zie voor meer informatie over het implementeren van virtuele machines met versnelde netwerken voor Windows, [maken van een Windows-machine met versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -350,7 +350,7 @@ Om de netwerklatentie tussen virtuele Azure-machines te verminderen, wordt aange
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > In het geval van SUSE, Red Hat en Oracle Linux wordt versnelde netwerken ondersteund met recente versies. Oudere versies, zoals SLES 12 SP2 of RHEL 7.2 bieden geen ondersteuning voor Azure Accelerated Networking.

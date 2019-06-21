@@ -28,20 +28,8 @@
       items:
         - name: .NET Core
           href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-getstarted-send.md
         - name: Java
           href: event-hubs-java-get-started-send.md
-        - name: Python
-          href: event-hubs-python-get-started-send.md
-        - name: Node.js
-          href: event-hubs-node-get-started-send.md
-        - name: Aan de slag
-          href: event-hubs-go-get-started-send.md
-        - name: C (alleen verzenden)
-          href: event-hubs-c-getstarted-send.md
-        - name: Apache Storm (alleen ontvangen)
-          href: event-hubs-storm-getstarted-receive.md
     - name: Gebeurtenissen vastleggen
       items:
         - name: Azure Portal gebruiken om Event Hubs Capture in te schakelen
@@ -60,33 +48,21 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: Vastgelegde gegevens opslaan in een SQL Data Warehouse
       href: store-captured-data-data-warehouse.md
+    - name: Apache Kafka voor Event Hubs-gebeurtenissen verwerken met behulp van Stream Analytics
+      href: event-hubs-kafka-stream-analytics.md
     - name: Gegevens streamen naar Azure Databricks met behulp van Event Hubs
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
-    - name: Integratie van virtuele netwerken en firewalls inschakelen in Event Hubs-naamruimte
-      href: event-hubs-tutorial-virtual-networks-firewalls.md
-    - name: Event Hubs voor Apache Kafka
-      items:
-        - name: Een Kafka-broker spiegelen in een Event Hub waar Apache Kafka is ingeschakeld
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Apache Spark verbinden met een event hub waar Apache Kafka is ingeschakeld
-          href: event-hubs-kafka-spark-tutorial.md
-        - name: Apache Flink verbinden met een Event Hub waar Apache Kafka is ingeschakeld
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Apache Kafka Connect integreren met een event hub waar Kafka is ingeschakeld (preview)
-          href: event-hubs-kafka-connect-tutorial.md
-        - name: Akka Streams verbinden met een Event Hub waar Apache Kafka is ingeschakeld
-          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Voorbeelden
   href: event-hubs-samples.md
 - name: Concepten
   items:
-    - name: Functies van Event Hubs
+    - name: Event Hubs-terminologie
       href: event-hubs-features.md
-    - name: Overzicht van de gebeurtenisprocessorhost
-      href: event-hubs-event-processor-host.md
-    - name: Programmeergids
-      href: event-hubs-programming-guide.md
+    - name: Beschikbaarheid en consistentie
+      href: event-hubs-availability-and-consistency.md
+    - name: Schaalbaarheid
+      href: event-hubs-scalability.md
     - name: Beveiliging
       items:
         - name: Beheerde identiteit voor Azure-resources
@@ -99,54 +75,95 @@
           href: event-hubs-authentication-and-security-model-overview.md
         - name: Beveiligingskenmerken
           href: event-hubs-security-attributes.md
-    - name: Beschikbaarheid en consistentie
-      href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0-protocolhandleiding
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
 - name: Handleidingen
   items:
-    - name: 'Gebeurtenissen verzenden, ontvangen en vastleggen met behulp van Python'
-      href: event-hubs-python.md
-    - name: Diagnostische logboeken instellen
-      href: event-hubs-diagnostic-logs.md
-    - name: Event Hubs voor Apache Kafka
+    - name: Ontwikkelen
+      items:
+        - name: Event Hub-verbindingsreeks ophalen
+          href: event-hubs-get-connection-string.md
+        - name: Gebeurtenissen uitwisselen tussen toepassingen die gebruikmaken van verschillende protocollen
+          href: event-hubs-exchange-events-different-protocols.md
+        - name: Programmeergids
+          href: event-hubs-programming-guide.md
+        - name: Gebeurtenissen ontvangen met Event Processor Host
+          href: event-hubs-event-processor-host.md
+    - name: Clientbibliotheken gebruiken
+      items:
+        - name: .NET Framework
+          items:
+            - name: Gebeurtenissen verzenden en ontvangen met behulp van .NET Framework
+              href: event-hubs-dotnet-framework-getstarted-send.md
+        - name: Java
+          items:
+            - name: Een Spring Cloud Stream Binder-app maken
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+              maintainContext: true
+            - name: Spring Boot Starter voor Apache Kafka gebruiken
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+              maintainContext: true
+        - name: Python
+          items:
+            - name: Gebeurtenissen verzenden en ontvangen met behulp van Python
+              href: event-hubs-python-get-started-send.md
+            - name: 'Gebeurtenissen verzenden, ontvangen en vastleggen met behulp van Python'
+              href: event-hubs-python.md
+        - name: Node.js
+          items:
+            - name: Gebeurtenissen verzenden en ontvangen met behulp van Node.js
+              href: event-hubs-node-get-started-send.md
+        - name: Aan de slag
+          items:
+            - name: Gebeurtenissen verzenden en ontvangen met behulp van Go
+              href: event-hubs-go-get-started-send.md
+        - name: C (alleen verzenden)
+          items:
+            - name: Gebeurtenissen verzenden met behulp van C
+              href: event-hubs-c-getstarted-send.md
+        - name: Apache Storm (alleen ontvangen)
+          items:
+            - name: Gebeurtenissen ontvang met behulp van Apache Storm
+              href: event-hubs-storm-getstarted-receive.md
+    - name: Integreren met Apache Kafka
       items:
         - name: Event-hubs maken waarvoor Apache Kafka is ingeschakeld
           href: event-hubs-create-kafka-enabled.md
-        - name: Apache Kafka voor Event Hubs-gebeurtenissen verwerken met behulp van Stream Analytics
-          href: event-hubs-kafka-stream-analytics.md
-    - name: Beheren
+        - name: Een Kafka-broker spiegelen in een Event Hub waar Apache Kafka is ingeschakeld
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Apache Spark verbinden met een event hub waar Apache Kafka is ingeschakeld
+          href: event-hubs-kafka-spark-tutorial.md
+        - name: Apache Flink verbinden met een Event Hub waar Apache Kafka is ingeschakeld
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Apache Kafka Connect integreren met een event hub waar Kafka is ingeschakeld (preview)
+          href: event-hubs-kafka-connect-tutorial.md
+        - name: Akka Streams verbinden met een Event Hub waar Apache Kafka is ingeschakeld
+          href: event-hubs-kafka-akka-streams-tutorial.md
+    - name: Beheren en bewaken
       items:
         - name: Event Hubs bewaken met Azure Monitor
           href: event-hubs-metrics-azure-monitor.md
+        - name: Diagnostische logboeken instellen
+          href: event-hubs-diagnostic-logs.md
+        - name: Gegevens van Azure Diagnostics streamen met behulp van Event Hubs
+          href: event-hubs-streaming-azure-diags-data.md
+        - name: Doorvoereenheden automatisch schalen
+          href: event-hubs-auto-inflate.md
         - name: Event Hubs-beheerbibliotheken
           href: event-hubs-management-libraries.md
-    - name: Event Hub-verbindingsreeks ophalen
-      href: event-hubs-get-connection-string.md
-    - name: Java-ontwikkeling
+    - name: Beveiligen
       items:
-        - name: Een Spring Cloud Stream Binder-app maken
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-        - name: Spring Boot Starter voor Apache Kafka gebruiken
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+        - name: Gebruik firewalls
+          href: event-hubs-ip-filtering.md
+        - name: Service-eindpunten voor virtueel netwerk gebruiken
+          href: event-hubs-service-endpoints.md
+        - name: Integratie van virtuele netwerken en firewalls inschakelen in Event Hubs-naamruimte
+          href: event-hubs-tutorial-virtual-networks-firewalls.md
     - name: Problemen oplossen
       items:
         - name: Uitzonderingen
           href: event-hubs-messaging-exceptions.md
-    - name: Gebruik firewalls
-      href: event-hubs-ip-filtering.md
-    - name: Service-eindpunten voor virtueel netwerk gebruiken
-      href: event-hubs-service-endpoints.md
-    - name: Doorvoereenheden automatisch schalen
-      href: event-hubs-auto-inflate.md
-    - name: Gegevens van Azure Diagnostics streamen met behulp van Event Hubs
-      href: event-hubs-streaming-azure-diags-data.md
-    - name: Gebeurtenissen uitwisselen tussen toepassingen die gebruikmaken van verschillende protocollen
-      href: event-hubs-exchange-events-different-protocols.md
-    - name: Een Spring Cloud Stream Binder-toepassing maken
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
-      maintainContext: true
 - name: Naslaginformatie
   items:
     - name: Java

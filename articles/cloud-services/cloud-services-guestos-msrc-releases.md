@@ -11,24 +11,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 6/14/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f10290024f9bd46a1de4bdfa6e12f841ddd1c4ed
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743043"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150986"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+## <a name="june-2019-guest-os"></a>Juni 2019 Guest OS
+
+>[!NOTE]
+>Het Gastbesturingssysteem juni is op dit moment wordt geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem juni. Deze lijst is onderhevig aan wijzigingen.
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Windows 10-beveiliging   |  6.8  |  11 juni 2019  |
+|  Rel 19-06   |  [4503267]  |  Windows 10-beveiliging   |  5.32  |  11 juni 2019  |
+|  Rel 19-06   |  [4503290]  |  Windows-beveiliging   |  4.67  |  11 juni 2019  |
+|  Rel 19-06   |  [4503263]  |  Windows-beveiliging   |  3.74  |  11 juni 2019  |
+|  Rel 19-06   |  [4503269]  |  Windows-beveiliging   |  2.87  |  11 juni 2019  |
+|  Rel 19-06   |  [4494174]  |  Microcode Update   |  6.8  |  11 juni 2019  |
+|  Rel 19-06   |  [4494175]  |  Microcode Update   |  5.32  |  3 juni 2019  |
+|  Rel 19-06   |  [4503308]  |  Flash   |  3.74, 4.67, 5.32, 6.8  |  11 juni 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 juni 2019  |
+|  N/A  |  [4499164]  |  Mei ' 19 niet-beveiligingsupdates  |  2.87  |  14 mei 2019  |
+|  N/A  |  [4495606]  |  Mei ' 19 .NET 3.5 niet voor beveiliging  |  2.87  |  14 mei 2019  |
+|  N/A  |  [4495596]  |  Mei ' 19 .NET 4.5 niet voor beveiliging  |  2.87  |  20 mei 2019  |
+|  N/A  |  [4499171]  |  Mei ' 19 niet-beveiligingsupdates  |  3.74  |  14 mei 2019  |
+|  N/A  |  [4495602]  |  Mei ' 19 .NET 3.5 niet voor beveiliging  |  3.74  |  14 mei 2019  |
+|  N/A  |  [4495594]  |  Mei ' 19 .NET 4.x niet voor beveiliging  |  4.67  |  14 mei 2019  |
+|  N/A  |  [4499151]  |  Mei ' 19 niet-beveiligingsupdates  |  4.67  |  14 mei 2019  |
+|  N/A  |  [4495608]  |  Mei ' 19 .NET 3.5 niet voor beveiliging  |  4.67  |  14 mei 2019  |
+|  N/A  |  [4495592]  |  Mei ' 19 .NET 4.5.2 niet voor beveiliging  |  4.67  |  14 mei 2019  |
+|  N/A  |  [4495610]  |  Mei ' 19 .NET 4.8 cumulatieve  |  6.8  |  14 mei 2019  |
+|  N/A  |  [4495618]  |  May’19 .NET 4.8 Cumulative  |  6.8  |  14 mei 2019  |
+|  N/A  |  [4501226]  |  Zomertijd tijdzone updates voor Marokko en de Palestijnse autoriteit  |  2.87, 3.74, 4.67  |  23 mei 2019  |
+|  N/A  |  [4490128]  |  Updates voor São Tomé en principe en Qyzylorda DST tijdzone  |  2.87, 3.74, 4.67  |  17 april 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
 
 ## <a name="may-2019-guest-os"></a>Mei 2019 Guest OS
 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Kan de IE-updatepakket   |  2,86, 3.73, 4.66  |  14 mei 2019  |
-|  Rel 19-05   |  [4505050]  |  Kan de IE-updatepakket   |  2,86, 3.73, 4.66  |  18 mei 2019  |
+|  Rel 19-05   |  [4498206]  |  Kan de IE-updatepakket   |  2.86, 3.73, 4.66  |  14 mei 2019  |
+|  Rel 19-05   |  [4505050]  |  Kan de IE-updatepakket   |  2.86, 3.73, 4.66  |  18 mei 2019  |
 |  Rel 19-05   |  [4497932]  |  Kan Update Flash   |  3.73, 4.66, 5.31  |  14 mei 2019  |
 |  Rel 19-05   |  [4499175]  |  Kan beveiliging samenvouwen   |  2.86  |  14 mei 2019  |
 |  Rel 19-05   |  [4495612]  |  Kan beveiliging updatepakket .NET 3.5   |  2.86  |  14 mei 2019  |

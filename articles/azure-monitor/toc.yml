@@ -33,26 +33,33 @@
           href: learn/quick-collect-windows-computer.md
 - name: Zelfstudies
   items:
-    - name: Gegevens analyseren in logboekanalyse
-      href: learn/tutorial-viewdata.md
-    - name: Gegevens visualiseren in logboekanalyse
-      href: learn/tutorial-logs-dashboards.md
+    - name: Logboeken
+      items:
+        - name: Log Analytics
+          href: log-query/get-started-portal.md
+        - name: Logboekquery's
+          href: log-query/get-started-queries.md
+        - name: Logboekgegevens visualiseren
+          href: learn/tutorial-logs-dashboards.md
+        - name: Waarschuwing bij logboekgegevens
+          href: learn/tutorial-response.md
+    - name: Application Insights
+      items:
+        - name: Runtime-toepassingsuitzonderingen vinden
+          href: learn/tutorial-runtime-exceptions.md
+        - name: Toepassingsprestatieproblemen vinden
+          href: learn/tutorial-performance.md
+        - name: Waarschuwing bij toepassingsstatus
+          href: learn/tutorial-alert.md
+        - name: Toepassingsgebruikers begrijpen
+          href: learn/tutorial-users.md
+        - name: Aangepaste dashboards maken
+          href: learn/tutorial-app-dashboards.md
+        - name: Application Insights
     - name: Metrische gegevens en logboekgegevens van het platform archiveren
       href: learn/tutorial-archive-data.md
-    - name: Waarschuwing bij logboekgegevens
-      href: learn/tutorial-response.md
     - name: Automatisch schalen op basis van prestaties en schema
       href: learn/tutorial-autoscale-performance-schedule.md
-    - name: Runtime-toepassingsuitzonderingen vinden
-      href: learn/tutorial-runtime-exceptions.md
-    - name: Toepassingsprestatieproblemen vinden
-      href: learn/tutorial-performance.md
-    - name: Waarschuwing bij toepassingsstatus
-      href: learn/tutorial-alert.md
-    - name: Toepassingsgebruikers begrijpen
-      href: learn/tutorial-users.md
-    - name: Aangepaste dashboards maken
-      href: learn/tutorial-app-dashboards.md
 - name: Voorbeelden
   items:
     - name: Azure PowerShell
@@ -199,6 +206,8 @@
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Aangepaste gegevensbronnen correleren
               href: app/custom-data-correlation.md
+            - name: Servicemeldingen bekijken
+              href: platform/service-notifications.md
         - name: Agents installeren en configureren
           items:
             - name: Overzicht van bewakingsagents
@@ -665,6 +674,99 @@
               href: insights/solutions.md
             - name: Doeloplossingen
               href: insights/solution-targeting.md
+    - name: Gegevens analyseren
+      items:
+        - name: Metrische gegevens
+          items:
+            - name: Aan de slag met Metrics Explorer
+              href: platform/metrics-getting-started.md
+            - name: Geavanceerde functies van Metrics Explorer
+              href: platform/metrics-charts.md
+            - name: Voorbeelden van grafieken met metrische gegevens
+              href: platform/metric-chart-samples.md
+            - name: Problemen met grafieken met metrische gegevens oplossen
+              href: platform/metrics-troubleshoot.md
+        - name: Logboeken
+          items:
+            - name: Overzicht van logboekquery's
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: Zelfstudies
+              items:
+                - name: Log Analytics-zelfstudie
+                  href: log-query/get-started-portal.md
+                - name: Zelfstudie voor logboekquery's
+                  href: log-query/get-started-queries.md
+            - name: Logboekgegevens
+              items:
+                - name: Logboekgegevensstructuur
+                  href: log-query/logs-structure.md
+                - name: Querybereik
+                  href: log-query/scope.md
+                - name: Standaardeigenschappen
+                  href: platform/log-standard-properties.md
+            - name: Querytaal
+              items:
+                - name: Documentatie voor querytaal
+                  href: log-query/query-language.md
+                - name: Verschillen in taal
+                  href: log-query/data-explorer-difference.md
+                - name: Nuttige operatoren
+                  href: log-query/functions.md
+                - name: Functions
+                  href: log-query/useful-operators.md
+                - name: Overgang van zoeken in logboeken
+                  href: log-query/log-search-transition.md
+                - name: Lessen
+                  items:
+                    - name: Tekenreeksbewerkingen
+                      href: log-query/string-operations.md
+                    - name: Datum- en tijdbewerkingen
+                      href: log-query/datetime-operations.md
+                    - name: Aggregatiefuncties
+                      href: log-query/aggregations.md
+                    - name: Geavanceerde aggregaties
+                      href: log-query/advanced-aggregations.md
+                    - name: Samenvoegingen
+                      href: log-query/joins.md
+                    - name: JSON en gegevensstructuren
+                      href: log-query/json-data-structures.md
+                    - name: Geavanceerde query's schrijven
+                      href: log-query/advanced-query-writing.md
+                    - name: Grafieken en diagrammen
+                      href: log-query/charts.md
+                    - name: Zoekquery 's
+                      href: log-query/search-queries.md
+                - name: Cheatsheets
+                  items:
+                    - name: SQL
+                      href: log-query/sql-cheatsheet.md
+                    - name: Splunk
+                      href: log-query/splunk-cheatsheet.md
+            - name: Kruislingse resource
+              items:
+                - name: Query's op kruislingse resources
+                  href: log-query/cross-workspace-query.md
+                - name: app-expressie
+                  href: log-query/app-expression.md
+                - name: werkruimte-expressie
+                  href: log-query/workspace-expression.md
+                - name: Resources voor toepassingsgegevens samenbundelen
+                  href: log-query/unify-app-resource-data.md
+            - name: Voorbeelden en richtlijnen
+              items:
+                - name: Voorbeelden van logboekquery's
+                  href: log-query/examples.md
+                - name: Voorbeelden van slimme analyses
+                  href: log-query/smart-analytics.md
+                - name: Efficiënte query's schrijven
+                  href: log-query/log-query-performance.md
+                - name: Tekstgegevens parseren
+                  href: log-query/parse-text.md
+            - name: Computergroepen
+              href: platform/computer-groups.md
+            - name: Stroomconnector
+              href: platform/flow-tutorial.md
     - name: Gegevens visualiseren
       items:
         - name: Weergaven
@@ -683,104 +785,10 @@
               href: platform/powerbi.md
             - name: Toepassingsgegevens exporteren
               href: app/export-power-bi.md
+        - name: Dashboards
+          href: app/app-insights-dashboards.md
         - name: Gegevens naar Grafana verzenden
           href: platform/grafana-plugin.md
-    - name: Gegevens analyseren
-      items:
-        - name: Metrische gegevens
-          items:
-            - name: Aan de slag met Metrics Explorer
-              href: platform/metrics-getting-started.md
-            - name: Geavanceerde functies van Metrics Explorer
-              href: platform/metrics-charts.md
-            - name: Voorbeelden van grafieken met metrische gegevens
-              href: platform/metric-chart-samples.md
-            - name: Problemen met grafieken met metrische gegevens oplossen
-              href: platform/metrics-troubleshoot.md
-        - name: Logboeken
-          items:
-            - name: Logboekquery's
-              href: log-query/log-query-overview.md
-            - name: Portals logboekquery's
-              href: log-query/portals.md
-            - name: Documentatie voor querytaal
-              href: log-query/query-language.md
-            - name: Verschillen in taal
-              href: log-query/data-explorer-difference.md
-            - name: Overgang van zoeken in logboeken
-              href: log-query/log-search-transition.md
-            - name: Aan de slag
-              items:
-                - name: Aan de slag met de Analytics-portal
-                  href: log-query/get-started-portal.md
-                - name: Aan de slag met query's
-                  href: log-query/get-started-queries.md
-                - name: Zoekquery 's
-                  href: log-query/search-queries.md
-                - name: Nuttige operatoren
-                  href: log-query/useful-operators.md
-            - name: Lessen
-              items:
-                - name: Tekenreeksbewerkingen
-                  href: log-query/string-operations.md
-                - name: Datum- en tijdbewerkingen
-                  href: log-query/datetime-operations.md
-                - name: Aggregatiefuncties
-                  href: log-query/aggregations.md
-                - name: Geavanceerde aggregaties
-                  href: log-query/advanced-aggregations.md
-                - name: Samenvoegingen
-                  href: log-query/joins.md
-                - name: JSON en gegevensstructuren
-                  href: log-query/json-data-structures.md
-                - name: Geavanceerde query's schrijven
-                  href: log-query/advanced-query-writing.md
-                - name: Grafieken en diagrammen
-                  href: log-query/charts.md
-                - name: Functions
-                  href: log-query/functions.md
-            - name: Cheatsheets
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-            - name: Querytaal
-              items:
-                - name: Voorbeelden
-                  href: log-query/examples.md
-                - name: Efficiënte query's schrijven
-                  href: log-query/log-query-performance.md
-                - name: Slimme analyse
-                  href: log-query/smart-analytics.md
-                - name: Zoekopdrachten in meerdere bronnen
-                  href: log-query/cross-workspace-query.md
-                - name: app-expressie
-                  href: log-query/app-expression.md
-                - name: werkruimte-expressie
-                  href: log-query/workspace-expression.md
-            - name: Logboekgegevens
-              items:
-                - name: Toepassingsgegevens
-                  href: app/analytics.md
-                - name: Resources voor toepassingsgegevens samenbundelen
-                  href: log-query/unify-app-resource-data.md
-                - name: Standaardeigenschappen
-                  href: platform/log-standard-properties.md
-                - name: Tekstgegevens parseren
-                  href: log-query/parse-text.md
-            - name: Acties uitvoeren vanuit de zoekresultaten
-              href: log-query/take-action.md
-            - name: Computergroepen
-              href: platform/computer-groups.md
-            - name: Stroomconnector
-              href: platform/flow-tutorial.md
-            - name: API voor zoeken in logboeken
-              href: 'https://dev.loganalytics.io/'
-        - name: Gebeurtenissen in het activiteitenlogboek bekijken
-          href: ../azure-resource-manager/resource-group-audit.md
-        - name: Servicemeldingen bekijken
-          href: platform/service-notifications.md
     - name: Reageren op incidenten
       items:
         - name: Waarschuwingen
@@ -931,6 +939,8 @@
           items:
             - name: 'Rondleiding: REST API gebruiken'
               href: platform/rest-api-walkthrough.md
+            - name: API voor zoeken in logboeken
+              href: 'https://dev.loganalytics.io/'
             - name: Waarschuwings-API
               href: platform/api-alerts.md
         - name: Toepassingen
@@ -973,6 +983,8 @@
               href: platform/runbook-datacollect.md
 - name: Naslaginformatie
   items:
+    - name: Servicelimieten
+      href: service-limits.md
     - name: Application Insights
       items:
         - name: Afhankelijkheden automatisch verzamelen

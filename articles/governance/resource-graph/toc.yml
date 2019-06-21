@@ -33,6 +33,9 @@
     - name: Werken met grote gegevenssets
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
+    - name: Richtlijnen voor vertraagde aanvragen
+      displayName: 'pagination, batching, throttling, parallel'
+      href: ./concepts/guidance-for-throttled-requests.md
 - name: Handleidingen
   items:
     - name: Resourcewijzigingen ophalen

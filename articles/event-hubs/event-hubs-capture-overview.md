@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ee64d25afcb2be73bed26c6c4dec87f216a0fd82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47ae3eb41145a74c1726847943df9074a4a75dfe
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383869"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273657"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Vastleggen van gebeurtenissen tot en met Azure Event Hubs in Azure Blob Storage of Azure Data Lake Storage
-Azure Event Hubs kunt u automatisch vastleggen de streaminggegevens in Event Hubs in een [Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) of [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) -account van uw keuze, met de extra flexibiliteit een tijds- of grootte-interval op te geven. Instellen van Capture is snel, er zijn geen administratieve kosten uit te voeren en wordt automatisch geschaald met Event Hubs [doorvoereenheden](event-hubs-features.md#throughput-units). Event Hubs Capture is de eenvoudigste manier om het streaming-gegevens laden in Azure, en kunt u zich richten op gegevensverwerking in plaats van gegevensregistratie.
+Azure Event Hubs kunt u automatisch vastleggen de streaminggegevens in Event Hubs in een [Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) of [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) -account van uw keuze, met de extra flexibiliteit een tijds- of grootte-interval op te geven. Instellen van Capture is snel, er zijn geen administratieve kosten uit te voeren en wordt automatisch geschaald met Event Hubs [doorvoereenheden](event-hubs-scalability.md#throughput-units). Event Hubs Capture is de eenvoudigste manier om het streaming-gegevens laden in Azure, en kunt u zich richten op gegevensverwerking in plaats van gegevensregistratie.
 
 Event Hubs Capture kunt u realtime en op basis van een batch-pijplijnen in dezelfde stroom verwerken. Dit betekent dat u oplossingen die meegroeien met uw behoeften na verloop van tijd kunt bouwen. Of u op basis van een batch-systemen vandaag nog met het oog voor toekomstige verwerking in realtime bouwt, of u wilt een efficiënte koude pad toevoegen aan een bestaande oplossing voor realtime, maakt Event Hubs Capture werken met het streamen van gegevens gemakkelijker.
 
@@ -32,7 +32,7 @@ Event Hubs Capture kunt u realtime en op basis van een batch-pijplijnen in dezel
 
 ## <a name="how-event-hubs-capture-works"></a>Event Hubs Capture werking
 
-Eventhubs is een duurzame buffer retentietijd voor telemetrie inkomend verkeer, vergelijkbaar met een gedistribueerde logboek. De sleutel voor het schalen in Event Hubs is de [basis van gepartitioneerd gebruik model](event-hubs-features.md#partitions). Elke partitie is een onafhankelijke segment van de gegevens en onafhankelijk van elkaar worden verbruikt. Na verloop van tijd leeftijden deze gegevens op uit, op basis van de configureerbare bewaarperiode. "Als gevolg hiervan een bepaalde event hub nooit te vol raakt."
+Eventhubs is een duurzame buffer retentietijd voor telemetrie inkomend verkeer, vergelijkbaar met een gedistribueerde logboek. De sleutel voor het schalen in Event Hubs is de [basis van gepartitioneerd gebruik model](event-hubs-scalability.md#partitions). Elke partitie is een onafhankelijke segment van de gegevens en onafhankelijk van elkaar worden verbruikt. Na verloop van tijd leeftijden deze gegevens op uit, op basis van de configureerbare bewaarperiode. "Als gevolg hiervan een bepaalde event hub nooit te vol raakt."
 
 Event Hubs Capture kunt u uw eigen Azure Blob storage-account en een container of een Azure Data Lake Store-account, die worden gebruikt voor het opslaan van de vastgelegde gegevens opgeven. Deze accounts kunnen zich in dezelfde regio als uw event hub of in een andere regio toe te voegen aan de flexibiliteit van de Event Hubs Capture-functie.
 
@@ -54,7 +54,7 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ### <a name="scaling-to-throughput-units"></a>Schalen naar doorvoereenheden
 
-Verkeer van Event Hubs wordt bepaald door [doorvoereenheden](event-hubs-features.md#throughput-units). Eén doorvoereenheid toestaat 1 MB per seconde of 1000 gebeurtenissen per seconde van inkomend verkeer en twee keer de omvang van uitgaand verkeer. Event Hubs Standard aan kan worden geconfigureerd met 1-20 doorvoereenheden, en u kunt meer kopen met een quotum verhogen [ondersteuningsaanvraag][support request]. Gebruik bij meer dan uw aangeschafte doorvoereenheden wordt vertraagd. Event Hubs Capture kopieert gegevens rechtstreeks van de interne opslag van de Event Hubs voor het overslaan van doorvoer eenheid uitgaande quota en opslaan van uw uitgaand verkeer voor andere lezers van de verwerking, zoals Stream Analytics of Apache Spark.
+Verkeer van Event Hubs wordt bepaald door [doorvoereenheden](event-hubs-scalability.md#throughput-units). Eén doorvoereenheid toestaat 1 MB per seconde of 1000 gebeurtenissen per seconde van inkomend verkeer en twee keer de omvang van uitgaand verkeer. Event Hubs Standard aan kan worden geconfigureerd met 1-20 doorvoereenheden, en u kunt meer kopen met een quotum verhogen [ondersteuningsaanvraag][support request]. Gebruik bij meer dan uw aangeschafte doorvoereenheden wordt vertraagd. Event Hubs Capture kopieert gegevens rechtstreeks van de interne opslag van de Event Hubs voor het overslaan van doorvoer eenheid uitgaande quota en opslaan van uw uitgaand verkeer voor andere lezers van de verwerking, zoals Stream Analytics of Apache Spark.
 
 Wanneer geconfigureerd, Event Hubs Capture wordt automatisch uitgevoerd wanneer u uw eerste gebeurtenis verzenden en verder wordt uitgevoerd. Event Hubs schrijft lege bestanden te vereenvoudigen voor uw downstream-verwerkingen weten of het proces werkt, als er geen gegevens. Deze procedure biedt een voorspelbare uitgebracht en markering waarin uw batch-processors.
 
@@ -74,11 +74,11 @@ De bestanden die worden geproduceerd door Event Hubs Capture hebben de volgende 
 
 ![Avro-schema][3]
 
-Een eenvoudige manier om te verkennen Avro-bestanden is met behulp van de [Avro-hulpprogramma's] [ Avro Tools] jar van Apache. U kunt ook [Apache Drill] [ Apache Drill] voor een lichtgewicht ervaring op basis van SQL of [Apache Spark] [ Apache Spark] om uit te voeren complexe gedistribueerde verwerking van de opgenomen gegevens. 
+Een eenvoudige manier om te verkennen Avro-bestanden is met behulp van de [Avro-hulpprogramma's][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] voor een lichtgewicht ervaring op basis van SQL of [Apache Spark][Apache Spark] om uit te voeren complexe gedistribueerde verwerking van de opgenomen gegevens. 
 
 ### <a name="use-apache-drill"></a>Apache Drill gebruiken
 
-[Apache Drill] [ Apache Drill] is een 'open-source SQL query-engine voor Big Data exploration"die gestructureerd en semi-gestructureerde gegevens op te vragen kunt waar is. De engine kan worden uitgevoerd als een zelfstandig knooppunt of als een zeer groot cluster voor uitstekende prestaties.
+[Apache Drill][Apache Drill] is een 'open-source SQL query-engine voor Big Data exploration"die gestructureerd en semi-gestructureerde gegevens op te vragen kunt waar is. De engine kan worden uitgevoerd als een zelfstandig knooppunt of als een zeer groot cluster voor uitstekende prestaties.
 
 Systeemeigen ondersteuning van Azure Blob-opslag is beschikbaar, waardoor het eenvoudig om gegevens te doorzoeken in een Avro-bestand, zoals beschreven in de documentatie:
 
@@ -94,14 +94,14 @@ Een volledige end-to-end-voorbeeld is beschikbaar in de Streaming op grote opsla
 
 ### <a name="use-apache-spark"></a>Apache Spark gebruiken
 
-[Apache Spark] [ Apache Spark] is een 'geïntegreerde analytics-engine voor grootschalige gegevensverwerking." Het biedt ondersteuning voor verschillende talen, waaronder SQL, en u kunt eenvoudig toegang krijgen tot Azure Blob-opslag. Er zijn twee opties voor het uitvoeren van Apache Spark in Azure, en beide bieden eenvoudige toegang tot Azure Blob-opslag:
+[Apache Spark][Apache Spark] is een 'geïntegreerde analytics-engine voor grootschalige gegevensverwerking." Het biedt ondersteuning voor verschillende talen, waaronder SQL, en u kunt eenvoudig toegang krijgen tot Azure Blob-opslag. Er zijn twee opties voor het uitvoeren van Apache Spark in Azure, en beide bieden eenvoudige toegang tot Azure Blob-opslag:
 
 - [HDInsight: Bestanden in Azure storage adresseren][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob-opslag][Azure Databricks: Azure Blob Storage]
 
 ### <a name="use-avro-tools"></a>Avro-hulpprogramma's gebruiken
 
-[Hulpprogramma's voor Avro] [ Avro Tools] zijn beschikbaar als een jar-pakket. Nadat u het jar-bestand hebt gedownload, ziet u het schema van een specifiek Avro-bestand met de volgende opdracht:
+[Hulpprogramma's voor Avro][Avro Tools] zijn beschikbaar als een jar-pakket. Nadat u het jar-bestand hebt gedownload, ziet u het schema van een specifiek Avro-bestand met de volgende opdracht:
 
 ```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
@@ -130,7 +130,7 @@ U kunt ook de Avro-hulpprogramma's gebruiken voor het bestand converteren naar J
 
 Als u meer geavanceerde verwerken, downloaden en installeren van Avro naar keuze van platform. Op het moment van dit artikel is geschreven, er zijn implementaties beschikbaar voor C, C++, C\#, Java, NodeJS, Perl, PHP, Python en Ruby.
 
-Apache Avro is voltooid aan de slag-handleidingen voor [Java] [ Java] en [Python][Python]. U kunt ook lezen de [aan de slag met Event Hubs Capture](event-hubs-capture-python.md) artikel.
+Apache Avro is voltooid aan de slag-handleidingen voor [Java][Java] and [Python][Python]. U kunt ook lezen de [aan de slag met Event Hubs Capture](event-hubs-capture-python.md) artikel.
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Hoe Event Hubs Capture wordt in rekening gebracht
 

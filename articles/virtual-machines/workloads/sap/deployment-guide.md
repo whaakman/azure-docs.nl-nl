@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82ab400c89cb57f3cf72cfb9196ea7c6402808fe
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154173"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203919"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 
@@ -534,7 +534,7 @@ Nadat u de virtuele machine in Azure implementeert, volgt u de dezelfde richtlij
 Omdat verschillende versies van een besturingssysteem of DBMS patch voor verschillende vereisten hebben, kunnen de installatiekopieën die u in de Azure Marketplace vinden niet voldoen aan uw behoeften. Mogelijk wilt u in plaats daarvan een virtuele machine maken met behulp van uw eigen OS/DBMS-VM-installatiekopie, die u het later opnieuw kunt implementeren.
 U verschillende stappen gebruiken om een persoonlijke installatiekopie voor Linux dan voor het maken van een voor Windows te maken.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Om voor te bereiden op een Windows-installatiekopie die u gebruiken kunt om meerdere virtuele machines te implementeren, moeten de Windows-instellingen (zoals Windows SID en hostnaam) worden geabstraheerd of op de on-premises VM is gegeneraliseerd. U kunt [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) om dit te doen.
@@ -545,7 +545,7 @@ U verschillende stappen gebruiken om een persoonlijke installatiekopie voor Linu
 >
 >
 
-- - -
+---
 U kunt voorbereiden en een aangepaste installatiekopie maken en vervolgens gebruiken om meerdere nieuwe virtuele machines. Dit wordt beschreven in [Azure Virtual Machines planning en implementatie van SAP NetWeaver][planning-guide]. Instellen van de inhoud van uw database met behulp van SAP-Software wordt ingericht Manager voor het installeren van een nieuwe SAP-systeem (u herstelt een databaseback-up van een schijf die gekoppeld aan de virtuele machine) of door rechtstreeks een databaseback-up terugzetten vanuit Azure-opslag, als uw DBMS-systemen ondersteuning voor biedt. Zie voor meer informatie, [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver][dbms-guide]. Als u al een SAP-systeem op uw on-premises virtuele machine (met name voor twee lagen systemen) hebt geïnstalleerd, kunt u de instellingen van het SAP na de implementatie van de Azure-VM aanpassen met behulp van de procedure Wijzig de naam van systeem ondersteund door SAP Software inrichting Manager (SAP Houd er rekening mee [1619720]). U kunt anders de SAP-software installeren nadat u de Azure-VM hebt geïmplementeerd.
 
 Het volgende stroomdiagram ziet u de SAP-specifieke volgorde van stappen voor het implementeren van een virtuele machine van een aangepaste installatiekopie:
@@ -674,7 +674,7 @@ In dit scenario de VM-Agent is **niet** automatisch geïnstalleerd tijdens de im
 
 Zie de volgende bronnen voor meer informatie over de Azure VM-Agent.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Overzicht van Azure Virtual Machine Agent][virtual-machines-windows-agent-user-guide]
@@ -685,7 +685,7 @@ Zie de volgende bronnen voor meer informatie over de Azure VM-Agent.
 >
 >
 
-- - -
+---
 
 Het volgende stroomdiagram toont de volgorde van stappen voor het verplaatsen van een on-premises VM met behulp van een Azure niet gegeneraliseerde VHD:
 

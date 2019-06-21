@@ -11,6 +11,8 @@
       href: per-vm-quota-requests.md
     - name: De algehele regionale vCPU-limiet verhogen
       href: regional-quota-requests.md
+    - name: Netwerklimiet verhoogd
+      href: networking-quota-requests.md
 - name: Abonnementsproblemen gerelateerd aan de regio of de SKU oplossen
   href: sku-series-unavailable.md
 - name: Naslaginformatie

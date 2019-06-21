@@ -1,0 +1,27 @@
+- name: Documentatie voor Insluitende lezer
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Insluitende lezer?
+      href: Overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: 'C# gebruiken'
+      href: Quickstart.md
+- name: Zelfstudies
+  items:
+    - name: Start de Insluitende lezer (Node.js)
+      href: tutorial.md
+- name: Naslaginformatie
+  items:
+    - name: SDK-naslaginformatie
+      href: reference.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: Taalondersteuning
+      href: 'https://aka.ms/ltlangsupport'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e983a3f8e29108bd642fd23d5afcb564065d9fc1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409770"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203901"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -524,7 +524,7 @@ Microsoft Azure Virtual Machines gebruikmaken van verschillende opslagtypen. Bij
 
 Azure-VM's bieden een niet-permanente schijven na de implementatie van een virtuele machine. In het geval van een VM opnieuw wordt opgestart, wordt alle inhoud op deze schijven worden gewist. Het is dus een gezien het feit dat de gegevensbestanden en log/opnieuw bestanden van databases onder geen enkele omstandigheid zich op deze schijven niet-persistente bevinden moeten. Mogelijk zijn er uitzonderingen voor enkele van de databases, waar deze stations niet-persistente mogelijk geschikt voor tempdb en tijdelijke tabelruimten. Echter Vermijd het gebruik van deze schijven voor virtuele machines uit de A-serie, omdat deze niet-persistente schijven zijn beperkt in doorvoer met deze VM-reeks. Lees voor meer informatie het artikel [inzicht krijgen in het tijdelijke station op Windows-VM's in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 > 
 > Station D:\ in een Azure VM is een niet-persistente-station, die wordt ondersteund door sommige lokale schijven op de Azure compute-knooppunt. Omdat het niet-persistente, betekent dit dat alle wijzigingen aan de inhoud op het station D:\ gaat verloren wanneer de virtuele machine opnieuw wordt opgestart. "De wijzigingen', zoals bestanden, mappen die zijn gemaakt, toepassingen die zijn geïnstalleerd, enzovoort.
@@ -535,7 +535,7 @@ Azure-VM's bieden een niet-permanente schijven na de implementatie van een virtu
 > 
 > 
 
-- - -
+---
 
 Microsoft Azure Storage biedt permanente opslag en de normale niveaus van beveiliging en redundantie gezien op SAN-opslag. Op basis van Azure Storage-schijven zijn virtuele harde schijf (VHD's) zich in de Azure Storage-Services. De lokale OS-schijf (Windows C:\, Linux/dev/sda1) wordt opgeslagen op de Azure-opslag en extra Volumes/schijven die zijn gekoppeld aan de virtuele machine ophalen die zijn opgeslagen, te.
 
@@ -835,7 +835,7 @@ U van plan bent een specifieke SAP-systeem van on-premises naar Azure te verplaa
 
 De opgegeven in de Azure Marketplace-installatiekopieën mogelijk vanwege een patch voor specifieke vereisten van uw besturingssysteem of de DBMS-versie, niet aan uw behoeften voldoen. Daarom moet u mogelijk een virtuele machine maken met uw eigen persoonlijke OS/DBMS-VM-installatiekopie, die kan worden geïmplementeerd als meerdere keren daarna. Als u wilt een persoonlijke installatiekopie voorbereiden voor het kopiëren, moeten de volgende items worden beschouwd als:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Lees hier meer informatie: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> De Windows-instellingen (zoals Windows SID en hostnaam) moet op de on-premises VM via de opdracht sysprep geabstraheerd/gegeneraliseerd.
@@ -847,7 +847,7 @@ De opgegeven in de Azure Marketplace-installatiekopieën mogelijk vanwege een pa
 >
 >
 
-- - -
+---
 Als u al SAP-inhoud in uw on-premises VM (met name voor Tier-2-systemen) hebt geïnstalleerd, kunt u de instellingen van het SAP aanpassen nadat de implementatie van de virtuele Azure-machine via het exemplaar procedure ondersteund door het SAP Software inrichting Manager (SAP wijzigen Houd er rekening mee [1619720]). Zie de hoofdstukken [voorbereiding voor het implementeren van een virtuele machine met een installatiekopie klantspecifieke voor SAP] [ planning-guide-5.2.2] en [uploaden van een VHD van on-premises naar Azure] [ planning-guide-5.3.2]van dit document voor voorbereidingsstappen voor on-premises en uploaden van een gegeneraliseerde VM in Azure. Lezen hoofdstuk [Scenario 2: Een virtuele machine met een aangepaste installatiekopie implementeren voor SAP] [ deployment-guide-3.3] in de [Deployment Guide] [ deployment-guide] voor gedetailleerde stappen voor het implementeren van dergelijke een installatiekopie in Azure.
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Een virtuele machine buiten de Azure Marketplace
@@ -870,7 +870,7 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-schijf zijn:
 * Voeg een andere lokale account met beheerdersbevoegdheden, die kan worden gebruikt door Microsoft ondersteuning of die kunnen worden toegewezen als context voor services en toepassingen worden uitgevoerd in totdat de virtuele machine is geïmplementeerd en meer gebruikers kan worden gebruikt.
 * Andere lokale accounts toevoegen als die welke nodig zijn voor het specifieke scenario.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > In dit scenario is geen generalisatie (sysprep) van de virtuele machine vereist om te uploaden en implementeren van de virtuele machine op Azure.
@@ -884,7 +884,7 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-schijf zijn:
 >
 >
 
-- - -
+---
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Voorbereiding voor het implementeren van een virtuele machine met een installatiekopie klantspecifieke voor SAP
 
 VHD-bestanden met een gegeneraliseerde OS worden opgeslagen in containers op Azure Storage-Accounts of als beheerde schijf-installatiekopieën. U kunt een nieuwe virtuele machine uit een dergelijke afbeelding implementeren die verwijst naar de installatiekopie van het VHD- of beheerde schijf als een bron in uw implementatie-sjabloonbestanden zoals beschreven in het hoofdstuk [Scenario 2: Een virtuele machine met een aangepaste installatiekopie implementeren voor SAP] [ deployment-guide-3.3] van de [Deployment Guide][deployment-guide].
@@ -897,7 +897,7 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-installatiekopie zijn:
 * Andere lokale accounts toevoegen als die welke nodig zijn voor het specifieke scenario.
 * Als de afbeelding bevat een installatie van SAP NetWeaver en wijzigen van de naam van de hostnaam van de oorspronkelijke naam op het moment van de Azure-implementatie is waarschijnlijk dat het beste de nieuwste versies van de SAP-Software wordt ingericht Manager DVD kopiëren naar de sjabloon. Hierdoor kunt u eenvoudig de functionaliteit voor het wijzigen van SAP opgegeven om te gebruiken om aan te passen de hostnaam van de gewijzigde en/of de SID van de SAP-systeem in de geïmplementeerde VM-installatiekopie wijzigen zodra een nieuw exemplaar wordt gestart.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Zorg ervoor dat station D:\ niet is ingesteld schijf automount voor de gekoppelde schijven gebruikt zoals beschreven in het hoofdstuk [instellen automount voor gekoppelde schijven] [ planning-guide-5.5.3] in dit document.
@@ -908,14 +908,14 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-installatiekopie zijn:
 >
 >
 
-- - -
+---
 * SAP-GUI (voor administratieve en doelen instellen) vooraf kan worden geïnstalleerd in een sjabloon.
 * Andere software die nodig is voor een geslaagde uitvoering van de virtuele machines in een cross-premises scenario's kan worden geïnstalleerd, zolang deze software met de naam van de virtuele machine werken kunt.
 
 Als de virtuele machine is voldoende voorbereid algemene en uiteindelijk onafhankelijk van accounts/gebruikers niet beschikbaar in de betreffende Azure deployment-scenario, wordt de laatste stap van de voorbereiding van het generaliseren van dergelijke een installatiekopie uitgevoerd.
 
 ##### <a name="generalizing-a-vm"></a>Een virtuele machine generaliseren
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > De laatste stap is het aanmelden bij een virtuele machine met een Administrator-account. Open een Windows-opdrachtvenster als *beheerder*. Ga naar %windir%\windows\system32\sysprep en sysprep.exe uitvoeren.
@@ -928,7 +928,7 @@ Als de virtuele machine is voldoende voorbereid algemene en uiteindelijk onafhan
 >
 >
 
-- - -
+---
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Virtuele machines en VHD's overbrengen tussen on-premises naar Azure
 Aangezien VM-installatiekopieën en schijven uploaden naar Azure niet mogelijk via de Azure-portal is, moet u Azure PowerShell-cmdlets of de CLI gebruiken. Een andere mogelijkheid is het gebruik van het hulpprogramma 'AzCopy'. Het hulpprogramma kunt VHD's kopiëren tussen on-premises en Azure (in beide richtingen). Het kan ook VHD's tussen Azure-regio's kopiëren. Neem contact op met [deze documentatie] [ storage-use-azcopy] downloaden en het gebruik van AzCopy.
 
@@ -1188,7 +1188,7 @@ De verwerking van de structuur van een virtuele machine en de bijbehorende schij
 ![Naslaginformatie over configuratie van Azure IaaS-VM voor SAP][planning-guide-figure-1300]
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Met veel klanten zagen we configuraties, bijvoorbeeld SAP en DBMS binaire bestanden zijn niet geïnstalleerd op het station c:\ waar het besturingssysteem is geïnstalleerd. Er zijn diverse redenen hiervoor, maar als we teruggaan naar de hoofdmap, het meestal was dat de stations kleine zijn en upgrades voor het besturingssysteem nodig extra ruimte 10-15 jaar geleden. Beide voorwaarden niet te vaak meer tegenwoordig van toepassing. Het station c:\ kan vandaag nog op schijven met grote volumes of VM's worden toegewezen. Als u wilt behouden implementaties eenvoudig in de structuur ervan, verdient het volgen van de volgende implementatie-patroon voor SAP NetWeaver-systemen in Azure
@@ -1214,14 +1214,14 @@ sudo service waagent restart
 
 Lees de SAP-notitie [1597355] voor meer informatie over de grootte van de aanbevolen wisselbestand
 
-- - -
+---
 Het aantal schijven dat wordt gebruikt voor de DBMS-gegevensbestanden en het type van deze schijven worden gehost op Azure-opslag moet worden bepaald door de IOPS-vereisten en de latentie is vereist. Exacte quota zijn beschreven in [in dit artikel (Linux)] [ virtual-machines-sizes-linux] en [in dit artikel (Windows)][virtual-machines-sizes-windows].
 
 Ervaring van de SAP-implementaties in de afgelopen twee jaar ons sommige lessen die kunnen worden samengevat als veel geleerd:
 
 * IOPS-verkeer naar verschillende gegevensbestanden is niet altijd hetzelfde omdat bestaande systemen kunnen hebben anders grote gegevensbestanden die hun SAP-database (s) vertegenwoordigt. Als gevolg hiervan blijkt te worden beter met behulp van een RAID-configuratie via meerdere schijven te plaatsen van de LUN's oppervlaktevariaties buiten de gegevensbestanden. Er zijn situaties, met name met Azure Standard-opslag waar een IOPS-snelheid bereikt voor het quotum van één schijf op basis van het transactielogboek DBMS-systemen. Het gebruik van Premium Storage wordt aanbevolen in dergelijke scenario's of schijven met een software-stripe ook aggregeren van meerdere Standard-opslag.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > * [Aanbevolen procedures voor prestaties voor SQL Server in Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices]
@@ -1234,7 +1234,7 @@ Ervaring van de SAP-implementaties in de afgelopen twee jaar ons sommige lessen 
 >
 >
 
-- - -
+---
 * Premium Storage is aanzienlijk betere prestaties, met name voor kritieke transaction logboekschrijfbewerkingen worden weergegeven. Voor SAP-scenario's die naar verwachting productie-achtige prestaties leveren, is het raadzaam gebruik van VM-serie die gebruikmaken van Azure Premium Storage.
 
 Houd er rekening mee dat de schijf die het besturingssysteem bevat, en wanneer is het raadzaam, de binaire bestanden van SAP en de database (basis-VM), niet meer beperkt tot 127GB is. Het kan nu tot 1TB in grootte hebben. Dit moet voldoende ruimte voor het bewaren van het vereiste bestand bijvoorbeeld, waaronder SAP-logboeken voor batch-taak.
@@ -1255,7 +1255,7 @@ Vervolgens moet u beslissen of u wilt maken van een nieuwe en lege schijf of dat
 
 **BELANGRIJK**: U **niet** wilt Host opslaan in cache gebruiken met Azure Standard-opslag. U moet de Host Cache preference laat op het standaardaantal op None. Met Azure Premium Storage, moet u inschakelen Caching van lezen als de i/o-kenmerk voornamelijk, zoals typische i/o-verkeer op basis van de gegevensbestanden van de database lezen is. In het geval van logboekbestand voor database-transactie, wordt geen caching aanbevolen.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Hoe u een gegevensschijf koppelen in Azure portal][virtual-machines-linux-attach-disk-portal]
@@ -1268,7 +1268,7 @@ Vervolgens moet u beslissen of u wilt maken van een nieuwe en lege schijf of dat
 >
 >
 
-- - -
+---
 Als de nieuwe schijf een lege schijf is, moet u ook de schijf wilt formatteren. Voor de opmaak, met name voor DBMS gegevens en logboekbestanden de dezelfde als voor bare-metal implementaties van de DBMS gelden de aanbevelingen.
 
 Zoals vermeld in het hoofdstuk [het Concept van Microsoft Azure Virtual Machine][planning-guide-3.2], een Azure Storage-account biedt geen oneindige resources in termen van i/o-volume, IOPS en gegevensvolume. DBMS-VM's worden meestal meest beïnvloed door dit. Het is mogelijk beter gebruik van een afzonderlijk Opslagaccount voor elke virtuele machine hebt u enkele hoge i/o-volume virtuele machines te implementeren om te kunnen blijven binnen de grenzen van het volume van de Azure Storage-Account. Anders moet u om te zien hoe u deze virtuele machines tussen verschillende opslagaccounts zonder te maken met de limiet van elk één Opslagaccount kunt verdelen. Meer details worden beschreven de [DBMS-Implementatiehandleiding][dbms-guide]. U moet ook rekening houden deze beperkingen voor pure SAP-toepassing server-VM's of andere virtuele machines, die uiteindelijk meer VHD's vereisen kunnen. Deze beperkingen niet van toepassing als u een beheerde schijf gebruiken. Als u van plan bent te gebruiken Premium-opslag, raden wij met behulp van de beheerde schijf.
@@ -1278,7 +1278,7 @@ Een ander onderwerp, dat relevant is voor Storage-Accounts is of de VHD's in een
 Azure Geo-replicatie werkt lokaal op elke VHD in een virtuele machine en wordt de IOs in chronologische volgorde niet gerepliceerd tussen meerdere VHD's in een virtuele machine. Daarom worden de VHD die de basis-VM vertegenwoordigt, evenals de extra virtuele harde schijven die zijn gekoppeld aan de virtuele machine gerepliceerd onafhankelijk van elkaar. Dit betekent dat er geen synchronisatie tussen de wijzigingen in de verschillende VHD's. Het feit dat het bestand IOs onafhankelijk van de volgorde waarin deze manier worden geschreven worden gerepliceerd die geo-replicatie is niet van de waarde voor de database-servers waarop hun databases die zijn verdeeld over meerdere VHD's. Naast het DBMS, er mogelijk ook andere toepassingen waar processen schrijven of gegevens in verschillende VHD's en waar het is belangrijk dat u de volgorde van de wijzigingen te manipuleren. Als dat is vereist, moet geo-replicatie in Azure niet worden ingeschakeld. Afhankelijk van of u nodig hebt of wilt geo-replicatie voor een set van virtuele machines, maar niet voor een andere set, kunt u al categoriseren virtuele machines en hun verwante VHD's in verschillende Opslagaccounts waarvoor geo-replicatie ingeschakeld of uitgeschakeld.
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Automount voor gekoppelde schijven instellen
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Voor virtuele machines die worden gemaakt uit eigen installatiekopieën of schijven, is het nodig zijn om te controleren en stel de parameter automount mogelijk in. Als u deze parameter kunt de virtuele machine na een herstart of het opnieuw implementeren in Azure opnieuw automatisch koppelen van de stations die zijn gekoppeld/gekoppeld.
@@ -1300,7 +1300,7 @@ Azure Geo-replicatie werkt lokaal op elke VHD in een virtuele machine en wordt d
 >
 >
 
-- - -
+---
 ### <a name="final-deployment"></a>Laatste implementatie
 
 Voor de laatste implementatie en de exacte stappen, met name met betrekking tot de implementatie van SAP uitgebreide controle, naar verwijzen de [Deployment Guide][deployment-guide].
@@ -1328,7 +1328,7 @@ Raadpleeg dit artikel voor meer informatie in dit onderwerp wordt beschreven: <h
 
 Kan het nodig zijn de firewall te configureren op uw virtuele machines waarmee inkomend verkeer naar uw SAP-systeem.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > De Windows Firewall in een Azure geïmplementeerde VM is standaard ingeschakeld. U nu wilt toestaan dat de SAP-poort moet worden geopend, anders de SAP-gebruikersinterface is niet mogelijk om verbinding te maken.
@@ -1352,7 +1352,7 @@ Kan het nodig zijn de firewall te configureren op uw virtuele machines waarmee i
 >
 >
 
-- - -
+---
 #### <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
 
 De SAP-gebruikersinterface verbinding geen direct met een van de SAP-instanties (poort 32xx) die worden uitgevoerd, maar eerst verbinding maakt via de poort geopend op het serverproces van de SAP-bericht (poort 36xx). In het verleden is dezelfde poort door de berichtenserver gebruikt voor de interne communicatie met de exemplaren van de toepassing. Om te voorkomen dat on-premises-toepassingsservers per ongeluk communiceert met een berichtenserver in Azure, kunnen de interne communicatie-poorten worden gewijzigd. Het is raadzaam om te wijzigen van de interne communicatie tussen de SAP-berichtenserver en de exemplaren van een toepassing naar een ander poortnummer op systemen die zijn is gekloond vanuit on-premises systemen, zoals een kloon van de ontwikkeling van het project testen enzovoort. Dit kan worden gedaan met de standaardparameter-profiel:
@@ -1655,7 +1655,7 @@ Microsoft toegevoegd veel meer typen van de virtuele machine die in aantal Vcpu,
 
 Instellen van uw on-premises TCP/IP op basis van netwerkprinters in een Azure VM is de algemene hetzelfde als in uw bedrijfsnetwerk, ervan uitgaande dat u hebt een Site-naar-Site VPN-tunnel of ExpressRoute-verbinding tot stand gebracht.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Om dit te doen:
@@ -1674,7 +1674,7 @@ Instellen van uw on-premises TCP/IP op basis van netwerkprinters in een Azure VM
 >
 >
 
-- - -
+---
 ![Afdrukken via het netwerk][planning-guide-figure-2200]
 
 ##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>Printer op basis van een host via SMB (gedeelde printer) in de Cross-Premises scenario
@@ -1690,7 +1690,7 @@ De share wordt geïdentificeerd door een unieke naam in het netwerk:
 
 Procedure:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > De lokale printer delen.
@@ -1706,19 +1706,19 @@ Procedure:
 >
 >
 
-- - -
+---
 ##### <a name="usb-printer-printer-forwarding"></a>USB-Printer (printer doorsturen)
 
 De mogelijkheid van de extern bureaublad-Services voor gebruikers de toegang tot hun lokale printer-apparaten in een externe sessie is niet beschikbaar in Azure.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Meer informatie over het afdrukken met Windows vindt u hier: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
-- - -
+---
 #### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>Integratie van SAP-systemen Azure in correctie en -Transport systeem (TMS) in de Cross-Premises
 
 De SAP-wijzigings- en Transport System (TMS) moet worden geconfigureerd om te exporteren en importeren van transport aanvraag alle systemen in de liggende modus. Gaan we ervan uit dat de exemplaren van de ontwikkeling van een SAP-systeem (DEV) bevinden zich in Azure terwijl de kwaliteit te waarborgen (QA) en productieve systemen (PRD) zich on-premises. Bovendien veronderstellen we dat er een centrale transportmap is.
