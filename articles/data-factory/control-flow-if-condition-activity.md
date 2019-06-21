@@ -68,9 +68,10 @@ Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 name | Naam van de activiteit als-voorwaarde. | String | Ja
 type | Moet worden ingesteld op **IfCondition** | String | Ja
-expressie | Expressie die moet worden geëvalueerd op waar of ONWAAR | Expressie met een resultaat van het type boolean | Ja
-ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `true`. | Matrix | Ja
-ifFalseActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `false`. | Matrix | Ja
+expression | Expression that must evaluate to true or false | Expression with result type boolean | Yes
+ | Expressie die moet worden geëvalueerd op waar of ONWAAR | Expressie met een resultaat van het type boolean | Ja
+ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `true`. | Array | Ja
+ifFalseActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `false`. | Array | Ja
 
 ## <a name="example"></a>Voorbeeld
 De pijplijn in dit voorbeeld kopieert gegevens uit een invoermap naar een map voor uitvoer. De uitvoermap wordt bepaald door de waarde van pijplijnparameter: routeSelection. Als de waarde van routeSelection waar is, worden de gegevens worden gekopieerd naar outputPath1. En als de waarde van routeSelection ONWAAR is, de gegevens worden gekopieerd naar outputPath2. 
