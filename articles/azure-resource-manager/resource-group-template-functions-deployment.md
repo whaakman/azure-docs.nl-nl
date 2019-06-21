@@ -27,7 +27,7 @@ Zie voor waarden van resources, resourcegroepen of abonnementen, [resourcefuncti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>implementatie
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Retourneert informatie over de huidige implementatiebewerking.
@@ -251,7 +251,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | stringOutput | String | Optie 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"een": "a", "2": "b"} |
-| arrayOutput | Matrix | [1, 2, 3] |
+| arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | Optie 1 |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
@@ -352,7 +352,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
-| exampleOutput2 | Matrix | [1, 2, 3, 4] |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
