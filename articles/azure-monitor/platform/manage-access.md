@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782766"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295508"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -278,7 +278,7 @@ Zie [definiëren per tabel toegangsbeheer](#table-level-rbac) hieronder als u wi
 ## <a name="table-level-rbac"></a>Tabelniveau RBAC
 **Het niveau van RBAC tabel** kunt u meer gedetailleerde controle met gegevens in een Log Analytics-werkruimte naast de andere machtigingen bieden. Dit besturingselement kunt u specifieke gegevenstypen die alleen toegankelijk voor een specifieke set gebruikers zijn definiëren.
 
-Implementeren van toegangsbeheer tabel met [Azure aangepaste rollen](../../role-based-access-control/custom-roles.md) verlenen of weigeren van toegang tot specifieke [tabellen](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in de werkruimte. Deze rollen worden toegepast op werkruimten met werkruimte gericht of resource-georiënteerde [toegang tot de control-modi](#access-control-mode) ongeacht van de gebruiker [toegangsmodus](#access-modes).
+Implementeren van toegangsbeheer tabel met [Azure aangepaste rollen](../../role-based-access-control/custom-roles.md) verlenen of weigeren van toegang tot specifieke [tabellen](../log-query/logs-structure.md) in de werkruimte. Deze rollen worden toegepast op werkruimten met werkruimte gericht of resource-georiënteerde [toegang tot de control-modi](#access-control-mode) ongeacht van de gebruiker [toegangsmodus](#access-modes).
 
 Maak een [aangepaste rol](../../role-based-access-control/custom-roles.md) met de volgende acties te definiëren de toegang tot tabel toegangsbeheer.
 

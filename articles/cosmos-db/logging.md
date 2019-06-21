@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 67a6eec938a4a18455e4063925e21e26fe362f76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0a5c9fc5cac441a6680f9f72e3223ace95399f3
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243471"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296548"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registratie in diagnoselogboek in Azure Cosmos DB 
 
@@ -54,7 +54,7 @@ Activiteitenlogboeken (bewerkingen voor de controlelaag) kunnen uitgebreidere va
 
 ### <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
-Diagnostische logboeken in Azure worden gegenereerd door een resource en biedt uitgebreide, regelmatig gegevens over de werking van die resource. Resourcetype is afhankelijk van de inhoud van deze logboeken. Diagnostische logboeken resourceniveau afwijken van de Gast OS-niveau diagnostische logboeken. Gastbesturingssysteem logboeken met diagnostische gegevens worden verzameld door een agent die wordt uitgevoerd binnen een virtuele machine of andere ondersteund resourcetype. Diagnostische logboeken resourceniveau vereisen geen gegevens van de resource-specifieke agent en vastleggen van de Azure-platform zelf. Gast-OS-niveau logboeken met diagnostische gegevens vastleggen van gegevens uit het besturingssysteem en toepassingen die worden uitgevoerd op een virtuele machine.
+Diagnostische logboeken in Azure worden gegenereerd door een resource en biedt uitgebreide, regelmatig gegevens over de werking van die resource. Deze logboeken worden vastgelegd per aanvraag. Resourcetype is afhankelijk van de inhoud van deze logboeken. Diagnostische logboeken resourceniveau afwijken van de Gast OS-niveau diagnostische logboeken. Gastbesturingssysteem logboeken met diagnostische gegevens worden verzameld door een agent die wordt uitgevoerd binnen een virtuele machine of andere ondersteund resourcetype. Diagnostische logboeken resourceniveau vereisen geen gegevens van de resource-specifieke agent en vastleggen van de Azure-platform zelf. Gast-OS-niveau logboeken met diagnostische gegevens vastleggen van gegevens uit het besturingssysteem en toepassingen die worden uitgevoerd op een virtuele machine.
 
 ![Diagnostische logboekregistratie naar opslag, Event Hubs of Azure Monitor-Logboeken](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -68,26 +68,47 @@ Diagnostische logboeken in Azure worden gegenereerd door een resource en biedt u
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Schakel logboekregistratie in Azure portal
 
-Als u wilt logboekregistratie van diagnostische gegevens inschakelen, hebt u de volgende bronnen:
+Gebruik de volgende stappen uit om in te schakelen diagnostische gegevens vastleggen in Azure portal:
 
-* Een bestaande Azure Cosmos DB-account, database en -container. Zie voor instructies over het maken van deze resources [een databaseaccount maken met behulp van de Azure-portal](create-sql-api-dotnet.md#create-account), [Azure CLI-voorbeelden](cli-samples.md), of [PowerShell-voorbeelden](powershell-samples.md).
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com). 
 
-Als u wilt inschakelen voor diagnostische gegevens vastleggen in Azure portal, moet u de volgende stappen uitvoeren:
-
-1. In de [Azure-portal](https://portal.azure.com), in uw Azure Cosmos DB-account, selecteert u **diagnostische logboeken** in de navigatiebalk aan de linkerkant en selecteer vervolgens **diagnostische gegevens inschakelen**.
+1. Navigeer naar uw Azure Cosmos-account. Open de **diagnostische instellingen** deelvenster en selecteer vervolgens **diagnostische instelling toevoegen** optie.
 
     ![Schakel registratie in diagnoselogboek voor Azure Cosmos DB in Azure portal](./media/logging/turn-on-portal-logging.png)
 
-2. In de **diagnostische instellingen** pagina, de volgende stappen uit: 
+1. In de **diagnostische instellingen** pagina, vul het formulier met de volgende details: 
 
     * **Naam**: Voer een naam voor de logboeken om te maken.
 
-    * **Archiveren naar een opslagaccount**: Als u wilt deze optie gebruikt, moet u een bestaand opslagaccount verbinden. Zie voor informatie over het maken van een nieuw opslagaccount in de portal [een opslagaccount maken](../storage/common/storage-create-storage-account.md) en volg de instructies voor het maken van een Azure Resource Manager, account voor algemeen gebruik. Keer vervolgens terug naar deze pagina in de portal voor uw storage-account selecteren. Het duurt enkele minuten duren voordat de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
-    * **Stream naar een event hub**: Als u wilt deze optie gebruikt, moet u een bestaande Event Hubs-naamruimte en event hub te verbinden. Zie voor het maken van een Event Hubs-naamruimte, [een Event Hubs-naamruimte en een event hub maken met behulp van de Azure-portal](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal voor het selecteren van de naam van de Event Hubs-naamruimte en het beleid.
-    * **Verzenden naar Log Analytics**: Als u wilt deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe Log Analytics-werkruimte met de volgende stappen om te [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in de portal. Zie de dat weergave-logboeken in Logboeken van Azure Monitor voor meer informatie over het weergeven van uw logboeken in Logboeken van Azure Monitor.
-    * **Meld u DataPlaneRequests**: Selecteer deze optie om aan te melden van aanvragen van de back-end van de onderliggende Azure Cosmos DB gedistribueerd platform voor SQL, grafiek, MongoDB, Cassandra en Table-API-accounts. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
-    * **Meld u MongoRequests**: Selecteer deze optie om aan te melden gebruiker geïnitieerde aanvragen van de Azure Cosmos DB-front-end voor het uitvoeren van Cosmos-accounts die zijn geconfigureerd met Azure Cosmos DB-API voor MongoDB. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
-    * **Metrische aanvragen**: Selecteer deze optie voor het opslaan van uitgebreide gegevens in [metrische gegevens van Azure](../azure-monitor/platform/metrics-supported.md). Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
+    * U kunt opslaan van de logboeken met de volgende services:
+
+      * **Archiveren naar een opslagaccount**: Als u wilt deze optie gebruikt, moet u een bestaand opslagaccount verbinden. Zie voor informatie over het maken van een nieuw opslagaccount in de portal [een opslagaccount maken](../storage/common/storage-create-storage-account.md) artikel. Keer vervolgens terug naar het deelvenster van de diagnostische instellingen voor Azure Cosmos Db in de portal voor uw storage-account selecteren. Het duurt enkele minuten duren voordat de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
+
+      * **Stream naar een event hub**: Als u wilt deze optie gebruikt, moet u een bestaande Event Hubs-naamruimte en event hub te verbinden. Zie voor het maken van een Event Hubs-naamruimte, [een Event Hubs-naamruimte en een event hub maken met behulp van de Azure-portal](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal voor het selecteren van de naam van de Event Hub-naamruimte en het beleid.
+
+      * **Verzenden naar Log Analytics**: Als u wilt deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe Log Analytics-werkruimte met de volgende stappen om te [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in de portal. 
+
+   * U kunt zich aanmelden de volgende gegevens:
+
+      * **DataPlaneRequests**: Selecteer deze optie om aan te melden aanvragen van de back-end alle API's, waaronder SQL, grafiek, MongoDB, Cassandra en Table-API-accounts in Azure Cosmos DB. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen. De volgende JSON-gegevens is een voorbeeld van uitvoer van de gegevens die zijn geregistreerd met behulp van DataPlaneRequests. Belangrijkste eigenschappen om te onthouden zijn: Requestcharge, statusCode, clientIPaddress en partitionID:
+
+       ```
+       { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+       ```
+
+      * **MongoRequests**: Selecteer deze optie om aan te melden gebruiker geïnitieerde aanvragen van de front-end voor het verzenden van aanvragen voor Azure Cosmos DB-API voor MongoDB. MongoDB-aanvragen wordt weergegeven in MongoRequests, evenals DataPlaneRequests. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen. De volgende JSON-gegevens is een voorbeeld van uitvoer van de gegevens die zijn geregistreerd met behulp van MongoRequests. Belangrijkste eigenschappen om te onthouden zijn: Requestcharge, opCode:
+
+       ```
+       { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
+       ```
+
+      * **QueryRuntimeStatistics**: Selecteer deze optie om aan te melden van de tekst van de query die is uitgevoerd.  De volgende JSON-gegevens is een voorbeeld van uitvoer van de gegevens die zijn geregistreerd met behulp van QueryRuntimeStatistics:
+
+       ```
+       { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
+       ```
+
+      * **Metrische aanvragen**: Selecteer deze optie voor het opslaan van uitgebreide gegevens in [metrische gegevens van Azure](../azure-monitor/platform/metrics-supported.md). Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
 
 3. Selecteer **Opslaan**.
 

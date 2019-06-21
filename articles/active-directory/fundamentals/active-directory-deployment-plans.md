@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c761cad49ad42bd592b1fd8105052b39ef1177
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f59cae87af5f29d900159639798f9cd031f3d765
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110458"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302375"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-implementatieplannen
 Bent u op zoek naar end-to-end-richtlijnen over het implementeren van sommige mogelijkheden van Azure Active Directory (Azure AD)? De volgende implementatieplannen geven richtlijnen bij de vereiste bedrijfswaarde, planningsoverwegingen, het ontwerp en de operationele procedures voor de implementatie van enkele algemene mogelijkheden van Azure AD. 
@@ -60,7 +60,7 @@ Rollen zijn onder andere de volgende
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) is een Microsoft-oplossing voor verificatie in twee stappen. Met behulp van door een beheerder goedgekeurde verificatiemethoden, helpt Azure MFA met het beveiligen van gegevens en toepassingen, terwijl tegelijkertijd aan de behoefte aan een eenvoudige aanmeldingsprocedure wordt voldaan.|
 |[Voorwaardelijke toegang](https://aka.ms/deploymentplans/ca)|Met voorwaardelijke toegang, kunt u automatisch toegang tot het toegangsbeheer voor wie toegang heeft tot uw cloud-apps, op basis van voorwaarden implementeren.|
 |[Self-service voor wachtwoord opnieuw instellen](https://aka.ms/SSPRDPDownload)|De selfservice voor het opnieuw instellen van wachtwoorden helpt uw gebruikers overal en altijd hun wachtwoord opnieuw in te stellen zonder dat er een beheerder aan te pas komt.|
-|[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|Azure AD Privileged Identity Management (PIM) helpt u bij het beheren van bevoegde beheerdersrollen in Azure AD, Azure-resources en andere Microsoft Online Services. PIM voorziet in oplossingen zoals just-in-time-toegang, aanvraag goedkeuringswerkstromen en volledig geïntegreerde toegang beoordelingen, zodat u identificeren kunt, ontdekken en te voorkomen dat schadelijke activiteiten van bevoorrechte rollen in realtime.|
+|[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|Azure AD Privileged Identity Management (PIM) helpt u bij het beheren van bevoegde beheerdersrollen in Azure AD, Azure-resources en andere Microsoft Online Services. PIM voorziet in oplossingen zoals just-in-time-toegang, aanvraag goedkeuringswerkstromen en volledig geïntegreerde toegang beoordelingen, zodat u identificeren kunt, ontdekken en te voorkomen dat schadelijke activiteiten van bevoorrechte rollen in realtime.|
 |[Eenmalige aanmelding](https://aka.ms/SSODPDownload)|Met eenmalige aanmelding kunt u alle apps en resources openen die u voor uw bedrijf nodig hebt. U hoeft u slechts eenmaal aan te melden met één gebruikersaccount. Nadat u zich hebt aangemeld, gaat u vanuit Microsoft Office naar SalesForce en naar Box zonder dat u zich een tweede keer hoeft te verifiëren (bijvoorbeeld door een wachtwoord te typen).|
 |[Naadloze eenmalige aanmelding](https://aka.ms/SeamlessSSODPDownload)|Met Naadloze eenmalige aanmelding van Azure Active Directory (Naadloze SSO van Azure AD) worden gebruikers aangemeld als hun bedrijfsapparaten zijn verbonden met net bedrijfsnetwerk. Als deze functie is ingeschakeld, hoeft de gebruiker geen wachtwoord in te typen om zich bij Azure AD aan te melden. Zelfs de gebruikersnaam hoeft niet te worden ingetypt. Deze functie biedt een gebruiker eenvoudig toegang tot cloudtoepassingen zonder dat er aanvullende on-premises onderdelen nodig zijn.|
 |[Toegangsvenster](https://aka.ms/AccessPanelDPDownload)|Biedt uw gebruikers een eenvoudige hub om te ontdekken en toegang tot al hun toepassingen. Ze productiever met selfservice mogelijkheden, zoals de mogelijkheid om aan te vragen van toegang tot nieuwe apps en -groepen, inschakelen of beheren van toegang tot deze bronnen namens anderen.|

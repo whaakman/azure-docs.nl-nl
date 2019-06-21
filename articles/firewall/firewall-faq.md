@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384677"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304601"
 ---
 # <a name="azure-firewall-faq"></a>Veelgestelde vragen over de Firewall van Azure
 
@@ -76,7 +76,6 @@ De Firewall van de Azure-service is een aanvulling op network security group fun
 
 Firewall van Azure is een beheerde service met meerdere lagen van de beveiliging, met inbegrip van de platform-beveiliging met NIC niveau Nsg (niet zichtbaar).  Nsg's op subnetniveau zijn niet vereist op de Firewall van Azure-subnet en zijn uitgeschakeld om te controleren of er geen service wordt onderbroken.
 
-
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hoe stel ik Azure-Firewall in met de service-eindpunten?
 
 Voor beveiligde toegang tot PaaS-services raden wij service-eindpunten. U kunt de service-eindpunten in de Firewall van Azure-subnet inschakelen en uitschakelen verbonden spoke-netwerken. Op deze manier die u profiteren van functies, service-eindpunt beveiligings- en centrale logboekregistratie voor al het verkeer.
@@ -123,6 +122,10 @@ Ja, kunt u Azure-Firewall in een hub-netwerk te routeren en filteren verkeer tus
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure Firewall doorsturen en filteren van netwerkverkeer tussen subnetten in het hetzelfde virtuele netwerk of de gekoppelde virtuele netwerken?
 
 Ja. Configureren van de udr's als u wilt omleiden van verkeer tussen subnetten in hetzelfde VNET vereist echter extra aandacht. Tijdens het gebruik van de VNET-adresbereik als een doel-voorvoegsel voor de UDR voldoende is, stuurt deze ook al het verkeer van één machine naar een andere computer in hetzelfde subnet via de Firewall van Azure-instantie. Om dit te voorkomen, neem er een route voor het subnet in de UDR met een volgend hoptype van **VNET**. Beheren van deze routes, kan omslachtig en foutgevoelige klus zijn. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen, die geen udr's is vereist.
+
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>Biedt Azure Firewall uitgaande SNAT tussen particuliere netwerken?
+
+Firewall van Azure SNAT niet wanneer het doel-IP-adres een privé-IP-adresbereik per is [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Als uw organisatie gebruikmaakt van een openbare IP-adresbereik voor particuliere netwerken, wordt Azure Firewall SNATs het verkeer naar een van de firewall privé-IP adressen in AzureFirewallSubnet.
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Geforceerde tunneling/koppelen aan een virtueel netwerkapparaat ondersteund?
 

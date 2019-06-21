@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791432"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275583"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -79,7 +79,7 @@ De Azure SQL Database grootschalige-laag is momenteel beschikbaar in de regio's 
 
 Ja. Zie voor meer informatie en beperkingen met betrekking tot het aantal databases per logische server grootschalige [SQL Database-resourcebeperkingen voor één en gepoolde databases op een logische server](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Wat zijn de prestatiekenmerk van een grootschalige-database
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Wat zijn de prestatiekenmerken van de database van een grootschalige
 
 De SQL-Database grootschalige architectuur biedt hoge prestaties en doorvoer ondersteuning te bieden voor grote databases. 
 
@@ -94,7 +94,7 @@ SQL Database grootschalige biedt snelle schaalbaarheid op basis van de vraag van
 
   Met zeer grootschalige, moet u ook de mogelijkheid voor het inrichten van een of meer extra rekenknooppunten die u gebruiken kunt voor het bieden van uw leesaanvragen ophalen. Dit betekent dat u deze extra compute-knooppunten kunt gebruiken als alleen-lezen-knooppunten voor de offload van uw workload lezen van de primaire Computing. In aanvulling om alleen-lezen, dat deze knooppunten ook dienen als hot stand-by-de van in het geval van een failover via van de primaire.
 
-  Inrichting van elk van deze extra compute-knooppunten kunnen worden gedaan in de constante tijd en is een online-bewerking. U kunt verbinding maken met deze aanvullende alleen-lezen rekenknooppunten door in te stellen de `ApplicationIntent` argument op de verbindingsreeks naar `read_only`. Alle verbindingen die zijn gemarkeerd met `read-only` worden automatisch doorgestuurd naar een van de aanvullende alleen-lezen-compute-knooppunten.
+  Inrichting van elk van deze extra compute-knooppunten kunnen worden gedaan in de constante tijd en is een online-bewerking. U kunt verbinding maken met deze aanvullende alleen-lezen rekenknooppunten door in te stellen de `ApplicationIntent` argument op de verbindingsreeks naar `readonly`. Alle verbindingen die zijn gemarkeerd met `readonly` worden automatisch doorgestuurd naar een van de aanvullende alleen-lezen-compute-knooppunten.
 
 ## <a name="deep-dive-questions"></a>Duik de diepte vragen
 
@@ -140,7 +140,7 @@ Nee.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Hoeveel leesschaal replica's worden ondersteund
 
-De grootschalige databases worden gemaakt met één leesschaal replica (twee replica's in totaal) standaard. U kunt het aantal alleen-lezen replica's tussen 0 en met 4 schalen de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
+De grootschalige databases worden gemaakt met één leesschaal replica (twee replica's in totaal) standaard. U kunt het aantal alleen-lezen replica's tussen 0 en met 4 schalen de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>Voor hoge beschikbaarheid, ik nodig om in te richten als u meer rekenknooppunten
 
@@ -361,7 +361,7 @@ Standaard maken we 2 replica's voor grootschalig databases. Als u het aantal rep
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Hoe maak ik verbinding met deze secundaire rekenknooppunten
 
-U kunt verbinding maken met deze aanvullende alleen-lezen rekenknooppunten door in te stellen de `ApplicationIntent` argument op de verbindingsreeks naar `read_only`. Alle verbindingen die zijn gemarkeerd met `read-only` worden automatisch doorgestuurd naar een van de aanvullende alleen-lezen-compute-knooppunten.  
+U kunt verbinding maken met deze aanvullende alleen-lezen rekenknooppunten door in te stellen de `ApplicationIntent` argument op de verbindingsreeks naar `readonly`. Alle verbindingen die zijn gemarkeerd met `readonly` worden automatisch doorgestuurd naar een van de aanvullende alleen-lezen-compute-knooppunten.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Ik kan een speciaal eindpunt voor de replica leesschaal maken
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: overview
 ms.date: 06/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: cfd68bbacf4cf8171efdba7878ec8c06055a4997
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d153c876366c8c747e06bf50a0ea26bcdcea10eb
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191166"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303598"
 ---
 # <a name="what-is-azure-bastion-preview"></a>Wat is Azure bastionhost? (Preview)
 
@@ -48,7 +48,7 @@ De volgende functies zijn beschikbaar om te proberen tijdens de openbare preview
 * **Externe sessie via SSL en firewall-traversal voor RDP/SSH:** Azure bastionhost maakt gebruik van een op basis van HTML5-webclient die automatisch worden gestreamd naar uw lokale apparaat, zodat u uw RDP/SSH-sessie ophalen via SSL op poort 443 zodat u kunt veilig zakelijke firewalls passeren.
 * **Er is geen openbaar IP-adres vereist op de Azure-VM:** Azure bastionhost wordt geopend de RDP/SSH-verbinding met uw Azure-machine met behulp van privé IP-adres op de virtuele machine. U hoeft geen een openbaar IP-adres op uw virtuele machine.
 * **Geen gedoe van het beheer van nsg's:** Azure bastionhost is een volledig beheerd platform PaaS-service van Azure die intern voor het beveiligen van RDP/SSH-verbinding is beveiligd. U moet geen nsg's toepassen op Azure bastionhost subnet. Omdat Azure bastionhost verbinding met uw virtuele machines via privé IP-adres maakt, kunt u uw nsg's zodat RDP/SSH vanuit Azure bastionhost alleen configureren. Hiermee verwijdert u de moeite van het beheer van nsg's telkens wanneer die u moet een beveiligde verbinding met uw virtuele machines.
-* **De poort beveiliging opnieuw scannen:** Omdat u niet nodig hebt om uw virtuele machines met openbare Internet zichtbaar te maken, wordt uw virtuele machines zijn beschermd tegen poort scannen rogue en kwaadwillende gebruikers die zich buiten het virtuele netwerk bevinden.
+* **Bescherming tegen het scannen van poorten:** Omdat u niet nodig hebt om uw virtuele machines met openbare Internet zichtbaar te maken, wordt uw virtuele machines zijn beschermd tegen poort scannen rogue en kwaadwillende gebruikers die zich buiten het virtuele netwerk bevinden.
 * **Beschermen tegen zero day-aanvallen. Beveiliging op slechts één locatie:** Azure bastionhost is een volledig platform beheerde PaaS-service. Omdat deze zich in het perimeternetwerk van uw virtuele netwerk bevindt, moet u geen zorgen te maken over het beperken van elk van de virtuele machines in uw virtuele netwerk. Het Azure-platform biedt bescherming tegen zero day-aanvallen door de Bastionomgeving Azure beveiligd en altijd up-to-date zijn voor u.
 
 ## <a name="faq"></a>Veelgestelde vragen

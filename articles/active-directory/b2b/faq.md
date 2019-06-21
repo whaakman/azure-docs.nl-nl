@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113076"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293077"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -42,7 +42,7 @@ Ja. Gastgebruikers kunnen herstellen van de multi-factor authenticatiemethode de
 De uitnodigende organisatie uitvoert meervoudige verificatie. De uitnodigende organisatie moet ervoor zorgen dat de organisatie heeft voldoende licenties voor hun B2B-gebruikers dat van verificatie met meerdere factoren gebruikmaakt.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>Wat gebeurt er als heeft al een partnerorganisatie verificatie met meerdere factoren instellen? Kunnen we de multi-factor Authentication-verificatie, niet worden gebruikt en vertrouwd onze eigen meervoudige verificatie?
-Deze functie is gepland voor een toekomstige release, zodat die vervolgens u kunt specifieke partners moeten worden uitgesloten van de multi-factor Authentication-verificatie (de uitnodigende organisatie).
+Deze functie wordt momenteel niet ondersteund. Als de toegang tot resources van uw organisatie meervoudige verificatie vereist, de partnerorganisatie moet zich registreren voor meervoudige verificatie in uw (de uitnodiging) organisatie.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Hoe kan ik vertraagde uitnodigingen gebruiken?
 Een organisatie wil mogelijk gebruikers van B2B-samenwerking toevoegen en vervolgens uitnodigingen verzenden naar toepassingen inrichten, indien nodig. U kunt de B2B-samenwerking uitnodiging API gebruiken om aan te passen van de onboarding-werkstroom.

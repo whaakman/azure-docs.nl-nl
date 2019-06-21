@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 667ee6a49238c1ecaabec631cb72804b0c4b2323
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545058"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304258"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric-ondersteuningsopties
 
@@ -43,7 +43,7 @@ Meer informatie over:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Productieproblemen melden of betaalde ondersteuning aanvragen voor zelfstandige die service Fabric-clusters
 
-Voor het melden van on-premises problemen op uw Service Fabric-cluster geïmplementeerd, of op andere clouds, opent u een ticket voor professionele ondersteuning op [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Voor het melden van on-premises problemen op uw Service Fabric-cluster geïmplementeerd, of op andere clouds, opent u een ticket voor professionele ondersteuning op [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Meer informatie over:
 
@@ -60,11 +60,11 @@ Problemen met Azure Service Fabric een rapport over [git-opslagplaats voor Servi
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow en MSDN-forums
 
-De [Service Fabric-code op StackOverflow] [ stackoverflow] en de [Service Fabric-forum op MSDN] [ msdn-forum] worden gebruikt voor het stellen van vragen over hoe u de beste platform werkt en hoe u bepaalde taken ermee kunt uitvoeren.
+De [Service Fabric-code op StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] best worden gebruikt voor het stellen van vragen over de werking van het platform en hoe u bepaalde taken ermee kunt uitvoeren.
 
 ### <a name="azure-feedback-forum"></a>Azure-Feedbackforum
 
-De [Forum met Feedback van Azure voor Service Fabric] [ uservoice-forum] is de beste plaats voor het indienen van grote functie ideeën voor het product hebt als we de meest populaire aanvragen bekijken, maken deel uit van onze middelgrote tot planning op lange termijn. We raden u om een bijdrage ondersteuning voor uw suggesties binnen de community te.
+De [Forum met Feedback van Azure voor Service Fabric][uservoice-forum] is de beste plaats voor het indienen van grote functie ideeën voor het product hebt als we de meest populaire aanvragen bekijken, maken deel uit van onze middelgrote tot planning op lange termijn. We raden u om een bijdrage ondersteuning voor uw suggesties binnen de community te.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric Preview-versies - wordt niet ondersteund voor gebruik in productieomgevingen
 

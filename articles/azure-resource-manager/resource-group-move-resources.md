@@ -4,14 +4,14 @@ description: Azure Resource Manager gebruiken voor resources verplaatsen naar ee
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083529"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295446"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -89,14 +89,14 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Machine Learning - Machine Learning Studio-webservices kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet een ander abonnement. Andere Machine Learning-resources kunnen worden uitgewisseld tussen abonnementen.
 * Managed Disks: beheerde schijven in Beschikbaarheidszones kunnen niet worden verplaatst naar een ander abonnement
 * Media Services
-* Monitor - Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#monitor-limits)
+* Monitor - Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#azure-monitor-limits)
 * Notification Hubs
 * Operational Insights
 * Operations Management
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Basic SKU en openbare IP kunnen worden verplaatst. Standaard SKU en openbare IP kan niet worden verplaatst.
-* Recovery Services-kluis: Schrijf u in een [preview](#recovery-services-limitations).
+* Recovery Services-kluis - Zie [beperkingen](#recovery-services-limitations).
 * SAP HANA op Azure
 * Scheduler
 * Search - u kunt verschillende zoeken resources niet verplaatsen in verschillende regio's in één bewerking. In plaats daarvan deze verplaatsen in aparte bewerkingen.
@@ -104,7 +104,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Opslag - storage-accounts in verschillende regio's kan niet worden verplaatst in dezelfde bewerking. Gebruik in plaats daarvan de afzonderlijke bewerkingen voor elke regio.
+* Opslag
 * Opslag (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Opslagsynchronisatieservice
 * Stream Analytics - status voor Stream Analytics taken bij het uitvoeren van in kunnen niet worden verplaatst.

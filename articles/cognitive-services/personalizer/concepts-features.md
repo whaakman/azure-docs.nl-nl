@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b2054aa963991ffa2d92aabf1ce896031f2d87fc
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027136"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296049"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Functies zijn informatie over acties en context
 
@@ -40,6 +40,12 @@ Personalizer niet schrijven, beperken of welke functies u voor acties en context
 ## <a name="supported-feature-types"></a>Ondersteunde functie typen
 
 Personalizer biedt ondersteuning voor functies van de reeks, numerieke en Booleaanse typen.
+
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hoe de keuze van het functietype is van invloed op Machine Learning in Personalizer
+
+* **Tekenreeksen**: Voor tekenreekstypen maakt elke combinatie van sleutel en waarde nieuwe gewicht in de Personalizer machine learning-model. 
+* **Numerieke**: Als het getal moet proportioneel invloed hebben op het resultaat van persoonlijke instellingen, moet u numerieke waarden gebruiken. Dit is zeer afhankelijk scenario. In het voorbeeld van een vereenvoudigde bijvoorbeeld wanneer een handelsversie personaliseren ondervindt, NumberOfPetsOwned kan een functie die numeriek is, kunt u mensen met 2 of 3 huisdieren invloed op het persoonlijke instellingen resultaat die twee of drie keer zoveel met 1 huisdier zijn. Functies die zijn gebaseerd op numerieke eenheden, maar waarbij de betekenis niet lineaire - zoals leeftijd, temperatuur of hoogte van de persoon - zijn beste gecodeerd als tekenreeksen en de kwaliteit van de functie kan doorgaans worden verbeterd door het gebruik van bereiken. Bijvoorbeeld, leeftijd kan worden gecodeerd als "Ouder": "0-5", "Leeftijd": "6-10", enzovoort.
+* **Booleaanse** waarden die worden verzonden met de waarde 'false' act alsof ze op alle hadn't is verzonden.
 
 Functies die niet aanwezig zijn, moeten worden weggelaten uit de aanvraag. Vermijd het verzenden van functies met een null-waarde, omdat deze wordt verwerkt als bestaande en met de waarde 'null' als het model te trainen.
 

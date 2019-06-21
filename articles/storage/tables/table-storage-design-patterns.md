@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101426"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295118"
 ---
 # <a name="table-design-patterns"></a>Tabelontwerppatronen
 Dit artikel beschrijft enkele patronen die geschikt is voor gebruik met oplossingen voor tabel-service. Ook ziet u hoe u enkele van de problemen en wisselwerking besproken in de andere artikelen van tabel storage ontwerp nagenoeg kunt oplossen. Het volgende diagram geeft een overzicht van de relaties tussen de verschillende patronen:  
@@ -574,7 +574,25 @@ if (retrieveResult.Result != null)
 U ziet hoe dit voorbeeld wordt verwacht dat de entiteit wordt opgehaald om te worden van het type **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Bij het ophalen van meerdere entiteiten met behulp van LINQ
-U kunt meerdere entiteiten ophalen met behulp van LINQ met Storage-clientbibliotheek en op te geven van een query met een **waar** component. Om te voorkomen dat een tabelscan, moet u altijd opnemen de **PartitionKey** waarde in de where-component, en indien mogelijk de **RowKey** waarde om te voorkomen dat de tabel en partitie scans. De tabelservice ondersteunt een beperkt aantal vergelijkingsoperators (groter is dan, groter dan of gelijk aan, minder dan, kleiner dan of gelijk zijn aan, gelijk zijn, en niet gelijk aan) te gebruiken in de where component. De volgende C#-codefragment vindt alle werknemers waarvan de laatste naam begint met "B" (ervan uitgaande dat de **RowKey** bevat de naam van de laatste) van de afdeling verkoop (ervan uitgaande dat de **PartitionKey** slaat de afdelingsnaam):  
+U kunt LINQ gebruiken om op te halen van meerdere entiteiten uit de tabelservice bij het werken met Microsoft Azure Cosmos tabel standaardbibliotheek. 
+
+```cli
+dotnet add package Microsoft.Azure.Cosmos.Table
+```
+
+Om de onderstaande voorbeelden werken, moet u naamruimten opnemen:
+
+```csharp
+using System.Linq;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table.Queryable;
+```
+
+De employeeTable is een CloudTable-object waarmee een CreateQuery<ITableEntity>()-methode die resulteert in een TableQuery<ITableEntity>. Objecten van dit type implementatie een IQueryable en toestaan met behulp van LINQ-Query-expressies zowel stip notatie syntaxis.
+
+Bij het ophalen van meerdere entiteiten en worden bereikt door het opgeven van een query met een **waar** component. Om te voorkomen dat een tabelscan, moet u altijd opnemen de **PartitionKey** waarde in de where-component, en indien mogelijk de **RowKey** waarde om te voorkomen dat de tabel en partitie scans. De tabelservice ondersteunt een beperkt aantal vergelijkingsoperators (groter is dan, groter dan of gelijk aan, minder dan, kleiner dan of gelijk zijn aan, gelijk zijn, en niet gelijk aan) te gebruiken in de where component. 
+
+De volgende C#-codefragment vindt alle werknemers waarvan de laatste naam begint met "B" (ervan uitgaande dat de **RowKey** bevat de naam van de laatste) van de afdeling verkoop (ervan uitgaande dat de **PartitionKey** slaat de afdelingsnaam):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();

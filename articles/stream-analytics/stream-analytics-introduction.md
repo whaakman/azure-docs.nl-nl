@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 05/16/2019
-ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: f45247e652220bdf9f35a15e2059f5f6c06e96d5
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393970"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294808"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Wat is Azure Stream Analytics?
 
@@ -67,7 +67,7 @@ U kunt de mogelijkheden van de querytaal uitbreiden door extra functie te defini
 
 Azure Stream Analytics is een volledige beheerde (PaaS) aanbieding in Azure. U hebt geen in te richten geen hardware of -clusters voor het uitvoeren van uw taken beheren. Azure Stream Analytics beheert uw taak volledig door het instellen van complexe rekenclusters in de cloud en zorg ervoor dat u van de prestaties afstemmen die nodig zijn voor het uitvoeren van de taak. Integratie met Azure Event Hubs en Azure IoT Hub kunt de taak naar de opname van miljoenen gebeurtenissen per seconde afkomstig van een aantal bronnen te zijn van verbonden apparaten, clickstreams, logboekbestanden. Met de partitioneringsfunctie van Event Hubs kunt u berekeningen partitioneren in logische stappen, die elk verder kunnen worden gepartitioneerd voor meer schaalbaarheid.
 
-## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>Voer in de cloud op in de intelligente edge
+## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Uitvoeren in de cloud of op de intelligente edge
 
 Azure Stream Analytics kunt uitvoeren in de cloud, voor grootschalige analyse, of op IoT Edge voor zeer lage latentie analyses uitvoeren. Azure Stream Analytics gebruikt dezelfde querytaal op zowel de cloud als de rand, zodat ontwikkelaars kunnen bouwen werkelijk hybride architecturen voor de verwerking.
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114670"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296216"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
@@ -27,20 +27,23 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 > [!TIP]
 > Voor klanten die migreren van Media Services v2 API's, de **Live gebeurtenis** entiteit vervangt **kanaal** in v2 en **uitvoer Live** vervangt **programma**.
 
-
 ## <a name="live-events"></a>Livegebeurtenissen
 
-[Livegebeurtenissen](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live videofeeds. Als u een livegebeurtenis maakt, wordt er een invoereindpunt gemaakt dat u kunt gebruiken om een livesignaal vanaf een externe encoder te verzenden. De externe live-encoder verzendt de bijdragefeed naar dat invoereindpunt met behulp van het protocol [RTMP](https://www.adobe.com/devnet/rtmp.html) of [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (gefragmenteerd MP4). Voor de Smooth Streaming-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `http://` of `https://`. Voor het RTMP-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `rtmp://` of `rtmps://`. 
+[Livegebeurtenissen](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live videofeeds. Wanneer u een Live gebeurtenis maakt, wordt een primaire en secundaire invoereindpunt gemaakt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma. De externe live codering verzendt de bijdrage feed aan die een invoereindpunt met behulp van de [RTMP](https://www.adobe.com/devnet/rtmp.html) of [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (gefragmenteerde MP4) protocol invoer. Voor het RTMP-opnameprotocol voor transportstreams, de inhoud kan worden verzonden via de wissen (`rtmp://`) of veilig versleuteld op de kabel (`rtmps://`). Voor de Smooth Streaming-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `http://` of `https://`.  
 
 ## <a name="live-event-types"></a>Live gebeurtenistypen
 
-Een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents) kan bestaan uit een van de twee typen: Pass Through- en live codering. 
+Een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents) kan bestaan uit een van de twee typen: Pass Through- en live codering. De typen zijn ingesteld tijdens het maken met behulp van [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. De opgenomen streams wordt doorgegeven via de Live gebeurtenis zonder verdere verwerking. 
+* **LiveEventEncodingType.Standard** : een on-premises live codering verzendt een single-bitrate stream aan de Live gebeurtenis en Media Services wordt gemaakt van meerdere bitrate streams. Als de feed van de bijdrage van 720p of hogere resolutie, is de **Default720p** definitie wordt een set 6 resolutie/bitsnelheden paren coderen.
+* **LiveEventEncodingType.Premium1080p** : een on-premises live codering verzendt een single-bitrate stream aan de Live gebeurtenis en Media Services wordt gemaakt van meerdere bitrate streams. De definitie Default1080p Hiermee geeft u de uitvoer set resolutie/bitsnelheden paren. 
 
 ### <a name="pass-through"></a>Pass-through
 
 ![passthrough](./media/live-streaming/pass-through.svg)
 
-Bij gebruik van de pass-through **livegebeurtenis** bent u afhankelijk van de on-premises live-encoder voor het genereren van een multiple-bitrate videostream en het verzenden ervan als de bijdragefeed voor de livegebeurtenis (met behulp van RTMP of een gefragmenteerd MP4-protocol). De livegebeurtenis voert de binnenkomende videostream vervolgens zonder verdere verwerking uit. Een dergelijke pass-through livegebeurtenis wordt geoptimaliseerd voor langdurige livegebeurtenissen of 24x365 lineair live streamen. Bij het maken van dit type livegebeurtenis, geeft u None op (LiveEventEncodingType.None).
+Bij gebruik van de pass-through **livegebeurtenis** bent u afhankelijk van de on-premises live-encoder voor het genereren van een multiple-bitrate videostream en het verzenden ervan als de bijdragefeed voor de livegebeurtenis (met behulp van RTMP of een gefragmenteerd MP4-protocol). De livegebeurtenis voert de binnenkomende videostream vervolgens zonder verdere verwerking uit. Dergelijke een Pass Through-Live-gebeurtenis is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. Bij het maken van dit type livegebeurtenis, geeft u None op (LiveEventEncodingType.None).
 
 U kunt de bijdragefeed verzenden bij een resolutie tot maximaal 4K en een framesnelheid van 60 frames per seconde, met ofwel H.264/AVC- of H.265/HEVC-videocodecs, en AAC (AAC-LC, HE-AACv1 of HE-AACv2)-audiocodec.  Zie het artikel [Vergelijking van typen livegebeurtenissen](live-event-types-comparison.md) voor meer informatie.
 
@@ -84,16 +87,18 @@ U kunt niet-vanity-URL's en vanity-URL's gebruiken.
 
 * Niet-vanity-URL
 
-    Een niet-vanity-URL is de standaardmodus in AMS v3. U krijgt de livegebeurtenis mogelijk snel, maar de opname-URL is alleen bekend als de livegebeurtenis wordt gestart. De URL wordt gewijzigd als u de livegebeurtenis stopt of start. <br/>Niet-vanity is handig in scenario's waarbij een eindgebruiker wil streamen met een app waarbij de app een livegebeurtenis zo snel mogelijk wil downloaden en waarbij een dynamische opname-URL geen probleem is.
+    Niet-vanity-URL is de standaardmodus in Media Services v3. U krijgt de livegebeurtenis mogelijk snel, maar de opname-URL is alleen bekend als de livegebeurtenis wordt gestart. De URL wordt gewijzigd als u de livegebeurtenis stopt of start. <br/>Niet-vanity is handig in scenario's waarbij een eindgebruiker wil streamen met een app waarbij de app een livegebeurtenis zo snel mogelijk wil downloaden en waarbij een dynamische opname-URL geen probleem is.
+    
+    Als een clienttoepassing niet nodig hebt voor het vooraf genereren van een URL voor opnemen voor de Live gebeurtenis wordt gemaakt, net, kunnen Media Services voor het automatisch genereren het toegangstoken voor de live-gebeurtenis.
 * Vanity URL
 
     De vanity-modus heeft de voorkeur bij grote tv-media die gebruikmaken van hardware broadcast-encoders en die hun encoders niet opnieuw willen configureren als de livegebeurtenis wordt gestart. Ze willen een voorspellende opname-URL, die niet na verloop van tijd verandert.
     
-    Als u wilt deze modus opgeven, stelt u `vanityUrl` te `true` tijdens het maken (de standaardwaarde is `false`). U moet ook uw eigen token doorgeven (`LiveEventInput.accessToken`) tijdens het maken. U opgeven de token waarde om te voorkomen dat een willekeurige token in de URL. Het toegangstoken heeft een geldige GUID-tekenreeks (met of zonder de streepjes). Zodra de modus is ingesteld, kan deze kan niet worden bijgewerkt.
+    Als u wilt deze modus opgeven, stelt u `vanityUrl` te `true` tijdens het maken (de standaardwaarde is `false`). U moet ook uw eigen token doorgeven (`LiveEventInput.accessToken`) tijdens het maken. U opgeven de token waarde om te voorkomen dat een willekeurige token in de URL. Het toegangstoken heeft een geldige GUID-tekenreeks (met of zonder de afbreekstreepjes). Zodra de modus is ingesteld, kan deze kan niet worden bijgewerkt.
 
     Het toegangstoken moet uniek zijn in uw datacenter. Als uw toepassing moet een aangepaste URL moet worden gebruikt, is het aanbevolen maken altijd een nieuw exemplaar van de GUID voor uw toegangstoken (in plaats van opnieuw gebruiken van een bestaande GUID). 
 
-    Gebruik de volgende API's voor de Vanity-URL inschakelen en het toegangstoken ingesteld op een geldige GUID (bijvoorbeeld `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    Gebruik de volgende API's voor de Vanity-URL inschakelen en het toegangstoken ingesteld op een geldige GUID (bijvoorbeeld `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
     
     |Taal|Aangepaste URL inschakelen|Toegangstoken instellen|
     |---|---|---|
@@ -103,41 +108,41 @@ U kunt niet-vanity-URL's en vanity-URL's gebruiken.
     
 ### <a name="live-ingest-url-naming-rules"></a>Live naamgevingsregels URL voor opnemen
 
-De *willekeurige* tekenreeks hieronder is een 128-bits hexadecimaal getal (bestaande uit 32 tekens, van 0-9 en a-f).<br/>
-De *toegangstoken* is wat u nodig hebt om op te geven voor vaste-URL. U moet een access token tekenreeks is die een lengte van geldige GUID-tekenreeks is ingesteld. <br/>
-De *Stroomnaam* geeft aan dat de naam van de stream voor een specifieke verbinding. De waarde van de stream wordt meestal toegevoegd door het live coderingsprogramma dat u gebruikt.
+* De *willekeurige* tekenreeks hieronder is een 128-bits hexadecimaal getal (bestaande uit 32 tekens, van 0-9 en a-f).
+* *uw toegangstoken* -de geldige GUID-tekenreeks die u bij het gebruik van de aangepaste modus instellen. Bijvoorbeeld `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *naam van een stream* -geeft aan dat de naam van de stream voor een specifieke verbinding. De waarde van de stream wordt meestal toegevoegd door het live coderingsprogramma dat u gebruikt. U kunt configureren dat het live coderingsprogramma voor het gebruik van een willekeurige naam voor het beschrijven van de verbinding, bijvoorbeeld: 'video1_audio1", 'video2_audio1', 'stream'.
 
 #### <a name="non-vanity-url"></a>Niet-vanity-URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Vanity URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Live gebeurtenis de voorbeeld-URL
 
-Zodra de **Live gebeurtenis** ontvangen van de bijdrage feed is gestart, kunt u de preview-eindpunt om te bekijken en te valideren dat u de live stream ontvangt voordat u verder publiceert. Nadat u hebt gecontroleerd dat de stroom preview goed is, kunt u de LiveEvent gebruiken om de live stream beschikbaar voor levering via een of meer (vooraf gemaakt) **Streaming-eindpunten**. Om dit te realiseren, maakt u een nieuw [uitvoer Live](https://docs.microsoft.com/rest/api/media/liveoutputs) op de **Live gebeurtenis**. 
+Zodra de **Live gebeurtenis** ontvangen van de bijdrage feed is gestart, kunt u de preview-eindpunt om te bekijken en te valideren dat u de live stream ontvangt voordat u verder publiceert. Nadat u hebt gecontroleerd dat de stroom preview goed is, kunt u de Live gebeurtenis om de live stream beschikbaar voor levering via een of meer (vooraf gemaakte) **Streaming-eindpunten**. Om dit te realiseren, maakt u een nieuw [uitvoer Live](https://docs.microsoft.com/rest/api/media/liveoutputs) op de **Live gebeurtenis**. 
 
 > [!IMPORTANT]
 > Zorg ervoor dat de video worden doorgestuurd naar de URL van de Preview-versie voordat u verdergaat!

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97b32fff931c1c0f5e19a269afec5094cae3d40e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111214"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204652"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Desktop-app die web-API's aanroept
 
@@ -53,7 +53,7 @@ U schrijft een bureaubladtoepassing en u wilt dat gebruikers aanmelden bij uw to
 
   ![Bureaubladtoepassing](media/scenarios/desktop-app.svg)
 
-- Als u schrijft een draagbare opdrachtregelprogramma - waarschijnlijk een .NET Core-toepassing die wordt uitgevoerd op Linux of Mac - kunt u zich niet aan geen van beide de interactieve verificatie gebruiken (zoals .NET Core biedt geen een [webbrowser](https://aka.ms/msal-net-uses-web-browser)), noch geïntegreerd Windows-verificatie. De beste optie is in dat geval het gebruik van de stroom van apparaat. Deze stroom wordt ook gebruikt voor toepassingen zonder een browser, zoals iOT-toepassingen
+- Als u schrijft een draagbare opdrachtregelprogramma - waarschijnlijk een .NET Core-toepassing die wordt uitgevoerd op Linux of Mac - kunt u zich niet op de interactieve verificatie gebruiken (zoals .NET Core biedt geen een [webbrowser](https://aka.ms/msal-net-uses-web-browser)), of geïntegreerde Windows-verificatie. De beste optie is in dat geval het gebruik van de stroom van apparaat. Deze stroom wordt ook gebruikt voor toepassingen zonder een browser, zoals IoT-toepassingen
 
   ![Browserless toepassing](media/scenarios/device-code-flow-app.svg)
 

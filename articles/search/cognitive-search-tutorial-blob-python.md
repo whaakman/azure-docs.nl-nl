@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 75ff1f7a37522c295bff10fe22bbb995fea65d52
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 50a252ff93f7e2cc6e5c6100c6bce850e9e96baf
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276039"
+ms.locfileid: "67295626"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python-zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren van pijplijn
 
@@ -465,73 +465,7 @@ De resultaten moeten eruitzien zoals in het volgende voorbeeld. De schermafbeeld
 Herhaal dit voor aanvullende velden: inhoud, languageCode Sleutelzinnen en organisaties in deze oefening. U kunt meerdere velden retourneren via `$select` met behulp van een door komma's gescheiden lijst.
 
 U kunt GET of POST gebruiken, afhankelijk van de complexiteit en lengte van de queryreeks. Zie [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Query's uitvoeren met de REST API) voor meer informatie.
-
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Het verrijkte document openen
-
-Met cognitief zoeken kunt u de structuur van het verrijkte document bekijken. Verrijkte documenten zijn tijdelijke structuren die tijdens het verrijken worden gemaakt en weer worden verwijderd wanneer het proces is voltooid.
-
-Als u een momentopname van het verrijkte document wilt vastleggen tijdens het indexeren, voegt u een veld met de naam `enriched` toe aan uw index. De indexeerfunctie dumpt automatisch een tekenreeksrepresentatie van de verrijkingen voor het document in het veld.
-
-Het veld `enriched` bevat dan een tekenreeks die een logische representatie vormt van het verrijkte document in het geheugen in JSON.  De veldwaarde is echter een geldig JSON-document. Aanhalingstekens zijn escape daarom moet u vervangen `\"` met `"` geformatteerd om weer te geven van het document als JSON.  
-
-Het veld `enriched` is bedoeld voor foutopsporing, alleen om u inzicht te geven in de logische vorm van de inhoud op basis waarvan expressies worden geëvalueerd. Het kan een handig hulpmiddel zijn om uw set vaardigheden te begrijpen en er fouten in op te sporen.
-
-Herhaal de vorige oefening voor het vastleggen van de inhoud van een geavanceerde document, en bevatten de `enriched` wanneer u de index maken.
-
-> [!Tip]
-> Voordat u deze stappen hebt uitgevoerd, moet u de gegevensbron, index, indexeerfunctie en vaardigheden die u zojuist hebt gemaakt. Zie voor meer informatie, [opnieuw instellen en probeer het opnieuw](#reset).
-
-```python
-# Create index with enriched field
-index_payload = {
-    "name": index_name,
-    "fields": [
-      {
-        "name": "id",
-        "type": "Edm.String",
-        "key": "true",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false",
-        "sortable": "true"
-      },
-      {
-        "name": "content",
-        "type": "Edm.String",
-        "sortable": "false",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "languageCode",
-        "type": "Edm.String",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "keyPhrases",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "organizations",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "sortable": "false",
-        "filterable": "false",
-        "facetable": "false"
-      }
-   ]
-}
-```
-
-<a name="reset"></a>
+Deze <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Opnieuw instellen en uitvoeren
 

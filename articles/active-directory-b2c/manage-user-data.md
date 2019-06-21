@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510445"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204682"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Beheren van gebruikersgegevens in Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510445"
 
 ## <a name="delete-user-data"></a>Gebruikersgegevens verwijderen
 
-Gebruikersgegevens zijn opgeslagen in de Azure AD B2C-directory en in de auditlogboeken. Alle gebruiker audit-gegevens worden bewaard gedurende 30 dagen in Azure AD B2C. Als u verwijderen van gebruikersgegevens in die periode van 30 dagen wilt, kunt u de [verwijderen van een gebruiker](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) bewerking. Een DELETE-bewerking is vereist voor elk van de Azure AD B2C-tenants waar de gegevens zich kan bevinden. 
+Gebruikersgegevens zijn opgeslagen in de Azure AD B2C-directory en in de auditlogboeken. Controle van alle gebruikersgegevens bewaard 7 dagen in Azure AD B2C. Als u verwijderen van gebruikersgegevens in die periode van 7 dagen wilt, kunt u de [verwijderen van een gebruiker](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) bewerking. Een DELETE-bewerking is vereist voor elk van de Azure AD B2C-tenants waar de gegevens zich kan bevinden. 
 
 Elke gebruiker in Azure AD B2C wordt toegewezen een object-ID. De object-ID biedt een unieke id voor u kunt gebruiken om gebruikersgegevens in Azure AD B2C te verwijderen. Afhankelijk van uw architectuur, de object-ID mag een handig correlatie-id voor andere services, zoals financiële, marketing, en klant relatie management databases. 
 

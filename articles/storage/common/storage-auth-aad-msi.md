@@ -1,6 +1,6 @@
 ---
-title: Verifiëren van toegang tot blobs en wachtrijen met beheerde identiteiten voor Azure-resources - Azure Storage | Microsoft Docs
-description: Azure Blob- en Queue storage ondersteuning voor Azure Active Directory-verificatie met beheerde identiteiten voor Azure-resources. U kunt beheerde identiteiten voor Azure-resources gebruiken om te verifiëren van toegang tot blobs en wachtrijen van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen.
+title: Verleent toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources - Azure Storage
+description: Blob- en wachtrijservices ondersteuning voor Azure storage verlenen van toegang tot resources met Azure Active Directory en beheerde identiteiten voor Azure-resources. U kunt beheerde identiteiten voor Azure-resources gebruiken om toegang tot blobs en wachtrijen van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen te verlenen.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787965"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303418"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Verleent toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources
 
 Azure Blob en Queue storage ondersteuning voor verificatie met Azure Active Directory (Azure AD) [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). Beheerde identiteiten voor Azure-resources toegang verleent kunnen tot blob- en wachtrijgegevens met Azure AD-referenties van de toepassingen die worden uitgevoerd in virtuele Azure-machines (VM's), functie-apps, virtuele-machineschaalsets en andere services. Met behulp van beheerde identiteiten voor Azure-resources samen met Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties op met uw toepassingen die worden uitgevoerd in de cloud.  
 

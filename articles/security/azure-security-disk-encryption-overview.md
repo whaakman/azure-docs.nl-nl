@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068795"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294868"
 ---
 # <a name="azure-disk-encryption-overview"></a>Overzicht van Azure Disk Encryption
 
@@ -45,7 +45,7 @@ Azure Disk Encryption ondersteunt de volgende klant-scenario's:
 Het ondersteunt ook de volgende scenario's voor virtuele machines wanneer deze zijn ingeschakeld in Microsoft Azure:
 
 * Integratie met Azure Key Vault.
-* [Standard-laag virtuele machines](https://azure.microsoft.com/pricing/details/virtual-machines/). [Virtuele Linux-machines](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) binnen deze lagen als moeten voldoen aan de minimale geheugenvereiste van 7 GB. 
+* [Standard-laag virtuele machines](https://azure.microsoft.com/pricing/details/virtual-machines/) die voldoen aan de [minimale geheugenvereiste](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes). 
 * Virtuele machines inschakelen van versleuteling op Windows en Linux-VM's, beheerde schijf en schaal worden ingesteld via de ondersteunde Azure-galerie-installatiekopieën.
 * Uitschakelen van versleuteling op besturingssysteem en schijven voor virtuele machines van Windows, schaal virtuele machines en virtuele machines op schijven beheerd.
 * Uitschakelen versleuteling op gegevensstations voor Linux-VM's, schaal virtuele machines en virtuele machines op schijven beheerd.
@@ -56,7 +56,7 @@ Het ondersteunt ook de volgende scenario's voor virtuele machines wanneer deze z
 * Inschakelen van versleuteling op de Linux VM-besturingssysteem en gegevensschijven.
 
    > [!NOTE]
-   > OS-stationsversleuteling voor bepaalde Linux-distributies wordt niet ondersteund. Zie voor meer informatie de [Veelgestelde vragen over Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel.
+   > OS-stationsversleuteling voor bepaalde Linux-distributies wordt niet ondersteund. Zie voor meer informatie de [Azure Disk Encryption ondersteunde besturingssystemen: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
 * Inschakelen van versleuteling op virtuele machines die zijn geconfigureerd met Windows Storage Spaces begin in Windows Server 2016.
 * Back-up en herstel van versleutelde virtuele machines voor zowel de sleutel van versleutelingssleutel (KEK-sleutel) als de niet-KEK-scenario's.
@@ -93,8 +93,6 @@ Azure Disk Encryption voor virtuele machines voor Windows en Linux bevat:
 * [De PowerShell-cmdlets voor de versleuteling van schijf](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
 * [De cmdlets van Azure CLI schijf versleuteling](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [De Azure Resource Manager-sjablonen voor schijf versleuteling](azure-security-disk-encryption-appendix.md#resource-manager-templates).
-
-Azure Disk Encryption wordt ondersteund op virtuele machines waarop Windows of Linux-besturingssysteem wordt uitgevoerd. Zie voor meer informatie over de ondersteunde besturingssystemen, [Veelgestelde vragen over](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > Er zijn geen extra kosten voor het versleutelen van VM-schijven met Azure Disk Encryption. Standard [prijzen voor Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) is van toepassing op de sleutelkluis die wordt gebruikt voor het opslaan van de versleutelingssleutels. 

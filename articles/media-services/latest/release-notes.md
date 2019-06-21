@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa4e37e3b360727feb998ef5e9ca9b776c4b0e53
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688643"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303949"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -33,6 +33,19 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 > U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-sdk), CLI of een van de ondersteunde SDK's.
 
 Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Services v2 naar v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="june-2019"></a>Juni 2019
+
+### <a name="video-subclipping"></a>Video sub-clipping
+
+U kunt nu trim of een video subclip wanneer codering met behulp van een [taak](https://docs.microsoft.com/rest/api/media/jobs). 
+
+Deze functionaliteit werkt met een [transformeren](https://docs.microsoft.com/rest/api/media/transforms) die is gebouwd met behulp van de [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, of de [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) voorinstellingen. 
+
+Zie de voorbeelden:
+
+* [Subclip een video met .NET](subclip-video-dotnet-howto.md)
+* [Subclip een video met REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Mei 2019
 

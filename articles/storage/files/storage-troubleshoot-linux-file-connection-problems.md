@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118717"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295072"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
@@ -191,6 +191,40 @@ Gebruik de storage-account-gebruiker voor het kopiëren van bestanden:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Kan geen verbinding maken met of een Azure-bestandsshare koppelen
+
+### <a name="cause"></a>Oorzaak
+
+Meest voorkomende oorzaken van dit probleem zijn:
+
+- U gebruikt een incompatibele client voor Linux-distributie. U wordt aangeraden dat u de volgende Linux-distributies gebruiken om te verbinden met een Azure-bestandsshare:
+
+    |   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van on-premises en regio-overschrijdende) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- Hulpprogramma's voor CIFS (cifs-utils) zijn niet geïnstalleerd op de client.
+- De minimale SMB/CIFS-versie, 2.1, is niet geïnstalleerd op de client.
+- SMB 3.0-codering wordt niet ondersteund op de client. SMB 3.0-versleuteling is beschikbaar in Ubuntu 16.4 en hoger, samen met SUSE 12.3 en latere versies. Andere distributies vereisen kernel 4.11 en latere versies.
+- U probeert verbinding maken met een storage-account via TCP-poort 445, wat niet wordt ondersteund.
+- U probeert verbinding maken met een Azure-bestandsshare vanaf een Azure-VM en de virtuele machine is niet in dezelfde regio als het opslagaccount.
+- Als de [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account, Azure Files kunnen alleen verbindingen die gebruikmaken van SMB 3.0 met-codering.
+
+### <a name="solution"></a>Oplossing
+
+Gebruik van het probleem op te lossen de [hulpprogramma voor probleemoplossing voor Azure Files Koppelingsfouten in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Dit hulpprogramma:
+
+* Helpt u bij het valideren van de client met de omgeving.
+* Detecteert de configuratie van de niet-compatibele client die kan leiden de fout toegang voor Azure Files dat ertoe.
+* Biedt richtlijnen voor het zelf oplossen.
+* De diagnostics-traceringen worden verzameld.
+
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: geen toegang tot '&lt;pad&gt;': I/o-fout
 

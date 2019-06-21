@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417922"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303578"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Veelgestelde vragen over Azure Container Registry
 
@@ -440,6 +440,85 @@ Deze instelling geldt ook voor de `az acr run` opdracht.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub-acties](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
+## <a name="error-references-for-az-acr-check-health"></a>Fout-verwijzingen voor `az acr check-health`
+
+### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
+
+Deze fout betekent dat docker-client voor CLI kan niet worden gevonden, die verhindert zoeken van docker-versie, docker-daemon-status evalueren en ervoor te zorgen dat docker pull-opdracht kan worden uitgevoerd.
+
+*Mogelijke oplossingen*: dockerclient installeren; toe te voegen docker-pad naar de systeemvariabelen.
+
+### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
+
+Deze fout betekent dat de status van de docker-daemon niet beschikbaar is, of dat deze kan niet worden bereikt met behulp van de CLI. Dit betekent dat de docker-bewerkingen (bijvoorbeeld, aanmelding, pull) niet beschikbaar via de CLI is.
+
+*Mogelijke oplossingen*: Docker-daemon opnieuw, of te valideren dat deze correct is geïnstalleerd.
+
+### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
+
+Deze fout betekent CLI is niet kunnen worden uitgevoerd de opdracht `docker --version`.
+
+*Mogelijke oplossingen*: probeer de opdracht handmatig uit te voeren, zorg ervoor dat u de meest recente CLI-versie en het foutbericht te onderzoeken.
+
+### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
+
+Deze fout betekent dat de CLI kan niet voor het ophalen van een voorbeeldafbeelding aan uw omgeving.
+
+*Mogelijke oplossingen*: Controleer of alle onderdelen die nodig zijn voor het ophalen van een installatiekopie van een correct worden uitgevoerd.
+
+### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
+
+Deze fout betekent dat helm-client kan niet worden gevonden door de CLI, die andere bewerkingen helm uitsluit.
+
+*Mogelijke oplossingen*: Controleer of deze helm-client is geïnstalleerd en dat het pad wordt toegevoegd aan de omgevingsvariabelen van het systeem.
+
+### <a name="helmversionerror"></a>HELM_VERSION_ERROR
+
+Deze fout betekent dat de CLI is niet mogelijk te bepalen van de Helm-versie die is geïnstalleerd. Dit kan gebeuren als de Azure CLI-versie (of als de helm-versie) wordt gebruikt is verouderd.
+
+*Mogelijke oplossingen*: update naar de meest recente versie van Azure CLI of naar de aanbevolen helm-versie; de opdracht handmatig uitvoeren en onderzoeken van het foutbericht.
+
+### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
+
+Deze fout betekent dat de DNS-server voor de aanmeldingsserver van het opgegeven register is gepingd, maar niet reageert, wat betekent dat deze niet beschikbaar is. Dit kan duiden op sommige problemen met de netwerkverbinding. Dit kan ook betekenen dat het register niet bestaat, dat de gebruiker beschikt niet over de machtigingen op het register (om op te halen de aanmeldingsserver goed), of dat het doelregister in een andere cloud dan de versie wordt gebruikt in de Azure CLI.
+
+*Mogelijke oplossingen*: connectiviteit valideren; Controleer de spelling van het register, en dat register bestaat; Controleer of dat de gebruiker de juiste machtigingen op deze heeft en van het register cloud is hetzelfde die wordt gebruikt op de Azure CLI.
+
+### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
+
+Dit betekent dat het eindpunt van de uitdaging voor de opgegeven register gereageerd met de status 403 HTTP is niet toegestaan. Dit betekent dat gebruikers geen toegang tot het register, het meest waarschijnlijk te wijten aan een VNET-configuratie hebt.
+
+*Mogelijke oplossingen*: VNET-regels verwijderen of de huidige client-IP toevoegen aan de lijst met toegestane.
+
+### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
+
+Deze fout betekent dat het eindpunt van de uitdaging van het doelregister niet een hele uitdaging heeft verleend.
+
+*Mogelijke oplossingen*: probeer het na enige tijd opnieuw. Als de fout zich blijft voordoen, opent u am het probleem op https://aka.ms/acr/issues.
+
+### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
+
+Deze fout betekent dat het eindpunt van de uitdaging van het doelregister een uitdaging uitgegeven, maar het register biedt geen ondersteuning voor AAD-aanmelding.
+
+*Mogelijke oplossingen*: probeer een andere manier logboekregistratie in zoals beheerdersreferenties. In het geval de gebruiker wil zich aanmelden met AAD-ondersteuning, opent u am probleem https://aka.ms/acr/issues.
+
+### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
+
+Dit betekent dat de aanmeldingsserver van het register niet heeft gereageerd met een vernieuwingstoken, wat betekent dat de toegang tot het doelregister is geweigerd. Dit kan gebeuren als de gebruiker niet de juiste machtigingen in het register heeft of als de referenties van de gebruiker voor Azure CLI verouderd zijn.
+
+*Mogelijke oplossingen*: Controleer of als de gebruiker de juiste machtigingen op het register heeft; uitvoeren `az login` machtigingen, tokens en referenties te vernieuwen.
+
+### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
+
+Dit betekent dat de aanmeldingsserver van het register niet heeft gereageerd met een toegangstoken, dit betekent dat de toegang tot het doelregister is geweigerd. Dit kan gebeuren als de gebruiker niet de juiste machtigingen in het register heeft of als de referenties van de gebruiker voor Azure CLI verouderd zijn.
+
+*Mogelijke oplossingen*: Controleer of als de gebruiker de juiste machtigingen op het register heeft; uitvoeren `az login` machtigingen, tokens en referenties te vernieuwen.
+
+### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
+
+Dit betekent dat de CLI is niet gevonden de aanmeldingsserver van het register opgegeven en geen standaard-achtervoegsel voor de huidige cloud is gevonden. Dit kan gebeuren als het register niet bestaat, als de gebruiker heeft niet de juiste machtigingen in het register als van het register cloud en de huidige Azure CLI-cloud komen niet overeen, of als de Azure CLI-versie is verouderd.
+
+*Mogelijke oplossingen*: Controleer of dat de spelling juist is en dat het register bestaat, Controleer of de als gebruiker de juiste machtigingen op het register heeft en de clouds van het register en de CLI-omgeving overeenkomen met die; Azure CLI bijwerken naar de nieuwste versie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

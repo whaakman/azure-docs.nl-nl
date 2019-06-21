@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160808"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275193"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias voor Azure SQL Database
 
@@ -49,7 +49,7 @@ Later opnieuw wanneer het nieuwe systeem live in productie gaat, kunt u de eigen
 
 ### <a name="cross-region-support"></a>Regio-overschrijdende ondersteuning
 
-Een herstel na noodgevallen mogelijk uw SQL Database-server verplaatsen naar een andere geografische regio. Voor een systeem dan een DNS-alias is gebruikt kan de noodzaak om te zoeken en bijwerken van de verbindingsreeksen voor alle clients worden vermeden. U kunt in plaats daarvan een alias om te verwijzen naar de nieuwe SQL-Database-server die nu als host fungeert voor de database bijwerken.
+Een herstel na noodgevallen mogelijk uw SQL Database-server verplaatsen naar een andere geografische regio. Voor een systeem dat een DNS-alias is gebruikt, kan de noodzaak om te zoeken en bijwerken van de verbindingsreeksen voor alle clients worden vermeden. U kunt in plaats daarvan een alias om te verwijzen naar de nieuwe SQL-Database-server die nu als host fungeert voor de database bijwerken.
 
 ## <a name="properties-of-a-dns-alias"></a>Eigenschappen van een DNS-alias
 
@@ -67,13 +67,6 @@ De volgende eigenschappen zijn van toepassing op elke DNS-alias voor uw SQL Data
 Zowel REST-API's en PowerShell-cmdlets zijn beschikbaar waarmee u kunt voor het programmatisch beheren van uw DNS-aliassen.
 
 ### <a name="rest-apis-for-managing-your-dns-aliases"></a>REST API's voor het beheren van uw DNS-aliassen
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 De documentatie voor de REST API's is beschikbaar in de buurt van de volgende locatie:
 
@@ -111,7 +104,7 @@ Een DNS-server heeft momenteel kan alias de volgende beperkingen:
 - *Vertraging van maximaal 2 minuten:* Het duurt maximaal 2 minuten voor een DNS-alias worden bijgewerkt of verwijderd.
   - Ongeacht een korte vertraging stopt de alias onmiddellijk clientverbindingen met de oude server verwijzen.
 - *DNS-zoekopdracht:* Voor het alleen bindende manier om te controleren welke server die een opgegeven DNS-Server alias naar verwijst is door te voeren op dit moment een [DNS-zoekactie](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Tabelcontrole wordt niet ondersteund](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* U kunt een DNS-alias niet gebruiken op een Azure SQL Database-server die is *tabelcontrole* ingeschakeld voor een database.
+- _Tabelcontrole wordt niet ondersteund:_ U kunt een DNS-alias niet gebruiken op een Azure SQL Database-server die is *tabelcontrole* ingeschakeld voor een database.
   - Tabelcontrole is afgeschaft.
   - Het is raadzaam dat u naar verplaatsen [controlefunctie voor blobs](sql-database-auditing.md).
 

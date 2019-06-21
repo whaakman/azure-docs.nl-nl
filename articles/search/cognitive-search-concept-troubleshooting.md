@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696598"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303457"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Tips voor probleemoplossing voor cognitief zoeken
 
@@ -94,7 +94,10 @@ Analyse van de afbeelding is rekenintensief-intensieve voor zelfs voor eenvoudig
 
 Maximale uitvoeringstijd is afhankelijk van de laag: enkele minuten in de gratis laag, 24-uurs indexering voor factureerbare laag. Als de verwerking niet voltooid binnen een periode van 24 uur voor verwerking op aanvraag, overschakelen naar een schema dat de indexeerfunctie pikken verwerking waar het afgebroken. 
 
-Indexeren wordt hervat volgens schema op de laatste bekende goede document voor geplande indexeerfuncties. Met behulp van een terugkerend schema, kan de indexeerfunctie eraan via de achterstand van de installatiekopie werken gedurende een reeks uren of dagen, waarna alle niet-verwerkte afbeeldingen worden verwerkt. Zie voor meer informatie over de syntaxis van de planning, [stap 3: Een indexeerfunctie maken](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Indexeren wordt hervat volgens schema op de laatste bekende goede document voor geplande indexeerfuncties. Met behulp van een terugkerend schema, kan de indexeerfunctie eraan via de achterstand van de installatiekopie werken gedurende een reeks uren of dagen, waarna alle niet-verwerkte afbeeldingen worden verwerkt. Zie voor meer informatie over de syntaxis van de planning, [stap 3: Een indexeerfunctie maken](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) of Zie [indexeerfuncties plannen voor Azure Search](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Als een indexeerfunctie is ingesteld op een bepaalde planning, maar herhaaldelijk mislukt op dezelfde document telkens opnieuw telkens wanneer deze wordt uitgevoerd, begint de indexeerfunctie wordt uitgevoerd in een interval van minder frequent optreden (tot het maximum van ten minste elke 24 uur) totdat het in voortgang aga in.  Als u denkt u alles wat het probleem is veroorzaakt door de indexeerfunctie dat te zijn vastgelopen op een bepaald moment hebt opgelost, kunt u een op aanvraag uitvoeren van de indexeerfunctie uitvoeren en als die is maakt uitgevoerd, de indexeerfunctie wordt geretourneerd naar de schema-interval instellen opnieuw.
 
 Voor het indexeren van portal-gebaseerd (zoals beschreven in de Quick Start), kiezen van de indexeerfunctie 'één keer uitvoeren' optie limieten voor verwerking naar één uur (`"maxRunTime": "PT1H"`). Het is raadzaam om uit te breiden het segmenteringsmodel iets langer.
 

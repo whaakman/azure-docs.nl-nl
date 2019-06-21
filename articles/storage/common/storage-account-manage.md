@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484240"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303483"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Instellingen van opslagaccount in Azure portal beheren
 
@@ -20,16 +20,13 @@ Een aantal instellingen voor uw storage-account zijn beschikbaar in de [Azure-po
 
 ## <a name="access-control"></a>Toegangsbeheer
 
-Azure Storage biedt ondersteuning voor verificatie met Azure Active Directory voor Blob storage en Queue storage via op rollen gebaseerd toegangsbeheer (RBAC). Zie voor meer informatie over verificatie met Azure AD, [verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](storage-auth-aad.md).
+Azure Storage biedt ondersteuning voor verificatie met Azure Active Directory voor Blob storage en Queue storage via op rollen gebaseerd toegangsbeheer (RBAC). Zie voor meer informatie over verificatie met Azure AD [autoriseren de toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](storage-auth-aad.md).
 
 De **toegangsbeheer** instellingen in de Azure portal biedt een eenvoudige manier om RBAC-rollen toewijzen aan gebruikers, groepen, service-principals en beheerde identiteiten. Zie voor meer informatie over het toewijzen van RBAC-rollen [beheren toegangsrechten tot blob- en wachtrijservices gegevens met RBAC](storage-auth-aad-rbac.md).
 
-> [!NOTE]
-> Verifiëren van gebruikers of toepassingen die gebruikmaken van Azure AD-referenties biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere middelen van autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. U kunt ook blijven gebruiken van handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw opslagaccount verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid. 
-
 ## <a name="tags"></a>Tags
 
-Azure Storage biedt ondersteuning voor Azure Resource Manager-tags voor het ordenen van uw Azure-resources met een aangepaste taxonomie. U kunt tags toepassen op uw storage-accounts, zodat u kunt ze binnen uw abonnement op een logische manier groeperen. 
+Azure Storage biedt ondersteuning voor Azure Resource Manager-tags voor het ordenen van uw Azure-resources met een aangepaste taxonomie. U kunt tags toepassen op uw storage-accounts, zodat u kunt ze binnen uw abonnement op een logische manier groeperen.
 
 Voor storage-accounts een tagnaam is beperkt tot 128 tekens en een tagwaarde is beperkt tot 256 tekens.
 
@@ -41,24 +38,18 @@ Wanneer u een opslagaccount maakt, genereert Azure twee 512-bits opslagaccountsl
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### <a name="view-and-copy-access-keys"></a>Toegangssleutel bekijken en kopiëren
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-Om uw opslagaccountreferenties te zien, doet u het volgende:
+### <a name="view-account-keys-and-connection-string"></a>Accountsleutels en verbindingsreeks weergeven
 
-1. Navigeer naar [Azure Portal](https://portal.azure.com).
-2. Zoek uw opslagaccount.
-3. In de sectie **Instellingen** van het overzicht met opslagaccounts selecteert u **Toegangssleutels**. De toegangssleutels van uw account worden weergegeven, evenals de volledige verbindingsreeks voor elke sleutel.
-4. Zoek de waarde van de **Sleutel** onder **key1** en klik op de knop **Kopiëren** om de accountsleutel te kopiëren.
-5. U kunt ook de volledige verbindingsreeks kopiëren. Zoek de waarde van de **Verbindingsreeks** onder **key1** en klik op de knop **Kopiëren** om de verbindingsreeks te kopiëren.
-
-    ![Schermopname van het toegangssleutels weergeven in Azure portal](media/storage-manage-account/portal-connection-string.png)
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### <a name="regenerate-access-keys"></a>Toegangssleutels regenereren
 
 Microsoft raadt aan dat u de toegangssleutels regelmatig om uw storage-account te beveiligen. Twee toegangssleutels toegewezen zodat u kunt uw sleutels draaien. Als u uw sleutels draait, moet u ervoor zorgen dat uw toepassing toegang tot Azure Storage gedurende het gehele proces behoudt. 
 
 > [!WARNING]
-> Opnieuw genereren van uw toegangssleutels kan invloed op toepassingen of Azure-services die afhankelijk van de opslagaccountsleutel zijn. Alle clients die gebruikmaken van de accountsleutel voor toegang tot het opslagaccount dat moeten worden bijgewerkt voor het gebruik van de nieuwe sleutel, met inbegrip van mediaservices, cloud, desktop en mobiele toepassingen en toepassingen van de grafische interface voor Azure Storage, zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). 
+> Opnieuw genereren van uw toegangssleutels kan invloed op toepassingen of Azure-services die afhankelijk van de opslagaccountsleutel zijn. Alle clients die gebruikmaken van de accountsleutel voor toegang tot het opslagaccount dat moeten worden bijgewerkt voor het gebruik van de nieuwe sleutel, met inbegrip van mediaservices, cloud, desktop en mobiele toepassingen en toepassingen van de grafische interface voor Azure Storage, zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 Volg deze procedure voor uw opslagaccountsleutels draaien:
 
@@ -74,6 +65,7 @@ Nadat u een opslagaccount hebt gemaakt, kunt u de configuratie ervan kunt wijzig
 Als u de configuratie van het storage-account wijzigt, kan dit leiden tot extra kosten. Zie voor meer informatie de [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pagina.
 
 ## <a name="delete-a-storage-account"></a>Een opslagaccount verwijderen
+
 Als u een opslagaccount wilt verwijderen dat u niet langer gebruikt, gaat u in [Azure Portal](https://portal.azure.com) naar het opslagaccount en klikt u op **Verwijderen**. Als u een opslagaccount verwijdert, wordt het hele account verwijderd, inclusief alle gegevens in het account.
 
 > [!WARNING]

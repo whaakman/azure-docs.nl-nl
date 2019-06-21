@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cff5fdac39be2338305cd37a4b2328a28a48255
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995613"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269271"
 ---
 # <a name="limits-and-quotas"></a>Limieten en quota
 
@@ -26,8 +26,8 @@ Het aantal trainingsafbeeldingen per project en tags per project worden naar ver
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Projecten|2|100|
-|Trainingsafbeeldingen per project |5,000|100\.000|
-|Voorspellingen / maand|10\.000 |Onbeperkt|
+|Trainingsafbeeldingen per project |5,000|100.000|
+|Voorspellingen / maand|10.000 |Onbeperkt|
 |Tags / project|50|500|
 |Iteraties |10|10|
 |Min gelabelde afbeeldingen per Tag, classificatie (meer dan 50 aanbevolen) |5|5|
@@ -39,3 +39,5 @@ Het aantal trainingsafbeeldingen per project en tags per project worden naar ver
 |[Andere API-aanroepen](https://go.microsoft.com/fwlink/?linkid=865446) (transacties Per seconde)|10|10|
 |Maximale afbeeldingsgrootte (training installatiekopie uploaden) |6 MB|6 MB|
 |Maximale afbeeldingsgrootte (voorspelling)|4 MB|4 MB|
+|Maximum aantal regio's per object detectie training afbeelding|200|200|
+|Maximum aantal tags per classificatie-afbeelding|30|30|

@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6a102b794ca9c43e1dd18f923f6ce224596499
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550492"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296264"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure Resource Manager-resourcegroepen beheren met behulp van Azure PowerShell
 
@@ -122,10 +119,12 @@ U kunt tags toepassen op resourcegroepen en resources voor uw activa logische ma
 
 ## <a name="export-resource-groups-to-templates"></a>Resourcegroepen naar sjablonen exporteren
 
-Na het instellen van uw resourcegroep is, is het raadzaam om de Resource Manager-sjabloon voor de resourcegroep weer te geven. De sjabloon exporteren biedt twee voordelen:
+Na het instellen van de resourcegroep, kunt u een Resource Manager-sjabloon voor de resourcegroep bekijken. De sjabloon exporteren biedt twee voordelen:
 
-- Automatiseer toekomstige implementaties van de oplossing omdat de sjabloon de volledige infrastructuur bevat.
+- Automatiseer toekomstige implementaties van de oplossing omdat de sjabloon de volledige-infrastructuur bevat.
 - Meer informatie over de sjabloonsyntaxis van de door te kijken op JavaScript Object Notation (JSON) die uw oplossing aangeeft.
+
+Gebruiken voor het exporteren van alle resources in een resourcegroep, de [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdlet en geef de naam van de resourcegroep.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -133,7 +132,87 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
-Zie voor meer informatie, [resourcegroep exporteren](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+De sjabloon wordt opgeslagen als een lokaal bestand.
+
+In plaats van alle resources in de resourcegroep exporteren, kunt u selecteren welke resources om te exporteren.
+
+Voor het exporteren van een resource, doorgeven die resource-ID.
+
+```azurepowershell-interactive
+$resource = Get-AzResource `
+  -ResourceGroupName <resource-group-name> `
+  -ResourceName <resource-name> `
+  -ResourceType <resource-type>
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource $resource.ResourceId
+```
+
+Voor het exporteren van meer dan één resource, geeft u de resource-id's in een matrix.
+
+```azurepowershell-interactive
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource @($resource1.ResourceId, $resource2.ResourceId)
+```
+
+Bij het exporteren van de sjabloon, kunt u opgeven of de parameters worden gebruikt in de sjabloon. Standaard parameters voor de namen van voorbeeldresources zijn opgenomen, maar ze geen standaardwaarde hebben. U moet de waarde van deze parameter doorgeven tijdens implementatie.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": null,
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": null,
+    "type": "String"
+  }
+}
+```
+
+De parameter wordt gebruikt in de bron voor de naam.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+Als u de `-IncludeParameterDefaultValue` parameter bij het exporteren van de sjabloon, de sjabloonparameter bevat een standaardwaarde die is ingesteld op de huidige waarde. U kunt deze standaardwaarde gebruiken of de standaardwaarde overschrijven door te geven in een andere waarde.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+Als u de `-SkipResourceNameParameterization` parameter bij het exporteren van de sjabloon, parameters voor de resourcenamen niet zijn opgenomen in de sjabloon. In plaats daarvan de naam van de resource rechtstreeks op de resource toe aan de huidige waarde is ingesteld. U kunt de naam van de tijdens de implementatie niet aanpassen.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
+
+Zie voor meer informatie, [één of meerdere resources exporteren naar de sjabloon in Azure portal](./export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Toegang tot resourcegroepen beheren
 

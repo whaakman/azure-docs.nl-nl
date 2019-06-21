@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34f2d11cf4e1fb8e03d037be221e7b18ed4c5ad0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242036"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303331"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Verbinding maken met SSH naar Azure Kubernetes Service (AKS) clusterknooppunten voor onderhoud of probleemoplossing
 
@@ -22,13 +22,13 @@ Dit artikel ziet u hoe u een SSH-verbinding maakt met een AKS-knooppunten met be
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.64 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.64 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>Uw openbare SSH-sleutel toevoegen
 
-Standaard worden SSH-sleutels hebt aangeschaft, of die worden gegenereerd en toegevoegd aan de knooppunten bij het maken van een AKS-cluster. Als u nodig hebt om op te geven van verschillende SSH-sleutels dan die worden gebruikt bij het maken van uw AKS-cluster, moet u uw openbare SSH-sleutel toevoegen aan de Linux-AKS-knooppunten. Indien nodig, kunt u een SSH key met [macOS of Linux] [ ssh-nix] of [Windows][ssh-windows]. Als u PuTTY Gen gebruikt voor het maken van het sleutelpaar, sla het sleutelpaar in een OpenSSH-indeling in plaats van de standaard PuTTy persoonlijke sleutel indeling (ppk-bestand).
+Standaard worden SSH-sleutels hebt aangeschaft, of die worden gegenereerd en toegevoegd aan de knooppunten bij het maken van een AKS-cluster. Als u nodig hebt om op te geven van verschillende SSH-sleutels dan die worden gebruikt bij het maken van uw AKS-cluster, moet u uw openbare SSH-sleutel toevoegen aan de Linux-AKS-knooppunten. Indien nodig, kunt u een SSH key met [macOS of Linux][ssh-nix] or [Windows][ssh-windows]. Als u PuTTY Gen gebruikt voor het maken van het sleutelpaar, sla het sleutelpaar in een OpenSSH-indeling in plaats van de standaard PuTTy persoonlijke sleutel indeling (ppk-bestand).
 
 > [!NOTE]
 > SSH-sleutels kunnen worden momenteel alleen toegevoegd aan Linux-knooppunten met de Azure CLI. Als u Windows Server-knooppunten gebruiken, gebruikt u de SSH-sleutels die is opgegeven tijdens het maken van het AKS-cluster en gaat u naar de stap op [over het verkrijgen van het adres van het AKS-knooppunt](#get-the-aks-node-address). Of, [verbinding maken met Windows Server-knooppunten met behulp van remote desktop protocol (RDP)-verbindingen][aks-windows-rdp].
@@ -42,13 +42,13 @@ De stappen voor het ophalen van het privé IP-adres van de AKS-knooppunten kan v
 
 Als u wilt uw SSH-sleutel toevoegen aan een Linux AKS-knooppunt, voert u de volgende stappen uit:
 
-1. De naam van de resource voor de resources van uw AKS-cluster met behulp van [az aks show][az-aks-show]. Geef uw eigen resourcegroep core en de naam van de AKS-cluster. Naam van het cluster is toegewezen aan de variabele met de naam *CLUSTER_RESOURCE_GROUP*:
+1. De naam van de resource voor de resources van uw AKS-cluster met behulp van [az aks show][az-aks-show]. Naam van het cluster is toegewezen aan de variabele met de naam *CLUSTER_RESOURCE_GROUP*. Vervang *myResourceGroup* met de naam van de resourcegroep waar u AKS-Cluster zich bevindt:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. Lijst van de virtuele machines in de AKS-cluster resource groep met de [az vm list] [ az-vm-list] opdracht. Deze virtuele machines zijn uw AKS-knooppunten:
+1. Lijst van de virtuele machines in de AKS-cluster resource groep met de [az vm list][az-vm-list] opdracht. Deze virtuele machines zijn uw AKS-knooppunten:
 
     ```azurecli-interactive
     az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -62,7 +62,7 @@ Als u wilt uw SSH-sleutel toevoegen aan een Linux AKS-knooppunt, voert u de volg
     aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
     ```
 
-1. U kunt uw SSH-sleutels toevoegen aan het knooppunt met de [az vm gebruikersupdate] [ az-vm-user-update] opdracht. Geef de naam van de resourcegroep en vervolgens een van de AKS-knooppunten in de vorige stap hebt verkregen. De gebruikersnaam voor de AKS-knooppunten is standaard *azureuser*. Geef de locatie van uw eigen SSH public key locatie, zoals *~/.ssh/id_rsa.pub*, of plak de inhoud van uw openbare SSH-sleutel:
+1. U kunt uw SSH-sleutels toevoegen aan het knooppunt met de [az vm gebruikersupdate][az-vm-user-update] opdracht. Geef de naam van de resourcegroep en vervolgens een van de AKS-knooppunten in de vorige stap hebt verkregen. De gebruikersnaam voor de AKS-knooppunten is standaard *azureuser*. Geef de locatie van uw eigen SSH public key locatie, zoals *~/.ssh/id_rsa.pub*, of plak de inhoud van uw openbare SSH-sleutel:
 
     ```azurecli-interactive
     az vm user update \
@@ -76,19 +76,19 @@ Als u wilt uw SSH-sleutel toevoegen aan een Linux AKS-knooppunt, voert u de volg
 
 Uw SSH-sleutel toevoegen aan een Linux AKS-knooppunten die deel uitmaakt van een virtuele-machineschaalset, voert u de volgende stappen uit:
 
-1. De naam van de resource voor de resources van uw AKS-cluster met behulp van [az aks show][az-aks-show]. Geef uw eigen resourcegroep core en de naam van de AKS-cluster. Naam van het cluster is toegewezen aan de variabele met de naam *CLUSTER_RESOURCE_GROUP*:
+1. De naam van de resource voor de resources van uw AKS-cluster met behulp van [az aks show][az-aks-show]. Naam van het cluster is toegewezen aan de variabele met de naam *CLUSTER_RESOURCE_GROUP*. Vervang *myResourceGroup* met de naam van de resourcegroep waar u AKS-Cluster zich bevindt:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. Vervolgens ophalen van de virtuele-machineschaalset voor uw AKS-cluster met de [az vmss list] [ az-vmss-list] opdracht. Naam van de schaal virtuele machine is toegewezen aan de variabele met de naam *SCALE_SET_NAME*:
+1. Vervolgens ophalen van de virtuele-machineschaalset voor uw AKS-cluster met de [az vmss list][az-vmss-list] opdracht. Naam van de schaal virtuele machine is toegewezen aan de variabele met de naam *SCALE_SET_NAME*:
 
     ```azurecli-interactive
     SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
     ```
 
-1. U kunt uw SSH-sleutels toevoegen aan de knooppunten in een virtuele-machineschaalset met de [az vmss extension set] [ az-vmss-extension-set] opdracht. De cluster-resourcegroep en de naam van virtuele machine scale set vindt u in de vorige opdrachten. De gebruikersnaam voor de AKS-knooppunten is standaard *azureuser*. Als nodig is, werkt u de locatie van uw eigen SSH public key locatie, zoals *~/.ssh/id_rsa.pub*:
+1. U kunt uw SSH-sleutels toevoegen aan de knooppunten in een virtuele-machineschaalset met de [az vmss extension set][az-vmss-extension-set] opdracht. De cluster-resourcegroep en de naam van virtuele machine scale set vindt u in de vorige opdrachten. De gebruikersnaam voor de AKS-knooppunten is standaard *azureuser*. Als nodig is, werkt u de locatie van uw eigen SSH public key locatie, zoals *~/.ssh/id_rsa.pub*:
 
     ```azurecli-interactive
     az vmss extension set  \
@@ -100,7 +100,7 @@ Uw SSH-sleutel toevoegen aan een Linux AKS-knooppunten die deel uitmaakt van een
         --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
     ```
 
-1. De SSH-sleutel van toepassing op de knooppunten met behulp van de [az vmss update-instances] [ az-vmss-update-instances] opdracht:
+1. De SSH-sleutel van toepassing op de knooppunten met behulp van de [az vmss update-instances][az-vmss-update-instances] opdracht:
 
     ```azurecli-interactive
     az vmss update-instances --instance-ids '*' \
@@ -117,7 +117,7 @@ De AKS-knooppunten zijn niet openbaar blootgesteld aan internet. SSH met de AKS-
 
 ### <a name="ssh-to-regular-aks-clusters"></a>SSH met reguliere AKS-clusters
 
-Bekijk het privé IP-adres van een AKS-cluster knooppunt met de [az vm list-ip-adressen] [ az-vm-list-ip-addresses] opdracht. Geef uw eigen AKS-cluster groepsnaam voor accountresources hebt verkregen in een vorige [az-aks-show] [ az-aks-show] stap:
+Bekijk het privé IP-adres van een AKS-cluster knooppunt met de [az vm list-ip-adressen][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] stap:
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -172,7 +172,7 @@ Voor het maken van een SSH-verbinding naar een AKS-knooppunt, kunt u een helper-
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. In een nieuw terminalvenster niet is verbonden met uw container lijst de schillen in uw AKS-cluster met de [kubectl ophalen schillen] [ kubectl-get] opdracht. De schil in de vorige stap hebt gemaakt, begint met de naam van de *aks-ssh*, zoals wordt weergegeven in het volgende voorbeeld:
+1. In een nieuw terminalvenster niet is verbonden met uw container lijst de schillen in uw AKS-cluster met de [kubectl ophalen schillen][kubectl-get] opdracht. De schil in de vorige stap hebt gemaakt, begint met de naam van de *aks-ssh*, zoals wordt weergegeven in het volgende voorbeeld:
 
     ```
     $ kubectl get pods
@@ -224,7 +224,7 @@ Wanneer u klaar bent, `exit` de SSH-sessie en vervolgens `exit` de interactieve 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer gegevens nodig hebt, kunt u [Bekijk de logboeken kubelet] [ view-kubelet-logs] of [Bekijk de logboeken van Kubernetes-hoofdknooppunt][view-master-logs].
+Als u meer gegevens nodig hebt, kunt u [Bekijk de logboeken kubelet][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

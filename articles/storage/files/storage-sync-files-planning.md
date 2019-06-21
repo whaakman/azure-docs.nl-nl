@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597088"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303915"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -170,10 +170,19 @@ Windows Server Failover Clustering wordt ondersteund door Azure File Sync voor d
 
 ### <a name="data-deduplication"></a>De functie voor Gegevensontdubbeling
 **Agentversie 5.0.2.0**   
-Gegevensontdubbeling wordt ondersteund op volumes met cloud-opslaglagen worden ingeschakeld op Windows Server 2016 en Windows Server 2019. Inschakelen van Ontdubbeling op een volume met cloud-opslaglagen ingeschakeld, kunt u meer bestanden on-premises zonder in te richten meer opslagruimte in de cache.
+Gegevensontdubbeling wordt ondersteund op volumes met cloud-opslaglagen worden ingeschakeld op Windows Server 2016 en Windows Server 2019. Inschakelen van Ontdubbeling op een volume met cloud-opslaglagen ingeschakeld, kunt u meer bestanden on-premises zonder in te richten meer opslagruimte in de cache. Houd er rekening mee dat deze besparingen volume on-premises; alleen van toepassing uw gegevens in Azure Files wordt niet ontdubbelde. 
 
 **Windows Server 2012 R2 of oudere agentversies**  
 Voor volumes waarvoor geen cloud-opslaglagen ingeschakeld, ondersteunt Azure File Sync Windows Server-Gegevensontdubbeling wordt ingeschakeld op het volume.
+
+**Opmerkingen**
+- Als de functie voor Gegevensontdubbeling is geïnstalleerd voordat u de Azure File Sync-agent installeert, wordt een opnieuw opstarten is vereist voor ondersteuning van Gegevensontdubbeling en cloudopslaglagen op hetzelfde volume.
+- Als de functie voor Gegevensontdubbeling is ingeschakeld op een volume nadat cloud tiering is ingeschakeld, wordt de eerste Ontdubbeling optimalisatietaak bestanden op het volume dat zich niet gelaagd en is het volgende invloed op de cloud worden geoptimaliseerd opslaglagen:
+    - Vrije ruimte beleid blijft laag bestanden aan de hand van de vrije ruimte op het volume met behulp van de heatmap.
+    - Datum-beleid wordt overgeslagen opslaglagen voor bestanden die mogelijk anders die in aanmerking komen voor opslaglagen vanwege de optimalisatietaak voor Ontdubbeling de bestanden te openen.
+- Voor doorlopende optimalisatie met taken voor Gegevensontdubbeling, cloud-opslaglagen met datum-beleid wordt ophalen uitgesteld door de Gegevensontdubbeling [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) instelling, als het bestand niet al is gelaagd. 
+    - Voorbeeld: Als de instelling MinimumFileAgeDays 7 dagen is en cloud beleidsinstelling voor lagen datum 30 dagen is, wordt het beleid datum bestanden laag na 37 dagen.
+    - Opmerking: Wanneer een bestand is gelaagd door Azure File Sync, kan de optimalisatietaak Ontdubbeling het bestand wordt overgeslagen.
 
 ### <a name="distributed-file-system-dfs"></a>Distributed File System (DFS)
 Azure File Sync biedt ondersteuning voor samenwerking met DFS-naamruimten (DFS-N) en DFS-replicatie (DFS-R).
@@ -200,9 +209,12 @@ Met behulp van sysprep op een server die de Azure File Sync-agent geïnstalleerd
 Als cloud tiering is ingeschakeld op een servereindpunt, bestanden die zich gelaagd worden overgeslagen en niet zijn geïndexeerd met Windows Search. Niet-gelaagde bestanden worden juist geïndexeerd.
 
 ### <a name="antivirus-solutions"></a>Anti-virussoftware
-Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke code, kan het intrekken van gelaagde bestanden leiden tot een antivirusproduct. In versie 4.0 en hoger van de Azure File Sync-agent gelaagde bestanden hebben het beveiligde Windows kenmerk FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS is ingesteld. U wordt aangeraden overleg met de softwareleverancier voor meer informatie over hun oplossing om over te slaan van het lezen van bestanden met dit kenmerk is ingesteld (veel hiervoor automatisch) te configureren.
+Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke code, kan het intrekken van gelaagde bestanden leiden tot een antivirusproduct. In versie 4.0 en hoger van de Azure File Sync-agent gelaagde bestanden hebben het beveiligde Windows kenmerk FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS is ingesteld. U wordt aangeraden overleg met de softwareleverancier voor meer informatie over hun oplossing om over te slaan van het lezen van bestanden met dit kenmerk is ingesteld (veel hiervoor automatisch) te configureren. 
 
 Microsofts interne antivirusoplossingen, Windows Defender en System Center Endpoint Protection (SCEP), overslaan beide automatisch het lezen van bestanden die in dit kenmerk is ingesteld. We hebben getest en een klein probleem geïdentificeerd: wanneer u een server aan een bestaande synchronisatiegroep toevoegen, bestanden kleiner is dan 800 bytes (gedownload) op de nieuwe server worden ingetrokken. Deze bestanden blijven aanwezig op de nieuwe server en gelaagd omdat ze niet voldoen aan de vereiste cloudlagen (> 64kb).
+
+> [!Note]  
+> Antivirus leveranciers kunnen controleren op compatibiliteit tussen hun product en de Azure File Sync met behulp van de [Azure File Sync Antivirus compatibiliteit testpakket] (https://www.microsoft.com/download/details.aspx?id=58322), deze is beschikbaar voor downloaden van het Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Back-upoplossingen
 Back-upoplossingen kunnen leiden tot het intrekken van gelaagde bestanden, zoals antivirus-oplossingen. U wordt aangeraden met behulp van een cloudoplossing voor back-up naar back-up van de Azure-bestandsshare in plaats van een on-premises back-product.
@@ -256,18 +268,15 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Azië - zuidoost | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
 | Verenigd Koninkrijk West | Cardiff |
-| VS (overheid)-Arizona (preview) | Arizona |
-| US Gov Texas (preview) | Texas |
-| VS (overheid) Virginia (preview) | Virginia |
+| VS (overheid) - Arizona | Arizona |
+| VS (overheid) - Texas | Texas |
+| VS (overheid) - Virginia | Virginia |
 | Europa -west | Nederland |
 | US - west-centraal | Wyoming |
 | US - west | Californië |
 | US - west 2 | Washington |
 
 Azure File Sync ondersteunt alleen met een Azure-bestandsshare die zich in dezelfde regio als de Opslagsynchronisatieservice worden gesynchroniseerd.
-
-> [!Note]  
-> Azure File Sync is momenteel alleen beschikbaar in de beperkte Preview-versie voor de overheid regio's. Zie onze [opmerkingen bij de release](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) voor instructies over het inschrijven van in de preview-programma.
 
 ### <a name="azure-disaster-recovery"></a>Azure-noodherstel
 Als u wilt beveiligen tegen het verlies van een Azure-regio, Azure File Sync kan worden geïntegreerd met de [geografisch redundante opslag met redundantie](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) optie. GRS-opslag werkt met behulp van asynchrone blokreplicatie tussen opslag in de primaire regio, waarmee u normaal gesproken werken, en opslag in de gekoppelde secundaire regio. In het geval van een ramp die ervoor zorgt dat een Azure-regio offline te gaan tijdelijk of permanent, zal Microsoft failover-opslag naar de gekoppelde regio. 
@@ -302,7 +311,7 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | Verenigd Koninkrijk West             | Verenigd Koninkrijk Zuid           |
 | VS (overheid) - Arizona      | VS (overheid) - Texas       |
 | US Gov - Iowa         | VS (overheid) - Virginia    |
-| US Gov Virgini      | VS (overheid) - Texas       |
+| VS (overheid) - Virginia      | VS (overheid) - Texas       |
 | Europa -west         | Europa - noord       |
 | US - west-centraal     | US - west 2          |
 | US - west             | US - oost            |

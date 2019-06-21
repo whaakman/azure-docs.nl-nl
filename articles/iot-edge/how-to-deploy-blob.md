@@ -1,24 +1,27 @@
 ---
 title: 'De Azure Blob Storage-module implementeren op apparaten: Azure IoT Edge | Microsoft Docs'
 description: Een Azure Blob Storage-module implementeren op uw IoT Edge-apparaat voor het opslaan van gegevens aan de rand.
-author: kgremban
-ms.author: kgremban
-ms.date: 05/21/2019
+author: arduppal
+ms.author: arduppal
+ms.date: 06/19/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
-manager: philmea
-ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: mchad
+ms.openlocfilehash: 468e4fca5e67850949e7d5826e4bc88fa504b9d6
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990474"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295202"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>De Azure Blob-opslag op IoT Edge-module op uw apparaat implementeren
 
 Er zijn verschillende manieren om te implementeren van modules voor een IoT Edge-apparaat en ze allemaal werken voor Azure Blob Storage in IoT Edge-modules. De twee meest eenvoudige methoden zijn de Azure portal of Visual Studio Code-sjablonen te gebruiken.
+
+> [!NOTE]
+> Azure Blob-opslag op IoT Edge is in [preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -88,35 +91,35 @@ Het manifest voor een implementatie is een JSON-document waarin wordt beschreven
      > [!IMPORTANT]
      > De tweede die helft van de map storage binden waarde, die naar een specifieke locatie in de module verwijst niet wijzigen. De binding van de map storage altijd moet eindigen met **: / blobroot** voor Linux-containers en **: C: / BlobRoot** voor Windows-containers.
 
-    ![Update-module container opties - portal maken](./media/how-to-store-data-blob/edit-module.png)
-
-1. Instellen [opslaglagen](how-to-store-data-blob.md#tiering-properties) en [time-to-live](how-to-store-data-blob.md#time-to-live-properties) eigenschappen voor de module met de volgende JSON kopiëren en plakken in de **de gewenste eigenschappen van de moduledubbel Set** vak. Elke eigenschap configureren met een geschikte waarde, opslaan en doorgaan met de implementatie.
+1. Stel [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) en [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) eigenschappen voor de module met de volgende JSON kopiëren en plakken in de **Set moduledubbel de gewenste eigenschappen** vak. Elke eigenschap configureren met een geschikte waarde, opslaan en doorgaan met de implementatie.
 
    ```json
    {
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading":<true,false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload":<true,false>
        }
      }
    }
 
       ```
 
-   ![warmtemeting en time-to-live-eigenschappen instellen](./media/how-to-store-data-blob/iotedge_custom_module.png)
+   ![container set opties, deviceAutoDeleteProperties en deviceToCloudUploadProperties eigenschappen maken](./media/how-to-deploy-blob/iotedge-custom-module.png)
 
-   Zie voor meer informatie over het configureren van opslaglagen en TTL nadat uw module is geïmplementeerd, [bewerken van de Moduledubbel](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Zie voor meer informatie over de gewenste eigenschappen [definiëren of update gewenste eigenschappen](module-composition.md#define-or-update-desired-properties).
+   Zie voor meer informatie over het configureren van deviceToCloudUploadProperties en deviceAutoDeleteProperties nadat uw module is geïmplementeerd, [bewerken van de Moduledubbel](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Zie voor meer informatie over de gewenste eigenschappen [definiëren of update gewenste eigenschappen](module-composition.md#define-or-update-desired-properties).
 
 1. Selecteer **Opslaan**.
 
@@ -158,7 +161,7 @@ Azure IoT Edge zorgt voor sjablonen in Visual Studio Code om u te helpen bij het
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer voor Visual Studio Code om de oplossingsbestanden te maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor de oplossing in of accepteer de standaardnaam **EdgeSolution**. |
    | Modulesjabloon selecteren | Kies **Module (Enter afbeeldings-URL) van de bestaande**. |
-   | Een modulenaam opgeven | Voer de naam van een all-kleine voor uw module, zoals **Azure BLOB Storage**.<br /><br />Het is belangrijk dat u een kleine naam op voor de Azure Blob-opslag op IoT Edge-module. IoT Edge is hoofdlettergevoelig met betrekking tot modules en de Storage-SDK standaard naar kleine letters. |
+   | Een modulenaam opgeven | Voer de naam van een all-kleine voor uw module, zoals **azureblobstorageoniotedge**.<br /><br />Het is belangrijk dat u een kleine naam op voor de Azure Blob-opslag op IoT Edge-module. IoT Edge is hoofdlettergevoelig met betrekking tot modules en de Storage-SDK standaard naar kleine letters. |
    | Docker-installatiekopie opgeven voor de module | Geef de URI van de installatiekopie: **mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code wordt de informatie die u verstrekt, maakt u een IoT Edge-oplossing, en laadt deze in een nieuw venster. Sjabloon van de oplossing maakt een manifest implementatiesjabloon die uw blob storage-module-installatiekopie bevat, maar u wilt configureren van de module opties maken.
@@ -182,7 +185,7 @@ Azure IoT Edge zorgt voor sjablonen in Visual Studio Code om u te helpen bij het
       }
       ```
 
-      ![Module createOptions - Visual Studio Code bijwerken](./media/how-to-store-data-blob/create-options.png)
+      ![Module createOptions - Visual Studio Code bijwerken](./media/how-to-deploy-blob/create-options.png)
 
 1. Vervang `<your storage account name>` met een naam die u gemakkelijk kunt onthouden. Accountnamen moet 3 tot 24 tekens lang zijn en kleine letters en cijfers. Zonder spaties.
 
@@ -196,32 +199,34 @@ Azure IoT Edge zorgt voor sjablonen in Visual Studio Code om u te helpen bij het
       > [!IMPORTANT]
       > De tweede die helft van de map storage binden waarde, die naar een specifieke locatie in de module verwijst niet wijzigen. De binding van de map storage altijd moet eindigen met **: / blobroot** voor Linux-containers en **: C: / BlobRoot** voor Windows-containers.
 
-1. Configureer [opslaglagen](how-to-store-data-blob.md#tiering-properties) en [time-to-live](how-to-store-data-blob.md#time-to-live-properties) eigenschappen voor uw module door toe te voegen van de volgende JSON naar de *deployment.template.json* bestand. Elke eigenschap configureren met een geschikte waarde en sla het bestand.
+1. Configureer [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) en [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) voor uw module door toe te voegen van de volgende JSON naar de *deployment.template.json* bestand. Elke eigenschap configureren met een geschikte waarde en sla het bestand.
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading": <true, false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload": <true, false>
        }
      }
    }
    ```
 
-   ![gewenste eigenschappen instellen voor azureblobstorageoniotedge - Visual Studio Code](./media/how-to-store-data-blob/tiering_ttl.png)
+   ![gewenste eigenschappen instellen voor azureblobstorageoniotedge - Visual Studio Code](./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png)
 
-   Zie voor meer informatie over het configureren van opslaglagen en TTL nadat uw module is geïmplementeerd, [bewerken van de Moduledubbel](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Voor meer informatie over container opties maken, opnieuw opstarten van beleid en de gewenste status, Zie [EdgeAgent gewenste eigenschappen](module-edgeagent-edgehub.md#edgeagent-desired-properties).
+   Zie voor meer informatie over het configureren van deviceToCloudUploadProperties en deviceAutoDeleteProperties nadat uw module is geïmplementeerd, [bewerken van de Moduledubbel](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Voor meer informatie over container opties maken, opnieuw opstarten van beleid en de gewenste status, Zie [EdgeAgent gewenste eigenschappen](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 1. Sla het bestand *deployment.template.json* op.
 

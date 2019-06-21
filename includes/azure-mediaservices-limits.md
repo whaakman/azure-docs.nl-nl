@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116341"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176416"
 ---
 >[!NOTE]
 >Open een ondersteuningsticket te vragen voor een verhoging van de quota voor resources die niet zijn opgelost. Maak geen aanvullende Azure Media Services-accounts in een poging om op te halen van hogere limieten.
@@ -18,7 +18,7 @@ ms.locfileid: "66116341"
 | --- | --- | 
 | Azure Media Services-accounts in één abonnement | 25 (vast) |
 | Gereserveerde Media-eenheden per Media Services-account |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Taken per Media Services-account | 50\.000<sup>2</sup> |
+| Taken per Media Services-account | 50.000<sup>2</sup> |
 | Gekoppelde taken per taak | 30 (vast) |
 | Activa per Media Services-account | 1\.000.000|
 | Activa per taak | 50 |

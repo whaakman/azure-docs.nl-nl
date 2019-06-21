@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410277"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293209"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-extensies in Azure Database for PostgreSQL - één Server
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -73,6 +73,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 > | **Extensie** | **Beschrijving** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL procedurele taal kan worden geladen. |
+> | [plv8](https://plv8.github.io/) | Een Javascript-taal-extensie voor PostgreSQL die kan worden gebruikt voor opgeslagen procedures, triggers, enzovoort. |
 
 ### <a name="miscellaneous-extensions"></a>Overige extensies
 
@@ -124,7 +125,7 @@ TimescaleDB is een time series-database die wordt geleverd als een uitbreiding v
 [Meer informatie over TimescaleDB](https://docs.timescale.com/latest), een geregistreerd handelsmerk van [tijdschaal, Inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>TimescaleDB installeren
-Als u wilt installeren TimescaleDB, die u wilt opnemen in de gedeelde vooraf bibliotheken van de server. Een wijziging in de Postgres-bibliotheken voor gedeelde vooraf vereist een **opnieuw is opgestart** pas van kracht.
+Als u wilt installeren TimescaleDB, die u wilt opnemen in de gedeelde vooraf bibliotheken van de server. Een wijziging in de Postgres `shared_preload_libraries` parameter vereist een **server opnieuw opstarten** pas van kracht. U kunt wijzigen met behulp van parameters de [Azure-portal](howto-configure-server-parameters-using-portal.md) of de [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > TimescaleDB kan worden ingeschakeld voor Azure Database voor PostgreSQL-versie 9.6 en 10
@@ -137,10 +138,7 @@ Met behulp van de [Azure-portal](https://portal.azure.com/):
 
 3. Zoek de `shared_preload_libraries` parameter.
 
-4. Kopieer en plak het volgende als de waarde voor `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. Selecteer **TimescaleDB**.
 
 5. Selecteer **opslaan** uw wijzigingen te behouden. U ontvangt een melding wanneer de wijziging is opgeslagen. 
 
@@ -158,4 +156,4 @@ U kunt nu een hypertable TimescaleDB maken [helemaal](https://docs.timescale.com
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u een extensie die u wilt gebruiken, laat het ons weten niet ziet. Stem voor bestaande aanvragen of maken van nieuwe feedback en verzoeken in onze [forum met feedback van klanten](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+Als u een extensie die u wilt gebruiken, laat het ons weten niet ziet. Stem voor bestaande aanvragen of maken van nieuwe verzoeken om feedback in onze [Feedbackforum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

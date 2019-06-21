@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989083"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147243"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>OpenVPN clients voor Azure VPN-Gateway configureren
 
@@ -26,7 +26,7 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 
 ## <a name="windows"></a>Windows-clients
 
-1. Download en installeer de client OpenVPN via de officiële [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
+1. Download en installeer de OpenVPN-client (versie 2.4 of hoger) van de officiële [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad voor punt-naar-site-configuratie in Azure portal of 'New-AzVpnClientConfiguration' in PowerShell.
 3. Pak het profiel uit. Open vervolgens de *vpnconfig.ovpn* configuratiebestand op van de OpenVPN-map met Kladblok.
 4. [Exporteren](vpn-gateway-certificates-point-to-site.md#clientexport) de P2S-clients u hebt gemaakt en geüpload naar uw P2S-configuratie op de gateway van het certificaat.
@@ -61,7 +61,7 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 
 ## <a name="mac"></a>Mac-clients
 
-1. Download en installeer een OpenVPN-client, zoals [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Download en installeer een OpenVPN-client, zoals [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad punt-naar-site-configuratie in Azure portal of met behulp van 'New-AzVpnClientConfiguration' in PowerShell.
 3. Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn vanuit de map OpenVPN in Kladblok.
 4. Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Zie [Exporteer de openbare sleutel](vpn-gateway-certificates-point-to-site.md#cer) voor informatie over het exporteren van een certificaat om de gecodeerde openbare sleutel.

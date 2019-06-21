@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: d7c8c8e6931c3e677273fab17755031527aff978
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb7821b07e68459cb3d76812a12e85387b9f0f52
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069362"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295105"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
 Azure Monitor is nu een uniforme volledige stack monitoring-service, die nu ondersteuning biedt voor één metrische gegevens en 'Een waarschuwingen' voor resources; geworden. Zie voor meer informatie onze [blogbericht over nieuwe Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). De nieuwe Azure bewaking en waarschuwingen platforms is gemaakt om te worden sneller, slimmer en uitbreidbare: keeping hoog tempo aan de groeiende expanse van cloud computing en in-regel met de intelligente Cloud Microsoft filosofie. 
 
-Met de nieuwe Azure-bewaking en waarschuwingen platform op locatie zijn ingesteld, we zullen worden buiten gebruik stellen van het "klassieke" bewaking en waarschuwingen platform, die worden gehost in *klassieke waarschuwingen weergeven* sectie van de Azure-waarschuwingen, **door worden afgeschaft Augustus 2019 in openbare Azure-clouds**. [Azure Government-cloud](../../azure-government/documentation-government-welcome.md) en [Azure China](https://docs.azure.cn/) worden niet beïnvloed.
+Met de nieuwe Azure-bewaking en waarschuwingen platform op locatie zijn ingesteld, we zullen worden buiten gebruik stellen van het "klassieke" bewaking en waarschuwingen platform, die worden gehost in *klassieke waarschuwingen weergeven* sectie van de Azure-waarschuwingen, **door worden afgeschaft Augustus 2019 in openbare Azure-clouds**. [Azure Government-cloud](../../azure-government/documentation-government-welcome.md) en [Azure China 21Vianet](https://docs.azure.cn/) worden niet beïnvloed.
 
 > [!NOTE]
 > Vertraging in de uitrol van hulpprogramma voor migratie van de vervaldatum voor de migratie van de klassieke waarschuwingen is vanwege [uitgebreid tot en met 31 augustus 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) vanaf de oorspronkelijk aangekondigde datum van 30 juni 2019.
@@ -67,7 +67,7 @@ Aan het einde van augustus 2019, in Azure Monitor:
 - Geen waarschuwingsregels die blijven bestaan in waarschuwingen (klassiek) dan augustus 2019 blijven uitvoeren en meldingen worden geactiveerd, maar niet meer beschikbaar voor de wijziging.
 - Vanaf September 2019, waarschuwingsregels in klassieke bewaking en waarschuwingen die kunnen worden gemigreerd, worden automatisch verplaatst door Microsoft aan het equivalent hiervan in het nieuwe platform van Azure monitor in fasen spanning paar weken. Het proces wordt naadloze zonder uitvaltijd en klanten hebben geen invloed op de bewaking van de dekking.
 - Ontvang een waarschuwing regels die zijn gemigreerd naar de nieuwe waarschuwingen platform biedt controle dekking als voorheen maar melding met de nieuwe nettoladingen wordt geactiveerd. Een e-mailadres, een webhook-eindpunt of een logic app-koppeling die is gekoppeld aan een klassieke waarschuwingsregel getransporteerd wanneer gemigreerd, maar mogelijk niet juist werken als alert payload verschillend voor het nieuwe platform zijn.
-- Sommige [klassieke waarschuwingsregels die automatisch kunnen niet worden gemigreerd](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) en vereisen handmatige actie van de gebruikers blijven actief tot en met juni 2020.
+- Sommige [klassieke waarschuwingsregels die automatisch kunnen niet worden gemigreerd](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated) en vereisen handmatige actie van de gebruikers blijven actief tot en met juni 2020.
 
 > [!IMPORTANT]
 > Microsoft Azure Monitor is geïmplementeerd in fasen [hulpprogramma voor het migreren van vrijwillig](alerts-using-migration-tool.md) hun klassieke waarschuwingsregels u aan bij het nieuwe platform beschikbaar. En voer dit geforceerd beëindigd voor alle klassieke waarschuwingsregels die nog steeds aanwezig zijn en kunnen worden gemigreerd, vanaf September 2019. Klanten moet ervoor zorgen automation in beslag nemen klassieke waarschuwingsregel nettolading is aangepast voor het afhandelen van de nettolading van de nieuwe van [Unified metrische gegevens en waarschuwingen in Application Insights](#unified-metrics-and-alerts-in-application-insights) of [Unified metrische gegevens en waarschuwingen voor andere Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), na de migratie van de klassieke waarschuwingsregels. Zie voor meer informatie, [voorbereiden voor migratie van een klassieke waarschuwingsregel](alerts-prepare-migration.md)

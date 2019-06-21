@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560827"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295560"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Zoekopdrachten in Logboeken van Azure Monitor
-
-> [!NOTE]
-> U moet voltooien [aan de slag met Azure Monitor logboeken-query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Azure Monitor logboeken-query's kunnen beginnen met een tabelnaam wordt opgegeven of een zoekopdracht uitvoeren. In deze zelfstudie bevat informatie over query's op basis van zoeken. Er zijn voordelen voor elke methode.
 
 Query's op basis van een tabel begin met het bereik van de query en daarom meestal efficiënter zijn dan zoekquery's. Zoekquery's zijn dat minder gestructureerd waardoor ze beter bij het zoeken naar een specifieke waarde over kolommen of tabellen. **Search** kunt scannen alle kolommen in een bepaalde tabel of in alle tabellen, voor de opgegeven waarde. De hoeveelheid gegevens die worden verwerkt mogelijk enorme, dit is de reden waarom deze query's het langer duren kunnen om en kunnen zeer grote resultatensets retourneren.

@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 51645f4f0c6dcc70d76ed1a20bc40f95db9d9717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e411182a26e370ef82a20e67ee18cedd5d96d86
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693355"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296114"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Meerdere bronnen logboeken-query's uitvoeren in Azure Monitor  
 
-Eerder met Azure Monitor, u kunt gegevens alleen analyseren in de huidige werkruimte en deze kunt gebruiken om query's beperkt in meerdere werkruimten die zijn gedefinieerd in uw abonnement.  Bovendien kunt u alleen telemetrie-items die worden verzameld van uw webtoepassing met Application Insights rechtstreeks in Application Insights of vanuit Visual Studio zoeken. Dit ook dat het een uitdaging voor het systeemeigen analyseren van operationele en toepassingsgegevens samen.   
+Eerder met Azure Monitor, u kunt gegevens alleen analyseren in de huidige werkruimte en deze kunt gebruiken om query's beperkt in meerdere werkruimten die zijn gedefinieerd in uw abonnement.  Bovendien kunt u alleen telemetrie-items die worden verzameld van uw webtoepassing met Application Insights rechtstreeks in Application Insights of vanuit Visual Studio zoeken. Dit ook dat het een uitdaging voor het systeemeigen analyseren van operationele en toepassingsgegevens samen.
 
 U kunt nu een query niet alleen over meerdere Log Analytics-werkruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit biedt u een systeembreed overzicht van uw gegevens. U kunt alleen uitvoeren met deze typen query's in [Log Analytics](portals.md).
 
 ## <a name="cross-resource-query-limits"></a>Limieten voor meerdere bronnen query 
 
 * Het nummer van Application Insights-resources en Log Analytics-werkruimten die u in één query opnemen kunt is beperkt tot 100.
-* Meerdere bronnen query wordt niet ondersteund in de ontwerper. U kunt een query in Log Analytics maken en vastmaken aan Azure-dashboard en [een logboekzoekopdracht visualiseren](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
-* De query meerdere bronnen in de waarschuwingen wordt ondersteund in de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor gebruikt standaard de [verouderde Log Analytics-waarschuwing API](../platform/api-alerts.md) voor het maken van nieuwe logboek waarschuwingsregels van Azure-portal, tenzij u van overschakelt [verouderde Log waarschuwingen API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Na de switch, de nieuwe API wordt de standaardwaarde voor nieuwe regels voor waarschuwingen in Azure portal en u kunt meerdere bronnen query log regels waarschuwingen maken. U kunt meerdere bronnen querylogboek waarschuwingsregels maken zonder de overstap maken met behulp van de [ARM-sjabloon voor API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, maar deze waarschuwingsregel wordt al beheerd [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en niet vanuit Azure portal.
+* Meerdere bronnen query wordt niet ondersteund in de ontwerper. U kunt een query in Log Analytics maken en vastmaken aan Azure-dashboard op [visualiseren van een query voor](../learn/tutorial-logs-dashboards.md). 
+* De query meerdere bronnen in de waarschuwingen wordt ondersteund in de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor gebruikt standaard de [verouderde Log Analytics-waarschuwing API](../platform/api-alerts.md) voor het maken van nieuwe logboek waarschuwingsregels van Azure-portal, tenzij u van overschakelt [verouderde Log waarschuwingen API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Na de switch, de nieuwe API wordt de standaardwaarde voor nieuwe regels voor waarschuwingen in Azure portal en u kunt meerdere bronnen query log regels waarschuwingen maken. U kunt meerdere bronnen querylogboek waarschuwingsregels maken zonder de overstap maken met behulp van de [Azure Resource Manager-sjabloon voor API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, maar deze waarschuwingsregel wordt al beheerd [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en niet vanuit Azure portal.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Uitvoeren van query's in Log Analytics-werkruimten en Application Insights

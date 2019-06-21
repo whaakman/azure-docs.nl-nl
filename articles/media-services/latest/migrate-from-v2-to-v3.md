@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555883"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303523"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -80,7 +80,7 @@ De API v3 heeft de volgende functiehiaten met betrekking tot de v2-API. Sluit de
 
 * De [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) en verouderde [media analytics-processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2-Preview, Face Redactor, enzovoort) zijn niet toegankelijk is via v3.<br/>Klanten die willen migreren van de Media Indexer 1 of 2-preview kunnen onmiddellijk de AudioAnalyzer vooraf ingesteld in de API v3 gebruiken.  Deze nieuwe definitie bevat meer functionaliteit dan de oudere Media Indexer 1 of 2. 
 * Veel van de [geavanceerde functies van de Media Encoder Standard in v2](../previous/media-services-advanced-encoding-with-mes.md) API's zijn momenteel niet beschikbaar zijn in v3, zoals:
-    * Knippen (voor on-demand en live-scenario's)
+  
     * Samenvoegen van Assets
     * Overlays
     * Bijsnijden

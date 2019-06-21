@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541613"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190247"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Maken en beheren van een catalogus in Azure AD waar u recht op beheer (Preview)
 
@@ -60,9 +60,9 @@ Een catalogus is een container van resources en toegang tot pakketten. U kunt ee
 
 ## <a name="add-resources-to-a-catalog"></a>Resources toevoegen aan een catalogus
 
-Zodat resources in een pakket toegang moeten de resources zich in een catalogus. De typen resources die u kunt toevoegen, zijn groepen, toepassingen en SharePoint Online-sites.
+Zodat resources in een pakket toegang moeten de resources zich in een catalogus. De typen resources die u kunt toevoegen, zijn groepen, toepassingen en SharePoint Online-sites. De groepen kunnen worden cloud maken van de Office 365-groepen of cloud-maken-Azure AD-beveiligingsgroepen. De toepassingen kunnen worden gebruikt Azure AD-bedrijfstoepassingen, met inbegrip van zowel SaaS-toepassingen en uw eigen toepassingen die zijn gefedereerd met Azure AD. De sites kunnen worden SharePoint Online-sites of SharePoint Online-siteverzamelingen.
 
-**Vereiste rol:** Gebruikerbeheerder of eigenaar van catalogus
+**Vereiste rol:** Zie [rollen op bronnen toevoegen aan een catalogus vereist](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Klik in de Azure-portal op **Azure Active Directory** en klik vervolgens op **Identiteitsbestuur**.
 
@@ -74,9 +74,7 @@ Zodat resources in een pakket toegang moeten de resources zich in een catalogus.
 
 1. Klik op een resourcetype: **Groepen**, **toepassingen**, of **SharePoint-sites**.
 
-    Als u de maker van de catalogus bent, kunt u een Office 365-groep of Azure AD-beveiligingsgroep eigenaar van uw catalogus kunt toevoegen. Als er is een groep die u wilt toewijzen aan gebruikers, maar u geen eigenaar van de groep, moet u dat de Gebruikersbeheerder van een die groep toevoegen aan de catalogus.
-
-    Als u de maker van de catalogus bent, kunt u een Azure AD-bedrijfstoepassing u eigenaar bent, met inbegrip van zowel SaaS-toepassingen en uw eigen toepassingen die zijn gefedereerd met Azure AD, in uw catalogus kunt toevoegen. Als er een toepassing die u wilt toewijzen van gebruikers, maar niet de eigenaar bent, moet u de Gebruikersbeheerder van een die toepassing toevoegen aan uw catalogus hebt. Zodra de toepassing deel van de catalogus uitmaakt, kunt u een van de rollen van de toepassing selecteren in een pakket toegang.
+    Als er geen een resource die u wilt toevoegen of u zich niet aan een resource toevoegt, zorg ervoor dat u hebt de vereiste Azure AD directory-rol en de beheerrol recht. Mogelijk moet u iemand met de vereiste functies de resource toevoegen aan de catalogus. Zie voor meer informatie, [rollen op bronnen toevoegen aan een catalogus vereist](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Selecteer een of meer resources van het type dat u wilt toevoegen aan de catalogus.
 
@@ -88,7 +86,7 @@ Zodat resources in een pakket toegang moeten de resources zich in een catalogus.
 
 U kunt resources verwijderen uit een catalogus. Een resource kan alleen worden verwijderd uit een catalogus als deze niet wordt gebruikt in een van de access-pakketten van de catalogus.
 
-**Vereiste rol:** Gebruikerbeheerder of eigenaar van catalogus
+**Vereiste rol:** Zie [rollen op bronnen toevoegen aan een catalogus vereist](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Klik in de Azure-portal op **Azure Active Directory** en klik vervolgens op **Identiteitsbestuur**.
 
@@ -99,22 +97,6 @@ U kunt resources verwijderen uit een catalogus. Een resource kan alleen worden v
 1. Selecteer de resources die u wilt verwijderen.
 
 1. Klik op **verwijderen** (of klik op het weglatingsteken ( **...** ) en klik vervolgens op **resource verwijderen**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>Catalogus eigenaren toevoegen of toegang tot Pakketbeheer
-
-Als u delegeren van beheer van de catalogus of de toegang tot pakketten in de catalogus wilt, kunt u catalogus eigenaren toevoegen of toegang tot Pakketbeheer. Degene die een catalogus wordt gemaakt, wordt de eigenaar van de eerste catalogus.
-
-**Vereiste rol:** Gebruikerbeheerder of eigenaar van catalogus
-
-1. Klik in de Azure-portal op **Azure Active Directory** en klik vervolgens op **Identiteitsbestuur**.
-
-1. Klik in het menu links op **catalogi** en open vervolgens de catalogus die u wilt toevoegen van beheerders.
-
-1. Klik in het menu links op **rollen en beheerders**.
-
-1. Klik op **eigenaren toevoegen** of **Pakketbeheer toegang toevoegen** om de leden van deze rollen te selecteren.
-
-1. Klik op **Selecteer** deze leden toevoegen.
 
 ## <a name="edit-a-catalog"></a>Een catalogus bewerken
 
@@ -148,4 +130,5 @@ U kunt een catalogus, maar alleen verwijderen als er geen er toegang tot pakkett
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- [Maker van de catalogus toevoegen](entitlement-management-delegate.md#add-a-catalog-creator)
 - [Maken en beheren van een access-pakket](entitlement-management-access-package-create.md)

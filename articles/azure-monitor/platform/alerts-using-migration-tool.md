@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015627"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295550"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Gebruik het hulpprogramma voor migratie op vrijwillige basis voor het migreren van de klassieke waarschuwingsregels
 
@@ -38,7 +38,7 @@ Het migratieproces klassieke waarschuwingsregels converteert naar nieuwe, gelijk
 
 - Zowel de indeling van de melding nettolading en de API's maken en beheren van nieuwe regels voor waarschuwingen zijn anders dan die van de klassieke waarschuwingsregels omdat ze ondersteuning meer functies bieden. [Informatie over het voorbereiden van de migratie](alerts-prepare-migration.md).
 
-- Sommige regels voor klassieke waarschuwingen kunnen niet worden gemigreerd met behulp van het hulpprogramma. [Meer informatie over welke regels kunnen niet worden gemigreerd en wat er moet gebeuren met hen](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated).
+- Sommige regels voor klassieke waarschuwingen kunnen niet worden gemigreerd met behulp van het hulpprogramma. [Meer informatie over welke regels kunnen niet worden gemigreerd en wat er moet gebeuren met hen](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
 
     > [!NOTE]
     > Het migratieproces heeft geen gevolgen voor de evaluatie van de klassieke waarschuwingsregels. Ze blijven uitvoeren en waarschuwingen verzenden totdat ze zijn gemigreerd en de nieuwe regels voor waarschuwingen van kracht.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749563"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295426"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Analyse zoekverkeer implementeren in Azure Search
 Analyse zoekverkeer is een patroon voor het implementeren van een feedback-lus voor uw zoekservice. Dit patroon beschrijft de benodigde gegevens en over het verzamelen van deze met Application Insights, een industrieleider noemt voor het bewaken van services op meerdere platforms.
@@ -79,7 +79,7 @@ Voor andere talen en platformen, Zie de volledige [lijst](https://docs.microsoft
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Voor andere talen en platformen, Zie de volledige [lijst](https://docs.microsoft
 
 Elke keer dat een zoekaanvraag is uitgegeven door een gebruiker, moet u zich die als een gebeurtenis zoeken met het volgende schema op een aangepaste gebeurtenis van Application Insights:
 
-**ServiceName**: (tekenreeks) zoekservicenaam **SearchId**: de unieke id (guid) van de zoekquery (komt in het antwoord zoeken) **index**: (tekenreeks) search-service-index moet opgevraagd **QueryTerms**: (tekenreeks) zoektermen ingevoerd door de gebruiker **ResultCount**: het aantal documenten die zijn geretourneerd (int) (komt in het antwoord zoeken)  **ScoringProfile**: naam van het scoringprofiel gebruikt, indien van toepassing (tekenreeks)
+**SearchServiceName**: (tekenreeks) zoekservicenaam **zoekcode**: de unieke id (guid) van de zoekquery (komt in het antwoord zoeken) **index**: (tekenreeks) service zoekindex worden opgevraagd **QueryTerms**: (tekenreeks) zoektermen ingevoerd door de gebruiker **ResultCount**: het aantal documenten die zijn geretourneerd (int) (komt in het antwoord zoeken)  **ScoringProfile**: naam van het scoringprofiel gebruikt, indien van toepassing (tekenreeks)
 
 > [!NOTE]
 > Aantal aanvragen op query's van gebruikers die zijn gegenereerd door toe te voegen $count = waar uw zoekopdracht. Zie voor meer informatie [hier](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)

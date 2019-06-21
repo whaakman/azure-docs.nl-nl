@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540929"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203443"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Service-updates in de Azure Site Recovery
 Als een organisatie, moet u bepalen hoe u van plan bent voor uw gegevens veilig en apps/workloads kunt uitvoeren wanneer geplande en ongeplande uitval optreedt. Azure Site Recovery draagt bij aan uw BCDR-strategie door uw apps uitgevoerd op virtuele machines en fysieke servers beschikbaar als een site uitvalt. Met Site Recovery repliceert u workloads die worden uitgevoerd op virtuele machines en fysieke servers, zodat deze beschikbaar blijven op een secundaire locatie als de primaire site niet beschikbaar is. Hiermee herstelt u werkbelastingen op de primaire site wanneer deze weer actief is.
@@ -33,6 +33,17 @@ Azure Site Recovery publiceert service-updates regelmatig - waaronder het toevoe
 
 > [!IMPORTANT]
 > De officiële ondersteuning voor upgrades van afkomstig is van > N-4 N versie (N wordt de meest recente versie). Als u van N-6 gebruikmaakt, moet u eerst een upgrade naar N-4 en vervolgens een upgrade naar N.
+
+## <a name="expiry-of-components"></a>Vervaldatum van onderdelen
+Site Recovery ontvangt een melding klanten van onderdelen die bijna verlopen of al verlopen via e-mailmeldingen (als u bent geabonneerd op deze) of op het dashboard van de kluis in de portal. De kluis dashboard meldingen zijn niet beschikbaar als u een VM hYpe rV vanaf nu beveiligt. Ook als u gaat u naar de infrastructuurweergave van de bijbehorende voor uw scenario, wordt er een 'is een update beschikbaar'-knop naast het onderdeel, wordt u doorgeleid naar de koppelingen naar downloads de meest recente versies.
+
+Hieronder vindt u de frequentie van e-mailmeldingen wanneer een onderdelen is bijna verlopen.
+- 60 dagen voordat het onderdeel is bijna verlopen: één keer tweewekelijks
+- De volgende 53 dagen: één maal
+- Afgelopen 7 dagen: Eenmaal per dag
+- Na het verlopen: één keer tweewekelijks
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>Bijwerken van bij het verschil tussen de huidige versie en de meest recente versie groter dan 4 is
 
@@ -118,15 +129,16 @@ Opnieuw opstarten wordt aanbevolen na elke upgrade van de Mobility-agent om ervo
 
 |Updatepakket  |Provider  |Geïntegreerde Setup| OVF  |MARS.|
 |---------|---------|---------|---------|--------|
+|[Update Rollup 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[Update Rollup 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Update Rollup 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Update Rollup 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) -hotfix     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Update Rollup 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Update Rollup 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>Vorige updatepakketten
 
+- [Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [Update Rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Update Rollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [Update Rollup 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

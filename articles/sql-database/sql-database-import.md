@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0b92fb9c9bf022adce4cc0dd3e58ce8e476ed5b7
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785326"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303513"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Quickstart: Een BACPAC-bestand importeren in een database in Azure SQL Database
 
@@ -35,6 +35,9 @@ De [Azure-portal](https://portal.azure.com) *alleen* biedt ondersteuning voor he
 > [!NOTE]
 > [Een beheerd exemplaar](sql-database-managed-instance.md) biedt momenteel geen ondersteuning voor het migreren van een database in een exemplaar in de database vanuit een BACPAC-bestand met de Azure-portal. Als u wilt importeren in een beheerd exemplaar, SQL Server Management Studio of SQLPackage te gebruiken.
 
+> [!NOTE]
+> De verwerking van import/export-aanvragen verzonden via de portal of Powershell machines nodig hebt voor het opslaan van het bacpac-bestand, evenals de tijdelijke bestanden die worden gegenereerd door Data-Tier Application Framework (DacFX). De vereiste schijfruimte aanzienlijk variëren tussen databases met dezelfde grootte en kan maximaal 3 keer van de grootte van de database. Machines alleen de import/export-aanvraag wordt uitgevoerd hebben 450GB ruimte op de lokale schijf. Sommige aanvragen mogelijk als resultaat mislukken met fout 'Er is niet genoeg ruimte op de schijf'. In dit geval is de tijdelijke oplossing sqlpackage.exe uitvoeren op een machine met voldoende ruimte voor de lokale schijf. Wanneer de databases die groter zijn dan 150GB importeren/exporteren, gebruikt u [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) om te voorkomen dat dit probleem.
+ 
 1. Als u wilt importeren vanuit een BACPAC-bestand in een nieuwe database met behulp van de Azure portal, de juiste database-serverpagina openen en selecteer vervolgens op de werkbalk **database importeren**.  
 
    ![Database import1](./media/sql-database-import/import1.png)
@@ -81,6 +84,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > [Een beheerd exemplaar](sql-database-managed-instance.md) biedt momenteel geen ondersteuning voor het migreren van een database in een exemplaar in de database vanuit een BACPAC-bestand met behulp van Azure PowerShell. Als u wilt importeren in een beheerd exemplaar, SQL Server Management Studio of SQLPackage te gebruiken.
 
+> [!NOTE]
+> De verwerking van import/export-aanvragen verzonden via de portal of Powershell machines nodig hebt voor het opslaan van het bacpac-bestand, evenals de tijdelijke bestanden die worden gegenereerd door Data-Tier Application Framework (DacFX). De vereiste schijfruimte aanzienlijk variëren tussen databases met dezelfde grootte en kan maximaal 3 keer van de grootte van de database. Machines alleen de import/export-aanvraag wordt uitgevoerd hebben 450GB ruimte op de lokale schijf. Sommige aanvragen mogelijk als resultaat mislukken met fout 'Er is niet genoeg ruimte op de schijf'. In dit geval is de tijdelijke oplossing sqlpackage.exe uitvoeren op een machine met voldoende ruimte voor de lokale schijf. Wanneer de databases die groter zijn dan 150GB importeren/exporteren, gebruikt u [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) om te voorkomen dat dit probleem.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

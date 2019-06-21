@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949822"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302229"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Grote gegevenssets in Azure Search indexeren
 
@@ -54,7 +54,7 @@ Plannen van de indexeerfunctie is een belangrijk mechanisme voor het verwerken v
 
 Standaard gepland indexering begint met een bepaald interval, met een taak die doorgaans voltooien voordat u met de volgende geplande interval wordt hervat. Als de verwerking niet binnen het interval wordt voltooid, stopt de indexeerfunctie echter (vanwege tijd onvoldoende). Op het volgende interval bijhouden verwerking wordt hervat waar deze laatste afgebroken, met het system-bijhouden van waar dat wordt uitgevoerd. 
 
-U kunt de indexeerfunctie volgens een schema 24-uurs plaatsen in de praktijk bij index belastingen spanning enkele dagen. Tijdens het indexeren wordt hervat voor de volgende cyclus van 24 uur per dag, opnieuw wordt gestart op de laatste bekende goede document. Op deze manier kan een indexeerfunctie eraan via een achterstand van het document werken gedurende een reeks dagen totdat alle niet-verwerkte documenten worden verwerkt. Zie voor meer informatie over deze benadering, [grote gegevenssets in Azure Blob storage indexeren](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Zie voor meer informatie over het instellen van schema's in het algemeen [indexeerfunctie REST-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
+U kunt de indexeerfunctie volgens een schema 24-uurs plaatsen in de praktijk bij index belastingen spanning enkele dagen. Tijdens het indexeren wordt hervat voor de volgende cyclus van 24 uur per dag, opnieuw wordt gestart op de laatste bekende goede document. Op deze manier kan een indexeerfunctie eraan via een achterstand van het document werken gedurende een reeks dagen totdat alle niet-verwerkte documenten worden verwerkt. Zie voor meer informatie over deze benadering, [grote gegevenssets in Azure Blob storage indexeren](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Zie voor meer informatie over het instellen van schema's in het algemeen [indexeerfunctie REST-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) of Zie [indexeerfuncties plannen voor Azure Search](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

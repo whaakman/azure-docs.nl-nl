@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238019"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303686"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Stream Azure diagnostische logboeken naar Log Analytics-werkruimte in Azure Monitor
 
@@ -60,7 +60,7 @@ De Log Analytics-werkruimte heeft geen zich in hetzelfde abonnement als de resou
 
 4. Klik op **Opslaan**.
 
-Na enkele ogenblikken wordt de nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze resource en logboeken met diagnostische gegevens worden gestreamd naar deze werkruimte zodra de gegevens van een nieuwe gebeurtenis wordt gegenereerd. Houd er rekening mee dat er maximaal vijftien minuten tussen wanneer een gebeurtenis wordt verzonden en wanneer deze wordt weergegeven in Log Analytics kan zijn.
+Na enkele ogenblikken wordt de nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze resource en logboeken met diagnostische gegevens worden gestreamd naar deze werkruimte zodra de gegevens van een nieuwe gebeurtenis wordt gegenereerd. Mogelijk zijn er maximaal 15 minuten tussen wanneer een gebeurtenis wordt verzonden en wanneer deze wordt weergegeven in Log Analytics.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
 
@@ -99,37 +99,81 @@ De `--resource-group` argument is alleen vereist als `--workspace` is niet een o
 
 U kunt Logboeken met diagnostische gegevens in de blade Logboeken in de portal voor Azure Monitor opvragen als onderdeel van de oplossing Log Management onder de tabel AzureDiagnostics. Er zijn ook [verschillende bewakingsoplossingen voor Azure-resources](../../azure-monitor/insights/solutions.md) u om op te halen onmiddellijk inzicht in de logboekgegevens die u wilt verzenden naar Azure Monitor kunt installeren.
 
+## <a name="azure-diagnostics-vs-resource-specific"></a>Azure Diagnostics vs Resourcespecifieke  
+Zodra een Log Analytics-doel in een configuratie van de Azure Diagnostics is ingeschakeld, zijn er twee verschillende manieren waarop gegevens worden weergegeven in uw werkruimte:  
+- **Azure Diagnostics** -dit is de oudere methode vandaag nog wordt gebruikt door de meerderheid van de Azure-services. In deze modus kunnen alle de gegevens uit een diagnostische instelling waarnaar wordt verwezen naar een opgegeven werkruimte verschijnen de _AzureDiagnostics_ tabel. 
+<br><br>Omdat veel bronnen gegevens naar dezelfde tabel verzenden (_AzureDiagnostics_), het schema van deze tabel is de Super set de schema's van alle verschillende gegevenstypen die worden verzameld. Bijvoorbeeld, als u diagnostische instellingen voor het verzamelen van de volgende gegevenstypen hebt gemaakt, alle verstuurd naar dezelfde werkruimte:
+    - Controlelogboeken van bron 1 (met een schema dat bestaat uit kolommen A, B en C)  
+    - Foutenlogboeken van Resource-2 (met een schema dat bestaat uit kolommen D, E en F)  
+    - Stroomlogboeken van de gegevens van de Resource-3 (met een schema dat bestaat uit de kolommen G, H en ik)  
+
+    De tabel AzureDiagnostics eruit als volgt met wat voorbeeldgegevens:  
+
+    | ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+    | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+    | Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+    | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+    | ... |
+
+- **Resource-specifieke** -In deze modus kunnen afzonderlijke tabellen in de geselecteerde werkruimte per elke categorie worden geselecteerd in de configuratie van diagnostische instellingen zijn gemaakt. Deze nieuwere methode maakt het veel gemakkelijker te vinden precies u wilt zoeken via expliciete scheiding van taken: een tabel voor elke categorie. Daarnaast biedt deze blade voordelen in de ondersteuning voor dynamische typen. U kunt al deze modus voor select typen Azure-resources, bijvoorbeeld zien [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) of [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) Logboeken. We verwachten uiteindelijk moet elk gegevenstype te migreren naar de Resource-specifieke modus. 
+
+    In het bovenstaande voorbeeld is zou dit leiden tot drie tabellen worden gemaakt: 
+    - Tabel _AuditLogs_ als volgt:
+
+        | ResourceProvider | Category | A | B | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+        | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+        | ... |
+
+    - Tabel _foutenlogboeken_ als volgt:  
+
+        | ResourceProvider | Category | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
+        | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
+        | ... |
+
+    - Tabel _DataFlowLogs_ als volgt:  
+
+        | ResourceProvider | Category | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
+        | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
+        | ... |
+
+    Andere voordelen van het gebruik van de Resource-specifieke modus zijn prestaties zijn verbeterd voor zowel opnamelatentie en uitvoertijden van query, betere zichtbaarheid van schema's en de structuur ervan, de mogelijkheid het RBAC-rechten op een specifieke tabel, en meer.
+
+### <a name="selecting-azure-diagnostic-vs-resource-specific-mode"></a>Diagnostische Azure vs Resource-specifieke modus selecteren
+Voor de meeste Azure-resources, hebt u geen keuze of u wilt gebruiken de Azure Diagnostics of Resource-specifieke modus; de gegevens doorgestuurd automatisch via de methode die de resource heeft geselecteerd om te gebruiken. Raadpleeg de documentatie van de resource die u hebt ingeschakeld om gegevens te verzenden naar Log Analytics voor meer informatie waarop modus wordt gebruikt. 
+
+Zoals vermeld in de vorige sectie, is het doel van Azure Monitor hebben alle services in Azure-gebruik de Resource-specifieke modus. Deze overgang en zorg ervoor dat er geen gegevens verloren als onderdeel van het, sommige Azure-services als onboarding naar Log Analytics u over een selectie van de modus beschikt:  
+   ![Diagnostische instellingen modus selector](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+We **sterk** raadzaam om, om te voorkomen dat mogelijk moeilijk migraties omlaag onderweg, een zojuist maken gebruik van de diagnostische instellingen voor de Resource gericht modus.  
+
+Bestaande diagnostische instellingen, eenmaal is ingeschakeld door een bepaalde Azure-Resource, kunt u zich met terugwerkende kracht overschakelen van de Azure Diagnostics naar de Resource-specifieke modus. Uw gegevens eerder opgenomen blijven beschikbaar in de _AzureDiagnostics_ tabel totdat deze leeftijden uit zoals geconfigureerd in uw instelling bewaren in de werkruimte, maar geen nieuwe gegevens wordt verzonden naar de specifieke tabel. Dit betekent dat voor alle query's die moeten zowel de oude gegevens omvatten en nieuwe (totdat de oude gegevens leeftijden volledig uit), een [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) operator in uw query's moeten de twee gegevenssets combineren.
+
+Bekijk voor nieuws over nieuwe Azure ondersteunende Logboeken in de modus Resource-specifieke services op de [Azure Updates](https://azure.microsoft.com/updates/) blog!
+
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Bekende beperking: kolomlimiet in AzureDiagnostics
-Omdat veel resources verzenden gegevenstypen worden verzonden naar dezelfde tabel (_AzureDiagnostics_), het schema van deze tabel is de Super set de schema's van alle verschillende gegevenstypen die worden verzameld. Bijvoorbeeld, als u diagnostische instellingen voor het verzamelen van de volgende gegevenstypen hebt gemaakt, alle verstuurd naar dezelfde werkruimte:
-- Controlelogboeken van bron 1 (met een schema dat bestaat uit kolommen A, B en C)  
-- Foutenlogboeken van Resource-2 (met een schema dat bestaat uit kolommen D, E en F)  
-- Stroomlogboeken van de gegevens van de Resource-3 (met een schema dat bestaat uit de kolommen G, H en ik)  
- 
-De tabel AzureDiagnostics eruit als volgt met wat voorbeeldgegevens:  
- 
-| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
-| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
-| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
-| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
-| ... |
- 
-Er is een expliciete limiet van een opgegeven Azure Log-tabel niet met meer dan 500 kolommen. Wanneer is bereikt, wordt op het moment van opname met gegevens met een andere kolom buiten de eerste 500 rijen verwijderd. De tabel AzureDiagnostics is in het bijzonder gevoelig beïnvloed als deze limiet. Dit gebeurt meestal omdat een grote verscheidenheid aan gegevensbronnen worden verzonden naar dezelfde werkruimte, of verschillende zeer uitgebreide gegevensbronnen worden verzonden naar dezelfde werkruimte. 
- 
+Er is een expliciete limiet van een opgegeven Azure Log-tabel niet met meer dan 500 kolommen. Wanneer is bereikt, wordt op het moment van opname met gegevens met een andere kolom buiten de eerste 500 rijen verwijderd. De tabel AzureDiagnostics is in het bijzonder gevoelig beïnvloed als deze limiet. Dit gebeurt meestal omdat een grote verscheidenheid aan gegevensbronnen worden verzonden naar dezelfde werkruimte, of verschillende uitgebreide gegevensbronnen worden verzonden naar dezelfde werkruimte. 
+
 #### <a name="azure-data-factory"></a>Azure Data Factory  
-Azure Data Factory, vanwege een zeer uitgebreide set zich aanmeldt, is een resource die bekend is met name beïnvloed door deze limiet. In het bijzonder:  
+Azure Data Factory, is vanwege een zeer uitgebreide set zich aanmeldt, een resource die bekend is met name beïnvloed door deze limiet. In het bijzonder voor diagnostische instellingen geconfigureerd voordat u de Resource-specifieke is modus ingeschakeld of expliciet kiezen voor het gebruik van de Resource-specifieke-modus van de reverse-compatibiliteit:  
 - *Parameters van de gebruiker gedefinieerd voor elke activiteit in de pijplijn*: Er is een nieuwe kolom die is gemaakt voor elke parameter van de gebruiker een unieke naam op basis van een activiteit. 
-- *Invoer en uitvoer*: deze variëren van activiteit-naar-activiteit en genereren van een grote hoeveelheid kolommen vanwege hun uitgebreide aard. 
+- *Invoer en uitvoer*: deze variëren van activiteit-naar-activiteit en het genereren van een groot aantal kolommen vanwege hun uitgebreide aard. 
  
-Als met de bredere tijdelijke oplossing voorstellen die hieronder, het verdient aanbeveling om te isoleren van ADF Logboeken in hun eigen werkruimte te minimaliseren, de kans dat deze logboeken die invloed hebben op andere typen logboeken die worden verzameld in uw werkruimten. We verwachten hebben een samengesteld bieden logboeken voor Azure Data Factory beschikbaar binnenkort.
+Als met de bredere tijdelijke oplossing voorstellen die hieronder, het verdient aanbeveling voor het migreren van uw logboeken voor het gebruik van de Resource-specifieke modus zo snel mogelijk. Als u niet onmiddellijk mogelijk, is een tussentijdse alternatief ADF logboeken isoleren in hun eigen werkruimte te minimaliseren, de kans dat deze logboeken die invloed hebben op andere typen logboeken die worden verzameld in uw werkruimten. 
  
 #### <a name="workarounds"></a>Tijdelijke oplossingen
-Korte termijn, totdat de limiet van 500-kolom is gedefinieerd, is het aanbevolen om te typen uitgebreide gegevens verdelen in afzonderlijke werkruimten te verminderen van de mogelijkheid om de limiet hebt bereikt.
+Korte termijn, tot alle Azure-services niet zijn ingeschakeld in de modus Resource-specifieke voor alle services die nog ondersteuning biedt voor de Resource-specifieke modus, is het aanbevolen voor het scheiden van uitgebreide gegevenstypen die door deze services zijn gepubliceerd in afzonderlijke werkruimten om te beperken de mogelijkheid om de limiet hebt bereikt.  
  
-Langere termijn Azure Diagnostics wordt worden verplaatst van een uniforme, sparse-schema in afzonderlijke tabellen per elk gegevenstype; in combinatie met ondersteuning voor dynamische typen, verbetert dit aanzienlijk de bruikbaarheid van gegevens die afkomstig zijn in Logboeken van Azure via de Azure Diagnostics-mechanisme. U kunt al dit zien voor select typen Azure-resources, bijvoorbeeld [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) of [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) Logboeken. Raadpleeg voor nieuws over nieuwe resourcetypen in Azure ondersteunen deze gecureerde logboeken op de [Azure Updates](https://azure.microsoft.com/updates/) blog!
+Langere termijn, de Azure Diagnostics is over op alle Azure-services ondersteunt de modus Resource-specifieke. Wordt aangeraden de overstap naar deze modus zo snel mogelijk te verminderen van de mogelijkheden die worden beïnvloed door deze beperking 500 kolom.  
 
 
 ## <a name="next-steps"></a>Volgende stappen
