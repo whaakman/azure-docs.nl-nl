@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831391"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304210"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Over het aanroepen van de Text Analytics REST-API
 
@@ -87,7 +87,7 @@ De service accepteert aanvragen van maximaal 1 MB in grootte. Als u Postman (of 
   + [Herkenning van entiteit](text-analytics-how-to-entity-linking.md)  
 
 
-6. Klik op **verzenden** dien de aanvraag. U kunt maximaal 100 aanvragen per minuut indienen. 
+6. Klik op **verzenden** dien de aanvraag. Zie de [gegevenslimieten](../overview.md#data-limits) sectie in het overzicht voor informatie over het aantal aanvragen kunt verzenden per minuut en seconde.
 
    In Postman, wordt het antwoord weergegeven in het volgende venster omlaag, als een enkel JSON-document met een item voor elk document-ID opgegeven in de aanvraag.
 

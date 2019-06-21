@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 06/20/2019
 ms.author: tulasim
-ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b0e3dfb81a9934b393428a946cf1440367985c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954968"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311866"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Een beveiligde Sharepoint-gegevensbron toevoegen aan uw knowledge base
 
@@ -35,6 +35,20 @@ U kunt toevoegen met alle QnA Maker-ondersteunde [bestandstypen](../Concepts/dat
     ![De URL van de Sharepoint-bestand ophalen door het selecteren van het bestand beletseltekenmenu vervolgens de URL te kopiëren.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. In de QnA Maker-portal op de **instellingen** pagina [toevoegen de URL](edit-knowledge-base.md#add-datasource) in de knowledge base. 
+
+### <a name="images-with-sharepoint-files"></a>Installatiekopieën met Sharepoint-bestanden
+
+Als bestanden afbeeldingen bevatten, worden deze niet opgehaald. U kunt de installatiekopie toevoegen vanuit de portal QnA Maker, nadat het bestand is uitgepakt naar paren met QnA.
+
+De installatiekopie met de volgende markdown-syntaxis kunt toevoegen: 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+De tekst in de tussen vierkante haken, `[]`, wordt de installatiekopie van het uitgelegd. De URL in de haakjes `()`, is de directe koppeling naar de installatiekopie. 
+
+Wanneer u het paar QnA in het deelvenster interactieve test in de portal voor QnA Maker test, wordt de afbeelding weergegeven, in plaats van de markdown-tekst. Hiermee valideert u de installatiekopie van het openbaar kunnen worden opgehaald uit uw clienttoepassing.
 
 ## <a name="permissions"></a>Machtigingen
 

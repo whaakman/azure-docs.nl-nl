@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137270"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311848"
 ---
 # <a name="why-use-batch-transcription"></a>Waarom Batch transcriptie gebruiken?
 
@@ -91,6 +91,7 @@ Gebruik deze optionele eigenschappen transcriptie configureren:
 | `PunctuationMode` | Geeft aan hoe interpunctie in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld interpunctie, `dictated` dit expliciete interpunctie houdt `automatic` waarmee de decoder interpunctie, behandelt of `dictatedandautomatic` dit houdt bepaald leestekens of automatisch. |
  | `AddWordLevelTimestamps` | Hiermee geeft u als word niveau tijdstempels moet worden toegevoegd aan de uitvoer. Geaccepteerde waarden zijn `true` waarmee word niveau tijdstempels en `false` (de standaardwaarde) uitschakelen. |
  | `AddSentiment` | Hiermee geeft u op gevoel moet worden toegevoegd aan de utterance. Geaccepteerde waarden zijn `true` waarmee sentiment per utterance en `false` (de standaardwaarde) uitschakelen. |
+ | `AddDiarization` | Hiermee geeft u op dat alalysis diarization moet worden uitgevoerd op de invoer die met twee stemmen mono-kanaal wordt verwacht. Geaccepteerde waarden zijn `true` waarmee diarization en `false` (de standaardwaarde) uitschakelen. Het is ook vereist `AddWordLevelTimestamps` moet worden ingesteld op true.|
 
 ### <a name="storage"></a>Opslag
 
@@ -128,13 +129,8 @@ De bijbehorende audio bevat de luidsprekers geïdentificeerd door een getal (mom
 
 Houd er ook rekening mee Diarization is niet beschikbaar in Stereo-opnamen. Bovendien alle JSON de uitvoer bevat de Sprekerherkenning-tag. Als diarization niet gebruikt wordt, wordt het weergegeven ' spreker: Null' in de JSON-uitvoer.
 
-Ondersteunde landinstellingen worden hieronder vermeld.
-
-| Taal | Landinstelling |
-|--------|-------|
-| Nederlands | en-US |
-| Chinees | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Diarization is beschikbaar in alle regio's en voor alle landinstellingen!
 
 ## <a name="sentiment"></a>Sentiment
 
