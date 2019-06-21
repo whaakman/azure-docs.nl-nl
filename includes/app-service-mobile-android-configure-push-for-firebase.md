@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 51a75ee7bf87c38e3916bdbc8d85abcfb14dca8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140334"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176540"
 ---
 1. In de [Azure-portal](https://portal.azure.com/), klikt u op **door alles bladeren** > **App Services**, en klik vervolgens op de back-end van uw mobiele Apps. Onder **instellingen**, klikt u op **App Service-Push**, en klik vervolgens op de naam van uw notification hub.
 2. Ga naar **Google (GCM)** , voer de **serversleutel** waarde die is verkregen van Firebase in de vorige procedure, en klik vervolgens op **opslaan**.

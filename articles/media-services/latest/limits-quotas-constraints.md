@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824457"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293448"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quota en beperkingen in Azure Media Services v3
 
@@ -31,7 +31,7 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 | TransformOutputs in een transformatie | 20 (vast) |
 | Bestanden per JobInput|10 (vast)|
 | Bestandsgrootte| In sommige scenario's, moet u er een limiet is op de maximale bestandsgrootte voor verwerking in Media Services wordt ondersteund. <sup>(1)</sup> |
-| Taken per Media Services-account | 500\.000 <sup>(2)</sup> (vast)|
+| Taken per Media Services-account | 500.000 <sup>(2)</sup> (vast)|
 | Lijst met transformaties|Pagineer het antwoord met 1000 transformaties per pagina|
 | Lijst met taken|Pagineer het antwoord met 500 taken per pagina|
 | Live gebeurtenissen per Azure Media Services-account |5|
@@ -44,6 +44,7 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 | Transformaties per Media Services-account | 100 (vast)|
 | De unieke Streaming-Locators die tegelijk zijn gekoppeld aan een Asset | 100<sup>(6)</sup> (vast) |
 | Opties per beleid voor inhoud sleutels |30 | 
+| Licenties per maand voor elk van de typen DRM op Media Services sleutel leveringsservice per account|1\.000.000|
 
 <sup>1</sup> de maximale grootte voor één blob momenteel maximaal 5 TB in Azure Blob Storage wordt wordt ondersteund. Aanvullende beperkingen gelden in Media Services op basis van de VM-grootten die worden gebruikt door de service. De maximale grootte is van toepassing op de bestanden die u uploadt en de bestanden die worden gegenereerd als gevolg van Media Services verwerken (codering of analyseren). Als het bronbestand groter dan 260 GB is, wordt waarschijnlijk uw taak mislukt. 
 

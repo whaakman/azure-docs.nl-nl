@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755378"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302250"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Het plannen van indexeerfuncties voor Azure Search
 Een indexeerfunctie normaal gesproken één keer uitgevoerd, onmiddellijk nadat deze is gemaakt. U kunt het opnieuw uitvoeren op aanvraag via de portal, de REST-API of de .NET SDK. U kunt ook een indexeerfunctie periodiek wordt uitgevoerd volgens een planning configureren.
@@ -43,6 +43,9 @@ Laten we eens een voorbeeld waarmee dit meer concrete. Stel dat we bij het confi
 * De eerste uitvoering van de indexeerfunctie wordt gestart op of omstreeks 1 juni 2019 om 8:00 uur UTC. Wordt ervan uitgegaan dat deze uitvoering duurt 20 minuten (of elk gewenst moment minder dan 1 uur).
 * De tweede uitvoering gestart op of omstreeks 1 juni 2019 9:00 uur UTC. Stel dat deze uitvoering 70 minuten - meer dan een uur duurt – en dat deze kan niet worden voltooid tot en met 10:10:00 UTC.
 * De derde uitvoering is gepland om te beginnen bij 10:00 uur UTC, maar op dat moment wordt de vorige uitvoering nog steeds uitgevoerd. Dit geplande uitvoering vervolgens is overgeslagen. De volgende uitvoering van de indexeerfunctie wordt niet gestart tot en met 11:00 uur UTC.
+
+> [!NOTE]
+> Als een indexeerfunctie is ingesteld op een bepaalde planning, maar herhaaldelijk mislukt op dezelfde document telkens opnieuw telkens wanneer deze wordt uitgevoerd, begint de indexeerfunctie wordt uitgevoerd in een interval van minder frequent optreden (tot het maximum van ten minste elke 24 uur) totdat het in voortgang aga in.  Als u denkt u alles wat het probleem is veroorzaakt door de indexeerfunctie dat te zijn vastgelopen op een bepaald moment hebt opgelost, kunt u een op aanvraag uitvoeren van de indexeerfunctie uitvoeren en als die is maakt uitgevoerd, de indexeerfunctie wordt geretourneerd naar de schema-interval instellen opnieuw.
 
 <a name="portal"></a>
 

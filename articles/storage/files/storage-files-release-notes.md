@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 6/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c90e466bb7798fae3008dd72a4a4a0e2a0e7a0b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67125767"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303410"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Opmerkingen bij de release voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -25,6 +25,7 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 | Mijlpaal | Versienummer agent | Releasedatum | Status |
 |----|----------------------|--------------|------------------|
+| Versie 7 van de Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 juni 2019 | [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | Juni 2019 updatepakket - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 juni 2019 | Ondersteunde (aanbevolen versie) |
 | Mei 2019 updatepakket - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 mei 2019 | Ondersteund |
 | V6 De Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 april 2019 | Ondersteund |
@@ -42,6 +43,76 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-7000"></a>Agentversie 7.0.0.0
+De volgende releaseopmerkingen zijn voor versie 7.0.0.0 van de Azure File Sync-agent (vrijgegeven 19 juni 2019).
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Verbeteringen en problemen die zijn opgelost
+
+- Ondersteuning voor grotere voor bestanden delen
+    - Met de preview van grotere Azure-bestandsshares verhogen we de ondersteuningslimieten van onze voor bestandssynchronisatie ook. In deze eerste stap Azure File Sync biedt nu ondersteuning voor omhoog tot 25TB en 50million bestanden in één naamruimte te synchroniseren. Vul dit formulier in om toe te passen voor de preview van grote bestanden delen, https://aka.ms/azurefilesatscalesurvey. 
+- Verbeterde Azure back-up op bestandsniveau herstellen
+    - Afzonderlijke bestanden hersteld met behulp van Azure Backup zijn nu gedetecteerd en gesynchroniseerd met het servereindpunt sneller.
+- Verbeterde cloudopslaglagen intrekken cmdlet betrouwbaarheid 
+    - De cloud-opslaglagen intrekken cmdlet (Invoke-StorageSyncFileRecall) nu ondersteunt per bestand aantal nieuwe pogingen en wachttijd nieuwe poging, vergelijkbaar met robocopy.
+- Alleen ondersteuning voor TLS 1.2 (TLS 1.0 en 1.1 is uitgeschakeld)
+    - Azure File Sync nu ondersteunt het gebruik van TLS 1.2 alleen op servers met TLS 1.0 en 1.1 uitgeschakeld. Voordat u deze verbetering mislukken serverregistratie als TLS 1.0 en 1.1 is uitgeschakeld op de server.
+- Diverse prestaties en betrouwbaarheid verbeteringen voor synchronisatie en cloud-opslaglagen
+    - Er zijn verschillende verbeteringen voor de betrouwbaarheid en prestaties in deze release. Sommige hiervan zijn bedoeld als u cloud-opslaglagen efficiënter en Azure File Sync als een hele werk beter past in dergelijke situaties wanneer u een planning ingesteld voor bandbreedteregeling.
+
+### <a name="evaluation-tool"></a>Hulpprogramma voor het evalueren
+Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is met het systeem met behulp van het hulpprogramma voor het evalueren van Azure File Sync. Dit hulpprogramma is een Azure PowerShell-cmdlet waarmee wordt gecontroleerd op mogelijke problemen met het bestandssysteem en de gegevensset, zoals niet-ondersteunde tekens of een niet-ondersteunde versie van het besturingssysteem. Zie voor de installatie en instructies over het gebruik, [evaluatieprogramma](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) sectie in de handleiding voor capaciteitsplanning. 
+
+### <a name="agent-installation-and-server-configuration"></a>Agentinstallatie en serverconfiguratie
+Zie voor meer informatie over het installeren en configureren van de Azure File Sync-agent met Windows Server [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md) en [over het implementeren van Azure File Sync](storage-sync-files-deployment-guide.md).
+
+- Het installatiepakket voor de agent moet worden geïnstalleerd met machtigingen van de opdrachtprompt met verhoogde bevoegdheid (beheerder).
+- De agent wordt niet ondersteund op Nano Server-Implementatieoptie.
+- De agent wordt alleen ondersteund op Windows Server 2019, Windows Server 2016 en Windows Server 2012 R2.
+- De agent vereist ten minste 2 GiB geheugen. Als de server wordt uitgevoerd in een virtuele machine met dynamisch geheugen is ingeschakeld, kan de virtuele machine moet worden geconfigureerd met een minimaal 2048 MiB van het geheugen.
+- De service opslag-Sync-Agent (FileSyncSvc) biedt geen ondersteuning voor servereindpunten die zich op een volume dat de map system volume information (SVI is) gecomprimeerd. Deze configuratie zal leiden tot onverwachte resultaten.
+
+### <a name="interoperability"></a>Interoperabiliteit
+- Antivirusprogramma's, back-uptoepassingen en andere toepassingen die toegang hebben tot gelaagde bestanden, kunnen leiden tot ongewenste intrekking tenzij ze het kenmerk offline respecteren en het lezen van de inhoud van die bestanden overslaan. Zie voor meer informatie, [problemen met Azure File Sync](storage-sync-files-troubleshoot.md).
+- Bestandsserverbronbeheer (FSRM) bestandscontroles kunnen eindeloze synchronisatiefouten veroorzaken wanneer bestanden worden geblokkeerd vanwege de bestandscontrole.
+- Sysprep uitgevoerd op een server met de Azure File Sync-agent is geïnstalleerd, wordt niet ondersteund en kan leiden tot onverwachte resultaten. De Azure File Sync-agent moet worden geïnstalleerd na het implementeren van de server-installatiekopie en sysprep mini-installatie te voltooien.
+
+### <a name="sync-limitations"></a>Synchronisatiebeperkingen
+De volgende items worden niet gesynchroniseerd, maar de rest van het systeem blijft normaal functioneren:
+- Bestanden met niet-ondersteunde tekens. Zie [Troubleshooting guide](storage-sync-files-troubleshoot.md#handling-unsupported-characters) voor lijst met niet-ondersteunde tekens.
+- Bestanden of mappen die eindigen op een punt.
+- Paden langer dan 2.048 tekens.
+- Het gedeelte met de discretionaire ACL (Access Control List) van een security descriptor als dit groter is dan 2 kB. (Dit probleem geldt alleen wanneer er meer dan ongeveer 40 vermeldingen voor toegangsbeheer (ACE's) bestaan voor één item.)
+- Het gedeelte met de SACL (System Access Control List) van een security descriptor die wordt gebruikt voor controle.
+- Uitgebreide kenmerken.
+- Alternatieve gegevensstromen.
+- Reparse-punten.
+- Vaste koppelingen.
+- Compressie (indien ingesteld op een serverbestand) blijft niet behouden wanneer wijzigingen vanuit andere eindpunten naar dat bestand worden gesynchroniseerd.
+- Elk bestand dat is gecodeerd met EFS (of een andere versleuteling in de gebruikersmodus) dat voorkomt dat de service de gegevens leest.
+
+    > [!Note]  
+    > Gegevens die onderweg zijn tussen eindpunten worden altijd versleuteld door Azure File Sync. Inactieve gegevens (data-at-rest) worden altijd versleuteld in Azure.
+ 
+### <a name="server-endpoint"></a>Servereindpunt
+- Een servereindpunt kan alleen worden gemaakt op een NTFS-volume. ReFS, FAT, FAT32 en andere bestandssystemen worden op dit moment niet ondersteund door Azure File Sync.
+- Gelaagde bestanden wordt niet meer toegankelijk als de bestanden niet ingetrokken worden voordat u het servereindpunt verwijdert. Als u toegang tot de bestanden herstellen, maakt u het servereindpunt opnieuw. Als de 30 dagen zijn verstreken sinds het servereindpunt is verwijderd of als het cloudeindpunt is verwijderd, wordt gelaagde bestanden die niet zijn ingetrokken onbruikbaar worden.
+- Cloud tiering wordt niet ondersteund op het systeemvolume. Uitschakelen voor het maken van een servereindpunt op het systeemvolume, cloud-opslaglagen bij het maken van het servereindpunt.
+- Failoverclustering wordt alleen ondersteund met geclusterde schijven, maar niet met CSV's (Cluster Shared Volume).
+- Een servereindpunt kan niet worden genest. Een eindpunt van dit type kan zich samen met een ander eindpunt op hetzelfde volume bevinden.
+- Sla geen Besturingssysteembestand of wisselbestand van de toepassing binnen een eindpunt-serverlocatie.
+- De naam van de server in de portal is niet bijgewerkt als de naam van de server is gewijzigd.
+
+### <a name="cloud-endpoint"></a>Cloud-eindpunt
+- Azure File Sync ondersteunt rechtstreeks aanbrengen van wijzigingen in de Azure-bestandsshare. Alle wijzigingen in de Azure-bestandsshare moeten echter eerst moeten worden gedetecteerd door een Azure File Sync-taak wijzigen detectie. Een wijziging detectie-taak wordt gestart voor een cloudeindpunt om de 24 uur. Bovendien wijzigingen aangebracht in een Azure-bestandsshare via de REST-protocol wordt niet bijgewerkt door de SMB-tijdstip laatst gewijzigd en zal niet worden gezien als een wijziging door synchronisatie.
+- De opslagsynchronisatieservice en/of de storage-account kan worden verplaatst naar een andere resourcegroep of abonnement binnen de bestaande Azure AD-tenant. Als het opslagaccount is verplaatst, moet u de hybride File Sync-Service toegang geven tot het opslagaccount (Zie [Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+
+    > [!Note]  
+    > Azure File Sync biedt geen ondersteuning voor het verplaatsen van het abonnement naar een andere Azure AD-tenant.
+
+### <a name="cloud-tiering"></a>Cloudopslaglagen
+- Als een gelaagd bestand met behulp van Robocopy naar een andere locatie wordt gekopieerd, wordt het resulterende bestand niet in een laag geplaatst. Het kenmerk 'offline' kan zijn ingesteld omdat Robocopy dat kenmerk onterecht opneemt in kopieerbewerkingen.
+- Bij het kopiëren van bestanden met behulp van robocopy, moet u de /MIR-optie gebruiken om het bestand tijdstempels behouden. Dit zorgt ervoor dat oudere bestanden eerder dan recent geopende bestanden worden geschakeld.
 
 ## <a name="agent-version-6200"></a>Agentversie 6.2.0.0
 De volgende releaseopmerkingen zijn voor versie 6.2.0.0 van de Azure File Sync-agent die zijn uitgebracht 13 juni 2019. Deze opmerkingen zijn naast de releaseopmerkingen voor versie 6.0.0.0.

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474061"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204539"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is Azure AD recht management? (Preview)
 
@@ -129,41 +129,6 @@ Voor meer informatie over waar u recht op beheer en de bijbehorende documentatie
 | resource-map | Een map met een of meer resources te delen. |
 | toegewezen gebruikers | Een toewijzing van een pakket toegang aan een gebruiker of groep. |
 | Inschakelen | Het proces van het maken van een access-pakket beschikbaar voor gebruikers om aan te vragen. |
-
-## <a name="roles-and-permissions"></a>Rollen en machtigingen
-
-Beheer van rechten heeft op basis van functie met verschillende rollen.
-
-| Rol | Description |
-| --- | --- |
-| [Gebruikerbeheerder](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Alle aspecten van waar u recht op management beheren.<br/>Gebruikers en groepen maken. |
-| Maker van de catalogus | Maken en beheren van catalogussen. Normaal gesproken een IT-beheerder of resource-eigenaar. De persoon die u een catalogus automatisch maakt wordt het eerste cataloguseigenaar van de catalogus. |
-| De eigenaar van catalogus | Bewerken en beheren van bestaande catalogussen. Normaal gesproken een IT-beheerder of resource-eigenaar. |
-| Toegang tot package manager | Bewerken en beheren van alle bestaande toegang pakketten in een catalogus. |
-| Goedkeurder | Aanvragen voor toegang tot pakketten goedkeuren. |
-| Aanvrager | Aanvragen van toegang tot pakketten. |
-
-De volgende tabel bevat de machtigingen voor elk van deze rollen.
-
-| Taak | Gebruikerbeheerder | Maker van de catalogus | De eigenaar van catalogus | Toegang tot package manager | Goedkeurder |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [Maak een nieuwe toegang-pakket in de algemene catalogus](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [Maak een nieuwe toegang-pakket in een catalogus](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [Resource-rollen naar/van een pakket toegang toevoegen/verwijderen](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Opgeven wie een pakket toegang kunnen vragen](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Een gebruiker rechtstreeks toewijzen aan een pakket toegang](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Weergave die een toewijzing aan een pakket toegang heeft](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Een access-pakket aanvragen weergeven](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Een aanvraag voor de levering van fouten weergeven](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Een aanvraag in behandeling annuleren](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Een pakket toegang verbergen](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Een pakket toegang verwijderen](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Een aanvraag voor toegang tot goedkeuren](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [Een catalogusitemgroep maken](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [Resources van de algemene catalogus toevoegen/verwijderen](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [Resources uit een catalogus toevoegen/verwijderen](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Catalogus eigenaren toevoegen of toegang tot Pakketbeheer](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Een catalogus voor bewerken/verwijderen](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 
 ## <a name="license-requirements"></a>Licentievereisten
 

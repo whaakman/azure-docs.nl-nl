@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400138"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154825"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Geavanceerde beveiliging voor SQL-servers op IaaS
-Geavanceerde beveiliging voor SQL-Servers op Azure Virtual Machines is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Op dit moment bevat functionaliteit voor zichtbaar te maken en potentiële databaseproblemen beperkende en opsporen van afwijkende activiteiten die op een bedreiging voor uw database wijzen kunnen. 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Geavanceerde beveiliging voor SQL-servers op Azure Virtual Machines (openbare Preview)
+Geavanceerde beveiliging voor SQL-Servers op Azure Virtual Machines is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Momenteel (in openbare preview-versie) bevat functionaliteit voor zichtbaar te maken en potentiële databaseproblemen beperkende en opsporen van afwijkende activiteiten die op een bedreiging voor uw database wijzen kunnen. 
 
 Deze beveiliging bieden voor Azure VM's SQL-servers is gebaseerd op de fundamentele technologie die wordt gebruikt de [geavanceerde gegevensbeveiliging van Azure SQL Database-pakket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
@@ -36,7 +36,7 @@ Geavanceerde gegevensbeveiliging biedt een geavanceerde SQL-beveiligingsmogelijk
 
 ## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Aan de slag met geavanceerde beveiliging van gegevens voor SQL op Azure Virtual machines
 
-De volgende stappen uit om u aan de slag met geavanceerde beveiliging van gegevens voor SQL op Azure Virtual machines.
+De volgende stappen uit om u aan de slag met geavanceerde beveiliging van gegevens voor SQL in openbare Preview van Azure VM's.
 
 ### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Instellen van geavanceerde gegevensbeveiliging voor SQL op Azure Virtual machines
 
@@ -145,7 +145,7 @@ U kunt uw resultaten van de beoordeling beveiligingsproblemen en -rapporten rech
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Advanced Threat Protection voor SQL-Servers op virtuele machines in Azure-waarschuwingen
 Waarschuwingen worden gegenereerd door ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van SQL-Servers. Deze gebeurtenissen kunnen de volgende waarschuwing is geactiveerd:
 
-### <a name="anomalous-access-pattern-alerts"></a>Waarschuwingen voor afwijkende toegang-patroon
+### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>Afwijkende toegang patroon waarschuwingen (ondersteund in openbare preview-versie)
 
 * **Toegang vanaf ongebruikelijke locatie:** Deze waarschuwing wordt geactiveerd wanneer er een wijziging in het toegangspatroon tot de SQL server, waarbij iemand heeft aangemeld bij de SQL server vanuit een ongebruikelijke geografische locatie. Mogelijke oorzaken:
      * Een aanvaller of voormalige schadelijke werknemers toegang heeft gehad tot uw SQL-Server.

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/13/2019
-ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070377"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272240"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL-Database beheerd exemplaar resourcebeperkingen
 
@@ -54,13 +54,13 @@ Beheerd exemplaar heeft twee Servicelagen: Algemeen gebruik en bedrijfskritiek. 
 | Maximumgrootte van het exemplaar-opslag | -2 TB voor 4 vCores (alleen Gen5)<br/>-8 TB voor andere grootten | Gen4: 1 TB <br/> Gen5: <br/>-1 TB voor 4, 8, 16 vCores<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
-| Maximum aantal bestanden per exemplaar | Maximaal 280 | 32\.767 bestanden per database |
+| Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
 | Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
 | Logboek-doorvoer | 3 MB/s per vCore<br/>Max 22 MB/s per exemplaar | 4 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
 | Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
 | Maximumgrootte van tempDB | 192 - 1,920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |
-| Maximum aantal sessies | 30\.000 | 30\.000 |
+| Maximum aantal sessies | 30.000 | 30.000 |
 
 > [!NOTE]
 > - Gegevens- en logboekbestanden bestandsgrootte in de gebruiker en de systeemdatabases zijn opgenomen in de grootte van de instantie die wordt vergeleken met de maximale grootte opslaglimiet. Gebruik <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> door het systeemweergave om te bepalen het totale aantal gebruikte ruimte door databases. Foutenlogboeken zijn niet permanent en worden niet opgenomen in de grootte. Back-ups zijn niet opgenomen in de opslagruimte.
@@ -105,7 +105,7 @@ De volgende tabel ziet u de regionale standaardlimieten voor ondersteunde abonne
 
 \* Wanneer u uw implementatie plant, houd rekening met dat een vCore Business kritieke (BC) (als gevolg van toegevoegde redundantie) 4 x meer capaciteit dan een vCore voor algemeen gebruik (GP) in beslag neemt. Ja, voor de berekeningen, 1 GP vCore = 1 vCore-eenheid en BC 1 vCore = 4 vCore-eenheden. Ter vereenvoudiging van uw verbruik analyse op basis van de standaardlimieten vatten het vCore-eenheden via alle subnetten in de regio waar beheerde exemplaren zijn geïmplementeerd en de resultaten vergelijken met de exemplaar-eenheid-limieten voor uw abonnementstype. **Maximumaantal eenheden vCore** geldt een limiet aan elk abonnement in een regio. Er is geen limiet per afzonderlijke subnetten, behalve dat de som van alle vCores geïmplementeerd in meerdere subnetten moet kleiner of gelijk aan **maximum aantal eenheden vCore**.
 
-** Groter subnet en vCore-limieten zijn beschikbaar in de volgende regio's: Australië-Oost, VS-Oost, VS-Oost 2, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, UK-Zuid, West-Europa, VS-West 2.
+\*\* Groter subnet en vCore-limieten zijn beschikbaar in de volgende regio's: Australië-Oost, VS-Oost, VS-Oost 2, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, UK-Zuid, West-Europa, VS-West 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor SQL beheerd exemplaar
 

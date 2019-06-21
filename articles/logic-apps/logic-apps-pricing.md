@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075068"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190683"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prijsmodel voor Azure Logic Apps
 
@@ -53,7 +53,7 @@ Zie voor gedetailleerde informatie over prijzen [prijzen voor Azure Logic Apps](
 
 ## <a name="connectors"></a>Connectors
 
-Azure Logic Apps-connectors u helpen uw logische app toegang tot apps, services en systemen in de cloud of on-premises met [triggers](#triggers), [acties](#actions), of beide. Connectors zijn geclassificeerd als Standard of Enterprise. Zie voor een overzicht van deze connectors, [Connectors voor Azure Logic Apps](../connectors/apis-list.md). De volgende secties bevatten meer informatie over hoe de facturering voor triggers en acties werken.
+Azure Logic Apps-connectors u helpen uw logische app toegang tot apps, services en systemen in de cloud of on-premises met [triggers](#triggers), [acties](#actions), of beide. Connectors zijn geclassificeerd als Standard of Enterprise. Zie voor een overzicht van deze connectors, [Connectors voor Azure Logic Apps](../connectors/apis-list.md). Als er geen vooraf gedefinieerde connectors beschikbaar voor de REST-API's die u wilt gebruiken in uw logische apps zijn, kunt u [aangepaste connectors](https://docs.microsoft.com/connectors/custom-connectors), die alleen dan geen wrappers rondom de REST-API's zijn. Aangepaste connectors worden in rekening gebracht als standaard-connectors. De volgende secties bevatten meer informatie over hoe de facturering voor triggers en acties werken.
 
 <a name="triggers"></a>
 

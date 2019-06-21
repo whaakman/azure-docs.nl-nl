@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 83f202f087d51b7742a74cf5ee5db8bd5fee5385
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5bbd19969349965ea20fa4cfc09e10119a9a86c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073722"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295752"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor de prestaties en schaalbaarheid van Microsoft Azure Storage
 
@@ -109,7 +109,7 @@ Als de limiet van storage-accounts die u in de combinatie van een bepaald abonne
 Als uw toepassing de prestatiedoelen voor een enkel opslagaccount nadert, Overweeg de overstap naar een van de volgende methoden:  
 
 * Heroverweeg de werkbelasting die ervoor zorgt dat uw toepassing om te benaderen of groter zijn dan het schaalbaarheidsdoel. Kunt u deze anders te gebruiken voor minder bandbreedte of capaciteit of minder transacties ontwerpen?
-* Als een toepassing een van de schaalbaarheidsdoelen overschrijdt moet, moet u meerdere opslagaccounts en partitie uw toepassingsgegevens voor deze meerdere opslagaccounts. Als u dit patroon gebruiken, moet u ervoor dat u het ontwerp van uw toepassing, zodat u meer storage-accounts in de toekomst voor de taakverdeling kunt toevoegen. Elk Azure-abonnement kan maximaal 100 opslagaccounts hebben op het moment van schrijven.  Storage-accounts gelden ook geen kosten dan uw gebruik in termen van gegevens die zijn opgeslagen, transacties die zijn gemaakt of gegevens die worden overgedragen.
+* Als een toepassing een van de schaalbaarheidsdoelen overschrijdt moet, moet u meerdere opslagaccounts en partitie uw toepassingsgegevens voor deze meerdere opslagaccounts. Als u dit patroon gebruiken, moet u ervoor dat u het ontwerp van uw toepassing, zodat u meer storage-accounts in de toekomst voor de taakverdeling kunt toevoegen. Op het moment van schrijven, kan elk Azure-abonnement maximaal 250 storage-accounts per regio (indien geïmplementeerd met het Azure Resource Manager-model) hebben.  Storage-accounts gelden ook geen kosten dan uw gebruik in termen van gegevens die zijn opgeslagen, transacties die zijn gemaakt of gegevens die worden overgedragen.
 * Als uw toepassing de bandbreedte-doelen raakt, kunt u overwegen het comprimeren van gegevens in de client en het verminderen van de bandbreedte die vereist zijn de gegevens te verzenden naar de storage-service.  Hoewel dit mogelijk bandbreedte besparen en verbetering van netwerkprestaties, kan het ook sommige negatieve gevolgen hebben.  De invloed hiervan op de prestaties vanwege de extra verwerkingsvereisten voor het comprimeren en decomprimeren van gegevens in de client, moet u evalueren. Bovendien kan opslag van gecomprimeerde gegevens het moeilijker voor het oplossen van problemen, omdat het moeilijker om weer te geven van opgeslagen gegevens met standaardprogramma's kan worden.
 * Als uw toepassing bij de schaalbaarheidsdoelen aankomt, zorg ervoor dat u exponentieel uitstel voor nieuwe pogingen gebruikt (Zie [nieuwe pogingen](#subheading14)).  Is het beter om te controleren of u nooit de schaalbaarheidsdoelen benadering (met behulp van een van de bovenstaande methoden), maar dit zorgt ervoor dat uw toepassing wordt niet alleen blijft proberen snel, waardoor de beperking slechter heeft.  
 

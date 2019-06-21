@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539297"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147533"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Het oplossen van veelvoorkomende problemen met indexeerfunctie in Azure Search
 
@@ -35,14 +35,11 @@ Azure Storage biedt een configureerbare firewall. De firewall is standaard uitge
 
 Er is geen specifiek foutbericht weergegeven wanneer de firewall is ingeschakeld. Normaal gesproken fouten firewall eruit `The remote server returned an error: (403) Forbidden`.
 
-U kunt controleren dat de firewall is ingeschakeld in de [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Als de firewall is ingeschakeld, hebt u twee opties voor het ophalen van dit probleem tijdelijk op:
+U kunt controleren dat de firewall is ingeschakeld in de [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). De enige ondersteunde oplossing is om uit te schakelen van de firewall door te kiezen zodat toegang vanaf ['Alle netwerken'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. De firewall uitschakelen door te kiezen zodat toegang vanaf ['Alle netwerken'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)
-1. [Een uitzondering toevoegen](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) voor het IP-adres van uw search-service. Als u dit IP-adres zoekt, gebruikt u de volgende opdracht uit:
+Als uw indexeerfunctie beschikt niet over een gekoppelde vaardigheden u _kan_ probeert te [een uitzondering toevoegen](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) voor IP-adressen van uw search-service. Echter, in dit scenario wordt niet ondersteund en is niet noodzakelijkerwijs om te werken.
 
-`nslookup <service name>.search.windows.net`
-
-Uitzonderingen werken niet voor [cognitief zoeken](cognitive-search-concept-intro.md). De enige oplossing is om uit te schakelen van de firewall.
+U vindt het IP-adres van uw search-service door het pingen van de FQDN-naam (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 

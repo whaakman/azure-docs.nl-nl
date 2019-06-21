@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350d2c6253a417637c7ec8f2e38919dc4b969340
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921982"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190778"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Verbinding maken met uw Barracuda-apparaat 
 
@@ -41,7 +41,7 @@ Barracuda Web Application Firewall kunt integreren en logboeken exporteren recht
 2. In de portal voor Azure Sentinel, gaat u naar de werkruimte waarop u geïmplementeerd Sentinel van Azure en selecteer het weglatingsteken (...) aan het einde van de rij en selecteer **geavanceerde instellingen**. 
 1. Selecteer **gegevens** en vervolgens **Syslog**.
 1. Zorg ervoor dat de opslagruimte die u in Barracuda instelt bestaat en de ernst instellen en klik op **opslaan**.
-6. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Barracuda-gebeurtenissen, **CommonSecurityLog**.
+6. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Barracuda-gebeurtenissen, **CommonSecurityLog** en **barracuda_CL**.
 
 
 ## <a name="validate-connectivity"></a>Verbinding valideren

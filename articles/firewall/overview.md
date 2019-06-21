@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/20/2019
+ms.date: 6/21/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ace0b56ce1ba4c140666c8f2dd6e2187f479446e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: deca4d1f66950e89148089d2984eb9cb35c470a8
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272642"
+ms.locfileid: "67304572"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -73,7 +73,7 @@ Filteren op basis van bedreigingsinformatie kan voor uw firewall worden ingescha
 
 ### <a name="outbound-snat-support"></a>Ondersteuning voor uitgaande SNAT
 
-Alle uitgaande IP-adressen van virtueel netwerkverkeer worden geconverteerd naar de openbare IP van Azure Firewall (Source Network Address Translation). U kunt verkeer dat afkomstig is uit uw virtuele netwerk naar externe internetbestemmingen identificeren en toestaan.
+Alle uitgaande IP-adressen van virtueel netwerkverkeer worden geconverteerd naar de openbare IP van Azure Firewall (Source Network Address Translation). U kunt verkeer dat afkomstig is uit uw virtuele netwerk naar externe internetbestemmingen identificeren en toestaan. Firewall van Azure SNAT niet wanneer het doel-IP-adres een privé-IP-adresbereik per is [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Als uw organisatie gebruikmaakt van een openbare IP-adresbereik voor particuliere netwerken, wordt Azure Firewall SNAT het verkeer naar een van de firewall privé IP-adressen in AzureFirewallSubnet.
 
 ### <a name="inbound-dnat-support"></a>Ondersteuning voor inkomende DNAT
 

@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e3b22672351b7e34c9ccccb37f0303b53a770f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430853"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67292838"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Model interpretability met Azure Machine Learning-service
 
@@ -252,6 +252,23 @@ U kunt op elk gewenst moment afzonderlijke klikken op elk gewenst moment van de 
 
 [![Visualisatie Dashboard lokale](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
+Houd er rekening mee moet u beschikken over uitbreidingen voor widget van het dashboard visualisatie is ingeschakeld voordat het starten van een Jupyter-kernel.
+
+* Jupyter-notebooks
+
+    ```shell
+    jupyter nbextension install --py --sys-prefix azureml.contrib.explain.model.visualize
+    jupyter nbextension enable --py --sys-prefix azureml.contrib.explain.model.visualize
+    ```
+
+
+
+* Jupyter Labs
+
+    ```shell
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    jupyter labextension install microsoft-mli-widget
+    ```
 Gebruik de volgende code voor het laden van de visualisatie-dashboard:
 
 ```python

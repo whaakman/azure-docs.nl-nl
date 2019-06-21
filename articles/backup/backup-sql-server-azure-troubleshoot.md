@@ -6,14 +6,14 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 05/27/2019
+ms.date: 06/18/2019
 ms.author: anuragm
-ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ed30a35f30d1b6b9fdcd43110ed93618a10dbc3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306956"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204194"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
 
@@ -25,8 +25,7 @@ U wilt weergeven van de functie overweging, Zie het artikel [over SQL Server-bac
 
 ## <a name="sql-server-permissions"></a>SQL Server-machtigingen
 
-Beveiliging voor een SQL Server-database configureren op een virtuele machine, de **AzureBackupWindowsWorkload** extensie moet worden geïnstalleerd op deze virtuele machine. Als u de foutmelding **UserErrorSQLNoSysadminMembership**, betekent dit dat uw SQL-exemplaar beschikt niet over de vereiste back-machtigingen. U kunt deze fout oplossen, volg de stappen in [machtigingen instellen voor niet-marketplace SQL-VM's](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
+Beveiliging voor een SQL Server-database configureren op een virtuele machine, de **AzureBackupWindowsWorkload** extensie moet worden geïnstalleerd op deze virtuele machine. Als u de foutmelding **UserErrorSQLNoSysadminMembership**, betekent dit dat uw SQL-exemplaar beschikt niet over de vereiste back-machtigingen. U kunt deze fout oplossen, volg de stappen in [machtigingen instellen voor niet-marketplace SQL-VM's](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="backup-type-unsupported"></a>Type back-up wordt niet ondersteund
 

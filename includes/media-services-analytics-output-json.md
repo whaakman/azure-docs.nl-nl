@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160959"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176449"
 ---
 De taak levert een JSON-uitvoer-bestand met metagegevens over gezichten gedetecteerd en bijgehouden. De metagegevens bevatten die wijzen op de locatie van gezichten, evenals een face id-nummer die wijzen op het volgen van deze persoon coördinaten. Face id-nummers zijn gevoelig zijn voor het opnieuw instellen onder omstandigheden wanneer de voorzijde gezicht is zoekgeraakt of overlappende in het kader, wat resulteert in bepaalde personen meerdere id's ophalen van toegewezen.
 

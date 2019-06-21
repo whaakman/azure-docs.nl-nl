@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 3a7cc1ac3940104993e6643e92da923ad1c6a14a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5054b552f4ca019125671903134bb080e0c9db4e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66249031"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277204"
 ---
 | Category | Gegevensarchief | Ondersteund als een [Kopieeractiviteit](../articles/data-factory/copy-activity-overview.md) bron | Ondersteund als een [Kopieeractiviteit](../articles/data-factory/copy-activity-overview.md) sink | Ondersteund door [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Ondersteund door [zelf-hostende IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Ondersteund door [gegevensstroom](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -19,12 +19,12 @@ ms.locfileid: "66249031"
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ ||
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Ondersteunde indelingen: Delimited Text, Parquet</small> |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Ondersteunde indelingen: Delimited Text, Parquet</small> |
-| &nbsp; |[Azure Database voor MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  ||
+| &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |✓  |
-| &nbsp; |[Beheerd exemplaar voor Azure SQL Database](../articles/data-factory/connector-azure-sql-database-managed-insance.md) | |✓ |✓ |✓  ||
+| &nbsp; |[Beheerd exemplaar voor Azure SQL Database](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |✓  |
 | &nbsp; |[Azure Search-index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  ||
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  ||
@@ -48,7 +48,7 @@ ms.locfileid: "66249031"
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  ||
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  ||
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  ||
-| &nbsp; |[SAP-tabel](../articles/data-factory/connector-sap-table.md) |✓ |✓ | |✓  ||
+| &nbsp; |[SAP-tabel](../articles/data-factory/connector-sap-table.md) |✓ | | |✓  ||
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  ||
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  ||

@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d38035031c32c512a55293ba125fdcc4535b9833
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65896860"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204383"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure activiteitenlogboeken AD in Azure Monitor
 
@@ -78,10 +78,10 @@ De volgende tabel bevat een kostenraming, afhankelijk van de grootte van de tena
 
 | Logboekcategorie | Aantal gebruikers | Gebeurtenissen per dag | Gegevensvolume per maand (geschat) | Kosten per maand (geschat) | Kosten per jaar (geschat) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Controleren | 100\.000 | 1,5&nbsp;miljoen | 90 GB | $ 1,93 | $ 23,12 |
-| Controleren | 1000 | 15\.000 | 900 MB | $ 0,02 | $ 0,24 |
-| Aanmeldingen | 1000 | 34\.800 | 4 GB | $ 0,13 | $ 1,56 |
-| Aanmeldingen | 100\.000 | 15&nbsp;miljoen | 1,7 TB | $ 35,41 | $ 424,92 |
+| Controleren | 100.000 | 1,5&nbsp;miljoen | 90 GB | $ 1,93 | $ 23,12 |
+| Controleren | 1000 | 15.000 | 900 MB | $ 0,02 | $ 0,24 |
+| Aanmeldingen | 1000 | 34.800 | 4 GB | $ 0,13 | $ 1,56 |
+| Aanmeldingen | 100.000 | 15&nbsp;miljoen | 1,7 TB | $ 35,41 | $ 424,92 |
  
 
 
@@ -102,9 +102,9 @@ De volgende tabel bevat een raming van de maandelijkse kosten voor een eenvoudig
 
 | Logboekcategorie | Aantal gebruikers | Gebeurtenissen per seconde | Gebeurtenissen met een interval van vijf minuten | Volume per interval | Berichten per interval | Berichten per maand | Kosten per maand (geschat) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Controleren | 100\.000 | 18 | 5400 | 10,8 MB | 43 | 371\.520 | $ 10,83 |
+| Controleren | 100.000 | 18 | 5400 | 10,8 MB | 43 | 371.520 | $ 10,83 |
 | Controleren | 1000 | 0.1 | 52 | 104 kB | 1 | 8640 | $ 10,80 |
-| Aanmeldingen | 1000 | 178 | 53\.400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $ 11,06 |  
+| Aanmeldingen | 1000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $ 11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor logboeken kosten overwegingen met betrekking tot
 
@@ -112,9 +112,9 @@ De volgende tabel bevat een raming van de maandelijkse kosten voor een eenvoudig
 
 | Logboekcategorie       | Aantal gebruikers | Gebeurtenissen per dag | Gebeurtenissen per maand (30 dagen) | Kosten per maand in Amerikaanse dollars (est). |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Controle en -aanmeldingen | 100\.000         | 16,500,000     | 495,000,000                |  $1093.00                       |
-| Controleren              | 100\.000         | 1,500,000      | 45,000,000                 |  $246.66                     |
-| Aanmeldingen           | 100\.000         | 15,000,000     | 450,000,000                |  $847.28                     |
+| Controle en -aanmeldingen | 100.000         | 16,500,000     | 495,000,000                |  $1093.00                       |
+| Controleren              | 100.000         | 1,500,000      | 45,000,000                 |  $246.66                     |
+| Aanmeldingen           | 100.000         | 15,000,000     | 450,000,000                |  $847.28                     |
 
 
 
@@ -135,37 +135,37 @@ Deze sectie bevat antwoorden op veelgestelde vragen en bekende problemen met bet
 
 **A**: Aanmeldingsactiviteiten logboeken en auditlogboeken zijn beschikbaar voor de routering via deze functie, hoewel gebeurtenissen voor beveiligingscontrole met betrekking tot B2C momenteel niet opgenomen zijn. Raadpleeg het [auditlogboekschema](reference-azure-monitor-audit-log-schema.md) en het [aanmeldingslogboekschema](reference-azure-monitor-sign-ins-log-schema.md) om uit te vinden welke typen logboeken en welke op functie gebaseerde logboeken momenteel worden ondersteund. 
 
------
+---
 
 **V: Hoe snel na een actie wordt de bijbehorende logboeken weergegeven in mijn event hub?**
 
 **A**: De logboeken moeten weergegeven in uw event hub binnen twee tot vijf minuten nadat de actie wordt uitgevoerd. Raadpleeg [Wat is Azure Event Hubs?](../../event-hubs/event-hubs-about.md) voor meer informatie over Event Hubs.
 
------
+---
 
 **V: Hoe snel na een actie wordt de bijbehorende logboeken weergegeven in mijn storage-account?**
 
 **A**: Voor Azure storage-accounts is de latentie overal van 5 tot 15 minuten nadat de actie wordt uitgevoerd.
 
------
+---
 
 **V: Wat gebeurt er als de bewaarperiode van een diagnostische instelling wordt gewijzigd door een beheerder?**
 
 **A**: Het nieuwe retentiebeleid zal worden toegepast op Logboeken verzameld na de wijziging. Logboeken verzameld voordat de wijziging niet gewijzigd worden.
 
------
+---
 
 **V: Hoeveel kost het om op te slaan van mijn gegevens?**
 
 **A**: De kosten voor opslag zijn afhankelijk van de grootte van uw logboeken en de bewaarperiode liggen die u kiest. Raadpleeg de sectie [Opslaggrootte voor activiteitenlogboeken](#storage-size-for-activity-logs) voor een lijst van de geschatte kosten voor tenants. De kosten zijn afhankelijk van het aantal logboeken dat wordt gegenereerd.
 
------
+---
 
 **V: Hoeveel kost het om mijn gegevens naar een event hub streamen?**
 
 **A**: De kosten voor streaming is afhankelijk van het aantal berichten u per minuut ontvangt. In dit artikel wordt beschreven hoe de kosten worden berekend en vindt u een lijst met geschatte kosten, die zijn gebaseerd op het aantal berichten. 
 
------
+---
 
 **V: Hoe Integreer ik Azure AD-activiteitenlogboeken met mijn SIEM-systeem?**
 
@@ -175,31 +175,31 @@ Deze sectie bevat antwoorden op veelgestelde vragen en bekende problemen met bet
 
 - Gebruik de [Reporting Graph API](concept-reporting-api.md) voor toegang tot de gegevens. Push de gegevens daarna naar uw SIEM-systeem met uw eigen scripts.
 
------
+---
 
 **V: Welke SIEM-hulpprogramma's worden momenteel ondersteund?** 
 
 **A**: Azure Monitor wordt momenteel ondersteund door [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar, en [Sumo logische](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Raadpleeg [Azure-bewakingsgegevens streamen naar een Event Hub voor gebruik door een extern hulpprogramma](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) voor meer informatie over hoe de connectors werken.
 
------
+---
 
 **V: Hoe Integreer ik Azure AD activiteitenlogboeken met mijn Splunk instantie?**
 
 **A**: Eerste, [route de Azure AD-activiteitenlogboeken streamen naar een event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md), volgt u de stappen voor het [activiteitenlogboeken integreren met Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
------
+---
 
 **V: Hoe Integreer ik Azure AD activiteitenlogboeken Sumo logische?** 
 
 **A**: Eerste, [route de Azure AD-activiteitenlogboeken streamen naar een event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), volgt u de stappen voor het [installeert de Azure AD-toepassing en de dashboards weergeven in SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
------
+---
 
 **V: Krijg ik toegang tot de gegevens van een event hub zonder een externe SIEM-hulpprogramma gebruiken?** 
 
 **A**: Ja. U kunt de [Event Hubs-API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) gebruiken om de logboeken vanuit uw eigen aangepaste toepassing te bekijken. 
 
------
+---
 
 
 ## <a name="next-steps"></a>Volgende stappen

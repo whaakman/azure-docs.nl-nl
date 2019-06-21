@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: b6ea8c7b3a6374572c8bd31e3c62b788efbafcbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156312"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176689"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Een Azure Resource Manager-token verkrijgen
 Alle taken die u uitvoert op resources met behulp van Azure Resource Manager moeten worden geverifieerd door Azure Active Directory. In het voorbeeld hieronder wordt wachtwoordverificatie gebruikt, gebruikt voor andere methoden raadpleegt [verificatie van Azure Resource Manager-aanvragen][lnk-authenticate-arm].

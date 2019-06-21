@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522856"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190715"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -42,7 +42,10 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Failover-groep (mist)**
 
-  Een failovergroep is een groep databases die worden beheerd door één SQL Database-server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio. Wanneer voor beheerde exemplaren gemaakt, een failover-groep met alle gebruikersdatabases in het exemplaar bevat, en daarom alleen een failover-groep kan worden geconfigureerd op een exemplaar.
+  Een failovergroep is een benoemde groep databases die worden beheerd door één SQL Database-server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio. Wanneer voor beheerde exemplaren gemaakt, een failover-groep met alle gebruikersdatabases in het exemplaar bevat, en daarom alleen een failover-groep kan worden geconfigureerd op een exemplaar.
+  
+  > [!IMPORTANT]
+  > De naam van de failovergroep moet globaal uniek is binnen de `.database.windows.net` domein.
 
 - **SQL Database-servers**
 

@@ -1,30 +1,30 @@
 ---
-title: 'Zelfstudie: Een Azure DNS-privézone maken met Azure PowerShell'
-description: In deze zelfstudie maakt en test u een DNS-privézone en -record in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste privé-DNS-zone en -record met behulp van Azure PowerShell.
+title: Een Azure DNS-privézone maken met Azure PowerShell
+description: In dit artikel hebt u maken en testen van een privé-DNS-zone en -record in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste privé-DNS-zone en -record met behulp van Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: tutorial
-ms.date: 06/13/2019
+ms.topic: article
+ms.date: 06/14/2019
 ms.author: victorh
-ms.openlocfilehash: 8f39c9707fef013c162e407a7e3ccaa67f2cabfc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 9d79ed28bd331b723755e1c17233aa82421ad1d7
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080587"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147879"
 ---
-# <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Zelfstudie: Een Azure DNS-privézone maken met Azure PowerShell
+# <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Een Azure DNS-privézone maken met Azure PowerShell
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-Deze zelfstudie leidt u stapsgewijs door de procedure voor het maken van uw eerste privé-DNS-zone en -record met behulp van Azure PowerShell.
+Dit artikel leidt u stapsgewijs door de procedure voor het maken van uw eerste privé-DNS-zone en -record met behulp van Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Als u een privé-DNS-zone wilt publiceren naar uw virtuele netwerk, geeft u de lijst op met virtuele netwerken die zijn toegestaan om records in de zone om te zetten.  Deze heten *gekoppelde* virtuele netwerken. Als automatische registratie is ingeschakeld, Azure DNS zonerecords ook bijgewerkt wanneer een virtuele machine wordt gemaakt, worden wijzigingen zijn ' IP-adres, of is verwijderd.
 
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een privé-DNS-zone maken
@@ -32,16 +32,11 @@ In deze zelfstudie leert u het volgende:
 > * Een extra DNS-record maken
 > * De privézone testen
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-U kunt deze zelfstudie desgewenst volgen met de [Azure CLI](private-dns-getstarted-cli.md).
-
-<!--- ## Get the Preview PowerShell modules
-These instructions assume you have already installed and signed in to Azure PowerShell, including ensuring you have the required modules for the Private Zone feature. -->
-
-<!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure CLI](private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>De resourcegroep maken
 
@@ -204,7 +199,7 @@ Herhaal voor myVM02.
 
 ## <a name="delete-all-resources"></a>Alle resources verwijderen
 
-Verwijder de **MyAzureResourceGroup** als u deze niet langer nodig hebt om de resources die u in deze zelfstudie hebt gemaakt te verwijderen.
+Wanneer het niet meer nodig hebt, verwijdert u de **MyAzureResourceGroup** resourcegroep om de resources in dit artikel hebt gemaakt te verwijderen.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name MyAzureResourceGroup
@@ -212,8 +207,7 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een DNS-privézone geïmplementeerd, een DNS-record gemaakt en de zone getest.
+In dit artikel wordt een persoonlijke DNS-zone gemaakt van een DNS-record, geïmplementeerd en getest van de zone.
 U kunt nu meer leren over DNS-privézones.
 
-> [!div class="nextstepaction"]
-> [Azure DNS gebruiken voor persoonlijke domeinen](private-dns-overview.md)
+* [Azure DNS gebruiken voor persoonlijke domeinen](private-dns-overview.md)

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148212"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176024"
 ---
 **Premium niet-beheerde VM-schijven: De limieten per account**
 
@@ -34,6 +34,6 @@ ms.locfileid: "66148212"
 
 | Resource | Standaardlimiet |
 | --- | --- |
-| Maximale IOPS per VM |80\.000 IOP's met GS5-VM 's |
+| Maximale IOPS per VM |80.000 IOP's met GS5-VM 's |
 | Maximale doorvoer per VM |2000 MB per seconde met GS5-VM 's |
 

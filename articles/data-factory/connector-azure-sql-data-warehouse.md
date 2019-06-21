@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427897"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206076"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -426,7 +426,7 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account sleutelverificatie, verificatie van de beheerde identiteit |
 
     >[!IMPORTANT]
-    >Als uw Azure-opslag met VNet-service-eindpunt is geconfigureerd, moet u verificatie van de beheerde identiteit. Raadpleeg [gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Als uw Azure-opslag met VNet-service-eindpunt is geconfigureerd, moet u verificatie van de beheerde identiteit - Raadpleeg [gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Informatie over de vereiste configuraties in Data Factory uit [Azure Blob - verificatie van de beheerde identiteit](connector-azure-blob-storage.md#managed-identity) en [Azure Data Lake Storage Gen2 - verificatie van de beheerde identiteit](connector-azure-data-lake-storage.md#managed-identity) sectie respectievelijk.
 
 2. De **Brongegevensindeling** is van het **Parquet**, **ORC**, of **tekst met scheidingstekens**, met de volgende configuraties:
 
@@ -542,7 +542,7 @@ De oplossing is selectie "**gebruik het standaardtype**" optie (als onwaar) in d
 
 **Andere**
 
-Raadpleeg voor meer knonw PolyBase problemen, [laden voor het oplossen van Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+Raadpleeg voor meer bekende problemen voor PolyBase, [laden voor het oplossen van Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resourceklasse
 

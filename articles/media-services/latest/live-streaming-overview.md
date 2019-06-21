@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556230"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295663"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 - Onderdelen in Media Services, waarmee u om op te nemen, preview, inpakken, registreren, versleutelen en uitzenden van de live-gebeurtenis aan uw klanten of aan een CDN voor verdere distributie.
 
 In dit artikel biedt een overzicht en richtlijnen voor live streamen met Media Services en koppelingen naar andere relevante artikelen.
-
+ 
 > [!NOTE]
 > U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](media-services-apis-overview.md#sdks).
 
@@ -49,27 +49,27 @@ Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, inde
 
 ## <a name="live-event-types"></a>Live gebeurtenistypen
 
-Een Live-gebeurtenis kan een van twee typen zijn: Pass Through- en live codering. Zie voor meer informatie over live streamen in Media Services v3 [Live evenementen en Live uitvoer](live-events-outputs-concept.md).
+[Livegebeurtenissen](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live videofeeds. Een Live-gebeurtenis kan een van twee typen zijn: Pass Through- en live codering. Zie voor meer informatie over live streamen in Media Services v3 [Live evenementen en Live uitvoer](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Pass-through
 
 ![passthrough](./media/live-streaming/pass-through.svg)
 
-Bij gebruik van de pass-through **livegebeurtenis** bent u afhankelijk van de on-premises live-encoder voor het genereren van een multiple-bitrate videostream en het verzenden ervan als de bijdragefeed voor de livegebeurtenis (met behulp van RTMP of een gefragmenteerd MP4-protocol). De livegebeurtenis voert de binnenkomende videostream vervolgens zonder verdere verwerking uit. Dergelijke een Pass Through-Live-gebeurtenis is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. 
+Bij het gebruik van de pass-through **Live gebeurtenis**, afhankelijk van uw on-premises live coderingsprogramma meerdere bitrate videostream genereren en verzenden dat er als de bijdrage feed aan de Live-gebeurtenis (met behulp van invoerprotocol RTMP- of gefragmenteerde MP4). De Live gebeurtenis wordt vervolgens via de binnenkomende video stromen naar de dynamische pakketbouwer (Streaming-eindpunt) zonder eventuele verdere transcodering. Dergelijke een Pass Through-Live-gebeurtenis is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![live encoding](./media/live-streaming/live-encoding.svg)
 
-Bij gebruik van live-codering met Media Services zou u uw on-premises live-encoder zodanig configureren dat één bitrate-video als bijdragefeed wordt verzonden naar de livegebeurtenis (met behulp van het protocol RTMP of gefragmenteerde MP4). De livegebeurtenis codeert de binnenkomende enkelvoudige bitrate gegevensstroom in een [videostroom met meerdere bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) en maakt deze beschikbaar voor afgifte naar afspeelapparaten via protocollen als MPEG-DASH, HLS en Smooth Streaming. 
+Bij het gebruik van cloud met Media Services encoding, configureert u uw on-premises live coderingsprogramma voor het verzenden van een single-bitrate video als de bijdrage feed (maximaal 32Mbps cumulatieve) aan de Live-gebeurtenis (met behulp van invoerprotocol RTMP- of gefragmenteerde MP4). De Live gebeurtenis transcodeert de binnenkomende single-bitrate stream naar [meerdere bitrate video stromen](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) bij verschillende resoluties voor het verbeteren van levering en maakt ze beschikbaar zijn voor levering aan apparaten via standaardprotocollen afspelen zoals MPEG-DASH, Apple HTTP Live Streaming (HLS) en Microsoft Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Werkstroom voor live streaming
 
 Voor meer informatie over de werkstroom voor live streaming in Media Services v3, moet u eerst controleren en begrijpen van de volgende concepten: 
 
-- [Streaming-eindpunten API](streaming-endpoint-concept.md)
-- [Live-evenementen en Live uitvoer-API](live-events-outputs-concept.md)
-- [Streaming-Locators API](streaming-locators-concept.md)
+- [Streaming-eindpunten](streaming-endpoint-concept.md)
+- [Livegebeurtenissen en live-uitvoer](live-events-outputs-concept.md)
+- [Streaming-locators](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Algemene stappen
 
@@ -79,7 +79,7 @@ Voor meer informatie over de werkstroom voor live streaming in Media Services v3
 4. De voorbeeld-URL ophalen en deze gebruiken om te controleren dat de invoer van het coderingsprogramma daadwerkelijk worden ontvangen.
 5. Maak een nieuwe **Asset** object.
 6. Maak een **uitvoer Live** en gebruikt u de assetnaam van de die u hebt gemaakt.<br/>De **uitvoer Live** worden gearchiveerd de stroom in de **Asset**.
-7. Maak een **Streaming-Locator gemaakt** met de ingebouwde **beleid Streaming** typen.<br/>Als u van plan bent uw inhoud coderen, raadpleegt u [Content protection overzicht](content-protection-overview.md).
+7. Maak een **Streaming-Locator gemaakt** met de [ingebouwde Streaming beleidstypen](streaming-policy-concept.md)
 8. Lijst van de paden op de **Streaming-Locator gemaakt** om terug te gaan de URL's te gebruiken (dit zijn deterministische).
 9. Ophalen van de hostnaam voor de **Streaming-eindpunt** (oorsprong) die u wilt streamen uit.
 10. De URL in stap 8 worden gecombineerd met de hostnaam in stap 9 om op te halen van de volledige URL.

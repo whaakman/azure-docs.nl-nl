@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387519"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269214"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -154,6 +154,7 @@ De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statusc
 | 400075| De combinatie van taal paar en categorie is niet geldig.|
 | 400077| Grootte van de maximale aanvraag is overschreden. Weergave [aanvraaglimieten](../request-limits.md).|
 | 400079| Het aangepaste systeem aangevraagd voor de omzetting van van en naar taal bestaat niet.|
+| 400080| Vele wordt niet ondersteund voor de taal of het script.|
 | 401000| De aanvraag is niet toegestaan omdat de referenties zijn ontbreekt of is ongeldig.|
 | 401015| "De opgegeven referenties zijn voor de spraak-API. Deze aanvraag moet referenties voor de Text-API. Gebruik een abonnement op Translator Text-API."|
 | 403000| De bewerking is niet toegestaan.|

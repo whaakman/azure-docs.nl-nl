@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66733646"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164840"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>De resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C met een aangepast beleid configureren
 
@@ -255,7 +255,7 @@ Werk vervolgens de relying party-bestand dat initieert de gebruikersbeleving die
     ```
 
 5. Op de **aangepast beleid** pagina in uw Azure AD B2C-tenant, selecteer **uploaden beleid**.
-6. Schakel **het beleid overschrijven als deze bestaat**, en blader vervolgens naar en selecteer de *TrustFrameworkExtensions.xml* bestand.
+6. Schakel **het beleid overschrijven als deze bestaat**, en blader vervolgens naar en selecteer de *ROPC_Auth.xml* bestand.
 7. Klik op **Uploaden**.
 
 ## <a name="test-the-policy"></a>Het beleid testen

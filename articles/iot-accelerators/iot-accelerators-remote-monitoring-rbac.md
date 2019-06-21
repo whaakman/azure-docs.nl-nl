@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443098"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203166"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Op rollen gebaseerd toegangsbeheer in de oplossingsverbetering voor externe controle configureren
 
@@ -91,11 +91,11 @@ De volgende stappen wordt beschreven hoe u een rol toevoegt aan een toepassing i
 
 1. Zoek de **App-registratie** voor uw oplossing in Azure portal. Naam van de toepassing is de naam van uw oplossing voor externe controle. In de volgende schermopname is de oplossing en de toepassing weergavenamen zijn **contoso-rm4**.
 
-    ![App-registratie](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![App-registratie](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Selecteer uw toepassing en klik vervolgens op **Manifest**. U ziet de twee bestaande [app-rollen](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) gedefinieerd voor de toepassing:
 
-    ![Weergave-manifest](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Weergave-manifest](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Bewerken van het manifest als u wilt toevoegen van een rol met de naam **ManageDevices** zoals wordt weergegeven in het volgende codefragment. U moet een unieke tekenreeks, zoals een GUID voor de nieuwe rol-ID. U kunt een nieuwe GUID met behulp van een service zoals genereren de [Online GUID Generator](https://www.guidgenerator.com/):
 

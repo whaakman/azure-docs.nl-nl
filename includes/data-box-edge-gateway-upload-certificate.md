@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: alkohli
 ms.openlocfilehash: d7a9923d5bd9e357bcd75fae6e0a7d1bcd437a53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161198"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176492"
 ---
 Een juiste SSL-certificaat zorgt ervoor dat u versleutelde gegevens naar de juiste server verzendt. Naast de versleuteling kan het certificaat ook voor verificatie. U kunt uw eigen vertrouwde SSL-certificaat via de PowerShell-interface van het apparaat uploaden.
 

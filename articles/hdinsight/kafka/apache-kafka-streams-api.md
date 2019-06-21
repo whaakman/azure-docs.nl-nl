@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: werken met de Streams-API van Apache Kafka - Azure HDInsight '
-description: Leer hoe u de Streams-API van Apache Kafka gebruikt met Kafka in HDInsight. Met deze API kunt u gegevensstromen tussen onderwerpen in Kafka verwerken.
+description: 'Zelfstudie: informatie over het gebruik van Apache Kafka Streams-API met Kafka in HDInsight. Met deze API kunt u gegevensstromen tussen onderwerpen in Kafka verwerken.'
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
-ms.openlocfilehash: 9425af0f39d14287b49fe06a81172281feb24e83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d76ac8cc1673f1df8981a543321d34aa57cd0896
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715966"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295484"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Zelfstudie: Streams-API van Apache Kafka
 

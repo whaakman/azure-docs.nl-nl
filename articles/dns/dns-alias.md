@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059680"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275736"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS-server registreert alias overzicht
 
@@ -29,7 +29,7 @@ Een recordset alias wordt ondersteund voor de volgende recordtypen in Azure DNS-
 
 ## <a name="capabilities"></a>Functionaliteit
 
-- **Wijs een openbaar IP-resource van een DNS-server A/AAAA-Recordset.** U kunt een A/AAAA-recordset maken en geef deze een alias recordset om te verwijzen naar een openbare IP-resource. De DNS-recordset wordt automatisch als het openbare IP-adres wordt gewijzigd of is verwijderd. Dangling DNS worden-records die naar onjuist IP-adressen verwijzen vermeden.
+- **Wijs een openbaar IP-resource van een DNS-server A/AAAA-Recordset.** U kunt een A/AAAA-recordset maken en geef deze een alias recordset om te verwijzen naar een openbare IP-resource. De DNS-record setwijzigingen automatisch als het openbare IP-adres wordt gewijzigd of verwijderd. Dangling DNS worden-records die naar onjuist IP-adressen verwijzen vermeden.
 
 - **Verwijzen naar een Traffic Manager-profiel van een AAAA-DNS A/CNAME-Recordset.** U kunt een A/AAAA maken of CNAME-record ingesteld en aliasrecords gebruiken om te verwijzen naar een Traffic Manager-profiel. Dit is vooral nuttig wanneer u nodig hebt voor het routeren van verkeer in het toppunt van een zone, zoals traditionele CNAME-records worden niet ondersteund voor het toppunt van een zone. Stel bijvoorbeeld dat uw Traffic Manager-profiel is myprofile.trafficmanager.net en uw zakelijke DNS-zone contoso.com. U kunt een alias recordset van type A/AAAA voor contoso.com (het toppunt van de zone) maken en verwijzen naar myprofile.trafficmanager.net.
 - **Verwijzen naar een eindpunt Azure Content Delivery Network (CDN)** . Dit is handig als u statische website met Azure storage en Azure CDN te maken.

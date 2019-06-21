@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996349"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273078"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Aangepaste logboeken in Azure Monitor
 Bron van de aangepaste logboeken in Azure Monitor kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
@@ -35,11 +35,7 @@ De logboekbestanden te verzamelen, moeten overeenkomen met de volgende criteria 
 - Het logboekbestand moet gebruiken ASCII- of UTF-8-codering.  Andere indelingen, zoals UTF-16 worden niet ondersteund.
 
 >[!NOTE]
->Als er dubbele vermeldingen in het logboekbestand, worden ze door Azure Monitor verzameld.  Resultaten van de query wordt wel inconsistent waar de filterresultaten meer gebeurtenissen dan het aantal resultaten weergeven.  Het is belangrijk dat u in het logboek te bepalen of dit probleem wordt veroorzaakt door de toepassing die wordt deze gemaakt en los indien mogelijk het voordat u de definitie van de verzameling aangepaste logboek valideren.  
->
-  
->[!NOTE]
-> Als uw toepassing een nieuw logboekbestand maakt per dag of wanneer het een bepaalde grootte bereikt, detecteert de Log Analytics-agent voor Linux geen ze pas na het opnieuw is opgestart. Dit is omdat de agent alleen inventariseren en begint met de bewaking van patronen met de opgegeven zich aanmeldt bij het opstarten en als gevolg hiervan u van plan bent om het moet door het automatiseren van het opnieuw opstarten van de agent.  Deze beperking bestaat niet met de Log Analytics-agent voor Windows.  
+> Als er dubbele vermeldingen in het logboekbestand, worden ze door Azure Monitor verzameld. Resultaten van de query wordt wel inconsistent waar de filterresultaten meer gebeurtenissen dan het aantal resultaten weergeven. Het is belangrijk dat u in het logboek te bepalen of dit probleem wordt veroorzaakt door de toepassing die wordt deze gemaakt en los indien mogelijk het voordat u de definitie van de verzameling aangepaste logboek valideren.  
 >
 
 >[!NOTE]

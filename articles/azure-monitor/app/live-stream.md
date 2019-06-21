@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721088"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303817"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Bewaking en Diagnose met een latentie van 1 seconde
 
-De kern van de heartbeat van uw webtoepassing live en in productie--test met behulp van Live Metrics Stream van [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecteren en filteren van tellers van metrische gegevens en prestaties om te kijken in realtime, zonder eventuele storingen van uw service. Inspecteer de stack-traces uit het kan de niet-voorbeeldaanvragen en uitzonderingen. Samen met [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md), en [prestatietests](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Live Metrics Stream biedt een krachtige en niet-Invasief diagnostisch hulpprogramma voor uw live web site.
+De kern van de heartbeat van uw webtoepassing live en in productie--test met behulp van Live Metrics Stream van [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecteren en filteren van tellers van metrische gegevens en prestaties om te kijken in realtime, zonder eventuele storingen van uw service. Inspecteer de stack-traces uit het kan de niet-voorbeeldaanvragen en uitzonderingen. Samen met [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream biedt een krachtige en niet-Invasief diagnostisch hulpprogramma voor een live website.
 
 Met Live Metrics Stream, kunt u het volgende doen:
 
@@ -192,15 +192,6 @@ Als u kent en de gekoppelde servers vertrouwt, kunt u de aangepaste filters zond
 >[!NOTE]
 >Het is raadzaam dat u de geverifieerde channel instellen voordat u een potentieel gevoelige informatie, zoals CustomerID in de filtercriteria invoert.
 >
-
-## <a name="generating-a-performance-test-load"></a>Een test prestatiebelasting genereren
-
-Als u wilt om te bekijken van het effect van een verhoging van het laden, gebruikt u de blade van de prestaties testen. Het aanvragen van een aantal gebruikers dat gelijktijdig wordt gesimuleerd. Een van beide 'handmatig 'tests uit te voeren (ping-tests) van één URL of het kan worden uitgevoerd een [prestatietest WebTest met meerdere stappen](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) die u uploadt (op dezelfde manier als een beschikbaarheidstest).
-
-> [!TIP]
-> Nadat u de prestatietest maakt, opent u de test en de blade Live Stream in afzonderlijke vensters. U ziet wanneer de test in de wachtrij performance wordt gestart, en Bekijk live stream op hetzelfde moment.
->
-
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

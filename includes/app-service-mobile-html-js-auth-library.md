@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140866"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176546"
 ---
 ### <a name="server-auth"></a>Procedures: Verifiëren bij een provider (Server Flow)
 Als u het verificatieproces in uw app door Mobile Apps wilt laten beheren, moet u uw app registreren bij uw id-provider. Daarna moet u in uw Azure App Service de door uw provider verstrekte toepassings-id en geheim configureren.

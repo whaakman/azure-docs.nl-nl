@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150250"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175907"
 ---
 1. In de portal klikt u via **Alle resources** op **+Toevoegen**.
 2. In de **Alles** pagina zoekvak, type **lokale netwerkgateway**, klik vervolgens om te retourneren van een lijst met resources. Klik op **Lokale netwerkgateway** om de pagina te openen en klik op **Maken** om de pagina **Lokale netwerkgateway maken** te openen.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: cc4fb07874015112791ef2eaf9c39b31b690006c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d6387fc0f2f7342eb7a1fda25fcf1272889d13f7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978660"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64698149"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Een Windows virtuele machine met meerdere NIC's maken en beheren
 Virtuele machines (VM's) in Azure kunnen meerdere virtuele netwerkinterfacekaarten (NIC's) die is gekoppeld aan deze hebben. Een veelvoorkomend scenario is dat verschillende subnetten voor front-end en back-end-connectiviteit. U kunt meerdere NIC's op een virtuele machine met meerdere subnetten koppelen, maar deze subnetten moeten zich in hetzelfde virtuele netwerk (vNet). Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maakt. U leert ook hoe u kunt toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -28,7 +28,7 @@ Virtuele machines (VM's) in Azure kunnen meerdere virtuele netwerkinterfacekaart
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myVnet*, en *myVM*.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-vm-with-multiple-nics"></a>Een virtuele machine met meerdere NIC's maken
 Maak eerst een resourcegroep. Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *EastUs* locatie:

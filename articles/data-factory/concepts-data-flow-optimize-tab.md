@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075090"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190645"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Toewijzing van gegevens stroom transformatie tabblad optimaliseren
 
@@ -45,7 +45,7 @@ Dynamisch bereik maakt gebruik van Spark dynamische bereiken op basis van de kol
 
 ### <a name="fixed-range"></a>Vaste bereik
 
-U moet een expressie waarmee een vaste bereik van waarden in de kolommen gepartitioneerde gegevens op te bouwen. U hebt een goed begrip van uw gegevens voordat u deze optie om te voorkomen dat scheeftrekken partitie. De waarde die voor de expressie invoert, zal worden gebruikt als onderdeel van een partitiefunctie. U kunt het aantal fysieke partities instellen.
+U moet een expressie waarmee een vaste bereik van waarden in de kolommen gepartitioneerde gegevens op te bouwen. U hebt een goed begrip van uw gegevens voordat u deze optie om te voorkomen dat scheeftrekken partitie. De waarden die u voor de expressie invoert zal worden gebruikt als onderdeel van een partitiefunctie. U kunt het aantal fysieke partities instellen.
 
 ### <a name="key"></a>Sleutel
 

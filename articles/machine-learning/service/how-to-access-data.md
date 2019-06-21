@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 638d7bfb0e396874415c1055c4b707a65caffa4e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239034"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269302"
 ---
 # <a name="access-data-from-your-datastores"></a>Toegang tot gegevens uit uw gegevensopslag
 
@@ -59,7 +59,19 @@ ds = ws.get_default_datastore()
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>Uw eigen gegevensarchief registreren bij de werkruimte
 
-Hebt u een bestaande Azure-opslag, kunt u deze registreren als een gegevensarchief in uw werkruimte.   Alle methoden voor het registreren zich op de [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klasse en hebben de vorm register_azure_ *. 
+Hebt u een bestaande Azure-opslag, kunt u deze registreren als een gegevensarchief in uw werkruimte. 
+
+<a name="store"></a>
+
+####  <a name="storage-guidance"></a>Richtlijnen voor opslag
+
+Het wordt aangeraden de blob storage en blob-gegevensopslag. Zowel standard als premium-opslag zijn beschikbaar voor blobs. Hoewel duurder, het is raadzaam premium-opslag vanwege een hogere doorvoer snelheden worden bereikt ter verbetering van de snelheid van uw training kan wordt uitgevoerd, particlularly als u tegen een grote gegevensset trainen. Zie de [prijscalculator van Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) voor informatie over storage-account.
+
+>[!NOTE]
+> Azure Machine Learning-service biedt ondersteuning voor andere typen gegevensopslag, die mogelijk nuttig zijn voor specifieke scenario's. Bijvoorbeeld, als u nodig hebt om te trainen met behulp van de gegevens die zijn opgeslagen in een database, kunt u de AzureSQLDatabaseDatastore of AzurePostgreSqlDatastore. Zie [deze tabel](#matrix) voor de typen beschikbare gegevensopslag.
+
+#### <a name="register-your-datastore"></a>Registreren van uw gegevensopslag
+Alle methoden voor het registreren zich op de [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klasse en hebben de vorm register_azure_ *.
 
 De volgende voorbeelden ziet u voor het registreren van een Azure Blob-Container of een Azure-bestandsshare als gegevensopslag.
 
@@ -178,6 +190,7 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Alle `ds` of `ds.path` object wordt omgezet naar de naam van een omgevingsvariabele van de indeling `"$AZUREML_DATAREFERENCE_XXXX"` waarvan de waarde vertegenwoordigt het pad voor het koppelpunt/downloaden in de berekening die doel. Het pad van het gegevensarchief in de berekening die doel mogelijk niet hetzelfde als uitvoeringspad voor de van het trainingsscript.
 
+<a name="matrix"></a>
 ### <a name="training-compute-and-datastore-matrix"></a>Training compute en gegevensopslag matrix
 
 De volgende matrix geeft de beschikbare gegevens toegang tot functies voor de gegevensopslag scenario's en andere training compute-doelen. Meer informatie over de [training van compute-doelen voor Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
@@ -194,7 +207,7 @@ De volgende matrix geeft de beschikbare gegevens toegang tot functies voor de ge
 | Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
-> Mogelijk zijn er scenario's waarin zeer iteratieve, grote hoeveelheden gegevensprocessen worden uitgevoerd met behulp van snellere [`as_download()`] in plaats van [`as_mount()`]; dit experimenteel kan worden gevalideerd.
+> Mogelijk zijn er scenario's waarin zeer iteratieve, grote hoeveelheden gegevensprocessen worden uitgevoerd met behulp van snellere `as_download()` in plaats van `as_mount()`; dit experimenteel kan worden gevalideerd.
 
 ### <a name="examples"></a>Voorbeelden 
 

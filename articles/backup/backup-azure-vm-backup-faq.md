@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966320"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296177"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen-Back-up van virtuele Azure-machines
 
@@ -59,7 +59,7 @@ Machtigingen voor Azure Backup toegang tot Key Vault opgeven. De machtigingen op
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Ik VM-schijven gemigreerd naar managed disks. Worden mijn back-ups gewoon uitgevoerd?
 Ja, back-ups werken naadloos. Er is niet nodig om alles opnieuw te configureren.
 
-### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Waarom zie ik mijn VM niet in de wizard Back-up configureren?
+### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Waarom zie ik mijn VM niet in de wizard voor Back-up configureren?
 De wizard worden alleen virtuele machines in dezelfde regio bevinden als de kluis en die niet worden al back-up.
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mijn virtuele machine wordt afgesloten. Maakt een on-demand of een geplande back-werk?
@@ -89,6 +89,9 @@ Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azu
 Azure Backup kan geen back-up van de schijf WA is ingeschakeld, maar kunt uitsluiten van back-up. De back-up wordt niet evenwel consistentie van de database omdat de informatie op de schijf WA-functionaliteit is niet een back-up. U kunt back-up van schijven met deze configuratie als u wilt dat de besturingssysteemschijf back-ups en back-ups van schijven die niet WA ingeschakeld.
 
 We uitvoert beperkte preview voor back-up van een SAP HANA met een RPO van 15 minuten. Het gebouwd op een soortgelijke manier SQL DB back-up maken en de backInt-interface wordt gebruikt voor oplossingen van derden gecertificeerd door SAP HANA. Als u geïnteresseerd bent, een e-mail verzenden naar `AskAzureBackupTeam@microsoft.com` met het onderwerp **zich aanmelden voor een beperkte preview voor back-up van SAP HANA in virtuele Azure-machines**.
+
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Wat is de maximale vertraging die ik kan verwachten in de begintijd voor back-up van de geplande back-uptijd die ik hebt ingesteld in de back-upbeleid van mijn VM?
+De geplande back-up wordt binnen twee uur van de geplande back-uptijd geactiveerd. Voor bijvoorbeeld. Als 100 virtuele machines begintijd back-up gepland om 2:00 uur hebt, klikt u vervolgens hebt aan maximaal 4:00 uur alle 100VMs back-uptaak wordt uitgevoerd. Als de geplande back-ups zijn onderbroken vanwege onderbreking en hervat/opnieuw geprobeerd kunt back-up starten buiten dit venster geplande 2 uur.
 
 
 ## <a name="restore"></a>Herstellen

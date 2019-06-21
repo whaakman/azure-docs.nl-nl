@@ -5,20 +5,75 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418384"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272864"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nieuw in Site Recovery
 
 De [Azure Site Recovery](site-recovery-overview.md) service is bijgewerkt en verbeterd regelmatig. Als u wilt, kunt u op de hoogte blijven vindt in dit artikel u informatie over de meest recente versies, nieuwe functies en nieuwe inhoud. Deze pagina wordt regelmatig bijgewerkt.
 
 Als u suggesties voor Site Recovery-onderdelen hebt, willen we graag [graag uw feedback](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## <a name="updates-june-2019"></a>Updates (juni 2019)
+
+### <a name="update-rollup-37"></a>Updatepakket 37
+
+[Updatepakket 37](https://support.microsoft.com/help/4508614/) biedt de volgende updates.
+
+**Update** | **Details**
+--- | ---
+**Providers en agents** | Updates voor Site-herstelagenten en -providers (zoals beschreven in het pakket)
+**Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het pakket)
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Herstel na noodgevallen van VMware/fysieke machine
+
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
+
+**Functie** | **Details**
+--- | ---
+**GPT-partities** | Vanaf Update Rollup 37 en hoger (Mobility serviceversie 9.25.5241.1), maximaal vijf GPT worden partities ondersteund in UEFI. Voorafgaand aan deze update werden vier ondersteund.
+
+
+
+## <a name="updates-may-2019"></a>Updates (mei 2019)
+
+### <a name="update-rollup-36"></a>Updatepakket 36
+
+[Updatepakket 36](https://support.microsoft.com/help/4503156) biedt de volgende updates.
+
+**Update** | **Details**
+--- | ---
+**Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het pakket)
+**Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het pakket)
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel
+
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
+
+**Functie** | **Details**
+--- | ---
+**Toegevoegde schijven repliceren** | Schakel replicatie voor gegevensschijven toegevoegd aan een Azure-VM al ingeschakeld voor herstel na noodgevallen. [Meer informatie](azure-to-azure-enable-replication-added-disk.md).
+**Automatische updates** | Bij het configureren van automatische updates voor de Mobility-service-extensie die wordt uitgevoerd op Azure VM's zijn ingeschakeld voor herstel na noodgevallen, kunt u nu een bestaand automation-account moet worden gebruikt, in plaats van het account gemaakt door Site Recovery. [Meer informatie](azure-to-azure-autoupdate.md).
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Herstel na noodgevallen van VMware/fysieke machine
+
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
+
+**Functie** | **Details**
+--- | ---
+**Verwerken van de server controleren** | Voor herstel na noodgevallen van on-premises VMware-machines en fysieke servers, bewaken en problemen oplossen van problemen met proces-server met verbeterde server status rapporteren en waarschuwingen. [Meer informatie](vmware-physical-azure-monitor-process-server.md). 
+
+
+
 
 
 ## <a name="updates-march-2019"></a>Updates (maart 2019)
@@ -32,8 +87,9 @@ Als u suggesties voor Site Recovery-onderdelen hebt, willen we graag [graag uw f
 **Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het pakket)
 **Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het pakket)
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Herstel na noodgevallen van VMware/fysieke machine
-Nieuwe functies toegevoegd in de update.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Herstel na noodgevallen van VMware/fysieke machine
+
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
@@ -63,8 +119,8 @@ Nieuwe functies toegevoegd in de update.
 **Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het updatepakket).
 
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel 
-Nieuwe functies toegevoegd in de update.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel 
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
@@ -73,8 +129,8 @@ Nieuwe functies toegevoegd in de update.
 **Storage Spaces Direct** | U kunt instellen van herstel na noodgeval voor apps die worden uitgevoerd op Azure VM-apps met behulp van [Storage Spaces Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) voor hoge beschikbaarheid.  Met behulp van Storage Spaces Direct (S2D) samen met Site Recovery biedt uitgebreide beveiliging van Azure VM-workloads. S2D kunt u een gastcluster in Azure hosten. Dit is vooral nuttig wanneer u een virtuele machine als host fungeert voor een essentiële toepassing, zoals SAP ASCS-laag, SQL Server of scale-out bestandsserver.
 
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Herstel na noodgevallen van VMware/fysieke machine
-Nieuwe functies toegevoegd in de update.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Herstel na noodgevallen van VMware/fysieke machine
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
@@ -83,6 +139,7 @@ Nieuwe functies toegevoegd in de update.
 
 
 ## <a name="updates-january-2019"></a>Updates (januari 2019)
+
 
 ### <a name="accelerated-networking-azure-vms"></a>Versneld netwerken (virtuele Azure-machines)
 
@@ -99,16 +156,19 @@ Versneld netwerken inschakelen één i/o-virtualisatie hoofdmap (SR-IOV) aan een
 **Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het updatepakket).
 **Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het updatepakket).
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel
 
-Nieuwe functies toegevoegd in de update.
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
 **Linux-ondersteuning** | Ondersteuning is toegevoegd voor Red Hat-werkstation 6, 7 en nieuwe versies van de kernel voor Ubuntu, Debian en SUSE.
 **Storage Spaces Direct** | Site Recovery biedt ondersteuning voor virtuele Azure-machines met behulp van Storage Spaces Direct (S2D).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replicatie van VMware-machines/fysieke servers 
+### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>Herstel na noodgevallen van VMware-machines/fysieke servers
+
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
+ 
 **Functie** | **Details**
 --- | ---
 **Linux-ondersteuning** | Ondersteuning is toegevoegd voor Red Hat Enterprise Linux 7.6, RedHat werkstation 6, 7, Oracle Linux 6.10/7.6 en nieuwe versies van de kernel voor Ubuntu, Debian en SUSE.
@@ -123,9 +183,8 @@ Nieuwe functies toegevoegd in de update.
 **Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het updatepakket).
 **Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het updatepakket).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replicatie van VMware-machines/fysieke servers 
-Nieuwe functies toegevoegd in de update.
-
+### <a name="vmware-vmsphysical-servers-replication"></a>Replicatie van VMware-machines/fysieke servers 
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 **Functie** | **Details**
 --- | ---
 **Linux-ondersteuning** | Er is ondersteuning toegevoegd voor Oracle Linux 6,8 en 6,9/7.0, en voor de kernel UEK5.
@@ -135,8 +194,8 @@ Nieuwe functies toegevoegd in de update.
 **Failover** | Failover-tijd voor virtuele VMware-machines waar storvsc en vsbus zijn niet opstartstuurprogramma's verbeterd.
 **Ondersteuning voor UEFI** | Azure-VM's bieden geen ondersteuning voor opstarttype UEFI. U kunt nu on-premises fysieke servers met UEFI migreren naar Azure met Site Recovery. Site Recovery worden gemigreerd van de server door het opstarttype converteren naar BIOS vóór de migratie. Site Recovery eerder ondersteund deze conversie een hoeveelheid alleen voor virtuele machines. Ondersteuning is beschikbaar voor fysieke servers met Windows Server 2012 of hoger.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel
-Nieuwe functies toegevoegd in de update.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
@@ -176,8 +235,8 @@ Disaster Recovery van de Azure VM's worden licentiekosten van de virtuele machin
 **Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het updatepakket).
 **Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het updatepakket).
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel
-Nieuwe functies toegevoegd in de update.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-noodherstel
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
@@ -208,8 +267,8 @@ Nieuwe functies toegevoegd in de update.
 **Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het updatepakket).
 **Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het updatepakket).
 
-#### <a name="azure-vms-disaster-recovery"></a>Noodherstel voor Azure VM 's 
-Nieuwe functies toegevoegd in de update.
+### <a name="azure-vms-disaster-recovery"></a>Noodherstel voor Azure VM 's 
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
@@ -217,8 +276,8 @@ Nieuwe functies toegevoegd in de update.
 **Cloudondersteuning voor** | Herstel na noodgevallen voor Azure-VM's in de cloud voor Duitsland ondersteund.
 **Herstel na noodgevallen voor abonnementen** | Ondersteuning voor het repliceren van virtuele Azure-machines in één regio naar een andere regio in een ander abonnement, binnen dezelfde Azure Active Directory-tenant. [Meer informatie](https://aka.ms/cross-sub-blog).
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Herstel na noodgevallen van virtuele VMware-machine/fysieke machine 
-Nieuwe functies toegevoegd in de update.
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Herstel na noodgevallen van virtuele VMware-machine/fysieke machine 
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
@@ -237,17 +296,17 @@ Nieuwe functies toegevoegd in de update.
 **Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het updatepakket).
 **Probleem opgelost/verbeteringen** | Een aantal problemen en verbeterde (zoals beschreven in het updatepakket).
 
-#### <a name="azure-vms-disaster-recovery"></a>Noodherstel voor Azure VM 's 
+### <a name="azure-vms-disaster-recovery"></a>Noodherstel voor Azure VM 's 
 
-Nieuwe functies toegevoegd in de update.
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---
 **Linux-ondersteuning** | Er is ondersteuning toegevoegd voor Red Hat Enterprise Linux 7.5.
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Herstel na noodgevallen van virtuele VMware-machine/fysieke machine 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Herstel na noodgevallen van virtuele VMware-machine/fysieke machine 
 
-Nieuwe functies toegevoegd in de update.
+Functies toegevoegd aan deze maand worden samengevat in de tabel.
 
 **Functie** | **Details**
 --- | ---

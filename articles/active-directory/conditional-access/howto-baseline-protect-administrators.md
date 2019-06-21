@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112426"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204639"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>Beleid: MFA vereisen voor beheerders
 
@@ -71,6 +71,9 @@ Dit beleid inschakelt en beveiligen van uw beheerders:
 1. Stel **beleid inschakelen** naar **beleid direct gebruiken**.
 1. Gebruiker uitsluitingen toevoegen door te klikken op **gebruikers** > **uitgesloten gebruikers selecteren** en het kiezen van de gebruikers die moeten worden uitgesloten. Klik op **Selecteer** vervolgens **gedaan**.
 1. Klik op **opslaan**.
+
+> [!WARNING]
+> Er is een optie **automatisch inschakelen van beleid in de toekomst** waarop dit beleid is in preview. We hebben verwijderd deze optie om te minimaliseren impact op plotselinge gebruikers. Als u deze optie hebt geselecteerd, wanneer deze beschikbaar is, is **beleid niet gebruiken** wordt automatisch geselecteerd. Als ze willen gebruiken deze basislijn-beleid, raadpleegt u bovenstaande stappen om te schakelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

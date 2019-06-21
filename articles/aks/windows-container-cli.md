@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752389"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303558"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Voorbeeld: maken van een Windows Server-container op een Azure Kubernetes Service (AKS)-cluster met behulp van de Azure CLI
 
@@ -22,13 +22,13 @@ Deze functie is momenteel beschikbaar als preview-product.
 
 ![Afbeelding van bladeren naar de voorbeeld-ASP.NET-toepassing](media/windows-container/asp-net-sample-app.png)
 
-In dit artikel wordt ervan uitgegaan van basiskennis van Kubernetes-concepten beschikt. Zie [Kubernetes-kernconcepten voor Azure Kubernetes Service (AKS)][kubernetes-concepts] voor meer informatie.
+In dit artikel wordt ervan uitgegaan van basiskennis van Kubernetes-concepten beschikt. Zie voor meer informatie, [Kubernetes core concepten voor Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel is vereist dat u de Azure CLI versie 2.0.61 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel is vereist dat u de Azure CLI versie 2.0.61 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -42,7 +42,7 @@ Nadat u uw cluster met Windows Server-containers kunt maken, moet u een extra kn
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks-preview CLI-extensie installeren
     
-De CLI-opdrachten voor het maken en beheren van meerdere groepen zijn beschikbaar in de *aks-preview* CLI-extensie. Installeer de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen] [ az-extension-add] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+De CLI-opdrachten voor het maken en beheren van meerdere groepen zijn beschikbaar in de *aks-preview* CLI-extensie. Installeer de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen][az-extension-add] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -53,7 +53,7 @@ az extension add --name aks-preview
 
 ### <a name="register-windows-preview-feature"></a>Preview-functie van Windows registreren
 
-Voor het maken van een AKS-cluster die kunt gebruiken van meerdere groepen en Windows Server-containers worden uitgevoerd, eerst inschakelen de *WindowsPreview* functie vlaggen voor uw abonnement. De *WindowsPreview* functie ook gebruikmaakt van clusters met meerdere knooppunten van toepassingen en virtuele-machineschaalset voor het beheren van de implementatie en configuratie van de Kubernetes-knooppunten. Registreert de *WindowsPreview* functie vlag met behulp van de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Voor het maken van een AKS-cluster die kunt gebruiken van meerdere groepen en Windows Server-containers worden uitgevoerd, eerst inschakelen de *WindowsPreview* functie vlaggen voor uw abonnement. De *WindowsPreview* functie ook gebruikmaakt van clusters met meerdere knooppunten van toepassingen en virtuele-machineschaalset voor het beheren van de implementatie en configuratie van de Kubernetes-knooppunten. Registreert de *WindowsPreview* functie vlag met behulp van de [az functie registreren][az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
@@ -62,13 +62,13 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Een AKS-cluster dat u maakt nadat u hebt geregistreerd de *WindowsPreview* functievlag gebruik van deze preview-cluster-ervaring. Als u wilt doorgaan met het maken van clusters van reguliere, volledig ondersteunde, geen preview-functies voor productieabonnementen inschakelen. Gebruik een afzonderlijke test- en Azure-abonnement voor het testen van de preview-functies.
 
-Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst] [ az-feature-list] opdracht:
+Het duurt een paar minuten voor de registratie te voltooien. Controleer op de registratie van status met behulp van de [az Functielijst][az-feature-list] opdracht:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
+Wanneer de registratiestatus van de is `Registered`, druk op Ctrl + C om te stoppen met de status van de bewaking.  Vernieuw vervolgens de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register][az-provider-register] opdracht:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -89,9 +89,13 @@ Hoewel deze functie nog in preview, gelden de volgende aanvullende beperkingen:
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd. Wanneer u een resourcegroep maakt, wordt u gevraagd een locatie op te geven. Deze locatie is waar de metagegevens van de resource is opgeslagen, het is ook waar uw resources in Azure uitvoeren als u een andere regio geen tijdens het maken van resources opgeeft. Maak een resourcegroep met de opdracht [az group create][az-group-create].
+Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd. Wanneer u een resourcegroep maakt, wordt u gevraagd een locatie op te geven. Deze locatie is waar de metagegevens van de resource is opgeslagen, het is ook waar uw resources in Azure uitvoeren als u een andere regio geen tijdens het maken van resources opgeeft. Maak een resource-groep met de [az-groep maken][az-group-create] opdracht.
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
+
+> [!NOTE]
+> In dit artikel maakt gebruik van Bash-syntaxis voor de opdrachten in deze zelfstudie.
+> Als u Azure Cloud Shell, zorgt u ervoor dat de vervolgkeuzelijst in de linkerbovenhoek van de Cloud Shell-venster is ingesteld op **Bash**.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -113,12 +117,13 @@ In de volgende voorbeelduitvoer ziet u dat de resourcegroep is gemaakt:
 }
 ```
 
-## <a name="create-aks-cluster"></a>AKS-cluster maken
-Als u wilt uitvoeren van een AKS-cluster die ondersteuning biedt voor knooppuntgroepen voor Windows Server-containers, nodig voor het cluster te gebruiken een beleid voor netwerken die gebruikmaakt van [Azure CNI] [ azure-cni-about] (Geavanceerd) netwerk-invoegtoepassing. Zie voor meer informatie over het plannen van de vereiste subnet bereiken en de aandachtspunten voor netwerken, [configureren van netwerken van Azure CNI][use-advanced-networking]. Gebruik de [az aks maken] [ az-aks-create] opdracht voor het maken van een AKS-cluster met de naam *myAKSCluster*. Met deze opdracht wordt de vereiste netwerkresources maken als deze nog niet bestaan.
+## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
+
+Als u wilt uitvoeren van een AKS-cluster die ondersteuning biedt voor knooppuntgroepen voor Windows Server-containers, nodig voor het cluster te gebruiken een beleid voor netwerken die gebruikmaakt van [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Gebruik de [az aks maken][az aks create] opdracht voor het maken van een AKS-cluster met de naam *myAKSCluster*. Met deze opdracht wordt de vereiste netwerkresources maken als deze nog niet bestaan.
   * Het cluster is geconfigureerd met één knooppunt
   * De *windows beheerderswachtwoord* en *windows-beheerdersgebruikersnaam* -parameters de beheerdersreferenties ingesteld voor alle Windows Server-containers die zijn gemaakt op het cluster.
 
-Geef uw eigen veilige *PASSWORD_WIN*.
+Geef uw eigen veilige *PASSWORD_WIN* (Houd er rekening mee dat de opdrachten in dit artikel worden ingevoerd in een BASH-shell):
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -135,6 +140,10 @@ az aks create \
     --enable-vmss \
     --network-plugin azure
 ```
+
+> [!Note]
+> Als u een validatiefout wachtwoord, probeert u het maken van uw resourcegroep in een andere regio.
+> Probeer vervolgens het cluster te maken met de nieuwe resourcegroep.
 
 Na enkele minuten is de opdracht voltooid en retourneert deze informatie over het cluster in JSON-indeling.
 
@@ -156,13 +165,13 @@ De bovenstaande opdracht maakt u een nieuwe knooppuntgroep van een met de naam *
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
-Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. Als u Azure Cloud Shell gebruikt, is `kubectl` al geïnstalleerd. Als u `kubectl` lokaal wilt installeren, gebruikt u de opdracht [az aks install-cli][az-aks-install-cli]:
+Voor het beheren van een Kubernetes-cluster, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. Als u Azure Cloud Shell gebruikt, is `kubectl` al geïnstalleerd. Voor het installeren van `kubectl` lokaal, gebruikt u de [az aks install-cli][az-aks-install-cli] opdracht:
 
 ```azurecli
 az aks install-cli
 ```
 
-Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` te configureren dat er verbinding wordt gemaakt met het Kubernetes-cluster. Bij deze opdracht worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik van deze referenties.
+Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` zodanig te configureren dat er verbinding wordt gemaakt met het Kubernetes-cluster. Bij deze opdracht worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik van deze referenties.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -184,9 +193,9 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit artikel wordt een manifest gebruikt om alle objecten die nodig zijn voor het uitvoeren van de ASP.NET-voorbeeld-App in een Windows Server-container te maken. Dit manifest bevat een [Kubernetes-implementatie] [ kubernetes-deployment] voor de ASP.NET-voorbeeld-App en een externe [Kubernetes-service] [ kubernetes-service] aan toegang tot de toepassing vanaf internet.
+In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit artikel wordt een manifest gebruikt om alle objecten die nodig zijn voor het uitvoeren van de ASP.NET-voorbeeld-App in een Windows Server-container te maken. Dit manifest bevat een [Kubernetes-implementatie][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] voor toegang tot de toepassing vanaf internet.
 
-De ASP.NET-voorbeeld-App wordt geleverd als onderdeel van de [.NET Framework-voorbeelden] [ dotnet-samples] en wordt uitgevoerd in een Windows Server-container. AKS is vereist om te worden op basis van installatiekopieën van Windows Server-containers *Windows Server 2019* of hoger. De Kubernetes-manifestbestand moet ook definiëren een [knooppunt selector] [ node-selector] naar uw AKS-cluster om uit te voeren van uw ASP.NET-voorbeeldtoepassing schil op een knooppunt met Windows Server-containers kunt zien.
+De ASP.NET-voorbeeld-App wordt geleverd als onderdeel van de [.NET Framework-voorbeelden][dotnet-samples] en wordt uitgevoerd in een Windows Server-container. AKS is vereist om te worden op basis van installatiekopieën van Windows Server-containers *Windows Server 2019* of hoger. De Kubernetes-manifestbestand moet ook definiëren een [knooppunt selector][node-selector] naar uw AKS-cluster om uit te voeren van uw ASP.NET-voorbeeldtoepassing schil op een knooppunt met Windows Server-containers kunt zien.
 
 Maak een bestand met de naam `sample.yaml` en kopieer de volgende YAML-definitie naar het bestand. Als u Azure Cloud Shell gebruikt, kan dit bestand worden gemaakt met behulp van `vi` of `nano`, zoals bij een virtueel of fysiek systeem:
 
@@ -236,7 +245,7 @@ spec:
     app: sample
 ```
 
-Implementeer de toepassing met de opdracht [kubectl apply][kubectl-apply] en geef de naam op van uw YAML-manifest:
+Implementeer de toepassing met de [kubectl toepassen][kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f sample.yaml
@@ -278,18 +287,18 @@ Als u wilt de voorbeeld-app in actie zien, open een webbrowser naar het externe 
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
 
-Gebruik de opdracht [az group delete][az-group-delete] om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen wanneer u het cluster niet meer nodig hebt.
+Wanneer het cluster niet meer nodig hebt is, gebruikt u de [az group delete][az-group-delete] opdracht voor het verwijderen van de resourcegroep, de containerservice en alle gerelateerde resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Wanneer u het cluster verwijdert, wordt de Azure Active Directory-service-principal die door het AKS-cluster wordt gebruikt niet verwijderd. Zie [Overwegingen voor en verwijdering van AKS service-principal][sp-delete] voor stappen voor het verwijderen van de service-principal.
+> Wanneer u het cluster verwijdert, wordt de Azure Active Directory-service-principal die door het AKS-cluster wordt gebruikt niet verwijderd. Zie voor stappen voor het verwijderen van de service-principal [AKS service-principal overwegingen en verwijdering][sp-delete].
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een Kubernetes-cluster geïmplementeerd en een ASP.NET-voorbeeld-toepassing in een Windows Server-container geïmplementeerd. [Open het Kubernetes-webdashboard][kubernetes-dashboard] voor het cluster dat u zojuist hebt gemaakt.
+In dit artikel hebt u een Kubernetes-cluster geïmplementeerd en een ASP.NET-voorbeeld-toepassing in een Windows Server-container geïmplementeerd. [Toegang tot het Kubernetes-webdashboard][kubernetes-dashboard] voor het cluster dat u zojuist hebt gemaakt.
 
 Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot implementatie gaat u naar de zelfstudie over Kubernetes-clusters.
 
