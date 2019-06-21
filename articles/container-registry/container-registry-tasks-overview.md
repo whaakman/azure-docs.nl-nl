@@ -1,22 +1,22 @@
 ---
-title: OS- en framework patchen met taken van Azure Container Registry (ACR-taken) automatiseren
-description: Een inleiding tot het ACR-taken, een reeks functies in Azure Container Registry beveiligde biedt, geautomatiseerde build van container-installatiekopie en patching uit handen in de cloud.
+title: Automatiseer het bouwen en patching uit handen containerinstallatiekopieën met taken van Azure Container Registry (ACR-taken)
+description: Een inleiding tot ACR taken, een reeks functies in Azure Container Registry biedt beveiligde, geautomatiseerde container-installatiekopie bouwen, beheren en patching uit handen in de cloud.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977206"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147990"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>OS- en framework patchen met ACR taken automatiseren
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Container-installatiekopie builds en onderhoud met ACR taken automatiseren
 
-Containers bieden nieuwe niveaus voor virtualisatie, isoleren van toepassings- en developer-afhankelijkheden van infrastructuur en operationele vereisten. Wat resteert, is echter de noodzaak om de manier waarop deze toepassingsvirtualisatie is gevuld.
+Containers bieden nieuwe niveaus voor virtualisatie, isoleren van toepassings- en developer-afhankelijkheden van infrastructuur en operationele vereisten. Wat resteert, is echter de noodzaak om op te lossen, hoe deze toepassingsvirtualisatie wordt beheerd en is een patch uitgevoerd gedurende de levenscyclus van de container.
 
 ## <a name="what-is-acr-tasks"></a>Wat is ACR taken?
 
@@ -46,8 +46,7 @@ De volgende tabel ziet u enkele voorbeelden van context ondersteunde locaties vo
 | Lokaal bestandssysteem | Bestanden in een map op het lokale bestandssysteem. | `/home/user/projects/myapp` |
 | Master-vertakking van GitHub | De vertakking van de bestanden in de master (of andere standaard) van een GitHub-opslagplaats.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub-vertakking | Specifieke vertakking van een GitHub-opslagplaats.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub-pull-aanvraag | Pull-aanvraag in een GitHub-opslagplaats. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| GitHub-submap | Bestanden in een submap in een GitHub-opslagplaats. Voorbeeld ziet u de combinatie van pull-aanvraag en submap-specificatie. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| GitHub-submap | Bestanden in een submap in een GitHub-opslagplaats. Voorbeeld ziet u de combinatie van een vertakking en submap-specificatie. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Externe tarball | Bestanden in een gecomprimeerd archief op een externe webserver. | `http://remoteserver/myapp.tar.gz` |
 
 Taken van de ACR is bedoeld als een container van primitieve levenscyclus. Bijvoorbeeld taken ACR integreren in uw CI/CD-oplossing. Door het uitvoeren van [az login] [ az-login] met een [service-principal][az-login-service-principal], uw CI/CD-oplossing kan verlenen [az acrbouwen] [ az-acr-build] opdrachten uit om te worden gehouden, trappen af met installatiekopieën builds.
@@ -65,7 +64,7 @@ Meer informatie over het activeren van builds op bron code doorvoeren in de twee
 
 ## <a name="automate-os-and-framework-patching"></a>OS- en framework patching uit handen automatiseren
 
-De kracht van de ACR-taken voor het verbeteren van de werkstroom van uw container build echt zijn afkomstig uit de mogelijkheid voor het detecteren van een update naar een basisinstallatiekopie. Wanneer de bijgewerkte installatiekopie naar het register is gepusht, kunt ACR taken automatisch op basis van deze toepassing afbeeldingen bouwen.
+De kracht van de ACR-taken voor het verbeteren van de werkstroom van uw container build echt zijn afkomstig uit de mogelijkheid voor het detecteren van een update naar een basisinstallatiekopie. Wanneer de bijgewerkte installatiekopie naar het register is gepusht, of een basisinstallatiekopie wordt bijgewerkt in een openbare opslagplaats, zoals in Docker Hub, kunt ACR taken automatisch op basis van deze toepassing afbeeldingen bouwen.
 
 Containerinstallatiekopieën kunnen grotendeels worden onderverdeeld in *basis* afbeeldingen en *toepassing* afbeeldingen. De basisinstallatiekopieën bevatten doorgaans het besturingssysteem en toepassingsframeworks waarop uw toepassing is gemaakt, samen met andere aanpassingen. Deze basisinstallatiekopieën zijn zich doorgaans op basis van openbare upstream afbeeldingen, bijvoorbeeld: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], of [Node.js ][base-node]. Verschillende van uw toepassingsinstallatiekopieën mogelijk delen een gemeenschappelijke basisinstallatiekopie.
 
@@ -76,7 +75,7 @@ Omdat het ACR-taken gedetecteerd dynamisch basisinstallatiekopie afhankelijkhede
 Meer informatie over het besturingssysteem en framework patching uit handen in de derde zelfstudie ACR taken [automatiseren installatiekopie is gebaseerd op updates van basisinstallatiekopieën met Azure Container Registry taken](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Basisinstallatiekopie builds van de trigger wordt alleen bijgewerkt wanneer zowel de basisklassen en toepassing afbeeldingen bevinden zich in dezelfde Azure container registry, of de base bevindt zich in een openbare Docker Hub-opslagplaats.
+> Op dit moment werkt basisinstallatiekopie trigger builds alleen als zowel de basisklassen en toepassing afbeeldingen bevinden zich in dezelfde Azure container registry, of de base bevindt zich in een openbare Docker Hub of Microsoft Container Registry-opslagplaats.
 
 ## <a name="multi-step-tasks"></a>Taken met meerdere stappen
 

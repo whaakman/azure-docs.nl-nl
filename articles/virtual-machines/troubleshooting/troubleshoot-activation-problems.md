@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921268"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155142"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Problemen met Windows Azure virtuele machine-activering
 
@@ -51,11 +51,9 @@ Over het algemeen optreden activeringsproblemen virtuele Azure-machine als de Wi
 >
 >Als u ExpressRoute gebruikt en u hebt een standaard-route die zijn gepubliceerd, Zie [virtuele Azure-machine kan niet worden geactiveerd via ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Stap 1 de desbetreffende Installatiecode voor KMS-client configureren (voor Windows Server 2016 en Windows Server 2012 R2)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Stap 1 configureren de desbetreffende Installatiecode voor KMS-client
 
-Voor de virtuele machine die is gemaakt op basis van een aangepaste installatiekopie van Windows Server 2016 of Windows Server 2012 R2, moet u de desbetreffende Installatiecode voor KMS-client configureren voor de virtuele machine.
-
-Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie activering automatisering van virtuele Machine (AVMA), die wordt alleen ondersteund door Windows Server 2016 en Windows Server 2012 R2 wordt gebruikt.
+Voor de virtuele machine die wordt gemaakt van een aangepaste installatiekopie, moet u de desbetreffende Installatiecode voor KMS-client configureren voor de virtuele machine.
 
 1. Voer **slmgr.vbs/dlv** bij een opdrachtprompt met verhoogde bevoegdheid. Controleer de waarde van de beschrijving in de uitvoer en vervolgens kunt u bepalen of deze is gemaakt van retail (detailhandel) of (VOLUME_KMSCLIENT) volume license-media:
   

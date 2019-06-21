@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: aeca3550b5fc58694779e7e54ce6ca547ba30e17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66169641"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176650"
 ---
 Elke blob in Azure-opslag moet zich in een container bevinden. De container maakt deel uit van de blob-naam. Bijvoorbeeld, `mycontainer` is de naam van de container in deze voorbeelden van blob-URI's:
 

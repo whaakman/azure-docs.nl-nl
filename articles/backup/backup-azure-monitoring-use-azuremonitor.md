@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7c53d8fe0ee5bbfdbe180aa4d18d8c7b7fab29c2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808521"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295295"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Bewaking op schaal met Azure Monitor
 
@@ -29,7 +29,7 @@ De [ingebouwde bewaking en waarschuwingen van artikel](backup-azure-monitoring-b
 ## <a name="using-log-analytics-workspace"></a>Met behulp van Log Analytics-werkruimte
 
 > [!NOTE]
-> Gegevens uit Azure-VM back-ups, MAB-Agent, System Center DPM (SC-DPM), SQL-back-ups in Azure VM's is aan de Log Analytics-werkruimte via diagnostische instellingen worden gepompt. Ondersteuning voor Azure File share back-ups, Microsoft Azure Backup-Server (MABS) is binnenkort beschikbaar.
+> Gegevens van virtuele Azure-machines, MAB-Agent, System Center DPM (SC-DPM), SQL-back-ups in Azure VM's en back-ups van Azure-bestandsshare wordt aan de Log Analytics-werkruimte via diagnostische instellingen worden gepompt. Ondersteuning voor Microsoft Azure Backup-Server (MABS) is binnenkort beschikbaar.
 
 We maken gebruik van de mogelijkheden van twee Azure-services - **diagnostische instellingen** (om gegevens te verzenden vanuit meerdere Azure Resource Manager-resources naar een andere resource) en **Log Analytics** (LA - genereren aangepaste waarschuwingen waar u andere meldingskanalen met behulp van actiegroepen kunt definiëren) voor het bewaken van op grote schaal. De volgende secties details over het gebruik van LA voor het bewaken van Azure back-up op schaal.
 
@@ -47,6 +47,9 @@ U kunt een werkruimte LA selecteren vanuit een ander abonnement als het doel. *A
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Oplossing implementeren naar Log Analytics-werkruimte
 
 Wanneer de gegevens in de werkruimte LA [een GitHub-sjabloon implementeren](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) naar LA om de gegevens te visualiseren. Zorg ervoor dat u de dezelfde resourcegroep bevinden, Werkruimtenaam en de locatie van de werkruimte wordt herkend en vervolgens installeren met deze sjabloon op het geven.
+
+> [!NOTE]
+> Gebruikers die geen waarschuwingen of taken van de back-up/herstel in hun werkruimte LA wellicht een fout met code 'BadArgumentError' ziet op de portal. Gebruikers kunnen deze fout negeren en doorgaan met behulp van de oplossing. Zodra de gegevens van het betreffende type doorgestuurd naar de werkruimte start, worden de visualisaties weer dat de dezelfde en gebruikers niet ziet deze fout niet meer.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Azure Backup-gegevens met behulp van Log Analytics (LA) weergeven
 

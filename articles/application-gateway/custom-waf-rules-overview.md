@@ -1,22 +1,22 @@
 ---
-title: Azure Web Application Firewall (WAF) aangepaste regels
-description: Dit artikel bevat een overzicht van de web application firewall (WAF) aangepaste regels in Azure Application Gateway.
+title: Azure Web Application Firewall (WAF) v2 aangepaste regels
+description: Dit artikel bevat een overzicht van Web Application Firewall (WAF) v2 aangepaste regels in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752024"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164666"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Aangepaste regels voor Web Application Firewall
+# <a name="custom-rules-for-web-application-firewall-v2"></a>Aangepaste regels voor Web Application Firewall v2
 
-De Azure Application Gateway web application firewall (WAF) wordt geleverd met een vooraf geconfigureerde, platform beheerde ruleset die beveiliging tegen veel verschillende soorten aanvallen biedt. Deze aanvallen omvatten cross-site scripting, SQL-injectie en anderen. Als u een WAF-beheerder bent, kunt u schrijven eigen regels voor het verbeteren van de regel core (CRS) regels instellen. Uw regels kunnen blokkeren of toestaan aangevraagde verkeer op basis van die overeenkomen met criteria.
+De Azure Application Gateway Web Application Firewall (WAF) v2 wordt geleverd met een vooraf geconfigureerde, platform beheerde ruleset die beveiliging tegen veel verschillende soorten aanvallen biedt. Deze aanvallen omvatten cross-site scripting, SQL-injectie en anderen. Als u een WAF-beheerder bent, kunt u schrijven eigen regels voor het verbeteren van de regel core (CRS) regels instellen. Uw regels kunnen blokkeren of toestaan aangevraagde verkeer op basis van die overeenkomen met criteria.
 
 Aangepaste regels kunnen u uw eigen regels die worden geëvalueerd voor elke aanvraag die wordt doorgegeven via de WAF maken. Deze regels bevatten een hogere prioriteit dan de rest van de regels in de beheerde regelsets. De aangepaste regels bevatten de naam van een regel, Regelprioriteit en een reeks die overeenkomt met de voorwaarden. Als deze voorwaarden wordt voldaan, wordt een actie wordt uitgevoerd (wilt toestaan of blokkeren).
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc5deb614e2ac6e47ff3bf241943df92d97699b2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344560"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295176"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en Azure CLI
 
@@ -192,7 +192,7 @@ U kunt de roltoewijzingen voor een specifieke gebruiker gebruiken [lijst van zon
 az role assignment list --assignee <assignee>
 ```
 
-Standaard wordt alleen toewijzingen binnen het bereik van abonnement worden weergegeven. Als u wilt weergeven toewijzingen ingedeeld per resource of groep, gebruikt u `--all`.
+Standaard wordt alleen directe toewijzingen binnen het bereik van abonnement worden weergegeven. Als u wilt weergeven toewijzingen ingedeeld per resource of groep, gebruikt u `--all` en gebruiken als u wilt weergeven overgenomen asisgnments, `--include-inherited`.
 
 Het volgende voorbeeld worden de roltoewijzingen die zijn toegewezen rechtstreeks naar de *patlong\@contoso.com* gebruiker:
 

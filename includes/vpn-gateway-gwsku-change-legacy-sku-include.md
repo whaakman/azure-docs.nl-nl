@@ -9,11 +9,11 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159206"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175915"
 ---
 Als u met het Resource Manager-implementatiemodel werkt, kunt u met de nieuwe gateway SKU's wijzigen. Wanneer u van een verouderde gateway-SKU naar een nieuwe SKU wijzigt, kunt u de bestaande VPN-gateway verwijderen en een nieuwe VPN-gateway maken.
 

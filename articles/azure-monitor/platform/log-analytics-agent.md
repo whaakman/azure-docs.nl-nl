@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 081d65f60eab4e2412a5dd14c3a63a18598e3b8a
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751976"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146321"
 ---
-# <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Azure Log Analytics-agent
+# <a name="collect-log-data-with-the-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Log Analytics-agent
 
 De Azure Log Analytics-agent, voorheen aangeduid als de Microsoft Monitoring Agent (MMA) of OMS-Linux-agent is ontwikkeld voor het beheer van uitgebreide in on-premises machines computers bewaakt door [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/), en virtuele machines in elke cloud. De Windows- en Linux-agents koppelen aan een Azure-Monitor en opslaan van verzamelde logboekgegevens uit verschillende bronnen in uw Log Analytics-werkruimte, evenals een unieke Logboeken of de metrische gegevens zoals gedefinieerd in een oplossing voor bewaking. 
 
@@ -34,11 +34,11 @@ Voordat u analyseren en uitvoeren van de verzamelde gegevens, moet u eerst insta
 
 De agent voor Linux en Windows uitgaand naar de Azure Monitor-service communiceert via TCP-poort 443, en als de computer verbinding maakt via een firewall of proxyserver om te communiceren via Internet, raadpleegt u onderstaande voorwaarden om te begrijpen van de netwerkconfiguratie Vereist. Als uw IT-beveiligingsbeleid niet computers op het netwerk verbinding maken met Internet toestaat, kunt u instellen een [Log Analytics gateway](gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar de logboeken van Azure Monitor. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die worden verzameld, afhankelijk van welke gegevens u regels voor het verzamelen en oplossingen voor de controle die u hebt ingeschakeld in uw werkruimte. 
 
-Als u een computer met System Center Operations Manager 2012 R2 of hoger worden bewaakt, kan zijn met de Azure Monitor-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed [Operations Manager](../../azure-monitor/platform/om-agents.md). Met Linux-computers, de agent bevat geen een onderdeel van health-service als de Windows-agent wordt en gegevens worden verzameld en verwerkt door een beheerserver voor zijn rekening. Omdat de Linux-computers worden verschillende manieren worden bewaakt met Operations Manager, ze niet configuratie ontvangen of rechtstreeks gegevens te verzamelen en doorsturen via de beheergroep, zoals een Windows-agent beheerde systeem heeft. Als gevolg hiervan wordt niet in dit scenario ondersteund met Linux-computers die rapporteren aan Operations Manager.  
+Als u een computer met System Center Operations Manager 2012 R2 of hoger worden bewaakt, kan zijn met de Azure Monitor-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed [Operations Manager](../../azure-monitor/platform/om-agents.md). Met Linux-computers, de agent bevat geen een onderdeel van health-service als de Windows-agent wordt en gegevens worden verzameld en verwerkt door een beheerserver voor zijn rekening. Omdat de Linux-computers worden verschillende manieren worden bewaakt met Operations Manager, ze niet configuratie ontvangen of rechtstreeks gegevens te verzamelen en doorsturen via de beheergroep, zoals een Windows-agent beheerde systeem heeft. Als gevolg hiervan in dit scenario wordt niet ondersteund voor Linux-computers die rapporteren aan Operations Manager en moet u de Linux-computer te configureren [rapporteren aan een Operations Manager-beheergroep](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) en een Log Analytics-werkruimte in twee stappen.
 
 De Windows-agent kan rapporteren dat maximaal vier Log Analytics-werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan één werkruimte.  
 
-De agent voor Linux en Windows wordt niet alleen voor het verbinden met Azure Monitor, ondersteunt ook Azure Automation voor het hosten van de functie Hybrid Runbook worker en andere services zoals [bijhouden](../../automation/change-tracking.md) en [updatebeheer](../../automation/automation-update-management.md). Zie voor meer informatie over de Hybrid Runbook Worker-rol, [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+De agent voor Linux en Windows wordt niet alleen voor het verbinden met Azure Monitor, ondersteunt ook Azure Automation voor het hosten van de functie Hybrid Runbook worker en andere services zoals [bijhouden](../../automation/change-tracking.md), [updatebeheer](../../automation/automation-update-management.md), en [Azure Security Center](../../security-center/security-center-intro.md). Zie voor meer informatie over de Hybrid Runbook Worker-rol, [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Ondersteunde Windows-besturingssystemen
 De volgende versies van het Windows-besturingssysteem worden officieel ondersteund voor de Windows-agent:
@@ -81,7 +81,7 @@ De volgende tabel ziet u de pakketten zijn vereist voor de ondersteunde Linux-di
 |Vereist pakket |Description |Minimale versie |
 |-----------------|------------|----------------|
 |Glibc |    GNU C-bibliotheek | 2.5-12 
-|openssl    | OpenSSL-bibliotheken | 1.0.x of 1.1.x |
+|Openssl    | OpenSSL-bibliotheken | 1.0.x of 1.1.x |
 |Curl | cURL webclient | 7.15.5 |
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 

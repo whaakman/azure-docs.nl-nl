@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7a657f175307e019155e37538021c5aecf5bb068
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388376"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136886"
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -53,7 +53,7 @@ Als er zich Adaptief of vast tarief steekproeven in bewerking, is opnamesteekpro
 
 Adaptieve steekproeven is beschikbaar voor de Application Insights SDK voor ASP.NET v 2.0.0-beta3 of hoger, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 en hoger, en is standaard ingeschakeld.
 
-Adaptieve steekproeven is van invloed op het volume van de telemetrie van uw web-app-server wordt verzonden naar de Application Insights-service-eindpunt. Het volume automatisch wordt aangepast om te voorkomen dat binnen een opgegeven maximale snelheid van het verkeer en wordt beheerd via de instelling `MaxTelemetryItemsPerSecond`. Als de toepassing een kleine hoeveelheid telemetrie, produceert, zoals bij het opsporen van fouten, hetzij vanwege het beperkt gebruikte, items steekproef wordt niet ophalen, zolang het volume is kleiner dan `MaxTelemetryItemsPerSecond`. Als het volume van telemetrie toeneemt, samplefrequentie aangepast zodat deze het doelvolume bereiken.
+Adaptieve steekproeven is van invloed op het volume van de telemetrie van uw web-app-server wordt verzonden naar de Application Insights-service-eindpunt. Het volume automatisch wordt aangepast om te voorkomen dat binnen een opgegeven maximale snelheid van het verkeer en wordt beheerd via de instelling `MaxTelemetryItemsPerSecond`. Als de toepassing een kleine hoeveelheid telemetrie, produceert, zoals bij het opsporen van fouten of vanwege beperkt gebruikte items wordt niet worden verwijderd door de processor steekproeven, zolang het volume is kleiner dan `MaxTelemetryItemsPerSecond`. Als het volume van telemetrie toeneemt, samplefrequentie aangepast zodat deze het doelvolume bereiken.
 
 Voor het bereiken van het doelvolume, deel van de gegenereerde telemetrie wordt verwijderd. Maar net als andere typen van het samplen bijhouden, behoudt de algoritme gerelateerde telemetrie-items. Bijvoorbeeld, wanneer u de telemetrie in Search inspecteren bent, zult u kunnen vinden van de aanvraag met betrekking tot een bepaald soort uitzondering.
 

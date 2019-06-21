@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754531"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304291"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migreren naar gedetailleerde, op rollen gebaseerde toegang voor clusterconfiguraties
 
@@ -20,10 +20,10 @@ We introduceren belangrijke wijzigingen meer fijnmazig op basis van rollen om to
 
 ## <a name="what-is-changing"></a>Wat is gewijzigd?
 
-Voorheen geheimen kunnen worden verkregen via de HDInsight-API door cluster gebruikers beschikken de eigenaar, bijdrager of lezer [RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), zoals ze beschikbaar voor iedereen met zijn de `*/read` machtiging is vereist.
+Voorheen geheimen kunnen worden verkregen via de HDInsight-API door cluster gebruikers beschikken de eigenaar, bijdrager of lezer [RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), zoals ze beschikbaar voor iedereen met zijn de `*/read` machtiging.
 Voortaan kunt verkrijgen van toegang tot deze geheime gegevens moet de `Microsoft.HDInsight/clusters/configurations/*` machtiging, wat betekent dat ze niet meer kunnen worden geopend door gebruikers met de rol van lezer. Geheimen zijn gedefinieerd als de waarden die kunnen worden gebruikt voor het verkrijgen van meer uitgebreide toegang dan een gebruikersrol moeten toestaan. Deze bevatten waarden zoals cluster-gateway HTTP-referenties en opslagsleutels voor account databasereferenties.
 
-We introduceren een nieuwe [Hdinsight-Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol die is mogelijk om op te halen van geheimen zonder de beheerdersmachtigingen van inzender of eigenaar wordt verleend. Samenvatting:
+We introduceren een nieuwe [HDInsight-Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol die is mogelijk om op te halen van geheimen zonder de beheerdersmachtigingen van inzender of eigenaar wordt verleend. Samenvatting:
 
 | Rol                                  | Eerder                                                                                       | Voortaan       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
@@ -155,7 +155,7 @@ Bijwerken naar [Az PowerShell versie 2.0.0](https://www.powershellgallery.com/pa
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>De toewijzing van de rol Operator voor HDInsight-Cluster toevoegen aan een gebruiker
 
-Een gebruiker met de [Inzender](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) of [eigenaar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) rol kunt toewijzen de [Hdinsight-Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol aan gebruikers die u wilt lezen/schrijven toegang hebben tot gevoelige gegevens HDInsight-cluster-configuratiewaarden (zoals cluster gatewayreferenties en opslagsleutels voor account).
+Een gebruiker met de [Inzender](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) of [eigenaar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) rol kunt toewijzen de [HDInsight-Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol aan gebruikers die u wilt lezen/schrijven toegang hebben tot gevoelige gegevens HDInsight-cluster-configuratiewaarden (zoals cluster gatewayreferenties en opslagsleutels voor account).
 
 ### <a name="using-the-azure-cli"></a>Azure CLI gebruiken
 

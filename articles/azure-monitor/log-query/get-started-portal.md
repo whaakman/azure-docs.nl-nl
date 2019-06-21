@@ -8,20 +8,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255268"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296522"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Aan de slag met Azure Monitor Log Analytics
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Aan de slag met Log Analytics in Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In deze zelfstudie leert u hoe u Azure Monitor Log Analytics in Azure portal gebruiken voor het schrijven van Azure Monitor logboeken-query's. Deze leert u hoe aan:
+In deze zelfstudie leert u hoe u Log Analytics in Azure portal gebruiken voor het schrijven van Azure Monitor logboeken-query's. Deze leert u hoe aan:
 
-- Eenvoudige query's schrijven
+- Log Analytics gebruiken voor een eenvoudige query schrijven
 - Het schema van uw gegevens begrijpen
 - Filteren, sorteren en resultaten van Groepsbeleid
 - Een tijdsbereik toepassen
@@ -29,13 +29,22 @@ In deze zelfstudie leert u hoe u Azure Monitor Log Analytics in Azure portal geb
 - Opslaan en laden van query 's
 - Exporteren en delen van query 's
 
+Zie voor een zelfstudie over het schrijven van Logboeken-query's, [aan de slag met Logboeken-query's in Azure Monitor](get-started-queries.md).<br>
+Zie voor meer informatie over de logboeken-query's [overzicht van het logboek query's in Azure Monitor](log-query-overview.md).
 
 ## <a name="meet-log-analytics"></a>Voldoen aan de Log Analytics
 Log Analytics is een web-hulpprogramma gebruikt om te schrijven en uitvoeren van Azure Monitor logboeken-query's. Open het door het selecteren van **logboeken** in het menu van Azure Monitor. Het begint al met een nieuwe lege query.
 
 ![Startpagina](media/get-started-portal/homepage.png)
 
+## <a name="firewall-requirements"></a>Firewall-vereisten
+Uw browser vereist voor het gebruik van Log Analytics, toegang tot de volgende adressen. Als uw browser de Azure-portal via een firewall openen is, moet u toegang tot deze adressen inschakelen.
 
+| Uri | IP | Poorten |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamisch | 80,443 |
+| api.loganalytics.io | Dynamisch | 80,443 |
+| docs.loganalytics.io | Dynamisch | 80,443 |
 
 ## <a name="basic-queries"></a>Eenvoudige query 's
 Query's kunnen worden gebruikt om te zoeken naar termen, trends te identificeren, patronen analyseren en veel andere inzichten op basis van uw gegevens te kunnen bieden. Beginnen met een eenvoudige query uitvoert:
@@ -44,9 +53,9 @@ Query's kunnen worden gebruikt om te zoeken naar termen, trends te identificeren
 Event | search "error"
 ```
 
-Deze query zoekt naar de _gebeurtenis_ tabel voor records die de term "error" in een eigenschap bevatten.
+Deze query zoekt naar de _gebeurtenis_ tabel voor records met de term _fout_ in een eigenschap.
 
-Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of een **zoeken** opdracht. Het bovenstaande voorbeeld begint met de naam van de tabel _gebeurtenis_, waarmee het bereik van de query wordt gedefinieerd. Opdrachten, zijn gescheiden, zodat de uitvoer van de eerste die als de invoer van de volgende opdracht fungeert in het sluisteken (|). U kunt een willekeurig aantal opdrachten toevoegen aan een eenvoudige query uitvoeren.
+Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of een [zoeken](/kusto/query/searchoperator) opdracht. Het bovenstaande voorbeeld begint met de naam van de tabel _gebeurtenis_, die alle records opgehaald uit de tabel Event. Opdrachten, zijn gescheiden, zodat de uitvoer van de eerste die als de invoer van de volgende opdracht fungeert in het sluisteken (|). U kunt een willekeurig aantal opdrachten toevoegen aan een eenvoudige query uitvoeren.
 
 Een andere manier om te schrijven die dezelfde query zou zijn:
 
@@ -54,18 +63,18 @@ Een andere manier om te schrijven die dezelfde query zou zijn:
 search in (Event) "error"
 ```
 
-In dit voorbeeld **zoeken** is afgestemd op de _gebeurtenis_ tabel en alle records in de tabel wordt gezocht naar de term "error".
+In dit voorbeeld **zoeken** is afgestemd op de _gebeurtenis_ tabel en alle records in de tabel wordt gezocht naar de term _fout_.
 
 ## <a name="running-a-query"></a>Een query uit te voeren
 Een query uitvoeren door te klikken op de **uitvoeren** knop of te drukken **Shift + Enter**. Houd rekening met de volgende details vast te stellen de code die wordt uitgevoerd en de gegevens die wordt geretourneerd:
 
-- Regeleinden: Een één-einde wordt uw duidelijker query. Meerdere regeleinden opsplitsen deze in afzonderlijke query's.
+- Regeleinden: Een enkele einde kunt uw query gemakkelijker te lezen. Meerdere regeleinden opsplitsen deze in afzonderlijke query's.
 - Cursor: Plaats de cursor ergens in de query wilt uitvoeren. De huidige query wordt beschouwd als de code worden totdat een lege regel is gevonden.
 - Tijdsbereik - een tijdsbereik van _afgelopen 24 uur_ is standaard ingesteld. Voor het gebruik van een ander bereik, de tijdkiezer gebruiken of een expliciete tijd toevoegen bereikfilter aan uw query.
 
 
 ## <a name="understand-the-schema"></a>Informatie over het schema
-Het schema is een verzameling van tabellen visueel worden gegroepeerd in een logische categorie. Aantal van de categorieën zijn van oplossingen voor bewaking. De _LogManagement_ categorie bevat algemene gegevens, zoals Windows en Syslog-gebeurtenissen, prestatiegegevens en heartbeats van de client.
+Het schema is een verzameling van tabellen visueel worden gegroepeerd in een logische categorie. Aantal van de categorieën zijn van oplossingen voor bewaking. De _LogManagement_ categorie bevat algemene gegevens, zoals Windows en Syslog-gebeurtenissen, prestatiegegevens en agent heartbeats.
 
 ![Schema](media/get-started-portal/schema.png)
 
@@ -181,7 +190,7 @@ Het pictogram van de Query is op het gebied rechtsboven. Dit geeft een lijst van
 Log Analytics ondersteunt meerdere methoden voor exporteren:
 
 - Excel: De resultaten opslaan als een CSV-bestand.
-- Power BI: De resultaten exporteren naar power BI. Zie [importeren van Azure Monitor-logboekgegevens in Power BI](../../azure-monitor/platform/powerbi.md) voor meer informatie.
+- Power BI: De resultaten exporteren naar Power BI. Zie [importeren van Azure Monitor-logboekgegevens in Power BI](../../azure-monitor/platform/powerbi.md) voor meer informatie.
 - Een koppeling delen: De query zelf kan worden gedeeld als een koppeling die vervolgens kan worden verzonden en uitgevoerd door andere gebruikers die toegang tot dezelfde werkruimte hebben.
 
 ## <a name="next-steps"></a>Volgende stappen

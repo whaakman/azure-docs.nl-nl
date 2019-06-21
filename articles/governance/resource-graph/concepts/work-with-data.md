@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137861"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274416"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Werken met grote Azure-resource-gegevenssets
 
 Azure Resource Graph is ontworpen voor het werken met en het ophalen van gegevens over resources in uw Azure-omgeving. Resourcegrafiek kunt ophalen van deze gegevens snel, zelfs bij het opvragen van duizenden records. Grafiek van resources beschikt over verschillende opties voor het werken met deze grote gegevenssets.
+
+Zie voor instructies over het werken met query's met een hoge frequentie [richtlijnen voor beperkte aanvragen](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Grootte van de gegevensset
 
@@ -84,6 +86,6 @@ Zie voor een voorbeeld [volgende pagina query](/rest/api/azureresourcegraph/reso
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie de taal die wordt gebruikt in [Starter query's](../samples/starter.md)
-- Maakt gebruik van geavanceerde Zie in [geavanceerde query's](../samples/advanced.md)
-- [Resources verkennen](explore-resources.md)
+- Zie de taal die wordt gebruikt in [Starter query's](../samples/starter.md).
+- Maakt gebruik van geavanceerde Zie in [geavanceerde query's](../samples/advanced.md).
+- Meer informatie over het [resources verkennen](explore-resources.md).

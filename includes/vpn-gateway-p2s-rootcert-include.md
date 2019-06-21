@@ -9,11 +9,11 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157300"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175895"
 ---
 Gebruik een basiscertificaat dat is gegenereerd met een commerciële oplossing (aanbevolen) of genereer een zelfondertekend certificaat. Nadat u het basiscertificaat hebt gemaakt, exporteert u de gegevens van het openbare certificaat (niet de persoonlijke sleutel) als een X.509 CER-bestand dat is gecodeerd met Base64. Vervolgens uploadt u de gegevens van het openbare certificaat naar de Azure-server.
 

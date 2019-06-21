@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cd7c268008afbd87e855516d5834676423272646
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427481"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146718"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -35,9 +35,7 @@ Als u uw scripts lokaal ontwikkelt, is het aanbevolen dat de dezelfde modulevers
 
 Hier volgen enkele overwegingen rekening moet houden bij het gebruik van dit proces om bij te werken van uw Azure-Modules:
 
-* Dit runbook biedt ondersteuning voor bijwerken van alleen de **Azure** en **AzureRm** momenteel modules. [Azure PowerShell Az-modules](/powershell/azure/new-azureps-module-az) in Automation-accounts worden ondersteund, maar kan niet worden bijgewerkt met dit runbook. Er zijn belangrijke factoren die u rekening mee dat moet bij het gebruik van de `Az` modules in uw Automation-Account voor meer informatie, Zie [met Az-modules in uw Automation-Account](az-modules.md).
-
-* Voorkomen dat dit runbook starten op Automation-accounts die Az modules bevatten.
+* Dit runbook biedt ondersteuning voor bijwerken van de **Azure** en **AzureRm** modules standaard. Dit runbook biedt ondersteuning voor bijwerken van de **Az** ook modules. Controleer de [Update Azure-modules runbook Leesmij-bestand](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) voor meer informatie over het bijwerken van `Az` modules met dit runbook. Er zijn aanvullende belangrijke factoren die u rekening mee dat moet bij het gebruik van de `Az` modules in uw Automation-Account voor meer informatie, Zie [met Az-modules in uw Automation-Account](az-modules.md).
 
 * Voordat u begint met dit runbook, zorg ervoor dat uw Automation-account heeft een [Azure uitvoeren als-accountreferenties](manage-runas-account.md) gemaakt.
 

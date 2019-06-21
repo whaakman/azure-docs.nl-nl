@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 834484278bb597bba4a5e1821d0b6572913a761d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473882"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146991"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Algemene vereisten voor het implementeren van OpenShift in Azure
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
-Maken van een key vault voor het opslaan van de SSH-sleutels voor het cluster met de [az keyvault maken](/cli/azure/keyvault) opdracht. De key vault-naam moet wereldwijd uniek zijn.
+Maken van een key vault voor het opslaan van de SSH-sleutels voor het cluster met de [az keyvault maken](/cli/azure/keyvault) opdracht. De key vault-naam moet wereldwijd uniek zijn en moet zijn ingeschakeld voor de sjabloonimplementatie van de of de implementatie mislukken met fout 'KeyVaultParameterReferenceSecretRetrieveFailed'.
 
 Het volgende voorbeeld wordt een key vault met de naam *keyvault* in de *keyvaultrg* resourcegroep:
 

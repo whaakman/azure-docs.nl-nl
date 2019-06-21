@@ -1,25 +1,17 @@
 ---
 title: Azure Resource Manager-sjabloonfuncties - vergelijking | Microsoft Docs
 description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebruiken om waarden te vergelijken.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0eafadd4049baea58aa882b3421eaa6a684a3a38
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128687"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205503"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Van vergelijkingsfuncties voor Azure Resource Manager-sjablonen
 
@@ -42,8 +34,8 @@ Controleert of twee waarden gelijk zijn aan elkaar.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int, string, matrix of object |De eerste waarde om te controleren of vergelijken. |
-| arg2 |Ja |int, string, matrix of object |De tweede waarde om te controleren of vergelijken. |
+| arg1 |Ja |int, string, array of object |De eerste waarde om te controleren of vergelijken. |
+| arg2 |Ja |int, string, array of object |De tweede waarde om te controleren of vergelijken. |
 
 ### <a name="return-value"></a>Retourwaarde
 

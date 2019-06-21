@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 230fe94820a00c276238a7f5ff189ecc817f3f96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62845557f33fd9c4f3c2ec4e239213c75101955d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074047"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275977"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -37,7 +37,8 @@ Deze SQL Server-connector ondersteunt name:
 - Het ophalen van gegevens met behulp van SQL-query of een opgeslagen procedure als de bron.
 - Als sink, doeltabel of aanroepen van een opgeslagen procedure met aangepaste logica tijdens het kopiëren van het toevoegen van gegevens.
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) wordt niet ondersteund.
+>[!NOTE]
+>SQL Server **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)** wordt niet ondersteund door deze connector nu. Als u wilt omzeilen, kunt u [algemene ODBC connector](connector-odbc.md) en SQL Server ODBC-stuurprogramma. Ga als volgt [deze richtlijnen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) met ODBC-stuurprogramma downloaden en connection string configuraties.
 
 ## <a name="prerequisites"></a>Vereisten
 

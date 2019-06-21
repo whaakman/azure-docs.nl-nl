@@ -9,11 +9,11 @@ ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
 ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114870"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176646"
 ---
 Geografisch redundante opslag (GRS) is zodanig ontworpen dat ten minste 99,99999999999999% (16 9's) duurzaamheid van objecten in een bepaald jaar door uw gegevens te repliceren naar een secundaire regio die grote afstand van de primaire regio. Als uw storage-account GRS is ingeschakeld heeft, zijn uw gegevens zijn duurzame zelfs in geval van een volledige regionale stroomstoring of een ramp waarbij de primaire regio niet hersteld.
 

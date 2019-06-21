@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d206ea1afe43a91707a4bcd981a4158ff08fdc3a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471597"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206151"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
@@ -116,7 +116,7 @@ Al uw resources, zoals virtuele machines, schijven en websites worden overgedrag
 
 ### <a id="no-button"></a> Waarom zie ik niet de knop 'Abonnement overdragen'?
 
-Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is helaas niet beschikbaar voor uw aanbieding. Bekijk de lijst met ondersteunde aanbiedingen in de [ondersteund aanbiedingen](#supported-offers) sectie van dit artikel. Bovendien wordt niet geblokkeerd door de overdracht van het abonnement voor alle landen. Echter, cross-land overdracht wordt niet ondersteund. Om over te dragen van uw abonnement cross-land, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+De overdracht selfserviceoverdracht van abonnementen is helaas niet beschikbaar voor uw aanbieding. Bekijk de lijst met ondersteunde aanbiedingen in de [ondersteund aanbiedingen](#supported-offers) sectie van dit artikel. Bovendien wordt niet geblokkeerd door de overdracht van het abonnement voor alle landen. Zie de [volledige lijst met landen](https://azure.microsoft.com/pricing/faq/) waar Azure commercieel beschikbaar is. De overdracht selfserviceabonnement biedt echter geen ondersteuning voor meerdere land-overdracht. Om over te dragen van uw abonnement cross-land, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Kan ik overdragen aan een account in een ander land?

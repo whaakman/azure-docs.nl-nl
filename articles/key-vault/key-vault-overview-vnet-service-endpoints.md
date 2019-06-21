@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45499dac3cc50e2b6e79f9ebcb1bc3e7b4330beb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416435"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165858"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Virtual network-service-eindpunten voor Azure Key Vault
 
@@ -73,6 +73,7 @@ Hier volgt een lijst van vertrouwde services die zijn toegestaan voor toegang to
 |Azure Storage|[Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Versleuteling van gegevens in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) met een door de klant beheerde sleutel.|
 |Azure databricks|[Snel, eenvoudig en gezamenlijke op basis van Apache Spark analytics-service](../azure-databricks/what-is-azure-databricks.md)|
+|Azure API Management|[Certificaten implementeren voor aangepast domein uit Key Vault met behulp van MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 
 
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f935b1b2815501710444e3f921a157ba02e3215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7814ff6b7575fedc19e63676ce3353c2a62a62b4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544090"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154427"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Het instantiëren van een vertrouwelijke client-toepassing met configuratie-opties met behulp van MSAL.NET
 
@@ -62,12 +62,12 @@ De configuratie van een ASP.NET Core-toepassing wordt beschreven in een *appsett
 }
 ```
 
-U kunt uw toepassing vertrouwelijke client uit het configuratiebestand vanaf MSAL.NET v3.x biedt configureren. De klassen die betrekking hebben op de app-configuratie bevinden zich in de `Microsoft.Identity.Client.AppConfig` naamruimte.
+U kunt uw toepassing vertrouwelijke client uit het configuratiebestand vanaf MSAL.NET v3.x biedt configureren.
 
-In de klasse waar u wilt configureren en exemplaar maken van uw toepassing, moet u declareert een `ConfidentialClientApplicationOptions` object.  De configuratie van de bron (met inbegrip van het bestand appconfig.json) koppelen aan het exemplaar van de opties voor de toepassing:
+In de klasse waar u wilt configureren en exemplaar maken van uw toepassing, moet u declareert een `ConfidentialClientApplicationOptions` object.  Binding van de configuratie van de bron (met inbegrip van het bestand appconfig.json) met het exemplaar van de Toepassingsopties, met behulp van de `IConfigurationRoot.Bind()` methode van de [Microsoft.Extensions.Configuration.Binder nuget-pakket](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
-using Microsoft.Identity.Client.AppConfig;
+using Microsoft.Identity.Client;
 
 private ConfidentialClientApplicationOptions _applicationOptions;
 _applicationOptions = new ConfidentialClientApplicationOptions();

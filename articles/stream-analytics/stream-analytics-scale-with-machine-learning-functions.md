@@ -7,19 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: db14f8240dea95eb073a0a653c2798f02fbb7c35
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479111"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67162592"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Schalen van uw Stream Analytics-taak met Azure Machine Learning-functies
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Schalen van uw Stream Analytics-taak met Azure Machine Learning Studio-functies
 Het is vrij eenvoudig instellen van een Stream Analytics-taak en enkele voorbeeldgegevens doorlopen. Wat moeten we doen als we moeten de dezelfde taak uitvoeren met hogere gegevensvolume? Hiervoor inzicht in hoe u de Stream Analytics-taak configureren zodat deze kan worden geschaald. In dit document, we ons richten op de speciale aspecten van het schalen van Stream Analytics-taken met Machine Learning-functies. Zie het artikel voor meer informatie over het schalen van Stream Analytics-taken in het algemeen [taken schalen](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Wat is een Azure Machine Learning-functie in Stream Analytics?
-Een Machine Learning-functie in Stream Analytics kan worden gebruikt als een reguliere functieaanroep in de Stream Analytics-querytaal. De functieaanroepen zijn echter achter de scène daadwerkelijk Azure Machine Learning-webservice-aanvragen. Machine Learning-webservices ondersteuning "batchverwerking" meerdere rijen Mini batch in de dezelfde web service API-aanroep voor het verbeteren van de algemene doorvoer genoemd. Zie voor meer informatie, [Azure Machine Learning-webservices](../machine-learning/studio/consume-web-services.md).
+Een Machine Learning-functie in Stream Analytics kan worden gebruikt als een reguliere functieaanroep in de Stream Analytics-querytaal. De functieaanroepen zijn echter achter de scène daadwerkelijk Azure Machine Learning Studio-webservice-aanvragen. Machine Learning-webservices ondersteuning "batchverwerking" meerdere rijen Mini batch in de dezelfde web service API-aanroep voor het verbeteren van de algemene doorvoer genoemd. Zie voor meer informatie, [Azure Machine Learning Studio-webservices](../machine-learning/studio/consume-web-services.md). Ondersteuning voor Azure Machine Learning Studio in Stream Analytics is in preview.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configureren van een Stream Analytics-taak met Machine Learning-functies
 Wanneer u een Machine Learning-functie voor Stream Analytics-taak configureert, zijn er twee parameters om te overwegen, de batchgrootte van de Machine Learning functieaanroepen en de streaming-eenheden (su's) voor de Stream Analytics-taak is ingericht. Om te bepalen de juiste waarden voor SUs, moet eerst een beslissing worden gemaakt tussen latentie en doorvoer, dat wil zeggen, latentie van de Stream Analytics-taak en de doorvoer van elke SU. SUs kunnen altijd worden toegevoegd aan een taak voor het verhogen van de doorvoer van een goed gepartitioneerde Stream Analytics-query, maar aanvullende SUs de kosten verhoogt van het uitvoeren van de taak.
@@ -72,16 +72,16 @@ Wordt ervan uitgegaan dat de latentie van de sentimentanalyse Machine Learning-w
 
 Hieronder vindt u een tabel voor de doorvoer van de Stream Analytics-taak voor verschillende su's en -batch-grootten (in het aantal gebeurtenissen per seconde).
 
-| Batchgrootte (ML latentie) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10\.000 (300 ms) | 25\.000 (500 ms) |
+| Batchgrootte (ML latentie) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 su 's** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 su 's** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 su 's** |5,000 |10\.000 |40,000 |60,000 |100\.000 |
+| **12 su 's** |5,000 |10.000 |40,000 |60,000 |100.000 |
 | **18 su 's** |7,500 |15,000 |60,000 |90,000 |150,000 |
-| **24 su 's** |10\.000 |20,000 |80,000 |120,000 |200\.000 |
+| **24 su 's** |10.000 |20,000 |80,000 |120,000 |200.000 |
 | **…** |… |… |… |… |… |
-| **60 su 's** |25,000 |50,000 |200\.000 |300,000 |500,000 |
+| **60 su 's** |25,000 |50,000 |200.000 |300,000 |500,000 |
 
 Nu moet u al een goed begrip van de werking van Machine Learning-functies in Stream Analytics hebt. U waarschijnlijk weten ook dat Stream Analytics-taken 'pull' gegevens van gegevensbronnen en elke 'pull' retourneert een reeks gebeurtenissen voor de Stream Analytics-taak te verwerken. Hoe deze pull-model impact de Machine Learning web-aanvragen van een service?
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 7cc8970e739d2e762fb08e563ef0498948ac8251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443791"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64692874"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migreren IaaS-resources van klassiek naar Azure Resource Manager met behulp van Azure PowerShell
 Deze stappen laten zien hoe u Azure PowerShell-opdrachten gebruiken voor het migreren van infrastructuur als een service (IaaS)-resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel.

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0959be545f541da2f0efd5bd1e8cc209ab5a0996
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386918"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275424"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Documenteer indelingen en naming convention-richtlijnen
 
@@ -37,7 +37,7 @@ Deze tabel bevat alle ondersteunde bestandsindelingen die u gebruiken kunt voor 
 
 ## <a name="dictionary-formats"></a>Woordenlijst indelingen
 
-Woordenboeken ondersteuning aangepaste Translator voor alle bestandsindelingen die worden ondersteund voor de trainingset. Als u Excel-woordenboek gebruikt, zorg ervoor dat de eerste regel / rij van het werkblad moet taalcodes.
+Woordenboeken ondersteuning aangepaste Translator voor alle bestandsindelingen die worden ondersteund voor het trainen van sets. Als u van een Excel-woordenlijst, de eerste regel gebruikmaakt / rij van het werkblad taalcodes moet.
 
 ## <a name="zip-file-formats"></a>ZIP-bestandsindelingen
 

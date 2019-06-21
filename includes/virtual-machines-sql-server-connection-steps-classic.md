@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 57f238a8f91df1271e91894b88a7f02118b1f123
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165556"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175979"
 ---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>De DNS-naam van de virtuele machine achterhalen
 Als u vanaf een andere computer verbinding wilt maken met de database-engine van SQL Server, moet u de DNS-naam (Domain Name System) van de virtuele machine weten. (Dit is de naam waaraan de virtuele machine op internet wordt herkend. U kunt ook het IP-adres gebruiken, maar dit kan veranderen wanneer Azure resources verplaatst wegens redundantie of onderhoud. De DNS-naam blijft hetzelfde omdat deze kan worden omgeleid naar een nieuw IP-adres.)  

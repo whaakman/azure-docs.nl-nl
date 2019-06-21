@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415489"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203402"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Servers verwijderen en beveiliging uitschakelen
 
@@ -151,6 +151,8 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 > [!NOTE]
 > In zowel de opties van de mobility-service wordt niet verwijderd van de beveiligde servers, moet u handmatig verwijderen. Als u van plan bent om de server opnieuw met dezelfde configuratieserver te beveiligen, kunt u doorgaan met het verwijderen van de mobility-service.
 
+> [!NOTE]
+> Als u hebt al een virtuele machine een failover en deze wordt uitgevoerd in Azure, niet Let op: Schakel de beveiliging verwijderen / invloed hebben op de mislukte uitvoert voor virtuele machine.
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Schakel de beveiliging voor een virtuele machine van Azure (Azure naar Azure)
 
 -  In **beveiligde Items** > **gerepliceerde Items**, met de rechtermuisknop op de machine > **replicatie uitschakelen**.
@@ -167,8 +169,12 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
    - **Schakelt u replicatie verwijderen (aanbevolen)** : deze optie wordt het gerepliceerde item verwijderd uit Azure Site Recovery en de replicatie voor de machine is gestopt. De replicatieconfiguratie op de on-premises virtuele machine worden opgeschoond en Site Recovery-facturering voor deze beveiligde server is gestopt.
    - **Verwijder** -deze optie moet alleen worden gebruikt als de bronomgeving is verwijderd of niet toegankelijk (niet verbonden). Dit wordt het gerepliceerde item verwijderd uit Azure Site Recovery (de facturering wordt gestopt). De replicatieconfiguratie op de on-premises virtuele machine **niet** worden opgeschoond. 
 
-     > [!NOTE]
+ > [!NOTE]
      > Als u ervoor kiest de **verwijderen** optie voert u de volgende set van scripts voor het opschonen van de replicatie-instellingen on-premises Hyper-V-Server.
+
+> [!NOTE]
+> Als u hebt al een virtuele machine een failover en deze wordt uitgevoerd in Azure, niet Let op: Schakel de beveiliging verwijderen / invloed hebben op de mislukte uitvoert voor virtuele machine.
+
 1. Op de bron-Hyper-V-hostserver, replicatie voor de virtuele machine verwijderen. SQLVM1 vervangen door de naam van uw virtuele machine en voer het script uit vanuit een administratief PowerShell
 
 ```powershell

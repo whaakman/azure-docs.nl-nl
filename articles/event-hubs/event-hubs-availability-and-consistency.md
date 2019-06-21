@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 425f4d9dbd6478af834bee6c88d0f13bdaa45b16
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822381"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273685"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Beschikbaarheid en consistentie in Event Hubs
 
 ## <a name="overview"></a>Overzicht
-Azure Event Hubs gebruikt een [partitioneren model](event-hubs-features.md#partitions) voor betere beschikbaarheid en parallellisering binnen één event hub. Bijvoorbeeld, als een event hub vier partities heeft, en een van deze partities van de ene server naar een andere in een bewerking voor de taakverdeling wordt verplaatst, kunt u nog steeds verzenden en ontvangen van drie andere partities. Bovendien kunt u meer gelijktijdige lezers verwerken van uw gegevens, de geaggregeerde doorvoer verbeteren hebben meer partities. Informatie over de gevolgen van partitionering en bestellen in een gedistribueerd systeem is een essentieel onderdeel van het ontwerp van de oplossing.
+Azure Event Hubs gebruikt een [partitioneren model](event-hubs-scalability.md#partitions) voor betere beschikbaarheid en parallellisering binnen één event hub. Bijvoorbeeld, als een event hub vier partities heeft, en een van deze partities van de ene server naar een andere in een bewerking voor de taakverdeling wordt verplaatst, kunt u nog steeds verzenden en ontvangen van drie andere partities. Bovendien kunt u meer gelijktijdige lezers verwerken van uw gegevens, de geaggregeerde doorvoer verbeteren hebben meer partities. Informatie over de gevolgen van partitionering en bestellen in een gedistribueerd systeem is een essentieel onderdeel van het ontwerp van de oplossing.
 
 Om te helpen de verhouding tussen de volgorde en de beschikbaarheid wordt uitgelegd, Zie de [CAP-theorema](https://en.wikipedia.org/wiki/CAP_theorem), ook wel aangeduid als de Brewer theorema. Deze theorema bespreekt de keuze tussen consistentie, beschikbaarheid en tolerantie van de partitie. Deze geeft aan dat voor de systemen die is gepartitioneerd op basis van netwerk er altijd een afweging tussen de consistentie en beschikbaarheid.
 

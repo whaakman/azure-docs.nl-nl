@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237661"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150331"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -76,8 +76,23 @@ Als u Azure File Sync gebruikt voor toegang tot uw Azure-bestandsshare, zullen w
 
 Azure Files biedt twee prestatielagen: standard en premium.
 
-* **Standard-bestandsshares** worden ondersteund door roterende harde schijven (HDD's) waarmee u betrouwbare prestaties voor i/o-werkbelastingen die minder gevoelig zijn voor variaties in prestaties, zoals voor algemeen gebruik-bestandsshares en dev/test-omgevingen. Standard-bestandsshares zijn alleen beschikbaar in een betalen per gebruik factureringsmodel.
-* **Premium-bestandsshares (preview)** worden ondersteund door SSD-schijven (SSD's) die consistent hoge prestaties en lage latentie en binnen enkele milliseconden voor de meeste i/o-bewerkingen voor de meeste i/o-intensieve workloads. Hierdoor kunt u ze geschikt zijn voor een groot aantal workloads, zoals databases, website hosting, ontwikkelomgevingen, enzovoort. Premium-bestandsshares zijn alleen beschikbaar in een ingerichte factureringsmodel. Premium-bestandsshares gebruiken een implementatiemodel gescheiden van de standard-bestandsshares.
+### <a name="standard-file-shares"></a>Standard-bestandsshares
+
+Standard-bestandsshares worden ondersteund door harde schijven (HDD's). Standard-bestandsshares bieden, betrouwbare prestaties voor i/o-werkbelastingen die minder gevoelig zijn voor variaties in prestaties, zoals voor algemeen gebruik-bestandsshares en dev/test-omgevingen. Standard-bestandsshares zijn alleen beschikbaar in een betalen per gebruik factureringsmodel.
+
+Standard-bestandsshares maximaal 5 TiB in grootte zijn beschikbaar als een aanbieding voor algemene beschikbaarheid. Grotere bestandsshares die groter zijn dan 5 TiB, tot een maximum van 100 TiB aandelen zijn momenteel beschikbaar als een preview-aanbieding.
+
+> [!IMPORTANT]
+> - Moet u een nieuwe storage-account voor algemeen gebruik is (niet uitbreiden de bestaande opslagaccounts) maken.
+> - Zijn alleen beschikbaar met LRS.
+> - Beschikbaar in drie regio's: VS-West 2, West-Europa en Zuidoost-Azië regio's.
+> - LRS naar GRS-account conversie is niet mogelijk zijn op alle nieuwe opslagaccounts die zijn gemaakt nadat het abonnement wordt geaccepteerd voor de preview van de grotere file shares.
+
+Als u wilt vrijgeven aan de Preview-versie van deze grotere bestanden delen, dient dit [formulier](https://aka.ms/azurefilesatscalesurvey). 
+
+### <a name="premium-file-shares-preview"></a>Premium-bestandsshares (preview)
+
+Premium-bestandsshares (preview) worden ondersteund door SSD-schijven (SSD's). Premium-bestandsshares bieden consistente hoge prestaties en lage latentie en binnen enkele milliseconden voor de meeste i/o-bewerkingen voor i/o-intensieve workloads. Hierdoor kunt u ze geschikt zijn voor een groot aantal workloads, zoals databases, website hosting, ontwikkelomgevingen, enzovoort. Premium-bestandsshares zijn alleen beschikbaar in een ingerichte factureringsmodel. Premium-bestandsshares gebruiken een implementatiemodel gescheiden van de standard-bestandsshares.
 
 Azure Backup is beschikbaar voor premium-bestandsshares en Azure Kubernetes Service biedt ondersteuning voor premium-bestandsshares in versie 1.13 en hoger.
 
@@ -120,7 +135,7 @@ De volgende tabel ziet u enkele voorbeelden van deze formules voor de ingerichte
 |10,240      | 10,240  | Maximaal 30,720  | 675 | 450   |
 |33,792      | 33,792  | Maximaal 100.000 | 2,088 | 1,392   |
 |51,200      | 51,200  | Maximaal 100.000 | 3,132 | 2,088   |
-|102,400     | 100\.000 | Maximaal 100.000 | 6,204 | 4,136   |
+|102,400     | 100.000 | Maximaal 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Bursting
 
@@ -180,7 +195,7 @@ Houd er rekening mee bij het bepalen van welke replicatieoptie te gebruiken:
 
 ## <a name="data-growth-pattern"></a>Patroon van de groei van gegevens
 
-Vandaag de dag de maximale grootte voor een Azure-bestandsshare is 5 TiB (100 TiB voor premium-bestandsshares, die nu in openbare preview). Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare.
+Vandaag de dag de maximale grootte voor een Azure-bestandsshare is 5 TiB (100 TiB in preview). Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare.
 
 Het is mogelijk om te synchroniseren die meerdere Azure-bestandsshares op een enkele Windows-bestandsserver met Azure File Sync. Hiermee kunt u om ervoor te zorgen dat oudere, grote bestandsshares dat er on-premises naar Azure File Sync kunnen worden gebracht. Zie voor meer informatie, [plannen voor een implementatie van Azure File Sync](storage-files-planning.md).
 

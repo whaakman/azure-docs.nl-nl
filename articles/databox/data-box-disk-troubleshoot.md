@@ -6,178 +6,94 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 04/2/2019
+ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939641"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147089"
 ---
-# <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Oplossen van problemen in Azure Data Box-schijf
+# <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Logboeken gebruiken om op te lossen validatieproblemen in Azure Data Box-schijf
 
-Dit artikel is van toepassing op Microsoft Azure Data Box-schijf en een beschrijving van de werkstromen die wordt gebruikt voor het oplossen van problemen die u ziet wanneer u deze oplossing implementeert. 
+In dit artikel is van toepassing op Microsoft Azure Data Box-schijf. Het artikel wordt beschreven hoe u de Logboeken gebruiken om op te lossen de validatieproblemen die u zien kunt wanneer u deze oplossing implementeert.
 
-In dit artikel bevat de volgende secties:
+## <a name="validation-tool-log-files"></a>Validatie hulpprogramma-logboekbestanden
 
-- Logboeken met diagnostische gegevens downloaden
-- Logboeken met queryactiviteit
-- Fouten met het ontgrendelingsprogramma voor Data Box Disk
-- Fouten met het splits- en kopieerprogramma voor Data Box Disk
+Wanneer het valideren van de gegevens op de schijven die met behulp van de [hulpprogramma voor het valideren](data-box-disk-deploy-copy-data.md#validate-data), een *error.xml* voor logboekregistratie van fouten wordt gegenereerd. Het logboekbestand bevindt zich in de `Drive:\DataBoxDiskImport\logs` map van het station. Een koppeling naar het foutenlogboek wordt verstrekt wanneer u validatie uitvoert.
 
-## <a name="download-diagnostic-logs"></a>Logboeken met diagnostische gegevens downloaden
+<!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
-Als er fouten optreden tijdens het kopiëren van gegevens, geeft de portal een pad weer naar de map waarin de logboeken met diagnostische gegevens zich bevinden. 
+Als u meerdere sessies voor validatie uitvoert, wordt een foutenlogboek gegenereerd per sessie.
 
-De soorten diagnostische logboeken van Azure zijn:
-- Foutenlogboeken
-- Uitgebreide logboeken  
+- Hier volgt een voorbeeld van het foutenlogboek wanneer de gegevens geladen in de `PageBlob` map is niet uitgelijnd 512-bytes. Geen gegevens geüpload naar PageBlob moet 512-bytes zijn uitgelijnd, bijvoorbeeld een VHD of VHDX. De fouten in dit bestand zich in de `<Errors>` en waarschuwingen in `<Warnings>`.
 
-Als u naar het pad met een kopie van het logboek wilt navigeren, gaat u naar het dat is gekoppeld aan uw Data Box-order. 
-
-1.  Ga naar **Algemeen > Ordergegevens** en noteer het opslagaccount dat is gekoppeld aan uw order.
- 
-
-2.  Ga naar **Alle resources** en zoek naar het opslagaccount dat in de vorige stap is aangegeven. Selecteer en klik op het opslagaccount.
-
-    ![Logboeken kopiëren 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
-
-3.  Ga naar **Blob-service > Blobs verkennen** en zoek naar de blob die overeenkomt met het opslagaccount. Ga naar **diagnosticslogcontainer > waies**. 
-
-    ![Logboeken kopiëren 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
-
-    U ziet zowel de foutenlogboeken als de uitgebreide logboeken voor het kopiëren van gegevens. Selecteer en klik op elk bestand en download vervolgens een lokale kopie.
-
-## <a name="query-activity-logs"></a>Logboeken met queryactiviteit
-
-Gebruik de activiteitenlogboeken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. Met activiteitenlogboeken kunt u het volgende bepalen:
-
-- Welke bewerkingen zijn uitgevoerd voor de resources in uw abonnement.
-- Wie de bewerking heeft gestart.
-- Wanneer de bewerking is uitgevoerd.
-- De status van de bewerking.
-- De waarden van andere eigenschappen die u kunnen helpen bij het onderzoeken van het probleem.
-
-In het activiteitenlogboek staan alle schrijfbewerkingen (zoals PUT, POST, DELETE) die op uw resources zijn uitgevoerd, maar er staan geen leesbewerkingen (zoals GET) in.
-
-Activiteitenlogboeken worden 90 dagen bewaard. U kunt een query uitvoeren voor een willekeurig bereik van datums, zolang de begindatum niet verder dan 90 dagen in het verleden is. U kunt ook filteren op een van de ingebouwde query's in Insights. Klik bijvoorbeeld op een fout en selecteer vervolgens specifieke problemen om de hoofdoorzaak te begrijpen.
-
-## <a name="data-box-disk-unlock-tool-errors"></a>Fouten met het ontgrendelingsprogramma voor Data Box Disk
-
-
-| Fout bericht/gedrag hulpprogramma      | Aanbevelingen                                                                                               |
-|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| Geen<br><br>Het ontgrendelingsprogramma voor Data Box Disk loopt vast.                                                                            | BitLocker is niet geïnstalleerd. Zorg ervoor dat het hulpprogramma BitLocker is geïnstalleerd op de computer waarop het ontgrendelingsprogramma voor Data Box Disk wordt uitgevoerd.                                                                            |
-| Het huidige .NET Framework wordt niet ondersteund. De ondersteunde versies zijn 4.5 of hoger.<br><br>Hulpprogramma wordt beëindigd met een bericht.  | .NET 4.5 is niet geïnstalleerd. Installeer .NET 4.5 of hoger op de hostcomputer waarop het ontgrendelingsprogramma voor Data Box Disk wordt uitgevoerd.                                                                            |
-| Kan geen volumes ontgrendelen of verifiëren. Neem contact op met Microsoft Ondersteuning.  <br><br>Vergrendelde stations kunnen niet worden ontgrendeld of geverifieerd door het hulpprogramma. | De vergrendelde stations kunnen niet worden ontgrendeld door het hulpprogramma met de verstrekte wachtwoordsleutel. Neem contact op met Microsoft Ondersteuning voor volgende stappen.                                                |
-| De volgende volumes zijn ontgrendeld en geverifieerd. <br>Volume stationsletters: E:<br>Er konden geen volumes worden ontgrendeld met de volgende wachtwoordsleutels: werwerqomnf, qwerwerqwdfda <br><br>Door het hulpprogramma worden sommige stations ontgrendeld en worden de letters van stations waarbij het is mislukt weergegeven.| Gedeeltelijk geslaagd. Sommige van de stations kunnen niet worden ontgrendeld met de verstrekte wachtwoordsleutel. Neem contact op met Microsoft Ondersteuning voor volgende stappen. |
-| De vergrendelde volumes zijn niet gevonden. Controleer of de schijf die is ontvangen van Microsoft op de juiste manier is aangesloten en is vergrendeld.          | Er zijn geen vergrendelde stations gevonden door het hulpprogramma. De stations zijn al ontgrendeld of niet gedetecteerd. Zorg ervoor dat de stations zijn verbonden en zijn vergrendeld.                                                           |
-| Onherstelbare fout: Ongeldige parameter<br>Parameternaam: invalid_arg<br>GEBRUIK:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Voorbeeld: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Voorbeeld: DataBoxDiskUnlock /SystemCheck<br>Voorbeeld: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Deze sleutel ophalen uit Azure DataBox schijforder. De wachtwoordsleutel ontgrendelt uw schijven.<br>/Help:           Deze optie biedt Help-informatie voor cmdlet-syntaxis en voorbeelden.<br>/SystemCheck:    Deze optie wordt gecontroleerd of uw systeem voldoet aan de vereisten voor het uitvoeren van het hulpprogramma.<br><br>Druk op een willekeurige toets om af te sluiten. | Ongeldige parameter ingevoerd. De enige toegestane parameters zijn /SystemCheck en /PassKey/Help.                                                                            |
-
-## <a name="data-box-disk-split-copy-tool-errors"></a>Fouten met het splits- en kopieerprogramma voor Data Box Disk
-
-|Foutbericht/waarschuwingen  |Aanbevelingen |
-|---------|---------|
-|[Info] Bij het ophalen van BitLocker-wachtwoord voor volume: min. <br>[Fout] Uitzondering opgetreden tijdens het ophalen van BitLocker-sleutel voor volume m:<br> Reeks bevat geen elementen.|Deze fout wordt gegenereerd als de doel-Data Box Disk offline is. <br> Gebruik hulpprogramma `diskmgmt.msc` voor online schijven.|
-|[Fout] Uitzondering geretourneerd: WMI-bewerking is mislukt:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=De indeling van het verstrekte herstelwachtwoord is ongeldig. <br>BitLocker-herstelwachtwoorden bestaan uit 48 cijfers. <br>Controleer of het herstelwachtwoord de juiste indeling heeft en probeer het opnieuw.|Gebruik eerst het ontgrendelingsprogramma van Data Box Disk om de schijven te ontgrendelen en voer dan de opdracht opnieuw uit. Voor meer informatie gaat u naar <li> [Data Box Disk ontgrendelen voor Windows-clients](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Data Box Disk ontgrendelen voor Linux-clients](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
-|[Fout] Uitzondering geretourneerd: Er bestaat een DriveManifest.xml-bestand op de doel-station. <br> Dit betekent dat het doelstation mogelijk is voorbereid met een ander logboekbestand. <br>Als u meer gegevens aan hetzelfde station wilt toevoegen, gebruik dan het vorige logboekbestand. Als u bestaande gegevens wilt verwijderen en het doelstation wilt hergebruiken voor een nieuwe importtaak, verwijdert u het bestand DriveManifest.xml van de schijf. Voer deze opdracht opnieuw uit met een nieuw logboekbestand.| Deze fout wordt gegenereerd wanneer u dezelfde reeks stations probeert te gebruiken voor meerdere importsessies. <br> Gebruik één set schijven maar voor één splits- en kopieersessie.|
-|[Fout] Uitzondering geretourneerd: CopySessionId importgegevens-september-test-1 verwijst naar een eerdere sessie. kopiëren en niet opnieuw kan worden gebruikt voor een nieuwe kopieersessie.|Deze fout wordt gerapporteerd wanneer wordt geprobeerd om dezelfde taaknaam voor een nieuwe taak te gebruiken als een eerder met succes voltooide taak.<br> Geef een unieke naam op voor de nieuwe taak.|
-|[Info] De naam van het doelbestand of de doelmap overschrijdt de lengtelimiet van NTFS. |Dit bericht wordt gegenereerd als de naam van het doelbestand is gewijzigd vanwege een lang pad.<br> Wijzig de verwijderingsoptie in bestand `config.json` om dit gedrag te regelen.|
-|[Fout] Uitzondering geretourneerd: Ongeldige JSON escape-volgorde. |Dit bericht wordt gegenereerd als de config.json een ongeldige opmaak heeft. <br> Valideer uw `config.json` met behulp van [JSONlint](https://jsonlint.com/) voordat u het bestand opslaat.|
-
-## <a name="deployment-issues-for-linux"></a>Problemen bij de implementatie voor Linux
-
-In deze sectie worden enkele van de meest voorkomende problemen tijdens de implementatie van de Data Box-schijf met het gebruik van een Linux-client voor het kopiëren van gegevens.
-
-### <a name="issue-drive-getting-mounted-as-read-only"></a>Probleem: Schijf ophalen gekoppeld als alleen-lezen
- 
-**Oorzaak** 
-
-Dit kan zijn vanwege een niet schoon bestandssysteem. 
-
-Een station als lezen / schrijven stationseigendom werkt niet met de Data Box-schijven. In dit scenario wordt niet ondersteund met schijven die door dislocker ontsleuteld. U kunt het apparaat met de volgende opdracht met succes hebt gekoppeld:
-
-    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
-
-Hoewel de stationseigendom voltooid is, blijft de gegevens niet actief.
-
-**Resolutie**
-
-Voer de volgende stappen uit op uw Linux-systeem:
-
-1. Installeer de `ntfsprogs` -pakket voor het hulpprogramma ntfsfix.
-2. Ontkoppel de koppelpunten van het station wordt geleverd door het hulpprogramma ontgrendelen. Het aantal koppelpunten varieert voor stations.
-
-    ```
-    unmount /mnt/DataBoxDisk/mountVol1
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+        <ErrorLog Version="2018-10-01">
+            <SessionId>session#1</SessionId>
+            <ItemType>PageBlob</ItemType>
+            <SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
+            <Errors>
+                <Error Code="Not512Aligned">
+                    <Description>The file is not 512 bytes aligned.</Description>
+                    <List>
+                        <File Path="\Practice\myScript.ps1" />
+                    </List>
+                    <Count>1</Count>
+                </Error>
+            </Errors>
+            <Warnings />
+        </ErrorLog>
     ```
 
-3. Voer `ntfsfix` op het bijbehorende pad. De gemarkeerde waarde moet gelijk zijn aan stap 2.
+- Hier volgt een voorbeeld van het foutlogboek doorgeven als de containernaam van de niet geldig is. De map die u maakt onder `BlockBlob`, `PageBlob`, of `AzureFile` mappen op de schijf wordt een container in uw Azure Storage-account. De naam van de container moet voldoen aan de [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
+    ```xml
+        <?xml version="1.0" encoding="utf-8"?>
+        <ErrorLog Version="2018-10-01">
+          <SessionId>bbsession</SessionId>
+          <ItemType>BlockBlob</ItemType>
+          <SourceDirectory>E:\BlockBlob</SourceDirectory>
+          <Errors>
+            <Error Code="InvalidShareContainerFormat">
+              <List>
+                <Container Name="Azu-reFile" />
+                <Container Name="bbcont ainer1" />
+              </List>
+              <Count>2</Count>
+            </Error>
+          </Errors>
+          <Warnings />
+    </ErrorLog>
     ```
-    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
-    ```
 
-4. Voer de volgende opdracht om te verwijderen van de metagegevens van de slaapstand en leiden het probleem koppelen tot kan.
+## <a name="validation-tool-errors"></a>Validatiefouten hulpprogramma
 
-    ```
-    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
-    ```
+De fouten die zijn opgenomen in de *error.xml* met de bijbehorende aanbevolen acties worden samengevat in de volgende tabel.
 
-5. Voer een schone ontkoppelen.
+| Foutcode| Description                       | Aanbevolen acties               |
+|------------|--------------------------|-----------------------------------|
+| `None` | De gegevens is gevalideerd. | Geen actie vereist. |
+| `InvalidXmlCharsInPath` |Kan een manifestbestand niet maken omdat het bestandspad bevat tekens die ongeldig zijn. | Verwijder deze tekens om door te gaan.  |
+| `OpenFileForReadFailed`| Kan het bestand niet verwerken. Dit kan zijn vanwege een toegang probleem of bestand system is beschadigd.|Kan het bestand vanwege een fout niet lezen. Details van de fout zich in de uitzondering. |
+| `Not512Aligned` | Dit bestand is geen geldige indeling voor PageBlob-map.| Alleen uploadgegevens die 512 bytes is afgestemd op `PageBlob` map. Het bestand uit de map PageBlob verwijderen of verplaatsen naar de map BlockBlob. De validatie opnieuw.|
+| `InvalidBlobPath` | Bestandspad toewijzen niet aan een geldige blob-pad in de cloud aan de hand van de Azure-Blob naamconventies.|Volg de richtlijnen voor de Azure naamgeving om de naam van het bestandspad te. |
+| `EnumerationError` | Kan het bestand voor de validatie niet opsommen. |Er zijn mogelijk meerdere redenen voor deze fout. Een meest waarschijnlijke reden hiervoor is toegang tot het bestand. |
+| `ShareSizeExceeded` | Dit bestand veroorzaakt de grootte van de Azure bestandsshare naar de Azure-limiet van 5 TB.|Reduceer de grootte van de gegevens in de share, zodat het voldoet aan de [Omvangslimieten voor Azure-object](data-box-disk-limits.md#azure-object-size-limits). De validatie opnieuw. |
+| `AzureFileSizeExceeded` | De bestandsgrootte overschrijdt de grenzen van de grootte van Azure-bestand.| De grootte van het bestand of de gegevens verkleinen zodat het voldoet aan de [Omvangslimieten voor Azure-object](data-box-disk-limits.md#azure-object-size-limits). De validatie opnieuw.|
+| `BlockBlobSizeExceeded` | De bestandsgrootte overschrijdt de grenzen van de grootte van Azure blok-Blob. | De grootte van het bestand of de gegevens verkleinen zodat het voldoet aan de [Omvangslimieten voor Azure-object](data-box-disk-limits.md#azure-object-size-limits). De validatie opnieuw. |
+| `ManagedDiskSizeExceeded` | De bestandsgrootte overschrijdt de grenzen van de grootte van door Azure beheerde schijf. | De grootte van het bestand of de gegevens verkleinen zodat het voldoet aan de [Omvangslimieten voor Azure-object](data-box-disk-limits.md#azure-object-size-limits). De validatie opnieuw. |
+| `PageBlobSizeExceeded` | De bestandsgrootte overschrijdt de grenzen van de grootte van door Azure beheerde schijf. | De grootte van het bestand of de gegevens verkleinen zodat het voldoet aan de [Omvangslimieten voor Azure-object](data-box-disk-limits.md#azure-object-size-limits). De validatie opnieuw. |
+| `InvalidShareContainerFormat`  |De namen van mappen komen niet overeen met Azure voor naamgeving van containers of shares.         |De eerste map die is gemaakt op basis van de vooraf bestaande mappen op de schijf wordt een container in uw storage-account. De naam van deze share of container voldoet niet aan de naamgevingsconventies voor Azure. Naam van het bestand zodat het voldoet aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). De validatie opnieuw.   |
+| `InvalidBlobNameFormat` | Bestandspad toewijzen niet aan een geldige blob-pad in de cloud aan de hand van de Azure-Blob naamconventies.|Naam van het bestand zodat het voldoet aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). De validatie opnieuw. |
+| `InvalidFileNameFormat` | Bestandspad toewijzen niet aan een geldig pad in de cloud aan de hand van de Azure File naamconventies. |Naam van het bestand zodat het voldoet aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). De validatie opnieuw. |
+| `InvalidDiskNameFormat` | Bestandspad toewijzen niet aan de naam van een geldige schijf in de cloud aan de hand van de naamgevingsconventies voor Azure Managed Disk. |Naam van het bestand zodat het voldoet aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). De validatie opnieuw.       |
+| `NotPartOfFileShare` | Kan de bestanden niet uploaden omdat het uploadpad niet geldig is. De bestanden uploaden naar een map in Azure Files.   | Verwijder de bestanden in de fout en deze bestanden uploaden naar een precreated map. De validatie opnieuw. |
+| `NonVhdFileNotSupportedForManagedDisk` | Een niet-VHD-bestand kan niet worden geüpload als een beheerde schijf. |De niet-VHD-bestanden worden verwijderd omdat deze niet worden ondersteund. De validatie opnieuw. |
 
-    ```
-    ./DataBoxDiskUnlock_x86_64 /unmount
-    ```
-
-6. Voer een schone ontgrendelen en koppelen.
-7. Test het koppelpunt van het schrijven van een bestand.
-8. Ontkoppel en voor het valideren van de bestandspersistentie koppelen.
-9. Ga door met het kopiëren van gegevens.
- 
-### <a name="issue-error-with-data-not-persisting-after-copy"></a>Probleem: Fout met de gegevens niet permanent worden gemaakt na het kopiëren
- 
-**Oorzaak** 
-
-Als u ziet dat het station geen gegevens nadat deze is ontkoppeld (Hoewel de gegevens zijn gekopieerd naar het), dan is het mogelijk dat u een station als lezen / schrijven opnieuw gekoppeld nadat het station is gekoppeld als alleen-lezen.
-
-**Resolutie**
- 
-Als dit het geval is, raadpleegt u de oplossing voor [ophalen gekoppeld als alleen-lezen-stations](#issue-drive-getting-mounted-as-read-only).
-
-Als dat niet het geval is, kopieert u de logboeken uit de map met het hulpprogramma Data Box Disk ontgrendelen en [Neem contact op met Microsoft Support](data-box-disk-contact-microsoft-support.md).
-
-## <a name="deployment-issues-for-windows"></a>Problemen bij de implementatie voor Windows
-
-In deze sectie vindt u details van de meest voorkomende problemen tijdens de implementatie van de Data Box-schijf met het gebruik van een Windows-client voor het kopiëren van gegevens
-
-### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Probleem: Station BitLocker kan niet worden ontgrendeld.
- 
-**Oorzaak** 
-
-U hebt het wachtwoord in het dialoogvenster BitLocker gebruikt en stations dialoogvenster voor het ontgrendelen van de schijf via de BitLocker probeert ontgrendelen. Dit werkt niet. 
-
-**Resolutie**
-
-Om toegang te krijgen tot de Data Box-schijven, moet u het hulpprogramma voor het ontgrendelen van gegevens in het schijf gebruikt en geeft u het wachtwoord van de Azure-portal. Voor meer informatie gaat u naar [Zelfstudie: Uitpakken, verbinden en ontgrendelen van Azure Data Box-schijf](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
- 
-### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Probleem: Kan geen ontgrendelen of enkele volumes te controleren. Neem contact op met Microsoft Ondersteuning.
- 
-**Oorzaak** 
-
-U ziet mogelijk de volgende fout in het foutenlogboek en zijn niet in staat om te ontgrendelen of enkele volumes te verifiëren.
-
-`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
- 
-Hiermee wordt aangegeven dat u waarschijnlijk de juiste versie van Windows PowerShell op uw Windows-client ontbreken.
-
-**Resolutie**
-
-U kunt installeren [v Windows PowerShell 5.0](https://www.microsoft.com/download/details.aspx?id=54616) en probeer het opnieuw.
- 
-Als u nog steeds niet lukt de volumes ontgrendelen, de logboeken gekopieerd van de map met het hulpprogramma Data Box Disk ontgrendelen en [Neem contact op met Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Data Box Disk beheren via Azure Portal](data-box-portal-ui-admin.md).
+- Problemen oplossen [gegevens uploadfouten](data-box-disk-troubleshoot-upload.md).

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 1e75e0be5404ca7107d3f3201d248088b48da12c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067902"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203046"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Maken van aangepaste volgschema's voor die end-to-end-werkstromen in Azure Logic Apps bewaken
 
@@ -56,22 +56,22 @@ Dit artikel bevat aangepaste code die u in de lagen buiten uw logische app gebru
 }
 ```
 
-| Eigenschap | Type | Description |
-| --- | --- | --- |
-| sourceType |   | Het type van de bron-uitvoeren. Toegestane waarden zijn **Microsoft.Logic/workflows** en **aangepaste**. (Verplicht) |
-| source |   | Als het brontype is **Microsoft.Logic/workflows**, de informatie van de gegevensbron moet volgen dit schema. Als het brontype is **aangepaste**, het schema is een JToken. (Verplicht) |
-| systemId | String | Logische app systeem-ID. (Verplicht) |
-| runId | String | Logische app-id. (Verplicht) |
-| operationName | String | Naam van de bewerking (bijvoorbeeld: actie of trigger). (Verplicht) |
-| repeatItemScopeName | String | Herhaal de itemnaam als de actie binnen een `foreach` / `until` lus. (Verplicht) |
-| repeatItemIndex | Geheel getal | Of de actie is binnen een `foreach` / `until` lus. Geeft aan dat de itemindex herhaalde. (Verplicht) |
-| trackingId | String | Tracerings-ID, de berichten correleren. (Optioneel) |
-| correlationId | String | Correlatie-ID, de berichten correleren. (Optioneel) |
-| clientRequestId | String | Client kunt invullen om berichten te correleren. (Optioneel) |
-| eventLevel |   | Niveau van de gebeurtenis. (Verplicht) |
-| eventTime |   | Tijd van de gebeurtenis, in UTC-notatie jjjj-MM-DDTHH:MM:SS.00000Z. (Verplicht) |
-| recordType |   | Het type van de record bijhouden. Toegestane waarde is **aangepaste**. (Verplicht) |
-| record |   | Aangepaste recordtype. Toegestane indeling is JToken. (Verplicht) |
+| Eigenschap | Vereist | Type | Description |
+| --- | --- | --- | --- |
+| sourceType | Ja |   | Het type van de bron-uitvoeren. Toegestane waarden zijn **Microsoft.Logic/workflows** en **aangepaste**. |
+| source | Ja |   | Als het brontype is **Microsoft.Logic/workflows**, de informatie van de gegevensbron moet volgen dit schema. Als het brontype is **aangepaste**, het schema is een JToken. |
+| systemId | Ja | String | Logische app systeem-ID. |
+| runId | Ja | String | Logische app-id. |
+| operationName | Ja | String | Naam van de bewerking (bijvoorbeeld: actie of trigger). |
+| repeatItemScopeName | Ja | String | Herhaal de itemnaam als de actie binnen een `foreach` / `until` lus. |
+| repeatItemIndex | Ja | Geheel getal | Of de actie is binnen een `foreach` / `until` lus. Geeft aan dat de itemindex herhaalde. |
+| trackingId | Nee | String | Tracerings-ID, de berichten correleren. |
+| correlationId | Nee | String | Correlatie-ID, de berichten correleren. |
+| clientRequestId | Nee | String | Client kunt invullen om berichten te correleren. |
+| eventLevel | Ja |   | Niveau van de gebeurtenis. |
+| eventTime | Ja |   | Tijd van de gebeurtenis, in UTC-notatie jjjj-MM-DDTHH:MM:SS.00000Z. |
+| recordType | Ja |   | Het type van de record bijhouden. Toegestane waarde is **aangepaste**. |
+| record | Ja |   | Aangepaste recordtype. Toegestane indeling is JToken. |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Volgschema's voor B2B-protocol

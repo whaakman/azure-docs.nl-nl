@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7de7fe1c677d54c0fa3e6d3ca4730ef1083bc81
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955262"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273272"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Instellen van failover tussen meerdere Azure CDN-eindpunten met Azure Traffic Manager
 
@@ -81,7 +81,7 @@ Na het instellen van uw CDN- en Traffic Manager-profielen, volg deze stappen voo
 
     Maakt gebruik van Azure CDN de *cdnverify* subdomein voor het valideren van de DNS-toewijzing voor het voltooien van het registratieproces. Zie voor meer informatie, [maakt u een CNAME-DNS-record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). In deze stap kunt Azure CDN voor het herkennen van het aangepaste domein, zodat deze op de aanvragen reageren kan.
     
- > [!NOTE]
+    > [!NOTE]
     > SSL inschakelen voor een **Azure CDN van Akamai** profielen, moet u rechtstreeks cname het aangepaste domein aan uw eindpunt. cdnverify voor het inschakelen van SSL is nog niet ondersteund. 
     >
 

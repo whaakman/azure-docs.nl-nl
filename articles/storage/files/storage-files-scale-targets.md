@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078149"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150453"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure bestanden schaalbaarheids- en prestatiedoelen
 
@@ -45,7 +45,13 @@ Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5
 Premium-bestandsshares zijn ingericht in een speciale storage-account met de naam **filestorage (preview)** . Dit account heeft enigszins schaal doelen dan de storage-account gebruikt voor de standard-bestandsshares. Raadpleeg voor de prestatiedoelen van storage-account schalen aan de tabel in de [prestatiedoelen voor Azure storage-account schalen](#azure-storage-account-scale-targets) sectie.
 
 > [!IMPORTANT]
-> Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor storage-accounts is alleen mogelijk als er slechts één share per opslagaccount.
+> Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor FileStorage accounts is alleen haalbare als er slechts één share per FileStorage-account.
+
+### <a name="file-share-and-file-scale-targets"></a>Bestandsshare en schaal bestandsdoelen
+
+> [!NOTE]
+> Standard-bestandsshares groter is dan 5 TiB zijn in preview en bepaalde beperkingen hebben.
+> Zie voor een lijst met beperkingen en voor Onboarding van de Preview-versie van deze grotere bestanden delen, de [Standard bestandsshares](storage-files-planning.md#standard-file-shares) sectie van de handleiding voor capaciteitsplanning.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

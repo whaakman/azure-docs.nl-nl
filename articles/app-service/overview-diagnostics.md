@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539792"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147339"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Overzicht van Azure App Service-diagnostics
 
@@ -103,12 +103,12 @@ Net als proactieve controle van CPU, biedt proactieve automatisch herstel een ee
 
 ![Proactieve automatisch herstel](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Wijzigingsanalyse
+## <a name="change-analysis-only-for-windows-app"></a>Analyse van wijzigen (alleen voor Windows-app)
 
-In een ontwikkelingsomgeving snelle kan soms het lastig te bijhouden van alle wijzigingen aangebracht in uw app en laat alleen pinpoint op een wijziging die het gedrag van een slechte status heeft veroorzaakt. Wijziging analyse kunt u op de wijzigingen in uw app om oplossen van problemen ervaring mogelijk te beperken. Analyse van de wijziging is ingesloten in diagnostisch rapport zoals **toepassing vastloopt** zodat u deze als andere metrische gegevens gebruiken kunt.
+In een ontwikkelingsomgeving snelle kan soms het lastig zijn alle wijzigingen in uw app bijhouden en laat alleen pinpoint op een wijziging die niet in orde gedrag veroorzaakt. Wijziging analyse kunt u op de wijzigingen in uw app om oplossen van problemen ervaring mogelijk te beperken. Analyse van de wijziging is gevonden in **wijzigingen in de toepassing** en ook opgenomen in een diagnostisch rapport zoals **toepassing vastloopt** zodat u deze als andere metrische gegevens gebruiken kunt.
+
+Analyse van de wijziging moet worden ingeschakeld voordat u de functie. Voor meer informatie over analysis wijzigen, gaat u naar [aankondiging van de nieuwe ervaring van de analyse wijzigen in App Service-Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
 ![Analyse van standaard-pagina wijzigen](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Diff-weergave](./media/app-service-diagnostics/diff-view-12.png)
-
-Analyse van de wijziging moet worden ingeschakeld voordat u de functie. Voor meer informatie over analysis wijzigen, gaat u naar [aankondiging van de nieuwe ervaring van de analyse wijzigen in App Service-Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).

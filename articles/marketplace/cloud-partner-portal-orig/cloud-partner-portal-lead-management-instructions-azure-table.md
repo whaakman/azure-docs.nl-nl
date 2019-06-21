@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240521"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147903"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Potentiële klanten management instructies voor het Azure-tabel
 
@@ -97,7 +97,7 @@ In de volgende reeks stappen, maakt u verbinding met uw Azure-tabel en stelt u d
 
      ![Kies een aangepaste waarde voor de naam van de Azure-tabel](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filterquery** : in dit veld klikt en de **ophalen tijd in het verleden** pictogram wordt weergegeven in een pop-upvenster. Selecteer **tijd in het verleden** dit te gebruiken als tijdstempel voor het filteren van de query. U kunt ook de volgende functie in het veld plakken: Aanmaaktijd `gt datetime'@{body('Get_past_time')}'` 
+   - **Filterquery** : in dit veld klikt en de **ophalen tijd in het verleden** pictogram wordt weergegeven in een pop-upvenster. Selecteer **tijd in het verleden** dit te gebruiken als tijdstempel voor het filteren van de query. U kunt ook de volgende functie in het veld plakken: Aanmaaktijd `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Filter-query-functie instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

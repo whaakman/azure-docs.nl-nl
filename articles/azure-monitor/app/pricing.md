@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 05/29/2019
 ms.author: dalek
-ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 188911fa3fb872c8db1612406bf3d4e9b36d837b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357267"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303850"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gebruik en kosten voor Application Insights beheren
 
@@ -30,7 +30,7 @@ Als u vragen hebt over hoe de prijzen voor Application Insights werken, kunt u e
 
 ## <a name="pricing-model"></a>Prijsmodel
 
-Prijzen voor [Azure Application Insights] [ start] is gebaseerd op gegevensvolume die zijn opgenomen. Elke Application Insights-resource wordt in rekening gebracht als een afzonderlijke service en draagt bij aan de factuur voor uw Azure-abonnement.
+Prijzen voor [Azure Application Insights][start] is gebaseerd op gegevensvolume die zijn opgenomen. Elke Application Insights-resource wordt in rekening gebracht als een afzonderlijke service en draagt bij aan de factuur voor uw Azure-abonnement.
 
 ### <a name="data-volume-details"></a>Details van volume van gegevens
 
@@ -38,11 +38,12 @@ Prijzen voor [Azure Application Insights] [ start] is gebaseerd op gegevensvolum
 * Kosten voor volume van uw toepassing de gegevens worden nu op een nieuwe factureringsmeter begint met de naam gerapporteerd **gegevensopname** vanaf April 2018. Dit nieuwe meter wordt gedeeld door de bewaking van technologieën zoals Applications Insights en Log Analytics en is momenteel onder de servicenaam van de **Log Analytics**. 
 * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) gegevens wordt niet geteld voor prijsbepaling.
 
-Zie voor de huidige prijzen in de valuta en de regio [prijzen van Application Insights][pricing].
+> [!NOTE]
+> Alle prijzen weergegeven in de schermafbeeldingen in dit artikel zijn bijvoorbeeld alleen bedoeld. Zie voor de huidige prijzen in de valuta en de regio [prijzen van Application Insights][pricing].
 
 ### <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 
-[Webtests met meerdere stappen](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) een extra in rekening gebracht. Webtests met meerdere stappen zijn webtests die een reeks acties uitvoeren.
+[Webtests met meerdere stappen](../../azure-monitor/app/availability-multistep.md) een extra in rekening gebracht. Webtests met meerdere stappen zijn webtests die een reeks acties uitvoeren.
 
 Er is geen aparte toeslag voor *tests ping* van één pagina. Telemetrie van ping-tests en tests uit meerdere stappen wordt in rekening gebracht gelijk zijn aan andere telemetrie van uw app.
 
@@ -53,7 +54,7 @@ Application Insights maakt het gemakkelijk te begrijpen wat de kosten zijn waars
 ![Kies prijzen](./media/pricing/pricing-001.png)
 
 A. Controleer uw gegevensvolume gedurende de maand. Dit omvat alle gegevens die worden ontvangen en bewaard (na een [steekproeven](../../azure-monitor/app/sampling.md)) van uw server en client-apps en van de beschikbaarheidstests.  
-B. Een afzonderlijke kosten in rekening gebracht wordt gemaakt voor [webtests met meerdere stappen](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (Dit is exclusief de eenvoudige beschikbaarheidstests, die zijn opgenomen in de kosten voor het volume van gegevens.)  
+B. Een afzonderlijke kosten in rekening gebracht wordt gemaakt voor [webtests met meerdere stappen](../../azure-monitor/app/availability-multistep.md). (Dit is exclusief de eenvoudige beschikbaarheidstests, die zijn opgenomen in de kosten voor het volume van gegevens.)  
 C. Trends van volume voor de afgelopen maand weergeven.  
 D. Inschakelen van gegevensopname [steekproeven](../../azure-monitor/app/sampling.md).   
 E. Stel de dagelijkse volumelimiet van gegevens.  

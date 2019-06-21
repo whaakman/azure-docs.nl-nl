@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147914"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176020"
 ---
 *Opwarmen van de Cache*  
 De schijf met alleen-lezentoegang opslaan in cache zijn kunnen bieden hogere IOP's dan de limiet van de schijf. Als u dit maximum leesprestaties uit de cache van de host, moet eerst u opgewarmd de cache van deze schijf. Dit zorgt ervoor dat de lezen IOs dat het hulpprogramma voor benchmarking wordt station op CacheReads volume, daadwerkelijk treffers in de cache en niet op de schijf rechtstreeks. Het resultaat van de cache treffers in extra IOP's uit de cache van één schijf ingeschakeld.
@@ -83,7 +83,7 @@ Nadat de cacheschijf is opgewarmd, gaat u verder met de test-scenario's die hier
 | --- | --- | --- | --- |
 | Met maximaal Gelezen IOP 's |CacheReads |RandomWrites\_8 kB |MAAR LIEFST 50.000 IOPS |
 | Met maximaal IOPS-schrijfbewerkingen |NoCacheWrites |RandomReads\_8 kB |MAAR LIEFST 64.000 IOPS |
-| Met maximaal Gecombineerde IOPS |CacheReads |RandomWrites\_8 kB |100\.000 IOPS |
+| Met maximaal Gecombineerde IOPS |CacheReads |RandomWrites\_8 kB |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8 kB | &nbsp; | &nbsp; |
 | Met maximaal Read MB/sec |CacheReads |RandomWrites\_64 kB |524 MB/sec |
 | Met maximaal MB per seconde schrijven |NoCacheWrites |RandomReads\_64 kB |524 MB/sec |

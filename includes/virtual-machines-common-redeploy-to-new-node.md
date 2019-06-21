@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160288"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176040"
 ---
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 1. Selecteer de virtuele machine die u wilt implementeren, en selecteer vervolgens de *opnieuw implementeren* knop in de *instellingen* blade. Mogelijk moet u scrollen om te controleren de **ondersteuning en probleemoplossing** sectie met de knop 'Implementeren' zoals in het volgende voorbeeld:

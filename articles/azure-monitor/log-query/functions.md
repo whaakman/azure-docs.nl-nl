@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b3116230a085bfbb9a6139fbada4179d802bf5e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728063"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296073"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Met behulp van functies in Azure Monitor logboeken-query 's
-
-> [!NOTE]
-> U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 
 Voor het gebruik van een logboekquery met een andere query kunt u deze opslaan als een functie. Hiermee kunt u voor het vereenvoudigen van complexe query's door ze te analyseren in delen en kunt u algemene code met meerdere query's.
 

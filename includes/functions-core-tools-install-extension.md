@@ -9,11 +9,11 @@ ms.date: 09/25/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131400"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175801"
 ---
 Extensie-bundels maken alle bindingen die zijn gepubliceerd door de Azure Functions-team beschikbaar via een instelling in de *host.json* bestand. Voor lokale ontwikkeling, zorg ervoor dat u hebt de nieuwste versie van [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 

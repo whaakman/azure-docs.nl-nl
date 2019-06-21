@@ -1,6 +1,6 @@
 ---
 title: Azure VMware-oplossing door CloudSimple Quickstart - service maken
-description: Meer informatie over het maken van de service CloudSimple, kopen van knooppunten en knooppunten reserveren
+description: Informatie over het maken van de service CloudSimple knooppunten in te richten en reserveren van knooppunten
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577568"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164226"
 ---
 # <a name="quickstart---create-service"></a>Quick Start - service maken
 
@@ -21,7 +21,7 @@ Om te beginnen, maakt u de Azure-VMware-oplossing door CloudSimple in Azure port
 
 ## <a name="vmware-solution-by-cloudsimple---service-overview"></a>VMware-oplossing door CloudSimple - Service-overzicht
 
-De service CloudSimple kunt u Azure VMware-oplossing door CloudSimple gebruiken.  Het maken van de service, kunt u knooppunten kopen, knooppunten reserveren en persoonlijke clouds te maken.  U toevoegen de service CloudSimple aan elke Azure-regio waar de service CloudSimple beschikbaar is.  De service definieert het edge-netwerk van Azure VMware-oplossing door CloudSimple.  Dit Microsoft edge-netwerk wordt gebruikt voor VPN en ExpressRoute Internet verbinding met uw persoonlijke clouds onder meer services.
+De service CloudSimple kunt u Azure VMware-oplossing door CloudSimple gebruiken.  Het maken van de service kunt u knooppunten inrichten, knooppunten reserveren en persoonlijke clouds te maken.  U toevoegen de service CloudSimple aan elke Azure-regio waar de service CloudSimple beschikbaar is.  De service definieert het edge-netwerk van Azure VMware-oplossing door CloudSimple.  Dit Microsoft edge-netwerk wordt gebruikt voor VPN en ExpressRoute Internet verbinding met uw persoonlijke clouds onder meer services.
 
 Als u wilt toevoegen de CloudSimple-service, moet u een gatewaysubnet maken. Het gatewaysubnet wordt gebruikt bij het maken van het edge-netwerk en vereist een/28 CIDR-blok. De adresruimte van de gateway-subnet moet uniek zijn. Deze mogen niet overlappen met een van uw on-premises netwerk adresruimten of de adresruimte van Azure-netwerk.
 
@@ -47,9 +47,6 @@ Volg onderstaande stappen voor het inschakelen van de resourceprovider voor Clou
 
 ## <a name="create-the-service"></a>De service maken
 
->[!NOTE]
-> CloudSimple service moet zijn ingeschakeld op uw abonnement. Als uw abonnement niet is ingeschakeld, ontvangt u een fout wanneer u probeert om de service te maken.  Volg de stappen in [CloudSimple inschakelen service](https://docs.azure.cloudsimple.com/enable-cloudsimple-service) artikel om in te schakelen van de service.
-
 1. Selecteer **Alle services**.
 2. Zoeken naar **CloudSimple Service**.
 
@@ -71,7 +68,7 @@ Volg onderstaande stappen voor het inschakelen van de resourceprovider voor Clou
 
 De service is gemaakt en toegevoegd aan de lijst met services.
 
-## <a name="purchase-nodes"></a>Knooppunten kopen
+## <a name="provision-nodes"></a>Knooppunten inrichten
 
 Als u betaalt u Ga capaciteit voor een omgeving CloudSimple Private Cloud instelt, eerst knooppunten in te richten in Azure portal.
 
@@ -85,7 +82,7 @@ Als u betaalt u Ga capaciteit voor een omgeving CloudSimple Private Cloud instel
 
     ![CloudSimple knooppunten toevoegen](media/create-cloudsimple-node-add.png)
 
-5. Selecteer het abonnement waar u om aan te schaffen CloudSimple knooppunten.
+5. Selecteer het abonnement waarin u wilt CloudSimple knooppunten in te richten.
 6. Selecteer de resourcegroep voor de knooppunten. Als u wilt een nieuwe resourcegroep toevoegen, klikt u op **nieuw**.
 7. Geef het voorvoegsel voor het identificeren van de knooppunten.
 8. Selecteer de locatie voor de resources van het knooppunt.

@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799110"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148004"
 ---
 # <a name="public-ip-address-prefix"></a>Openbare IP-adresvoorvoegsel
 
 Een openbare IP-adresvoorvoegsel is een gereserveerd bereik met IP-adressen voor uw openbare eindpunten in Azure. Azure wijst een aaneengesloten reeks adressen aan uw abonnement op basis van hoeveel u opgeeft. Als u niet bekend met openbare adressen bent, Zie [openbare IP-adressen.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Openbare IP-adressen worden toegewezen uit een groep met de adressen in elke Azure-regio. U kunt [downloaden](https://www.microsoft.com/download/details.aspx?id=56519) de lijst met bereiken maakt gebruik van Azure voor elke regio. 40\.121.0.0/16 is bijvoorbeeld een van meer dan 100 bereiken in die Azure wordt gebruikt in de regio VS-Oost. Bereik omvat ook de bruikbare adressen van 40.121.0.1 - 40.121.255.254.
+Openbare IP-adressen worden toegewezen uit een groep met de adressen in elke Azure-regio. U kunt [downloaden](https://www.microsoft.com/download/details.aspx?id=56519) de lijst met bereiken maakt gebruik van Azure voor elke regio. 40.121.0.0/16 is bijvoorbeeld een van meer dan 100 bereiken in die Azure wordt gebruikt in de regio VS-Oost. Bereik omvat ook de bruikbare adressen van 40.121.0.1 - 40.121.255.254.
 
 U een openbaar IP-adresvoorvoegsel dat in een Azure-regio en een abonnement maken door een naam op te geven en het aantal adressen wilt u het voorvoegsel om op te nemen. Bijvoorbeeld, als u een openbaar IP-adresvoorvoegsel van/28 maakt, toewijst Azure 16-adressen uit een van de bereiken ligt voor u. U weet niet welke bereik Azure wordt toegewezen wanneer u het bereik hebt gemaakt, maar de adressen aaneengesloten zijn. Openbare IP-adresvoorvoegsels hebben een betaling te doen. Zie voor meer informatie, [prijzen van openbare IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Waarom een openbare IP-adresvoorvoegsel maken?
 
-Bij het maken van resources voor openbaar IP-adres toewijzen Azure beschikbaar openbare IP-adres van een van de bereiken die worden gebruikt in een regio. Wanneer Azure wijst het adres toe, u weet wat het adres is, maar pas Azure wijst het adres toe, u niet weet welk adres kan worden toegewezen. Dit kan problemen veroorzaken wanneer, bijvoorbeeld, u of uw zakelijke partners firewallregels instellen waarmee specifieke IP-adressen zijn. Telkens wanneer die u een nieuw openbaar IP-adres aan een resource toewijzen, moet het adres worden toegevoegd aan de firewallregel. Wanneer u adressen aan uw resources in een openbare IP-adresvoorvoegsel toewijzen, moeten firewallregels niet telkens wanneer u een van de adressen worden bijgewerkt omdat het hele bereik kan worden toegevoegd aan een regel.
+Wanneer u openbare IP-adres-resources maakt, wijst Azure beschikbaar openbare IP-adres toe uit een van de bereiken die in de regio's gebruikt. Wanneer Azure wijst het adres toe, u weet wat het adres is, maar pas Azure wijst het adres toe, u niet weet welk adres kan worden toegewezen. Dit kan problemen veroorzaken wanneer, bijvoorbeeld, u of uw zakelijke partners firewallregels instellen waarmee specifieke IP-adressen zijn. Telkens wanneer die u een nieuw openbaar IP-adres aan een resource toewijzen, moet het adres worden toegevoegd aan de firewallregel. Wanneer u adressen aan uw resources in een openbare IP-adresvoorvoegsel toewijzen, moeten firewallregels niet telkens wanneer u een van de adressen worden bijgewerkt omdat het hele bereik kan worden toegevoegd aan een regel.
 
 ## <a name="benefits"></a>Voordelen
 

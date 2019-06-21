@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160183"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165158"
 ---
 # <a name="private-cloud-vmware-components"></a>Privécloud VMware-onderdelen
 
@@ -37,7 +37,7 @@ De VMware-stack van een privécloud wordt geïmplementeerd met de versie van de 
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi is geïnstalleerd op de aangeschafte CloudSimple knooppunten bij het maken van een privécloud.  De hypervisor biedt ESXi voor het implementeren van de werkbelasting van virtuele machines (VM's).  Knooppunten vindt u hyper-geconvergeerde infrastructuur (berekeningen en opslag) van uw privécloud.  De knooppunten zijn onderdeel van de vSphere-cluster in de privécloud.  Elk knooppunt heeft vier fysieke netwerkinterfaces met aan de basis liggen netwerk verbonden.  Twee fysieke netwerkinterfaces worden gebruikt voor het maken van een **vSphere gedistribueerde overschakelen (VDS)** op vCenter en twee gegevensbronnen worden gebruikt voor het maken een **NSX beheerde virtuele gedistribueerde switch (N-VDS)** .  Netwerkinterfaces worden geconfigureerd in de modus actief-actief voor hoge beschikbaarheid.
+VMware ESXi is geïnstalleerd op de ingerichte CloudSimple knooppunten bij het maken van een privécloud.  De hypervisor biedt ESXi voor het implementeren van de werkbelasting van virtuele machines (VM's).  Knooppunten vindt u hyper-geconvergeerde infrastructuur (berekeningen en opslag) van uw privécloud.  De knooppunten zijn onderdeel van de vSphere-cluster in de privécloud.  Elk knooppunt heeft vier fysieke netwerkinterfaces met aan de basis liggen netwerk verbonden.  Twee fysieke netwerkinterfaces worden gebruikt voor het maken van een **vSphere gedistribueerde overschakelen (VDS)** op vCenter en twee gegevensbronnen worden gebruikt voor het maken een **NSX beheerde virtuele gedistribueerde switch (N-VDS)** .  Netwerkinterfaces worden geconfigureerd in de modus actief-actief voor hoge beschikbaarheid.
 
 Meer informatie over VMware ESXi
 

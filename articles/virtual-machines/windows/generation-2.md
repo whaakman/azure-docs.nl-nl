@@ -1,6 +1,6 @@
 ---
-title: 2e generatie virtuele machines (preview) in Azure | Microsoft Docs
-description: Overzicht van Azure van de 2e generatie virtuele machines
+title: Azure-ondersteuning voor virtuele machines van generatie 2 (preview) | Microsoft Docs
+description: Overzicht van Azure-ondersteuning voor virtuele machines van generatie 2
 services: virtual-machines-windows
 documentationcenter: ''
 author: laurenhughes
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 1dcc0d3a652ccbf365a18ce734a54dc78515b1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8991a6e3137953aae18b91f9cc19e81f0440c75
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388354"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151220"
 ---
-# <a name="generation-2-vms-preview-on-azure"></a>2e generatie virtuele machines (preview) in Azure
+# <a name="support-for-generation-2-vms-preview-on-azure"></a>Ondersteuning voor generatie 2 virtuele machines (preview) op Azure
 
 > [!IMPORTANT]
-> Virtuele machines van generatie 2 zijn momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+> Azure-ondersteuning voor virtuele machines van generatie 2 is momenteel in preview.
+> Deze preview-versie wordt geleverd zonder een service level agreement, en het wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
+> Zie voor meer informatie, [aanvullende gebruiksvoorwaarden voor Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ondersteuning voor generatie 2 virtuele machines (VM's) is nu beschikbaar in openbare preview-versie van Azure. U kunt een virtuele machine generatie nadat u deze hebt gemaakt niet wijzigen. Dus, wordt aangeraden dat u de overwegingen bekijken [hier](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) en de informatie op deze pagina voordat u een generatie.
+Ondersteuning voor generatie 2 virtuele machines (VM's) is nu beschikbaar in preview in Azure. U kan wijzigen van een virtuele machine generatie nadat u deze hebt gemaakt, dus de overwegingen met betrekking tot op deze pagina bekijken voordat u een generatie. 
 
-2e generatie virtuele machines ondersteuning voor belangrijke functies die niet worden ondersteund op virtuele machines van generatie 1, zoals: geheugen, de Intel® Software Guard-extensies (SGX) en virtuele permanent geheugen (vPMEM) verhoogd. Virtuele machines van generatie 2 hebben ook enkele functies die nog worden niet ondersteund op Azure. Zie voor meer informatie de [functies en mogelijkheden](#features-and-capabilities) sectie.
+Belangrijke functies die niet worden ondersteund in virtuele machines van generatie 1 ondersteuning voor virtuele machines van generatie 2. Deze functies zijn van meer geheugen, Intel Software Guard-extensies (Intel SGX), en gevirtualiseerde permanent geheugen (vPMEM). Virtuele machines van generatie 2 hebben ook enkele functies die nog in Azure worden niet ondersteund. Zie voor meer informatie de [functies en mogelijkheden](#features-and-capabilities) sectie.
 
-Virtuele machines van generatie 2 gebruiken in de plaats van de nieuwe opstarten op basis van UEFI-architectuur van de BIOS gebaseerde architectuur die wordt gebruikt door virtuele machines van generatie 1. Vergeleken met de virtuele machines van generatie 1, kunnen virtuele machines van generatie 2 hebben verbeterd opstart- en tijdnotatie. Zie voor een overzicht van virtuele machines van generatie 2 en sommige van de belangrijkste verschillen tussen de 1e en 2e generatie [zou ik een generatie 1 of 2 virtuele machine in Hyper-V maken?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Virtuele machines van generatie 2 gebruiken de nieuwe op basis van UEFI-Opstartarchitectuur in plaats van het BIOS gebaseerde architectuur die worden gebruikt door generatie 1 VM's. Vergeleken met de virtuele machines van generatie 1, kunnen virtuele machines van generatie 2 hebben verbeterd opstart- en tijdnotatie. Zie voor een overzicht van virtuele machines van generatie 2 en enkele van de verschillen tussen 1e en 2e generatie [zou ik een generatie 1 of 2 virtuele machine in Hyper-V maken?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## <a name="generation-2-vm-sizes"></a>Generatie 2 VM-grootten
 
-Virtuele machines van generatie 1 worden ondersteund door alle VM-grootten in Azure. Azure biedt nu ondersteuning voor generatie 2 voor de volgende geselecteerde VM-reeks in openbare preview-versie:
+Virtuele machines van generatie 1 worden ondersteund door alle VM-grootten in Azure. Azure biedt nu ondersteuning voor Preview-versie van de 2e generatie voor de volgende geselecteerde VM-reeks:
 
-* [Dsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) en [Dsv3-serie](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
+* [Dsv2-serie](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) en [Dsv3-serie](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Esv3-serie](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Fsv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
 * [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#gs-series)
@@ -47,14 +47,14 @@ Virtuele machines van generatie 1 worden ondersteund door alle VM-grootten in Az
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Generatie 2 VM-installatiekopieën in Azure Marketplace
 
-Virtuele machines van generatie 2 ondersteunen de volgende Azure Marketplace-installatiekopieën:
+Virtuele machines van generatie 2 ondersteunen de volgende Marketplace-installatiekopieën:
 
 * Windows Server 2019 Datacenter
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
 
-## <a name="on-premises-vs-azure-generation-2-vms"></a>On-premises vs Azure van de 2e generatie virtuele machines
+## <a name="on-premises-vs-azure-generation-2-vms"></a>On-premises vs. Virtuele machines van Azure generatie 2
 
 Azure ondersteunt momenteel geen enkele van de functies die on-premises Hyper-V biedt ondersteuning voor virtuele machines van generatie 2.
 
@@ -68,89 +68,85 @@ Azure ondersteunt momenteel geen enkele van de functies die on-premises Hyper-V 
 
 ## <a name="features-and-capabilities"></a>Functies en mogelijkheden
 
-### <a name="generation-1-vs-generation-2-features"></a>Generatie 1 en generatie 2 functies
+### <a name="generation-1-vs-generation-2-features"></a>Generatie 1 en generatie 2-functies
 
 | Functie | Generatie 1 | Generatie 2 |
 |---------|--------------|--------------|
 | Opstarten             | PCAT                      | UEFI                               |
 | Schijf-controllers | IDE                       | SCSI                               |
-| VM-grootten         | Beschikbaar op alle VM-grootten | Ondersteunde VM's alleen Premium-opslag |
+| Formaten van virtuele machines         | Alle VM-grootten | Alleen VM's die ondersteuning bieden voor premium-opslag |
 
-### <a name="generation-1-vs-generation-2-capabilities"></a>Generatie 1 en generatie 2 mogelijkheden
+### <a name="generation-1-vs-generation-2-capabilities"></a>Generatie 1 en generatie 2-mogelijkheden
 
 | Mogelijkheid | Generatie 1 | Generatie 2 |
 |------------|--------------|--------------|
 | OS-schijf > 2 TB                    | : x:.                        | :heavy_check_mark: |
-| Aangepaste installatiekopie-schijf/wisselen OS         | :heavy_check_mark:         | :heavy_check_mark: |
+| Aangepaste/afbeelding/wisselen van besturingssysteem         | :heavy_check_mark:         | :heavy_check_mark: |
 | Ondersteuning voor virtuele-machineschaalset | :heavy_check_mark:         | :heavy_check_mark: |
-| ASR/Backup                        | :heavy_check_mark:         | : x:.                |
-| Galerie met gedeelde installatiekopieën              | :heavy_check_mark:         | : x:.                |
-| Azure Disk Encryption             | :heavy_check_mark:         | : x:.                |
+| ASR/backup                        | :heavy_check_mark:         | : x:.                |
+| Galerie met installatiekopieën van gedeelde              | :heavy_check_mark:         | : x:.                |
+| Azure disk encryption             | :heavy_check_mark:         | : x:.                |
 
 ## <a name="creating-a-generation-2-vm"></a>Het maken van een van de 2e generatie virtuele machine
 
 ### <a name="marketplace-image"></a>Marketplace-installatiekopie
 
-Virtuele machines van generatie 2 kunnen worden gemaakt vanuit een marketplace-installatiekopie (die ondersteuning biedt voor opstarten via UEFI) via Azure portal of Azure CLI.
+In de Azure portal of Azure CLI, kunt u generatie 2 virtuele machines vanuit een Marketplace-installatiekopie die ondersteuning biedt voor opstarten via UEFI.
 
-De `windowsserver-gen2preview` aanbieding bevat alleen installatiekopieën van Windows van de 2e generatie. Hiermee voorkomt u verwarring met betrekking tot installatiekopieën van generatie 1 vs van de 2e generatie. Selecteer voor het maken van generatie 2 virtuele machines, **installatiekopieën** van deze aanbieding en volgen het standaardproces voor het maken van virtuele machine.
+De `windowsserver-gen2preview` aanbieding bevat alleen installatiekopieën van Windows van de 2e generatie. Deze pakketten voorkomt verwarring tussen 1e en 2e generatie installatiekopieën. Maken van een van de 2e generatie virtuele machine, selecteer **installatiekopieën** van deze aanbieding en volgen het standaardproces voor het maken van de virtuele machine.
 
-Op dit moment de volgende Windows-generatie 2-installatiekopieën worden gepubliceerd in de Azure Marketplace:
+Op dit moment biedt Marketplace de volgende Windows-generatie 2-installatiekopieën:
 
 * 2019-datacenter-gen2
 * 2016-datacenter-gen2
 * 2012-r2-datacenter-gen2
 * 2012-datacenter-gen2
 
-Zie de sectie mogelijkheden voor een lijst van ondersteunde marketplace-installatiekopieën, blijven we extra afbeeldingen die ondersteuning bieden voor generatie 2 toe te voegen.
+Zie de [functies en mogelijkheden](#features-and-capabilities) sectie voor een huidige lijst van ondersteunde Marketplace-installatiekopieën.
 
 ### <a name="managed-image-or-managed-disk"></a>Beheerde installatiekopie of beheerde schijf
 
-Generatie 2 virtuele machines kunnen worden gemaakt van beheerde installatiekopie of een beheerde schijf op dezelfde manier u een generatie 1 maakt VM.
+U kunt een van de 2e generatie maken VM op basis van een beheerde installatiekopie of een beheerde schijf op dezelfde manier u een generatie 1 maakt VM.
 
 ### <a name="virtual-machine-scale-sets"></a>Virtuele-machineschaalsets
 
-Generatie die 2 virtuele machines kunnen ook worden gemaakt met behulp van schaalsets voor virtuele machines. U kunt generatie 2 virtuele machines met behulp van schaalsets voor virtuele Azure-machine via de Azure CLI maken.
+U kunt ook generatie 2 virtuele machines maken met behulp van schaalsets voor virtuele machines. Gebruik Azure-schaal ingesteld in de Azure-CLI generatie 2 virtuele machines maken.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 * **Generatie 2 virtuele machines beschikbaar in alle Azure-regio's zijn?**  
-    Ja. echter niet alle [generation 2 VM-grootten](#generation-2-vm-sizes) beschikbaar zijn in elke regio. De beschikbaarheid van generatie 2 virtuele machines is afhankelijk van de beschikbaarheid van de VM-grootte.
+    Ja. Maar niet alle [generation 2 VM-grootten](#generation-2-vm-sizes) beschikbaar zijn in elke regio. De beschikbaarheid van de generatie die 2 virtuele machine is afhankelijk van de beschikbaarheid van de VM-grootte.
 
 * **Is er een prijsverschil tussen generatie 1 en generatie 2 virtuele machines?**  
-    Er is geen verschil in de prijzen van de 1e en 2e generatie virtuele machines.
+   Nee.
 
 * **Hoe ik de grootte van de Besturingssysteemschijf vergroten?**  
-  Besturingssysteemschijven groter dan 2 TB niet bekend bent met de 2e generatie virtuele machines. De meeste OS-schijven zijn minder dan 2 TB voor virtuele machines van generatie 2, maar de grootte van de schijf kan worden verhoogd tot aanbevolen maximaal 4 TB. U kunt de grootte van de OS-schijf via de Azure CLI of Azure portal kunt verhogen. Zie voor meer informatie over het uitbreiden van schijven via een programma, [vergroten of verkleinen van een schijf](expand-os-disk.md).
+  Besturingssysteemschijven groter dan 2 TB niet bekend bent met de 2e generatie virtuele machines. OS-schijven zijn standaard kleiner is dan 2 TB voor virtuele machines van generatie 2. U kunt de schijfgrootte aanbevolen maximaal 4 TB verhogen. De Azure CLI of Azure portal gebruiken voor het verhogen van de grootte van de Besturingssysteemschijf. Zie voor meer informatie over het uitbreiden van schijven programmatisch [vergroten of verkleinen van een schijf](expand-os-disk.md).
 
-  Vergroten van de grootte van de Besturingssysteemschijf via Azure portal:
+  Vergroten van de grootte van de OS-schijf van de Azure-portal:
 
-  * Navigeer naar de eigenschappenpagina van virtuele machine in Azure portal.
-
-  * Afsluiten en toewijzing ongedaan maken van de virtuele machine met behulp de **stoppen** knop op de Azure-portal.
-
-  * In de **schijven** sectie, selecteert u de OS-schijf die u wilt verhogen.
-
-  * Selecteer **configuratie** in de **schijven** sectie en update de **grootte** op de gewenste waarde.
-
-  * Ga terug naar de eigenschappenpagina van de virtuele machine en **Start** de virtuele machine.
+  1. In de Azure-portal, gaat u naar de eigenschappenpagina van de virtuele machine.
+  1. Als u wilt afsluiten en wijs de virtuele machine, selecteer de **stoppen** knop.
+  1. In de **schijven** sectie, selecteert u de OS-schijf die u wilt verhogen.
+  1. In de **schijven** sectie, selecteer **configuratie**, en werk de **grootte** naar de gewenste waarde.
+  1. Ga terug naar de eigenschappenpagina van de virtuele machine en **Start** de virtuele machine.
   
-  Mogelijk ziet u een waarschuwing voor besturingssysteemschijven groter dan 2 TB. De waarschuwing is niet van toepassing op virtuele machines van generatie 2; OS-schijfformaten groter is dan 4 TB zijn echter **niet aanbevolen.**
+  U ziet mogelijk een waarschuwing voor besturingssysteemschijven groter dan 2 TB. De waarschuwing niet van toepassing op virtuele machines van generatie 2. OS-schijfformaten groter is dan 4 TB zijn echter *niet aanbevolen.*
 
-* **Virtuele machines van generatie 2 ondersteunen versnelde netwerken?**  
-    Ja, ondersteuning voor generatie 2 virtuele machines [versnelde netwerken](../../virtual-network/create-vm-accelerated-networking-cli.md).
+* **Generatie 2 VM's ondersteunen versnelde netwerken doen?**  
+    Ja. Zie voor meer informatie, [maken van een virtuele machine met versneld netwerken](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
-* **Wordt .vhdx op generatie 2 ondersteund?**  
-    Nee, alleen VHD wordt ondersteund op virtuele machines van generatie 2.
+* **Wordt VHDX op generatie 2 ondersteund?**  
+    Nee, virtuele machines van generatie 2 ondersteunen alleen VHD.
 
-* **Bieden ondersteuning voor virtuele machines van generatie 2 Ultra-stations SSD (Solid State)?**  
-    Ja, ondersteuning voor virtuele machines van generatie 2 Ultra SSD.
+* **Bieden ondersteuning voor virtuele machines van generatie 2 Ultra Disk-opslag van Azure?**  
+    Ja.
 
-* **Kan ik migreren van generatie 1 op virtuele machines van generatie 2?**  
-    U kunt Nee, het genereren van een virtuele machine niet wijzigen nadat u deze hebt gemaakt. Als u schakelen tussen generaties van virtuele machine wilt, moet u een nieuwe virtuele machine van een andere generatie maken.
+* **Kan ik een virtuele machine van generatie 1 migreren naar generatie 2?**  
+    U kunt Nee, het genereren van een virtuele machine niet wijzigen nadat u dit hebt gemaakt. Als u schakelen tussen generaties van virtuele machine wilt, maakt u een nieuwe virtuele machine van een andere generatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [2e generatie virtuele machines in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
-* Meer informatie over het [VHD voorbereiden](prepare-for-upload-vhd-image.md) voor het uploaden van on-premises naar Azure.
+* Meer informatie over het [VHD voorbereiden](prepare-for-upload-vhd-image.md) voor het uploaden van on-premises systemen naar Azure.

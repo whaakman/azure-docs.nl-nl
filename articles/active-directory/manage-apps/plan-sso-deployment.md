@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108203"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164943"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Een eenmalige aanmelding-implementatie plannen
 
@@ -61,9 +61,9 @@ Er zijn twee primaire manieren waarin u uw gebruikers eenmalige aanmelding voor 
 
 Met behulp van Azure AD voor eenmalige aanmelding op basis van wachtwoorden is vereist voor het implementeren van een browserextensie die veilig worden de referenties ophalen en de aanmeldings-formulieren invullen. Definieer een mechanisme voor het implementeren van de extensie op schaal met [ondersteunde browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Een aantal opties:
 
-- [Groepsbeleid voor Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) voor Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Door gebruiker gestuurd downloaden en de configuratie van Chrome, Firefox, Microsoft Edge of Internet Explorer ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Groepsbeleid voor Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [System Center Configuration Manager (SCCM) voor Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Door gebruiker gestuurd downloaden en de configuratie van Chrome, Firefox, Microsoft Edge of Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Zie voor meer informatie, [hoe het configureren van wachtwoord één aanmelding](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 

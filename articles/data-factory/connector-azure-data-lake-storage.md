@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6425fdfe89ca2f4c47aaf0e5ffd1dac7767b5020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057930"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203297"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -60,6 +60,9 @@ De Azure Data Lake Storage Gen2-connector ondersteunt de volgende verificatietyp
 - [Verificatie van service-principal](#service-principal-authentication)
 - [Beheerde identiteiten voor verificatie van de Azure-resources](#managed-identity)
 
+>[!NOTE]
+>Bij het gebruik van PolyBase om gegevens te laden in SQL Data Warehouse, als uw Data Lake Storage Gen2-bron is geconfigureerd met het eindpunt voor Virtueelnetwerk, moet u verificatie van de beheerde identiteit zoals vereist door PolyBase gebruiken. Zie de [verificatie van de beheerde identiteit](#managed-identity) sectie met meer configuratievereisten.
+
 ### <a name="account-key-authentication"></a>Verificatie van account-sleutel
 
 Voor het gebruik van storage-account sleutelverificatie, worden de volgende eigenschappen ondersteund:
@@ -103,10 +106,10 @@ Volg deze stappen voor het gebruik van service-principal verificatie.
     - Toepassingssleutel
     - Tenant-id
 
-2. De service principal juiste machtiging verlenen.
+2. De service principal juiste machtiging verlenen. Meer informatie over de werking van machtiging in Data Lake Storage Gen2 van [toegangsbeheerlijsten voor bestanden en mappen](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **Als bron**: In Azure Storage Explorer verleent ten minste **lees- en uitvoeringsmachtigingen** toestemming voor het weergeven en kopieer de bestanden in mappen en submappen. Of u kunt verlenen **lezen** machtiging voor het kopiëren van een enkel bestand. U kunt ook in Access control (IAM), verleent u ten minste de **gegevenslezer voor Opslagblob** rol.
-    - **Als sink**: In Storage Explorer verlenen ten minste **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt ook in Access control (IAM), verleent u ten minste de **Gegevensbijdrager voor Blob** rol.
+    - **Als bron**: In Storage Explorer verlenen ten minste **Execute** machtiging starten vanaf de bron-bestandssysteem, samen met **lezen** machtiging voor de bestanden te kopiëren. U kunt ook in Access control (IAM), verleent u ten minste de **gegevenslezer voor Opslagblob** rol.
+    - **Als sink**: In Storage Explorer verlenen ten minste **Execute** machtiging vanaf het sink-bestandssysteem, samen met **schrijven** machtiging voor de sink-map. U kunt ook in Access control (IAM), verleent u ten minste de **Gegevensbijdrager voor Blob** rol.
 
 >[!NOTE]
 >Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de service-principal wordt verleend aan instellen **storage-account met de machtiging 'Gegevenslezer voor Opslagblob' in IAM**. Dit geldt wanneer u de:
@@ -157,10 +160,10 @@ Volg deze stappen voor het gebruik van beheerde identiteiten voor verificatie va
 
 1. [Ophalen van de identiteitsgegevens van de Data Factory beheerd](data-factory-service-identity.md#retrieve-managed-identity) door te kopiëren van de waarde van de **identiteitstoepassings-ID-service** gegenereerd samen met uw gegevensfactory.
 
-2. Verleen de juiste machtiging beheerde identiteit.
+2. Verleen de juiste machtiging beheerde identiteit. Meer informatie over de werking van machtiging in Data Lake Storage Gen2 van [toegangsbeheerlijsten voor bestanden en mappen](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Als bron**: In Storage Explorer verlenen ten minste **lees- en uitvoeringsmachtigingen** toestemming voor het weergeven en kopieer de bestanden in mappen en submappen. Of u kunt verlenen **lezen** machtiging voor het kopiëren van een enkel bestand. U kunt ook in Access control (IAM), verleent u ten minste de **gegevenslezer voor Opslagblob** rol.
-    - **Als sink**: In Storage Explorer verlenen ten minste **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt ook in Access control (IAM), verleent u ten minste de **Gegevensbijdrager voor Blob** rol.
+    - **Als bron**: In Storage Explorer verlenen ten minste **Execute** machtiging starten vanaf de bron-bestandssysteem, samen met **lezen** machtiging voor de bestanden te kopiëren. U kunt ook in Access control (IAM), verleent u ten minste de **gegevenslezer voor Opslagblob** rol.
+    - **Als sink**: In Storage Explorer verlenen ten minste **Execute** machtiging vanaf het sink-bestandssysteem, samen met **schrijven** machtiging voor de sink-map. U kunt ook in Access control (IAM), verleent u ten minste de **Gegevensbijdrager voor Blob** rol.
 
 >[!NOTE]
 >Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **storage-account met de machtiging 'Gegevenslezer voor Opslagblob' in IAM**. Dit geldt wanneer u de:
@@ -169,7 +172,7 @@ Volg deze stappen voor het gebruik van beheerde identiteiten voor verificatie va
 >Als u problemen over het verlenen van machtiging op het accountniveau van het hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Copy-activiteit werkt nog steeds als de beheerde identiteit wordt verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 >[!IMPORTANT]
->Als u PolyBase om gegevens te laden uit Data Lake Storage Gen2 in SQL Data Warehouse, wanneer u Data Lake Storage Gen2 beheerde verificatie gebruikt, zorg ervoor dat u ook stappen 1 en 2 in [deze richtlijnen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Volg de instructies voor het registreren van uw SQL-databaseserver met Azure Active Directory (Azure AD). U kunt ook de rol Inzender voor Storage Blob-gegevens met op rollen gebaseerd toegangsbeheer toewijzen aan uw SQL Database-server. De rest wordt verwerkt door Data Factory. Als uw Data Lake Storage Gen2 is geconfigureerd met een Azure Virtual Network-eindpunt voor het gebruik van PolyBase om gegevens te laden uit, moet u verificatie van de beheerde identiteit.
+>Als u PolyBase om gegevens te laden uit Data Lake Storage Gen2 in SQL Data Warehouse bij het gebruik van verificatie van de beheerde identiteit voor Data Lake Storage Gen2 gebruikt, zorg ervoor dat u ook stappen 1 en 2 in [deze richtlijnen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) op 1) uw SQL registreren Database-server met Azure Active Directory (Azure AD) en 2) toewijzen de Gegevensbijdrager voor Blob-rol aan uw SQL-Database-server. de rest worden verwerkt door Data Factory. Als uw Data Lake Storage Gen2 is geconfigureerd met een Azure Virtual Network-eindpunt, voor het gebruik van PolyBase om gegevens te laden, moet u verificatie van de beheerde identiteit zoals vereist door PolyBase.
 
 Deze eigenschappen worden ondersteund voor de gekoppelde service:
 

@@ -9,11 +9,11 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150302"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175911"
 ---
 Na het maken van een zelfondertekend basiscertificaat, exporteer de openbare sleutel cer-basiscertificaatbestand (niet de persoonlijke sleutel). U wordt dit bestand later uploaden naar Azure. De volgende stappen kunt u het cer-bestand voor uw zelfondertekend basiscertificaat exporteren:
 

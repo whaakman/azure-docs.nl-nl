@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 05a7c52dca420f97252c68445398fb3959be8804
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445699"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64711289"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Een praktische handleiding voor het ontwerpen van veilige gezondheidszorg oplossingen in Azure
 Status branche startende ondernemingen, systeemintegrators (SI), onafhankelijke softwareleveranciers (ISV's) en organisaties in de gezondheidszorg overweegt overgang naar Azure op zoek bent naar informatie waarmee ze gebruikmaken van beveiligingsmaatregelen om te voldoen aan hun verplichtingen.

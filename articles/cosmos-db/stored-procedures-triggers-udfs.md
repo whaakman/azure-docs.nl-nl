@@ -4,15 +4,15 @@ description: In dit artikel bevat de concepten, zoals opgeslagen procedures, tri
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965697"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165581"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Opgeslagen procedures, triggers en gebruikersgedefinieerde functies
 
@@ -75,7 +75,7 @@ JavaScript-functies zijn ook onderhevig aan [ingericht doorvoercapaciteit](reque
 
 ## <a name="triggers"></a>Triggers
 
-Deze sectie beschrijft de twee soorten triggers:
+Azure Cosmos DB ondersteunt twee soorten triggers:
 
 ### <a name="pre-triggers"></a>Vooraf triggers
 
@@ -84,6 +84,9 @@ Azure Cosmos DB biedt triggers die kunnen worden aangeroepen door het uitvoeren 
 ### <a name="post-triggers"></a>Na triggers
 
 Net als bij vooraf triggers, na triggers zijn ook gekoppeld aan een bewerking op een Azure Cosmos DB-item en ze vereisen invoerparameters die zijn opgegeven. Ze worden uitgevoerd *nadat* de bewerking is voltooid en toegang hebben tot het antwoordbericht dat wordt verzonden naar de client. Zie voor voorbeelden van [over het schrijven van triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikel.
+
+> [!NOTE]
+> Geregistreerd triggers niet automatisch uitgevoerd wanneer de bijbehorende bewerkingen (maken / verwijderen / vervangen / bijwerken) gebeuren. Ze moeten expliciet worden aangeroepen bij het uitvoeren van deze bewerkingen. Zie voor meer informatie, [het uitvoeren van triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) artikel.
 
 ## <a id="udfs"></a>De gebruiker gedefinieerde functies
 

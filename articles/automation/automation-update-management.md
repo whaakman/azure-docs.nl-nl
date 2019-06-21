@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075504"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205024"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -39,7 +39,7 @@ Het volgende diagram ziet u een conceptueel overzicht van het gedrag en de gegev
 
 Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant.
 
-Zodra een CVE release is, duurt het 2-3 uur voor de patch voor Linux-machines voor evaluatie wordt weergegeven.  Het duurt 15-12 uur voor de patch om weer te geven voor de beoordeling nadat deze is vrijgegeven voor Windows-machines.
+Wanneer een pakket wordt uitgebracht, duurt het 2-3 uur voor de patch voor Linux-machines voor evaluatie wordt weergegeven. Het duurt 15-12 uur voor de patch om weer te geven voor de beoordeling nadat deze is vrijgegeven voor Windows-machines.
 
 Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk naar Azure Monitor-Logboeken. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
 

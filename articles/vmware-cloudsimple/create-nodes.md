@@ -1,5 +1,5 @@
 ---
-title: Knooppunten voor VMware-oplossing door CloudSimple - Azure kopen
+title: Knooppunten voor VMware-oplossing door CloudSimple - Azure inrichten
 description: Meer informatie over het toevoegen van knooppunten aan uw VMWare met CloudSimple implementatie
 author: dikamath
 ms.author: dikamath
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9f5108207c4f8debc65b9d1fe625ae7033ca4e70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33de07663c91f12d4e10c4661b841cd2dbe5a162
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577178"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165260"
 ---
-# <a name="purchase-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Knooppunten voor VMware-oplossing door CloudSimple - Azure kopen
+# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Knooppunten voor VMware-oplossing door CloudSimple - Azure inrichten
 
 Knooppunten in de Azure-portal in te richten. Vervolgens kunt u betaalt u Ga capaciteit voor uw privécloud CloudSimple omgeving instellen.
 
-## <a name="add-a-purchased-node-to-your-cloudsimple-private-cloud"></a>Aangeschafte-knooppunt toevoegen aan uw persoonlijke cloud CloudSimple
+## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Een ingerichte knooppunt toevoegen aan uw persoonlijke cloud CloudSimple
 
 1. Selecteer **Alle services**.
 2. Zoeken naar **CloudSimple knooppunten**.
@@ -31,7 +31,7 @@ Knooppunten in de Azure-portal in te richten. Vervolgens kunt u betaalt u Ga cap
 
     ![CloudSimple knooppunten toevoegen](media/create-cloudsimple-node-add.png)
 
-5. Selecteer het abonnement waar u om aan te schaffen CloudSimple knooppunten.
+5. Selecteer het abonnement waarin u wilt CloudSimple knooppunten in te richten.
 6. Selecteer de resourcegroep voor de knooppunten. Als u wilt een nieuwe resourcegroep toevoegen, klikt u op **nieuw**.
 7. Geef het voorvoegsel voor het identificeren van de knooppunten.
 8. Selecteer de locatie voor de resources van het knooppunt.

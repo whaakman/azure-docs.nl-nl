@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Python en REST-API's - Azure Search"
 description: Maken, laden en query uitvoeren in een index met behulp van Python, Jupyter-Notebooks en de Azure Search REST-API.
-ms.date: 06/11/2019
+ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056623"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302280"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Quickstart: Maken van een Azure Search-index met behulp van Python voor Jupyter notebooks
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67056623"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap, helemaal vanaf-notebook maken. U kunt ook een voltooide notebook uitvoeren. Als u wilt een kopie downloaden, gaat u naar [opslagplaats voor Azure-Search-python-voorbeelden](https://github.com/Azure-Samples/azure-search-python-samples).
+Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap, helemaal vanaf-notebook maken. U kunt ook een voltooide notebook uitvoeren. Als u wilt een kopie downloaden, gaat u naar de[opslagplaats voor azure-aearch-python-voorbeelden](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

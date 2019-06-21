@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0dda467c3906c217c18e1340f7dc2a464dcbccae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 12f053d7255c21441d78dab8c7937bcf45ec48c2
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154852"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151814"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Ondersteunde besturingssystemen en stuurprogramma’s
 
@@ -36,5 +36,5 @@ Microsoft herdistribueert u installatieprogramma's van NVIDIA GRID-stuurprogramm
 
 | OS | Stuurprogramma |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 (maximaal versie 1803) | [RASTER 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
+| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 (maximaal 1809-versie. Zonder de patch/patchniveau 0 van 1809 wordt niet ondersteund.) | [RASTER 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
 | Windows Server 2012 R2 | [RASTER 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |

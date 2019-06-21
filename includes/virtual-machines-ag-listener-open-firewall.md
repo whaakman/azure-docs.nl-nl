@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165386"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67175981"
 ---
 In deze stap maakt u een firewall-regel om de testpoort voor het eindpunt met load balancing (zoals eerder opgegeven 59999) te openen en een andere regel om te openen, de poort beschikbaarheidsgroeplistener. Omdat u het met load balancing-eindpunt op de virtuele machines die replica's van beschikbaarheidsgroepen bevatten gemaakt, moet u de testpoort en de listener-poort op de desbetreffende VM's te openen.
 

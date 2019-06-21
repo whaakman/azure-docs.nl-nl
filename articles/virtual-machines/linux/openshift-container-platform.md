@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65411565"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>OpenShift Containerplatform in Azure implementeren
@@ -66,7 +66,7 @@ Het volgende voorbeeld ziet een parameterbestand met de naam azuredeploy.paramet
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -282,10 +282,10 @@ Andere versies mogelijk verschillende parameters, dus controleer of de vereiste 
 | `keyVaultName` | De naam van de Sleutelkluis die u hebt gemaakt |  |  |
 | `enableAzure` | Azure-Cloudprovider inschakelen | true <br> false | true |
 | `aadClientId` | Azure Active Directory-Client-ID ook wel bekend als toepassings-ID voor de Service-Principal |  |  |
-| `domainName` | De naam van de aangepaste domeinnaam te gebruiken (indien van toepassing). Ingesteld op 'none' als niet het geval is volledig privé-cluster implementeren |  | geen |
-| `masterClusterDnsType` | Domeintype voor OpenShift-webconsole. 'default' gebruikt DNS-label van master infra openbaar IP-adres. 'custom' kunt u de naam van uw eigen definiëren | standaardinstelling <br> aangepast | standaardinstelling |
+| `domainName` | De naam van de aangepaste domeinnaam te gebruiken (indien van toepassing). Ingesteld op 'none' als niet het geval is volledig privé-cluster implementeren |  | Geen |
+| `masterClusterDnsType` | Domeintype voor OpenShift-webconsole. 'default' gebruikt DNS-label van master infra openbaar IP-adres. 'custom' kunt u de naam van uw eigen definiëren | standaardinstelling <br> Aangepaste | standaardinstelling |
 | `masterClusterDns` | De aangepaste DNS-naam gebruiken voor toegang tot de webconsole OpenShift als u aangepaste voor geselecteerd `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Indien ingesteld op 'nipio' `routingSubDomain` nip.io wordt gebruikt.  'Aangepaste' gebruiken als u uw eigen domein dat u gebruiken wilt voor routering | nipio <br> aangepast | nipio |
+| `routingSubDomainType` | Indien ingesteld op 'nipio' `routingSubDomain` nip.io wordt gebruikt.  'Aangepaste' gebruiken als u uw eigen domein dat u gebruiken wilt voor routering | nipio <br> Aangepaste | nipio |
 | `routingSubDomain` | Het jokerteken DNS-naam die u gebruiken wilt voor de routering als u aangepaste voor geselecteerd `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecteer of u een bestaand Virtueelnetwerk gebruiken of een nieuw Virtueelnetwerk maken | bestaande <br> nieuw | nieuw |
 | `virtualNetworkResourceGroupName` | Naam van de resourcegroep voor het nieuwe Virtueelnetwerk als u 'Nieuw' voor geselecteerd `virtualNetworkNewOrExisting` |  | resourceGroup().name |
@@ -301,12 +301,12 @@ Andere versies mogelijk verschillende parameters, dus controleer of de vereiste 
 | `existingInfraSubnetReference` | Verwijzing naar bestaande subnet voor volledige infra knooppunten. Niet nodig als het maken van nieuwe vNet / Subnet |  |  |
 | `existingCnsSubnetReference` | Volledige verwijzing naar een bestaand subnet voor CNS knooppunten. Niet nodig als het maken van nieuwe vNet / Subnet |  |  |
 | `existingNodeSubnetReference` | Volledige verwijzing naar bestaande subnet voor de compute-knooppunten. Niet nodig als het maken van nieuwe vNet / Subnet |  |  |
-| `masterClusterType` | Geef op of het cluster maakt gebruik van persoonlijke of openbare hoofdknooppunten. Als privé is gekozen, wordt niet de hoofdknooppunten worden blootgesteld aan Internet via een openbaar IP-adres. In plaats daarvan het gebruikt de privé IP-adres opgegeven in de `masterPrivateClusterIp` | openbaar <br> persoonlijk | openbaar |
+| `masterClusterType` | Geef op of het cluster maakt gebruik van persoonlijke of openbare hoofdknooppunten. Als privé is gekozen, wordt niet de hoofdknooppunten worden blootgesteld aan Internet via een openbaar IP-adres. In plaats daarvan het gebruikt de privé IP-adres opgegeven in de `masterPrivateClusterIp` | Openbare <br> persoonlijk | Openbare |
 | `masterPrivateClusterIp` | Als persoonlijke hoofdknooppunten zijn geselecteerd, moet klikt u vervolgens een privé IP-adres worden opgegeven voor gebruik door de interne load balancer voor hoofdknooppunten. Deze statische IP-adres moet binnen het CIDR-blok voor het master subnet en niet al in gebruik. Als openbare hoofdknooppunten zijn geselecteerd, deze waarde niet worden gebruikt, maar nog steeds moet worden opgegeven. |  | 10.1.0.200 |
-| `routerClusterType` | Geef op of het cluster maakt gebruik van privé of openbaar infra knooppunten. Als particuliere kiest, worden de infra knooppunten wordt niet worden blootgesteld aan Internet via een openbaar IP-adres. In plaats daarvan het gebruikt de privé IP-adres opgegeven in de `routerPrivateClusterIp` | openbaar <br> persoonlijk | openbaar |
+| `routerClusterType` | Geef op of het cluster maakt gebruik van privé of openbaar infra knooppunten. Als particuliere kiest, worden de infra knooppunten wordt niet worden blootgesteld aan Internet via een openbaar IP-adres. In plaats daarvan het gebruikt de privé IP-adres opgegeven in de `routerPrivateClusterIp` | Openbare <br> persoonlijk | Openbare |
 | `routerPrivateClusterIp` | Als persoonlijke infra knooppunten zijn ingeschakeld, wordt een privé IP-adres moet worden opgegeven voor gebruik door de interne load balancer voor infra knooppunten. Deze statische IP-adres moet binnen het CIDR-blok voor het master subnet en niet al in gebruik. Als een openbare infra knooppunten zijn geselecteerd, deze waarde niet worden gebruikt, maar nog steeds moet worden opgegeven |  | 10.2.0.200 |
-| `routingCertType` | Aangepast certificaat gebruiken voor het routeringsdomein of de zelf-ondertekend certificaat van de standaard - Volg de instructies in **aangepaste certificaten** sectie | selfsigned <br> aangepast | selfsigned |
-| `masterCertType` | Aangepast certificaat gebruiken voor het hoofddomein of de zelf-ondertekend certificaat van de standaard - Volg de instructies in **aangepaste certificaten** sectie | selfsigned <br> aangepast | selfsigned |
+| `routingCertType` | Aangepast certificaat gebruiken voor het routeringsdomein of de zelf-ondertekend certificaat van de standaard - Volg de instructies in **aangepaste certificaten** sectie | selfsigned <br> Aangepaste | selfsigned |
+| `masterCertType` | Aangepast certificaat gebruiken voor het hoofddomein of de zelf-ondertekend certificaat van de standaard - Volg de instructies in **aangepaste certificaten** sectie | selfsigned <br> Aangepaste | selfsigned |
 
 <br>
 

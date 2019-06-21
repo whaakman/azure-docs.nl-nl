@@ -2,37 +2,27 @@
 title: Het blokkeren van verouderde verificatie met Azure Active Directory (Azure AD) met voorwaardelijke toegang | Microsoft Docs
 description: Leer hoe u uw beveiligingspostuur verbeteren door verouderde verificatie met behulp van Azure AD voor voorwaardelijke toegang blokkeren.
 services: active-directory
-keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 06/17/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/25/2019
-ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2120466652db363206ec20c2303ad56670228c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112706"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164788"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedure: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
 
 Als u wilt uw gebruikers eenvoudig toegang geven tot uw cloud-apps, Azure Active Directory (Azure AD) biedt ondersteuning voor tal van verificatieprotocollen, waaronder oudere authentication. Echter, verouderde protocollen bieden geen ondersteuning voor multi-factor authentication (MFA). MFA is in veel omgevingen een algemene vereiste op identiteitsdiefstal adres. 
 
-
 Als uw omgeving klaar voor de verouderde verificatie blok is voor het verbeteren van de beveiliging van uw tenant, kunt u dit doel te bereiken met voorwaardelijke toegang. In dit artikel wordt uitgelegd hoe u beleid voor voorwaardelijke toegang die verouderde verificatie voor uw tenant blokkeren kunt configureren.
-
-
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,8 +30,6 @@ In dit artikel wordt ervan uitgegaan dat u bekend met bent:
 
 - De [basisconcepten](overview.md) van Azure AD voor voorwaardelijke toegang 
 - De [aanbevolen procedures](best-practices.md) voor het configureren van beleid voor voorwaardelijke toegang in Azure portal
-
-
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -57,12 +45,21 @@ Hoe kunt u voorkomen dat apps met behulp van verouderde verificatie van toegang 
 
 Beleid voor voorwaardelijke toegang worden afgedwongen nadat de eerste factor-verificatie is voltooid. Daarom voorwaardelijke toegang is niet bedoeld als een eerste regel defense voor scenario's zoals denial-of-service (DoS) aanvallen, maar kunnen gebruikmaken van signalen van deze gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, de locatie van de aanvraag, enzovoort) om toegang te bepalen.
 
-
-
-
 ## <a name="implementation"></a>Implementatie
 
 In deze sectie wordt uitgelegd hoe u een beleid voor voorwaardelijke toegang tot blok verouderde verificatie configureren. 
+
+### <a name="identify-legacy-authentication-use"></a>Identificeren van verouderde verificatie gebruiken
+
+Voordat u verouderde verificatie in uw directory blokkeren kunt, moet u eerst te begrijpen als uw gebruikers de apps die gebruikmaken van verouderde en hoe dit van invloed op uw algehele directory hebben. Azure AD aanmelden logboeken kunnen worden gebruikt om te begrijpen als u verouderde verificatie.
+
+1. Navigeer naar de **Azure-portal** > **Azure Active Directory** > **aanmeldingen**.
+1. De Client-App-kolom niet toevoegen als deze niet wordt weergegeven door te klikken op **kolommen** > **Client-App**.
+1. Filteren op **Client-App** > **andere Clients** en klikt u op **toepassen**.
+
+Filteren wordt alleen weergegeven u zich aanmeldt, probeert die zijn aangebracht door verouderde verificatieprotocollen. Te klikken op elke afzonderlijke aanmeldingspoging leert u meer informatie. De **Client-App** veld onder de **basisgegevens** tabblad wordt aangegeven welke verouderde verificatieprotocol is gebruikt.
+
+Deze logboeken wordt aangegeven welke gebruikers zijn nog steeds afhankelijk van verouderde en welke toepassingen verouderde protocollen gebruiken om aan te verificatieaanvragen. Implementeer een beleid voor voorwaardelijke toegang voor deze gebruikers alleen voor gebruikers die niet in deze logboeken weergegeven en is bevestigd verouderde verificatie niet worden gebruikt.
 
 ### <a name="block-legacy-authentication"></a>Verouderde verificatie blokkeren 
 

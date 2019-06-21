@@ -1,26 +1,26 @@
 ---
-title: Configureren van aangepaste Web Application Firewall-regels met behulp van Azure PowerShell
-description: Informatie over het configureren van aangepaste regels voor WAF met behulp van Azure PowerShell
+title: Web Application Firewall v2 aangepaste regels met behulp van Azure PowerShell configureren
+description: Informatie over het configureren van WAF v2 aangepaste regels met behulp van Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743063"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164739"
 ---
-# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Web Application Firewall configureren met een aangepaste regel met behulp van Azure PowerShell
+# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>Web Application Firewall v2 configureren met een aangepaste regel met behulp van Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Aangepaste regels kunnen u uw eigen regels geëvalueerd voor elke aanvraag die wordt doorgegeven via de Web Application Firewall (WAF) te maken. Deze regels bevatten een hogere prioriteit dan de rest van de regels in de beheerde regelsets. De aangepaste regels hebben een actie (wilt toestaan of blokkeren), een voorwaarde voor overeenkomst en een operator op die volledige aanpassing toestaan.
+Aangepaste regels kunnen u uw eigen regels geëvalueerd voor elke aanvraag die wordt doorgegeven via het Web Application Firewall (WAF) v2 maken. Deze regels bevatten een hogere prioriteit dan de rest van de regels in de beheerde regelsets. De aangepaste regels hebben een actie (wilt toestaan of blokkeren), een voorwaarde voor overeenkomst en een operator op die volledige aanpassing toestaan.
 
-In dit artikel maakt u een Application Gateway WAF die gebruikmaakt van een aangepaste regel. De aangepaste regel blokken verkeer als de kop van de aanvraag gebruikersagent bevat *evilbot*.
+In dit artikel maakt u een Application Gateway WAF-v2 die gebruikmaakt van een aangepaste regel. De aangepaste regel blokken verkeer als de kop van de aanvraag gebruikersagent bevat *evilbot*.
 
 Zie voor meer voorbeelden van aangepaste regel [maken en gebruik aangepaste web application firewall-regels](create-custom-waf-rules.md)
 

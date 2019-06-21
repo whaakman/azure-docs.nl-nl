@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171867"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176070"
 ---
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Voor het installeren van updates voor de onderhoudsmodus via Windows PowerShell voor StorSimple
 1. Als u dit nog niet hebt gedaan, toegang tot de seriële console van het apparaat en selecteer optie 1, **Meld u aan met volledige toegang tot de**. 
