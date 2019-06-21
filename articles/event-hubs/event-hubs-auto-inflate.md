@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822759"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273699"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatisch schalen van Azure Event Hubs-doorvoereenheden
-Azure Event Hubs is een uiterst schaalbaar platform voor gegevensstromen. Gebruik van Event Hubs verhoogt daarom vaak na het starten van de service wilt gebruiken. Dergelijk gebruik vereist verhogen van de vooraf ingestelde [doorvoereenheden](event-hubs-features.md#throughput-units) schalen van Event Hubs en grotere standaardtarieven voor gegevensoverdracht worden verwerkt. De **automatisch vergroten** functie van Event Hubs automatisch omhoog wordt geschaald uitgaande door het aantal doorvoereenheden, om te voldoen aan gebruik behoeften. Verhoging van doorvoereenheden wordt voorkomen dat beperkingsscenario's, waarbij:
+Azure Event Hubs is een uiterst schaalbaar platform voor gegevensstromen. Gebruik van Event Hubs verhoogt daarom vaak na het starten van de service wilt gebruiken. Dergelijk gebruik vereist verhogen van de vooraf ingestelde [doorvoereenheden](event-hubs-scalability.md#throughput-units) schalen van Event Hubs en grotere standaardtarieven voor gegevensoverdracht worden verwerkt. De **automatisch vergroten** functie van Event Hubs automatisch omhoog wordt geschaald uitgaande door het aantal doorvoereenheden, om te voldoen aan gebruik behoeften. Verhoging van doorvoereenheden wordt voorkomen dat beperkingsscenario's, waarbij:
 
 * Inkomend verkeer gegevenstarieven groter zijn dan set-doorvoereenheden.
 * Gegevens uitgaande aanvraag snelheid groter zijn dan de set-doorvoereenheden.
@@ -32,7 +32,7 @@ De Event Hubs-service verhoogt de doorvoer wanneer de belasting toeneemt dan de 
 
 ## <a name="how-auto-inflate-works"></a>Automatisch vergroten werking
 
-Verkeer van Event Hubs wordt bepaald door [doorvoereenheden](event-hubs-features.md#throughput-units). Eén doorvoereenheid kunt 1 MB per seconde van inkomend verkeer en twee keer die hoeveelheid uitgaande gegevens. Standard eventhubs kunnen worden geconfigureerd met 1-20 doorvoereenheden. Automatisch vergroten, kunt u met de minimale vereiste doorvoereenheden u klein beginnen. De functie vervolgens automatisch wordt geschaald naar het maximum aantal doorvoereenheden die u nodig, afhankelijk van de toename van uw verkeer hebt. Automatisch vergroten, biedt de volgende voordelen:
+Verkeer van Event Hubs wordt bepaald door [doorvoereenheden](event-hubs-scalability.md#throughput-units). Eén doorvoereenheid kunt 1 MB per seconde van inkomend verkeer en twee keer die hoeveelheid uitgaande gegevens. Standard eventhubs kunnen worden geconfigureerd met 1-20 doorvoereenheden. Automatisch vergroten, kunt u met de minimale vereiste doorvoereenheden u klein beginnen. De functie vervolgens automatisch wordt geschaald naar het maximum aantal doorvoereenheden die u nodig, afhankelijk van de toename van uw verkeer hebt. Automatisch vergroten, biedt de volgende voordelen:
 
 - Een efficiënte schaling mechanisme om te klein beginnen en opschalen naarmate u groeit.
 - Automatisch schalen aan de opgegeven bovenste limiet zonder beperking van problemen.

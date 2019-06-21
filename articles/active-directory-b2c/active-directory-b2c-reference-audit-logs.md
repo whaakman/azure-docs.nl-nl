@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509642"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205354"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
@@ -23,6 +24,9 @@ Azure Active Directory B2C (Azure AD B2C) verzendt auditlogboeken dat activiteit
 
 > [!IMPORTANT]
 > Auditlogboeken worden alleen gedurende zeven dagen bewaard. Plannen om te downloaden en opslaan van uw logboeken met behulp van een van de methoden die hieronder wordt weergegeven als u een langere bewaartermijn nodig.
+
+> [!NOTE]
+> Er kan geen gebruikersaanmeldingen voor afzonderlijke Azure AD B2C-toepassingen onder de **gebruikers** sectie van de **Azure Active Directory** of **Azure AD B2C** blades. De aanmeldingen er gebruikersactiviteit worden weergegeven, maar kan niet worden gecorreleerd terug naar de B2C-toepassing die de gebruiker aangemeld bij. Hiervoor moet u de auditlogboeken gebruiken als verder uiteengezet in dit artikel.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
 De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
@@ -41,6 +45,18 @@ De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 
 ## <a name="example-activity"></a>Voorbeeld van de activiteit
 Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebruiker zich met een externe id-provider aanmeldt: ![Auditlogboeken - voorbeeld](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+Het deelvenster met details van activiteit bevat de volgende relevante informatie:
+
+|Section|Veld|Description|
+|-------|-----|-----------|
+| Activiteit | Name | Welke activiteit heeft plaatsgevonden. Bijvoorbeeld: "een id_token voor de toepassing uitgeven' (die eindigt de werkelijke gebruikers-aanmelding). |
+| Gestart door (Actor) | ObjectId | De **Object-ID** van de B2C-toepassing die de gebruiker zich aanmeldt (deze id wordt niet weergegeven in de Azure-Portal, maar het is bijvoorbeeld toegankelijk via de Graph API). |
+| Gestart door (Actor) | Spn | De **toepassings-ID** van de B2C-toepassing die de gebruiker zich aanmeldt. |
+| Doelen | ObjectId | De **Object-ID** van de gebruiker die zich aanmeldt. |
+| Aanvullende details | TenantId | De **Tenant-ID** van de Azure AD B2C-tenant. |
+| Aanvullende details | `PolicyId` | De **beleids-ID** van de gebruikersstroom (beleid) wordt gebruikt voor het ondertekenen van de gebruiker. |
+| Aanvullende details | ApplicationId | De **toepassings-ID** van de B2C-toepassing die de gebruiker zich aanmeldt. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Auditlogboeken openen via de Azure Portal
 1. Ga naar de [Azure Portal](https://portal.azure.com). Zorg ervoor dat u zich in uw B2C-directory.
@@ -62,6 +78,9 @@ Hier ziet u een lijst van activiteiten die zijn geregistreerd in de afgelopen ze
 - Gebruik de **datumbereik** vervolgkeuzelijst voor het filteren van het datumbereik van de activiteiten die worden weergegeven
 - Als u op een specifieke rij in de lijst klikt, ziet een contextuele vak aan de rechterkant u aanvullende kenmerken die zijn gekoppeld aan de activiteit
 - Klik op **downloaden** voor het downloaden van de activiteiten als een csv-bestand
+
+> [!NOTE]
+> U kunt ook de auditlogboeken bekijken door te navigeren naar **Azure AD B2C** in plaats van **Azure Active Directory** in de werkbalk met Favorieten aan de linkerkant. Onder **activiteiten**, klikt u op **auditlogboeken**, waar u de dezelfde logboeken met vergelijkbare filtermogelijkheden vinden.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Auditlogboeken openen via de Azure AD rapportage-API
 Auditlogboeken worden gepubliceerd naar de dezelfde pijplijn als andere activiteiten voor Azure Active Directory, zodat ze kunnen worden geopend via de [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).

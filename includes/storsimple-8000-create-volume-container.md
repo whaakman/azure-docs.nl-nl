@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 467af776af95cf035121250fdcadd2fee65d9805
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118215"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176080"
 ---
 #### <a name="to-create-a-volume-container"></a>Een volumecontainer maken
 1. Ga naar de StorSimple-apparaatbeheerservice en klik op **Apparaten**. Selecteer en klik op een apparaat in de lijst in tabelvorm met apparaten. 

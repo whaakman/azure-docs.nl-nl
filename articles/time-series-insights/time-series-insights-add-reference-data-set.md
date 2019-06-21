@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62c3b35f80300a38213b089567c3f63a8a2ce8db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ab80279fae9dacdf7462b6c9d8208e0a56ca0877
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235055"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164987"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving met behulp van de Azure portal maken
 
@@ -36,7 +36,7 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Alleen de huidige
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-1. Ga naar uw bestaande Time Series Insights-omgeving. Klik op **alle resources** in het menu aan de linkerkant van de Azure-portal. Selecteer uw Time Series Insights-omgeving.
+1. Ga naar uw bestaande Time Series Insights-omgeving. Selecteer **alle resources** in het menu aan de linkerkant van de Azure-portal. Selecteer uw Time Series Insights-omgeving.
 
 1. Selecteer de **overzicht** pagina. Zoek de **Time Series Insights explorer-URL** en opent u de koppeling.  
 
@@ -76,7 +76,7 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Alleen de huidige
 
 1. Wijzig de naam van de kolomkoppen indien nodig. De naam van de sleutelkolom is nodig om lid te maken van de bijbehorende eigenschap in de gebeurtenisbron. Zorg ervoor dat de namen van verwijzing sleutelkolom exact met de naam van de gebeurtenis naar uw inkomende gegevens overeenkomen, met inbegrip van hoofdlettergevoeligheid. De namen van de niet-sleutelkolom worden gebruikt voor het verbeteren van de binnenkomende gegevens met de waarden van de bijbehorende verwijzing.
 
-1. Klik op **toevoegen van een rij** of **een kolom toevoegen** om toe te voegen meer verwijzing gegevenswaarden, indien nodig.
+1. Selecteer **toevoegen van een rij** of **een kolom toevoegen** om toe te voegen meer verwijzing gegevenswaarden, indien nodig.
 
 1. Typ een waarde in de **de rijen filteren...**  veld om te controleren van bepaalde rijen naar behoefte. Het filter is handig voor het bekijken van gegevens, maar wordt niet toegepast wanneer de gegevens worden geüpload.
 

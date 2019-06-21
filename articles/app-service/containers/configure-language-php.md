@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 279660d903b3b0e893c3ccddb89da7c6dc42fa09
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003101"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205078"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Een Linux-PHP-app configureren voor Azure App Service
 
@@ -167,7 +167,7 @@ Implementeer uw app met de wijzigingen opnieuw en start deze opnieuw. Als u deze
 
 Als alternatief voor het gebruik van *.htaccess*, kunt u [ini_set()](https://www.php.net/manual/function.ini-set.php) in uw app om aan te passen die niet-PHP_INI_SYSTEM-richtlijnen.
 
-### <a name="customize-phpinisystem-directives"></a>Richtlijnen voor PHP_INI_SYSTEM aanpassen
+### <a name="customize-php_ini_system-directives"></a>Richtlijnen voor PHP_INI_SYSTEM aanpassen
 
 Om aan te passen PHP_INI_SYSTEM richtlijnen (Zie [php.ini richtlijnen](https://www.php.net/manual/ini.list.php)), u kunt geen gebruiken de *.htaccess* benadering. App Service biedt een mechanisme voor afzonderlijke met de `PHP_INI_SCAN_DIR` app-instelling.
 

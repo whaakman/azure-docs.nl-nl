@@ -1,6 +1,6 @@
 ---
-title: Windows-computers verbinden met Azure Log Analytics | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u verbinding maken met Windows-computers die worden gehost in andere clouds of on-premises naar Log Analytics met de Microsoft Monitoring Agent (MMA).
+title: Windows-computers verbinden met Azure Monitor | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u verbinding maken met Windows-computers die worden gehost in andere clouds of on-premises naar Azure Monitor met de Log Analytics-agent voor Windows.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7f562959ac6022539ccf7137f352a2e9507758dc
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952483"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146352"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Windows-computers verbinden met Azure Monitor
 
@@ -110,14 +110,16 @@ De volgende tabel ziet u de specifieke parameters die worden ondersteund door he
 2. Als u op de achtergrond de agent installeren en configureren zodat deze rapporteert aan een werkruimte in de commerciële Azure-cloud, vanuit de map wilt u de setup-bestanden naar het type uitgepakt: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    of voor het configureren van de agent om te rapporteren aan Azure US Government-cloud, typ: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
+    >[!NOTE]
+    >De tekenreekswaarden voor de parameters *OPINSIGHTS_WORKSPACE_ID* en *OPINSIGHTS_WORKSPACE_KEY* moet worden ingekapseld in de dubbele aanhalingstekens om te geven van Windows Installer op interprit als opties voor het pakket. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Installeer de agent met behulp van DSC in Azure Automation
 
@@ -202,4 +204,6 @@ U ziet in de lijst met zoekresultaten geretourneerd heartbeat-records voor de co
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Beoordeling [beheren en onderhouden van de Log Analytics-agent voor Windows en Linux](agent-manage.md) voor meer informatie over het beheren van de agent tijdens de levenscyclus van de implementatie op uw virtuele machines.  
+- Beoordeling [beheren en onderhouden van de Log Analytics-agent voor Windows en Linux](agent-manage.md) voor meer informatie over het beheren van de agent tijdens de levenscyclus van de implementatie op uw virtuele machines.  
+
+- Beoordeling [het oplossen van de Windows-agent](agent-windows-troubleshoot.md) als u problemen ondervindt tijdens het installeren of beheren van de agent.

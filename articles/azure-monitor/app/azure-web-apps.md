@@ -9,11 +9,11 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65408226"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
@@ -274,7 +274,7 @@ Hieronder volgt een voorbeeld, Vervang alle exemplaren van `AppMonitoredSite` me
             "type": "string"
         }
     },
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -320,7 +320,7 @@ Vanaf versie 2.8.9 wordt de vooraf geïnstalleerde site-extensie gebruikt. Als u
 
 Als de upgrade van een eerdere versie dan 2.5.1 is voltooid, controleert u dat de ApplicationInsigths dll-bestanden zijn verwijderd uit de map bin [Zie stappen voor probleemoplossing](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Hieronder vindt u onze stapsgewijze gids voor probleemoplossing voor de extensie/agent op basis van bewaking van .NET en .NET Core-toepassingen uitvoeren in Azure App Services.
 

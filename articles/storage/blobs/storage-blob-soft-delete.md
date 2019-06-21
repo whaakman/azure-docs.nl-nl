@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148623"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204838"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Voorlopig verwijderen voor Azure Storage-blobs
 Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.
@@ -274,13 +274,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>Moet ik voorlopig verwijderen gebruiken?
-Als er een kans is dat uw gegevens per ongeluk wordt gewijzigd of verwijderd door een toepassing of een andere gebruiker van de storage-account, raden wij inschakelen van voorlopig verwijderen. Voorlopig verwijderen maakt deel uit van een strategie voor gegevensbescherming en onbedoeld gegevensverlies kunt voorkomen.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Zijn er speciale overwegingen voor het gebruik van voorlopig verwijderen?
+Als er een kans is dat uw gegevens per ongeluk wordt gewijzigd of verwijderd door een toepassing of een andere gebruiker van de storage-account, raden wij inschakelen van voorlopig verwijderen. Inschakelen van de functie voor voorlopig verwijderen voor vaak overschreven gegevens kan leiden tot hogere opslagkosten voor capaciteit en hogere latentie wanneer blobs wordt weergegeven. U kunt dit oplossen door u te vaak overschreven gegevens op te slaan in een afzonderlijk opslagaccount met voorlopig verwijderen uitgeschakeld. 
 
 ## <a name="faq"></a>Veelgestelde vragen
-**Zijn er speciale overwegingen voor het gebruik van voorlopig verwijderen?**  
-Inschakelen van de functie voor voorlopig verwijderen voor vaak overschreven gegevens kan leiden tot hogere opslagkosten voor capaciteit en hogere latentie wanneer blobs wordt weergegeven. U kunt dit oplossen door u te vaak overschreven gegevens op te slaan in een afzonderlijk opslagaccount met voorlopig verwijderen uitgeschakeld. 
-
 **Voor welke typen gegevensopslag kan ik voorlopig verwijderen gebruiken?**  
 Voorlopig verwijderen is momenteel alleen beschikbaar voor blobopslag (object).
 

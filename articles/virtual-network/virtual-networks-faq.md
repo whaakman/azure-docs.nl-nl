@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497110"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154504"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -382,13 +382,17 @@ Service-eindpunten toevoegen een systeemroute heeft voorrang op de BGP-routes en
 Als u wilt de Azure-service bereiken, moeten nsg's uitgaande connectiviteit toegestaan. Als uw nsg's zijn met alle uitgaande internetverkeer geopend, klikt u vervolgens werkt het service-eindpunt verkeer. U kunt ook het uitgaande verkeer naar de service IP-adressen alleen met behulp van de servicetags beperken.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Welke machtigingen heb ik nodig voor het instellen van service-eindpunten?
-Service-eindpunten kunnen afzonderlijk worden geconfigureerd in een virtueel netwerk door een gebruiker met schrijftoegang tot het virtuele netwerk. Als u Azure-serviceresources aan een VNet wilt koppelen, moet u machtigingen hebben voor **Microsoft.Network/JoinServicetoaSubnet** voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de rol van de ingebouwde service-beheerder en kan worden gewijzigd door aangepaste rollen te maken. Meer informatie over ingebouwde rollen en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Service-eindpunten kunnen afzonderlijk worden geconfigureerd in een virtueel netwerk door een gebruiker met schrijftoegang tot het virtuele netwerk. Als u wilt beveiligen in Azure-serviceresources naar een VNet, moet de gebruiker machtigingen hebben **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de rol van de ingebouwde service-beheerder en kan worden gewijzigd door aangepaste rollen te maken. Meer informatie over ingebouwde rollen en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Kan ik virtuele netwerkverkeer filtert naar Azure-services, zodat alleen bepaalde azure-serviceresources, via VNet-service-eindpunten? 
 
 Service-eindpuntbeleid virtueel netwerk (VNet) kunnen u voor het filteren van verkeer in virtuele netwerken voor Azure-services, zodat alleen bepaalde Azure-serviceresources via de service-eindpunten. Eindpuntbeleid biedt gedetailleerd toegangsbeheer van het virtuele netwerkverkeer voor de Azure-services. U kunt meer informatie over de service-eindpuntbeleid [hier](virtual-network-service-endpoint-policies-overview.md).
- 
+
+### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory (Azure AD) biedt ondersteuning voor VNet-service-eindpunten?
+
+Azure Active Directory (Azure AD) biedt geen ondersteuning voor service-eindpunten systeemeigen. Volledige lijst met Azure-Services VNet-service-eindpunten ondersteunen kan worden gezien [hier](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Houd er rekening mee dat 'Microsoft.AzureActiveDirectory'-tag vermeld in de service-eindpunten van ondersteunende services wordt gebruikt voor de ondersteuning voor service-eindpunten naar ADLS Gen 1. Voor ADLS Gen 1, integratie van virtuele netwerken voor Azure Data Lake Storage Gen1 maakt gebruik van de virtuele-service-eindpunt netwerkbeveiliging tussen uw virtuele netwerk en Azure Active Directory (Azure AD) voor het genereren van extra beveiligingsclaims in het toegangstoken. Deze claims worden vervolgens gebruikt om het virtuele netwerk te verifiëren bij het Data Lake Storage Gen1-account en toegang toe te staan. Meer informatie over [Azure Data Lake Store Gen 1 VNet-integratie] (.. /Data-Lake-Store/Data-Lake-Store-Network-Security.MD?TOC=%2fazure%2fvirtual-Network%2ftoc.JSON
+
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Zijn er beperkingen met betrekking op het aantal VNet-service-eindpunten ik in mijn VNet instellen kunt?
 Er is geen limiet voor het totale aantal VNet-service-eindpunten in een virtueel netwerk. Voor een Azure-serviceresource (zoals een Azure Storage-account) kunnen services beperkingen hebben met betrekking tot het aantal subnetten dat wordt gebruikt voor het koppelen van de resource. De volgende tabel ziet u enkele beperkingen voorbeeld: 
 

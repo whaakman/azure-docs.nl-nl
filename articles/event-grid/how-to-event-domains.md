@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0042b0bd8c6ed9e9d253c44151dcf0588c742b48
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305030"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137849"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Onderwerpen beheren en publiceren van gebeurtenissen via event-domeinen
 
@@ -194,7 +194,7 @@ En vervolgens met uw favoriete methode van het maken van een HTTP POST naar uw g
 
 ## <a name="search-lists-of-topics-or-subscriptions"></a>Zoeken naar een lijst met onderwerpen of abonnementen
 
-Als u wilt zoeken en beheren van een groot aantal onderwerpen of abonnementen maken, ondersteuning voor API's van Event Grid lijst een paginering.
+Event Grid van API's ondersteunen om te zoeken en beheren van een groot aantal onderwerpen of abonnementen maken, aanbieding en van paginering.
 
 ### <a name="using-cli"></a>CLI gebruiken
 

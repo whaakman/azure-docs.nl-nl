@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148175"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176025"
 ---
 U kunt een aantal gegevensschijven koppelen aan een virtuele machine van Azure. Op basis van de schaalbaarheids- en prestatiedoelen voor gegevensschijven van een virtuele machine, kunt u het aantal en type van de schijf die u nodig hebt om te voldoen aan uw prestaties en capaciteitsvereisten bepalen.
 

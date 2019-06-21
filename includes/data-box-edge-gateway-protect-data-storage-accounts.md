@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 653c175a559f5c0b7dc551b396e91276332df20a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67120554"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176679"
 ---
 Uw apparaat is gekoppeld aan een opslagaccount dat wordt gebruikt als een doel voor uw gegevens in Azure. Toegang tot het opslagaccount dat wordt bepaald door het abonnement en twee 512-bits opslag toegang tot sleutels die zijn gekoppeld aan dit account.
 

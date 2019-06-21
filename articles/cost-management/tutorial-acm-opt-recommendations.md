@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416086"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164495"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Zelfstudie: De kosten van aanbevelingen optimaliseren
 
@@ -54,7 +54,7 @@ De **Impact** categorie, samen met de **mogelijke jaarlijkse besparingen**, zijn
 Hoge impact aanbevelingen zijn onder andere:
 - [Gereserveerde virtuele machine-instanties om geld te besparen ten opzichte van betalen per gebruik kopen](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
 - [Optimaliseer virtuele machine uitgaven per vergroten of verkleinen of weinig gebruikte exemplaren afsluiten](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Standard-opslag gebruikt voor het opslaan van momentopnamen van Managed Disks ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+- [Standard-opslag gebruikt voor het opslaan van momentopnamen van Managed Disks](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
 Normale impact aanbevelingen zijn onder andere:
 - [Azure Data Factory-pijplijnen die niet verwijderen](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)

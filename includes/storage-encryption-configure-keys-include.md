@@ -9,11 +9,11 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.custom: include
 ms.openlocfilehash: 3076065d23d4701711c0ecb60349e77ee5c9b7c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115429"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176250"
 ---
 Azure Storage ondersteunt versleuteling-at-rest met Microsoft beheerde sleutels of door de klant beheerde sleutels. Door de klant beheerde sleutels kunnen u maken, draaien, uitschakelen en besturingselementen voor toegang intrekken.
 

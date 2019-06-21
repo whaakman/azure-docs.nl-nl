@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2019
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e66c625c3f30580715762d2dd3f48eeaa6e548dc
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956056"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143964"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -52,47 +52,42 @@ De eenvoudigste manier om lokale Git-implementatie voor uw app met de Kudu-build
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
+> [!NOTE]
+> In plaats van de referenties op accountniveau, kunt u ook implementeren met de referenties op app-niveau, dat automatisch wordt gegenereerd voor elke app.
+>
+
 ### <a name="enable-local-git-with-kudu"></a>Lokale Git met Kudu inschakelen
 
 Als u lokale Git-implementatie voor uw app met de Kudu-build-server wilt inschakelen, voert u [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in de Cloud Shell uit.
 
 ```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
 Voer voor het maken van een app met Git in plaats daarvan [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in de Cloud Shell uit met de parameter `--deployment-local-git`.
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
-```
-
-De uitvoer na opdracht `az webapp create` moet er ongeveer uitzien zoals hieronder is weergegeven:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
+az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
 ### <a name="deploy-your-project"></a>Uw project implementeren
 
-Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang _\<url >_ met de URL van de externe Git-instantie die u hebt verkregen via [Git inschakelen voor uw app](#enable-local-git-with-kudu).
+Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang  _\<gebruikersnaam >_ met de implementatiegebruiker van [een implementatiegebruiker configureren](#configure-a-deployment-user) en  _\<app-naam >_ met de naam van de app uit [Git inschakelen voor uw app](#enable-local-git-with-kudu).
 
 ```bash
-git remote add azure <url>
+git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
 ```
 
-Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Zorg er als u om een wachtwoord wordt gevraagd voor dat u het wachtwoord dat u hebt gemaakt bij [Een implementatiegebruiker configureren](#configure-a-deployment-user) gebruikt en niet het wachtwoord dat u gebruikt om u aan te melden bij Azure Portal.
+> [!NOTE]
+> Als u wilt implementeren in plaats daarvan met de referenties op app-niveau, de referenties ontvangen specifiek zijn voor uw app met de volgende opdracht in de Cloud Shell:
+>
+> ```azurecli-interactive
+> az webapp deployment list-publishing-credentials -n <app-name> -g <group-name> --query scmUri --output tsv
+> ```
+>
+> Gebruik vervolgens de opdracht uitvoeren om uit te voeren `git remote add azure <url>` zoals hierboven.
+
+Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Wanneer u hierom wordt gevraagd om een wachtwoord, zorg ervoor dat u het wachtwoord die u hebt gemaakt in [een implementatiegebruiker configureren](#configure-a-deployment-user), niet het wachtwoord dat u zich aanmeldt bij Azure portal gebruikt.
 
 ```bash
 git push azure master

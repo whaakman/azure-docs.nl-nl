@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager-sjabloonfuncties - logische | Microsoft Docs
 description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebruiken om te bepalen van de logische waarden.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405655"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205465"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logische functies voor Azure Resource Manager-sjablonen
 
@@ -39,9 +33,9 @@ Controleert of alle parameterwaarden ' True zijn '.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
-| arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
-| aanvullende argumenten |Nee |booleaans |Extra argumenten om te controleren of wordt voldaan. |
+| arg1 |Ja |boolean |De eerste waarde om te controleren of de waarde true is. |
+| arg2 |Ja |boolean |De tweede waarde om te controleren of de waarde true is. |
+| aanvullende argumenten |Nee |boolean |Extra argumenten om te controleren of wordt voldaan. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -77,9 +71,9 @@ De uitvoer uit het vorige voorbeeld is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Onwaar |
+| andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | Onwaar |
+| notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>bool
 
@@ -131,9 +125,9 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
-| falseString | Bool | Onwaar |
+| falseString | Bool | False |
 | trueInt | Bool | True |
-| falseInt | Bool | Onwaar |
+| falseInt | Bool | False |
 
 ## <a name="if"></a>if
 
@@ -145,7 +139,7 @@ Retourneert een waarde op basis van of u een voorwaarde is true of false.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| condition |Ja |booleaans |De waarde moet worden gecontroleerd of dit waar of ONWAAR. |
+| condition |Ja |boolean |De waarde moet worden gecontroleerd of dit waar of ONWAAR. |
 | trueValue |Ja | String, int, object of matrix |De waarde moet worden geretourneerd wanneer de voorwaarde waar is. |
 | falseValue |Ja | String, int, object of matrix |De waarde moet worden geretourneerd wanneer de voorwaarde onwaar is. |
 
@@ -196,7 +190,7 @@ De volgende [voorbeeldsjabloon](https://github.com/krnese/AzureDeploy/blob/maste
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -240,7 +234,7 @@ De volgende [voorbeeldsjabloon](https://github.com/krnese/AzureDeploy/blob/maste
 }
 ```
 
-## <a name="not"></a>niet
+## <a name="not"></a>not
 
 `not(arg1)`
 
@@ -250,7 +244,7 @@ Booleaanse waarde omgezet in de tegengestelde waarde.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |booleaans |De waarde te converteren. |
+| arg1 |Ja |boolean |De waarde te converteren. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -286,9 +280,9 @@ De uitvoer uit het vorige voorbeeld is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Onwaar |
+| andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | Onwaar |
+| notExampleOutput | Bool | False |
 
 De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) maakt gebruik van **niet** met [gelijk is aan](resource-group-template-functions-comparison.md#equals).
 
@@ -322,9 +316,9 @@ Controleert of een waarde voor parameter ' True '.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
-| arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
-| aanvullende argumenten |Nee |booleaans |Extra argumenten om te controleren of wordt voldaan. |
+| arg1 |Ja |boolean |De eerste waarde om te controleren of de waarde true is. |
+| arg2 |Ja |boolean |De tweede waarde om te controleren of de waarde true is. |
+| aanvullende argumenten |Nee |boolean |Extra argumenten om te controleren of wordt voldaan. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -360,9 +354,9 @@ De uitvoer uit het vorige voorbeeld is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Onwaar |
+| andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | Onwaar |
+| notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Volgende stappen
 

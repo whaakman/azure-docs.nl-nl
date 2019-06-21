@@ -4,14 +4,14 @@ description: Meer informatie over het opgeven en een schatting maken van Aanvraa
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 9615aebd345c957c8e401581ff94735f39ba73c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12f91676ac50511bf3d2d33f7fed2029e152dc98
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953533"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165004"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 
@@ -75,3 +75,4 @@ Terwijl u een schatting maken van het aantal ru's per seconde om in te richten, 
 * Meer informatie over het [optimaliseert u kosten van de ingerichte doorvoer in Azure Cosmos DB](optimize-cost-throughput.md).
 * Meer informatie over het [lees- en schrijfbewerkingen in Azure Cosmos DB kosten optimaliseren](optimize-cost-reads-writes.md).
 * Meer informatie over het [optimaliseert query kosten in Azure Cosmos DB](optimize-cost-queries.md).
+* Meer informatie over het [gebruikt u metrische gegevens over doorvoer voor monitor](use-metrics.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711650"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190534"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure File Sync bewaken
 
@@ -69,7 +69,10 @@ De volgende metrische gegevens voor Azure File Sync zijn beschikbaar in Azure Mo
 | Naam van de meetwaarde | Description |
 |-|-|
 | Bytes die worden gesynchroniseerd | Grootte van gegevens die worden overgedragen (uploaden en downloaden).<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
-| Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: De naam van server |
+| Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>Opmerking: Met deze metriek wordt in de toekomst verwijderd. Gebruik de Cloud cloudlagen intrekken grootte metrische gegevens voor het bewaken van de grootte van gegevens die zijn ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: De naam van server |
+| Warmtemeting intrekken-grootte in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Server naam, naam van Synchronisatiegroep |
+| Warmtemeting intrekken-grootte in de cloud door toepassing | Grootte van gegevens door de toepassing is ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Toepassing de naam, Server-naam, naam van Synchronisatiegroep |
+| Warmtemeting intrekken doorvoer in de cloud | Grootte van gegevens terughalen doorvoer.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Server naam, naam van Synchronisatiegroep |
 | Bestanden niet synchroniseren | Het aantal bestanden die niet worden gesynchroniseerd.<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 | Bestanden die zijn gesynchroniseerd | Aantal bestanden overgedragen (uploaden en downloaden).<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 | Status van de server online | Het aantal heartbeats ontvangen van de server.<br><br>Eenheid: Count<br>Aggregatietype: Maximum<br>Dimensie van toepassing: De naam van server |

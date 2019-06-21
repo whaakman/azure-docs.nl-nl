@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160488"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176414"
 ---
 U kunt meerdere services binnen een abonnement maken. Elke service kan worden ingericht op een specifieke laag. U bent alleen beperkt door het aantal services die op elke laag worden toegestaan. U kunt bijvoorbeeld maximaal 12 services op de Basic-laag en een andere 12 services op de laag S1 binnen hetzelfde abonnement maken. Zie voor meer informatie over Prijscategorieën [SKU of laag kiezen voor Azure Search](../articles/search/search-sku-tier.md).
 

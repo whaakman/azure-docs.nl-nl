@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735246"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137209"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure-seriële Console voor Linux
 
-Seriële Console van het in Azure portal biedt toegang tot een op tekst gebaseerde console voor virtuele Linux-machines (VM's) en virtuele-machineschaalset exemplaren. Deze seriële verbinding maken met de seriële poort COM1 van de virtuele machine of virtuele machine scale set exemplaar, toegang tot deze onafhankelijk van de status van de netwerk- of -besturingssysteem. Seriële console van het alleen kan worden geopend met behulp van Azure portal en is alleen voor gebruikers die een access-rol van inzender zijn toegestaan of hoger als u wilt de schaalset voor virtuele machine of virtuele machine.
+Seriële Console van het in Azure portal biedt toegang tot een op tekst gebaseerde console voor virtuele Linux-machines (VM's) en virtuele-machineschaalset exemplaren. Deze seriële verbinding maken met de seriële poort ttys0 van de virtuele machine of virtuele machine scale set exemplaar, toegang tot deze onafhankelijk van de status van de netwerk- of -besturingssysteem. Seriële console van het alleen kan worden geopend met behulp van Azure portal en is alleen voor gebruikers die een access-rol van inzender zijn toegestaan of hoger als u wilt de schaalset voor virtuele machine of virtuele machine.
 
 Seriële Console werkt op dezelfde manier voor virtuele machines en virtuele-machineschaalset exemplaren. In dit document bevat alle vermeldingen op virtuele machines impliciet schaalsetinstanties virtuele machine, tenzij anders vermeld.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113404"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204661"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -225,7 +225,7 @@ Zoek het zelfondertekende certificaat dat is gemaakt door het installatieprogram
 
 Zelfondertekende certificaten die worden gegenereerd door de *AzureMfaNpsExtnConfigSetup.ps1* script hebben ook een geldigheid levensduur van twee jaar. Tijdens het controleren van het certificaat is geïnstalleerd, moet u ook controleren of het certificaat niet is verlopen.
 
--------------------------------------------------------------
+---
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Hoe kan ik controleren of mijn clientcertificaat gekoppeld aan mijn tenant in Azure Active Directory is?
 
@@ -251,13 +251,13 @@ Zodra u deze opdracht uitvoert, gaat u naar de C-schijf naar het bestand en dubb
 
 Geldige-van en geldig-totdat tijdstempels die in leesbare vorm, kan aan de hand liggende misfits eruit gefilterd als de opdracht meer dan één certificaat retourneert worden gebruikt.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-cant-i-sign-in"></a>Waarom kan ik aanmelden?
 
 Controleer of uw wachtwoord nog niet is verlopen. De NPS-extensie biedt geen ondersteuning voor wijzigen van wachtwoorden als onderdeel van de werkstroom aanmelden. Neem contact op met de IT-afdeling van uw organisatie voor verdere ondersteuning.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>Waarom wordt mijn aanvragen mislukt met fout voor ADAL-token?
 
@@ -268,19 +268,19 @@ Deze fout kan worden veroorzaakt door verschillende oorzaken hebben. Volg deze s
 3. Controleer of het certificaat is gekoppeld aan uw tenant in Azure AD.
 4. Controleer of https://login.microsoftonline.com/ toegankelijk is vanaf de server waarop de extensie wordt uitgevoerd.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>Waarom verificatie mislukt vanwege een fout in HTTP-logboeken met de mededeling dat de gebruiker niet is gevonden?
 
 Controleer of dat AD Connect wordt uitgevoerd en dat de gebruiker aanwezig is in zowel Windows Active Directory en Azure Active Directory.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Waarom zie ik HTTP-verbindingsfouten in Logboeken met mijn verificaties die zijn mislukt?
 
 Controleer of https://adnotifications.windowsazure.com bereikbaar is vanaf de server waarop de NPS-extensie wordt uitgevoerd.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Waarom is verificatie niet werkt, ondanks dat een geldig certificaat aanwezigheid?
 

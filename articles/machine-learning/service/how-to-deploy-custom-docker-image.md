@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: 02bc8835ddb163d81f389e13b21b88adca55cb2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082623"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272763"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Een model met behulp van een aangepaste Docker-installatiekopie implementeren
 
@@ -43,6 +43,7 @@ Dit document is onderverdeeld in twee secties:
 * Een Azure Machine Learning-service-werkgroep. Zie voor meer informatie de [maken van een werkruimte](setup-create-workspace.md) artikel.
 * The Azure Machine Learning SDK. Zie voor meer informatie de sectie Python-SDK van de [maken van een werkruimte](setup-create-workspace.md#sdk) artikel.
 * De [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* De [CLI-extensie voor Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Een [Azure Container Registry](/azure/container-registry) of andere Docker-register die toegankelijk is via internet.
 * De stappen in dit document wordt ervan uitgegaan dat u bekend bent met het maken en gebruiken een __Deductie configuratie__ object als onderdeel van de modelimplementatie van het. Voor meer informatie, Zie de sectie 'voorbereiden om te implementeren' van [waar u wilt implementeren en hoe](how-to-deploy-and-where.md#prepare-to-deploy).
 

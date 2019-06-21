@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381141"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204502"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: Functieverwijzing
 In Azure AD Connect, worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -89,7 +89,7 @@ De functies met de typen **mvbin**, **mvstr**, en **mvref** kan alleen worden ge
 | [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
-- - -
+---
 ### <a name="bitand"></a>BitAnd
 **Beschrijving:**  
 De functie BitAnd wordt opgegeven bits ingesteld op een waarde.
@@ -111,7 +111,7 @@ Met andere woorden, retourneert 0 in alle gevallen, behalve wanneer de bijbehore
 `BitAnd(&HF, &HF7)`  
 Retourneert 7 omdat hexadecimale "F" en "F7" evalueren met deze waarde.
 
-- - -
+---
 ### <a name="bitor"></a>BitOr
 **Beschrijving:**  
 De functie BitOr wordt opgegeven bits ingesteld op een waarde.
@@ -124,7 +124,7 @@ De functie BitOr wordt opgegeven bits ingesteld op een waarde.
 **Opmerking:**  
 Deze functie beide parameters converteert naar een binaire indeling en iets op 1 als een of beide van de bijbehorende bits masker en vlag liggen tussen 1 en ingesteld op 0 als beide van de bijbehorende bits 0 zijn. Met andere woorden, retourneert 1 in alle gevallen, behalve wanneer de bijbehorende bits van beide parameters zijn aan 0.
 
-- - -
+---
 ### <a name="cbool"></a>CBool
 **Beschrijving:**  
 De functie CBool retourneert een Booleaanse waarde op basis van de geëvalueerde expressie
@@ -140,7 +140,7 @@ Als resultaat van de expressie naar een andere waarde dan nul, en vervolgens CBo
 
 Retourneert ' True ' wanneer beide kenmerken hebben dezelfde waarde.
 
-- - -
+---
 ### <a name="cdate"></a>CDate
 **Beschrijving:**  
 De functie CDate retourneert een UTC-datum-/ van een tekenreeks. Datum/tijd is niet een systeemeigen kenmerktype gesynchroniseerd, maar wordt gebruikt door sommige functies.
@@ -161,7 +161,7 @@ Retourneert die een datum/tijd op basis van de werknemer begintijd
 Retourneert een datum/tijd die "2013-01-11-12:00 AM"
 
 
-- - -
+---
 ### <a name="certextensionoids"></a>CertExtensionOids
 **Beschrijving:**  
 Retourneert de waarden van de Oid van de kritieke uitbreidingen van een certificaatobject.
@@ -170,7 +170,7 @@ Retourneert de waarden van de Oid van de kritieke uitbreidingen van een certific
 `mvstr CertExtensionOids(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certformat"></a>CertFormat
 **Beschrijving:**  
 Retourneert de naam van de indeling van deze X.509v3-certificaat.
@@ -179,7 +179,7 @@ Retourneert de naam van de indeling van deze X.509v3-certificaat.
 `str CertFormat(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certfriendlyname"></a>CertFriendlyName
 **Beschrijving:**  
 Retourneert de bijbehorende alias voor een certificaat.
@@ -188,7 +188,7 @@ Retourneert de bijbehorende alias voor een certificaat.
 `str CertFriendlyName(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certhashstring"></a>CertHashString
 **Beschrijving:**  
 Retourneert de SHA1-hash-waarde voor de X.509v3-certificaat als een hexadecimale tekenreeks.
@@ -197,7 +197,7 @@ Retourneert de SHA1-hash-waarde voor de X.509v3-certificaat als een hexadecimale
 `str CertHashString(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certissuer"></a>CertIssuer
 **Beschrijving:**  
 Retourneert de naam van de certificeringsinstantie die het X.509v3-certificaat heeft uitgegeven.
@@ -206,7 +206,7 @@ Retourneert de naam van de certificeringsinstantie die het X.509v3-certificaat h
 `str CertIssuer(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certissuerdn"></a>CertIssuerDN
 **Beschrijving:**  
 Retourneert de DN-naam van de uitgever van het certificaat.
@@ -215,7 +215,7 @@ Retourneert de DN-naam van de uitgever van het certificaat.
 `str CertIssuerDN(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certissueroid"></a>CertIssuerOid
 **Beschrijving:**  
 Retourneert de Oid van de uitgever van het certificaat.
@@ -224,7 +224,7 @@ Retourneert de Oid van de uitgever van het certificaat.
 `str CertIssuerOid(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **Beschrijving:**  
 Retourneert de algoritme van sleutel-informatie voor deze X.509v3-certificaat als een tekenreeks.
@@ -233,7 +233,7 @@ Retourneert de algoritme van sleutel-informatie voor deze X.509v3-certificaat al
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **Beschrijving:**  
 Retourneert de algoritme van sleutel-parameters voor de X.509v3-certificaat als een hexadecimale tekenreeks.
@@ -242,7 +242,7 @@ Retourneert de algoritme van sleutel-parameters voor de X.509v3-certificaat als 
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certnameinfo"></a>CertNameInfo
 **Beschrijving:**  
 Retourneert het onderwerp en de verlener namen van een certificaat.
@@ -253,7 +253,7 @@ Retourneert het onderwerp en de verlener namen van een certificaat.
 *   X509NameType: De waarde X509NameType voor het onderwerp.
 *   includesIssuerName: waar om op te nemen van de naam van de certificaatverlener; anders wordt onwaar.
 
-- - -
+---
 ### <a name="certnotafter"></a>CertNotAfter
 **Beschrijving:**  
 Retourneert de datum in plaatselijke tijd waarna een certificaat niet meer geldig is.
@@ -262,7 +262,7 @@ Retourneert de datum in plaatselijke tijd waarna een certificaat niet meer geldi
 `dt CertNotAfter(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certnotbefore"></a>CertNotBefore
 **Beschrijving:**  
 Retourneert de datum in plaatselijke tijd waarop een certificaat geldig wordt.
@@ -271,7 +271,7 @@ Retourneert de datum in plaatselijke tijd waarop een certificaat geldig wordt.
 `dt CertNotBefore(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **Beschrijving:**  
 Retourneert de Oid van de openbare sleutel voor de X.509v3-certificaat.
@@ -280,7 +280,7 @@ Retourneert de Oid van de openbare sleutel voor de X.509v3-certificaat.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **Beschrijving:**  
 Retourneert de Oid van de openbare sleutel parameters voor de X.509v3-certificaat.
@@ -289,7 +289,7 @@ Retourneert de Oid van de openbare sleutel parameters voor de X.509v3-certificaa
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certserialnumber"></a>CertSerialNumber
 **Beschrijving:**  
 Retourneert het serienummer van het X.509v3-certificaat.
@@ -298,7 +298,7 @@ Retourneert het serienummer van het X.509v3-certificaat.
 `str CertSerialNumber(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **Beschrijving:**  
 Retourneert de Oid van het algoritme voor het maken van de handtekening van een certificaat.
@@ -307,7 +307,7 @@ Retourneert de Oid van het algoritme voor het maken van de handtekening van een 
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certsubject"></a>CertSubject
 **Beschrijving:**  
 Hiermee haalt u de DN-naam van een certificaat.
@@ -316,7 +316,7 @@ Hiermee haalt u de DN-naam van een certificaat.
 `str CertSubject(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **Beschrijving:**  
 Retourneert de DN-naam van een certificaat.
@@ -325,7 +325,7 @@ Retourneert de DN-naam van een certificaat.
 `str CertSubjectNameDN(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **Beschrijving:**  
 Retourneert de Oid van de onderwerpnaam van een certificaat.
@@ -334,7 +334,7 @@ Retourneert de Oid van de onderwerpnaam van een certificaat.
 `str CertSubjectNameOid(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certthumbprint"></a>CertThumbprint
 **Beschrijving:**  
 Retourneert de vingerafdruk van een certificaat.
@@ -343,7 +343,7 @@ Retourneert de vingerafdruk van een certificaat.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="certversion"></a>CertVersion
 **Beschrijving:**  
 Retourneert de versie van de x.509-indeling van een certificaat.
@@ -352,7 +352,7 @@ Retourneert de versie van de x.509-indeling van een certificaat.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
-- - -
+---
 ### <a name="cguid"></a>CGuid
 **Beschrijving:**  
 De functie CGuid converteert de tekenreeksweergave van een GUID naar de binaire indeling.
@@ -362,7 +362,7 @@ De functie CGuid converteert de tekenreeksweergave van een GUID naar de binaire 
 
 * Een tekenreeks die is opgemaakt in dit patroon: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx of {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-- - -
+---
 ### <a name="contains"></a>bevat
 **Beschrijving:**  
 De functie Contains zoekt u naar een tekenreeks binnen een kenmerk met meerdere waarden
@@ -386,7 +386,7 @@ Voor verwijzingskenmerken, moet de doorzochte tekenreeks exact overeenkomen met 
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 Als het proxyAddresses-kenmerk een primaire e-mailadres heeft (aangegeven door hoofdletters ' SMTP: "), retourneert de proxyAddress-kenmerk, anders retourneert een fout.
 
-- - -
+---
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Beschrijving:**  
 De functie ConvertFromBase64 zet de waarde van de opgegeven base64-gecodeerd om een normale tekenreeks.
@@ -404,7 +404,7 @@ De functie ConvertFromBase64 zet de waarde van de opgegeven base64-gecodeerd om 
 
 Beide voorbeelden retourneren '*Hallo wereld!* "
 
-- - -
+---
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **Beschrijving:**  
 De functie ConvertFromUTF8Hex converteert de opgegeven UTF8 hexadecimaal gecodeerde waarde naar een tekenreeks.
@@ -422,7 +422,7 @@ Deze indeling wordt gebruikt door Azure Active Directory als de DN-naam.
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 Retourneert '*Hallo wereld!* "
 
-- - -
+---
 ### <a name="converttobase64"></a>ConvertToBase64
 **Beschrijving:**  
 De functie ConvertToBase64 converteert een tekenreeks naar een met base64 Unicode-tekenreeks.  
@@ -435,7 +435,7 @@ De waarde van een matrix van gehele getallen converteert naar de equivalente tek
 `ConvertToBase64("Hello world!")`  
 Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
-- - -
+---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Beschrijving:**  
 De functie ConvertToUTF8Hex converteert een tekenreeks naar een UTF8 hexadecimaal gecodeerde waarde.
@@ -450,7 +450,7 @@ De indeling van de uitvoer van deze functie wordt gebruikt door Azure Active Dir
 `ConvertToUTF8Hex("Hello world!")`  
 Returns 48656C6C6F20776F726C6421
 
-- - -
+---
 ### <a name="count"></a>Count
 **Beschrijving:**  
 De functie Count retourneert het aantal elementen in een kenmerk met meerdere waarden
@@ -458,7 +458,7 @@ De functie Count retourneert het aantal elementen in een kenmerk met meerdere wa
 **Syntaxis:**  
 `num Count(mvstr attribute)`
 
-- - -
+---
 ### <a name="cnum"></a>CNum
 **Beschrijving:**  
 De functie CNum neemt van een tekenreeks en retourneert een numeriek gegevenstype.
@@ -466,7 +466,7 @@ De functie CNum neemt van een tekenreeks en retourneert een numeriek gegevenstyp
 **Syntaxis:**  
 `num CNum(str value)`
 
-- - -
+---
 ### <a name="cref"></a>CRef
 **Beschrijving:**  
 Converteert een tekenreeks naar een verwijzingskenmerk
@@ -477,7 +477,7 @@ Converteert een tekenreeks naar een verwijzingskenmerk
 **Voorbeeld:**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
-- - -
+---
 ### <a name="cstr"></a>CStr
 **Beschrijving:**  
 De functie CStr converteert naar een tekenreeks-gegevenstype.
@@ -493,7 +493,7 @@ De functie CStr converteert naar een tekenreeks-gegevenstype.
 `CStr([dn])`  
 Kan retourneren "cn = Joe, dc = contoso, dc = com"
 
-- - -
+---
 ### <a name="dateadd"></a>DateAdd
 **Beschrijving:**  
 Retourneert een datum met een datum waarop een opgegeven tijdsinterval is toegevoegd.
@@ -519,7 +519,7 @@ Retourneert een datum met een datum waarop een opgegeven tijdsinterval is toegev
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 Drie maanden wordt toegevoegd en retourneert een datum/tijd die '2001-04-01'.
 
-- - -
+---
 ### <a name="datefromnum"></a>DateFromNum
 **Beschrijving:**  
 De functie DateFromNum zet een waarde in de AD-datum op het type datum/tijd opmaken.
@@ -532,7 +532,7 @@ De functie DateFromNum zet een waarde in de AD-datum op het type datum/tijd opma
 `DateFromNum(129699324000000000)`  
 Retourneert een datum/tijd die 01-01-2012 23:00:00 uur
 
-- - -
+---
 ### <a name="dncomponent"></a>DNComponent
 **Beschrijving:**  
 De functie DNComponent retourneert de waarde van een opgegeven DN-component die van links.
@@ -547,7 +547,7 @@ De functie DNComponent retourneert de waarde van een opgegeven DN-component die 
 `DNComponent(CRef([dn]),1)`  
 Als DN-naam is "cn Jan, ou = =...," Jaap geretourneerd
 
-- - -
+---
 ### <a name="dncomponentrev"></a>DNComponentRev
 **Beschrijving:**  
 De functie DNComponentRev retourneert de waarde van een opgegeven DN-component die van rechts (einde).
@@ -566,7 +566,7 @@ Als DN-naam is "cn Jan, ou = Atlanta, ou = algemene beschikbaarheid, ou = = US, 
 `DNComponentRev(CRef([dn]),1,"DC")`  
 Beide retourneren ons.
 
-- - -
+---
 ### <a name="error"></a>Fout
 **Beschrijving:**  
 De fout-functie wordt gebruikt om een aangepaste fout geretourneerd.
@@ -578,7 +578,7 @@ De fout-functie wordt gebruikt om een aangepaste fout geretourneerd.
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 Als de kenmerk-accountnaam niet aanwezig is, genereert u een fout op het object.
 
-- - -
+---
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **Beschrijving:**  
 De EscapeDNComponent-functie gebruikt een onderdeel van een DN-naam en verwijdert deze, zodat deze kan worden weergegeven in LDAP.
@@ -590,7 +590,7 @@ De EscapeDNComponent-functie gebruikt een onderdeel van een DN-naam en verwijder
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Zorgt ervoor dat het object kan worden gemaakt in een LDAP-adreslijst, zelfs als het kenmerk displayName bevat tekens die moeten worden weergegeven in LDAP.
 
-- - -
+---
 ### <a name="formatdatetime"></a>formatDateTime
 **Beschrijving:**  
 De functie FormatDateTime wordt gebruikt om de opmaak van een datum/tijd naar een tekenreeks met een opgegeven indeling
@@ -612,7 +612,7 @@ De resultaten in '2007-12-25'.
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
 Kan leiden tot "20140905081453.0Z"
 
-- - -
+---
 ### <a name="guid"></a>Guid
 **Beschrijving:**  
 De Guid van de functie genereert een nieuwe willekeurige GUID
@@ -620,7 +620,7 @@ De Guid van de functie genereert een nieuwe willekeurige GUID
 **Syntaxis:**  
 `str Guid()`
 
-- - -
+---
 ### <a name="iif"></a>IIF
 **Beschrijving:**  
 De functie IIF retourneert een van de mogelijke waarden op basis van een opgegeven voorwaarde.
@@ -636,7 +636,7 @@ De functie IIF retourneert een van de mogelijke waarden op basis van een opgegev
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  Als de gebruiker een intern is, retourneert de alias van een gebruiker met 't-' toegevoegd aan het begin van deze anders retourneert de alias van de gebruiker is.
 
-- - -
+---
 ### <a name="instr"></a>InStr
 **Beschrijving:**  
 De functie InStr Hiermee zoekt u het eerste exemplaar van een subtekenreeks in een tekenreeks
@@ -662,7 +662,7 @@ Evalues tot en met 5
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Evalueert tot en met 7
 
-- - -
+---
 ### <a name="instrrev"></a>InStrRev
 **Beschrijving:**  
 De functie InStrRev Hiermee zoekt u het laatste exemplaar van een subtekenreeks in een tekenreeks
@@ -684,7 +684,7 @@ Retourneert de positie waar de subtekenreeks is gevonden of 0 als niet is gevond
 `InStrRev("abbcdbbbef","bb")`  
 Retourneert 7
 
-- - -
+---
 ### <a name="isbitset"></a>IsBitSet
 **Beschrijving:**  
 De functie IsBitSet netwerktests als een bit is ingesteld of niet
@@ -698,7 +698,7 @@ De functie IsBitSet netwerktests als een bit is ingesteld of niet
 `IsBitSet(&HF,4)`  
 Retourneert ' True ' omdat "4"-bit is ingesteld in de hexadecimale waarde 'F'
 
-- - -
+---
 ### <a name="isdate"></a>IsDate
 **Beschrijving:**  
 Als de expressie kan worden geëvalueerd als een DateTime-type, en vervolgens de functie IsDate in waar resulteert.
@@ -709,7 +709,7 @@ Als de expressie kan worden geëvalueerd als een DateTime-type, en vervolgens de
 **Opmerking:**  
 Gebruikt om te bepalen als CDate() uitgevoerd worden kan.
 
-- - -
+---
 ### <a name="iscert"></a>IsCert
 **Beschrijving:**  
 Retourneert waar als de onbewerkte gegevens kunnen worden geserialiseerd in .NET X509Certificate2 certificaat-object.
@@ -717,7 +717,7 @@ Retourneert waar als de onbewerkte gegevens kunnen worden geserialiseerd in .NET
 **Syntaxis:**  
 `bool CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
-- - -
+---
 ### <a name="isempty"></a>IsEmpty
 **Beschrijving:**  
 Als het kenmerk aanwezig in de CS of MV is, maar in een lege tekenreeks resulteert, klikt u vervolgens resulteert de functie IsEmpty in waar.
@@ -725,7 +725,7 @@ Als het kenmerk aanwezig in de CS of MV is, maar in een lege tekenreeks resultee
 **Syntaxis:**  
 `bool IsEmpty(var Expression)`
 
-- - -
+---
 ### <a name="isguid"></a>IsGuid
 **Beschrijving:**  
 Als de tekenreeks kan worden geconverteerd naar een GUID, vervolgens de functie IsGuid geëvalueerd op waar.
@@ -742,7 +742,7 @@ Gebruikt om te bepalen als CGuid() uitgevoerd worden kan.
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 Als de StrAttribute een GUID-indeling heeft, retourneert een binaire weergave, anders retourneert een null-waarde.
 
-- - -
+---
 ### <a name="isnull"></a>IsNull
 **Beschrijving:**  
 Als de expressie wordt geëvalueerd op Null, zijn de IsNull-functie retourneert ' True '.
@@ -757,7 +757,7 @@ Voor een kenmerk is een null-waarde door het ontbreken van het kenmerk uitgedruk
 `IsNull([displayName])`  
 Retourneert waar als het kenmerk niet aanwezig in de CS of MV is.
 
-- - -
+---
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **Beschrijving:**  
 Als de expressie null of een lege tekenreeks is, zijn de IsNullOrEmpty functie retourneert ' True '.
@@ -773,7 +773,7 @@ De omgekeerde waarde van deze functie heet IsPresent.
 `IsNullOrEmpty([displayName])`  
 Retourneert waar als het kenmerk niet aanwezig is of een lege tekenreeks in de CS of MV is.
 
-- - -
+---
 ### <a name="isnumeric"></a>IsNumeric
 **Beschrijving:**  
 De functie IsNumeric retourneert een Booleaanse waarde die aangeeft of een expressie kan worden geëvalueerd als een getal-type.
@@ -784,7 +784,7 @@ De functie IsNumeric retourneert een Booleaanse waarde die aangeeft of een expre
 **Opmerking:**  
 Gebruikt om te bepalen als CNum() uitgevoerd worden kan op de expressie niet parseren.
 
-- - -
+---
 ### <a name="isstring"></a>IsString
 **Beschrijving:**  
 Als de expressie kan worden beoordeeld op het type string, klikt u vervolgens resulteert de functie IsString in waar.
@@ -795,7 +795,7 @@ Als de expressie kan worden beoordeeld op het type string, klikt u vervolgens re
 **Opmerking:**  
 Gebruikt om te bepalen als CStr() uitgevoerd worden kan op de expressie niet parseren.
 
-- - -
+---
 ### <a name="ispresent"></a>IsPresent
 **Beschrijving:**  
 Als de expressie in een tekenreeks die niet Null is en niet leeg zijn resulteert, zijn de IsPresent functie retourneert ' True '.
@@ -809,7 +809,7 @@ De omgekeerde waarde van deze functie heet IsNullOrEmpty.
 **Voorbeeld:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
-- - -
+---
 ### <a name="item"></a>Item
 **Beschrijving:**  
 De functie Item retourneert één item uit een tekenreeks/het kenmerk met meerdere waarden.
@@ -829,7 +829,7 @@ Genereert een fout als de index is buiten het bereik.
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Retourneert het primaire e-mailadres.
 
-- - -
+---
 ### <a name="itemornull"></a>ItemOrNull
 **Beschrijving:**  
 De functie ItemOrNull retourneert één item uit een tekenreeks/het kenmerk met meerdere waarden.
@@ -845,7 +845,7 @@ De functie ItemOrNull is nuttig, samen met de functie Contains sinds de laatste 
 
 Als de index ligt buiten het bereik valt, retourneert vervolgens een Null-waarde.
 
-- - -
+---
 ### <a name="join"></a>Deelnemen
 **Beschrijving:**  
 De Join-functie een tekenreeks met meerdere waarden en retourneert een tekenreeks met één waarde met opgegeven scheidingsteken ingevoegd tussen elk item.
@@ -864,7 +864,7 @@ Er is pariteit tussen de functies voor lid worden en splitsen. De Join-functie w
 `Join([proxyAddresses],",")`  
 Kan retourneren: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
-- - -
+---
 ### <a name="lcase"></a>LCase
 **Beschrijving:**  
 De functie LCase converteert alle tekens in een tekenreeks naar kleine letters.
@@ -876,7 +876,7 @@ De functie LCase converteert alle tekens in een tekenreeks naar kleine letters.
 `LCase("TeSt")`  
 Retourneert 'test'.
 
-- - -
+---
 ### <a name="left"></a>Links
 **Beschrijving:**  
 De functie links retourneert een opgegeven aantal tekens vanaf de linkerkant van een tekenreeks.
@@ -900,7 +900,7 @@ Als de tekenreeks bevat minder tekens dan het aantal opgegeven in numChars, word
 `Left("John Doe", 3)`  
 Retourneert 'Joh'.
 
-- - -
+---
 ### <a name="len"></a>Len
 **Beschrijving:**  
 De functie Len retourneert het aantal tekens in een tekenreeks.
@@ -912,7 +912,7 @@ De functie Len retourneert het aantal tekens in een tekenreeks.
 `Len("John Doe")`  
 Retourneert 8
 
-- - -
+---
 ### <a name="ltrim"></a>LTrim
 **Beschrijving:**  
 De functie LTrim verwijdert voorloopspaties wit uit een tekenreeks.
@@ -924,7 +924,7 @@ De functie LTrim verwijdert voorloopspaties wit uit een tekenreeks.
 `LTrim(" Test ")`  
 Retourneert 'Test'
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Beschrijving:**  
 De functie deel retourneert een opgegeven aantal tekens van een opgegeven positie in een tekenreeks.
@@ -955,7 +955,7 @@ Retourneert "hn doen".
 `Mid("John Doe", 6, 999)`  
 Retourneert "Doe"
 
-- - -
+---
 ### <a name="now"></a>nu
 **Beschrijving:**  
 De functie nu retourneert een datum/tijd op te geven van de huidige datum en tijd, op basis van datum en tijd van de computer.
@@ -963,7 +963,7 @@ De functie nu retourneert een datum/tijd op te geven van de huidige datum en tij
 **Syntaxis:**  
 `dt Now()`
 
-- - -
+---
 ### <a name="numfromdate"></a>NumFromDate
 **Beschrijving:**  
 De functie NumFromDate retourneert een datum in de datumnotatie van AD.
@@ -975,7 +975,7 @@ De functie NumFromDate retourneert een datum in de datumnotatie van AD.
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 Retourneert 129699324000000000
 
-- - -
+---
 ### <a name="padleft"></a>padLeft
 **Beschrijving:**  
 De PadLeft functie left-buiten een tekenreeks aan een opgegeven lengte met behulp van een opgegeven opvulteken.
@@ -1000,7 +1000,7 @@ De PadLeft functie left-buiten een tekenreeks aan een opgegeven lengte met behul
 `PadLeft("User", 10, "0")`  
 Retourneert '000000User'.
 
-- - -
+---
 ### <a name="padright"></a>PadRight
 **Beschrijving:**  
 De PadRight functie rechts-buiten een tekenreeks aan een opgegeven lengte met behulp van een opgegeven opvulteken.
@@ -1025,7 +1025,7 @@ De PadRight functie rechts-buiten een tekenreeks aan een opgegeven lengte met be
 `PadRight("User", 10, "0")`  
 Retourneert 'User000000'.
 
-- - -
+---
 ### <a name="pcase"></a>PCase
 **Beschrijving:**  
 De functie PCase converteert het eerste teken van elk woord door spaties gescheiden in een tekenreeks naar hoofdletters, en alle overige tekens worden geconverteerd naar kleine letters.
@@ -1044,7 +1044,7 @@ Retourneert 'Test'.
 `PCase(LCase("TEST"))`  
 Retourneert 'Test'
 
-- - -
+---
 ### <a name="randomnum"></a>RandomNum
 **Beschrijving:**  
 De functie RandomNum retourneert een willekeurig getal tussen een opgegeven interval.
@@ -1059,7 +1059,7 @@ De functie RandomNum retourneert een willekeurig getal tussen een opgegeven inte
 `Random(100,999)`  
 Kan 734 retourneren.
 
-- - -
+---
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Beschrijving:**  
 De functie RemoveDuplicates neemt een tekenreeks met meerdere waarden en zorg ervoor dat elke waarde is uniek.
@@ -1071,7 +1071,7 @@ De functie RemoveDuplicates neemt een tekenreeks met meerdere waarden en zorg er
 `RemoveDuplicates([proxyAddresses])`  
 Retourneert een opgeschoonde proxyAddress-kenmerk waar alle dubbele waarden zijn verwijderd.
 
-- - -
+---
 ### <a name="replace"></a>Vervangen
 **Beschrijving:**  
 De functie vervangen vervangt alle instanties van een tekenreeks naar een andere tekenreeks.
@@ -1094,7 +1094,7 @@ De functie herkent de volgende speciale monikers:
 `Replace([address],"\r\n",", ")`  
 CRLF vervangen door een komma en een spatie, en kan leiden tot "Één Microsoft manier, Redmond, WA, VS"
 
-- - -
+---
 ### <a name="replacechars"></a>ReplaceChars
 **Beschrijving:**  
 De functie ReplaceChars vervangt alle instanties van tekens in de tekenreeks ReplacePattern gevonden.
@@ -1127,7 +1127,7 @@ Retourneert Raksmorgas
 `ReplaceChars("O’Neil",%ReplaceString%)`  
 Retourneert 'ONeil', de één tick is gedefinieerd om te worden verwijderd.
 
-- - -
+---
 ### <a name="right"></a>Rechts
 **Beschrijving:**  
 De juiste functie retourneert een opgegeven aantal tekens vanaf de rechterkant (einde) van een tekenreeks.
@@ -1153,7 +1153,7 @@ Als de tekenreeks bevat minder tekens dan het aantal opgegeven in NumChars, word
 `Right("John Doe", 3)`  
 Retourneert "Doe".
 
-- - -
+---
 ### <a name="rtrim"></a>RTrim
 **Beschrijving:**  
 De functie RTrim verwijdert de afsluitende spaties uit een tekenreeks.
@@ -1165,7 +1165,7 @@ De functie RTrim verwijdert de afsluitende spaties uit een tekenreeks.
 `RTrim(" Test ")`  
 Retourneert 'Test'.
 
-- - -
+---
 ### <a name="select"></a>Selecteer
 **Beschrijving:**  
 Het proces alle waarden in een meerdere waarden kenmerk (of uitvoer van een expressie) op basis van functie worden opgegeven.
@@ -1183,7 +1183,7 @@ Het proces alle waarden in een meerdere waarden kenmerk (of uitvoer van een expr
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Alle waarden in de otherPhone kenmerk met meerdere waarden retourneren nadat afbreekstreepjes (-) zijn verwijderd.
 
-- - -
+---
 ### <a name="split"></a>splitsen
 **Beschrijving:**  
 De functie Split een tekenreeks van elkaar gescheiden met een scheidingsteken en maakt het een tekenreeks met meerdere waarden.
@@ -1200,7 +1200,7 @@ De functie Split een tekenreeks van elkaar gescheiden met een scheidingsteken en
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 Retourneert een tekenreeks met meerdere waarden met 2 elementen nuttig voor het proxyAddress-kenmerk.
 
-- - -
+---
 ### <a name="stringfromguid"></a>StringFromGuid
 **Beschrijving:**  
 De functie StringFromGuid wordt een binaire GUID en geconverteerd naar een tekenreeks
@@ -1208,7 +1208,7 @@ De functie StringFromGuid wordt een binaire GUID en geconverteerd naar een teken
 **Syntaxis:**  
 `str StringFromGuid(bin GUID)`
 
-- - -
+---
 ### <a name="stringfromsid"></a>StringFromSid
 **Beschrijving:**  
 De functie StringFromSid converteert een bytematrix die een beveiligings-id naar een tekenreeks.
@@ -1216,7 +1216,7 @@ De functie StringFromSid converteert een bytematrix die een beveiligings-id naar
 **Syntaxis:**  
 `str StringFromSid(bin ObjectSID)`  
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **Beschrijving:**  
 De functie Switch wordt gebruikt om op basis van geëvalueerde voorwaarden één waarde retourneren.
@@ -1245,7 +1245,7 @@ Waarde kan ook worden de functie fout, die een aangepaste tekenreeks geretournee
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 Retourneert de gesproken taal in sommige steden, anders wordt een fout geretourneerd.
 
-- - -
+---
 ### <a name="trim"></a>Trim
 **Beschrijving:**  
 De functie spaties verwijdert voorloopspaties en afsluitende spaties uit een tekenreeks.
@@ -1260,7 +1260,7 @@ Retourneert 'Test'.
 `Trim([proxyAddresses])`  
 Verwijdert voorloopspaties en afsluitende spaties voor elke waarde in het proxyAddress-kenmerk.
 
-- - -
+---
 ### <a name="ucase"></a>UCase
 **Beschrijving:**  
 De functie UCase converteert alle tekens in een tekenreeks naar hoofdletters.
@@ -1272,7 +1272,7 @@ De functie UCase converteert alle tekens in een tekenreeks naar hoofdletters.
 `UCase("TeSt")`  
 Returns "TEST".
 
-- - -
+---
 ### <a name="where"></a>Waar
 
 **Beschrijving:**  
@@ -1290,7 +1290,7 @@ Retourneert een subset van waarden in een meerdere waarden kenmerk (of een uitvo
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 Retourneert de certificaatwaarden in het kenmerk met meerdere waarden userCertificate die niet zijn verlopen.
 
-- - -
+---
 ### <a name="with"></a>Met
 **Beschrijving:**  
 De With-functie biedt een manier om een complexe expressie vereenvoudigen met behulp van een variabele om weer te geven van een subexpressie die wordt weergegeven een of meer keer in de complexe expressie.
@@ -1308,7 +1308,7 @@ Is functioneel equivalent met:
 Die retourneert alleen de waarden voor niet-verlopen certificaten in het kenmerk userCertificate.
 
 
-- - -
+---
 ### <a name="word"></a>Word
 **Beschrijving:**  
 De functie woord retourneert een woord dat is opgenomen in een tekenreeks, op basis van parameters met een beschrijving van de scheidingstekens moeten worden gebruikt en het aantal word om terug te keren.

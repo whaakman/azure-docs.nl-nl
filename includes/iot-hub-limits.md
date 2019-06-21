@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238509"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176430"
 ---
 De volgende tabel bevat de limieten die zijn gekoppeld aan de verschillende Servicelagen, S1, S2, S3 en F1. Voor informatie over de kosten van elk *eenheid* in elke laag, Zie [prijzen van Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -66,7 +66,7 @@ IoT Hub vertraagt aanvragen wanneer de volgende quota worden overschreden.
 | Apparaat-naar-cloud verzendt |6000 per seconde per eenheid (voor S3), 120 per seconde per eenheid (voor S2), 12 per seconde per eenheid (voor S1). <br/>Minimaal 100 per seconde. |
 | Cloud-naar-apparaat verzendt | 83.33/sec/Unit (5000 per minuut per eenheid) (voor S3), 1.67/sec/unit (100 per minuut per eenheid) (voor S1 en S2). |
 | Cloud-naar-apparaat ontvangt |833.33/sec/Unit (50.000 per minuut per eenheid) (voor S3), 16.67/sec/unit (1000 per minuut per eenheid) (voor S1 en S2). |
-| Bestandsuploadbewerkingen |83.33 bestand uploaden meldingen per seconde per eenheid (5000 per minuut per eenheid) (voor S3), 1,67 bestand uploaden meldingen per seconde per eenheid (100 per minuut per eenheid) (voor S1 en S2). <br/> 10\.000 SAS URI's kan zijn uitgeschakeld voor een Azure Storage-account in één keer.<br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
+| Bestandsuploadbewerkingen |83.33 bestand uploaden meldingen per seconde per eenheid (5000 per minuut per eenheid) (voor S3), 1,67 bestand uploaden meldingen per seconde per eenheid (100 per minuut per eenheid) (voor S1 en S2). <br/> 10.000 SAS URI's kan zijn uitgeschakeld voor een Azure Storage-account in één keer.<br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
 | Directe methoden | 24 MB per seconde/eenheid (voor S3), 480 KB/sec/eenheid (voor S2), 160 KB/sec/eenheid (voor S1).<br/> Op basis van grootte berichtenmeter bandbreedtebeperking van 8 KB. |
 | Apparaatdubbel leest | 500/seconde per eenheid (voor S3), maximaal 100 per seconde of 10 per seconde per eenheid (voor S2), 100 per seconde (voor S1) |
 | Apparaatdubbel werkt bij | 250 per seconde per eenheid (voor S3), maximaal 50 per seconde of 5 per seconde per eenheid (voor S2), 50 per seconde (voor S1) |

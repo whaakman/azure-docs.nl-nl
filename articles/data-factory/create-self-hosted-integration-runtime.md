@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967957"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190840"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -44,7 +44,7 @@ Dit document wordt beschreven hoe u kunt maken en configureren van een zelf-host
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Instellen van een zelf-hostende IR op een Azure-VM met behulp van een Azure Resource Manager-sjabloon (automatisering)
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>Instellen van een zelf-hostende IR op een Azure-VM met behulp van een Azure Resource Manager-sjabloon 
 U kunt zelf-hostende IR-installatie op een Azure-machine automatiseren met behulp van [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Deze sjabloon biedt een eenvoudige manier om een volledig werkende zelf-hostende IR in een Azure-netwerk met hoge beschikbaarheid en schaalbaarheid functies (zolang u het aantal knooppunten op 2 of hoger hebt ingesteld).
 
 ## <a name="command-flow-and-data-flow"></a>Opdracht stroom en de gegevensstroom
@@ -86,6 +86,7 @@ U kunt de zelf-hostende integratieruntime installeren met het downloaden van een
 
 - Een energiebeheerschema op de hostcomputer voor de zelf-hostende integratieruntime zo configureren dat de machine sluimerstand niet. Als de hostmachine in de slaapstand, wordt de zelf-hostende integratieruntime offline gaat.
 - Back-up van de referenties die zijn gekoppeld aan de zelf-hostende integratieruntime regelmatig.
+- Instellingen voor het automatiseren van zelf-hostende IR operations, raadpleegt u [onder de sectie](#automation-support-for-self-hosted-ir-function).  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Installeren en zelf-hostende IR in het Downloadcentrum registreren
 
@@ -109,6 +110,45 @@ U kunt de zelf-hostende integratieruntime installeren met het downloaden van een
     b. Selecteer desgewenst **Show verificatiesleutel** de belangrijkste tekst wilt zien.
 
     c. Selecteer **Registreren**.
+
+## <a name="automation-support-for-self-hosted-ir-function"></a>Automation-ondersteuning voor zelf-hostende IR-functie
+
+
+> [!NOTE]
+> Als u van plan bent de zelf-hostende IR op een Azure-Machine instellen en wilt automatiseren van de installatie met behulp van Azure Resource Manager-sjablonen, Raadpleeg [sectie](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template).
+
+U kunt vanaf de opdrachtregel gebruiken voor het instellen van of een bestaande zelf-hostende IR beheren Dit kan worden gebruikt met name voor het automatiseren van de installatie van de registratie van de zelf-hostende IR-knooppunten. 
+
+**Dmgcmd.exe** is opgenomen in de installatie van de zelf-hostende, staat gewoonlijk: C:\Program Files\Microsoft integratie Runtime\3.0\Shared\ map. Dit biedt ondersteuning voor verschillende parameters en kan worden aangeroepen via een opdrachtprompt met behulp van batchscripts voor automatisering. 
+
+*Gebruik:* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *Meer informatie (parameters / eigenschap):* 
+
+| Eigenschap                                                    | Description                                                  | Vereist |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | Knooppunt voor Integration Runtime (zelf-hostend) registreren bij de opgegeven verificatiesleutel | Nee       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Inschakelen van externe toegang op het huidige knooppunt voor het instellen van een Cluster met hoge beschikbaarheid en/of het inschakelen van de instelling van de referenties rechtstreeks op basis van de zelf-hostende IR (zonder tussenkomst van ADF service) met behulp van  **Nieuwe AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet vanaf een externe computer in hetzelfde netwerk. | Nee       |
+| EnableRemoteAccessInContainer "`<port>`' ['`<thumbprint>`"] | Inschakelen van externe toegang tot het huidige knooppunt wanneer het knooppunt wordt uitgevoerd in de Container | Nee       |
+| DisableRemoteAccess                                         | Externe toegang tot het huidige knooppunt uitschakelen. Externe toegang is vereist voor de installatie van meerdere knooppunten. New -**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell-cmdlet werkt nog altijd, zelfs wanneer externe toegang is uitgeschakeld, zolang deze uitgevoerd op dezelfde computer als de zelf-hostende IR-knooppunt. | Nee       |
+| Sleutel "`<AuthenticationKey>`"                                 | Overschrijven / bijwerken van de vorige verificatiesleutel. Zorg dat als dit in uw vorige zelf-hostende IR knooppunt offline gaan resulteren kan als de sleutel van een nieuwe integratieruntime. | Nee       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | Back-upbestand voor het huidige knooppunt genereren, de back-upbestand van het knooppunt sleutel en de gegevens de referenties van de gegevensopslag bevat | Nee       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Het knooppunt terugzetten vanuit een back-upbestand                          | Nee       |
+| Opnieuw starten                                                     | De hostservice van Integration Runtime (zelf-hostend) starten   | Nee       |
+| Start                                                       | Start de hostservice van Integration Runtime (zelf-hostend)     | Nee       |
+| Stoppen                                                        | Updateservice van Integration Runtime (zelf-hostend) stoppen        | Nee       |
+| StartUpgradeService                                         | Updateservice van Integration Runtime (zelf-hostend) starten       | Nee       |
+| StopUpgradeService                                          | Updateservice van Integration Runtime (zelf-hostend) stoppen        | Nee       |
+| TurnOnAutoUpdate                                            | Integration Runtime (zelf-hostend) automatisch bijwerken inschakelen        | Nee       |
+| TurnOffAutoUpdate                                           | Uitschakelen van Integration Runtime (zelf-hostend) automatisch bijwerken       | Nee       |
+| SwitchServiceAccount "< domein >' ['wachtwoord']           | Stel DIAHostService in te voeren als een nieuwe account. Gebruik een leeg wachtwoord ("") voor systeem-account of een virtueel account | Nee       |
+| Loglevel `<logLevel>`                                       | ETW-vastlegniveau (uit, fout, uitgebreid of alle) instellen. Doorgaans gebruikt door Microsoft ondersteuning bij het opsporen van fouten. | Nee       |
+
+   
 
 
 ## <a name="high-availability-and-scalability"></a>Hoge beschikbaarheid en schaalbaarheid
@@ -341,7 +381,7 @@ Als u een firewall van derden gebruikt, kunt u handmatig openen poort 8060 (of d
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
 Als u ervoor geen open poort 8060 op de zelf-hostende integration runtime-machine kiest, kunt u methoden dan de instelling referenties toepassing gebruiken voor het configureren van de referenties van de gegevensopslag. Bijvoorbeeld, kunt u de **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
 

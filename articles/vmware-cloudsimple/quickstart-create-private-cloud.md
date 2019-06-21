@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a67cd2f82eb069555bda68e4cb04a6634e3b31d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209545"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164362"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snelstart: een privécloud-omgeving configureren
 
@@ -33,7 +33,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 5. Geef een naam voor uw Privécloud in CloudSimple-portal
 6. Selecteer de **locatie** van uw Privécloud
-7. Selecteer de **knooppunttype** u hebt gekocht op Azure.  U kunt ervoor kiezen de [optie CS28 of CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). De laatste optie bevat de maximale capaciteit voor Computing en geheugen.
+7. Selecteer de **knooppunttype** u ingericht op Azure.  U kunt ervoor kiezen de [optie CS28 of CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). De laatste optie bevat de maximale capaciteit voor Computing en geheugen.
 8. Geef de **aantal knooppunten**.  Ten minste drie knooppunten zijn vereist voor het maken van een Private Cloud
 
     ![Private Cloud - de basisgegevens van maken](media/create-private-cloud-basic-info.png)

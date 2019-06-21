@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297096"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274015"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken met uw toepassing naar Azure SQL Database Managed Instance
 
@@ -45,7 +45,7 @@ Er zijn twee opties voor het verbinden van vnet's:
 De peering-optie is de voorkeur omdat peering maakt gebruik van het Microsoft-backbone-netwerk, vanuit het perspectief van de connectiviteit, wordt er geen merkbaar verschil in latentie tussen virtuele machines in gekoppelde VNet en in hetzelfde VNet. VNet-peering is beperkt tot de netwerken in dezelfde regio.  
 
 > [!IMPORTANT]
-> VNet peering scenario voor het beheerde exemplaar is beperkt tot de netwerken in dezelfde regio vanwege [beperkingen van de wereldwijde vnet-peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> VNet peering scenario voor het beheerde exemplaar is beperkt tot de netwerken in dezelfde regio vanwege [beperkingen van de wereldwijde vnet-peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Zie ook de relevante sectie van de [Azure virtuele netwerken Veelgestelde vragen over](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) artikel voor meer informatie. 
 
 ## <a name="connect-an-on-premises-application"></a>Verbinding maken met een on-premises toepassing
 

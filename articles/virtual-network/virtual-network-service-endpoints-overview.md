@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e621eeeca7a4f325efcfb242c204b2f727e55fc4
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61032572"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147766"
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -61,7 +61,7 @@ Service-eindpunten bieden de volgende voordelen:
 - De functie is alleen beschikbaar voor virtuele netwerken die zijn geïmplementeerd met behulp van het Azure Resource Manager-implementatiemodel.
 - Eindpunten worden ingeschakeld in subnetten die zijn geconfigureerd in virtuele Azure-netwerken. Eindpunten kunnen niet worden gebruikt voor verkeer vanaf uw on-premises netwerk naar Azure-services. Zie [Toegang tot Azure-service vanaf on-premises beveiligen](#securing-azure-services-to-virtual-networks) voor meer informatie
 - Voor Azure SQL geldt een service-eindpunt alleen voor Azure-serviceverkeer binnen de regio van een virtueel netwerk. Voor Azure Storage worden eindpunten ter ondersteuning van RA-GRS- en GRS-verkeer ook uitgebreid voor opname van gekoppelde regio's waar het virtuele netwerk is geïmplementeerd. Meer informatie over [gekoppelde regio's in Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-- Voor ADLS Gen 1 is de mogelijkheid van VNet-integratie alleen beschikbaar voor virtuele netwerken binnen dezelfde regio.
+- Voor ADLS Gen 1 is de mogelijkheid van VNet-integratie alleen beschikbaar voor virtuele netwerken binnen dezelfde regio. Ook Let op: integratie van virtuele netwerken voor Azure Data Lake Storage Gen1 maakt gebruik van het virtuele netwerk eindpunt Servicebeveiliging tussen uw virtuele netwerk en Azure Active Directory (Azure AD) voor het genereren van extra beveiligingsclaims in het toegangstoken. Deze claims worden vervolgens gebruikt om het virtuele netwerk te verifiëren bij het Data Lake Storage Gen1-account en toegang toe te staan. 'Microsoft.AzureActiveDirectory'-tag vermeld in de service-eindpunten van ondersteunende services wordt alleen gebruikt voor service-eindpunten naar ADLS Gen 1 ondersteunen. Azure Active Directory (Azure AD) biedt geen ondersteuning voor service-eindpunten systeemeigen. Meer informatie over [Azure Data Lake Store Gen 1 VNet-integratie](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Azure-services aan virtuele netwerken koppelen
 
@@ -120,7 +120,7 @@ Wanneer service-eindpunten zijn geconfigureerd voor een bepaalde service, contro
 
 ## <a name="provisioning"></a>Inrichten
 
-Service-eindpunten kunnen afzonderlijk op virtuele netwerken worden geconfigureerd door een gebruiker met schrijftoegang tot een virtueel netwerk. Als u Azure-serviceresources aan een VNet wilt koppelen, moet u machtigingen hebben voor *Microsoft.Network/JoinServicetoaSubnet* voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
+Service-eindpunten kunnen afzonderlijk op virtuele netwerken worden geconfigureerd door een gebruiker met schrijftoegang tot een virtueel netwerk. Als u wilt beveiligen in Azure-serviceresources naar een VNet, moet de gebruiker de machtiging voor hebben *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
 
 Meer informatie over [ingebouwde rollen](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

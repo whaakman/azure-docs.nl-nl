@@ -9,11 +9,11 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158489"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176030"
 ---
 Sommige workloads van databases, zoals SQL Server of Oracle vereisen hoge geheugen-, opslag, en i/o-bandbreedte, maar niet een aantal hoge kernen. Veel databaseworkloads zijn niet CPU-intensief. Azure biedt een bepaalde VM-grootten waar u het aantal VM vCPU's te verminderen de kosten voor softwarelicenties, behoud van de dezelfde geheugen-, opslag- en i/o-bandbreedte kunt beperken.
 

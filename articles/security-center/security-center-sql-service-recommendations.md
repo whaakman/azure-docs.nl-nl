@@ -1,10 +1,10 @@
 ---
-title: Beveiligen van Azure SQL-service en -gegevens in Azure Security Center | Microsoft Docs
+title: Beveiligen van Azure-gegevens en services in Azure Security Center | Microsoft Docs
 description: Dit document adressen aanbevelingen in Azure Security Center waarmee u Bescherm uw gegevens en Azure SQL-service en blijven in overeenstemming met beveiligingsbeleid.
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
@@ -12,48 +12,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 06/19/2019
 ms.author: monhaber
-ms.openlocfilehash: bbba5f380fddb4fdec43a7414e59778135c4e0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ac0e4ebaafb8b0c9c79e885cecbefc5a65c1823
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428293"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275305"
 ---
-# <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Beveiligen van Azure SQL-service en -gegevens in Azure Security Center
-Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen.  Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's), netwerk-, SQL en gegevens en toepassingen.
+# <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Beveiligen van Azure-gegevens en services in Azure Security Center
+Dit onderwerp ziet u hoe u kunt bekijken en aanbevelingen voor beveiliging van gegevens en resources implementeren. Azure Security Center deze aanbevelingen bij het analyseren van de beveiligingsstatus van uw Azure-resources gevonden.
+
+## <a name="view-your-data-security-information"></a>De beveiligingsgegevens van uw gegevens weergeven
+
+1. In de **Resource beveiliging hygiëne** sectie, klikt u op **gegevens- en opslagresources**.
+
+   ![Gegevens en storage-resources](./media/security-center-monitoring/click-data.png)
+
+    De **gegevensbeveiliging** pagina wordt geopend met aanbevelingen voor gegevensbronnen.
+
+     ![Gegevensbronnen](./media/security-center-monitoring/sql-overview.png)
+
+Op deze pagina kunt u het volgende doen:
+
+* Klik op de **overzicht** tabblad geeft een lijst van alle aanbevelingen voor gegevens resources om te worden hersteld. 
+* Klik op elk tabblad en weergeven van de aanbevelingen op resourcetype.
+
+    > [!NOTE]
+    > Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 
-### <a name="monitor-data-security"></a>Gegevensbeveiliging bewaken
+## <a name="remediate-a-recommendation-on-a-data-resource"></a>Een aanbeveling voor een bron van de gegevens herstellen
 
-Wanneer u klikt op **Gegevensbeveiliging** in de sectie **Preventie**, wordt **Gegevensbronnen** geopend met aanbevelingen voor SQL en opslag. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+1. Uit een van de resource-tabbladen, klikt u op een resource. De pagina wordt geopend aanbieding van de aanbevelingen voor het probleem worden opgelost.
 
-![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
+    ![Broninformatie](./media/security-center-monitoring/sql-recommendations.png)
 
-U kunt onder **SQL-aanbevelingen** op elke aanbeveling klikken voor meer informatie over verdere acties die u kunt ondernemen om een probleem te verhelpen. In het volgende voorbeeld is de aanbeveling **Databasecontrole en detectie van bedreigingen in SQL-databases** uitgevouwen.
+2. Klik op een aanbeveling. De aanbeveling-pagina wordt geopend en toont de **herstelstappen** de aanbeveling kunt implementeren.
 
-![Details over een SQL-aanbeveling](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
+   ![Herstelstappen](./media/security-center-monitoring/remediate1.png)
 
-**Controle en detectie van bedreigingen in SQL-databases inschakelen** bevat de volgende informatie:
+3. Klik op **actie ondernemen**. De pagina van de resource-instellingen wordt weergegeven.
 
-* Een lijst met SQL-databases
-* De server waarop deze zich bevinden
-* Informatie over of deze instelling is overgenomen van de server of dat deze uniek is in deze database
-* De huidige status
-* De ernst van het probleem
+    ![Aanbeveling inschakelen](./media/security-center-monitoring/remediate2.png)
 
-Als u op de database klikt om deze aanbeveling op te volgen, wordt **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven in het volgende scherm.
-
-![Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
-
-Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
+4. Ga als volgt de **herstelstappen** en klikt u op **opslaan**.
 
 ## <a name="data-and-storage-recommendations"></a>Aanbevelingen voor gegevens en opslag
 
 |Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
-|Storage-account|20|Veilige overdracht naar storage-accounts moet worden ingeschakeld|Veilige overdracht is een optie die ervoor zorgt dat uw storage-account om te accepteren van aanvragen van beveiligde verbindingen (HTTPS). Gebruik van HTTPS-verificatie tussen de server en de service garandeert en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
+|Storage-account|20|Veilige overdracht naar storage-accounts moet worden ingeschakeld|Veilige overdracht is een optie die ervoor zorgt dat uw storage-account om te accepteren van aanvragen van beveiligde verbindingen (HTTPS). HTTPS-verificatie tussen de server en de service garandeert en gegevens die onderweg zijn beschermd tegen netwerklaagaanvallen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessie-hijacking.|
 |Redis|20|Alleen beveiligde verbindingen met uw Redis-Cache moeten worden ingeschakeld|Schakel alleen verbindingen met SSL-beveiliging met Azure-Cache voor Redis. Gebruik van beveiligde verbindingen zorgt ervoor dat de verificatie tussen de server en de service en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
 |SQL|15|De Transparent Data Encryption voor SQL-databases moet zijn ingeschakeld|Transparent data encryption voor het beveiligen van data-at-rest en voldoen aan nalevingsvereisten inschakelen.|
 |SQL|15|Controleren voor SQL server moet worden ingeschakeld|Controle inschakelen voor Azure SQL-servers. (Alleen voor azure SQL-service. Bevat geen SQL die worden uitgevoerd op uw virtuele machines.)|
@@ -71,7 +81,7 @@ Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekki
 * [Protecting your applications in Azure Security Center](security-center-application-recommendations.md) (Uw toepassingen beveiligen in Azure Security Center)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md) (Uw netwerk beveiligen in Azure Security Center)
 
-Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
+Zie de volgende onderwerpen voor meer informatie over Security Center:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.

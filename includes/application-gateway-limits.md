@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9a8d925e5d72500817028b913a80255a4339255c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689100"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148413"
 ---
 | Resource | Standaard-/ maximumlimiet | Opmerking |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "66689100"
 | Back-end-HTTP-instellingen |100<sup>1</sup> | |
 | Exemplaren per gateway |32 | |
 | SSL-certificaten |100<sup>1</sup> |1 per HTTP-listeners |
-| Maximumgrootte voor SSL-certificaat |V1-SKU - 10 KB<br>V2-SKU - 25 KB| |
+| Maximumgrootte voor SSL-certificaat |V1-SKU - 10 KB<br>V2-SKU - 16 KB| |
 | Certificaten voor verificatie |100 | |
 | Vertrouwde basiscertificaten |100 | |
 | Minimale time-out van aanvraag |1 seconde | |

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/12/2019
-ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116208"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275465"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL-Database zonder server (preview)
 
@@ -253,6 +253,8 @@ De resourcegroep van de gebruiker de binnenste meeste resource management-grens 
 
 ### <a name="metrics"></a>Metrische gegevens
 
+Metrische gegevens voor het bewaken van het Resourcegebruik van de app-pakket en de gebruiker de groep van een database zonder servers worden vermeld in de volgende tabel:
+
 |Entiteit|Gegevens|Description|Eenheden|
 |---|---|---|---|
 |App-pakket|app_cpu_percent|Percentage van de vCores die worden gebruikt door de app ten opzichte van maximale vCores toegestaan voor de app.|Percentage|
@@ -263,10 +265,6 @@ De resourcegroep van de gebruiker de binnenste meeste resource management-grens 
 |Gebruiker van toepassingen|log_IO_percent|Percentage van logboek MB/s die worden gebruikt door de werkbelasting voor gebruikers ten opzichte van maximale log MB/s is toegestaan voor de werkbelasting van de gebruiker.|Percentage|
 |Gebruiker van toepassingen|workers_percent|Percentage van de werknemers die worden gebruikt door de werkbelasting voor gebruikers ten opzichte van maximale werknemers die zijn toegestaan voor de werkbelasting van de gebruiker.|Percentage|
 |Gebruiker van toepassingen|sessions_percent|Percentage van de sessies die worden gebruikt door de werkbelasting voor gebruikers ten opzichte van het maximumaantal sessies toegestaan voor de werkbelasting van de gebruiker.|Percentage|
-____
-
-> [!NOTE]
-> Metrische gegevens in Azure portal zijn beschikbaar in het deelvenster van de database voor één database onder **bewaking**.
 
 ### <a name="pause-and-resume-status"></a>Onderbreken en hervatten van status
 

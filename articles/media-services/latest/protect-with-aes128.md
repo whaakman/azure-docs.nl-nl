@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7f68398cb473ca166d328ee15a92f3c848840f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142513"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273293"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Zelfstudie: Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
+
+> [!NOTE]
+> Hoewel de zelfstudie wordt gebruikgemaakt van de [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) voorbeelden van de algemene stappen zijn hetzelfde voor [REST-API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), of een andere ondersteunde [SDK's](media-services-apis-overview.md#sdks) .
 
 Media Services kunt u HTTP Live Streaming (HLS), MPEG-DASH en Smooth Streaming is versleuteld met de AES 128-bits versleutelingssleutels met leveren. Media Services biedt ook de sleutelleveringsservice die zorgt voor versleutelingssleutels gemachtigde gebruikers. Als u voor Media Services voor het dynamisch versleutelen van uw video wilt, kunt u de sleutel voor het koppelen met Streaming-Locator gemaakt en het beleid voor de inhoud van de sleutels ook configureren. Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het dynamisch versleutelen van uw inhoud met AES-128. Voor het ontsleutelen van de stream, wordt door de speler de sleutel van de sleutelleveringsservice aangevraagd. De service evalueert het door u opgegeven beleid voor de inhoudssleutel om te bepalen of de gebruiker is gemachtigd om de sleutel op te halen.
 

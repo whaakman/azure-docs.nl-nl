@@ -6,16 +6,19 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c06203cfd7537dd4c9bc35c75a3f21d12bf64d26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2b012086f61aad3143c8fe6b0bd25ec333e5
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401870"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275093"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Ontwikkel real-time Apps met Azure Functions en Azure SignalR Service
 
 Omdat de Azure SignalR-service en Azure Functions beide volledig beheerde, zeer schaalbare services zijn waarmee u zich kunt richten op het ontwikkelen van toepassingen in plaats van op het beheren van de infrastructuur, worden de beide services vaak samen gebruikt om realtime communicatie in een [serverloze](https://azure.microsoft.com/solutions/serverless/) omgeving te bieden.
+
+> [!NOTE]
+> Leer hoe u SignalR en Azure Functions samen gebruiken in de interactieve zelfstudie [inschakelen van automatische updates in een webtoepassing met Azure Functions en SignalR-Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Realtimecommunicatie integreren met Azure-services
 
@@ -63,9 +66,10 @@ Met SignalR-service kunt u berichten uitzenden naar alle clients of alleen naar 
 
 In dit artikel hebt u een overzicht gekregen van hoe u Azure Functions kunt gebruiken met SignalIR-service om een breed scala aan scenario’s voor serverloze realtimeberichten mogelijk te maken.
 
-Lees de volgende handleiding voor de volledige informatie over het gebruik van Azure Functions en SignalR Service samen.
+Ga naar de volgende bronnen voor meer informatie over het gebruik van Azure Functions en SignalR Service samen:
 
 * [Azure Functions-ontwikkeling en -configuratie met SignalR-Service](signalr-concept-serverless-development-config.md)
+* [Automatische updates in een webtoepassing met Azure Functions en SignalR-Service inschakelen](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Volg een van deze snelstartgidsen voor meer informatie.
 

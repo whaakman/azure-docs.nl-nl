@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098859"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204423"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installeren en upgraden van Azure Backup Server
 > [!div class="op_single_selector"]
@@ -42,19 +42,18 @@ Azure Backup Server neemt veel van de back-functionaliteit van workload van Data
 De eerste stap naar de Azure Backup-Server om aan de slag en actief is voor het instellen van een Windows-Server. Uw server worden in Azure of on-premises.
 
 ### <a name="using-a-server-in-azure"></a>Met behulp van een server in Azure
-Bij het kiezen van een server voor het uitvoeren van Azure Backup Server, verdient het aanbeveling dat u beginnen met een afbeelding van Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter of Windows Server 2019 Datacenter. Het artikel [uw eerste Windows-machine maken in Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), biedt een zelfstudie voor aan de slag met de aanbevolen virtuele machine in Azure, zelfs als u Azure al eerder nog nooit hebt gebruikt. De aanbevolen minimale vereisten voor de server-machine (VM) moet zijn: Standard a2 met twee kernen en 3,5 GB RAM-geheugen.
+Bij het kiezen van een server voor het uitvoeren van Azure Backup Server, verdient het aanbeveling dat u beginnen met een afbeelding van Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter of Windows Server 2019 Datacenter. Het artikel [uw eerste Windows-machine maken in Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), biedt een zelfstudie voor aan de slag met de aanbevolen virtuele machine in Azure, zelfs als u Azure al eerder nog nooit hebt gebruikt. De aanbevolen minimale vereisten voor de server-machine (VM) moet zijn: Standard_A4_v2 met vier kernen en 8 GB RAM-geheugen.
 
 Werklasten beveiligen met Azure Backup Server heeft veel aspecten. Het artikel [DPM installeren als een virtuele machine van Azure](https://technet.microsoft.com/library/jj852163.aspx), helpt deze aspecten uitgelegd. Lees dit artikel volledig voordat het implementeren van de machine.
 
 ### <a name="using-an-on-premises-server"></a>Met behulp van een on-premises server
-Als u niet uitvoeren van de basis-server in Azure wilt, kunt u de server uitvoeren op een Hyper-V-virtuele machine, een VMware-VM of een fysieke host. De aanbevolen minimale vereisten voor de serverhardware zijn twee kernen en 4 GB RAM-geheugen. De ondersteunde besturingssystemen worden vermeld in de volgende tabel:
+Als u niet uitvoeren van de basis-server in Azure wilt, kunt u de server uitvoeren op een Hyper-V-virtuele machine, een VMware-VM of een fysieke host. De aanbevolen minimale vereisten voor de serverhardware zijn twee kernen en 8 GB RAM-geheugen. De ondersteunde besturingssystemen worden vermeld in de volgende tabel:
 
 | Besturingssysteem | Platform | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 en hoger) |
 | Windows Server 2016 en de meest recente SP 's |64 bits |Standard, Datacenter, Essentials (MABS V2 en hoger) |
 | Windows Server 2012 R2 en de meest recente SP's |64 bits |Standard, Datacenter, Foundation |
-| Windows Server 2012 en de meest recente SP's |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 en de meest recente SP's |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 en de meest recente SP's |64 bits |Standard, Workgroup |
 
@@ -142,7 +141,7 @@ De instelling voor opslagreplicatie bewerken:
 Nadat u alle bestanden hebt gedownload, klikt u op **MicrosoftAzureBackupInstaller.exe**. Hiermee start u de **installatiewizard voor Microsoft Azure-back-up** om op te halen van de setup-bestanden naar een door u opgegeven locatie. Ga door met de wizard en klikt u op de **extraheren** knop om te beginnen met de extractie.
 
 > [!WARNING]
-> Ten minste 4GB aan vrije ruimte is vereist voor het uitpakken van de setup-bestanden.
+> Ten minste 4 GB aan vrije ruimte is vereist voor het uitpakken van de setup-bestanden.
 >
 >
 
@@ -206,7 +205,7 @@ Zodra de extractie proces is voltooid, schakel het selectievakje in om te starte
 
     De volgende stap is het configureren van de Microsoft Azure Recovery Services-Agent. Als onderdeel van de configuratie moet u uw kluisreferenties opgeven voor het registreren van de machine naar de recovery services-kluis. U biedt ook een wachtwoordzin op om te versleutelen/ontsleutelen van de gegevens die worden verzonden tussen Azure en uw locatie. U kunt automatisch genereren van een wachtwoordzin of uw eigen minimaal 16 tekens wachtwoordzin opgeven. Ga verder met de wizard totdat de agent is geconfigureerd.
 
-    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Azure Backup Server PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Zodra de registratie van de Microsoft Azure Backup-server is voltooid, wordt de wizard setup van algemene gaat deze naar de installatie en configuratie van SQL Server en de Azure Backup Server-onderdelen. Nadat de installatie van de SQL Server-onderdelen is voltooid, wordt de Azure Backup Server-onderdelen zijn geïnstalleerd.
 
     ![Azure Backup-server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -262,7 +261,7 @@ Hier volgen de stappen als u MABS verplaatst naar een nieuwe server behoudt de o
 9. Herstel de DPMDB van SQL
 10. Installeren vanaf de opdrachtregel admin op cd van de nieuwe server met Microsoft Azure Backup locatie en de bin-map
 
-    Voorbeeld van pad: C:\Windows\System32 > cd ' c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
+    Voorbeeld van pad: C:\Windows\System32 > cd ' c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. Met Azure backup, voer DPMSYNC-SYNC
 
@@ -271,7 +270,7 @@ Hier volgen de stappen als u MABS verplaatst naar een nieuwe server behoudt de o
 ## <a name="network-connectivity"></a>Verbinding met het netwerk
 Azure Backup Server is de verbinding met de Azure Backup-service voor het product om te werken is vereist. Als u wilt valideren of de machine de verbinding met Azure heeft, gebruikt u de ```Get-DPMCloudConnection``` cmdlet in de Azure Backup Server PowerShell-console. Als de uitvoer van de cmdlet waar is en vervolgens verbinding bestaat, anders is er geen met.
 
-Op hetzelfde moment moet de Azure-abonnement in een foutloze toestand bevindt. Om erachter te komen de status van uw abonnement en te beheren, meld u aan bij de [-abonnementsportal](https://account.windowsazure.com/Subscriptions).
+Op hetzelfde moment moet de Azure-abonnement in een foutloze toestand bevindt. Om erachter te komen de status van uw abonnement en te beheren, zich aanmelden bij de [-abonnementsportal](https://account.windowsazure.com/Subscriptions).
 
 Zodra u weet de status van de Azure-connectiviteit en van het Azure-abonnement dat, kunt u de onderstaande tabel om de impact op de functionaliteit van back-up/herstel erachter te komen.
 
@@ -285,7 +284,7 @@ Zodra u weet de status van de Azure-connectiviteit en van het Azure-abonnement d
 | Verbinding is verbroken > 15 dagen |De inrichting ongedaan gemaakt |Gestopt |Gestopt |Gestopt en Azure herstelpunten verwijderd |Gestopt |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Herstellen uit het verlies van connectiviteit
-Als u een firewall of een proxy die is verhinderen van toegang tot Azure hebt, moet u aan lijst met geaccepteerde de volgende adressen domein in de firewall/proxy-profiel:
+Als u een firewall of een proxy die is verhinderen van toegang tot Azure hebt, moet u de volgende domein-adressen toestaan in de firewall/proxy-profiel:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
@@ -307,7 +306,7 @@ Gebruik de volgende procedures om bij te werken MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Upgrade van MABS V2 naar V3
 
 > [!NOTE]
-> 
+>
 > MABS V2 is niet een vereiste voor het installeren van MABS V3. U kunt echter upgraden naar MABS V3 alleen vanaf MABS V2.
 
 Gebruik de volgende stappen uit om te werken MABS:
@@ -317,15 +316,15 @@ Gebruik de volgende stappen uit om te werken MABS:
 2. Werk uw server. De stappen zijn vergelijkbaar met [installatie](#install-and-upgrade-azure-backup-server). Echter voor SQL-instellingen krijgt u de optie voor het upgraden van uw SQL-exemplaar naar SQL 2017, of gebruik uw eigen exemplaar van SQL server 2017.
 
    > [!NOTE]
-   > 
+   >
    > Niet afsluiten terwijl uw SQL-exemplaar wordt bijgewerkt, wordt afgesloten, wordt de SQL reporting-instantie verwijderd en kan daarom een poging tot opnieuw MABS upgrade mislukt.
 
    Belangrijke punten om te weten:
 
    > [!IMPORTANT]
-   > 
+   >
    >  Als onderdeel van de upgrade van de SQL-2017, we back-up van de SQL-versleutelingssleutels en verwijderen van het reporting services. Na de upgrade van SQL server, rapportage service(14.0.6827.4788) is geïnstalleerd en versleutelingssleutels worden hersteld.
-   > 
+   >
    > Wanneer u handmatig configureert SQL 2017, verwijzen naar *SSRS-configuratie met SQL 2017* sectie onder installatie-instructies.
 
 3. Werk de beveiligingsagenten op de beveiligde servers.
@@ -333,7 +332,7 @@ Gebruik de volgende stappen uit om te werken MABS:
 5. U kunt beginnen met het beveiligen van uw gegevens nu. Als u een upgrade naar Modern Backup Storage, uitvoert terwijl u beveiligt, kunt u ook de volumes die u wilt opslaan van de back-ups in en controleren op onder de ingerichte ruimte. [Meer informatie](backup-mabs-add-storage.md).
 
 > [!NOTE]
-> 
+>
 > Als u een van MABS V1 in V2 upgrade, zorg ervoor dat het besturingssysteem Windows Server 2016 of Windows Server 2012 R2. Als u wilt profiteren van nieuwe functies zoals System Center 2016 Data Protection Manager Modern Backup Storage, moet u back-up Server V2 installeren op Windows Server 2016. Voordat u een upgrade naar uitvoert of back-up Server V2 installeren, meer informatie over de [installatievereisten](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) van toepassing voor MABS.
 
 ## <a name="troubleshooting"></a>Problemen oplossen

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696646"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190550"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database-back-ups voor maximaal 10 jaar Store
 
@@ -59,8 +59,8 @@ W = 12 weken (84 dagen), M = 12 maanden (365 dagen), Y = 10 jaar (3650 dagen), W
 
 Als u het bovenstaande beleid wijzigen en set W = 0 (geen wekelijkse back-ups), de frequentie van back-ups worden gewijzigd, zoals weergegeven in de bovenstaande tabel op de gemarkeerde datums. De hoeveelheid opslagruimte die nodig zijn voor deze back-ups behouden zou dienovereenkomstig verminderen. 
 
-> [!NOTE]
-> De timing van de afzonderlijke LTR back-ups wordt bepaald door de Azure SQL Database. U kan handmatig maken van een back-up van links naar rechts of de timing van het maken van back-up wilt bepalen.
+> [!IMPORTANT]
+> De timing van de afzonderlijke LTR back-ups wordt bepaald door de Azure SQL Database. U kan handmatig maken van een back-up van links naar rechts of de timing van het maken van back-up wilt bepalen. Na het configureren van een LTR-beleid, duurt het maximaal zeven dagen voordat de eerste back-up van links naar rechts op de lijst met beschikbare back-ups weergegeven.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Geo-replicatie en langetermijnretentie

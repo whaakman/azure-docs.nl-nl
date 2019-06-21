@@ -1,10 +1,15 @@
 ---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122792"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203718"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Voorbereiden voor een push-installatie op een Windows-computer
 
@@ -13,10 +18,10 @@ ms.locfileid: "62122792"
 
    > [!NOTE]
    > Als u niet een domeinaccount gebruikt, schakelt u toegangsbeheer voor externe gebruikers op de lokale computer uit. Voeg een nieuwe DWORD om uit te schakelen van de externe gebruiker Access control, onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registersleutel: **LocalAccountTokenFilterPolicy**. Stel de waarde voor **1**. Als u wilt deze taak achter de opdrachtprompt de volgende opdracht uitvoeren:  
-   > `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
-1. Selecteer in Windows Firewall op de computer die u wilt beveiligen, **toestaan een app of functie via Firewall**. Schakel **bestands- en printerdeling** en **Windows Management Instrumentation (WMI)**. Voor computers die deel uitmaken van een domein, kunt u de firewall-instellingen configureren met behulp van een groepsbeleidsobject (GPO).
+1. Selecteer in Windows Firewall op de computer die u wilt beveiligen, **toestaan een app of functie via Firewall**. Schakel **bestands- en printerdeling** en **Windows Management Instrumentation (WMI)** . Voor computers die deel uitmaken van een domein, kunt u de firewall-instellingen configureren met behulp van een groepsbeleidsobject (GPO).
 
    ![Firewallinstellingen](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
 
@@ -31,5 +36,3 @@ ms.locfileid: "62122792"
     d. Voeg het account toe dat u hebt gemaakt.
 
     e. Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.
-<!--Update_Description: wording update-->
-<!--ms.date: 09/17/2018-->

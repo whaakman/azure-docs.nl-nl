@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082844"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274049"
 ---
 # <a name="azure-private-dns-faq"></a>Azure privé-DNS-Veelgestelde vragen
 
@@ -88,6 +88,13 @@ De volgende standaardlimieten van toepassing wanneer u Azure privé-DNS.
 ## <a name="is-there-portal-support-for-private-zones"></a>Is er portal ondersteuning voor privézones?
 
 Ja, en private zones die al zijn gemaakt via API's, PowerShell, CLI en SDK's zijn zichtbaar in de Azure portal.
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Waarom niet mijn bestaande privé-DNS-zones worden weergegeven in de nieuwe portal-ervaring?
+
+Als onderdeel van het vernieuwen van de Preview-release geleverd we een nieuwe resourcemodel voor persoonlijke DNS-zones. Uw bestaande persoonlijke DNS-zones moet worden gemigreerd naar nieuwe resourcemodel voordat deze in de nieuwe portal-ervaring weergegeven kunnen. Zie hieronder voor instructies over het migreren naar nieuwe resourcemodel.
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Hoe Migreer ik mijn bestaande privé-DNS-zones naar het nieuwe model?
+Het is raadzaam dat u naar de nieuwe resourcemodel zo snel mogelijk migreert. Oude resource-model wordt ondersteund, echter meer functies zal niet ontwikkeld boven op dit model. We willen in de toekomst het afschaffen en vervangen door nieuwe resourcemodel. Zie voor instructies over het migreren van uw bestaande privé-DNS zones naar nieuwe resourcemodel[Migratiehandleiding voor Azure DNS private zones](private-dns-migration-guide.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6ed18a49a77f8061c975bdf3ecb085ebf71317
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204409"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190772"
 ---
 # <a name="connect-your-domain-name-server"></a>Verbinding maken met uw DNS-server
 
@@ -36,21 +36,33 @@ Wanneer u verbinding met het DNS-inschakelt, kunt u het volgende doen:
 - Weergave aanvraagbelasting op DNS-servers
 - Dynamische DNS-registratie van mislukte pogingen weergeven
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="connected-sources"></a>Verbonden bronnen
 
-DNS-verbinding wordt gerealiseerd door het installeren van een agent op de DNS-machine. De agent haalt gebeurtenissen uit de DNS-server en geeft deze door aan de Log Analytics.
+De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing:
+
+| **Verbonden bron** | **Ondersteuning** | **Beschrijving** |
+| --- | --- | --- |
+| [Windows-agents](../azure-monitor/platform/agent-windows.md) | Ja | De oplossing verzamelt DNS-gegevens van Windows-agents. |
+| [Linux-agents](../azure-monitor/learn/quick-collect-linux-computer.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
+| [System Center Operations Manager-beheergroep](../azure-monitor/platform/om-agents.md) | Ja | De oplossing verzamelt DNS-gegevens van agents in een verbonden beheergroep van Operations Manager. Een directe verbinding van de Operations Manager-agent naar Azure Monitor is niet vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
+| [Azure Storage-account](../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Azure storage wordt niet gebruikt door de oplossing. |
+
+### <a name="data-collection-details"></a>Details van de verzameling gegevens
+
+De oplossing verzamelt DNS-inventarisatie- en DNS-gebeurtenis met betrekking tot gegevens van de DNS-servers waarop een Log Analytics-agent is geïnstalleerd. Inventarisatie-gerelateerde gegevens, zoals het aantal DNS-servers, -zones en -bronrecords worden verzameld door het uitvoeren van de DNS PowerShell-cmdlets. De gegevens worden eenmaal per twee dagen bijgewerkt. De gebeurtenis-gerelateerde gegevens worden verzameld in de buurt van real-time uit de [analytische en auditlogboeken](https://technet.microsoft.com/library/dn800669.aspx#enhanc) geleverd door de verbeterde DNS-logboekregistratie en diagnostische gegevens in Windows Server 2012 R2.
+
 
 ## <a name="connect-your-dns-appliance"></a>Verbinding maken met uw DNS-apparaat
 
 1. Selecteer in de portal voor Azure Sentinel **gegevensconnectors** en kies de **DNS** tegel.
 1. Als uw DNS-machines in Azure:
-    1. Klik op **downloaden en installeren van de agent voor Windows-machines**.
+    1. Klik op **installeren van de agent op Windows Azure virtuele machine**.
     1. In de **virtuele machines** , selecteert u de DNS-machine die u wilt streamen naar Azure Sentinel. Zorg ervoor dat dit is een Windows-VM.
     1. Klik in het venster dat wordt geopend voor die VM, **Connect**.  
     1. Klik op **inschakelen** in de **DNS connector** venster. 
 
 2. Als uw DNS-machine bevindt zich niet in een Azure-VM:
-    1. Klik op **downloaden en installeren van de agent voor Windows-niet-Azure-machines**.
+    1. Klik op **installeren van de agent op niet-Azure-machines**.
     1. In de **Direct agent** venster, selecteert u **downloaden Windows-agent (64 bits)** of **downloaden Windows-agent (32 bits)** .
     1. Installeer de agent op uw DNS-computer. Kopieer de **werkruimte-ID**, **primaire sleutel**, en **secundaire sleutel** en ze wanneer hierom wordt gevraagd tijdens de installatie te gebruiken.
 

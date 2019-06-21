@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473771"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164098"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen
 
@@ -129,7 +129,7 @@ Nu dat u KCD hebt geconfigureerd, bent u klaar om te configureren van Azure AD-t
    1. Selecteer op de toepassingspagina in de portal, **eenmalige aanmelding**.
    2. Selecteer voor Single Sign-on modus **geïntegreerde Windows-verificatie**.
    3. SPN voor interne toepassing ingesteld op de waarde die u eerder hebt ingesteld. In dit voorbeeld dat is **HTTP/SharePoint**.
-   4. Selecteer in de "Gedelegeerde Aanmeldingsidentiteit", **On-premises SAM-accountnaam**.
+   4. Selecteer in de 'Gedelegeerde Aanmeldingsidentiteit', de meest geschikte optie voor de configuratie van uw Active Directory-forest. Als u één AD-domein in uw forest, Selecteer bijvoorbeeld **On-premises SAM-accountnaam** (zoals weergegeven hieronder), maar als uw gebruikers zich niet in hetzelfde domein als SharePoint en selecteer vervolgens de App Proxy-Connector-servers  **On-premises UPN-naam** (niet weergegeven).
 
    ![Geïntegreerde Windows-verificatie voor eenmalige aanmelding configureren](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

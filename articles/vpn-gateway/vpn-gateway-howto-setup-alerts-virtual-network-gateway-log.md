@@ -7,16 +7,18 @@ ms.service: vpn-gateway
 ms.topic: conceptional
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 48725ed8cdf3df30f8df31966aa632bfb2a4ef1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066896"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202895"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Waarschuwingen voor gebeurtenissen-diagnoselogboek instellen van VPN-Gateway
 
-Dit artikel helpt u bij het instellen van waarschuwingen op basis van diagnostische gebeurtenissen van Azure VPN-Gateway. De volgende logboeken zijn beschikbaar.
+Dit artikel helpt u bij het instellen van waarschuwingen op basis van diagnostische gebeurtenissen van Azure VPN-Gateway met behulp van Azure Log Analytics. 
+
+De volgende logboeken zijn beschikbaar in Azure:
 
 |***Naam*** | ***Beschrijving*** |
 |---        | ---               |

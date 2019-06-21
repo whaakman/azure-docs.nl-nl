@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455709"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164453"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 
@@ -247,8 +247,7 @@ De volgende tabel beschrijft de eigenschappen voor het maken van een Azure Cosmo
 | Account-id | De naam of URI van de Azure Cosmos DB-account van het eindpunt. |
 | Accountcode | De gedeelde toegangssleutel voor het Azure Cosmos DB-account. |
 | Database | De naam van de Azure Cosmos DB-database. |
-| Patroon voor de collectienaam | Naam van de verzameling of het patroon voor de verzamelingen op die moet worden gebruikt. <br />U kunt de indeling van de verzameling maken met behulp van de optionele {partition}-token, waarbij partities beginnen bij 0. Twee voorbeelden:  <br /><ul><li> _MyCollection_: Een verzameling met de naam 'MyCollection' moet bestaan.</li>  <li> _MyCollection{partition}_ : Op basis van de partitioneringskolom.</li></ul> De partitionering kolom verzamelingen gelden: "MyCollection0", "MyCollection1,", "MyCollection2", enzovoort. |
-| Partitiesleutel | Optioneel. U moet dit alleen als u van een token {partition} in het patroon voor de verzameling gebruikmaakt.<br /> De partitiesleutel is de naam van het veld in uitvoergebeurtenissen dat wordt gebruikt om op te geven van de sleutel voor het partitioneren van uitvoer in collecties.<br /> Voor één verzameling uitvoer, kunt u elke willekeurige uitvoerkolom. Een voorbeeld is PartitionId. |
+| Naam van verzameling | Naam van de verzameling in Azure Cosmos DB. Azure Cosmos DB onbeperkte containers zijn de aanbevolen aanpak voor het partitioneren van uw gegevens, als de Azure Cosmos DB automatisch wordt geschaald partities op basis van uw werkbelasting. |
 | Document-id |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven op welke insert- of updatebewerkingen zijn gebaseerd.
 
 ## <a name="azure-functions"></a>Azure Functions
@@ -316,7 +315,7 @@ De volgende tabel worden enkele van de overwegingen voor uitvoer batchverwerking
 | Uitvoertype | Maximale berichtlengte | Optimalisatie van de grootte van batch |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Zie [Data Lake-opslag beperkt](../azure-subscription-service-limits.md#data-lake-store-limits). | Gebruik maximaal 4 MB per schrijfbewerking. |
-| Azure SQL Database | 10\.000 maximum aantal rijen per één bulksgewijs invoegen.<br />minimaal 100 rijen per één bulksgewijs invoegen. <br />Zie [limieten van Azure SQL](../sql-database/sql-database-resource-limits.md). |  Elke batch is in eerste instantie bulksgewijs invoegen met maximale batchgrootte. U kunt de batch in de helft (totdat u de minimale batchgrootte) op basis van herstelbare fouten uit SQL splitsen. |
+| Azure SQL Database | 10.000 maximum aantal rijen per één bulksgewijs invoegen.<br />minimaal 100 rijen per één bulksgewijs invoegen. <br />Zie [limieten van Azure SQL](../sql-database/sql-database-resource-limits.md). |  Elke batch is in eerste instantie bulksgewijs invoegen met maximale batchgrootte. U kunt de batch in de helft (totdat u de minimale batchgrootte) op basis van herstelbare fouten uit SQL splitsen. |
 | Azure Blob Storage | Zie [Azure Storage beperkt](../azure-subscription-service-limits.md#storage-limits). | De grootte van het maximum aantal blob-blok is 4 MB.<br />Het maximum aantal blob bock aantal is 50.000. |
 | Azure Event Hubs  | 256 KB per bericht. <br />Zie [Event Hubs beperkt](../event-hubs/event-hubs-quotas.md). |  Als het partitioneren van invoer/uitvoer is niet uitgelijnd, elke gebeurtenis afzonderlijk in is verpakt **EventData** en verzonden in een batch van maximaal de maximale berichtgrootte (1 MB voor de Premium-SKU). <br /><br />  Als het partitioneren van invoer/uitvoer wordt uitgelijnd, meerdere gebeurtenissen zijn verpakt in een enkele **EventData** exemplaar, tot de maximale berichtgrootte en verzonden.  |
 | Power BI | Zie [Power BI Rest-API-limieten](https://msdn.microsoft.com/library/dn950053.aspx). |

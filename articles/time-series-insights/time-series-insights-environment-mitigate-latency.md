@@ -6,18 +6,18 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6151af941b89198812f2a33a522b30ff0a8796a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 129476c833e596d40daa7081e23c0fd6d1b93b30
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242059"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165766"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Controleren en om te verminderen latentie in Azure Time Series Insights Aanvraagbeperkingen minimaliseren
 
@@ -42,11 +42,11 @@ U bent waarschijnlijk om latentie en beperkingen wanneer u:
 
 Waarschuwingen kunnen u helpen te helpen opsporen en corrigeren van latentieproblemen met veroorzaakt door uw omgeving.
 
-1. Klik in de Azure-portal op **metrische gegevens**.
+1. Selecteer in de Azure portal, **metrische gegevens**.
 
    [![Metrische gegevens](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-1. Klik op **Waarschuwing voor metrische gegevens toevoegen**.  
+1. Selecteer **Waarschuwing voor metrische gegevens toevoegen**.  
 
    [![Metrische waarschuwing toevoegen](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 

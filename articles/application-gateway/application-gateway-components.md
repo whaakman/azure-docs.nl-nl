@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831828"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273232"
 ---
 # <a name="application-gateway-components"></a>Application gateway-onderdelen
 
@@ -26,7 +26,9 @@ Een front-end-IP-adres is het IP-adres dat is gekoppeld aan een toepassingsgatew
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>Van statische versus dynamische openbare IP-adres
 
-De v2-SKU van Azure Application Gateway ondersteunt zowel statische interne en statische openbare IP-adressen, hoewel de v1-SKU alleen statische interne IP-adressen ondersteunt. Het virtuele IP-adres (VIP)-adres kunt wijzigen als een toepassingsgateway is gestopt en gestart.
+De Azure Application Gateway V2-SKU kan worden geconfigureerd ter ondersteuning van zowel statische interne IP-adres en statische openbare IP-adres, of alleen statische openbare IP-adres. Deze kan niet worden geconfigureerd ter ondersteuning van alleen statische interne IP-adres.
+
+De V1-SKU kan worden geconfigureerd ter ondersteuning van statische interne IP-adres en dynamische openbare IP-adressen alleen statische interne IP-adres of alleen dynamische openbare IP-adres. De dynamische IP-adres van Application Gateway verandert niet op een actieve gateway. Deze kunt wijzigen wanneer u de Gateway te starten of stoppen. Het wordt niet gewijzigd op systeemfouten, updates, Azure-host updates enzovoort. 
 
 De DNS-naam die is gekoppeld aan een application gateway verandert niet gedurende de levenscyclus van de gateway. Als gevolg hiervan moet u een CNAME-alias gebruiken en wijs het DNS-adres van de toepassingsgateway.
 

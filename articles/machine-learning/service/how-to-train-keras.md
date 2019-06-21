@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd2552cdfde19995413f4665f04c41c295304d50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e070b80f86cb6c8b1d9e7575e19022b5cb08f340
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082597"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165557"
 ---
 # <a name="train-and-register-keras-models-at-scale-with-azure-machine-learning-service"></a>Trainen en Keras-modellen op schaal registreren met Azure Machine Learning-service
 
@@ -27,12 +27,20 @@ Of u een Keras-model van de grond-up ontwikkelt of u een bestaand model naar de 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure-abonnement. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
-- [De Azure Machine Learning-SDK voor Python installeren](setup-create-workspace.md#sdk)
-- [Het configuratiebestand van een werkruimte maken](setup-create-workspace.md#write-a-configuration-file)
-- [Downloaden van de voorbeeld-scriptbestanden](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` en `utils.py`
+Deze code in elk van deze omgevingen worden uitgevoerd:
 
-U vindt hier ook een voltooide [Jupyter-Notebook versie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) van deze handleiding op de pagina met GitHub-voorbeelden. De notebook bevat uitgebreide secties die betrekking hebben op intelligente hyperparameter afstemmen, modelimplementatie en laptop widgets.
+ - Azure Machine Learning-Notebook VM - geen downloads of installatie nodig
+
+     - Voltooid de [cloud-gebaseerde notebook snelstartgids](quickstart-run-cloud-notebook.md) maken een toegewezen notebookserver vooraf geladen met de SDK en de opslagplaats met voorbeelden.
+    - Zoeken in de map samples op de notebookserver, een laptop voltooide en uitgebreide door te navigeren naar deze map: **How-to-naar-gebruik-azureml > training met deep learning > train-hyperparameter-tune-deploy-with-keras** de map. 
+ 
+ - Uw eigen Jupyter-Notebook-server
+
+     - [De Azure Machine Learning-SDK voor Python installeren](setup-create-workspace.md#sdk)
+    - [Het configuratiebestand van een werkruimte maken](setup-create-workspace.md#write-a-configuration-file)
+    - [Downloaden van de voorbeeld-scriptbestanden](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` en `utils.py`
+     
+    U vindt hier ook een voltooide [Jupyter-Notebook versie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) van deze handleiding op de pagina van de GitHub-voorbeelden. De notebook bevat uitgebreide secties die betrekking hebben op intelligente hyperparameter afstemmen, modelimplementatie en laptop widgets.
 
 ## <a name="set-up-the-experiment"></a>Instellen van het experiment
 
@@ -105,12 +113,24 @@ De [gegevensopslag](how-to-access-data.md) is een plek waar gegevens kunnen word
     shutil.copy('./utils.py', script_folder)
     ```
 
-## <a name="get-the-default-compute-target"></a>Ophalen van de standaard-compute-doel
+## <a name="create-a-compute-target"></a>Een compute-doel maken
 
-Elke werkruimte wordt geleverd met twee, standaard compute-doelen: een doel gpu gebaseerde computercapaciteit en een op basis van cpu-compute-doel. De standaard-compute-doelen hebben voor automatisch schalen is ingesteld op 0, wat betekent dat ze niet worden toegewezen dat, totdat u deze gebruiken. In dit voorbeeld winnen, gebruikt u de standaard GPU compute-doel.
+Maak een compute-doel voor uw TensorFlow-taak uit te voeren op. In dit voorbeeld maakt u een Azure Machine Learning met GPU rekencluster.
 
 ```Python
-compute_target = ws.get_default_compute_target(type="GPU")
+cluster_name = "gpucluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+                                                           max_nodes=4)
+
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 Zie voor meer informatie over de compute-doelen, de [wat is er een compute-doel](concept-compute-target.md) artikel.

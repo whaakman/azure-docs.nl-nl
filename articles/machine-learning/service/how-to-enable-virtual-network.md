@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356183"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165332"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Veilig kunt uitvoeren van experimenten en Deductie in een Azure-netwerk
 
@@ -35,9 +35,13 @@ Dit document wordt ervan uitgegaan dat u bekend bent met Azure Virtual Networks 
 ## <a name="storage-account-for-your-workspace"></a>Storage-account voor uw werkruimte
 
 > [!IMPORTANT]
-> U kunt de storage-account dat is gekoppeld aan de werkruimte van Azure Machine Learning-service achter het virtuele netwerk alleen tijdens het uitvoeren van experimenten plaatsen. Deductie vereist onbeperkte toegang tot het opslagaccount. Als u niet zeker weet of u deze instellingen hebt gewijzigd of niet, Zie __wijzigen van de standaardtoegangsregel voor netwerk__ in [Azure Storage configureren van firewalls en virtuele netwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security). Gebruik de stappen op toegang via alle netwerken toestaan tijdens Deductie of model scoren.
+> De __storage-account standaard__ voor uw Azure Machine Learning kan de service worden geplaatst in een virtueel netwerk __alleen tijdens het uitvoeren van experimenten__.
+>
+> Voor __niet-standaard-storage-accounts voor experimenten__, of als u gebruikmaakt van een opslagaccount voor __Deductie__, hebt u __onbeperkte toegang tot het opslagaccount__.
+> 
+> Als u niet zeker weet of u deze instellingen hebt gewijzigd of niet, Zie __wijzigen van de standaardtoegangsregel voor netwerk__ in [Azure Storage configureren van firewalls en virtuele netwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security). Gebruik de stappen op toegang via alle netwerken toestaan tijdens Deductie of model scoren.
 
-Voor het gebruik van Azure Machine Learning experimenten-mogelijkheden met Azure Storage achter een virtueel netwerk, de volgende stappen uit te voeren:
+De standaard Azure Storage-account voor de werkruimte in een virtueel netwerk gebruiken voor het gebruik van plaats de volgende stappen uit:
 
 1. Maak een experimenten-compute ex. Machine Learning-Computing achter een virtueel netwerk of een experimenten-compute koppelen aan de werkruimte ex. HDInsight-cluster of virtuele machine. Zie voor meer informatie, [gebruik Machine Learning-Computing](#use-machine-learning-compute) en [een virtuele machine of de HDInsight-cluster](#use-a-virtual-machine-or-hdinsight-cluster) secties in dit document
 2. Ga naar de opslag die is gekoppeld aan de werkruimte. ![Afbeelding van de Azure-portal geeft Azure-opslag die is gekoppeld aan de werkruimte van de Azure Machine Learning-service](./media/how-to-enable-virtual-network/workspace-storage.png)

@@ -4,14 +4,14 @@ description: Informatie over het instellen van ingerichte doorvoer voor uw Azure
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067503"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165040"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
@@ -72,6 +72,9 @@ U kunt de twee modellen kunt combineren. Inrichting doorvoer voor de database en
 
 * U kunt een Azure Cosmos-database met de naam maken *Z* met ingerichte doorvoer van *'K'* ru's. 
 * Maak vervolgens vijf containers met de naam *A*, *B*, *C*, *D*, en *E* binnen de database. Bij het maken van container B, zorg ervoor dat u inschakelen **inrichten speciaal toegewezen doorvoer voor deze container** optie en configureer expliciet *"P"* ru's van de ingerichte doorvoer voor deze container. Houd er rekening mee dat u gedeelde en toegewijde doorvoer alleen bij het maken van de database en een container kunt configureren. 
+
+   ![De doorvoer in te stellen op niveau van de container](./media/set-throughput/coll-level-throughput.png)
+
 * De *'K'* ru's doorvoer wordt gedeeld door de vier containers *A*, *C*, *D*, en *E*. De exacte hoeveelheid doorvoer die beschikbaar zijn voor *A*, *C*, *D*, of *E* varieert. Er zijn geen Sla's voor elke afzonderlijke containerdoorvoer.
 * De container met de naam *B* om op te halen is gegarandeerd de *"P"* ru's doorvoer voortdurend. Wordt ondersteund door Sla's.
 

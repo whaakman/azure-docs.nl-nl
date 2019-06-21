@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492797"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275623"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
@@ -24,8 +24,8 @@ Dit artikel wordt beschreven hoe u verwijdert een [Azure Backup](backup-overview
 
 Voordat u begint, is het belangrijk om te begrijpen dat u een Recovery Services-kluis met de servers niet verwijderen die is geregistreerd in het of die back-upgegevens bevat.
 
-- Als u wilt verwijderen zonder problemen een kluis, unregister-servers in het, gegevens van de kluis verwijderen en verwijder vervolgens de kluis.
-- Als u probeert te verwijderen van een kluis die nog steeds afhankelijkheden heeft, wordt er een foutbericht weergegeven. en moet u handmatig verwijderen van de kluis afhankelijkheden, met inbegrip van:
+- Als u wilt verwijderen zonder problemen een kluis, servers die deze bevat de registratie ongedaan maken, gegevens van de kluis verwijderen en verwijder vervolgens de kluis.
+- Als u probeert te verwijderen van een kluis waarvoor nog steeds afhankelijkheden, een foutbericht dat wordt uitgegeven en moet u handmatig verwijderen van de kluis afhankelijkheden, met inbegrip van:
     - Back-ups van items
     - Beveiligde servers
     - Back-up van beheerservers (Azure Backup Server, DPM) ![selecteert u de kluis om het dashboard te openen](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
@@ -40,7 +40,7 @@ Voordat u begint, is het belangrijk om te begrijpen dat u een Recovery Services-
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-Als u een foutbericht krijgt, verwijdert u [back-up items](#remove-backup-items), [infrastructuurservers](#remove-backup-infrastructure-servers), en [herstelpunten](#remove-azure-backup-agent-recovery-points), en verwijder vervolgens de kluis.
+Als u een foutbericht krijgt, verwijdert u [back-up items](#remove-backup-items), [infrastructuurservers](#remove-azure-backup-management-servers), en [herstelpunten](#remove-azure-backup-agent-recovery-points), en verwijder vervolgens de kluis.
 
 ![Fout bij de kluis verwijderen](./media/backup-azure-delete-vault/error.png)
 
@@ -52,7 +52,7 @@ Als u een foutbericht krijgt, verwijdert u [back-up items](#remove-backup-items)
 1. Installeer chocolatey van [hier](https://chocolatey.org/) en ARMClient uitvoeren te installeren de onderstaande opdracht:
 
    ` choco install armclient --source=https://chocolatey.org/api/v2/ `
-2. Meld u aan bij Azure-account met de onderstaande opdracht
+2. Meld u aan bij uw Azure-account en voer deze opdracht uit:
 
     ` ARMClient.exe login [environment name] `
 
@@ -78,7 +78,7 @@ Raadpleeg voor meer informatie over ARMClient opdracht dit [document](https://gi
 
 ## <a name="remove-vault-items-and-delete-the-vault"></a>Items van de kluis verwijderen en de kluis verwijderen
 
-Deze procedure vindt u enkele voorbeelden voor het verwijderen van back-upgegevens en infrastructuurservers. Nadat u alles uit een kluis verwijderd, kunt u deze kunt verwijderen.
+Deze procedures vindt u enkele voorbeelden voor het verwijderen van back-upgegevens en infrastructuurservers. Nadat u alles uit een kluis verwijderd, kunt u deze kunt verwijderen.
 
 ### <a name="remove-backup-items"></a>Back-up items verwijderen
 
@@ -109,7 +109,7 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
       ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/empty-items-list.png)
 
 
-### <a name="remove-backup-infrastructure-servers"></a>Een back-upinfrastructuur servers verwijderen
+### <a name="remove-azure-backup-management-servers"></a>Azure Backup-beheerservers verwijderen
 
 1. Klik in het menu kluis dashboard **back-upinfrastructuur**.
 2. Klik op **back-up-beheerservers** om servers weer te geven.
@@ -117,15 +117,25 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Met de rechtermuisknop op het item > **verwijderen**.
-4. Om te controleren dat de taak verwijderen is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png).
-5. Nadat de taak is voltooid, de service verzendt een bericht: **het back-upproces is gestopt en de back-upgegevens is verwijderd**.
-6. Na het verwijderen van een item in de lijst op de **back-upinfrastructuur** menu, klikt u op **vernieuwen** om te zien van de items in de kluis.
+4. Op de **verwijderen** menu, typ de naam van de server en klikt u op **verwijderen**.
+
+     ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+5.  (Optioneel) Geef een reden op waarom u de gegevens wilt verwijderen, en voeg opmerkingen toe.
+
+> [!NOTE]
+> Als u wilt verwijderen items in de beheerconsole van de server of in de MARS-console op een beveiligde server, stop de beveiliging en back-ups verwijderen. Als de back-upitems blijven, wordt de volgende fout weergegeven wanneer u probeert te verwijderen en de registratie van de server:
+> 
+>![verwijderen is mislukt](./media/backup-azure-delete-vault/deletion-failed.png)
+
+6. Om te controleren dat de taak verwijderen is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png).
+7. Nadat de taak is voltooid, de service verzendt een bericht: **het back-upproces is gestopt en de back-upgegevens is verwijderd**.
+8. Na het verwijderen van een item in de lijst op de **back-upinfrastructuur** menu, klikt u op **vernieuwen** om te zien van de items in de kluis.
 
 
 ### <a name="remove-azure-backup-agent-recovery-points"></a>Herstelpunten voor Azure backup-agent verwijderen
 
 1. Klik in het menu kluis dashboard **back-upinfrastructuur**.
-2. Klik op **back-up-beheerservers** om de infrastructuurservers weer te geven.
+2. Klik op **beschermde Servers** om de infrastructuurservers weer te geven.
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -141,11 +151,18 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
 
     ![de geselecteerde server verwijderen](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. Op de **verwijderen** menu, typ de naam van het item en klikt u op **verwijderen**.
+6. Op de **verwijderen** menu, typ de naam van de server en klikt u op **verwijderen**.
 
      ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
 7. (Optioneel) Geef een reden op waarom u de gegevens wilt verwijderen, en voeg opmerkingen toe.
+
+> [!NOTE]
+> Back-upitems die zijn gekoppeld aan een beheerserver voor back-up- of Azure Backup Agent-server moeten worden verwijderd voordat de registraties van deze server worden verwijderd. Back-up om items te verwijderen, gaat u naar de DPM SC, MABS of de MARS-beheerconsole op de server als die van toepassing zijn, en selecteer de relevante opties beveiliging stoppen en verwijderen van back-ups. Als u een back-upitems nog steeds zijn gekoppeld, ziet u de volgende fout:
+> 
+> 
+>![verwijderen is mislukt](./media/backup-azure-delete-vault/deletion-failed.png)
+
 8. Om te controleren dat de taak verwijderen is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png).
 9. Na het verwijderen van een item in de lijst op de **back-upinfrastructuur** menu, klikt u op **vernieuwen** om te zien van de items in de kluis.
 

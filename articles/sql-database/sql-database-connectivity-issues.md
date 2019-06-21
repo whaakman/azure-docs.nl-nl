@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019826"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144036"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Werken met SQL Database-verbindingsproblemen en tijdelijke fouten
 
@@ -93,7 +93,7 @@ Eén manier kunt u uw logica voor opnieuw proberen testen is uw client-computer 
 - **SqlException.Number** 11001 =
 - Bericht: "Er is geen host is onbekend"
 
-Als onderdeel van de eerste nieuwe poging, uw programma het verkeerd gespeld woord corrigeren en vervolgens probeert om verbinding te maken.
+Als onderdeel van de eerste nieuwe poging, kunt u opnieuw verbinding maken met uw client-computer met het netwerk en vervolgens probeert om verbinding te maken.
 
 Als u deze test praktische, moet u uw computer via het netwerk loskoppelen voordat u begint met uw programma. Uw programma herkent vervolgens een Runtimeparameter die ervoor zorgt het programma dat:
 

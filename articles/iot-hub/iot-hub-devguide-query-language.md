@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442083"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137729"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor dubbels voor apparaat- en -module, taken en berichtroutering
 
-IoT Hub biedt een krachtige SQL-achtige taal verkrijgen van informatie met betrekking tot [apparaatdubbels](iot-hub-devguide-device-twins.md) en [taken](iot-hub-devguide-jobs.md), en [berichtroutering](iot-hub-devguide-messages-d2c.md). In dit artikel geeft:
+IoT Hub biedt een krachtige SQL-achtige taal verkrijgen van informatie met betrekking tot [apparaatdubbels](iot-hub-devguide-device-twins.md), [moduledubbels](iot-hub-devguide-module-twins.md), [taken](iot-hub-devguide-jobs.md), en [berichtroutering](iot-hub-devguide-messages-d2c.md). In dit artikel geeft:
 
 * Een inleiding tot de belangrijkste functies van de IoT Hub-querytaal en
 * De gedetailleerde beschrijving van de taal. Zie voor meer informatie over de querytaal voor het routeren van berichten, [query's in berichtroutering](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ IoT Hub biedt een krachtige SQL-achtige taal verkrijgen van informatie met betre
 
 ## <a name="device-and-module-twin-queries"></a>Apparaat- en -module apparaatdubbel-query 's
 
-[Apparaatdubbels](iot-hub-devguide-device-twins.md) en moduledubbels willekeurige JSON-objecten als zowel labels en eigenschappen kunnen bevatten. IoT Hub kunt u query apparaatdubbels en moduledubbels als een enkel JSON-document met alle dubbele gegevens.
+[Apparaatdubbels](iot-hub-devguide-device-twins.md) en [moduledubbels](iot-hub-devguide-module-twins.md) willekeurige JSON-objecten als zowel labels en eigenschappen kan bevatten. IoT Hub kunt u query apparaatdubbels en moduledubbels als een enkel JSON-document met alle dubbele gegevens.
 
 Stel bijvoorbeeld dat de apparaatdubbels van uw IoT-hub de volgende structuur hebben (moduledubbel zouden zijn vergelijkbaar met een extra moduleId alleen):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Module apparaatdubbel-query 's
 
-Query's over moduledubbels is vergelijkbaar met het uitvoeren van query's op dubbele apparaten, maar met behulp van een andere verzameling/naamruimte, dat wil zeggen in plaats van 'van apparaten' u kunt een query device.modules:
+Query's over moduledubbels is vergelijkbaar met het uitvoeren van query's op dubbele apparaten, maar met behulp van een andere verzameling/naamruimte; in plaats van vanaf **apparaten**, u een query uit **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ Op dit moment een query uitgevoerd op **devices.jobs** bieden geen ondersteuning
 
 ## <a name="basics-of-an-iot-hub-query"></a>Basisprincipes van een IoT Hub-query
 
-Elke IoT Hub query bestaat van selecteren en van de EU, met optionele waar en GROUP BY-componenten. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaatdubbels. De component FROM geeft aan dat de documentenverzameling om te worden herhaald op (**apparaten** of **devices.jobs**). Het filter in de component WHERE wordt vervolgens toegepast. Met aggregaties, worden de resultaten van deze stap zijn gegroepeerd zoals opgegeven in de component GROUP BY. Voor elke groep een rij wordt gegenereerd zoals opgegeven in de component SELECT.
+Elke IoT Hub query bestaat van selecteren en van de EU, met optionele waar en GROUP BY-componenten. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaatdubbels. De component FROM geeft aan dat de documentenverzameling om te worden herhaald op (**apparaten**, **devices.modules**, of **devices.jobs**). Het filter in de component WHERE wordt vervolgens toegepast. Met aggregaties, worden de resultaten van deze stap zijn gegroepeerd zoals opgegeven in de component GROUP BY. Voor elke groep een rij wordt gegenereerd zoals opgegeven in de component SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM-component
 
-De **van < from_specification >** component kunt ervan uitgaan dat slechts twee waarden: **VANAF apparaten** naar query apparaatdubbels, of **van devices.jobs** op query-taakdetails per apparaat.
+De **van < from_specification >** component kunt ervan uitgaan dat alleen voor de drie waarden: **VANAF apparaten** naar query apparaatdubbels, **van devices.modules** naar query moduledubbels, of **van devices.jobs** op query-taakdetails per apparaat.
 
 
 ## <a name="where-clause"></a>WHERE-component

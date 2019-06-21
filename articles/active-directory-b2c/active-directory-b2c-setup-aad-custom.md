@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508646"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203712"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Azure Active Directory-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C 
 
@@ -132,7 +132,7 @@ Als u een token van het Azure AD-eindpunt, moet u voor het definiëren van de pr
 5. Stel de waarde van de **metagegevens** naar `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, waarbij `your-AD-tenant-name` is de naam van uw Azure AD-tenant. Bijvoorbeeld: `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Open uw browser en Ga naar de **metagegevens** URL die u zojuist hebt bijgewerkt, zoekt u naar voor de **verlener** object-, kopieer en plak de waarde in de waarde voor **ProviderName** in het XML-bestand.
 8. Stel **client_id** en **IdTokenAudience** op de toepassings-ID van de registratie van de toepassing.
-9. Onder **CryptograhicKeys**, werk de waarde voor **StorageReferenceId** naar de beleidssleutel die u hebt gedefinieerd. Bijvoorbeeld `ContosoAppSecret`.
+9. Onder **CryptographicKeys**, werk de waarde voor **StorageReferenceId** naar de beleidssleutel die u hebt gedefinieerd. Bijvoorbeeld `ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Upload het extensiebestand voor verificatie
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234354"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137757"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machines gebruiken
 
@@ -56,6 +56,17 @@ Pariteit van paden met behouden de **gratis Compute** -laag, kunt u alleen een p
 ![Knop Afsluiten in Azure-notitieblokken](media/shutdown.png)
 
 Wanneer een project wordt uitgevoerd op een virtuele machine, de bestanden zijn gekoppeld aan de hoofdmap van de Jupyter-server (de map die wordt weergegeven in JupyterHub), de standaard Azure-notitieblokken bestanden worden vervangen. Wanneer u het afsluiten van de virtuele machine met behulp de **afsluiten** knop in de notebook-gebruikersinterface,-laptops Azure worden de standaard-bestanden hersteld.
+
+![Knop Afsluiten in Azure-notitieblokken](media/shutdown.png)
+
+## <a name="create-new-dsvm-users"></a>Maken van nieuwe DSVM-gebruikers
+
+Als meerdere gebruikers een DSVM delen, kunt u voorkomen elkaar door het maken en gebruiken van een gebruiker DSVM voor elke gebruiker notebook blokkeren:
+
+1. Op de [Azure Portal](https://portal.azure.com), gaat u naar uw virtuele machine.
+1. Onder **ondersteuning en probleemoplossing** selecteren in de linkermarge **wachtwoord opnieuw instellen**.
+1. Voer een nieuwe gebruikersnaam en wachtwoord in en selecteer **Update**. (Bestaande gebruikersnamen worden niet beïnvloed.)
+1. Herhaal de vorige stap voor elke extra gebruikers.
 
 ## <a name="next-steps"></a>Volgende stappen
 

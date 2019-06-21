@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
 ms.openlocfilehash: d28710bf249bd940ae9d685560e9f7140234e3a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318711"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64683232"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Een virtuele Windows-machine oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met behulp van Azure PowerShell voor herstel
 Als uw Windows virtuele machine (VM) in Azure een opstart- of schijffout-fout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert de virtuele machine dat wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de schijf naar een andere Windows-virtuele machine om eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine herstellen met Azure PowerShell. 

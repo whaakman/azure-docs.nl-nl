@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67120184"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176059"
 ---
 Oplossen van problemen met een cloudservice van Microsoft Azure, moet de logboekbestanden van de service op virtuele machines verzamelen als de problemen optreden. U kunt de AzureLogCollector-extensie op aanvraag voor het uitvoeren van eenmalige verzamelen van Logboeken van een of meer Cloud-Service-VM's (van webrollen en werkrollen) en de verzamelde bestanden overbrengen naar Azure storage-account – zonder extern aanmelden bij een van de virtuele machines.
 

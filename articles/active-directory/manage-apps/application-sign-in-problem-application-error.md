@@ -1,6 +1,6 @@
 ---
-title: Fout op de pagina van een toepassing na de aanmelding | Microsoft Docs
-description: Over het oplossen van problemen met aanmelding bij wanneer de toepassing zelf een fout verzendt Azure AD
+title: Foutbericht wordt weergegeven op de pagina app nadat u zich hebt aangemeld | Microsoft Docs
+description: Klik hier voor meer informatie over het oplossen van problemen met Azure AD-aanmelding in wanneer de app een foutbericht weergegeven wordt.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,150 +16,152 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d41ec1f510b028a2ffe2554bfcbd77bc439c4e79
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742373"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272949"
 ---
-# <a name="error-on-an-applications-page-after-signing-in"></a>Fout op de pagina na de aanmelding van een toepassing
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Een app-pagina ziet u een foutbericht weergegeven nadat de gebruiker zich aanmeldt
 
-In dit scenario, Azure AD de gebruiker is aangemeld, maar de toepassing een fout niet zodat de gebruiker kan de stroom aanmelding is voltooid wordt weergegeven. In dit scenario wordt het probleem antwoord met de toepassing niet geaccepteerd door Azure AD.
+In dit scenario wordt in Azure Active Directory (Azure AD) de gebruiker zich aanmeldt. Maar de toepassing wordt een foutbericht weergegeven en kunt niet de gebruiker die de stroom aanmelden te voltooien. Het probleem is dat de app niet akkoord gaat met de reactie die Azure AD heeft uitgegeven.
 
-Er zijn enkele mogelijke redenen waarom de toepassing de reactie van Azure AD niet accepteren. Als de fout in de toepassing niet duidelijk is te weten wat er ontbreekt in het antwoord vervolgens:
+Er zijn verschillende mogelijke redenen waarom de app de reactie van Azure AD niet accepteren. Als het foutbericht niet duidelijk wordt aangegeven wat ontbreekt in het antwoord, probeert u het volgende:
 
--   Als de toepassing de Azure AD-galerie is, controleert u of u alle stappen in het artikel hebt gevolgd [fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Als de app de Azure AD-galerie, moet u controleren of u de stappen in gevolgd [fouten opsporen in SAML gebaseerde eenmalige aanmelding tot toepassingen in Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Gebruik een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) SAML-aanvraag, SAML-antwoord en SAML-token vast te leggen.
+-   Gebruik een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om vast te leggen van de SAML-aanvraag, antwoord en -token.
 
--   De SAML-reactie delen met de leverancier van de toepassing om te weten wat ontbreekt.
+-   Het SAML-antwoord aan de leverancier van de app te verzenden en vraag deze wat ontbreekt.
 
-## <a name="missing-attributes-in-the-saml-response"></a>Ontbrekende kenmerken in het SAML-antwoord
+## <a name="attributes-are-missing-from-the-saml-response"></a>Kenmerken ontbreken in het SAML-antwoord
 
-Als u wilt toevoegen een kenmerk in de Azure AD-configuratie in het antwoord van de Azure AD worden verzonden, als volgt te werk:
+Als u wilt toevoegen een kenmerk in de Azure AD-configuratie die in de Azure AD-reactie wordt verzonden, als volgt te werk:
 
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een globale beheerder of co-beheerder.
 
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Selecteer aan de bovenkant van het navigatiedeelvenster aan de linkerkant, **alle services** openen van de Azure AD-extensie.
 
-3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Type **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens **Azure Active Directory**.
 
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Selecteer **bedrijfstoepassingen** in het navigatievenster van de Azure AD.
 
-5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Selecteer **alle toepassingen** om een lijst van uw apps weer te geven.
 
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
+   > [!NOTE]
+   > Als u de app die u wilt niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen**. Stel de **weergeven** optie "Alle toepassingen."
 
-6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de app wordt geladen, selecteert u **eenmalige aanmelding** in het navigatiedeelvenster.
 
-8. Klik op **weergeven en bewerken, alle andere gebruikerskenmerken onder** de **gebruikerskenmerken** sectie voor het bewerken van de kenmerken die moeten worden verzonden naar de toepassing in het SAML-token wanneer gebruikers zich aanmelden.
+8. In de **gebruikerskenmerken** sectie, selecteer **weergeven en bewerken van alle andere gebruikerskenmerken**. Hier kunt u wijzigen welke kenmerken moeten worden verzonden naar de app in het SAML-token wanneer gebruikers zich aanmelden.
 
    Een kenmerk toevoegen:
 
-   * Klik op **kenmerk toevoegen**. Voer de **naam** en selecteer de **waarde** in de vervolgkeuzelijst.
+   1. Selecteer **kenmerk toevoegen**. Voer de **naam**, en selecteer de **waarde** uit de vervolgkeuzelijst.
 
-   * Klik op **opslaan.** U kunt het nieuwe kenmerk in de tabel zien.
+   1.  Selecteer **Opslaan**. Hier ziet u het nieuwe kenmerk in de tabel.
 
 9. Sla de configuratie op.
 
-Volgende keer dat de gebruiker zich aanmeldt bij de toepassing Azure AD verzenden het nieuwe kenmerk in het SAML-antwoord.
+   De volgende keer dat de gebruiker zich aanmeldt bij de app, wordt Azure AD het nieuwe kenmerk in het SAML-antwoord verzonden.
 
-## <a name="the-application-doesnt-identify-the-user"></a>De toepassing identificeren de gebruiker niet
+## <a name="the-app-doesnt-identify-the-user"></a>De app identificeren de gebruiker niet
 
-De aanmelding bij de toepassing is mislukt omdat het SAML-antwoord, kenmerken, zoals rollen ontbreekt of omdat de toepassing is er een andere indeling of een waarde voor het kenmerk id van de entiteit wordt verwacht.
+Aanmelden bij de app is mislukt omdat het SAML-antwoord een kenmerk, zoals een rol ontbreekt. Of deze mislukt, omdat de app wordt verwacht dat een andere indeling of een waarde voor de **NameID** kenmerk (gebruikers-id).
 
-Als u [Azure AD geautomatiseerde gebruikersinrichting](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) wilt maken, onderhouden en te verwijderen van gebruikers in de toepassing. Controleer vervolgens of dat de gebruiker met succes is ingericht voor de SaaS-toepassing. Zie voor meer informatie, [geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+Als u [Azure AD geautomatiseerde gebruikersinrichting](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) wilt maken, onderhouden, en gebruikers verwijderen die in de app, controleert u of dat de gebruiker is ingericht voor de SaaS-app. Zie voor meer informatie, [geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
 
-## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Een kenmerk in de configuratie van de Azure AD-toepassing toevoegen:
+## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Een kenmerk toevoegen aan de configuratie van de Azure AD-app
 
 De gebruikers-id-waarde wilt wijzigen, de volgende stappen uit:
 
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een globale beheerder of co-beheerder.
 
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Selecteer **alle services** aan de bovenkant van het navigatiedeelvenster aan de linkerkant om te openen van de Azure AD-extensie.
 
-3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Type **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens **Azure Active Directory**.
 
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Selecteer **bedrijfstoepassingen** in het navigatievenster van de Azure AD.
 
-5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Selecteer **alle toepassingen** om een lijst van uw apps weer te geven.
 
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
+   > [!NOTE]
+   > Als u de app die u wilt niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen**. Stel de **weergeven** optie "Alle toepassingen."
 
-6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de app die u wilt configureren voor eenmalige aanmelding.
 
-7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de app wordt geladen, selecteert u **eenmalige aanmelding** in het navigatiedeelvenster.
 
-8. Onder de **gebruikerskenmerken**, selecteert u de unieke id voor uw gebruikers in de **gebruikers-id** vervolgkeuzelijst.
+8. Onder **gebruikerskenmerken**, selecteert u de unieke id voor de gebruiker de **gebruikers-id** vervolgkeuzelijst.
 
-## <a name="change-entityid-user-identifier-format"></a>Id van de entiteit (gebruikers-id)-indeling wijzigen
+## <a name="change-the-nameid-format"></a>De NameID-indeling wijzigen
 
-Als de toepassing wordt verwacht een andere indeling voor het kenmerk id van de entiteit dat. Vervolgens kunt u zich niet om de id van de entiteit (gebruikers-id)-indeling die Azure AD worden verzonden naar de toepassing in de reactie na verificatie van de gebruiker te selecteren.
+Als de toepassing wordt verwacht dat een andere indeling voor de **NameID** kenmerk (gebruikers-id), Zie [bewerken nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) te wijzigen van de NameID-indeling.
 
-Azure AD selecteren de indeling voor het kenmerk van NameID (gebruikers-id) op basis van het geselecteerde of de indeling die is aangevraagd door de toepassing in het SAML-AuthRequest. Ga naar het artikel voor meer informatie [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy.
+Azure AD worden geselecteerd voor de indeling voor de **NameID** kenmerk (gebruikers-id) op basis van de waarde die geselecteerd of de indeling die door de app in de SAML-AuthRequest wordt aangevraagd. Zie voor meer informatie de sectie "NameIDPolicy" van [eenmalige aanmelding in de SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 
-## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>De toepassing wordt verwacht dat een andere handtekening-methode voor het SAML-antwoord
+## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>De app wordt verwacht dat een andere handtekening-methode voor het SAML-antwoord
 
-Om te wijzigen welke onderdelen van het SAML-token digitaal zijn ondertekend door Azure Active Directory. Volg deze stappen:
+Als u wilt wijzigen welke onderdelen van het SAML-token digitaal zijn ondertekend door Azure AD, de volgende stappen uit:
 
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [Azure-portal](https://portal.azure.com/) en meld u aan als een globale beheerder of co-beheerder.
 
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Selecteer **alle services** aan de bovenkant van het navigatiedeelvenster aan de linkerkant om te openen van de Azure AD-extensie.
 
-3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Type **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens **Azure Active Directory**.
 
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Selecteer **bedrijfstoepassingen** in het navigatievenster van de Azure AD.
 
-5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Selecteer **alle toepassingen** om een lijst van uw apps weer te geven.
 
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
+   > [!NOTE]
+   > Als u de toepassing die u wilt niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen**. Stel de **weergeven** optie "Alle toepassingen."
 
-6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de toepassing wordt geladen, selecteert u **eenmalige aanmelding** in het navigatiedeelvenster.
 
-8. Klik op **geavanceerde instellingen voor het ondertekenen van certificaat weergeven** onder de **SAML-handtekeningcertificaat** sectie.
+8. Onder **SAML-handtekeningcertificaat**, selecteer **geavanceerde instellingen voor het ondertekenen van certificaat weergeven**.
 
-9. Selecteer de juiste **ondertekening optie** werd verwacht door de toepassing:
+9. Selecteer de **ondertekening optie** die de app wordt verwacht dat een van deze opties:
 
-   * SAML-antwoord ondertekenen
+   * **SAML-antwoord ondertekenen**
+   * **SAML-antwoord en -bewering ondertekenen**
+   * **SAML-bewering ondertekenen**
 
-   * SAML-antwoord en -bewering ondertekenen
+   De volgende keer dat de gebruiker zich aanmeldt bij de app, ondertekent Azure AD het deel van het SAML-antwoord dat u hebt geselecteerd.
 
-   * SAML-bewering ondertekenen
+## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>De app wordt verwacht dat het algoritme voor ondertekening van SHA-1
 
-Wanneer de gebruiker zich aanmeldt bij de toepassing Azure AD zich opnieuw aanmeldt het deel van het SAML-antwoord dat is geselecteerd.
-
-## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>De toepassing wordt verwacht dat het algoritme voor ondertekening SHA-1
-
-Azure AD zich standaard het SAML-token met de meeste beveiligingsalgoritme. Wijzigen van het teken-algoritme in SHA-1 wordt niet aanbevolen, tenzij dit vereist door de toepassing.
+Standaard wordt met Azure AD het SAML-token ondertekent met behulp van de meest veilige algoritme. We raden u niet te wijzigen naar het algoritme voor ondertekening *SHA-1* , tenzij de app is SHA-1 vereist.
 
 Als u wilt wijzigen van het algoritme voor ondertekening, de volgende stappen uit:
 
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [Azure-portal](https://portal.azure.com/) en meld u aan als een globale beheerder of co-beheerder.
 
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Selecteer **alle services** aan de bovenkant van het navigatiedeelvenster aan de linkerkant om te openen van de Azure AD-extensie.
 
-3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Type **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens **Azure Active Directory**.
 
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Selecteer **bedrijfstoepassingen** in het navigatievenster van de Azure AD.
 
-5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Selecteer **alle toepassingen** om een lijst van uw toepassingen weer te geven.
 
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
+   > [!NOTE]
+   > Als u de toepassing die u wilt niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen**. Stel de **weergeven** optie "Alle toepassingen."
 
-6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de app die u wilt configureren voor eenmalige aanmelding.
 
-7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de app wordt geladen, selecteert u **eenmalige aanmelding** in het navigatiedeelvenster aan de linkerkant van de app.
 
-8. Klik op **geavanceerde instellingen voor het ondertekenen van certificaat weergeven** onder de **SAML-handtekeningcertificaat** sectie.
+8. Onder **SAML-handtekeningcertificaat**, selecteer **geavanceerde instellingen voor het ondertekenen van certificaat weergeven**.
 
-9. SHA-1, selecteert u in de **handtekeningalgoritme**.
+9. Selecteer **SHA-1** als de **handtekeningalgoritme**.
 
-Wanneer de gebruiker zich aanmeldt bij de toepassing Azure AD zich opnieuw aanmeldt het SAML-token met behulp van-algoritme SHA-1.
+   De volgende keer dat de gebruiker zich aanmeldt bij de app, wordt Azure AD het SAML-token ondertekenen met behulp van het algoritme SHA-1.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+[Fouten opsporen in SAML gebaseerde eenmalige aanmelding tot toepassingen in Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).

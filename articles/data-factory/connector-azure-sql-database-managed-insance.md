@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9208ceeb760bba97c12b23a1b6e5bdff7efc9020
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048591"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274830"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database Managed Instance met behulp van Azure Data Factory
 
@@ -33,7 +33,11 @@ Specifiek, ondersteunt deze Azure SQL Database Managed Instance-connector:
 - Als een bron, het ophalen van gegevens met behulp van een SQL-query of een opgeslagen procedure.
 - Als een sink, gegevens toevoegen aan een tabel van de bestemming of het aanroepen van een opgeslagen procedure met aangepaste logica tijdens het kopiëren.
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) wordt niet ondersteund. 
+>[!NOTE]
+>Azure SQL Database Managed Instance **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)** wordt niet ondersteund door deze connector nu. Als u wilt omzeilen, kunt u [algemene ODBC connector](connector-odbc.md) en SQL Server-ODBC-stuurprogramma via zelfgehoste Cloudintegratieruntime. Ga als volgt [deze richtlijnen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) met ODBC-stuurprogramma downloaden en connection string configuraties.
+
+>[!NOTE]
+>Service principal en beheerde identiteit verificaties worden momenteel niet ondersteund door deze connector en op het plan om in te schakelen snel na. Voor nu aan de tijdelijke oplossing, kunt u de server van uw beheerde exemplaar voor Azure SQL Database-connector en handmatig opgeven.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -57,7 +61,7 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
 | connectionString |Deze eigenschap geeft u de connectionString-informatie die nodig is om verbinding met het beheerde exemplaar met behulp van SQL-verificatie. Zie voor meer informatie de volgende voorbeelden. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault, en als het SQL-verificatie pull de `password` configuratie buiten de verbindingsreeks. Zie het JSON-voorbeeld onder de tabel en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. |Ja. |
 | connectVia | Dit [integratieruntime](concepts-integration-runtime.md) wordt gebruikt voor verbinding met het gegevensarchief. U kunt zelfgehoste Cloudintegratieruntime of Azure Integration Runtime (als uw beheerde exemplaar openbaar eindpunt heeft en u ADF kunt voor toegang tot) gebruiken. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Ja. |
 
-**Voorbeeld 1: SQL-verificatie gebruiken**
+**Voorbeeld 1: SQL-verificatie gebruiken** standaardpoort is 1433. Als u van SQL Managed Instance met openbare eindpunt gebruikmaakt, moet u expliciet poort 3342 opgeven.
 
 ```json
 {
@@ -67,7 +71,7 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -78,7 +82,7 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
 }
 ```
 
-**Voorbeeld 2: SQL-verificatie gebruiken met een wachtwoord in Azure Key Vault**
+**Voorbeeld 2: SQL-verificatie gebruiken met een wachtwoord in Azure Key Vault** standaardpoort is 1433. Als u van SQL Managed Instance met openbare eindpunt gebruikmaakt, moet u expliciet poort 3342 opgeven.
 
 ```json
 {
@@ -88,7 +92,7 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 

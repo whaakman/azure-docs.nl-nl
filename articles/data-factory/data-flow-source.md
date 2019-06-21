@@ -3,16 +3,15 @@ title: Instellen van een transformatie in de functie gegevensstroom toewijzing v
 description: Meer informatie over het instellen van de transformatie van een bron in de gegevensstroom toewijzen.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67117883"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190808"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>De transformatie van de bron voor het toewijzen van gegevensstroom 
 
@@ -124,6 +123,14 @@ Als de bron in SQL-Database of SQL Data Warehouse is, hebt u extra opties voor h
 
 * **Query**: Voer een SQL-query voor de bron. Deze instelling overschrijft elke tabel die u hebt gekozen in de gegevensset. Houd er rekening mee dat **Order By** componenten hier worden niet ondersteund, maar u kunt een volledige instructie SELECT FROM instellen. U kunt ook de gebruiker gedefinieerde functies gebruiken. **Selecteer * uit udfGetData()** is een UDF in SQL die een tabel retourneert. Deze query wordt een tabel die u in uw gegevensstroom gebruiken kunt produceren.
 * **Batchgrootte**: Voer een batchgrootte voor grote hoeveelheden gegevens naar leesbewerkingen wordt verdeeld.
+* **Het isolatieniveau**: Standaard voor SQL-bronnen in ADF toewijzing gegevens stromen is lezen niet-doorgevoerde. U kunt hier het isolatieniveau op een van deze waarden wijzigen:
+* Lezen die zijn toegewezen
+* Niet-doorgevoerde lezen
+* Herhaalbare lezen
+* Serializovat.
+* Geen (Negeer isolatieniveau)
+
+![Het isolatieniveau](media/data-flow/isolationlevel.png "isolatieniveau")
 
 > [!NOTE]
 > Bestandsbewerkingen uitvoeren alleen als u de gegevensstroom vanuit een pijplijn worden uitgevoerd starten (een pijplijn foutopsporing of uitvoering uitvoeren) die gebruikmaakt van de activiteit gegevensstroom uitvoeren in een pijplijn. Bestand operations *niet* uitvoeren in de foutopsporingsmodus gegevensstroom.

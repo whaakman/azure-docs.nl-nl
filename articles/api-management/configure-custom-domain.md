@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74552f2d4bea495c0278ef6ed4a408188752a7e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141301"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274973"
 ---
 # <a name="configure-a-custom-domain-name"></a>Een aangepaste domeinnaam configureren 
 
@@ -49,7 +49,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
    + **SCM** (standaard: `<apim-service-name>.scm.azure-api.net`).
 
      >[!NOTE]
-     > U kunt alle van de eindpunten of een deel van deze bijwerken. Normaal gesproken klanten bijwerken **Proxy** (deze URL wordt gebruikt voor het aanroepen van de API die toegankelijk is via API Management) en **Portal** (de ontwikkelaarsportal URL). **Management** en **SCM** eindpunten wordt intern gebruikt door APIM-klanten en dus minder vaak een aangepaste domeinnaam toegewezen.
+     > U kunt alle van de eindpunten of een deel van deze bijwerken. Normaal gesproken klanten bijwerken **Proxy** (deze URL wordt gebruikt voor het aanroepen van de API die toegankelijk is via API Management) en **Portal** (de ontwikkelaarsportal URL). **Management** en **SCM** eindpunten wordt intern gebruikt door APIM-klanten en dus minder vaak een aangepaste domeinnaam toegewezen. In de meeste gevallen kan alleen een één aangepaste domeinnaam voor een bepaald eindpunt worden ingesteld. Echter, de **Premium** laag ondersteunt het instellen van meerdere hostnamen voor de **Proxy** eindpunt.  
 
 1. Selecteer het eindpunt dat u wilt bijwerken. 
 1. Klik in het venster aan de rechterkant, **aangepaste**.

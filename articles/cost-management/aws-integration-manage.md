@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870310"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275708"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Kosten voor AWS en gebruik in Azure beheren
 
@@ -129,6 +129,8 @@ Gebruik de volgende informatie voor het oplossen van problemen met veelvoorkomen
 
 ### <a name="no-permission-to-aws-linked-accounts"></a>Geen machtiging voor de gekoppelde AWS-accounts
 
+**Foutcode:** _Niet-geautoriseerde_
+
 Er zijn twee manieren machtigingen voor toegang tot kosten voor AWS gekoppelde accounts op te halen:
 
 - Krijg toegang tot de beheergroep die de gekoppelde AWS-accounts heeft.
@@ -136,7 +138,11 @@ Er zijn twee manieren machtigingen voor toegang tot kosten voor AWS gekoppelde a
 
 De maker van het AWS-connector is standaard de eigenaar van de objecten die de connector hebt gemaakt. Met inbegrip van de AWS geconsolideerde-account en de AWS-account gekoppeld.
 
+Om te kunnen controleren of de connector-instellingen moet u ten minste een rol rechten voor bijdragers, lezer kan niet controleren of de connector-instellingen
+
 ### <a name="collection-failed-with-assumerole"></a>Verzameling is mislukt met de AssumeRole
+
+**Foutcode:** _FailedToAssumeRole_
 
 Deze fout betekent dat Cost Management kan de AWS AssumeRole API aan te roepen. Dit probleem kan optreden vanwege een probleem met de roldefinitie van de. Controleer of dat de volgende voorwaarden voldaan wordt:
 
@@ -147,11 +153,23 @@ Deze fout betekent dat Cost Management kan de AWS AssumeRole API aan te roepen. 
 
 ### <a name="collection-failed-with-access-denied"></a>Verzameling is mislukt met de toegang geweigerd
 
-Dit bericht betekent dat Cost Management kan geen toegang tot de huidige bestanden die zijn opgeslagen in de Amazon S3-bucket. Zorg ervoor dat de AWS JSON-beleid dat is gekoppeld aan de rol lijkt op het voorbeeld wordt weergegeven aan de onderkant van de [maken van een rol en het beleid in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) sectie.
+- **Foutcode:** _AccessDeniedReportDefinitions_ 
+- **Foutcode:** _AccessDeniedListReports_ 
+- **Foutcode:** _AccessDeniedDownloadReport_ 
 
-### <a name="connector-error-with-failedtofindreport"></a>Connector-fout opgetreden bij het FailedToFindReport
+Deze fout betekent dat Cost Management kan geen toegang tot de huidige bestanden die zijn opgeslagen in de Amazon S3-bucket-berichten. Zorg ervoor dat de AWS JSON-beleid dat is gekoppeld aan de rol lijkt op het voorbeeld wordt weergegeven aan de onderkant van de [maken van een rol en het beleid in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) sectie.
+
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Verzameling is mislukt, omdat we niet is gevonden, de kosten en het gebruiksrapport
+
+**Foutcode:** _FailedToFindReport_
 
 Deze fout betekent dat de kosten en gebruik rapport dat is gedefinieerd in de connector kan niet vinden Cost Management. Zorg ervoor dat deze wordt niet verwijderd en dat de AWS JSON-beleid dat is gekoppeld aan de rol lijkt op het voorbeeld wordt weergegeven aan de onderkant van de [maken van een rol en het beleid in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) sectie.
+
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>Kan niet maken of te controleren of de connector vanwege kosten en het gebruiksrapport voor definities van niet-overeenkomend
+
+**Foutcode:** _ReportIsNotValid_
+
+Deze fout is gekoppeld aan de definitie van de kosten voor AWS en gebruiksrapport, we bepaalde instellingen vereist voor dit rapport, Zie de vereisten in [maken van een rapport kosten en gebruik in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: fed991193e8d4a1f8e4e2fcf75ef8e2bf0d0a8d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074299"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144394"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -150,7 +150,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |PartitionPrefix|tekenreeks, standaardwaarde is '--'|Statisch|Hiermee bepaalt u de partitie voorvoegsel string-waarde in de DNS-query's voor gepartitioneerde services. De waarde: <ul><li>Moet zijn RFC-compatibele omdat deze deel van een DNS-query uitmaken.</li><li>Mag niet een punt, '.', zoals stip gedrag van DNS-achtervoegsel verstoort.</li><li>Mag niet langer zijn dan 5 tekens.</li><li>Mag geen lege tekenreeks zijn.</li><li>Als de instelling PartitionPrefix wordt overschreven, wordt de PartitionSuffix moet worden vervangen, en vice versa.</li></ul>Zie voor meer informatie, [DNS aan Service Fabric.](service-fabric-dnsservice.md).|
 |PartitionSuffix|tekenreeks, standaardwaarde is ""|Statisch|Hiermee bepaalt u de partitie achtervoegsel string-waarde in de DNS-query's voor gepartitioneerde services. De waarde: <ul><li>Moet zijn RFC-compatibele omdat deze deel van een DNS-query uitmaken.</li><li>Mag niet een punt, '.', zoals stip gedrag van DNS-achtervoegsel verstoort.</li><li>Mag niet langer zijn dan 5 tekens.</li><li>Als de instelling PartitionPrefix wordt overschreven, wordt de PartitionSuffix moet worden vervangen, en vice versa.</li></ul>Zie voor meer informatie, [DNS aan Service Fabric.](service-fabric-dnsservice.md). |
 
-## <a name="eventstore"></a>EventStore
+## <a name="eventstoreservice"></a>EventStoreService
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |

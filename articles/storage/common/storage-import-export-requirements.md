@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478586"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147951"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systeemvereisten
 
@@ -41,7 +41,7 @@ Voor het voorbereiden van de harde schijven met het hulpprogramma WAImportExport
 
 Azure Import/Export-service ondersteunt de volgende typen opslagaccounts:
 
-- Algemeen gebruik v2 storage-accounts (aanbevolen voor de meeste scenario's)
+- Standaard voor algemeen gebruik v2-opslagaccounts (aanbevolen voor de meeste scenario's)
 - Blob Storage-accounts
 - Storage-accounts voor algemeen gebruik v1 (zowel klassieke als Azure Resource Manager-implementaties), 
 

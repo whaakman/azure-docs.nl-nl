@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 311015aff5ea7020043ad8e43fd987144cdcbf52
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074265"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206739"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Schalen van één database-resources in Azure SQL Database
 
@@ -56,7 +56,7 @@ Wijzigen van de service tier of compute-grootte van een individuele database voo
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latentie van de service tier of schaling aanpassen compute grootte te wijzigen
 
-De latentie te wijzigen van de servicelaag of de compute-grootte van een individuele database of elastische pool oorspronkelijke met parameters als volgt:
+De geschatte latentie te wijzigen van de servicelaag of de compute-grootte van een individuele database of elastische pool oorspronkelijke met parameters als volgt:
 
 |Servicelaag|Één Basic-database,</br>Standard (S0-S1)|Basisbeperkingen voor elastische groepen,</br>Standard (S2-S12) </br>Zeer grootschalige, </br>Algemeen doel individuele database of elastische pool|Premium en bedrijfskritiek individuele database of elastische pool|
 |:---|:---|:---|:---|

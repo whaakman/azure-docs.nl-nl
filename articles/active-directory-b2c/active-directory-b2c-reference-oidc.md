@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509207"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271963"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web-aanmelding met OpenID verbinding maken in Azure Active Directory B2C
 
@@ -152,7 +153,9 @@ Nadat u de ID-token hebt gevalideerd, kunt u een sessie beginnen met de gebruike
 
 Als u uw webtoepassing met gebruikersstromen alleen worden uitgevoerd, kunt u de volgende gedeelten overslaan. Deze secties zijn alleen van toepassing op toepassingen die u wilt aanbrengen geverifieerde aanroepen naar een web-API en ook worden beveiligd door Azure AD B2C.
 
-De autorisatiecode die u hebt aangeschaft, kun je (met behulp van `response_type=code+id_token`) voor een token naar de gewenste resource door te sturen een `POST` aanvragen naar de `/token` eindpunt. Op dit moment is de enige bron die u kunt een token voor aanvragen uw web-API van de back-end in de toepassing. De overeenkomst voor het aanvragen van een token aan uzelf is het gebruik van de client-ID van uw toepassing als het bereik:
+De autorisatiecode die u hebt aangeschaft, kun je (met behulp van `response_type=code+id_token`) voor een token naar de gewenste resource door te sturen een `POST` aanvragen naar de `/token` eindpunt. In Azure AD B2C, kunt u [toegangstokens aanvragen voor andere API's](active-directory-b2c-access-tokens.md#request-a-token) gewoon door op te geven hun of meer bereiken in de aanvraag.
+
+U kunt ook een toegangstoken voor uw back-end Web-API van de app vragen volgens de conventies van het gebruik van de client-ID van de app als het aangevraagde bereik (die resulteert in een toegangstoken met deze client-ID als de "doelgroep"):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157369"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203064"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure certificaatverificatie configureren: Azure Portal
 
@@ -98,7 +98,7 @@ De clientadrespool bestaat uit een privé-IP-adresbereik dat u opgeeft. De clien
 2. Klik op **Nu configureren** om de configuratiepagina te openen.
 
    ![Nu configureren](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. Op de pagina **Punt-naar-site-configuratie** kunt u in het vak **Adresgroep** het bereik met privé-IP-adressen toevoegen dat u wilt gebruiken. VPN-clients ontvangen dynamisch een IP-adres uit het bereik dat u opgeeft. Klik op **Opslaan** om de instelling te valideren en op te slaan.
+3. Op de pagina **Punt-naar-site-configuratie** kunt u in het vak **Adresgroep** het bereik met privé-IP-adressen toevoegen dat u wilt gebruiken. VPN-clients ontvangen dynamisch een IP-adres uit het bereik dat u opgeeft. De minimale subnetmasker is 29 bits voor actief/passief en 28 bits voor actief/actief-configuratie. Klik op **Opslaan** om de instelling te valideren en op te slaan.
 
    ![Clientadresgroep](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 

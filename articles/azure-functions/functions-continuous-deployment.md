@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: d4d2f24a0a7b1f01627ed2cea4a5732ca0e001c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068433"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190482"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Doorlopende implementatie voor Azure Functions
 
@@ -32,7 +32,7 @@ De eenheid van de implementatie voor Azure functions is de functie-app. Dit bete
 
 ## <a name="requirements-for-continuous-deployment"></a>Vereisten voor continue implementatie
 
-Voor continue implementatie is voltooid, de directorystructuur van uw moet compatibel zijn de volgende eenvoudige mapstructuur die Azure Functions wordt verwacht dat:
+Voor continue implementatie is voltooid, moet de directorystructuur van uw compatibel zijn met de volgende eenvoudige mapstructuur die Azure Functions wordt verwacht dat:
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,13 +44,15 @@ Gebruik deze procedure om continue implementatie voor een bestaande functie-app 
 
     ![De implementatiecenter openen](./media/functions-continuous-deployment/platform-features.png)
 
-2. Op de **Implementatiecentrum**, selecteer **GitHub** voor **broncodebeheer** > **autoriseren**.
+2. In de **Implementatiecentrum**, selecteer **GitHub**, en selecteer vervolgens **autoriseren**. Of, als u hebt al GitHub gemachtigd, selecteert u **doorgaan**. 
 
     ![Implementatiecenter](./media/functions-continuous-deployment/github.png)
 
-3. Selecteer **autoriseren AzureAppService** > **blijven**.
+3. Selecteer in GitHub, **autoriseren AzureAppService**. 
 
     ![Autoriseren](./media/functions-continuous-deployment/authorize.png)
+    
+    In de Azure-portal **Implementatiecentrum**, selecteer **doorgaan**.
 
 4. Selecteer een van de volgende build-providers:
 

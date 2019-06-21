@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91f15f9c19b480d950b2c715e6d9290e01184cf7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510644"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272372"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -49,6 +49,12 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 * Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen.
 * Ondersteuning voor stromen.
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd.
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+
+* Schrijven aanvragen toestaan om terugvallen op een andere regio als de oorspronkelijke een mislukt
+* Beleid voor opnieuw proberen voor schrijfaanvraag sessies toevoegen
+* Oplossingen voor het traceren van racevoorwaarde voor query's waardoor lege pagina 's
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -251,6 +257,7 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |18 juni 2019 |--- |
 | [2.4.0](#2.4.0) |05 mei 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |
 | [2.2.3](#2.2.3) |11 maart 2019 |--- |

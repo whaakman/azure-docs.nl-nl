@@ -9,11 +9,11 @@ ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160092"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176034"
 ---
 Het concept van de Azure Compute Unit (ACU) biedt een manier om (CPU)-computerprestaties in Azure-SKU's vergelijken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
 
@@ -24,7 +24,7 @@ Het concept van de Azure Compute Unit (ACU) biedt een manier om (CPU)-computerpr
 
 <br>
 
-| SKU-familie | ACU \ vCPU | vCPU: Kern |
+| SKU-familie | ACU \ vCPU | vCPU: Core |
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1 - A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |

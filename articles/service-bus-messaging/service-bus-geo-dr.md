@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058171"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190147"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-noodherstel
 
@@ -62,6 +62,17 @@ Het installatieproces is als volgt:
 2. Richt een ***secundaire*** Service Bus Premium Namespace in een regio *af van waar de primaire naamruimte is ingericht*. Hiermee kunt u foutisolatie toestaan via verschillende datacenterregio's.
 
 3. Maken van de koppeling tussen de primaire naamruimte en de secundaire naamruimte verkrijgen van de ***alias***.
+
+    >[!NOTE] 
+    > Als u hebt [uw Azure Service Bus Standard-naamruimte migreren naar Azure Service Bus Premium](service-bus-migrate-standard-premium.md), moet u de bestaande alias (dat wil zeggen de Service Bus Standard-naamruimte verbindingsreeks) gebruiken om te maken van het herstel na noodgevallen configuratie met behulp van de **PS/CLI** of **REST-API**.
+    >
+    >
+    > Dit is omdat tijdens de migratie, wordt de Azure Service Bus Standard connection string/DNS-naam van uw naamruimte zelf een alias aan uw Azure Service Bus Premium-naamruimte.
+    >
+    > Uw client-toepassingen moeten gebruikmaken van deze alias (dat wil zeggen de Azure Service Bus Standard-naamruimte connection string) verbinding maken met de Premium-naamruimte waar de disaster recovery koppelen is ingesteld.
+    >
+    > Als u de Portal gebruiken om in te stellen de configuratie van het herstel na noodgevallen, wordt deze voorbehoud van u abstracte op de portal.
+
 
 4. Gebruik de ***alias*** ingeschakeld hebt verkregen in stap 3 om uw clienttoepassingen naar de Geo-DR verbinden met primaire naamruimte. In eerste instantie de alias verwijst naar de primaire naamruimte.
 

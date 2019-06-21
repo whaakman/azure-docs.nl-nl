@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252677"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274939"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Berichtroutering en Event Grid vergelijken voor IoT-Hub
 
@@ -64,7 +64,7 @@ IoT Hub-berichtroutering en de IoT Hub-integratie met Event Grid verschillende b
 
    IoT Hub-berichtroutering ondersteunt beperkt aantal unieke eindpunten en eindpunttypen, maar u kunt connectors voor het omleiden van de gegevens en gebeurtenissen naar extra eindpunten maken. Zie voor een volledige lijst van ondersteunde eindpunten, de tabel in de vorige sectie. 
 
-   500 eindpunten per IoT-Hub en een groter aantal eindpunttypen biedt ondersteuning voor de IoT Hub-integratie met Event Grid. Het naively kan worden geïntegreerd met Azure Functions, Logic Apps, opslag en Service Bus-wachtrijen en werkt ook met webhooks voor het verzenden van gegevens buiten het ecosysteem van Azure-service en in de derde partij business-toepassingen uitbreiden.
+   500 eindpunten per IoT-Hub en een groter aantal eindpunttypen biedt ondersteuning voor de IoT Hub-integratie met Event Grid. Het systeemeigen kan worden geïntegreerd met Azure Functions, Logic Apps, opslag en Service Bus-wachtrijen en werkt ook met webhooks voor het verzenden van gegevens buiten het ecosysteem van Azure-service en in de derde partij business-toepassingen uitbreiden.
 
 * **Maakt het uit of uw gegevens in volgorde binnenkomen?**
 

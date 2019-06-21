@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: d88fda62c59d01a3703fdb583e0881aa8478a6cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: acd873cd19cafb785f968fd3d8671640bcfafed8
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050763"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163708"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -136,7 +136,7 @@ az functionapp config appsettings set --name <APP_NAME> \
 --resource-group <RESOURCE_GROUP> \
 --settings "JAVA_OPTS=-Djava.awt.headless=true"
 ```
-In dit voorbeeld wordt een ' headless '-modus. Vervang `<APP_NAME>` met de naam van uw functie-app en `<RESOURCE_GROUP> ` met de resourcegroep.
+In dit voorbeeld wordt een ' headless '-modus. Vervang `<APP_NAME>` met de naam van uw functie-app en `<RESOURCE_GROUP>` met de resourcegroep.
 
 > [!WARNING]  
 > In de [verbruiksabonnement](functions-scale.md#consumption-plan), u moet toevoegen de `WEBSITE_USE_PLACEHOLDER` instellen met een waarde van `0`.  

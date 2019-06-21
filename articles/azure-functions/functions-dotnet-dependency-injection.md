@@ -10,19 +10,21 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, glenga, cshoe
-ms.openlocfilehash: b1a6751f0d788c26af60b28eee994dc9b3877f00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.author: jehollan, cshoe
+ms.openlocfilehash: 9f932bf92cb3871af7f0eb294ac15dec82cdc8ba
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693261"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274242"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Afhankelijkheidsinjectie gebruiken in .NET Azure Functions
 
 Azure Functions biedt ondersteuning voor de afhankelijkheid injectie (DI) software ontwerppatroon, dit is een techniek te bereiken [tekenomkering van het besturingselement (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) tussen klassen en de bijbehorende afhankelijkheden.
 
 Azure Functions voortbouwt op de functies van ASP.NET Core-Afhankelijkheidsinjectie. Wordt op de hoogte van services, levensduur en ontwerppatronen van [ASP.NET Core-afhankelijkheidsinjectie](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) voordat u DI-functies in een Azure-Functions app wordt aanbevolen.
+
+Ondersteuning voor afhankelijkheidsinjectie met Azure Functions begint 2.x.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,13 +34,22 @@ Voordat u afhankelijkheidsinjectie gebruiken kunt, moet u de volgende NuGet-pakk
 
 - [Pakket Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versie 1.0.28 of hoger
 
+- Optioneel: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) alleen voor het registreren van httpclient maakt bij het opstarten is vereist
+
 ## <a name="register-services"></a>Services registreren
 
 Voor het registreren van services, kunt u een methode voor het configureren en het toevoegen van onderdelen voor het maken een `IFunctionsHostBuilder` exemplaar.  De host van de Azure Functions maakt een exemplaar van `IFunctionsHostBuilder` en geeft deze rechtstreeks in de methode.
 
-Voor het registreren van de methode, voeg de `FunctionsStartup` assembly-kenmerk met de typenaam gebruikt tijdens het opstarten.
+Voor het registreren van de methode, voeg de `FunctionsStartup` assembly-kenmerk met de typenaam gebruikt tijdens het opstarten. Ook code verwijst naar een voorlopige versie van [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) op Nuget.
 
 ```csharp
+using System;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Cosmos;
+
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
 namespace MyNamespace
@@ -62,6 +73,16 @@ namespace MyNamespace
 ASP.NET Core gebruikt constructor injectie om de afhankelijkheden beschikbaar zijn voor uw functie te maken. Het volgende voorbeeld laat zien hoe de `IMyService` en `HttpClient` afhankelijkheden zijn opgenomen in een HTTP-geactiveerde functie.
 
 ```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+
 namespace MyNamespace
 {
     public class HttpTrigger

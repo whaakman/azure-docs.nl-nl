@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 0cabc58d856c09accd9b1924fe63d6518b1cb9ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129995"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205783"
 ---
 Als u wilt verbinding maken met **SharePoint Online**, moet u uw identiteit (gebruikersnaam en wachtwoord, smartcard referenties van de kaart, enzovoort) te bieden tot SharePoint Online. Nadat u bent geverifieerd, kunt u doorgaan met het gebruik van de SharePoint Online connector in uw logische app. 
 

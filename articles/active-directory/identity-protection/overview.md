@@ -17,12 +17,12 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66015219"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204520"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Wat is Azure Active Directory Identity Protection?
 
@@ -59,7 +59,7 @@ Azure Active Directory Identity Protection is meer dan een controle- en rapporta
 - Biedt eenvoudige werkstromen voor het volgen van onderzoek
 - Eenvoudige toegang tot herstelacties, zoals wachtwoord opnieuw instellen
 
-**Beleid voor voorwaardelijke toegang op basis van risico's:**
+**Risico's gebaseerde beleidsregels voor voorwaardelijke toegang:**
 
 - Beleid voor riskante aanmeldingen beperken door het blokkeren van aanmeldingen of het vereisen van multi-factor authentication-uitdagingen
 - Beleid op blokkeren of accounts voor beveiligde riskante gebruikers

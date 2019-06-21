@@ -1,25 +1,17 @@
 ---
 title: Azure Resource Manager-sjabloon functions - matrices en objecten | Microsoft Docs
 description: Beschrijft de functies te gebruiken in een Azure Resource Manager-sjabloon voor het werken met matrices en objecten.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128709"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206379"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix- en -functies voor Azure Resource Manager-sjablonen
 

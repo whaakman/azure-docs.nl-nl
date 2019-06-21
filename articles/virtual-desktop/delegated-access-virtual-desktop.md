@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870503"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272811"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Gedelegeerde toegang in Windows Virtual Desktop Preview
 
@@ -42,11 +42,11 @@ Gedelegeerde toegang in Windows virtueel bureaublad heeft diverse ingebouwde rol
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>PowerShell-cmdlets voor roltoewijzingen
 
-U kunt de volgende cmdlets voor het maken, weergeven en bewerken van roltoewijzingen uitvoeren:
+U kunt de volgende cmdlets voor het maken, weergeven en verwijderen van roltoewijzingen uitvoeren:
 
 * **Get-RdsRoleAssignment** geeft een lijst van roltoewijzingen.
 * **Nieuwe RdsRoleAssignment** maakt u een nieuwe roltoewijzing.
-* **Set-RdsRoleAssignment** roltoewijzingen bewerkingen.
+* **Remove-RdsRoleAssignment** roltoewijzingen verwijderen.
 
 ### <a name="accepted-parameters"></a>Geaccepteerde parameters
 

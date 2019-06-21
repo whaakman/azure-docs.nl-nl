@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445682"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64706288"
 ---
 # <a name="microsoft-trust-center"></a>Vertrouwenscentrum van Microsoft
 De informatie over de beveiliging van Azure-website op Azure.com kunt u de informatie die u nodig hebt om te plannen, ontwerpen, implementeren, configureren en veilig beheren van uw cloudoplossingen. Met het Microsoft Trust center hebt u ook de informatie die u wilt er zeker van te zijn dat het Azure-platform waarop u uw services worden uitgevoerd veilig is.

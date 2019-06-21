@@ -6,23 +6,23 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238978"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165306"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
 Voor het delen van een aangepaste weergave in Time Series Insights Explorer, kunt u via programmacode een geparameteriseerde URL van de aangepaste weergave maken.
 
-De Verkenner van Time Series Insights ondersteunt URL-queryparameters om weergaven in de ervaring van rechtstreeks vanuit de URL opgeven. U kunt bijvoorbeeld via de URL een doelomgeving, een zoekpredicaat en de gewenste tijdspanne opgeven. Wanneer een gebruiker op de aangepaste URL klikt, biedt de interface een directe koppeling naar dat asset in de Time Series Insights-portal. Beleid voor gegevenstoegang wordt toegepast.
+De Verkenner van Time Series Insights ondersteunt URL-queryparameters om weergaven in de ervaring van rechtstreeks vanuit de URL opgeven. U kunt bijvoorbeeld via de URL een doelomgeving, een zoekpredicaat en de gewenste tijdspanne opgeven. Wanneer een gebruiker de aangepaste URL selecteert, bevat de interface een koppeling rechtstreeks naar dat asset in de Time Series Insights-portal. Beleid voor gegevenstoegang wordt toegepast.
 
 > [!TIP]
 > * Bekijk de gratis [Time Series Insights-demo](https://insights.timeseries.azure.com/samples).
