@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337026"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312296"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Gegevens transformeren in de cloud met behulp van een Spark-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure Portal om een pijplijn voor Azure Data Factory te maken. Deze pijplijn transformeert gegevens met behulp van een Spark-activiteit en een gekoppelde Azure HDInsight-service op aanvraag. 
@@ -147,7 +147,7 @@ In deze sectie maakt u twee gekoppelde services:
    
    b. Controleer of **On-demand HDInsight** is geselecteerd bij **Type**.
    
-   c. Selecteer **AzureStorage1** bij **Gekoppelde Azure Storage-service**. U hebt deze gekoppelde service al eerder gemaakt. Als u een andere naam hebt gebruikt, geeft u hier de juiste naam op. 
+   c. Voor **gekoppelde Azure Storage-Service**, selecteer **AzureBlobStorage1**. U hebt deze gekoppelde service al eerder gemaakt. Als u een andere naam hebt gebruikt, geeft u hier de juiste naam op. 
    
    d. Selecteer **spark** bij **Clustertype**.
    
@@ -189,7 +189,7 @@ In deze sectie maakt u twee gekoppelde services:
    ![De gekoppelde HDInsight-service opgeven](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Ga naar het tabblad **Script/Jar** en voer de volgende stappen uit: 
 
-   a. Selecteer **AzureStorage1** bij **Taakgekoppelde service**.
+   a. Voor **taak gekoppelde Service**, selecteer **AzureBlobStorage1**.
    
    b. Selecteer **In opslag bladeren**.
 
@@ -206,7 +206,7 @@ In deze sectie maakt u twee gekoppelde services:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Een pijplijnuitvoering activeren
-Selecteer op de werkbalk de optie **Activeren** en selecteer vervolgens **Nu activeren**. 
+Selecteer **Trigger toevoegen** op de werkbalk en selecteer vervolgens **nu activeren**. 
 
 ![De knoppen Activeren en Nu activeren](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Selecteer op de werkbalk de optie **Activeren** en selecteer vervolgens **Nu act
 
    ![Status pijplijnuitvoering](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Als u wilt terugkeren naar de vorige weergave, selecteert u **Pijplijnen** bovenaan.
+   U kunt wilt terugkeren naar de vorige weergave, selecteren de **alle Pijplijnuitvoeringen** koppelen aan de bovenkant.
 
    ![Uitvoering van activiteiten weergeven](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

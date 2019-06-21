@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417285"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304023"
 ---
 # <a name="what-is-text-analytics-api"></a>Wat is de Tekstanalyse-API?
 
@@ -89,7 +89,18 @@ Alle eindpunten van de Text Analytics-API accepteren onbewerkte tekstgegevens. D
 | Maximale grootte van de hele aanvraag | 1 MB |
 | Maximum aantal documenten in een aanvraag | 1000 documenten |
 
-De limiet is 100 aanvragen per seconde en 1000 aanvragen per minuut. Een groot aantal documenten in één aanroep (maximaal 1000 documenten), kunt u indienen.
+De frequentielimiet verschillen naargelang uw prijscategorie.
+
+| Laag          | Aanvragen per seconde | Aanvragen per minuut |
+|---------------|---------------------|---------------------|
+| Meerdere service | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+Aanvragen worden afzonderlijk voor elke functie Text Analytics gemeten. U kunt bijvoorbeeld het maximale aantal aanvragen van uw prijscategorie verzenden naar elke functie op hetzelfde moment.      
 
 ## <a name="unicode-encoding"></a>Unicode-codering
 

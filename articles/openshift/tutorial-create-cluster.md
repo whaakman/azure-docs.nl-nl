@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/14/2019
-ms.openlocfilehash: 651236c25ed912ebd7399d351677a67e3826278c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 9094fa441ff5ffdd5f579fd072ffaa303961314d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306187"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304277"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Zelfstudie: Een Azure Red Hat OpenShift-cluster maken
 
@@ -106,6 +106,10 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Optioneel: Virtueel netwerk van het cluster verbinden met een bestaand virtueel netwerk
 
 Als u niet nodig hebt om het virtuele netwerk (VNET) van het cluster dat u maken met een bestaande VNET via peering verbinding te maken, moet u deze stap overslaan.
+
+Als met een netwerk buiten het standaardabonnement vervolgens in het desbetreffende abonnement, moet u ook om de provider Microsoft.ContainerService te registreren. Om dit te doen, voer de onderstaande opdracht in het desbetreffende abonnement. Als de VNET-u bent peering bevindt zich in hetzelfde abonnement, kunt u anders de registreren stap overslaan. 
+
+`az provider register -n Microsoft.ContainerService --wait`
 
 Haal eerst de id van het bestaande VNET. De id van het formulier zijn: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 

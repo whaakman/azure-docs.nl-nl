@@ -10,16 +10,16 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 6e1681e4eca923e8e4ce541570b4ed4b3ba9d567
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 4a6a074c3f677023928fefa5c09eb305b5441dfe
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834422"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303978"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Het apparaat registreren bij een IoT-hub met behulp van IoT Hub Device Provisioning Service-client (.NET)
 
-In de vorige zelfstudie hebt u geleerd hoe u een apparaat kunt instellen om verbinding te maken met Device Provisioning Service. In deze zelfstudie leert u hoe u deze service gebruikt om uw apparaat in te richten voor één IoT-hub. U gebruikt daarvoor zowel **_Individuele registratie_** als **_Registratiegroepen_**. In deze zelfstudie ontdekt u hoe u:
+In de vorige zelfstudie hebt u geleerd hoe u een apparaat kunt instellen om verbinding te maken met Device Provisioning Service. In deze zelfstudie leert u hoe u deze service gebruikt om uw apparaat in te richten voor één IoT-hub. U gebruikt daarvoor zowel **_Individuele registratie_** als **_Registratiegroepen_** . In deze zelfstudie ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Het apparaat inschrijven
@@ -60,7 +60,7 @@ Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Ser
 
 1. Maak in Visual Studio een Visual C#-consoletoepassingsproject met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **DeviceProvisioning**.
     
-1. Klik in Solution Explorer met de rechtermuisknop op het project **DeviceProvisioning** en klik op **NuGet-pakketten beheren...**.
+1. Klik in Solution Explorer met de rechtermuisknop op het project **DeviceProvisioning** en klik op **NuGet-pakketten beheren...** .
 
 1. Selecteer in het venster **NuGet Package Manager** de optie **Bladeren** en zoek naar **microsoft.azure.devices.provisioning.service**. Selecteer de vermelding en klik op **Installeren** om het pakket **Microsoft.Azure.Devices.Provisioning.Service** te installeren en de gebruiksvoorwaarden te accepteren. Met deze procedure worden het NuGet-pakket van de [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
 
@@ -121,16 +121,16 @@ Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Ser
         SetRegistrationDataAsync().GetAwaiter().GetResult();
             
         Console.WriteLine("Done, hit enter to exit.");
-        Console.ReadLine();
     }
     catch (Exception ex)
     {
         Console.WriteLine();
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
+    Console.ReadLine();
     ```
         
-1. Klik in Solution Explorer van Visual Studio met de rechtermuisknop op uw oplossing en klik op **Set StartUp Projects...**. Selecteer **Single startup project** en selecteer het project **DeviceProvisioning** in de vervolgkeuzelijst.  
+1. Klik in Solution Explorer van Visual Studio met de rechtermuisknop op uw oplossing en klik op **Set StartUp Projects...** . Selecteer **Single startup project** en selecteer het project **DeviceProvisioning** in de vervolgkeuzelijst.  
 
 1. Voer de app voor het .NET-apparaat **DeviceProvisiong** uit. Deze moet de inrichting van het apparaat instellen: 
 

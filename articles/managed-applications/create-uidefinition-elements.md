@@ -47,7 +47,7 @@ Het schema voor de meeste elementen is als volgt:
 | toolTip | Nee | De tekst die moet worden weergegeven in de knopinfo van het element. Vergelijkbaar met `label`, bepaalde onderdelen van de ondersteuning van meerdere hulpprogramma tip tekenreeksen. Inlinelinks kan worden ingesloten Markdown-syntaxis gebruiken.
 | constraints | Nee | Een of meer eigenschappen die worden gebruikt voor het aanpassen van de werking van de validatie van het element. De ondersteunde eigenschappen voor beperkingen variëren per elementtype. Sommige elementtypen geen ondersteuning voor aanpassing van het validatiegedrag, en dus er is geen eigenschap beperkingen hebben. |
 | opties | Nee | Extra eigenschappen die het gedrag van het element aanpassen. Vergelijkbaar met `constraints`, de ondersteunde eigenschappen variëren per elementtype. |
-| Zichtbaar | Nee | Geeft aan of het element wordt weergegeven. Als `true`, het element en de betreffende onderliggende elementen worden weergegeven. De standaardwaarde is `true`. Gebruik [logische functies](create-uidefinition-functions.md#logical-functions) dynamisch beheren de waarde van deze eigenschap.
+| visible | Nee | Geeft aan of het element wordt weergegeven. Als `true`, het element en de betreffende onderliggende elementen worden weergegeven. De standaardwaarde is `true`. Gebruik [logische functies](create-uidefinition-functions.md#logical-functions) dynamisch beheren de waarde van deze eigenschap.
 
 ## <a name="elements"></a>Elementen
 

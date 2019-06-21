@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60571030"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312647"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
@@ -238,7 +238,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 
         ![Tweede opzoekactiviteit - nieuwe gegevensset](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Ga naar de pijplijneditor door op het pijplijntabblad bovenaan te klikken of door in de structuurweergave aan de linkerkant op de naam van de pijplijn te klikken. Bevestig in het venster Eigenschappen voor de **opzoekactiviteit** dat **SourceDataset** is geselecteerd in het veld **Brongegevensset**. 
-18. Selecteer **Query** in het veld **Query gebruiken** en voer de volgende query in: u selecteert alleen de maximumwaarde van **LastModifytime** uit **data_source_table**. Als u deze query niet hebt, worden met de gegevensset alle rijen uit de tabel opgehaald, omdat u de naam van de tabel (data_source_table) hebt opgegeven in de definitie van de gegevensset.
+18. Selecteer **Query** in het veld **Query gebruiken** en voer de volgende query in: u selecteert alleen de maximumwaarde van **LastModifytime** uit **data_source_table**. Zorg ervoor dat u hebt ook ingeschakeld **eerste rij alleen**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table

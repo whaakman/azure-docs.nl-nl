@@ -1,5 +1,5 @@
 ---
-title: C#Zelfstudie over search resultaten paginering - Azure Search
+title: C#zelfstudie over search resultaten paginering - Azure Search
 description: Deze zelfstudie bouwt voort op het project 'Van uw eerste toepassing - Azure Search maken', met de keuze van de twee typen van paginering. De eerste maakt gebruik van een reeks paginaknoppen, evenals eerste, volgende, vorige, en laatste pagina knoppen. Het tweede wisselbestand-systeem maakt gebruik van oneindige schuiven, geactiveerd door het verplaatsen van een verticale schuifbalk aan de ondergrens.
 services: search
 ms.service: search
@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 8820794382a377cdd3907327dc9c82cc6451e2d4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fc2f358921380803e89c7a8ed5c2ef0fc8e1e467
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166832"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304320"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>C#Zelfstudie: Search-resultaten paginering - Azure Search
+# <a name="c-tutorial-search-results-pagination---azure-search"></a>C#zelfstudie: Search-resultaten paginering - Azure Search
 
 Meer informatie over het implementeren van twee verschillende wisselbestand-systemen, de eerste op basis van pagina's en de tweede op oneindige schuiven. Beide systemen van wisselbestand die veelvuldig worden gebruikt en selecteren van de juiste is afhankelijk van de ervaring van de gebruiker die u met de resultaten dat wilt. In deze zelfstudie wordt het wisselbestand-systemen in het project hebt gemaakt in de [ C# zelfstudie: Uw eerste app maken - Azure Search](tutorial-csharp-create-first-app.md) zelfstudie.
 
@@ -47,7 +47,7 @@ De basis-Zoek-pagina-oplossing open is.
 
 2. Eerst enkele globale variabelen toevoegen. Globale variabelen zijn in MVC gedefinieerd in hun eigen statische klasse. **ResultsPerPage** Hiermee stelt u het aantal resultaten per pagina. **MaxPageRange** bepaalt het aantal zichtbare pagina getallen in de weergave. **PageRangeDelta** bepaalt het aantal pagina's naar links of rechts de paginabereik moet worden verplaatst, als u het nummer van de meest linkse of rechtse hebt geselecteerd. Doorgaans is dit laatste getal rond de helft van **MaxPageRange**. Voeg de volgende code in de naamruimte.
 
-```cs
+    ```cs
     public static class GlobalVariables
     {
         public static int ResultsPerPage
@@ -73,14 +73,14 @@ De basis-Zoek-pagina-oplossing open is.
             }
         }
     }
-```
+    ```
 
->[!Tip]
->Als u dit project op een apparaat met een kleinere scherm, zoals een laptop uitvoert, overweeg dan om wijzigen **ResultsPerPage** naar 2.
+    >[!Tip]
+    >Als u dit project op een apparaat met een kleinere scherm, zoals een laptop uitvoert, overweeg dan om wijzigen **ResultsPerPage** naar 2.
 
 3. Wisselbestand Voeg eigenschappen toe aan de **SearchData** klasse, bijvoorbeeld nadat de **Tekstdoorzoeken** eigenschap.
 
-```cs
+    ```cs
         // The current page being displayed.
         public int currentPage { get; set; }
 
@@ -95,15 +95,15 @@ De basis-Zoek-pagina-oplossing open is.
 
         // Used when page numbers, or next or prev buttons, have been selected.
         public string paging { get; set; }
-```
+    ```
 
 ### <a name="add-a-table-of-paging-options-to-the-view"></a>Een tabel van de opties voor serverpaginering toevoegen aan de weergave
 
 1. Open het bestand index.cshtml, en voeg de volgende code direct voor de afsluitende &lt;/body&gt; tag. Deze nieuwe code is een tabel met de opties voor serverpaginering: eerste, vorige, 1, 2, 3, 4, 5, komende, afgelopen.
 
-```cs
-@if (Model != null && Model.pageCount > 1)
-{
+    ```cs
+    @if (Model != null && Model.pageCount > 1)
+    {
     // If there is more than one page of results, show the paging buttons.
     <table>
         <tr>
@@ -177,16 +177,16 @@ De basis-Zoek-pagina-oplossing open is.
             </td>
         </tr>
     </table>
-}
-```
+    }
+    ```
 
-We een HTML-tabel gebruiken om te dingen netjes uitlijnen. Maar alle actie afkomstig van is de @Html.ActionLink overzichten, elke aanroepen van de controller met een **nieuwe** model dat is gemaakt met verschillende vermeldingen dat moet worden de **wisselbestand** eigenschap die we eerder hebt toegevoegd.
+    We een HTML-tabel gebruiken om te dingen netjes uitlijnen. Maar alle actie afkomstig van is de @Html.ActionLink overzichten, elke aanroepen van de controller met een **nieuwe** model dat is gemaakt met verschillende vermeldingen dat moet worden de **wisselbestand** eigenschap die we eerder hebt toegevoegd.
 
-Opties voor de eerste en laatste pagina zenden geen tekenreeksen zoals 'first' en 'last', maar in plaats daarvan de juiste pagina's te verzenden.
+    Opties voor de eerste en laatste pagina zenden geen tekenreeksen zoals 'first' en 'last', maar in plaats daarvan de juiste pagina's te verzenden.
 
 2. Sommige wisselbestand-klassen toevoegen aan de lijst met HTML-stijlen in het bestand hotels.css. De **pageSelected** klasse is er voor het identificeren van de pagina die de gebruiker momenteel bekijkt is (door het aantal vet inschakelen) in de lijst van pagina's.
 
-```cs
+    ```html
         .pageButton {
             border: none;
             color: darkblue;
@@ -207,13 +207,13 @@ Opties voor de eerste en laatste pagina zenden geen tekenreeksen zoals 'first' e
             font-weight: bold;
             width: 50px;
         }
-```
+    ```
 
 ### <a name="add-a-page-action-to-the-controller"></a>De actie van een pagina toevoegen aan de controller
 
 1. Open het bestand HomeController.cs en voeg de **pagina** actie. Deze actie reageert op een van de Paginaopties geselecteerd.
 
-```cs
+    ```cs
         public async Task<ActionResult> Page(SearchData model)
         {
             try
@@ -255,16 +255,16 @@ Opties voor de eerste en laatste pagina zenden geen tekenreeksen zoals 'first' e
             }
             return View("Index", model);
         }
-```
+    ```
 
-De **RunQueryAsync** methode ziet nu een syntaxisfout, vanwege de derde parameter, die we eerst in een bit nagekeken worden.
+    De **RunQueryAsync** methode ziet nu een syntaxisfout, vanwege de derde parameter, die we eerst in een bit nagekeken worden.
 
-> [!Note]
-> De **TempData** aanroepen van een waarde opslaan (een **object**) in de tijdelijke opslag, maar deze opslag zich blijft voordoen voor _alleen_ één aanroep. Als er iets in tijdelijke gegevens opslaat, is beschikbaar voor de volgende aanroep van de actie van een domeincontroller, maar wordt hierna meest zeker worden voltooid door de aanroep van! Vanwege deze korte levensduur, slaan we de zoektekst en pagineringsopties back-ups maken in de tijdelijke opslag elke aanroep naar **pagina**.
+    > [!Note]
+    > De **TempData** aanroepen van een waarde opslaan (een **object**) in de tijdelijke opslag, maar deze opslag zich blijft voordoen voor _alleen_ één aanroep. Als er iets in tijdelijke gegevens opslaat, is beschikbaar voor de volgende aanroep van de actie van een domeincontroller, maar wordt hierna meest zeker worden voltooid door de aanroep van! Vanwege deze korte levensduur, slaan we de zoektekst en pagineringsopties back-ups maken in de tijdelijke opslag elke aanroep naar **pagina**.
 
 2. De **Index(model)** actie behoeften bijgewerkt voor het opslaan van de tijdelijke variabelen en om toe te voegen van de meest linkse paginaparameter voor de **RunQueryAsync** aanroepen.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
@@ -290,11 +290,11 @@ De **RunQueryAsync** methode ziet nu een syntaxisfout, vanwege de derde paramete
             }
             return View(model);
         }
-```
+    ```
 
 3. De **RunQueryAsync** methode behoeften aanzienlijk bijgewerkt. We gebruiken de **overslaan**, **boven**, en **IncludeTotalResultCount** velden van de **SearchParameters** klasse om aan te vragen van slechts één pagina aan resultaten, beginnend bij de **overslaan** instelling. We moet er ook voor het berekenen van de variabelen wisselbestand voor onze weergeven. Vervang de volledige methode door de volgende code.
 
-```cs
+    ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
         {
             InitSearch();
@@ -349,19 +349,19 @@ De **RunQueryAsync** methode ziet nu een syntaxisfout, vanwege de derde paramete
 
             return View("Index", model);
         }
-```
+    ```
 
 4. Tot slot moet een kleine wijziging aanbrengen in de weergave. De variabele **resultsList.Results.Count** bevat nu het aantal resultaten in één pagina (3 in ons voorbeeld), niet het totale aantal. Omdat we de **IncludeTotalResultCount** op true, wordt de variabele **resultsList.Count** bevat nu het totale aantal resultaten. Dus vinden waar het aantal resultaten wordt weergegeven in de weergave en dit wijzigen in de volgende code.
 
-```cs
+    ```cs
             // Show the result count.
             <p class="sampleText">
                 @Html.DisplayFor(m => m.resultList.Count) Results
             </p>
-```
+    ```
 
-> [!Note]
-> Er is een treffer prestaties, maar meestal niet veel van een door in te stellen **IncludeTotalResultCount** op waar, als dit totaal moet worden berekend met Azure Search. Met complexe gegevenssets is er een waarschuwing dat de waarde geretourneerd is een _aanpassing_. Voor de Hotelgegevens van onze, wordt het nauwkeurig zijn.
+    > [!Note]
+    > Er is een treffer prestaties, maar meestal niet veel van een door in te stellen **IncludeTotalResultCount** op waar, als dit totaal moet worden berekend met Azure Search. Met complexe gegevenssets is er een waarschuwing dat de waarde geretourneerd is een _aanpassing_. Voor de Hotelgegevens van onze, wordt het nauwkeurig zijn.
 
 ### <a name="compile-and-run-the-app"></a>Compileren en uitvoeren van de app.
 
@@ -397,16 +397,16 @@ Voor het implementeren van oneindige schuiven, laten we beginnen met het project
 
 1. Voeg eerst toe een **wisselbestand** eigenschap in op de **SearchData** klasse (in het modelbestand SearchData.cs).
 
-```cs
+    ```cs
         // Record if the next page is requested.
         public string paging { get; set; }
-```
+    ```
 
-Deze variabele is een tekenreeks, die 'volgende' bevat de volgende pagina van de resultaten moet worden verzonden of niet null zijn voor de eerste pagina van een zoekopdracht.
+    Deze variabele is een tekenreeks, die 'volgende' bevat de volgende pagina van de resultaten moet worden verzonden of niet null zijn voor de eerste pagina van een zoekopdracht.
 
 2. In hetzelfde bestand, en in de naamruimte, moet u een globale variabele klasse met één eigenschap toevoegen. Globale variabelen zijn in MVC gedefinieerd in hun eigen statische klasse. **ResultsPerPage** Hiermee stelt u het aantal resultaten per pagina. 
 
-```cs
+    ```cs
     public static class GlobalVariables
     {
         public static int ResultsPerPage
@@ -417,15 +417,15 @@ Deze variabele is een tekenreeks, die 'volgende' bevat de volgende pagina van de
             }
         }
     }
-```
+    ```
 
 ### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Toevoegen van een verticale schuifbalk aan de weergave
 
 1. Ga naar de sectie van het bestand index.cshtml waarin de resultaten worden weergegeven (deze begint met de  **@if (Model! = null)** ).
 
-1. Vervang de sectie met de volgende code. De nieuwe **&lt;div&gt;** sectie is om het gebied die moet worden schuifbare en voegt zowel een **overloop-y** kenmerk en een aanroep naar een **onscroll**functie, genaamd 'scrolled()', als volgt te werk.
+2. Vervang de sectie met de volgende code. De nieuwe **&lt;div&gt;** sectie is om het gebied die moet worden schuifbare en voegt zowel een **overloop-y** kenmerk en een aanroep naar een **onscroll**functie, genaamd 'scrolled()', als volgt te werk.
 
-```cs
+    ```cs
         @if (Model != null)
         {
             // Show the result count.
@@ -444,11 +444,11 @@ Deze variabele is een tekenreeks, die 'volgende' bevat de volgende pagina van de
                 }
             </div>
         }
-```
+    ```
 
 3. Direct onder de lus, nadat de &lt;/div&gt; code, voegt u de **verschoven** functie.
 
-```cs
+    ```javascript
         <script>
                 function scrolled() {
                     if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
@@ -464,9 +464,9 @@ Deze variabele is een tekenreeks, die 'volgende' bevat de volgende pagina van de
                     }
                 }
         </script>
-```
+    ```
 
-De **als** -instructie in het script hierboven tests om te zien als de gebruiker naar de onderkant van de verticale schuifbalk heeft geschoven. Als ze hebben, wordt een aanroep naar de **Start** controller is aangebracht in een actie met de naam **volgende**. Er is geen andere informatie nodig is door de netwerkcontroller, wordt de volgende pagina van de gegevens geretourneerd. Deze gegevens wordt vervolgens opgemaakt identieke HTML-stijlen te gebruiken als de oorspronkelijke pagina. Als er geen resultaten worden geretourneerd, niets wordt toegevoegd en dingen blijven als ze zijn.
+    De **als** -instructie in het script hierboven tests om te zien als de gebruiker naar de onderkant van de verticale schuifbalk heeft geschoven. Als ze hebben, wordt een aanroep naar de **Start** controller is aangebracht in een actie met de naam **volgende**. Er is geen andere informatie nodig is door de netwerkcontroller, wordt de volgende pagina van de gegevens geretourneerd. Deze gegevens wordt vervolgens opgemaakt identieke HTML-stijlen te gebruiken als de oorspronkelijke pagina. Als er geen resultaten worden geretourneerd, niets wordt toegevoegd en dingen blijven als ze zijn.
 
 ### <a name="handle-the-next-action"></a>De volgende actie verwerken
 
@@ -476,7 +476,7 @@ Er zijn slechts drie acties die moeten worden verzonden naar de controller: de e
 
 2. Vervang de **Index(model)** actie door de volgende code. Nu verwerkt de **wisselbestand** wanneer deze is null of is ingesteld op 'volgende' en de aanroep naar Azure Search worden verwerkt.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
@@ -534,13 +534,13 @@ Er zijn slechts drie acties die moeten worden verzonden naar de controller: de e
             }
             return View("Index", model);
         }
-```
+    ```
 
-Net als bij de genummerde wisselbestand-methode, gebruiken we de **overslaan** en **boven** zoekinstellingen om aan te vragen van alleen de gegevens die we nodig hebben wordt geretourneerd.
+    Net als bij de genummerde wisselbestand-methode, gebruiken we de **overslaan** en **boven** zoekinstellingen om aan te vragen van alleen de gegevens die we nodig hebben wordt geretourneerd.
 
 3. Voeg de **volgende** actie aan de home-controller. Houd er rekening mee hoe deze retourneert een lijst, elke twee elementen toe te voegen aan de lijst met hotel: de naam van een hotel en een beschrijving van het hotel. Deze indeling is ingesteld zodat deze overeenkomen met de **verschoven** van functie gebruik van de geretourneerde gegevens in de weergave.
 
-```cs
+    ```cs
         public async Task<ActionResult> Next(SearchData model)
         {
             // Set the next page setting, and call the Index(model) action.
@@ -560,13 +560,13 @@ Net als bij de genummerde wisselbestand-methode, gebruiken we de **overslaan** e
             // Rather than return a view, return the list of data.
             return new JsonResult(nextHotels);
         }
-```
+    ```
 
 4. Als er een syntaxisfout op **lijst&lt;tekenreeks&gt;** , voegt u de volgende **met behulp van** richtlijn naar de kop van de controller-bestand.
 
-```cs
-using System.Collections.Generic;
-```
+    ```cs
+    using System.Collections.Generic;
+    ```
 
 ### <a name="compile-and-run-your-project"></a>Compileren en uitvoeren van uw project
 
@@ -576,8 +576,8 @@ Selecteer nu **starten zonder foutopsporing** (of druk op F5).
 
     ![Oneindige scrollen door 'groep' resultaten](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
-> [!Tip]
-> Om ervoor te zorgen dat er een schuifbalk wordt weergegeven op de eerste pagina, de eerste pagina van de resultaten iets meer dan de hoogte van het gebied dat ze worden weergegeven in. In ons voorbeeld **.box1** heeft een hoogte van 30 pixels **.box2** heeft een hoogte van 100 pixels _en_ een ondermarge van 24 pixels. Elk item gebruikt dus 154 pixels. Drie vermeldingen duurt van 3 x 154 = 462 pixels. Om ervoor te zorgen dat een verticale schuifbalk wordt weergegeven, op het gebied voor de hoogte moet zijn ingesteld dat is kleiner dan 462 pixels, zelfs 461 werkt. Dit probleem doet zich alleen op de eerste pagina, daarna een schuifbalk wordt moet worden weergegeven. The line to update is: **&lt;div id="myDiv" style="width: 800px; height: 450px; overloop-y: schuiven;"onscroll="scrolled() "&gt;** .
+    > [!Tip]
+    > Om ervoor te zorgen dat er een schuifbalk wordt weergegeven op de eerste pagina, de eerste pagina van de resultaten iets meer dan de hoogte van het gebied dat ze worden weergegeven in. In ons voorbeeld **.box1** heeft een hoogte van 30 pixels **.box2** heeft een hoogte van 100 pixels _en_ een ondermarge van 24 pixels. Elk item gebruikt dus 154 pixels. Drie vermeldingen duurt van 3 x 154 = 462 pixels. Om ervoor te zorgen dat een verticale schuifbalk wordt weergegeven, op het gebied voor de hoogte moet zijn ingesteld dat is kleiner dan 462 pixels, zelfs 461 werkt. Dit probleem doet zich alleen op de eerste pagina, daarna een schuifbalk wordt moet worden weergegeven. The line to update is: **&lt;div id="myDiv" style="width: 800px; height: 450px; overloop-y: schuiven;"onscroll="scrolled() "&gt;** .
 
 2. Schuif omlaag helemaal tot aan de onderkant van de resultaten. U ziet hoe alle gegevens nu op de pagina met één weergave zijn. U kunt bladeren gaat helemaal terug naar de bovenkant zonder het activeren van de server-aanroepen.
 

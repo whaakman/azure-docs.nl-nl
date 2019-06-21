@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433334"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304299"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Project akoestische Unreal Bake zelfstudie
 Dit document beschrijft het proces voor het indienen van een akoestische bake met de extensie Unreal-editor.
@@ -208,7 +208,7 @@ Nadat de bake is voltooid, moet u controleren of de punten voxels en test in de 
 Er zijn vier gegevensbestanden die zijn gemaakt door deze invoegtoepassing op verschillende tijdstippen. Slechts één van deze is nodig tijdens runtime en wordt geplaatst in de map inhoud/akoestische van uw project, die wordt automatisch toegevoegd aan het pad van de verpakking van uw project. De andere drie zijn in de map akoestische gegevens en niet zijn verpakt.
 
 * **[Project]/Config/ProjectAcoustics.cfg**: Dit bestand slaat de gegevens die u in de velden in de gebruikersinterface van de modus akoestische invoeren. De locatie en naam van dit bestand kunnen niet worden gewijzigd. Er zijn andere waarden die zijn opgeslagen in dit bestand die invloed hebben op de bake, maar ze zijn bedoeld voor ervaren gebruikers en mag niet worden gewijzigd.
-* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: Dit bestand is wat wordt gemaakt tijdens de simulatie bake en bevat de opzoekgegevens gebruikt door de runtime voor de akoestische van uw scène renderen. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
+* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: Dit bestand is wat wordt gemaakt tijdens de simulatie bake en bevat de opzoekgegevens gebruikt door de runtime voor de akoestische van uw scène renderen. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad. Als u dit bestand op de naam wijzigen wilt nadat deze is gemaakt, de UAsset verwijderen uit uw Unreal-project, naam van het bestand buiten Unreal in Windows Verkenner en dit bestand opnieuw in Unreal voor het produceren van een nieuwe UAsset te importeren. Naam van de UAsset zelf werkt niet.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: Dit bestand wordt opgeslagen de voxelized akoestische geometrie en eigenschappen van het materiaal. Berekend op basis van de **berekenen** knop op de **tests** tabblad. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: Dit bestand wordt opgeslagen parameters berekend op basis van de **berekenen** knop op de **tests** tabblad. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
 

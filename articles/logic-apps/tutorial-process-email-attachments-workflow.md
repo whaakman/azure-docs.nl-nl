@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414765"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312663"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Zelfstudie: Afhandelen van e-mails en bijlagen automatiseren met Azure Logic Apps
 
@@ -63,9 +63,9 @@ U kunt binnenkomende e-mails en bijlagen als blobs opslaan in een [Azure-opslagc
    | **Abonnement** | <*Azure-subscription-name*> | De naam van uw Azure-abonnement |  
    | **Resourcegroep** | LA-Tutorial-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren en te beheren. <p>**Opmerking:** er is een resourcegroep aanwezig binnen een bepaalde regio. Hoewel de items in deze zelfstudie mogelijk niet in alle regio's beschikbaar zijn, dient u, wanneer mogelijk, dezelfde regio te gebruiken. |
    | **Naam van opslagaccount** | attachmentstorageacct | De naam van uw opslagaccount |
-   | **Locatie** | US - west | De regio waar u informatie over uw opslagaccount opslaat |
+   | **Location** | US - west | De regio waar u informatie over uw opslagaccount opslaat |
    | **Prestaties** | Standard | Deze instelling bepaalt de gegevenstypen die worden ondersteund en de media die moeten worden opgeslagen. Zie [Typen opslagaccounts](../storage/common/storage-introduction.md#types-of-storage-accounts). |
-   | **Type account** | Algemeen gebruik | Het [type opslagaccount](../storage/common/storage-introduction.md#types-of-storage-accounts) |
+   | **Type account** | Algemeen doel | Het [type opslagaccount](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replicatie** | Lokaal redundante opslag (LRS) | Deze instelling bepaalt hoe uw gegevens worden gekopieerd, opgeslagen, beheerd en gesynchroniseerd. Zie [Lokaal redundante opslag (LRS): Gegevensredundantie met lage kosten voor Azure Storage](../storage/common/storage-redundancy-lrs.md). |
    ||||
 
@@ -145,11 +145,11 @@ Gebruik nu het codefragment in deze stappen om een Azure-functie te maken waarme
 
    | Instelling | Waarde | Description |
    | ------- | ----- | ----------- |
-   | **Naam van app** | CleanTextFunctionApp | Een globale, unieke en beschrijvende naam voor uw functie-app |
+   | **Naam van app** | <*function-app-name*> | Uw functie-app-beschrijvende en moet globaal uniek naam, die is 'CleanTextFunctionApp' in dit voorbeeld, dus Geef een andere naam, zoals "MyCleanTextFunctionApp" |
    | **Abonnement** | <*your-Azure-subscription-name*> | Hetzelfde Azure-abonnement dat u eerder hebt gebruikt | 
    | **Resourcegroep** | LA-Tutorial-RG | Dezelfde Azure-resourcegroep die u eerder hebt gebruikt |
    | **Hostingabonnement** | Verbruiksabonnement | Deze instelling bepaalt hoe de resources worden toegewezen en geschaald, bijvoorbeeld de rekenkracht, om uw functie-app uit te voeren. Bekijk [Vergelijking van hostingabonnementen](../azure-functions/functions-scale.md). | 
-   | **Locatie** | US - west | Dezelfde regio die u eerder hebt gebruikt |
+   | **Location** | US - west | Dezelfde regio die u eerder hebt gebruikt |
    | **Runtimestack** | Voorkeurstaal | Selecteer een runtime die ondersteuning biedt voor de functie van uw favoriete programmeertaal. Selecteer **.NET** voor C# en F# functies. |
    | **Storage** | cleantextfunctionstorageacct | Maak een opslagaccount voor uw functie-app. Gebruik alleen kleine letters en cijfers. <p>**Opmerking:** dit opslagaccount bevat uw functie-apps en verschilt van uw eerder gemaakte opslagaccount voor e-mailbijlagen. |
    | **Application Insights** | Uit | Hiermee schakelt u toepassingsbewaking met [Application Insights](../azure-monitor/app/app-insights-overview.md) in, maar kies voor deze zelfstudie de instelling **Uit**. |
@@ -168,7 +168,7 @@ Gebruik nu het codefragment in deze stappen om een Azure-functie te maken waarme
 
    U kunt ook [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) of [PowerShell- en Resource Manager-sjablonen](../azure-resource-manager/resource-group-template-deploy.md) gebruiken om een functie-app te maken.
 
-2. Vouw in het menu **Functie-apps** **CleanTextFunctionApp** uit en selecteer **Functies**. Selecteer op de functiewerkbalk **Nieuwe functie**.
+2. Onder **functie-Apps**, vouw uw functie-app, 'CleanTextFunctionApp' in dit voorbeeld, en selecteer **functies**. Selecteer op de functiewerkbalk **Nieuwe functie**.
 
    ![Nieuwe functie maken](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Gebruik nu het codefragment in deze stappen om een Azure-functie te maken waarme
    }
    ```
 
-6. Als u bent klaar, kiest u **Opslaan**. Als u uw functie wilt testen, kiest u **Testen** onder het pijlpictogram (**<**) aan de rechterkant van de editor.
+6. Als u bent klaar, kiest u **Opslaan**. Als u uw functie wilt testen, kiest u **Testen** onder het pijlpictogram ( **<** ) aan de rechterkant van de editor.
 
    ![Open het testpaneel](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -246,7 +246,7 @@ Nadat u hebt gecontroleerd of uw functie werkt, maakt u uw logische app. In deze
    | **Naam** | LA-ProcessAttachment | De naam voor uw logische app |
    | **Abonnement** | <*your-Azure-subscription-name*> | Hetzelfde Azure-abonnement dat u eerder hebt gebruikt |
    | **Resourcegroep** | LA-Tutorial-RG | Dezelfde Azure-resourcegroep die u eerder hebt gebruikt |
-   | **Locatie** | US - west | Dezelfde regio die u eerder hebt gebruikt |
+   | **Location** | US - west | Dezelfde regio die u eerder hebt gebruikt |
    | **Log Analytics** | Uit | Kies voor deze zelfstudie de instelling **Uit**. |
    ||||
 
@@ -316,7 +316,7 @@ Voeg nu een voorwaarde toe waarmee er alleen e-mails met bijlagen worden geselec
    ![Selecteer 'Voorwaarde'](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Geef de voorwaarde een naam met een betere beschrijving. 
-   Kies op de titelbalk van de voorwaarde de **weglatingstekens** (**...** ) knop > **naam**.
+   Kies op de titelbalk van de voorwaarde de **weglatingstekens** ( **...** ) knop > **naam**.
 
       ![Naam voorwaarde wijzigen](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Met deze stap wordt uw eerder gemaakte Azure-functie toegevoegd aan uw logische 
 
    ![Selecteer actie voor 'Een Azure-functie kiezen'](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Selecteer uw eerder gemaakte functie-app: **CleanTextFunctionApp**
+3. Selecteer uw eerder gemaakte functie-app 'CleanTextFunctionApp' in dit voorbeeld is:
 
    ![Selecteer uw Azure-functie-app](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -626,7 +626,7 @@ Voeg vervolgens een actie toe, zodat uw logische app een e-mail verzendt om meld
    ||||
 
    > [!NOTE]
-   > Als u een veld selecteert waarin een matrix is opgeslagen, zoals het veld **Inhoud**, wat een matrix is die bijlagen bevat, wordt in de ontwerpfunctie automatisch een lus 'Voor elke' toegevoegd rond de actie die naar het veld verwijst. Op die manier kan de actie voor elk matrixitem worden uitgevoerd. Als u de lus wilt verwijderen, verwijdert u het veld voor de matrix, verplaatst u de verwijzende actie naar buiten de lus, kiest u de weglaattekens (**...**) op de titelbalk van de lus en kiest u **Verwijderen**.
+   > Als u een veld selecteert waarin een matrix is opgeslagen, zoals het veld **Inhoud**, wat een matrix is die bijlagen bevat, wordt in de ontwerpfunctie automatisch een lus 'Voor elke' toegevoegd rond de actie die naar het veld verwijst. Op die manier kan de actie voor elk matrixitem worden uitgevoerd. Als u de lus wilt verwijderen, verwijdert u het veld voor de matrix, verplaatst u de verwijzende actie naar buiten de lus, kiest u de weglaattekens ( **...** ) op de titelbalk van de lus en kiest u **Verwijderen**.
 
 6. Sla uw logische app op.
 

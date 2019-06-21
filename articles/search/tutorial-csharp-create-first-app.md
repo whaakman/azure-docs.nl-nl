@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 5ca01e8077eb0651dff57be4c7681995764f6992
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 71668b41125de323640dd668f733c1bd1982f583
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166895"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304410"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-search"></a>C#Zelfstudie: Uw eerste app maken - Azure Search
+# <a name="c-tutorial-create-your-first-app---azure-search"></a>C#zelfstudie: Uw eerste app maken - Azure Search
 
 Informatie over het maken van een webinterface voor query's en aanwezig zoekresultaten uit een index met behulp van Azure Search. Deze zelfstudie begint met een bestaande, gehoste index, zodat u zich richten kunt op het bouwen van een zoekpagina. De index bevat fictieve Hotelgegevens. Zodra u een standaard-pagina hebt, kunt u deze kunt verbeteren in de volgende lessen wisselbestanden, facetten en een, automatisch aangevulde ervaring op te nemen.
 
@@ -65,6 +65,7 @@ Als u dit project maken vanaf het begin en kan daarom te versterken van de onder
 ## <a name="set-up-a-development-environment"></a>Een ontwikkelomgeving instellen
 
 1. Selecteer in Visual Studio 2017 of hoger, **nieuw/Project** vervolgens **ASP.NET Core-webtoepassing**. Geef het project een naam, zoals 'FirstAzureSearchApp'.
+
     ![Een cloudproject maken](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
 2. Nadat u hebt geklikt op **OK** voor dit projecttype, krijgt u een tweede set met opties die betrekking hebben op dit project. Selecteer **webtoepassing (Model-View-Controller)** .
@@ -81,12 +82,12 @@ Voor dit voorbeeld gebruiken we openbaar beschikbare Hotelgegevens. Deze gegeven
 
 1. Open het bestand appsettings.json in het nieuwe project en de standaardregels vervangen door de volgende naam en sleutel. De API-sleutel die wordt weergegeven niet is hier een voorbeeld van een sleutel, is _precies_ de sleutel die u nodig hebt voor toegang tot de Hotelgegevens. Het bestand appsettings.json moet er nu als volgt uitzien.
 
-```cs
-{
-  "SearchServiceName": "azs-playground",
-  "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
-}
-```
+    ```cs
+    {
+        "SearchServiceName": "azs-playground",
+        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+    }
+    ```
 
 2. We niet klaar bent met dit bestand nog, selecteert u de eigenschappen voor dit bestand en wijzig de **naar uitvoermap kopiëren** instelt op **kopiëren indien nieuwer**.
 
@@ -100,147 +101,147 @@ Modellen (C# klassen) worden gebruikt voor communicatie van gegevens tussen de c
 
 2. Met de rechtermuisknop op de **modellen** map en selecteer **toevoegen** vervolgens **Nieuw Item**. Selecteer in het dialoogvenster dat verschijnt, **ASP.NET Core** vervolgens de eerste optie **klasse**. Naam van het bestand .cs Hotel.cs en klikt u op **toevoegen**. De inhoud van Hotel.cs vervangen door de volgende code. U ziet dat de **adres** en **ruimte** leden van de klasse, deze velden zijn klassen zelf, zodat we wordt deze ook modellen nodig.
 
-```cs
-using System;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Spatial;
-using Newtonsoft.Json;
+    ```cs
+    using System;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Microsoft.Spatial;
+    using Newtonsoft.Json;
 
-namespace FirstAzureSearchApp.Models
-{
-    public partial class Hotel
+    namespace FirstAzureSearchApp.Models
     {
-        [System.ComponentModel.DataAnnotations.Key]
-        [IsFilterable]
-        public string HotelId { get; set; }
+        public partial class Hotel
+        {
+            [System.ComponentModel.DataAnnotations.Key]
+            [IsFilterable]
+            public string HotelId { get; set; }
 
-        [IsSearchable, IsSortable]
-        public string HotelName { get; set; }
+            [IsSearchable, IsSortable]
+            public string HotelName { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnLucene)]
-        public string Description { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.EnLucene)]
+            public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("Description_fr")]
-        public string DescriptionFr { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.FrLucene)]
+            [JsonProperty("Description_fr")]
+            public string DescriptionFr { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string Category { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string Category { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string[] Tags { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string[] Tags { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public bool? ParkingIncluded { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public bool? ParkingIncluded { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public DateTimeOffset? LastRenovationDate { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public DateTimeOffset? LastRenovationDate { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public double? Rating { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public double? Rating { get; set; }
 
-        public Address Address { get; set; }
+            public Address Address { get; set; }
 
-        [IsFilterable, IsSortable]
-        public GeographyPoint Location { get; set; }
+            [IsFilterable, IsSortable]
+            public GeographyPoint Location { get; set; }
 
-        public Room[] Rooms { get; set; }
+            public Room[] Rooms { get; set; }
+        }
     }
-}
-```
+    ```
 
 3. Doe hetzelfde voor het maken van een model voor de **adres** klasse, behalve de naam van het bestand Address.cs. Vervang de inhoud door het volgende.
 
-```cs
-using Microsoft.Azure.Search;
+    ```cs
+    using Microsoft.Azure.Search;
 
-namespace FirstAzureSearchApp.Models
-{
-    public partial class Address
+    namespace FirstAzureSearchApp.Models
     {
-        [IsSearchable]
-        public string StreetAddress { get; set; }
+        public partial class Address
+        {
+            [IsSearchable]
+            public string StreetAddress { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string City { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string City { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string StateProvince { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string StateProvince { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string PostalCode { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string PostalCode { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string Country { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string Country { get; set; }
+        }
     }
-}
-```
+    ```
 
 4. En volg opnieuw de hetzelfde proces maken de **ruimte** klasse, het bestand Room.cs naam. Vervang de inhoud weer met de volgende.
 
-```cs
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Newtonsoft.Json;
+    ```cs
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Newtonsoft.Json;
 
-namespace FirstAzureSearchApp.Models
-{
-    public partial class Room
+    namespace FirstAzureSearchApp.Models
     {
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        public partial class Room
+        {
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
 
-        public string Description { get; set; }
+            public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
-        [JsonProperty("Description_fr")]
-        public string DescriptionFr { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
+            [JsonProperty("Description_fr")]
+            public string DescriptionFr { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string Type { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string Type { get; set; }
 
-        [IsFilterable, IsFacetable]
-        public double? BaseRate { get; set; }
+            [IsFilterable, IsFacetable]
+            public double? BaseRate { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string BedOptions { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string BedOptions { get; set; }
 
-        [IsFilterable, IsFacetable]
+            [IsFilterable, IsFacetable]
 
-        public int SleepsCount { get; set; }
+            public int SleepsCount { get; set; }
 
-        [IsFilterable, IsFacetable]
-        public bool? SmokingAllowed { get; set; }
+            [IsFilterable, IsFacetable]
+            public bool? SmokingAllowed { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string[] Tags { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string[] Tags { get; set; }
+        }
     }
-}
-```
+    ```
 
 5. De set **Hotel**, **adres**, en **ruimte** klassen zijn wat is bekend in Azure als [ _complexe typen_ ](search-howto-complex-data-types.md), een belangrijke functie van Azure Search. Complexe typen kunnen worden veel niveaus van klassen en subklassen en veel meer complexe gegevensstructuren kunnen worden weergegeven dan het gebruik van inschakelen _eenvoudige typen_ (een klasse met alleen primitieve leden). We één meer model hoeven, dus gaat u door het proces voor het maken van een nieuwe modelklasse opnieuw, echter deze tijd aanroepen van de klasse SearchData.cs en vervang de standaardcode door het volgende.
 
-```cs
-using Microsoft.Azure.Search.Models;
+    ```cs
+    using Microsoft.Azure.Search.Models;
 
-namespace FirstAzureSearchApp.Models
-{
-    public class SearchData
+    namespace FirstAzureSearchApp.Models
     {
-        // The text to search for.
-        public string searchText { get; set; }
+        public class SearchData
+        {
+            // The text to search for.
+            public string searchText { get; set; }
 
-        // The list of results.
-        public DocumentSearchResult<Hotel> resultList;
+            // The list of results.
+            public DocumentSearchResult<Hotel> resultList;
+        }
     }
-}
-```
+    ```
 
-Deze klasse bevat de invoer van de gebruiker (**Tekstdoorzoeken**), en de uitvoer van de zoekopdracht (**resultList**). Het type van de uitvoer wordt kritieke, **DocumentSearchResult&lt;Hotel&gt;** , zoals dit type exact overeenkomt met de resultaten van de zoekopdracht en we moeten deze verwijzing in naar de weergave doorgeeft.
+    Deze klasse bevat de invoer van de gebruiker (**Tekstdoorzoeken**), en de uitvoer van de zoekopdracht (**resultList**). Het type van de uitvoer wordt kritieke, **DocumentSearchResult&lt;Hotel&gt;** , zoals dit type exact overeenkomt met de resultaten van de zoekopdracht en we moeten deze verwijzing in naar de weergave doorgeeft.
 
 
 
@@ -254,30 +255,30 @@ De inhoud van Index.cshtml in zijn geheel te verwijderen en opnieuw maken van he
 
 2. De eerste regel van Index.cshtml moet verwijzen naar het model wordt gebruikt voor het communiceren van gegevens tussen de client (weergeven) en de server (de controller), is de **SearchData** model dat we hebben gemaakt. Deze regel toevoegen aan het bestand Index.cshtml.
 
-```cs
-@model FirstAzureSearchApp.Models.SearchData
-```
+    ```cs
+    @model FirstAzureSearchApp.Models.SearchData
+    ```
 
 3. Het is standaard om Voer een titel voor de weergave, zodat de volgende regels:
 
-```cs
-@{
-    ViewData["Title"] = "Home Page";
-}
-```
+    ```cs
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+    ```
 
 4. Voer na de titel, een verwijzing naar een HTML-stylesheet, die we gaan maken.
 
-```cs
-<head>
-    <link rel="stylesheet" href="~/css/hotels.css" />
-</head>
-```
+    ```cs
+    <head>
+        <link rel="stylesheet" href="~/css/hotels.css" />
+    </head>
+    ```
 
 5. Nu op het vlees van de weergave. Een belangrijk te onthouden is dat de weergave voor het afhandelen van twee situaties. Deze moet de weergave in de eerste plaats omgaan met wanneer de app voor het eerst wordt gestart en de gebruiker nog geen zoektekst is opgegeven. Deze moet op de tweede plaats omgaan met de weergave van resultaten, naast het zoekvak, voor gebruik door de gebruiker. Voor het afhandelen van deze twee situaties, moeten we controleren of het model dat is opgegeven voor de weergave null of niet is. Een null-model geeft aan dat er zich in de eerste dag van de twee situaties (de eerste uitvoering van de app). Voeg het volgende toe aan het bestand Index.cshtml en lees de opmerkingen.
 
-```cs
-<body>
+    ```cs
+    <body>
     <h1 class="sampleTitle">
         <img src="~/images/azure-logo.png" width="80" />
         Hotels Search
@@ -305,85 +306,85 @@ De inhoud van Index.cshtml in zijn geheel te verwijderen en opnieuw maken van he
             }
         }
     }
-</body>
-```
+    </body>
+    ```
 
 6. Ten slotte toevoegen we het opmaakmodel. In Visual Studio in de **bestand** menu Selecteer **nieuw/bestand** vervolgens **opmaakmodel** (met **algemene** gemarkeerde). Vervang de standaardcode door het volgende. Gaan we het zal niet worden in dit bestand in een meer details, zijn de stijlen standaard-HTML.
 
-```cs
-   textarea.box1 {
-    width: 648px;
-    height: 30px;
-    border: none;
-    background-color: azure;
-    font-size: 14pt;
-    color: blue;
-    padding-left: 5px;
-}
+    ```html
+    textarea.box1 {
+        width: 648px;
+        height: 30px;
+        border: none;
+        background-color: azure;
+        font-size: 14pt;
+        color: blue;
+        padding-left: 5px;
+    }
 
-textarea.box2 {
-    width: 648px;
-    height: 100px;
-    border: none;
-    background-color: azure;
-    font-size: 12pt;
-    padding-left: 5px;
-    margin-bottom: 24px;
-}
+    textarea.box2 {
+        width: 648px;
+        height: 100px;
+        border: none;
+        background-color: azure;
+        font-size: 12pt;
+        padding-left: 5px;
+        margin-bottom: 24px;
+    }
 
-.sampleTitle {
-    font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-    margin: 20px 0;
-    font-size: 32px;
-    text-align: left;
-}
+    .sampleTitle {
+        font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+        margin: 20px 0;
+        font-size: 32px;
+        text-align: left;
+    }
 
-.sampleText {
-    font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-    margin: 20px 0;
-    font-size: 14px;
-    text-align: left;
-    height: 30px;
-}
+    .sampleText {
+        font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+        margin: 20px 0;
+        font-size: 14px;
+        text-align: left;
+        height: 30px;
+    }
 
-.searchBoxForm {
-    width: 648px;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
-    background-color: #fff;
-    display: inline-block;
-    border-collapse: collapse;
-    border-spacing: 0;
-    list-style: none;
-    color: #666;
-}
+    .searchBoxForm {
+        width: 648px;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
+        background-color: #fff;
+        display: inline-block;
+        border-collapse: collapse;
+        border-spacing: 0;
+        list-style: none;
+        color: #666;
+    }
 
-.searchBox {
-    width: 568px;
-    font-size: 16px;
-    margin: 5px 0 1px 20px;
-    padding: 0 10px 0 0;
-    border: 0;
-    max-height: 30px;
-    outline: none;
-    box-sizing: content-box;
-    height: 35px;
-    vertical-align: top;
-}
+    .searchBox {
+        width: 568px;
+        font-size: 16px;
+        margin: 5px 0 1px 20px;
+        padding: 0 10px 0 0;
+        border: 0;
+        max-height: 30px;
+        outline: none;
+        box-sizing: content-box;
+        height: 35px;
+        vertical-align: top;
+    }
 
-.searchBoxSubmit {
-    background-color: #fff;
-    border-color: #fff;
-    background-image: url(/images/search.png);
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 20px;
-    text-indent: -99em;
-    border-width: 0;
-    border-style: solid;
-    margin: 10px;
-    outline: 0;
-}
-```
+    .searchBoxSubmit {
+        background-color: #fff;
+        border-color: #fff;
+        background-image: url(/images/search.png);
+        background-repeat: no-repeat;
+        height: 20px;
+        width: 20px;
+        text-indent: -99em;
+        border-width: 0;
+        border-style: solid;
+        margin: 10px;
+        outline: 0;
+    }
+    ```
 
 7. Sla het bestand stylesheet als hotels.css, in de map wwwroot/css, samen met het standaardbestand site.css.
 
@@ -395,16 +396,16 @@ We moeten aanpassen om de inhoud van de ene domeincontroller (**start Controller
 
 1. Open het bestand HomeController.cs en vervang de **met behulp van** instructies met de volgende stappen.
 
-```cs
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using FirstAzureSearchApp.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-```
+    ```cs
+    using System;
+    using System.Diagnostics;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using FirstAzureSearchApp.Models;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    ```
 
 ### <a name="add-index-methods"></a>Index methoden toevoegen
 
@@ -412,7 +413,7 @@ Moeten we twee **Index** methoden, één waarbij er geen parameters (voor het ge
 
 1. Voeg de volgende methode toe na de standaardwaarde **index() heeft** methode.
 
-```cs
+    ```cs
         [HttpPost]
         public async Task<ActionResult> Index(SearchData model)
         {
@@ -434,11 +435,11 @@ Moeten we twee **Index** methoden, één waarbij er geen parameters (voor het ge
             }
             return View(model);
         }
-```
+    ```
 
-U ziet dat de **asynchrone** declaratie van de methode en de **await** aanroepen **RunQueryAsync**. Deze trefwoorden zorgen voor het maken van onze aanroepen asynchrone en Vermijd daarom blokkering van threads op de server.
+    U ziet dat de **asynchrone** declaratie van de methode en de **await** aanroepen **RunQueryAsync**. Deze trefwoorden zorgen voor het maken van onze aanroepen asynchrone en Vermijd daarom blokkering van threads op de server.
 
-De **catch** blok maakt gebruik van de fout-model dat is gemaakt voor ons standaard.
+    De **catch** blok maakt gebruik van de fout-model dat is gemaakt voor ons standaard.
 
 ### <a name="note-the-error-handling-and-other-default-views-and-methods"></a>Houd er rekening mee de foutafhandeling en andere standaardweergaven en -methoden
 
@@ -454,7 +455,7 @@ De Azure Search-aanroep is ingekapseld in onze **RunQueryAsync** methode.
 
 1. Enkele statische variabelen voor het instellen van de Azure-service en een aanroep om te starten op deze eerst toevoegen.
 
-```cs
+    ```cs
         private static SearchServiceClient _serviceClient;
         private static ISearchIndexClient _indexClient;
         private static IConfigurationBuilder _builder;
@@ -474,11 +475,11 @@ De Azure Search-aanroep is ingekapseld in onze **RunQueryAsync** methode.
             _serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(queryApiKey));
             _indexClient = _serviceClient.Indexes.GetClient("hotels");
         }
-```
+    ```
 
 2. Voeg nu toe de **RunQueryAsync** methode zelf.
 
-```cs
+    ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model)
         {
             InitSearch();
@@ -496,11 +497,11 @@ De Azure Search-aanroep is ingekapseld in onze **RunQueryAsync** methode.
             // Display the results.
             return View("Index", model);
         }
-```
+    ```
 
-Bij deze methode wordt er eerst voor zorgen onze Azure-configuratie is gestart en vervolgens enkele zoekparameters instellen. De namen van de velden in de **Selecteer** parameter overeen met precies de namen van eigenschappen in de **hotel** klasse. Het is mogelijk te laat u uit de **Selecteer** parameter, in welk geval alle eigenschappen worden geretourneerd. Instellen van echter geen **Selecteer** parameters is inefficiënt als we alleen geïnteresseerd bent in een subset van de gegevens. De eigenschappen zijn we geïnteresseerd in opgeeft, zijn alleen deze eigenschappen worden geretourneerd.
+    Bij deze methode wordt er eerst voor zorgen onze Azure-configuratie is gestart en vervolgens enkele zoekparameters instellen. De namen van de velden in de **Selecteer** parameter overeen met precies de namen van eigenschappen in de **hotel** klasse. Het is mogelijk te laat u uit de **Selecteer** parameter, in welk geval alle eigenschappen worden geretourneerd. Instellen van echter geen **Selecteer** parameters is inefficiënt als we alleen geïnteresseerd bent in een subset van de gegevens. De eigenschappen zijn we geïnteresseerd in opgeeft, zijn alleen deze eigenschappen worden geretourneerd.
 
-De asynchrone aanroep om te zoeken naar (**model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);** ) is deze zelfstudie en de app weet alles over. De **DocumentSearchResult** klasse is een interessante en een goed idee (wanneer de app wordt uitgevoerd) is hier een onderbrekingspunt instellen en een foutopsporingsprogramma gebruiken om te controleren van de inhoud van **model.resultList**. U ziet, is het gemakkelijk, zodat u met de gegevens die u zoekt, en niet veel anders is.
+    De asynchrone aanroep om te zoeken naar (**model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);** ) is deze zelfstudie en de app weet alles over. De **DocumentSearchResult** klasse is een interessante en een goed idee (wanneer de app wordt uitgevoerd) is hier een onderbrekingspunt instellen en een foutopsporingsprogramma gebruiken om te controleren van de inhoud van **model.resultList**. U ziet, is het gemakkelijk, zodat u met de gegevens die u zoekt, en niet veel anders is.
 
 Nu in voor het moment van waarheid.
 
@@ -532,8 +533,8 @@ Het is belangrijk om te controleren dat onze functies foutafhandeling werkt zoal
 
      ![Afdwingen dat een fout](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
-> [!Important]
-> Het wordt beschouwd als een beveiligingsrisico voor interne fout getallen in de foutpagina's retourneren. Als uw app is bedoeld voor algemeen gebruik, doet u bepaalde onderzoek naar veilige en aanbevolen procedures van wat u wilt retourneren wanneer er een fout optreedt.
+    > [!Important]
+    > Het wordt beschouwd als een beveiligingsrisico voor interne fout getallen in de foutpagina's retourneren. Als uw app is bedoeld voor algemeen gebruik, doet u bepaalde onderzoek naar veilige en aanbevolen procedures van wat u wilt retourneren wanneer er een fout optreedt.
 
 3. Verwijder **Throw nieuwe Exception()** wanneer u tevreden bent de foutafhandeling werkt behoren.
 
