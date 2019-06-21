@@ -20,12 +20,12 @@ Blauwdrukken voor Azure biedt een blauwdrukdefinitie maken van meer dynamische f
 
 De volgende functies worden ondersteund:
 
-- [Artefacten](#artifacts)
+- [artifacts](#artifacts)
 - [concat](#concat)
 - [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [abonnement](#subscription)
+- [subscription](#subscription)
 
 ## <a name="artifacts"></a>Artefacten
 
@@ -109,7 +109,7 @@ Enkele voorbeelden van het ophalen van gegevens uit de _myTemplateArtifact_ voor
 
 | expressie | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matrix | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "de tekenreekswaarde" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "Mijn value", "anotherProperty": true} |
@@ -126,7 +126,7 @@ Combineert meerdere tekenreekswaarden en retourneert de samengevoegde tekenreeks
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| tekenreeks1 |Ja |string |De eerste waarde voor samenvoeging. |
+| string1 |Ja |string |De eerste waarde voor samenvoeging. |
 | aanvullende argumenten |Nee |string |Aanvullende waarden in opeenvolgende volgorde voor samenvoeging |
 
 ### <a name="return-value"></a>Retourwaarde
@@ -200,7 +200,7 @@ Gebruik vervolgens _principalIds_ als het argument voor `parameters()` in een bl
 }
 ```
 
-## <a name="resourcegroup"></a>ResourceGroup
+## <a name="resourcegroup"></a>resourceGroup
 
 `resourceGroup()`
 
@@ -324,7 +324,7 @@ Gebruik vervolgens de `resourceGroups()` functie uit de context van een blauwdru
 }
 ```
 
-## <a name="subscription"></a>abonnement
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
