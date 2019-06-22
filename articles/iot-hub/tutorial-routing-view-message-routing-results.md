@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162762"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330527"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Zelfstudie: Deel 2: de gerouteerde berichten weergeven
 
@@ -126,7 +126,7 @@ Als u de gegevens in een Power BI-visualisatie wilt zien, stelt u eerst een Stre
 
    **Eindpunt**: Selecteer **Berichten**. (Als u Operations Monitoring selecteert, krijgt u de telemetriegegevens over de IoT Hub in plaats van de gegevens die u doorstuurt.) 
 
-   **Naam van het gedeelde toegangsbeleid**: Selecteer **iothubowner**. In de portal wordt de sleutel van het beleid voor gedeelde toegang voor u ingevuld.
+   **Naam van het gedeelde toegangsbeleid**: Selecteer **service**. In de portal wordt de sleutel van het beleid voor gedeelde toegang voor u ingevuld.
 
    **Consumentengroep**: Selecteer de consumergroep instellen in stap 1 van deze zelfstudie. In deze zelfstudie wordt gebruikgemaakt van **contosoconsumers**.
    

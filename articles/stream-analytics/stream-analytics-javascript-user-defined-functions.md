@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479538"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329368"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Zelfstudie: Door gebruiker gedefinieerde JavaScript-functies in Azure Stream Analytics
  
@@ -120,6 +120,8 @@ Object | Record
 Matrix | Matrix
 Null, niet gedefinieerd | NULL
 Elk ander type (bijvoorbeeld een functie of fout) | Niet ondersteund (resulteert in een runtime-fout)
+
+JavaScript-taal is hoofdlettergevoelig en hoofdlettergebruik van de velden van het object in JavaScript-code moet overeenkomen met het hoofdlettergebruik van de velden in de binnenkomende gegevens. Houd er rekening mee dat taken met compatibiliteitsniveau 1.0 velden uit SQL SELECT-instructie naar kleine letters worden geconverteerd. Velden uit de SELECT-instructie heeft met compatibiliteitsniveau 1.1 en hoger, het hetzelfde hoofdlettergebruik zoals opgegeven in de SQL-query.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 JavaScript-runtime-fouten worden beschouwd als onherstelbaar en worden weergegeven via het activiteitenlogboek. U haalt het logboek op door in Azure Portal naar uw project te gaan en **Activiteitenlogboek** te selecteren.

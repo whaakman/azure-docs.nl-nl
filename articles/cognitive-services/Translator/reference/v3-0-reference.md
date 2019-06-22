@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4133cec401723ab103b0b3bfff62eee21b653e2b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269214"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331830"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -31,20 +31,20 @@ Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. H
 
 ## <a name="base-urls"></a>Basis-URL 's
 
-Microsoft Translator is geleverd vanuit meerdere datacenter-locaties. Op dit moment ze bevinden zich op 6 [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator is geleverd vanuit meerdere datacenter-locaties. Op dit moment ze bevinden zich op 6 [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Amerika:** VS-West 2 en West-Centraal VS 
 * **Azië en Stille Oceaan:** Zuidoost-Azië en Korea-Zuid
 * **Europa:** Noord-Europa en West-Europa
 
-Aanvragen voor de Microsoft Translator Text-API zijn in de meeste gevallen door het datacenter die zich het dichtst bij de oorsprong van de aanvraag verwerkt. In het geval van een datacenter-fout optreedt, kan de aanvraag worden gerouteerd buiten de regio.
+Aanvragen voor de Microsoft Translator Text-API zijn in de meeste gevallen door het datacenter die zich het dichtst bij de oorsprong van de aanvraag verwerkt. In het geval van een datacenter-fout optreedt, kan de aanvraag buiten de Azure-Geografie worden gerouteerd.
 
-Om af te dwingen de aanvraag moet worden verwerkt door een specifieke datacenter, wijzigt u de globaal eindpunt voor in de API-aanvraag naar de gewenste regionale eindpunt:
+Om af te dwingen de aanvraag moet worden verwerkt door een specifieke Azure-Geografie, wijzigt u de globaal eindpunt voor in de API-aanvraag naar de gewenste regionale eindpunt:
 
-|Description|Regio|Basis-URL|
+|Description|Azure-Geografie|Basis-URL|
 |:--|:--|:--|
-|Azure|Wereldwijd|  api.cognitive.microsofttranslator.com|
-|Azure|Noord-Amerika|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Algemene (niet-regionaal)|   api.cognitive.microsofttranslator.com|
+|Azure|Verenigde Staten|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Azië en Stille Oceaan|    api-apc.cognitive.microsofttranslator.com|
 

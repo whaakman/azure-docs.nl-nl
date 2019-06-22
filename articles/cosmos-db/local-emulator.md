@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 05/20/2019
-ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/21/2019
+ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953955"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331777"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Gebruik de Azure Cosmos-emulator gebruikt voor lokale ontwikkeling en testen
 
@@ -413,6 +413,57 @@ U opent de Data Explorer door naar de volgende URL in uw browser te gaan. Het ei
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## Op Mac of Linux<a id="mac"></a>
+
+De Cosmos-emulator kan op dit moment alleen worden uitgevoerd op Windows. Gebruikers met Mac of Linux de emulator op een Windows-machine uitvoeren kunt die wordt gehost een hypervisor, zoals Parallels of VirtualBox. Hieronder vindt u de stappen voor het inschakelen van deze.
+
+Voer de onderstaande opdracht uit in de Windows-VM en noteer het IPv4-adres.
+
+```cmd
+ipconfig.exe
+```
+
+In uw toepassing die u wilt wijzigen van de URI voor de DocumentClient-object voor het gebruik van het IPv4-adres dat is geretourneerd door `ipconfig.exe`. De volgende stap is om te werken om de validatie van de CA bij het maken van het DocumentClient-object. Hiervoor moet u een HttpClientHandler voor de DocumentClient-constructor opgeven, die beschikt over eigen implementatie voor ServerCertificateCustomValidationCallback.
+
+Hieronder volgt een voorbeeld van hoe de code eruit moet zien.
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+Ten slotte uit de in de Windows-VM, start u de Cosmos-emulator vanaf de opdrachtregel met de volgende opties.
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
@@ -450,7 +501,7 @@ Voor het verzamelen van foutopsporingsgegevens, voert u de volgende opdrachten u
 ### <a id="uninstall"></a>De lokale emulator verwijderen
 
 1. Sluit alle geopende exemplaren van de lokale emulator door met de rechtermuisknop op het pictogram van Azure Cosmos-Emulator op het systeemvak klikken en vervolgens op sluiten. Het afsluiten van alle exemplaren kan een paar minuten duren.
-2. Typ in het zoekvak Windows **Apps en onderdelen** en klik op **Apps en onderdelen (systeeminstellingen)**.
+2. Typ in het zoekvak Windows **Apps en onderdelen** en klik op **Apps en onderdelen (systeeminstellingen)** .
 3. Ga in de lijst met apps naar **Azure Cosmos DB Emulator**, selecteer de app, klik op **Verwijderen**, bevestig dit en klik nogmaals op **Verwijderen**.
 4. Wanneer de app is verwijderd, gaat u naar `%LOCALAPPDATA%\CosmosDBEmulator` en verwijdert u de map.
 
