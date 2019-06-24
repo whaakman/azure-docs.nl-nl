@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: a3469e4f7fe1c234a6df694d7bdd6d9e2c46407a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c5f7b0b739e9311e2527e63db7279d2075f0f1ff
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204893"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341284"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
 Tekst naar spraak vanuit Azure Speech Services is een service waarmee u uw toepassingen, hulpprogramma's of apparaten naar tekst converteren naar natuurlijke menselijke kunstmatige spraak. Kiezen uit de standard- en neurale stemmen of maak uw eigen aangepaste gesproken uniek is voor uw product of een merk. 75 + standard stemmen zijn beschikbaar in meer dan 45 talen en landinstellingen en 5 neurale stemmen zijn beschikbaar in 4 talen of landinstellingen. Zie voor een volledige lijst [ondersteunde talen](language-support.md#text-to-speech).
 
 Text to Speech-technologie kunnen makers van inhoud om te communiceren met hun gebruikers op verschillende manieren. Text to Speech kan toegankelijkheid verbeteren door gebruikers met de mogelijkheid om te communiceren met inhoud hoorbaar. Of de gebruiker een gezichtsvermogen, een achterstand learning heeft of navigatie-gegevens en tot vereist, kunnen de Text to Speech een bestaande ervaring kan verbeteren. Tekst naar spraak is ook een waardevolle-invoegtoepassing voor spraak bots en virtual Assistant.
+
+
+Gebruik te maken van spraak synthese Markup Language (SSML), een opmaaktaal op basis van een XML-, ontwikkelaars die gebruikmaken van de Text to Speech-service kunnen opgeven hoe invoertekst wordt omgezet in kunstmatige spraak. Met SSML, kunt u inspiratie, uitspraak, aanpassen spreken snelheid, volume en meer. Zie voor meer informatie over, [SSML](#speech-synthesis-markup-language-ssml).
 
 ### <a name="standard-voices"></a>Standard stemmen
 

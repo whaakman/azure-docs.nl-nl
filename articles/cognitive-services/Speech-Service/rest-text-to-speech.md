@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 59155b41906ffd401b971bee1248a225d0c33657
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072457"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342196"
 ---
 # <a name="text-to-speech-rest-api"></a>Text to Speech REST-API
 
@@ -225,6 +225,7 @@ De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende
 | 400 | Onjuiste aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is. |
 | 401 | Niet geautoriseerd | De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio. |
 | 413 | Aanvraagentiteit te groot | De invoer SSML is langer dan 1024 tekens. |
+| 415 | Niet-ondersteund mediatype | Het is mogelijk dat de verkeerde `Content-Type` is opgegeven. `Content-Type` moet worden ingesteld op `application/ssml+xml`. | 
 | 429 | Te veel aanvragen | U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden. |
 | 502 | Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten. |
 

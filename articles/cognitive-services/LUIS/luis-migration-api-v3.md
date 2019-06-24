@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123889"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341844"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Preview: Migreren naar API-versie 3.x voor LUIS-apps
 
@@ -54,11 +54,14 @@ De V3 antwoord objectwijzigingen omvatten [vooraf gemaakte entiteiten](luis-refe
 
 De API V3 heeft verschillende queryreeksparameters.
 
-|Parameternaam|Type|Version|Doel|
-|--|--|--|--|
-|`query`|string|Alleen v3|**In V2**, de utterance om te worden voorspeld is in de `q` parameter. <br><br>**In V3**, de functionaliteit wordt doorgegeven de `query` parameter.|
-|`show-all-intents`|booleaans|Alleen v3|Retourneren van alle intents met de bijbehorende score in de **prediction.intents** object. Intents worden geretourneerd als objecten in een bovenliggende `intents` object. Hiermee wordt toegang op programmeerniveau zonder dat het doel niet vinden in een matrix: `prediction.intents.give`. In V2, zijn deze in een matrix geretourneerd. |
-|`verbose`|booleaans|V2 & V3|**In V2**als is ingesteld op true, alle voorspelde intents zijn geretourneerd. Als u alle voorspelde intents moet, gebruikt u de parameter V3 van `show-all-intents`.<br><br>**In V3**, deze parameter biedt alleen een entiteit details van de metagegevens van de voorspelling van de entiteit.  |
+|Parameternaam|Type|Version|Standaard|Doel|
+|--|--|--|--|--|
+|`log`|boolean|V2 & V3|false|Query Store in het logboekbestand.| 
+|`query`|string|Alleen v3|Er is geen standaard: dit is vereist in de GET-aanvraag|**In V2**, de utterance om te worden voorspeld is in de `q` parameter. <br><br>**In V3**, de functionaliteit wordt doorgegeven de `query` parameter.|
+|`show-all-intents`|boolean|Alleen v3|false|Retourneren van alle intents met de bijbehorende score in de **prediction.intents** object. Intents worden geretourneerd als objecten in een bovenliggende `intents` object. Hiermee wordt toegang op programmeerniveau zonder dat het doel niet vinden in een matrix: `prediction.intents.give`. In V2, zijn deze in een matrix geretourneerd. |
+|`verbose`|boolean|V2 & V3|false|**In V2**als is ingesteld op true, alle voorspelde intents zijn geretourneerd. Als u alle voorspelde intents moet, gebruikt u de parameter V3 van `show-all-intents`.<br><br>**In V3**, deze parameter biedt alleen een entiteit details van de metagegevens van de voorspelling van de entiteit.  |
+
+
 
 <!--
 |`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
@@ -71,12 +74,23 @@ De API V3 heeft verschillende queryreeksparameters.
 {
     "query":"your utterance here",
     "options":{
-        "timezoneOffset": "-8:00"
+        "datetimeReference": "2019-05-05T12:00:00",
+        "overridePredictions": true
     },
     "externalEntities":[],
     "dynamicLists":[]
 }
 ```
+
+|Eigenschap|Type|Version|Standaard|Doel|
+|--|--|--|--|--|
+|`dynamicLists`|array|Alleen v3|Niet vereist.|[Een dynamische lijst met](#dynamic-lists-passed-in-at-prediction-time) kunt u een bestaande lijst met getraind en gepubliceerde entiteit, al in de LUIS-app uitbreiden.|
+|`externalEntities`|array|Alleen v3|Niet vereist.|[Externe entiteiten](#external-entities-passed-in-at-prediction-time) bieden uw LUIS-app de mogelijkheid te identificeren en labelen entiteiten tijdens runtime, dat kan worden gebruikt als functies voor bestaande entiteiten. |
+|`options.datetimeReference`|string|Alleen v3|Geen standaardwaarde|Gebruikt om te bepalen [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
+|`options.overridePredictions`|boolean|Alleen v3|false|Hiermee geeft u als gebruiker [externe entiteit (met dezelfde naam als de bestaande entiteit)](#override-existing-model-predictions) wordt gebruikt of de bestaande entiteit in het model wordt gebruikt voor de voorspelling. |
+|`query`|string|Alleen v3|Vereist.|**In V2**, de utterance om te worden voorspeld is in de `q` parameter. <br><br>**In V3**, de functionaliteit wordt doorgegeven de `query` parameter.|
+
+
 
 ## <a name="response-changes"></a>Wijzigingen van de reactie
 
@@ -275,6 +289,67 @@ In de vorige utterance gebruikmaakt van de utterance `him` als een verwijzing na
 
 Het antwoord voorspelling bevat die externe entiteit, met alle andere voorspelde entiteiten, omdat deze is gedefinieerd in de aanvraag.  
 
+### <a name="override-existing-model-predictions"></a>Bestaande modelvoorspellingen overschrijven
+
+De `overridePredictions` opties-eigenschap geeft op dat als de gebruiker een externe entiteit die overlapt met een voorspelde entiteit met dezelfde naam verzendt, LUIS de entiteit die wordt doorgegeven kiest in de entiteit in het model bestaan. 
+
+Neem bijvoorbeeld de query `today I'm free`. LUIS detecteert `today` als een datetimeV2 met het volgende antwoord:
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Als de gebruiker het externe entiteit verzendt:
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+Als de `overridePredictions` is ingesteld op `false`, LUIS een antwoord geretourneerd als de externe entiteit zijn niet verzonden. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Als de `overridePredictions` is ingesteld op `true`, LUIS retourneert een antwoord met inbegrip van:
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
+
 #### <a name="resolution"></a>Oplossing
 
 De _optionele_ `resolution` resultaat van de eigenschap in het antwoord voorspellen, zodat u kunt doorgeven in de metagegevens die zijn gekoppeld aan de externe entiteit en vervolgens krijgen deze weer in het antwoord. 
@@ -287,6 +362,7 @@ De `resolution` eigenschap is een getal, een tekenreeks, een object of een matri
 * {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
+
 
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Een dynamische lijst met doorgegeven op het moment van de voorspelling

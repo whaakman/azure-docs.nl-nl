@@ -80,7 +80,7 @@ Hier volgt de algemene structuur voor de uitvoerdefinitie van een:
 |-----------|----------|------|-------------|
 | <*key-name*> | Ja | String | De naam van de sleutel voor de uitvoer waarde retourneren |
 | <*key-type*> | Ja | int, float, string, securestring, bool, array, JSON-object | Het type voor de geretourneerde waarde van uitvoer |
-| <*key-value*> | Ja | Hetzelfde als <*key-type*> | De geretourneerde waarde van uitvoer |
+| <*key-value*> | Ja | Hetzelfde als <*sleutel-type*> | De geretourneerde waarde van uitvoer |
 |||||
 
 Als u de uitvoer van een werkstroom, bekijk de uitvoeringsgeschiedenis en details in de Azure-portal van uw logische app of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven aan externe systemen, bijvoorbeeld Power BI, zodat u kunt dashboards maken.

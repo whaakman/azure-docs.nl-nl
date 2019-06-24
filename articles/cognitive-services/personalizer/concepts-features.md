@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: b2054aa963991ffa2d92aabf1ce896031f2d87fc
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296049"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340890"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Functies zijn informatie over acties en context
 
@@ -29,7 +29,7 @@ Bijvoorbeeld, u mogelijk een **functie** over:
 * De _inhoud_ bijvoorbeeld als een video is een `Documentary`, een `Movie`, of een `TV Series`, of of een handelsversie-item is beschikbaar in de store.
 * De _huidige_ periode van de tijd, zoals welke dag van de week is.
 
-Personalizer niet schrijven, beperken of welke functies u voor acties en context verzenden kunt oplossen:
+Personalizer niet schrijven, beperken, of welke functies u voor acties en context verzenden kunt oplossen:
 
 * Als u deze niet hebt, kunt u sommige functies voor sommige acties en niet voor andere verzenden. Tv-serie kan bijvoorbeeld kenmerken films geen hebt.
 * Mogelijk hebt u enkele functies die beschikbaar zijn slechts enkele voorbeelden van momenten. Een mobiele toepassing kan bijvoorbeeld informatie dan een webpagina te bieden. 
@@ -70,12 +70,15 @@ U kunt de functie naamruimten volgen van uw eigen conventies, zolang ze geldige 
 
 In de volgende JSON `user`, `state`, en `device` functie naamruimten.
 
+JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden bevatten. Een matrix kan worden opgenomen alleen als de matrixitems getallen zijn. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -121,7 +124,7 @@ Een tijdstempel omlaag naar de tweede is bijvoorbeeld een zeer sparse functie. K
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Vouw de functiesets geëxtrapoleerde informatie
 
-U kunt ook meer functies ophalen door na te denken van vakjes kenmerken die kunnen worden afgeleid van informatie die u al hebt. Bijvoorbeeld in een lijst met fictieve film personalisatie, is het mogelijk dat een weekend vs weekdag werkdag verschillend gedrag van gebruikers? Tijd kan worden uitgebreid naar een kenmerk 'weekend' of 'dag'. Culturele feestdagen station aandacht wordt besteed aan bepaalde filmtypen? Een kenmerk 'Halloween' is bijvoorbeeld handig in de locaties waar deze relevant is. Is het mogelijk dat en weer Regenachtig aanzienlijke invloed op de keuze van een film voor veel mensen heeft? Met de datum en tijd, kan een weerservice bieden dat gegevens en u deze als een extra functie toevoegen kunt. 
+U kunt ook meer functies ophalen door na te denken van vakjes kenmerken die kunnen worden afgeleid van informatie die u al hebt. Bijvoorbeeld in een lijst met fictieve film personalisatie, is het mogelijk dat een weekend vs weekdag elicits verschillend gedrag van gebruikers? Tijd kan worden uitgebreid naar een kenmerk 'weekend' of 'dag'. Culturele feestdagen station aandacht wordt besteed aan bepaalde filmtypen? Een kenmerk 'Halloween' is bijvoorbeeld handig in de locaties waar deze relevant is. Is het mogelijk dat en weer Regenachtig aanzienlijke invloed op de keuze van een film voor veel mensen heeft? Met de datum en tijd, kan een weerservice bieden dat gegevens en u deze als een extra functie toevoegen kunt. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Vouw de functiesets met kunstmatige intelligentie en cognitive services
 
@@ -196,6 +199,8 @@ In sommige gevallen deze kan alleen worden bepaald later in uw bedrijfslogica al
 
 Bij het aanroepen van positie, ontvangt u meerdere acties kiezen uit:
 
+JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden bevatten. Een matrix kan worden opgenomen alleen als de matrixitems getallen zijn. 
+
 ```json
 {
     "actions": [
@@ -204,7 +209,8 @@ Bij het aanroepen van positie, ontvangt u meerdere acties kiezen uit:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -217,7 +223,8 @@ Bij het aanroepen van positie, ontvangt u meerdere acties kiezen uit:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -229,7 +236,8 @@ Bij het aanroepen van positie, ontvangt u meerdere acties kiezen uit:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -244,7 +252,8 @@ Bij het aanroepen van positie, ontvangt u meerdere acties kiezen uit:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -271,6 +280,8 @@ Uw toepassing is verantwoordelijk voor het laden van de informatie over de conte
 
 Context wordt uitgedrukt als een JSON-object dat wordt verzonden naar de API positie:
 
+JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden bevatten. Een matrix kan worden opgenomen alleen als de matrixitems getallen zijn. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -288,7 +299,9 @@ Context wordt uitgedrukt als een JSON-object dat wordt verzonden naar de API pos
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

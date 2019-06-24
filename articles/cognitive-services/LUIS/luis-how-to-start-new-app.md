@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148200"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341864"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Een nieuwe LUIS-app maken in de portal LUIS
 Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de [LUIS](https://www.luis.ai) portal of via het ontwerpen van LUIS [API's](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -65,7 +65,7 @@ U kunt een nieuwe app maken met de authoring API's in een aantal manieren:
 
 Mogelijke fouten zijn: 
 
-* Er bestaat al een app met die naam. Importeer de app en stel de **optionele naam** naar een nieuwe naam. 
+* Er bestaat al een app met die naam. U kunt dit verhelpen, importeer de app en stel de **optionele naam** naar een nieuwe naam. 
 
 ## <a name="export-app-for-backup"></a>Uitvoer-app voor back-up
 

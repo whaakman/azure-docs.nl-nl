@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072859"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341878"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
 Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Om te leren Language Understanding (LUIS), die u nodig hebt om toe te voegen [voorbeeld uitingen](luis-concept-utterance.md) naar een [bedoeling](luis-concept-intent.md).
 
-Normaal gesproken een utterance voorbeeld eerst aan een doel toevoegen en vervolgens maken van entiteiten en label uitingen op de pagina intentie. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
+Meestal kunt u een voorbeeld-utterance eerst toevoegen aan een doel en vervolgens u entiteiten maken en uitingen op de intentie pagina label. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Entiteiten in de voorbeeld-uitingen markeren
 

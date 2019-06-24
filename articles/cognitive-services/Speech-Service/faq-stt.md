@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6cc530d2680c0410081ad3ad3e573cd59d5583d6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60539057"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341965"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Veelgestelde vragen over spraak naar tekst
 
@@ -69,7 +69,7 @@ Als u hebt aangepast en een model met basislijn V1.0 geïmplementeerd, blijft de
 
 **A**: U kunt uw model in stappen van 20 gelijktijdige aanvragen opschalen.
 
-Contact met ons opnemen als u een hogere schaal nodig hebt.
+Neem contact op met [spraakondersteuning](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) als u een hogere schaal nodig hebt.
 
 **V: Kan ik mijn model downloaden en lokaal uitvoeren?**
 
