@@ -56,7 +56,7 @@ Triggers hebben deze elementen op het hoogste niveau, hoewel sommige optioneel z
 | <*trigger-type*> | String | Het triggertype zoals 'Http' of "ApiConnection" | 
 | <*trigger-inputs*> | JSON-Object | De invoer die van de trigger-gedrag bepalen | 
 | <*time-unit*> | String | De tijdseenheid waarin wordt beschreven hoe vaak de trigger wordt geactiveerd: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month' | 
-| <*nummer van de tijd eenheden*> | Geheel getal | Een waarde die aangeeft hoe vaak de trigger wordt geactiveerd op basis van de frequentie, het aantal tijdseenheden is moet worden gewacht tot het opnieuw door de trigger wordt geactiveerd <p>Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uur: 1-12.000-uur </br>-Minuut: 1-72,000 minuten </br>-Seconde: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval 6 is en de frequency 'Maand' is, is het terugkeerpatroon van de zes maanden. | 
+| <*number-of-time-units*> | Integer | Een waarde die aangeeft hoe vaak de trigger wordt geactiveerd op basis van de frequentie, het aantal tijdseenheden is moet worden gewacht tot het opnieuw door de trigger wordt geactiveerd <p>Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uur: 1-12.000-uur </br>-Minuut: 1-72,000 minuten </br>-Seconde: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval 6 is en de frequency 'Maand' is, is het terugkeerpatroon van de zes maanden. | 
 |||| 
 
 *Optioneel*
