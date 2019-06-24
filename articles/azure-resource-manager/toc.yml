@@ -212,7 +212,7 @@
 - name: Naslaginformatie
   items:
     - name: Sjabloonverwijzing
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: Sjabloonfuncties
       items:
         - name: Alle functies
