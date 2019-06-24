@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596089"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342123"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Een .NET-consoletoepassing voor het beheren van gegevens in Azure Cosmos DB SQL API-account maken
 
@@ -68,7 +68,7 @@ De gedownloade volledige oplossing uitvoeren:
 1. In de *App.config* bestand de `EndpointUrl` en `PrimaryKey` waarden zoals beschreven in de [verbinding maken met de Azure Cosmos DB-account](#Connect) sectie.
 1. Selecteer **Debug** > **starten zonder foutopsporing** of druk op **Ctrl**+**F5** wilt bouwen en uitvoeren van de app.
 
-## <a name="create-an-azure-cosmos-db-account"></a>Een Azure Cosmos DB-account maken
+## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
 
 Volg deze instructies voor het maken van een Azure Cosmos DB-account in Azure portal. Als u al een Azure Cosmos DB-account moet worden gebruikt, gaat u verder met [instellen van de Visual Studio-oplossing](#SetupVS). 
 
@@ -78,7 +78,7 @@ Volg deze instructies voor het maken van een Azure Cosmos DB-account in Azure po
 
 1. Selecteer in Visual Studio 2017 **bestand** > **nieuw** > **Project**.
    
-1. In de **nieuw Project** dialoogvenster, selecteer **Visual C#**   >  **Console-App (.NET Framework)**, Geef uw project de naam *AzureCosmosDBApp* , en selecteer vervolgens **OK**.
+1. In de **nieuw Project** dialoogvenster, selecteer **Visual C#**   >  **Console-App (.NET Framework)** , Geef uw project de naam *AzureCosmosDBApp* , en selecteer vervolgens **OK**.
    
    ![Schermafbeelding van het venster Nieuw project](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -450,7 +450,7 @@ Het volgende diagram illustreert hoe de Azure Cosmos DB SQL-querysyntaxis wordt 
 
 ![Diagram ter illustratie van het bereik en de betekenis van de query die wordt gebruikt in de NoSQL-zelfstudie om een toepassing C#-consoletoepassing te maken](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-De [FROM](how-to-sql-query.md#FromClause) sleutelwoord in de SQL-query is optioneel, omdat Azure Cosmos DB-query's al zijn afgestemd op één verzameling. U kunt wisselen `FROM Families f` met `FROM root r`, of een andere variabele naam die u kiest. Azure Cosmos DB die wordt afgeleid `Families`, `root`, of de naam van de variabele die u kiest verwijst naar de huidige verzameling.
+De [FROM](sql-query-from.md) sleutelwoord in de SQL-query is optioneel, omdat Azure Cosmos DB-query's al zijn afgestemd op één verzameling. U kunt wisselen `FROM Families f` met `FROM root r`, of een andere variabele naam die u kiest. Azure Cosmos DB die wordt afgeleid `Families`, `root`, of de naam van de variabele die u kiest verwijst naar de huidige verzameling.
 
 ## <a id="ReplaceDocument"></a>Een JSON-document bijwerken
 

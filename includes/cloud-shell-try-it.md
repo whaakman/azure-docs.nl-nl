@@ -4,16 +4,16 @@ ms.service: azure
 ms.topic: include
 ms.date: 05/31/2019
 ms.author: sttramer
-ms.openlocfilehash: 4a52041f773529c2a72c8019da27d56f98b6b53d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 977caddde316384815c8248dffe243d2a7817226
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147471"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341527"
 ---
 ## <a name="open-azure-cloud-shell"></a>Azure Cloud Shell openen
 
-Azure Cloud Shell is een interactieve shell-omgeving die wordt gehost in Azure en via de browser gebruikt. Azure Cloud Shell kunt u gebruikmaken van een `bash` of `PowerShell` shells om uit te voeren van tal van hulpprogramma's om te werken met Azure-services. Azure Cloud Shell is vooraf geïnstalleerd met de opdrachten waarmee u kunt de inhoud van dit artikel uitvoeren zonder dat u hoeft te installeren op uw lokale omgeving.
+Azure Cloud Shell is een interactieve shell-omgeving die wordt gehost in Azure en gebruikt via uw browser. Azure Cloud Shell kunt u gebruikmaken van een `bash` of `PowerShell` shells om uit te voeren van tal van hulpprogramma's om te werken met Azure-services. Azure Cloud Shell is vooraf geïnstalleerd met de opdrachten waarmee u kunt de inhoud van dit artikel uitvoeren zonder dat u hoeft te installeren op uw lokale omgeving.
 
 Als u wilt uitvoeren van code die is opgenomen in dit artikel over Azure Cloud Shell, opent u een Cloud Shell-sessie, gebruikt u de **kopie** knop in een codeblok kopieert u de code en plak deze in de Cloud Shell-sessie met __Ctrl + Shift + V__ op Windows en Linux, of __Cmd + Shift + V__ in macOS. Geplakte tekst niet automatisch wordt uitgevoerd, dus druk op **Enter** code uit te voeren.
 

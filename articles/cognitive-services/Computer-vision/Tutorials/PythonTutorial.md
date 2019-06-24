@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b55b1fdf3b93d3865bdb115e43ff8583af61b45d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5333557355aa816245b5086836eac980d90540a
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61346306"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341489"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Zelfstudie: Computer Vision-API Python
 
@@ -45,9 +45,10 @@ Controleer of het veld `_region` overeenkomt met de regio die met uw abonnement 
 
 ```python
 # Variables
-_region = 'westcentralus' #Here you enter the region of your subscription
-_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(_region)
-_key = None #Here you have to paste your primary key
+_region = 'westcentralus'  # Here you enter the region of your subscription
+_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(
+    _region)
+_key = None  # Here you have to paste your primary key
 _maxNumRetries = 10
 ```
 

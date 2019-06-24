@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3d262a33ecbc35ada278019ee0998486bc92efe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4b2304e170f9ddc14a5c1fa71a8822d083955106
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130191"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341515"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Een Python- en PostgreSQL-app in Azure App Service maken
 
@@ -286,7 +286,8 @@ In deze step implementeert u de met Postgres verbonden Python-toepassing naar Az
 In Django wordt de `HTTP_HOST`-header gevalideerd in binnenkomende aanvragen. U moet een Fully Qualified Domain Name voor de app toevoegen aan de toegestane hosts om ervoor te zorgen dat de Django-app werkt in App Service. Open _azuresite/settings.py_ en ga naar de `ALLOWED_HOSTS`-instelling. Wijzig de regel in:
 
 ```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net',
+                 '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
 Django biedt geen ondersteuning voor [het gebruiken van statische bestanden in een productieomgeving](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/). U moet dit dus handmatig inschakelen. Voor deze zelfstudie gebruikt u [WhiteNoise](https://whitenoise.evans.io/en/stable/). Het WhiteNoise-pakket is al opgenomen in _requirements.txt_. U hoeft alleen maar Django te configureren om dit pakket te gebruiken. 
@@ -396,7 +397,7 @@ Navigeer naar `<app-name>.azurewebsites.net` en meld u aan met de gebruiker met 
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="manage-your-app-in-the-azure-portal"></a>De app beheren in de Azure-portal
+## <a name="manage-your-app-in-the-azure-portal"></a>Uw app in Azure portal beheren
 
 Ga naar de [Azure-portal](https://portal.azure.com) om de app te zien die u hebt gemaakt.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4750937ee7ef6230ed4635d739a102a501b19a30
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002990"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341801"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
@@ -32,7 +32,7 @@ Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelin
 | | [Batch transcriptie](batch-transcription.md) | Batch transcriptie kunt asynchrone transcriptie van spraak-naar-tekst van grote hoeveelheden gegevens. Dit is een REST gebaseerde service die gebruikmaakt van hetzelfde eindpunt als aanpassing en Modelbeheer. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | | [Conversatie transcriptie](conversation-transcription-service.md) | Maakt een realtime spraakherkenning, sprekeridentificatie en diarization. Dit is ideaal voor het te vergaderingen in met de mogelijkheid om onderscheid sprekers te transcriberen. | Ja | Nee |
 | | [Aangepaste Spraakmodellen maken](#customize-your-speech-experience) | Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| [Tekst naar spraak](text-to-speech.md) | Tekst naar spraak | Tekst naar spraak converteert invoertekst naar menselijke kunstmatige spraak. Kies uit de standard stemmen en neurale stemmen (Zie [taalondersteuning](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Tekst naar spraak](text-to-speech.md) | Tekst naar spraak | Tekst naar spraak zet invoertekst in met behulp van kunstmatige spraak menselijke [spraak synthese Markup Language (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Kies uit de standard stemmen en neurale stemmen (Zie [taalondersteuning](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Maken van aangepaste stemmen](#customize-your-speech-experience) | Maak aangepaste spraakstijlen uniek is voor uw merk of product. | Nee | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Spraakomzetting](speech-translation.md) | Spraakomzetting | Spraakomzetting kan realtime, meerdere talen vertaling van spraak naar uw toepassingen, hulpprogramma's en apparaten. Deze service voor spraak-naar-spraak- en spraak-naar-tekst vertalen gebruiken. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nee |
 | [Stem op de eerste virtuele assistent](voice-first-virtual-assistants.md) | Stem op de eerste virtuele assistent | Aangepaste virtuele assistenten met behulp van Azure Speech Services meer mogelijkheden bieden ontwikkelaars voor het maken van de natuurlijke, menselijke conversatie-interfaces voor hun toepassingen en ervaringen. De Bot Framework directe regel spraak kanaal verbetert deze mogelijkheden door te geven van een gecoördineerde, gecoördineerd toegangspunt een compatibel bot waarmee spraak in spraak van interactie met lage latentie en hoge betrouwbaarheid. | [Ja](voice-first-virtual-assistants.md) | Nee |

@@ -95,7 +95,7 @@ De volgende tabel beschrijft de elementen van de uitvoer-JSON-bestand.
 | Element | Description |
 | --- | --- |
 | Version |Dit verwijst naar de versie van de Video-API. De huidige versie is 2. |
-| Tijdschaal |'Tikken"per seconde van de video. |
+| Timescale |'Tikken"per seconde van de video. |
 | Offset |De time-offset voor tijdstempels in "tikken." Versie 1.0 van Video-API's, wordt dit altijd 0 zijn. In de toekomst scenario's die wordt ondersteund, deze waarde kan worden gewijzigd. |
 | Framerate |Aantal frames per seconde video. |
 | Width, Height |Verwijst naar de breedte en hoogte van de video in pixels. |

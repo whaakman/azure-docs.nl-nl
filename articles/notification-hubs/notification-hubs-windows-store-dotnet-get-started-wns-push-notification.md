@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 714c2be7265a41a7791ce39bfaa1bdc12fa58cac
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60426799"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340753"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs
 
@@ -29,7 +29,7 @@ ms.locfileid: "60426799"
 In deze zelfstudie maakt u een Notification Hub om pushmeldingen te verzenden naar een UWP-app (Universal Windows Platform). U maakt een lege Windows Store-app die pushmeldingen ontvangt via Windows Push Notification Service (WNS). Daarna gebruikt u de notification hub voor het uitzenden van pushmeldingen kunt verzenden naar alle apparaten waarop uw app.
 
 > [!NOTE]
-> De volledige code voor deze zelfstudie vindt u op [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+> De volledige code voor deze zelfstudie vindt u op [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/UwpSample).
 
 U uitvoeren de volgende stappen:
 
@@ -77,7 +77,7 @@ Als u pushmeldingen naar UWP-apps wilt verzenden, koppelt u uw app aan de Window
 
 ### <a name="configure-wns-settings-for-the-hub"></a>WNS-instellingen voor de hub configureren
 
-1. Selecteer in de categorie **MELDINGSINSTELLINGEN** de optie **Windows (WNS)**.
+1. Selecteer in de categorie **MELDINGSINSTELLINGEN** de optie **Windows (WNS)** .
 2. Voer waarden in voor **pakket-SID** en **Beveiligingssleutel** die u in de vorige sectie hebt genoteerd.
 3. Klik op **Opslaan** op de werkbalk.
 
@@ -92,7 +92,7 @@ De Notification Hub is nu geconfigureerd om met WNS te kunnen werken. U hebt de 
 
     1. Vouw **Visual C#** uit.
     2. Selecteer **Windows Universal**.
-    3. Selecteer **Lege app (Universal Windows)**.
+    3. Selecteer **Lege app (Universal Windows)** .
     4. Voer een **naam** in voor het project.
     5. Selecteer **OK**.
 

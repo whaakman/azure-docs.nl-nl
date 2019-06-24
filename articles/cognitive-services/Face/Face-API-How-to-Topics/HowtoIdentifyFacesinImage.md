@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c22230545ccbe1ef1b4bfa35a33f0302197463b1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1696a20094357d084ba54739767509b8d50c4ad5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124534"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341295"
 ---
 # <a name="example-identify-faces-in-images"></a>Voorbeeld: Gezichten in foto's identificeren
 
@@ -41,10 +41,10 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Als alternatief kunt u de abonnementssleutel opgeven in de HTTP-aanvraagheader **ocp-apim-subscription-key: &lt;Abonnementssleutel&gt;**.
+Als alternatief kunt u de abonnementssleutel opgeven in de HTTP-aanvraagheader **ocp-apim-subscription-key: &lt;Abonnementssleutel&gt;** .
 Wanneer u een clientbibliotheek gebruikt, wordt de abonnementssleutel doorgegeven de constructor van de klasse FaceServiceClient. Bijvoorbeeld:
  
-```CSharp 
+```csharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
@@ -63,7 +63,7 @@ Maak eerst een nieuwe PersonGroup met behulp van de [PersonGroup - maken](https:
 
 Nadat een groep wordt gedefinieerd, kunt u personen binnen deze definiëren met behulp van de [PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. De clientbibliotheekmethode is CreatePersonAsync. U kunt een gezicht toevoegen aan elke persoon nadat ze zijn gemaakt.
 
-```CSharp 
+```csharp 
 // Create an empty PersonGroup
 string personGroupId = "myfriends";
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends");
@@ -84,7 +84,8 @@ De detectie wordt uitgevoerd door een POST-webaanvraag naar de API [Face - Detec
 Aanroepen voor elk gezicht die wordt gedetecteerd, [PersonGroup persoon – Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) toe te voegen aan de juiste persoon.
 
 In de volgende code ziet u het proces voor het detecteren van een gezicht in een afbeelding en het toevoegen van het gezicht aan een persoon:
-```CSharp 
+
+```csharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
  
@@ -105,13 +106,13 @@ Als de afbeelding meer dan één face bevat, wordt alleen het grootste gezicht t
 
 De PersonGroup moet worden getraind voordat een id kan worden uitgevoerd door het te gebruiken. De PersonGroup moet opnieuw worden getraind na het toevoegen of verwijderen van een persoon of als u van een persoon geregistreerde face bewerken. De training wordt uitgevoerd met behulp van de API [PersonGroup – Trainen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249). Wanneer u de clientbibliotheek gebruikt, is een aanroep van de methode TrainPersonGroupAsync:
  
-```CSharp 
+```csharp 
 await faceServiceClient.TrainPersonGroupAsync(personGroupId);
 ```
  
 Training is een asynchroon proces. Deze kan niet worden voltooid, zelfs nadat de TrainPersonGroupAsync-methode retourneert. U moet mogelijk de trainingsstatus opvragen. Gebruik de [PersonGroup - Training-Status ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API of GetPersonGroupTrainingStatusAsync methode van de clientbibliotheek. De volgende code toont een eenvoudige logische wachten PersonGroup training om te voltooien:
  
-```CSharp 
+```csharp 
 TrainingStatus trainingStatus = null;
 while(true)
 {
@@ -134,7 +135,7 @@ Het testen gezicht moet worden gedetecteerd met behulp van de vorige stappen. De
 
 De volgende code ziet u de id-proces:
 
-```CSharp 
+```csharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))

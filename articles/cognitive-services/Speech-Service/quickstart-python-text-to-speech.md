@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: c71d76539a4486527d2c8954c62db82a52ca3a4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8086e67753821cd6dd87192835b8a2180014db17
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056813"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338632"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Quickstart: Converteert tekst naar spraak met behulp van Python
 
@@ -37,7 +37,9 @@ Voor deze snelstart zijn de volgende zaken vereist:
 Maak een nieuw Python-project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `tts.py`.
 
 ```python
-import os, requests, time
+import os
+import requests
+import time
 from xml.etree import ElementTree
 ```
 
@@ -51,8 +53,10 @@ Deze modules worden gebruikt voor het schrijven van het antwoord spraak als een 
 In de volgende gedeelten maakt u methoden voor verwerking van autorisatie, de Text to Speech-API aanroepen en valideren van het antwoord. Laten we beginnen met het toevoegen van code die ervoor dat in dit voorbeeld zorgt werkt met Python 2.7.x en 3.x.
 
 ```python
-try: input = raw_input
-except NameError: pass
+try:
+    input = raw_input
+except NameError:
+    pass
 ```
 
 Vervolgens maken we een klasse. Dit is waar gaan we onze methoden voor token exchange en het aanroepen van de Text to Speech-API.
@@ -120,7 +124,8 @@ def save_audio(self):
     xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
-    voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+    voice.set(
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 
@@ -128,9 +133,11 @@ def save_audio(self):
     if response.status_code == 200:
         with open('sample-' + self.timestr + '.wav', 'wb') as audio:
             audio.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nYour TTS is ready for playback.\n")
     else:
-        print("\nStatus code: " + str(response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
+        print("\nStatus code: " + str(response.status_code) +
+              "\nSomething went wrong. Check your subscription key and headers.\n")
 ```
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
