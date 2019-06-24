@@ -79,8 +79,8 @@ Hier volgt de algemene structuur voor de uitvoerdefinitie van een:
 | Kenmerk | Vereist | Type | Description |
 |-----------|----------|------|-------------|
 | <*key-name*> | Ja | String | De naam van de sleutel voor de uitvoer waarde retourneren |
-| <*key-type*> | Ja | int, float, string, securestring, bool, matrix, JSON-object | Het type voor de geretourneerde waarde van uitvoer |
-| <*key-value*> | Ja | Hetzelfde als <*sleutel-type*> | De geretourneerde waarde van uitvoer |
+| <*key-type*> | Ja | int, float, string, securestring, bool, array, JSON-object | Het type voor de geretourneerde waarde van uitvoer |
+| <*key-value*> | Ja | Hetzelfde als <*key-type*> | De geretourneerde waarde van uitvoer |
 |||||
 
 Als u de uitvoer van een werkstroom, bekijk de uitvoeringsgeschiedenis en details in de Azure-portal van uw logische app of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven aan externe systemen, bijvoorbeeld Power BI, zodat u kunt dashboards maken.
@@ -110,9 +110,9 @@ Hier volgt de algemene structuur voor een parameterdefinitie:
 
 | Kenmerk | Vereist | Type | Description |
 |-----------|----------|------|-------------|
-| <*parameter-type*> | Ja | int, float, string, securestring, bool, matrix, JSON-object, secureobject <p><p>**Opmerking**: Voor alle wachtwoorden, sleutels en geheimen, gebruikt u de `securestring` en `secureobject` omdat de `GET` bewerking deze typen niet retourneren. Zie voor meer informatie over het beveiligen van parameters [uw logische app beveiligen](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Het type voor de parameter |
+| <*parameter-type*> | Ja | int, float, string, securestring, bool, array, JSON-object, secureobject <p><p>**Opmerking**: Voor alle wachtwoorden, sleutels en geheimen, gebruikt u de `securestring` en `secureobject` omdat de `GET` bewerking deze typen niet retourneren. Zie voor meer informatie over het beveiligen van parameters [uw logische app beveiligen](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Het type voor de parameter |
 | <*standaard-parameterwaarden*> | Ja | Gelijk aan `type` | De standaardwaarde voor parameter wanneer er geen waarde is opgegeven wanneer de werkstroom waarmee een wordt gemaakt |
-| <*matrix-met-toegestaan-parameter-waarden*> | Nee | Matrix | Een matrix met waarden die de parameter kunt accepteren |
+| <*array-with-permitted-parameter-values*> | Nee | Array | Een matrix met waarden die de parameter kunt accepteren |
 | `metadata` | Nee | JSON-object | Andere details van de parameter, bijvoorbeeld de naam of een leesbare beschrijving op voor uw logische app of stroom of het moment van ontwerp-gegevens die worden gebruikt door Visual Studio of andere hulpprogramma 's |
 ||||
 
