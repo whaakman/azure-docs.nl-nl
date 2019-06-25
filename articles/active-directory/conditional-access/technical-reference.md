@@ -140,19 +140,19 @@ Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken
 
 |    |    |
 | --- | --- |
-| Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
-| Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersleutel:
 
 |    |    |
 | --- | --- |
-| Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
 | Type | REG_SZ (String) |
-| Gegevens | {"patroon": "https://device.login.microsoftonline.com ',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}} |
+| Data | {"patroon": "https://device.login.microsoftonline.com ',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}} |
 
 Deze browsers ondersteunen verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privémodus.
 
