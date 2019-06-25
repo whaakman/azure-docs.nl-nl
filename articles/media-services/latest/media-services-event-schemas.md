@@ -200,7 +200,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| Uitvoer | Matrix | Hiermee haalt u de taak uitvoer.|
+| outputs | Array | Hiermee haalt u de taak uitvoer.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -456,9 +456,9 @@ Het gegevensobject heeft de volgende eigenschappen:
 | -------- | ---- | ----------- |
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | De naam van het spoor. |
-| Bitrate | geheel getal | Bitrate van het spoor. |
+| bitrate | integer | Bitrate van het spoor. |
 | timestamp | string | Timestamp van het gegevenssegment is verwijderd. |
-| tijdschaal | string | Tijdschaal van de tijdstempel. |
+| timescale | string | Tijdschaal van de tijdstempel. |
 | resultCode | string | De reden van de gegevens chunk vervolgkeuzelijst. **FragmentDrop_OverlapTimestamp** or **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -496,12 +496,12 @@ Het gegevensobject heeft de volgende eigenschappen:
 | -------- | ---- | ----------- |
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
-| Bitrate | geheel getal | Bitrate van het spoor. |
+| bitrate | integer | Bitrate van het spoor. |
 | ingestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |
 | encoderIp | string  | IP-adres van het coderingsprogramma. |
 | encoderPort | string | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
 | timestamp | string | Eerste timestamp van het gegevenssegment dat is ontvangen. |
-| tijdschaal | string | Tijdschaal waarin tijdstempel wordt weergegeven. |
+| timescale | string | Tijdschaal waarin tijdstempel wordt weergegeven. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -570,10 +570,10 @@ Het gegevensobject heeft de volgende eigenschappen:
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | firstTimestamp | string | Tijdstempel voor een van de sporen te wissen/kwaliteitsniveaus van het type video ontvangen. |
-| FirstDuration | string | De duur van het gegevenssegment met eerste tijdstempel. |
+| firstDuration | string | De duur van het gegevenssegment met eerste tijdstempel. |
 | secondTimestamp | string  | Tijdstempel voor een ander nummer/kwaliteit-niveau van het type video ontvangen. |
-| SecondDuration | string | De duur van het gegevenssegment met tweede tijdstempel. |
-| tijdschaal | string | Tijdschaal van tijdstempels en de duur.|
+| secondDuration | string | De duur van het gegevenssegment met tweede tijdstempel. |
+| timescale | string | Tijdschaal van tijdstempels en de duur.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -613,16 +613,16 @@ Het gegevensobject heeft de volgende eigenschappen:
 | -------- | ---- | ----------- |
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
-| Bitrate | geheel getal | Bitrate van het spoor. |
-| IncomingBitrate | geheel getal | Berekende bitrate op basis van die afkomstig zijn van het coderingsprogramma gegevenssegmenten. |
+| bitrate | integer | Bitrate van het spoor. |
+| incomingBitrate | integer | Berekende bitrate op basis van die afkomstig zijn van het coderingsprogramma gegevenssegmenten. |
 | lastTimestamp | string | Meest recente tijdstempel ontvangen voor een nummer in de afgelopen 20 seconden. |
-| tijdschaal | string | Tijdschaal waarin tijdstempels worden uitgedrukt. |
-| overlapCount | geheel getal | Aantal gegevenssegmenten had tijdstempels in de afgelopen 20 seconden overlapt. |
-| discontinuityCount | geheel getal | Het aantal wijzigingen in de afgelopen 20 seconden waargenomen. |
-| nonIncreasingCount | geheel getal | Aantal gegevenssegmenten met tijdstempels in het verleden zijn ontvangen in de afgelopen 20 seconden. |
+| timescale | string | Tijdschaal waarin tijdstempels worden uitgedrukt. |
+| overlapCount | integer | Aantal gegevenssegmenten had tijdstempels in de afgelopen 20 seconden overlapt. |
+| discontinuityCount | integer | Het aantal wijzigingen in de afgelopen 20 seconden waargenomen. |
+| nonIncreasingCount | integer | Aantal gegevenssegmenten met tijdstempels in het verleden zijn ontvangen in de afgelopen 20 seconden. |
 | unexpectedBitrate | bool | Als de verwachte en de daadwerkelijke bitsnelheden verschillen door meer dan de toegestane limiet afgelopen 20 seconden. Dit is waar als en alleen als, incomingBitrate > = 2 * bitrate of incomingBitrate < = bitrate/2 of IncomingBitrate = 0. |
 | state | string | Status van de live-gebeurtenis. |
-| In orde | bool | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
+| healthy | bool | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -657,9 +657,9 @@ Het gegevensobject heeft de volgende eigenschappen:
 | -------- | ---- | ----------- |
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
-| Bitrate | geheel getal | Bitrate van het spoor. |
+| bitrate | integer | Bitrate van het spoor. |
 | previousTimestamp | string | Timestamp van het vorige fragment. |
-| NewTimestamp | string | Tijdstempel van de huidige fragment. |
+| newTimestamp | string | Tijdstempel van de huidige fragment. |
 | discontinuityGap | string | De kloof tussen boven twee tijdstempels. |
 | tijdschaal | string | Tijdschaal in welke tussenruimte zowel tijdstempel en onderbreking worden weergegeven. |
 
