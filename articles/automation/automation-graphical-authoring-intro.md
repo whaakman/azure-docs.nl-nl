@@ -142,7 +142,7 @@ De voorwaarde opnieuw kunt gebruiken een variabele met de naam $RetryData die to
 | Eigenschap | Description |
 |:--- |:--- |
 | NumberOfAttempts |Het aantal keren dat de activiteit is uitgevoerd. |
-| Uitvoer |De uitvoer van de laatste uitvoering van de activiteit. |
+| Output |De uitvoer van de laatste uitvoering van de activiteit. |
 | TotalDuration |Time-out verstreken sinds de eerste keer door de activiteit is gestart. |
 | StartedAt |Tijd in UTC-notatie die de activiteit voor het eerst is gestart. |
 
@@ -327,8 +327,8 @@ Elke invoerparameter wordt gedefinieerd door de eigenschappen in de volgende tab
 | Name |De unieke naam van de parameter. Dit mag alleen alfanumerieke tekens en mag geen spatie bevatten. |
 | Description |Een optionele beschrijving voor de invoerparameter. |
 | Type |Het gegevenstype voor de parameterwaarde verwacht. De Azure portal biedt een juiste besturingselement voor het gegevenstype voor elke parameter tijdens het vragen om invoer. |
-| Verplicht |Hiermee geeft u op of moet een waarde worden opgegeven voor de parameter. Het runbook kan niet worden gestart als u geen waarde opgeeft voor de verplichte parameter waarmee de heeft geen standaardwaarde gedefinieerd. |
-| Standaardwaarde |Hiermee geeft u op welke waarde voor de parameter wordt gebruikt als niet is opgegeven. Dit kan ofwel Null of een specifieke waarde zijn. |
+| Mandatory |Hiermee geeft u op of moet een waarde worden opgegeven voor de parameter. Het runbook kan niet worden gestart als u geen waarde opgeeft voor de verplichte parameter waarmee de heeft geen standaardwaarde gedefinieerd. |
+| Default Value |Hiermee geeft u op welke waarde voor de parameter wordt gebruikt als niet is opgegeven. Dit kan ofwel Null of een specifieke waarde zijn. |
 
 ### <a name="runbook-output"></a>Runbook-uitvoer
 
