@@ -72,7 +72,7 @@ De volgende tabel beschrijft de kenmerken van een parameter.
 |:--- |:--- |
 | type |Het gegevenstype voor de parameter. Het besturingselement voor tekstinvoer weergegeven voor de gebruiker, is afhankelijk van het gegevenstype.<br><br>Boole - vervolgkeuzelijst<br>tekenreeks - tekstvak<br>int - tekstvak<br>SecureString - veld wachtwoord<br> |
 | category |De categorie voor de parameter is optioneel.  Parameters in dezelfde categorie zijn gegroepeerd. |
-| Besturingselement |Aanvullende functionaliteit voor tekenreeksparameters.<br><br>datum/tijd - datum/tijd-besturingselement wordt weergegeven.<br>GUID - Guid-waarde wordt automatisch gegenereerd en de parameter niet wordt weergegeven. |
+| control |Aanvullende functionaliteit voor tekenreeksparameters.<br><br>datum/tijd - datum/tijd-besturingselement wordt weergegeven.<br>GUID - Guid-waarde wordt automatisch gegenereerd en de parameter niet wordt weergegeven. |
 | description |Optionele beschrijving voor de parameter.  In een ballon naast de parameter van de gegevens weergegeven. |
 
 ### <a name="standard-parameters"></a>Standard parameters
