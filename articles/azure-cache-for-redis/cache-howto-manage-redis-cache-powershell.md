@@ -128,9 +128,9 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | Parameter | Description | Standaard |
 | --- | --- | --- |
 | Name |Naam van de cache | |
-| Locatie |Locatie van de cache | |
+| Location |Locatie van de cache | |
 | ResourceGroupName |Naam van resourcegroep waarin u kunt de cache maken | |
-| Grootte |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| Size |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |Het aantal shards te maken bij het maken van een premium-cache met clustering is ingeschakeld. Geldige waarden zijn: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Hiermee geeft u de SKU van de cache. Geldige waarden zijn: Basic, Standard en Premium |Standard |
 | RedisConfiguration |Hiermee geeft u een Redis-configuratie-instellingen. Zie voor meer informatie over elke instelling de volgende [RedisConfiguration eigenschappen](#redisconfiguration-properties) tabel. | |
