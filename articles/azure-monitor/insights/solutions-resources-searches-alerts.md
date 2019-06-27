@@ -79,7 +79,7 @@ Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel besch
 | Eigenschap | Description |
 |:--- |:--- |
 | category | De categorie voor de opgeslagen zoekopdracht.  Alle opgeslagen zoekopdrachten in dezelfde oplossing delen vaak één categorie, zodat ze samen worden gegroepeerd in de console. |
-| DisplayName | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
+| displayName | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
 | query | De query wilt uitvoeren. |
 
 > [!NOTE]
@@ -176,10 +176,10 @@ De eigenschappen voor actie bij waarschuwing resources worden in de volgende tab
 
 | De naam van element | Vereist | Description |
 |:--|:--|:--|
-| Type | Ja | Het type van de actie.  Dit is **waarschuwing** voor waarschuwingsacties. |
-| Name | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
-| Description | Nee | Optionele beschrijving van de waarschuwing. |
-| Severity | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **critical**<br>**Waarschuwing**<br>**Informatief**
+| type | Ja | Het type van de actie.  Dit is **waarschuwing** voor waarschuwingsacties. |
+| name | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
+| description | Nee | Optionele beschrijving van de waarschuwing. |
+| severity | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **critical**<br>**Waarschuwing**<br>**Informatief**
 
 
 #### <a name="threshold"></a>Drempelwaarde
