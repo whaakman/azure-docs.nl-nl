@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206713"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329345"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
-Streaming-eenheden (su's) vertegenwoordigt de computerbronnen die zijn toegewezen voor het uitvoeren van een taak. Hoe hoger het aantal streaming-eenheden, hoe meer CPU- en geheugenresources worden toegewezen voor uw taak. Deze capaciteit kunt die u zich op de querylogica richten en de noodzaak voor het beheren van de hardware voor het uitvoeren van uw Stream Analytics-taak tijdig samenvattingen.
+Streaming-eenheden (su's) vertegenwoordigt de computerbronnen die zijn toegewezen voor het uitvoeren van een Stream Analytics-taak. Hoe hoger het aantal streaming-eenheden, hoe meer CPU- en geheugenresources worden toegewezen voor uw taak. Deze capaciteit kunt die u zich op de querylogica richten en de noodzaak voor het beheren van de hardware voor het uitvoeren van uw Stream Analytics-taak tijdig samenvattingen.
 
 Om verwerking met lage latentie te bereiken, voeren Azure Stream Analytics-taken alle verwerking in het geheugen uit. Bij het uitvoeren van onvoldoende geheugen, mislukt de streaming-taak. Als gevolg hiervan voor een productietaak is het belangrijk een streamingtaak Resourcegebruik te bewaken en zorg ervoor dat er voldoende resources toegewezen om te voorkomen dat de 24/7-taken.
 
@@ -85,7 +85,7 @@ Bijvoorbeeld, in de volgende query, het aantal die zijn gekoppeld aan `clusterid
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Om te voorkomen die samenhangen problemen veroorzaakt door hoge kardinaliteit in de vorige query, stuurt u gebeurtenissen naar Event Hub gepartitioneerd op basis van `clusterid`, en scale-out van de query doordat het systeem voor het verwerken van elke invoer partitie afzonderlijk met **partitie DOOR** zoals wordt weergegeven in het voorbeeld hieronder:
+Om te kunnen oplossen van problemen veroorzaakt door hoge kardinaliteit in de vorige query, stuurt u gebeurtenissen naar Event Hub gepartitioneerd op basis van `clusterid`, en scale-out van de query doordat het systeem voor het verwerken van elke invoer partitie afzonderlijk met **partitie DOOR** zoals wordt weergegeven in het voorbeeld hieronder:
 
    ```sql
    SELECT count(*) 

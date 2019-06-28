@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468269"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332061"
 ---
 # <a name="get-started-with-azure-advisor"></a>Aan de slag met Azure Advisor
 
@@ -94,9 +94,9 @@ Mogelijk hebt u resourcegroepen of abonnementen voor die u niet wilt ontvangen v
 
 Deze procedure configureert u de gemiddelde CPU-gebruik regel voor de aanbeveling voor beperkt gebruikte virtuele machines.
 
-Advisor bewaakt uw gebruik van virtuele machines gedurende 14 dagen en vervolgens laag gebruik virtuele machines identificeert. Virtuele machines waarvan gemiddelde CPU-gebruik 5 is % of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.
+Advisor bewaakt het gebruik van uw virtuele machine 7 dagen en identificeert het vervolgens laag gebruik virtuele machines. Virtuele machines worden beschouwd als laag-gebruik als het CPU-gebruik 5 is % of minder en hun netwerkgebruik is minder dan 2% of als de huidige werkbelasting kan worden aangepast door een kleinere virtuele machine.
 
-Als u wilt worden agressiever ten grondslag ligt beperkt gebruikte virtuele machines, kunt u de gemiddelde CPU-gebruik regel op basis van een abonnement aanpassen.  De gemiddelde CPU-gebruik regel kan worden ingesteld op 5%, % 10, 15% of % 20.
+Als u wilt worden agressiever ten grondslag ligt beperkt gebruikte virtuele machines, kunt u de gemiddelde CPU-gebruik regel op basis van een abonnement aanpassen.  De regel van CPU-gebruik kan worden ingesteld op 5%, % 10, 15% of % 20.
 
 > [!NOTE]
 > Om aan te passen de gemiddelde CPU-gebruik regel voor het identificeren van beperkt gebruikte virtuele machines, moet u een abonnement zijn *eigenaar*.  Als u de vereiste machtigingen voor een abonnement of resourcegroep hebt, wordt de optie wilt opnemen of uitsluiten van deze is uitgeschakeld in de gebruikersinterface. 

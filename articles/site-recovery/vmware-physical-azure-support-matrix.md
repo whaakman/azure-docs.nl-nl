@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8fd9f56c262ce3a7110aa71bf72d01fe875212c0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275760"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341458"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -69,9 +69,9 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
 Machine-werkbelasting | Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wordt uitgevoerd op een ondersteunde machine. [Meer informatie](https://aka.ms/asr_workload).
 Windows | -Windows Server 2019 (ondersteund vanaf [Update Rollup 34](https://support.microsoft.com/help/4490016) (versie 9.22 van de Mobility-service) en hoger.<br/> -Windows Server 2016 (64-bits Server Core, Server met Bureaubladervaring)<br/> - Windows Server 2012 R2, Windows Server 2012<br/> -Windows Server 2008 R2 met op minimaal SP1.<br/> -Windows Server 2008, 64-bits en 32-bits met op minste SP2]. Voor alleen migratie ondersteund. [Meer informatie](migrate-tutorial-windows-server-2008.md).<br/> -Windows 10, Windows 8.1, Windows 8, Windows 7, 64-bits (ondersteund vanaf [Update Rollup 36](https://support.microsoft.com/help/4503156) (versie 9.22 van de Mobility-service en hoger). Windows 7 RTM wordt niet ondersteund. 
-Linux | Alleen 64-bits systeem wordt ondersteund. 32-bits systeem wordt niet ondersteund.<br/><br/> Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> Op Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> Beveiligde machines upgraden in belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open-source-technologie in Azure.
-Linux Red Hat Enterprise | 5.2-5,11</b><br/> 6.1-6.10</b><br/> 7.0-7,6<br/> <br/> Servers met Red Hat Enterprise Linux 5.2-5,11 moet de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
-Linux: CentOS | 5.2-5,11</b><br/> 6.1-6.10</b><br/> 7.0-7,6<br/> <br/> Servers waarop CentOS 5.2-5,11 wordt uitgevoerd moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
+Linux | Alleen 64-bits systeem wordt ondersteund. 32-bits systeem wordt niet ondersteund.<br/><br/>Elke Linux-server moet beschikken over [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd. Het is vereist voor het starten van de server in Azure na een failover/testfailover. Als LIS onderdelen ontbreken, zorg er dan voor het installeren van de [onderdelen](https://www.microsoft.com/download/details.aspx?id=55106) vóór het inschakelen van replicatie voor de machines om op te starten in Azure. <br/><br/> Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> Op Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> Beveiligde machines upgraden in belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open-source-technologie in Azure.
+Linux Red Hat Enterprise | 5.2-5,11</b><br/> 6.1-6.10</b><br/> 7.0-7,6<br/> <br/> Servers met Red Hat Enterprise Linux 5.2-5,11 & 6.1 6.10 geen [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) vooraf zijn geïnstalleerd. Zorg ervoor dat voor het installeren van de [onderdelen](https://www.microsoft.com/download/details.aspx?id=55106) vóór het inschakelen van replicatie voor de machines om op te starten in Azure.
+Linux: CentOS | 5.2-5,11</b><br/> 6.1-6.10</b><br/> 7.0-7,6<br/> <br/> Servers met CentOS 5.2-5,11 & 6.1 6.10 geen [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) vooraf zijn geïnstalleerd. Zorg ervoor dat voor het installeren van de [onderdelen](https://www.microsoft.com/download/details.aspx?id=55106) vóór het inschakelen van replicatie voor de machines om op te starten in Azure.
 Ubuntu | Ubuntu 14.04 LTS server [(revisie ondersteund kernelversies)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(revisie ondersteund kernelversies)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(revisie ondersteund kernelversies)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(revisie ondersteund kernelversies)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Gerepliceerde machines upgraden van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit en opnieuw inschakelen na de upgrade.
@@ -194,7 +194,7 @@ Schijf Gast/server-hot toevoegen of verwijderen | Nee
 Gast/server - schijf uitsluiten | Ja
 Gast/server MPIO (Multipath I/O) | Nee
 Gast/server GPT-partities | Vijf partities worden ondersteund vanaf [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versie 9.25 van de Mobility-service) en hoger. Eerder werden vier ondersteund.
-Gast/server EFI/UEFI opstarten | -Wanneer u Mobility serviceversie 9.13 of hoger uitvoert ondersteund.<br/> -Ondersteund bij het migreren van VMware-machines of fysieke servers met Windows Server 2012 of later naar Azure.<br/> -U kunt alleen virtuele machines repliceren voor migratie. Failback naar on-premises wordt niet ondersteund.<br/> -Alleen NTFS wordt ondersteund. <br/> -Sector schijfgrootte moet 512 bytes per fysieke sector.
+Gast/server EFI/UEFI opstarten | -Wanneer u Mobility serviceversie 9.13 of hoger uitvoert ondersteund.<br/> -Ondersteund bij het migreren van VMware-machines of fysieke servers met Windows Server 2012 of later naar Azure.<br/> -U kunt alleen virtuele machines repliceren voor migratie. Failback naar on-premises wordt niet ondersteund.<br/> -Alleen NTFS wordt ondersteund, & beveiligde UEFI-opstarttype wordt niet ondersteund. <br/> -Sector schijfgrootte moet 512 bytes per fysieke sector.
 
 ## <a name="replication-channels"></a>Replicatie-kanalen
 

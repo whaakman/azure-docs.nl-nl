@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d6fa30fc781ffe2a9f387f7c9eb4c27eaacc77
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344086"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338245"
 ---
 # <a name="microsoft-azure-documentation"></a>Documentatie voor Microsoft Azure
 
@@ -34,10 +34,9 @@ Volg de instructies in [Hulpprogramma's installeren om inhoud aan te passen](htt
 
 ## <a name="license"></a>Licentie
 
-Raadpleeg [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) en [ThridPartyNotices](.github/ThirdPartyNotices.md) voor alle licentie-informatie.
+Raadpleeg [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE) en [ThridPartyNotices](ThirdPartyNotices.md) voor alle licentie-informatie.
 
 ## <a name="code-of-conduct"></a>Gedragscode
 
 Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing.
 Raadpleeg voor meer informatie de [veelgestelde vragen over de gedragscode](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op via [opencode@microsoft.com](mailto:opencode@microsoft.com) als u aanvullende vragen of opmerkingen hebt.
-

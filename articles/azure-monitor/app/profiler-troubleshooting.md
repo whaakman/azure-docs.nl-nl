@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731019"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341675"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -88,7 +88,7 @@ Voor de Profiler goed te laten werken:
 
       ![profiler-webjob-log]
 
-Als u weet niet waarom Profiler niet voor u werkt, kunt u het logboek downloaden en deze verzenden naar ons team voor ondersteuning. 
+Als u weet niet waarom Profiler niet voor u werkt, kunt u het logboek downloaden en deze verzenden naar ons team voor ondersteuning, serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Handmatige installatie
 

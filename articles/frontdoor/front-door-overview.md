@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736323"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330824"
 ---
 # <a name="what-is-azure-front-door-service"></a>Wat is Azure Front Door Service?
 Met de Azure Front Door Service kunt u de internationale routering van uw webverkeer definiëren, beheren en bewaken door te optimaliseren voor de beste prestaties en directe wereldwijde failover voor hoge beschikbaarheid. Met Front Door kunt u uw internationale (multiregionale) klant- en bedrijfstoepassingen transformeren in robuuste, hoogwaardige, gepersonaliseerde moderne toepassingen, API’s en inhoud die een wereldwijd bereik hebben met Azure.
@@ -60,6 +60,13 @@ Front Door ondersteunt ook HTTPS voor aangepaste domeinnamen. Gebruik deze funct
 Met Azure Front Door kunt u regels voor toegangsbeheer maken voor aangepaste webtoepassingsfirewalls (WAF) om uw HTTP/HTTPS-workload te beschermen tegen exploitatie op basis van klant-IP-adressen, landcode en http-parameters. Bovendien kunt u met Front Door regels voor snelheidsbeperkingen maken om kwaadaardig botverkeer tegen te gaan. 
 
 Het Front Door-platform wordt zelf beschermd door [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic. Voor verdere bescherming kan Azure DDoS Protection Standard worden ingeschakeld op uw VNETs en bronnen beschermen tegen netwerklaagaanvallen (TCP/UDP) via automatische afstemming en risicobeperking. Front Door is een omgekeerde proxy in laag 7 en laat webverkeer alleen door naar back-ends en blokkeert standaard ander verkeer.
+
+## <a name="url-redirection"></a>URL-omleiding
+Met de krachtige push alleen beveiligde communicatie te ondersteunen, worden de webtoepassingen automatisch alle HTTP-verkeer omleiden naar HTTPS verwacht. Dit zorgt ervoor dat alle communicatie tussen de gebruikers en de toepassing vindt plaats via een gecodeerde pad. 
+
+Traditioneel zijn toepassingseigenaren aan deze eis wordt voldaan door het maken van een toegewezen service, met als enig doel is ontvangen van HTTP naar HTTPS aanvragen omleiden behandeld. Azure voordeur-Service ondersteunt het omleiden van verkeer van HTTP naar HTTPS. Dit vereenvoudigt de configuratie van toepassingen, optimaliseert het resourcegebruik en biedt ondersteuning voor nieuwe omleidingsscenario's, waaronder de globale en op pad gebaseerde omleidingen. URL-omleiding van Azure voordeur-Service is niet beperkt tot HTTP naar alleen HTTPS-omleiding, maar ook omleiden naar een andere hostnaam, wordt omgeleid naar een ander pad, of zelfs omleiden naar een nieuwe querytekenreeks in de URL.
+
+Zie voor meer informatie, [omleiden van verkeer](front-door-url-redirect.md) met Azure voordeur Service.
 
 ## <a name="url-rewrite"></a>URL opnieuw genereren
 Front Door ondersteunt [het herschrijven van URL’s](front-door-url-rewrite.md), omdat u een optioneel Custom Forwarding-pad kunt configureren dat u kunt gebruiken wanneer u de aanvraag om door te sturen naar het back-end opbouwt. Met Front Door kunt u bovendien de host-header configureren die wordt verzonden wanneer de aanvraag wordt doorgestuurd naar uw back-end.

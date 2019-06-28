@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068771"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294916"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -29,43 +29,6 @@ Azure Disk Encryption-algemene beschikbaarheid biedt ondersteuning voor Azure Re
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Wat kost Azure Disk Encryption?
 
 Er zijn geen kosten voor het versleutelen van VM-schijven met Azure Disk Encryption maar er zijn kosten die zijn gekoppeld aan het gebruik van Azure Key Vault. Zie voor meer informatie over de kosten voor Azure Key Vault, de [prijzen voor Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) pagina.
-
-
-## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Welke Prijscategorieën voor virtuele machines biedt ondersteuning voor Azure Disk Encryption?
-
-Azure Disk Encryption is beschikbaar op standard-laag virtuele machines met inbegrip van [A, D, DS, E, G, GS en F](https://azure.microsoft.com/pricing/details/virtual-machines/) reeks IaaS-VM's. Het is ook beschikbaar voor virtuele machines met premium storage. Het is niet beschikbaar in basic-laag virtuele machines.
-
-## <a name="bkmk_LinuxOSSupport"></a> Wat Linux-distributies biedt ondersteuning voor Azure Disk Encryption?
-
-Azure Disk Encryption wordt ondersteund op een subset van de [door Azure onderschreven Linux-distributies](../virtual-machines/linux/endorsed-distros.md), die is zelf een subset van alle Linux-server mogelijk distributies.
-
- ![Venn-Diagram van de Linux-server-distributies die ondersteuning bieden voor Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
-
-Linux-distributies voor server die niet zijn goedgekeurd door Azure bieden geen ondersteuning voor Azure Disk Encryption en die zijn goedgekeurd, alleen de volgende distributies en versies ondersteuning voor Azure Disk Encryption:
-
-| Linux-distributie | Versie | Volumetype wordt ondersteund voor versleuteling|
-| --- | --- |--- |
-| Ubuntu | 18.04| Besturingssysteem- en schijf |
-| Ubuntu | 16.04| Besturingssysteem- en schijf |
-| Ubuntu | 14.04.5</br>[met Azure afgestemd op de kernel bijgewerkt naar 4.15 of hoger](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Besturingssysteem- en schijf |
-| RHEL | 7.6 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.5 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.4 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.3 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.2 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 6.8 | Gegevensschijf (Zie opmerking hieronder) |
-| RHEL | 6.7 | Gegevensschijf (Zie opmerking hieronder) |
-| CentOS | 7.5 | Besturingssysteem- en schijf |
-| CentOS | 7.4 | Besturingssysteem- en schijf |
-| CentOS | 7.3 | Besturingssysteem- en schijf |
-| CentOS | 7.2n | Besturingssysteem- en schijf |
-| CentOS | 6.8 | Gegevensschijf |
-| openSUSE | 42.3 | Gegevensschijf |
-| SLES | 12-SP4 | Gegevensschijf |
-| SLES | 12-SP3 | Gegevensschijf |
-
-> [!NOTE]
-> De nieuwe ADE-implementatie wordt ondersteund voor RHEL-besturingssysteem en de gegevensschijf voor RHEL7 betalen per gebruik-installatiekopieën. ADE wordt momenteel niet ondersteund voor installatiekopieën van RHEL Bring-Your-Own-abonnement (BYOS). Zie [Azure Disk Encryption voor Linux](azure-security-disk-encryption-linux.md) voor meer informatie.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Hoe kan ik beginnen met Azure Disk Encryption?
 

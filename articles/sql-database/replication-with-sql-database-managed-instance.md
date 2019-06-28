@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c72c4d21f948d6d6c4d1d4598efa0e13de9705a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d056aacf8f3969b645747e2303574f3fea3bda
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926201"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357123"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Replicatie in een Azure SQL Database beheerde Exemplaardatabase configureren
 
@@ -40,7 +40,7 @@ Het configureren van een beheerd exemplaar als een uitgever en/of een distributo
 
 - Dat het beheerde exemplaar niet momenteel aan een geo-replicatie-relatie deelneemt.
 - Op de distributor als de abonnee hetzelfde virtuele netwerk dat de uitgever beheerd exemplaar is of [vNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) is tot stand is gebracht tussen de virtuele netwerken van alle drie entiteiten. 
-- Connectiviteit maakt gebruik van SQL-verificatie tussen replicatie deelnemers.
+- Connectiviteit maakt gebruik van SQL-verificatie tussen replicatiedeelnemers.
 - Een bestandsshare in Azure Storage-Account voor de replicatie-werkmap.
 - Poort 445 (TCP uitgaand) is geopend in de beveiligingsregels van NSG voor de beheerde exemplaren voor toegang tot de Azure-bestandsshare. 
 
@@ -172,7 +172,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 Dit script wordt een lokale publisher geconfigureerd op het beheerde exemplaar, voegt u een gekoppelde server en maakt een set taken voor de SQL Server Agent. 

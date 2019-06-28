@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: 4be73554df0b6bddaafe3910c80c855e127d79f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac58bbbc252d66620ad410bffa805b75ec3042d4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771648"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341754"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics-uitvoer naar Azure SQL Database
 
@@ -39,7 +39,7 @@ Hier volgen enkele configuraties binnen elke service die u kan helpen verbeteren
 
 - **Gepartitioneerde tabellen en indexen** – met een [gepartitioneerde](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) SQL-tabel en gepartitioneerde indexen voor de tabel met dezelfde kolom als de partitiesleutel (bijvoorbeeld PartitionId) contentions tussen aanzienlijk kunnen verminderen partities tijdens schrijfbewerkingen. Voor een gepartitioneerde tabel moet u maakt een [partitiefunctie](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) en een [partitieschema](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) op de primaire bestandsgroep. Dit wordt ook de beschikbaarheid van de bestaande gegevens verhogen bij het laden van nieuwe gegevens. Logboek i/o-limiet kan worden bereikt op basis van het aantal partities, die kan worden verhoogd met de upgrade voor de SKU.
 
-- **Unieke sleutel schendingen te voorkomen dat** : als u een [meerdere sleutelconflict waarschuwingsberichten](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) Zorg ervoor dat de taak wordt niet beïnvloed door de unique-beperking-schendingen die zijn waarschijnlijk, in het activiteitenlogboek voor Azure Stream Analytics tijdens het herstel gevallen. Dit kan worden vermeden door in te stellen de [negeren\_dubbele\_sleutel](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) optie op uw indexen.
+- **Unieke sleutel schendingen te voorkomen dat** : als u een [meerdere sleutelconflict waarschuwingsberichten](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) Zorg ervoor dat de taak wordt niet beïnvloed door de unique-beperking-schendingen die zijn waarschijnlijk, in het activiteitenlogboek voor Azure Stream Analytics tijdens het herstel gevallen. Dit kan worden vermeden door in te stellen de [negeren\_dubbele\_sleutel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) optie op uw indexen.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory en In-Memory-tabellen
 

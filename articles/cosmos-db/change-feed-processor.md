@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9cf9e1aabc0898ef025c7c2f517e631a812e67d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0faeba5278e23990a72c9d2dd3d7e18510bdf80
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969017"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342048"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Change feed processor in Azure Cosmos DB 
 
@@ -66,7 +66,7 @@ U betaalt voor ru's gebruikt, omdat de verplaatsing van gegevens in en uit Cosmo
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Azure Cosmos DB change feed processor-bibliotheek](sql-api-sdk-dotnet-changefeed.md)
-* [Nuget-pakket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
+* [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Aanvullende voorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 ## <a name="next-steps"></a>Volgende stappen

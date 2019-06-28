@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfdebacb4de205fa42fe96ceb9970d2d109536e8
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455611"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296158"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -38,7 +38,7 @@ U kunt de [Azure-portal](stream-analytics-quick-create-portal.md), [Visual Studi
 
 Azure Event Hubs biedt zeer schaalbare gebeurtenis ingestors publiceren / abonneren. Een event hub kan miljoenen gebeurtenissen per seconde verzamelen, zodat u kunt verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door uw verbonden apparaten en toepassingen. Samen bieden Event Hubs en Stream Analytics u een end-to-end oplossing voor realtime analyses. Eventhubs kunt u gebeurtenissen feed in Azure in realtime, en deze gebeurtenissen in realtime kunnen worden verwerkt door Stream Analytics-taken. Bijvoorbeeld, kunt u web klikken, sensorwaarden, serverlogs, of online gebeurtenissen verzenden naar Event Hubs. Vervolgens kunt u Stream Analytics-taken voor het gebruik van Event Hubs als de invoer-gegevensstromen voor realtime filteren, aggregeren en correlatie.
 
-`EventEnqueuedUtcTime` de tijdstempel van de aankomst van een gebeurtenis in een event hub en de standaard-tijdstempel van gebeurtenissen die afkomstig zijn van Gebeurtenishubs met Stream Analytics. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord.
+`EventEnqueuedUtcTime` de tijdstempel van de aankomst van een gebeurtenis in een event hub en de standaard-tijdstempel van gebeurtenissen die afkomstig zijn van Gebeurtenishubs met Stream Analytics. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) trefwoord.
 
 ### <a name="event-hubs-consumer-groups"></a>Event Hubs-Consumer-groepen
 
@@ -86,7 +86,7 @@ FROM Input
 
 Azure IoT Hub is een zeer schaalbare publish-subscribe abonnementsgebeurtenissen die zijn geoptimaliseerd voor IoT-scenario's.
 
-De standaard-tijdstempel van gebeurtenissen die afkomstig zijn van een IoT-Hub in Stream Analytics is de tijdstempel die de gebeurtenis in de IoT-Hub die is ontvangen `EventEnqueuedUtcTime`. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord.
+De standaard-tijdstempel van gebeurtenissen die afkomstig zijn van een IoT-Hub in Stream Analytics is de tijdstempel die de gebeurtenis in de IoT-Hub die is ontvangen `EventEnqueuedUtcTime`. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) trefwoord.
 
 ### <a name="iot-hub-consumer-groups"></a>IOT Hub Consumer-groepen
 

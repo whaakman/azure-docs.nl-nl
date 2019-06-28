@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61234911"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342019"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-gegevensmodel voor Azure backup-gegevens
 
@@ -50,7 +50,7 @@ Deze tabel bevat informatie over waarschuwingen gerelateerde velden.
 | OperationName |Text |Naam van de huidige bewerking, bijvoorbeeld: waarschuwing |
 | Category |Text |De categorie van diagnostische gegevens te pushen naar Azure Monitor-Logboeken. Always AzureBackupReport |
 | Resource |Text |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
-| ProtectedServerUniqueId_s |Text |De unieke id van de beveiligde server die is gekoppeld aan de waarschuwing |
+| ProtectedContainerUniqueId_s |Text |De unieke id van de beveiligde server die is gekoppeld aan de waarschuwing (is ProtectedServerUniqueId_s in V1)|
 | VaultUniqueId_s |Text |De unieke id van de beveiligde kluis die zijn gekoppeld aan de waarschuwing |
 | SourceSystem |Text |Bronsysteem van de huidige gegevens - Azure |
 | ResourceId |Text |De unieke id voor de resource over welke gegevens worden verzameld. Bijvoorbeeld, een Recovery Services-kluis resource-id |
@@ -67,10 +67,12 @@ Deze tabel bevat informatie over back-item-gerelateerde velden.
 | --- | --- | --- |
 | EventName_s |Text |De naam van de gebeurtenis. Always AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |De unieke id van het back-upitem |
-| BackupItemId_s |Text |Id van de back-upitem |
+| BackupItemId_s |Text |Id van de back-upitem (in dit veld is alleen voor het schema van v1) |
 | BackupItemName_s |Text |Naam van de back-upitem |
 | BackupItemFriendlyName_s |Text |Beschrijvende naam van de back-upitem |
 | BackupItemType_s |Text |Type back-upitem, bijvoorbeeld VM FileFolder |
+| BackupItemProtectionState_s |Text |Beveiligingsstatus van de back-upitem |
+| BackupItemAppVersion_s |Text |De toepassingsversie van het back-upitem |
 | ProtectionState_s |Text |Huidige beveiligingsstatus van de back-upitem, bijvoorbeeld, beveiligde, ProtectionStopped |
 | ProtectionGroupName_s |Text | Naam van de beveiligingsgroep de back-upitem is beveiligd, voor SC DPM en MABS, indien van toepassing|
 | SecondaryBackupProtectionState_s |Text |Of secundaire beveiliging is ingeschakeld voor de back-upitem|
@@ -103,8 +105,7 @@ Deze tabel bevat informatie over back-upitem koppelingen met verschillende entit
 | Category |Text |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | OperationName |Text |Dit veld vertegenwoordigt naam van de huidige bewerking - BackupItemAssociation |
 | Resource |Text |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
-| PolicyUniqueId_g |Text |De unieke id voor het beleid dat is gekoppeld aan het back-upitem |
-| ProtectedServerUniqueId_s |Text |De unieke id van de beveiligde server die is gekoppeld aan het back-upitem |
+| ProtectedContainerUniqueId_s |Text |De unieke id van de beveiligde server die is gekoppeld aan het back-upitem (is ProtectedServerUniqueId_s in V1) |
 | VaultUniqueId_s |Text |De unieke id van de kluis waarin de back-upitem |
 | SourceSystem |Text |Bronsysteem van de huidige gegevens - Azure |
 | ResourceId |Text |Resource-id voor gegevens die worden verzameld. Bijvoorbeeld: de resource-id voor Recovery Services-kluis |
@@ -249,13 +250,14 @@ Deze tabel bevat de algemene velden over beveiligde Containers. (ProtectedServer
 | ProtectedContainerOSType_s |Text |Type besturingssysteem van de beveiligde Container |
 | ProtectedContainerOSVersion_s |Text |Versie van het besturingssysteem van de beveiligde Container |
 | AgentVersion_s |Text |Versienummer van Agent back-up of de beveiligingsagent (in het geval van SC DPM en MABS) |
-| BackupManagementType_s |Text |Providertype voor het uitvoeren van back-up bijvoorbeeld IaaSVM FileFolder |
-| EntityState_s |Text |Huidige status van het object van de beveiligde server bijvoorbeeld actief, verwijderd |
+| BackupManagementType_s |Text |Providertype voor het uitvoeren van back-up. Bijvoorbeeld, IaaSVM, FileFolder |
+| EntityState_s |Text |Huidige status van de beveiligde server-object. Bijvoorbeeld, actief, verwijderd |
 | ProtectedContainerFriendlyName_s |Text |Beschrijvende naam van de beveiligde server |
 | ProtectedContainerName_s |Text |Naam van de beveiligde Container |
-| ProtectedContainerWorkloadType_s |Text |Type van de Container beveiligd back-up bijvoorbeeld IaaSVMContainer |
+| ProtectedContainerWorkloadType_s |Text |Type van de Container beveiligd back-ups. Bijvoorbeeld, IaaSVMContainer |
 | ProtectedContainerLocation_s |Text |De Container beveiligd kan zich On-premises of in Azure |
 | ProtectedContainerType_s |Text |Of de beveiligde Container is een server of een container |
+| ProtectedContainerProtectionState_s’  |Text |Beveiligingsstatus van de beveiligde Container |
 
 ### <a name="storage"></a>Opslag
 
@@ -263,7 +265,7 @@ Deze tabel bevat details over velden met betrekking tot opslag.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| CloudStorageInBytes_s |Decimaal getal |Back-cloudopslag die wordt gebruikt door back-ups, berekend op basis van de meest recente |
+| CloudStorageInBytes_s |Decimaal getal |Back-cloudopslag die wordt gebruikt door back-ups, berekend op basis van de meest recente waarde (in dit veld is alleen voor het schema van v1)|
 | ProtectedInstances_s |Decimaal getal |Aantal beveiligde exemplaren die worden gebruikt voor het berekenen van de frontend-opslag in facturering, berekend op basis van de laatste waarde |
 | EventName_s |Text |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
 | SchemaVersion_s |Text |Dit veld geeft de huidige versie van het schema, is het **V2** |
@@ -280,6 +282,10 @@ Deze tabel bevat details over velden met betrekking tot opslag.
 | ResourceGroup |Text |Resourcegroep van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
 | ResourceProvider |Text |De resourceprovider waarvoor gegevens worden verzameld. Bijvoorbeeld, Microsoft.RecoveryServices |
 | ResourceType |Text |Het type van de resource waarvoor gegevens worden verzameld. Bijvoorbeeld-kluizen |
+| StorageUniqueId_s |Text |Unieke Id gebruikt voor het identificeren van de opslagentiteit |
+| StorageType_s |Text |Type opslag, bijvoorbeeld Cloud, Volume, schijf |
+| StorageName_s |Text |De naam van opslagentiteit, bijvoorbeeld E:\ |
+| StorageTotalSizeInGBs_s |Text |Totale grootte van opslag in GB, die worden gebruikt door opslagentiteit|
 
 ### <a name="storageassociation"></a>StorageAssociation
 
@@ -342,7 +348,7 @@ Deze tabel bevat de workload(s) die een Volume gekoppeld is.
 
 ### <a name="protectedinstance"></a>ProtectedInstance
 
-Deze tabel bevat algemene beveiligde exemplaren gerelateerde velden.
+Deze tabel bevat algemene beveiligde exemplaren-gerelateerde velden.
 
 | Veld | Gegevenstype |Versies van toepassing | Description |
 | --- | --- | --- | --- |

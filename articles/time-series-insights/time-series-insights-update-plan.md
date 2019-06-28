@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f89105abc21f5ef6cce53ea55622a808f947e86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388737"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357309"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Uw Azure Time Series Insights Preview-omgeving plannen
 
@@ -88,5 +88,8 @@ Zie voor meer informatie, [gebeurtenissen vorm](./time-series-insights-send-even
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- Beoordeling [Azure Advisor](../advisor/advisor-overview.md) voor het plannen van uw bedrijf recovery configuratie-opties.
+
 - Meer informatie over [opslag- en uitgangsclaims](./time-series-insights-update-storage-ingress.md) in de Preview van Time Series Insights.
+
 - Meer informatie over [gegevensmodellering](./time-series-insights-update-tsm.md) in de Preview van Time Series Insights.

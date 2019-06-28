@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: da539a5bebc1613115f89a7b47c513ce486b5e3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a64fb40c905fbe98dc594ab3626666723d1628d0
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627926"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357271"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Een bestaande installatiekopie van Linux virtuele Azure-machine voorbereiden voor gebruik met cloud-init
 Dit artikel ziet u hoe u een bestaande virtuele Azure-machine voorbereiden voor het opnieuw geïmplementeerde zijn en klaar voor gebruik van cloud-init. De afbeelding kan worden gebruikt om een nieuwe virtuele machine of virtuele-machineschaalsets - die allebei kan vervolgens verder worden aangepast door cloud-init tijdens de implementatie te implementeren.  Deze cloud-init-scripts uitvoeren op de eerste keer opstarten nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)
@@ -65,19 +65,14 @@ sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-cp /lib/systemd/system/waagent.service /etc/systemd/system/waagent.service
-sed -i 's/After=network-online.target/WantedBy=cloud-init.service\\nAfter=network.service systemd-networkd-wait-online.service/g' /etc/systemd/system/waagent.service
-systemctl daemon-reload
 cloud-init clean
 ```
-Alleen Azure als een gegevensbron voor de Azure Linux Agent toestaan door het maken van een nieuw bestand `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` met behulp van een editor naar keuze met de volgende regels:
+
+Alleen Azure als een gegevensbron voor de Azure Linux Agent toestaan door het maken van een nieuw bestand `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` met behulp van een editor naar keuze met de volgende regel:
 
 ```bash
 # Azure Data Source config
 datasource_list: [ Azure ]
-datasource:
-   Azure:
-     agent_command: [systemctl, start, waagent, --no-block]
 ```
 
 Als uw bestaande Azure-installatiekopie een wisselbestand geconfigureerd heeft en u wilt wijzigen van de configuratie van het bestand wisselen voor nieuwe installatiekopieën van cloud-init gebruiken, moet u het bestaande swap-bestand te verwijderen.

@@ -144,8 +144,6 @@
           items:
             - name: Back-ups van Azure-VM's beheren
               href: backup-azure-manage-vms.md
-            - name: Waarschuwingen voor virtuele Azure-machines controleren
-              href: backup-azure-monitor-vms.md
         - name: Azure-VM's herstellen
           items:
             - name: Azure-VM's herstellen in de portal

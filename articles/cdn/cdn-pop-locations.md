@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 05/19/2019
 ms.author: magattus
-ms.openlocfilehash: 45ac1eb484d5e301a9090ea5a11165ba321b0aaa
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 63f6156e6e1a94c49b2147f7c25da35c247c701d
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274960"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331877"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-dekking door Metro 
 > [!div class="op_single_selector"]
@@ -38,9 +38,9 @@ In dit artikel geeft een lijst met huidige metro's met point-of-presence (POP)-l
 
 | Regio | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Noord-Amerika | Toronto, Canada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, Verenigde Staten<br />Boston, MA, Verenigde Staten<br />Cheyenne, WY, USA<br />Chicago, IL, Verenigde Staten<br /> Dallas, TX, USA<br />Denver, CO, Verenigde Staten<br />Toevoegen, Hallo, Verenigde Staten<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, Verenigde Staten<br />Phoenix, AZ, USA<br />San Antonio, TX, USA<br />San Jose, CA, VS<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexico-stad, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, GA, Verenigde Staten<br />Boston, MA, Verenigde Staten<br />Chicago, IL, Verenigde Staten<br />Dallas, TX, USA<br />Denver, CO, Verenigde Staten<br />Detroit, MI, Verenigde Staten<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, Verenigde Staten<br />Philadelphia, PA, USA<br />San Jose, CA, VS<br />Seattle, WA, USA<br />Washington, DC, USA | Canada<br />Mexico<br />USA |
+| Noord-Amerika | Toronto, Canada<br />Vancouver, Canada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, Verenigde Staten<br />Boston, MA, Verenigde Staten<br />Cheyenne, WY, USA<br />Chicago, IL, Verenigde Staten<br /> Dallas, TX, USA<br />Denver, CO, Verenigde Staten<br />Toevoegen, Hallo, Verenigde Staten<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, Verenigde Staten<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Portland, OR, VS<br />San Antonio, TX, USA<br />San Jose, CA, VS<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexico-stad, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, GA, Verenigde Staten<br />Boston, MA, Verenigde Staten<br />Chicago, IL, Verenigde Staten<br />Dallas, TX, USA<br />Denver, CO, Verenigde Staten<br />Detroit, MI, Verenigde Staten<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, Verenigde Staten<br />Philadelphia, PA, USA<br />San Jose, CA, VS<br />Seattle, WA, USA<br />Washington, DC, USA | Canada<br />Mexico<br />USA |
 | Zuid-Amerika | Campinas, Brazilië<br />Rio de Janeiro, Brazilië<br />Santiago, Chile | Buenos Aires, Argentinië<br />Rio de Janeiro, Brazilië<br />Sao Paulo, Brazilië<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentinië<br />Brazilië<br />Chili<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
-| Europa | Wenen, Oostenrijk<br />Brussel, België<br />Praag, Tsjechië<br />Kopenhagen, Denemarken<br /> Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Berlijn, Duitsland<br />Frankfurt, Duitsland<br />Athene, Griekenland<br />Boedapest, Hongarije<br />Dublin, Ierland<br />Milaan, Italië<br />Amsterdam, Nederland<br />Warschau, Polen<br />Barcelona, Spanje<br />Madrid, Spanje<br />Stockholm, Zweden<br />Zürich, Zwitserland<br />Londen, Verenigd Koninkrijk<br />Manchester, Verenigd Koninkrijk | Wenen, Oostenrijk<br />Kopenhagen, Denemarken<br />Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Milaan, Italië<br />Riga, Latvia<br />Amsterdam, Nederland<br />Warschau, Polen<br />Madrid, Spanje<br />Stockholm, Zweden<br />Londen, Verenigd Koninkrijk | Oostenrijk<br />Bulgarije<br />Denemarken<br />Finland<br />Frankrijk<br />Duitsland<br />Griekenland<br />Ierland<br />Italië<br />Nederland<br />Polen<br />Rusland<br />Spanje<br />Zweden<br />Zwitserland<br />Verenigd Koninkrijk |
+| Europa | Wenen, Oostenrijk<br />Brussel, België<br />Sofia, Bulgarije<br />Zagreb, Kroatië<br />Praag, Tsjechië<br />Kopenhagen, Denemarken<br /> Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Berlijn, Duitsland<br />Frankfurt, Duitsland<br />Athene, Griekenland<br />Boedapest, Hongarije<br />Dublin, Ierland<br />Milaan, Italië<br />Amsterdam, Nederland<br />Warschau, Polen<br />Lissabon, Portugal<br />Boekarest, Roemenië<br />Barcelona, Spanje<br />Madrid, Spanje<br />Stockholm, Zweden<br />Zürich, Zwitserland<br />Londen, Verenigd Koninkrijk<br />Manchester, Verenigd Koninkrijk | Wenen, Oostenrijk<br />Kopenhagen, Denemarken<br />Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Milaan, Italië<br />Riga, Latvia<br />Amsterdam, Nederland<br />Warschau, Polen<br />Madrid, Spanje<br />Stockholm, Zweden<br />Londen, Verenigd Koninkrijk | Oostenrijk<br />Bulgarije<br />Denemarken<br />Finland<br />Frankrijk<br />Duitsland<br />Griekenland<br />Ierland<br />Italië<br />Nederland<br />Polen<br />Rusland<br />Spanje<br />Zweden<br />Zwitserland<br />Verenigd Koninkrijk |
 | Afrika | Kaapstad, Zuid-Afrika<br />Johannesburg, Zuid-Afrika | Johannesburg, Zuid-Afrika | Zuid-Afrika |
 | Midden-Oosten | Dubai, Verenigde Arabische Emiraten | Muscat, Oman<br />Fujirah, Verenigde Arabische Emiraten | Qatar<br />Verenigde Arabische Emiraten |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />New Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |

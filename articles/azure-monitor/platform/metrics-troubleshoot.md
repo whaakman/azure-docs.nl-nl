@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: cff1bbefc3c54f7f9c02c646bd9eef528fe28c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939572"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341983"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Oplossen van problemen met grafieken met metrische gegevens
 
@@ -73,7 +73,7 @@ Verzameling van **Guest OS** metrische gegevens is vereist voor het configureren
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>'Fout bij het ophalen van gegevens'-bericht op dashboard
 
-Dit probleem is gebruikelijk wanneer uw dashboard is gemaakt met een metrische waarde die hoger is afgeschaft en verwijderd uit Azure. Om te bevestigen dat dit het geval is, opent u de **metrische gegevens** tabblad van uw resource en controleer de beschikbare metrische gegevens in de kiezer voor metrische gegevens. Als de metriek niet wordt weergegeven, is de metrische gegevens uit Azure verwijderd. Meestal wanneer een statistiek is afgeschaft, is er een betere nieuwe metrische gegevens die met een vergelijkbare perspectief op de resourcestatus biedt.
+Dit probleem kan gebeuren wanneer het dashboard is gemaakt met een metrische waarde die hoger is afgeschaft en verwijderd uit Azure. Om te bevestigen dat dit het geval is, opent u de **metrische gegevens** tabblad van uw resource en controleer de beschikbare metrische gegevens in de kiezer voor metrische gegevens. Als de metriek niet wordt weergegeven, is de metrische gegevens uit Azure verwijderd. Meestal wanneer een statistiek is afgeschaft, is er een betere nieuwe metrische gegevens die met een vergelijkbare perspectief op de resourcestatus biedt.
 
 **Oplossing:** De tegel mislukt bijwerken door het verzamelen van een alternatieve metrische gegevens voor de grafiek op het dashboard. U kunt [Bekijk een lijst met beschikbare metrische gegevens voor Azure-services](metrics-supported.md).
 

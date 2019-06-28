@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c4ab5fe4625bce1ed66258a5b9aab597dae17a1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304003"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331661"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -39,7 +39,9 @@ Zie voor meer informatie over de concepten die betrokken zijn bij de implementat
 
 ## <a id="registermodel"></a> Registreer uw model
 
-Registreer uw machine learning-modellen in de Azure Machine Learning-werkruimte. Het model kan afkomstig zijn van Azure Machine Learning of kan afkomstig zijn van een andere locatie. De volgende voorbeelden ziet u hoe u een model uit bestand te registreren:
+Een geregistreerde model logische container voor een of meer bestanden die gezamenlijk uw model. Bijvoorbeeld, als u een model dat is opgeslagen in meerdere bestanden hebt, kunt u registreren deze als één model in de werkruimte. Na de registratie, kunt u vervolgens downloaden of het geregistreerde model implementeren en ontvangen van alle bestanden die zijn geregistreerd.
+
+Machine learning-modellen zijn geregistreerd in uw Azure Machine Learning-werkruimte. Het model kan afkomstig zijn van Azure Machine Learning of kan afkomstig zijn van een andere locatie. De volgende voorbeelden ziet u hoe u een model uit bestand te registreren:
 
 ### <a name="register-a-model-from-an-experiment-run"></a>Registreren van een model van een Experiment uitvoeren
 
@@ -48,11 +50,18 @@ Registreer uw machine learning-modellen in de Azure Machine Learning-werkruimte.
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > Als u meerdere bestanden opnemen in de registratie van het model, wilt instellen `model_path` naar de map waarin de bestanden bevat.
+
 + **Met behulp van de CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > Als u meerdere bestanden opnemen in de registratie van het model, wilt instellen `--asset-path` naar de map waarin de bestanden bevat.
 
 + **Met behulp van Visual Studio Code**
 
@@ -77,10 +86,16 @@ U kunt een extern gemaakte model registreren door op te geven een **lokaal pad**
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > Als u meerdere bestanden opnemen in de registratie van het model, wilt instellen `model_path` naar de map waarin de bestanden bevat.
+
 + **Met behulp van de CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > Als u meerdere bestanden opnemen in de registratie van het model, wilt instellen `-p` naar de map waarin de bestanden bevat.
 
 **Geschatte tijd**: Ongeveer 10 seconden.
 
@@ -110,12 +125,14 @@ Het script bevat twee functies die worden geladen en het model uitvoeren:
 * `run(input_data)`: Deze functie maakt gebruik van het model om te voorspellen van een waarde op basis van de ingevoerde gegevens. Invoer en uitvoer aan het run maken doorgaans gebruik van JSON voor serialisatie en het deserialiseren. Ook kunt u werken met onbewerkte binaire gegevens. U kunt de gegevens te transformeren voordat ze worden verzonden naar het model of voordat u terugkeert naar de client.
 
 #### <a name="what-is-getmodelpath"></a>Wat is get_model_path?
-Als u een model registreert, kunt u een modelnaam die wordt gebruikt voor het beheren van het model in het register opgeven. U gebruikt deze naam in de get_model_path API die resulteert in het pad van de model-bestanden op het lokale bestandssysteem. Als u zich registreert voor een map of een verzameling van bestanden, retourneert deze API het pad naar de map waarin de bestanden.
 
-Als u een model registreert, geeft u deze een naam die overeenkomt met waar het model is geplaatst, lokaal of tijdens de implementatie van service.
+Als u een model registreert, kunt u een modelnaam die wordt gebruikt voor het beheren van het model in het register opgeven. U gebruikt deze naam door de [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) om op te halen van het pad van de model-bestanden op het lokale bestandssysteem. Als u zich registreert voor een map of een verzameling van bestanden, retourneert deze API het pad naar de map waarin de bestanden bevat.
 
-Het onderstaande voorbeeld retourneert een pad naar een enkel bestand met de naam 'sklearn_mnist_model.pkl' (die is geregistreerd met de naam 'sklearn_mnist')
-```
+Als u een model registreert, geeft u deze een naam die overeenkomt met waar het model wordt geplaatst, lokaal of tijdens de implementatie van de service.
+
+Het onderstaande voorbeeld retourneert een pad naar een enkel bestand met de naam `sklearn_mnist_model.pkl` (die is geregistreerd met de naam van de `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -293,7 +310,8 @@ De volgende secties laten zien hoe u de configuratie van de implementatie te mak
 
 ### <a name="optional-profile-your-model"></a>Optioneel: Het model van uw profiel
 Voordat u uw modellen vervolgens als een service implementeert, kunt u profielen om te controleren van de optimale CPU en geheugen nodig.
-U kunt dit doen via de SDK of de CLI.
+
+U profiel het model met behulp van de SDK of de CLI kunt doen.
 
 U kunt onze SDK-documentatie bekijken voor meer informatie: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -386,7 +404,7 @@ Als u al een AKS-cluster dat is gekoppeld, kunt u ernaar implementeren. Als u di
 Meer informatie over AKS-implementatie en voor automatisch schalen in de [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) verwijzing.
 
 #### Een nieuw AKS-cluster maken<a id="create-attach-aks"></a>
-**Geschatte tijd:** Ongeveer 5 minuten.
+**Geschatte tijd**: Ongeveer 20 minuten.
 
 Het maken of koppelen van een AKS-cluster een eenmalige is verwerking van voor uw werkruimte. U kunt dit cluster voor meerdere implementaties opnieuw gebruiken. Als u het cluster of de resourcegroep waarin het verwijdert, moet u een nieuw cluster maken de volgende keer dat u wilt implementeren. U kunt meerdere AKS-clusters die zijn gekoppeld aan uw werkruimte hebben.
 
@@ -425,10 +443,11 @@ Voor meer informatie over de `cluster_purpose` parameter, Zie de [AksCompute.Clu
 
 > [!IMPORTANT]
 > Voor [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), als u aangepaste waarden voor agent_count en vm_size, kiest, moet u om ervoor te zorgen agent_count vermenigvuldigd met vm_size is groter dan of gelijk zijn aan 12 virtuele CPU's. Bijvoorbeeld, als u een vm_size van 'Standard_D3_v2', met 4 virtuele CPU's, moet vervolgens u kiezen een agent_count van 3 of hoger.
-
-**Geschatte tijd**: Ongeveer 20 minuten.
+>
+> De SDK van Azure Machine Learning biedt geen ondersteuning voor een AKS-cluster schalen. Als u wilt schalen van de knooppunten in het cluster worden de gebruikersinterface voor het AKS-cluster in Azure portal te gebruiken. U kunt alleen het aantal knooppunten, niet de VM-grootte van het cluster wijzigen.
 
 #### <a name="attach-an-existing-aks-cluster"></a>Een bestaand AKS-cluster koppelen
+**Geschatte tijd:** Ongeveer 5 minuten.
 
 Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.12. ##, kunt u het implementeren van uw installatiekopie.
 

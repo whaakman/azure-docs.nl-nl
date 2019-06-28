@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275623"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310777"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
@@ -114,7 +114,7 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
 1. Klik in het menu kluis dashboard **back-upinfrastructuur**.
 2. Klik op **back-up-beheerservers** om servers weer te geven.
 
-    ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+    ![Selecteer de kluis om het dashboard te openen](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Met de rechtermuisknop op het item > **verwijderen**.
 4. Op de **verwijderen** menu, typ de naam van de server en klikt u op **verwijderen**.
@@ -124,7 +124,7 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
 
 > [!NOTE]
 > Als u wilt verwijderen items in de beheerconsole van de server of in de MARS-console op een beveiligde server, stop de beveiliging en back-ups verwijderen. Als de back-upitems blijven, wordt de volgende fout weergegeven wanneer u probeert te verwijderen en de registratie van de server:
-> 
+>
 >![verwijderen is mislukt](./media/backup-azure-delete-vault/deletion-failed.png)
 
 6. Om te controleren dat de taak verwijderen is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png).
@@ -159,8 +159,8 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
 
 > [!NOTE]
 > Back-upitems die zijn gekoppeld aan een beheerserver voor back-up- of Azure Backup Agent-server moeten worden verwijderd voordat de registraties van deze server worden verwijderd. Back-up om items te verwijderen, gaat u naar de DPM SC, MABS of de MARS-beheerconsole op de server als die van toepassing zijn, en selecteer de relevante opties beveiliging stoppen en verwijderen van back-ups. Als u een back-upitems nog steeds zijn gekoppeld, ziet u de volgende fout:
-> 
-> 
+>
+>
 >![verwijderen is mislukt](./media/backup-azure-delete-vault/deletion-failed.png)
 
 8. Om te controleren dat de taak verwijderen is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png).

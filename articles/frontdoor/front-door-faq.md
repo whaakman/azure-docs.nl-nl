@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736663"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330869"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Veelgestelde vragen over Azure voordeur Service
 
@@ -75,11 +75,11 @@ Azure voordeur-Service heeft de dezelfde lijst (Point of Presence) POP-locaties 
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Azure voordeur Service is een specifieke implementatie voor mijn toepassing of is deze gedeeld met klanten?
 
-Azure voordeur-Service is een wereldwijd gedistribueerde multitenant-service. De infrastructuur voor voordeur is daarom, gedeeld met alle klanten. Door het maken van een voordeur definieert u echter de specifieke configuratie vereist voor uw toepassing en 
+Azure voordeur-Service is een wereldwijd gedistribueerde multitenant-service. De infrastructuur voor voordeur is daarom, gedeeld met alle klanten. Echter, als u een voordeur-profiel maakt, definieert u de specifieke configuratie vereist voor uw toepassing en geen wijzigingen aangebracht aan de deur van invloed zijn op andere configuraties voordeur.
 
 ### <a name="is-http-https-redirection-supported"></a>HTTP-is > omleiding HTTPS ondersteund?
 
-Voordeur op dit moment biedt geen ondersteuning voor URL-omleiding.
+Ja. In feite Azure voordeur Service host ondersteunt, pad en de query-tekenreeks omleiding als onderdeel van de URL-omleiding. Meer informatie over [URL-omleiding](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>In welke volgorde worden regels voor doorsturen verwerkt?
 
@@ -141,6 +141,11 @@ Voordeur biedt ondersteuning voor TLS-versies 1.0, 1.1 en 1.2. TLS 1.3 is nog ni
 
 Om in te schakelen het HTTPS-protocol voor de veilige levering van inhoud op een aangepast domein voordeur, kunt u een certificaat dat wordt beheerd door Azure voordeur Service gebruiken of uw eigen certificaat gebruiken.
 De voordeur optie bepalingen een standaard SSL-certificaat via Digicert beheerd en opgeslagen op de voorgrond van de deur van Key Vault. Als u kiest om uw eigen certificaat te gebruiken, wordt u kunt Onboarding van een certificaat van een ondersteunde CA en kan een standaard SSL, uitgebreide validatie-certificaat of zelfs een certificaat met jokertekens. Zelfondertekende certificaten worden niet ondersteund. Informatie over [HTTPS inschakelen voor een aangepast domein](https://aka.ms/FrontDoorCustomDomainHTTPS).
+
+### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Ondersteunt voordeur automatisch roteren van certificaten?
+
+Voor uw eigen aangepaste SSL-certificaat wordt niet automatisch roteren ondersteund. Net als bij hoe deze installatie van de eerste keer gebruikt voor een bepaald aangepaste domein is, u moet de versie van het juiste certificaat voordeur naar punt in uw Key Vault en ervoor te zorgen dat de service-principal voor voordeur nog steeds toegang tot de Key Vault heeft. Met deze bewerking van de implementatie bijgewerkt certificaat door de voordeur volledig atomisch is en niet leidt tot een productie-invloed die de naam van het onderwerp of SAN voor het certificaat niet wijzigen.
+</br>Voor de voordeur beheerde certificaat-optie zijn de certificaten automatisch door de voordeur gedraaid.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Wat zijn de huidige coderingssuites die worden ondersteund door Azure voordeur Service?
 

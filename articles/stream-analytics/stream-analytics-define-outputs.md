@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164453"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329983"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 
@@ -30,7 +30,7 @@ Sommige typen ondersteuning voor uitvoer [partitioneren](#partitioning). [Uitvoe
 
 Stream Analytics ondersteunt [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). Azure Data Lake Storage is een bedrijfsbrede, grootschalige opslagplaats voor big data-analysewerklasten. U kunt Data Lake Storage gebruiken voor het opslaan van gegevens van elke grootte, het type en de opname-snelheid voor operationele en verkennende analyse. Stream Analytics moet zijn gemachtigd voor toegang tot Data Lake-opslag.
 
-Azure Data Lake Storage-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China (21Vianet) en regio's van Azure Duitsland (T-Systems International).
+Azure Data Lake Storage-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China 21Vianet en regio's van Azure Duitsland (T-Systems International).
 
 De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvingen de uitvoer van uw Data Lake Storage Gen 1 configureren.   
 
@@ -50,7 +50,7 @@ De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvi
 
 ## <a name="sql-database"></a>SQL Database
 
-U kunt [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) als uitvoer voor gegevens die relationele of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in SQL-Database. Het tabelschema moet exact overeenkomen met de velden en hun typen in de uitvoer van uw taak. U kunt ook opgeven [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) uitvoer optie als uitvoer via de SQL-Database. Zie voor meer informatie over manieren om te schrijven-doorvoer te verbeteren, de [Stream Analytics met Azure SQL Database als uitvoer](stream-analytics-sql-output-perf.md) artikel. 
+U kunt [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) als uitvoer voor gegevens die relationele of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in SQL-Database. Het tabelschema moet exact overeenkomen met de velden en hun typen in de uitvoer van uw taak. U kunt ook opgeven [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) uitvoer optie als uitvoer via de SQL-Database. Zie voor meer informatie over manieren om te schrijven-doorvoer te verbeteren, de [Stream Analytics met Azure SQL Database als uitvoer](stream-analytics-sql-output-perf.md) artikel.
 
 De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een SQL-Database.
 
@@ -63,10 +63,10 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Wachtwoord | Het wachtwoord voor verbinding met de database. |
 | Tabel | De naam van de tabel waar de uitvoer wordt geschreven. Naam van de tabel is hoofdlettergevoelig. Het schema van deze tabel moet exact overeenkomen met het aantal velden en hun typen die de taakuitvoer wordt gegenereerd. |
 |Partitieschema overnemen| Een optie voor het overnemen van het partitieschema van de vorige querystap om in te schakelen volledig parallelle-topologie met meerdere makers in de tabel. Zie voor meer informatie, [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md).|
-|Batch-aantal overeenkomsten| De aanbevolen limiet voor het aantal records dat is verzonden met elke bulksgewijs invoegen transactie.|
+|Maximum aantal batches| De aanbevolen bovengrens voor het aantal records dat is verzonden met elke bulksgewijs invoegen transactie.|
 
 > [!NOTE]
-> De Azure SQL Database-aanbieding wordt ondersteund voor een taak uitvoeren in Stream Analytics, maar een Azure-machine waarop SQL Server met een database die is gekoppeld, wordt niet ondersteund.
+> De Azure SQL Database-aanbieding wordt ondersteund voor de taakuitvoer van een in Stream Analytics, maar een Azure-machine waarop SQL Server met een database die is gekoppeld of in een SQL Azure Managed Instance wordt nog niet ondersteund. Dit is mogelijk gewijzigd in toekomstige releases.
 
 ## <a name="blob-storage"></a>Blob Storage
 
@@ -108,7 +108,7 @@ U moet een aantal parameters voor het configureren van data-stromen van eventhub
 | Naam van eigenschap | Description |
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze event hub te regelen. |
-| Event hub-naamruimte |Een container voor een set berichtentiteiten. Wanneer u een nieuwe event hub hebt gemaakt, is ook een event hub-naamruimte gemaakt. |
+| Event hub-naamruimte | Een container voor een set berichtentiteiten. Wanneer u een nieuwe event hub hebt gemaakt, is ook een event hub-naamruimte gemaakt. |
 | Naam van Event Hub | De naam van de event hub-uitvoer. |
 | De naam van een Event hub-beleid | Het beleid voor gedeelde toegang, die u in de event hub maken kunt **configureren** tabblad. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. |
 | Beleidssleutel voor Event hub | De gedeelde toegangssleutel die wordt gebruikt voor het verifiëren van toegang tot de event hub-naamruimte. |
@@ -123,7 +123,7 @@ U moet een aantal parameters voor het configureren van data-stromen van eventhub
 
 U kunt [Power BI](https://powerbi.microsoft.com/) als uitvoer voor een Stream Analytics-taak te voorzien in een krachtige visualisatie-ervaring van de resultaten van de analyse. Voor operationele dashboards, rapporten genereren en de metriek gebaseerde reporting kunt u deze mogelijkheid.
 
-Power BI-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China (21Vianet) en regio's van Azure Duitsland (T-Systems International).
+Power BI-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China 21Vianet en regio's van Azure Duitsland (T-Systems International).
 
 De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvingen om te configureren van de uitvoer van uw Power BI.
 
@@ -212,14 +212,14 @@ Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-
 ## <a name="service-bus-topics"></a>Service Bus-onderwerpen
 Service Bus-wachtrijen bieden een-op-een communicatiemethode van afzender naar ontvanger. [Service Bus-onderwerpen](https://msdn.microsoft.com/library/azure/hh367516.aspx) voorzien in de vorm van een een-op-veel communicatie.
 
-De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvingen voor het maken van een onderwerp van de uitvoer.
+De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvingen voor het maken van de uitvoer van een Service Bus-onderwerp.
 
 | Naam van eigenschap | Description |
 | --- | --- |
 | Uitvoeralias |Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze Service Bus-onderwerp te regelen. |
 | Service Bus-naamruimte |Een container voor een set berichtentiteiten. Wanneer u een nieuwe event hub hebt gemaakt, is ook een Service Bus-naamruimte gemaakt. |
 | Onderwerpnaam |Onderwerpen zijn berichtentiteiten, vergelijkbaar met eventhubs en wachtrijen. Ze zijn ontworpen om gebeurtenisstromen te verzamelen van apparaten en services. Als u een onderwerp maakt, heeft deze ook een specifieke naam gegeven. De berichten die worden verzonden naar een onderwerp niet beschikbaar zijn, tenzij er een abonnement is gemaakt, dus zorg ervoor dat er is een of meer abonnementen onder het onderwerp. |
-| Naam van het onderwerpbeleid |Wanneer u een onderwerp maakt, kunt u ook beleid voor gedeelde toegang maken op van het onderwerp **configureren** tabblad. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. |
+| Naam van het onderwerpbeleid |Wanneer u een Service Bus-onderwerp maakt, kunt u ook beleid voor gedeelde toegang maken in het onderwerp van **configureren** tabblad. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. |
 | Sleutel voor het onderwerpbeleid |De gedeelde toegangssleutel die wordt gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. |
 | Serialisatie-indeling voor gebeurtenissen |De serialisatie-indeling voor de uitvoergegevens. JSON-, CSV- en Avro worden ondersteund. |
 | Encoding |Als u van CSV of JSON-indeling gebruikmaakt, moet een codering worden opgegeven. Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund. |
@@ -231,7 +231,7 @@ Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is een wereldwijd gedistribueerde databaseservice biedt onbeperkt flexibel schalen over de hele wereld, uitgebreide query en automatische indexering via schema-agnostische gegevensmodellen. Zie voor meer informatie over opties voor het verzamelen van Azure Cosmos DB voor Stream Analytics, de [Stream Analytics met Azure Cosmos DB als uitvoer](stream-analytics-documentdb-output.md) artikel.
 
-Azure Cosmos DB-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China (21Vianet) en regio's van Azure Duitsland (T-Systems International).
+Azure Cosmos DB-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China 21Vianet en regio's van Azure Duitsland (T-Systems International).
 
 > [!Note]
 > Op dit moment ondersteunt Azure Stream Analytics alleen verbinding met Azure Cosmos DB met behulp van de SQL-API.
@@ -253,7 +253,7 @@ De volgende tabel beschrijft de eigenschappen voor het maken van een Azure Cosmo
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions is een serverloze rekenservice waarmee u code op aanvraag uitvoeren zonder expliciet inrichten of beheren van infrastructuur kunt gebruiken. Hiermee kunt u code te implementeren die wordt geactiveerd door gebeurtenissen in Azure of partner services. Deze mogelijkheid van Azure Functions om op triggers te reageren, is het een natuurlijke uitvoer voor Azure Stream Analytics. Deze uitvoeradapter kan gebruikers Stream Analytics verbinden met Azure Functions en een script of een stukje code uitvoeren in reactie op een aantal gebeurtenissen.
 
-Azure Functions-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China (21Vianet) en regio's van Azure Duitsland (T-Systems International).
+Azure Functions-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China 21Vianet en regio's van Azure Duitsland (T-Systems International).
 
 Azure Stream Analytics activeert Azure Functions via HTTP-triggers. De Azure Functions-uitvoeradapter is beschikbaar met de volgende eigenschappen kunnen worden geconfigureerd:
 
@@ -295,7 +295,7 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Uitvoertype | Ondersteuning voor partitioneren | Partitiesleutel  | Aantal uitvoer schrijvers |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Ja | Gebruik {date} en {time} tokens in het patroon voor het voorvoegsel van pad. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj of MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). |
-| Azure SQL Database | Ja | Op basis van de component PARTITION BY in de query. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). Zie voor meer informatie over het bereiken van betere prestaties van de netwerkdoorvoer schrijven als u het laden van gegevens in Azure SQL Database [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md). |
+| Azure SQL Database | Ja, moet ingeschakeld. | Op basis van de component PARTITION BY in de query. | Wanneer de optie voor overnemen partitioneren is ingeschakeld, volgt u de invoer voor het partitioneren van [volledig worden opgestart query's](stream-analytics-scale-jobs.md). Zie voor meer informatie over het bereiken van betere prestaties van de netwerkdoorvoer schrijven als u het laden van gegevens in Azure SQL Database [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Azure Blob Storage | Ja | Gebruik {date} en {time} tokens van de gebeurtenis velden in het padpatroon. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj of MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. BLOB-uitvoer kan worden gepartitioneerd op een kenmerk met één aangepaste gebeurtenis {fieldname} of {datum/tijd:\<aanduiding >}. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Ja | Ja | Is afhankelijk van de uitlijning van de partitie.<br /> Als de partitiesleutel voor event hub-uitvoer is even uitgelijnd met de upstream querystap (vorige), wordt het aantal schrijvers is hetzelfde als het aantal partities in event hub-uitvoer. Maakt gebruik van elke schrijver de [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) voor het verzenden van gebeurtenissen naar de specifieke partitie. <br /> Als de partitiesleutel voor event hub-uitvoer is niet uitgelijnd met de upstream querystap (vorige), wordt het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. Maakt gebruik van elke schrijver de [SendBatchAsync klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient** gebeurtenissen verzenden naar alle partities van de uitvoer. |
 | Power BI | Nee | Geen | Niet van toepassing. |
@@ -315,14 +315,14 @@ De volgende tabel worden enkele van de overwegingen voor uitvoer batchverwerking
 | Uitvoertype | Maximale berichtlengte | Optimalisatie van de grootte van batch |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Zie [Data Lake-opslag beperkt](../azure-subscription-service-limits.md#data-lake-store-limits). | Gebruik maximaal 4 MB per schrijfbewerking. |
-| Azure SQL Database | 10.000 maximum aantal rijen per één bulksgewijs invoegen.<br />minimaal 100 rijen per één bulksgewijs invoegen. <br />Zie [limieten van Azure SQL](../sql-database/sql-database-resource-limits.md). |  Elke batch is in eerste instantie bulksgewijs invoegen met maximale batchgrootte. U kunt de batch in de helft (totdat u de minimale batchgrootte) op basis van herstelbare fouten uit SQL splitsen. |
+| Azure SQL Database | Kan worden geconfigureerd met behulp van maximumaantal batches. 10.000, maximum- en 100 minimale rijen per één bulksgewijs invoegen standaard.<br />Zie [limieten van Azure SQL](../sql-database/sql-database-resource-limits.md). |  Elke batch is in eerste instantie bulksgewijs invoegen met de maximale batch-aantal. Batch wordt gesplitst in tweeën (tot en met minimale batch-aantal) op basis van herstelbare fouten van SQL. |
 | Azure Blob Storage | Zie [Azure Storage beperkt](../azure-subscription-service-limits.md#storage-limits). | De grootte van het maximum aantal blob-blok is 4 MB.<br />Het maximum aantal blob bock aantal is 50.000. |
-| Azure Event Hubs  | 256 KB per bericht. <br />Zie [Event Hubs beperkt](../event-hubs/event-hubs-quotas.md). |  Als het partitioneren van invoer/uitvoer is niet uitgelijnd, elke gebeurtenis afzonderlijk in is verpakt **EventData** en verzonden in een batch van maximaal de maximale berichtgrootte (1 MB voor de Premium-SKU). <br /><br />  Als het partitioneren van invoer/uitvoer wordt uitgelijnd, meerdere gebeurtenissen zijn verpakt in een enkele **EventData** exemplaar, tot de maximale berichtgrootte en verzonden.  |
+| Azure Event Hubs  | 256 KB of 1 MB per bericht. <br />Zie [Event Hubs beperkt](../event-hubs/event-hubs-quotas.md). |  Als het partitioneren van invoer/uitvoer is niet uitgelijnd, elke gebeurtenis afzonderlijk in is verpakt `EventData` en verzonden in een batch van maximaal de maximale berichtgrootte. Dit gebeurt ook als [eigenschappen van aangepaste metagegevens](#custom-metadata-properties-for-output) worden gebruikt. <br /><br />  Als het partitioneren van invoer/uitvoer wordt uitgelijnd, meerdere gebeurtenissen zijn verpakt in een enkele `EventData` exemplaar, tot de maximale berichtgrootte en verzonden. |
 | Power BI | Zie [Power BI Rest-API-limieten](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Table Storage | Zie [Azure Storage beperkt](../azure-subscription-service-limits.md#storage-limits). | De standaardwaarde is 100 entiteiten per één transactie. U kunt deze configureren in een kleinere waarde indien nodig. |
-| Azure Service Bus-wachtrij   | 256 KB per bericht.<br /> Zie [Service Bus beperkt](../service-bus-messaging/service-bus-quotas.md). | Gebruik één gebeurtenis per bericht. |
-| Azure Service Bus-onderwerp | 256 KB per bericht.<br /> Zie [Service Bus beperkt](../service-bus-messaging/service-bus-quotas.md). | Gebruik één gebeurtenis per bericht. |
-| Azure Cosmos DB   | Zie [limieten van Azure Cosmos DB](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batch-grootte en frequentie worden dynamisch aangepast schrijven op basis van Azure Cosmos DB-antwoorden. <br /> Er zijn geen vooraf bepaalde beperkingen van Stream Analytics. |
+| Azure Service Bus-wachtrij   | 256 KB per bericht voor de Standard-laag, 1MB voor Premium-laag.<br /> Zie [Service Bus beperkt](../service-bus-messaging/service-bus-quotas.md). | Gebruik één gebeurtenis per bericht. |
+| Azure Service Bus-onderwerp | 256 KB per bericht voor de Standard-laag, 1MB voor Premium-laag.<br /> Zie [Service Bus beperkt](../service-bus-messaging/service-bus-quotas.md). | Gebruik één gebeurtenis per bericht. |
+| Azure Cosmos DB   | Zie [limieten van Azure Cosmos DB](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batchgrootte en schrijven frequentie dynamisch op basis van Azure Cosmos DB-antwoorden worden aangepast. <br /> Er zijn geen vooraf bepaalde beperkingen van Stream Analytics. |
 | Azure Functions   | | De standaardgrootte van de batch is 262.144 bytes (256 KB). <br /> Het standaardaantal gebeurtenis per batch is 100. <br /> De batchgrootte is configureerbaar en kan worden vergroot of verkleind in de Stream Analytics [uitvoeropties](#azure-functions).
 
 ## <a name="next-steps"></a>Volgende stappen

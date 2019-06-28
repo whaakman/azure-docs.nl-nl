@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2445b37e8152d8f55dad6eff057d273851dc2209
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723590"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340679"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Betrouwbare verzamelingserialisatie van het type object in Azure Service Fabric
 Betrouwbare verzamelingen repliceren en hun items om ervoor te zorgen dat ze duurzame zijn voor de machine fouten en stroomstoringen behouden.
@@ -55,7 +55,7 @@ Betrouwbare status Manager beschikt over ingebouwde serialisatiefunctie voor het
 
 Aangepaste objectserializers worden vaak gebruikt om prestaties te verhogen of voor het versleutelen van de gegevens via de kabel en op schijf. Aangepaste objectserializers zijn onder andere redenen, meestal efficiënter dan algemene serializer omdat ze niet nodig hebben om te serialiseren van informatie over het type. 
 
-[IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) wordt gebruikt voor het registreren van een aangepaste serializer voor het opgegeven type T. Deze registratie moet gebeuren in de constructie van de StatefulServiceBase om ervoor te zorgen dat voordat herstel wordt gestart, alle betrouwbare verzamelingen toegang hebben tot de relevante serializer om hun persistente gegevens te lezen.
+[IReliableStateManager.TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) wordt gebruikt voor het registreren van een aangepaste serializer voor het opgegeven type T. Deze registratie moet gebeuren in de constructie van de StatefulServiceBase om ervoor te zorgen dat voordat herstel wordt gestart, alle betrouwbare verzamelingen toegang hebben tot de relevante serializer om hun persistente gegevens te lezen.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,10 +73,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Het implementeren van een aangepaste serializer
 
-Een aangepaste serializer nodig heeft voor het implementeren van de [IStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interface.
+Een aangepaste serializer nodig heeft voor het implementeren van de [IStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interface.
 
 > [!NOTE]
-> IStateSerializer<T> bevat een overbelasting voor schrijven en lezen die in een extra T basiswaarde genoemd. Deze API is voor de differentiële serialisatie. Differentiële serialisatie-functie is momenteel niet beschikbaar gemaakt. Daarom kan deze twee overloads niet worden aangeroepen totdat differentiële serialisatie wordt beschikbaar gemaakt en ingeschakeld.
+> IStateSerializer\<T > bevat een overbelasting voor schrijven en lezen die in een extra T basiswaarde genoemd. Deze API is voor de differentiële serialisatie. Differentiële serialisatie-functie is momenteel niet beschikbaar gemaakt. Daarom kan deze twee overloads niet worden aangeroepen totdat differentiële serialisatie wordt beschikbaar gemaakt en ingeschakeld.
 
 Hieronder volgt een voorbeeld van een aangepaste type OrderKey met vier eigenschappen aangeroepen
 

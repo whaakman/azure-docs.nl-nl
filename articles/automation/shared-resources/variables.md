@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 622b4ab41162a7858097f717a103878f05917cd3
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786196"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342165"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabele assets in Azure Automation
 
@@ -28,7 +28,7 @@ Variabele assets zijn waarden die beschikbaar voor alle runbooks en DSC-configur
 
 Omdat het Automation-variabelen zijn opgeslagen, zijn ze beschikbaar zelfs als het runbook of DSC-configuratie is mislukt. Dit gedrag kunt een waarde worden ingesteld door een runbook dat vervolgens wordt gebruikt door een andere, of wordt gebruikt door de hetzelfde runbook of DSC-configuratie de volgende keer dat deze wordt uitgevoerd.
 
-Wanneer een variabele is gemaakt, kunt u opgeven dat deze is opgeslagen versleuteld. Gecodeerde variabelen worden veilig opgeslagen in Azure Automation en de waarde kan niet worden opgehaald uit de [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet die wordt meegeleverd als onderdeel van de Azure PowerShell-module. De enige manier dat een versleutelde waarde kan worden opgehaald, is vanuit de **Get-AutomationVariable** activiteit in een runbook of DSC-configuratie.
+Wanneer een variabele is gemaakt, kunt u opgeven dat deze is opgeslagen versleuteld. Gecodeerde variabelen worden veilig opgeslagen in Azure Automation en de waarde kan niet worden opgehaald uit de [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet die wordt meegeleverd als onderdeel van de Azure PowerShell-module. De enige manier dat een versleutelde waarde kan worden opgehaald, is vanuit de **Get-AutomationVariable** activiteit in een runbook of DSC-configuratie. Als u wijzigen in een gecodeerde variabele niet versleuteld wilt, kunt u moet verwijderen en opnieuw maken van de variabele als niet-versleutelde.
 
 >[!NOTE]
 >Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze apparaten worden versleuteld en opgeslagen in Azure Automation met behulp van een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in een systeem beheerd Key Vault. Voordat u een beveiligd bedrijfsmiddel opslaat, is de sleutel geladen uit Key Vault en vervolgens worden gebruikt voor het versleutelen van de asset. Dit proces wordt beheerd door Azure Automation.
@@ -42,7 +42,7 @@ U kunt meerdere waarden in een enkele variabele opslaan door het maken van een m
 Hier volgen een lijst met variabelen die beschikbaar zijn in Automation:
 
 * String
-* Geheel getal
+* Integer
 * DateTime
 * Boolean
 * Null

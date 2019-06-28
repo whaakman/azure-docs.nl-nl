@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058552"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331312"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -414,3 +414,12 @@ Op dit moment is Azure Dev opslagruimten bedoeld om uit te voeren op Linux-schil
 
 ### <a name="try"></a>Proberen
 [Toevoegen van een beïnvloeding](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) naar uw AKS-cluster om ervoor te zorgen Linux schillen niet zijn gepland om uit te voeren op een Windows-knooppunt.
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>Fout "geen ongetinte Linux-knooppunten in de status gereed gevonden in het cluster. Er moet ten minste één ongetinte Linux-knooppunt in de status gereed om te implementeren schillen in de naamruimte 'azds'.'
+
+### <a name="reason"></a>Reason
+
+Azure Dev spaties niet een domeincontroller op uw AKS-cluster kan maken omdat niet is gevonden een ongetinte knooppunt in een *gereed* status schillen plannen op. Azure Dev spaties vereist ten minste één Linux-knooppunt in een *gereed* status waarmee voor het plannen van schillen zonder tolerations op te geven.
+
+### <a name="try"></a>Proberen
+[Werk de configuratie van uw beïnvloeding](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) op uw AKS-cluster om ervoor te zorgen ten minste één Linux knooppunt kunt voor het plannen van schillen zonder tolerations op te geven. Zorg er ook voor dat ten minste één Linux-knooppunt waarmee planning schillen zonder op te geven tolerations zich in de *gereed* staat. Als het knooppunt lang duurt is om te bereiken het *gereed* staat, kunt u proberen het knooppunt opnieuw op te starten.

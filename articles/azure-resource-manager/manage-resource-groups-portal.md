@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507233"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296292"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Resource Manager-resourcegroepen beheren met behulp van Azure portal
 
@@ -109,14 +106,6 @@ U kunt tags toepassen op resourcegroepen en resources voor uw activa logische ma
 ## <a name="export-resource-groups-to-templates"></a>Resourcegroepen naar sjablonen exporteren
 
 Zie voor meer informatie over het exporteren van sjablonen [één of meerdere resources exporteren naar de sjabloon - Portal](export-template-portal.md).
-
-### <a name="fix-export-issues"></a>Problemen met exports oplossen
-
-Niet alle resourcetypen ondersteunen de functie voor het exporteren van sjablonen. U ziet alleen exporteren problemen bij het exporteren van een resourcegroep in plaats van geschiedenis van uw implementatie. Als uw laatste implementatie een nauwkeurige weergave is van de huidige status van de resourcegroep, kunt u het beste de sjabloon exporteren uit de implementatiegeschiedenis in plaats van uit de resourcegroep. Exporteer alleen vanuit een resourcegroep wanneer u wijzigingen hebt aangebracht in de resourcegroep die niet zijn gedefinieerd in één sjabloon.
-
-Exporteren-problemen oplossen door handmatig de ontbrekende resources terug in de sjabloon toevoegen. Het foutbericht bevat de resourcetypen die niet kunnen worden geëxporteerd. Zoek dat resourcetype in de Engelstalige [naslaghandleiding over sjablonen](/azure/templates/). Als u bijvoorbeeld handmatig een virtuele netwerkgateway wilt toevoegen, raadpleegt u [Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways) in de handleiding. De sjabloonverwijzing beschikt u over de JSON naar de resource toevoegen aan uw sjabloon.
-
-Nadat u de JSON-indeling voor de resource, moet u de waarden van de resource ophalen. U ziet de waarden voor de resource met behulp van de GET-bewerking in de REST-API voor het brontype. Bijvoorbeeld, als u de waarden voor uw virtuele netwerkgateway, Zie [ophalen van de virtuele netwerkgateways -](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="manage-access-to-resource-groups"></a>Toegang tot resourcegroepen beheren
 

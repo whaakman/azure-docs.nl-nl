@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
-ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 4bfee4ec442c9e7b0351b0fd0c6a2b8e163a2541
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720668"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330310"
 ---
-# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Maken en beheren van handelspartnerovereenkomsten met behulp van Azure Logic Apps en Enterprise Integration Pack
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Maken en beheren van handelspartnerovereenkomsten in Azure Logic Apps
 
 Een [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *overeenkomst* helpt organisaties en bedrijven naadloos met elkaar communiceren met het definiëren van de te gebruiken tijdens het uitwisselen van de specifieke industriestandaard-protocol berichten van de Business-to-business (B2B). Overeenkomsten bieden algemene voordelen, bijvoorbeeld:
@@ -27,6 +26,8 @@ Een [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md
 * Zijn gemakkelijk te maken, beheren en gebruiken voor het bouwen van zakelijke oplossingen voor integratie.
 
 Dit artikel wordt beschreven hoe u kunt maken van een AS2, EDIFACT of X12 overeenkomst die u gebruiken kunt bij het bouwen van enterprise integratieoplossingen voor B2B-scenario's met behulp van de [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) en [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Nadat u een overeenkomst hebt gemaakt, kunt u vervolgens de AS2, EDIFACT of X12 connectors voor het uitwisselen van B2B-berichten.
+
+Zie voor het maken van overeenkomsten voor het uitwisselen van berichten voor RosettaNet [Exchange RosettaNet berichten](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -65,8 +66,8 @@ Selecteer in het hoofdmenu van Azure **alle services**. Typ 'integration' als fi
    | **Identiteit van de host** | Ja | <*host-partner-identifier*> | De hostpartner-id |
    | **Gastpartner** | Ja | <*naam van een gast van partner*> | De gastpartner vertegenwoordigt de organisatie die wordt zakendoen met de hostpartner |
    | **Gastidentiteit** | Ja | <*guest-partner-identifier*> | De gastpartner-id |
-   | **Ontvangstinstellingen** | Varieert | Varieert | Deze eigenschappen opgeven voor het verwerken van alle binnenkomende berichten ontvangen door de overeenkomst. Zie voor meer informatie de betreffende overeenkomsttype selecteren: <p>- [Instellingen voor AS2-bericht](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Instellingen van de EDIFACT-bericht](logic-apps-enterprise-integration-edifact.md) <br>- [Instellingen voor X12 message](logic-apps-enterprise-integration-x12.md) |
-   | **Verzendinstellingen** | Varieert | Varieert | Deze eigenschappen opgeven voor het verwerken van alle uitgaande berichten verzonden door de overeenkomst. Zie voor meer informatie de betreffende overeenkomsttype selecteren: <p>- [Instellingen voor AS2-bericht](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Instellingen van de EDIFACT-bericht](logic-apps-enterprise-integration-edifact.md) <br>- [Instellingen voor X12 message](logic-apps-enterprise-integration-x12.md) |
+   | **Ontvangstinstellingen** | Varieert | Varieert | Deze eigenschappen kunt u opgeven hoe de hostpartner alle binnenkomende berichten ontvangt van de gastpartner in de overeenkomst. Zie voor meer informatie de betreffende overeenkomsttype selecteren: <p>- [Instellingen voor AS2-bericht](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Instellingen van de EDIFACT-bericht](logic-apps-enterprise-integration-edifact.md) <br>- [Instellingen voor X12 message](logic-apps-enterprise-integration-x12.md) |
+   | **Verzendinstellingen** | Varieert | Varieert | Deze eigenschappen kunt u opgeven hoe de hostpartner alle uitgaande berichten verzendt naar de gastpartner in de overeenkomst. Zie voor meer informatie de betreffende overeenkomsttype selecteren: <p>- [Instellingen voor AS2-bericht](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Instellingen van de EDIFACT-bericht](logic-apps-enterprise-integration-edifact.md) <br>- [Instellingen voor X12 message](logic-apps-enterprise-integration-x12.md) |
    |||||
 
 1. Wanneer u klaar bent voor het maken van uw overeenkomst op de **toevoegen** pagina, kies **OK**, en Ga terug naar uw integratie-account.

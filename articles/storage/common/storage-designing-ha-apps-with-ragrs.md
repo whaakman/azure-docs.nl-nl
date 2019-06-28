@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951312"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357084"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -212,6 +212,33 @@ De volgende tabel ziet u een voorbeeld van wat er gebeuren kan wanneer u de deta
 In dit voorbeeld wordt ervan uitgegaan dat de client overschakelt naar het lezen van de secundaire regio op t 5. Deze gegevens kan lezen de **beheerdersrol** entiteit op dit moment, maar de entiteit bevat een waarde op voor het aantal administrators die is niet consistent met het aantal **werknemer** entiteiten die zijn gemarkeerd als beheerders in de secundaire regio op dit moment. De client kan deze waarde, met het risico dat het inconsistente gegevens is gewoon weergeven. U kunt ook de client kan proberen om te bepalen die de **beheerdersrol** heeft de mogelijk inconsistent status omdat de updates zich hebben voorgedaan andere volgorde en vervolgens de gebruiker van dit feit informeert.
 
 Voor het herkennen van of er mogelijk inconsistente gegevens, de client gebruikt de waarde van de *tijd van laatste synchronisatie* dat u op elk gewenst moment krijgen kunt door het opvragen van een storage-service. Weet u de tijd waarop de gegevens in de secundaire regio laatst consistent en wanneer de service alle transacties voorafgaand aan dat punt in tijd had toegepast. In het voorbeeld hierboven, nadat de service voegt de **werknemer** entiteit in de secundaire regio, de tijd van laatste synchronisatie is ingesteld op *T1*. Blijft *T1* totdat de service-updates de **werknemer** entiteit in de secundaire regio als deze is ingesteld op *T6*. Als de client haalt u de tijd van laatste synchronisatie wanneer is het ingesteld op de entiteit op *t 5*, het kunt vergelijken met de tijdstempel van de entiteit. Als de tijdstempel van de entiteit hoger dan de tijd van laatste synchronisatie is, klikt u vervolgens de entiteit is een mogelijk inconsistente status en tilt u wat de juiste actie voor uw toepassing is. Met behulp van dit veld is vereist dat u weet wanneer de laatste update naar de primaire is voltooid.
+
+## <a name="getting-the-last-sync-time"></a>Ophalen van de tijd van laatste synchronisatie
+
+U kunt PowerShell of Azure CLI gebruiken om op te halen van de tijd van laatste synchronisatie om te bepalen wanneer de gegevens voor het laatst is geschreven naar de secundaire server.
+
+### <a name="powershell"></a>PowerShell
+
+Als u de tijd van laatste synchronisatie voor het opslagaccount met behulp van PowerShell, controleert u het opslagaccount **GeoReplicationStats.LastSyncTime** eigenschap. Houd er rekening mee de tijdelijke aanduiding voor waarden vervangen door uw eigen waarden:
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>Azure-CLI
+
+Als u de tijd van laatste synchronisatie voor het opslagaccount met behulp van Azure CLI, controleert u het opslagaccount **geoReplicationStats.lastSyncTime** eigenschap. Gebruik de `--expand` parameter om te retourneren waarden voor de eigenschappen worden genest onder **geoReplicationStats**. Houd er rekening mee de tijdelijke aanduiding voor waarden vervangen door uw eigen waarden:
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>Testen
 

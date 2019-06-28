@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546458"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357229"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Service-lagen in het op DTU gebaseerde aankoopmodel
 
-Service-lagen in het op DTU gebaseerde aankoopmodel van elkaar worden onderscheiden door een bereik van de compute-grootten met een vaste hoeveelheid inbegrepen opslag, vaste bewaarperiode voor back-ups en vaste prijs. Alle service-lagen in het op DTU gebaseerde aankoopmodel bieden flexibiliteit voor het wijzigen van de compute-grootten zonder uitvaltijd. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en compute-grootte.
+Service-lagen in het op DTU gebaseerde aankoopmodel van elkaar worden onderscheiden door een bereik van de compute-grootten met een vaste hoeveelheid inbegrepen opslag, vaste bewaarperiode voor back-ups en vaste prijs. Alle service-lagen in het op DTU gebaseerde aankoopmodel bieden flexibiliteit voor het wijzigen van de compute-grootten met minimale [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/), maar er is een switch gedurende waar-verbinding verbroken met de database gedurende een korte periode is, die kan grotendeels worden opgevangen met behulp van de logica voor opnieuw proberen. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en compute-grootte.
 
 > [!IMPORTANT]
 > Beheerd exemplaar voor SQL Database biedt geen ondersteuning voor een op DTU gebaseerde aankoopmodel. Zie voor meer informatie, [Azure SQL Database Managed Instance](sql-database-managed-instance.md).

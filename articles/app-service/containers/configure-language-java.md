@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91368ac3b1d7948257fa9e55debc862567593425
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063859"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341388"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Een Linux Java-app configureren voor Azure App Service
 
@@ -60,6 +60,43 @@ Als uw toepassing gebruikmaakt van [Logback](https://logback.qos.ch/) of [Log4j]
 ### <a name="troubleshooting-tools"></a>Hulpprogramma's voor probleemoplossing
 
 De ingebouwde Java-installatiekopieën op basis van de [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) besturingssysteem. Gebruik de `apk` Pakketbeheer voor het installeren van eventuele problemen oplossen-hulpprogramma's of opdrachten.
+
+### <a name="flight-recorder"></a>Zwarte doos
+
+Alle Linux Java-installatiekopieën op App Service hebben Zulu zwarte doos is geïnstalleerd, zodat u kunt eenvoudig verbinding met de JVM maken en start een profiler op te nemen of een heap-dump genereren.
+
+#### <a name="timed-recording"></a>Getimede opnemen
+
+Aan de slag, voeg SSH toe aan uw App Service en uitvoeren de `jcmd` opdracht voor een overzicht van alle Java-processen die worden uitgevoerd. Naast jcmd zelf ziet u uw Java-toepassing die wordt uitgevoerd met een proces-ID (pid).
+
+```shell
+078990bbcd11:/home# jcmd
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+147 sun.tools.jcmd.JCmd
+116 /home/site/wwwroot/app.jar
+```
+
+Voer de onderstaande opdracht om te beginnen met opnemen van JVM 30 seconden. Hierdoor wordt de JVM-profiel en een JFR-bestand met de naam `jfr_example.jfr` in de basismap. (116 vervangen door de pid van uw Java-app.)
+
+```shell
+jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
+```
+
+Tijdens de tweede interval van 30, kunt u de opname valideren door te voeren is plaatsvinden `jcmd 116 JFR.check`. Hiermee wordt alle opnamen voor het opgegeven Java-proces weergegeven.
+
+#### <a name="continuous-recording"></a>Continue opnemen
+
+U kunt Zulu zwarte doos continu profiel van uw Java-toepassing met minimale impact op de runtime-prestaties ([bron](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Voer de volgende Azure CLI-opdracht voor het maken van een App-instelling met de naam JAVA_OPTS met de vereiste configuratie om dit te doen. De inhoud van de App-instelling JAVA_OPTS worden doorgegeven aan de `java` opdracht wanneer uw app wordt gestart.
+
+```azurecli
+az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+Zie voor meer informatie de [Jcmd naslaginformatie](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+### <a name="analyzing-recordings"></a>Analyseren van opnamen
+
+Gebruik [FTPS](../deploy-ftp.md) uw JFR-bestand te downloaden naar uw lokale computer. Voor het analyseren van het bestand JFR, download en installeer [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Zie voor instructies over Zulu Mission Control, de [Azul documentatie](https://docs.azul.com/zmc/) en de [installatie-instructies](https://docs.microsoft.com/en-us/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## <a name="customization-and-tuning"></a>Aanpassing en afstemmen
 

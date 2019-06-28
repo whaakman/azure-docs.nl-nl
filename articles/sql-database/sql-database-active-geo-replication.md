@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/18/2019
+ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387424"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341435"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Het maken en gebruiken van actieve geo-replicatie
 
@@ -100,9 +100,6 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   Elke secundaire database kan afzonderlijk deel uitmaken van een elastische pool of worden niet in een elastische pool helemaal. De keuze van toepassingen voor elke secundaire database is gescheiden en niet afhankelijk is van de configuratie van een andere secundaire database (of primaire of secundaire). Elke elastische groep is opgenomen in één regio, daarom meerdere secundaire databases in dezelfde topologie nooit een elastische pool kunnen delen.
 
-- **Configureerbare compute-grootte van de secundaire database**
-
-  Primaire en secundaire databases moeten dezelfde servicelaag. Het is ook raadzaam dat deze secundaire database wordt gemaakt met dezelfde compute grootte (dtu's of vCores) als de primaire. Een secundaire met lagere compute grootte loopt het risico van een verbeterde replicatievertraging, mogelijk niet beschikbaar zijn van de secundaire server, en als gevolg daarvan risico aanzienlijk verlies van gegevens na een failover. Als gevolg hiervan, de gepubliceerde RPO = 5 per seconde kan niet worden gegarandeerd. Het andere risico is dat na een failover van de toepassing is van invloed op vanwege een gebrek aan rekencapaciteit van de nieuwe primaire totdat deze is bijgewerkt naar een hogere compute-grootte. De tijd van de upgrade is afhankelijk van de grootte van de database. Daarnaast heeft nodig momenteel deze upgrade zowel primaire als secundaire databases online zijn en daarom kunnen niet worden voltooid nadat de onderbreking is verholpen. Als u besluit te maken van de secundaire met lagere compute-grootte, biedt het logboek i/o-percentage diagram in Azure portal een goede manier om te schatten van de minimale compute-grootte van de secundaire server die is vereist voor het handhaven van de belasting van de replicatie. Bijvoorbeeld, als uw primaire database is P6 (1000 dtu's) en het logboek-i/o-percentage is 50% is de secundaire server moet ten minste P4 (500 dtu's). U kunt ook de logboekgegevens van de i/o-gebruik ophalen [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) weergaven van de database.  Zie voor meer informatie over de compute-grootten voor SQL-Database [wat SQL Database-Servicelagen zijn](sql-database-purchase-models.md).
 
 - **Gebruiker beheerde failover en failback**
 
@@ -112,7 +109,19 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 Wordt u aangeraden [IP-firewallregels op databaseniveau database](sql-database-firewall-configure.md) voor databases, zodat deze regels kunnen worden gerepliceerd met de database om te controleren of alle secundaire databases hebben de dezelfde IP-firewall-regels als de primaire geo-replicatie. Deze aanpak elimineert de noodzaak voor klanten om handmatig te configureren en firewallregels op servers die als host fungeert voor zowel de primaire en secundaire databases te onderhouden. Op dezelfde manier met behulp van [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevens toegang zorgt ervoor dat de primaire en secundaire databases hebben altijd hetzelfde gebruikersreferenties zodat tijdens een failover er geen onderbrekingen vanwege problemen met aanmeldingen en wachtwoorden is. Met de toevoeging van [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), klanten kunnen gebruikerstoegang tot zowel primaire als secundaire databases beheren en hoeft u voor het beheren van referenties in databases die kan worden overgeslagen.
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Het upgraden of downgraden van een primaire database
+## <a name="configuring-secondary-database"></a>Secundaire database configureren
+
+Primaire en secundaire databases moeten dezelfde servicelaag. Het is ook raadzaam dat deze secundaire database wordt gemaakt met dezelfde compute grootte (dtu's of vCores) als de primaire. Als de primaire database een hoge werkbelasting ondervindt, kunnen een secondary met lagere compute grootte mogelijk niet houden. Dit ertoe leiden dat de vertraging voor opnieuw uitvoeren op de secundaire, mogelijk niet beschikbaar zijn, en als gevolg daarvan risico aanzienlijk verlies van gegevens na een failover. Als gevolg hiervan, de gepubliceerde RPO = 5 per seconde kan niet worden gegarandeerd. Deze kan ook leiden tot fouten of van andere werkbelastingen op de primaire ophoudt. 
+
+De andere gevolgen van een imbalanced secundaire configuratie is dat na een failover van de toepassing de prestaties vanwege onvoldoende computercapaciteit van de nieuwe primaire afnemen. Dit is vereist om te upgraden naar een meer rekenkracht op het vereiste niveau, is niet mogelijk totdat de onderbreking is verholpen. 
+
+> [!NOTE]
+> Een upgrade van de primaire database is momenteel niet mogelijk als de secundaire offline is. 
+
+
+Als u besluit te maken van de secundaire met lagere compute-grootte, biedt het logboek i/o-percentage diagram in Azure portal een goede manier om te schatten van de minimale compute-grootte van de secundaire server die is vereist voor het handhaven van de belasting van de replicatie. Bijvoorbeeld, als uw primaire database is P6 (1000 dtu's) en het logboek-i/o-percentage is 50% is de secundaire server moet ten minste P4 (500 dtu's). U kunt ook de logboekgegevens van de i/o-gebruik ophalen [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) weergaven van de database.  Zie voor meer informatie over de compute-grootten voor SQL-Database [wat SQL Database-Servicelagen zijn](sql-database-purchase-models.md).
+
+## <a name="upgrading-or-downgrading-primary-database"></a>Het upgraden of downgraden van de primaire database
 
 U kunt upgraden en downgraden van een primaire database op een andere compute-grootte (in dezelfde servicelaag, niet tussen algemeen gebruik en bedrijfskritiek) zonder te verbreken alle secundaire databases. Bij een upgrade uitvoert, wordt het aanbevolen dat u eerst de secundaire database upgraden en werk vervolgens de primaire. Wanneer de Downgrade uitvoert, de volgorde omgekeerd: eerst downgraden van de primaire en vervolgens gebruik maken van de secundaire server. Wanneer u upgraden en downgraden van de database naar een andere service-laag, worden deze aanbeveling wordt afgedwongen.
 
@@ -134,7 +143,7 @@ Doorlopend kopiëren gebruikt vanwege de hoge latentie voor wide area network, e
 
 ## <a name="monitoring-geo-replication-lag"></a>Vertraging van geo-replicatie controleren
 
-U kunt controleren lag met betrekking tot RPO met *replication_lag_sec* kolom van [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) op de primaire database. Hier ziet u vertraging in seconden tussen de transacties doorgevoerd op de primaire en opgeslagen op de secundaire server. Bijvoorbeeld Als de waarde van de vertraging is 1 seconde, betekent dit als de primaire wordt beïnvloed door een storing op dit moment en failover is intiated, 1 seconde van de meest recente transtions worden niet opgeslagen. 
+U kunt controleren lag met betrekking tot RPO met *replication_lag_sec* kolom van [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) op de primaire database. Hier ziet u vertraging in seconden tussen de transacties doorgevoerd op de primaire en opgeslagen op de secundaire server. Bijvoorbeeld Als de waarde van de vertraging 1 seconde is, betekent dit als de primaire wordt beïnvloed door een storing op dit moment en failover wordt gestart, 1 seconde van de meest recente overgangen worden niet opgeslagen. 
 
 Als u wilt meten lag met betrekking tot wijzigingen op de primaire database die zijn toegepast op de secundaire, dat wil zeggen beschikbaar voor het lezen van de secundaire vergelijken *last_commit* tijd op de secundaire database met dezelfde waarde op de primaire de database.
 

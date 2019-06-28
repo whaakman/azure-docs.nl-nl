@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951641"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357336"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -32,7 +32,7 @@ SQL-Database maakt gebruik van SQL Server-technologie maken [volledige back-ups]
 U kunt deze back-ups te gebruiken:
 
 - **Een bestaande database herstellen naar een punt-in-time in het verleden** binnen de bewaarperiode liggen die met behulp van de Azure portal, Azure PowerShell, Azure CLI of REST-API. Met deze bewerking wordt een nieuwe database op dezelfde server als de oorspronkelijke database maken in individuele databases en elastische pools. In het beheerde exemplaar kunt met deze bewerking maken van een kopie van de database of dezelfde of verschillende Managed Instance onder hetzelfde abonnement.
-  - **[Wijzigen van de back-up bewaarperiode](#how-to-change-the-pitr-backup-retention-period)**  tussen tot 35 dagen aan uw back-upbeleid configureren.
+  - **[Wijzigen van de back-up bewaarperiode](#how-to-change-the-pitr-backup-retention-period)**  tussen 7 tot 35 dagen voor het configureren van uw back-upbeleid.
   - **Beleid met een langetermijnbewaarperiode gewijzigd van 10 jaar** op individuele databases en elastische Pools met behulp van [de Azure-portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) of [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
 - **Een verwijderde database herstellen tot het moment waarop het werd verwijderd** of op elk gewenst moment binnen de bewaarperiode liggen. De verwijderde database kan alleen worden hersteld in de dezelfde logische server of een beheerd exemplaar waar de oorspronkelijke database is gemaakt.
 - **Een database herstellen naar een andere geografische regio**. Geo-restore kunt u herstellen na een noodgeval geografische wanneer u geen toegang uw server en database tot. Het maakt een nieuwe database in een bestaande server overal ter wereld.

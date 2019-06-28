@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521396"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310468"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>naslaginformatie over host.JSON voor Azure Functions 2.x  
 
@@ -147,7 +147,7 @@ Een lijst met functies die de host van de taak wordt uitgevoerd. Een lege matrix
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Geeft aan dat de duur van de time-out voor alle functies. Het geldige bereik is 1 seconde tot 10 minuten in een verbruiksabonnement zonder server en de standaardwaarde is 5 minuten. Er is geen algemene limiet in een App Service-plan en de standaardwaarde is afhankelijk van de runtimeversie. In versie 2.x, de standaardwaarde voor een App Service-plan 30 minuten is. In versie 1.x, is het *null*, wat aangeeft dat het geen time-out.
+Geeft aan dat de duur van de time-out voor alle functies. Het geldige bereik is 1 seconde tot 10 minuten in een verbruiksabonnement zonder server en de standaardwaarde is 5 minuten. Er is geen algemene limiet in een toegewezen App Service-plan en de standaardwaarde is 30 minuten. Een waarde van `-1` geeft aan dat de uitvoering van niet-gebonden.
 
 ```json
 {

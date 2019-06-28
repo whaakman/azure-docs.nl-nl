@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 88fb243af7628b159a2255c2cdae2ab86f39ca1e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275484"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331423"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Een CI/CD-pijplijn voor .NET maken met Azure DevOps Projects
 
@@ -46,7 +46,7 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 
 1. Selecteer de **.NET**-voorbeeldtoepassing. Bij de .NET-voorbeelden kunt u kiezen uit het open source-framework ASP.NET of het platformoverschrijdende .NET Core-framework.
 
-    ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
 2. Dit voorbeeld gebruikt een ASP.NET Core MVC-toepassing. Selecteer de **.NET Core** toepassingsframework, selecteer vervolgens **volgende**.    
     
@@ -54,37 +54,35 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps en een Azure-abonnement configureren 
 
-1. Maak gratis een nieuwe Azure DevOps-organisatie of kies een bestaande organisatie.
+1. Voer een **projectnaam**.
 
-    a. Kies een naam voor het project. 
+2. Maak een nieuwe gratis **Azure DevOps-organisatie** of kies een bestaande organisatie in de vervolgkeuzelijst.
 
-    b. Selecteer uw Azure-abonnement en locatie, kies een naam voor de toepassing en selecteer vervolgens **Gereed**.  
-    Na enkele minuten wordt het DevOps Projects-dashboard weergegeven in de Azure-portal. Er wordt een voorbeeldtoepassing ingesteld in een opslagplaats in uw Azure DevOps-organisatie, er wordt een build uitgevoerd en de toepassing wordt geïmplementeerd in Azure. Dit dashboard biedt meer inzicht in uw codeopslagplaats, CI/CD-pijplijn en toepassing in Azure.
-    
+3. Selecteer uw **Azure-abonnement**, voer een naam in voor uw **Web-app** of de standaard nemen en selecteer vervolgens **gedaan**. Na een paar minuten, wordt de implementatie-overzicht van DevOps-projecten in Azure portal weergegeven. 
 
-2. Aan de rechterkant van het dashboard selecteert u **Bladeren** om de draaiende toepassing weer te geven.
+4. Selecteer **naar de resource gaan** om het DevOps-Project-dashboard weer te geven. In de rechterbovenhoek vastmaken de **Project** aan uw dashboard voor snelle toegang. Een voorbeeld-app is ingesteld in een opslagplaats in uw **Azure DevOps-organisatie**. Een build wordt uitgevoerd en uw app is geïmplementeerd in Azure.
 
-    ![Dashboardweergave](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. Het dashboard biedt meer inzicht in uw codeopslagplaats, CI/CD-pijplijn en app in Azure. Selecteer aan de rechterkant onder Azure-resources, **Bladeren** om weer te geven van uw app die wordt uitgevoerd.
+
+   ![Dashboardweergave](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Codewijzigingen doorvoeren en CI/CD uitvoeren
 
- Met DevOps Projects is een Git-opslagplaats gemaakt in Azure Repos of in GitHub. Ga als volgt te werk om de opslagplaats weer te geven en codewijzigingen aan de brengen in de toepassing:
+Met DevOps Projects is een Git-opslagplaats gemaakt in Azure Repos of in GitHub. Ga als volgt te werk om de opslagplaats weer te geven en codewijzigingen aan de brengen in de toepassing:
 
-1. Selecteer aan de linkerkant van het DevOps Projects-dashboard de koppeling voor uw **master** branch.  
-Met deze koppeling opent u een weergave in de zojuist gemaakte Git-opslagplaats.
+1. Selecteer aan de linkerkant van het DevOps Projects-dashboard de koppeling voor uw **master** branch. Met deze koppeling opent u een weergave in de zojuist gemaakte Git-opslagplaats.
 
-1. Als u de kloon-URL van de opslagplaats wilt weergeven, selecteert u **Klonen** in de rechterbovenhoek van de browser.  
-U kunt uw Git-opslagplaats klonen in uw favoriete IDE.  In de volgende stappen kunt u de webbrowser gebruiken om codewijzigingen rechtstreeks aan te brengen en door te voeren in de master branch.
+2. In de volgende stappen kunt u de webbrowser gebruiken om te maken en het doorvoeren van wijzigingen in de code rechtstreeks naar de **master** vertakking. U kunt ook de Git-opslagplaats klonen in uw favoriete IDE hiervoor **kloon** vanaf de bovenkant van de opslagplaats-pagina. 
 
-1. Aan de linkerkant van de browser gaat u naar het bestand **Views/Home/index.cshtml**.
+3. Ga aan de linkerkant, de structuur van toepassing op **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-1. Selecteer **Bewerken** en breng vervolgens een wijziging aan in de h2-kop. Typ bijvoorbeeld **Meteen aan de slag met Azure DevOps Projects** of maak een andere wijziging.
+4. Selecteer **Bewerken** en breng vervolgens een wijziging aan in de h2-kop. Typ bijvoorbeeld **Meteen aan de slag met Azure DevOps Projects** of maak een andere wijziging.
 
-    ![Code-bewerkingen](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![Code-bewerkingen](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. Selecteer **Doorvoeren** en sla de wijzigingen op.
+5. Selecteer **doorvoeren**, laat dan een reactie en selecteert u **doorvoeren** opnieuw.
 
-1. Ga in uw browser naar het Azure DevOps-projectdashboard.  Als het goed is, ziet u nu dat er een build wordt gemaakt. De aangebrachte wijzigingen worden automatisch gebouwd en geïmplementeerd via een CI/CD-pijplijn.
+6. Ga in uw browser naar het Azure DevOps-projectdashboard.  Als het goed is, ziet u nu dat er een build wordt gemaakt. De aangebrachte wijzigingen worden automatisch gebouwd en geïmplementeerd via een CI/CD-pijplijn.
 
 ## <a name="examine-the-cicd-pipeline"></a>De CI/CD-pijplijn onderzoeken
 

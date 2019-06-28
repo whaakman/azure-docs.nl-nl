@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24576a46b47b22ef447793b4105730ed2755701d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10a3c5a4f1c6eaceecb9dc5262d8694ee4265b48
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050628"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340184"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Linux-rekenknooppunten in Batch-pools inrichten
 
-U kunt Azure Batch gebruiken voor het uitvoeren van parallelle compute-workloads op zowel Windows als Linux-machines. Dit artikel wordt uitgelegd hoe u pools van Linux-rekenknooppunten in de Batch-service maken met zowel de [Batch Python] [ py_batch_package] en [Batch .NET] [ api_net]-clientbibliotheken.
+U kunt Azure Batch gebruiken voor het uitvoeren van parallelle compute-workloads op zowel Windows als Linux-machines. Dit artikel wordt uitgelegd hoe u pools van Linux-rekenknooppunten in de Batch-service maken met zowel de [Batch Python][py_batch_package] and [Batch .NET][api_net] -clientbibliotheken.
 
 > [!NOTE]
 > Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. De pakketten worden ondersteund in Batch-pools die zijn gemaakt tussen 10 maart 2016 en 5 juli 2017, maar alleen als de pool is gemaakt met behulp van een cloudservice-configuratie. Batch-pools die zijn gemaakt vóór 10 maart 2016 bieden geen ondersteuning voor toepassingspakketten. Zie [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Toepassingen implementeren naar rekenknooppunten met Batch-toepassingspakketten) voor meer informatie over het gebruiken van toepassingspakketten om toepassingen te implementeren naar Batch-knooppunten.
@@ -48,7 +48,7 @@ Wanneer u een verwijzing naar de installatiekopie van de virtuele machine config
 | Uitgever |Canonical |
 | Aanbieding |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Version |meest recente |
+| Version |latest |
 
 > [!TIP]
 > U kunt meer informatie over deze eigenschappen en het aanbieden van Marketplace-installatiekopieën in [navigeren door en selecteren installatiekopieën van Linux-machines in Azure met CLI of PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Houd er rekening mee dat niet alle Marketplace-installatiekopieën momenteel compatibel met Batch zijn. Zie voor meer informatie, [knooppuntagent-SKU](#node-agent-sku).
@@ -68,9 +68,9 @@ De Batch-knooppuntagent is een programma dat wordt uitgevoerd op elk knooppunt i
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>Een Linux-groep maken: Batch Python
-Het volgende codefragment toont een voorbeeld van het gebruik van de [Microsoft Azure Batch-clientbibliotheek voor Python] [ py_batch_package] compute-knooppunten van een groep van Ubuntu-Server maken. Referentiedocumentatie voor de Batch Python-module kan worden gevonden op [azure.batch pakket] [ py_batch_docs] op de documenten lezen.
+Het volgende codefragment toont een voorbeeld van het gebruik van de [Microsoft Azure Batch-clientbibliotheek voor Python][py_batch_package] to create a pool of Ubuntu Server compute nodes. Reference documentation for the Batch Python module can be found at [azure.batch package][py_batch_docs] op de documenten lezen.
 
-Dit fragment maakt een [ImageReference] [ py_imagereference] expliciet en Hiermee geeft u op elk van de eigenschappen (uitgever, aanbieding, SKU, versie). Bij de productiecode, raden wij aan dat u de [list_node_agent_skus] [ py_list_skus] methode om te bepalen en selecteer in de beschikbare afbeeldings- en knooppunt agent SKU combinaties tijdens runtime.
+Dit fragment maakt een [ImageReference][py_imagereference] explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_node_agent_skus][py_list_skus] methode om te bepalen en selecteer in de beschikbare afbeeldings- en knooppunt agent SKU combinaties tijdens runtime.
 
 ```python
 # Import the required modules from the
@@ -95,7 +95,7 @@ config = batch.BatchServiceClientConfiguration(creds, batch_url)
 client = batch.BatchServiceClient(creds, batch_url)
 
 # Create the unbound pool
-new_pool = batchmodels.PoolAddParameter(id = pool_id, vm_size = vm_size)
+new_pool = batchmodels.PoolAddParameter(id=pool_id, vm_size=vm_size)
 new_pool.target_dedicated = node_count
 
 # Configure the start task for the pool
@@ -107,17 +107,17 @@ new_pool.start_task = start_task
 # Create an ImageReference which specifies the Marketplace
 # virtual machine image to install on the nodes.
 ir = batchmodels.ImageReference(
-    publisher = "Canonical",
-    offer = "UbuntuServer",
-    sku = "14.04.2-LTS",
-    version = "latest")
+    publisher="Canonical",
+    offer="UbuntuServer",
+    sku="14.04.2-LTS",
+    version="latest")
 
 # Create the VirtualMachineConfiguration, specifying
 # the VM image reference and the Batch node agent to
 # be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
-    image_reference = ir,
-    node_agent_sku_id = "batch.node.ubuntu 14.04")
+    image_reference=ir,
+    node_agent_sku_id="batch.node.ubuntu 14.04")
 
 # Assign the virtual machine configuration to the pool
 new_pool.virtual_machine_configuration = vmc
@@ -126,14 +126,15 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Zoals eerder vermeld, raden wij aan dat in plaats van het maken van de [ImageReference] [ py_imagereference] expliciet aanroepen, gebruikt u de [list_node_agent_skus] [ py_list_skus] methode dynamisch software selecteren uit de momenteel ondersteunde knooppunt agent/Marketplace-installatiekopie combinaties. Het volgende fragment van Python ziet u hoe u deze methode.
+Zoals eerder vermeld, raden wij aan dat in plaats van het maken van de [ImageReference][py_imagereference] explicitly, you use the [list_node_agent_skus][py_list_skus] methode dynamisch software selecteren uit de momenteel ondersteunde knooppunt agent/Marketplace-installatiekopie combinaties. Het volgende fragment van Python ziet u hoe u deze methode.
 
 ```python
 # Get the list of node agents from the Batch service
 nodeagents = client.account.list_node_agent_skus()
 
 # Obtain the desired node agent
-ubuntu1404agent = next(agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
+ubuntu1404agent = next(
+    agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
 
 # Pick the first image reference from the list of verified references
 ir = ubuntu1404agent.verified_image_references[0]
@@ -141,14 +142,14 @@ ir = ubuntu1404agent.verified_image_references[0]
 # Create the VirtualMachineConfiguration, specifying the VM image
 # reference and the Batch node agent to be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
-    image_reference = ir,
-    node_agent_sku_id = ubuntu1404agent.id)
+    image_reference=ir,
+    node_agent_sku_id=ubuntu1404agent.id)
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Een Linux-groep maken: Batch .NET
-Het volgende codefragment toont een voorbeeld van het gebruik van de [Batch .NET] [ nuget_batch_net] -clientbibliotheek voor compute-knooppunten van een pool van Ubuntu-Server maken. U vindt de [Batch .NET-referentiedocumentatie] [ api_net] op docs.microsoft.com.
+Het volgende codefragment toont een voorbeeld van het gebruik van de [Batch .NET][nuget_batch_net] client library to create a pool of Ubuntu Server compute nodes. You can find the [Batch .NET reference documentation][api_net] op docs.microsoft.com.
 
-De volgende code codefragment wordt de [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] methode om te selecteren in de lijst op dit moment ondersteund Marketplace-installatiekopie en node agent SKU combinaties. Deze techniek is het wenselijk omdat de lijst met ondersteunde combinaties van tijd tot tijd kan veranderen. Ondersteunde combinaties worden meestal toegevoegd.
+De volgende code codefragment wordt de [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] methode om te selecteren in de lijst op dit moment ondersteund Marketplace-installatiekopie en node agent SKU combinaties. Deze techniek is het wenselijk omdat de lijst met ondersteunde combinaties van tijd tot tijd kan veranderen. Ondersteunde combinaties worden meestal toegevoegd.
 
 ```csharp
 // Pool settings
@@ -196,7 +197,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Hoewel het vorige fragment wordt de [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] methode voor dynamisch weergeven en selecteren van ondersteunde afbeeldings- en knooppunt agent SKU combinaties (aanbevolen), kunt u ook configureren een [ImageReference] [ net_imagereference] expliciet:
+Hoewel het vorige fragment wordt de [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] methode voor dynamisch weergeven en selecteren van ondersteunde afbeeldings- en knooppunt agent SKU combinaties (aanbevolen), kunt u ook configureren een [ ImageReference][net_imagereference] expliciet:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -207,7 +208,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Lijst met installatiekopieën van virtuele machines
-De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machines die compatibel met de beschikbare agents van de Batch-knooppunt zijn wanneer dit artikel voor het laatst is bijgewerkt. Het is belangrijk te weten dat deze lijst is geen definitieve omdat afbeeldingen en knooppunt-agents kunnen worden toegevoegd of verwijderd op elk gewenst moment. Het is raadzaam dat uw Batch-toepassingen en services altijd gebruiken [list_node_agent_skus] [ py_list_skus] (Python) of [ListNodeAgentSkus] [ net_list_skus] () Batch .NET) om te bepalen en selecteer in de momenteel beschikbare SKU's.
+De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machines die compatibel met de beschikbare agents van de Batch-knooppunt zijn wanneer dit artikel voor het laatst is bijgewerkt. Het is belangrijk te weten dat deze lijst is geen definitieve omdat afbeeldingen en knooppunt-agents kunnen worden toegevoegd of verwijderd op elk gewenst moment. Het is raadzaam dat uw Batch-toepassingen en services altijd gebruiken [list_node_agent_skus][py_list_skus] (Python) or [ListNodeAgentSkus][net_list_skus] (Batch .NET) om te bepalen en selecteer in de momenteel beschikbare SKU's.
 
 > [!WARNING]
 > De volgende lijst kan op elk gewenst moment wijzigen. Gebruik altijd de **lijst knooppuntagent-SKU** methoden die beschikbaar zijn in de Batch-API's om de compatibele virtuele machine en knooppuntagent-SKU's wanneer u uw Batch-taken uitvoert.
@@ -216,33 +217,33 @@ De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine
 
 | **Publisher** | **Aanbieding** | **Installatiekopie-SKU** | **Versie** | **Knooppuntagent-SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| batch | rendering-centos73 | rendering | meest recente | batch.node.centos 7 |
-| batch | rendering-windows2016 | rendering | meest recente | batch.node.Windows amd64 |
-| Canonical | UbuntuServer | 16.04-LTS | meest recente | batch.node.ubuntu 16.04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.ubuntu 14.04 |
-| credativ | Debian | 9 | meest recente | batch.node.debian 9 |
-| credativ | Debian | 8 | meest recente | batch.node.debian 8 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | meest recente | batch.node.centos 7 |
-| microsoft-ads | Standard-data-science-vm | Standard-data-science-vm | meest recente | batch.node.Windows amd64 |
-| microsoft-azure-batch | centos-container | 7-4 | meest recente | batch.node.centos 7 |
-| microsoft-azure-batch | centos-container-rdma | 7-4 | meest recente | batch.node.centos 7 |
-| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | meest recente | batch.node.ubuntu 16.04 |
-| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | meest recente | batch.node.ubuntu 16.04 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter met Containers | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | meest recente | batch.node.Windows amd64 |
-| OpenLogic | CentOS | 7.4 | meest recente | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.4 | meest recente | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.3 | meest recente | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | meest recente | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.4 | meest recente | batch.node.centos 7 |
-| SUSE | SLES HPC | 12 SP2 | meest recente | batch.node.opensuse 42.1 |
+| batch | rendering-centos73 | rendering | latest | batch.node.centos 7 |
+| batch | rendering-windows2016 | rendering | latest | batch.node.Windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
+| credativ | Debian | 9 | latest | batch.node.debian 9 |
+| credativ | Debian | 8 | latest | batch.node.debian 8 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
+| microsoft-ads | Standard-data-science-vm | Standard-data-science-vm | latest | batch.node.Windows amd64 |
+| microsoft-azure-batch | centos-container | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter met Containers | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | latest | batch.node.Windows amd64 |
+| OpenLogic | CentOS | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | latest | batch.node.centos 7 |
+| SUSE | SLES HPC | 12 SP2 | latest | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Verbinding maken met Linux-knooppunten via SSH
 Tijdens de ontwikkeling of bij het oplossen van problemen vindt u het kan nodig zijn om aan te melden bij de knooppunten in uw pool. In tegenstelling tot Windows-rekenknooppunten, kunt u Remote Desktop Protocol (RDP) niet gebruiken voor het verbinding maken met Linux-knooppunten. De Batch-service kan in plaats daarvan SSH-toegang voor externe verbinding op elk knooppunt.
@@ -275,8 +276,8 @@ credentials = batchauth.SharedKeyCredentials(
     batch_account_key
 )
 batch_client = batch.BatchServiceClient(
-        credentials,
-        base_url=batch_account_url
+    credentials,
+    base_url=batch_account_url
 )
 
 # Create the user that will be added to each node in the pool
@@ -316,16 +317,16 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-U kunt in plaats van een wachtwoord, een openbare SSH-sleutel opgeven wanneer u een gebruiker op een knooppunt. In de Python-SDK gebruikt de **ssh_public_key** parameter op [ComputeNodeUser][py_computenodeuser]. In .NET, gebruiken de [ComputeNodeUser][net_computenodeuser].[ SshPublicKey] [ net_ssh_key] eigenschap.
+U kunt in plaats van een wachtwoord, een openbare SSH-sleutel opgeven wanneer u een gebruiker op een knooppunt. In de Python-SDK gebruikt de **ssh_public_key** parameter op [ComputeNodeUser][py_computenodeuser]. In .NET, use the [ComputeNodeUser][net_computenodeuser].[ SshPublicKey][net_ssh_key] eigenschap.
 
 ## <a name="pricing"></a>Prijzen
-Azure Batch is gebouwd op Azure Cloud Services en virtuele Machines van Azure-technologie. De Batch-service zelf wordt aangeboden zonder kosten, wat betekent dat u betaalt alleen voor de compute-resources dat die uw Batch-oplossingen worden gebruikt. Als u ervoor kiest **Cloud Services-configuratie**, de kosten worden berekend op basis van de [prijzen voor Cloud Services] [ cloud_services_pricing] structuur. Als u ervoor kiest **Virtuele-machineconfiguratie**, de kosten worden berekend op basis van de [prijzen voor Virtual Machines] [ vm_pricing] structuur. 
+Azure Batch is gebouwd op Azure Cloud Services en virtuele Machines van Azure-technologie. De Batch-service zelf wordt aangeboden zonder kosten, wat betekent dat u betaalt alleen voor de compute-resources dat die uw Batch-oplossingen worden gebruikt. Als u ervoor kiest **Cloud Services-configuratie**, de kosten worden berekend op basis van de [prijzen voor Cloud Services][cloud_services_pricing] structuur. Als u ervoor kiest **Virtuele-machineconfiguratie**, de kosten worden berekend op basis van de [prijzen voor Virtual Machines][vm_pricing] structuur. 
 
 Als u toepassingen implementeert voor uw Batch-knooppunten met behulp van [toepassingspakketten](batch-application-packages.md), er zijn ook in rekening gebracht voor de Azure Storage-resources dat de toepassingspakketten gebruiken. De Azure Storage-kosten zijn in het algemeen is minimaal. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De [codevoorbeelden voor Python] [ github_samples_py] in de [azure-batch-samples] [ github_samples] -bibliotheek op GitHub scripts bevatten die laten zien u hoe u kunt uitvoeren algemene batchbewerkingen, zoals toepassingen, job en het maken van taak. De [Leesmij-bestand] [ github_py_readme] die meegestuurd met de Python voorbeelden vindt u informatie over het installeren van de vereiste pakketten.
+De [codevoorbeelden voor Python][github_samples_py] in the [azure-batch-samples][github_samples] -bibliotheek op GitHub scripts bevatten die laten zien u hoe u algemene Batch-bewerkingen, zoals toepassingen, job en het maken van taak uit te voeren. De [Leesmij-bestand][github_py_readme] die meegestuurd met de Python voorbeelden vindt u informatie over het installeren van de vereiste pakketten.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx

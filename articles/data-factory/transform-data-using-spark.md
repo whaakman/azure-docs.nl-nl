@@ -11,12 +11,12 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387822"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312077"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Spark-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -25,8 +25,6 @@ ms.locfileid: "60387822"
 
 De Spark-activiteit in een Data Factory [pijplijn](concepts-pipelines-activities.md) voert u een Spark-programma op [uw eigen](compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft. Wanneer u een gekoppelde Spark-service op aanvraag, wordt in Data Factory maakt automatisch een Spark-cluster voor u just-in-time voor het verwerken van de gegevens en vervolgens het cluster worden verwijderd nadat de verwerking voltooid is. 
 
-> [!IMPORTANT]
-> Spark-activiteit biedt geen ondersteuning voor HDInsight Spark-clusters die gebruikmaken van een Azure Data Lake Store als primaire opslag.
 
 ## <a name="spark-activity-properties"></a>Eigenschappen van de Spark-activiteit
 Hier volgt de voorbeeld-JSON-definitie van een Spark-activiteit:    
@@ -45,7 +43,7 @@ Hier volgt de voorbeeld-JSON-definitie van een Spark-activiteit:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"

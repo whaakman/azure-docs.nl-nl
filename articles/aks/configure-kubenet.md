@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57c1af4c497b51f5289559737fad5ce4cf2e85b
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808569"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358034"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Gebruik van kubenet netwerken met uw eigen IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ In dit artikel leest u hoe u *kubenet* netwerken maken en een subnet van een vir
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.65 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.65 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Overzicht van netwerken met uw eigen subnet kubenet
 
@@ -38,9 +38,9 @@ Met *kubenet*, alleen de knooppunten een IP-adres in het subnet van het virtuele
 
 ![Netwerk-model Kubenet met een AKS-cluster](media/use-kubenet/kubenet-overview.png)
 
-Azure ondersteunt maximaal 400 routes in een UDR, zodat u kunt geen een AKS-cluster die groter zijn dan 400 knooppunten. AKS functies zoals [virtuele knooppunten] [ virtual-nodes] of beleid voor netwerken worden niet ondersteund met *kubenet*.
+Azure ondersteunt maximaal 400 routes in een UDR, zodat u kunt geen een AKS-cluster die groter zijn dan 400 knooppunten. AKS functies zoals [virtuele knooppunten][virtual-nodes] of beleid voor netwerken worden niet ondersteund met *kubenet*.
 
-Met *Azure CNI*, elke pod ontvangt u een IP-adres in het IP-subnet, en kan rechtstreeks communiceren met andere schillen en -services. Uw clusters is even groot zijn als het IP-adresbereik dat u opgeeft. Echter, het IP-adresbereik moet vooraf worden gepland en alle van de IP-adressen worden gebruikt door de AKS-knooppunten op basis van het maximum aantal schillen die kunnen worden ondersteund. Geavanceerde netwerkfuncties en scenario's zoals [virtuele knooppunten] [ virtual-nodes] of beleid voor netwerken worden ondersteund met *Azure CNI*.
+Met *Azure CNI*, elke pod ontvangt u een IP-adres in het IP-subnet, en kan rechtstreeks communiceren met andere schillen en -services. Uw clusters is even groot zijn als het IP-adresbereik dat u opgeeft. Echter, het IP-adresbereik moet vooraf worden gepland en alle van de IP-adressen worden gebruikt door de AKS-knooppunten op basis van het maximum aantal schillen die kunnen worden ondersteund. Geavanceerde netwerkfuncties en scenario's zoals [virtuele knooppunten][virtual-nodes] of beleid voor netwerken worden ondersteund met *Azure CNI*.
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP-adres beschikbaarheid en bronuitputting
 
@@ -62,7 +62,7 @@ De volgende eenvoudige berekeningen Vergelijk het verschil in netwerk modellen:
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering op virtueel netwerk- en ExpressRoute-verbindingen
 
-Voor on-premises-connectiviteit, beide *kubenet* en *Azure CNI* netwerk benaderingen kunt [peering op virtueel netwerk] [ vnet-peering]of [ExpressRoute-verbindingen][express-route]. Plan de IP-adresbereiken zorgvuldig om te voorkomen dat overlapping en onjuiste verkeersroutering. Bijvoorbeeld: veel on-premises netwerken gebruiken een *10.0.0.0/8* adresbereik die wordt geadverteerd via de ExpressRoute-verbinding. Het is raadzaam om te maken van uw AKS-clusters in Azure-netwerksubnetten buiten dit adresbereik zoals *172.16.0.0/16*.
+Voor on-premises-connectiviteit, beide *kubenet* en *Azure CNI* netwerk benaderingen kunt [peering op virtueel netwerk][vnet-peering] or [ExpressRoute connections][express-route]. Plan de IP-adresbereiken zorgvuldig om te voorkomen dat overlapping en onjuiste verkeersroutering. Bijvoorbeeld: veel on-premises netwerken gebruiken een *10.0.0.0/8* adresbereik die wordt geadverteerd via de ExpressRoute-verbinding. Het is raadzaam om te maken van uw AKS-clusters in Azure-netwerksubnetten buiten dit adresbereik zoals *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Kies een netwerk-model te gebruiken
 
@@ -81,18 +81,20 @@ Gebruik *Azure CNI* wanneer:
 - U wilt niet dat de udr's beheren.
 - Moet u geavanceerde functies zoals virtuele knooppunten of netwerkbeleid.
 
+Zie voor meer informatie om te bepalen welk model u het netwerk te gebruiken, [netwerk modellen en hun reikwijdte van ondersteuning vergelijken][network-comparisons].
+
 > [!NOTE]
 > Kuberouter maakt het mogelijk om in te schakelen netwerkbeleid bij het gebruik van kubenet en kan worden geïnstalleerd als een daemonset in een AKS-cluster. Houd er rekening mee kube-router is nog in de bètafase en biedt geen ondersteuning wordt aangeboden door Microsoft voor het project.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en een subnet maken
 
-Aan de slag met het gebruik van *kubenet* en het subnet van uw eigen virtuele netwerk maakt eerst een resource-groep met de [az-groep maken] [ az-group-create] opdracht. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Aan de slag met het gebruik van *kubenet* en het subnet van uw eigen virtuele netwerk maakt eerst een resource-groep met de [az-groep maken][az-group-create] opdracht. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Als u geen een bestaand virtueel netwerk en subnet te gebruiken, maakt u deze netwerkbronnen met behulp van de [az network vnet maken] [ az-network-vnet-create] opdracht. In het volgende voorbeeld wordt het virtuele netwerk met de naam *myVnet* met het adresvoorvoegsel van *192.168.0.0/16*. Een subnet wordt gemaakt met de naam *myAKSSubnet* met het adresvoorvoegsel *192.168.1.0/24*.
+Als u geen een bestaand virtueel netwerk en subnet te gebruiken, maakt u deze netwerkbronnen met behulp van de [az network vnet maken][az-network-vnet-create] opdracht. In het volgende voorbeeld wordt het virtuele netwerk met de naam *myVnet* met het adresvoorvoegsel van *192.168.0.0/16*. Een subnet wordt gemaakt met de naam *myAKSSubnet* met het adresvoorvoegsel *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -105,7 +107,7 @@ az network vnet create \
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>Een service-principal maken en toewijzen van machtigingen
 
-Een AKS-cluster heeft een service-principal van Azure Active Directory nodig om met andere Azure-resources te kunnen communiceren. De service-principal moet machtigingen hebben voor het beheren van het virtuele netwerk en subnet die gebruikmaken van de AKS-knooppunten. U kunt een service-principal maken met de [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] opdracht:
+Een AKS-cluster heeft een service-principal van Azure Active Directory nodig om met andere Azure-resources te kunnen communiceren. De service-principal moet machtigingen hebben voor het beheren van het virtuele netwerk en subnet die gebruikmaken van de AKS-knooppunten. U kunt een service-principal maken met de [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] opdracht:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -125,14 +127,14 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Als u wilt toewijzen op de juiste overdrachten in de resterende stappen, gebruikt u de [az network vnet show] [ az-network-vnet-show] en [az network vnet subnet show] [ az-network-vnet-subnet-show] opdrachten voor het ophalen van de vereiste resource-id's. Deze resource-id worden opgeslagen als variabelen en waarnaar wordt verwezen in de resterende stappen uit:
+Als u wilt toewijzen op de juiste overdrachten in de resterende stappen, gebruikt u de [az network vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] opdrachten voor het ophalen van de vereiste resource-id's. Deze resource-id worden opgeslagen als variabelen en waarnaar wordt verwezen in de resterende stappen uit:
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Nu toewijzen aan de service-principal voor uw AKS-cluster *Inzender* machtigingen voor het virtuele netwerk met de [az roltoewijzing maken] [ az-role-assignment-create] opdracht. Geef uw eigen  *\<appId >* zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken:
+Nu toewijzen aan de service-principal voor uw AKS-cluster *Inzender* machtigingen voor het virtuele netwerk met de [az roltoewijzing maken][az-role-assignment-create] opdracht. Geef uw eigen  *\<appId >* zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -140,7 +142,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Een AKS-cluster maken in het virtuele netwerk
 
-U hebt nu een virtueel netwerk en subnet, gemaakt en die zijn gemaakt en toegewezen machtigingen voor een service-principal die netwerkbronnen gebruiken. Nu een AKS-cluster maken in uw virtuele netwerk en subnet met behulp van de [az aks maken] [ az-aks-create] opdracht. Definieer uw eigen service-principal  *\<appId >* en  *\<wachtwoord >* , zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken.
+U hebt nu een virtueel netwerk en subnet, gemaakt en die zijn gemaakt en toegewezen machtigingen voor een service-principal die netwerkbronnen gebruiken. Nu een AKS-cluster maken in uw virtuele netwerk en subnet met behulp van de [az aks maken][az-aks-create] opdracht. Definieer uw eigen service-principal  *\<appId >* en  *\<wachtwoord >* , zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken.
 
 De volgende IP-adresbereiken zijn ook worden gedefinieerd als onderdeel van het cluster proces maken:
 
@@ -174,7 +176,7 @@ Wanneer u een AKS-cluster maakt, wordt een groep en route-tabel voor de beveilig
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Met een AKS-cluster geïmplementeerd in het subnet van uw bestaande virtuele netwerk, kunt u nu het cluster als normale gebruiken. Aan de slag met [het bouwen van apps met behulp van Azure Dev spaties] [ dev-spaces] of [met Draft][use-draft], of [apps implementeren met behulp van Helm] [use-helm].
+Met een AKS-cluster geïmplementeerd in het subnet van uw bestaande virtuele netwerk, kunt u nu het cluster als normale gebruiken. Aan de slag met [het bouwen van apps met behulp van Azure Dev spaties][dev-spaces] or [using Draft][use-draft], of [apps implementeren met behulp van Helm][gebruik helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -196,3 +198,4 @@ Met een AKS-cluster geïmplementeerd in het subnet van uw bestaande virtuele net
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+[network-comparisons]: concepts-network.md#compare-network-models

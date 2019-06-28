@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475214"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310146"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Een aangepaste domeinnaam voor Azure App Service kopen
 
@@ -147,7 +147,7 @@ U ziet ook de geselecteerde hostnamen in de **aangepaste domeinen** pagina, in d
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Een **Opmerking Secure** label voor uw aangepaste domein-betekent dat deze nog niet gebonden aan een SSL-certificaat en een HTTPS-aanvraag vanuit een browser naar uw aangepaste domein ontvangt en fout of waarschuwing, afhankelijk van de browser. Zie configureren van SSL-binding [kopen en configureren van een SSL-certificaat voor Azure App Service](web-sites-purchase-ssl-web-site.md).
+> Een **niet beveiligen** labelen voor uw aangepaste domein betekent dat deze nog niet gebonden aan een SSL-certificaat en een HTTPS-aanvraag vanuit een browser naar uw aangepaste domein een fout of waarschuwing, afhankelijk van de browser ontvangt. Zie configureren van SSL-binding [kopen en configureren van een SSL-certificaat voor Azure App Service](web-sites-purchase-ssl-web-site.md).
 >
 
 Als u wilt de hostnamen testen, gaat u naar de vermelde hostnamen in de browser. In het voorbeeld in de vorige schermafbeelding, gaat u naar _kontoso.net_ en _www\.kontoso.net_.

@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/12/2019
+ms.date: 06/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5038ae99a804b456c2cc388f07899278cc0f9a24
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61420963"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312882"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Controleren van de resource-gebruik en query-activiteit in Azure SQL Data Warehouse
 Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare bewaarperioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-bewakingsservices zoals Operations Management Suite (OMS) en Azure Monitor (Logboeken) voor een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure analytics platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
@@ -26,19 +26,20 @@ De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data
 > [!NOTE]
 > Op dit moment knooppuntniveau CPU- en i/o-metrische gegevens zijn niet correct aan datawarehouse gebruik. Deze metrische gegevens worden in de nabije toekomst verwijderd als het team verbetert de bewaking en probleemoplossing voor SQL Data Warehouse. 
 
-| Naam van meetwaarde                           | Description     | Aggregatietype |
-| --------------------------------------- | ---------------- | --------------------------------------- |
-| CPU-percentage                          | CPU-gebruik voor alle knooppunten voor het datawarehouse | Maximum      |
-| Gegevens-I/O-percentage                      | I/o-gebruik voor alle knooppunten voor het datawarehouse | Maximum   |
-| Geslaagde verbindingen                  | Aantal geslaagde verbindingen met de gegevens | Totaal            |
-| Mislukte verbindingen                      | Aantal mislukte verbindingen naar het datawarehouse | Totaal            |
-| Geblokkeerd door Firewall                     | Aantal aanmeldingen naar het datawarehouse dat is geblokkeerd | Totaal            |
-| DWU-limiet                              | Serviceniveaudoelstelling van het datawarehouse | Maximum   |
-| DWU-percentage                          | Maximale tussen CPU-percentage en gegevens-IO-percentage | Maximum   |
-| Gebruikte DWU                                | DWU-limiet * DWU-percentage | Maximum   |
-| Percentage treffers in cache | (treffers in de cache / ontbreekt in de cache) * 100 waarbij treffers in cache is de som van alle columnstore-segmenten treffers in de lokale SSD-cache en Cachemisser de columnstore-segmenten missers in de lokale SSD-cache bij elkaar opgeteld voor alle knooppunten | Maximum |
-| Percentage gebruikte cache | (cache gebruikt / capaciteit in de cache) * 100 waar cache die wordt gebruikt, is de som van alle bytes in de lokale SSD-cache voor alle knooppunten en capaciteit van de cache is de som van de opslagcapaciteit van de lokale SSD voor alle knooppunten in de cache | Maximum |
-| Lokale tempdb-percentage | Lokale tempdb-gebruik op alle rekenknooppunten - waarden om de vijf minuten worden verzonden | Maximum |
+| Naam van meetwaarde             | Description                                                  | Aggregatietype |
+| ----------------------- | ------------------------------------------------------------ | ---------------- |
+| CPU-percentage          | CPU-gebruik voor alle knooppunten voor het datawarehouse      | Maximum          |
+| Gegevens-I/O-percentage      | I/o-gebruik voor alle knooppunten voor het datawarehouse       | Maximum          |
+| Geheugenpercentage       | Geheugengebruik (SQL Server) voor alle knooppunten voor het datawarehouse | Maximum          |
+| Geslaagde verbindingen  | Aantal geslaagde verbindingen met de gegevens                 | Totaal            |
+| Mislukte verbindingen      | Aantal mislukte verbindingen naar het datawarehouse           | Totaal            |
+| Geblokkeerd door Firewall     | Aantal aanmeldingen naar het datawarehouse dat is geblokkeerd     | Totaal            |
+| DWU-limiet               | Serviceniveaudoelstelling van het datawarehouse                | Maximum          |
+| DWU-percentage          | Maximale tussen CPU-percentage en gegevens-IO-percentage        | Maximum          |
+| Gebruikte DWU                | DWU-limiet * DWU-percentage                                   | Maximum          |
+| Percentage treffers in cache    | (treffers in de cache / ontbreekt in de cache) * 100 waarbij treffers in cache is de som van alle columnstore-segmenten treffers in de lokale SSD-cache en Cachemisser de columnstore-segmenten missers in de lokale SSD-cache bij elkaar opgeteld voor alle knooppunten | Maximum          |
+| Percentage gebruikte cache   | (cache gebruikt / capaciteit in de cache) * 100 waar cache die wordt gebruikt, is de som van alle bytes in de lokale SSD-cache voor alle knooppunten en capaciteit van de cache is de som van de opslagcapaciteit van de lokale SSD voor alle knooppunten in de cache | Maximum          |
+| Lokale tempdb-percentage | Lokale tempdb-gebruik op alle rekenknooppunten - waarden om de vijf minuten worden verzonden | Maximum          |
 
 ## <a name="query-activity"></a>Queryactiviteit
 De service biedt voor een programmatische ervaring bij het bewaken van SQL Data Warehouse via T-SQL, een set van dynamische beheerweergaven (DMV's). Deze weergaven zijn handig wanneer u actief oplossen van problemen en het identificeren van knelpunten met uw werkbelasting.

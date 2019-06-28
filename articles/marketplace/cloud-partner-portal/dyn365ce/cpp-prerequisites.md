@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cfec65843012e781c8a8dd06cbc4d1225b0dd36
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257527"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338893"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 voor Customer Engagement-vereisten
 
@@ -40,7 +40,7 @@ Uw Dynamics 365 voor Customer Engagement-toepassing moet voldoen aan de [beoorde
 
 De zakelijke vereisten zijn onder andere de volgende procedure, contractuele en wettelijke verplichtingen:
 
-* U moet worden geregistreerd op de [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) of een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Voor de derde stap, gebruikt u in plaats daarvan de [AppSource partner nominatieformulier](https://appsource.microsoft.com/partners/signup)). 
+* U moet worden geregistreerd op de [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) of een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher).  (U kunt ook verbinding maken met de [Dynamics 365 voor Customer Engagement-voorbereidingsteam](https://experience.dynamics.com/isvengage/)).
 
     >[!NOTE]
     >Het account voor registratie van dezelfde Microsoft Developer Center moet u zich aanmeldt bij de Cloud Partner-Portal. U hebt slechts één Microsoft-account voor uw aanbiedingen op Azure Marketplace. Dit account mag niet zijn specifiek voor afzonderlijke services of aanbiedingen.

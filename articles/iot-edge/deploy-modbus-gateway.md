@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 06/20/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1c9855f982b888e8e1d68bfe5233983db8c826ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25be0629b2ef877d8757f515cb6ccd5942e58d5f
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248020"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312802"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP-apparaten verbinden via de gateway van een IoT Edge-apparaat
 
@@ -35,7 +35,7 @@ In dit artikel wordt ervan uitgegaan dat u het Modbus-protocol TCP gebruikt. Zie
 
 Als u de functionaliteit van de Modbus-gateway wilt testen, heeft Microsoft een voorbeeldmodule die u kunt gebruiken. U kunt de module openen vanuit de Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), of met de installatiekopie URI, **mcr.microsoft.com/azureiotedge/modbus:1.0**.
 
-Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-source [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op GitHub. Volg de instructies in dit project om uw eigen containerinstallatiekopie te maken. Als u uw eigen containerinstallatiekopie hebt gemaakt, raadpleegt u [ontwikkelen C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md) of [modules in Visual Studio Code ontwikkelen](how-to-vs-code-develop-module.md). Deze artikelen bevatten instructies over het maken van nieuwe modules en hoe u containerinstallatiekopieën publiceert naar een register.
+Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-source [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op GitHub. Volg de instructies in dit project om uw eigen containerinstallatiekopie te maken. Raadpleeg voor het maken van een containerinstallatiekopie, [ontwikkelen C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md) of [modules in Visual Studio Code ontwikkelen](how-to-vs-code-develop-module.md). Deze artikelen bevatten instructies over het maken van nieuwe modules en hoe u containerinstallatiekopieën publiceert naar een register.
 
 ## <a name="try-the-solution"></a>Probeer de oplossing
 
@@ -85,12 +85,13 @@ In deze sectie helpt bij het implementeren van Microsoft voorbeeld Modbus-module
 
 5. Terug in de stap **Modules toevoegen** selecteert u **Volgende**.
 
-7. In de stap **Routes opgeven** kopieert u de volgende JSON naar het tekstvak. Deze route verzendt alle berichten die door de Modbus-module worden verzameld naar IoT Hub. In deze route 'modbusOutput' is het eindpunt dat Modbus-module gebruikt om uit te voeren van gegevens en 'upstream' is een speciale bestemming die IoT Edge hub berichten verzenden naar IoT Hub opdracht geeft.
+7. In de stap **Routes opgeven** kopieert u de volgende JSON naar het tekstvak. Deze route verzendt alle berichten die door de Modbus-module worden verzameld naar IoT Hub. In deze route **modbusOutput** is het eindpunt dat Modbus module wordt gebruikt om uit te voeren van gegevens en **$upstream** is een speciale bestemming die IoT Edge hub berichten verzenden naar IoT Hub opdracht geeft.
+
    ```JSON
    {
-    "routes": {
-      "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-    }
+     "routes": {
+       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
+     }
    }
    ```
 

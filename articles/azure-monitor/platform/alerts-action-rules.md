@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 212e6b042caec5f24a620dc491dc674417816df7
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734929"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310368"
 ---
 # <a name="action-rules-preview"></a>Actieregels (preview)
 
@@ -30,6 +30,8 @@ Er zijn vaak veel scenario's waarin het nuttig om de meldingen die worden gegene
 
 Hoewel waarschuwingsregels u voor het definiëren van de actiegroep die wordt geactiveerd kunt wanneer de waarschuwing wordt gegenereerd, meestal klanten vaak hebben een algemene actiegroep via hun bereik van bewerkingen. Een team dat verantwoordelijk is voor de resourcegroep 'ContosoRG' definieert bijvoorbeeld waarschijnlijk dezelfde actiegroep voor alle waarschuwingsregels is gedefinieerd in 'ContosoRG'. Actieregels kunnen u voor het vereenvoudigen van dit proces met de mogelijkheid voor het definiëren van acties op schaal, zodat een actiegroep die kan worden geactiveerd voor een waarschuwing gegenereerd op het geconfigureerde bereik. Ga terug naar het vorige voorbeeld, kunt het team nu een actieregel definiëren op ContosoRG' die dezelfde actiegroep voor alle waarschuwingen gegenereerd binnen deze wordt geactiveerd.
 
+> [!NOTE]
+> Actieregels op dit moment niet van toepassing op waarschuwingen van de Health-Service.
 
 ## <a name="configuring-an-action-rule"></a>Configureren van een actieregel voor
 

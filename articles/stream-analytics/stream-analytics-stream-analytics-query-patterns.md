@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761976"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329613"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
@@ -437,7 +437,12 @@ Bijvoorbeeld, hebt 2 opeenvolgende auto's uit het hetzelfde merk mobiel nummer i
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+    feature,
+    DATEDIFF(
+        second,
+        LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+        Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
@@ -695,6 +700,15 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Uitleg bij**: [AANTAL (uniek tijd)](/stream-analytics-query/count-azure-stream-analytics) retourneert het aantal unieke waarden in de Time-kolom binnen een periode. U kunt vervolgens de uitvoer van deze stap gebruiken voor het berekenen van de gemiddelde per apparaat door het verwijderen van duplicaten.
+
+## <a name="geofencing-and-geospatial-queries"></a>Met Geofencing en georuimtelijke query 's
+Azure Stream Analytics biedt ingebouwde georuimtelijke functies die kunnen worden gebruikt voor scenario's zoals apparatenpark te implementeren, rijden delen, verbonden auto's en bijhouden van Assets. Georuimtelijke gegevens in GeoJSON of WKT-indeling kunnen worden opgenomen als onderdeel van de gebeurtenisstroom of verwijzen naar gegevens. Raadpleeg voor meer informatie de [Geofencing en georuimtelijke aggregatie-scenario's met Azure Stream Analytics](geospatial-scenarios.md) artikel.
+
+## <a name="language-extensibility-through-javascript-and-c"></a>Taal uitbreidbaarheid via JavaScript enC#
+Azure Stream Ananlytics query langugae kan worden uitgebreid met aangepaste functies die zijn geschreven in JavaScript of C# talen. Zie voor meer informatie de artikelen foolowing:
+* [Azure Stream Analytics gebruiker gedefinieerde JavaScript-functies](stream-analytics-javascript-user-defined-functions.md)
+* [Azure Stream Analytics gebruiker gedefinieerde JavaScript-verzamelingen](stream-analytics-javascript-user-defined-aggregates.md)
+* [Standaard .NET door de gebruiker gedefinieerde functies voor Azure Stream Analytics Edge-taken ontwikkelen](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>Help opvragen
 

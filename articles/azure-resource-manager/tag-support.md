@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056879"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339848"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md). De kolom met het label **ondersteunt tags** geeft aan of het resourcetype een eigenschap voor het label heeft. De kolom met het label **Tag op in het rapport** geeft aan of dat resourcetype wordt de tag aan het rapport cost doorgegeven.
@@ -864,8 +864,8 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | dnszones/TXT | Nee |  Nee |
 | expressRouteCircuits | Ja  | Nee |
 | expressRouteServiceProviders | Nee |  Nee |
-| frontdoors | Ja | Ja |
-| frontdoorWebApplicationFirewallPolicies | Ja | Ja |
+| frontdoors | Ja, maar beperkt (Zie [opmerking hieronder](#frontdoor)) | Ja |
+| frontdoorWebApplicationFirewallPolicies | Ja, maar beperkt (Zie [opmerking hieronder](#frontdoor)) | Ja |
 | getDnsResourceReference | Nee |  Nee |
 | interfaceEndpoints | Ja | Ja |
 | internalNotify | Nee |  Nee |
@@ -898,6 +898,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | vpnGateways | Ja | Nee |
 | vpnSites | Ja | Ja |
 | webApplicationFirewallPolicies | Ja | Ja |
+
+<a id="frontdoor" />
+
+U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maar bij te werken of toevoegen van labels is momenteel niet ondersteund.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resourcetype | Ondersteunt tags | Code in het rapport |

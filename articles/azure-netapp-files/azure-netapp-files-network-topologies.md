@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205661"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331978"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Richtlijnen voor Azure NetApp Files-netwerkplanning
 
@@ -81,7 +81,7 @@ Als het VNet is gekoppeld aan een ander VNet, kunt u de VNet-adresruimte niet ui
 
 ### <a name="udrs-and-nsgs"></a>Udr en nsg 's
 
-Netwerkbeveiligingsgroepen (nsg's) met de volgende hop kunnen niet worden gebruikt als gedelegeerde subnetten voor Azure NetApp-bestanden. Op dezelfde manier de gebruiker gedefinieerde routes (udr's) ook niet ondersteund. 
+Gebruiker gedefinieerde routes (udr's) en netwerkbeveiligingsgroepen (nsg's) worden niet ondersteund op subnetten zijn overgedragen voor Azure NetApp-bestanden.
 
 Als tijdelijke oplossing, kunt u nsg's toepassen op andere subnetten die toestaan of weigeren van het verkeer van en naar het subnet Azure NetApp Files overgedragen.  
 

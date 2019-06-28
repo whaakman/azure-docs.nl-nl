@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083406"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332037"
 ---
 # <a name="vpn-gateways-overview"></a>Overzicht van VPN-gateways
 
@@ -26,7 +26,7 @@ CloudSimple bevat twee soorten VPN-gateways:
 
 ## <a name="site-to-site-vpn-gateway"></a>Site-naar-site VPN-gateway
 
-Een site-naar-site VPN-gateway wordt gebruikt voor het verzenden van versleuteld verkeer tussen een regio CloudSimple netwerk en een on-premises datacenter. Deze verbinding gebruiken voor het definiëren van de subnetten/CIDR-bereik, voor het netwerkverkeer tussen uw on-premises netwerk en het netwerk van de regio CloudSimple.
+Een site-naar-site VPN-gateway wordt gebruikt voor het verzenden van versleuteld verkeer tussen een regio CloudSimple netwerk en een on-premises datacenter. Deze verbinding gebruiken voor het definiëren van de subnetten/CIDR-bereik, voor de communicatie tussen uw on-premises netwerk en het netwerk van de regio CloudSimple.
 
 De VPN-gateway kunt u gebruiken voor services van on-premises in uw privécloud, en services op uw persoonlijke cloud, van de on-premises netwerk.  CloudSimple biedt een op beleid gebaseerde VPN-server voor het maken van verbinding van uw on-premises netwerk.
 
@@ -38,6 +38,9 @@ Voor site-naar-site VPN-verbinding van use cases zijn onder andere:
 * Toegankelijkheid van workloads die worden uitgevoerd op uw privécloud van uw on-premises netwerk.
 
 ![Site-naar-Site VPN-verbinding-topologie](media/cloudsimple-site-to-site-vpn-connection.png)
+
+> [!IMPORTANT]
+> U moet MSS TCP vastzetten op 1078 bytes of lager. Of als uw VPN-apparaten het vastzetten van MSS niet ondersteunen, kunt u ook instellen de MTU op de tunnelinterface 1118 bytes in plaats daarvan. 
 
 ### <a name="cryptographic-parameters"></a>Cryptografische parameters
 
@@ -53,7 +56,7 @@ Een site-naar-site VPN-verbinding maakt gebruik van de volgende standaard crypto
 | Versleuteling | AES 128 | AES 256 | AES 256 |
 | Hash-algoritme| SHA 256 | SHA 256 | SHA 1 |
 | Diffie-Hellman-groep (DH-groep) | 2 | 2 | 2 |
-| Levensduur | 28\.800 seconden | 28\.800 seconden | 28\.800 seconden |
+| Levensduur | 28.800 seconden | 28.800 seconden | 28.800 seconden |
 | Gegevensgrootte | 4 GB | 4 GB | 4 GB |
 
 

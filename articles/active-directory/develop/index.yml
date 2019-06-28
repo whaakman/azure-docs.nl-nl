@@ -1,6 +1,13 @@
 ### YamlMime:Landing
 title: Microsoft Identity Platform (voorheen Azure Active Directory voor ontwikkelaars)
 summary: 'Het Microsoft Identity Platform bouwt voort op het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft-API''s, zoals Microsoft Graph, of API''s die door ontwikkelaars zijn gemaakt. Het is een zeer uitgebreid platform, dat bestaat uit een verificatieservice die voldoet aan de normen voor OAuth 2.0 en OpenID Connect, open source-bibliotheken, registratie en configuratie van toepassingen, robuuste conceptuele en referentiedocumentatie, ''quickstart-voorbeelden'', codevoorbeelden, zelfstudies en handleidingen.'
+metadata:
+  ms.topic: landing-page
+  ms.date: 06/22/2019
+  author: CelesteDG
+  ms.service: active-directory
+  ms.subservice: develop
+  ms.workload: identity
 landingContent:
   - title: Over het Microsoft Identity Platform
     linkLists:

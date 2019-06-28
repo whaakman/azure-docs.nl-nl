@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137757"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357589"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machines gebruiken
 
@@ -51,9 +51,9 @@ U kunt deze waarden verkrijgt in de DSVM-pagina in Azure portal.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Azure-notitieblokken bestanden vanuit de DSVM te openen
 
-Pariteit van paden met behouden de **gratis Compute** -laag, kunt u alleen een project openen op een tijdstip op een DSVM. Als u wilt een nieuw project openen, sluit u het project hebt geopend eerst.
+Toegang tot bestandssysteem wordt ondersteund voor DSVM-versies 19.06.15 of hoger. Om te controleren of de versie, eerst verbinding maken met uw DSVM via SSH (het IP-adres is beschikbaar in Azure portal). Voer de volgende opdracht uit via uw `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. Het versienummer wordt weergegeven in de uitvoer voor 'versie'.
 
-![Knop Afsluiten in Azure-notitieblokken](media/shutdown.png)
+Pariteit van paden met behouden de **gratis Compute** -laag, kunt u alleen een project openen op een tijdstip op een DSVM. Als u wilt een nieuw project openen, sluit u het project hebt geopend eerst.
 
 Wanneer een project wordt uitgevoerd op een virtuele machine, de bestanden zijn gekoppeld aan de hoofdmap van de Jupyter-server (de map die wordt weergegeven in JupyterHub), de standaard Azure-notitieblokken bestanden worden vervangen. Wanneer u het afsluiten van de virtuele machine met behulp de **afsluiten** knop in de notebook-gebruikersinterface,-laptops Azure worden de standaard-bestanden hersteld.
 
