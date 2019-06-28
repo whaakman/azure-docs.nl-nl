@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: f339d2e3e329ae40ca8bb8bf651d698c73482a7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 1433e71a5e4f9d4effe82d489145c364355100d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049265"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330441"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Quickstart: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en lezen met een back-endtoepassing (C#)
 
@@ -81,7 +81,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     U gebruikt deze waarde verderop in de snelstartgids.
 
-3. U hebt ook het _Event Hubs-compatibele eindpunt_, het _Event Hubs-compatibele pad_ en de _primaire sleutel iothubowner_ van uw IoT-hub nodig om de back-endtoepassing in staat te stellen verbinding te maken met uw IoT-hub en de berichten op te halen. Met de volgende opdrachten worden deze waarden opgehaald voor uw IoT-hub:
+3. U moet ook de _Event Hubs-compatibele eindpunt_, _Event Hubs-compatibele pad_, en _primaire sleutel van service_ van uw IoT-hub om in te schakelen van de back-endtoepassing naar verbinding maken met uw IoT-hub en de berichten ophalen. Met de volgende opdrachten worden deze waarden opgehaald voor uw IoT-hub:
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
@@ -90,7 +90,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     Noteer deze drie waarden want deze hebt u later in de snelstartgids nodig.
@@ -133,7 +133,7 @@ De back-endtoepassing maakt verbinding met het eindpunt **Events** aan de servic
     | -------- | ----------- |
     | `s_eventHubsCompatibleEndpoint` | Vervang de waarde van de variabele door het met Event Hubs compatibele eindpunt dat u eerder hebt genoteerd. |
     | `s_eventHubsCompatiblePath`     | Vervang de waarde van de variabele door het met Event Hubs compatibele pad dat u eerder hebt genoteerd. |
-    | `s_iotHubSasKey`                | Vervang de waarde van de variabele door de primaire sleutel iothubowner die u eerder hebt genoteerd. |
+    | `s_iotHubSasKey`                | Vervang de waarde van de variabele met de service primaire sleutel die u eerder een notitie van gemaakt. |
 
 3. Voer in het lokale terminalvenster de volgende opdrachten uit om de vereiste bibliotheken voor de back-endtoepassing te installeren:
 

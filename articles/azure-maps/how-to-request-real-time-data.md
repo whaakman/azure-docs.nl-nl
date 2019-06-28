@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: bb99a3c063f69aa5aeb00efdb51319a53d05b2d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aaab5ef4d8fc3d60a12f9e9f85f2846695fd1ab4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067608"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329662"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Realtime gegevens van aanvragen met behulp van de Mobility-Service van Azure Maps
 
@@ -113,22 +113,23 @@ We gebruiken '522' als onze in metro-ID, die het in metro is-ID voor "Seattle â€
             }
         ]
     }
+    ```
 
 
-## Real-time data for bike docking station
+## <a name="real-time-data-for-bike-docking-station"></a>Realtime gegevens voor fiets basisstation
 
-The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information such as availability and vacancy information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes.
+De [ophalen doorvoer Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) van Azure Maps Mobility Service, kunt u om aan te vragen van statische en realtime informatie zoals de beschikbaarheid en vacature-informatie voor een bepaalde fiets of scooter basisstation. We doen een aanvraag voor het ophalen van realtime-gegevens voor een basisstation voor fietsen.
 
-In order to make a request to the Get Transit Dock Info API, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "bikeDock". Follow the steps below to get real-time data of a docking station for bikes.
+Als u wilt ophalen doorvoer Dock Info API te vragen, moet u de **dockId** voor dat station. U kunt het dock-ID ophalen door het maken van een zoekaanvraag naar de [ophalen in de buurt doorvoer API](https://aka.ms/AzureMapsMobilityNearbyTransit) en instelling van de **objectType** parameter 'bikeDock'. Volg de stappen hieronder om realtime gegevens van een dockingstation ophalen voor fietsen.
 
 
-### Get dock ID
+### <a name="get-dock-id"></a>Dock-ID ophalen
 
-To get **dockID**, follow the steps below to make a request to the Get Nearby Transit API:
+Om op te halen **dockID**, volgt u onderstaande stappen voor het maken van een aanvraag naar de API in de buurt doorvoer ophalen:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get dock ID**.
+1. In Postman, klikt u op **nieuwe aanvraag** | **GET-aanvraag** en noem het **Get dokken ID**.
 
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
+2.  Selecteer op het tabblad Builder de **ophalen** HTTP-methode, voer de volgende aanvraag-URL en klik op **verzenden**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock

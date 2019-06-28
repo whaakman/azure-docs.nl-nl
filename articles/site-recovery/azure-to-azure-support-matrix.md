@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: raynew
-ms.openlocfilehash: 6a6db30bfe6e4dc1eed04d11b53113c90210a5cf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275220"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312149"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van Azure-VM's van de ene naar de andere regio
 
@@ -168,7 +168,7 @@ Extensies | Niet ondersteund | Extensies worden niet gerepliceerd naar de failov
 **Actie** | **Details**
 -- | ---
 Grootte van de schijf op gerepliceerde virtuele machine wijzigen | Ondersteund
-Een schijf toevoegen aan een gerepliceerde virtuele machine | Wordt niet ondersteund.<br/><br/> U moet aan het uitschakelen van replicatie voor de virtuele machine, de schijf toevoegen en schakelt u de replicatie opnieuw.
+Een schijf toevoegen aan een gerepliceerde virtuele machine | Ondersteund
 
 ## <a name="replicated-machines---storage"></a>Gerepliceerde machines - opslag
 

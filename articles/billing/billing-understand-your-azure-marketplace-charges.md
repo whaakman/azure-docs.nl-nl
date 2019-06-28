@@ -3,8 +3,8 @@ title: Meer informatie over uw Azure externe servicekosten | Microsoft Docs
 description: Meer informatie over de facturering van externe services, voorheen bekend als Marketplace, kosten in rekening gebracht in Azure.
 services: ''
 documentationcenter: ''
-author: adpick
-manager: adpick
+author: jureid
+manager: jureid
 editor: ''
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -13,78 +13,109 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 06/19/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90753c6046425b60fda04fa99b2952e706d9c0e5
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370497"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311986"
 ---
-# <a name="understand-your-azure-billing-for-external-service-charges"></a>Inzicht in uw Azure-facturering voor externe servicekosten
-Externe services worden gepubliceerd door leveranciers van software van derden in de Azure marketplace. SendGrid is bijvoorbeeld een externe services die u in Azure kunt kopen, maar niet is gepubliceerd door Microsoft.
-
-Als u een nieuwe externe service of resource inricht, wordt een waarschuwing weergegeven:
-
-![Marketplace-aankoop waarschuwing](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
-
-> [!NOTE]
-> Externe services worden gepubliceerd door bedrijven die niet Microsoft, maar soms ook Microsoft-producten worden gecategoriseerd als externe services.
-> 
-> 
+# <a name="understand-your-azure-external-services-charges"></a>Meer informatie over de kosten van uw externe Azure-services
+Externe services worden gepubliceerd door leveranciers van software van derden in de Azure marketplace. SendGrid is bijvoorbeeld een externe service die u in Azure kunt kopen, maar niet is gepubliceerd door Microsoft. Sommige Microsoft-producten worden verkocht via Azure marketplace te.
 
 ## <a name="how-external-services-are-billed"></a>Hoe externe services worden in rekening gebracht
-- Externe services worden apart in rekening gebracht. Ze worden behandeld als afzonderlijke orders binnen uw Azure-abonnement. De factureringsperiode voor elke service is ingesteld bij de aankoop van de service. Niet te verwarren met de factureringsperiode van het abonnement waarin u deze hebt gekocht. Ontvangt u ook afzonderlijke facturen en uw creditcard wordt afzonderlijk in rekening gebracht.
-- Elke externe service heeft een ander model voor facturering. Sommige services worden op een manier voor betalen per gebruik gefactureerd, terwijl anderen een maandelijkse betaling op basis van model gebruiken. U moet een creditcard voor externe Azure-services, u externe services met betalen per factuur kan niet kopen.
-- U kunt elke maand gratis tegoed niet gebruiken voor externe services. Als u een Azure-abonnement met inbegrip van [gratis tegoed](https://azure.microsoft.com/pricing/spending-limits/), ze kunnen niet worden toegepast op facturen van de externe service. Een creditcard gebruiken om externe services te kopen.
 
-## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>Weergave externe service uitgaven en de geschiedenis van in Azure portal
-U kunt een lijst weergeven met de externe services die zich op elk abonnement binnen de [Azure-portal](https://portal.azure.com/): 
+- Als u hebt een [Microsoft KLANTOVEREENKOMST](#check-access-to-a-microsoft-customer-agreement), uw services van derden worden in rekening gebracht met de rest van uw Azure-services.
+- Als u geen een KLANTOVEREENKOMST van Microsoft, uw externe services worden apart in rekening gebracht van uw Azure-services.
+- Elke externe service heeft een ander model voor facturering. Sommige services worden op een manier voor betalen per gebruik gefactureerd, terwijl anderen maandelijkse kosten in rekening gebracht vaste.
+- U kunt elke maand gratis tegoed niet gebruiken voor externe services. Als u een Azure-abonnement met inbegrip van [gratis tegoed](https://azure.microsoft.com/pricing/spending-limits/), ze kunnen niet worden toegepast op de kosten van externe services. Als u een nieuwe externe service of resource inricht, wordt een waarschuwing weergegeven:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als accountbeheerder.
-2. Selecteer in het menu Hub **abonnementen**.
+    ![Marketplace-aankoop waarschuwing](./media/billing-understand-your-azure-marketplace-charges/credit-warning.png)
+
+<!-- ## View external service spending and history in the Azure portal
+You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the account administrator.
+2. In the Hub menu, select **Subscriptions**.
    
-    ![Abonnementen selecteren in het menu Hub](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
-3. In de **abonnementen** blade, selecteer het abonnement dat u wilt weergeven en selecteer vervolgens **externe services**.
+    ![Select Subscriptions in the Hub menu](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
+3. In the **Subscriptions** blade, select the subscription that you want to view, and then select **External services**.
    
-    ![Selecteer een abonnement op de blade facturering](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
-4. U ziet elk van uw bestellingen externe service, de naam van de uitgever, servicelaag die u hebt gekocht, hebt u de resource en de status van de huidige gegeven naam. Selecteer een externe service facturen uit het verleden.
+    ![Select a subscription in the billing blade](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
+4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. To see past bills, select an external service.
    
-    ![Selecteer een externe service](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
-5. Hier vindt u het verleden factuur bedragen, met inbegrip van de verdeling van belasting.
+    ![Select an external service](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
+5. From here, you can view past bill amounts including the tax breakdown.
    
-    ![Weergave van de externe services factureringsgeschiedenis](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
+    ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
+
+## <a name="view-and-download-azure-marketplace-invoices"></a>Weergeven en downloaden van facturen van de Azure marketplace
+
+Als u hebt een [Microsoft KLANTOVEREENKOMST](#check-access-to-a-microsoft-customer-agreement), de kosten van derden zijn op de factuur van Azure-kosten worden. Meer informatie over het [weergeven en downloaden van uw Azure-factuur](billing-download-azure-invoice.md) vanuit Azure portal om te zien van uw kosten van derden.
+
+Als u een KLANTOVEREENKOMST van Microsoft hebt, hebt u aparte facturen voor derden kosten in rekening gebracht. U kunt bekijken en uw Azure Marketplace-facturen downloaden via de Azure portal door de volgende stappen:
+
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Zoek naar **kostenbeheer en facturering**.
+1. Selecteer in het menu links **facturen**.
+1. Klik op de **Azure Marketplace en reserveringen** tabblad.  ![Afbeelding van Azure marketplace en reserveringen tabblad](./media/billing-understand-your-azure-marketplace-charges/invoice-tabs.png)
+1. Selecteer het abonnement met de externe services die u wilt zien van facturen voor in de vervolgkeuzelijst abonnement.
 
 ## <a name="view-external-service-spending-for-enterprise-agreement-ea-customers"></a>Weergave van de externe service voor de uitgavelimiet voor Enterprise Agreement (EA)-klanten
+
 EA-klanten kunnen zien externe service voor de uitgavelimiet en rapporten in de EA-portal te downloaden. Zie [Azure Marketplace voor EA-klanten](https://ea.azure.com/helpdocs/azureMarketplace) aan de slag.
 
 ## <a name="manage-payment-methods-for-external-service-orders"></a>Betalingswijzen voor externe service bestellingen beheren
-Uw betaling updatemethoden voor externe serviceorders uit de [Accountcentrum](https://account.windowsazure.com/).
+
+Wanneer een externe service koopt, kiest u een Azure-abonnement voor de resource. De betalingswijze van de geselecteerde Azure-abonnement, wordt de betalingsmethode voor de externe service. Als u wilt wijzigen van de betalingsmethode voor een externe service, moet u [Wijzig de betalingswijze van de Azure-abonnement](billing-how-to-change-credit-card.md) gekoppeld aan deze externe service. U kunt bepalen welk abonnement u voor uw order voor een externe service is gekoppeld aan door de volgende stappen:
+
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Klik op **alle Resources** in het navigatiemenu links.
+     ![Schermafbeelding van alle resources menu-item](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. Zoeken naar de externe service.
+1. Zoek de naam van het abonnement in de **abonnement** kolom.
+    ![Schermafbeelding van de naam van abonnement voor de resource](./media/billing-understand-your-azure-marketplace-charges/sub-selected.png)
+1. Klik op de naam van het abonnement en [bijwerken van de actieve betalingswijze](billing-how-to-change-credit-card.md).
+ 
+<!-- Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).
 
 > [!NOTE]
-> Als u uw abonnement met een werk of School-account hebt gekocht [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) wijzigingen aanbrengen in uw betalingswijze.
-> 
-> 
+> If you purchased your subscription with a Work or School account, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment method.
 
-1. Aanmelden bij de [Accountcentrum](https://account.windowsazure.com/) en [gaat u naar de **marketplace** tabblad](https://account.windowsazure.com/Store)
+1. Sign in to the [Account Center](https://account.windowsazure.com/) and [navigate to the **marketplace** tab](https://account.windowsazure.com/Store)
    
-    ![Selecteer marketplace in het accountcentrum](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
-2. Selecteer de externe service die u wilt beheren
+    ![Select marketplace in the account center](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
+2. Select the external service you want to manage
    
-    ![Selecteer de externe service die u wilt beheren](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
-3. Klik op **betalingsmethode wijzigen** aan de rechterkant van de pagina. Deze koppeling brengt u naar een andere portal voor het beheren van uw betalingswijze.
+    ![Select the external service you want to manage](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
+3. Click **Change payment method** on the right side of the page. This link brings you to a different portal to manage your payment method.
    
-    ![Overzicht van bestelling](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
-4. Klik op **info bewerken** en volg de instructies voor het bijwerken van uw betalingsgegevens.
+    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
+4. Click **Edit info** and follow instructions to update your payment information.
    
-    ![Selecteer Bewerken gegevens](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
+    ![Select edit info](./media/billing-understand-your-azure-marketplace-charges/edit-info.png) -->
 
 ## <a name="cancel-an-external-service-order"></a>Een externe serviceorder annuleren
 Als u annuleren van uw order voor een externe service wilt, verwijdert u de resource in de [Azure-portal](https://portal.azure.com).
 
-![Resource verwijderen](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Klik op **alle Resources** in het navigatiemenu links.
+    ![Schermafbeelding van alle resources menu-item](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. Zoeken naar de externe service.
+1. Schakel het selectievakje naast de resource die u wilt verwijderen.
+1. Selecteer **verwijderen** in de opdrachtbalk.
+    ![Schermafbeelding van de verwijderknop](./media/billing-understand-your-azure-marketplace-charges/delete-button.png)
+1. Type *'Ja'* de bevestigingsblade.
+    ![Resource verwijderen](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
+1. Klik op **Verwijderen**.
+
+
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 7789970b47f0e55adee5bbe9da9f303aee6cdb25
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a018a383de855a05b14aa6e1f1c465f8868f672d
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190127"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312170"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>Het pakket kan worden uitgevoerd in de SSIS-integratieruntime oplossen
 
@@ -110,6 +110,11 @@ Dit artikel bevat de meest voorkomende fouten die u voor het uitvoeren van SSIS-
   * Een mogelijke oorzaak dat gebruikersnaam en wachtwoord met MFA ingeschakeld is is geconfigureerd voor Azure Analysis Services-verificatie wordt nog niet ondersteund in de SSIS-integratieruntime. Probeer met Service-Principal voor Azure Analysis Service-verificatie:
     1. Service-principal voor AAS voorbereiden [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
     2. In Verbindingsbeheer configureren "Voor het gebruik van een specifieke gebruikersnaam en wachtwoord": 'AppID' als gebruikersnaam en het 'clientSecret' als wachtwoord instellen
+
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-managed-identity"></a>Foutbericht: "ADONET bron is mislukt voor het verkrijgen van de verbinding {GUID} met de volgende strekking weergegeven: Aanmelding voor gebruiker 'NT AUTHORITY\ANONIEME LOGON' mislukt ' bij het gebruik van beheerde identiteit
+
+* Mogelijke oorzaak en de aanbevolen actie:
+  * Zorg ervoor dat u niet de verificatiemethode van Verbindingsbeheer configureren als 'Active Directory-wachtwoordverificatie' wanneer de parameter 'ConnectUsingManagedIdentity' ingesteld op True is. U kunt deze configureren als 'SQL-verificatie' in plaats daarvan die zouden worden genegeerd als 'ConnectUsingManagedIdentity' is ingesteld
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>Pakket duurt onverwachte lang om uit te voeren
 

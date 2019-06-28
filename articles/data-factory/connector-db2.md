@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 797db8d0dd321676a3fa436a328a9981a3d3ca3b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786370"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312050"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -34,6 +34,7 @@ Om precies ondersteunt deze DB2-connector de volgende IBM DB2-platformen en vers
 
 * IBM DB2 voor 11.1 z/OS
 * IBM DB2 voor z/OS 10.1
+* IBM DB2 voor ik 7.3
 * IBM DB2 voor ik 7.2
 * IBM DB2 voor ik 7.1
 * IBM DB2 voor LUW 11

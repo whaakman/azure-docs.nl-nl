@@ -6,27 +6,27 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 5929ff439bc31e16643e5c57868cd6b68f9cd99c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761979"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329575"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patronen voor Azure Stream Analytics-oplossing
 
 Net als vele andere services in Azure Stream Analytics is beste worden gebruikt met andere services om een grotere end-to-end oplossing te maken. In dit artikel wordt beschreven eenvoudige Azure Stream Analytics-oplossingen en verschillende architectonische patronen. U kunt voortbouwen op deze patronen om complexe oplossingen te ontwikkelen. De patronen die worden beschreven in dit artikel kunnen worden gebruikt in een groot aantal scenario's. Voorbeelden van scenario-specifieke patronen zijn beschikbaar op [Azure-architecturen](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
-## <a name="create-a-stream-analytics-job-with-a-real-time-dashboard"></a>Een Stream Analytics-taak maken met een realtime dashboard
+## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Maken van een Stream Analytics-taak power realtime dashboarding ervaring
 
-Met Azure Stream Analytics gebruiksgemak gebruikt, kunt u snel paar van realtime-dashboards en meldingen. Een eenvoudige oplossing worden opgenomen gebeurtenissen van Event Hubs of IoT-Hub, en [-feeds van de Power BI-dashboard met een streaminggegevensset](/power-bi/service-real-time-streaming). Zie voor meer informatie de gedetailleerde zelfstudie [analyseren van gegevens van telefoongesprekken met Stream Analytics en resultaten te visualiseren in Power BI-dashboard](stream-analytics-manage-job.md).
+Met Azure Stream Analytics kunt u snel een paar van realtime-dashboards en meldingen. Een eenvoudige oplossing worden opgenomen gebeurtenissen van Event Hubs of IoT-Hub, en [-feeds van de Power BI-dashboard met een streaminggegevensset](/power-bi/service-real-time-streaming). Zie voor meer informatie de gedetailleerde zelfstudie [analyseren van gegevens van telefoongesprekken met Stream Analytics en resultaten te visualiseren in Power BI-dashboard](stream-analytics-manage-job.md).
 
 ![ASA Power BI-dashboard](media/stream-analytics-solution-patterns/pbidashboard.png)
 
 Deze oplossing kan worden gebouwd in slechts enkele minuten in Azure portal. Er is dat geen uitgebreide codering betrokken en SQL-taal wordt gebruikt om de zakelijke logica.
 
-Dit patroon van de oplossing voor realtime dashboard biedt de laagste latentie van de bron van de gebeurtenis naar het Power BI-dashboard in een browser. Azure Stream Analytics is het alleen Azure-service met deze ingebouwde functie.
+Dit patroon oplossing biedt de laagste latentie van de bron van de gebeurtenis naar het Power BI-dashboard in een browser. Azure Stream Analytics is het alleen Azure-service met deze ingebouwde functie.
 
 ## <a name="use-sql-for-dashboard"></a>Gebruik SQL voor dashboard
 
@@ -34,19 +34,19 @@ De Power BI-dashboard biedt een lage latentie, maar deze kan niet worden gebruik
 
 ![ASA SQL-dashboard](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-Met behulp van SQL biedt database u meer flexibiliteit ten koste van de hogere latentie. Deze oplossing is geoptimaliseerd voor taken met latentievereisten die groter is dan een seconde. Met deze methode kunt u Power BI hulpprogramma voor verdere segment te maximaliseren en analyseren van de gegevens voor rapporten. U beschikt ook over de flexibiliteit van het gebruik van andere oplossingen voor dashboard, zoals Tableau.
+Met behulp van SQL database biedt u meer flexibiliteit, maar ten koste van een enigszins hogere latentie. Deze oplossing is geoptimaliseerd voor taken met latentievereisten die groter is dan een seconde. Met deze methode kunt u Power BI-mogelijkheden om verdere segment te maximaliseren en analyseren van de gegevens voor rapporten en nog veel meer Visualisatieopties voor. U beschikt ook over de flexibiliteit van het gebruik van andere oplossingen voor dashboard, zoals Tableau.
 
-SQL is niet een gegevensarchief met hoge doorvoer en de maximale doorvoer naar een SQL-database van Azure Stream Analytics is 24 MB/s. Als er gegevens tegen een hoger tarief wordt geproduceerd door de bronnen van gebeurtenissen in uw oplossing, moet u verwerkingslogica in Stream Analytics gebruiken om te beperken van de snelheid van de uitvoer naar SQL. Patroon van technieken zoals filteren, statistische functies in vensters, die overeenkomt met de tijdelijke joins en analytische functies kunnen worden gebruikt. De snelheid van de uitvoer naar SQL verder kan worden geoptimaliseerd met behulp van technieken die worden beschreven in [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md).
+SQL is niet een gegevensarchief hoge doorvoer. De maximale doorvoer naar een SQL-database van Azure Stream Analytics is momenteel ongeveer 24 MB/s. Als er gegevens tegen een hoger tarief wordt geproduceerd door de bronnen van gebeurtenissen in uw oplossing, moet u verwerkingslogica in Stream Analytics gebruiken om te beperken van de snelheid van de uitvoer naar SQL. Patroon van technieken zoals filteren, statistische functies in vensters, die overeenkomt met de tijdelijke joins en analytische functies kunnen worden gebruikt. De snelheid van de uitvoer naar SQL verder kan worden geoptimaliseerd met behulp van technieken die worden beschreven in [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Realtime-inzichten in uw toepassing met de gebeurtenis berichten opnemen
 
 De tweede populairste gebruik van Stream Analytics is om realtime waarschuwingen te genereren. In dit patroon oplossing bedrijfslogica in Stream Analytics kan worden gebruikt voor het detecteren van [tijdelijke en ruimtelijke patronen](stream-analytics-geospatial-functions.md) of [afwijkingen](stream-analytics-machine-learning-anomaly-detection.md), en vervolgens waarschuwingen signalen produceren. In tegenstelling tot de dashboard-oplossing waarin Stream Analytics maakt gebruik van Power BI als een voorkeurs-eindpunt, kan een aantal tussenliggende gegevenssinks worden gebruikt. Deze sinks zijn Event Hubs, Service Bus en Azure Functions. Als de opbouwfunctie voor toepassing, moet u besluiten welke gegevenssink voor uw scenario het meest geschikt.
 
-Downstream gebeurtenis consument logische moet worden geïmplementeerd voor het genereren van waarschuwingen in uw bestaande zakelijke werkstroom. Omdat u kunt aangepaste logica implementeren in Azure Functions, Functions de is de snelste manier waarop u deze integratie kunt uitvoeren. Een zelfstudie voor het gebruik van Azure-functie als de uitvoer voor een Stream Analytics-taak kunt u vinden in [Azure Functions uitvoeren vanuit Azure Stream Analytics-taken](stream-analytics-with-azure-functions.md). Azure Functions ondersteunt ook verschillende typen meldingen, inclusief tekst- en e-mailbericht. Logische App kan ook worden gebruikt voor deze integratie met Event Hubs tussen Stream Analytics en de logische App.
+Downstream gebeurtenis consument logische moet worden geïmplementeerd voor het genereren van waarschuwingen in uw bestaande zakelijke werkstroom. Omdat u aangepaste logica in Azure Functions implementeren kunt, Azure Functions de is de snelste manier waarop u deze integratie kunt uitvoeren. Een zelfstudie voor het gebruik van Azure-functie als de uitvoer voor een Stream Analytics-taak kunt u vinden in [Azure Functions uitvoeren vanuit Azure Stream Analytics-taken](stream-analytics-with-azure-functions.md). Azure Functions ondersteunt ook verschillende typen meldingen, inclusief tekst- en e-mailbericht. Logische App kan ook worden gebruikt voor deze integratie met Event Hubs tussen Stream Analytics en de logische App.
 
 ![ASA gebeurtenis berichten-app](media/stream-analytics-solution-patterns/eventmessagingapp.png)
 
-Eventhubs, biedt aan de andere kant de meest flexibele integratiepunt. Veel andere services, zoals Azure Data Explorer en Time Series Insight, kunnen gebruikmaken van gebeurtenissen van Event Hubs. Services kunnen worden verbonden rechtstreeks naar de Event Hubs-sink van Azure Stream Analytics om de oplossing te voltooien. Eventhubs is ook de hoogste doorvoer berichtbroker beschikbaar zijn op Azure voor dergelijke scenario's voor gegevensintegratie.
+Eventhubs, biedt aan de andere kant de meest flexibele integratiepunt. Gebeurtenissen van Event Hubs kunnen gebruikmaken van vele andere services, zoals Azure Data Explorer en Time Series Insights. Services kunnen worden verbonden rechtstreeks naar de Event Hubs-sink van Azure Stream Analytics om de oplossing te voltooien. Eventhubs is ook de hoogste doorvoer berichtbroker beschikbaar zijn op Azure voor dergelijke scenario's voor gegevensintegratie.
 
 ## <a name="dynamic-applications-and-websites"></a>Dynamische toepassingen en websites
 

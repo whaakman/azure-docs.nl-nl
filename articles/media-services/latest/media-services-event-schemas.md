@@ -614,7 +614,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
 | bitrate | integer | Bitrate van het spoor. |
-| incomingBitrate | integer | Berekende bitrate op basis van die afkomstig zijn van het coderingsprogramma gegevenssegmenten. |
+| IncomingBitrate | integer | Berekende bitrate op basis van die afkomstig zijn van het coderingsprogramma gegevenssegmenten. |
 | lastTimestamp | string | Meest recente tijdstempel ontvangen voor een nummer in de afgelopen 20 seconden. |
 | timescale | string | Tijdschaal waarin tijdstempels worden uitgedrukt. |
 | overlapCount | integer | Aantal gegevenssegmenten had tijdstempels in de afgelopen 20 seconden overlapt. |
@@ -661,7 +661,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | previousTimestamp | string | Timestamp van het vorige fragment. |
 | newTimestamp | string | Tijdstempel van de huidige fragment. |
 | discontinuityGap | string | De kloof tussen boven twee tijdstempels. |
-| tijdschaal | string | Tijdschaal in welke tussenruimte zowel tijdstempel en onderbreking worden weergegeven. |
+| timescale | string | Tijdschaal in welke tussenruimte zowel tijdstempel en onderbreking worden weergegeven. |
 
 ### <a name="common-event-properties"></a>Algemene eigenschappen van gebeurtenis
 

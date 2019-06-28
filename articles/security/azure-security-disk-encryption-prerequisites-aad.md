@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70cb7f53032dca2b0fedbf4581b88aea07960515
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234289"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294890"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Vereisten voor Azure Disk Encryption (vorige versie)
 
@@ -28,26 +28,61 @@ Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> Ondersteunde besturingssystemen
-Azure Disk Encryption wordt ondersteund op de volgende besturingssystemen:
+## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
-- Windows Server-versies: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016.
-  - Voor Windows Server 2008 R2 moet u .NET Framework 4.5 zijn geïnstalleerd voordat u versleuteling in Azure inschakelen. Installeer de aanmeldhulp vanaf Windows bijwerken met de optionele update voor Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+### <a name="windows"></a>Windows
+
+- Windows Server-versies: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core en Windows Server 2016 Server core.
+Voor Windows Server 2008 R2 moet u .NET Framework 4.5 zijn geïnstalleerd voordat u versleuteling in Azure inschakelen. Deze installeren via Windows Update met de optionele update voor Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen (KB2901983).
+- Core van Windows Server 2012 R2 en Windows Server 2016 Core worden ondersteund door Azure Disk Encryption nadat het bdehdcfg-onderdeel is geïnstalleerd op de virtuele machine.
 - Versies van Windows-client: Client voor Windows 8 en Windows 10-client.
-- Azure Disk Encryption is alleen ondersteund op bepaalde Azure-galerie op basis van Linux-server-distributies en versies. Voor de lijst met ondersteunde versies, raadpleegt u de [Veelgestelde vragen over Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+
+### <a name="linux"></a>Linux 
+
+Azure Disk Encryption wordt ondersteund op een subset van de [door Azure onderschreven Linux-distributies](../virtual-machines/linux/endorsed-distros.md), die is zelf een subset van alle Linux-server mogelijk distributies.
+
+![Venn-Diagram van de Linux-server-distributies die ondersteuning bieden voor Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Linux-distributies voor server die niet zijn goedgekeurd door Azure bieden geen ondersteuning voor Azure Disk Encryption en die zijn goedgekeurd, alleen de volgende distributies en versies ondersteuning voor Azure Disk Encryption:
+
+| Linux-distributie | Versie | Volumetype wordt ondersteund voor versleuteling|
+| --- | --- |--- |
+| Ubuntu | 18.04| Besturingssysteem- en schijf |
+| Ubuntu | 16.04| Besturingssysteem- en schijf |
+| Ubuntu | 14.04.5</br>[met Azure afgestemd op de kernel bijgewerkt naar 4.15 of hoger](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Besturingssysteem- en schijf |
+| RHEL | 7.6 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
+| RHEL | 7.5 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
+| RHEL | 7.4 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
+| RHEL | 7.3 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
+| RHEL | 7.2 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
+| RHEL | 6.8 | Gegevensschijf (Zie opmerking hieronder) |
+| RHEL | 6.7 | Gegevensschijf (Zie opmerking hieronder) |
+| CentOS | 7.6 | Besturingssysteem- en schijf |
+| CentOS | 7.5 | Besturingssysteem- en schijf |
+| CentOS | 7.4 | Besturingssysteem- en schijf |
+| CentOS | 7.3 | Besturingssysteem- en schijf |
+| CentOS | 7.2n | Besturingssysteem- en schijf |
+| CentOS | 6.8 | Gegevensschijf |
+| openSUSE | 42.3 | Gegevensschijf |
+| SLES | 12-SP4 | Gegevensschijf |
+| SLES | 12-SP3 | Gegevensschijf |
+
+> [!NOTE]
+> De nieuwe ADE-implementatie wordt ondersteund voor RHEL-besturingssysteem en de gegevensschijf voor RHEL7 betalen per gebruik-installatiekopieën. ADE wordt momenteel niet ondersteund voor installatiekopieën van RHEL Bring-Your-Own-abonnement (BYOS). Zie [Azure Disk Encryption voor Linux](azure-security-disk-encryption-linux.md) voor meer informatie.
+
 - Azure Disk Encryption is vereist dat uw sleutelkluis en de virtuele machines zich in de dezelfde Azure-regio en het abonnement bevinden. Configureren van de resources in verschillende regio's, zorgt ervoor dat een fout opgetreden bij het inschakelen van de Azure Disk Encryption-functie.
 
-## <a name="bkmk_LinuxPrereq"></a> Aanvullende vereisten voor Linux IaaS-VM 's 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Aanvullende vereisten voor Linux IaaS-VM 's 
 
-- Azure Disk Encryption voor Linux is vereist voor 7 GB aan RAM-geheugen op de virtuele machine om te schakelen van OS-schijfversleuteling op [installatiekopieën ondersteund](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Zodra het versleutelingsproces voor OS-schijf voltooid is, kan de virtuele machine worden geconfigureerd om te worden uitgevoerd met minder geheugen.
+- Azure Disk Encryption is vereist voor de dm-crypt en vfat modules moet aanwezig zijn op het systeem. Verwijderen of uitschakelen van vfat van de standaardinstallatiekopie wordt voorkomen dat het systeem na het lezen van het volume van de sleutel en het verkrijgen van de sleutel die nodig zijn voor het ontgrendelen van de schijven op de volgende opnieuw wordt opgestart. Systeem-beveiligingsstappen die de module vfat uit het systeem verwijderen zijn niet compatibel met Azure Disk Encryption. 
 - Voordat u versleuteling inschakelt, moeten de gegevensschijven moeten worden versleuteld goed worden weergegeven in/etc/fstab. Gebruik een permanente blok apparaatnaam op voor deze vermelding als apparaat namen in de indeling '/ dev/sdX' kunnen niet worden gebruikt om te worden gekoppeld aan dezelfde schijf tijdens opnieuw opstarten, met name als versleuteling wordt toegepast. Zie voor meer informatie over dit gedrag: [Wijzigingen van de apparaatnaam Linux-VM oplossen](../virtual-machines/linux/troubleshoot-device-names-problems.md)
-- Zorg ervoor dat de/etc/fstab-instellingen juist zijn geconfigureerd voor koppelen. Deze instellingen configureren, uitvoeren van de opdracht mount- of opnieuw opstarten van de virtuele machine en activeren van de beschadigingsgebeurtenissen op die manier. Zodra dat is voltooid, controleert u de uitvoer van de opdracht lsblk om te controleren dat de gewenste schijf nog steeds is gekoppeld. 
-  - Als het bestand/etc/fstab niet op het station goed voordat versleuteling werd ingeschakeld koppelen, kunnen Azure Disk Encryption correct koppelen niet mogelijk.
+- Zorg ervoor dat de/etc/fstab-instellingen juist zijn geconfigureerd voor koppelen. Deze instellingen configureren, uitvoeren van de opdracht mount- of opnieuw opstarten van de virtuele machine en activeren van de beschadigingsgebeurtenissen op die manier. Zodra dat is voltooid, controleert u de uitvoer van de opdracht lsblk om te controleren dat de schijf nog steeds is gekoppeld. 
+  - Als het bestand/etc/fstab niet naar behoren het station koppelen voordat versleuteling is ingeschakeld, kunnen Azure Disk Encryption correct koppelen niet mogelijk.
   - De Azure Disk Encryption-proces worden de mount-gegevens uit/etc/fstab en in een eigen configuratiebestand als onderdeel van het versleutelingsproces verplaatst. Geen worden zorgen om te zien van de vermelding ontbreekt in/etc/fstab nadat gegevens stationsversleuteling is voltooid.
-  -  Het duurt na opnieuw opstarten, tijd voor de Azure Disk Encryption-proces om de zojuist versleutelde schijven te koppelen. Ze zijn onmiddellijk niet beschikbaar na het opnieuw opstarten. Het proces tijd om te beginnen, ontgrendelen en koppel vervolgens de versleutelde schijven voorafgaand aan hun deze beschikbaar is voor andere processen voor toegang tot nodig heeft. Dit proces duurt langer dan een minuut na opnieuw opstarten, afhankelijk van de kenmerken van het systeem.
+  - Voordat het starten van versleuteling, moet u stoppen alle services en processen die naar schrijven kunnen gegevensschijven gekoppeld en uitschakelen, zodat ze niet opnieuw automatisch na het opnieuw opstarten opstarten. Deze kunnen bestanden op deze partities te voorkomen dat de versleuteling procedure als u wilt koppelen, veroorzaakt door uitval van de versleuteling is geopend houden. 
+  - Het duurt na opnieuw opstarten, tijd voor de Azure Disk Encryption-proces om de zojuist versleutelde schijven te koppelen. Ze zijn niet meteen beschikbaar na het opnieuw opstarten. Het proces tijd om te beginnen, ontgrendelen en koppel vervolgens de versleutelde schijven voordat deze beschikbaar is voor andere processen voor toegang tot nodig heeft. Dit proces duurt langer dan een minuut na opnieuw opstarten, afhankelijk van de kenmerken van het systeem.
 
-Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven koppelen en de benodigde/etc/fstab-vermeldingen te maken kunt u vinden [regels 197-205 van dit scriptbestand](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205). 
-
+Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven koppelen en de benodigde/etc/fstab-vermeldingen te maken kunt u vinden [regels 244-248 van dit scriptbestand](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
 ## <a name="bkmk_GPO"></a> Netwerk- en Groepsbeleid
 

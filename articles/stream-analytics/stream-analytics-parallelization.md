@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478875"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329821"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Maak gebruik van query-parallellisatie in Azure Stream Analytics
 Dit artikel ziet u hoe u kunt profiteren van parallelle uitvoering in Azure Stream Analytics. Leert u hoe u Stream Analytics-taken schalen door invoer partities configureren en afstemmen van de definitie van de analytics-query.
@@ -60,7 +60,7 @@ Een *perfect parallelle* taak is het meest schaalbare scenario we in Azure Strea
 
 1. Als uw querylogica is afhankelijk van dezelfde sleutel door hetzelfde exemplaar van de query wordt verwerkt, moet u ervoor zorgen dat de gebeurtenissen gaat u naar dezelfde partitie van uw invoer. Voor Event Hubs of IoT-Hub, dit betekent dat de gebeurtenisgegevens moet hebben de **PartitionKey** waarde ingesteld. U kunt ook gepartitioneerde afzenders gebruiken. Voor blob storage betekent dit dat de gebeurtenissen worden verzonden naar de map met dezelfde partitie. Als uw querylogica dezelfde sleutel kan worden verwerkt door de dezelfde query-instantie niet vereist, kunt u deze vereiste negeren. Een voorbeeld van deze logica is een eenvoudige select-project-filter-query.  
 
-2. Zodra de gegevens wordt weergegeven op de invoer-zijde, moet u ervoor zorgen dat uw query is gepartitioneerd. Hiervoor moet u gebruikmaken van **PARTITION BY** in alle de stappen. Meerdere stappen zijn toegestaan, maar ze allemaal moeten worden gepartitioneerd op basis van dezelfde sleutel. Op dit moment de te nemen partitionerende sleutel moet worden ingesteld op **PartitionId** in volgorde voor de taak moet volledig parallelle.  
+2. Zodra de gegevens wordt weergegeven op de invoer-zijde, moet u ervoor zorgen dat uw query is gepartitioneerd. Hiervoor moet u gebruikmaken van **PARTITION BY** in alle de stappen. Meerdere stappen zijn toegestaan, maar ze allemaal moeten worden gepartitioneerd op basis van dezelfde sleutel. Met compatibiliteitsniveau 1.0 en 1.1, de te nemen partitionerende sleutel moet worden ingesteld op **PartitionId** in volgorde voor de taak moet volledig parallelle. Aangepaste kolom kan worden opgegeven als partitiesleutel in de invoer-instellingen voor taken met compatility niveau 1.2 en hoger, en de taak is paralellized automoatically zelfs zonder de component PARTITION BY.
 
 3. De meeste van onze uitvoer kunt profiteren van het partitioneren, maar als u een uitvoertype die biedt geen ondersteuning voor partitioneren uw taak geen volledig parallelle. Raadpleeg de [sectie uitvoer](#outputs) voor meer informatie.
 
@@ -87,7 +87,7 @@ Query:
     WHERE TollBoothId > 100
 ```
 
-Deze query is een eenvoudige filter. Daarom moet we geen zorgen over het partitioneren van de invoer die worden verzonden naar de event hub. U ziet dat de query bevat **partitie door PartitionId**, zodat deze voldoen aan de vereiste #2 van eerder. Voor de uitvoer moet voor het configureren van de event hub-uitvoer in de taak is het belangrijkste partitie worden ingesteld op **PartitionId**. Er is één sinds laatste controle om ervoor te zorgen dat het aantal invoer partities gelijk aan het aantal partities van de uitvoer is.
+Deze query is een eenvoudige filter. Daarom moet we geen zorgen over het partitioneren van de invoer die worden verzonden naar de event hub. U ziet dat met een compatibiliteitsniveau taken voordat 1.2 moet bevatten **partitie door PartitionId** component, zodat deze voldoen aan de vereiste #2 van eerder. Voor de uitvoer moet voor het configureren van de event hub-uitvoer in de taak is het belangrijkste partitie worden ingesteld op **PartitionId**. Er is één sinds laatste controle om ervoor te zorgen dat het aantal invoer partities gelijk aan het aantal partities van de uitvoer is.
 
 ### <a name="query-with-a-grouping-key"></a>Query's uitvoeren met een groeperingssleutel
 
@@ -141,6 +141,26 @@ Query:
 Zoals u zien kunt, gebruik van de tweede stap **TollBoothId** als de te nemen partitionerende sleutel. Deze stap is niet hetzelfde als de eerste stap en daarom moeten we doen een willekeurige volgorde. 
 
 In de voorgaande voorbeelden sommige Stream Analytics-taken die voldoen aan (of niet) op een perfect parallelle topologie. Als die in overeenstemming zijn, hebben ze de mogelijkheden voor maximale schaal. Voor taken die niet zijn voor een van deze profielen geschikt, schalen richtlijnen beschikbaar in toekomstige zijn updates. Gebruik nu de algemene richtlijnen in de volgende secties.
+
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Compatibiliteitsniveau 1.2 - WebTest met meerdere stappen query's uitvoeren met verschillende waarden PARTITION BY 
+* Invoer: Event hub, met 8 partities
+* Uitvoer: Event hub, met 8 partities
+
+Query:
+
+```SQL
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    )
+
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
+
+Compatibiliteitsniveau 1.2 parallelle queryuitvoering standaard ingeschakeld. Query's uit de vorige sectie is bijvoorbeeld parttioned, zolang de kolom 'TollBoothId' is ingesteld als invoer partitiesleutel. PARTITIE door ParttionId-component is niet vereist.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>De maximale streaming-eenheden van een taak berekenen
 Het totale aantal streamingeenheden dat kan worden gebruikt door een Stream Analytics-taak is afhankelijk van het aantal stappen in de query die is gedefinieerd voor de taak en het aantal partities voor elke stap.

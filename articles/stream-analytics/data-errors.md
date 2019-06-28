@@ -6,17 +6,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: ecc7077bf208adf1ac89adcce2f2e480ce34888e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65607226"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329585"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Fouten met Azure Stream Analytics-gegevens
 
-Wanneer er een verschil in de gegevens die wordt verwerkt door een Azure Stream Analytics-taak, verzendt Stream Analytics een foutgebeurtenis gegevens naar de diagnostische logboeken. Stream Analytics schrijft de gedetailleerde informatie en voorbeelden van gebeurtenissen, naar de logboeken met diagnostische gegevens wanneer er fouten optreden. Een overzicht van deze informatie is ook beschikbaar via de portalmeldingen voor enkele fouten.
+Gegevensfouten zijn fouten die optreden tijdens het verwerken van de gegevens.  Deze fouten zich voordoen tijdens de serialisatie van gegevens, serialisatie, meestal als schrijfbewerkingen.  Wanneer er fouten optreden, schrijft Stream Analytics u gedetailleerde informatie en voorbeelden van gebeurtenissen naar de diagnostische logboeken.  In sommige gevallen, is overzicht van deze informatie ook beschikbaar via de portalmeldingen.
 
 In dit artikel bevat een overzicht van de verschillende typen, oorzaken en details van de diagnostische logboeken voor invoer-en uitvoergegevens fouten.
 
@@ -45,6 +45,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De invoer compressietype geselecteerd komt niet overeen met de gegevens.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact: Berichten met een ongeldig compressietype inclusief deserialisatie fouten worden verwijderd uit de invoer.
 * Logboekdetails
    * Voer de bericht-id. De id is voor Event Hub, de PartitionId, Offset en volgnummer.
 
@@ -59,6 +60,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De koptekst van invoergegevens is ongeldig. Een CSV heeft bijvoorbeeld kolommen met dubbele namen.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact: Berichten met een ongeldige header inclusief deserialisatie fouten worden verwijderd uit de invoer.
 * Logboekdetails
    * Voer de bericht-id. 
    * De nettolading van werkelijke maximaal enkele kilobytes.
@@ -74,6 +76,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De ingevoerde kolommen gedefinieerd met CREATE TABLE of door de TIMESTAMP BY bestaat niet.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact: Gebeurtenissen met ontbrekende kolommen zijn verwijderd uit de invoer.
 * Logboekdetails
    * Voer de bericht-id. 
    * Namen van de kolommen die ontbreken. 
@@ -94,6 +97,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: Kan niet converteren van de invoer naar het type dat is opgegeven in de instructie CREATE TABLE.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact: Gebeurtenissen met type is een conversiefout opgetreden worden verwijderd uit de invoer.
 * Logboekdetails
    * Voer de bericht-id. 
    * De naam van de kolom en het verwachte type.
@@ -113,6 +117,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: Invoergegevens is niet in de juiste indeling. De invoer is bijvoorbeeld niet geldig JSON.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact: Alle gebeurtenissen in het bericht nadat het is een fout met ongeldige gegevens aangetroffen worden verwijderd uit de invoer.
 * Logboekdetails
    * Voer de bericht-id. 
    * De nettolading van werkelijke maximaal enkele kilobytes.
@@ -132,6 +137,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De waarde van de TIMESTAMP BY-expressie kan niet worden geconverteerd naar datum/tijd.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact: Gebeurtenissen met ongeldige invoer tijdstempel zijn verwijderd uit de invoer.
 * Logboekdetails
    * Voer de bericht-id. 
    * Foutbericht. 
@@ -148,6 +154,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De waarde van de TIMESTAMP BY OVER timestampColumn is NULL.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact: Gebeurtenissen met invoer timestamp is ongeldig-sleutel worden verwijderd uit de invoer.
 * Logboekdetails
    * De nettolading van de werkelijke maximaal enkele kilobytes.
 
@@ -162,6 +169,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: Het verschil tussen de tijd van de toepassing en ontvangsttijd is groter dan laat aankomst tolerantie-venster.
 * Er is een portalmelding opgegeven: Nee
 * Diagnostisch logboek-niveau: Informatie
+* Impact:  Late invoergebeurtenissen worden verwerkt op basis van de ' andere gebeurtenissen verwerken' in de gebeurtenis bestellen sectie van de taakconfiguratie instellen. Zie voor meer informatie [tijd verwerken beleid](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Logboekdetails
    * Tijd van de toepassing en aankomsttijd. 
    * De nettolading van werkelijke maximaal enkele kilobytes.
@@ -177,6 +185,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: Het verschil tussen de tijd van de toepassing en ontvangsttijd is groter dan 5 minuten.
 * Er is een portalmelding opgegeven: Nee
 * Diagnostisch logboek-niveau: Informatie
+* Impact:  Vroege-invoergebeurtenissen worden verwerkt op basis van de ' andere gebeurtenissen verwerken' in de gebeurtenis bestellen sectie van de taakconfiguratie instellen. Zie voor meer informatie [tijd verwerken beleid](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Logboekdetails
    * Tijd van de toepassing en aankomsttijd. 
    * De nettolading van werkelijke maximaal enkele kilobytes.
@@ -192,6 +201,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: Gebeurtenis wordt beschouwd als niet-geordende op basis van het venster niet de juiste volgorde tolerantie is gedefinieerd.
 * Er is een portalmelding opgegeven: Nee
 * Diagnostisch logboek-niveau: Informatie
+* Impact:  Andere gebeurtenissen worden verwerkt op basis van de ' andere gebeurtenissen verwerken' volgorde instellen in de gebeurtenis bestellen-sectie van de taakconfiguratie. Zie voor meer informatie [tijd verwerken beleid](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Logboekdetails
    * De nettolading van werkelijke maximaal enkele kilobytes.
 
@@ -208,6 +218,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De kolom die is vereist voor de uitvoer bestaat niet. Bijvoorbeeld, een kolom die is gedefinieerd als Azure Table PartitionKey does't bestaan.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact:  Alle uitvoer gegevensconversiefouten inclusief ontbreekt een vereiste kolom worden verwerkt volgens de [uitvoer gegevensbeleid](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) instelling.
 * Logboekdetails
    * De naam van de kolom en de record-id of een gedeelte van de record.
 
@@ -222,6 +233,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De waarde in de kolom voldoen niet aan de uitvoer. Naam van de kolom is bijvoorbeeld niet een geldig Azure table-kolom.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact:  Alle uitvoer gegevensconversiefouten met inbegrip van ongeldige kolomnaam worden verwerkt volgens de [uitvoer gegevensbeleid](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) instelling.
 * Logboekdetails
    * De naam van de kolom en record-id of een gedeelte van de record.
 
@@ -236,6 +248,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: Een kolom kan niet worden geconverteerd naar een geldig type in de uitvoer. Bijvoorbeeld, is de waarde van kolom niet compatibel met beperkingen of dat is gedefinieerd in SQL-tabel.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact:  Alle uitvoer gegevensconversiefouten met inbegrip van type is een conversiefout opgetreden worden verwerkt volgens de [uitvoer gegevensbeleid](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) instelling.
 * Logboekdetails
    * Naam van de kolom.
    * Record-id of een gedeelte van de record.
@@ -251,6 +264,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: De waarde van het bericht is groter dan de uitvoergrootte van de ondersteunde. Bijvoorbeeld is een record groter dan 1 MB voor een Event Hub-uitvoer.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact:  Alle uitvoer gegevensconversiefouten met inbegrip van de maximale grootte overschreden record worden verwerkt volgens de [uitvoer gegevensbeleid](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) instelling.
 * Logboekdetails
    * Record-id of een gedeelte van de record.
 
@@ -265,6 +279,7 @@ Zie [oplossen Azure Stream Analytics met behulp van logboeken met diagnostische 
 * Oorzaak: Een record bevat al een kolom met dezelfde naam als een systeemkolom. Bijvoorbeeld, CosmosDB-uitvoer met een kolom met de naam ID als ID-kolom naar een andere kolom is.
 * Er is een portalmelding opgegeven: Ja
 * Diagnostisch logboek-niveau: Waarschuwing
+* Impact:  Alle uitvoer gegevensconversiefouten met inbegrip van dubbele sleutel worden verwerkt volgens de [uitvoer gegevensbeleid](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) instelling.
 * Logboekdetails
    * Naam van de kolom.
    * Record-id of een gedeelte van de record.

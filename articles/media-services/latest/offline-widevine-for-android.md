@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937228"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341020"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android
 
@@ -38,6 +38,9 @@ Voor het bouwen van apps in de Android-speler, geven we een overzicht op drie op
 > * Bouw een speler in Chrome mobiele browser v62 of hoger met behulp van de Encrypted Media-extensie (EME) en Media bron-extensie (MSE)
 
 Het artikel bevat ook antwoorden op enkele veelgestelde vragen met betrekking tot de offline streaming van Widevine beschermde inhoud.
+
+> [!NOTE]
+> Offline DRM wordt alleen in rekening gebracht voor het maken van een enkele aanvraag voor een licentie wanneer u de inhoud downloaden. Eventuele fouten worden niet in rekening gebracht.
 
 ## <a name="prerequisites"></a>Vereisten 
 

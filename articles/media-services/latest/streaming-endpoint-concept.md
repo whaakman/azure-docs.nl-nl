@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab74b778757aefc22f66e8b52d1f1d922526f14a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515732"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296132"
 ---
 # <a name="streaming-endpoints"></a>Streaming-eindpunten 
 
@@ -27,7 +27,7 @@ Wanneer u een Media Services-account, maakt een **standaard** Streaming-eindpunt
 > [!NOTE]
 > Voor het starten van video's streamen, moet u start de **Streaming-eindpunt** vanwaaruit u wilt de video te streamen. 
 >  
-> U wordt alleen gefactureerd wanneer uw Streaming-eindpunt wordt uitgevoerd.
+> U wordt alleen gefactureerd wanneer uw Streaming-eindpunt in de status running doorbrengt is.
 
 ## <a name="naming-convention"></a>Naamgevingsregels
 
@@ -143,7 +143,7 @@ U moet ook rekening houden met hoe adaptieve streaming werkt. Elke afzonderlijke
 
 Nadat een Streaming-eindpunt is ingericht met is CDN is ingeschakeld, er een gedefinieerde wachttijd op Media Services voordat DNS-update wordt gedaan om het Streaming-eindpunt worden toegewezen aan het CDN-eindpunt.
 
-Als u later wilt naar het CDN inschakelen/uitschakelen, de streaming-eindpunt moet zich in de **gestopt** staat. Dit kan maximaal twee uur voor de Azure CDN-integratie ingeschakeld en de wijzigingen die actief zijn in alle de CDN POP's duren. Echter, u kunt uw streaming-eindpunt en stream zonder onderbrekingen te starten vanaf het streaming-eindpunt en zodra de integratie voltooid is, de stream vanuit het CDN wordt geleverd. Tijdens de inrichting periode uw streaming-eindpunt worden weergegeven in **vanaf** staat en u merkt wellicht verminderde prestaties.
+Als u later wilt naar het CDN inschakelen/uitschakelen, de streaming-eindpunt moet zich in de **gestopt** staat. Dit kan maximaal twee uur voor de Azure CDN-integratie ingeschakeld en de wijzigingen die actief zijn in alle de CDN POP's duren. Echter, u kunt uw streaming-eindpunt en stream zonder onderbrekingen te starten vanaf het streaming-eindpunt en zodra de integratie voltooid is, de stream vanuit het CDN wordt geleverd. Tijdens de inrichting periode uw streaming-eindpunt worden weergegeven in de **vanaf** staat en u merkt wellicht verminderde prestaties.
 
 Wanneer het standaard streaming-eindpunt is gemaakt, wordt deze geconfigureerd met de Standard-Verizon standaard. U kunt Premium-Verizon of Standard Akamai providers met behulp van REST-API's kunt configureren. 
 

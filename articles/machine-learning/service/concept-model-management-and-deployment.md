@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0eaf48f57c3011222b71a63d703e1ccec7aca001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cbb7f13214a86f528521fdeb1ffa1374ca813ef
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692837"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331708"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
@@ -54,11 +54,14 @@ Zie voor meer informatie over ONNX met Azure Machine Learning-service, de [maken
 Registratie van het model kunt u om op te slaan en versie van uw modellen in de Azure-cloud in uw werkruimte. Het register model kunt u eenvoudig is om te organiseren en bijhouden van uw getrainde modellen.
 
 > [!TIP]
-> U kunt ook modellen die zijn getraind buiten de Azure Machine Learning-service registreren.
+> Een geregistreerde model is een logische container voor een of meer bestanden die gezamenlijk uw model. Bijvoorbeeld, als u een model dat is opgeslagen in meerdere bestanden hebt, kunt u registreren deze als één model in uw Azure Machine Learning-werkruimte. Na de registratie, kunt u vervolgens downloaden of het geregistreerde model implementeren en ontvangen van alle bestanden die zijn geregistreerd.
  
 Geregistreerde modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen. De Azure Machine Learning-service ondersteunt elk model dat worden kan geladen met behulp van Python 3.5.2 gebruikt of hoger.
 
-U kunt modellen die worden gebruikt in een actieve implementatie niet verwijderen.
+> [!TIP]
+> U kunt ook modellen die zijn getraind buiten de Azure Machine Learning-service registreren.
+
+U kunt een geregistreerde model dat wordt gebruikt in een actieve implementatie niet verwijderen.
 
 Zie voor meer informatie de sectie voor het model van registreren van [modellen implementeren](how-to-deploy-and-where.md#registermodel).
 

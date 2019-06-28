@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: fdf98a0c0c40010bb55955b54dc7b04db8e199f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493261"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329904"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
@@ -21,7 +21,7 @@ Beschikbaar in de cloud en de Azure IoT Edge, Azure Stream Analytics biedt ingeb
 
 De machine learning-modellen wordt ervan uitgegaan dat een uniforme wijze sample tijdreeks. Als de tijdreeks niet uniform is, kunt u een stap aggregatie met een tumblingvenster vóór het aanroepen van detectie van afwijkingen kunt invoegen.
 
-De machine learning-bewerkingen ondersteunen geen periodieke variatie trends of meerdere variate correlaties.
+De machine learning-bewerkingen ondersteunen geen periodieke variatie trends of meerdere variate correlaties op dit moment.
 
 ## <a name="model-accuracy-and-performance"></a>Model nauwkeurigheid en prestaties
 
@@ -29,9 +29,9 @@ Over het algemeen verbetert de nauwkeurigheid van het model met meer gegevens in
 
 De functies worden uitgevoerd door het tot stand brengen van een bepaalde normale op basis van wat ze tot nu toe hebben gezien. Uitbijters worden geïdentificeerd door het vergelijken met het tot stand gebrachte normaal, binnen het niveau van betrouwbaarheid. De venstergrootte moet worden gebaseerd op de minimale gebeurtenissen die zijn vereist voor het trainen van het model voor het normale gedrag, zodat wanneer een anomalie wordt gedetecteerd, het kunnen herkennen deze zou zijn.
 
-Houd er rekening mee dat de reactietijd van het model wordt verhoogd met een grootte van de geschiedenis omdat nodig is om te vergelijken met een groter aantal gebeurtenissen in het verleden. Het verdient aanbeveling om op te nemen alleen het benodigde aantal gebeurtenissen voor betere prestaties.
+Reactietijd van het model wordt verhoogd met een grootte van de geschiedenis omdat nodig is om te vergelijken met een groter aantal gebeurtenissen in het verleden. Het verdient aanbeveling om op te nemen alleen het benodigde aantal gebeurtenissen voor betere prestaties.
 
-Hiaten in de tijdreeks kunnen het gevolg zijn van het model niet ontvangen van gebeurtenissen op bepaalde tijdstippen in de tijd. Deze situatie wordt verzorgd door Stream Analytics met behulp van toerekening. De grootte van de geschiedenis, evenals een tijdsduur voor de sliding window van dezelfde wordt gebruikt voor het berekenen van de gemiddelde frequentie van waarmee gebeurtenissen worden verwacht aankomt.
+Hiaten in de tijdreeks kunnen het gevolg zijn van het model niet ontvangen van gebeurtenissen op bepaalde tijdstippen in de tijd. Deze situatie wordt verzorgd door Stream Analytics met behulp van toerekening logica. De grootte van de geschiedenis, evenals een tijdsduur voor de sliding window van dezelfde wordt gebruikt voor het berekenen van de gemiddelde frequentie van waarmee gebeurtenissen worden verwacht aankomt.
 
 ## <a name="spike-and-dip"></a>Piek- en dip
 
@@ -40,7 +40,7 @@ Tijdelijke afwijkingen in de gebeurtenisstroom van een time-serie zijn voorzien 
 
 ![Voorbeeld van een piek- en dip-anomaliedetectie](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-In de sliding window van dezelfde, als een tweede piek kleiner dan de eerste versie is, is de berekende score voor de kleinere piek waarschijnlijk niet aanzienlijke voldoende ten opzichte van de score voor de eerste piek in het niveau van betrouwbaarheid opgegeven. U kunt vertrouwen dat de instelling van het model om af te vangen van dergelijke afwijkingen verlagen. Als u begint met te veel waarschuwingen ontvangen, kunt u echter een hogere betrouwbaarheidsinterval gebruiken.
+In de sliding window van dezelfde, als een tweede piek kleiner dan de eerste versie is, is de berekende score voor de kleinere piek waarschijnlijk niet aanzienlijke voldoende ten opzichte van de score voor de eerste piek in het niveau van betrouwbaarheid opgegeven. U kunt proberen de betrouwbaarheid van het model voor het detecteren van dergelijke afwijkingen verlagen. Als u begint met te veel waarschuwingen ontvangen, kunt u echter een hogere betrouwbaarheidsinterval gebruiken.
 
 De volgende voorbeeldquery wordt ervan uitgegaan dat een uniform invoer tarief van één gebeurtenis per seconde in een sliding window van 2 minuten met een geschiedenis van 120 gebeurtenissen. De laatste SELECT-instructie worden uitgepakt en levert de score en anomaliedetectie status met een vertrouwensniveau van 95%.
 

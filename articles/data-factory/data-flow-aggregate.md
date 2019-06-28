@@ -1,35 +1,44 @@
 ---
-title: Azure Data Factory cumulatieve gegevenstransformatie stroom toewijzen
-description: Azure Data Factory stroom cumulatieve transformatie
+title: Samenvoegen van de transformatie in het toewijzen van gegevensstroom - Azure Data Factory | Microsoft Docs
+description: Leer hoe u gegevens op schaal in Azure Data Factory met de toewijzing van gegevens Flow cumulatieve transformatie worden geaggregeerd.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7b488b243c0520befb6b5470598f460b5a759fed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21135b26d4bc840b3fcb091e675e5e6bd24d8548
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467350"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312119"
 ---
-# <a name="azure-data-factory-mapping-data-flow-aggregate-transformation"></a>Azure Data Factory cumulatieve gegevenstransformatie stroom toewijzen
+# <a name="aggregate-transformation-in-mapping-data-flow"></a>Cumulatieve transformatie in de gegevensstroom toewijzen 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-De statistische transformatie is waarin u opgeeft aggregaties van kolommen in uw data-stromen. U kunt in de opbouwfunctie voor verschillende soorten aggregaties (dat wil zeggen SUM, MIN, MAX, aantal, enz.) definiëren en maak een nieuw veld in de uitvoer die deze aggregaties met optionele group by-velden bevat.
-
-![Opties voor transformatie aggregeren](media/data-flow/agg.png "aggregeren 1")
+De statistische transformatie is waarin u opgeeft aggregaties van kolommen in uw data-stromen. De opbouwfunctie voor expressies kunt u verschillende soorten aggregaties zoals som, MIN, MAX en aantal die kan worden gegroepeerd op bestaande of berekende kolommen definiëren.
 
 ## <a name="group-by"></a>Groeperen op
-(Optioneel) Kies een Group by-component voor de aggregatie en gebruik de naam van een bestaande kolom of een nieuwe naam. Gebruik 'kolom toevoegen' meer group by-componenten toevoegen en klik op het tekstvak naast de naam van de kolom om te starten van de opbouwfunctie voor alleen een bestaande kolom, combinatie van kolommen of expressies voor de groepering selecteren.
+Selecteer een bestaande kolom of maak een nieuwe berekende kolom moet worden gebruikt als een groep door de component voor de aggregatie. Selecteer de gewenste kolom in de vervolgkeuzelijst voor het gebruik van een bestaande kolom. Beweeg de muisaanwijzer over de component voor het maken van een nieuwe berekende kolom, en klikt u op 'Berekende kolom'. Hiermee opent u de [gegevens Flow opbouwfunctie voor expressies](concepts-data-flow-expression-builder.md). Nadat u de berekende kolom maken, voert u de naam van de uitvoer-kolom in het veld 'Naam als'. Als u toevoegen van een andere groep by-component wilt, Beweeg de muisaanwijzer over een bestaande component en klikt u op '+'.
 
-## <a name="the-aggregate-column-tab"></a>Het tabblad statistische kolom 
-(Vereist) Kies het tabblad statistische kolom om de aggregatie-expressies te bouwen. U kunt kiezen van een bestaande kolom aan de waarde overschreven met de aggregatie, of maak een nieuw veld met de nieuwe naam voor de aggregatie. De expressie die u wilt gebruiken voor de aggregatie moet worden ingevoerd in het rechter in naast de naam kolomkiezer. Te klikken op het tekstvak wordt de opbouwfunctie voor expressies geopend.
+![Cumulatieve transformatie groeperen op instellingen](media/data-flow/agg.png "cumulatieve transformatie groeperen op instellingen")
 
-![Opties voor transformatie aggregeren](media/data-flow/agg2.png "aggregator")
+> [!NOTE]
+> Een component group by is optioneel in een statistische transformatie.
 
-## <a name="data-preview-in-expression-builder"></a>Voorbeeld van gegevens in de opbouwfunctie voor expressies
+## <a name="aggregate-column"></a>Statistische kolom 
+Kies het tabblad 'Statistische functies' om statistische expressies te bouwen. U kunt kiezen van een bestaande kolom en de waarde overschreven met de aggregatie of een nieuw veld maken met een nieuwe naam. De aggregatie van expressie wordt ingevoerd in het vak rechts naast de naam kolomkiezer. Als u wilt de expressie bewerken, klikt u op het tekstvak om de opbouwfunctie voor expressies te openen. Een extra aggregatie, Beweeg de muisaanwijzer over een bestaande expressie toevoegen en klik op '+' te maken van een nieuwe aggregatiekolom of [kolom patroon](concepts-data-flow-column-pattern.md).
 
-In de foutopsporingsmodus de opbouwfunctie voor expressies kan niet worden gegenereerd, voorbeelden van gegevens met statistische functies. Voorbeelden van gegevens voor statistische transformaties bekijken, sluit u de opbouwfunctie voor expressies en het gegevensprofiel uit de flow-ontwerper weergeven.
+![Statistische samengevoegde transformatie-instellingen](media/data-flow/agg2.png "samen samengevoegde transformatie-instellingen")
+
+> [!NOTE]
+> De expressie van elke aggregatie moet ten minste één statistische functie bevatten.
+
+> [!NOTE]
+> In de foutopsporingsmodus de opbouwfunctie voor expressies kan niet worden gegenereerd, voorbeelden van gegevens met statistische functies. Als u voorbeelden van gegevens voor statistische transformaties, sluit de opbouwfunctie voor expressies en bekijkt u de gegevens via het tabblad Voorbeeld van gegevens.
+
+## <a name="next-steps"></a>Volgende stappen
+
+-Definiëren met behulp van aggregatie op basis van het venster de [venster transformatie](data-flow-window.md)

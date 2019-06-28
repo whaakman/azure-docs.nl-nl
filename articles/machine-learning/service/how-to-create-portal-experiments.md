@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989868"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312806"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Maken en het verkennen van geautomatiseerde experimenten voor machine learning in Azure portal (Preview)
 
@@ -96,16 +96,16 @@ Selecteer de knop Experiment maken voor het vullen van de volgende notatie.
 
 1. Voor het voorspellen van:
     1. Selecteer time-kolom: Deze kolom bevat de tijdgegevens moet worden gebruikt.
-    1. Prognose horizon selecteren: Aangeven hoeveel eenheden (minuten/uren/dagen/weken/maanden/jaar), het model toegankelijk voor de toekomst te voorspellen. Het model moet verder in de toekomst te voorspellen hoe minder nauwkeurig verandert. [Meer informatie over prognoses en prognose horizon](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
+    1. Prognose horizon selecteren: Aangeven hoeveel eenheden (minuten/uren/dagen/weken/maanden/jaar), het model toegankelijk voor de toekomst te voorspellen. Het model moet verder in de toekomst te voorspellen hoe minder nauwkeurig verandert. [Meer informatie over prognoses en prognose horizon](how-to-auto-train-forecast.md).
 
 1. (Optioneel) Geavanceerde instellingen: aanvullende instellingen die u gebruiken kunt voor het beheren van de trainingstaak beter.
 
     Geavanceerde instellingen|Description
     ------|------
-    Primaire metrische gegevens| Belangrijkste metrische gegevens die worden gebruikt voor het scoren van uw model. [Meer informatie over metrische gegevens model](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
+    Primaire metrische gegevens| Belangrijkste metrische gegevens die worden gebruikt voor het scoren van uw model. [Meer informatie over metrische gegevens model](how-to-configure-auto-train.md#explore-model-metrics).
     Afsluitcriteria| Wanneer een van deze criteria wordt voldaan, wordt de trainingstaak beëindigd voordat de volledige voltooid. <br> *Tijd (minuten) voor de taak training*: Hoe lang om toe te staan de trainingstaak om uit te voeren.  <br> *Maximumaantal iteraties*: Maximum aantal pijplijnen (herhalingen) in de trainingstaak te testen. De taak wordt niet meer dan het opgegeven aantal iteraties uitgevoerd. <br> *Metrische gegevens score drempelwaarde*:  Minimale metrische score voor alle pijplijnen. Dit zorgt ervoor dat als u een gedefinieerd doel metrische gegevens die u wilt bereiken hebt, u doen niet meer tijd besteden aan op de trainingstaak dan nodig.
     Voorverwerking| Selecteer de voorverwerking van gedaan door geautomatiseerde machine learning uit te schakelen. Voorverwerking omvat automatisch gegevens opschonen, voorbereiden en transformatie voor het genereren van synthetische functies. [Meer informatie over voorverwerking](#preprocess).
-    Validatie| Selecteer een van de validatieopties voor cross-om in de trainingstaak te gebruiken. [Meer informatie over cross-validatie](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
+    Validatie| Selecteer een van de validatieopties voor cross-om in de trainingstaak te gebruiken. [Meer informatie over cross-validatie](how-to-configure-auto-train.md).
     Gelijktijdigheid| Selecteer de multicore-limieten die u gebruiken wilt bij het gebruik van meerdere kernen compute.
     Geblokkeerde algoritme| Selecteer de algoritmen die u wilt uitsluiten van de trainingstaak.
 
@@ -180,7 +180,7 @@ Taken training kan even voor elke pijplijn die wordt uitgevoerd.
 
 ### <a name="view-training-run-details"></a>Details uitvoering van weergave-training
 
-Inzoomen op een van de uitvoer-modellen om te zien uitvoeren-gegevens, zoals metrische gegevens en distributie worden prestatiegrafieken training. [Meer informatie over grafieken](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
+Inzoomen op een van de uitvoer-modellen om te zien uitvoeren-gegevens, zoals metrische gegevens en distributie worden prestatiegrafieken training. [Meer informatie over grafieken](how-to-track-experiments.md#understanding-automated-ml-charts).
 
 ![Details van de herhaling](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -220,7 +220,7 @@ Geautomatiseerde ML helpt u bij het implementeren van het model zonder code te s
 
 1. Selecteer de **Bladeren** knop naast het vak 'Conda File' voor het uploaden van het omgevingsbestand (condaEnv.yml) die u eerder hebt gedownload.
 
-    U kunt uw eigen scoring-script en conda-bestand gebruiken, evenals aanvullende bestanden uploaden. [Meer informatie over de scoring-script](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+    U kunt uw eigen scoring-script en conda-bestand gebruiken, evenals aanvullende bestanden uploaden. [Meer informatie over de scoring-script](how-to-deploy-and-where.md#script).
 
       >[!Important]
       > Bestandsnamen moeten worden onder 32 tekens bevatten en moet beginnen en eindigen met alfanumerieke tekens. Streepjes, onderstrepingstekens, punten en alfanumerieke tekens tussen kan worden opgenomen. Spaties zijn niet toegestaan.
@@ -228,7 +228,7 @@ Geautomatiseerde ML helpt u bij het implementeren van het model zonder code te s
     ![Installatiekopie maken](media/how-to-create-portal-experiments/create-image.png)
 
 1. Selecteer de knop 'Maken' om te beginnen met het maken van de installatiekopie. Dit duurt enkele minuten om te voltooien, één keer uitgevoerd, ziet u een bericht op de bovenste balk.
-1. Ga naar het tabblad 'Installatiekopieën', schakel het selectievakje in naast de installatiekopie die u wilt implementeren en selecteer 'Implementatie maken'. [Meer informatie over implementaties](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+1. Ga naar het tabblad 'Installatiekopieën', schakel het selectievakje in naast de installatiekopie die u wilt implementeren en selecteer 'Implementatie maken'. [Meer informatie over implementaties](how-to-deploy-and-where.md).
 
     Er zijn 2 opties voor implementatie.
      + Azure Container Instance (ACI) - dit meer wordt gebruikt voor het testen van gebruik in plaats van operationele implementatie op grote schaal. Zorg ervoor dat u de waarden voor ten minste één core voor invullen _CPU-reservecapaciteit_, en ten minste één gigabyte (GB) voor _Geheugenreservecapaciteit_

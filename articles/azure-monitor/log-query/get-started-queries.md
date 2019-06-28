@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519004"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296092"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Aan de slag met Azure Monitor logboeken-query 's
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Aan de slag met Logboeken-query's in Azure Monitor
 
 
 > [!NOTE]
@@ -28,9 +28,9 @@ ms.locfileid: "65519004"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In deze zelfstudie leert u het schrijven van Azure Monitor logboeken-query's. Deze leert u hoe aan:
+In deze zelfstudie leert u Logboeken-query's schrijven in Azure Monitor. Deze leert u hoe aan:
 
-- Structuur van de query's begrijpen
+- Inzicht in query-structuur
 - Query-resultaten sorteren
 - Filter de resultaten van query
 - Een tijdsperiode opgeven
@@ -38,6 +38,8 @@ In deze zelfstudie leert u het schrijven van Azure Monitor logboeken-query's. De
 - Definiëren en gebruiken van aangepaste velden
 - Cumulatieve en groep-resultaten
 
+Zie voor een zelfstudie over het gebruik van Log Analytics in Azure portal, [aan de slag met Azure Monitor Log-Analytics](get-started-portal.md).<br>
+Zie voor meer informatie over de logboeken-query's in Azure Monitor [overzicht van het logboek query's in Azure Monitor](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Een nieuwe query schrijven
 Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of de *zoeken* opdracht. U moet beginnen met een tabelnaam wordt opgegeven, omdat deze een duidelijke bereik voor de query wordt gedefinieerd en verbetert de prestaties van query's zowel relevantie van de resultaten.
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 Deze query zoekt naar de *SecurityEvent* tabel voor records die de zin 'Cryptografische' bevatten. Deze records worden 10 records geretourneerd en weergegeven. Als we weglaat de `in (SecurityEvent)` deel en alleen worden uitgevoerd `search "Cryptographic"`, de zoekopdracht gaat over *alle* tabellen die langer duren en minder efficiënt.
 
-> [!NOTE]
-> Standaard wordt een tijdsbereik van _afgelopen 24 uur_ is ingesteld. Als u een ander bereik, gebruikt u de tijdkiezer (naast de *gaat* knop) of een expliciete tijd toevoegen bereikfilter aan uw query.
+> [!WARNING]
+> Zoekquery's zijn doorgaans langzamer dan query's op basis van een tabel, omdat ze hebben om meer gegevens te verwerken. 
 
 ## <a name="sort-and-top"></a>Sorteren en top
 Terwijl **nemen** is handig om een paar records, de resultaten zijn geselecteerd en wordt weergegeven in willekeurige volgorde. Als u een geordende weergeven, kunt u **sorteren** door de gewenste kolom:

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 91cc3f96f9cdd231c38232c972c2628d12b9f4b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ac054bc9750e4297080c4ab64030c9c6a5fb55a
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476145"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312838"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Opslagaccountsleutels met Azure Key Vault en de Azure CLI beheren 
 
@@ -94,7 +94,7 @@ Er zijn vier eenvoudige stappen Key Vault gebruikt voor het beheren van opslagsl
 1. De 'Storage Account Key Operator Service rol' RBAC-rol toewijzen aan Key Vault. Deze rol beperkt het toegangsbereik naar uw opslagaccount. Gebruik de functie 'Klassieke Storage Account Key Operator Service rol' voor een klassiek opslagaccount.
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+    az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
     ```
     
     `93c27d83-f79b-4cb2-8dd4-4aa716542e74` is de Object-ID voor Key Vault in de openbare cloud van Azure. Als u de Object-ID voor Key Vault in de Azure Government-cloud, Zie [Service-principal toepassings-ID](#service-principal-application-id).

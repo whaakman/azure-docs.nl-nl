@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176408"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333372"
 ---
 | Resource | Standaard-/ maximumlimiet |
 | --- | --- |
@@ -25,6 +25,15 @@ ms.locfileid: "67176408"
 | Padpatronen voor een regel voor doorsturen | 25 |
 | Aangepaste web application firewall-regels per beleid | 10 |
 | Web application firewall-beleid per resource | 100 |
+| Criteria voor Web application firewall overeenkomst per aangepaste regel | 10 |
+| Web application firewall voor IP-adresbereiken per overeenkomen met de voorwaarde | 600 |
+| Web application firewall overeenkomst tekenreekswaarden per voorwaarde voor overeenkomst | 10 |
+| Web application firewall overeenkomst waarde tekenreekslengte | 256 |
+| De Web application firewall naamlengte voor POST hoofdtekst van de parameter | 256 |
+| De Web application firewall naamlengte voor de HTTP-header | 256 |
+| Cookie naamlengte voor Web application firewall | 256 |
+| Web application firewall HTTP-aanvraag hoofdtekst gecontroleerd | 128 KB |
+| Lengte van Web application firewall aangepast antwoord hoofdtekst | 2 KB |
 
 ### <a name="timeout-values"></a>Time-outwaarden
 #### <a name="client-to-front-door"></a>Client naar de voordeur
@@ -42,3 +51,6 @@ ms.locfileid: "67176408"
 | ---- | ------- | ------- |
 | **Downloaden** | Er is geen limiet voor de downloadgrootte. | Er is geen limiet voor de downloadgrootte. |
 | **Uploaden** |  Er is geen limiet, zolang elke uploaden CTE minder dan 2 GB is. | De grootte mag niet groter zijn dan 2 GB. |
+
+### <a name="other-limits"></a>Andere limieten
+- Maximumgrootte van URL - 8192 bytes - Hiermee geeft u de maximale lengte van de onbewerkte URL (schema hostnaam + poort + pad + querytekenreeks van de URL) - maximale queryreeks grootte - 4096 bytes - Hiermee geeft u de maximale lengte van de query-tekenreeks in bytes.

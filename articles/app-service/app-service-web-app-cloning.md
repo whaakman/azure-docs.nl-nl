@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139720"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329653"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service-App klonen met behulp van PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139720"
 
 Met de release van Microsoft Azure PowerShell versie 1.1.0 is een nieuwe optie is toegevoegd aan `New-AzWebApp` waarmee u een bestaande App Service-app om een nieuwe app in een andere regio of in dezelfde regio te klonen. Deze optie kan klanten snel en eenvoudig een aantal apps implementeren in verschillende regio's.
 
-App klonen is momenteel alleen ondersteund voor premium-laag app service-abonnementen. Dezelfde beperkingen als back-up van App Service-functie maakt gebruik van de nieuwe functie, Zie [maakt u een Back-up van een app in Azure App Service](manage-backup.md).
+Apps klonen wordt ondersteund voor Standard, Premium, Premium V2 en geïsoleerd app service-abonnementen. Dezelfde beperkingen als back-up van App Service-functie maakt gebruik van de nieuwe functie, Zie [maakt u een Back-up van een app in Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Een bestaande app klonen
 Scenario: Een bestaande app in de regio Zuid-centraal VS, en u wilt klonen van de inhoud naar een nieuwe app in de regio Noord-centraal VS. Dit kan worden bereikt met behulp van de Azure Resource Manager-versie van de PowerShell-cmdlet om te maken van een nieuwe app met de `-SourceWebApp` optie.

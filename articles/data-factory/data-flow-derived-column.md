@@ -1,38 +1,34 @@
 ---
-title: Azure Data Factory toewijzing gegevensstroom afgeleide kolom transformatie
-description: Informatie over het transformeren van gegevens op schaal met Azure Data Factory toewijzing Flow afgeleide kolom gegevenstransformatie
+title: Afgeleide kolom transformatie in het toewijzen van gegevensstroom - Azure Data Factory | Microsoft Docs
+description: Informatie over het transformeren van gegevens op schaal in Azure Data Factory met de toewijzing van Flow afgeleide kolom-transformatie.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6568e5ebf356bb0e6b4ac8ff6059cd093f8da821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 941c629fd8359edc7fc1cf364a6735314044d95e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917569"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312210"
 ---
-# <a name="mapping-data-flow-derived-column-transformation"></a>Toewijzing van de gegevensstroom afgeleide kolom transformatie
+# <a name="derived-column-transformation-in-mapping-data-flow"></a>Afgeleide kolom transformatie in de gegevensstroom toewijzen
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Gebruik de transformatie afgeleide kolom voor het genereren van nieuwe kolommen in de gegevensstroom of om bestaande velden wijzigen.
 
-![kolom afleiden](media/data-flow/dc1.png "afgeleide kolom")
+## <a name="derived-column-settings"></a>Afgeleide kolom-instellingen
 
-U kunt meerdere afgeleide kolom acties uitvoeren in een enkele afgeleide kolom-transformatie. Klik op 'Kolom toevoegen' voor het transformeren van meer dan 1 kolom in de transformatiestap één.
+Als u wilt een bestaande kolom overschrijven, selecteert u deze via de kolom-vervolgkeuzelijst. Gebruik anders de kolomveld als een tekstvak en typ de naam van de nieuwe kolom. Als u wilt maken van de afgeleide kolom expressie, klikt u op het vak 'Expressie invoeren' te openen de [gegevens Flow opbouwfunctie voor expressies](concepts-data-flow-expression-builder.md).
 
-Selecteer een bestaande kolom te overschrijven met een nieuwe waarde van de afgeleide in het veld kolom, of klikt u op 'Nieuwe kolom maken' voor het genereren van een nieuwe kolom met de zojuist afgeleide waarde.
+![Kolominstellingen afgeleid](media/data-flow/dc1.png "afgeleide kolominstellingen")
 
-De opbouwfunctie voor expressies waar u de expressie voor de afgeleide kolommen met behulp van functies van de expressie kunt bouwen, het tekstvak voor expressie wordt geopend.
+Als u wilt toevoegen van extra afgeleide kolommen, Beweeg de muisaanwijzer over een bestaande afgeleide kolom en klik op '+'. Kies vervolgens 'Kolom toevoegen' of 'Patroon voor kolom toevoegen'. Kolom patronen kunnen van pas komen als uw kolomnamen variabele van uw bronnen. Zie voor meer informatie, [kolom patronen](concepts-data-flow-column-pattern.md).
 
-## <a name="column-patterns"></a>Kolompatronen
-
-Als uw kolomnamen variabele van uw bronnen, kunt u desgewenst transformaties binnen het afgeleide kolom maken met behulp van de kolom patronen in plaats van kolommen met de naam. Zie de [Schema Drift](concepts-data-flow-schema-drift.md) artikel voor meer informatie.
-
-![patroon voor kolom](media/data-flow/columnpattern.png "kolom patronen")
+![Nieuw afgeleide kolom selecteren](media/data-flow/columnpattern.png "nieuw afgeleide kolom selecteren")
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de [Data Factory expressietaal voor transformaties](https://aka.ms/dataflowexpressions) en de [opbouwfunctie voor expressies](concepts-data-flow-expression-builder.md)
+- Meer informatie over de [expressietaal gegevensstroom toewijzing](data-flow-expression-functions.md).

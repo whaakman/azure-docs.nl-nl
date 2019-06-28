@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/27/2019
-ms.openlocfilehash: 15b96d44b1ff78a83a4364579b7984d20e3f4d85
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 06/21/2019
+ms.openlocfilehash: 462b485b5dc5106ab18959ab2cdbfe1bfc0f94bf
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597710"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330562"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Quickstart: Een apparaat beheren dat is verbonden met een IoT-hub (Node.js)
 
@@ -99,12 +99,12 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName --output table
+      --name YourIoTHubName --policy-name service --output table
     ```
 
     Noteer de serviceverbindingsreeks. Deze ziet er ongeveer als volgt uit:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     U gebruikt deze waarde verderop in de snelstartgids. De verbindingsreeks voor de service is iets anders dan de verbindingsreeks voor het apparaat.
 

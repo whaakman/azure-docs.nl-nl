@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d17823c4ef4917f9f312b8f2f327e2b0395cfa3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2916c9aba7d404ff4ad380d249bd507fadf71ea
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109434"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310080"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -52,7 +52,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 >De Azure AD Connect-server bevat essentiële identiteitsgegevens en moeten worden behandeld als een laag 0-onderdeel, zoals beschreven in [het lagenmodel voor Active Directory met beheerdersrechten](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
 
 * Azure AD Connect kan niet worden geïnstalleerd op Small Business Server of Windows Server Essentials voordat 2019 (Windows Server Essentials 2019 wordt ondersteund). De server moet gebruikmaken van Windows Server standard of hoger.
-* Azure AD Connect installeert op een domeincontroller wordt niet aanbevolen vanwege de procedures voor beveiliging en meer beperkende instellingen die kunnen voorkomen dat Azure AD Connect correct installeren
+* Azure AD Connect installeert op een domeincontroller wordt niet aanbevolen vanwege de procedures voor beveiliging en meer beperkende instellingen die kunnen voorkomen dat Azure AD Connect correct worden geïnstalleerd.
 * De Azure AD Connect-server moet een volledige GUI geïnstalleerd hebben. Het is **niet ondersteund** te installeren op server core.
 >[!IMPORTANT]
 >Azure AD Connect installeert op small business server, server essentials of serverkern wordt niet ondersteund.
@@ -216,7 +216,7 @@ De onderstaande tabel ziet u de minimale vereisten voor de Azure AD Connect sync
 | Minder dan 10.000 |1, 6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1, 6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1, 6 GHz |16 GB |100 GB |
-| 100\.000 of meer objecten die is de volledige versie van SQL Server vereist voor | | | |
+| 100.000 of meer objecten die is de volledige versie van SQL Server vereist voor | | | |
 | 100,000–300,000 |1, 6 GHz |32 GB |300 GB |
 | 300,000–600,000 |1, 6 GHz |32 GB |450 GB |
 | Meer dan 600.000 |1, 6 GHz |32 GB |500 GB |

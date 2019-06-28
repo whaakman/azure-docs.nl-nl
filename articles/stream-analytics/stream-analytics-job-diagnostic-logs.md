@@ -7,17 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515923"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329998"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics oplossen met behulp van logboeken met diagnostische gegevens
 
 Een Azure Stream Analytics-taak stopt soms onverwacht verwerking. Het is belangrijk om te kunnen oplossen van dit type gebeurtenis. Mislukte taken kunnen worden veroorzaakt door een onverwacht queryresultaat, door storing in de verbinding met apparaten of door een onverwachte serviceonderbreking. De diagnostische logboeken in Stream Analytics kunt u de oorzaak van problemen identificeren wanneer ze zich voordoen en hersteltijd te verminderen.
+
+Het is raadzaam om in te schakelen van logboeken met diagnostische gegevens voor alle productietaken.
 
 ## <a name="log-types"></a>Typen logboeken
 
@@ -62,7 +64,7 @@ Inschakelen van logboeken met diagnostische gegevens en deze te verzenden naar A
 
     ![Navigatie in de blade naar Logboeken met diagnostische gegevens](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Maak een **naam** in **diagnostische instellingen** en schakel het selectievakje in naast **verzenden naar Log Analytics**. Een bestaande toevoegen of maak een nieuwe **Log analytics-werkruimte**. Schakel de selectievakjes voor **uitvoering** en **ontwerpen** onder **LOG**, en **AllMetrics** onder **METRIC** . Klik op **Opslaan**.
+2.  Maak een **naam** in **diagnostische instellingen** en schakel het selectievakje in naast **verzenden naar Log Analytics**. Een bestaande toevoegen of maak een nieuwe **Log analytics-werkruimte**. Schakel de selectievakjes voor **uitvoering** en **ontwerpen** onder **LOG**, en **AllMetrics** onder **METRIC** . Klik op **Opslaan**. Het verdient aanbeveling een Log Analytics-werkruimte in dezelfde Azure-regio als uw Stream Analytics-taak gebruiken om te voorkomen dat extra kosten.
 
     ![Instellingen voor diagnostische logboeken](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -113,7 +115,7 @@ Logboeken van taakuitvoeringen bevat gegevens over gebeurtenissen die hebben pla
 
 ### <a name="data-errors"></a>Fouten met gegevens
 
-Elke fout die optreedt terwijl de taak is verwerken van gegevens is in deze categorie van Logboeken. Deze logboeken worden gemaakt tijdens het lezen, gegevens serialisatie, meestal als schrijfbewerkingen. Deze logboeken bevatten geen fouten in de basisnetwerkverbinding. Fouten in de basisnetwerkverbinding worden behandeld als algemene gebeurtenissen.
+Elke fout die optreedt terwijl de taak is verwerken van gegevens is in deze categorie van Logboeken. Deze logboeken worden gemaakt tijdens het lezen, gegevens serialisatie, meestal als schrijfbewerkingen. Deze logboeken bevatten geen fouten in de basisnetwerkverbinding. Fouten in de basisnetwerkverbinding worden behandeld als algemene gebeurtenissen. U kunt meer informatie over de oorzaak van verschillende andere [en uitvoergegevens fouten](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 Name | Description
 ------- | -------
@@ -149,4 +151,4 @@ Correlatie-id | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifi
 * [Aan de slag met Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language-referentie](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API-naslaginformatie](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Fouten voor Stream Analytics-gegevens](https://docs.microsoft.com/azure/stream-analytics/data-errors)

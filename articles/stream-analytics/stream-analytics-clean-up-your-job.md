@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb81c73f7946a10bae0470a55dcf1c0d55c2b847
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159465"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330052"
 ---
-# <a name="clean-up-your-azure-stream-analytics-job"></a>Opschonen van uw Azure Stream Analytics-taak
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Beëindigt of verwijdert u uw Azure Stream Analytics-taak
 
-Azure Stream Analytics-taken kunnen eenvoudig worden verwijderd via de Azure portal, Azure PowerShell of Azure SDK voor .net of REST-API. Een Stream Analytics-taak kan niet worden hersteld nadat deze is verwijderd.
+Azure Stream Analytics-taken kunnen eenvoudig worden gestopt of verwijderd met de Azure portal, Azure PowerShell of Azure SDK voor .net of REST-API. Een Stream Analytics-taak kan niet worden hersteld nadat deze is verwijderd.
 
 >[!NOTE] 
 >Wanneer u de Stream Analytics-taak stopt, de gegevens zich blijft voordoen alleen in de invoer- en opslag, zoals Event Hubs of Azure SQL Database. Als u gegevens uit Azure verwijdert moet, moet u de verwijdering processen voor de invoer- en bronnen van uw Stream Analytics-taak volgen.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Een taak in Azure portal stoppen
+
+Wanneer u een taak stopt, de resources zijn deprovisionned en stopt het verwerken van gebeurtenissen. Kosten met betrekking tot deze taak worden ook gestopt. Maar alle uw configuratie worden gehouden en u kunt de taak later opnieuw 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
@@ -35,6 +37,9 @@ Azure Stream Analytics-taken kunnen eenvoudig worden verwijderd via de Azure por
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Een taak in Azure portal verwijderen
+
+>[!WARNING] 
+>Een Stream Analytics-taak kan niet worden hersteld nadat deze is verwijderd.
 
 1. Meld u aan bij Azure Portal. 
 

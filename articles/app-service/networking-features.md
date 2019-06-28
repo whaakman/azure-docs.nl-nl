@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498947"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338500"
 ---
 # <a name="app-service-networking-features"></a>App Service-functies voor netwerkbeheer
 
@@ -112,7 +112,7 @@ Service-eindpunten kunt u vergrendelen **inkomende** toegang tot uw app zodat de
 ![Service-eindpunten](media/networking-features/service-endpoints.png)
 
 * Instellen van een toepassingsgateway met uw app voor binnenkomend verkeer naar uw app
-* Testricting toegang tot uw app naar resources in uw VNet. Dit kan zijn virtuele machines, as-omgevingen of zelfs andere apps die gebruikmaken van VNet-integratie 
+* Het beperken van toegang tot uw app naar resources in uw VNet. Dit kan zijn virtuele machines, as-omgevingen of zelfs andere apps die gebruikmaken van VNet-integratie 
 
 ![Service-eindpunten met application gateway](media/networking-features/service-endpoints-appgw.png)
 
@@ -136,7 +136,7 @@ Deze functie wordt vaak gebruikt om:
 
 Omdat de functie kunt toegang tot on-premises bronnen zonder een gat inkomende firewall, is het populaire met ontwikkelaars. De andere uitgaande App Service netwerkfuncties zijn zeer Azure virtuele netwerken die betrekking hebben. Hybride verbindingen heeft geen een afhankelijkheid van een VNet te doorlopen en kan worden gebruikt voor een groter aantal netwerken behoeften. Het is belangrijk te weten dat de App Service Hybrid Connections-functie niet van belang of weten wat u doet boven op het. Dat wil zeggen dat u deze kunt gebruiken voor toegang tot een database, een webservice of een willekeurige TCP-socket op een mainframe is. De functie tunnels in feite TCP-pakketten. 
 
-Hybride verbindingen wordt gebruikt voor ontwikkeling, wordt maar ook gebruikt in talloze productietoepassingen ook. Het is erg handig voor het openen van een webservice of de database, maar is niet geschikt voor situaties met betrekking tot een geweldige veel verbindingen worden gemaakt. 
+Hybride verbindingen wordt gebruikt voor ontwikkeling, wordt maar ook gebruikt in talloze productietoepassingen ook. Het is erg handig voor het openen van een webservice of de database, maar is niet geschikt voor situaties met betrekking tot het maken van veel verbindingen. 
 
 ### <a name="gateway-required-vnet-integration"></a>Gateway vereist een VNet-integratie 
 

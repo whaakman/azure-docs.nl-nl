@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 05/07/2019
-ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0ee2dde5a941d069f5b745eafb35df780f657a47
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65079268"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312626"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Klanten-Lockbox voor Microsoft Azure
 
@@ -97,7 +97,7 @@ De volgende scenario's en services zijn momenteel algemeen beschikbaar voor klan
 ### <a name="remote-desktop-access-to-virtual-machines"></a>Externe bureaublad toegang tot virtuele machines
 
 Klanten-Lockbox is momenteel ingeschakeld voor toegang tot extern bureaublad-aanvragen voor virtuele machines. De volgende werkbelastingen worden ondersteund:
-- Platform als een service (PaaS) - versie 1
+- Platform als een service (PaaS) - Azure Cloud Services (Webrol en werkrol)
 - Infrastructuur als een dienst (IaaS) - Windows- en Linux (alleen voor Azure Resource Manager)
 - Virtuele-machineschaalset - Windows- en Linux
 
