@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 5/24/2019
 ms.author: travisw
-ms.openlocfilehash: 5991388e47981c83eec24b0d8f955f7c292180da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e82b2ef9500defe0d08351da1e3487e4671155f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081531"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467042"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Quickstart: Maken van een stem op de eerste virtuele assistent in Java op Android met behulp van de spraak-SDK
 
@@ -30,15 +30,12 @@ Deze toepassing is gemaakt met de Speech SDK Maven-pakket- en Android Studio 3.3
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De sleutel van een Azure-abonnement voor spraakservices in de **westus2** regio. Maken van dit abonnement op de [Azure-portal](https://portal.azure.com).
+* De sleutel van een Azure-abonnement voor Speech Services. [Vraag een gratis](get-started.md) of maken door op de [Azure-portal](https://portal.azure.com).
 * Een eerder gemaakte bot geconfigureerd met de [channel voor directe regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 * [Android Studio](https://developer.android.com/studio/) v3.3 of hoger
- 
-    > [!NOTE]
-    > Directe regel spraak (Preview) is momenteel alleen beschikbaar in de **westus2** regio.
 
     > [!NOTE]
-    > De proefversie van 30 dagen voor de prijscategorie wordt beschreven in standaard [Speech Services gratis uitproberen](get-started.md) is beperkt tot **westus** (niet **westus2**) en is dus niet compatibel met Direct Regel spraak. Gratis en standard-laag **westus2** abonnementen compatibel zijn.
+    > Directe regel spraak (Preview) is momenteel beschikbaar in een subset van Services voor spraak-regio's. Raadpleeg [de lijst met ondersteunde regio's voor virtuele voice-first-assistenten](regions.md#Voice-first virtual assistants) en zorg ervoor dat uw resources worden geïmplementeerd in een van deze regio's.
 
 ## <a name="create-and-configure-a-project"></a>Een project maken en configureren
 
@@ -126,8 +123,8 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
 
     import org.json.JSONException;
     import org.json.JSONObject;
@@ -139,10 +136,10 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
         private static String channelSecret = "YourChannelSecret";
         // Replace below with your own speech subscription key
         private static String speechSubscriptionKey = "YourSpeechSubscriptionKey";
-        // Replace below with your own speech service region (note: only 'westus2' is currently supported)
+        // Replace below with your own speech service region (note: only a subset of regions are currently supported)
         private static String serviceRegion = "YourSpeechServiceRegion";
 
-        private SpeechBotConnector botConnector;
+        private DialogServiceConnector connector;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -160,24 +157,24 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
         }
 
         public void onBotButtonClicked(View v) {
-            // Recreate the SpeechBotConnector on each button press, ensuring that the existing one is closed
-            if (botConnector != null) {
-                botConnector.close();
-                botConnector = null;
+            // Recreate the DialogServiceConnector on each button press, ensuring that the existing one is closed
+            if (connector != null) {
+                connector.close();
+                connector = null;
             }
 
-            // Create the SpeechBotConnector from the channel and speech subscription information
-            BotConnectorConfig config = BotConnectorConfig.fromSecretKey(channelSecret, speechSubscriptionKey, serviceRegion);
-            botConnector = new SpeechBotConnector(config, AudioConfig.fromDefaultMicrophoneInput());
+            // Create the DialogServiceConnector from the channel and speech subscription information
+            DialogServiceConfig config = DialogServiceConfig.fromBotSecret(channelSecret, speechSubscriptionKey, serviceRegion);
+            connector = new DialogServiceConnector(config, AudioConfig.fromDefaultMicrophoneInput());
 
             // Optional step: preemptively connect to reduce first interaction latency
-            botConnector.connectAsync();
+            connector.connectAsync();
 
-            // Register the SpeechBotConnector's event listeners
+            // Register the DialogServiceConnector's event listeners
             registerEventListeners();
 
             // Begin sending audio to your bot
-            botConnector.listenOnceAsync();
+            connector.listenOnceAsync();
         }
 
         private void registerEventListeners() {
@@ -185,32 +182,32 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
             TextView activityText = (TextView) this.findViewById(R.id.activityText); // 'activityText' is the ID of your text view
 
             // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-            botConnector.recognizing.addEventListener((o, recoArgs) -> {
+            connector.recognizing.addEventListener((o, recoArgs) -> {
                 recoText.setText("  Recognizing: " + recoArgs.getResult().getText());
             });
 
             // Recognized will provide the final recognized text once audio capture is completed
-            botConnector.recognized.addEventListener((o, recoArgs) -> {
+            connector.recognized.addEventListener((o, recoArgs) -> {
                 recoText.setText("  Recognized: " + recoArgs.getResult().getText());
             });
 
             // SessionStarted will notify when audio begins flowing to the service for a turn
-            botConnector.sessionStarted.addEventListener((o, sessionArgs) -> {
+            connector.sessionStarted.addEventListener((o, sessionArgs) -> {
                 recoText.setText("Listening...");
             });
 
             // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-            botConnector.sessionStopped.addEventListener((o, sessionArgs) -> {
+            connector.sessionStopped.addEventListener((o, sessionArgs) -> {
             });
 
             // Canceled will be signaled when a turn is aborted or experiences an error condition
-            botConnector.canceled.addEventListener((o, canceledArgs) -> {
+            connector.canceled.addEventListener((o, canceledArgs) -> {
                 recoText.setText("Canceled (" + canceledArgs.getReason().toString() + ") error details: {}" + canceledArgs.getErrorDetails());
-                botConnector.disconnectAsync();
+                connector.disconnectAsync();
             });
 
             // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-            botConnector.activityReceived.addEventListener((o, activityArgs) -> {
+            connector.activityReceived.addEventListener((o, activityArgs) -> {
                 try {
                     // Here we use JSONObject only to "pretty print" the condensed Activity JSON
                     String rawActivity = activityArgs.getActivity().serialize();
@@ -257,7 +254,7 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
    * De methode `onBotButtonClicked` is, zoals eerder gezegd, de methode voor het afhandelen van het klikken op de knop. Druk op een knop wordt één interactie ('inschakelen') met uw bot geactiveerd.
 
-   * De `registerEventListeners` methode ziet u de gebeurtenissen die worden gebruikt door de SpeechBotConnector en basic verwerking van inkomende activiteiten.
+   * De `registerEventListeners` methode ziet u de gebeurtenissen die worden gebruikt door de `DialogServiceConnector` en basic verwerking van inkomende activiteiten.
 
 1. Vervang de configuratietekenreeksen zodat deze overeenkomt met uw resources in hetzelfde bestand:
 
@@ -265,7 +262,7 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
     * Vervang `YourSpeechSubscriptionKey` door uw abonnementssleutel.
 
-    * Vervang `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement (Opmerking: alleen westus2 wordt momenteel ondersteund).
+    * Vervang `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement alleen een subset van Services voor spraak-regio's worden momenteel ondersteund met spraak-directe regel. Zie voor meer informatie, [regio's](regions.md#voice-first-virtual-assistants).
 
 ## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
@@ -286,9 +283,11 @@ Nadat de toepassing en haar activiteit hebt gestart, klikt u op de knop om te be
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Java-voorbeelden op GitHub verkennen](https://aka.ms/csspeech/samples)
-> [verbinding maken met directe regel spraak naar uw bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> [Maken en implementeren van een basic-bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Zie ook
 - [Over stem op de eerste virtuele assistent](voice-first-virtual-assistants.md)
+- [Ontvangt u een abonnementssleutel Speech Services gratis](get-started.md)
 - [Aangepaste wake woorden](speech-devices-sdk-create-kws.md)
+- [Directe regel spraak verbinden met uw bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Bekijk Java-voorbeelden op GitHub](https://aka.ms/csspeech/samples)

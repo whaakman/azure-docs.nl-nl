@@ -4,23 +4,24 @@ description: In deze zelfstudie ontwikkelt u een Azure-functie als een IoT Edge-
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239646"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433064"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Zelfstudie: Azure-functies implementeren als IoT Edge-modules
 
-U kunt Azure-functies gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw Azure IoT Edge-apparaten implementeert. In deze zelfstudie leert u hoe u een Azure-functie maakt en implementeert die sensorgegevens op het gesimuleerde IoT Edge-apparaat filtert. U gebruikt het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de snelstarts over het implementeren van Azure IoT Edge op een gesimuleerd apparaat in [Windows](quickstart.md) of [Linux](quickstart-linux.md). In deze zelfstudie leert u het volgende:     
+U kunt Azure-functies gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw Azure IoT Edge-apparaten implementeert. In deze zelfstudie leert u hoe u een Azure-functie maakt en implementeert die sensorgegevens op het gesimuleerde IoT Edge-apparaat filtert. U gebruikt het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de snelstarts over het implementeren van Azure IoT Edge op een gesimuleerd apparaat in [Windows](quickstart.md) of [Linux](quickstart-linux.md). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
+>
 > * Visual Studio Code gebruiken om een Azure-functie te maken.
 > * VS Code en Docker gebruiken om een Docker-installatiekopie te maken en deze te publiceren naar een containerregister.
 > * De module vanuit het containerregister implementeren op uw IoT Edge-apparaat.
@@ -136,14 +137,14 @@ We gaan enkele aanvullende code toevoegen zodat de module berichten aan de rand 
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                        {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                        // Add a new property to the message to indicate it is an alert.
                        filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
+                       // Send the message.
                        await output.AddAsync(filteredMessage);
                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                    }
@@ -160,12 +161,12 @@ We gaan enkele aanvullende code toevoegen zodat de module berichten aan de rand 
        class Machine
        {
            public double temperature {get; set;}
-           public double pressure {get; set;}         
+           public double pressure {get; set;}
        }
        class Ambient
        {
            public double temperature {get; set;}
-           public int humidity {get; set;}         
+           public int humidity {get; set;}
        }
    }
    ```
@@ -176,17 +177,17 @@ We gaan enkele aanvullende code toevoegen zodat de module berichten aan de rand 
 
 In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan de **CSharpFunction** om berichten te filteren waarin de gemelde temperatuur van de machine onder de aanvaardbare drempelwaarde is. Nu moet u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen.
 
-In deze sectie geeft u tweemaal de referenties voor het containerregister op. De eerste keer om u lokaal aan te melden vanaf de ontwikkelcomputer zodat Visual Studio Code installatiekopieën naar het register kan pushen. De tweede keer in het **ENV**-bestand van uw IoT Edge-oplossing, waardoor uw IoT-Edge-apparaat bevoegd is voor het ophalen van installatiekopieën uit het register. 
+In deze sectie maakt u de referenties opgeven voor uw containerregister voor de tweede keer (de eerste is bij de **.env** -bestand van uw IoT Edge-oplossing) als u zich aanmeldt lokaal van de ontwikkelcomputer zodat Visual Studio Code kunt installatiekopieën pushen naar uw register.
 
 1. Open de met VS Code geïntegreerde terminal door **View** > **Terminal** te selecteren. 
 
 2. Meld u aan bij uw containerregister door de volgende opdracht in te voeren in de geïntegreerde terminal. Gebruik de gebruikersnaam en de aanmeldingsserver die u eerder hebt gekopieerd uit het Azure-containerregister.
-     
+
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
 
-    Wanneer u wordt gevraagd om het wachtwoord, plakt u het wachtwoord voor uw containerregister en drukt u op **Enter**.
+    Wanneer u wordt gevraagd om het wachtwoord, plakt u het wachtwoord (deze niet zichtbaar in het terminalvenster) voor uw containerregister en druk op **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/25/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382701"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449072"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Het verzenden van aanvragen naar de Bing Automatische suggestie-API.
 
@@ -95,11 +95,11 @@ In het volgende voorbeeld ziet u een aanvraag die de voorgestelde queryreeksen v
 
 Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de header met de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat.
 
-Hieronder wordt de reactie op de vorige aanvraag weergegeven. De reactie bevat een websuggestiegroep met een lijst met suggesties voor zoekquery's. Elke suggestie bevat de velden `displayText`, `query` en `url`.
+De volgende web suggestie groep is een antwoord op de bovenstaande aanvraag. De groep bevat een lijst met query zoeksuggesties, met elke suggestie met inbegrip van een `displayText`, `query`, en `url` veld.
 
 Het veld `displayText` bevat de voorgestelde query die u gebruikt voor het vullen van de vervolgkeuzelijst van het zoekvak. U moet alle suggesties uit het antwoord weergeven, en in de opgegeven volgorde.  
 
-Als de gebruiker een query in de vervolgkeuzelijst selecteert, kunt u deze gebruiken voor het aanroepen van een van de [Bing zoeken-API's](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) en zelf de resultaten weergeven of de gebruiker doorsturen naar de pagina met Bing resultaten met behulp van de geretourneerde `url` veld. Het volgende voorbeeld wordt de Bing webzoekopdrachten-API.
+Als de gebruiker een query in de vervolgkeuzelijst selecteert, kunt u deze gebruiken voor het aanroepen van een van de [Bing zoeken-API's](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) en zelf de resultaten weergeven of de gebruiker doorsturen naar de pagina met Bing resultaten met behulp van de geretourneerde `url` veld.
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

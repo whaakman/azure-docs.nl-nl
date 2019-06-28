@@ -8,14 +8,14 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3cf23f491aad1766f2d4087c440cc080dbe345e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057650"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432859"
 ---
-# <a name="tutorial-generate-simulated-device-data"></a>Zelfstudie: Gesimuleerd apparaatgegevens genereren
+# <a name="tutorial-generate-simulated-device-data"></a>Zelfstudie: Gesimuleerde apparaatgegevens genereren
 
 > [!NOTE]
 > In dit artikel maakt deel uit van een reeks voor een zelfstudie over het gebruik van Azure Machine Learning op IoT Edge. Als u rechtstreeks in dit artikel zijn ontvangen, u wordt aangeraden te beginnen met de [eerste artikel](tutorial-machine-learning-edge-01-intro.md) in de reeks voor de beste resultaten.
@@ -153,7 +153,7 @@ De gegevens die we zojuist hebt verzonden naar uw IoT hub is doorgestuurd naar d
 
 1. Klik op een van deze mappen om te zoeken met het label gegevensbestanden **00** en **01** overeenkomt met de partitie.
 
-1. De bestanden zijn geschreven in [Avro](http://avro.apache.org/) indeling, maar te dubbelklikken op een van deze bestanden wordt een nieuw browsertabblad geopend en de gegevens gedeeltelijk weergegeven. Als in plaats daarvan wordt u gevraagd het bestand te openen in een programma, kunt u VS Code en het correct worden weergegeven.
+1. De bestanden zijn geschreven in [Avro](https://avro.apache.org/) indeling, maar te dubbelklikken op een van deze bestanden wordt een nieuw browsertabblad geopend en de gegevens gedeeltelijk weergegeven. Als in plaats daarvan wordt u gevraagd het bestand te openen in een programma, kunt u VS Code en het correct worden weergegeven.
 
 1. Er is niet nodig om te proberen te lezen of te interpreteren van de gegevens nu; uitvoeren in het volgende artikel.
 

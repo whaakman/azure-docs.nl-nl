@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298f25e151d4c52749d646a9457f0962c68bf4d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106150"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Zelfstudie: Azure Active Directory-integratie met Bonusly
 
@@ -148,7 +148,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Bonusly, moet u de v
 
     c. In de **IdP verlener** tekstvak, plak de waarde van **Azure AD-id**, die u hebt gekopieerd vanuit Azure portal.
     
-    d. Plak de **vingerafdruk** waarde opgehaald uit Azure portal in de **Cert vingerafdruk** tekstvak.
+    d. Plak de **vingerafdruk** waarde opgehaald uit Azure portal in de **Cert vingerafdruk** tekstvak.
     
     e. Klik op **Opslaan**.
 

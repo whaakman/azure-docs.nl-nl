@@ -3,19 +3,19 @@ title: 'Zelfstudie: Een Flask-app om te vertalen, bootsen en analyseren van teks
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie bouwt u een Flask gebaseerde web-app die gebruikmaakt van Azure Cognitive Services voor tekst vertalen, sentiment analyseren en vertaalde tekst in spraak bootsen. Onze focus ligt op de Python-code en de Flask-routes waarmee de toepassing. We wordt niet veel tijd besteden aan het Javascript dat Hiermee bepaalt u de app, maar de bestanden voor u om te controleren.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 4df2de7f0428ffe35712a29bfef645b6feb66813
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: cef747e82e7d039952bec73e822f28eab2adaa97
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515010"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434893"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Zelfstudie: Een Flask-app ontwikkelen met Azure Cognitive Services
 

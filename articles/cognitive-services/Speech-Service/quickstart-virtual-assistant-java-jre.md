@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2cf65f9ee920b50af6242cee6b53cd07e53f0bc
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072542"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467019"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Quickstart: Maken van een stem op de eerste virtuele assistent met de SDK van de spraak-, Java
 
@@ -30,14 +30,11 @@ Voor deze snelstart zijn de volgende zaken vereist:
 * Besturingssysteem: Windows (64-bits), Ubuntu Linux 16.04/18.04 (64-bits) of macOS 10.13 of hoger
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) of [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* De sleutel van een Azure-abonnement voor de spraakservices in de **westus2** regio. Maken van dit abonnement op de [Azure-portal](https://portal.azure.com).
+* De sleutel van een Azure-abonnement voor Speech Services. [Vraag een gratis](get-started.md) of maken door op de [Azure-portal](https://portal.azure.com).
 * Een vooraf geconfigureerde bot gemaakt met behulp van Bot Framework versie 4.2 of hoger. De bot moet zich abonneren op het nieuwe kanaal 'Directe regel spraak' Toon invoer ontvangen.
 
     > [!NOTE]
-    > Directe regel spraak (Preview) is momenteel alleen beschikbaar in de **westus2** regio.
-
-    > [!NOTE]
-    > De proefversie van 30 dagen voor de prijscategorie wordt beschreven in standaard [Speech Services gratis uitproberen](get-started.md) is beperkt tot **westus** (niet **westus2**) en is dus niet compatibel met Direct Regel spraak. Gratis en standard-laag **westus2** abonnementen compatibel zijn.
+    > Directe regel spraak (Preview) is momenteel beschikbaar in een subset van Services voor spraak-regio's. Raadpleeg [de lijst met ondersteunde regio's voor virtuele voice-first-assistenten](regions.md#Voice-first virtual assistants) en zorg ervoor dat uw resources worden geïmplementeerd in een van deze regio's.
 
 Als u Ubuntu 16.04/18.04 uitvoert, zorg er dan voor dat deze afhankelijkheden zijn geïnstalleerd voordat u begint met Eclipse:
 
@@ -82,8 +79,8 @@ Bovendien, als logboekregistratie wilt inschakelen, werken de **pom.xml** bestan
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
 
@@ -142,62 +139,59 @@ Bovendien, als logboekregistratie wilt inschakelen, werken de **pom.xml** bestan
     }
     ```
 
-1. In de **belangrijkste** methode, eerst configureert u uw `BotConnectorConfig` en maken een `SpeechBotConnector` exemplaar. Dit maakt verbinding met de rechtstreekse regel spraak kanaal om te communiceren met uw bot. Een `AudioConfig` exemplaar wordt ook gebruikt om op te geven van de bron voor audio-invoer. In dit voorbeeld wordt de microfoon standaard wordt gebruikt met `AudioConfig.fromDefaultMicrophoneInput()`.
+1. In de **belangrijkste** methode, eerst configureert u uw `DialogServiceConfig` en maken een `DialogServiceConnector` exemplaar. Dit maakt verbinding met de rechtstreekse regel spraak kanaal om te communiceren met uw bot. Een `AudioConfig` exemplaar wordt ook gebruikt om op te geven van de bron voor audio-invoer. In dit voorbeeld wordt de microfoon standaard wordt gebruikt met `AudioConfig.fromDefaultMicrophoneInput()`.
 
     * Vervang de tekenreeks `YourSubscriptionKey` met uw abonnementssleutel die u kunt ophalen uit [hier](get-started.md).
     * Vervang de tekenreeks `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement.
     * Vervang de tekenreeks `YourChannelSecret` met uw geheim rechtstreekse regel spraak-kanaal.
 
     > [!NOTE]
-    > Preview-versie, het kanaal directe regel spraak ondersteunt momenteel alleen de **westus2** regio.
-
-    > [!NOTE]
-    > De proefversie van 30 dagen voor de prijscategorie wordt beschreven in standaard [Speech Services gratis uitproberen](get-started.md) is beperkt tot **westus** (niet **westus2**) en is dus niet compatibel met Direct Regel spraak. Gratis en standard-laag **westus2** abonnementen compatibel zijn.
+    > Directe regel spraak (Preview) is momenteel beschikbaar in een subset van Services voor spraak-regio's. Raadpleeg [de lijst met ondersteunde regio's voor virtuele voice-first-assistenten](regions.md#voice-first-virtual-assistants) en zorg ervoor dat uw resources worden geïmplementeerd in een van deze regio's.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
-    final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a SpeechjBotConnector instance
-    final SpeechBotConnector botConnector = new SpeechBotConnector(botConnectorConfig, audioConfig);
+    // Create a DialogServiceConnector instance
+    final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `SpeechBotConnector` afhankelijk van diverse gebeurtenissen om te communiceren de bot-activiteiten, herkenningsresultaten spraak en andere informatie. Deze gebeurtenislisteners naast toevoegen.
+1. `DialogServiceConnector` afhankelijk van diverse gebeurtenissen om te communiceren de bot-activiteiten, herkenningsresultaten spraak en andere informatie. Deze gebeurtenislisteners naast toevoegen.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // Recognized will provide the final recognized text once audio capture is completed
-    botConnector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.canceled.addEventListener((o, canceledEventArgs) -> {
+    connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
-        botConnector.disconnectAsync();
+        connector.disconnectAsync();
     });
 
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-    botConnector.activityReceived.addEventListener((o, activityEventArgs) -> {
+    connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
             if (activityEventArgs.hasAudio()) {
@@ -206,15 +200,15 @@ Bovendien, als logboekregistratie wilt inschakelen, werken de **pom.xml** bestan
         });
     ```
 
-1. Verbinding maken met de `SpeechBotConnector` directe regel Speech door het aanroepen van de `connectAsync()` methode. Als u wilt testen van uw bot, kunt u aanroepen de `listenOnceAsync` methode voor het verzenden van audio-invoer van de microfoon. Daarnaast ook kunt u de `sendActivityAsync` methode voor het verzenden van een aangepaste activiteit als een geserialiseerde tekenreeks. Deze aangepaste activiteiten kunnen zorgen dat aanvullende gegevens die uw bot in de conversatie gebruikt.
+1. Verbinding maken met de `DialogServiceConnector` directe regel Speech door het aanroepen van de `connectAsync()` methode. Als u wilt testen van uw bot, kunt u aanroepen de `listenOnceAsync` methode voor het verzenden van audio-invoer van de microfoon. Daarnaast ook kunt u de `sendActivityAsync` methode voor het verzenden van een aangepaste activiteit als een geserialiseerde tekenreeks. Deze aangepaste activiteiten kunnen zorgen dat aanvullende gegevens die uw bot in de conversatie gebruikt.
 
     ```java
-    botConnector.connectAsync();
+    connector.connectAsync();
     // Start listening.
     System.out.println("Say something ...");
-    botConnector.listenOnceAsync();
+    connector.listenOnceAsync();
 
-    // botConnector.sendActivityAsync(...)
+    // connector.sendActivityAsync(...)
     ```
 
 1. Wilt u de wijzigingen aan de `Main` bestand.
@@ -479,10 +473,12 @@ De console een bericht weergegeven met 'Bijvoorbeeld iets' op dit moment, spreek
 Op GitHub vindt u aanvullende voorbeelden, zoals hoe u spraak kunt lezen vanuit een audiobestand.
 
 > [!div class="nextstepaction"]
-> [Bekijk Java-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+> [Maken en implementeren van een basic-bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Snelstart: Omzetten van spraak, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
-- [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
-- [Taalmodellen aanpassen](how-to-customize-language-model.md)
+- [Over stem op de eerste virtuele assistent](voice-first-virtual-assistants.md)
+- [Ontvangt u een abonnementssleutel Speech Services gratis](get-started.md)
+- [Aangepaste wake woorden](speech-devices-sdk-create-kws.md)
+- [Directe regel spraak verbinden met uw bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Bekijk Java-voorbeelden op GitHub](https://aka.ms/csspeech/samples)

@@ -1,43 +1,39 @@
 ---
-title: C#zelfstudie over het gebruik van facetten voor navigatie en netwerk-efficiëntie - Azure Search
-description: Deze zelfstudie bouwt voort op het project "Paginering - Azure Search zoekresultaten", om toe te voegen facet zoekopdrachten. Meer informatie over dat facetten kunnen worden gebruikt in de navigatie en automatisch aanvullen.
+title: C#zelfstudie over het gebruik van facetten kunnen helpen een navigatie - Azure Search
+description: Deze zelfstudie bouwt voort op het project "Paginering - Azure Search zoekresultaten" facet navigatie toevoegen. Meer informatie over dat facetten kunnen worden gebruikt voor het eenvoudig Verfijn een zoekopdracht.
 services: search
 ms.service: search
 ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 06/20/2019
-ms.openlocfilehash: a81042869564533050fef42a983f2f8fb9bc7b23
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 62326ad3bc5f2d740ce744819df559bce8658eb7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443785"
 ---
-# <a name="c-tutorial-use-facets-for-navigation-and-network-efficiency---azure-search"></a>C#zelfstudie: Facetten voor navigatie en netwerk-efficiëntie - Azure Search gebruiken
+# <a name="c-tutorial-use-facets-to-aid-navigation---azure-search"></a>C#zelfstudie: Facetten gebruiken om u te helpen de navigatie - Azure Search
 
-Facetten hebben twee afzonderlijke toepassingen in Azure Search. Facetten kunnen worden gebruikt om te helpen navigatie door de gebruiker voorzien van een set met selectievakjes om te gebruiken om de zoekopdracht te verfijnen. Ze kunnen ook worden gebruikt voor het verbeteren van de efficiëntie van het netwerk, wanneer gebruikt in automatisch aanvullen. Facet zoekopdrachten zijn efficiënt, omdat ze slechts één keer voor elke pagina laden, in plaats van één keer voor elke toetsaanslag worden uitgevoerd. 
+Facetten worden gebruikt om u te helpen bij het vinden, door de gebruiker voorzien van een set van links naar gebruiken om de zoekopdracht te verfijnen. Facetten zijn kenmerken van de gegevens (zoals de categorie, of een specifieke functie, van een hotel in onze voorbeeldgegevens).
 
-Facetten zijn kenmerken van de gegevens (zoals de categorie van een hotel in onze voorbeeldgegevens), en blijf relevant zijn voor de levensduur van een zoekopdracht.
-
-In deze zelfstudie maakt twee projecten, één voor facet navigatie en de andere voor facet automatisch aanvullen. Beide projecten bouwen op het wisselbestand-project hebt gemaakt in de [ C# zelfstudie: Search-resultaten paginering - Azure Search](tutorial-csharp-paging.md) zelfstudie.
+Deze zelfstudie bouwt voort op het wisselbestand-project hebt gemaakt in de [ C# zelfstudie: Search-resultaten paginering - Azure Search](tutorial-csharp-paging.md) zelfstudie.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Stel de eigenschappen van het model als _IsFacetable_
 > * Facet navigatie toevoegen aan uw app
-> * Facet automatisch aanvullen toevoegen aan uw app
-> * Bepalen wanneer u het facet automatisch aanvullen gebruiken
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-Hebben de [ C# zelfstudie: Search-resultaten paginering - Azure Search](tutorial-csharp-paging.md) project ingesteld en geactiveerd. Dit kunt uw eigen versie of installeer deze via GitHub: [Eerste app maken](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Hebben de [ C# zelfstudie: Search-resultaten paginering - Azure Search](tutorial-csharp-paging.md) project ingesteld en geactiveerd. Dit project kunt uw eigen versie of installeer deze via GitHub: [Eerste app maken](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
-## <a name="set-model-fields-as-isfacetable"></a>Set-model velden als IsFacetable
+## <a name="set-model-properties-as-isfacetable"></a>Eigenschappen van de set-model als IsFacetable
 
-In de volgorde voor de modeleigenschap van een zich bevinden in een zoekopdracht facet (navigatie of automatisch aanvullen), moet het worden gelabeld met **IsFacetable**.
+In de volgorde voor de modeleigenschap van een zich bevinden in een zoekopdracht facet, moet het worden gelabeld met **IsFacetable**.
 
 1. Bekijk de **Hotel** klasse. **Categorie** en **Tags**, bijvoorbeeld worden gemarkeerd als **IsFacetable**, maar **HotelName** en **beschrijving** niet. 
 
@@ -85,134 +81,40 @@ In de volgorde voor de modeleigenschap van een zich bevinden in een zoekopdracht
     }
     ```
 
-2. We zullen niet worden gewijzigd alle tags in deze zelfstudie. Een zoekopdracht facet genereert een fout als een veld in de zoekopdracht wordt aangevraagd, niet op de juiste wijze is gemarkeerd.
+2. We zullen niet worden gewijzigd alle tags als onderdeel van deze zelfstudie, dus sluit het bestand hotel.cs ongewijzigd.
+
+    > [!Note]
+    > Een zoekopdracht facet genereert een fout als een veld in de zoekopdracht wordt aangevraagd, niet op de juiste wijze is gemarkeerd.
 
 
 ## <a name="add-facet-navigation-to-your-app"></a>Facet navigatie toevoegen aan uw app
 
-In dit voorbeeld gaan we de gebruiker een of meer categorieën van hotel, selecteren in een lijst die aan de linkerkant van de resultaten worden weergegeven. Moeten we de controller de lijst met categorieën weten wanneer de app voor het eerst wordt uitgevoerd en deze lijst doorgeven aan de weergave moet worden weergegeven als het eerste scherm wordt weergegeven. Omdat elke pagina wordt weergegeven, moet om ervoor te zorgen dat we hebben de lijst met facetten en de huidige gebruikersselecties, om te worden doorgegeven aan de volgende pagina's onderhouden. Nogmaals, gebruiken we tijdelijke opslag als het mechanisme voor het behouden van gegevens.
+In dit voorbeeld gaan we om in te schakelen van de gebruiker selecteert een categorie hotel of een openbare groenvoorzieningen, uit een lijst met koppelingen die aan de linkerkant van de resultaten worden weergegeven. De gebruiker wordt gestart door in te voeren sommige zoektekst, en vervolgens de resultaten van de zoekopdracht kunnen beperken door een categorie te selecteren en kunnen de resultaten verder beperken door het selecteren van een openbare groenvoorzieningen of kunnen ze de openbare groenvoorzieningen selecteren eerst (de volgorde is niet belangrijk).
+
+Moeten we de controller om door te geven van de lijsten met facetten naar de weergave. We moeten onderhouden van de selecties voor de gebruiker tijdens de voortgang van de zoekopdracht en opnieuw gebruiken we tijdelijke opslag als het mechanisme voor het behouden van gegevens.
 
 ![Facet navigatie gebruiken om een zoekactie van 'groep' te beperken](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
 
-### <a name="modify-the-searchdata-model"></a>Het model SearchData wijzigen
+### <a name="add-filter-strings-to-the-searchdata-model"></a>Tekenreeksen toevoegen aan het model SearchData
 
-1. Open het bestand SearchData.cs en voeg deze extra **met behulp van** instructie. Om in te schakelen moet de **lijst&lt;tekenreeks&gt;**  samenstellen.
+1. Open het bestand SearchData.cs en voeg tekenreekseigenschappen toe aan de **SearchData** klasse voor het opslaan van het facet tekenreeksen.
+
+    ```cs
+        public string categoryFilter { get; set; }
+        public string amenityFilter { get; set; }
+    ```
+
+### <a name="add-the-facet-action-method"></a>De actie Facet methode toevoegen
+
+De oorspronkelijke domeincontroller moet een nieuwe actie, **Facet**, en updates van de bestaande **Index** en **pagina** acties, evenals de updates voor de **RunQueryAsync**  methode.
+
+1. Open het bestand home controller en voeg de **met behulp van** instructie waarmee de **lijst&lt;tekenreeks&gt;**  samenstellen.
 
     ```cs
     using System.Collections.Generic;
     ```
 
-2. In hetzelfde bestand, voeg de volgende regels aan de **SearchData** klasse. Een van de bestaande klasse-eigenschappen niet verwijderen, maar Voeg de volgende Constructormethoden en matrices met eigenschappen.
-
-    ```cs
-        public SearchData()
-        {
-        }
-
-        // Constructor to initialize the list of facets sent from the controller.
-        public SearchData(List<string> facets)
-        {
-            facetText = new string[facets.Count];
-
-            for (int i = 0; i < facets.Count; i++)
-            {
-                facetText[i] = facets[i];
-            }
-        }
-
-        // Array to hold the text for each facet.
-        public string[] facetText { get; set; }
-
-        // Array to hold the check box setting.
-        public bool[] facetOn { get; set; }
-    ```
-
-
-### <a name="search-for-facets-on-the-first-index-call"></a>Zoeken naar facetten in de eerste aanroep van de Index
-
-De oorspronkelijke domeincontroller moet een ingrijpende wijziging. De eerste aanroep **index() heeft** langer retourneert een weergave met geen andere manier verwerken. We willen de weergave voorzien van een volledige lijst van facetten en de eerste aanroep is de juiste is voor dat doel.
-
-1. Open het bestand home-controller, en Voeg twee **met behulp van** instructies.
-
-    ```cs
-    using System.Collections.Generic;
-    using System.Linq;
-    ```
-
-2. Vervang nu de regels van de huidige **index() heeft** methode met een methode die uitgevoerd een facet zoeken naar hotels categorieën wordt. Als de zoekopdracht moet asynchroon worden uitgevoerd, moeten we de **Index** methode **asynchrone**.
-
-    ```cs
-        public async Task<ActionResult> Index()
-        {
-            InitSearch();
-
-            // Set up the facets call in the search parameters.
-            SearchParameters sp = new SearchParameters()
-            {
-                // Search for up to 20 categories.
-                // Field names specified here must be marked as "IsFacetable" in the model, or the search call will throw an exception.
-                Facets = new List<string> { "Category,count:20" },
-            };
-
-            DocumentSearchResult<Hotel> searchResult = await _indexClient.Documents.SearchAsync<Hotel>("*", sp);
-
-            // Convert the results to a list that can be displayed in the client.
-            List<string> categories = searchResult.Facets["Category"].Select(x => x.Value.ToString()).ToList();
-
-            // Initiate a model with a list of facets for the first view.
-            SearchData model = new SearchData(categories);
-
-            // Save the facet text for the next view.
-            SaveFacets(model);
-
-            // Render the view including the facets.
-            return View(model);
-        }
-    ```
-
-    Enkele punten om te weten hier. We de resultaten van de aanroep van de zoekopdracht om een lijst met tekenreeksen te converteren en vervolgens deze tekenreeksen facet worden toegevoegd aan een **SearchData** modellen voor communicatie met de weergave. Ook opslaan we deze tekenreeksen naar de tijdelijke opslag voordat ten slotte de weergave. Deze opslaan wordt gedaan zodanig dat deze lijst beschikbaar voor de volgende aanroep van de actie van een domeincontroller is.
-
-3. We gaan de twee particuliere methoden voor het opslaan en terugzetten facetten aan het model en naar de tijdelijke opslag toevoegen.
-
-    ```cs
-        // Save the facet text to temporary storage, optionally saving the state of the check boxes.
-        private void SaveFacets(SearchData model, bool saveChecks = false)
-        {
-            for (int i = 0; i < model.facetText.Length; i++)
-            {
-                TempData["facet" + i.ToString()] = model.facetText[i];
-                if (saveChecks)
-                {
-                    TempData["faceton" + i.ToString()] = model.facetOn[i];
-                }
-            }
-            TempData["facetcount"] = model.facetText.Length;
-        }
-
-        // Recover the facet text to a model, optionally recoving the state of the check boxes.
-        private void RecoverFacets(SearchData model, bool recoverChecks = false)
-        {
-            // Create arrays of the appropriate length.
-            model.facetText = new string[(int)TempData["facetcount"]];
-            if (recoverChecks)
-            {
-                model.facetOn = new bool[(int)TempData["facetcount"]];
-            }
-
-            for (int i = 0; i < (int)TempData["facetcount"]; i++)
-            {
-                model.facetText[i] = TempData["facet" + i.ToString()].ToString();
-                if (recoverChecks)
-                {
-                    model.facetOn[i] = (bool)TempData["faceton" + i.ToString()];
-                }
-            }
-        }
-    ```
-
-### <a name="save-and-restore-facet-text-on-all-calls"></a>Opslaan en terugzetten facet tekst op alle aanroepen
-
-1. De twee andere acties van de oorspronkelijke controller **Index (SearchData model)** en **pagina (SearchData model)** , beide moeten herstellen van de facetten voordat de aanroep van de zoekopdracht en ze opnieuw na de aanroep van de zoekopdracht opslaan. Wijzig de **Index (SearchData model)** voor deze twee aanroepen.
+2. Vervang de **Index (SearchData model)** actiemethode.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -225,19 +127,8 @@ De oorspronkelijke domeincontroller moet een ingrijpende wijziging. De eerste aa
                     model.searchText = "";
                 }
 
-                // Recover the facet text.
-                RecoverFacets(model);
-
                 // Make the search call for the first page.
-                await RunQueryAsync(model, 0, 0);
-
-                // Ensure temporary data is stored for the next call.
-                TempData["page"] = 0;
-                TempData["leftMostPage"] = 0;
-                TempData["searchfor"] = model.searchText;
-
-                // Facets
-                SaveFacets(model, true);
+                await RunQueryAsync(model, 0, 0, "", "");
             }
 
             catch
@@ -248,49 +139,127 @@ De oorspronkelijke domeincontroller moet een ingrijpende wijziging. De eerste aa
         }
     ```
 
-2. Nu Doe hetzelfde voor de **pagina (SearchData model)** methode. We hebben alleen de relevante code hieronder vermeld. Voeg de **RecoverFacets** en **SaveFacets** aangeroepen om de **RunQueryAsync** aanroepen.
+3. Vervang de **pagina (SearchData model)** actiemethode.
 
     ```cs
-                // Recover facet text and check marks.
-                RecoverFacets(model, true);
+        public async Task<ActionResult> Page(SearchData model)
+        {
+            try
+            {
+                int page;
 
-                await RunQueryAsync(model, page, leftMostPage);
+                // Calculate the page that should be displayed.
+                switch (model.paging)
+                {
+                    case "prev":
+                        page = (int)TempData["page"] - 1;
+                        break;
 
-                // Save facets and check marks.
-                SaveFacets(model, true);
+                    case "next":
+                        page = (int)TempData["page"] + 1;
+                        break;
+
+                    default:
+                        page = int.Parse(model.paging);
+                        break;
+                }
+
+                // Recover the leftMostPage.
+                int leftMostPage = (int)TempData["leftMostPage"];
+
+                // Recover the filters.
+                string catFilter = TempData["categoryFilter"].ToString();
+                string ameFilter = TempData["amenityFilter"].ToString();
+
+                // Recover the search text.
+                model.searchText = TempData["searchfor"].ToString();
+
+                // Search for the new page.
+                await RunQueryAsync(model, page, leftMostPage, catFilter, ameFilter);
+            }
+
+            catch
+            {
+                return View("Error", new ErrorViewModel { RequestId = "2" });
+            }
+            return View("Index", model);
+        }
     ```
 
-### <a name="set-up-a-search-filter"></a>Instellen van een zoekfilter
-
-Wanneer een gebruiker bepaalde facetten selecteert, bijvoorbeeld zeggen dat ze Klik op de **Budget** en **redmiddel en beveiligd-wachtwoordverificatie** categorieën en klik vervolgens alleen hotels die zijn opgegeven als een van deze twee categorieën moet worden geretourneerd in de resultaten. Voor het optimaliseren van een zoekopdracht op deze manier, moeten we het instellen van een _filter_.
-
-1. In de **RunQueryAsync** methode, voeg de code aan het opgegeven model facet instellingen, het maken van een filtertekenreeks doorlopen. En het filter toe te voegen de **SearchParameters**, zoals wordt weergegeven in de volgende code.
+4. Voeg een **Facet (SearchData model)** actiemethode worden geactiveerd wanneer de gebruiker op de koppeling van een facet klikt. Het model bevat een zoekfilter categorie of een openbare groenvoorzieningen zoekfilter. Misschien toe te voegen na de **pagina** actie.
 
     ```cs
-            // Create a filter for selected facets.
-            string selectedFacets = "";
-
-            for (int f = 0; f < model.facetText.Length; f++)
+        public async Task<ActionResult> Facet(SearchData model)
+        {
+            try
             {
-                if (model.facetOn[f])
+                // Filters set by the model override those stored in temporary data.
+                string catFilter;
+                string ameFilter;
+                if (model.categoryFilter != null)
                 {
-                    if (selectedFacets.Length > 0)
-                    {
-                        // If there is more than one selected facet, logically OR them together.
-                        selectedFacets += " or ";
-                    }
-                    selectedFacets += "(Category eq \'" + model.facetText[f] + "\')";
+                    catFilter = model.categoryFilter;
+                } else
+                {
+                    catFilter = TempData["categoryFilter"].ToString();
                 }
+
+                if (model.amenityFilter != null)
+                {
+                    ameFilter = model.amenityFilter;
+                } else
+                {
+                    ameFilter = TempData["amenityFilter"].ToString();
+                }
+
+                // Recover the search text.
+                model.searchText = TempData["searchfor"].ToString();
+
+                // Initiate a new search.
+                await RunQueryAsync(model, 0, 0, catFilter, ameFilter);
+            }
+
+            catch
+            {
+                return View("Error", new ErrorViewModel { RequestId = "2" });
+            }
+            return View("Index", model);
+        }
+    ```
+
+### <a name="set-up-the-search-filter"></a>Instellen van het zoekfilter
+
+Wanneer een gebruiker een bepaalde facet selecteert, bijvoorbeeld ze Klik op de **redmiddel en beveiligd-wachtwoordverificatie** categorie en klik vervolgens alleen hotels die zijn opgegeven als deze categorie in de resultaten moet worden geretourneerd. Als u wilt een zoekopdracht op deze manier beperken, moet voor het instellen van een _filter_.
+
+1. Vervang de **RunQueryAsync** methode met de volgende code. Primair, het gebruikt een filtertekenreeks categorie en een filtertekenreeks openbare groenvoorzieningen en stelt de **Filter** parameter van de **SearchParameters**.
+
+    ```cs
+        private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage, string catFilter, string ameFilter)
+        {
+            InitSearch();
+
+            string facetFilter = "";
+
+            if (catFilter.Length > 0 && ameFilter.Length > 0)
+            {
+                // Both facets apply.
+                facetFilter = $"{catFilter} and {ameFilter}"; 
+            } else
+            {
+                // One, or zero, facets apply.
+                facetFilter = $"{catFilter}{ameFilter}";
             }
 
             var parameters = new SearchParameters
             {
-                // Facets: add the filter.
-                Filter = selectedFacets,
+                Filter = facetFilter,
 
-                // Enter Hotel property names into this list so only these values will be returned.
-                // If Select is empty, all values will be returned, which can be inefficient.
-                Select = new[] { "HotelName", "Description", "Category" },
+                // Return information on the text, and number, of facets in the data.
+                Facets = new List<string> { "Category,count:20", "Tags,count:20" },
+
+                // Enter Hotel property names into this list, so only these values will be returned.
+                Select = new[] { "HotelName", "Description", "Category", "Tags" },
+
                 SearchMode = SearchMode.All,
 
                 // Skip past results that have already been returned.
@@ -302,11 +271,53 @@ Wanneer een gebruiker bepaalde facetten selecteert, bijvoorbeeld zeggen dat ze K
                 // Include the total number of results.
                 IncludeTotalResultCount = true,
             };
+
+            // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+            model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
+
+            // This variable communicates the total number of pages to the view.
+            model.pageCount = ((int)model.resultList.Count + GlobalVariables.ResultsPerPage - 1) / GlobalVariables.ResultsPerPage;
+
+            // This variable communicates the page number being displayed to the view.
+            model.currentPage = page;
+
+            // Calculate the range of page numbers to display.
+            if (page == 0)
+            {
+                leftMostPage = 0;
+            }
+            else
+               if (page <= leftMostPage)
+            {
+                // Trigger a switch to a lower page range.
+                leftMostPage = Math.Max(page - GlobalVariables.PageRangeDelta, 0);
+            }
+            else
+            if (page >= leftMostPage + GlobalVariables.MaxPageRange - 1)
+            {
+                // Trigger a switch to a higher page range.
+                leftMostPage = Math.Min(page - GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
+            }
+            model.leftMostPage = leftMostPage;
+
+            // Calculate the number of page numbers to display.
+            model.pageRange = Math.Min(model.pageCount - leftMostPage, GlobalVariables.MaxPageRange);
+
+            // Ensure Temp data is stored for the next call.
+            TempData["page"] = page;
+            TempData["leftMostPage"] = model.leftMostPage;
+            TempData["searchfor"] = model.searchText;
+            TempData["categoryFilter"] = catFilter;
+            TempData["amenityFilter"] = ameFilter;
+
+            // Return the new view.
+            return View("Index", model);
+        }
     ```
 
-    We hebben toegevoegd de **categorie** eigenschap aan de lijst met **Selecteer** items om te retourneren. Toevoegen van deze eigenschap is geen vereiste, maar op deze manier kunnen we verifiëren dat we correct filtert.
+    We hebben toegevoegd de **categorie** en **Tags** eigenschappen aan de lijst met **Selecteer** items om te retourneren. Deze toevoeging is geen vereiste voor facet navigatie om te werken, maar we gebruiken deze gegevens om te controleren dat we correct filtert.
 
-### <a name="define-a-few-additional-html-styles"></a>Een paar extra HTML-stijlen definiëren
+### <a name="add-lists-of-facet-links-to-the-view"></a>Lijsten van facet koppelingen naar de weergave toevoegen
 
 De weergave gaat vereisen enkele belangrijke wijzigingen. 
 
@@ -318,19 +329,21 @@ De weergave gaat vereisen enkele belangrijke wijzigingen.
     }
 
     .facetchecks {
-        width: 200px;
-        background-color: lightgoldenrodyellow;
+        width: 250px;
         display: normal;
         color: #666;
         margin: 10px;
+        padding: 5px;
+    }
+
+    .facetheader {
+        font-size: 10pt;
+        font-weight: bold;
+        color: darkgreen;    
     }
     ```
 
-### <a name="add-a-list-of-facet-checkboxes-to-the-view"></a>Een lijst met selectievakjes facet toevoegen aan de weergave
-
-Voor de weergave organiseren we de uitvoer in een tabel, zodat deze netjes de facetten aan de linkerkant en de resultaten aan de rechterkant. Open het bestand index.cshtml.
-
-1. Vervang de volledige inhoud van het HTML- &lt;hoofdtekst&gt; tags, met de volgende code.
+2. Voor de weergave wordt de uitvoer indelen in een tabel, om te worden uitgelijnd netjes het facet geeft een lijst aan de linkerkant en de resultaten aan de rechterkant. Open het bestand index.cshtml. Vervang de volledige inhoud van het HTML- &lt;hoofdtekst&gt; tags, met de volgende code.
 
     ```cs
     <body>
@@ -361,13 +374,41 @@ Voor de weergave organiseren we de uitvoer in een tabel, zodat deze netjes de fa
             <tr>
                 <td valign="top">
                     <div id="facetplace" class="facetchecks">
-                        <h5>Filter by Category:</h5>
-                        <ul class="facetlist">
-                            @for (var i = 0; i < Model.facetText.Length; i++)
+
+                        @if (Model != null && Model.resultList != null)
+                        {
+                            List<string> categories = Model.resultList.Facets["Category"].Select(x => x.Value.ToString()).ToList();
+
+                            if (categories.Count > 0)
                             {
-                                <li> @Html.CheckBoxFor(m => m.facetOn[i], new { @id = "check" + i.ToString() }) @Model.facetText[i] </li>
+                                <h5 class="facetheader">Category:</h5>
+                                <ul class="facetlist">
+                                    @for (var c = 0; c < categories.Count; c++)
+                                    {
+                                        var facetLink = $"{categories[c]} ({Model.resultList.Facets["Category"][c].Count})";
+                                        <li>
+                                            @Html.ActionLink(facetLink, "Facet", "Home", new { categoryFilter = $"Category eq '{categories[c]}'" }, null)
+                                        </li>
+                                    }
+                                </ul>
                             }
-                        </ul>
+
+                            List<string> tags = Model.resultList.Facets["Tags"].Select(x => x.Value.ToString()).ToList();
+
+                            if (tags.Count > 0)
+                            {
+                                <h5 class="facetheader">Amenities:</h5>
+                                <ul class="facetlist">
+                                    @for (var c = 0; c < tags.Count; c++)
+                                    {
+                                        var facetLink = $"{tags[c]} ({Model.resultList.Facets["Tags"][c].Count})";
+                                        <li>
+                                            @Html.ActionLink(facetLink, "Facet", "Home", new { amenityFilter = $"Tags/any(t: t eq '{tags[c]}')" }, null)
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        }
                     </div>
                 </td>
                 <td valign="top">
@@ -381,9 +422,15 @@ Voor de weergave organiseren we de uitvoer in een tabel, zodat deze netjes de fa
 
                             @for (var i = 0; i < Model.resultList.Results.Count; i++)
                             {
+                                string amenities = string.Join(", ", Model.resultList.Results[i].Document.Tags);
+
+                                string fullDescription = Model.resultList.Results[i].Document.Description;
+                                fullDescription += $"\nCategory: {Model.resultList.Results[i].Document.Category}";
+                                fullDescription += $"\nAmenities: {amenities}";
+
                                 // Display the hotel name and description.
                                 @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                                @Html.TextArea("desc", Model.resultList.Results[i].Document.Description + "\nCategory:  " +  Model.resultList.Results[i].Document.Category, new { @class = "box2" })
+                                @Html.TextArea($"desc{i}", fullDescription, new { @class = "box2" })
                             }
                         }
                     </div>
@@ -476,181 +523,40 @@ Voor de weergave organiseren we de uitvoer in een tabel, zodat deze netjes de fa
     </body>
     ```
 
-    Let op het gebruik van de **CheckBoxFor** aanroep voor het vullen van de **facetOn** matrix met de selecties voor de gebruiker. We hebben ook de categorie van het hotel toegevoegd aan het einde van het hotel beschrijving. Deze tekst is eenvoudig om te bevestigen dat onze zoekfunctie correct functioneert. Niet veel anders is gewijzigd van eerdere zelfstudies, behalve dat we de uitvoer in een tabel zijn georganiseerd.
+    Let op het gebruik van de **Html.ActionLink** aanroepen. Deze aanroep communiceert geldige tekenreeksen met de domeincontroller, wanneer de gebruiker een facet-koppeling. 
 
 ### <a name="run-and-test-the-app"></a>Uitvoeren en testen van de app.
 
-1. De app uitvoeren en controleer of dat de lijst met facetten netjes wordt weergegeven aan de linkerkant.
+Het voordeel van het facet navigatie aan de gebruiker is dat ze zoekopdrachten met één klik, die we in de volgende reeks weergeven kunt kunnen beperken.
 
-2. Probeer een, twee, drie of meer selectievakjes in te schakelen en de resultaten controleren.
+1. De app, het type 'luchthaven' worden uitgevoerd als de zoektekst. Controleer of dat de lijst met facetten netjes wordt weergegeven aan de linkerkant. Deze facetten zijn alle die betrekking hebben op hotels waarvoor 'luchthaven' in hun tekstgegevens met een telling van hoe vaak ze voorkomen.
 
-    ![Facet navigatie gebruiken om een zoekactie van "Wi-Fi" te beperken](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
+    ![Facet navigatie gebruiken om een zoekactie van "luchthaven" te beperken](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
 
-3. Er is een lichte complicatie met facet navigatie. Wat er moet gebeuren als een gebruiker de selectie facet (selecteren of ongedaan maken de selectievakjes in te schakelen) wordt gewijzigd, maar vervolgens klikt op een van de opties voor paginering en niet de zoekbalk? In feite moet de selectie wordt gewijzigd starten een nieuwe zoekopdracht, als de huidige pagina's niet langer juist. U kunt ook de wijzigingen van de gebruiker kunnen worden genegeerd, en de volgende pagina van de resultaten worden vermeld, op basis van de oorspronkelijke facet selecties. We de laatste oplossing hebt gekozen in dit voorbeeld, maar misschien overwegen hoe u de vorige oplossing kan implementeren. Een nieuwe zoekopdracht misschien geactiveerd als de meest recente selectie van de gekozen facetten komt niet exact overeen met de selectie in de tijdelijke opslag?
+2. Klik op de **redmiddel en beveiligd-wachtwoordverificatie** categorie. Controleer of dat alle resultaten worden in deze categorie.
 
-Ons voorbeeld van facet navigatie is voltooid. Maar misschien u kunt ook overwegen hoe deze app kan worden uitgebreid. De lijst met facet kan worden uitgebreid naar andere facet kunnen velden (bijvoorbeeld **Tags**), zodat een gebruiker een scala aan opties, zoals een groep van toepassingen, Wi-Fi, balk, gratis vervangende domeinpagina, enzovoort kan selecteren. 
+    ![Verkleinen om te zoeken naar "Redmiddel en beveiligd-wachtwoordverificatie"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras.png)
 
-Het voordeel van het facet navigatie aan de gebruiker is dat ze hoeft niet te houden de dezelfde tekst in te voeren, de mogelijkheden van hun facet bewaard voor de levensduur van de huidige sessie met de app. Deze categorieën kunnen selecteren en mogelijk andere kenmerken, met één klik vervolgens op andere specifieke tekst zoeken.
+3. Klik op de **ontbijt** openbare groenvoorzieningen. Controleer of dat alle resultaten zijn nog steeds in de categorie "Redmiddel en beveiligd-wachtwoordverificatie" met de geselecteerde openbare groenvoorzieningen.
 
-Nu gaan we bekijken een ander gebruik van facetten.
+    ![Verkleinen om te zoeken naar "ontbijt"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras-cb.png)
 
-## <a name="add-facet-autocompletion-to-your-app"></a>Facet automatisch aanvullen toevoegen aan uw app
+4. Probeer een andere categorie, klikt u vervolgens een openbare groenvoorzieningen, selecteren en de beperkende resultaten te bekijken. Probeer de andere manier om een openbare groenvoorzieningen en vervolgens een categorie.
 
-Facet automatisch aanvullen werkt door een eerste zoekopdracht wanneer de app voor het eerst wordt uitgevoerd. Deze zoekopdracht wordt een lijst met facetten moet worden gebruikt als suggesties wanneer het typen van de gebruiker is verzameld.
-
-![Typ "opnieuw" ziet u drie facetten](./media/tutorial-csharp-create-first-app/azure-search-facet-type-re.png)
-
-We gebruiken de genummerde wisselbestand-app die u mogelijk in de tweede zelfstudie hebt voltooid als basis voor dit voorbeeld.
-
-Voor het implementeren van facet automatisch aanvullen, hoeft we geen niet te wijzigen van de modellen (de gegevensklassen). We hoeft sommige script toevoegen aan de weergave en een actie met de domeincontroller.
-
-### <a name="add-an-autocomplete-script-to-the-view"></a>Een script automatisch aanvullen in de weergave toevoegen
-
-Als u wilt een facet zoeken initiëren, moeten we een query verzenden. De volgende JavaScript toegevoegd aan het bestand index.cshtml bevat de querylogica en de presentatie die we nodig hebben.
-
-1. Zoek de **@Html.TextBoxFor(m = > m.searchText,...)** instructie en een unieke ID, vergelijkbaar met het volgende toe te voegen.
-
-    ```cs
-    <div class="searchBoxForm">
-        @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresearchfacets" }) <input value="" class="searchBoxSubmit" type="submit">
-    </div>
-    ```
-
-2. Nu de volgende JavaScript toevoegen (na de afsluitende **&lt;/div&gt;** werkt prima hierboven).
-
-    ```JavaScript
-     <script>
-            $(function () {
-                $.getJSON("/Home/Facets", function (data) {
-
-                    $("#azuresearchfacets").autocomplete({
-                        source: data,
-                        minLength: 2,
-                        position: {
-                            my: "left top",
-                            at: "left-23 bottom+10"
-                        }
-                    });
-                });
-            });
-        </script>
-    ```
-
-    U ziet dat het script roept de **facetten** actie in de home-controller, zonder andere parameters, wanneer een minimumlengte van twee tekens is bereikt.
-
-### <a name="add-references-to-jquery-scripts-to-the-view"></a>Verwijzingen naar jquery-scripts toevoegen aan de weergave
-
-De functie automatisch aanvullen is met de naam in het bovenstaande script is niet iets we onszelf schrijven hebben als deze beschikbaar in de bibliotheek jquery is. 
-
-1. Voor toegang tot de bibliotheek jquery, vervangen de &lt;head&gt; sectie van het bestand weergeven door de volgende code.
-
-    ```cs
-    <head>
-        <meta charset="utf-8">
-        <title>Facets demo</title>
-        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-              rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
-        <link rel="stylesheet" href="~/css/hotels.css" />
-    </head>
-    ```
-
-2. We ook wilt verwijderen, of uit, een regel die verwijst naar een jquery in het bestand _Layout.cshtml (in de **weergaven/gedeelde** map). Zoek de volgende regels en opmerkingen bij de eerste scriptopdrachtregel, zoals wordt weergegeven. Door deze regel is verwijderd, we te voorkomen dat niet-eenduidige verwijzingen naar jquery.
-
-    ```html
-     <environment include="Development">
-            <!-- <script src="~/lib/jquery/dist/jquery.js"></script> -->
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    ```
-
-We kunnen nu de vooraf gedefinieerde automatisch aanvullen jquery-functies gebruiken.
-
-### <a name="add-a-facet-action-to-the-controller"></a>Een actie facet aan de controller toevoegen
-
-1. Open de startpagina controller en voeg de volgende twee **met behulp van** instructies toe aan de kop van het bestand.
-
-    ```cs
-    using System.Collections.Generic;
-    using System.Linq;
-    ```
-
-2. JavaScript in de weergave-triggers de **facetten** actie in de controller, dus gaan we die actie toevoegen aan de home-controller (bijvoorbeeld onder de **pagina** actie).
-
-    ```cs
-        public async Task<ActionResult> Facets()
-        {
-            InitSearch();
-
-            // Set up the facets call in the search parameters.
-            SearchParameters sp = new SearchParameters()
-            {
-                // Search all Tags, but limit the total number to 100, and add up to 20 categories.
-                // Field names specified here must be marked as "IsFacetable" in the model, or the search call will throw an exception.
-                Facets = new List<string> { "Tags,count:100", "Category,count:20" },
-            };
-
-            DocumentSearchResult<Hotel> searchResult = await _indexClient.Documents.SearchAsync<Hotel>("*", sp);
-
-            // Convert the results to two lists that can be displayed in the client.
-            List<string> facets = searchResult.Facets["Tags"].Select(x => x.Value.ToString()).ToList();
-            List<string> categories = searchResult.Facets["Category"].Select(x => x.Value.ToString()).ToList();
-
-            // Combine and return the lists.
-            facets.AddRange(categories);
-            return new JsonResult(facets);
-        }
-    ```
-
-    U ziet dat we aanvragen van maximaal 100 facetten uit de **Tags** velden, en tot maximaal 20 van de **categorie** velden. De **aantal** vermeldingen zijn optioneel, als er is geen aantal is ingesteld. de standaardwaarde is 10.
-
-    Moeten we twee lijsten, die vervolgens worden gecombineerd in één, omdat we gevraagd om twee velden waarin wordt gezocht (**Tags** en **categorie**). Als we hadden gevraagd voor drie velden waarin wordt gezocht, zouden we hebben drie lijsten combineren tot één, enzovoort.
-
-    > [!NOTE]
-    > Het is mogelijk om in te stellen van een of meer van de volgende parameters voor elk veld in een zoekopdracht facet: **aantal**, **sorteren**, **interval**, en **waarden**. Zie voor meer informatie, [facetnavigatie implementeren in Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation).
-
-### <a name="compile-and-run-your-project"></a>Compileren en uitvoeren van uw project
-
-Het programma nu testen.
-
-1. Probeer "fr" in het zoekvak typt, die verschillende resultaten moet worden weergegeven.
-
-    !["Fr" typen ziet u drie facetten](./media/tutorial-csharp-create-first-app/azure-search-facet-type-fr.png)
-
-2. Voeg nu een "o" voor "voor" en ziet u dat het bereik van de opties is verlaagd tot één.
-
-3. Typ andere combinaties van twee letters en wat wordt weergegeven. U ziet dat wanneer u de server is *niet* die wordt aangeroepen. De facetten worden lokaal opgeslagen wanneer de app wordt gestart en nu wordt een aanroep alleen uitgevoerd op de server wanneer de gebruiker vraagt om een zoekopdracht.
-
-## <a name="decide-when-to-use-a-facet-autocompletion-search"></a>Bepalen wanneer u het facet automatisch aanvullen zoeken
-
-Het duidelijk verschil tussen het facet zoekopdrachten en andere zoekopdrachten, zoals suggesties en automatisch aanvullen, is dat de zoekopdracht facet _ontworpen_ alleen uit te voeren eenmaal als een pagina wordt geladen. De andere automatisch aanvullen zoekopdrachten _ontworpen_ moet worden aangeroepen nadat elke teken wordt ingevoerd. Facetten met opgeslagen op deze manier mogelijk veel aanroepen naar de server. 
-
-Echter, wanneer moet automatisch aanvullen facet worden gebruikt?
-
-Facet automatisch aanvullen is de beste wordt gebruikt:
-* De belangrijkste reden is dat de prestaties van andere zoekopdrachten die aanroepen van de server elke toetsaanslag een probleem is.
-* De facetten geretourneerd biedt gebruikers een lijst met opties van redelijke wanneer deze in een paar tekens typt.
-* De facetten geretourneerd bieden een snelle manier om toegang tot meest, of in het ideale geval alle van de gegevens beschikbaar.
-* Het maximale aantal's kunnen de meeste facetten moeten worden opgenomen. In de code, stellen we een maximum van 100 facetten voor **Tags** en 20 facetten voor **categorie**. De set maximumwaarden moet werken goed met de grootte van de gegevensset. Als er te veel mogelijke facetten zijn wordt knip-, klikt u vervolgens is misschien de zoekopdracht niet als nuttig beoordeeld als deze moet worden.
-
-> [!NOTE]
-> Hoewel het facet zoekopdrachten zijn ontworpen om te worden aangeroepen zodra per pagina laden, ze kunnen natuurlijk worden aangeroepen veel vaker worden gebruikt, is deze afhankelijk is van uw JavaScript. Even waar is dat automatisch aanvullen/suggestie zoekopdrachten minder vaak meer dan één keer per toetsaanslag kunnen worden uitgevoerd. Dit wordt weer bepaald door uw JavaScript, niet Azure Search. Facet zoeken is echter ontworpen voor slechts één keer per pagina worden aangeroepen als facetten door Azure Search zijn samengesteld uit de gezochte documenten met dit in gedachten. Het is raadzaam om naar het facet automatisch aanvullen zoekopdrachten beschouwen als een iets minder flexibel maar meer netwerk efficiënt vorm van een gebruiker hulp.
+    >[!Note]
+    > Wanneer u een selectie is gemaakt in een lijst facet (zoals categorie) overschrijft alle vorige selectie in de lijst met categorieën.
 
 ## <a name="takeaways"></a>Opgedane kennis
 
 Houd rekening met de volgende takeaways van dit project:
 
-* Het is belangrijk om elk veld als markeren **IsFacetable**, als ze moeten worden opgenomen in de navigatie in de facet of automatisch aanvullen.
+* Het is belangrijk om het markeren van elke eigenschap als **IsFacetable**, als ze moeten worden opgenomen in facet navigatie.
 * Facet navigatie biedt een gebruiker met een eenvoudige en intuïtieve manier van het verkleinen van een zoekopdracht.
-* Facet navigatie is best onderverdeeld in secties (categorieën van hotel), de functies van een hotel, prijsbereiken, enz., elke sectie met de juiste koptekst.
-* Facet automatisch aanvullen is een efficiënte manier voor het ophalen van een nuttige ervaring zonder de herhaalde server aanroepen van andere zoekopdrachten automatisch aanvullen van.
-* Facet automatisch aanvullen is een _alternatieve_ automatisch aanvullen/suggesties, niet een toevoeging.
+* Facet navigatie is best onderverdeeld in secties (categorieën van hotel), faciliteiten van een hotel, prijsbereiken, classificatie bereiken, enz., elke sectie met de juiste koptekst.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt deze reeks C# zelfstudies - u moet hebben opgedaan waardevolle kennis van de Azure Search-API's.
+In de volgende zelfstudie kijken we resultaten ordenen. Tot nu, worden de resultaten gerangschikt gewoon in de volgorde waarin ze bevinden zich in de database.
 
-Voor verdere verwijzing en zelfstudies, kunt u overwegen Bladeren [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), of de andere zelfstudies in de [documentatie voor Azure Search](https://docs.microsoft.com/azure/search/).
+> [!div class="nextstepaction"]
+> [C#zelfstudie: Volgorde van de resultaten - Azure Search](tutorial-csharp-orders.md)

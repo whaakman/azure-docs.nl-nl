@@ -3,20 +3,20 @@ title: QnA bot - Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Maak een chatbot QnA van de pagina publiceren voor een bestaande knowledge base. Deze bot maakt gebruik van de Bot Framework SDK v4-processors. U hoeft geen code voor het bouwen van de bot te schrijven, is alle code bedoeld voor u.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 06/11/2019
-ms.author: tulasim
-ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: tutorial
+ms.date: 06/24/2019
+ms.author: diberry
+ms.openlocfilehash: 1d475d988847bd4cc9e37b91a0c5d28678cb05f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053234"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446655"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v4-processors
 
@@ -52,7 +52,7 @@ Maak een bot als een clienttoepassing voor de knowledge base.
     |Botnaam|`my-tutorial-kb-bot`|Dit is de naam van de Azure-resource voor de bot.|
     |Abonnement|Zie doel.|Selecteer hetzelfde abonnement als u hebt gebruikt om de QnA Maker-resources te maken.|
     |Resourcegroep|`my-tutorial-rg`|De resourcegroep die wordt gebruikt voor alle bot-gerelateerde Azure-resources.|
-    |Locatie|`west us`|Locatie van de Azure-resource van de bot.|
+    |Location|`west us`|Locatie van de Azure-resource van de bot.|
     |Prijscategorie|`F0`|De gratis laag voor de Azure botservice.|
     |Naam van app|`my-tutorial-kb-bot-app`|Dit is een web-app voor de ondersteuning van uw bot alleen. Dit moet niet dezelfde app-naam als de QnA Maker-service wordt al gebruikt. QnA Maker van web-app delen met een andere resource wordt niet ondersteund.|
     |SDK Language|C#|Dit is de onderliggende programmeertaal die worden gebruikt door de botframework SDK. Uw keuzes zijn [ C# ](https://github.com/Microsoft/botbuilder-dotnet) of [Node.js](https://github.com/Microsoft/botbuilder-js).|
@@ -84,12 +84,6 @@ Maak een bot als een clienttoepassing voor de knowledge base.
 
     Zie voor meer informatie over Azure Bots [gebruik QnA Maker te beantwoorden vragen](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
-## <a name="related-to-qna-maker-bots"></a>Met betrekking tot QnA Maker bots
-
-* De QnA Maker help bot, die wordt gebruikt in de portal voor QnA Maker is beschikbaar als een [bot voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
-    ![QnA Maker help bot-pictogram is rood robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
-* [Gezondheidszorg bots](https://docs.microsoft.com/HealthBot/qna_model_howto) QnA Maker gebruiken als een van hun [taalmodellen](https://docs.microsoft.com/HealthBot/qna_model_howto).
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Wanneer u klaar bent met de bot van deze zelfstudie, verwijdert u de bot in Azure portal. 
@@ -103,6 +97,16 @@ Als u een nieuwe resourcegroep hebt gemaakt, moet u zoeken naar bronnen die zijn
 * De Cognitive service
 * De appservice
 * (Optioneel) kan het ook de application insights-service en de opslag voor de application insights-gegevens
+
+
+## <a name="related-to-qna-maker-bots"></a>Met betrekking tot QnA Maker bots
+
+* De QnA Maker help bot, die wordt gebruikt in de portal voor QnA Maker is beschikbaar als een [bot voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker help bot-pictogram is rood robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Gezondheidszorg bots](https://docs.microsoft.com/HealthBot/qna_model_howto) QnA Maker gebruiken als een van hun [taalmodellen](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
+
+[!INCLUDE [Bot Information](../../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

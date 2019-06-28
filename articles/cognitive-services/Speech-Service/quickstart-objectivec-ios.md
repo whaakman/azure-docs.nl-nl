@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: aca7a114fb6e00ab1bbf6ab24492056fca3059f4
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003150"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466632"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech SDK
 
@@ -67,7 +67,7 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 
 De voorbeeldapp heeft een zeer eenvoudige gebruikersinterface: twee knoppen om spraakherkenning te starten vanuit bestands- of microfooninvoer en een tekstlabel om het resultaat weer te geven.
 De gebruikersinterface is ingesteld in het `Main.storyboard`-gedeelte van het project.
-Open de XML-weergave van het storyboard door met de rechtermuisknop op de vermelding `Main.storyboard` van de projectstructuur te klikken en **Open As...** > **Source Code** te selecteren.
+Open de XML-weergave van het storyboard door met de rechtermuisknop op de vermelding `Main.storyboard` van de projectstructuur te klikken en **Open As...**  > **Source Code** te selecteren.
 Vervang de automatisch gegenereerde XML door deze code:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
@@ -81,7 +81,7 @@ Vervang de automatisch gegenereerde XML door deze code:
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Vervang de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
-1. Voeg de aanvraag voor toegang tot de microfoon toe. Klik met de rechtermuisknop op de `Info.plist`-vermelding van de projectstructuur en selecteer **Open As...** > **Source Code**. Voeg de volgende regels toe in de sectie `<dict>` en sla het bestand op.
+1. Voeg de aanvraag voor toegang tot de microfoon toe. Klik met de rechtermuisknop op de `Info.plist`-vermelding van de projectstructuur en selecteer **Open As...**  > **Source Code**. Voeg de volgende regels toe in de sectie `<dict>` en sla het bestand op.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -90,9 +90,8 @@ Vervang de automatisch gegenereerde XML door deze code:
 ## <a name="building-and-running-the-sample"></a>De voorbeeldtoepassing bouwen en uitvoeren
 
 1. Maak de foutopsporingsuitvoer zichtbaar (**View** > **Debug Area** > **Activate Console**).
-1. Kies de iOS-simulator of een iOS-apparaat dat is verbonden met uw ontwikkelcomputer als bestemming voor de app uit de lijst in de **Product** -> **bestemming** menu.
-1. Bouw de voorbeeldcode en voer deze uit in de iOS-simulator door **Product** -> **Run** in het menu te selecteren of op de knop **Play** te klikken.
-   Momenteel biedt de Speech-SDK alleen ondersteuning voor 64-bits iOS-platforms.
+1. Kies de iOS-simulator of een iOS-apparaat dat is verbonden met uw ontwikkelcomputer als bestemming voor de app uit de lijst in de **Product** > **bestemming** menu.
+1. Bouw de voorbeeldcode en voer deze uit in de iOS-simulator door **Product** > **Run** in het menu te selecteren of op de knop **Play** te klikken.
 1. Nadat u op de knop 'Recognize (File)' in de app hebt geklikt, ziet u de inhoud van het audiobestand 'What's the weather like?' in het onderste gedeelte van het scherm.
 
    ![Gesimuleerde iOS-app](media/sdk/qs-objectivec-simulated-app.png)

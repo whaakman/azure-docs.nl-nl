@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: af91dc09f8ed68d7bd4f2378c13d99eb67c52e9e
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: acf0b1984eb3e68858be6ed68731612448e672f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155639"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432694"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Zelfstudie: Een Azure Machine Learning-model trainen en implementeren
 
@@ -56,7 +56,7 @@ Als met de ontwikkelaar van virtuele machine, met behulp van Azure notebooks zor
 
 Azure Notebook-accounts zijn onafhankelijk van de Azure-abonnementen. Voor het gebruik van Azure-laptops, moet u een account maken.
 
-1. Navigeer naar [Azure notitieblokken](http://notebooks.azure.com).
+1. Navigeer naar [Azure notitieblokken](https://notebooks.azure.com).
 
 2. Klik op **aanmelden** in de bovenste, rechter hoek van de pagina.
 

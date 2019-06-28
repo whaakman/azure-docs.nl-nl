@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Een model te trainen en ophalen van gegevens met behulp van cURL - formulier-herkenning'
+title: 'Quickstart: Een model te trainen en extraheren van gegevens met cURL - formulier-herkenning'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids hebt u het formulier herkenning REST-API gebruiken met cURL naar een model te trainen en extraheer gegevens uit formulieren.
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 3f3b74452ff1f866b0285eee962ab3678b151a30
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 144cd0380cfe2a49d5827f9ecc34ed197f4ad1cd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331833"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441815"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en ophalen van gegevens met behulp van de REST-API met cURL
 
@@ -26,7 +26,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Als u wilt deze snelstartgids hebt voltooid, moet u het volgende hebben:
 - Toegang tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, invullen en verzenden de [formulier herkenning toegangsaanvraag](https://aka.ms/FormRecognizerRequestAccess) formulier.
 - [cURL](https://curl.haxx.se/windows/) geïnstalleerd.
-- Een set van ten minste vijf vormen van hetzelfde type. U gebruikt deze gegevens naar het model te trainen. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start. De gegevens uploaden naar de hoofdmap van een Azure Blob Storage-account.
+- Een set van ten minste vijf vormen van hetzelfde type. U gebruikt deze gegevens naar het model te trainen. U kunt een [verzameling voorbeeldgegevens](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start. De gegevens uploaden naar de hoofdmap van een Azure Blob Storage-account.
 
 ## <a name="create-a-form-recognizer-resource"></a>Een formulier herkenning-resource maken
 

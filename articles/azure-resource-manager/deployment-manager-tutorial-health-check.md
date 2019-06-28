@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4d6832346fb25ee09d97575c755cb2d85eb73cbe
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206606"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442587"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager (preview-versie)
 
@@ -57,7 +57,7 @@ In de productieomgeving, moet u doorgaans een of meer controle providers gebruik
 De volgende twee bestanden worden gebruikt voor het implementeren van de Azure-functie. U hoeft niet te deze bestanden downloaden naar de zelfstudie te volgen.
 
 * Een Resource Manager-sjabloon bevindt zich op [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). U implementeert deze sjabloon voor het maken van een Azure-functie.
-* Een zip-bestand van de broncode van de Azure-functie [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Dit zip met de naam wordt aangeroepen door de Resource Manager-sjabloon.
+* Een zip-bestand van de broncode van de Azure-functie [ https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Dit zip met de naam wordt aangeroepen door de Resource Manager-sjabloon.
 
 Selecteer voor het implementeren van de Azure-functie, **uitproberen** Azure Cloud shell openen en plak het volgende script in de shell-venster.  Als u de code, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**.
 

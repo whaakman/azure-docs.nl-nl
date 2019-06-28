@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67f2531b24796de1e00505fdc757f3c2244c5054
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 3eb65b5d41317a4cfc31917a4b08d931ba9c7aa6
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002340"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466611"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Quickstart: Het herkennen van gesproken tekst in Objective-C in macOS met behulp van de spraak-SDK
 
@@ -67,13 +67,7 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 ## <a name="install-the-sdk-as-a-cocoapod"></a>De SDK installeren als een CocoaPod
 
 1. De afhankelijkheidsbeheerder CocoaPod installeren zoals beschreven in de [installatie-instructies](https://guides.cocoapods.org/using/getting-started.html).
-1. Ga naar de map van uw voorbeeld-app (`helloworld`). Plaats een tekstbestand met de naam van de `Podfile` en de volgende inhoud in die map:
-    ```
-    target 'helloworld' do
-        platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.1'
-    end
-    ```
+1. Ga naar de map van uw voorbeeld-app (`helloworld`). Plaats een tekstbestand met de naam van de `Podfile` en de volgende inhoud in die map: [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. Navigeer naar de `helloworld` map in een terminal en voer de opdracht `pod install`. Dit genereert een `helloworld.xcworkspace` Xcode-werkruimte met zowel de voorbeeld-app en de SDK spraak als een afhankelijkheid. Deze werkruimte wordt gebruikt in het volgende.
 
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
@@ -87,7 +81,7 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 ## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
 
 1. Maak de foutopsporingsuitvoer zichtbaar (**View** > **Debug Area** > **Activate Console**).
-1. Bouwen en uitvoeren van de voorbeeldcode hiervoor **Product** -> **uitvoeren** in het menu of klikken op de **afspelen** knop.
+1. Bouwen en uitvoeren van de voorbeeldcode hiervoor **Product** > **uitvoeren** in het menu of klikken op de **afspelen** knop.
 1. Nadat u op de knop en stel een paar woorden dat, ziet u de tekst die u hebt gesproken in het onderste gedeelte van het scherm. Wanneer u de app voor de eerste keer uitvoert, moet u gevraagd de apptoegang geven tot de microfoon van uw computer.
 
 ## <a name="next-steps"></a>Volgende stappen

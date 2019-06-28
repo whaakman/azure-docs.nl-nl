@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476002"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445372"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Een elastische-taakagent maken met behulp van PowerShell
 
 [Elastisc Jobs](sql-database-job-automation-overview.md#elastic-database-jobs) maken het mogelijk om één of meerdere T-SQL-scripts (Transact-SQL) parallel in veel databases uit te voeren.
 
-In deze zelfstudie leert u welke stappen u moet uitvoeren om een ​​query uit te voeren op meerdere databases:
+In deze zelfstudie leert u de stappen die nodig zijn voor een query uitvoeren voor meerdere databases:
 
 > [!div class="checklist"]
 > * Een Elastic Jobs-agent maken
@@ -71,7 +71,7 @@ Get-Module Az.Sql
 
 Voor het maken van een Elastic Jobs-agent is een database (S0 of hoger) vereist om te gebruiken als [taakdatabase](sql-database-job-automation-overview.md#job-database). 
 
-*Het onderstaande script maakt een nieuwe resourcegroep, server en database voor gebruik als de taakdatabase. Het onderstaande script maakt ook een tweede server met 2 lege databases om taken op uit te voeren.*
+*Het onderstaande script maakt een nieuwe resourcegroep, server en database voor gebruik als de taakdatabase. Het onderstaande script maakt ook een tweede server met twee lege databases voor het uitvoeren van taken op basis van.*
 
 Elastic Jobs heeft geen specifieke naamgevingsvereisten, zodat u elke naamgevingsconventie kunt gebruiken die u wilt, zolang deze maar voldoet aan de [Azure-vereisten](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -285,6 +285,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>Taak uitvoeren-statussen
+
+De volgende tabel bevat de statussen van de uitvoering van mogelijke taak:
+
+|Status|Description|
+|:---|:---|
+|**Gemaakt** | Het uitvoeren van de taak is gemaakt en is niet nog bezig.|
+|**InProgress** | Het uitvoeren van de taak wordt momenteel uitgevoerd.|
+|**WaitingForRetry** | Het uitvoeren van de taak niet kunt voltooien van de bijbehorende actie is en is in afwachting opnieuw uit te voeren.|
+|**Geslaagd** | Het uitvoeren van de taak is voltooid.|
+|**SucceededWithSkipped** | Het uitvoeren van de taak is voltooid, maar sommige van de onderliggende items zijn overgeslagen.|
+|**Mislukt** | Het uitvoeren van de taak heeft is mislukt en de nieuwe pogingen bereikt.|
+|**TimedOut** | Is een time-out opgetreden bij het uitvoeren van taak.|
+|**Geannuleerd** | Het uitvoeren van de taak is geannuleerd.|
+|**Overgeslagen** | Het uitvoeren van de taak is overgeslagen omdat een andere uitvoering van de dezelfde taakstap al wordt uitgevoerd op hetzelfde doel.|
+|**WaitingForChildJobExecutions** | Het uitvoeren van de taak wacht op de onderliggende uitvoeringen om te voltooien.|
 
 ## <a name="schedule-the-job-to-run-later"></a>De taak plannen om later uit te voeren
 

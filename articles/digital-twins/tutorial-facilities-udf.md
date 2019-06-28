@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 738e78ce06d98960c87414948e045cc4abe37d6b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533510"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462192"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Zelfstudie: Uw gebouw inrichten en uw werkomstandigheden controleren met Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Zelfstudie: Richt uw gebouw en monitor voorwaarden met Azure digitale dubbels Preview werken
 
-Deze zelfstudie laat zien hoe u Azure Digital Twins gebruikt voor het controleren van ruimten zodat daar de gewenste temperatuur en het gewenste comfortniveau heerst. Nadat u uw [voorbeeldgebouw hebt geconfigureerd](tutorial-facilities-setup.md), kunt u het gebouw inrichten en aangepaste functies uitvoeren voor uw sensorgegevens met behulp van de stappen in deze zelfstudie.
+In deze zelfstudie laat zien hoe Azure digitale dubbels Preview gebruiken voor het bewaken van uw opslagruimten voor het gewenste temperatuur en comfort niveau. Nadat u uw [voorbeeldgebouw hebt geconfigureerd](tutorial-facilities-setup.md), kunt u het gebouw inrichten en aangepaste functies uitvoeren voor uw sensorgegevens met behulp van de stappen in deze zelfstudie.
 
 In deze zelfstudie leert u het volgende:
 
@@ -43,14 +43,14 @@ U kunt een reeks specifieke omstandigheden definiëren die in het apparaat of se
 
 Open vanuit het voorbeeldproject **occupancy-quickstart** het bestand **src\actions\provisionSample.yaml** in Visual Studio Code. Let op de sectie die begint met het type **matchers**. Elk item onder dit type maakt een matcher met de opgegeven **Naam**. De matcher bewaakt een sensor van het type **dataTypeValue**. Kijk hoe deze zich verhoudt tot de ruimte met de naam *Focus Room A1*, die een knooppunt **devices** heeft waarin zich een aantal sensoren bevinden. Als u een matcher wilt inrichten om een van deze sensoren te volgen, moet u ervoor zorgen dat de bijbehorende **dataTypeValue** overeenkomt met het **dataType** van de sensor. 
 
-Voeg de volgende matcher toe onder de bestaande matchers. Zorg ervoor dat de sleutels zijn uitgelijnd en ruimtes niet zijn vervangen door tabs.
+Voeg de volgende matcher toe onder de bestaande matchers. Zorg ervoor dat de sleutels zijn uitgelijnd en ruimtes niet zijn vervangen door tabs. Deze regels zijn ook aanwezig in het bestand *provisionSample.yaml* in de vorm van commentaarregels. U kunt er coderegels van maken door het teken `#` aan het begin van elke regel te verwijderen.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Deze matcher volgt de sensor SAMPLE_SENSOR_TEMPERATURE die u in [de eerste zelfstudie](tutorial-facilities-setup.md) hebt toegevoegd. Deze regels zijn ook aanwezig in het bestand *provisionSample.yaml* in de vorm van commentaarregels. U kunt er coderegels van maken door het teken `#` aan het begin van elke regel te verwijderen.
+Deze matcher volgt de sensor SAMPLE_SENSOR_TEMPERATURE die u in [de eerste zelfstudie](tutorial-facilities-setup.md) hebt toegevoegd. 
 
 <a id="udf"></a>
 

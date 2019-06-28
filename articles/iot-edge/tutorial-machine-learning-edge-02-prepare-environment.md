@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f36b706213639c5bea383ec20ffc7f6d7ed01021
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155717"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432835"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Zelfstudie: Instellen van een omgeving voor machine learning op IoT Edge
 
@@ -190,7 +190,7 @@ Het script neemt ongeveer twee minuten om uit te voeren. Als u klaar bent, voert
 
 Als onderdeel van het maken van de IoT-hub gemaakt het script dat er in de vorige sectie is ook een aangepast eindpunt en een route. IoT Hub-routes bestaan uit een query-expressie en een eindpunt. Als een bericht overeenkomt met de expressie, wordt de gegevens op de route verzonden naar het bijbehorende eindpunt. Eindpunten kunnen worden Event Hubs, Service Bus-wachtrijen en onderwerpen. Het eindpunt is in dit geval een blobcontainer in een storage-account. We gebruiken de Azure-portal om te controleren van de route die zijn gemaakt door het script.
 
-1. Open de [Azure Portal](http://portal.azure.com).
+1. Open de [Azure Portal](https://portal.azure.com).
 
 1. Kies alle services uit de linker navigator, IoT typt in het zoekvak en selecteer **IoT-Hub**.
 

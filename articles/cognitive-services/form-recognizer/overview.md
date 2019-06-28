@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fb382227c71fce7ebe062057adf5edfb90a1a92
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 82ee2aa5627ac5fa4584f5af6b6b80cc2813c667
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601621"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441840"
 ---
 # <a name="what-is-form-recognizer"></a>Wat is Form Recognizer?
 
-Azure Form Recognizer is een Cognitive Service-dienst die gebruikmaakt van machine learning-technologie om sleutel-waardeparen en tabelgegevens uit formulierdocumenten te identificeren en te extraheren. Vervolgens voert het gestructureerde gegevens uit die ook de relaties uit het oorspronkelijke bestand omvatten. U kunt het model van uw aangepaste formulier herkenning aanroepen met behulp van een eenvoudige REST-API voor minder complexiteit en eenvoudig integreren in uw werkstroom of toepassing. Als u wilt beginnen, hoeft u maar vijf formulier documenten of een leeg formulier van hetzelfde type als uw invoer materiaal. Snel krijgt u nauwkeurige resultaten die zijn afgestemd op uw specifieke inhoud zonder zware handmatige tussenkomst of uitgebreide data science expertise.
+Azure Form Recognizer is een Cognitive Service-dienst die gebruikmaakt van machine learning-technologie om sleutel-waardeparen en tabelgegevens uit formulierdocumenten te identificeren en te extraheren. Vervolgens voert het gestructureerde gegevens uit die ook de relaties uit het oorspronkelijke bestand omvatten. U kunt het model van uw aangepaste formulier herkenning aanroepen met behulp van een eenvoudige REST-API voor minder complexiteit en eenvoudig integreren in uw werkstroom of toepassing. Als u wilt beginnen, hoeft u maar vijf ingevuld formulier documenten of twee ingevuld in formulieren en een leeg formulier van hetzelfde type als uw invoer materiaal. Snel krijgt u nauwkeurige resultaten die zijn afgestemd op uw specifieke inhoud zonder zware handmatige tussenkomst of uitgebreide data science expertise.
 
 ## <a name="request-access"></a>Toegang aanvragen
 Herkenning van formulier is beschikbaar in het voorbeeld van een beperkte toegang. Voor toegang tot de Preview-versie, invullen en verzenden de [formulier herkenning toegangsaanvraag](https://aka.ms/FormRecognizerRequestAccess) formulier. Het formulier vraagt om informatie over u, uw bedrijf en het scenario voor gebruikers waarvoor u formulier herkenning gebruikt. Als uw aanvraag is goedgekeurd door het team van Azure Cognitive Services, ontvangt u een e-mailbericht met instructies voor het openen van de service.
@@ -35,22 +35,7 @@ Herkenning van formulier is beschikbaar als een REST-API. U kunt maken, trainen 
 
 ## <a name="input-requirements"></a>Vereisten voor invoer
 
-Formulier herkenning werkt op invoer van de documenten die aan deze vereisten voldoen:
-
-* Indeling moet JPG, PNG- of een PDF-bestand (tekst of gescand). Tekst ingesloten PDF-bestanden zijn aanbevolen, omdat er geen mogelijkheid om de fout in de extractie van tekens en de locatie.
-* Bestandsgrootte moet minder dan 4 megabyte (MB).
-* Voor installatiekopieën van moet dimensies tussen 50 x 50 pixels en 4200 x 4200 pixels.
-* Als gescand van papierdocumenten, moeten de formulieren scans van hoge kwaliteit zijn.
-* Tekst moet het Latijnse alfabet (Engelse tekens) gebruiken.
-* Gegevens moeten worden afgedrukt (niet geschreven).
-* Gegevens moeten sleutels en waarden bevatten.
-* Sleutels kunnen worden weergegeven boven of links van de waarden, maar niet minder dan of aan de rechterkant.
-
-Formulier-herkenning ondersteunt momenteel geen dergelijke van ingevoerde gegevens:
-
-* Complexe tabellen (geneste tabellen, samengevoegde koptekst of cellen, enzovoort).
-* Selectievakjes of radio knoppen.
-* PDF-documenten langer is dan 50 pagina's.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="where-do-i-start"></a>Waar moet ik beginnen?
 
@@ -68,7 +53,7 @@ Gebruik de volgende API's te trainen en extraheer gestructureerde gegevens uit f
 
 | REST-API | Description |
 |-----|-------------|
-| Trainen | Een nieuw model voor het analyseren van uw formulieren met behulp van vijf formulieren van hetzelfde type of een leeg formulier te trainen.  |
+| Trainen | Een nieuw model voor het analyseren van uw formulieren met behulp van vijf vormen van hetzelfde type trainen. Of trainen met een leeg formulier en twee ingevuld in formulieren.  |
 | Analyseren  |Analyseer één document doorgegeven als een stroom om op te halen van sleutel / waarde-paren en tabellen in het formulier met uw aangepaste model.  |
 
 Verken de [REST-API-verwijzing document](https://aka.ms/form-recognizer/api). 

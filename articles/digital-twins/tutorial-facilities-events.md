@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a2364068a1fcba46509408672e5be7440fcfba5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533628"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462248"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Zelfstudie: Meldingen ontvangen uit uw Azure Digital Twins-ruimten met behulp van Logic Apps
 
@@ -76,16 +76,16 @@ In deze sectie stelt u een [Event Grid](../event-grid/overview.md) in voor het v
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Vervang de tijdelijke aanduiding `Primary_connection_string_for_your_Event_Grid` door de waarde van **YOUR_KEY_1**.
+1. Vervang de tijdelijke aanduiding `<Primary connection string for your Event Grid>` door de waarde van **YOUR_KEY_1**.
 
-1. Vervang de tijdelijke aanduiding `Secondary_connection_string_for_your_Event_Grid` door de waarde van **YOUR_KEY_2**.
+1. Vervang de tijdelijke aanduiding `<Secondary connection string for your Event Grid>` door de waarde van **YOUR_KEY_2**.
 
-1. Vervang de tijdelijke aanduiding `Event_Grid_Topic_Path` door het pad van het Event Grid-onderwerp. Haal dit pad op door **https://** en de daarop volgende resourcepaden uit de URL van het **Eindpunt onderwerp** te verwijderen. Het moet er uitzien zoals deze indeling: *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Vervang de tijdelijke aanduiding voor **pad** met het pad van de event grid-onderwerp. Haal dit pad op door **https://** en de daarop volgende resourcepaden uit de URL van het **Eindpunt onderwerp** te verwijderen. Het moet er uitzien zoals deze indeling: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Voer alle waarden in zonder aanhalingstekens. Zorg dat de dubbele punten in het YAML-bestand worden gevolgd door minstens één spatie. U kunt de inhoud van het YAML-bestand ook valideren met behulp van een YAML-onlinevalidatie, zoals met [dit hulpprogramma](https://onlineyamltools.com/validate-yaml).
@@ -114,9 +114,9 @@ Met de [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-service kunt u g
 
 1. Open de resource voor Logic Apps wanneer deze is geïmplementeerd en open vervolgens het deelvenster **Ontwerper van logische app**. 
 
-1. Selecteer de trigger **Wanneer een Event Grid-gebeurtenis optreedt**. Meld u aan bij uw tenant met uw Azure-account wanneer hierom wordt gevraagd. Selecteer **Toegang toestaan** voor uw Event Grid-resource wanneer hierom wordt gevraagd. Selecteer **Doorgaan**.
+1. Selecteer de **wanneer een Event Grid-resourcegebeurtenis optreedt** trigger. Meld u aan bij uw tenant met uw Azure-account wanneer hierom wordt gevraagd. Selecteer **toegang toestaan** voor uw Event Grid als u hierom wordt gevraagd. Selecteer **Doorgaan**.
 
-1. In het venster **Wanneer een resourcegebeurtenis optreedt (Preview)**: 
+1. In het venster **Wanneer een resourcegebeurtenis optreedt (Preview)** : 
    
    a. Selecteer het **abonnement** waarmee u het Event Grid-onderwerp hebt gemaakt.
 
@@ -174,7 +174,7 @@ Met de [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-service kunt u g
 
    a. Selecteer **Een actie toevoegen** en selecteer **Office 365 Outlook**.
 
-   b. Selecteer in de lijst **Acties** de optie **Een e-mail verzenden**. Selecteer **Aanmelden** en gebruik de referenties van uw e-mailaccount. Selecteer **Toegang toestaan** wanneer hierom wordt gevraagd.
+   b. Selecteer in de lijst **Acties** de optie **Een e-mail verzenden**. Selecteer **Aanmelden** en gebruik de referenties van uw e-mailaccount. Selecteer **toegang toestaan** als u hierom wordt gevraagd.
 
    c. In het vak **Aan** voert u uw e-mail-ID in om meldingen te ontvangen. Voer bij **Onderwerp** de tekst **Digital Twins-melding voor slechte luchtkwaliteit in ruimte**. Selecteer vervolgens **TopologyObjectId** in de lijst **Dynamische inhoud** voor **JSON parseren**.
 
@@ -190,7 +190,7 @@ Binnen een paar minuten moet u e-mailmeldingen gaan ontvangen van deze resource 
 
    ![E-mailmelding](./media/tutorial-facilities-events/logic-app-notification.png)
 
-Als u wilt stoppen met het ontvangen van deze e-mailberichten, gaat u naar uw resource voor Logic Apps in de portal en selecteert u het deelvenster **Overzicht**. Selecteer **Uitschakelen**.
+Als u wilt stoppen met het ontvangen van deze e-mailberichten, gaat u naar uw resource voor Logic Apps in de portal en selecteert u het deelvenster **Overzicht**. Selecteer **uitschakelen**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a809a4de588a388c4be8ca6efa245450699eeb64
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815512"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441606"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Zelfstudie: Een Android-app maken om gezichten in een afbeelding te herkennen en te omlijsten
 
@@ -78,7 +78,7 @@ Maak de aanroep voor **detectAndFrame** in de methode **onActivityResult** inact
 
 ### <a name="add-the-gradle-dependency"></a>Gradle-afhankelijkheid toevoegen
 
-Gebruik in het deelvenster **Project** de vervolgkeuzeselector om **Android** te selecteren. Vouw **Gradle Scripts** uit en open *build.gradle (Module: app)*. Voeg een afhankelijkheid toe voor de Face-clientbibliotheek, `com.microsoft.projectoxford:face:1.4.3`, zoals weergegeven in de onderstaande schermafbeelding. Klik vervolgens op **Sync Now**.
+Gebruik in het deelvenster **Project** de vervolgkeuzeselector om **Android** te selecteren. Vouw **Gradle Scripts** uit en open *build.gradle (Module: app)* . Voeg een afhankelijkheid toe voor de Face-clientbibliotheek, `com.microsoft.projectoxford:face:1.4.3`, zoals weergegeven in de onderstaande schermafbeelding. Klik vervolgens op **Sync Now**.
 
 ![Android Studio-schermafbeelding van app-bestand build.gradle](../Images/face-tut-java-gradle.png)
 
@@ -100,7 +100,7 @@ Vouw in het deelvenster **Project** achtereenvolgens **app**, **manifests** uit 
 
 ## <a name="upload-image-and-detect-faces"></a>Afbeelding uploaden en gezichten detecteren
 
-De app detecteert gezichten door het aanroepen van de methode **FaceServiceClient.detect**. Hiermee wordt de [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)-REST API verpakt en een lijst met **Face**-instanties geretourneerd.
+Uw app Detecteer gezichten door het aanroepen van de **faceClient.Face.DetectWithStreamAsync** methode die geschikt is voor de [analyse](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST-API en retourneert een lijst van **Face** exemplaren.
 
 Elke geretourneerde **Face**-instantie bevat een rechthoek om de locatie ervan aan te geven, plus een reeks optionele gezichtskenmerken. In dit voorbeeld worden alleen de rechthoeken om de gezichten aangevraagd.
 

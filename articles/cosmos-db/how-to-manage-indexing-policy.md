@@ -4,14 +4,14 @@ description: Informatie over het beheren van de indexing-beleid in Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/27/2019
 ms.author: thweiss
-ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9fe58e9d49a46fd03a2938f2860a3a5d476813af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386798"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441775"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB beheren
 
@@ -357,7 +357,7 @@ U kunt meerdere verschillende samengestelde indexen binnen de dezelfde indexerin
                     "path":"/age",
                     "order":"ascending"
                 }
-            ]
+            ],
             [  
                 {  
                     "path":"/name",

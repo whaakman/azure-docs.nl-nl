@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f9e5c531e387ba8d2c61c6d46b1e8935bc7d42cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243165"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67429047"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Een Azure-functie-app als API importeren in Azure API Management
 
@@ -69,7 +69,7 @@ Voer de volgende stappen uit om een nieuwe API te maken vanuit een Azure-functie
     ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > U kunt alleen functies importeren die zijn gebaseerd op HTTP-trigger en waarbij het verificatieniveau is ingesteld op *Anoniem* of *Functie*. Linux-functie-Apps worden op dit moment niet ondersteund.
+    > U kunt alleen functies importeren die zijn gebaseerd op HTTP-trigger en waarbij het verificatieniveau is ingesteld op *Anoniem* of *Functie*.
 
 7. Schakel over naar de **volledige** weergave en wijs **Product** toe aan uw nieuwe API. Bewerk zo nodig andere vooraf ingevulde velden.
 

@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 72602cb1fda88497172b1837eab98d5e9ce41776
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117582"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435433"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Zelfstudie: Een aangepaste installatiekopie bouwen en uitvoeren in App Service uit een persoonlijk register
 
-[App Service](app-service-linux-intro.md) biedt ingebouwde Docker-installatiekopieën op Linux met ondersteuning voor specifieke versies, zoals PHP 7.0 en Node.js 4.5. App Service maakt gebruik van de Docker-containertechnologie voor het hosten van zowel ingebouwde installatiekopieën als aangepaste installatiekopieën als een platform als een service. In deze zelfstudie leert u hoe u een aangepaste installatiekopie bouwen en uitvoeren in App Service. Dit patroon is handig als de taal van keuze niet is inbegrepen in de ingebouwde installatiekopieën, of wanneer uw toepassing een specifieke configuratie vereist die niet door de ingebouwde installatiekopieën wordt verschaft.
+[App Service](app-service-linux-intro.md) biedt ingebouwde Docker-installatiekopieën op Linux met ondersteuning voor specifieke versies, zoals PHP 7.3 en Node.js 10.14. App Service maakt gebruik van de Docker-containertechnologie voor het hosten van zowel ingebouwde installatiekopieën als aangepaste installatiekopieën als een platform als een service. In deze zelfstudie leert u hoe u een aangepaste installatiekopie bouwen en uitvoeren in App Service. Dit patroon is handig als de taal van keuze niet is inbegrepen in de ingebouwde installatiekopieën, of wanneer uw toepassing een specifieke configuratie vereist die niet door de ingebouwde installatiekopieën wordt verschaft.
 
 In deze zelfstudie leert u het volgende:
 
@@ -211,7 +211,7 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in he
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Registerreferenties in web-app configureren
 
-Voor App Service voor het ophalen van de persoonlijke installatiekopie, moet deze informatie over uw register en de installatiekopie. In de Cloud Shell, bieden ze met de [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) opdracht. Vervang  *\<app-naam >*,  *\<azure-container-register-name >*,  _\<register-username >_, en  _\<wachtwoord >_.
+Voor App Service voor het ophalen van de persoonlijke installatiekopie, moet deze informatie over uw register en de installatiekopie. In de Cloud Shell, bieden ze met de [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) opdracht. Vervang  *\<app-naam >* ,  *\<azure-container-register-name >* ,  _\<register-username >_ , en  _\<wachtwoord >_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

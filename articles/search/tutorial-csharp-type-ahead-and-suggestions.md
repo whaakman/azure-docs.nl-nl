@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 48dde6ebe19f5a6c14008fd4e5e27a9fb0151928
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304104"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434697"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>C#zelfstudie: Automatisch aanvullen en suggesties - Azure Search toevoegen
 
@@ -69,11 +69,11 @@ De functie automatisch aanvullen is met de naam in het bovenstaande script is ni
     ```cs
     <head>
         <meta charset="utf-8">
-        <title>Autocomplete demo</title>
-        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+        <title>Typeahead</title>
+        <link href="https://code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css"
               rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link rel="stylesheet" href="~/css/hotels.css" />
     </head>
@@ -461,9 +461,9 @@ Houd rekening met de volgende takeaways van dit project:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een van de problemen met automatisch aanvullen en suggesties is dat ze betrekking hebben op mislukte aanroepen naar de server (één op elke sleutel lijn nadat het minimum aantal tekens hebt getypt is bereikt). Als deze aanroepen resultaten in langzamer dan verwacht antwoorden herhaald, vermindert de gebruikerservaring. Met behulp van facetten biedt een interessante alternatief om te voorkomen dat deze herhaalde aanroepen, die we naar volgende kijken zullen.
+In de volgende zelfstudie hebben we eens naar een andere manier om de gebruikerservaring te verbeteren facetten gebruiken om te beperken van zoekopdrachten met één klik.
 
 > [!div class="nextstepaction"]
-> [C#Zelfstudie: Facetten voor navigatie en netwerk-efficiëntie - Azure Search gebruiken](tutorial-csharp-facets.md)
+> [C#Zelfstudie: Facetten gebruiken om u te helpen de navigatie - Azure Search](tutorial-csharp-facets.md)
 
 

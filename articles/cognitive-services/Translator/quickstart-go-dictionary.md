@@ -3,19 +3,19 @@ title: 'Quickstart: Woorden opzoeken met een tweetalige woordenlijst, Go - Trans
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 56e67389c59cda70ebcc7705e279b84fcf11cf9d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: bc92fb078c46c877f3b99389b1d14ad0f93e63b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514140"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445207"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Go
 
@@ -138,6 +138,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>Het antwoord verwerken en afdrukken
 

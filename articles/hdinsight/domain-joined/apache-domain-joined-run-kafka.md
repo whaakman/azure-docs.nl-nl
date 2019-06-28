@@ -6,17 +6,17 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 3a7d3a5d066db349bd3002b244d3a9f88777369b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/24/2019
+ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274342"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441376"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package (preview)
 
-Leer hoe u Apache Ranger-beleidsregels configureert voor Apache Kafka-clusters met Enterprise Security Package (ESP). ESP-clusters worden verbonden met een domein zodat gebruikers zich kunnen verifiëren met domeinreferenties. In deze zelfstudie maakt u twee Ranger-beleidsregels om de toegang tot de onderwerpen `sales*` en `marketingspend` te beperken.
+Leer hoe u Apache Ranger-beleidsregels configureert voor Apache Kafka-clusters met Enterprise Security Package (ESP). ESP-clusters worden verbonden met een domein zodat gebruikers zich kunnen verifiëren met domeinreferenties. In deze zelfstudie maakt u twee Ranger-beleidsregels om de toegang tot de onderwerpen `sales` en `marketingspend` te beperken.
 
 In deze zelfstudie leert u het volgende:
 
@@ -26,20 +26,13 @@ In deze zelfstudie leert u het volgende:
 > * Onderwerpen in een Kafka-cluster maken
 > * Ranger-beleidsregels testen
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="prerequisite"></a>Vereiste
 
-* Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) aan.
-
-* Meld u aan bij [Azure Portal](https://portal.azure.com/).
-
-* Maak een [HDInsight Kafka-cluster met Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
+Een [HDInsight Kafka-cluster met Enterprise-beveiligingspakket](./apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Verbinding maken met de beheerinterface van Apache Ranger
 
-1. Maak vanuit een browser verbinding met de beheerinterface van Ranger met behulp van de URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. Vergeet niet om `<ClusterName>` te wijzigen in de naam van uw Kafka-cluster.
-
-    > [!NOTE]  
-    > Ranger-referenties zijn niet hetzelfde als referenties van een Hadoop-cluster. Gebruik een nieuw InPrivate-browservenster om verbinding te maken met de beheerinterface van Ranger om te voorkomen dat browsers Hadoop-referenties in de cache gebruiken.
+1. Maak vanuit een browser verbinding met de beheerinterface van Ranger met behulp van de URL `https://ClusterName.azurehdinsight.net/Ranger/`. Vergeet niet om `ClusterName` te wijzigen in de naam van uw Kafka-cluster. Ranger-referenties zijn niet hetzelfde als referenties van een Hadoop-cluster. Gebruik een nieuw InPrivate-browservenster om verbinding te maken met de beheerinterface van Ranger om te voorkomen dat browsers Hadoop-referenties in de cache gebruiken.
 
 2. Meld u aan met uw beheerdersreferenties voor Azure Active Directory (AD). Deze referenties zijn niet hetzelfde als de referenties voor het HDInsight-cluster of de SSH-referenties voor het Linux HDInsight knooppunt.
 
@@ -47,7 +40,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="create-domain-users"></a>Domeingebruikers maken
 
-Ga naar [Een HDInsight-cluster maken met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) voor informatie over het maken van de domeingebruikers **sales_user** en **marketing_user**. In een productiescenario zijn de domeingebruikers afkomstig uit uw Active Directory-tenant.
+Ga naar [Een HDInsight-cluster maken met Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) voor informatie over het maken van de domeingebruikers **sales_user** en **marketing_user**. In een productiescenario zijn de domeingebruikers afkomstig uit uw Active Directory-tenant.
 
 ## <a name="create-ranger-policy"></a>Ranger-beleid maken
 
@@ -55,11 +48,11 @@ Maak een Ranger-beleid voor **sales_user** en **marketing_user**.
 
 1. Open de **beheerinterface van Ranger**.
 
-2. Klik op **\<clusternaam>_kafka** onder **Kafka**. Er kan één vooraf geconfigureerd beleid worden weergegeven.
+2. Selecteer  **\<ClusterName > _kafka** onder **Kafka**. Er kan één vooraf geconfigureerd beleid worden weergegeven.
 
-3. Klik op **Add New Policy** en voer de volgende waarden in:
+3. Selecteer **nieuw beleid toevoegen** en voer de volgende waarden:
 
-   |**Instelling**  |**Voorgestelde waarde**  |
+   |Instelling  |Voorgestelde waarde  |
    |---------|---------|
    |Beleidsnaam  |  hdi sales* policy   |
    |Onderwerp   |  sales* |
@@ -71,16 +64,15 @@ Maak een Ranger-beleid voor **sales_user** en **marketing_user**.
    * Gebruik '*' om nul of meer exemplaren van tekens aan te geven.
    * Gebruik '?' om één teken aan te geven.
 
-   ![De pagina Create Policy in de beheerinterface van Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
+   ![De pagina Create Policy in de beheerinterface van Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
-   >[!NOTE]
-   >Als er niet automatisch een domeingebruiker wordt ingevuld bij **Select User**, wacht u even totdat Ranger is gesynchroniseerd met AAD.
+   Als er niet automatisch een domeingebruiker wordt ingevuld bij **Select User**, wacht u even totdat Ranger is gesynchroniseerd met AAD.
 
-4. Klik op **Toevoegen** om het beleid op te slaan.
+4. Selecteer **toevoegen** het beleid op te slaan.
 
-5. Klik op **Add New Policy** en voer de volgende waarden in:
+5. Selecteer **nieuw beleid toevoegen** en voer de volgende waarden:
 
-   |**Instelling**  |**Voorgestelde waarde**  |
+   |Instelling  |Voorgestelde waarde  |
    |---------|---------|
    |Beleidsnaam  |  hdi marketing policy   |
    |Onderwerp   |  marketingspend |
@@ -89,7 +81,7 @@ Maak een Ranger-beleid voor **sales_user** en **marketing_user**.
 
    ![De pagina Create Policy in de beheerinterface van Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. Klik op **Toevoegen** om het beleid op te slaan.
+6. Selecteer **toevoegen** het beleid op te slaan.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Onderwerpen maken in een Kafka-cluster met ESP
 
@@ -97,11 +89,11 @@ Twee onderwerpen, `salesevents` en `marketingspend`, maken:
 
 1. Gebruik de volgende opdracht om een SSH-verbinding met het cluster op te zetten:
 
-   ```bash
+   ```cmd
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Vervang `DOMAINADMIN` door de beheerder van het cluster dat u hebt geconfigureerd tijdens het [maken van het cluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-hdinsight-cluster-with-esp) en vervang `CLUSTERNAME` door de naam van uw cluster. Voer het wachtwoord voor het beheerdersaccount in wanneer hierom wordt gevraagd. Zie [SSH gebruiken met HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) voor meer informatie over het gebruik van `SSH` met HDInsight.
+   Vervang `DOMAINADMIN` door de beheerder van het cluster dat u hebt geconfigureerd tijdens het [maken van het cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp) en vervang `CLUSTERNAME` door de naam van uw cluster. Voer het wachtwoord voor het beheerdersaccount in wanneer hierom wordt gevraagd. Zie [SSH gebruiken met HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van `SSH` met HDInsight.
 
 2. Gebruik de volgende opdrachten om de clusternaam op te slaan in een variabele en een hulpprogramma voor het parseren van JSON (`jq`) te installeren. Wanneer u daarom wordt gevraagd, geeft u de naam van het Kafka-cluster op.
 
@@ -116,12 +108,11 @@ Twee onderwerpen, `salesevents` en `marketingspend`, maken:
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
 
-   > [!Note]  
-   > Voordat u doorgaat, moet u mogelijk uw ontwikkelomgeving instellen als u dit nog niet hebt gedaan. U hebt onderdelen zoals de Java JDK, Apache Maven en een SSH-client met scp nodig. Zie voor meer informatie, [installatie-instructies](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
-   
+   Voordat u doorgaat moet u mogelijk uw ontwikkelomgeving instellen als u hebt nog niet gedaan. U moet-onderdelen, zoals de Java JDK, Apache Maven en een SSH-client met scp. Zie voor meer informatie, [installatie-instructies](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+
 1. Download de [voorbeelden voor aan een domein gekoppelde Apache Kafka voor producer/consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Volg stap 2 en 3 onder **Het voorbeeld bouwen en implementeren** in [Zelfstudie: Werken met de Producer- en Consumer-API's van Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Volg stap 2 en 3 onder **Het voorbeeld bouwen en implementeren** in [Zelfstudie: Werken met de Producer- en Consumer-API's van Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)
 
 1. Voer de volgende opdrachten uit:
 
@@ -154,7 +145,7 @@ Op basis van de geconfigureerde Ranger-beleidsregels kan **sales_user** het onde
 
    Voorbeeld: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Volg stap 3 onder **Het voorbeeld bouwen en implementeren** in [Zelfstudie: Werken met de Producer- en Consumer-API's van Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) om ervoor te zorgen dat de `kafka-producer-consumer.jar` ook beschikbaar is voor **sales_user**.
+4. Volg stap 3 onder **Het voorbeeld bouwen en implementeren** in [Zelfstudie: Werken met de Producer- en Consumer-API's van Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) om ervoor te zorgen dat de `kafka-producer-consumer.jar` ook beschikbaar is voor **sales_user**.
 
 5. Controleer of **sales_user1** het onderwerp `salesevents` kan produceren. Voer hiervoor de volgende opdracht uit:
 
@@ -194,7 +185,17 @@ Op basis van de geconfigureerde Ranger-beleidsregels kan **sales_user** het onde
 
    ![Controle van beleid vanuit de Ranger-gebruikersinterface](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u niet verder om door te gaan om deze toepassing te gebruiken, verwijdert u de Kafka-cluster die u hebt gemaakt met de volgende stappen uit:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+1. Typ **HDInsight** in het **Zoekvak** bovenaan.
+1. Selecteer onder **Services** de optie **HDInsight-clusters**.
+1. Klik in de lijst met HDInsight-clusters die wordt weergegeven, op de **...** naast het cluster dat u voor deze zelfstudie hebt gemaakt. 
+1. Klik op **Verwijderen**. Klik op **Ja**.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Bring Your Own Key en Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [Een inleiding tot Apache Hadoop-beveiliging met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+> [!div class="nextstepaction"]
+> [Bring Your Own Key en Apache Kafka](../kafka/apache-kafka-byok.md)

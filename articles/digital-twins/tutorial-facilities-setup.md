@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f826c6652937caab8b140b489626eef97612baea
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534580"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462209"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Zelfstudie: Azure Digital Twins implementeren en een ruimtelijke grafiek configureren
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Zelfstudie: Azure van digitale dubbels Preview implementeren en configureren van een ruimtelijke grafiek
 
-Met de Azure Digital Twins-service kunt u personen, locaties en apparaten samenbrengen in een samenhangend ruimtelijk systeem. Deze reeks zelfstudies laat zien hoe u Azure Digital Twins gebruikt voor het detecteren van ruimtebezetting met optimale omstandigheden qua temperatuur- en luchtkwaliteit. 
+Om samen te brengen personen, locaties en apparaten in een samenhangend ruimtelijke systeem kunt u de service Azure digitale dubbels Preview. Deze reeks zelfstudies laat zien hoe u Azure Digital Twins gebruikt voor het detecteren van ruimtebezetting met optimale omstandigheden qua temperatuur- en luchtkwaliteit. 
 
 In deze zelfstudies leert u een .NET-consoletoepassing te maken om een scenario op te bouwen voor een kantoorgebouw. Het gebouw heeft meerdere verdiepingen en verschillende ruimten per verdieping. De ruimten bevatten apparaten waaraan bewegings-, temperatuur- en luchtkwaliteitssensoren zijn gekoppeld. 
 
@@ -103,7 +103,7 @@ Open het bestand **digital-twins-samples-csharp\digital-twins-samples.code-works
 1. Open in Visual Studio Code het bestand [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) van het project **occupancy-quickstart**. Werk de volgende waarden bij:
    * **ClientId**: voer de toepassings-id van uw Azure AD-app-registratie in. U hebt deze id genoteerd in de sectie voor het [instellen van app-machtigingen](#permissions).
    * **Tenant**: voer de map-id van uw [Azure AD-tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in. U hebt deze id ook genoteerd in de sectie voor het [instellen van app-machtigingen](#permissions).
-   * **BaseUrl**: voer de URL van uw exemplaar van Digital Twins in. Hiertoe vervangt u de tijdelijke aanduidingen in deze URL door de waarden voor uw exemplaar: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. U kunt deze URL ook verkrijgen door de URL van de Beheer API uit [de implementatiesectie](#deploy) te wijzigen. Vervang **swagger/** door **api/v1.0/**.
+   * **BaseUrl**: voer de URL van uw exemplaar van Digital Twins in. Hiertoe vervangt u de tijdelijke aanduidingen in deze URL door de waarden voor uw exemplaar: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. U kunt deze URL ook verkrijgen door de URL van de Beheer API uit [de implementatiesectie](#deploy) te wijzigen. Vervang **swagger/** door **api/v1.0/** .
 
 1. Bekijk een lijst met functies van Digital Twins die u kunt verkennen met behulp van het voorbeeld. Voer de volgende opdracht uit:
 
