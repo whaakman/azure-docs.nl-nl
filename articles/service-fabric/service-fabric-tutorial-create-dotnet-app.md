@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864554"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515851"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 
 Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).  Als u dat liever doet, kunt u ook een [video](https://channel9.msdn.com/Events/Connect/2017/E100) van deze zelfstudie bekijken.
 
-![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API Front-End, verbinding maken met een stateful back-endservice in Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 In deel 1 van de reeks leert u het volgende:
 
@@ -346,7 +346,7 @@ Service Fabric biedt u de mogelijkheid om uw gegevens consistent en betrouwbaar 
 
 In deze zelfstudie maakt u een service die een itemwaarde in een betrouwbare verzameling opslaat.
 
-1. Klik in Solution Explorer met de rechtermuisknop op **Services** in het toepassingsproject Voting en kies **Add > New Service Fabric Service...**.
+1. Klik in Solution Explorer met de rechtermuisknop op **Services** in het toepassingsproject Voting en kies **Add > New Service Fabric Service...** .
     
 2. Kies in het dialoogvenster **New Service Fabric Service** de optie **Stateful ASP.NET Core**, noem de service **VotingData** en druk op **OK**.
 
@@ -625,9 +625,9 @@ Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
 
       ![Front-endservice van Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Maak eerst de URL naar de ReverseProxy voor de back-endservice **(1)**.
-   3. Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
-   4. Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
+   2. Maak eerst de URL naar de ReverseProxy voor de back-endservice **(1)** .
+   3. Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)** .
+   4. Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)** .
 
 5. Druk op **F5** om verder te gaan.
    1. U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
