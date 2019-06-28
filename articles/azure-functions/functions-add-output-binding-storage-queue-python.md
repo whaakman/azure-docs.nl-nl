@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 4ae22a5cd6ad044a86db88986daf9cc7c05c00a2
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870038"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342319"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Een Azure Storage-wachtrij-binding toevoegen aan uw functie
 
@@ -117,8 +117,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -139,7 +139,7 @@ Kopieer de URL van uw `HttpTrigger`-functie uit de uitvoer van de runtime en pla
 
 Deze keer de Uitvoerbinding maakt ook een wachtrij met de naam `outqueue` in uw Storage-account en wordt een bericht met deze dezelfde tekenreeks.
 
-Vervolgens gebruikt u de Azure CLI voor het weergeven van de nieuwe wachtrij en controleren of een bericht is toegevoegd. U kunt ook bekijken uw wachtrij met de [Microsoft Azure Storage Explorer] [ Azure Storage Explorer] of in de [Azure-portal](https://portal.azure.com).
+Vervolgens gebruikt u de Azure CLI voor het weergeven van de nieuwe wachtrij en controleren of een bericht is toegevoegd. U kunt ook bekijken uw wachtrij met de [Microsoft Azure Storage Explorer][Azure Storage Explorer] of in de [Azure-portal](https://portal.azure.com).
 
 ### <a name="set-the-storage-account-connection"></a>Stel de verbinding met Opslagaccount
 

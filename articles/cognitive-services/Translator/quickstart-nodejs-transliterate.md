@@ -3,19 +3,19 @@ title: 'Quickstart: Tekst omzetten, Node.js - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart leert u hoe u tekst omzet van het ene script naar een ander met behulp van Node.js en de REST API van Translator Text. In dit voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: a76e2c386e9c82b70a7945b4670d60caf9856036
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 1d9d6f062a155ce2296967bbb408ea2c81838fd3
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515122"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357952"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om tekst om te zetten met Node.js
 

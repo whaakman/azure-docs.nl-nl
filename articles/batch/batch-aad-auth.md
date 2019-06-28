@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cda3f99a263e8eef13ee2e8d8e6453eda0f4cb6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922448"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341178"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen van Batch-service met Active Directory
 
-Azure Batch biedt ondersteuning voor verificatie met [Azure Active Directory] [ aad_about] (Azure AD). Azure AD is van Microsoft met meerdere tenants cloudgebaseerde directory en identity management-service. Azure zelf maakt gebruik van Azure AD om de klanten, servicebeheerders en organisatie-gebruikers te verifiëren.
+Azure Batch biedt ondersteuning voor verificatie met [Azure Active Directory][aad_about] (Azure AD). Azure AD is van Microsoft met meerdere tenants cloudgebaseerde directory en identity management-service. Azure zelf maakt gebruik van Azure AD om de klanten, servicebeheerders en organisatie-gebruikers te verifiëren.
 
 Wanneer u Azure AD-verificatie met Azure Batch gebruikt, kunt u verifiëren op twee manieren:
 
@@ -64,7 +64,7 @@ Gebruik de **Azure Batch-resource-eindpunt** om een token voor het verifiëren v
 
 ## <a name="register-your-application-with-a-tenant"></a>Uw toepassing registreren bij een tenant
 
-De eerste stap bij het gebruik van Azure AD om te verifiëren, is uw toepassing registreren in een Azure AD-tenant. Registreren van uw toepassing, kunt u voor het aanroepen van de Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) vanuit uw code. De ADAL-bibliotheek biedt een API voor verificatie met Azure AD van uw toepassing. Registreren van uw toepassing is vereist of u van plan bent om geïntegreerde verificatie of een service-principal te gebruiken.
+De eerste stap bij het gebruik van Azure AD om te verifiëren, is uw toepassing registreren in een Azure AD-tenant. Registreren van uw toepassing, kunt u voor het aanroepen van de Azure [Active Directory Authentication Library][aad_adal] (ADAL) vanuit uw code. De ADAL-bibliotheek biedt een API voor verificatie met Azure AD van uw toepassing. Registreren van uw toepassing is vereist of u van plan bent om geïntegreerde verificatie of een service-principal te gebruiken.
 
 Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een toepassings-ID (ook wel een *client-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de toepassings-ID, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -324,31 +324,31 @@ from azure.common.credentials import ServicePrincipalCredentials
 Wanneer u een service-principal gebruikt, moet u de tenant-ID. Als u wilt ophalen van de tenant-ID, volg de stappen [ophalen van de tenant-ID voor uw Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```python
-TENANT_ID = "<tenant-id>";
+TENANT_ID = "<tenant-id>"
 ```
 
 Verwijzen naar de resource-eindpunt van de Batch-service:  
 
 ```python
-RESOURCE = "https://batch.core.windows.net/";
+RESOURCE = "https://batch.core.windows.net/"
 ```
 
 Verwijzen naar uw Batch-account:
 
 ```python
-BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com"
 ```
 
 Geef de toepassings-ID (client-ID) voor uw toepassing. De toepassings-ID is beschikbaar vanuit uw app-registratie in Azure portal:
 
 ```python
-CLIENT_ID = "<application-id>";
+CLIENT_ID = "<application-id>"
 ```
 
 Geef de geheime sleutel die u hebt gekopieerd uit de Azure-portal:
 
 ```python
-SECRET = "<secret-key>";
+SECRET = "<secret-key>"
 ```
 
 Maak een **ServicePrincipalCredentials** object:

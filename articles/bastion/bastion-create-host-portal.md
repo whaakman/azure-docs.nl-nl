@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: d8012fb75282d64f7d1858e02b842b1c770200f9
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191770"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339439"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Maken van een Azure-bastionhost (Preview)
 
@@ -41,7 +41,7 @@ Als u wilt deelnemen aan deze Preview-versie, moet u registreren. Volg deze stap
 
 In deze sectie kunt u een nieuwe bastionhost Azure-resource maken vanuit Azure portal.
 
-1. Vanaf de startpagina in de [ Azure portal - preview](http://aka.ms/BastionHost), klikt u op **+ een resource maken**. Zorg ervoor dat u de koppeling om toegang tot de portal voor deze Preview-versie, niet de normale Azure portal.
+1. Vanaf de startpagina in de [ Azure portal - preview](https://aka.ms/BastionHost), klikt u op **+ een resource maken**. Zorg ervoor dat u de koppeling om toegang tot de portal voor deze Preview-versie, niet de normale Azure portal.
 
 1. Op de **nieuw** pagina, in de *Marketplace doorzoeken* veld, typt u **bastionhost**, klikt u vervolgens op **Enter** om te gaan naar de lijst met zoekresultaten.
 

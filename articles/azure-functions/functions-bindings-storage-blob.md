@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 364c1b0583b3ed22abe0466d0330b5f2ec9b3af6
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 3bbd8c00036046a73d50752172251fc87540c28b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303859"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342243"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -211,6 +211,7 @@ Hier volgt de Python-code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
@@ -631,6 +632,7 @@ Hier volgt de Python-code:
 import logging
 import azure.functions as func
 
+
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
     logging.info('Python Queue trigger function processed %s', inputblob.name)
     return inputblob
@@ -763,7 +765,7 @@ Binden aan `string` of `Byte[]` wordt alleen aanbevolen als de blob klein, is zo
 
 Toegang tot de blob via in JavaScript, `context.bindings.<name from function.json>`.
 
-## <a name="output"></a>Uitvoer
+## <a name="output"></a>Output
 
 Gebruik Blob storage-uitvoerbindingen schrijven blobs.
 
@@ -953,6 +955,7 @@ Hier volgt de Python-code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
          outputblob: func.Out[func.InputStream]):

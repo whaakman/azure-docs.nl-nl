@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: miparker
-ms.openlocfilehash: a4773ddd8114659118e89cfee57e73ddb39ff6b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c35044918876b2c7710e26f6b868bc1096c2f538
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116672"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340389"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Zelfstudie: Pushmeldingen verzenden naar Swift iOS-apps die gebruikmaken van de Notification Hubs REST-API
 
@@ -89,10 +89,10 @@ In deze sectie bouwt u de iOS-app waarmee de verbinding met de notification hub 
 
    | Sleutel                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | <hubKey>                  |
-   | notificationHubKeyName         | String                   | <hubKeyName>              |
-   | notificationHubName            | String                   | <hubName>                 |
-   | notificationHubNamespace       | String                   | <hubNamespace>            |
+   | notificationHubKey             | String                   | \<hubKey>                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName>              |
+   | notificationHubName            | String                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    U kunt de vereiste waarden vinden door te navigeren naar de resource voor notification hub in Azure portal. In het bijzonder de **notificationHubName** en **notificationHubNamespace** waarden zijn in de rechterbovenhoek van de **Essentials** samenvatting binnen de **Overzicht** pagina.
 
@@ -411,7 +411,7 @@ Volg deze stappen om aan te roepen de **installaties** API:
    | Sleutel           | Value            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | Autorisatie | <sasToken>       |
+   | Authorization | \<sasToken>       |
    | x-ms-version  | 2015-01          |
 
 1. Selecteer de **Code** knop die wordt weergegeven in de rechterbovenhoek onder de **opslaan** knop. De aanvraag moet in het volgende voorbeeld als volgt uitzien:
@@ -659,7 +659,7 @@ U kunt meldingen verzenden via de [REST-API](/rest/api/notificationhubs/) met be
    | Sleutel                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | Autorisatie                  | <sasToken>                     |
+   | Authorization                  | \<sasToken>                     |
    | ServiceBusNotification-Format  | sjabloon                       |
    | Tags                           | "12345"                        |
 

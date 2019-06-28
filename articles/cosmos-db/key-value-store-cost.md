@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236767"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310575"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB als een opslag met sleutelwaarden – kosten-overzicht
 
 Azure Cosmos DB is een wereldwijd gedistribueerde, multi-model databaseservice voor het bouwen van maximaal beschikbare, grootschalige toepassingen eenvoudig. Azure Cosmos DB indexeert automatisch alle gegevens, efficiënt neemt standaard. Hiermee maakt u snel en consistent [SQL](how-to-sql-query.md) (en [JavaScript](stored-procedures-triggers-udfs.md))-query's op elk soort gegevens. 
 
-Dit artikel worden de kosten van Azure Cosmos DB voor eenvoudige schrijven en bewerkingen lezen wanneer deze wordt gebruikt als een sleutel/waarde-archief. Voorbeelden van bewerkingen zijn ingevoegd, vervangt, verwijderingen en upsert-bewerking van documenten worden geschreven. Naast het garanderen van een 99,99% beschikbaarheids-SLA voor alle accounts voor één regio en alle accounts voor meerdere regio's met soepele consistentie en 99,999% beschikbaarheid voor lezen op alle accounts voor meerdere regio's, Azure Cosmos DB biedt gegarandeerd < 10 ms latentie voor leesbewerkingen en < 15 ms latentie voor de (geïndexeerde) schrijfbewerkingen respectievelijk in het 99e percentiel. 
+Dit artikel worden de kosten van Azure Cosmos DB voor eenvoudige schrijven en bewerkingen lezen wanneer deze wordt gebruikt als een sleutel/waarde-archief. Voorbeelden van bewerkingen zijn ingevoegd, vervangt, verwijderingen en upsert-bewerking van documenten worden geschreven. Naast het garanderen van een 99,99% beschikbaarheids-SLA voor alle accounts voor één regio en alle accounts voor meerdere regio's met soepele consistentie en 99,999% beschikbaarheid voor lezen op alle accounts voor meerdere regio's, Azure Cosmos DB biedt gegarandeerd < 10 ms latentie voor Lees- en voor de (geïndexeerde) schrijfbewerkingen respectievelijk in het 99e percentiel. 
 
 ## <a name="why-we-use-request-units-rus"></a>Waarom we Aanvraageenheden (ru's) gebruiken
 

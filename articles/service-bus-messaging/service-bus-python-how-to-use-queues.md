@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b74238ee49fe0d96d218f1800a33a9d60badc6d5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992054"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341700"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Het gebruik van Service Bus-wachtrijen met Python
 
@@ -45,13 +45,13 @@ De **ServiceBusClient** object kunt u werken met wachtrijen. Voeg de volgende co
 from azure.servicebus import ServiceBusClient
 ```
 
-De volgende code maakt een **ServiceBusClient** object. Vervang `mynamespace`, `sharedaccesskeyname`, en `sharedaccesskey` met uw naamruimte, shared access signature (SAS)-sleutelnaam en -waarde.
+De volgende code maakt een **ServiceBusClient** object. Vervang `<CONNECTION STRING>` met uw service bus-connectionstring.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-De waarden voor de SAS-sleutelnaam en de waarde kunnen worden gevonden in de [Azure-portal] [ Azure portal] verbindingsinformatie in, of in de Visual Studio **eigenschappen** deelvenster bij het selecteren van de Service Bus-naamruimte in Server Explorer (zoals weergegeven in de vorige sectie).
+De waarden voor de SAS-sleutelnaam en de waarde kunnen worden gevonden in de [Azure-portal][Azure portal] verbindingsinformatie in, of in de Visual Studio **eigenschappen** deelvenster bij het selecteren van de Service Bus-naamruimte in Server Explorer (als weergegeven in de vorige sectie).
 
 ```python
 sb_client.create_queue("taskqueue")

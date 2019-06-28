@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800817"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331687"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisch-trein een prognose time series-model
 
@@ -26,6 +26,14 @@ In dit artikel leert u hoe u met het trainen van een time series regressie progn
 * Uitvoeren van voorspellingen met time series-gegevens
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+Geautomatiseerde ML kunt u technieken en benaderingen combineren en ontvang een aanbevolen, hoogwaardige time series prognose. Een geautomatiseerde time series-experiment wordt beschouwd als een multidimensionale regressie-probleem. Afgelopen time series-waarden zijn "draaien" om extra dimensies voor de regressor zijn samen met andere voorspellingsfactoren geworden. 
+
+Deze benadering, in tegenstelling tot klassieke time series-methoden, heeft een voordeel van het opnemen van op een natuurlijke manier meerdere contextuele variabelen en hun relatie tot elkaar tijdens de training. In de praktijk prognoses toepassingen, meerdere factoren kunnen invloed hebben op een prognose. Bijvoorbeeld bij het voorspellen van de verkoop, stimuleren interacties van historische trends, wisselkoers en prijs alle gezamenlijk de verkoop uitkomst. Een ander voordeel is dat alle recente innovaties in regressiemodellen direct op het maken van prognoses toegepast.
+
+U kunt [configureren](#config) hoe ver in de toekomst de prognose (de prognose horizon), uitbreiden en lag en nog veel meer. Geautomatiseerde ML leert een enkele, maar vaak intern vertakkingen model voor alle items in de gegevensset en voorspelling horizon. Meer gegevens is beschikbaar om te schatten Modelparameters en generalisatie op van de reeks niet waren herkend mogelijk wordt. 
+
+Functies die zijn geëxtraheerd uit de trainingsgegevens spelen een essentiële rol. En geautomatiseerde ML standard vooraf verwerken stappen worden uitgevoerd en genereert extra time series-functies voor het vastleggen van seizoensgebonden effecten en voorspellende nauwkeurigheid te maximaliseren. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Bij het trainen van een model voor het voorspellen van toekomstige waarden, zorg ervoor dat alle de onderdelen van training kunnen worden gebruikt bij het uitvoeren van voorspellingen voor uw gewenste periode. Bijvoorbeeld bij het maken van een prognose van vraag, met inbegrip van een functie voor de huidige aandelenkoersen kan zeer training nauwkeurigheid vergroten. Als u van plan bent om te voorspellen met een lange periode, kunt u mogelijk niet nauwkeurig voorspellen van toekomstige aandelen waarden die overeenkomen met toekomstige time series-punten, en de nauwkeurigheid van model kan ten koste gaan.
 
+<a name="config"></a>
 ## <a name="configure-and-run-experiment"></a>Configureren en het experiment uit te voeren
 
 Geautomatiseerde machine learning gebruikt voor het voorspellen van taken, het vooraf verwerken en een schatting van de stappen die specifiek voor time series-gegevens zijn. De volgende stappen voor het vooraf verwerken wordt uitgevoerd:
@@ -85,7 +94,7 @@ De `AutoMLConfig` object definieert de instellingen en gegevens die nodig zijn v
 |-------|-------|-------|
 |`time_column_name`|Hiermee geeft de datum/tijd-kolom in de ingevoerde gegevens gebruikt voor het bouwen van de tijdreeks en afleiden van de frequentie ervan.|✓|
 |`grain_column_names`|Namen om afzonderlijke Reeksgroepen te definiëren in de ingevoerde gegevens. Als het tijdsinterval is niet gedefinieerd, wordt aangenomen dat de gegevensset een time series zijn.||
-|`max_horizon`|Maximum aantal gewenste prognose horizon in eenheden van time series-frequentie.|✓|
+|`max_horizon`|Hiermee definieert de maximale gewenste prognose horizon in eenheden van time series-frequentie. Eenheden zijn gebaseerd op het tijdsinterval van uw trainingsgegevens, bijvoorbeeld maandelijks, per week dat de forecaster af te voorspellen.|✓|
 |`target_lags`|*n* perioden aan zone voor forward lag doelwaarden vóór modeltraining.||
 |`target_rolling_window_size`|*n* historische perioden moet worden gebruikt voor het genereren van de voorspelde waarden < = grootte training. Als u dit weglaat, *n* is de volledige training grootte instellen.||
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30ebfec88182684f8e852808e978a51854389898
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073440"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341620"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen
 
@@ -121,7 +121,7 @@ Vervolgens kunt expliciet toewijzen aan de **Gegevensbijdrager voor Blob** rol a
 
 Wanneer uw toepassing toegang heeft tot Azure Storage, daarbij op de naam van de gebruiker, wat betekent dat blob of een wachtrij bronnen worden geopend met behulp van de machtigingen van de gebruiker die is aangemeld. Als u wilt dit codevoorbeeld uitproberen, moet u een webtoepassing waarin de gebruiker zich aanmelden met een Azure AD-identiteit. U kunt uw eigen maken of gebruiken van de voorbeeldtoepassing die is geleverd door Microsoft.
 
-Een voltooide voorbeeld-web-App die een token verkrijgt en gebruikt voor het maken van een blob in Azure Storage is beschikbaar op [GitHub](http://aka.ms/aadstorage). Controleren en het uitvoeren van de voltooide voorbeeld kunnen handig zijn voor het begrijpen van de codevoorbeelden zijn. Voor instructies over het uitvoeren van de voltooide voorbeeld, Zie de sectie [weergeven en voer het voltooide voorbeeld](#view-and-run-the-completed-sample).
+Een voltooide voorbeeld-web-App die een token verkrijgt en gebruikt voor het maken van een blob in Azure Storage is beschikbaar op [GitHub](https://aka.ms/aadstorage). Controleren en het uitvoeren van de voltooide voorbeeld kunnen handig zijn voor het begrijpen van de codevoorbeelden zijn. Voor instructies over het uitvoeren van de voltooide voorbeeld, Zie de sectie [weergeven en voer het voltooide voorbeeld](#view-and-run-the-completed-sample).
 
 #### <a name="add-references-and-using-statements"></a>Verwijzingen toevoegen en met behulp van instructies  
 
@@ -235,7 +235,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## <a name="view-and-run-the-completed-sample"></a>Weergeven en uitvoeren van de voltooide voorbeeld
 
-Voor het uitvoeren van de voorbeeldtoepassing, eerst klonen of downloaden van [GitHub](http://aka.ms/aadstorage). Werk vervolgens de toepassing, zoals beschreven in de volgende secties.
+Voor het uitvoeren van de voorbeeldtoepassing, eerst klonen of downloaden van [GitHub](https://aka.ms/aadstorage). Werk vervolgens de toepassing, zoals beschreven in de volgende secties.
 
 ### <a name="provide-values-in-the-settings-file"></a>Geef de waarden in het bestand met instellingen
 

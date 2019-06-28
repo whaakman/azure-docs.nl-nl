@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 0789ab981590ac1b7531c1f05d85d7ada3a9f56b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295275"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341507"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
@@ -98,8 +98,8 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Labmaker](#lab-creator) | Hiermee kunt u maken, beheren en verwijderen van uw beheerde labs onder uw Azure Lab-Accounts. |
 | [Inzender van log Analytics](#log-analytics-contributor) | Inzender van log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. |
 | [Lezer van log Analytics](#log-analytics-reader) | Lezer van log Analytics kunt bekijken en zoeken van alle bewakingsgegevens en de controle-instellingen, inclusief het weergeven van de configuratie van Azure diagnostics op alle Azure-resources weergeven. |
-| [Logische App-bijdrager](#logic-app-contributor) | U kunt logische app, maar niet de toegang tot beheren. |
-| [Logische App-Operator](#logic-app-operator) | Hiermee kunt u lezen, inschakelen en uitschakelen van de logische app. |
+| [Logische App-bijdrager](#logic-app-contributor) | Hiermee kunt u logische apps beheren, maar geen toegang tot deze wijzigen. |
+| [Logische App-Operator](#logic-app-operator) | Hiermee kunt u lezen, inschakelen, en uitschakelen van logische apps, maar niet bewerken of bijwerken. |
 | [De Operatorrol beheerde toepassing](#managed-application-operator-role) | Hiermee kunt u lees- en acties uitvoeren op resources van beheerde toepassingen |
 | [Beheerde toepassingen-lezer](#managed-applications-reader) | Hiermee kunt u lezen van resources in een beheerde app en de aanvraag voor JIT-toegang. |
 | [Inzender beheerde identiteit](#managed-identity-contributor) | Maken, lezen, bijwerken en verwijderen van door gebruiker toegewezen identiteit |
@@ -1620,7 +1620,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | U kunt logische app, maar niet de toegang tot beheren. |
+> | **Beschrijving** | Hiermee kunt u logische apps beheren, maar geen toegang tot deze wijzigen. |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1654,7 +1654,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Hiermee kunt u lezen, inschakelen en uitschakelen van de logische app. |
+> | **Beschrijving** | Hiermee kunt u lezen, inschakelen, en uitschakelen van logische apps, maar niet bewerken of bijwerken. |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |

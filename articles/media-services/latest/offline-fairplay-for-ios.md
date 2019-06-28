@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2514fff2a3bb292a86c9f4c0e92c37ed2709097
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937503"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341046"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming voor iOS 
 
@@ -40,6 +40,9 @@ Naast het beveiligen van inhoud voor het streamen van online via verschillende p
 * Beschikbaarheid van internet en/of bandbreedte is nog steeds beperkt in bepaalde landen/regio's. Gebruikers kunnen kiezen voor het eerst downloaden als u wilt bekijken van inhoud in een oplossing die hoog genoeg is voor een goede weergavemogelijkheden. In dit geval niet het probleem meestal netwerkbeschikbaarheid maar beperkte netwerkbandbreedte. Over-the-top (OTT) / onlinevideoplatform (OVP) providers vraag ondersteuning voor offline-modus.
 
 In dit artikel bevat informatie over ondersteuning voor FairPlay Streaming (FPS) offline-modus die gericht is op apparaten met iOS 10 of hoger. Deze functie wordt niet ondersteund voor andere Apple-platforms, zoals watchOS, tvOS of Safari op macOS.
+
+> [!NOTE]
+> Offline DRM wordt alleen in rekening gebracht voor het maken van een enkele aanvraag voor een licentie wanneer u de inhoud downloaden. Eventuele fouten worden niet in rekening gebracht.
 
 ## <a name="prerequisites"></a>Vereisten
 

@@ -1,5 +1,5 @@
 ---
-title: Beveiligde toegang tot Azure Logic Apps | Microsoft Docs
+title: Beveiligde toegang tot Azure Logic Apps
 description: Beveiliging toevoegen voor Azure Logic Apps, met inbegrip van triggers, invoer en uitvoer, parameters en andere services
 services: logic-apps
 ms.service: logic-apps
@@ -7,15 +7,14 @@ ms.suite: integration
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65369e5747f17c0e420d5775f1c5704cac9ca21b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995658"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341094"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Beveiligde toegang in Azure Logic Apps
 
@@ -156,9 +155,9 @@ Overweeg het gebruik van meer autorisatieprotocollen toevoegen aan uw logische a
 
 U kunt toegang op taken zoals het beheren, bewerken en weergeven van beperken zodat alleen bepaalde gebruikers of groepen die bewerkingen op uw logische app uitvoeren. Biedt ondersteuning voor Logic Apps [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), die u kunt aanpassen of ingebouwde rollen toewijzen aan leden in uw abonnement, bijvoorbeeld:
 
-* [Logische App-bijdrager](../role-based-access-control/built-in-roles.md#logic-app-contributor): Gebruikers kunnen weergeven, bewerken en bijwerken van uw logische app. 
+* [Logische App-bijdrager](../role-based-access-control/built-in-roles.md#logic-app-contributor): Hiermee kunt u logische apps beheren, maar u kunt toegang voor hen niet wijzigen.
 
-* [Logische App-Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Gebruikers kunnen uw logische app en de uitvoeringsgeschiedenis bekijken en inschakelen of uw logische app uitschakelen. Deze rol kan bewerken of bijwerken van uw logische app.
+* [Logische App-Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Kunt u lezen, inschakelen en uitschakelen van logische apps, maar u niet kunt bewerken of bijwerken.
 
 Om te voorkomen dat anderen wijzigen of verwijderen van uw logische app, kunt u [Azure Resourcevergrendeling](../azure-resource-manager/resource-group-lock-resources.md). Deze mogelijkheid kunt u voorkomen dat anderen wijzigen of verwijderen van productieresources.
 

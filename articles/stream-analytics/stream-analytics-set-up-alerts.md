@@ -3,17 +3,17 @@ title: Instellen van waarschuwingen voor Azure Stream Analytics-taken bewaken
 description: In dit artikel wordt beschreven hoe u Azure portal gebruiken voor het instellen van bewaking en waarschuwingen voor Azure Stream Analytics-taken.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077684"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329862"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Waarschuwingen instellen voor Azure Stream Analytics-taken
 
@@ -22,6 +22,7 @@ Het is belangrijk voor het bewaken van uw Azure Stream Analytics-taak om te cont
 U kunt regels definiëren voor metrische gegevens van gegevens via de portal, logboeken voor bewerkingen, evenals [programmatisch](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Stel waarschuwingen in Azure portal
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>U gewaarschuwd wanneer een taak onverwacht afgesloten wordt
 
 Het volgende voorbeeld ziet u hoe u waarschuwingen instellen voor wanneer de taak een mislukte status voert. Deze waarschuwing wordt aanbevolen voor alle taken.
 

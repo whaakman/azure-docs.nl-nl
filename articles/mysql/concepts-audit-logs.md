@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 35cbe04380e2113f986d1e7adf3f7fdf89cb9326
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078870"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357648"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Auditlogboeken beschikbaar zijn in Azure Database for MySQL
 
@@ -45,7 +45,7 @@ Er zijn andere parameters die u kunt aanpassen:
 
 Auditlogboeken zijn geïntegreerd met Azure Monitor diagnostische logboeken. Nadat u de logboeken voor controle hebt ingeschakeld op uw MySQL-server, kunt u deze verzenden naar Azure Monitor-Logboeken, Event Hubs of Azure Storage. Zie voor meer informatie over het inschakelen van diagnostische logboeken in Azure portal, de [audit log portal artikel](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="schemas"></a>Schema 's
+## <a name="diagnostic-logs-schemas"></a>Schema's voor diagnostische logboeken
 
 De volgende secties wordt beschreven wat er wordt uitgevoerd door de MySQL-auditlogboeken op basis van het gebeurtenistype. Afhankelijk van de uitvoermethode, zijn de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen verschillen.
 

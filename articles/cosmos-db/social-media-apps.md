@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256883"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342108"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialiseren met Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Het maken van feeds is alleen een kwestie van het maken van documenten die een l
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-U kunt een 'laatste' stream hebben met berichten die zijn geordend op datum gemaakt. Of u kunt een 'meest belaste' stream met deze berichten met meer likes in de afgelopen 24 uur hebben. U kunt zelfs een aangepaste stroom voor elke gebruiker op basis van logica, zoals Volgers en interesses implementeren. Het is nog steeds een lijst met berichten. Er is een kwestie van het bouwen van deze lijsten, maar de prestaties lezen concurrerende blijft. Wanneer u een van deze lijsten aanschaft, u één query verlenen aan het Cosmos DB met behulp van de [IN de operator](how-to-sql-query.md#WhereClause) om op te halen van pagina's van berichten op een tijdstip.
+U kunt een 'laatste' stream hebben met berichten die zijn geordend op datum gemaakt. Of u kunt een 'meest belaste' stream met deze berichten met meer likes in de afgelopen 24 uur hebben. U kunt zelfs een aangepaste stroom voor elke gebruiker op basis van logica, zoals Volgers en interesses implementeren. Het is nog steeds een lijst met berichten. Er is een kwestie van het bouwen van deze lijsten, maar de prestaties lezen concurrerende blijft. Wanneer u een van deze lijsten aanschaft, u één query verlenen aan het Cosmos DB met behulp van de [trefwoord](sql-query-keywords.md#in) om op te halen van pagina's van berichten op een tijdstip.
 
 De feed stromen kunnen worden gebouwd met behulp van [Azure App Services](https://azure.microsoft.com/services/app-service/) processen op de achtergrond: [Webjobs](../app-service/webjobs-create.md). Zodra een bericht wordt gemaakt, verwerking op de achtergrond kan worden geactiveerd met behulp van [Azure Storage](https://azure.microsoft.com/services/storage/) [wachtrijen](../storage/queues/storage-dotnet-how-to-use-queues.md) en Webjobs geactiveerd met behulp van de [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uitvoering de boeken doorgifte in stromen op basis van uw eigen aangepaste logica.
 

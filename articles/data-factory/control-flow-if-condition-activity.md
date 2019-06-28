@@ -68,8 +68,7 @@ Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 name | Naam van de activiteit als-voorwaarde. | String | Ja
 type | Moet worden ingesteld op **IfCondition** | String | Ja
-expression | Expression that must evaluate to true or false | Expression with result type boolean | Yes
- | Expressie die moet worden geëvalueerd op waar of ONWAAR | Expressie met een resultaat van het type boolean | Ja
+expression | Expressie die moet worden geëvalueerd op waar of ONWAAR | Expressie met een resultaat van het type boolean | Ja
 ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `true`. | Array | Ja
 ifFalseActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `false`. | Array | Ja
 

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952132"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341562"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Buiten gebruik stellen van Security Center-functies (2019 juli)
 
@@ -114,16 +114,18 @@ We raden u aan het gebruik van de waarschuwingen kaart functionaliteit die is in
 
 ## Aangepaste waarschuwingsregels (Preview)<a name="menu_customalerts"></a>
 
-We zijn [ervaring buiten gebruik stellen van de aangepaste waarschuwingen](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) op 30 juni 2019 omdat de onderliggende infrastructuur wordt buiten gebruik gesteld. Tot die tijd kun u de bestaande regels voor aangepaste waarschuwingen kunt bewerken, maar u niet kunnen nieuwe toevoegen. Het is raadzaam dat u inschakelt [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) automatisch migreren van uw bestaande waarschuwingen en nieuwe te maken. U kunt ook uw waarschuwingen maken met Azure Monitor log-waarschuwingen.
+We zijn [ervaring buiten gebruik stellen van de aangepaste waarschuwingen](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) op 30 juni 2019 omdat de onderliggende infrastructuur wordt buiten gebruik gesteld. Tot die tijd kun u de bestaande regels voor aangepaste waarschuwingen kunt bewerken, maar u niet kunnen nieuwe toevoegen. Aangepaste waarschuwingen gedefinieerd wordt pas van kracht na de vervaldatum en beveiligingswaarschuwingen op basis van deze regels niet worden gegenereerd.
+Het is raadzaam dat u inschakelt [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) en uw aangepaste waarschuwingen er opnieuw te maken. U kunt ook uw waarschuwingen maken met Azure Monitor log-waarschuwingen.
 
-Houd uw bestaande waarschuwingen en migreren naar Azure Sentinel:
+Houd uw bestaande waarschuwingen en ze te maken met Azure Sentinel:
 
-1. Open Azure Sentinel en selecteer de werkruimte waar uw aangepaste waarschuwingen worden opgeslagen.
-1. Selecteer **Analytics** in het menu voor het migreren van uw waarschuwingen automatisch.
+1. [Open Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) en selecteer de werkruimte waar uw aangepaste waarschuwingen worden opgeslagen
+1. Selecteer **Analytics** in het menu
+1. Volg de instructies in de volgende [zelfstudie](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) voor het maken van aangepaste waarschuwingen in Azure Sentinel
+
+Als u niet geïnteresseerd bent in met behulp van Azure Sentinel, kunt u uw waarschuwingen maken met Azure Monitor log-waarschuwingen. Zie voor instructies [maken, weergeven en beheren van waarschuwingen via Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) en [waarschuwingen voor activiteitenlogboeken in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Aangepaste waarschuwingen][13]
-
-Als u niet betrokken bent bij het overstappen naar Azure Sentinel, raden we u aan uw waarschuwingen te maken met Azure Monitor log-waarschuwingen. Zie voor instructies [maken, weergeven en beheren van waarschuwingen via Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) en [waarschuwingen voor activiteitenlogboeken in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 Zie voor meer informatie over aangepaste waarschuwingen buiten gebruik stellen [regels voor aangepaste waarschuwingen in Azure Security Center (Preview)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 

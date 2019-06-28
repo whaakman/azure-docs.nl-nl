@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6446919c80e7e3fd379e6e39eb51712f9736ea7e
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304362"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341217"
 ---
 # <a name="api-management-policy-expressions"></a>API Management-beleidsexpressies
 Dit artikel worden besproken beleidsexpressies syntaxis is C# 7. Elke expressie heeft toegang tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.
@@ -94,19 +94,19 @@ De volgende tabel bevat de typen .NET Framework en de leden die zijn toegestaan 
 |System.Byte|Alle|
 |System.Char|Alle|
 |System.Collections.Generic.Dictionary < TKey, TValue >|Alle|
-|System.Collections.Generic.HashSet<T>|Alle|
-|System.Collections.Generic.ICollection<T>|Alle|
+|System.Collections.Generic.HashSet\<T>|Alle|
+|System.Collections.Generic.ICollection\<T >|Alle|
 |System.Collections.Generic.IDictionary < TKey, TValue >|Alle|
-|System.Collections.Generic.IEnumerable<T>|Alle|
-|System.Collections.Generic.IEnumerator<T>|Alle|
-|System.Collections.Generic.IList<T>|Alle|
-|System.Collections.Generic.IReadOnlyCollection<T>|Alle|
+|System.Collections.Generic.IEnumerable\<T >|Alle|
+|System.Collections.Generic.IEnumerator\<T >|Alle|
+|System.Collections.Generic.IList\<T >|Alle|
+|System.Collections.Generic.IReadOnlyCollection\<T>|Alle|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Alle|
-|System.Collections.Generic.ISet<T>|Alle|
+|System.Collections.Generic.ISet\<T>|Alle|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|Alle|
-|System.Collections.Generic.List<T>|Alle|
-|System.Collections.Generic.Queue<T>|Alle|
-|System.Collections.Generic.Stack<T>|Alle|
+|System.Collections.Generic.List\<T>|Alle|
+|System.Collections.Generic.Queue\<T>|Alle|
+|System.Collections.Generic.Stack\<T>|Alle|
 |System.Convert|Alle|
 |System.DateTime|(Constructor), toevoegen, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, datum, dag, DayOfWeek, DayOfYear, DagenInMaand, uur, IsDaylightSavingTime, IsLeapYear, MaxValue, milliseconden, minuut, MinValue, maand, nu , Parseren, ten tweede aftrekken, tikken, TimeOfDay, vandaag, ToString, UtcNow, jaar|
 |System.DateTimeKind|Utc|

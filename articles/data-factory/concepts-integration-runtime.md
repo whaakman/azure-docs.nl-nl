@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427149"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312065"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integration Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -74,7 +74,7 @@ Zie voor informatie over het maken en configureren van een Azure-IR 'Azure IR ma
 Een zelf-hostende IR is geschikt voor:
 
 - Het uitvoeren van kopieeractiviteit tussen een gegevensarchief in de cloud en een gegevensarchief in een privénetwerk.
-- Verzenden van de volgende transformatieactiviteiten op basis van rekenresources in On-premises of in Azure Virtual Network: HDInsight Hive-activiteit (uw eigen Cluster BYOC Bring), HDInsight Pig-activiteit (BYOC), HDInsight MapReduce-activiteit (BYOC), HDInsight Spark-activiteit (BYOC), HDInsight Streaming-activiteit (BYOC), Machine Learning Batch Execution-activiteit, Machine Learning Resource-activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste .NET-activiteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens bijwerken.
+- Verzenden van de volgende transformatieactiviteiten op basis van rekenresources in On-premises of in Azure Virtual Network: HDInsight Hive-activiteit (uw eigen Cluster BYOC Bring), HDInsight Pig-activiteit (BYOC), HDInsight MapReduce-activiteit (BYOC), HDInsight Spark-activiteit (BYOC), HDInsight Streaming-activiteit (BYOC), Machine Learning Batch Execution-activiteit, Machine Learning Resource-activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste activiteit (wordt uitgevoerd op Azure Batch), opzoekactiviteit en Ophaalactiviteit voor metagegevens bijwerken.
 
 > [!NOTE] 
 > Gebruik zelf-gehoste Integration Runtime om gegevensarchieven te ondersteunen waarvoor een eigen stuurprogramma zoals SAP Hana, MySQL, enz. is vereist.  Zie voor meer informatie [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
