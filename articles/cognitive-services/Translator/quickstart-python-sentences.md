@@ -3,19 +3,19 @@ title: 'Snelstartgids: Zinlengtes ophalen, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Python en de Translator Text-API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: a3c38660ef1ef657a2fef555ff4cc5fb01897837
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: swmachan
+ms.openlocfilehash: 2aede18f3b093f52a205e053c72cac5a2e6e6b1b
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340942"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357886"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om de zinlengte te bepalen met Python
 

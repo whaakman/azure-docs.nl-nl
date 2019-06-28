@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35193380cc890a93d93c68bf5fc405572b5aa409
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766264"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339901"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificaten en de App Service-omgeving 
 
@@ -85,7 +85,9 @@ Het certificaat uploaden naar uw app in de as-omgeving:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-Het certificaat kan worden door alle apps in hetzelfde app service-abonnement als de app, die geconfigureerd die instelling. Als u deze alleen beschikbaar voor apps in een andere App Service-plan nodig hebt, moet u de bewerking van de App-instelling in een app in het App Service-plan te herhalen. Als u wilt controleren of het certificaat is ingesteld, gaat u naar de Kudu-console en uitgeven van deze opdracht dir cert: \localmachine\root in de PowerShell-console voor foutopsporing. 
+Het certificaat kan worden door alle apps in hetzelfde app service-abonnement als de app, die geconfigureerd die instelling. Als u deze alleen beschikbaar voor apps in een andere App Service-plan nodig hebt, moet u de bewerking van de App-instelling in een app in het App Service-plan te herhalen. Als u wilt controleren of het certificaat is ingesteld, gaat u naar de Kudu-console en de volgende opdracht in de PowerShell-console voor foutopsporing:
+
+    dir cert:\localmachine\root
 
 Als u wilt testen, kunt u een zelfondertekend certificaat maken en genereren van een *.cer* bestand met de volgende PowerShell: 
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761740"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340794"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics-uitvoer oplossen
 
@@ -90,6 +90,10 @@ Houd rekening met de volgende opmerkingen bij het configureren van IGNORE_DUP_KE
 * U kunt IGNORE_DUP_KEY niet instellen op een primaire sleutel of een unique-beperking die gebruikmaakt van ALTER INDEX, moet u verwijderen en opnieuw maken van de index.  
 * U kunt de optie IGNORE_DUP_KEY voor een unieke index, die verschilt van de primaire sleutel/UNIQUE-beperking en gemaakt met behulp van de definitie van CREATE INDEX of INDEX met behulp van ALTER INDEX instellen.  
 * Ignore_dup_key niet van toepassing op de columnstore-indexen omdat uniekheid op dergelijke indexen kunnen niet worden afgedwongen.  
+
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>De namen van kolommen zijn lager indeling door Azure Stream Analytics
+Wanneer u het oorspronkelijke compatibiliteitsniveau (1.0), wordt Azure Stream Analytics gebruikt om te wijzigen van kolomnamen in kleine letters. Dit probleem is opgelost in latere compatibiliteitsniveaus. Als u wilt behouden in het geval is, maar we adviseren klanten om te verplaatsen naar het compatibiliteitsniveau 1.1 en hoger. U kunt meer informatie vinden op [compatibiliteitsniveau voor Azure Stream Analytics-taken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
 
 ## <a name="get-help"></a>Help opvragen
 

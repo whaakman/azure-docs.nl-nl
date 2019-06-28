@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 82c180d869801cd9cd91a3e2a3659644f4e263d9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e8519bf436e1af19a22a840f48bf1bfccdae99b2
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273320"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341255"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-sjablonen in Azure API Management
 
@@ -345,7 +345,7 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
   
 |Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|`apiId`|string|De id van de huidige API.|  
+|`apiId`|string|De ID van de huidige API.|  
 |`apiName`|string|De naam van de API.|  
 |`apiDescription`|string|Een beschrijving van de API.|  
 |`api`|[API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteit.|De huidige API.|  
@@ -1363,7 +1363,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### <a name="controls"></a>Besturingselementen  
  De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
