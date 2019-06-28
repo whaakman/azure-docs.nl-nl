@@ -79,17 +79,17 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 | description |J | |Een beschrijving van de waarschuwing. |
 | conditionType |J |Metrische gegevens, gebeurtenis |Twee typen waarschuwingen worden ondersteund: metrische gegevens en gebeurtenissen. Metrische waarschuwingen zijn gebaseerd op een metrische gegevens. Waarschuwingen zijn gebaseerd op een gebeurtenis in het activiteitenlogboek. Gebruik deze waarde om te controleren of de waarschuwing is gebaseerd op een metrische waarde of op een gebeurtenis. |
 | condition |J | |De specifieke velden om te controleren op basis van de **conditionType** waarde. |
-| MetricName |Voor metrische waarschuwingen | |De naam van de metrische gegevens die definieert wat de regel controleert. |
+| metricName |Voor metrische waarschuwingen | |De naam van de metrische gegevens die definieert wat de regel controleert. |
 | metricUnit |Voor metrische waarschuwingen |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |De eenheid die is toegestaan in de metrische gegevens. Zie [toegestane waarden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Voor metrische waarschuwingen | |De werkelijke waarde van de metrische gegevens die de waarschuwing heeft veroorzaakt. |
-| Drempelwaarde |Voor metrische waarschuwingen | |De drempelwaarde waarmee de waarschuwing is geactiveerd. |
+| threshold |Voor metrische waarschuwingen | |De drempelwaarde waarmee de waarschuwing is geactiveerd. |
 | windowSize |Voor metrische waarschuwingen | |De periode die wordt gebruikt voor het bewaken van waarschuwingsactiviteit op basis van de drempelwaarde. De waarde moet tussen 5 minuten en 1 dag. De waarde moet in ISO 8601-notatie voor de duur. |
 | timeAggregation |Voor metrische waarschuwingen |Gemiddelde, laatste, Maximum, Minimum, None, totaal |Hoe moeten de gegevens die worden verzameld worden gecombineerd na verloop van tijd. De standaardwaarde is de gemiddelde. Zie [toegestane waarden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
 | operator |Voor metrische waarschuwingen | |De operator die wordt gebruikt voor de huidige metrische gegevens vergelijken met de ingestelde drempelwaarde. |
 | subscriptionId |J | |De Azure-abonnement-ID. |
 | resourceGroupName |J | |De naam van de resourcegroep voor de betreffende resource. |
 | resourceName |J | |De resourcenaam van de betreffende resource. |
-| ResourceType |J | |Het brontype van de betreffende resource. |
+| resourceType |J | |Het brontype van de betreffende resource. |
 | resourceId |J | |De resource-ID van de betreffende resource. |
 | resourceRegion |J | |De regio of de locatie van de betreffende resource. |
 | portalLink |J | |Een directe koppeling naar de pagina overzicht van portal-resource. |
