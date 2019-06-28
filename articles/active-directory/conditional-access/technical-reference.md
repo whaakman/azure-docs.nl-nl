@@ -140,7 +140,7 @@ Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
@@ -149,7 +149,7 @@ Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersle
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
 | Type | REG_SZ (String) |
 | Data | {"patroon": "https://device.login.microsoftonline.com ',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}} |

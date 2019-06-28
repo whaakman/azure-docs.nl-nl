@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 294b376665ba6b62f79f826520bc933543b38bda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059284"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331727"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -97,7 +97,10 @@ Modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model
 
 Als u het model registreert, kunt u aanvullende metagegevenstags bieden en vervolgens de codes gebruiken wanneer u een voor modellen zoekopdracht.
 
-U kunt modellen die worden gebruikt door een actieve implementatie niet verwijderen.
+> [!TIP]
+> Een geregistreerde model is een logische container voor een of meer bestanden die gezamenlijk uw model. Bijvoorbeeld, als u een model dat is opgeslagen in meerdere bestanden hebt, kunt u registreren deze als één model in uw Azure Machine Learning-werkruimte. Na de registratie, kunt u vervolgens downloaden of het geregistreerde model implementeren en ontvangen van alle bestanden die zijn geregistreerd.
+
+U kunt een geregistreerde model dat wordt gebruikt door een actieve implementatie niet verwijderen.
 
 Zie voor een voorbeeld van het registreren van een model [een model van de installatiekopie classificatie met Azure Machine Learning te trainen](tutorial-train-models-with-aml.md).
 

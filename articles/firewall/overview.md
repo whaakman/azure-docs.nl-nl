@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/21/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: deca4d1f66950e89148089d2984eb9cb35c470a8
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
-ms.translationtype: MT
+ms.openlocfilehash: 2567c47e41306a7940b6d065feb49ae80bb16198
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304572"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312686"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -89,7 +89,7 @@ Hiermee kunt de volgende scenario's:
 - **SNAT** -aanvullende poorten zijn beschikbaar voor uitgaande SNAT-verbindingen, verminderen de kans op poortuitputting SNAT. Op dit moment selecteert Azure Firewall willekeurig het openbare IP-bronadres te gebruiken voor een verbinding. Als u een downstream filteren op uw netwerk hebt, moet u alle openbare IP-adressen die zijn gekoppeld aan uw firewall toestaan.
 
 > [!NOTE]
-> Tijdens de preview-versie, als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall bestaande binnenkomende verbindingen met behulp van regels DNAT werkt mogelijk niet voor 40-120 seconden.
+> Tijdens de preview-versie, als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall bestaande binnenkomende verbindingen met behulp van regels DNAT werkt mogelijk niet voor 40-120 seconden. U kunt de eerste openbare IP-adres toegewezen aan de firewall, tenzij de firewall is ongedaan gemaakt of verwijderd niet verwijderen.
 
 ### <a name="azure-monitor-logging"></a>Logboekregistratie van Azure Monitor
 
