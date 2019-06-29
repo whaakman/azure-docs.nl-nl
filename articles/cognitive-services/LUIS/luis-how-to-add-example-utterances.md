@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341878"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442561"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
 Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Om te leren Language Understanding (LUIS), die u nodig hebt om toe te voegen [voorbeeld uitingen](luis-concept-utterance.md) naar een [bedoeling](luis-concept-intent.md).
 
-Meestal kunt u een voorbeeld-utterance eerst toevoegen aan een doel en vervolgens u entiteiten maken en uitingen op de intentie pagina label. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
+Meestal kunt u een voorbeeld-utterance toevoegen aan een eerste intentie en vervolgens u entiteiten maken en uitingen label op de **Intents** pagina. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Entiteiten in de voorbeeld-uitingen markeren
 
@@ -32,7 +32,7 @@ Bepaalde Entiteitstypen, zoals de vooraf gemaakte entiteiten en entiteiten regul
 
 ## <a name="add-a-simple-entity"></a>Een eenvoudige entiteit toevoegen
 
-In de volgende procedure maakt u maakt en een aangepaste entiteit in de volgende utterance tag op de intentie pagina:
+In de volgende procedure maakt en een aangepaste entiteit in de volgende utterance tag op de **Intents** pagina:
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Lijst van de afdeling van een bedrijf, u kunt hebben genormaliseerd waarden: `Ac
 
     U kunt meer lijstitems of meer item synoniemen toevoegen door andere uitingen labels of door het bewerken van de entiteit op basis van de **entiteiten** in het linkernavigatievenster. [Bewerken](luis-how-to-add-entities.md#add-list-entities) de entiteiten kunt u de opties van het invoeren van aanvullende artikelen met synoniemen overeenkomt of een lijst importeren. 
 
-## <a name="add-composite-entity"></a>Een samengestelde entiteit toevoegen
+## <a name="add-a-composite-entity"></a>Een samengestelde entiteit toevoegen
 
-Samengestelde entiteiten zijn gemaakt op basis van bestaande **entiteiten** in een bovenliggende entiteit. 
+Samengestelde entiteiten zijn gemaakt op basis van bestaande **entiteiten** om te vormen van een bovenliggende entiteit. 
 
 Ervan uitgaande dat de utterance `Does John Smith work in Seattle?`, een samengestelde utterance entiteit informatie van de naam van de werknemer kunt terugkeren `John Smith`, en de locatie `Seattle` in een samengestelde entiteit. De onderliggende entiteiten moeten al bestaan in de app en worden gemarkeerd in het voorbeeld utterance voordat u de samengestelde entiteit maakt.
 
@@ -131,15 +131,15 @@ U kunt acties uitvoeren op de voorbeeld-uitingen als een geselecteerde groep of 
 
 ### <a name="remove-entity-labels-from-utterances"></a>Entiteit verwijderen van uitingen
 
-U kunt machine geleerd entiteit labels verwijderen uit een utterance op de pagina intentie. Als de entiteit niet machine geleerd, kan deze kan niet worden verwijderd uit een utterance. Als u een niet-machine-geleerd entiteit verwijderen uit de utterance moet, moet u de entiteit verwijderen uit de hele app. 
+U kunt machine geleerd entiteit labels verwijderen uit een utterance op de pagina Intents. Als de entiteit niet machine geleerd, kan deze kan niet worden verwijderd uit een utterance. Als u een niet-machine-geleerd entiteit verwijderen uit de utterance moet, moet u de entiteit verwijderen uit de hele app. 
 
 Als een label hebt geleerd van een machine entiteit uit een utterance verwijderen, selecteert u de entiteit in de utterance. Selecteer vervolgens **Label verwijderen** in de entiteit vervolgkeuzelijst die wordt weergegeven.
 
-### <a name="add-prebuilt-entity-label"></a>Vooraf gedefinieerde entiteit label toevoegen
+### <a name="add-a-prebuilt-entity-label"></a>Een label met vooraf gedefinieerde entiteit toevoegen
 
 Wanneer u de vooraf gemaakte entiteiten aan uw LUIS-app toevoegt, moet u geen tag uitingen met deze entiteiten. Zie voor meer informatie over het vooraf gemaakte entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Reguliere expressie entiteit label toevoegen
+### <a name="add-a-regular-expression-entity-label"></a>Een entiteit reguliere expressie label toevoegen
 
 Als u de reguliere expressie entiteiten aan uw LUIS-app toevoegt, moet u geen code uitingen met deze entiteiten. Zie voor meer informatie over de reguliere expressie entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ Als u de reguliere expressie entiteiten aan uw LUIS-app toevoegt, moet u geen co
 Zie [toevoegen patroon uit bestaande utterance op de pagina kunt u lezen wat of entiteit](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Pattern.any entiteit toevoegen
+### <a name="add-a-patternany-entity"></a>Een entiteit pattern.any toevoegen
 
 Als u de entiteiten pattern.any aan uw LUIS-app toevoegt, kunt u uitingen met deze entiteiten kan geen label. Ze zijn alleen geldig in patronen. Zie voor meer informatie over pattern.any entiteiten en het toe te voegen, [entiteiten toevoegen](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Na het toevoegen, bewerken of verwijderen van uitingen, [trainen](luis-how-to-tr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Na de labels uitingen in uw intenties, u kunt nu maken een [samengestelde entiteit](luis-how-to-add-entities.md).
+Na de labels uitingen in uw **Intents**, u kunt nu maken een [samengestelde entiteit](luis-how-to-add-entities.md).

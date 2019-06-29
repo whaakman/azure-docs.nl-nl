@@ -3,19 +3,19 @@ title: Plan voor bedrijfscontinuïteit - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Het primaire doel van het plan voor bedrijfscontinuïteit is het maken van een robuuste knowledge base-eindpunt, wat dat zonder uitvaltijd voor de Bot of de toepassing die wordt verbruikt.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
-ms.openlocfilehash: ad4f10b3b59e71ca31f1b27879c4b60157f0a46c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: diberry
+ms.openlocfilehash: f9892acb387a655e173ee5d2bde28e7346a6c535
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61374896"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447537"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Een plan voor bedrijfscontinuïteit voor uw QnA Maker-service maken
 

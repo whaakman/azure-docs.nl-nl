@@ -3,19 +3,19 @@ title: 'Zelfstudie: Een vertaal-app maken met WPF, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie maakt u een Windows Presentation Foundation-app (WPF) die gebruikmaakt van Cognitive Service-API's voor tekstvertaling, taaldetectie en spellingscontrole. Hierbij wordt één abonnementssleutel gebruikt. In deze oefening leert u hoe u de functies van de Translator Text-API en de Bing Spellingcontrole-API gebruikt.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 1945d1ae74cbcffbbc0864ea4470b4f199f1d95b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: swmachan
+ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051598"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448230"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Zelfstudie: Een vertaal-app maken met WPF
 

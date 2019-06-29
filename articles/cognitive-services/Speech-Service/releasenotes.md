@@ -8,17 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606347"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449246"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
+
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: Release van 2019 juni
+**Voorbeelden**
+*   Snel starten-voorbeelden voor tekst naar spraak voor UWP- en Unity
+*   Snel aan de slag-voorbeeld voor Swift op iOS
+*   Unity-voorbeelden voor spraak & opname kunt u lezen wat en vertaling
+*   Bijgewerkte snel starten-voorbeelden voor DialogServiceConnector
+
+**Verbeteringen / gewijzigd**
+* Dialoogvenster naamruimte:
+    * SpeechBotConnector is gewijzigd in DialogServiceConnector
+    * BotConfig is gewijzigd in DialogServiceConfig
+    * BotConfig::FromChannelSecret() has been remapped to DialogServiceConfig::FromBotSecret()
+    * Alle bestaande directe regel spraak clients nog steeds ondersteund na de nieuwe naam
+* Update TTS REST-adapter voor de ondersteuning van proxy, permanente verbinding
+* Foutbericht verbeteren wanneer een ongeldig regio wordt doorgegeven.
+
+**Oplossingen voor problemen**
+*   Oplossing voor TTS: waar SpeakTextAsync toekomst geretourneerd zonder te wachten totdat de audio rendering is voltooid
+*   Oplossing voor tekenreeksen in een C# volledig taalpakket-ondersteuning inschakelen
+*   Oplossing voor .NET core-app probleem kernbibliotheek met net461 doelframework in de voorbeelden van laden
+*   Oplossing voor incidentele problemen systeemeigen bibliotheken implementeren in de map voor uitvoer in de voorbeelden
+*   Oplossing voor web socket op betrouwbare wijze wordt gesloten
+*   Oplossing voor mogelijke crashes tijdens het openen van een verbinding zeer zwaar belast in Linux
+
 
 ## <a name="speech-sdk-151"></a>Spraak SDK 1.5.1
 

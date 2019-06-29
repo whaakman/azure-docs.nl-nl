@@ -2,19 +2,19 @@
 title: Over het uploaden van een document - aangepaste Translator
 titleSuffix: Azure Cognitive Services
 description: U kunt met behulp van de functie voor uploaden parallelle document uploaden voor uw trainingen. Parallelle documenten bestaan uit paren van documenten is, de vertaling van de andere. Een document in het paar zinnen in de source-taal bevat en het andere document bevat deze zinnen vertaald naar de doel-taal.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 1fa786bee960f71e4109041d935757a0d1edd75e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 948c9628147ae8cf869046b283601b939d35b290
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386931"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447931"
 ---
 # <a name="upload-a-document"></a>Een document uploaden
 

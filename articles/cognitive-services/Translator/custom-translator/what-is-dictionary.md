@@ -2,19 +2,19 @@
 title: Wat is een woordenlijst? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
 description: Een woordenlijst is een uitgelijnde document een lijst van zinnen of zinnen (en de vertalingen) die u wilt dat altijd Microsoft Translator geeft op dezelfde manier te vertalen. Woordenboeken worden soms ook wel glossaria of term bases.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 4bf112974befd7063b3da8e2b1c1dcbb7ad55608
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c837399778723b0b084c26422b7bea762f0e7709
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385231"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447366"
 ---
 # <a name="what-is-a-dictionary"></a>Wat is een woordenlijst?
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 518f1048224a97943756c5b51b83cd509f82e11e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466996"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service ondersteunde regio 's
 
@@ -73,6 +73,20 @@ Beschikbare regio's voor **intentieherkenning** via de spraak-SDK worden de volg
  Zuid-Amerika | Brazilië - zuid | `brazilsouth`
 
 Dit is een subset van de publicatie regio's ondersteund door de [Language Understanding-service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+### <a name="voice-first-virtual-assistants"></a>Stem op de eerste virtuele assistent
+
+De [spraak SDK](speech-sdk.md) ondersteunt **stem op de eerste virtuele assistent** mogelijkheden in deze regio's:
+
+Regio | Parameter voor spraak-SDK
+-------|---------------------
+US - west | `westus`
+US - west 2 | `westus2`
+US - oost | `eastus`
+US - oost 2 | `eastus2`
+Europa -west | `westeurope`
+Europa - noord | `northeurope`
+Azië - zuidoost | `southeastasia`
 
 ## <a name="rest-apis"></a>REST-API’s
 

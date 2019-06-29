@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411494"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449014"
 ---
 # <a name="specify-a-face-recognition-model"></a>Een model voor gezichtsherkenning opgeven
 
@@ -53,7 +53,7 @@ Als u laat u het niet-toegewezen, de versie van het standaard (_recognition_01_)
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>Identificeer gezichten met opgegeven model
@@ -67,7 +67,7 @@ Zie het volgende codevoorbeeld voor de .NET-clientbibliotheek.
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 In deze code een **PersonGroup** met ID `mypersongroupid` is gemaakt, en deze is ingesteld voor het gebruik de _recognition_02_ model om op te halen van de face-functies.
@@ -83,7 +83,7 @@ U kunt ook een model erkenning van gelijkenis zoeken opgeven. U kunt de versie v
 Zie het volgende codevoorbeeld voor de .NET-clientbibliotheek.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
 Deze code maakt een lijst met de face-naam `My face collection`, met de _recognition_02_ model voor het ophalen van de functie. Wanneer u deze lijst face voor soortgelijke gezichten om een nieuwe gedetecteerde gezicht te zoeken, die face moet zijn gedetecteerd ([Face - detecteren]) met behulp van de _recognition_02_ model. Zoals in de vorige sectie moet het model consistent.

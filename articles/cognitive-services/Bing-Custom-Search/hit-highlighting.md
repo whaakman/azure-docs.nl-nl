@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110115"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445573"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Met behulp van markeringen decoration markeren van tekst
 
@@ -56,7 +56,7 @@ Als `textDecorations` is **waar**, Bing omvat mogelijk de volgende markeringen i
 |U+E018|\<sup>|Het markeert het begin van superscript inhoud
 |U+E019|\</sup>|Het markeert het einde van superscript inhoud
 
-Het volgende voorbeeld wordt een `Computation` antwoord dat subscript markeringen voor een termijn van de query log(2) bevat. De `expression` bevat de markeringen alleen als het veld ' textDecoration is **waar**.
+Het volgende voorbeeld wordt een `Computation` antwoord dat subscript markeringen voor een termijn van de query log(2) bevat. De `expression` veld bevat de markeringen alleen als `textDecoration` is **waar**.
 
 ![berekening markeringen](./media/bing-markers-computation.PNG) 
 

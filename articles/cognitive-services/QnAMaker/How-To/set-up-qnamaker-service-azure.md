@@ -3,20 +3,20 @@ title: Instellen van een service voor QnA Maker - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Voordat u een QnA Maker knowledge bases maken kunt, moet u eerst een QnA Maker-service in Azure instellen. Iedereen met autorisatie voor het maken van nieuwe resources in een abonnement kunt een QnA Maker-service instellen.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bc40c0d4d44ea4dd809f59965ec5d1107be8541
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439774"
 ---
 # <a name="create-a-qna-maker-service"></a>Een QnA Maker-service maken
 

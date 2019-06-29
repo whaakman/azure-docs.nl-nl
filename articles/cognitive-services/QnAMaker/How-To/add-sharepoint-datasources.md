@@ -3,19 +3,19 @@ title: Bestanden van SharePoint - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Beveiligde Sharepoint-gegevensbronnen toevoegen aan uw knowledge base te verrijken van de knowledge base met vragen en antwoorden die kunnen worden beveiligd met Active Directory.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/20/2019
-ms.author: tulasim
-ms.openlocfilehash: e1b0e3dfb81a9934b393428a946cf1440367985c
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 06/24/2019
+ms.author: diberry
+ms.openlocfilehash: 3e5aa1cc78efeb6e8158155b5e0676c8a63cf6e6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311866"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447553"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Een beveiligde Sharepoint-gegevensbron toevoegen aan uw knowledge base
 

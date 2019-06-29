@@ -3,19 +3,19 @@ title: 'Quickstart: Zinslengtes ophalen, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u zinlengtes bepaalt met behulp van .NET Core en de Translator Text-API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 00fe7ce5558672812be7949b8474a403499de94f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 27f515c775d4b1a77563ac10338fc2255e42731c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123382"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448171"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Quickstart: De Translator Text-API gebruiken om de zinslengte te bepalen met C#
 
@@ -163,6 +163,8 @@ foreach (BreakSentenceResult o in deserializedOutput)
     Console.WriteLine("The first sentence length is: {0}", o.SentLen[0]);
 }
 ```
+
+Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
 

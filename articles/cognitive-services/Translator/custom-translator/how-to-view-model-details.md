@@ -2,19 +2,19 @@
 title: Details van model - aangepaste Translator weergeven
 titleSuffix: Azure Cognitive Services
 description: Modellen tabblad onder elk project bevat de details van elk model, zoals de modelnaam van het, model de status, BLEU score, training, afstemmen, zin aantal testen.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 33b1d7e0e44ecae4bc8a7a6bf9c7e6dfd6b0eb66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92f5275b85b4a257e8841f43424d356db702cacd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386888"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442475"
 ---
 # <a name="view-model-details"></a>Modelgegevens weergeven
 

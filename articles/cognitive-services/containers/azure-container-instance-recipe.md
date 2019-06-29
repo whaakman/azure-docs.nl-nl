@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: db73d4e30c960eb09e6b5fbc9411901c69c28b01
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272971"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445816"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Implementeren en uitvoeren van container in Azure Container exemplaar (ACI)
 
@@ -35,46 +35,7 @@ Deze oplossing werkt met alle Cognitive Services-container. Resource voor de Cog
 
 Alle variabelen in vierkante haken, `<>`, moeten worden vervangen door uw eigen waarden. Deze vervanging bevat de punthaken.
 
-## <a name="step-2-launch-your-container-on-azure-container-instances-aci"></a>Stap 2: Start uw container in Azure Container Instances (ACI)
-
-**Het maken van de resource van Azure Container exemplaar (ACI).**
-
-1. Ga naar de [maken](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) pagina voor Container Instances.
-
-1. Op de **basisbeginselen** tabblad, voer de volgende details:
-
-    |Pagina|Instelling|Value|
-    |--|--|--|
-    |Basics|Abonnement|Selecteer uw abonnement.|
-    |Basics|Resourcegroep|Selecteer de beschikbare resourcegroep of maak een nieuwe zoals `cognitive-services`.|
-    |Basics|Containernaam|Voer een naam zoals `cognitive-container-instance`. Deze naam moet zich in lagere limieten.|
-    |Basics|Locatie|Selecteer een regio voor implementatie.|
-    |Basics|Type installatiekopie|`Public`|
-    |Basics|De naam van installatiekopie|Geef de locatie van de Cognitive Services-Container. Dit kan zijn dat u hebt gebruikt in dezelfde locatie de `docker pull` opdracht _bijvoorbeeld_: <br>`mcr.microsoft.com/azure-cognitive-services/sentiment`|
-    |Basics|Type besturingssysteem|`Linux`|
-    |Basics|Grootte|Grootte wijzigen in de voorgestelde aanbevelingen voor uw specifieke Cognitive Service-container.:<br>2 kernen<br>4 GB
-    ||||
-  
-1. Op de **netwerken** tabblad, voer de volgende details:
-
-    |Pagina|Instelling|Value|
-    |--|--|--|
-    |Netwerken|Poorten|Het bewerken van de bestaande poort voor TCP van `80` naar `5000`. Dit betekent dat u de container op poort 5000 wordt weergegeven.|
-    ||||
-
-1. Op de **Geavanceerd** tabblad, voer de volgende gegevens doorgeven aan de vereiste instellingen voor de resource Containerinstantie facturering container:
-
-    |Pagina Geavanceerde sleutel|Pagina Geavanceerd waarde|
-    |--|--|
-    |`apikey`|Gekopieerd van de **sleutels** pagina van de resource. U moet slechts één van de twee sleutels. Het is een 32 tekenreeks alfanumerieke tekens zonder spaties of streepjes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Gekopieerd van de **overzicht** pagina van de resource. |
-    |`eula`|`accept`|
-
-    Als de container andere configuratie-instellingen zoals de koppeling van de invoer, uitvoer koppelingen of logboekregistratie heeft, moeten deze instellingen ook moeten worden toegevoegd.
-
-1. Selecteer **controleren en maken**.
-1. Nadat de validatie is geslaagd, schakelt u **maken** voor het maken van het proces te voltooien.
-1. Selecteer het belpictogram in de bovenste navigatiebalk. Dit is het meldingenvenster. Er verschijnt een blauwe **naar de resource gaan** wanneer de resource is gemaakt. Selecteer de knop gaat u de nieuwe resource.
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Gebruik de Containerinstantie
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 06cc5509598cb6227a64e2cf375a5686c89312eb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163682"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435935"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Verifiëren van aanvragen voor Azure Cognitive Services
 
@@ -28,7 +28,7 @@ Elke aanvraag aan een Azure Cognitive Service moet een verificatieheader bevatte
 
 Voordat u een aanvraag indienen, moet u een Azure-account en een Azure Cognitive Services-abonnement. Als u al een account hebt, gaat u verder en gaat u verder met de volgende sectie. Als u geen account hebt, hebben we een handleiding waarmee u binnen minuten opzet: [Een Cognitive Services-account maken voor Azure](cognitive-services-apis-create-account.md).
 
-U krijgt de abonnementssleutel van uw uit de [Azure-portal](cognitive-services-apis-create-account.md#access-your-resource) na het maken van uw account of activeren van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/my-apis).
+U krijgt de abonnementssleutel van uw uit de [Azure-portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) na het maken van uw account of activeren van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
 ## <a name="authentication-headers"></a>Verificatieheaders
 
@@ -38,7 +38,7 @@ Laten we snel bekijken de verificatieheaders die beschikbaar zijn voor gebruik m
 |--------|-------------|
 | OCP-Apim-Subscription-Key | Deze header gebruiken om te verifiëren met een abonnementssleutel voor een bepaalde service of een abonnementssleutel met meerdere service. |
 | Ocp-Apim-Subscription-Region | Deze header is alleen vereist als u een abonnementssleutel met meerdere service-met de [Translator Text-API](./Translator/reference/v3-0-reference.md). Gebruik deze header de regio van het abonnement op te geven. |
-| Autorisatie | Gebruik deze header als u een verificatietoken. De stappen voor het uitvoeren van een token exchange worden beschreven in de volgende secties. De opgegeven waarde volgende indeling: `Bearer <TOKEN>`. |
+| Authorization | Gebruik deze header als u een verificatietoken. De stappen voor het uitvoeren van een token exchange worden beschreven in de volgende secties. De opgegeven waarde volgende indeling: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Verifiëren met een enkele service-abonnementssleutel
 

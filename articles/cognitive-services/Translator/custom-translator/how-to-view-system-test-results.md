@@ -2,19 +2,19 @@
 title: De resultaten van systeem en implementatie - aangepaste Translator weergeven
 titleSuffix: Azure Cognitive Services
 description: Wanneer uw training is voltooid, controleert u systeemtests voor het analyseren van de resultaten van uw training. Als u tevreden met de resultaten van de training bent, plaatst u een implementatieaanvraag voor het getrainde model.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389319"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442487"
 ---
 # <a name="view-system-test-results"></a>Testresultaten voor systeem weergeven
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae075dbc922932a4eaffd9126560c159d33459d0
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808455"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466964"
 ---
 # <a name="ship-an-application"></a>Verzenden van een toepassing
 
@@ -46,6 +46,9 @@ De vereiste spraak SDK-bestanden kunnen worden geïmplementeerd in dezelfde map 
 
 >[!NOTE]
 > Vanaf de release 1.3.0 het bestand `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (geleverd in eerdere versies) wordt niet meer nodig hebt. De functionaliteit is nu geïntegreerd in de core-SDK.
+
+>[!NOTE]
+> Voor het Windows Forms-App (.NET Framework) C# project, zorg ervoor dat de bibliotheken zijn opgenomen in de implementatie-instellingen van uw project. U kunt dit onder controleren `Properties -> Publish Section`. Klik op de `Application Files` knop en de bijbehorende bibliotheken van de schuif omlaag in lijst vinden. Zorg ervoor dat de waarde is ingesteld op `Included`. Visual Studio bevat het bestand wanneer het project wordt gepubliceerd/geïmplementeerd.
 
 ## <a name="linux"></a>Linux
 

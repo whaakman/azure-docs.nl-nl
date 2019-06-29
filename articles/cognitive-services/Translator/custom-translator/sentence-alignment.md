@@ -2,19 +2,19 @@
 title: Zin koppelen en de uitlijning - aangepaste Translator
 titleSuffix: Azure Cognitive Services
 description: Tijdens de uitvoering van de training, zinnen aanwezig zijn in parallelle documenten gekoppeld of uitgelijnd. Aangepaste Translator leert vertalingen één zin op een tijdstip, door te lezen van een zin, de vertaling van deze zin. Vervolgens worden uitgelijnd woorden en woordgroepen in deze twee zinnen met elkaar.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 99538fd18067377efcc9e744e9ec611e0f685273
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73c40704e10a8e2368ee1eb369ee3dccdf269ee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389605"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448320"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Zin koppelen en de uitlijning in parallelle documenten
 
@@ -36,7 +36,7 @@ Voor een training te voltooien, ziet de volgende tabel u het minimum aantal opge
 
 | Gegevensset   | Voorgestelde minimale uitgepakte zin tellen | Voorgestelde minimale uitgelijnde zin tellen | Maximale uitgelijnde zin tellen |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Training   | 10\.000                                     | 2,000                                    | Geen bovengrens                 |
+| Training   | 10.000                                     | 2,000                                    | Geen bovengrens                 |
 | Afstemmen     | 2,000                                      | 500                                      | 2,500                          |
 | Testen    | 2,000                                      | 500                                      | 2,500                          |
 | Woordenlijst | 0                                          | 0                                        | Geen bovengrens                 |

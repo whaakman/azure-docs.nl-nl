@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: cae639f74005a9d0c7509b38c9e68a9cb0a281a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061375"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447729"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight
 
@@ -237,7 +237,7 @@ Voor deze bewerking hebt u de servernaam van uw SQL-database nodig. Voer deze st
 
     ![Gegevens van Azure SQL-server opvragen](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Gegevens van Azure SQL-server opvragen")
 
-    Er zijn veel manieren om verbinding te maken met SQL Database en een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
+    Er zijn veel manieren om verbinding te maken met SQL Database en een tabel te maken. In de volgende stappen wordt [FreeTDS](https://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
 
 5. Gebruik de volgende opdracht vanuit een SSH-verbinding met het cluster om FreeTDS te installeren:
 

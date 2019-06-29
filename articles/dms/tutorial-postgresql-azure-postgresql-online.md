@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415686"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461540"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Zelfstudie: PostgreSQL migreren naar Azure Database for PostgreSQL online met behulp van DMS
 
@@ -24,6 +24,7 @@ U kunt Azure Database Migration Service gebruiken voor het migreren van de datab
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
+>
 > * De voorbeeldschema met behulp van hulpprogramma voor pg_dump migreren.
 > * De Azure-portal gebruiken om een Azure Database Migration Service-exemplaar te maken.
 > * Een migratieproject maken met behulp van de Azure Database Migration Service.
@@ -65,11 +66,11 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * Maken van een op serverniveau [firewallregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor Azure Database for PostgreSQL om toe te staan van Azure Database Migration Service toegang tot de doeldatabase. Geef het subnetbereik van het VNet gebruikt voor Azure Database Migration Service.
 * Er zijn twee methoden voor het aanroepen van de CLI:
 
-    * Klik in de rechterbovenhoek van de Azure Portal en selecteer de knop Cloud Shell:
+  * Klik in de rechterbovenhoek van de Azure Portal en selecteer de knop Cloud Shell:
 
        ![Knop Cloud Shell in de Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * Installeer de CLI lokaal en voer deze uit. CLI 2.0 is het opdrachtregelprogramma voor het beheer van Azure-resources.
+  * Installeer de CLI lokaal en voer deze uit. CLI 2.0 is het opdrachtregelprogramma voor het beheer van Azure-resources.
 
        Volg de instructies in het artikel [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) als u de CLI wilt downloaden. In het artikel worden ook de platforms genoemd die ondersteuning bieden voor CLI 2.0.
 
@@ -77,9 +78,9 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Schakel logische replicatie in het bestand postgresql.config in en stel de volgende parameters in:
 
-    * wal_level = **logical**
-    * max_replication_slots = [aantal sleuven], aanbevolen instelling is **5 sleuven**
-    * max_wal_senders = [aantal gelijktijdige taken]: met de parameter max_wal_senders stelt u het aantal taken in dat gelijktijdig kan worden uitgevoerd. De aanbevolen instelling is **10 taken**
+  * wal_level = **logical**
+  * max_replication_slots = [aantal sleuven], aanbevolen instelling is **5 sleuven**
+  * max_wal_senders = [aantal gelijktijdige taken]: met de parameter max_wal_senders stelt u het aantal taken in dat gelijktijdig kan worden uitgevoerd. De aanbevolen instelling is **10 taken**
 
 ## <a name="migrate-the-sample-schema"></a>Het voorbeeldschema migreren
 
@@ -115,8 +116,7 @@ Om alle databaseobjecten zoals tabelschema’s, indexen en opgeslagen procedures
     ```
 
 4. Als u refererende sleutels in uw schema hebt, mislukken de eerste lading en doorlopende synchronisatie van de migratie. Voer het volgende script uit in PgAdmin of in psql om het 'drop foreign key'-script uit te pakken en voeg het 'foreign key'-script toe op de doeldatabase (Azure Database for PostgreSQL).
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -141,7 +141,7 @@ Om alle databaseobjecten zoals tabelschema’s, indexen en opgeslagen procedures
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     Voer het 'drop foreign key'-script (de tweede kolom) uit in het queryresultaat.
 
@@ -359,7 +359,7 @@ Om alle databaseobjecten zoals tabelschema’s, indexen en opgeslagen procedures
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   OR
+   OF
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output

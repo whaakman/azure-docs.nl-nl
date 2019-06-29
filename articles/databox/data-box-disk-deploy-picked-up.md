@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0314c0e03402d53c7f79eed2efe11db953d184e6
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147514"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448213"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box Disk terugsturen en de gegevensupload naar Azure controleren
 
@@ -88,7 +88,7 @@ De volgende stappen uitvoeren als het apparaat in Europa worden geretourneerd.
 
 ### <a name="pick-up-in-asia-pacific-region"></a>In de regio Azië en Stille Oceaan ophalen
 
-Deze regio bevat instructies voor het ophalen van objecten in Japan, Korea en Australië.
+Deze regio bevat instructies voor het ophalen van objecten in Japan, Korea, Australië en Singapore.
 
 #### <a name="pick-up-in-australia"></a>Pikken in Australië
 
@@ -103,43 +103,64 @@ Azure-datacenters in Australië hebben een melding voor extra beveiliging. De bi
 
 #### <a name="pick-up-in-japan"></a>In Japan ophalen
 
-1. Zorg ervoor dat de geretourneerde connote van Japan Post Chakubarai.
-2. Schrijven van uw bedrijf naam en adres informatie over de connote als uw gegevens van de afzender.
-3. Japan Post ophaalaanvragen nummer 0800-0800-111 (gratis op verzoek) aanroepen. De postcode van 7 cijfers voor ophalen-adres kiezen en vervolgens doorsturen naar de dichtstbijzijnde post office.
-    - Beschikbare tijden voor de aanvraag voor het ophalen, is afhankelijk van de respectieve post kantoren.
-    - Laat weten dat de verzending voor Japan Post Chakubarai Yu-Pack is.
-    - Gebruik de Chakubarai Werkelijke die is opgenomen.
-4. Als de werkelijke Japan Post Chakubarai is niet opgenomen, e- *Quantium oplossingen* op `Customerservice.JP@quantiumsolutions.com`. *Quantium oplossingen* vraagt Japan Post pikken en vraag deze om de connote bij ophalen.
-    - Geven de verwijzing naar het nummer op de Chakubarai Werkelijke Opmerking kolom dat Japan Post ervoor zorgt dat.
-    - Voer het adres zoals hieronder wordt weergegeven:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Schrijven van uw bedrijf naam en adres informatie over het begeleidende als uw gegevens van de afzender.
+2. E-Quantium-oplossing met behulp van de volgende e-mailsjabloon.
 
-Als de Chakubarai Werkelijke ontbreekt, kunt u de ophalen via e-mail aanvragen. Gebruik de volgende e-mailsjabloon om aan te vragen worden opgehaald.
+    - Als begeleidende Japan Post Chakubarai niet opgenomen is of ontbreekt, houd er rekening mee dat in dit e-mailbericht. Quantium oplossingen Japan vraagt Japan Post om het begeleidende bij ophalen.
+    - Als u meerdere orders, e-mailadres om te controleren of afzonderlijke ophalen.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Een e-mailbevestiging ontvangen van Quantium oplossingen, nadat u traceren die opgehaald zijn hebt. De e-mailbevestiging bevat ook informatie over het begeleidende Chakubarai.
+
+Indien nodig, kunt u contact op met ondersteuning van de oplossing Quantium (Japans) op de volgende informatie: 
+
+- E-mail:Customerservice.JP@quantiumsolutions.com 
+- Telefoonnummer: 03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>Pikken in Korea
 
-1. Zorg ervoor dat de geretourneerde connote.
-2. Om aan te vragen ophalen:
-    1. Bel *Quantium oplossingen internationale* hotline op 070-8231-1418 tijdens kantooruren (10 naar 5: 00, maandag tot vrijdag). Citeren *Microsoft ophalen* en het aantal connote moeten worden geschikt voor een verzameling.  
-    2. Als de hotline bezet is, stuurt u e-mail `microsoft@rocketparcel.com`, met het e-mailonderwerp *Microsoft Pickup* en het aantal connote als verwijzing.
+1. Zorg ervoor dat het geretourneerde begeleidende.
+2. Om aan te vragen ophalen als begeleidende aanwezig is:
+    1. Bel *Quantium oplossingen internationale* hotline op 070-8231-1418 tijdens kantooruren (10 naar 5: 00, maandag tot vrijdag). Citeren *ophalen van de Microsoft Azure* en het nummer van het service-aanvraag voor een verzameling rangschikken.  
+    2. Als de hotline bezet is, stuurt u e-mail `microsoft@rocketparcel.com`, met het e-mailonderwerp *ophalen van Microsoft Azure* en het nummer van het service-aanvraag als verwijzing.
     3. Als de koerier niet heeft bereikt voor de verzameling, belt u *Quantium oplossingen internationale* hotline voor alternatieve regelingen. 
+    4. U ontvangt een e-mailbevestiging voor het schema voor ophalen.
+3. Voert deze stap alleen uit als het begeleidende niet aanwezig is. Om aan te vragen ophalen:
+    1. Bel *Quantium oplossingen internationale* hotline op 070-8231-1418 tijdens kantooruren (10 naar 5: 00, maandag tot vrijdag). Citeren *ophalen van de Microsoft Azure* en het nummer van het service-aanvraag voor een verzameling rangschikken. Geef op dat u een nieuwe notitie die partij moet moet ervoor zorgen dat een verzameling. Geef afzender (klant), ontvanger informatie (Azure datacenter) en referentienummer (service-aanvraag). 
+    2. Als de hotline bezet is, stuurt u e-mail `microsoft@rocketparcel.com`, met het e-mailonderwerp *ophalen van Microsoft Azure* en het nummer van het service-aanvraag als verwijzing.
+    3. Als de koerier niet heeft bereikt voor de verzameling, belt u *Quantium oplossingen internationale* hotline voor alternatieve regelingen. 
+    4. U ontvangt een mondelinge bevestiging als de aanvraag wordt gedaan via de telefoon.
+
+### <a name="pick-up-in-singapore"></a>Pikken in Singapore
+
+1. Het verzendlabel afdrukken en koppelen in box. Als het label is beschadigd of verloren:
+    - Ga naar **Overzicht > Verzendlabel downloaden**.
+
+        ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Hiermee downloadt u een retourzendingslabel, zoals hieronder wordt weergegeven.
+
+        ![Voorbeeld van verzendlabel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Brengt het label op het apparaat. Zorg ervoor dat het label weergegeven wordt.
+
+2. Om aan te vragen ophalen:
+    - Bel **SingPost** hotline op **6845 6485** tijdens kantooruren (9: 00 op 17: 00, maandag tot vrijdag).  
+    - Citeren *ophalen van de Microsoft Azure* en de service-nummer (bijhouden op het retourlabel) wil ervoor zorgen dat een verzameling. 
+    - U krijgt een mondelinge bevestiging voor het schema voor ophalen. 
+    - Als de koerier niet heeft bereikt voor de verzameling, belt u **SingPost** op **6845 6485** voor alternatieve regelingen. 
+3. Met de courier via de hand. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>De gegevensupload naar Azure controleren
 

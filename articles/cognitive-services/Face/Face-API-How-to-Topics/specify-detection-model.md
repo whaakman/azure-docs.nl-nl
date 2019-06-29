@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: dde5623bf5bd579a13fa7271dfba64f9df61bad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 037a059c95150314b6f85ea3eacdec0f6bb3d6c0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66576695"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449036"
 ---
 # <a name="specify-a-face-detection-model"></a>Een model voor gezichtsdetectie opgeven
 
@@ -52,7 +52,7 @@ Als u van de clientbibliotheek gebruikmaakt, kunt u de waarde voor toewijzen `de
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Face persoon met opgegeven model toevoegen
@@ -64,9 +64,9 @@ Zie het volgende codevoorbeeld voor de .NET-clientbibliotheek.
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 
-string personId = (await faceServiceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
+string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
@@ -82,7 +82,7 @@ Deze code maakt een **PersonGroup** met ID `mypersongroupid` en voegt een **pers
 U kunt ook een model opgeven wanneer u een gezicht aan een bestaande toevoegen **FaceList** object. Zie het volgende codevoorbeeld voor de .NET-clientbibliotheek.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");

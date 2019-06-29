@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c5f7b0b739e9311e2527e63db7279d2075f0f1ff
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da7259585ad66ac9b58131ce834d82e7b3d4bcf2
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341284"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466950"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
@@ -24,7 +24,7 @@ Tekst naar spraak vanuit Azure Speech Services is een service waarmee u uw toepa
 Text to Speech-technologie kunnen makers van inhoud om te communiceren met hun gebruikers op verschillende manieren. Text to Speech kan toegankelijkheid verbeteren door gebruikers met de mogelijkheid om te communiceren met inhoud hoorbaar. Of de gebruiker een gezichtsvermogen, een achterstand learning heeft of navigatie-gegevens en tot vereist, kunnen de Text to Speech een bestaande ervaring kan verbeteren. Tekst naar spraak is ook een waardevolle-invoegtoepassing voor spraak bots en virtual Assistant.
 
 
-Gebruik te maken van spraak synthese Markup Language (SSML), een opmaaktaal op basis van een XML-, ontwikkelaars die gebruikmaken van de Text to Speech-service kunnen opgeven hoe invoertekst wordt omgezet in kunstmatige spraak. Met SSML, kunt u inspiratie, uitspraak, aanpassen spreken snelheid, volume en meer. Zie voor meer informatie over, [SSML](#speech-synthesis-markup-language-ssml).
+Gebruik te maken van spraak synthese Markup Language (SSML), een opmaaktaal op basis van een XML-, ontwikkelaars die gebruikmaken van de Text to Speech-service kunnen opgeven hoe invoertekst wordt omgezet in kunstmatige spraak. Met SSML, kunt u inspiratie, uitspraak, aanpassen spreken snelheid, volume en meer. Zie voor meer informatie, [SSML](#speech-synthesis-markup-language-ssml).
 
 ### <a name="standard-voices"></a>Standard stemmen
 
@@ -87,7 +87,10 @@ We bieden snelstartgidsen ontworpen dat u de uitvoering van code in minder dan 1
 
 | Quickstart (SDK) | Platform | API-verwijzing |
 |------------|----------|---------------|
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
 | [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Bladeren](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Bladeren](https://aka.ms/csspeech/cppref) |
 

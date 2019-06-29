@@ -9,17 +9,17 @@ ms.subservice: form-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 45303f1f75e80a66c3cb85154d458a970c214370
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: f38752928832b7dee6a7e55f1d25374a64391bbe
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295494"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441884"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installeren en formulier herkenning containers uitvoeren
 Herkenning van Azure formulier is van toepassing machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren. Het wordt gekoppeld aan waarden en de items in tabel met de sleutel / waarde-paren en gestructureerde gegevens vindt u de relaties in het oorspronkelijke bestand vervolgens weergeeft. 
 
-Verminder complexiteit en een aangepast formulier herkenning model eenvoudig te integreren in uw automation-werkstroomproces of andere toepassing, kunt u het model met behulp van een eenvoudige REST-API aanroepen. Maximaal vijf documenten (of een leeg formulier) zijn nodig, dus u resultaten snel, nauwkeurig krijgt kunt, en die zijn afgestemd op uw specifieke inhoud. Er is geen zware handmatige tussenkomst of uitgebreide data science-expertise is nodig. En er is geen vereist labeling van gegevens of gegevens aantekening.
+Verminder complexiteit en een aangepast formulier herkenning model eenvoudig te integreren in uw automation-werkstroomproces of andere toepassing, kunt u het model met behulp van een eenvoudige REST-API aanroepen. Maximaal vijf form-documenten (of een leeg formulier en twee ingevuld in formulieren) zijn nodig, dus u resultaten snel, nauwkeurig krijgt kunt, en die zijn afgestemd op uw specifieke inhoud. Er is geen zware handmatige tussenkomst of uitgebreide data science-expertise is nodig. En er is geen vereist labeling van gegevens of gegevens aantekening.
 
 |Function|Functies|
 |-|-|

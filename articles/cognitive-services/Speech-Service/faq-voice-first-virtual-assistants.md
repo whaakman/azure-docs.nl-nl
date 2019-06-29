@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c669f00ae65667f85976aca218ce51d630159ee
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072607"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465486"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Stem op de eerste virtuele assistenten Preview-versie: Veelgestelde vragen
 
@@ -25,7 +25,7 @@ Als u antwoorden op uw vragen niet in dit document vinden, bekijk dan [andere on
 
 **V: Wat is een directe regel spraak?**
 
-**A:** De `SpeechBotConnector` van de spraak-SDK biedt in twee richtingen, asynchrone communicatie met bots die zijn verbonden met het kanaal directe regel spraak van Bot Framework. Dit kanaal biedt gecoördineerde toegang tot de spraak-naar-tekst en spraak vanuit Azure Speech Services waarmee bots om te worden volledig spraak in, stem uit eigen ervaring. Met de ondersteuning voor wake-woorden en Wake Word verificatie maakt deze oplossing het mogelijk om te hoge mate aanpasbare stem op de eerste virtuele assistenten voor uw merk of product bouwen.
+**A:** De `DialogServiceConnector` van de spraak-SDK biedt in twee richtingen, asynchrone communicatie met bots die zijn verbonden met het kanaal directe regel spraak van Bot Framework. Dit kanaal biedt gecoördineerde toegang tot de spraak-naar-tekst en spraak vanuit Azure Speech Services waarmee bots om te worden volledig spraak in, stem uit eigen ervaring. Met de ondersteuning voor wake-woorden en Wake Word verificatie maakt deze oplossing het mogelijk om te hoge mate aanpasbare stem op de eerste virtuele assistenten voor uw merk of product bouwen.
 
 **V: Hoe ga ik aan de slag?**
 
@@ -35,7 +35,7 @@ Als u antwoorden op uw vragen niet in dit document vinden, bekijk dan [andere on
 
 **V: Ik ontvang een 401-fout bij het verbinden en niets werkt. Ik weet dat mijn abonnement spraak sleutel geldig is. Wat gebeurt er?**
 
-**A:** Preview-versie is directe regel spraak zeer specifieke beperkingen op het abonnement dat is gebruikt. Zorg ervoor dat u de **spraak** resource (Microsoft.CognitiveServicesSpeechServices, 'Spraak') en *niet* de **Cognitive Services** resource ( Microsoft.CognitiveServicesAllInOne, 'Alle Cognitive Services'). Bovendien, houd er rekening mee dat alleen de **westus2** regio wordt momenteel ondersteund.
+**A:** Preview-versie heeft directe regel spraak bepaalde beperkingen op welke abonnementen u kunt gebruiken. Zorg ervoor dat u de **spraak** resource (Microsoft.CognitiveServicesSpeechServices, 'Spraak') en *niet* de **Cognitive Services** resource ( Microsoft.CognitiveServicesAllInOne, 'Alle Cognitive Services'). Alleen [een subset van Services voor spraak-regio's](regions.md#voice-first-virtual-assistants) worden momenteel ondersteund voor directe regel spraak.
 
 ![abonnement voor rechtstreekse regel spraak corrigeren](media/voice-first-virtual-assistants/faq-supported-subscription.png "voorbeeld van een compatibel spraak-abonnement")
 
@@ -43,9 +43,9 @@ Als u antwoorden op uw vragen niet in dit document vinden, bekijk dan [andere on
 
 **A:** Deze fout wijst op een communicatieprobleem met de tussen de bot en directe regel spraak. Zorg ervoor dat u hebt [verbonden het kanaal directe regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [toegevoegde ondersteuning voor Streaming-protocol](https://aka.ms/botframework/addstreamingprotocolsupport) aan uw bot (met de gerelateerde Web Socket-ondersteuning) en vervolgens controleren of uw bot reageert op binnenkomende aanvragen van het kanaal.
 
-**V: Dit ook niet werkt en/of krijg ik een andere fout bij het gebruik van een SpeechBotConnector en het niet duidelijk is wat ik moet doen. Wat *moet* moet ik doen?**
+**V: Deze code ook niet werkt en/of krijg ik een andere fout bij het gebruik van een DialogServiceConnector. Wat moet ik doen?**
 
-**A:** Logboekregistratie op basis van bestanden vindt u aanzienlijk meer details over en kan helpen versnellen ondersteuningsaanvragen. U kunt deze inschakelen, Zie [over het gebruik van logboekregistratie](how-to-use-logging.md).
+**A:** Logboekregistratie op basis van bestanden vindt u aanzienlijk meer details over en kan helpen versnellen ondersteuningsaanvragen. Zie voor het inschakelen van deze functionaliteit [over het gebruik van logboekregistratie](how-to-use-logging.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

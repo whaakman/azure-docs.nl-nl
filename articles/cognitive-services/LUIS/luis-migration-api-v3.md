@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341844"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442526"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Preview: Migreren naar API-versie 3.x voor LUIS-apps
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Preview: Migreren naar API-versie 3.x voor LUIS-apps
 
 Het eindpunt van de query voorspelling API's zijn gewijzigd. Gebruik deze handleiding voor meer informatie over het migreren naar versie 3-eindpunt API's. 
 
@@ -43,6 +43,27 @@ De volgende functies van LUIS **niet ondersteund** in de API V3:
 * Bing Spell Check-versie 7
 
 [Referentiedocumentatie](https://aka.ms/luis-api-v3) is beschikbaar voor V3.
+
+## <a name="endpoint-url-changes-by-slot-name"></a>Wijzigingen van de eindpunt-URL met de naam van de site
+
+De indeling van de aanroep van de HTTP-eindpunt V3 is gewijzigd.
+
+|METHODE|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+## <a name="endpoint-url-changes-by-version-id"></a>Wijzigingen van de eindpunt-URL door de versie-ID
+
+Als u zoeken door versie wilt, moet u eerst [publiceren via de API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) met de `"directVersionPublish":true`. Query uitvoeren op het eindpunt verwijst naar de versie-ID in plaats van de naam van de site.
+
+
+|METHODE|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0 preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{versie-ID}</b>/ voorspellen? query =<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
 
 ## <a name="prebuilt-entities-with-new-json"></a>Vooraf gemaakte entiteiten met nieuwe JSON
 

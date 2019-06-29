@@ -3,19 +3,19 @@ title: Aanvraaglimieten - Translator Text-API
 titleSuffix: Azure Cognitive Services
 description: Dit artikel worden de aanvraaglimieten voor de Translator Text-API. Kosten worden berekend op basis van aantal tekens, geen aanvraag frequentie met een limiet van 5000 tekens per aanvraag. Teken limieten zijn abonnement op basis van met F0 beperkt tot 2 miljoen tekens per uur.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: d04677362e0ba3ace59d55ede9bd6241f17130e9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269223"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435037"
 ---
 # <a name="request-limits-for-translator-text"></a>Aanvraaglimieten voor Translator tekst
 
@@ -38,7 +38,11 @@ De volgende tabel lijsten matrix-element en teken limieten voor elke bewerking v
 
 ## <a name="character-limits-per-hour"></a>Teken limieten per uur
 
-Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. De uurquotum moet gelijkmatig worden gebruikt tijdens het uur. Als u bereiken of groter zijn dan deze limieten, of een gedeelte van het quotum te grote in een korte periode verzenden, ontvangt u waarschijnlijk een out-of quotum antwoord. Er zijn geen beperkingen voor gelijktijdige aanvragen.
+Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. 
+
+De uurquotum moet gelijkmatig worden gebruikt tijdens het uur. Bijvoorbeeld, om de limiet van de laag F0 van 2 miljoen tekens per uur moeten tekens worden gebruikt niet sneller dan ongeveer 33,300 tekens per minuut sliding window van (2 miljoen tekens gedeeld door 60 minuten).
+
+Als u bereiken of groter zijn dan deze limieten, of een gedeelte van het quotum te grote in een korte periode verzenden, ontvangt u waarschijnlijk een out-of quotum antwoord. Er zijn geen beperkingen voor gelijktijdige aanvragen.
 
 | Laag | Maximum aantal tekens |
 |------|-----------------|

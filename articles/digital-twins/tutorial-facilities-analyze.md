@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897050513449c099ce75c248eef00a38aac98ad9
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534697"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462333"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Zelfstudie: Gebeurtenissen uit uw Azure Digital Twins-ruimten visualiseren en analyseren met Time Series Insights
 
@@ -52,7 +52,7 @@ Gebruik de service [Event Hubs](../event-hubs/event-hubs-about.md) om een pijpli
 
 1. Voer een **naam** in voor de naamruimte van de Event Hub. Kies **Standard** voor **Prijscategorie**, uw **Abonnement**, de **Resourcegroep** die u hebt gebruikt voor het Digital Twins-exemplaar, en de **Locatie**. Selecteer **Maken**.
 
-1. In de implementatie van de Event Hubs-naamruimte selecteert u de naamruimte onder **RESOURCE**.
+1. Selecteer in de Event Hubs-naamruimte-implementatie, de **overzicht** in het deelvenster Selecteer **naar de resource gaan**.
 
     ![Event Hubs-naamruimte na implementatie](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -132,17 +132,19 @@ Gebruik de service [Event Hubs](../event-hubs/event-hubs-about.md) om een pijpli
 
 1. Zoek en selecteer een nieuwe **Time Series Insights**-resource. Selecteer **Maken**.
 
-1. Voer een **naam** in voor het Time Series Insights-exemplaar en selecteer vervolgens uw **abonnement**. Selecteer de **Resourcegroep** die u hebt gebruikt voor het Digital Twins-exemplaar, en uw **Locatie**. Selecteer **Maken**.
+1. Voer een **naam** in voor het Time Series Insights-exemplaar en selecteer vervolgens uw **abonnement**. Selecteer de **Resourcegroep** die u hebt gebruikt voor het Digital Twins-exemplaar, en uw **Locatie**. Selecteer **Volgende: De bron van gebeurtenis** knop of de **gebeurtenisbron** tabblad.
 
     ![Selecties voor het maken van een Time Series Insights-exemplaar](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. Open, nadat het exemplaar is geïmplementeerd, de Time Series Insights-omgeving en open vervolgens het bijbehorende deelvenster **Gebeurtenisbronnen**. Selecteer bovenaan de knop **Toevoegen** om een consumentengroep toe te voegen.
-
-1. Voer in het deelvenster **Nieuwe gebeurtenisbron** een **naam** in en controleer of de andere waarden juist zijn geselecteerd. Selecteer **ManageSend** als de **naam voor het Event Hub-beleid**, en selecteer vervolgens de consumentengroep die u hebt gemaakt in de vorige sectie, als de **Event Hub-consumentengroep**. Selecteer **Maken**.
+1. In de **gebeurtenisbron** tabblad, voer een **naam**, selecteer **Event Hub** als de **gegevensbrontype**, en zorg ervoor dat de andere waarden zijn geselecteerd correct. Selecteer **ManageSend** voor **Event Hub-beleidsnaam**, en selecteer vervolgens de consumergroep die u hebt gemaakt in de vorige sectie voor **Event Hub-consumentengroep**. Selecteer **Controleren + maken**.
 
     ![Selecties voor het maken van een gebeurtenisbron](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Open het deelvenster **Overzicht** van de Time Series Insights-omgeving en selecteer bovenaan de knop **Ga naar omgeving**. Als u een waarschuwing voor gegevenstoegang te zien krijgt, opent u het deelvenster **Beleid voor gegevenstoegang** voor het Time Series Insights-exemplaar en selecteert u **Toevoegen**. Vervolgens selecteert u de rol **Inzender** en selecteert u de juiste gebruiker.
+1. In de **beoordelen en maken** deelvenster, Controleer de informatie die u hebt ingevoerd en selecteert u **maken**.
+
+1. Selecteer in het deelvenster met implementatie, de Time Series Insights-resource die u zojuist hebt gemaakt. Het openen van de **overzicht** deelvenster voor uw Time Series Insights-omgeving.
+
+1. Selecteer de **gaat u naar de omgeving** bovenaan op de knop. Als u een waarschuwing voor gegevenstoegang te zien krijgt, opent u het deelvenster **Beleid voor gegevenstoegang** voor het Time Series Insights-exemplaar en selecteert u **Toevoegen**. Vervolgens selecteert u de rol **Inzender** en selecteert u de juiste gebruiker.
 
 1. Met de knop **Ga naar omgeving** wordt de [Time Series Insights-verkenner](../time-series-insights/time-series-insights-explorer.md) geopend. Als hier geen gebeurtenissen worden weergegeven, simuleert u apparaatgebeurtenissen door naar het project **device-connectivity** van het Digital Twins-voorbeeld te gaan en `dotnet run` uit te voeren.
 

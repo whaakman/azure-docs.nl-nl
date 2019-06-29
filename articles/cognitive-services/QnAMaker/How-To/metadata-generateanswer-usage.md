@@ -3,19 +3,19 @@ title: Metagegevens met GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker kunt u metagegevens in de vorm van sleutel/waarde-paren, toevoegen aan uw vraag/antwoord-sets. U kunt query's van gebruikers filteren, en opslaan van aanvullende informatie die kan worden gebruikt in follow-up conversaties.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/17/2019
-ms.author: tulasim
-ms.openlocfilehash: d1e7a29e4ca94405e2d6b2000309ef6e2c3a777c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/27/2019
+ms.author: diberry
+ms.openlocfilehash: 99c076d7f26638833b568935e766cf319d21945e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164612"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443471"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord met de GenerateAnswer API en metagegevens
 
@@ -37,13 +37,13 @@ Elke entiteit QnA heeft een unieke en permanente-ID. De ID kunt u updates aanbre
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>De voorspellingen antwoord met de API GenerateAnswer ophalen
 
-U de API GenerateAnswer in uw bot of toepassing gebruiken om op te vragen uw knowledge base met de vraag van een gebruiker, wordt voor de beste overeenkomst van de vraag en antwoord.
+U gebruikt de [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in uw bot of de toepassing om op te vragen uw knowledge base met de vraag van een gebruiker, de beste overeenkomst ophalen van de vraag en antwoord ingesteld.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publiceren GenerateAnswer-eindpunt ophalen 
 
-Nadat u uw knowledge base, via de [QnA Maker portal](https://www.qnamaker.ai), of met behulp van de [API](https://go.microsoft.com/fwlink/?linkid=2092179), krijgt u de details van uw eindpunt GenerateAnswer.
+Nadat u uw knowledge base, via de [QnA Maker portal](https://www.qnamaker.ai), of met behulp van de [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), krijgt u de details van uw eindpunt GenerateAnswer.
 
 Uw eindpunt om informatie te krijgen:
 1. Meld u aan bij [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -59,34 +59,21 @@ U krijgt ook de details van het eindpunt van de **instellingen** tabblad van de 
 
 ## <a name="generateanswer-request-configuration"></a>Configuratie van de aanvraag GenerateAnswer
 
-U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die laat zien hoe u aan te roepen GenerateAnswer, Zie de [snelstartgidsen](../quickstarts/csharp.md).
+U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die laat zien hoe u aan te roepen GenerateAnswer, Zie de [snelstartgidsen](../quickstarts/csharp.md). 
 
-De **aanvraag-URL** heeft de volgende indeling: 
+Maakt gebruik van de POST-aanvraag:
+
+* Vereiste [URI-parameters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Vereiste [eigenschap header](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, voor beveiliging
+* Vereiste [eigenschappen hoofdtekst](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
+
+De URL GenerateAnswer heeft de volgende indeling: 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|De eigenschap van de HTTP-aanvraag|Name|Type|Doel|
-|--|--|--|--|
-|URL-parameter voor route|Knowledge base-ID|string|De GUID voor uw knowledge base.|
-|URL-parameter voor route|Host van het eindpunt QnAMaker|string|De hostnaam van het eindpunt dat is geïmplementeerd in uw Azure-abonnement. Deze optie is beschikbaar op de **instellingen** pagina nadat u de knowledge base hebt gepubliceerd. |
-|Header|Content-Type|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde: ''|
-|Header|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Hoofdtekst van bericht|JSON-object|JSON|De vraag met instellingen.|
-
-
-De hoofdtekst van de JSON bevat verschillende instellingen:
-
-|JSON-hoofdtekst van de eigenschap|Vereist|Type|Doel|
-|--|--|--|--|
-|`question`|Vereist|string|Een vraag van de gebruiker moet worden verzonden naar uw knowledge base.|
-|`top`|Optioneel|geheel getal|Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.|
-|`userId`|Optioneel|string|Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.|
-|`scoreThreshold`|Optioneel|geheel getal|Alleen antwoorden met een betrouwbaarheidsscore boven deze drempelwaarde worden geretourneerd. De standaardwaarde is 0.|
-|`isTest`|Optioneel|Boolean|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
-|`strictFilters`|Optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Gebruik `none` om aan te geven antwoord moet er geen filters voor metagegevens. |
-|`RankerType`|Optioneel|string|Als u opgeeft als `QuestionOnly`, QnA Maker om te zoeken naar vragen alleen aangeeft. Indien niet opgegeven, zoekt de QnA Maker vragen en antwoorden.
+Houd er rekening mee om in te stellen de eigenschap van de HTTP-header van `Authorization` met een waarde van de tekenreeks `EndpointKey ` waarbij een afsluitende spatie vervolgens de eindpuntsleutel gevonden op de **instellingen** pagina.
 
 Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
 
@@ -109,19 +96,7 @@ Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer response-eigenschappen
 
-Een geslaagde respons retourneert een status van 200 en een JSON-antwoord. 
-
-|Antwoorden eigenschap (gesorteerd op score)|Doel|
-|--|--|
-|score|Een rangorde tussen 0 en 100 liggen.|
-|Id|Een unieke ID die is toegewezen aan het antwoord.|
-|Vragen|De vragen die is opgegeven door de gebruiker.|
-|Antwoord|Het antwoord op de vraag.|
-|source|De naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.|
-|metagegevens|De metagegevens die zijn gekoppeld aan het antwoord.|
-|metadata.name|Naam voor de metagegevens. (string, maximumlengte: 100, vereist)|
-|metadata.value|De waarde van de metagegevens. (string, maximumlengte: 100, vereist)|
-
+De [antwoord](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) is een JSON-object met inbegrip van alle informatie die u nodig hebt om weer te geven van het antwoord en de volgende inschakelen in het gesprek op, indien beschikbaar.
 
 ```json
 {

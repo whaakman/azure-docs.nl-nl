@@ -3,20 +3,20 @@ title: Naslaginformatie Translator Speech-API
 titleSuffix: Azure Cognitive Services
 description: Referentiedocumentatie voor de Translator Speech-API.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f083a6ca3079128aad4aba3a53013df378a6106
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60539176"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446907"
 ---
 # <a name="translator-speech-api"></a>Translator Speech-API
 
@@ -176,7 +176,7 @@ Wanneer een clienttoepassing is voltooid met het streamen van audio en het laats
 |format|(leeg)|Hiermee geeft u de indeling van de Text to Speech audiostream geretourneerd door de service. De volgende opties zijn beschikbaar:<ul><li>`audio/wav`: Golf audiostream. Client moet de WAV-header gebruiken om de audio-indeling correct worden geïnterpreteerd. WAV-audio voor tekst naar spraak is 16-bits, één kanaal PCM met een samplefrequentie van 24 of 16kHz.</li><li>`audio/mp3`: Audio MP3-stream.</li></ul>De standaardwaarde is `audio/wav`.|query|string|
 |ProfanityAction    |(leeg)    |Hiermee geeft u op hoe de service profanities herkend in de gesproken tekst moet verwerken. Geldige acties zijn:<ul><li>`NoAction`: Profanities zijn ongewijzigd worden gelaten.</li><li>`Marked`: Profanities vervangen door een markering. Zie `ProfanityMarker` parameter.</li><li>`Deleted`: Profanities worden verwijderd. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a .".`</li></ul>De standaardwaarde is gemarkeerd.|query|string|
 |ProfanityMarker|(leeg)    |Hiermee geeft u op hoe gedetecteerde profanities worden afgehandeld wanneer `ProfanityAction` is ingesteld op `Marked`. Geldige opties zijn:<ul><li>`Asterisk`: Profanities zijn vervangen door de tekenreeks `***`. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a ***.".`</li><li>`Tag`: Grof taalgebruik worden omringd door een grof taalgebruik XML-code. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a <profanity>jackass</profanity>."`.</li></ul>De standaardwaarde is `Asterisk`.|query|string|
-|Autorisatie|(leeg)  |Hiermee geeft u de waarde van het bearer-token van de client. Gebruik het voorvoegsel `Bearer` gevolgd door de waarde van de `access_token` waarde die wordt geretourneerd door de token authentication-service.|koptekst   |string|
+|Authorization|(leeg)  |Hiermee geeft u de waarde van het bearer-token van de client. Gebruik het voorvoegsel `Bearer` gevolgd door de waarde van de `access_token` waarde die wordt geretourneerd door de token authentication-service.|koptekst   |string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als de `Authorization` -header is niet opgegeven.|koptekst|string|
 |access_token|(leeg)   |Alternatieve manier om door te geven van een geldige OAuth-toegangstoken. Het bearer-token is meestal voorzien van koptekst `Authorization`. Sommige bibliotheken websocket toegestaan clientcode om in te stellen headers niet. In dit geval is, kan de client gebruiken de `access_token` queryparameter om door te geven van een geldig token. Bij het gebruik van een toegangstoken om te verifiëren, als `Authorization` header niet is ingesteld, klikt u vervolgens `access_token` moet worden ingesteld. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd. Clients moeten een methode alleen gebruiken om het token.|query|string|
 |abonnement-sleutel|(leeg)   |Alternatieve manier om door te geven abonnementssleutel. Sommige bibliotheken websocket toegestaan clientcode om in te stellen headers niet. In dit geval is, kan de client gebruiken de `subscription-key` queryparameter om door te geven van een sleutel geldig abonnement. Bij het gebruik van de abonnementssleutel van een om te verifiëren, als `Ocp-Apim-Subscription-Key` header is niet ingesteld, wordt abonnement-sleutel moet worden ingesteld. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd. Clients moeten een methode alleen gebruiken om door te geven de `subscription key`.|query|string|
