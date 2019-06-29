@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9ae894bee803c60b56a1bfacd5667f355aa44d2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 835dc8d25ad1d6a30020408636b556c3f247200d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800000"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478376"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Met behulp van de Python-REST-API voor het aanroepen van de Text Analytics-Cognitive Service 
 <a name="HOLTop"></a>
@@ -49,7 +49,6 @@ Maak een nieuwe Python-toepassing in uw favoriete editor of IDE. De volgende imp
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 Variabelen voor de abonnementssleutel van uw en het eindpunt voor de Text Analytics REST-API maken. Controleer of de regio in het eindpunt overeenkomt met de versie die u hebt gebruikt toen u zich hebt geregistreerd (bijvoorbeeld `westcentralus`). Als u een gratis proefversie sleutel gebruikt, moet u niet van belang.
@@ -90,7 +89,7 @@ languages = response.json()
 pprint(languages)
 ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```json
 {
@@ -160,7 +159,7 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 De gevoelsscore voor een document is tussen 0,0 en 1,0, met een hogere score die wijzen op een positiever gevoel.
 
@@ -192,7 +191,7 @@ De gevoelsscore voor een document is tussen 0,0 en 1,0, met een hogere score die
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
+## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
  
 Als u wilt de sleuteltermen extraheren uit een set documenten, append `keyPhrases` naar het base Text Analytics-eindpunt om de taal-detectie-URL. Bijvoorbeeld: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
@@ -220,7 +219,7 @@ key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```json
 {
@@ -290,7 +289,7 @@ response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
 ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```json
 {'documents': [{'id': '1',

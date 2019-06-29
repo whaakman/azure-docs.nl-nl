@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692201"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477811"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Aanbevolen procedures voor het gebruik van de Anomaliedetectie-API voor Detector
 
@@ -51,7 +51,7 @@ Hieronder ziet u de dezelfde gegevensset met behulp van batch-anomaliedetectie. 
 
 ## <a name="data-preparation"></a>Gegevensvoorbereiding
 
-De detectie van afwijkingen API accepteert tijdreeks gegevens opgemaakt in een JSON-request-object. Een tijdreeks kan worden geregistreerd na verloop van tijd in opeenvolgende volgorde, numerieke gegevens. U kunt windows van uw time series-gegevens verzenden naar de Anomaliedetectie Detector API-eindpunt van de API-prestaties te verbeteren. Het minimum aantal gegevenspunten die u kunt verzenden 12 is, en de maximumwaarde is 8640 punten. 
+De detectie van afwijkingen API accepteert tijdreeks gegevens opgemaakt in een JSON-request-object. Een tijdreeks kan worden geregistreerd na verloop van tijd in opeenvolgende volgorde, numerieke gegevens. U kunt windows van uw time series-gegevens verzenden naar de Anomaliedetectie Detector API-eindpunt van de API-prestaties te verbeteren. Het minimum aantal gegevenspunten die u kunt verzenden 12 is, en de maximumwaarde is 8640 punten. [Granulatie](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) wordt gedefinieerd als het tarief dat uw gegevens worden verzameld op. 
 
 Gegevenspunten die worden verzonden naar de detectie van afwijkingen API moeten een geldige tijdstempel van Coordinated Universal Time (UTC), en een numerieke waarde hebben. 
 
@@ -68,6 +68,15 @@ Gegevenspunten die worden verzonden naar de detectie van afwijkingen API moeten 
         "value": 29615278
       },
     ]
+}
+```
+
+Als uw gegevens worden verzameld met een niet-standaard tijdsinterval, kunt u deze opgeven door toe te voegen de `customInterval` kenmerk in uw aanvraag. Als de reeks is steekproef elke vijf minuten, kunt u bijvoorbeeld het volgende toevoegen aan uw JSON-aanvraag:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

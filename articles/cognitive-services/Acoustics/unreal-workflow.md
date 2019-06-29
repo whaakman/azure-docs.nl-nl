@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433623"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477836"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Project akoestische Unreal/Wwise ontwerp zelfstudie
 In deze zelfstudie worden de ontwerp-installatie en de werkstroom voor Project akoestische in Unreal en Wwise beschreven.
@@ -122,6 +122,11 @@ Voor het beheren van de akoestische gegevens streaming zelf in plaats van stream
 Blokgrootte moet al worden ingesteld voordat u aanroept Force Load tegel. U kunt bijvoorbeeld, er ongeveer als volgt een ACE-bestand laden, het instellen van de grootte van uw tegel en het streamen in een regio doen:
 
 ![Schermafbeelding van de Streaming-Setup-opties in Unreal](media/streaming-setup.png)
+
+De Load akoestische gegevens blauwdruk-functie die wordt gebruikt in dit voorbeeld heeft de volgende parameters:
+
+* **Doel:** De actor AcousticsSpace.
+* **Nieuwe Bake:** De gegevensasset akoestische worden geladen. Verlaat deze leeg/instelling deze op null, wordt de huidige bake verwijderen zonder het laden van een nieuwe.
 
 ### <a name="optionally-query-for-surface-proximity"></a>(Optioneel) een query voor surface nabijheid
 Als u wilt zien hoe dicht oppervlakken zijn in een bepaalde richting rond de listener, kunt u de Query afstand-functie. Deze functie kan nuttig zijn voor het aansturen van gerichte vertraagde weerspiegeling, of voor andere game logica aangestuurd door surface nabijheid. De query is goedkoper zijn dan een ray cast omdat de resultaten worden opgehaald uit de opzoektabel akoestische.
