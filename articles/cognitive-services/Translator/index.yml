@@ -5,14 +5,14 @@ metadata:
   title: 'Documentatie voor Translator Text - snelstarts, zelfstudies, API-referentie - Azure Cognitive Services | Microsoft Docs'
   description: Informatie over hoe u Translator Text gebruikt om tekst in meerdere talen te vertalen.
   services: cognitive-services
-  author: v-pawal
+  author: swmachan
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/04/2019
-  ms.author: v-jansko
+  ms.author: swmachan
 abstract:
   description: 'Translator Text is een cloudservice voor machinevertalingen die u kunt gebruiken om vrijwel in realtime tekst te vertalen via een eenvoudige REST API-aanroep. De API gebruikt de moderne technologie voor neurale machinevertaling en bevat ook statistische machinevertalingstechnologie. Custom Translator is een uitbreiding van de Translator Text-API, waarmee u neurale vertalingssystemen kunt bouwen. U kunt het aangepaste vertaalsysteem gebruiken om tekst te vertalen met de Translator Text-API of de <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft Speech Services</a>. Voor de lijst met ondersteunde talen, voor zowel neurale als statistische machinevertaling, raadpleegt u <a href="languages.md">Ondersteunde talen</a>.'
 sections:

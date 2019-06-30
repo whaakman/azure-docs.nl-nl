@@ -14,14 +14,17 @@
     - name: Video Indexer-API gebruiken
       href: video-indexer-use-apis.md
 - name: Concepten
-  href: video-indexer-concepts.md
   items:
+    - name: Overzicht
+      href: video-indexer-concepts.md
     - name: Instellingen van Video Indexer en Media Services met elkaar vergelijken
       href: compare-video-indexer-with-media-services-presets.md
     - name: Meerdere tenants beheren
       href: manage-multiple-tenants.md
     - name: Inhoudsmodellen aanpassen
       items:
+        - name: Overzicht
+          href: customize-content-models-overview.md
         - name: Merken
           href: customize-brands-model-overview.md
         - name: Taal
@@ -86,3 +89,5 @@
       href: faq.md
     - name: Naleving
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: Releaseopmerkingen
+      href: release-notes.md
