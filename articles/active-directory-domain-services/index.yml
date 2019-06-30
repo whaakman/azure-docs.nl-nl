@@ -5,8 +5,8 @@ metadata:
   title: Documentatie voor Azure AD Domain Services
   description: Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-machines te koppelen aan een domein zonder domeincontrollers. Zelfstudies en andere documentatie laten zien hoe u virtuele machines kunt beheren met groepsbeleid.
   keywords: 'Azure AD, Azure, domeindeelname, groepsbeleid, LDAP, Kerberos, domeincontroller, DC, lift-and-shift'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page

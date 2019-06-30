@@ -19,6 +19,8 @@
               href: service-bus-quickstart-powershell.md
             - name: Azure-CLI
               href: service-bus-quickstart-cli.md
+            - name: Azure Resource Manager-sjabloon
+              href: service-bus-resource-manager-namespace-queue.md
         - name: Berichten verzenden en ontvangen
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: Services Bus-onderwerpen en -abonnementen
       items:
         - name: Onderwerpen en abonnementen maken
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Azure Portal
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Azure Resource Manager-sjabloon
+              href: service-bus-resource-manager-namespace-topic.md
         - name: Publiceren en abonneren op berichten
           items:
             - name: .NET
@@ -187,10 +193,6 @@
           items:
             - name: Een naamruimte maken
               href: service-bus-resource-manager-namespace.md
-            - name: Een naamruimte en een wachtrij maken
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Een naamruimte met een onderwerp en een abonnement maken
-              href: service-bus-resource-manager-namespace-topic.md
             - name: Een autorisatieregel voor de naamruimte en wachtrij maken
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Een naamruimte met een onderwerp, abonnement en regel maken'

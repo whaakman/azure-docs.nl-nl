@@ -8,11 +8,13 @@
       href: iot-services-and-technologies.md
 - name: Beveiliging
   items:
-    - name: Beveiligingsarchitectuur
-      href: iot-security-architecture.md
-    - name: Aanbevolen procedures voor beveiliging
-      href: iot-security-best-practices.md
-    - name: Veilige implementatie
-      href: iot-security-deployment.md
+    - name: Aanbevelingen
+      href: security-recommendations.md
     - name: Fundamentele beveiliging
       href: iot-security-ground-up.md
+    - name: Aanbevolen procedures voor beveiliging
+      href: iot-security-best-practices.md
+    - name: Beveiligingsarchitectuur
+      href: iot-security-architecture.md
+    - name: Veilige implementatie
+      href: iot-security-deployment.md
