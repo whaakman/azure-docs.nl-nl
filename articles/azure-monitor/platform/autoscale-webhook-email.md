@@ -62,7 +62,7 @@ Wanneer met de REST-API of Resource Manager-sjabloon, neemt u de meldingen-eleme
 
 | Veld | Verplichte? | Description |
 | --- | --- | --- |
-| Bewerking |ja |de waarde moet 'Schaal' |
+| operation |ja |de waarde moet 'Schaal' |
 | sendToSubscriptionAdministrator |ja |waarde moet 'true' of 'false' |
 | sendToSubscriptionCoAdministrators |ja |waarde moet 'true' of 'false' |
 | customEmails |ja |waarde mag null [] of string-matrix van e-mailberichten |
@@ -106,19 +106,19 @@ Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende
 | Veld | Verplichte? | Description |
 | --- | --- | --- |
 | status |ja |De status die aangeeft dat een actie voor automatisch schalen is gegenereerd |
-| Bewerking |ja |Voor een verhoging van de exemplaren worden 'Scale Out' en voor een afname in exemplaren, is 'Schaal In' |
+| operation |ja |Voor een verhoging van de exemplaren worden 'Scale Out' en voor een afname in exemplaren, is 'Schaal In' |
 | context |ja |De context van de actie voor automatisch schalen |
 | timestamp |ja |Tijdstempel wanneer het voor automatisch schalen is geactiveerd |
 | id |Ja |Resource Manager-ID van de instelling voor automatisch schalen |
 | name |Ja |De naam van de instelling voor automatisch schalen |
-| Meer informatie |Ja |Uitleg van de actie die de service voor automatisch schalen heeft geduurd en de wijziging in het aantal instanties |
+| details informatie |Ja |Uitleg van de actie die de service voor automatisch schalen heeft geduurd en de wijziging in het aantal instanties |
 | subscriptionId |Ja |Abonnements-ID van de doelresource die is die wordt geschaald |
 | resourceGroupName |Ja |Naam van de resourcegroep van de doelresource die is die wordt geschaald |
 | resourceName |Ja |Naam van de doelresource die is die wordt geschaald |
-| ResourceType |Ja |De drie ondersteunde waarden: "microsoft.classiccompute/domainnames/slots/roles" - Service in de Cloud-functies, 'microsoft.compute/virtualmachinescalesets' - Virtual Machine Scale Sets, en "Microsoft.Web/serverfarms" - Web-App |
+| resourceType |Ja |De drie ondersteunde waarden: "microsoft.classiccompute/domainnames/slots/roles" - Service in de Cloud-functies, 'microsoft.compute/virtualmachinescalesets' - Virtual Machine Scale Sets, en "Microsoft.Web/serverfarms" - Web-App |
 | resourceId |Ja |Resource Manager-ID van de doelresource die is die wordt geschaald |
 | portalLink |Ja |Azure portal koppelen aan de pagina overzicht van de doelresource |
 | oldCapacity |Ja |Het huidige (oude) aantal instanties wanneer automatisch schalen een schaalactie heeft |
 | newCapacity |Ja |De nieuwe versie van het aantal instanties dat automatisch schalen geschaald de resource |
-| Properties |Nee |Optioneel. Set < sleutel, waarde > paren (bijvoorbeeld, Dictionary < String, String >). Het eigenschappenveld is optioneel. In een aangepaste gebruikersinterface of de werkstroom voor logische Apps die zijn gebaseerd, kunt u sleutels en waarden die kunnen worden doorgegeven met behulp van de nettolading. Een alternatieve manier om door te geven van aangepaste eigenschappen terug naar de uitgaande webhook-aanroep is het gebruik van de webhook URI zelf (zoals queryparameters) |
+| properties |Nee |Optioneel. Set < sleutel, waarde > paren (bijvoorbeeld, Dictionary < String, String >). Het eigenschappenveld is optioneel. In een aangepaste gebruikersinterface of de werkstroom voor logische Apps die zijn gebaseerd, kunt u sleutels en waarden die kunnen worden doorgegeven met behulp van de nettolading. Een alternatieve manier om door te geven van aangepaste eigenschappen terug naar de uitgaande webhook-aanroep is het gebruik van de webhook URI zelf (zoals queryparameters) |
 
