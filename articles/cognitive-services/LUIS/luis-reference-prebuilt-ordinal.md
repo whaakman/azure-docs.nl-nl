@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 752a26b21854ec9030fc1945024ae461445815a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146722"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485114"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Rangtelwoord vooraf gedefinieerde entiteit voor een LUIS-app
 Rangtelwoord is een numerieke representatie van een object in een set: `first`, `second`, `third`. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met rangtelwoord voor de toepassing intents. Rangtelwoord entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
@@ -130,4 +130,4 @@ De volgende JSON is met de `verbose` parameter ingesteld op `true`:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de [percentage](luis-reference-prebuilt-percentage.md), [telefoonnummer](luis-reference-prebuilt-phonenumber.md), en [temperatuur](luis-reference-prebuilt-temperature.md) entiteiten. 
+Meer informatie over de [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [telefoonnummer](luis-reference-prebuilt-phonenumber.md), en [temperatuur](luis-reference-prebuilt-temperature.md) entiteiten. 

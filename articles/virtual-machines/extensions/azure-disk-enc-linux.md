@@ -152,7 +152,7 @@ Met behulp van `AADClientCertificate`:
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | (optional) KeyVaultURL | url | string |
-| Wachtwoordzin | password | string | 
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS-, gegevens, alle | string |
 

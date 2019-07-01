@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449246"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490182"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: Release van 2019 juni
+
 **Voorbeelden**
 *   Snel starten-voorbeelden voor tekst naar spraak voor UWP- en Unity
 *   Snel aan de slag-voorbeeld voor Swift op iOS
@@ -35,6 +36,9 @@ ms.locfileid: "67449246"
     * Alle bestaande directe regel spraak clients nog steeds ondersteund na de nieuwe naam
 * Update TTS REST-adapter voor de ondersteuning van proxy, permanente verbinding
 * Foutbericht verbeteren wanneer een ongeldig regio wordt doorgegeven.
+* Swift/Objective-C:
+    * Verbeterde foutrapportage: Methoden die tot een fout leiden kunnen zijn nu aanwezig zijn in twee versies: Dat wordt aangegeven dat een `NSError` -object voor foutafhandeling en één die een uitzondering genereert. De oude worden blootgesteld aan Swift. Deze wijziging vereist aanpassingen aan de bestaande Swift-code.
+    * Verbeterde gebeurtenisverwerking
 
 **Oplossingen voor problemen**
 *   Oplossing voor TTS: waar SpeakTextAsync toekomst geretourneerd zonder te wachten totdat de audio rendering is voltooid
@@ -43,6 +47,8 @@ ms.locfileid: "67449246"
 *   Oplossing voor incidentele problemen systeemeigen bibliotheken implementeren in de map voor uitvoer in de voorbeelden
 *   Oplossing voor web socket op betrouwbare wijze wordt gesloten
 *   Oplossing voor mogelijke crashes tijdens het openen van een verbinding zeer zwaar belast in Linux
+*   Oplossing voor ontbrekende metagegevens in de bundel framework voor macOS
+*   Los problemen met `pip install --user` op Windows
 
 
 ## <a name="speech-sdk-151"></a>Spraak SDK 1.5.1
