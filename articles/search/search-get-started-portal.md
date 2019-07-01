@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 90857ec2fabb1b807d3e3001f99ea3897d7d628a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a1944c5c5f169274cf45bd3ebfb6df47942dd5a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443868"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485637"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Quickstart: Een Azure Search-index met behulp van de Azure portal maken
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -34,7 +34,7 @@ Probeer de ingebouwde hulpprogramma's in Azure Portal als u snel vertrouwd wilt 
 > * Bekijk een bestaande index en opties om deze te wijzigen
 > * Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**
 
-Als de hulpprogramma’s te beperkend zijn, kunt u een [op code gebaseerde inleiding tot het programmeren van Azure Search in .NET](search-howto-dotnet-sdk.md) of [Postman of Fiddler gebruiken voor het maken van REST-API-aanroepen](search-fiddler.md).
+Als de hulpprogramma’s te beperkend zijn, kunt u een [op code gebaseerde inleiding tot het programmeren van Azure Search in .NET](search-howto-dotnet-sdk.md) of [Postman of Fiddler gebruiken voor het maken van REST-API-aanroepen](search-get-started-postman.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. U kunt ook een 6 minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie begint na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -274,4 +274,4 @@ U kunt meer aspecten van Azure Search verkennen met behulp van de programmatisch
 
 * [Een index maken met behulp van de .NET-SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Een index maken met behulp van REST API's](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Een index maken met behulp van Postman of Fiddler en de Azure Search REST API's](search-fiddler.md)
+* [Een index maken met behulp van Postman of Fiddler en de Azure Search REST API's](search-get-started-postman.md)

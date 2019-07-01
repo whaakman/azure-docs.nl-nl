@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0fe30bc6bdd1bba03df349305d8846e78063bd26
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6df40909e2072ac2126344ba5b696c9e520e9955
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342214"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434150"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installeren en uitvoeren van containers voor spraak-Service
 
@@ -25,7 +25,7 @@ De twee spraak-containers zijn **spraak-naar-tekst** en **tekst naar spraak**.
 
 |Function|Functies|Latest|
 |-|-|--|
-|Spraak-naar-tekst| <li>Transcribes continue realtime spraak of batch audio-opnamen in tekst met tussenliggende resultaten genereren.|1.1.1|
+|Spraak-naar-tekst| <li>Transcribes continue realtime spraak of batch audio-opnamen in tekst met tussenliggende resultaten genereren.|1.1.2|
 |Tekst naar spraak| <li>Converteert tekst naar natuurlijk klinkende spraak. met tekst zonder opmaak invoer of spraak synthese Markup Language (SSML). |1.1.0|
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
@@ -101,10 +101,10 @@ Alle tags, met uitzondering van `latest` zijn in de volgende indeling hebben: wa
 De volgende code is een voorbeeld van de indeling:
 
 ```
-1.0.0-amd64-en-us-preview
+1.1.2-amd64-en-us-preview
 ```
 
-De volgende tabel bevat de ondersteunde landinstellingen voor **spraak-naar-tekst** in de 1.1.1 versie van de container:
+De volgende tabel bevat de ondersteunde landinstellingen voor **spraak-naar-tekst** in de 1.1.2 versie van de container:
 
 |Landinstelling voor de taal|Tags|
 |--|--|
@@ -129,7 +129,7 @@ Alle tags, met uitzondering van `latest` zijn in de volgende indeling hebben: wa
 De volgende code is een voorbeeld van de indeling:
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.1.0-amd64-en-us-jessarus-preview
 ```
 
 De volgende tabel bevat de ondersteunde landinstellingen voor **tekst naar spraak** in de 1.1.0 versie van de container:

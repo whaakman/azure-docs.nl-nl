@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 72602cb1fda88497172b1837eab98d5e9ce41776
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435433"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484499"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Zelfstudie: Een aangepaste installatiekopie bouwen en uitvoeren in App Service uit een persoonlijk register
 
@@ -278,7 +278,7 @@ SSH maakt veilige communicatie tussen een container en een client mogelijk. Om i
     > [!NOTE]
     > Deze configuratie staat geen externe verbindingen naar de container toe. SSH is alleen beschikbaar via de Kudu/SCM-Site. De Kudu/SCM-site wordt geverifieerd met uw Azure-account.
 
-* De [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) kopieën de [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) naar de */etc/ssh/* directory.
+* De [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) kopieën de [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) bestand in de opslagplaats naar de */etc/ssh/* directory.
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/

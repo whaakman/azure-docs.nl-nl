@@ -447,6 +447,18 @@
                   href: app/proactive-arm-config.md
                 - name: E-mailmelding
                   href: app/proactive-email-notification.md
+            - name: Beschikbaarheid
+              items:
+                - name: URL-tests
+                  href: app/monitor-web-app-availability.md
+                - name: Tests met meerdere stappen
+                  href: app/availability-multistep.md
+                - name: Beschikbaarheidswaarschuwingen
+                  href: app/availability-alerts.md
+                - name: Problemen oplossen
+                  href: app/troubleshoot-availability.md
+            - name: Prestaties testen
+              href: app/performance-testing.md
             - name: Een resource maken
               href: app/create-new-resource.md
             - name: Toepassingsgegevens naar Log Analytics
@@ -554,6 +566,8 @@
                       href: insights/container-insights-enable-existing-clusters.md
                 - name: Analyseren
                   href: insights/container-insights-analyze.md
+                - name: Instellingen voor verzamelen door agent configureren
+                  href: insights/container-insights-agent-config.md
                 - name: Bewaking uitschakelen
                   href: insights/container-insights-optout.md
                 - name: Live logboeken weergeven
@@ -795,8 +809,6 @@
           items:
             - name: Waarschuwingsregels voor toepassingen
               items:
-                - name: Beschikbaarheid
-                  href: app/monitor-web-app-availability.md
                 - name: Metrische waarschuwingen
                   href: app/alerts.md
             - name: Waarschuwingsregels voor metrische platformgegevens

@@ -4,19 +4,19 @@ description: Maak een functie die met Azure Logic Apps en Azure Cognitive Servic
 services: functions, logic-apps, cognitive-services
 keywords: werkstroom, cloud-apps, cloudservices, bedrijfsprocessen, systeemintegratie, enterprise application integration, EAI
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036840"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480031"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Een functie maken die kan worden geïntegreerd met Azure Logic Apps
 
@@ -58,7 +58,7 @@ De Cognitive Services-API's zijn als afzonderlijke resources beschikbaar in Azur
     | Instelling      |  Voorgestelde waarde   | Description                                        |
     | --- | --- | --- |
     | **Naam** | MyCognitiveServicesAccnt | Kies een unieke naam voor het account. |
-    | **Locatie** | US - west | Gebruik de dichtstbijzijnde locatie. |
+    | **Location** | US - west | Gebruik de dichtstbijzijnde locatie. |
     | **Prijscategorie** | F0 | Begin met de laagste categorie. Als u geen aanroepen meer hebt, schaalt u naar een hogere categorie.|
     | **Resourcegroep** | myResourceGroup | Gebruik dezelfde resourcegroep voor alle services in deze tutorial.|
 
@@ -145,7 +145,7 @@ U hebt nu een functie die gevoelsscores categoriseert. Maak vervolgens een logis
     | ----------------- | ------------ | ------------- |
     | **Naam** | TweetSentiment | Kies een passende naam voor uw app. |
     | **Resourcegroep** | myResourceGroup | Kies dezelfde bestaande resourcegroep als eerder. |
-    | **Locatie** | US - oost | Kies een locatie dicht bij u in de buurt. |    
+    | **Location** | US - oost | Kies een locatie dicht bij u in de buurt. |    
 
 4. Als u de juiste waarden voor de instellingen hebt ingevoerd, klikt u op **Maken** om de logische app te maken. 
 
@@ -236,7 +236,7 @@ Het laatste deel van de werkstroom bestaat uit het activeren van een e-mail wann
 
     ![De e-mail configureren voor de actie Een e-mail verzenden.](media/functions-twitter-email/21-configure-email.png)
     
-| Instelling      |  Voorgestelde waarde   | Beschrijving  |
+| Instelling      |  Voorgestelde waarde   | Description  |
 | ----------------- | ------------ | ------------- |
 | **Aan** | Voer uw e-mailadres in | Het e-mailadres dat de melding ontvangt. |
 | **Onderwerp** | Negatief gevoel in tweet gedetecteerd  | De onderwerpregel van de e-mailmelding.  |

@@ -88,7 +88,7 @@
           href: stream-analytics-test-query.md
         - name: De resultaten bekijken in een dashboard
           href: stream-analytics-power-bi-dashboard.md
-        - name: Een taak opschonen
+        - name: Een taak beëindigen of verwijderen
           href: stream-analytics-clean-up-your-job.md
         - name: Taken koppelen voor betrouwbaarheid
           href: stream-analytics-job-reliability.md

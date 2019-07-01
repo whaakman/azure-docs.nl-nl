@@ -120,6 +120,8 @@
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: EDIFACT-bestanden behandelen met UNH2.5-segment
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+        - name: RosettaNet-berichten uitwisselen
+          href: logic-apps-enterprise-integration-rosettanet.md
         - name: X12-berichten uitwisselen
           href: logic-apps-enterprise-integration-x12.md
           items:
@@ -243,6 +245,8 @@
           href: ../connectors/connectors-native-recurrence.md
         - name: Vraag/antwoord
           href: ../connectors/connectors-native-reqres.md
+        - name: RosettaNet
+          href: logic-apps-enterprise-integration-rosettanet.md
         - name: RSS
           href: ../connectors/connectors-create-api-rss.md
         - name: SalesForce

@@ -30,6 +30,8 @@
   items:
     - name: Sneltoetsen
       href: azure-portal-keyboard-shortcuts.md
+    - name: Lijst met veilige Azure-portal-URL's maken
+      href: azure-portal-safelist-urls.md
     - name: Structuur van Azure-dashboards
       href: azure-portal-dashboards-structure.md
 - name: Resources

@@ -46,6 +46,8 @@
       href: front-door-routing-methods.md
     - name: URL opnieuw genereren
       href: front-door-url-rewrite.md
+    - name: URL-omleiding
+      href: front-door-url-redirect.md
     - name: WAF
       items:
         - name: Overzicht
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: Handleidingen
   items:
+    - name: Verkeer omleiden
+      items:
+        - name: Een Front Door configureren met omleiding van HTTP naar HTTPS
+          href: front-door-how-to-redirect-https.md
+    - name: Onboarding van aangepaste domeinen
+      items:
+        - name: Onboarding van een basis- of hoofddomein
+          href: front-door-how-to-onboard-apex-domain.md
     - name: Problemen oplossen
       items:
         - name: Problemen met routering oplossen

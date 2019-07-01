@@ -5,14 +5,17 @@
 - name: Toegangsrechten voor het maken en beheren van ondersteuningsaanvragen
   href: create-manage-support-requests-using-access-control.md
 - name: Aanvragen voor quotumverhoging
-  href: resource-manager-core-quotas-request.md
   items:
-    - name: De vCPU-limiet voor een VM-reeks verhogen
-      href: per-vm-quota-requests.md
-    - name: De algehele regionale vCPU-limiet verhogen
-      href: regional-quota-requests.md
-    - name: Netwerklimiet verhoogd
-      href: networking-quota-requests.md
+    - name: Aanvragen voor quotumverhoging in Resource Manager-implementatiemodel
+      items:
+        - name: De vCPU-limiet voor een VM-reeks verhogen
+          href: per-vm-quota-requests.md
+        - name: De algehele regionale vCPU-limiet verhogen
+          href: regional-quota-requests.md
+        - name: Netwerklimiet verhoogd
+          href: networking-quota-requests.md
+    - name: Aanvragen voor quotumverhoging in klassiek implementatiemodel
+      href: classic-deployment-model-quota-increase-requests.md
 - name: Abonnementsproblemen gerelateerd aan de regio of de SKU oplossen
   href: sku-series-unavailable.md
 - name: Naslaginformatie

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 4750937ee7ef6230ed4635d739a102a501b19a30
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a9af96c1defab4cbb10d917b5faa7e0e3ab837f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341801"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485066"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
@@ -41,6 +41,8 @@ Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelin
 
 Meer informatie over wat is er nieuw in de Azure-Services voor spraak.
 
+* Juni 2019
+    * Spraak SDK 1.6.0 uitgebracht. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * Mei 2019 - documentatie is nu beschikbaar voor [conversatie transcriptie](conversation-transcription-service.md), [Call Center transcriptie](call-center-transcription.md), en [stem op de eerste virtuele assistenten](voice-first-virtual-assistants.md).
 * Mei 2019
     * Spraak SDK 1.5.1 uitgebracht. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).

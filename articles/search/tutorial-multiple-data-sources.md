@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: v-rodixo
 ms.custom: seodec2018
-ms.openlocfilehash: 4186c422836771de4f8a283616d77214b91bfc02
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8ce3c66432f3d2d0cb973886498aa46e7820698c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462700"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485274"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Zelfstudie: Combineer gegevens uit meerdere gegevensbronnen in een Azure Search-index
 
@@ -28,7 +28,7 @@ Deze zelfstudie wordt gebruikgemaakt van C#, de .NET-SDK voor Azure Search en Az
 > * Voorbeeldgegevens uploaden en gegevensbronnen maken
 > * De documentsleutel identificeren
 > * Definiëren en de index maken
-> * Gegevens van de index hotels van cosmos DB
+> * Index Hotelgegevens uit Azure Cosmos DB
 > * Samenvoegen hotel room gegevens uit blob storage
 
 ## <a name="prerequisites"></a>Vereisten
@@ -61,7 +61,7 @@ Om te communiceren met uw Azure Search-service, moet u de service-URL en een toe
 
 1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
-![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+![Een HTTP-eindpunt en -sleutel ophalen](media/search-get-started-postman/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
 Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Een geldige sleutel stelt trust, op basis van per aanvraag, tussen het verzenden van de aanvraag en de service die verantwoordelijk is voor deze toepassing.
 
@@ -134,7 +134,7 @@ Bij het indexeren van gegevens uit meerdere gegevensbronnen, moet elke data sour
 
 Azure Search-Indexeerfuncties kunnen veldtoewijzingen gebruiken om te wijzigen en zelfs opnieuw opmaken van gegevens tijdens het indexeringsproces worden geautomatiseerd, zodat gegevens kunnen worden omgeleid naar de juiste indexveld.
 
-Bijvoorbeeld, de id van het hotel wordt genoemd in onze CosmosDB voorbeeldgegevens **HotelId**. Maar in de JSON-blob-bestanden voor de ruimten hotel, de id van het hotel heet **Id**. Het programma doet dit door het toewijzen van de **Id** veld van de blobs de **HotelId** sleutelveld in de index.
+Bijvoorbeeld, de id van het hotel in onze voorbeeld van Azure Cosmos DB-gegevens wordt aangeroepen **HotelId**. Maar in de JSON-blob-bestanden voor de ruimten hotel, de id van het hotel heet **Id**. Het programma doet dit door het toewijzen van de **Id** veld van de blobs de **HotelId** sleutelveld in de index.
 
 > [!NOTE]
 > Document automatisch gegenereerde sleutels, zoals systemen die standaard worden gemaakt door sommige indexeerfuncties Maak in de meeste gevallen niet goed document sleutels voor gecombineerde indexen. In het algemeen u zinvolle, unieke waarde van een sleutel die al in gebruik of eenvoudig kan worden toegevoegd aan uw gegevensbronnen.
@@ -146,8 +146,8 @@ Zodra de gegevens en configuratie-instellingen zijn gemaakt, wordt het voorbeeld
 Dit eenvoudige C#/.NET-consoletoepassing worden de volgende taken uitgevoerd:
 * Hiermee maakt u een nieuwe Azure Search-index op basis van de gegevensstructuur van de C# Hotel klasse (die ook verwijst naar het adres en de ruimte klassen).
 * Hiermee maakt u een Azure Cosmos DB-gegevensbron en een indexeerfunctie die Azure Cosmos DB-gegevens wordt toegewezen aan indexvelden.
-* Voert de CosmosDB-indexeerfunctie om Hotelgegevens te laden.
-* Hiermee maakt u een Azure Blob Storage-gegevensbron en een indexeerfunctie die JSOn-Blob-gegevens wordt toegewezen aan indexvelden.
+* Voert de Azure Cosmos DB-indexeerfunctie om Hotelgegevens te laden.
+* Hiermee maakt u een Azure Blob Storage-gegevensbron en een indexeerfunctie die JSON-blob-gegevens wordt toegewezen aan indexvelden.
 * Voert de indexeerfunctie Azure blob storage om ruimten gegevens te laden.
 
  Voordat u het programma uitvoert, een ogenblik om te kijken naar de code en de index en indexeerfunctie definities voor dit voorbeeld uit te voeren. De relevante code staat in twee bestanden:

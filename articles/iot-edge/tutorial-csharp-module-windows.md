@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808768"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485934"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Zelfstudie: Ontwikkel een C# IoT Edge-module voor Windows-apparaten
 
@@ -54,7 +54,7 @@ Voordat u deze zelfstudie begint, moet u zijn gebleven door middel van de vorige
 * [Docker CE](https://docs.docker.com/install/) geconfigureerd voor het uitvoeren van Windows-containers.
 
 > [!TIP]
-> Als u gebruikmaakt van Visual Studio 2017 (versie 15.7 of hoger), plrease downloadt en installeert [Azure IoT Edge-hulpprogramma's (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) voor Visual Studio 2017 van de Visual Studio marketplace
+> Als u gebruikmaakt van Visual Studio 2017 (versie 15.7 of hoger), plrease downloadt en installeert [hulpprogramma's voor Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) voor Visual Studio 2017 van de Visual Studio marketplace
 
 ## <a name="create-a-module-project"></a>Een module-project maken
 

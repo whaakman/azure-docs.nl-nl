@@ -45,24 +45,22 @@
           href: application-proxy-network-topology.md
         - name: Vergelijking van toegangsoplossingen op afstand
           href: application-proxy-migration.md
+    - name: Eenmalige aanmelding
+      items:
+        - name: Wat is eenmalige aanmelding?
+          href: what-is-single-sign-on.md
+        - name: Implementatie van eenmalige aanmelding plannen
+          href: plan-sso-deployment.md
+    - name: Eenmalige aanmelding met één klik
+      items:
+        - name: Wat is eenmalige aanmelding met één klik?
+          href: one-click-sso-tutorial.md
     - name: Gebruikers en groepen inrichten
       items:
         - name: Automatisch gebruikers inrichten
-          href: configure-automatic-user-provisioning-portal.md
-        - name: SaaS-apps
           href: user-provisioning.md
-        - name: Apps die SCIM hebben ingeschakeld
+        - name: Automatisch inrichten voor apps die SCIM ondersteunen
           href: use-scim-to-provision-users-and-groups.md
-        - name: Toepassingsattributen aanpassen
-          href: Customize-application-attributes.md
-        - name: Expressies schrijven voor kenmerktoewijzingen
-          href: functions-for-customizing-application-data.md
-        - name: Bereikfilters
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Rapporteren over het automatisch inrichten van gebruikers
-          href: check-status-user-account-provisioning.md
-        - name: Problemen met het automatisch inrichten van gebruikers oplossen
-          href: application-provisioning-config-problem.md
     - name: Toepassingsbeveiliging
       items:
         - name: Opties voor apptoegang
@@ -75,18 +73,8 @@
           href: tenant-restrictions.md
         - name: Configureren van SAML-tokenversleuteling (preview)
           href: howto-saml-token-encryption.md
-    - name: Eenmalige aanmelding
-      items:
-        - name: Wat is eenmalige aanmelding?
-          href: what-is-single-sign-on.md
-        - name: Implementatie van eenmalige aanmelding plannen
-          href: plan-sso-deployment.md
     - name: Portals voor eindgebruikers
       href: end-user-experiences.md
-    - name: Eenmalige aanmelding met één klik
-      items:
-        - name: Wat is eenmalige aanmelding met één klik?
-          href: one-click-sso-tutorial.md
 - name: Handleidingen
   items:
     - name: Een cloud-app toevoegen
@@ -157,12 +145,20 @@
               href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Gebruikersinrichting configureren
       items:
-        - name: Hoelang inrichten duurt
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Gebruikersinrichting configureren - galerie-app
+        - name: Gebruikersinrichting voor galerie-apps
           href: application-provisioning-config-how-to.md
-        - name: Een kenmerk synchroniseren voor toewijzing - galerie-app
-          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Automatische gebruikersinrichting configureren
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Toepassingsattributen aanpassen
+          href: Customize-application-attributes.md
+        - name: Expressies schrijven voor kenmerktoewijzingen
+          href: functions-for-customizing-application-data.md
+        - name: Bereikfilters
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: De inrichtingsstatus controleren
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Rapporteren over het automatisch inrichten van gebruikers
+          href: check-status-user-account-provisioning.md
     - name: Gebruikers toewijzen en toegang tot apps beheren
       items:
         - name: Gebruikerstoestemming configureren
@@ -235,10 +231,12 @@
               href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Problemen met het automatisch inrichten van gebruikers oplossen
           items:
+            - name: Problemen met het automatisch inrichten van gebruikers oplossen
+              href: application-provisioning-config-problem.md
+            - name: Een kenmerk synchroniseren voor toewijzing - galerie-app
+              href: user-provisioning-sync-attributes-for-mapping.md
             - name: Uurregistratie - galerie-app
               href: application-provisioning-when-will-provisioning-finish.md
-            - name: Probleem bij gebruikersinrichting configureren - galerie-app
-              href: application-provisioning-config-problem.md
             - name: Probleem bij het opslaan van administrorreferenties tijdens het configureren van gebruikersinrichting galerie-app
               href: application-provisioning-config-problem-storage-limit.md
             - name: Gebruikers zijn niet ingericht - galerie-app

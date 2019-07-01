@@ -223,6 +223,14 @@
             - name: Met REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: Een subclip van een video maken
+          items:
+            - name: Met .NET
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: Met REST
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Event Grid gebruiken
       items:
         - name: Gebeurtenissen bewaken - Portal

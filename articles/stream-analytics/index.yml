@@ -9,17 +9,17 @@ metadata:
   ms.author: mamccrea
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 05/08/2019
+  ms.date: 06/21/2019
 abstract:
-  description: 'Stream Analytics is een volledig beheerde, serverloze engine voor gebeurtenisverwerking waarmee u gegevensstromen van toepassingen en IoT-apparaten in realtime kunt analyseren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Stream Analytics gebruikt.'
+  description: 'Stream Analytics is een volledig beheerde PaaS-service voor de realtime analyse en verwerking van snel veranderende gegevensstromen van IoT-apparaten, toepassingen, clickstreams enzovoort, waarmee indien nodig ook waarschuwingen en acties kunnen worden geactiveerd. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Stream Analytics gebruikt.'
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: 'Realtime-analyses en machine learning met Azure Stream Analytics. (1:15:05)'
-    href: 'https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor'
+    title: 'Van cloud tot de intelligente rand: baseer realtime beslissingen op Azure Stream Analytics. (1:02:11)'
+    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
     width: 250
 sections:
   - title: QuickStarts van vijf minuten

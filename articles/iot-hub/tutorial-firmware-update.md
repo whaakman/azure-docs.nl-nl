@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2019
+ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 772f815a3db0490cb461d07c56a37956ce15b383
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330397"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485836"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: Een apparaatfirmware-updateproces implementeren
 
@@ -186,7 +186,7 @@ De volgende schermafbeelding toont de uitvoer van de back-endtoepassing en benad
 
 ![Back-endtoepassing](./media/tutorial-firmware-update/BackEnd2.png)
 
-Vanwege latentie in het identiteitsregister van het IoT Hub-apparaat ziet u mogelijk niet elke statusupdate die naar de back-endtoepassing wordt verzonden. U kunt de metrische gegevens ook bekijken in de portal in de sectie **Apparaatbeheer -> IoT-apparaatconfiguratie** van uw IoT-hub:
+Omdat apparaatconfiguraties automatisch uitgevoerd tijdens het maken en vervolgens om de vijf minuten ziet u mogelijk niet elke status bijwerken verzonden naar de back-endtoepassing. U kunt de metrische gegevens ook bekijken in de portal in de sectie **Apparaatbeheer -> IoT-apparaatconfiguratie** van uw IoT-hub:
 
 ![Configuratie weergeven in portal](./media/tutorial-firmware-update/portalview.png)
 

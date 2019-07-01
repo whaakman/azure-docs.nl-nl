@@ -5,14 +5,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/13/2019
+ms.date: 06/24/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0345ba564ea244011a83f69e6c152d236b95a920
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: be192e077485b8c7b060ad6627123157a302b039
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272189"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341061"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-voorbeelden
 
@@ -25,6 +25,7 @@ De volgende tabel bevat links naar voorbeelden voor Azure Blueprints. Elk voorbe
 | [ISO 27001 conforme gedeelde services](./iso27001-shared/index.md) | Deze blauwdruk biedt een set met conforme infrastructuurpatronen en beleidsrichtlijnen die de route naar ISO 27001-attestatie vergemakkelijken. |
 | [ISO 27001 conforme App Service Environment-/SQL Database-workloads](./iso27001-ase-sql-workload/index.md) | Deze blauwdruk biedt een aanvullende infrastructuur voor de voorbeeldblauwdruk [ISO 27001 conforme gedeelde services](./iso27001-shared/index.md). |
 | [UK OFFICIAL-governance](./ukofficial/control-mapping.md) | Deze blauwdruk biedt een set met conforme infrastructuurpatronen en beleidsrichtlijnen die de route naar UK OFFICIAL-attestatie vergemakkelijken. |
+| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | Deze blauwdruk biedt richtlijnen voor naleving van NIST SP 800-53 R4. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
