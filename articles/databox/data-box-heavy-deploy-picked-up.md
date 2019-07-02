@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427802"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508670"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Zelfstudie: Azure Data Box zware retourneren en controleer of het uploaden van gegevens naar Azure (preview)
 
@@ -43,11 +43,11 @@ Zorg voordat u begint voor het volgende:
 ## <a name="ship-data-box-heavy-back"></a>Verzend gegevens in het zware terug
 
 1. Zorg ervoor dat het apparaat is uitgeschakeld en alle kabels zijn verwijderd. In de wachtrij en de 4 stroomkabels veilig plaatsen in de lade die toegankelijk is vanaf de achterkant van het apparaat.
-2. Als het apparaat in de Verenigde Staten of Europa levert, is de vervoerder FedEx.
+2. Het apparaat wordt geleverd LTL vrachtkosten via FedEx in de Verenigde Staten en DHL in de EU
 
-    1. Aanroepen van het lokale nummer voor de vervoerder voor het plannen van het ophalen.
-    2. Contact opnemen met [vak gegevensbewerkingen](mailto:DataBoxOps@microsoft.com) om u te informeren over het ophalen en aan het retourlabel.
-    3. Zorg ervoor dat het verzendlabel wordt weergegeven op het scherm wissen aan het begin van het apparaat.
+    1. Contact opnemen met [vak gegevensbewerkingen](mailto:DataBoxOps@microsoft.com) om u te informeren over het ophalen en aan het retourlabel.
+    2. Aanroepen van het lokale nummer voor de vervoerder voor het plannen van het ophalen.
+    3. Zorg ervoor dat het verzendlabel duidelijk zichtbaar op de buitenkant van de verzending wordt weergegeven.
     4. Zorg ervoor dat de oude verzending labels van de eerdere verzending van het apparaat worden verwijderd.
 3. Zodra de gegevens in het zware opgehaald en gecontroleerd door uw provider, de status van de in de portal voor updates **opgehaald**. Er wordt ook een tracerings-id weergegeven.
 

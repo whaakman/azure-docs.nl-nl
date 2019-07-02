@@ -3,19 +3,18 @@ title: Verschillende afhankelijke services met behulp van Java en VS Code worden
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-author: DrEsteban
-ms.author: stevenry
+author: zr-msft
+ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-manager: yuvalm
-ms.openlocfilehash: a5afd093e0f961d048681465850419c5e8712557
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
+ms.openlocfilehash: a93bda3392962a1c35e2bb2433d285ed497075d2
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800394"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503127"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Ontwikkeling van meerdere services met Azure Dev Spaces
 
@@ -39,7 +38,7 @@ Omwille van de tijd downloaden we voorbeeldcode uit een GitHub-opslagplaats. Ga 
     2019-03-11 17:02:35.935  INFO 216 --- [           main] com.ms.sample.mywebapi.Application       : Started Application in 8.164 seconds (JVM running for 9.272)
     ```
 
-1. De eindpunt-URL ziet er ongeveer uit als `http://localhost:<portnumber>`. **Tip: In de statusbalk van VS Code wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in onze ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
+1. De eindpunt-URL ziet er ongeveer uit als `http://localhost:<portnumber>`. **Tip: De VS Code-statusbalk wordt oranje en een geklikt URL worden weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in onze ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
 1. Wanneer `mywebapi` klaar is, opent u de browser naar het localhost-adres.
 1. Als alle stappen zijn voltooid, moet er een reactie van de `mywebapi`-service te zien zijn.
 
@@ -70,35 +69,11 @@ In het vorige codevoorbeeld wordt de `azds-route-as`-header van de binnenkomende
 
 ### <a name="debug-across-multiple-services"></a>Foutopsporing in meerdere services
 1. Op dit punt moet `mywebapi` nog steeds worden uitgevoerd met het bijgevoegde foutopsporingsprogramma. Als dit niet het geval is, drukt u op F5 in het `mywebapi`-project.
-1. Stel een onderbrekingspunt in in de `index()`-methode van het `webapi`-project.
+1. Stel een onderbrekingspunt in de `index()` -methode van de `mywebapi` project op [19 van regel `Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java#L19)
 1. Stel in het `webfrontend`-project een onderbrekingspunt in vlak voordat deze een GET-aanvraag verzendt naar `mywebapi`, en wel op de regel die begint met `try`.
 1. Druk op F5 in het `webfrontend`-project (of start het foutopsporingsprogramma opnieuw als het op dat moment wordt uitgevoerd).
 1. Roep de web-app aan en analyseer de code in beide services.
 1. In de web-app wordt nu op de pagina About een bericht weergegeven dat is samengevoegd door de twee services: "Hello from webfrontend and Hello from mywebapi."
-
-### <a name="automatic-tracing-for-http-messages"></a>Automatische tracering voor HTTP-berichten
-U hebt mogelijk opgemerkt dat, hoewel *webfrontend* geen speciale code bevat om de HTTP-aanroep af te drukken die deze naar *mywebapi* uitvoert, u kunt zien dat HTTP berichten in het uitvoervenster traceert:
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --ytv-> webfrontend:8080:
-   GET /greeting?_=1544503627515 HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend --ve4-> mywebapi:
-   GET / HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend <-ve4-- mywebapi:
-   HTTP/1.1 200
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-ytv-- webfrontend:8080:
-   HTTP/1.1 200
-   Hello from webfrontend and
-   Hello from mywebapi
-```
-Dit is een van de 'gratis' voordelen van Dev Spaces-instrumentatie. We voegen onderdelen in die HTTP-aanvragen traceren terwijl deze het systeem doorlopen om het voor u eenvoudiger te maken om tijdens de ontwikkeling aanroepen naar meerdere services te traceren.
 
 ### <a name="well-done"></a>Dat is dus gelukt.
 U hebt nu een toepassing met meerdere containers waarin elke container afzonderlijk kan worden ontwikkeld en geïmplementeerd.

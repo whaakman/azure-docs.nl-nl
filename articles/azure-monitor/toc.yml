@@ -564,6 +564,8 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: Inschakelen voor bestaand cluster
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: Regiotoewijzingen
+                      href: insights/container-insights-region-mapping.md
                 - name: Analyseren
                   href: insights/container-insights-analyze.md
                 - name: Instellingen voor verzamelen door agent configureren

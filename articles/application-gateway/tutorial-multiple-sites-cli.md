@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: caf82fdab8a841e5c49616a40216a788d877a81b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955626"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501968"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Een toepassingsgateway maken waarop meerdere websites worden gehost met Azure CLI
 
@@ -233,7 +233,7 @@ Het gebruik van A-records wordt niet aanbevolen, omdat de VIP kan veranderen wan
 
 ## <a name="test-the-application-gateway"></a>Toepassingsgateway testen
 
-Voer uw domeinnaam in de adresbalk van de browser in. Bijvoorbeeld http://www.contoso.com.
+Voer uw domeinnaam in de adresbalk van de browser in. Zoals http:\//www.contoso.com.
 
 ![Contoso-site testen in toepassingsgateway](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 

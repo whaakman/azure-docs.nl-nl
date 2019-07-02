@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
-ms.openlocfilehash: e461f210dc5b2d0dda0eabd5ea80dfcdc9ccebfb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 30f912e9c1573b32247bb3c2a3f7d4026436748b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392795"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503019"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Aan de slag in Azure Dev Spaces met behulp van Node.js
 
@@ -134,24 +134,27 @@ Scan de console-uitvoer voor informatie over de openbare URL die door de opdrach
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
+Identificeren van de openbare URL voor de service in de uitvoer van de `up` opdracht. Deze eindigt op `.azds.io`. In het bovenstaande voorbeeld wordt de openbare URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Als u wilt zien van uw web-app, moet u de openbare URL openen in een browser. U ziet ook `stdout` en `stderr` uitvoer wordt gestreamd naar de *azds trace* terminal-venster als u communiceren met uw web-app. U ziet ook de gegevens voor HTTP-aanvragen bijhouden terwijl ze het systeem. Dit maakt het eenvoudiger voor u om bij te houden van complexe meerdere services aanroepen tijdens de ontwikkeling. Met dit instrumentatiepakket toegevoegd door Dev spaties bevat deze aanvraag bijhouden.
 
 > [!Note]
-> Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet is opgelost, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
+> Naast de openbare URL, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL, lijkt het alsof de container lokaal wordt uitgevoerd, maar daadwerkelijk wordt uitgevoerd in Azure. Azure Dev opslagruimten maakt gebruik van Kubernetes *poort-zone voor forward* functionaliteit de localhost-poort toewijzen aan de container die wordt uitgevoerd in AKS. Dit vereenvoudigt het uitvoeren van interactie met de service van uw lokale computer.
 
 ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
 Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
-1. Zoek het bestand `./public/index.html` en bewerk de HTML-code. Wijzig bijvoorbeeld de achtergrondkleur van de pagina in een blauwtint:
+1. Zoek het bestand `./public/index.html` en bewerk de HTML-code. Bijvoorbeeld: de achtergrondkleur van de pagina wijzigen in een schaduw van blauw [op regel 15 heen](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15):
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Sla het bestand op. Enkele ogenblikken later ziet u in het terminalvenster een bericht met de melding dat een bestand in de actieve container is bijgewerkt.
+1. Sla het bestand op. Enkele ogenblikken later ziet u in het terminalvenster een bericht met de melding dat een bestand in de actieve container is bijgewerkt.
 1. Ga naar de browser en vernieuw de pagina. U ziet nu de bijgewerkte kleur.
 
 Wat is er gebeurd? Voor bewerkingen van inhoudsbestanden, zoals HTML en CSS, is niet vereist dat het Node.js-proces opnieuw wordt opgestart. Door een actieve `azds up`-opdracht worden gewijzigde inhoudsbestanden rechtstreeks automatisch gesynchroniseerd in de actieve container in Azure. Zo kunt u de bewerkingen van uw inhoud snel zien.
@@ -161,7 +164,7 @@ Open de web-app op een mobiel apparaat die de openbare URL als webfrontend gebru
 
 Om dit probleem te verhelpen voegt u een `viewport`-metatag toe:
 1. Open het bestand `./public/index.html`
-1. Voeg een `viewport`-metatag toe aan het bestaande `head`-element:
+1. Voeg een `viewport` meta-code in de bestaande `head` element dat Start [op regel 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6):
 
     ```html
     <head>
@@ -225,16 +228,24 @@ Druk op **F5** om fouten in uw code in Kubernetes op te sporen.
 Net als bij de opdracht `up` wordt de code gesynchroniseerd met de ontwikkelomgeving wanneer u foutopsporing start en wordt een container gemaakt en geïmplementeerd in Kubernetes. Op dit moment is het foutopsporingsprogramma gekoppeld aan de externe container.
 
 > [!Tip]
-> Op de VS Code-statusbalk wordt een klikbare URL weergegeven.
+> De VS Code-statusbalk schakelt het oranje, waarmee wordt aangegeven dat het foutopsporingsprogramma is gekoppeld. Een geklikt URL, kunt u snel uw site opent, worden ook weergegeven.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Stel een onderbrekingspunt in een codebestand aan de serverzijde in, bijvoorbeeld binnen de `app.get('/api'...` in `server.js`. Vernieuw de browserpagina of druk op de knop Say It Again. U komt dan op het onderbrekingspunt terecht en kunt de code doorlopen.
+Stel een onderbrekingspunt in een bestand code op de server, bijvoorbeeld binnen de `app.get('/api'...` op [regel 13 van `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
+
+    ```javascript
+    app.get('/api', function (req, res) {
+        res.send('Hello from webfrontend');
+    });
+    ```
+
+Vernieuw de browserpagina of drukt u op de *opnieuw zeg* knop, en u moet het onderbrekingspunt bereikt en kan code kunt doorlopen.
 
 U hebt volledige toegang tot foutopsporingsgegevens, net alsof de code lokaal wordt uitgevoerd. Denk hierbij aan de aanroep-stack, lokale variabelen en informatie over uitzonderingen, enzovoort.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Code bewerken en de foutopsporingssessie vernieuwen
-Breng met het actieve foutopsporingsprogramma een codewijziging aan. Wijzig bijvoorbeeld het hallo-bericht opnieuw:
+Met het foutopsporingsprogramma actief is, maakt u een code bewerken. bijvoorbeeld, het Hallo-bericht wijzigen op [regel 13 van `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) opnieuw:
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -242,9 +253,9 @@ app.get('/api', function (req, res) {
 });
 ```
 
-Sla het bestand op en klik in het deelvenster **Debug actions** op de knop **Refresh**. 
+Sla het bestand en in de **foutopsporing actiedeelvenster**, klikt u op de **opnieuw** knop. 
 
-![](media/get-started-node/debug-action-refresh-nodejs.png)
+![](media/common/debug-action-refresh.png)
 
 In plaats van telkens wanneer codewijzigingen zijn aangebracht een nieuwe containerinstallatiekopie te bouwen en opnieuw te implementeren, wat meestal veel tijd kost, wordt het Node.js-proces tussen foutopsporingssessies opnieuw opgestart in Azure Dev Spaces voor een snellere bewerkings-/foutopsporingslus.
 

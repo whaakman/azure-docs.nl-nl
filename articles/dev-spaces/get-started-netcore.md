@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
-ms.openlocfilehash: 323308b52874064658f65cf34abe18cc5ef208ff
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e05dbc570836741a69ed229fc93eb32a7dfd01dd
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393453"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503165"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Aan de slag in Azure Dev Spaces met behulp van .NET Core
 
@@ -130,22 +130,46 @@ Houd de uitvoer van de opdracht in de gaten. Er zijn meerdere zaken die u zullen
 > Deze stappen nemen de eerste keer dat de opdracht `up` wordt uitgevoerd, meer tijd in beslag, maar latere uitvoeringen zullen sneller verlopen.
 
 ### <a name="test-the-web-app"></a>De web-app testen
-Scan de console-uitvoer voor informatie over de openbare URL die door de opdracht `up` is gemaakt. Het zal in deze vorm te zien zijn: 
+Scannen van de console-uitvoer voor de *toepassing aan de slag* bericht bevestigen dat de `up` opdracht is voltooid:
 
 ```
-(pending registration) Service 'webfrontend' port 'http' will be available at <url>
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Microsoft (R) Build Engine version 15.9.20+g88f5fadfbe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.dll
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.Views.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.94
+[...]
+webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
+webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
+Identificeren van de openbare URL voor de service in de uitvoer van de `up` opdracht. Deze eindigt op `.azds.io`. In het bovenstaande voorbeeld wordt de openbare URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Als u wilt zien van uw web-app, moet u de openbare URL openen in een browser. U ziet ook `stdout` en `stderr` uitvoer wordt gestreamd naar de *azds trace* terminal-venster als u communiceren met uw web-app. U ziet ook de gegevens voor HTTP-aanvragen bijhouden terwijl ze het systeem. Dit maakt het eenvoudiger voor u om bij te houden van complexe meerdere services aanroepen tijdens de ontwikkeling. Met dit instrumentatiepakket toegevoegd door Dev spaties bevat deze aanvraag bijhouden.
+
+![azds traceren terminal-venster](media/get-started-netcore/azds-trace.png)
+
 
 > [!Note]
-> Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet is opgelost, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
+> Naast de openbare URL, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Azure Dev opslagruimten maakt gebruik van Kubernetes *poort-zone voor forward* functionaliteit de localhost-poort toewijzen aan de container die wordt uitgevoerd in AKS. Dit vereenvoudigt het uitvoeren van interactie met de service van uw lokale computer.
 
 ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
 Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
-1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld regel 70 waar `<h2>Application uses</h2>` staat in iets als: `<h2>Hello k8s in Azure!</h2>`
+1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld [regel 73 die leest `<h2>Application uses</h2>` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) naar ongeveer als volgt: 
+
+    ```html
+    <h2>Hello k8s in Azure!</h2>
+    ```
+
 1. Sla het bestand op. Enkele ogenblikken later ziet u in het terminalvenster een bericht met de melding dat een bestand in de actieve container is bijgewerkt.
 1. Ga naar de browser en vernieuw de pagina. De bijgewerkte HTML-code wordt op de webpagina weergegeven.
 
@@ -160,7 +184,6 @@ Het bijwerken van codebestanden vereist iets meer werk, omdat een .NET Core-app 
 1. Voer `azds up` uit in het terminalvenster. 
 
 Met deze opdracht wordt de installatiekopie van de container opnieuw gebouwd en het Helm-diagram opnieuw geïmplementeerd. Ga naar het menu Info in de web-app om te zien of uw codewijzigingen zijn doorgevoerd in de actieve toepassing.
-
 
 Er bestaat echter een nog *snellere methode* voor het ontwikkelen van code. Deze methode gaat u in de volgende sectie verkennen. 
 
@@ -199,11 +222,11 @@ Druk op **F5** om fouten in uw code op te sporen in Kubernetes.
 Net als bij de opdracht `up` wordt code gesynchroniseerd met de ontwikkelomgeving en wordt een container gemaakt en geïmplementeerd in Kubernetes. Op dit moment is het foutopsporingsprogramma uiteraard gekoppeld aan de externe container.
 
 > [!Tip]
-> Op de VS Code-statusbalk wordt een klikbare URL weergegeven.
+> De VS Code-statusbalk schakelt het oranje, waarmee wordt aangegeven dat het foutopsporingsprogramma is gekoppeld. Een geklikt URL, kunt u uw website te openen, worden ook weergegeven.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Stel een onderbrekingspunt in een codebestand aan serverzijde, bijvoorbeeld binnen de functie `Index()` in het bronbestand `Controllers/HomeController.cs`. Als de browserpagina wordt vernieuwd, wordt het onderbrekingspunt bereikt.
+Stel een onderbrekingspunt in een codebestand aan serverzijde, bijvoorbeeld binnen de functie `About()` in het bronbestand `Controllers/HomeController.cs`. Als de browserpagina wordt vernieuwd, wordt het onderbrekingspunt bereikt.
 
 U hebt volledige toegang tot foutopsporingsgegevens, net alsof de code lokaal wordt uitgevoerd. Denk hierbij aan de aanroep-stack, lokale variabelen en informatie over uitzonderingen, enzovoort.
 
@@ -218,9 +241,9 @@ public IActionResult About()
 }
 ```
 
-Sla het bestand op en klik in het deelvenster **Debug actions** op de knop **Refresh**. 
+Sla het bestand en in de **foutopsporing actiedeelvenster**, klikt u op de **opnieuw** knop. 
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 In plaats van telkens als codewijzigingen zijn aangebracht een nieuwe containerinstallatiekopie opnieuw te bouwen en opnieuw te implementeren, wat vaak behoorlijk wat tijd kost, hercompileert Azure Dev Spaces incrementeel code binnen de bestaande container voor een snellere bewerkings-/foutopsporingslus.
 

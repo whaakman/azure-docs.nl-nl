@@ -58,8 +58,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=data-catalog'
     - name: REST
       href: /rest/api/datacatalog/
-    - name: Resource Manager-sjabloon
-      href: /azure/templates/microsoft.datacatalog/catalogs
     - name: Naslaginformatie over zoeksyntaxis
       href: /rest/api/datacatalog/data-catalog-search-syntax-reference
     - name: Concepten van ontwikkelaars

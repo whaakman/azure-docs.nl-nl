@@ -109,7 +109,7 @@ Enkele voorbeelden van het ophalen van gegevens uit de _myTemplateArtifact_ voor
 
 | expressie | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matrix | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "de tekenreekswaarde" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "Mijn value", "anotherProperty": true} |

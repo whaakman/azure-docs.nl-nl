@@ -36,7 +36,7 @@ De aanvraag moet de volgende velden:
 | **Naam**             | **Beschrijving**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | Client wordt geleverd GUID                                |
-| voornaam            | De voornaam van de gebruiker                              |
+| firstName            | De voornaam van de gebruiker                              |
 | lastName             | De achternaam van de gebruiker                               |
 | emailAddress         | E-mailadres van de gebruiker                           |
 | externalId           | Azure AD-object-ID van de gebruiker                      |

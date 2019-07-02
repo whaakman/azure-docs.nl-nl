@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 301abe95b245603e5414eef84ce74cdc8de01d19
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66482396"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509840"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>De Microsoft Graph-API aanroepen vanuit een Windows-bureaublad-app
 
@@ -28,7 +28,7 @@ Deze handleiding laat zien hoe een systeemeigen Windows Desktop .NET (XAML)-toep
 Wanneer u de handleiding hebt voltooid, zich uw toepassing een beveiligde API die gebruikmaakt van persoonlijke accounts (waaronder outlook.com, live.com en anderen) aan te roepen. De toepassing wordt ook werk en schoolaccounts van een bedrijf of organisatie die gebruikmaakt van Azure Active Directory.  
 
 > [!NOTE]
-> De handleiding is vereist voor Visual Studio 2015 Update 3 of Visual Studio 2019. Hebt u niet een van deze versies? [Download gratis Visual Studio 2019](https://www.visualstudio.com/downloads/).
+> De handleiding is vereist voor Visual Studio 2015 Update 3, Visual Studio 2017 of Visual Studio 2019. Hebt u geen van deze versies? [Download gratis Visual Studio 2019](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>De werking van de voorbeeld-app die is gegenereerd door deze handleiding
 

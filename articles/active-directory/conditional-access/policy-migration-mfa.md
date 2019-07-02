@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2804a50cc1ef7bb257e1549afabdef466ce3c2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112199"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509454"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migreren van een klassiek beleid waarvoor multi-factor authentication in Azure portal
 
@@ -76,42 +76,32 @@ Het migratieproces bestaat uit de volgende stappen uit:
 
    1. Als u alle gebruikers in uw klassiek beleid geselecteerd hebt, klikt u op **alle gebruikers**. 
 
-   ![Voorwaardelijke toegang](./media/policy-migration/35.png)
+      ![Voorwaardelijke toegang](./media/policy-migration/35.png)
 
    1. Als u groepen geselecteerd in de klassieke beleid hebt, klikt u op **gebruikers en groepen selecteren**, en selecteer vervolgens de vereiste gebruikers en groepen.
 
-   ![Voorwaardelijke toegang](./media/policy-migration/36.png)
+      ![Voorwaardelijke toegang](./media/policy-migration/36.png)
 
    1. Als u de uitgesloten groepen hebt, klikt u op de **uitsluiten** tabblad, en selecteer vervolgens de vereiste gebruikers en groepen. 
 
-   ![Voorwaardelijke toegang](./media/policy-migration/37.png)
+      ![Voorwaardelijke toegang](./media/policy-migration/37.png)
 
 1. Op de **nieuw** pagina, open de **Cloud-apps** pagina, in de **toewijzing** sectie, klikt u op **Cloud-apps**.
-
 1. Op de **Cloud-apps** pagina, voert u de volgende stappen uit:
-
-   ![Voorwaardelijke toegang](./media/policy-migration/08.png)
-
    1. Klik op **apps selecteren**.
-
    1. Klik op **Selecteren**.
-
    1. Op de **Selecteer** pagina, selecteert u uw cloud-app en klik vervolgens op **Selecteer**.
-
    1. Op de **Cloud-apps** pagina, klikt u op **gedaan**.
-
 1. Als u hebt **meervoudige verificatie vereisen** geselecteerde:
 
    ![Voorwaardelijke toegang](./media/policy-migration/26.png)
 
    1. In de **besturingselementen voor toegang** sectie, klikt u op **verlenen**.
 
-   ![Voorwaardelijke toegang](./media/policy-migration/27.png)
+      ![Voorwaardelijke toegang](./media/policy-migration/27.png)
 
    1. Op de **verlenen** pagina, klikt u op **toegang verlenen**, en klik vervolgens op **meervoudige verificatie vereisen**.
-
    1. Klik op **Selecteren**.
-
 1. Klik op **op** om in te schakelen van uw beleid.
 
    ![Voorwaardelijke toegang](./media/policy-migration/30.png)

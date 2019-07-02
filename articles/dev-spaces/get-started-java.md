@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 0677eb4c65da242f8cfcb20754ec88ffb02c5929
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 517951be2bc99f7607facaed3c9b04260fc6d3d8
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393164"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503184"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Aan de slag in Azure Dev Spaces met behulp van Java
 
@@ -137,18 +137,27 @@ Scan de console-uitvoer voor informatie over de openbare URL die door de opdrach
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
+Identificeren van de openbare URL voor de service in de uitvoer van de `up` opdracht. Deze eindigt op `.azds.io`. In het bovenstaande voorbeeld wordt de openbare URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Als u wilt zien van uw web-app, moet u de openbare URL openen in een browser. U ziet ook `stdout` en `stderr` uitvoer wordt gestreamd naar de *azds trace* terminal-venster als u communiceren met uw web-app. U ziet ook de gegevens voor HTTP-aanvragen bijhouden terwijl ze het systeem. Dit maakt het eenvoudiger voor u om bij te houden van complexe meerdere services aanroepen tijdens de ontwikkeling. Met dit instrumentatiepakket toegevoegd door Dev spaties bevat deze aanvraag bijhouden.
 
 > [!Note]
-> Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet is opgelost, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
-> ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
-> Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
+> Naast de openbare URL, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Azure Dev opslagruimten maakt gebruik van Kubernetes *poort-zone voor forward* functionaliteit de localhost-poort toewijzen aan de container die wordt uitgevoerd in AKS. Dit vereenvoudigt het uitvoeren van interactie met de service van uw lokale computer.
+
+### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
+Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
 1. Druk in het terminalvenster op `Ctrl+C` (om `azds up` te stoppen).
-1. Open het codebestand met de naam `src/main/java/com/ms/sample/webfrontend/Application.java` en bewerk het welkomstbericht: `return "Hello from webfrontend in Azure!";`
+1. Open `src/main/java/com/ms/sample/webfrontend/Application.java`, en het bewerken van het begroetingsbericht op [regel 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
 1. Sla het bestand op.
 1. Voer `azds up` uit in het terminalvenster.
 
@@ -181,7 +190,7 @@ Hiermee wordt de foutopsporingsconfiguratie voor Azure Dev Spaces toegevoegd ond
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Als u geen Azure Dev Spaces-opdrachten ziet in het Opdrachtenpalet, controleert u of u de VS Code-extensie hebt geïnstalleerd voor Azure Dev Spaces. Zorg ervoor dat de werkruimte die u hebt geopend in VS Code de map is die azds.yaml bevat.
+> Als u geen Azure Dev Spaces-opdrachten ziet in het Opdrachtenpalet, controleert u of u de VS Code-extensie hebt geïnstalleerd voor Azure Dev Spaces. Zorg ervoor dat de werkruimte die u hebt geopend in VS Code wordt de map met `azds.yaml`.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Fouten opsporen in de container in Kubernetes
 Druk op **F5** om fouten in uw code op te sporen in Kubernetes.
@@ -189,7 +198,7 @@ Druk op **F5** om fouten in uw code op te sporen in Kubernetes.
 Net als bij de opdracht `up` wordt code gesynchroniseerd met de ontwikkelomgeving en wordt een container gemaakt en geïmplementeerd in Kubernetes. Op dit moment is het foutopsporingsprogramma uiteraard gekoppeld aan de externe container.
 
 > [!Tip]
-> Op de VS Code-statusbalk wordt een klikbare URL weergegeven.
+> De VS Code-statusbalk schakelt het oranje, waarmee wordt aangegeven dat het foutopsporingsprogramma is gekoppeld. Een geklikt URL, die u gebruiken kunt om uw toepassing te openen, worden ook weergegeven.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -207,9 +216,9 @@ public String greeting()
 }
 ```
 
-Sla het bestand op en klik in het deelvenster **Debug actions** op de knop **Refresh**.
+Sla het bestand en in de **foutopsporing actiedeelvenster**, klikt u op de **opnieuw** knop.
 
-![](media/get-started-java/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 In plaats van telkens als codewijzigingen zijn aangebracht een nieuwe containerinstallatiekopie opnieuw te bouwen en opnieuw te implementeren, wat vaak behoorlijk wat tijd kost, hercompileert Azure Dev Spaces incrementeel code binnen de bestaande container voor een snellere bewerkings-/foutopsporingslus.
 

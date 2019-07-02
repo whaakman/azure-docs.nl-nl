@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b01b42af99575f512ccc76b0a56e4d18106c319f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6119bacee7be65588f2d9cb5becb86296fcf1559
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441802"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502857"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Een formulier herkenning-model te trainen en gegevens ophalen met behulp van de REST-API met Python
 
@@ -30,20 +30,7 @@ Als u wilt deze snelstartgids hebt voltooid, moet u het volgende hebben:
 
 ## <a name="create-a-form-recognizer-resource"></a>Een formulier herkenning-resource maken
 
-Wanneer u toegang tot het gebruik van formulier herkenning zijn verleend, ontvangt u een Welkom e-mailbericht met meerdere koppelingen en bronnen. Gebruik de koppeling 'Azure-portal' in dit bericht naar de Azure-portal openen en maak een formulier herkenning-resource. In de **maken** in het deelvenster de volgende informatie:
-
-|    |    |
-|--|--|
-| **Naam** | Een beschrijvende naam voor uw resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyNameFormRecognizer*. |
-| **Abonnement** | Selecteer het Azure-abonnement dat toegang heeft gekregen. |
-| **Location** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
-| **Prijscategorie** | De kosten van uw resource is afhankelijk van de prijscategorie die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
-| **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) die uw resource bevat. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
-
-> [!IMPORTANT]
-> Normaal gesproken wanneer u een resource voor Cognitive Service in Azure portal maakt, hebt u de optie voor het maken van een op meerdere services-abonnementssleutel (gebruikt op meerdere cognitive services) of de abonnementssleutel van een enkele service-(alleen gebruikt met een specifieke cognitive service). Echter, omdat formulier herkenning een preview-versie is, het is niet opgenomen in het abonnement op meerdere services en het één service-abonnement kan niet worden gemaakt, tenzij u de koppeling in de verwelkomingse-mail.
-
-Als uw formulier herkenning-resource is voltooid implementeren, zoeken en selecteert u deze in de **alle resources** lijst in de portal. Selecteer vervolgens de **sleutels** tabblad om de abonnementssleutels van uw weer te geven. Beide sleutels, uw apptoegang krijgt tot de resource. Kopieer de waarde van **sleutel 1**. U gebruikt deze in de volgende sectie.
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="train-a-form-recognizer-model"></a>Een formulier herkenning-model te trainen
 
