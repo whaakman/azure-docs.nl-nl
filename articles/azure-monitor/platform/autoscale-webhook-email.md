@@ -10,7 +10,7 @@ ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787300"
@@ -115,7 +115,7 @@ Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende
 | subscriptionId |Ja |Abonnements-ID van de doelresource die is die wordt geschaald |
 | resourceGroupName |Ja |Naam van de resourcegroep van de doelresource die is die wordt geschaald |
 | resourceName |Ja |Naam van de doelresource die is die wordt geschaald |
-| resourceType |Ja |De drie ondersteunde waarden: "microsoft.classiccompute/domainnames/slots/roles" - Service in de Cloud-functies, 'microsoft.compute/virtualmachinescalesets' - Virtual Machine Scale Sets, en "Microsoft.Web/serverfarms" - Web-App |
+| ResourceType |Ja |De drie ondersteunde waarden: "microsoft.classiccompute/domainnames/slots/roles" - Service in de Cloud-functies, 'microsoft.compute/virtualmachinescalesets' - Virtual Machine Scale Sets, en "Microsoft.Web/serverfarms" - Web-App |
 | resourceId |Ja |Resource Manager-ID van de doelresource die is die wordt geschaald |
 | portalLink |Ja |Azure portal koppelen aan de pagina overzicht van de doelresource |
 | oldCapacity |Ja |Het huidige (oude) aantal instanties wanneer automatisch schalen een schaalactie heeft |
