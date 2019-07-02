@@ -43,6 +43,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: Containers installeren en uitvoeren
+          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+            html: <p>Stel een gegevensset samen die geoptimaliseerd is om een aangepast model te trainen.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Een set met trainingsgegevens samenstellen
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph

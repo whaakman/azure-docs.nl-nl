@@ -19,6 +19,8 @@
 - name: Concepten
   expanded: false
   items:
+    - name: Voorwaardelijke toegang implementeren
+      href: howto-conditional-access-adoption-kit.md
     - name: Basisbeschermingsbeleid
       href: concept-baseline-protection.md
     - name: Voorwaarden

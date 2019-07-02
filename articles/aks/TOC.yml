@@ -19,6 +19,8 @@
     - name: Toepassingen ontwikkelen
       expanded: true
       items:
+        - name: Concept gebruiken
+          href: kubernetes-draft.md
         - name: Java (VS Code en CLI) gebruiken
           href: ../dev-spaces/quickstart-java.md
           maintainContext: true
@@ -82,7 +84,7 @@
               href: operator-best-practices-container-image-management.md
             - name: Netwerken
               href: operator-best-practices-network.md
-            - name: Opslag
+            - name: Storage
               href: operator-best-practices-storage.md
             - name: Bedrijfscontinuïteit en herstel na noodgevallen
               href: operator-best-practices-multi-region.md
@@ -153,6 +155,8 @@
               href: configure-azure-cni.md
         - name: Een interne load balancer maken
           href: internal-lb.md
+        - name: Een load balancer van het type Standard gebruiken (preview)
+          href: load-balancer-standard.md
         - name: Een statisch IP-adres gebruiken
           href: static-ip.md
         - name: Inkomend verkeer
@@ -187,6 +191,8 @@
           href: use-pod-security-policies.md
         - name: Gemachtigde IP-bereiken voor de API-server definiëren (preview)
           href: api-server-authorized-ip-ranges.md
+        - name: Implementaties beheren met Azure Policy (preview)
+          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Principalreferenties voor clusterservice bijwerken
           href: update-credentials.md
         - name: Uitgaand clusterverkeer beheren en beperken (preview)
@@ -280,8 +286,6 @@
                   maintainContext: true
         - name: Toepassingen uitvoeren met Helm
           href: kubernetes-helm.md
-        - name: Toepassingen ontwikkelen met Draft
-          href: kubernetes-draft.md
         - name: Open Service Broker voor Azure gebruiken
           href: integrate-azure.md
         - name: Cosmos DB-API voor MongoDB gebruiken met OSBA

@@ -54,8 +54,10 @@
       href: pre-reqs.md
     - name: Netwerktopologieën voor migraties van met Azure SQL-database beheerde exemplaren
       href: resource-network-topologies.md
-    - name: Bekende problemen
+    - name: Probleemoplossing en bekende problemen
       items:
+        - name: Verbindingsproblemen met de brondatabase oplossen
+          href: known-issues-troubleshooting-dms-source-connectivity.md
         - name: Algemene problemen en fouten oplossen
           href: known-issues-troubleshooting-dms.md
         - name: Bekende problemen - Online migratie naar Azure SQL DB

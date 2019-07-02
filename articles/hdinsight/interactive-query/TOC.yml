@@ -6,10 +6,15 @@
       href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Apache Hive-query's uitvoeren - Apache Zeppelin
       href: ./hdinsight-connect-hive-zeppelin.md
-- name: Aan de slag
+- name: Zelfstudies
+  items:
+    - name: Gegevens analyseren met Interactive Query
+      href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepten
   items:
     - name: HDInsight-apps installeren
       href: ../hdinsight-apps-install-applications.md
@@ -104,9 +109,6 @@
           maintainContext: true
         - name: Opgeslagen tweets analyseren
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: Gegevens over vertraagde vluchten analyseren
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
     - name: Clusters uitbreiden
       items:
@@ -246,9 +248,6 @@
         - name: OS-patches voor HDInsight-cluster
           href: ../hdinsight-os-patching.md
           maintainContext: true
-        - name: Hive-workloads migreren naar HDInsight 4.0
-          href: apache-hive-migrate-workloads.md
-          maintainContext: true
     - name: Problemen oplossen
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -334,6 +333,11 @@
         - name: Cluster-prestaties bewaken
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+- name: Procedures
+  items:
+    - name: Hive-workloads migreren naar HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
 - name: Naslaginformatie
   items:
     - name: Codevoorbeelden

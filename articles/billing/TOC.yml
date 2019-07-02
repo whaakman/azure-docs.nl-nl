@@ -25,6 +25,8 @@
       href: billing-understand-your-invoice.md
     - name: Informatie over factureringsvoorwaarden - alleen Microsoft-klantovereenkomst
       href: billing-mca-understand-your-invoice.md
+    - name: Uw factuur betalen - alleen Microsoft-klantovereenkomst
+      href: billing-how-to-pay-bill.md
     - name: Factureringsaccounts voor Microsoft-klantovereenkomst
       href: billing-mca-overview.md
 - name: Kosten beheren
@@ -79,7 +81,7 @@
               href: billing-understand-suse-reservation-charges.md
         - name: Softwarekosten niet inbegrepen
           href: billing-reserved-instance-windows-software-costs.md
-        - name: Gebruik voor betalen naar gebruik
+        - name: Gebruik voor afzonderlijke abonnementen
           href: billing-understand-reserved-instance-usage.md
         - name: Gebruik voor Enterprise
           href: billing-understand-reserved-instance-usage-ea.md

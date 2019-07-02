@@ -55,34 +55,22 @@ sections:
         className: cardsM
         columns: 1
         items:
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>In deze zelfstudie wordt een lokaal videobestand geüpload en gecodeerd en wordt de gecodeerde inhoud gestreamd.<p/>
+          - html: <p>In deze zelfstudie wordt een lokaal videobestand geüpload en gecodeerd en wordt de gecodeerde inhoud gestreamd.<p/>
             href: /azure/media-services/latest/stream-files-tutorial-with-api
             title: Geüploade bestanden coderen en video streamen
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>In de zelfstudie wordt uitgelegd hoe u een live-gebeurtenis kunt voorbereiden. Vervolgens wordt in de zelfstudie besproken hoe u .NET kunt gebruiken om een live-gebeurtenis van het type pass-through te maken.</p>
+          - html: <p>In de zelfstudie wordt uitgelegd hoe u een live-gebeurtenis kunt voorbereiden. Vervolgens wordt in de zelfstudie besproken hoe u een live-gebeurtenis van het type pass-through kunt maken.</p>
             href: /azure/media-services/latest/stream-live-tutorial-with-api
             title: Live uitzenden
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>In deze zelfstudie ziet u hoe u video's kunt analyseren met de Azure Media Services-API.</p>
+          - html: <p>In deze zelfstudie ziet u hoe u video's kunt analyseren met de Azure Media Services-API.</p>
             href: /azure/media-services/latest/analyze-videos-tutorial-with-api
             title: Uw video analyseren
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Informatie over het configureren en gebruiken van Media Services-API's om uw inhoud dynamisch te versleutelen met AES-128.</p>
+          - html: <p>Informatie over het configureren en gebruiken van Media Services-API's om uw inhoud dynamisch te versleutelen met AES-128.</p>
             href: /azure/media-services/latest/protect-with-aes128
             title: Dynamisch versleutelen met AES-128
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Informatie over het configureren en gebruiken van Media Services-API''s uw inhoud dynamisch te versleutelen met multi-DRM (PlayReady, Widevine en FairPlay).</p>'
+          - html: '<p>Informatie over het configureren en gebruiken van Media Services-API''s uw inhoud dynamisch te versleutelen met multi-DRM (PlayReady, Widevine en FairPlay).</p>'
             href: /azure/media-services/latest/protect-with-drm
             title: Dynamisch versleutelen met multi-DRM
-          - image:
-              src: media/index/rest.svg
-            html: <p>In deze zelfstudie wordt besproken hoe u een extern bestand kunt coderen op basis van een URL en vervolgens video kunt streamen.</p>
+          - html: <p>In deze zelfstudie wordt besproken hoe u een extern bestand kunt coderen op basis van een URL en vervolgens video kunt streamen.</p>
             href: /azure/media-services/latest/stream-files-tutorial-with-rest
             title: Externe bestanden coderen en video streamen
   - title: Voorbeelden

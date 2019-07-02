@@ -26,6 +26,10 @@
       href: oracle-backup-recovery.md
     - name: Opties voor Oracle voor herstel na noodgevallen
       href: oracle-disaster-recovery.md
+- name: Handleidingen
+  items:
+    - name: Interconnect voor Azure en OCI - Preview
+      href: configure-azure-oci-networking.md
 - name: Resources
   items:
     - name: Azure-roadmap

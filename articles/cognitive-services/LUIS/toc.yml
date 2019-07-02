@@ -302,6 +302,8 @@
           href: luis-reference-prebuilt-number.md
         - name: Rangtelwoordentiteit
           href: luis-reference-prebuilt-ordinal.md
+        - name: Rangtelwoordentiteit V2
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: Percentage-entiteit
           href: luis-reference-prebuilt-percentage.md
         - name: PersoonNaam-entiteit

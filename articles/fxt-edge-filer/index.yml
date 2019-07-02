@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure FXT Edge Filer
+metadata:
+  title: Documentatie voor Azure FXT Edge Filer
+  description: Azure FXT Edge Filer gebruiken als een cachelaag voor lees-intensieve high performance computing (HPC)-taken
+  author: ekpgh
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: v-erkell
+abstract:
+  description: 'De hybride opslagcache van Azure FXT Edge Filer is een hybride hardware-/softwaresysteem dat zorgt voor snellere gegevenstoegang voor lees-intensieve high performance computing (HPC)-werkstromen op basis van bestanden. Een cluster met drie of meer Azure FXT Edge Filer-apparaten kan de opslagprestaties versnellen van on-premises NAS-systemen (NetApp of Dell EMC Isilon), van cloudopslag of van een combinatie van oplossingen.'
+sections:
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-install">Azure FXT Edge Filer-hardware installeren</a>
+          - html: <a href="fxt-network-power">Netwerkverbindingen maken voor de Azure FXT Edge Filer</a>
+          - html: <a href="fxt-node-password">Hoofdwachtwoorden instellen voor de hardwareknooppunten</a>
+          - html: <a href="fxt-cluster-create">Het hybride opslagcachecluster maken</a>
+          - html: <a href="fxt-add-nodes">Clusterknooppunten toevoegen</a>
+          - html: <a href="fxt-add-storage">Back-endopslag toevoegen en virtuele naamruimte configureren</a>
+          - html: <a href="fxt-configure-network">De netwerkinstellingen van het cluster configureren</a>
+  - title: Handleidingen
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-mount-clients">Clients verbinden met het Azure FXT Edge Filer-cluster</a>
+          - html: <a href="fxt-monitor">Azure FXT Edge Filer bewaken</a>
+          - html: <a href="fxt-power-off">Een hardwareknooppunt veilig uitschakelen</a>
+  - title: Resources
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-specs">Hardwarespecificaties</a>
+          - html: <a href="fxt-additional-doc">Aanvullende documentatie</a>

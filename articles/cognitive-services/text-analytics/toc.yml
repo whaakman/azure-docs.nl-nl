@@ -70,8 +70,16 @@
           href: how-tos/text-analytics-how-to-install-containers.md
         - name: Containers configureren
           href: text-analytics-resource-container-config.md
-        - name: Uitvoeren op Azure Kubernetes Service
-          href: How-tos/text-analytics-how-to-use-container-instance.md
+        - name: Container Instances (ACI) gebruiken
+          items:
+            - name: Sentimentanalyse
+              href: how-tos/use-sentiment-analysis-on-aci.md
+        - name: Kubernetes Service (AKS) gebruiken
+          items:
+            - name: Taaldetectie
+              href: how-tos/use-language-detection-on-aks.md
+            - name: Sentimentanalyse
+              href: how-tos/use-sentiment-analysis-on-aks.md
     - name: De verbonden service Text Analytics gebruiken
       href: vs-text-connected-service.md
 - name: Naslaginformatie

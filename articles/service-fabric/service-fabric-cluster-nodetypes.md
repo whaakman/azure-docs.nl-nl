@@ -74,7 +74,7 @@ Hier volgt een codefragment van de extensie Service Fabric-virtuele Machine:
 
 Hier volgen eigenschapbeschrijvingen van de:
 
-| **Naam** | **Toegestane waarden** | ** --- ** | **Richtlijnen of korte beschrijving** |
+| **Name** | **Toegestane waarden** | ** --- ** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 | name | string | --- | unieke naam op voor de extensie |
 | type | "ServiceFabricLinuxNode" of "ServiceFabricWindowsNode | --- | Identificeert OS Service Fabric is voor opstarten |
@@ -82,7 +82,7 @@ Hier volgen eigenschapbeschrijvingen van de:
 | publisher | Microsoft.Azure.ServiceFabric | --- | naam van de uitgever van de extensie Service Fabric |
 | clusterEndpont | string | --- | URI:Port met beheereindpunt |
 | nodeTypeRef | string | --- | naam van knooppunttype |
-| Duurzaamheidsniveau | brons, Zilver, gold, platinum | --- | tijd om te onderbreken onveranderbare infrastructuur van Azure |
+| durabilityLevel | brons, Zilver, gold, platinum | --- | tijd om te onderbreken onveranderbare infrastructuur van Azure |
 | enableParallelJobs | waar of ONWAAR | --- | Compute ParallelJobs als een VM verwijderen en opnieuw opstarten van virtuele machine in de dezelfde schaalset parallel inschakelen |
 | nicPrefixOverride | string | --- | Het subnetvoorvoegsel, zoals '10.0.0.0/24' |
 | commonNames | string[] | --- | Algemene namen van de geïnstalleerde clustercertificaten |

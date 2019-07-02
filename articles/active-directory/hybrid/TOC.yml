@@ -22,6 +22,8 @@
       items:
         - name: Beheer van on-premises workloads in de cloud
           href: cloud-governed-management-for-on-premises.md
+        - name: Vier stappen voor een sterke identiteitsbasis
+          href: four-steps.md
     - name: Azure AD Connect en Connect Health
       items:
         - name: Wat zijn Azure AD Connect en Connect Health?
@@ -68,6 +70,8 @@
       items:
         - name: Wat is Azure AD Connect Sync?
           href: how-to-connect-sync-whatis.md
+        - name: Azure ADSync-serviceaccount
+          href: concept-adsync-service-account.md
         - name: Azure AD Connect-synchronisatiefuncties
           href: how-to-connect-syncservice-features.md
         - name: Wat is Azure AD Connect Sync-servicebeheer?

@@ -301,6 +301,8 @@
               href: app-objects-and-service-principals.md
             - name: Hoe en waarom apps worden toegevoegd aan Azure AD
               href: active-directory-how-applications-are-added.md
+            - name: Beperkingen voor omleidings-URI en antwoord-URL
+              href: reply-url.md
             - name: Apps met één tenant en apps met meerdere tenants
               href: single-and-multi-tenant-apps.md
         - name: Machtigingen en toestemming

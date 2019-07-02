@@ -45,6 +45,8 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: Opslag - portal
           href: functions-integrate-storage-queue-output-binding.md
+        - name: Opslag - Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
 - name: Zelfstudies
   items:
     - name: Functions met Logic Apps
@@ -136,6 +138,8 @@
           href: functions-test-a-function.md
         - name: Lokaal ontwikkelen en fouten opsporen
           href: functions-develop-local.md
+        - name: Ontwikkelen in Visual Studio Code
+          href: functions-develop-vs-code.md
         - name: Ontwikkelen in Visual Studio
           href: functions-develop-vs.md
         - name: Ontwikkeling in Core Tools
@@ -282,13 +286,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: Naslaginformatie voor host.json
+    - name: Naslaginformatie voor host.json 2.x
       href: functions-host-json.md
-      items:
-        - name: Functions 2.x
-          href: functions-host-json.md
-        - name: Functions 1.x
-          href: functions-host-json-v1.md
+    - name: Naslaginformatie voor host.json 1.x
+      href: functions-host-json-v1.md
     - name: Veelgestelde vragen over netwerken
       href: functions-networking-faq.md
     - name: Naslaginformatie voor OpenAPI

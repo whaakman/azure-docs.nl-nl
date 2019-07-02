@@ -31,8 +31,10 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Snelstartgidsen
   items:
-    - name: Een account maken
+    - name: Een account maken in Azure Portal
       href: cognitive-services-apis-create-account.md
+    - name: Een account maken met behulp van de Azure CLI
+      href: cognitive-services-apis-create-account-cli.md
     - name: Verificatie
       href: authentication.md
     - name: Diagnostische logboeken

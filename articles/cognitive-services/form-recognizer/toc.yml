@@ -17,6 +17,8 @@
               href: quickstarts/python-train-extract.md
 - name: Handleidingen
   items:
+    - name: Een set met trainingsgegevens samenstellen
+      href: build-training-data-set.md
     - name: Containers gebruiken
       items:
         - name: Containers installeren en uitvoeren

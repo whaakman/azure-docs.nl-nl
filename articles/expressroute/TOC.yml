@@ -58,6 +58,12 @@
       href: cross-network-connectivity.md
     - name: Algemene Azure-beveiligingskenmerken
       href: expressroute-security-attributes.md
+    - name: Ontwerpen voor hoge beschikbaarheid
+      href: designing-for-high-availability-with-expressroute.md
+    - name: Ontwerpen voor herstel na noodgeval
+      items:
+        - name: Persoonlijke peering
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: Handleidingen
   items:
     - name: Een circuit maken en wijzigen

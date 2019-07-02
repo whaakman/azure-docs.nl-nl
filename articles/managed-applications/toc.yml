@@ -29,10 +29,18 @@
       href: sample-projects.md
 - name: Concepten
   items:
-    - name: Aangepaste providers
+    - name: Aangepaste Azure-resourceproviders
       href: custom-providers-overview.md
+    - name: Definitie-artefact weergeven
+      href: concepts-view-definition.md
 - name: Handleidingen
   items:
+    - name: Aangepaste resourceproviders
+      items:
+        - name: Aangepaste acties toevoegen aan Azure
+          href: custom-providers-action-endpoint-how-to.md
+        - name: Aangepaste resources toevoegen aan Azure
+          href: custom-providers-resources-endpoint-how-to.md
     - name: Uitgevers
       items:
         - name: Portal-interface maken
@@ -57,6 +65,12 @@
           href: approve-just-in-time-access.md
 - name: Naslaginformatie
   items:
+    - name: Aangepaste resourceproviders
+      items:
+        - name: Referentiemateriaal voor aangepaste resource-proxy
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: Referentiemateriaal voor aangepaste resource-cache
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
     - name: Azure-CLI
       href: /cli/azure/managedapp
     - name: PowerShell

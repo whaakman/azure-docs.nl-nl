@@ -1,0 +1,36 @@
+- name: Documentatie voor Azure FXT Edge Filer
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Azure FXT Edge Filer?
+      href: fxt-overview.md
+- name: Zelfstudies
+  items:
+    - name: '1: Hardware installeren'
+      href: fxt-install.md
+    - name: '2: Netwerkpoorten aanleggen en stroom voorzien'
+      href: fxt-network-power.md
+    - name: '3: Hardware-wachtwoorden instellen'
+      href: fxt-node-password.md
+    - name: '4: Een cluster maken'
+      href: fxt-cluster-create.md
+    - name: '5: Clusterknooppunten toevoegen'
+      href: fxt-add-nodes.md
+    - name: '6: Back-endopslag toevoegen en virtuele naamruimte configureren'
+      href: fxt-add-storage.md
+    - name: '7: De netwerkinstellingen van het cluster configureren'
+      href: fxt-configure-network.md
+- name: Handleidingen
+  items:
+    - name: Clients koppelen
+      href: fxt-mount-clients.md
+    - name: De Azure FXT Edge Filer-hardware bewaken
+      href: fxt-monitor.md
+    - name: Een hardwareknooppunt veilig uitschakelen
+      href: fxt-power-off.md
+- name: Resources
+  items:
+    - name: Hardwarespecificaties
+      href: fxt-specs.md
+    - name: Aanvullende documentatie
+      href: fxt-additional-doc.md

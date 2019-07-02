@@ -232,7 +232,7 @@
             - name: Auditinstellingsniveau SQL DB controleren
               displayName: auditIfNotExists
               href: samples/audit-sql-db-audit-setting.md
-    - name: Opslag
+    - name: Storage
       items:
         - name: Toegestane SKU's voor opslagaccount en virtuele machines
           displayName: 'initiative, vmSKUs, storageSKUs'
@@ -260,6 +260,9 @@
     - name: Inzicht in de effecten van het beleid
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Azure Policy voor Kubernetes
+      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
+      href: ./concepts/rego-for-aks.md
     - name: Virtuele machines met gastconfiguratie controleren
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

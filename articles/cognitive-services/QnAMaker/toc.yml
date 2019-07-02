@@ -144,6 +144,13 @@
 - name: Naslaginformatie
   items:
     - name: Naslaginformatie over REST-API
+      items:
+        - name: API's ontwerpen
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
+        - name: GenerateAnswer-API
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
+        - name: API trainen
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
     - name: Veelgestelde vragen
       href: faqs.md

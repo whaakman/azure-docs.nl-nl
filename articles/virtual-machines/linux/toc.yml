@@ -274,13 +274,13 @@
           items:
             - name: Overzicht
               href: image-builder-overview.md
-            - name: CLI gebruiken
+            - name: Azure CLI gebruiken
               href: image-builder.md
             - name: Sjabloonverwijzing
               href: image-builder-json.md
-            - name: Gebruiken met galerieën
+            - name: Compileren voor installatiekopiegalerieën
               href: image-builder-gallery.md
-            - name: De versie van een installatiekopie bijwerken
+            - name: Een bestaande installatiekopie bijwerken
               href: image-builder-gallery-update-image-version.md
             - name: Problemen oplossen
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'

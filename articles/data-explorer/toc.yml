@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Data Explorer?
+    - name: Wat is Azure Data Explorer?
       href: data-explorer-overview.md
 - name: Snelstartgidsen
   expanded: true
@@ -15,8 +15,6 @@
       items:
         - name: Webgebruikersinterface
           href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
 - name: Zelfstudies
   items:
     - name: Gegevens opnemen zonder code
@@ -68,12 +66,18 @@
       items:
         - name: Query's schrijven
           href: write-queries.md
-        - name: Tijdreeksanalyse
-          href: time-series-analysis.md
-        - name: Detectie van afwijkingen en prognoses
-          href: anomaly-detection.md
-        - name: Machine learning
-          href: machine-learning-clustering.md
+        - name: Query's uitvoeren op gegevens in Azure Data Lake
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: Tijdreeksanalyse en machine learning
+          items:
+            - name: Tijdreeksanalyse
+              href: time-series-analysis.md
+            - name: Detectie van afwijkingen en prognoses
+              href: anomaly-detection.md
+            - name: Machine learning
+              href: machine-learning-clustering.md
     - name: Gegevens visualiseren
       items:
         - name: Power BI
