@@ -221,8 +221,8 @@ U kunt de openbare sleutel ophalen uit de lijst van de transactie-knooppunt. Kop
 
     | Value | Description
     |-------|-------------
-    | \<de openbare sleutel Alpha-knooppunt\> | Openbare sleutel van het knooppunt voor alpha
-    | \<Adres Ethereum-account\> | Adres Ethereum-account hebt gemaakt in het knooppunt van de transactie standaard
+    | \<alpha node public key\> | Openbare sleutel van het knooppunt voor alpha
+    | \<Ethereum account address\> | Adres Ethereum-account hebt gemaakt in het knooppunt van de transactie standaard
 
     In dit voorbeeld wordt de aanvankelijke waarde van de **storeData** waarde is ingesteld op 42.
 
@@ -392,8 +392,8 @@ Omdat we niet heeft declareren **Bèta** openbare sleutel van het knooppunt in *
 
     | Value | Description
     |-------|-------------
-    | \<de openbare sleutel Alpha-knooppunt\> | Openbare sleutel van het knooppunt voor alpha
-    | \<Adres Ethereum-account\> | Adres van Ethereum-account is gemaakt in het knooppunt van de transactie standaard.
+    | \<alpha node public key\> | Openbare sleutel van het knooppunt voor alpha
+    | \<Ethereum account address\> | Adres van Ethereum-account is gemaakt in het knooppunt van de transactie standaard.
 
     **privateFor** definieert de knooppunten waarop de transactie beschikbaar is. In dit voorbeeld van het standaard transactie knooppunt account kunt cast-conversie persoonlijke transacties naar de **alpha** knooppunt. U moet openbare sleutels toevoegen voor alle persoonlijke Transactiedeelnemers.
 
