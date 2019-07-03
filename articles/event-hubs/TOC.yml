@@ -63,14 +63,16 @@
       href: event-hubs-availability-and-consistency.md
     - name: Schaalbaarheid
       href: event-hubs-scalability.md
+    - name: Geo-noodherstel
+      items:
+        - name: Geo-herstel na noodgeval en geo-replicatie
+          href: event-hubs-geo-dr.md
     - name: Beveiliging
       items:
         - name: Beheerde identiteit voor Azure-resources
           href: event-hubs-managed-service-identity.md
         - name: Op rollen gebaseerd toegangsbeheer (preview)
           href: event-hubs-role-based-access-control.md
-        - name: Geo-herstel na noodgeval en geo-replicatie
-          href: event-hubs-geo-dr.md
         - name: Overzicht van authenticatie- en beveiligingsmodellen
           href: event-hubs-authentication-and-security-model-overview.md
         - name: Beveiligingskenmerken

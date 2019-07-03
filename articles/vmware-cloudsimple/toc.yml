@@ -72,6 +72,8 @@
               href: manage-private-cloud.md
             - name: Een privécloud uitbreiden
               href: expand-private-cloud.md
+            - name: Een privécloud verkleinen
+              href: shrink-private-cloud.md
             - name: Uw Azure-abonnement toewijzen
               href: azure-subscription-mapping.md
             - name: Bevoegdheden escaleren

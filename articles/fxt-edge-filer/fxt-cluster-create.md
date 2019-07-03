@@ -4,14 +4,14 @@ description: Een hybride opslag cache-cluster maken met de Azure FXT Edge Filer
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1bfe8f0efce0a844263fc65df0ad927114886769
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450539"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543532"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Zelfstudie: Maken van het cluster Azure FXT Edge Filer
 
@@ -34,7 +34,10 @@ Deze procedure neemt tussen 15 en 45 minuten, afhankelijk van hoeveel onderzoek 
 
 Voer deze vereisten uit voordat u deze zelfstudie begint:
 
-* Ten minste drie Azure FXT Edge Filer hardwaresystemen installeren in uw datacenter 
+* Installeren van uw Azure FXT Edge Filer hardware-systemen in uw datacenter 
+
+  U hoeft alleen één knooppunt te maken van het cluster, maar u moet [ten minste twee meer knooppunten toevoegen](fxt-add-nodes.md) voordat u kunt het cluster configureren en u klaar voor gebruik. 
+
 * Juiste kracht en het netwerk kabels verbinden met het systeem  
 * Inschakelen op ten minste één Azure FXT Edge Filer knooppunt en [het root-wachtwoord instellen](fxt-node-password.md)
 
@@ -114,7 +117,7 @@ Gebruik de opdracht `ifconfig` om te zien van de adressen die zijn toegewezen aa
 
 Bijvoorbeeld, de opdracht `ifconfig | grep -B5 inet` zoekt voor poorten met internet-adressen en biedt vijf regels van context om weer te geven van de poort-id.
 
-Schrijf op elk IP-adres in het rapport ifconfig weergegeven. Adressen die worden weergegeven met de poortnamen van de zoals e0a of e0b zijn goede opties. Gebruik geen IP-adressen worden weergegeven met e7 * namen, omdat deze namen alleen voor IPMI-poorten gebruikt worden niet regelmatig netwerkpoorten.  
+Schrijf op elk IP-adres in het rapport ifconfig weergegeven. Adressen die worden weergegeven met de poortnamen van de zoals e0a of e0b zijn goede opties. Gebruik geen IP-adressen worden weergegeven met e7 * namen, omdat deze namen alleen voor servicepoorten iDRAC/IPMI gebruikt worden.  
 
 ## <a name="load-the-cluster-configuration-wizard"></a>Laden van de wizard cluster configureren
 
@@ -213,7 +216,7 @@ Instellingen in de **Management** sectie hebben betrekking op het netwerk waarme
 
 * **MTU** - indien nodig, aanpassen van de maximale verzendeenheid (MTU) voor het beheernetwerk van uw cluster.
 
-* **Gebruik 1Gb mgmt netwerk** -Schakel dit selectievakje in als u wilt de twee 1 GbE-netwerk-poorten op de knooppunten FXT toewijzen met alleen het beheernetwerk. Als u dit selectievakje niet inschakelt, gebruikt het beheernetwerk de hoogste snelheid-poort. 
+* **Gebruik 1Gb mgmt netwerk** -Schakel dit selectievakje in als u wilt de twee 1 GbE-netwerk-poorten op de knooppunten FXT toewijzen met alleen het beheernetwerk. (U kunt 25GbE/10 GbE-poorten die beschikbaar zijn voor al het andere verkeer moet hebben.) Als u dit selectievakje niet inschakelt, gebruikt het beheernetwerk de hoogste snelheid-poort. 
 
 ### <a name="configure-the-cluster-network"></a>Configureer het clusternetwerk 
 
@@ -281,7 +284,7 @@ Gebruik de webinterface van het Configuratiescherm voor het instellen van het ni
 
 Aanmelden bij de webinterface met de gebruikersnaam `admin` en het wachtwoord die u hebt ingesteld bij het maken van het cluster.
 
-![webbrowser met control panel aanmelding velden](media/fxt-cluster-config/admin-login.png)
+![webbrowser met control panel aanmelding velden](media/fxt-cluster-create/admin-login.png)
 
 Het deelvenster Beheer wordt geopend en toont de **Dashboard** pagina. Als het maken van het cluster is voltooid, schakel eventuele waarschuwingsberichten in de weergave.
 
@@ -289,7 +292,7 @@ Klik op de **instellingen** tabblad om de cluster te configureren.
 
 Op de **instellingen** tabblad, in de linkerzijbalk toont een menu van de configuratiepagina's. De pagina's zijn ingedeeld per categorie. Klik op de + of - besturingselement aan de bovenkant van de naam van de categorie te vergroten of te verbergen, de afzonderlijke pagina's.
 
-![Tabblad instellingen van het Configuratiescherm (in browser) met het Cluster > algemene instellingen pagina geladen](media/fxt-cluster-config/settings-tab-populated.png)
+![Tabblad instellingen van het Configuratiescherm (in browser) met het Cluster > algemene instellingen pagina geladen](media/fxt-cluster-create/settings-tab-populated.png)
 
 ## <a name="cluster-setup-steps"></a>Instellingsstappen voor cluster
 
@@ -315,7 +318,7 @@ Deze stappen zijn nodig voor de meeste of alle clusters.
 
   Lezen [configureren van de naamruimte](fxt-add-storage.md#configure-the-namespace) voor meer informatie. Deze stap omvat:
   * Het maken van vservers
-  * Instellen van koppelingen tussen de client-netwerk weergeven en back-end-opslag 
+  * Instellen van koppelingen tussen de client netwerk weergeven en de back-end-opslag 
   * Definiëren welke client-IP-worden adressen bediend door elke vserver
 
   > [!Note] 
@@ -370,7 +373,7 @@ Volg deze stappen voor het instellen van ondersteuning voor uploads.
 
 1. Navigeer naar de **Cluster** > **ondersteuning** instellingenpagina. Accepteer het privacybeleid. 
 
-   ![Schermopname van het Configuratiescherm en pop-upvenster met bevestigen om het privacybeleid accepteren](media/fxt-cluster-config/fxt-privacy-policy.png)
+   ![Schermopname van het Configuratiescherm en pop-upvenster met bevestigen om het privacybeleid accepteren](media/fxt-cluster-create/fxt-privacy-policy.png)
 
 1. Klik op het driehoekje aan de linkerkant van **klantgegevens** om uit te breiden, de sectie.
 1. Klik op de **Revalidate uploadinformatie** knop.
@@ -378,13 +381,13 @@ Volg deze stappen voor het instellen van ondersteuning voor uploads.
 1. Schakel de selectievakjes voor **statistieken bewaking**, **algemene gegevens uploaden**, en **Crash gegevens uploaden**.
 1. Klik op **Indienen**.  
 
-   ![Schermafbeelding met voltooide klant info-sectie van de pagina instellingen ondersteuning](media/fxt-cluster-config/fxt-support-info.png)
+   ![Schermafbeelding met voltooide klant info-sectie van de pagina instellingen ondersteuning](media/fxt-cluster-create/fxt-support-info.png)
 
 1. Klik op het driehoekje aan de linkerkant van **Secure proactieve ondersteuning (SP's)** om uit te breiden, de sectie.
 1. Schakel het selectievakje voor **inschakelen SP's koppeling**.
 1. Klik op **Indienen**.
 
-   ![Schermafbeelding met voltooide proactieve ondersteuning beveiligde sectie op de instellingenpagina voor ondersteuning](media/fxt-cluster-config/fxt-support-sps.png)
+   ![Schermafbeelding met voltooide proactieve ondersteuning beveiligde sectie op de instellingenpagina voor ondersteuning](media/fxt-cluster-create/fxt-support-sps.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,7 +8,7 @@ metadata:
   author: cherylmc
   ms.service: Bastion
   ms.topic: landing-page
-  ms.date: 06/13/2019
+  ms.date: 07/02/2019
   ms.author: cherylmc
 abstract:
   description: 'Informatie over hoe u gebruikmaakt van Azure Bastion om verbinding te maken met een virtuele machine. Configureer beveiligde en naadloze RDP-/SSH-connectiviteit in je virtuele machine, rechtstreeks in de Azure-portal via SSL. Wanneer u verbinding maakt met Azure Bastion, hebben uw virtuele machines geen openbaar IP nodig.'
@@ -33,11 +33,3 @@ sections:
           - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Verbinding maken met een virtuele Windows-machine</a>
           - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Verbinding maken met een virtuele Linux-machine</a>
           - html: <a href="/azure/bastion/bastion-faq">Veelgestelde vragen over Azure Bastion bekijken</a>
-  - title: Naslaginformatie
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">Naslaginformatie over REST-API</a></p>'

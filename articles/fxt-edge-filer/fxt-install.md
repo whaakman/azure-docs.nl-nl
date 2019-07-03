@@ -5,14 +5,14 @@ services: ''
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 45f4e12a06e012a06e0b2659d729fce3a191cd32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ed9eca88e5ccc386b25acb95fa729a3cfb95cbd0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450420"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543470"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>Zelfstudie: Azure FXT Edge Filer installeren 
 
@@ -34,9 +34,7 @@ Deze zelfstudie bevat de instellingsstappen van deze:
 Voordat u begint, zorg ervoor dat het datacenter en rack die u wilt gebruiken, heeft deze functies:
 
 * Een beschikbare 1U sleuf op het rek te plaatsen waar u van plan bent om te koppelen van het apparaat.
-* AC-voeding en koeling systemen die voldoen aan de behoeften van de Azure FXT Edge Filer. 
-
-  Lees voor meer informatie over planning en het formaat van de installatie, [Power en warmte specificaties](fxt-specs.md#power-and-thermal-specifications) voor meer informatie over naamplaatje beoordelingen en hitte algemene voorwaarden wordt voldaan.  
+* AC-voeding en koeling systemen die voldoen aan de behoeften van de Azure FXT Edge Filer. (Lezen [Power en warmte specificaties](fxt-specs.md#power-and-thermal-specifications) voor meer informatie over planning en het formaat van de installatie.)  
 
   > [!NOTE] 
   > Als u wilt profiteren van de twee redundante voeding aanbod eenheden (PSUs), gebruikt u power distribution units op twee verschillende vertakking circuits bij het toevoegen van Netstroom zijn aangesloten. Lezen [power kabels verbinden](fxt-network-power.md#connect-power-cables) voor meer informatie.  
@@ -156,8 +154,6 @@ Optionele harde koppeling schroeven zijn opgegeven voor het beveiligen van het s
 
 Een beheertak optionele kabel (CMA) is opgegeven met de FXT Edge Filer. Afgedrukte instructies voor het installeren van deze zijn opgegeven in het pakket. 
 
-<!-- need current images in electronic form from Dell - these are scans -->
-
 1. Uitpakken en de onderdelen van de kabel management arm kit identificeren:
    * CMA lade (1)
    * CMA (2)
@@ -168,7 +164,7 @@ Een beheertak optionele kabel (CMA) is opgegeven met de FXT Edge Filer. Afgedruk
    > [!TIP] 
    > Als u wilt beveiligen de CMA voor verzending in het rek te plaatsen, de tie om zowel opslagplaatsen en lade omloopt lus en ze goed cinch. Beveiligen van de CMA op deze manier wordt bovendien voor beveiliging van uw systeem in omgevingen met instabiel.
 
-   ![Afbeelding van CMA delen](media/fxt-install/cma-parts-scan-400.png)
+   ![Afbeelding van CMA delen](media/fxt-install/cma-kit-400.png)
 
 2. Installeer de lade CMA.
 
@@ -178,7 +174,7 @@ Een beheertak optionele kabel (CMA) is opgegeven met de FXT Edge Filer. Afgedruk
    1. Push de lade doorsturen totdat deze naar de juiste plaats op klikt. (1)
    1. Als u wilt verwijderen in de lade, de knoppen vergrendeling-release verondersteld naar het midden- en pull-de lade buiten de ontvanger vierkante haken (2).
 
-   ![Afbeelding van CMA lade installatie](media/fxt-install/cma-tray-scan-400.png)
+   ![Afbeelding van CMA lade installatie](media/fxt-install/cma-tray-install-400.png)
 
 3. Installeer de CMA bijlage vierkante haken. 
 
@@ -188,7 +184,7 @@ Een beheertak optionele kabel (CMA) is opgegeven met de FXT Edge Filer. Afgedruk
    > * Voor het gemak de CMA te koppelen aan de zijde tegenover de voedingen (side-A). Als deze is gekoppeld aan B, moet de CMA wilt verwijderen van de buitenste voeding worden losgekoppeld. 
    > * Altijd de lade verwijderen voordat het verwijderen van de kracht levert. 
 
-   ![Afbeelding van CMA haakje-installatie](media/fxt-install/cma-brackets-scan-400.png)
+   ![Afbeelding van CMA haakje-installatie](media/fxt-install/cma-bracket-l-r-install-400.png)
 
    1. Selecteer de juiste CMA bijlage haakje voor de clientzijde waar u wilt de CMA (kant B of kant A) koppelen.
    1. De bijlage CMA haakje met de bijbehorende kant A of kant B markering aan het einde van het spoor dia installeren.
@@ -200,11 +196,11 @@ Een beheertak optionele kabel (CMA) is opgegeven met de FXT Edge Filer. Afgedruk
    1. Aanpassen aan de andere vergrendeling op het einde van de buitenste haakje totdat de vergrendeling praat met (2). 
    1. Als u wilt verwijderen van de CMA, ontworpen beide vergrendelingen door op de knoppen CMA vrijgeven aan de bovenkant van de binnenste en buitenste vergrendeling ombouw (3) te drukken.
 
-   ![Afbeelding van de belangrijkste CMA-installatie](media/fxt-install/cma-install-scan-400.png)
+   ![Afbeelding van de belangrijkste CMA-installatie](media/fxt-install/cma-install-400.png)
 
    De CMA kan worden gedraaid weg van het systeem voor toegang en -service. Aan het einde scharnierend, breng de CMA weg van het systeemvak om unseat (1). Nadat het is niet goed aangesloten vanuit de lade, swing de CMA weg van het systeem (2).
 
-   ![Afbeelding van CMA gedraaid openen voor service](media/fxt-install/cma-open-scan-400.png)
+   ![Afbeelding van CMA gedraaid openen voor service](media/fxt-install/cma-swing-over-tray-400.png)
 
 ## <a name="install-the-front-bezel-optional"></a>Installeer het voorpaneel (optioneel)
 
@@ -222,7 +218,7 @@ Het voorpaneel verwijderen:
 1. Druk op de knop vrijgeven aan de linkerkant en ophalen van de linkerkant van de omlijsting weg van het chassis.
 1. Verbreken van de rechterkant en verwijder de omlijsting.
    
-   ![Afbeelding van de release-knop aan de linkerkant van de omlijsting en hoe u deze door binnen naar buiten aan de linkerkant te verwijderen](media/fxt-install/remove-bezel-updated-600.png)
+   ![Afbeelding van de release-knop aan de linkerkant van de omlijsting en hoe u deze door binnen naar buiten aan de linkerkant te verwijderen](media/fxt-install/remove-bezel-edited-600.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

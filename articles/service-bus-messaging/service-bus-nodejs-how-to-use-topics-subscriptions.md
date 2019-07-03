@@ -16,7 +16,7 @@ ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992100"
@@ -48,7 +48,7 @@ Zie voor meer informatie over onderwerpen en abonnementen, [Vervolgstappen](#nex
     > U maakt een **onderwerp** en een **abonnement** naar het onderwerp met behulp van **Node.js** in deze Quick Start. 
 
 ## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
-Maak een lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [Een Node.js-toepassing naar een Azure-website maken en implementeren], [Node.js-Cloudservice] [ Node.js Cloud Service] met behulp van Windows PowerShell of de website met WebMatrix.
+Maak een lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [Een Node.js-toepassing naar een Azure-website maken en implementeren], [Node.js-Cloudservice][Node.js Cloud Service] met behulp van Windows PowerShell of de website met WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus
 Download het Node.js-Azure-pakket voor het gebruik van Service Bus. Dit pakket bevat een set met bibliotheken die met de Service Bus REST-services communiceren.
