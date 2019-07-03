@@ -26,7 +26,7 @@ Azure voordeur Service voorziet in grote bestanden zonder een bovengrens voor be
 
 </br>Nadat het segment bij de voordeur omgeving aankomt, is het in de cache opgeslagen en onmiddellijk naar de gebruiker verzonden. Voordeur haalt vervolgens vooraf het volgende segment tegelijk. Deze vooraf vastgestelde zorgt ervoor dat de inhoud blijft één segment voor de gebruiker, waardoor latentie. Dit proces gaat door totdat het volledige bestand is gedownload (indien nodig), zijn alle bereiken in bytes beschikbaar zijn (indien nodig), of als de client de verbinding verbreekt.
 
-</br>Lees voor meer informatie over de aanvraag bereik in bytes, [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Lees voor meer informatie over de aanvraag bereik in bytes, [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Voordeur slaat alle segmenten als ze worden ontvangen en zodat het hele bestand hoeft niet te worden in de cache op de voordeur-cache. De volgende aanvragen voor het bestand of de byte-adresbereiken worden geleverd uit de cache. Als niet alle segmenten in de cache zijn opgeslagen, vooraf ophalen wordt gebruikt om aan te vragen van segmenten van de back-end. Deze optimalisatie is afhankelijk van de mogelijkheid van de back-end voor ondersteuning van de byte-bereikaanvragen; Als de back-end biedt geen ondersteuning voor byte-bereikaanvragen, is deze optimalisatie niet effectief.
 
 ## <a name="file-compression"></a>Bestandscompressie
