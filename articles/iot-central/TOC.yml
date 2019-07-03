@@ -62,7 +62,7 @@
         - name: Apparaatsets gebruiken
           href: howto-use-device-sets.md
         - name: Versie van de sjabloon van het apparaat
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: Bewaking en analytische gegevens
       items:
         - name: Telemetrie-regel maken
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: Toepassingsdashboard configureren
           href: howto-configure-homepage.md
+        - name: Dashboardtegels gebruiken
+          href: howto-use-tiles.md
         - name: De gebruikersinterface van de toepassing aanpassen
           href: howto-customize-ui.md
         - name: Toepassingssjablonen gebruiken

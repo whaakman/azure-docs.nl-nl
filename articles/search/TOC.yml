@@ -195,6 +195,8 @@
           href: search-indexer-field-mappings.md
         - name: Verbinding maken met SQL Server-VM's
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Indexeerfuncties bewaken
+          href: search-howto-monitor-indexers.md
         - name: Algemene problemen
           href: search-indexer-troubleshooting.md
     - name: Verrijken met AI

@@ -7,7 +7,7 @@
 - name: Snelstartgidsen
   expaned: true
   items:
-    - name: Model trainen en gegevens extraheren
+    - name: Aangepast model trainen en gegevens extraheren
       items:
         - name: Met behulp van de REST API
           items:
@@ -15,6 +15,14 @@
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+    - name: Vooraf gebouwd ontvangstmodel gebruiken
+      items:
+        - name: Met behulp van de REST API
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
 - name: Handleidingen
   items:
     - name: Een set met trainingsgegevens samenstellen

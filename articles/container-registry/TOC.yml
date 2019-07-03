@@ -93,6 +93,8 @@
       items:
         - name: Overzicht van ACR-taken
           href: container-registry-tasks-overview.md
+        - name: Geplande taken
+          href: container-registry-tasks-scheduled.md
         - name: Taken met meerdere stappen
           href: container-registry-tasks-multi-step.md
         - name: Gebruiken met beheerde identiteit
