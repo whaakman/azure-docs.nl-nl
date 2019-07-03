@@ -152,7 +152,7 @@ De volgende headers zijn vereist voor alle berichten die afkomstig zijn van een 
 
 | Header | Value |
 |----|----|
-| Pad | Het pad weergegeven die zijn opgegeven in dit document |
+| Path | Het pad weergegeven die zijn opgegeven in dit document |
 | X-RequestId | UUID in 'niet-dash'-indeling |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
 
@@ -181,7 +181,7 @@ Clients *moet* verzendt een `speech.config` bericht zodra ze maken van de verbin
 
 | Headernaam | Value |
 |----|----|
-| Pad | `speech.config` |
+| Path | `speech.config` |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -227,9 +227,9 @@ Het element system.version van de `speech.config` bericht bevat de versie van de
 
 | Veld | Description | Gebruik |
 |-|-|-|
-| Device.Manufacturer | De fabrikant van apparaat | Vereist |
+| device.manufacturer | De fabrikant van apparaat | Vereist |
 | device.model | Het Apparaatmodel | Vereist |
-| Device.Version | De versie van het apparaat software is geleverd door de fabrikant van het apparaat. Deze waarde bevat een versie van het apparaat dat kan worden gevolgd door de fabrikant. | Vereist |
+| device.version | De versie van het apparaat software is geleverd door de fabrikant van het apparaat. Deze waarde bevat een versie van het apparaat dat kan worden gevolgd door de fabrikant. | Vereist |
 
 ### <a name="message-audio"></a>Bericht `audio`
 
@@ -252,7 +252,7 @@ De volgende headers zijn vereist voor alle `audio` berichten.
 
 | Header         |  Value     |
 | ------------- | ---------------- |
-| Pad | `audio` |
+| Path | `audio` |
 | X-RequestId | UUID in 'niet-dash'-indeling |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
 | Content-Type | De audio inhoudstype. Het type moet een *audio/x-wav* (PCM) of *audio/zijde* (ZIJDE). |
