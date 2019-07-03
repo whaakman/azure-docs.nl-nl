@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 970639eec8c16540d8d7653f1d8bb01e4a397080
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d84b98b4ab936bbb6978144eb2e89b5e19df7069
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450497"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543232"
 ---
 # <a name="tutorial-add-cluster-nodes"></a>Zelfstudie: Clusterknooppunten toevoegen 
 
@@ -51,7 +51,7 @@ De **FXT knooppunten - deelname** lijst toont alle niet-toegewezen FXT knooppunt
 > Als u het knooppunt niet vinden op het gewenste de **Unjoined** weergeven, moet u controleren of het voldoet aan deze vereisten:
 > 
 > * Het wordt ingeschakeld, en heeft een [basis van wachtwoorden in te stellen](fxt-node-password.md).
-> * Het is verbonden met een netwerk dat u kunt openen. Als u VLAN's gebruikt, moet dit worden op hetzelfde VLAN als het cluster.
+> * Het is verbonden met een netwerk dat u kunt openen. Als u VLAN's gebruikt, moet deze worden op hetzelfde VLAN als het cluster.
 > * Het kan worden gedetecteerd met het protocol Bonjour. 
 >
 >   Sommige firewallinstellingen blokkeren de TCP/UDP-poorten die worden gebruikt door Bonjour, waarmee wordt voorkomen dat het besturingssysteem FXT de knooppunten automatisch te detecteren.

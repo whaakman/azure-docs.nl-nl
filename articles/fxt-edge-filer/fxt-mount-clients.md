@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: dd74b82d4edad2b0176a3724176d924c2387f6fe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450322"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542974"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Zelfstudie: Het cluster koppelen
 
@@ -61,11 +61,9 @@ Er zijn drie elementen met de koppelopdracht:
 
 Het pad van het cluster is een combinatie van de vserver *IP-adres* plus het pad naar een *naamruimte koppelingspunten*. De verbinding van de naamruimte is een virtueel pad dat u hebt gedefinieerd wanneer u [toegevoegd het opslagsysteem](fxt-add-storage.md#create-a-junction).
 
-Als u gebruikt bijvoorbeeld ``/avere/files`` als naamruimtepad voor uw, uw clients koppelt *IP-adres*: / avere/bestanden naar hun lokale koppelpunt. 
+Als u gebruikt bijvoorbeeld ``/fxt/files`` als naamruimtepad voor uw, uw clients koppelt *IP-adres*: / fxt/bestanden naar hun lokale koppelpunt. 
 
-<!-- to do: update screenshot to use fxt/files instead of avere/files -->
-
-![Dialoogvenster met/avere/bestanden in het veld voor de naamruimte-pad 'Nieuwe verbinding toevoegen'](media/fxt-mount/fxt-create-junction-example.png)
+![Dialoogvenster met/avere/bestanden in het veld voor de naamruimte-pad 'Nieuwe verbinding toevoegen'](media/fxt-mount/fxt-junction-example.png)
 
 Het IP-adres is een van de clientgerichte IP-adressen die zijn gedefinieerd voor de vserver. U kunt het bereik van IP-adressen op twee plaatsen in het cluster het Configuratiescherm clientgerichte vinden:
 

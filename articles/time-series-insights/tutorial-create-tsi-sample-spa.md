@@ -4,20 +4,20 @@ description: Informatie over het maken van een webtoepassing van één pagina wa
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: e415c681ae5a35de6e8ff76e09cfef8cc8cc98f8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735355"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544070"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken
 
-In deze zelfstudie leidt u door het proces voor het maken van uw eigen webtoepassing één pagina (SPA) voor toegang tot Azure Time Series Insights-gegevens. 
+In deze zelfstudie leidt u door het proces voor het maken van uw eigen webtoepassing één pagina (SPA) voor toegang tot Azure Time Series Insights-gegevens.
 
 In deze zelfstudie wordt aandacht besteed aan:
 
@@ -50,55 +50,14 @@ In deze zelfstudie wordt ook gegevens uit de voorbeeldtoepassing Time Series Ins
 
 ## <a name="register-the-application-with-azure-ad"></a>Toepassing registreren bij Azure AD
 
-Voordat u de toepassing bouwt, moet u deze registreren bij Azure AD. Registratie biedt de configuratie van de identiteit, zodat de toepassing OAuth-ondersteuning voor eenmalige aanmelding kunt. OAuth vereist kuuroorden gebruik van de impliciete toekenning autorisatietype. U kunt de autorisatie in het toepassingsmanifest bijwerken. Een toepassingsmanifest is een JSON-weergave van de identiteitsconfiguratie van de toepassing.
-
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van de account van uw Azure-abonnement.  
-1. Selecteer achtereenvolgens **Azure Active Directory** > **App-registraties** > **Registratie van nieuwe toepassing**.
-
-   [![Azure portal - Begin het Azure AD-toepassing registreren](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
-
-1. In de **maken** deelvenster, vul de vereiste parameters.
-
-   Parameter|Description
-   ---|---
-   **Naam** | Voer een naam zinvolle registratie.  
-   **Toepassingstype** | Laat de **Web-app/API**.
-   **Aanmeldings-URL** | Voer de URL voor de aanmeldingspagina (thuis) opgeven van de toepassing. Omdat de toepassing zal later worden gehost in Azure App Service, moet u een URL in de https:\//azurewebsites.net domein. In dit voorbeeld is de naam gebaseerd op de naam van de registratie.
-
-   Selecteer **maken** te maken van de nieuwe toepassing registreren.
-
-   [![Azure portal - optie de maken in het deelvenster Azure AD-toepassing registreren](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
-
-1. Resource-toepassingen bieden REST-API's dat andere toepassingen kunnen gebruiken. De API's zijn ook geregistreerd bij Azure AD. API's bieden nauwkeurige, beveiligde toegang tot clienttoepassingen bij het blootstellen van *scopes*. Omdat de Azure Time Series Insights-API wordt aangeroepen door uw toepassing, moet u de API en het bereik opgeven. Machtiging is verleend aan de API en het bereik tijdens runtime. Selecteer **instellingen** > **vereiste machtigingen** > **toevoegen**.
-
-   [![Azure portal - optie voor het toevoegen van Azure AD-machtigingen voor het toevoegen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
-
-1. In de **API-toegang toevoegen** venster **1 een API selecteren** om op te geven van de Azure Time Series Insights-API. In de **Select an API** deelvenster in het zoekvak invoeren **azure tijd**. Selecteer **Azure Time Series Insights** in de lijst met resultaten. Kies **Selecteren**.
-
-   [![Azure portal: de zoekoptie voor het toevoegen van Azure AD-machtigingen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
-
-1. Een bereik voor de API, selecteren in de **API-toegang toevoegen** venster **2 bevoegdheid Select**. In de **toegang inschakelen** venster de **toegang tot Azure Time Series Insights-service** bereik. Kies **Selecteren**. U bent terug naar de **API-toegang toevoegen** deelvenster. Selecteer **Done**.
-
-   [![Azure-portal: een bereik voor het toevoegen van Azure AD-machtigingen instellen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
-
-1. In de **vereiste machtigingen** in het deelvenster van de Azure Time Series Insights-API wordt nu weergegeven. U moet ook de machtiging vóór toestemming voor de toepassing voor toegang tot de API en het bereik voor alle gebruikers opgeven. Selecteer **machtigingen verlenen**, en selecteer vervolgens **Ja**.
-
-   [![Azure portal - optie voor het verlenen machtigingen voor het toevoegen van Azure AD vereiste machtigingen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
-
-1. Zoals we eerder besproken, moet u ook het toepassingsmanifest bijwerken. Selecteer in het horizontale menu aan de bovenkant van het deelvenster (de ' breadcrumbs'), de naam van de toepassing om terug te keren naar de **geregistreerde app** deelvenster. Selecteer **Manifest**, wijzigt de `oauth2AllowImplicitFlow` eigenschap `true`, en selecteer vervolgens **opslaan**.
-
-   [![Azure portal - Update de Azure AD-manifest](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
-
-1. Selecteer in het koppelingenmenu, de naam van de toepassing om terug te keren naar de **geregistreerde app** deelvenster. Kopieer de waarden voor **startpagina** en **toepassings-ID** voor uw toepassing. U kunt deze eigenschappen gebruiken verderop in de zelfstudie.
-
-   [![Azure portal: Kopieer de URL van startpagina en toepassings-ID-waarden voor uw toepassing](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
+[!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
 ## <a name="build-and-publish-the-web-application"></a>Webtoepassing bouwen en publiceren
 
 1. Maak een map voor het opslaan van de projectbestanden van uw toepassing. Vervolgens gaat u naar elk van de volgende URL's. Met de rechtermuisknop op de **Raw** koppelen in de rechterbovenhoek van de pagina en selecteer vervolgens **opslaan als** om op te slaan van de bestanden in uw projectmap.
 
-   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML en JavaScript voor de pagina
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): Opmaakmodel
+   - [*index.HTML*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): de HTML en JavaScript voor de pagina
+   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): het opmaakmodel
 
    > [!NOTE]
    > Afhankelijk van de browser moet u mogelijk de bestandsextensies .html of CSS wijzigen voordat u het bestand opslaat.
@@ -142,7 +101,7 @@ Voordat u de toepassing bouwt, moet u deze registreren bij Azure AD. Registratie
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Voor het configureren van de app voor het gebruik van uw Azure AD-app-registratie-ID wijzigt de `clientID` en `postLogoutRedirectUri` waarden voor gebruik van de waarden voor **toepassings-ID** en **startpagina** die u hebt gekopieerd in stap 9 in [ De toepassing registreren bij Azure AD](#register-the-application-with-azure-ad).
+   1. Voor het configureren van de app voor het gebruik van uw Azure AD-app-registratie-ID wijzigt de `clientID` waarde gebruiken de de **toepassings-ID** u gekopieerd **stap 3** wanneer u [geregistreerd van de toepassing Gebruik Azure AD](#register-the-application-with-azure-ad). Als u hebt gemaakt een **afmeldings-URL van** in Azure AD, stelt u die waarde als de `postLogoutRedirectUri` waarde.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -182,9 +141,9 @@ Voordat u de toepassing bouwt, moet u deze registreren bij Azure AD. Registratie
 
 Foutcode/-conditie | Description
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application.* | De Azure AD-registratie ontbreekt de **antwoord-URL** eigenschap. Ga naar **instellingen** > **antwoord-URL's** voor de registratie van uw Azure AD-toepassing. Controleer de **Sign-on** URL die is opgegeven in stap 3 in [de toepassing registreren bij Azure AD](#register-the-application-with-azure-ad) aanwezig is.
-*AADSTS50011: Het antwoord op de url die is opgegeven in de aanvraag komt niet overeen met de antwoord-URL's geconfigureerd voor de toepassing: '\<Application ID GUID >'.* | De `postLogoutRedirectUri` opgegeven in stap 6 van [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application) moet overeenkomen met de waarde die is opgegeven onder **instellingen** > **antwoord-URL's** in de registratie van uw Azure AD-toepassing. Zorg ervoor dat u ook Wijzig de waarde voor **doel-URL** gebruiken *https* per stap 5 in [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application).
-De web-App wordt geladen, maar heeft een opgemaakte, alleen tekst aanmeldingspagina, met een witte achtergrond. | Controleer of de paden die worden beschreven stap 4 in [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application) juist zijn. Als de webtoepassing de CSS-bestanden niet kan vinden, wordt de pagina niet goed opgemaakt.
+*AADSTS50011: No reply address is registered for the application.* | De Azure AD-registratie ontbreekt de **antwoord-URL** eigenschap. Ga naar **instellingen** > **antwoord-URL's** voor de registratie van uw Azure AD-toepassing. Controleer de **omleidings-URI** moest u de optie om op te geven **stap 2** wanneer u [geregistreerd van de toepassing voor het gebruik van Azure AD](#register-the-application-with-azure-ad) aanwezig is.
+*AADSTS50011: Het antwoord op de url die is opgegeven in de aanvraag komt niet overeen met de antwoord-URL's geconfigureerd voor de toepassing: '\<Application ID GUID >'.* | De `postLogoutRedirectUri` opgegeven in **stap 6** in [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application) moet overeenkomen met de waarde die is opgegeven onder **instellingen**  >  **Antwoord-URL's** in de registratie van uw Azure AD-toepassing. Zorg ervoor dat u ook Wijzig de waarde voor **doel-URL** gebruiken *https* per **stap 5** in [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application).
+De web-App wordt geladen, maar heeft een opgemaakte, alleen tekst aanmeldingspagina, met een witte achtergrond. | Controleer of de paden die worden beschreven **stap 4** in [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application) juist zijn. Als de webtoepassing de CSS-bestanden niet kan vinden, wordt de pagina niet goed opgemaakt.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

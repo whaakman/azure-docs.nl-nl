@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 611d5f7983c61fab12c55a46fedf35a3c420c4c8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ad9bba53390e3c4262f999ebcc57ab354f1e3d69
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454816"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537623"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Een set trainingsgegevens voor een aangepast model bouwen
 
-Wanneer u het aangepaste formulier herkenning-model, Geef uw eigen trainingsgegevens, zodat het model voor uw branche-specifieke formulieren trainen kunt. U kunt een model trainen met vijf ingevuld in formulieren of een leeg formulier (inclusief het woord 'lege' in de bestandsnaam) plus twee ingevuld in formulieren. Zelfs als er voldoende formulieren ingevuld met de trein, kan een leeg formulier toe te voegen aan uw set trainingsgegevens de nauwkeurigheid van het model verbeteren.
+Wanneer u het aangepaste formulier herkenning-model, Geef uw eigen trainingsgegevens, zodat het model voor uw branche-specifieke formulieren trainen kunt. U kunt een model trainen met vijf ingevuld in formulieren of een leeg formulier (u moet het woord 'leeg' in de bestandsnaam opnemen) plus twee ingevuld in formulieren. Zelfs als er voldoende formulieren ingevuld met de trein, kan een leeg formulier toe te voegen aan uw set trainingsgegevens de nauwkeurigheid van het model verbeteren.
 
 ## <a name="training-data-tips"></a>Tips voor training-gegevens
 
@@ -32,8 +32,35 @@ Het is belangrijk om te gebruiken van een gegevensset die geoptimaliseerd voor t
 
 ## <a name="general-input-requirements"></a>Algemene vereisten voor invoer
 
-Zorg ervoor dat uw gegevensset training volgt ook de input vereisten voor alle inhoud van het formulier herkenning.
+Zorg ervoor dat uw gegevensset training volgt ook de input vereisten voor alle inhoud van het formulier herkenning. 
+
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## <a name="upload-your-training-data"></a>Uw trainingsgegevens uploaden
+
+Wanneer u hebt geplaatst samen de set van formulier-documenten die u voor training gebruiken gaat, moet u dit uploaden naar een Azure blob storage-container. Als u niet hoe u een Azure storage-account maakt met een container weet, volgt u de [Azure Storage-quickstart voor Azure-portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+### <a name="organize-your-data-in-subfolders-optional"></a>Uw gegevens indelen in submappen (optioneel)
+
+Standaard de [Train Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) API wordt alleen gebruik van formulier-documenten die zich bevinden in de hoofdmap van uw storage-container. U kunt echter trainen met gegevens in submappen als u het opgeeft in de API-aanroep. Normaal gesproken de hoofdtekst van de [Train Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) aanroep heeft de volgende notatie, waarbij `<SAS URL>` is de Shared access signature-URL van de container:
+
+```json
+{
+  "source":"<SAS URL>"
+}
+```
+
+Als u de volgende inhoud aan de hoofdtekst van de aanvraag toevoegen, wordt de API trainen met documenten in de submappen. De `"prefix"` veld is optioneel en wordt de set trainingsgegevens op bestanden waarvan paden met de opgegeven tekenreeks beginnen beperken. Dus een waarde van `"Test"`, bijvoorbeeld zorgt ervoor dat de API om te kijken naar alleen de bestanden of mappen die met het woord 'Test beginnen'.
+
+```json
+{
+  "source": "<SAS URL>",
+  "sourceFilter": {
+    "prefix": "<prefix string>",
+    "includeSubFolders": true
+  }
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

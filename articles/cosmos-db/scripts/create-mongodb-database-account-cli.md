@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 7/2/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8aae88b24cee64136fb247744325424a446a7bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a256a0ff5164ec9b25aea3849f20643ee3719fac
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446734"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541428"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Een Azure Cosmos DB-account maken met de Azure Cosmos DB-API voor MongoDB met behulp van Azure CLI
 
@@ -22,6 +22,8 @@ Met dit voorbeeld van Azure CLI-script wordt een Cosmos-account gemaakt met de A
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+
+[!NOTE] Zie voor meer informatie over database en container naamconventies., [werken met databases, containers en objecten in Azure Cosmos DB](../databases-containers-items.md).
 
 ## <a name="sample-script"></a>Voorbeeldscript
 

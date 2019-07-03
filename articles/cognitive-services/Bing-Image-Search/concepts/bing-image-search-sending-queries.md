@@ -1,5 +1,5 @@
 ---
-title: Verzenden van de installatiekopie van query's, Bing afbeeldingen zoeken-API
+title: Aanpassen en worden de installatiekopie van zoekquery's - Bing afbeeldingen zoeken-API
 titleSuffix: Azure Cognitive Services
 description: Meer informatie over het aanpassen van de zoekquery's die u naar de Bing afbeeldingen zoeken-API verzendt.
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384405"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542743"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Query's verzenden naar de Bing afbeeldingen zoeken-API
+# <a name="customize-and-suggest-image-search-queries"></a>Aanpassen en de installatiekopie van zoekquery's voorstellen
 
-De Bing afbeeldingen zoeken-API biedt een ervaring die vergelijkbaar is met Bing.com/Images. U kunt het verzenden van een zoekopdracht naar Bing, waarna een lijst met relevante installatiekopieën gebruiken.
+Gebruik dit artikel voor informatie over het aanpassen van query's en voorstellen zoektermen om te verzenden naar de Bing afbeeldingen zoeken-API.
 
-## <a name="use-and-suggest-search-terms"></a>Gebruik en zoektermen voorstellen
-
-Nadat een zoekterm invoert, URL-codering de term voordat u stelt de [ **q** ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) queryparameter. Als u bijvoorbeeld *Zeilsloepen*, stel `q` naar `sailing+dinghies` of `sailing%20dinghies`.
+## <a name="suggest-search-terms"></a>Zoektermen voorstellen
 
 Als uw app een zoekvak waarin zoektermen zijn ingevoerd heeft, kunt u de [Bing Automatische suggestie-API](../../bing-autosuggest/get-suggested-search-terms.md) om de ervaring te verbeteren. De API kunt voorgestelde zoektermen weergeven in realtime. De API retourneert voorgestelde queryreeksen op basis van gedeeltelijke zoektermen en Cognitive Services.
 

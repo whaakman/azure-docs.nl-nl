@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389415"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542764"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Afbeeldingen ophalen via het web met de Bing afbeeldingen zoeken-API
 
@@ -31,10 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
+Gebruik de [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) parameter op te vragen voor de url-gecodeerde zoekterm. Als u bijvoorbeeld *Zeilsloepen*, stel `q` naar `sailing+dinghies` of `sailing%20dinghies`.
+
 > [!IMPORTANT]
 > * Alle aanvragen moeten worden gemaakt van een server en niet van een client.
 > * Als het de eerste keer aanroepen van een van de Bing zoeken-API's, niet de header van de client-ID bevatten. Als u voorheen een Bing-API die een client-ID voor de gebruiker en apparaat combinatie geretourneerd hebt genoemd, zijn alleen de client-ID.
-> * Afbeeldingen moeten worden weergegeven in de volgorde die is opgegeven in het antwoord.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Afbeeldingen ophalen uit een specifieke web-domein
 
@@ -46,17 +47,6 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 
 > [!NOTE]
 > Antwoorden op query's met behulp van de `site:` operator advies inwinnen bij inhoud voor volwassenen ongeacht de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) instelling. Gebruik alleen `site:` bent u op de hoogte van de inhoud van het domein.
-
-Het volgende voorbeeld laat zien hoe u kleine afbeeldingen opvraagt van ContosoSailing.com die Bing de afgelopen week heeft gedetecteerd.  
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
 
 ## <a name="filter-images"></a>Installatiekopieën filteren
 
@@ -73,9 +63,6 @@ Host: api.cognitive.microsoft.com
 
 Als u afbeeldingen uit een bepaald domein wilt opvragen, gebruikt de query-operator [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
- > [!NOTE]
- > Antwoorden op query's met behulp van de `site:` operator advies inwinnen bij inhoud voor volwassenen ongeacht de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) instelling. Gebruik alleen `site:` bent u op de hoogte van de inhoud van het domein.
-
 Het volgende voorbeeld ziet hoe u kleine afbeeldingen van ContosoSailing.com die Bing gedetecteerd in de afgelopen week.  
 
 ```http
@@ -90,6 +77,10 @@ Host: api.cognitive.microsoft.com
 ## <a name="bing-image-search-response-format"></a>Bing afbeeldingen zoeken-antwoordindeling
 
 Het antwoordbericht van Bing bevat een [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) antwoord bevat een lijst met installatiekopieën die Cognitive Services blijkt dat relevant is voor de query. Elke [installatiekopie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) object in de lijst bevat de volgende informatie over de installatiekopie: de URL, de grootte, de dimensies, de coderingsindeling, een URL naar een miniatuur van de installatiekopie en dimensies van de miniatuur.
+
+> [!NOTE]
+> * Afbeeldingen moeten worden weergegeven in de volgorde die is opgegeven in het antwoord.
+> * Omdat URL-indelingen en parameters zijn kan zonder kennisgeving worden gewijzigd, het gebruik van alle URL's als-is. U niet kunt uitvoeren afhankelijk is van het URL-indeling of de parameters, tenzij anders wordt vermeld.
 
 ```json
 {

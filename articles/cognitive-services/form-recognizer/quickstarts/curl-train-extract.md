@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 642fa87f8c838e10c4f18d8f4bdbab58d9501477
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 1990077e6466e08c1b6c463dafe9809b52df6d14
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502878"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537604"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en ophalen van gegevens met behulp van de REST-API met cURL
 
@@ -34,13 +34,13 @@ Als u wilt deze snelstartgids hebt voltooid, moet u het volgende hebben:
 
 ## <a name="train-a-form-recognizer-model"></a>Een formulier herkenning-model te trainen
 
-Eerst moet u een set trainingsgegevens in een Azure Storage-blob. U moet minimaal vijf voorbeeldformulieren (PDF-documenten en/of afbeeldingen) van de dezelfde soort/structuur als uw belangrijkste invoergegevens hebben. Of u kunt een leeg formulier gebruiken met twee ingevuld in formulieren. De bestandsnaam van het leeg formulier nodig heeft om het woord 'empty'.
+Eerst moet u een set trainingsgegevens in een Azure Storage-blob. U moet minimaal vijf ingevuld in formulieren (PDF-documenten en/of afbeeldingen) van de dezelfde soort/structuur als uw belangrijkste invoergegevens hebben. Of u kunt een leeg formulier gebruiken met twee ingevuld in formulieren. De bestandsnaam van het leeg formulier nodig heeft om het woord 'empty'. Zie [bouwen van een set trainingsgegevens voor een aangepast model](../build-training-data-set.md) voor tips en opties voor het samenstellen van uw trainingsgegevens.
 
-Als u wilt een formulier herkenning-model te trainen met behulp van de documenten in uw Azure blob-container, Roep de **trainen** API door het uitvoeren van de cURL-opdracht die volgt. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
+Als u wilt een formulier herkenning model trainen met de documenten in uw Azure blob-container, aanroepen de **trainen** API door het uitvoeren van de volgende cURL-opdracht. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
 
 1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
-1. Vervang `<SAS URL>` met de Azure Blob storage-container gedeelde access signature (SAS)-URL. Als u wilt dit ophalen, opent u de Microsoft Azure Storage Explorer, met de rechtermuisknop op de container en selecteer **handtekening voor gedeelde toegang ophalen**. Klik op het volgende dialoogvenster en kopieer de waarde in de **URL** sectie. Deze moet de vorm hebben: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Vervang `<subscription key>` met de abonnementssleutel die u hebt gekopieerd uit de vorige stap.
+1. Vervang `<SAS URL>` met de Azure Blob storage-container gedeelde access signature (SAS)-URL. Als u wilt dit ophalen, opent u de Microsoft Azure Storage Explorer, met de rechtermuisknop op de container en selecteer **handtekening voor gedeelde toegang ophalen**. Zorg ervoor dat de **lezen** en **lijst** machtigingen zijn ingeschakeld en klik op **maken**. Kopieer vervolgens de waarde in de **URL** sectie. Deze moet de vorm hebben: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"

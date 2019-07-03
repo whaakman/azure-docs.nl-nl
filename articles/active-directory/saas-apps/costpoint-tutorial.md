@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ebc5d1d7cac78066fa4e6028b1921211cb05bf5
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f21c7896f0ed2afba3a302b4686289cf331ba510
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144639"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536850"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Zelfstudie: Costpoint integreren met Azure Active Directory
 
@@ -78,14 +78,18 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Op de **SAML-basisconfiguratie** sectie, de toepassing is vooraf geconfigureerd en de vereiste URL's al vooraf zijn ingevuld met Azure. De gebruiker moet de configuratie op te slaan door te klikken op de **opslaan** knop en de volgende stap uitvoeren:
+4. In het gedeelte **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    a. Klik op **Extra URL's instellen**.
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<CostpointURI>`
 
-    b. In de **Relaystatus** in het tekstvak, typ een waarde met behulp van het volgende patroon:`<SYSTEM VALUE>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<CostpointURI>/LoginServlet.cps`
+
+    c. Klik op **Extra URL's instellen**.
+
+    d. In de **Relaystatus** in het tekstvak, typ een waarde met behulp van het volgende patroon:`<SYSTEM VALUE>`
 
     > [!NOTE]
-    > De status van de Relay-waarde is niet echt. Werk deze waarde bij met de werkelijke relaystatus. Neem contact op met [Costpoint Client ondersteuningsteam](https://www.deltek.com/about/contact-us) deze waarde op te halen.
+    > Dit zijn geen echte waarden. Deze waarden met de werkelijke-id, de antwoord-URL en Relaystatus bijwerken. Neem contact op met [Costpoint Client ondersteuningsteam](https://www.deltek.com/about/contact-us) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Als u de toepassing wilt configureren in door **SP**geïnitieerde modus, voert u de volgende stap uit:
 

@@ -4,18 +4,21 @@ description: Informatie over het configureren van meerdere masters in uw toepass
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e33aa10673f4c4b061f8961959f20b7b3416ec84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204791"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538088"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configureren van meerdere masters in uw toepassingen die gebruikmaken van Azure Cosmos DB
 
-Voor het gebruik van de functie voor meerdere masters in uw toepassing, moet u schrijfbewerkingen in meerdere regio's inschakelen en configureren van de multihoming-functie in Azure Cosmos DB. Voor het configureren van multihoming, moet u de naam van de regio waar de toepassing is geïmplementeerd met de eigenschap SetCurrentLocation doorgeeft. Dit automatisch doet, vult de eigenschap PreferredLocations op basis van de geo-nabijheid van de locatie die is ingevoerd. Als een nieuwe regio wordt later toegevoegd aan het account, de toepassing hoeft niet te worden bijgewerkt of opnieuw geïmplementeerd, detecteert automatisch de dichter bij de regio en wordt automatisch-startpagina bij deze moet een regionale gebeurtenis worden uitgevoerd.
+Wanneer een account is gemaakt met meerdere regio's voor schrijven ingeschakeld, moet u twee wijzigingen aanbrengt in uw toepassing aan de ConnectionPolicy voor de DocumentClient om in te schakelen van de mogelijkheden voor meerdere masters en multihoming in Azure Cosmos DB. In de ConnectionPolicy instellen UseMultipleWriteLocations true en de naam van de regio waar de toepassing is geïmplementeerd voor SetCurrentLocation doorgeven. Hiermee wordt de eigenschap PreferredLocations op basis van de geo-nabijheid van de locatie die wordt doorgegeven in gevuld. Als een nieuwe regio wordt later toegevoegd aan het account, de toepassing hoeft niet te worden bijgewerkt of opnieuw geïmplementeerd, detecteert automatisch de dichter bij de regio en wordt automatisch-startpagina bij deze moet een regionale gebeurtenis worden uitgevoerd.
+
+> [!TIP]
+> Cosmos-accounts die zijn gemaakt niet in eerste instantie geconfigureerd voor meerdere masters kunnen worden gemigreerd met nul uitvaltijd. Voor meer informatie over meer Zie [meerdere schrijfregio's configureren](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 

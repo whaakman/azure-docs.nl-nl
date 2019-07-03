@@ -98,7 +98,7 @@ Clients *moet* ondersteuning voor de omleiding van standard-mechanismen opgegeve
 
 Clients *moet* een juiste Speech Service-eindpunt gebruiken. Het eindpunt is gebaseerd op de opname-modus en de taal. De tabel ziet u enkele voorbeelden.
 
-| Modus | Pad | Service-URI |
+| Modus | Path | Service-URI |
 | -----|-----|-----|
 | Interactief | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Gesprek | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -308,7 +308,7 @@ Clients het einde van een inschakelen door te sturen moeten bevestigen een `tele
 | Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
-| Pad | `telemetry` |
+| Path | `telemetry` |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
 | Content-Type | `application/json` |
 | Hoofdtekst | Een JSON-structuur met clientinformatie over het inschakelen |
@@ -330,7 +330,7 @@ De `speech.startDetected` bericht geeft aan dat Spraakservice spraak gedetecteer
 | Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
-| Pad | `speech.startDetected` |
+| Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Hoofdtekst | De JSON-structuur die informatie over de voorwaarden bevat wanneer het begin van spraak is gedetecteerd. De *Offset* veld in deze structuur geeft de verschuiving (in eenheden van 100 nanoseconden) wanneer spraak in de audiostream, ten opzichte van het begin van de stroom is gedetecteerd. |
 
@@ -355,7 +355,7 @@ Tijdens de spraakherkenning genereert Speech Service regelmatig hypothesen over 
 | Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
-| Pad | `speech.hypothesis` |
+| Path | `speech.hypothesis` |
 | X-RequestId | UUID in 'niet-dash'-indeling |
 | Content-Type | application/json |
 | Hoofdtekst | De spraak-hypothese JSON-structuur |
@@ -387,7 +387,7 @@ Wanneer Spraakservice bepaalt dat er voldoende informatie voor het produceren va
 | Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
-| Pad | `speech.phrase` |
+| Path | `speech.phrase` |
 | Content-Type | application/json |
 | Hoofdtekst | De spraak-woordgroep JSON-structuur |
 
@@ -415,7 +415,7 @@ De `speech.endDetected` bericht geeft aan dat de clienttoepassing moet worden st
 | Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
-| Pad | `speech.endDetected` |
+| Path | `speech.endDetected` |
 | Hoofdtekst | De JSON-structuur met de verschuiving van het einde van spraak is gedetecteerd. De offset wordt weergegeven in eenheden van 100 nanoseconden verschuiving vanaf het begin van de audio die wordt gebruikt voor opname. |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -440,7 +440,7 @@ De `turn.start` geeft aan het begin van een inschakelen vanuit het perspectief v
 | Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
-| Pad | `turn.start` |
+| Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Hoofdtekst | JSON-structuur |
 
@@ -467,7 +467,7 @@ De `turn.end` geeft aan het einde van een inschakelen vanuit het perspectief van
 | Veld | Description |
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Text |
-| Pad | `turn.end` |
+| Path | `turn.end` |
 | Hoofdtekst | Geen |
 
 #### <a name="sample-message"></a>Voorbeeldbericht

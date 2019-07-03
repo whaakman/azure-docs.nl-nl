@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c796114d124c64ac1c373baacabe00c7dcd70aa7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dd4f85822a5e6615e7ea6e31b4231c04c9d4e88c
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447635"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542857"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 
@@ -97,7 +97,7 @@ Zorg ervoor dat u het beste gebruik van de classificatie-functies die biedt onde
 
 ### <a name="choosing-a-threshold"></a>Het kiezen van een drempelwaarde
 
-De standaardwaarde [betrouwbaarheidsscore](confidence-score.md#) die wordt gebruikt als een drempelwaarde 50 is, maar u kunt [de drempel wijzigen](confidence-score.md#set-threshold) voor uw KB op basis van uw behoeften. Omdat elke KB anders is, moet u testen en kies de drempelwaarde die is het beste geschikt is voor uw KB. 
+De standaardwaarde [betrouwbaarheidsscore](confidence-score.md) die wordt gebruikt als een drempelwaarde 50 is, maar u kunt [de drempel wijzigen](confidence-score.md#set-threshold) voor uw KB op basis van uw behoeften. Omdat elke KB anders is, moet u testen en kies de drempelwaarde die is het beste geschikt is voor uw KB. 
 
 ### <a name="choosing-ranker-type"></a>Kerntechnologie type kiezen
 Standaard zoekt QnA Maker met vragen en antwoorden. Als u doorzoeken vragen alleen wilt, voor het genereren van een antwoord, gebruikt de `RankerType=QuestionOnly` in de hoofdtekst van bericht van de aanvraag GenerateAnswer.

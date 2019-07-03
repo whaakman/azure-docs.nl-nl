@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd54033f10833d2de6b33fad95cfc9affa2beff2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb6e034005902d478b94a12e2cbe44a00228735
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096142"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Zelfstudie: Integratie van Azure Active Directory met Cloud Management Portal for Microsoft Azure
 
@@ -125,7 +125,7 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD te configurere
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
     | `https://<subdomain>.newsignature.com` |
-    | `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
+    | `https://<subdomain>.newsignature.com/<instancename>` |
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met het [ondersteuningsteam van Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

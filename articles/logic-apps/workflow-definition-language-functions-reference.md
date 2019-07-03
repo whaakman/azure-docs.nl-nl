@@ -114,7 +114,7 @@ Als u wilt werken met verzamelingen, in het algemeen matrices, tekenreeksen en s
 | [Lengte](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retourneert het aantal items in een tekenreeks of een matrix. |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Items verwijderen uit het voorste deel van een verzameling en retourneren *alle andere* items. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Items retourneren vanaf het begin van een verzameling. |
-| [Union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen. |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen. |
 |||
 
 <a name="comparison-functions"></a>
@@ -126,12 +126,12 @@ Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst
 
 | Logische vergelijkingsfunctie. | Taak |
 | --------------------------- | ---- |
-| [en](../logic-apps/workflow-definition-language-functions-reference.md#and) | Controleer of alle expressies ' True ' zijn. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Controleer of alle expressies ' True ' zijn. |
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Controleer of beide waarden gelijk zijn. |
-| [meer](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Controleer of de eerste waarde groter dan de tweede waarde is. |
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Controleer of de eerste waarde groter dan de tweede waarde is. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Controleer of de eerste waarde groter dan of gelijk zijn aan de tweede waarde is. |
 | [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Controleer of een expressie waar of ONWAAR is. Op basis van het resultaat, een opgegeven waarde retourneren. |
-| [minder](../logic-apps/workflow-definition-language-functions-reference.md#less) | Controleer of de eerste waarde kleiner is dan de tweede waarde. |
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Controleer of de eerste waarde kleiner is dan de tweede waarde. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Controleer of de eerste waarde kleiner zijn dan of gelijk zijn aan de tweede waarde is. |
 | [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Controleer of een expressie onwaar is. |
 | [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Controleer of ten minste één expressie waar is. |
@@ -751,7 +751,7 @@ En retourneert het resultaat met behulp van de optionele "D"-indeling: `"Tuesday
 
 <a name="and"></a>
 
-### <a name="and"></a>en
+### <a name="and"></a>and
 
 Controleer of alle expressies ' True ' zijn.
 Retourneert waar wanneer alle expressies waar zijn of onwaar retourneren wanneer ten minste één expressie onwaar is.
@@ -2026,7 +2026,7 @@ En dit resultaat wordt weergegeven: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-### <a name="greater"></a>meer
+### <a name="greater"></a>greater
 
 Controleer of de eerste waarde groter dan de tweede waarde is.
 Retourneert waar wanneer de eerste waarde meer is en retourneert false als minder.
@@ -3776,7 +3776,7 @@ En dit resultaat wordt weergegeven: `"Hello World"`
 
 <a name="union"></a>
 
-### <a name="union"></a>Union
+### <a name="union"></a>union
 
 Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen.
 Een item kan worden weergegeven in het resultaat, worden weergegeven in een verzameling die is doorgegeven aan deze functie. Als een of meer items dezelfde naam hebben, wordt het laatste item met die naam in het resultaat weergegeven.

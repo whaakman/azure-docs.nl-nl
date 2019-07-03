@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 86d6653aceeb7a44e3758b629d74db516235fcf8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102337"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550396"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Zelfstudie: Azure Active Directory-integratie met CX Suite voorzien
 
@@ -119,7 +119,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met CX Suite voorzien, m
 
     a. Typ een URL in het tekstvak **Aanmeldings-URL**: `https://cxsuite.foresee.com/`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: https:\//www.okta.com/saml2/service-provider/<UniqueID>
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: https:\//www.okta.com/saml2/service-provider/\<UniqueID >
 
     > [!Note]
     > Als de **id** waarde krijg niet automatisch polulated, vul in de bovenstaande patroon waarde handmatig op. De id-waarde is niet echt. Werk deze waarde bij met de werkelijke id. Neem contact op met [voorzien CX Suite Client ondersteuningsteam](mailto:support@foresee.com) deze waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

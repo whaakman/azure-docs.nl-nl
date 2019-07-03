@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 666172e3685b923ca0d0e5fa02878341fcd0a216
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432859"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543875"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Zelfstudie: Gesimuleerde apparaatgegevens genereren
 
@@ -121,9 +121,9 @@ Nu dat we het project bouwen hebben, verbinden met uw IoT-hub voor toegang tot d
 
 1. Houd er rekening mee dat apparaten worden toegevoegd aan de IoT-Hub en dat de apparaten worden weergegeven in het groen om aan te geven dat de gegevens worden verzonden via dat apparaat.
 
-1. U vindt de berichten worden verzonden naar de hub met de rechtermuisknop op elk apparaat en selecteert u **Start Monitoring D2C Message**. De berichten worden weergegeven in het deelvenster Uitvoer in Visual Studio Code.
+1. U vindt de berichten worden verzonden naar de hub met de rechtermuisknop op elk apparaat en selecteert u **Start Monitoring ingebouwde gebeurtenis eindpunt**. De berichten worden weergegeven in het deelvenster Uitvoer in Visual Studio Code.
 
-1. Beëindigen van de controle door te klikken in de **Azure IoT Hub Toolkit** deelvenster Uitvoer en kies **Stop Monitoring D2C Message**.
+1. Beëindigen van de controle door te klikken in de **Azure IoT Hub Toolkit** deelvenster Uitvoer en kies **Stop Monitoring ingebouwde gebeurtenis eindpunt**.
 
 1. Zodat de toepassing volledig, die een paar minuten duurt worden uitgevoerd.
 

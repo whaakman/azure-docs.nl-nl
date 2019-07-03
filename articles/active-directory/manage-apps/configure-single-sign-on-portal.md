@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f6707c780931eac58e2a870c321385e63bd948a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825019"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550471"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Zelfstudie: Op SAML gebaseerde eenmalige aanmelding voor een toepassing met Azure Active Directory configureren
 
@@ -138,7 +138,7 @@ Een gebruiker of groep toewijzen aan de toepassing:
 
 U bent bijna klaar.  Als laatste stap moet u de toepassing Azure AD gebruiken als een SAML-identiteitsprovider instellen. 
 
-1. Schuif omlaag naar de **instellen <applicationName>**  sectie. Voor deze zelfstudie in deze sectie wordt aangeroepen **instellen van GitHub-test**. 
+1. Schuif omlaag naar de **instellen \<applicationName >** sectie. Voor deze zelfstudie in deze sectie wordt aangeroepen **instellen van GitHub-test**. 
 2. Kopieer de waarde van elke rij in deze sectie. Plak elke waarde in de desbetreffende rij in de **SAML-basisconfiguratie** sectie. Kopieer bijvoorbeeld de **aanmeldings-URL** waarde uit de **instellen van GitHub-test** sectie en plak deze in de **aanmelding URL** veld in de **SAML-basisconfiguratie**  sectie, enzovoort.
 3. Wanneer u alle waarden in de juiste velden hebt geplakt, selecteert u **opslaan**.
 
@@ -147,15 +147,15 @@ U bent bijna klaar.  Als laatste stap moet u de toepassing Azure AD gebruiken al
 U kunt uw instellingen testen.  
 
 1. Open de instellingen voor eenmalige aanmelding voor uw toepassing. 
-2. Schuif naar de **valideren eenmalige aanmelding met <applicationName>**  sectie. Voor deze zelfstudie in deze sectie wordt aangeroepen **instellen van GitHub-test**.
+2. Schuif naar de **valideren eenmalige aanmelding met \<applicationName >** sectie. Voor deze zelfstudie in deze sectie wordt aangeroepen **instellen van GitHub-test**.
 3. Selecteer **Test**. De test-opties worden weergegeven.
 4. Selecteer **Meld u als de huidige gebruiker**. Met deze test kunt u eerst controleren of eenmalige aanmelding voor u, de beheerder, werkt.
 
 Als er een fout optreedt, wordt een foutbericht weergegeven. Voltooi de volgende stappen:
 
-1. Kopieer en plak de gegevens in het vak **Hoe ziet de fout eruit?**.
+1. Kopieer en plak de gegevens in het vak **Hoe ziet de fout eruit?** .
 
-    ![Hulp bij het oplossen van problemen krijgen](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Hulp krijgen bij het oplossen van problemen](media/configure-single-sign-on-portal/error-guidance.png)
 
 2. Selecteer **resolutie begeleiding**. De richtlijnen voor de oorzaak en de oplossing van het probleem worden weergegeven.  In dit voorbeeld was de gebruiker niet toegewezen aan de toepassing.
 

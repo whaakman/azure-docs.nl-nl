@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ffb31dd41e600344d341d17e07ad13d5fcd7f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111086"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550578"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Meld u aan gebruikers en de Microsoft Graph aanroepen vanuit een Android-app
 
@@ -465,7 +465,7 @@ Nadat we hebben een token is geworden, kunnen we een aanvraag naar de Microsoft 
 
 | Header-sleutel    | value                 |
 | ------------- | --------------------- |
-| Autorisatie | Bearer < toegangstoken > |
+| Authorization | Bearer \<toegangstoken > |
 
 Om dit te doen in de code aan uw app graph aanroepen en het bijwerken van de gebruikersinterface met toevoegen van de volgende twee methoden: 
 

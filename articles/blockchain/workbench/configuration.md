@@ -320,7 +320,7 @@ Een verzameling van unieke statussen binnen een werkstroom. Elke status bevat ee
   ]
 ```
 
-## <a name="transitions"></a>Overgangen
+## <a name="transitions"></a>Transitions
 
 Beschikbare acties voor de volgende status. Een of meer gebruikersrollen kunnen een actie uitvoeren bij elke status, waarbij een status kan overgaan van de ene naar een andere in de werkstroom. 
 

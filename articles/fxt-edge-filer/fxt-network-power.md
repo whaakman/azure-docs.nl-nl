@@ -4,14 +4,14 @@ description: Hoe u de netwerkpoorten bekabelen en acculading Azure FXT Edge File
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 444835a94559a352bfd749cfa1cb2cd8c3a39373
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae179e8ce2a2ba772a7fb14825660e0fff9e7410
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450308"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542960"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Zelfstudie: Netwerkverbindingen maken en om het knooppunt Azure FXT Edge Filer te leveren
 
@@ -43,7 +43,7 @@ Identificeer de verschillende poorten op de achterkant van uw Azure FXT Edge Fil
 
 Dit artikel wordt ook beschreven hoe u [verbinding netstroom](#connect-power-cables) voor het knooppunt. 
 
-In dit artikel wordt ook uitgelegd hoe u verbinding maken met het knooppunt [seriële poort](#serial-port-only-when-necessary), maar de seriële poort wordt alleen gebruikt voor geavanceerde probleemoplossing. 
+In dit artikel wordt ook uitgelegd hoe u verbinding maken met het knooppunt [seriële poort](#serial-port-only-when-necessary), indien nodig voor het oplossen van gespecialiseerde. 
 
 ### <a name="network-ports"></a>Netwerkpoorten 
 
@@ -75,7 +75,7 @@ Het type verbindingen moet worden gebruikt voor uw systeem is afhankelijk van uw
   * SFP28 type 25GbE kunnen direct twinaxial kabel koppelen
   * SFP28 type 10 GbE-compatibele direct twinaxial kabel koppelen
 
-* De netwerk-poorten van 1GbE worden gebruikt voor cluster beheer van verkeer. Controleer de **1Gb-mgmt-netwerk gebruiken** optie bij het maken van het cluster (beschreven in [configureren van het beheernetwerk](fxt-cluster-create.md#configure-the-management-network)). De poorten met standard CAT 5- of betere kabel zoals beschreven in de lijst met ondersteunde kabels-kabel.
+* De netwerk-poorten van 1GbE worden gebruikt voor cluster beheer van verkeer. Controleer de **1Gb-mgmt-netwerk gebruiken** optie bij het maken van het cluster als u wilt maken van een fysiek afgescheiden netwerk voor configuratie van het cluster (beschreven in [configureren van het beheernetwerk](fxt-cluster-create.md#configure-the-management-network)). De poorten met standard CAT 5- of betere kabel zoals beschreven in de lijst met ondersteunde kabels-kabel.
 
   U kunt de 1 GbE-poorten als u van plan bent de snelle om poorten te gebruiken voor al het verkeer uncabled laten. Standaard worden de netwerk-poorten van 1GbE niet gebruikt als een hogere snelheid de gegevenspoort beschikbaar is.  
 
@@ -115,12 +115,12 @@ Volg deze instructies voor het routeren van de kabels via de CMA:
 1. Met de CMA op de positie van de service, route de bundel kabel via de binnenste en buitenste-opslagplaatsen (2).
 1. Gebruik de vooraf geïnstalleerde haakje en lus banden aan beide uiteinden van de opslagplaatsen voor het beveiligen van de kabels (3).
 1. De CMA swing terug naar hun plaats op het systeemvak (4).
-1. Gebruik de vooraf geïnstalleerde status indicator kabel aan het einde van het systeem en de kabel beveiligen door deze via de CMA routering. Het andere uiteinde van de kabel koppelen aan de hoek van de buitenste CMA mandje (5). 
+1. Installeer de kabel van de indicator status aan het einde van het systeem en de kabel beveiligen door deze via de CMA routering. Het andere uiteinde van de kabel koppelen aan de hoek van de buitenste CMA mandje (5). 
 
    > [!CAUTION]
    > Om te voorkomen van potentiële schade voorkomen van uitstekende kabels, Beveilig een vertraging in de status indicator kabel na deze kabel via de CMA routering. 
 
-![Afbeelding van CMA met kabels geïnstalleerd](media/cma-cabling-scan-400.png)
+![Afbeelding van CMA met kabels geïnstalleerd](media/fxt-install/cma-cabling-400.png)
 
 > [!NOTE]
 >  Als u de CMA niet hebt geïnstalleerd, gebruikt u de twee hook en lus banden opgegeven in het spoor kit voor het routeren van de kabels aan het einde van uw systeem.
@@ -129,7 +129,7 @@ Volg deze instructies voor het routeren van de kabels via de CMA:
 >  2. De kabels voorzichtig, bundelen binnenhalen ze wissen van de systeem-connectors voor de links en rechts.
 >  3. De banden haakje en lus via de tooled sleuven op het buitenste CMA vierkante haken voor elke zijde van het systeem voor het beveiligen van de kabel bundels van thread.
 > 
->     ![Kabels doorgestuurd zonder een CMA](media/fxt-route-cables-no-cma-400.png)
+>     ![Kabels doorgestuurd zonder een CMA](media/fxt-install/fxt-route-cables-no-cma-400.png)
 
 ## <a name="about-ip-address-requirements"></a>Over de vereisten voor IP-adres
 

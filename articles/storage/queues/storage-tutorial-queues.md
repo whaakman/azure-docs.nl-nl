@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797524"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540302"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Zelfstudie: Werken met Azure-opslagwachtrijen
 
@@ -227,6 +227,14 @@ Maak een nieuwe methode voor het verzenden van een bericht in de wachtrij wordt 
    ```
 
 2. Sla het bestand op.
+
+Een bericht moet in een formaat zijn dat kan worden opgenomen in een XML-aanvraag met UTF-8-codering, en mag maximaal 64 KB groot zijn. Als een bericht bevat de binaire gegevens, raden wij aan dat u met Base64 coderen het bericht.
+
+Standaard is de maximale time-to-live voor een bericht ingesteld op 7 dagen. U kunt een positief getal voor de time-to-live bericht opgeven. U kunt een bericht dat niet verloopt toevoegen met `Timespan.FromSeconds(-1)` in de aanroep van **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>Berichten in wachtrij
 

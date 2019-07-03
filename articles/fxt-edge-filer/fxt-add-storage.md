@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0a16e654ff92c450438ac91c590b42d22201d015
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a69aa7838e08c83b47c5f0248e821edf86b3990
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450455"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543342"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Zelfstudie: Back-end-opslag toevoegen en configureren van de virtuele-naamruimte 
 
@@ -59,7 +59,7 @@ Een filer core definiëren door te klikken op de **maken** knop op de **Core Fil
 
 ![Op de knop maken klikt boven de lijst met core filter op de pagina Core-filter beheren](media/fxt-cluster-config/create-core-filer-button.png)
 
-De **nieuwe Core Filer toevoegen** wizard leidt u door het proces voor het maken van een filer core die is gekoppeld aan uw back endopslag. Handleiding voor het Cluster is een stapsgewijze beschrijving van het proces, dit is een ander voor NFS/NAS-opslag en voor opslag in de cloud (koppelingen zijn hierboven). 
+De **nieuwe Core Filer toevoegen** wizard leidt u door het proces voor het maken van een filer core die is gekoppeld aan uw back-end-opslag. Handleiding voor het Cluster is een stapsgewijze beschrijving van het proces, dit is een ander voor NFS/NAS-opslag en voor opslag in de cloud (koppelingen zijn hierboven). 
 
 Subtaken zijn onder andere:
 
@@ -77,7 +77,7 @@ Subtaken zijn onder andere:
 
 * Voor opslag in de cloud, moet u de cloud service- en toegangsbeheer referenties, onder andere parameters opgeven. Lees voor meer informatie, [Cloud-service en het protocol](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) in de handleiding voor het Cluster.
 
-  ![Belangrijkste filer informatie in de wizard Nieuwe Core Filer in de cloud](media/fxt-cluster-config/new-core-filer-cloud3.png) <!-- xxx get an Azure version of this screenshot xxx -->
+  ![Belangrijkste filer informatie in de wizard Nieuwe Core Filer in de cloud](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
   Als u cloud-referenties voor dit cluster al hebt toegevoegd, worden ze weergegeven in de lijst. Bijwerken en toevoegen van de referenties in de **Cluster** > **Cloudreferenties** instellingenpagina. 
 
@@ -105,7 +105,7 @@ Van het cluster vservers onderhouden van de naamruimte en de inhoud aan clients.
 VServers zijn virtuele bestandsservers die bepalen hoe gegevens stromen tussen de client en van het cluster core filter:
 
 * VServers clientgerichte IP-adressen
-* VServers maken van de naamruimte en koppelingen waarmee de structuur van de virtuele map clientgerichte wordt toegewezen aan de uitvoer op back-endopslag definiëren
+* VServers maken van de naamruimte en definiëren koppelingen waarmee de structuur van de virtuele map clientgerichte wordt toegewezen aan de uitvoer op back-end-opslag
 * VServers afdwingen bestand toegangsbeheer, met inbegrip van core filer export beleidsregels en gebruikerssystemen verificatie
 * VServers bieden SMB-infrastructuur
 
@@ -135,7 +135,7 @@ Gebruik de **VServer** > **VServers beheren** instellingenpagina te maken van ee
 
 ### <a name="create-a-junction"></a>Een verbinding maken
 
-Een *koppelingspunten* een opslagpad back-end wordt toegewezen aan de client-zichtbare naamruimte.
+Een *koppelingspunten* een back-end-opslagpad wordt toegewezen aan de client-zichtbare naamruimte.
 
 U kunt dit systeem gebruiken voor het vereenvoudigen van het pad dat wordt gebruikt in koppelpunten van de client en capaciteit naadloos schalen omdat één virtueel pad aankan meerdere core filter-opslag.
 

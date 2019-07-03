@@ -8,25 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: b8879bcbd807f3a74938a09da0abb57a1e0eeb4d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 25cb4845de9b23b04aa25140fae88f50e77cc72c
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388845"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542802"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Verzenden van zoekaanvragen naar de Bing Entiteiten zoeken-API
 
-De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. In het geval van plaatsen kan de query de naam van het lokale bedrijf opgeven of vragen om een lijst (bijvoorbeeld 'restaurants near me'). Entiteitsresultaten zijn personen, plaatsen of dingen. Plaats in deze context is toeristische bezienswaardigheden, Staten, landen/regio's, enzovoort. 
-
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. In het geval van plaatsen kan de query de naam van het lokale bedrijf opgeven of vragen om een lijst (bijvoorbeeld 'restaurants near me'). Entiteitsresultaten zijn personen, plaatsen of dingen. Plaats in deze context is toeristische bezienswaardigheden, Staten, landen/regio's, enzovoort.
 
 ## <a name="the-endpoint"></a>Het eindpunt
 
 Als u zoekresultaten voor entiteiten en plaatsen wilt opvragen, verstuurt u een GET-aanvraag naar het volgende eindpunt:  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
@@ -69,6 +67,8 @@ Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header
 ## <a name="the-response"></a>Het antwoord
 
 Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld bevat ook de Bing-specifieke antwoordheaders. Zie [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse) voor meer informatie over het responsobject.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

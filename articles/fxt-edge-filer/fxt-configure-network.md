@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 6b7c3099415aed9529727a1de30cd832189db58d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36ed354304cb1c88e48088f4b36c1ad0350af0dc
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450378"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542999"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Zelfstudie: De netwerkinstellingen van het cluster configureren 
 
@@ -23,7 +23,7 @@ U leert:
 
 > [!div class="checklist"]
 > * Welke netwerkinstellingen moeten mogelijk worden bijgewerkt nadat een cluster is gemaakt
-> * Welke gebruiksvoorbeelden FXT Edge Filer vereisen een AD-server of een DNS-server 
+> * Welke Azure FXT Edge Filer van use cases vereisen een AD-server of een DNS-server 
 > * DNS (RRDNS) automatisch laden saldo clientaanvragen aan het cluster FXT round robin configureren
 
 De hoeveelheid tijd die nodig is om deze stappen te voltooien, is afhankelijk van hoeveel configuratiewijzigingen nodig zijn in uw systeem:
@@ -105,7 +105,7 @@ Configureer de DNS-server voor het afhandelen van clientgerichte cluster adresse
 
 Een cluster vserver wordt weergegeven aan de linkerkant en IP-adressen in het midden- en aan de rechterkant weergegeven. Elke client access point configureren met A-records en -verwijzingen, zoals wordt geïllustreerd.
 
-![Diagram van DNS round robin - gedetailleerde alt-tekstkoppeling volgt installatiekopie](media/fxt-rrdns-diagram.png) 
+![Diagram van DNS round robin - gedetailleerde alt-tekstkoppeling volgt installatiekopie](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
 [gedetailleerde tekstbeschrijving](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Elke client-IP-adres moet een unieke naam voor intern gebruik door het cluster. (In dit diagram, de client-IP-adressen zijn met de naam vs1-client - IP-* voor de duidelijkheid, maar in de productieomgeving u iets meer beknopte, zoals client * waarschijnlijk moet gebruiken.)

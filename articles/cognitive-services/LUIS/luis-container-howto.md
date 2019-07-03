@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: fff876de41e0069573b73779a16ebf06a3dd58c8
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 86b23c5f69fd96fe5c5614d99483e1936895ad9e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295258"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537092"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -175,16 +175,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | De ontwerphandleiding sleutel van de LUIS-account voor de gepubliceerde LUIS-app.<br/>U krijgt uw authoring sleutel uit de **gebruikersinstellingen** pagina op de LUIS-portal. |
 |{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` -West-Europa<br/>```australiaeast``` -Australië-Oost |
 
-Gebruik de volgende CURL-opdracht voor het downloaden van het gepubliceerde pakket, waarbij u uw eigen waarden vervangt:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-Als dit lukt, is het antwoord een LUIS-pakketbestand. Sla het bestand in de opslaglocatie die is opgegeven voor de invoer koppelen van de container. 
+Voor het downloaden van het gepubliceerde pakket, raadpleegt u de [API-documentatie hier][download-published-package]. Als is gedownload, is het antwoord een LUIS-pakketbestand. Sla het bestand in de opslaglocatie die is opgegeven voor de invoer koppelen van de container. 
 
 ### <a name="export-trained-apps-package-from-api"></a>Ervaren app-pakket uit API exporteren
 
@@ -203,16 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | De ontwerphandleiding sleutel van de LUIS-account voor de gepubliceerde LUIS-app.<br/>U krijgt uw authoring sleutel uit de **gebruikersinstellingen** pagina op de LUIS-portal.  |
 |{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` -West-Europa<br/>```australiaeast``` -Australië-Oost |
 
-Gebruik de volgende CURL-opdracht het getrainde pakket te downloaden:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-Als dit lukt, is het antwoord een LUIS-pakketbestand. Sla het bestand in de opslaglocatie die is opgegeven voor de invoer koppelen van de container. 
+Voor het downloaden van het getrainde pakket, raadpleegt u de [API-documentatie hier][download-trained-package]. Als is gedownload, is het antwoord een LUIS-pakketbestand. Sla het bestand in de opslaglocatie die is opgegeven voor de invoer koppelen van de container. 
 
 ## <a name="run-the-container-with-docker-run"></a>De container met uitvoeren `docker run`
 
@@ -237,11 +219,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* In dit voorbeeld wordt de map uit de `c:` station om te voorkomen van machtigingsconflicten op Windows. Als u gebruiken van een specifieke map als de invoermap wilt, moet u mogelijk de docker verlenen machtiging-service. 
+* In dit voorbeeld wordt de map uit de `C:` station om te voorkomen van machtigingsconflicten op Windows. Als u gebruiken van een specifieke map als de invoermap wilt, moet u mogelijk de docker verlenen machtiging-service. 
 * Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
 * Als u een ander besturingssysteem gebruikt, gebruikt u de juiste console/terminal, de syntaxis van de map voor koppelingen en regel voortzetting teken voor uw systeem. Deze voorbeelden wordt ervan uitgegaan dat een Windows-console met een voortzetting van regel tekens `^`. Omdat de container een Linux-besturingssysteem is, gebruikt het koppelpunt van het doel een Linux-stijl map-syntaxis.
-
-
 
 Met deze opdracht:
 
@@ -324,7 +304,6 @@ Vanuit de portal LUIS, selecteert u uw app en vervolgens **eindpunt-logboeken im
 
 Nadat het logboek is geüpload, [bekijken van het eindpunt](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) uitingen in de LUIS-portal.
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -362,14 +341,13 @@ U kunt een LUIS-toepassing gebruiken als het **bevat geen** een van de volgende 
 
 Niet-ondersteunde app-configuraties|Details|
 |--|--|
-|Niet-ondersteunde container culturen| Nederlands (nl-NL)<br>Japans (ja-JP)<br>Duits wordt alleen ondersteund met de [1.0.1 tokenizer of hoger](luis-language-support.md#custom-tokenizer-versions).|
+|Niet-ondersteunde container culturen| Nederlands (nl-NL)<br>Japans (ja-JP)<br>Duits wordt alleen ondersteund met de [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Niet-ondersteunde entiteiten voor alle culturen|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) vooraf gemaakte entiteiten voor alle culturen|
 |Niet-ondersteunde entiteiten voor de cultuur Engels (en-US)|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) vooraf gemaakte entiteiten|
 |Spraak voorbereiden|Externe afhankelijkheden worden niet ondersteund in de container.|
 |Sentimentanalyse|Externe afhankelijkheden worden niet ondersteund in de container.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Samenvatting
@@ -390,3 +368,7 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Beoordeling [containers configureren](luis-container-configuration.md) voor configuratie-instellingen
 * Raadpleeg [probleemoplossing](troubleshooting.md) het oplossen van problemen met betrekking tot LUIS-functionaliteit.
 * Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip

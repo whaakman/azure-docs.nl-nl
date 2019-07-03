@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 06/25/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449072"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542629"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Het verzenden van aanvragen naar de Bing Automatische suggestie-API.
 
-Als uw toepassing query's verstuurt naar een van de API's van Bing Search, kunt u de Bing Automatische suggesties-API gebruiken om de ervaring van uw gebruikers te verbeteren. De Bing Automatische suggesties-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks in het zoekvak. Als de tekens worden ingevoerd in het zoekvak in uw toepassing, kunt u suggesties weergeven in een vervolgkeuzelijst. Gebruik dit artikel voor meer informatie over het verzenden van aanvragen naar deze API.
+Als uw toepassing query's verstuurt naar een van de API's van Bing Search, kunt u de Bing Automatische suggesties-API gebruiken om de ervaring van uw gebruikers te verbeteren. De Bing Automatische suggesties-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks in het zoekvak. Als de tekens worden ingevoerd in het zoekvak in uw toepassing, kunt u suggesties weergeven in een vervolgkeuzelijst. Gebruik dit artikel voor meer informatie over het verzenden van aanvragen naar deze API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Bing Automatische suggestie-API-eindpunt
 
@@ -44,7 +44,7 @@ Zie voor meer voorbeelden van basic met behulp van de Automatische suggestie-API
 ## <a name="bing-autosuggest-api-requests"></a>Bing Automatische suggestie-API-aanvragen
 
 > [!NOTE]
-> Aanvragen voor de Automatische suggestie-API moeten de HTTPS-protocol gebruiken.
+> * Aanvragen voor de Automatische suggestie-API moeten de HTTPS-protocol gebruiken.
 
 Het is raadzaam dat alle aanvragen afkomstig zijn van een server. De sleutel te distribueren als onderdeel van een clienttoepassing biedt meer kans kwaadwillende externe toegang. Daarnaast biedt aanroepen van een server een centraal punt voor de upgrade voor toekomstige updates.
 
@@ -100,6 +100,8 @@ De volgende web suggestie groep is een antwoord op de bovenstaande aanvraag. De 
 Het veld `displayText` bevat de voorgestelde query die u gebruikt voor het vullen van de vervolgkeuzelijst van het zoekvak. U moet alle suggesties uit het antwoord weergeven, en in de opgegeven volgorde.  
 
 Als de gebruiker een query in de vervolgkeuzelijst selecteert, kunt u deze gebruiken voor het aanroepen van een van de [Bing zoeken-API's](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) en zelf de resultaten weergeven of de gebruiker doorsturen naar de pagina met Bing resultaten met behulp van de geretourneerde `url` veld.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
