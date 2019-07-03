@@ -146,7 +146,7 @@ Gebruik deze cmdlet voor het ophalen van gegevens van lid of leden van het conso
 | Parameter | Beschrijving | Vereist |
 |-----------|-------------|:--------:|
 | Name | De naam van het lid van de Blockchain-Service die u ophalen van gegevens wilt over. Wanneer u een naam invoert, wordt de details van het lid. Wanneer een name wordt weggelaten, wordt een lijst met alle leden van de consortium. | Nee |
-| Leden | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
+| Members | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
 | Web3Client | Web3Client object verkregen van New-Web3Connection | Ja |
 
 #### <a name="example"></a>Voorbeeld
@@ -175,7 +175,7 @@ Gebruik deze cmdlet een blockchain-lid te verwijderen.
 | Parameter | Beschrijving | Vereist |
 |-----------|-------------|:--------:|
 | Name | Naam van het lid verwijderen | Ja |
-| Leden | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
+| Members | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account object verkregen van de Import-Web3Account | Ja |
 | Web3Client | Web3Client object verkregen van New-Web3Connection | Ja |
 
@@ -199,7 +199,7 @@ Consortium beheerders kunnen instellen **DisplayName** en **rol** voor alle lede
 | Name | Naam van het lid blockchain | Ja |
 | DisplayName | Nieuwe weergavenaam | Nee |
 | AccountAddress | Accountadres | Nee |
-| Leden | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
+| Members | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account object verkregen van de Import-Web3Account | Ja |
 | Web3Client |  Web3Client object verkregen van New-Web3Connection| Ja |
 
@@ -223,8 +223,8 @@ Deze cmdlet gebruiken om uit te nodigen nieuwe leden aan de consortium.
 | Parameter | Beschrijving | Vereist |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-abonnement-ID van het lid uitnodigen | Ja |
-| Rol | De rol consortium. Waarden mag ADMIN of gebruiker. BEHEERDER is de rol van de beheerder consortium. GEBRUIKER is de rol van consortium lid. | Ja |
-| Leden | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
+| Role | De rol consortium. Waarden mag ADMIN of gebruiker. BEHEERDER is de rol van de beheerder consortium. GEBRUIKER is de rol van consortium lid. | Ja |
+| Members | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account object verkregen van de Import-Web3Account | Ja |
 | Web3Client | Web3Client object verkregen van New-Web3Connection | Ja |
 
@@ -243,7 +243,7 @@ Gebruik deze cmdlet ophalen of weergeven van de status van een consortium lid va
 | Parameter | Beschrijving | Vereist |
 |-----------|-------------|:--------:|
 | SubscriptionId | De Azure-abonnement-ID van het lid om uit te nodigen. Als het abonnement-ID is opgegeven, wordt het abonnement-id's details van uitnodiging. Als de abonnements-ID wordt weggelaten, wordt een lijst met alle lid uitnodigingen. | Nee |
-| Leden | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
+| Members | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
 | Web3Client | Web3Client object verkregen van New-Web3Connection | Ja |
 
 #### <a name="example"></a>Voorbeeld
@@ -270,7 +270,7 @@ Deze cmdlet gebruiken om in te trekken van het lid van een consortium uitnodigin
 | Parameter | Beschrijving | Vereist |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-abonnement-ID van het lid in te trekken | Ja |
-| Leden | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
+| Members | Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account object verkregen van de Import-Web3Account | Ja |
 | Web3Client | Web3Client object verkregen van New-Web3Connection | Ja |
 
@@ -290,8 +290,8 @@ Deze cmdlet gebruiken om in te stellen de **rol** voor een bestaande uitnodiging
 | Parameter | Beschrijving | Vereist |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-abonnement-ID van het lid uitnodigen | Ja |
-| Rol | Nieuwe rol consortium voor uitnodiging. Waarden zijn **gebruiker** of **ADMIN**. | Ja |
-| Leden |  Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
+| Role | Nieuwe rol consortium voor uitnodiging. Waarden zijn **gebruiker** of **ADMIN**. | Ja |
+| Members |  Leden object verkregen van de Import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account object verkregen van de Import-Web3Account | Ja |
 | Web3Client | Web3Client object verkregen van New-Web3Connection | Ja |
 
