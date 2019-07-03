@@ -18,7 +18,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873631"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Tekenreeksen voor databaseverbindingen voor Azure SQL Data Warehouse
-U kunt verbinding maken met SQL Data Warehouse met diverse verschillende protocollen, zoals [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] en [JDBC][JDBC]. Hieronder volgen enkele voorbeelden van tekenreeksen voor elk protocol voor verbindingen.  U kunt ook de Azure-portal gebruiken om te maken van de verbindingsreeks.  Voor het bouwen van de verbindingsreeks met de Azure-portal, gaat u naar de databaseblade onder *Essentials* klikt u op *databaseverbindingsreeksen tonen*.
+U kunt verbinding maken met SQL Data Warehouse met diverse verschillende protocollen, zoals [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] en [JDBC][JDBC]. Hieronder volgen enkele voorbeelden van tekenreeksen voor elk protocol voor verbindingen.  U kunt ook de Azure-portal gebruiken om te maken van de verbindingsreeks.  Voor het bouwen van de verbindingsreeks met de Azure-portal, gaat u naar de databaseblade onder *Essentials* klikt u op *databaseverbindingsreeksen tonen*.
 
 ## <a name="sample-adonet-connection-string"></a>Voorbeeld van ADO.NET-verbindingsreeks
 ```csharp
