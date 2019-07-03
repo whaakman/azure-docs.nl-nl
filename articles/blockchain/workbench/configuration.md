@@ -262,7 +262,7 @@ Een verzameling van unieke statussen binnen een werkstroom. Elke status bevat ee
 | Description | Beschrijving van de status. | Nee | 255 |
 | PercentComplete | Een geheel getal-waarde die wordt weergegeven in de gebruikersinterface Blockchain Workbench om de voortgang in de Controlestroom van zakelijke logica weer te geven. | Ja | |
 | Style | Visuele hint die aangeeft of de status een succes- of faaltoestand vertegenwoordigt. Er zijn twee geldige waarden: `Success` of `Failure`. | Ja | |
-| Overgangen | Verzameling van beschikbare [overgangen](#transitions) van de huidige status naar de volgende verzameling van statussen. | Nee | |
+| Transitions | Verzameling van beschikbare [overgangen](#transitions) van de huidige status naar de volgende verzameling van statussen. | Nee | |
 
 ### <a name="states-example"></a>Voorbeeld van statussen
 
