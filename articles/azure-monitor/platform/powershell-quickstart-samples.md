@@ -156,7 +156,7 @@ De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor h
 | Locatie van deze waarschuwingsregel |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName van de waarschuwing die is gemaakt |\Disk \PhysicalDisk (_Totaal) per seconde. Zie de `Get-MetricDefinitions` cmdlet over het ophalen van de exacte metrische namen |
+| MetricName van de waarschuwing die is gemaakt |PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
 | De waarde voor drempel (aantal per seconde in voor deze metrische gegevens) |1 |
 | Venstergrootte (uu: mm: indeling) |00:05:00 |
