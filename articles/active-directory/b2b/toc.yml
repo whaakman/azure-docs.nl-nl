@@ -63,6 +63,10 @@
               href: google-federation.md
             - name: Verificatie met eenmalige wachtwoordcode
               href: one-time-passcode.md
+            - name: Directe federatie
+              href: direct-federation.md
+            - name: Voorbeeld van directe federatie met AD FS
+              href: direct-federation-adfs.md
             - name: Uitnodigingen toestaan of blokkeren
               href: allow-deny-list.md
             - name: B2B-gebruikers zonder uitnodiging toevoegen

@@ -144,6 +144,8 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: Rapportage
       items:
+        - name: Gebruik en inzichten
+          href: howto-authentication-methods-usage-insights.md
         - name: Rapportage van selfservice voor wachtwoordherstel
           href: howto-sspr-reporting.md
         - name: MFA-rapporten

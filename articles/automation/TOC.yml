@@ -124,6 +124,8 @@
         - name: Problemen met runbooks oplossen
           href: troubleshoot/runbooks.md
           displayName: troubleshoot
+        - name: VM's starten/stoppen
+          href: troubleshoot/start-stop-vm.md
 - name: Updatebeheer
   items:
     - name: Overzicht van updatebeheer
@@ -313,6 +315,8 @@
   items:
     - name: Azure Automation-taakgegevens doorsturen naar Log Analytics
       href: automation-manage-send-joblogs-log-analytics.md
+    - name: Ondersteunde regio's voor Log Analytics-werkruimtetoewijzingen
+      href: how-to/region-mappings.md
 - name: Migreren
   items:
     - name: Migreren vanuit Orchestrator

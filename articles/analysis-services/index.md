@@ -8,14 +8,14 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 05/09/2019
-ms.openlocfilehash: acfbc3d44e5e7604f03b3e67db5846487a726d40
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c69b1204332a94b21f845d1330bc39e3f4ac7144
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510281"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540837"
 ---
-# <a name="analysis-services-documentation"></a>Documentatie voor Analysis Services
+# <a name="azure-analysis-services-documentation"></a>Documentatie voor Azure Analysis Services
 
 Meer informatie over het instellen en beheren van gegevensmodellering met Analysis Services. Zelfstudies en andere documentatie laten zien hoe u met tabelgegevens in de cloud of on-premises een zakelijke BI-oplossing op bedrijfsniveau maakt.
 
@@ -31,7 +31,7 @@ Meer informatie over het instellen en beheren van gegevensmodellering met Analys
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Meer informatie over Analysis Services</h3>
+                        <h3>Informatie over Azure Analysis Services</h3>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ Meer informatie over het instellen en beheren van gegevensmodellering met Analys
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een Analysis Services-server maken</h3>
+                        <h3>Een Azure Analysis Services-server maken</h3>
                     </div>
                 </div>
             </div>
@@ -110,8 +110,8 @@ Meer informatie over het instellen en beheren van gegevensmodellering met Analys
                 <div class="card">
                     <div class="cardText">
                         <h3>Andere</h3>
-                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">Power Query M</a></p>
+                        <p><a href="https://docs.microsoft.com/dax/data-analysis-expressions-dax-reference">DAX</a></p>
+                        <p><a href="https://docs.microsoft.com/powerquery-m/power-query-m-reference">Power Query M</a></p>
                     </div>
                 </div>
             </div>

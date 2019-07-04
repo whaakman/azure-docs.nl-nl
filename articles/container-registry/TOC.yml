@@ -47,8 +47,6 @@
       href: container-registry-image-formats.md
     - name: Geo-replicatie
       href: container-registry-geo-replication.md
-    - name: Rollen en machtigingen
-      href: container-registry-roles.md
     - name: Best practices voor het register
       href: container-registry-best-practices.md
 - name: Handleidingen
@@ -87,6 +85,8 @@
               href: container-registry-auth-aci.md
             - name: Verificatie via Azure Kubernetes Service (AKS)
               href: container-registry-auth-aks.md
+        - name: Rollen en machtigingen
+          href: container-registry-roles.md
         - name: Inhoud vertrouwen
           href: container-registry-content-trust.md
     - name: ACR-taken
@@ -107,6 +107,10 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
         - name: Service Fabric
           href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Problemen oplossen
+      items:
+        - name: Algemene diagnoseproblemen
+          href: container-registry-check-health.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI
@@ -131,6 +135,8 @@
       href: container-registry-webhook-reference.md
     - name: Event Grid-schema
       href: ../event-grid/event-schema-container-registry.md
+    - name: Fouten in statuscontrole
+      href: container-registry-health-error-reference.md
       maintainContext: true
 - name: Resources
   items:

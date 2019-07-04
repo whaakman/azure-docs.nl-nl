@@ -11,10 +11,8 @@
       href: create-cluster-database-portal.md
     - name: Voorbeeldgegevens opnemen
       href: ingest-sample-data.md
-    - name: Querygegevens
-      items:
-        - name: Webgebruikersinterface
-          href: web-query-data.md
+    - name: Query's uitvoeren op gegevens met de webgebruikersinterface
+      href: web-query-data.md
 - name: Zelfstudies
   items:
     - name: Gegevens opnemen zonder code
@@ -88,14 +86,14 @@
               href: power-bi-imported-query.md
             - name: SQL-query
               href: power-bi-sql-query.md
-        - name: ODBC-connector
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: ODBC-connector
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: Beheren
       items:
         - name: Databasemachtigingen beheren
