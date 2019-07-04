@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147569"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444828"
 ---
 # <a name="what-is-azure-private-dns"></a>Wat is privé-DNS in Azure?
 
@@ -59,6 +59,13 @@ Azure DNS biedt de volgende mogelijkheden:
 * **Forward DNS-omzetting wordt ondersteund tussen virtuele netwerken die zijn gekoppeld aan de privézone**. Voor cross-virtueel netwerk DNS-omzetting is het geen expliciete afhankelijkheid zodanig dat de virtuele netwerken met elkaar zijn gekoppeld. Echter, als u wilt virtuele netwerken voor andere scenario's (bijvoorbeeld HTTP-verkeer).
 
 * **Omgekeerde DNS-zoekopdracht wordt ondersteund binnen het bereik van het virtuele netwerk**. Omgekeerde DNS-zoekactie voor een privé IP-adres binnen het virtuele netwerk dat is toegewezen aan een privézone retourneert de FQDN-naam met de naam van de host/record en de naam van de zone als het achtervoegsel.
+
+## <a name="known-issues"></a>Bekende problemen
+De volgende items zijn bekende fouten en problemen in de preview-versie:
+* Als u een virtueel netwerk dat is gekoppeld aan een privé-DNS-zone verwijdert, kunt worden de koppelingen aan het privé-DNS-zone niet verwijderd. De koppeling mislukt als u het virtuele netwerk met dezelfde naam en resourcegroep opnieuw en probeer het opnieuw koppelen aan een privé-DNS-zone. Als u wilt dit probleem omzeilen door het virtuele netwerk te maken met een andere naam in dezelfde resourcegroep bevinden of in een andere resourcegroep.
+* Als u een virtueel netwerk naar een andere resourcegroep of abonnement verplaatsen, het de koppelingen aan het privé-DNS-zone niet bijgewerkt. De naamomzetting voor de verplaatste virtuele netwerk blijft werken, maar ziet u oude ARM-id's van het virtuele netwerk wanneer u de koppelingen tussen virtuele netwerken van het privé-DNS-zone weergeven.
+* Op dit moment gekoppelde virtuele netwerken die worden gehost in VAE-Noord, VAE-centraal, Zuid-Afrika West, Zuid-Afrika Noord, Canada-Oost, Frankrijk-Zuid mislukken en mogelijk ziet u onregelmatige problemen met DNS-naamomzetting. 
+
 
 ## <a name="other-considerations"></a>Andere overwegingen
 

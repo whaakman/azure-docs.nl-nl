@@ -2,7 +2,7 @@
 title: Offline synchroniseren met mobiele iOS-apps inschakelen | Microsoft Docs
 description: Informatie over het gebruik van mobiele apps van Azure App Service naar de cache en de synchronisatie van offlinegegevens in iOS-toepassingen.
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112647"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446378"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Offline synchroniseren met mobiele iOS-apps inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) vandaag nog.
+>
 
 ## <a name="overview"></a>Overzicht
 In deze zelfstudie bevat informatie over het offline synchroniseren met de functie Mobile Apps van Azure App Service voor iOS. Met het offline synchroniseren eindgebruikers kunnen communiceren met een mobiele app weergeven, toevoegen of wijzigen van gegevens, zelfs als ze geen netwerkverbinding hebt. Wijzigingen worden opgeslagen in een lokale database. Nadat het apparaat weer online is, worden de wijzigingen worden gesynchroniseerd met de externe back-end.

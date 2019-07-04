@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: ee627a168e6ca9bb758d994a3f75cc6185976971
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1037d8d4652f238f03d8e80b0c59a5f396ab5605
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203693"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445718"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Stel pushmeldingen in een notification hub in Azure portal
 
-Azure Notification Hubs biedt een push-engine die is eenvoudig te gebruiken en die wordt uitgeschaald. Notification Hubs gebruiken om meldingen te verzenden naar elk platform (iOS, Android, Windows, Kindle, Baidu) en uit een back-end (cloud of on-premises). Zie voor meer informatie, [wat is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
+Azure Notification Hubs biedt een push-engine die is eenvoudig te gebruiken en die wordt uitgeschaald. Notification Hubs gebruiken om meldingen te verzenden naar elk platform (iOS, Android, Windows, Baidu) en van elke back-end (cloud of on-premises). Zie voor meer informatie, [wat is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
 In deze snelstartgids gebruikt u de instellingen van platform notification system (PNS) in Notification Hubs voor het instellen van pushmeldingen op meerdere platforms. De Quick Start ziet u de stappen in de Azure-portal.
 
@@ -35,7 +35,7 @@ Instellen van Apple Push Notification Service (APNS):
 
    a. Als u selecteert **certificaat**:
    * Selecteer het pictogram van het bestand en selecteer vervolgens de *.p12* bestand dat u wilt uploaden.
-   * Voer een wachtwoord in.
+   * Voer een wachtwoord.
    * Selecteer de modus **Sandbox**. Voor het verzenden van pushmeldingen naar gebruikers die uw app uit de store hebt aangeschaft, selecteert u **productie** modus.
 
      ![Schermafbeelding van een APNS-certificaat-configuratie in Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
@@ -95,17 +95,6 @@ Instellen van Microsoft Push Notification Service (MPNS) voor Windows Phone:
 
 Zie voor meer informatie, [Pushmeldingen naar Windows Phone-apps met behulp van Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## <a name="amazon-device-messaging"></a>Amazon Device Messaging
-
-Pushmeldingen voor Amazon Device Messaging (ADM) instellen:
-
-1. In de Azure-portal op de **Notification Hub** weergeeft, schakelt **Amazon (ADM)** in het menu links.
-2. Voer waarden in voor **Client-ID** en **Clientgeheim**.
-3. Selecteer **Opslaan**.
-    
-   ![Schermafbeelding van de ADM-instellingen in Azure portal](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-Zie voor meer informatie, [aan de slag met Notification Hubs voor Kindle-apps](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## <a name="baidu-android-china"></a>Baidu (Android China)
 
@@ -131,5 +120,4 @@ Zie voor meer informatie over hoe u pushmeldingen verzenden naar verschillende p
 - [Pushmeldingen verzenden naar Android-apparaten met behulp van Notification Hubs en FCM Google](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Pushmeldingen verzenden naar een UWP-app die wordt uitgevoerd op een Windows-apparaat](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [Pushmeldingen verzenden naar een Windows Phone 8-app met behulp van MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Pushmeldingen verzenden naar een Kindle-toepassing](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Pushmeldingen met Notification Hubs en Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md)

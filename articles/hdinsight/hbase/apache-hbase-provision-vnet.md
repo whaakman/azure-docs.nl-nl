@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 85eaa81a0cfd7ccfe8ad3ae818f89966280d279e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d81e5e69837f6074d94278f4e54f9178a656335
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730362"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433795"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Apache HBase-clusters maken in HDInsight in Azure Virtual Network
 Informatie over het maken van Azure HDInsight Apache HBase-clusters in een [Azure Virtual Network][1].
@@ -25,7 +25,7 @@ Met integratie van virtuele netwerken, kunnen Apache HBase-clusters worden geïm
 * De mogelijkheid om gevoelige informatie op een veiliger manier zonder een openbaar eindpunt bloot te verwerken.
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
+Voordat u dit artikel, hebt u de volgende items:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Een werkstation met Azure PowerShell**. Zie [installeren en gebruiken Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
@@ -63,7 +63,7 @@ In deze sectie maakt u een Apache HBase op basis van Linux-cluster maken met het
    * **Ik ga akkoord met de voorwaarden en de bovenstaande voorwaarden**: (Selecteren)
 3. Klik op **Kopen**. Het duurt ongeveer 20 minuten om een cluster te maken. Zodra het cluster is gemaakt, kunt u de clusterblade in de portal om dit te openen.
 
-Nadat u de zelfstudie hebt voltooid, is het raadzaam om het cluster te verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster, [beheren Apache Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
+Nadat u het artikel hebt voltooid, is het raadzaam om het cluster te verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster, [beheren Apache Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gevonden in [aan de slag met Apache HBase met Hadoop in HDInsight Apache](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -233,7 +233,7 @@ Als u deze informatie in een Java-toepassing, kunt u Volg de stappen in [Apache 
 > Zie voor meer informatie over naamomzetting in Azure virtuele netwerken, inclusief het gebruik van uw eigen DNS-server, [Name Resolution (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u een Apache HBase-cluster maakt. Voor meer informatie zie:
+In dit artikel hebt u geleerd hoe u een Apache HBase-cluster maakt. Voor meer informatie zie:
 
 * [Aan de slag met HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Lege edge-knooppunten gebruiken in HDInsight](../hdinsight-apps-use-edge-node.md)

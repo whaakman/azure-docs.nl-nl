@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111288"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482488"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
 
@@ -215,6 +215,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS90093 | GraphUserUnauthorized - grafiek geretourneerd met een niet-toegestane foutcode voor de aanvraag. |
 | AADSTS90094 | AdminConsentRequired - beheerder toestemming is vereist. |
 | AADSTS90100 | InvalidRequestParameter - de parameter is leeg of ongeldig. |
+| AADSTS901002 | AADSTS901002: De parameter van de aanvraag 'resource' wordt niet ondersteund. |
 | AADSTS90101 | InvalidEmailAddress - de opgegeven gegevens zijn niet een geldig e-mailadres. Het e-mailadres moet zich in de indeling `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - de waarde moet een geldige absolute URI zijn. |
 | AADSTS90107 | InvalidXml - de aanvraag is niet geldig. Zorg ervoor dat uw gegevens geen ongeldige tekens.|

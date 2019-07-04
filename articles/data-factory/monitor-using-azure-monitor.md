@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319117"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514414"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -387,7 +387,7 @@ ADFV2 verzendt de volgende metrische gegevens
 
 | **Gegevens**           | **De naam van de metrische gegevens weergeven**         | **Eenheid** | **Type samenvoeging geselecteerd** | **Beschrijving**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Pijplijn-runs metrische gegevens is voltooid | Count    | Totaal                | Totaal aantal pijplijnen werkstroomuitvoeringen binnen een minuut |
+| PipelineSucceededRuns | Pijplijn-runs metrische gegevens is voltooid | Count    | Totaal                | Totaal aantal pijplijnen werkstroomuitvoeringen binnen een minuut |
 | PipelineFailedRuns   | Pijplijn-runs metrische gegevens is mislukt    | Count    | Totaal                | Totale pijplijnen wordt uitgevoerd binnen een minuut    |
 | ActivitySucceededRuns | Metrische gegevens de uitvoeringen van activiteiten is voltooid | Count    | Totaal                | Totaal aantal uitvoeringen van activiteit is voltooid binnen een minuut  |
 | ActivityFailedRuns   | Kan geen metrische gegevens van activiteiten wordt uitgevoerd    | Count    | Totaal                | Totaal aantal uitvoeringen van activiteit is mislukt binnen een minuut     |

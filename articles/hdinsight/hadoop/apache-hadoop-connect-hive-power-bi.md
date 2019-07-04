@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1e0c043e484e4eaf2639f76c9af3fef15ad85047
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69353968f6b38f0d16b68c58b9b00c3e6d45850b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237486"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446876"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Apache Hive-gegevens visualiseren met Microsoft Power BI met behulp van ODBC in Azure HDInsight
 
@@ -23,7 +23,7 @@ Informatie over Microsoft Power BI Desktop verbinden met Azure HDInsight met beh
 >[!IMPORTANT]
 > U kunt gebruikmaken van het Hive ODBC-stuurprogramma om te via de algemene ODBC-connector in Power BI Desktop importeren. Het is echter niet aanbevolen voor BI workloads vanwege niet-interactieve aard van de Hive-query-engine. [HDInsight Interactive Query-connector](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) en [HDInsight Spark-connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) betere mogelijkheden voor de prestaties zijn.
 
-In deze zelfstudie hebt u de gegevens worden geladen uit een `hivesampletable` Hive-tabel naar Power BI. De Hive-tabel bevat de gebruiksgegevens van sommige mobiele telefoon. Vervolgens kunt u gegevens over gebruik op een wereldkaart brengt:
+In dit artikel hebt u de gegevens van laadt een `hivesampletable` Hive-tabel naar Power BI. De Hive-tabel bevat de gebruiksgegevens van sommige mobiele telefoon. Vervolgens kunt u gegevens over gebruik op een wereldkaart brengt:
 
 ![HDInsight Power BI het rapport met kaart](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 

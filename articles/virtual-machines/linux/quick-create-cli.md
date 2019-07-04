@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5dda96786cde980fbec1b2f90bb7f755453b468a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1335f4abebffaf8ae0034ec023d2a988be1c39eb
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772017"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514524"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Quickstart: Een virtuele Linux-machine maken met de Azure CLI
 
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 Maak een VM met de opdracht [az vm create](/cli/azure/vm).
 
-In het volgende voorbeeld wordt een virtuele machine met de naam *myVM* gemaakt en voegt u een gebruikersaccount met de naam *azureuser* toe. De parameter `--generate-ssh-keys` wordt gebruikt om automatisch een SSH-sleutel te genereren en deze te plaatsen in de standaardsleutellocatie (*~/.ssh*). Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
+In het volgende voorbeeld wordt een virtuele machine met de naam *myVM* gemaakt en voegt u een gebruikersaccount met de naam *azureuser* toe. De parameter `--generate-ssh-keys` wordt gebruikt om automatisch een SSH-sleutel te genereren en deze te plaatsen in de standaardsleutellocatie ( *~/.ssh*). Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -62,7 +62,7 @@ az vm create \
 
 Het maken van de virtuele machine en de ondersteunende resources duurt enkele minuten. In het volgende voorbeeld van uitvoer ziet u dat het maken van de virtuele machine is geslaagd.
 
-```
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",

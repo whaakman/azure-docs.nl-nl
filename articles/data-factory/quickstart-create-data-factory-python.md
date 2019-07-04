@@ -13,16 +13,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 70a862f51f9e15b8eb26e2ac12b046b76b9a7402
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311842"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514332"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Een data factory en pijplijn maken met behulp van Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](quickstart-create-data-factory-python.md)
 
@@ -34,14 +34,14 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Azure Storage-account**. U gebruikt de blob-opslag als gegevensopslag voor **bron** en **sink**. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) om een account te maken.
+* **Een Azure Storage-account**. U gebruikt de blob-opslag als gegevensopslag voor **bron** en **sink**. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) voor de stappen voor het maken van een account.
 * **Maak een toepassing in Azure Active Directory** aan de hand van [deze instructie](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Noteer de volgende waarden voor gebruik in latere stappen: **toepassings-id**, **verificatiesleutel** en **tenant-id**. Wijs de toepassing toe aan de rol '**Inzender**' door de instructies in hetzelfde artikel te volgen.
 
 ### <a name="create-and-upload-an-input-file"></a>Een invoerbestand maken en uploaden
 
 1. Start Kladblok. Kopieer de volgende tekst en sla deze op schijf op in het bestand **input.txt**.
 
-    ```
+    ```text
     John|Doe
     Jane|Doe
     ```
@@ -52,12 +52,12 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 1. Open een terminal of opdrachtprompt met beheerdersbevoegdheden. 
 2. Installeer eerst het Python-pakket voor Azure-beheerresources:
 
-    ```
+    ```python
     pip install azure-mgmt-resource
     ```
 3. Voer de volgende opdracht uit om het Python-pakket voor Data Factory te installeren:
 
-    ```
+    ```python
     pip install azure-mgmt-datafactory
     ```
 
@@ -374,7 +374,7 @@ def main():
         }
     )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))

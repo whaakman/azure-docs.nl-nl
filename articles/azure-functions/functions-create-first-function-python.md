@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496555"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444582"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Een door HTTP geactiveerde functie maken in Azure
 
@@ -32,9 +32,9 @@ Voordat u begint, moet u het volgende hebt:
 
 + Installeer [Python 3.6](https://www.python.org/downloads/).
 
-+ Installeer [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger.
++ Installeer [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.1071 of een latere versie.
 
-+ Dat u de [Azure CLI](/cli/azure/install-azure-cli) versie 2 of hoger installeert.
++ Installeer de [Azure CLI](/cli/azure/install-azure-cli) versie 2.x of een latere versie.
 
 + Een actief Azure-abonnement.
 
@@ -44,18 +44,18 @@ Voordat u begint, moet u het volgende hebt:
 
 Lokaal ontwikkelen en testen van Python-functies, moet u in een omgeving met Python 3.6 werken. Voer de volgende opdrachten uit om een virtuele omgeving met de naam `.env` te maken.
 
-### <a name="bash-or-a-terminal-window"></a>Bash- of een terminalvenster:
+### <a name="bash"></a>Bash:
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell of een Windows-opdrachtprompt:
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 De resterende opdrachten worden uitgevoerd binnen de virtuele omgeving.
@@ -66,7 +66,7 @@ Een Functions-project is het equivalent van een functie-app in Azure. Er kunnen 
 
 In de virtuele omgeving, voert u de volgende opdracht, kiezen **python** als de worker-runtime.
 
-```command
+```console
 func init MyFunctionProj
 ```
 
@@ -78,25 +78,17 @@ Een map met de naam _MyFunctionProj_ is gemaakt, die de volgende drie bestanden 
 
 Navigeer naar de nieuwe MyFunctionProj-map:
 
-```command
+```console
 cd MyFunctionProj
 ```
 
 Vervolgens kunt u het bestand host.json om in te schakelen van extensie-bundels bijwerken.  
 
-## <a name="reference-bindings"></a>Referentie-bindingen
-
-Extensie-bundels gemakkelijker om toe te voegen bindinguitbreidingen omlaag onderweg. U verwijdert ook de vereiste van het installeren van de .NET Core SDK 2.x. Extensie-bundels versie 2.6.1071 van de essentiële hulpprogramma of een latere versie vereist. 
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-U kunt nu een functie toevoegen aan uw project.
-
 ## <a name="create-a-function"></a>Een functie maken
 
 Een functie toevoegen aan uw project, moet u de volgende opdracht uitvoeren:
 
-```command
+```console
 func new
 ```
 

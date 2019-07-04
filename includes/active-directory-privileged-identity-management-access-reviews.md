@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: 364d4a11772e6bb72e2e258503f3cce49dc61453
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176730"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476259"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Maken van een of meer toegangsbeoordelingen
 
@@ -25,7 +25,7 @@ ms.locfileid: "67176730"
 
 1. Stel de **begindatum**. Standaard een toegangsbeoordeling gebeurt eenmaal, hetzelfde moment die wordt deze gemaakt begint en eindigt in één maand. Kunt u het begin en einddatum hebben een toegang controleren start in de toekomst en laatste hoeveel dagen u dat wilt.
 
-    ![Maken van een toegangscontrole - begin- en einddatums](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
+    ![Datum, de frequentie, duur, einde, aantal keren starten en de einddatum](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
 1. Als u de toegang tot revisie terugkerende, wijzigen de **frequentie** instellen op basis van **één keer** naar **wekelijkse**, **maandelijkse**,  **Elk kwartaal**, **jaarlijks**, of **semi annually**. Gebruik de **duur** schuifregelaar of tekst in om te bepalen hoeveel dagen elk onderzoek van de reeks terugkerende is geopend voor invoer van de revisoren. Bijvoorbeeld, is de maximale duur die u voor een maandelijkse revisie instellen kunt 27 dagen, om te voorkomen dat overlappende beoordelingen.
 
@@ -33,22 +33,22 @@ ms.locfileid: "67176730"
 
 1. In de **gebruikers** sectie, selecteer een of meer rollen die u wilt bekijken van het lidmaatschap van.
 
-    ![Een toegangsbeoordeling - gebruikers maken](./media/active-directory-privileged-identity-management-access-reviews/users.png)
+    ![Scope om te controleren van lidmaatschap van de rol van gebruikers](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
     > Meer dan één rol selecteren maakt meerdere toegangsbeoordelingen. Bijvoorbeeld, u vijf afzonderlijke toegangsbeoordelingen maken vijf rollen selecteren.
 
     Als u een toegangsbeoordeling van Azure AD-rollen maakt, wordt het volgende toont een voorbeeld van de beoordeling ledenlijst wordt weergegeven.
 
-    ![Een toegangsbeoordeling - rollidmaatschap beoordeling maken](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![Controleer het lidmaatschap deelvenster aanbieding van Azure AD-rollen die u kunt selecteren](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
     Als u een toegangsbeoordeling van Azure-resourcerollen maakt, wordt het volgende toont een voorbeeld van de beoordeling ledenlijst wordt weergegeven.
 
-    ![Een toegangsbeoordeling - rollidmaatschap beoordeling maken](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![Controleer het lidmaatschap deelvenster aanbieding van Azure-resourcerollen die u kunt selecteren](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
 1. In de **revisoren** sectie, selecteer een of meer mensen te bekijken van alle gebruikers. Of u kunt selecteren om de leden hun eigen toegang beoordelen.
 
-    ![Een toegangsbeoordeling - revisoren maken](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![Revisoren van lijst met geselecteerde gebruikers of leden (zelf)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Geselecteerde gebruikers** -Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of groepmanager om te voltooien.
     - **Leden (zelf)** -Gebruik deze optie om de gebruikers hun eigen roltoewijzingen bekijken.
@@ -57,7 +57,7 @@ ms.locfileid: "67176730"
 
 1. Om op te geven wat gebeurt er wanneer een beoordeling is voltooid, vouw de **na voltooiing van de instellingen** sectie.
 
-    ![Na voltooiing van de instellingen](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![Na voltooiing instellingen automatisch toegepast en moet revisie niet reageert](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
 1. Als u automatisch de toegang verwijderen voor gebruikers die zijn geweigerd wilt, stelt u **automatisch resultaten toepassen op resource** naar **inschakelen**. Als u de resultaten handmatig toepassen wilt als de controle is voltooid, stelt u de switch op **uitschakelen**.
 
@@ -72,7 +72,7 @@ ms.locfileid: "67176730"
 
 1. Als u aanvullende instellingen, vouw de **geavanceerde instellingen** sectie.
 
-    ![Geavanceerde instellingen](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![Geavanceerde instellingen voor aanbevelingen weergeven, vereisen reden bij goedkeuring, e-mailmeldingen en herinneringen](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
 1. Stel **aanbevelingen weergeven** naar **inschakelen** om weer te geven de revisoren van het systeem aanbevelingen op basis van de gebruiker toegang tot informatie.
 

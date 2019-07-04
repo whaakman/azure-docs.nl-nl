@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539320"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485240"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.
@@ -57,7 +57,7 @@ Functionaliteit wordt beschikbaar gemaakt via een eenvoudige [REST API](/rest/ap
 |-------------------|----------|
 | Hulpprogramma's voor het ontwikkelen van prototypen en voor controle | In de portal kunt u de [**wizard Gegevens importeren**](search-import-data-portal.md) gebruiken om indexeerfuncties te configureren, Index Designer om een index te bouwen, en [**Search Explorer**](search-explorer.md) om query’s te testen en scoreprofielen te verfijnen. U kunt ook elke gewenste index openen om het bijbehorende schema te bekijken. |
 | Controle en diagnose | [**Inschakelen van bewakingsfuncties** ](search-monitor-usage.md) verder gaan dan de metrische gegevens-in een oogopslag die altijd zichtbaar in de portal. Metrische gegevens over query’s per seconde, latentie en beperkingen worden vastgelegd en gerapporteerd op portalpagina’s zonder dat hiervoor extra configuratie is vereist. <br/><br/>[**Zoekverkeer** ](search-traffic-analytics.md) is een ander controleprogramma alternatief, waarbij serverzijde en clientzijde gegevens worden verzameld en geanalyseerd om te ontgrendelen inzicht in wat gebruikers in het zoekvak typt. |
-| Versleuteling aan de serverzijde | [**Beheerd door Microsoft versleuteling-at-rest** ](search-security-overview.md#encrypted-transmission-and-storage) is gratis ingebouwd in de interne opslaglaag en is onherroepelijk. (Optioneel) u kunt vormen een aanvulling op de standaard-versleuteling met [ **door de klant beheerde versleutelingssleutels (preview)**](search-security-manage-encryption-keys.md). Sleutels die u maakt en beheert in Azure Key Vault worden gebruikt voor het versleutelen van indexen en synoniem-kaarten in Azure Search. |
+| Versleuteling aan de serverzijde | [**Beheerd door Microsoft versleuteling-at-rest** ](search-security-overview.md#encrypted-transmission-and-storage) is gratis ingebouwd in de interne opslaglaag en is onherroepelijk. (Optioneel) u kunt vormen een aanvulling op de standaard-versleuteling met [ **door de klant beheerde versleutelingssleutels (preview)** ](search-security-manage-encryption-keys.md). Sleutels die u maakt en beheert in Azure Key Vault worden gebruikt voor het versleutelen van indexen en synoniem-kaarten in Azure Search. |
 | Infrastructuur | Het **maximaal beschikbare platform** zorgt ervoor dat de zoekservice uiterst betrouwbaar is. [Azure Search biedt een SLA voor 99,9% beschikbaarheid](https://azure.microsoft.com/support/legal/sla/search/v1_0/) als er naar behoren is geschaald.<br/><br/> Azure Search is een end-to-end oplossing die **volledig beheerd en schaalbaar** is en vereist geen enkel infrastructuurbeheer. De service kan worden aangepast aan uw persoonlijke behoeften door in twee dimensies te schalen voor het verwerken van meer documentopslag, een hogere querybelasting, of beide.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Het gebruik van Azure Search
@@ -134,7 +134,7 @@ U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/
 3. Ga verder met code met behulp van de .NET of REST-API:
 
    + In [De .NET SDK gebruiken](search-howto-dotnet-sdk.md) wordt de hoofdwerkstroom voor beheerde code gedemonstreerd.  
-   + In [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (Aan de slag met REST API) worden dezelfde stappen getoond met behulp van de REST API. U kunt deze snelstartgids ook gebruiken om REST-API's aan te roepen vanuit Postman of Fiddler: [REST API's voor Azure Search verkennen ](search-fiddler.md).
+   + In [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (Aan de slag met REST API) worden dezelfde stappen getoond met behulp van de REST API. U kunt deze snelstartgids ook gebruiken om REST-API's aan te roepen vanuit Postman of Fiddler: [REST API's voor Azure Search verkennen ](search-get-started-postman.md).
 
 ## <a name="watch-this-video"></a>Deze video bekijken
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236286"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561398"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Veelgestelde vragen
 
@@ -53,7 +53,7 @@ A. Data Box heeft een onbewerkte capaciteit van 100 TB en een bruikbare capacite
 A.  Voor informatie over welke landen/regio's in Data Box beschikbaar is, gaat u naar [beschikbaarheid in regio](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>V. In welke regio's kan ik gegevens opslaan met Data Box?
-A. Data Box wordt ondersteund in alle regio's binnen de VS, West- en Noord-Europa, Frankrijk en het Verenigd Koninkrijk. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund. Ga naar [Beschikbaarheid in de regio](data-box-overview.md#region-availability) voor meer informatie.
+A. Data Box wordt ondersteund voor alle regio's binnen de VS, West-Europa, Noord-Europa, Frankrijk, Verenigd Koninkrijk, Japan, Australië en Canada. Ga naar [Beschikbaarheid in de regio](data-box-overview.md#region-availability) voor meer informatie.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box?
 A. Neem bij problemen met Data Box contact op met [Microsoft Ondersteuning](data-box-disk-contact-microsoft-support.md).
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>V. Kan ik meerdere opslagaccounts gebruiken voor Data Box?
-A.  Ja. Data Box ondersteunt maximaal 10 opslagaccounts, algemene opslag, klassieke opslag en blob-opslag. Zowel dynamische als statische blob wordt ondersteund. Tijdens de GA-versie worden de opslagaccounts in alle regio’s in de VS, West- en Noord-Europa, Frankrijk en het Verenigd Koninkrijk in de openbare Azure-cloud ondersteund.
+A.  Ja. Data Box ondersteunt maximaal 10 opslagaccounts, algemene opslag, klassieke opslag en blob-opslag. Zowel dynamische als statische blob wordt ondersteund. 
 
 
 ## <a name="ship-device"></a>Apparaat verzenden

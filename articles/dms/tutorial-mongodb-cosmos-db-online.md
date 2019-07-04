@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298969"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565580"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Zelfstudie: MongoDB migreren naar Azure Cosmos DB-API voor MongoDB online met behulp van DMS
 
@@ -150,7 +150,14 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
      * Voor JSON-dumps moeten de bestanden in de blob-container worden geplaatst in mappen die zijn genoemd naar de omvattende databases. In elke databasemap moeten gegevensbestanden worden geplaatst in een submap met de naam 'data' en ze moeten een naam krijgen op basis van de indeling *verzameling*.json. Metagegevensbestanden (indien aanwezig) moeten worden geplaatst in een submap met de naam 'metadata' en ze moeten een naam krijgen op basis van dezelfde indeling *verzameling*.json. De metagegevensbestanden moeten de indeling hebben die wordt geproduceerd door het MongoDB-hulpprogramma bsondump.
 
-   U kunt het IP-adres gebruiken voor situaties waarin DNS-naamomzetting niet mogelijk is.
+    > [!IMPORTANT]
+    > Het wordt afgeraden een zelfondertekend certificaat gebruiken op de mongo-server. Echter, als dit wordt gebruikt, maak verbinding met de server met **modus verbindingsreeks** en zorg ervoor dat de verbindingsreeks heeft ""
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    U kunt het IP-adres gebruiken voor situaties waarin DNS-naamomzetting niet mogelijk is.
 
    ![Geef brondetails op](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755004"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443756"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -68,7 +68,7 @@ Vergeleken met voor algemeen gebruik v2 en blob storage-accounts, bieden block b
 
 Block blob storage-accounts ondersteunen geen op dit moment lagen voor warm, koud of archief toegangslagen.
 
-### <a name="filestorage-preview-storage-accounts"></a>FileStorage (preview) storage-accounts
+### <a name="filestorage-storage-accounts"></a>FileStorage storage-accounts
 
 Een opslagaccount FileStorage is een gespecialiseerd opslagaccount dat wordt gebruikt voor het opslaan en premium-bestandsshares maken. FileStorage storage-accounts bieden een unieke toegewezen prestatiekenmerken zoals IOPS bursting. Zie voor meer informatie over deze kenmerken, het [File share prestatielagen](../files/storage-files-planning.md#file-share-performance-tiers) gedeelte van de Planningshandleiding bestanden.
 
@@ -88,7 +88,7 @@ Algemene opslagaccounts kunnen worden geconfigureerd voor een van de volgende pr
 
 Block blob storage-accounts bieden een premium-prestatielaag voor het opslaan van blok-blobs en toevoeg-blobs.
 
-Een premium-prestatielaag bieden FileStorage (preview) storage-accounts voor Azure-bestandsshares.
+Een premium-prestatielaag bieden FileStorage storage-accounts voor Azure-bestandsshares.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Toegangslagen voor blok-blob-gegevens
 

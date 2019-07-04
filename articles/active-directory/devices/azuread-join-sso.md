@@ -2,27 +2,21 @@
 title: De werking van eenmalige aanmelding met on-premises bronnen in Azure AD gekoppelde apparaten | Microsoft Docs
 description: Lees hoe u hybride Azure Active Directory-gekoppelde apparaten kunt configureren.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/20/2018
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45941de6a90a5824ebc1e5d31b18b68f5fd9d493
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64e190e3e70459846b50e1f68158b0a5c458a216
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353190"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482062"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>De werking van eenmalige aanmelding met on-premises bronnen in Azure AD gekoppelde apparaten
 
@@ -34,21 +28,17 @@ In dit artikel wordt uitgelegd hoe dit werkt.
 
 Omdat u nodig hebt om te onthouden slechts één één gebruikersnaam en wachtwoord, wordt eenmalige aanmelding vereenvoudigt de toegang tot uw resources en verbetert de beveiliging van uw omgeving. Met een Azure AD toegevoegd apparaat hebben uw gebruikers al een SSO-ervaring voor de cloud-apps in uw omgeving. Als uw omgeving een Azure AD heeft en een on-premises AD, wilt u waarschijnlijk om uit te breiden het bereik van de SSO-ervaring aan uw on-premises regel van Business (LOB)-toepassingen, bestandsshares en printers.  
 
-
 Azure AD gekoppelde apparaten hebben geen kennis over uw on-premises AD-omgeving omdat ze niet zijn gekoppeld aan deze. U kunt echter aanvullende informatie opgeven over uw on-premises AD op deze apparaten met Azure AD Connect.
 Een omgeving waarin beide, een Azure AD en een on-premises AD, is ook bekend is hybride omgeving. Als u een hybride omgeving hebt, is het waarschijnlijk dat u al hebt met Azure AD Connect geïmplementeerd om te synchroniseren van uw on-premises id-informatie naar de cloud. Als onderdeel van het proces van synchronisatie synchroniseert Azure AD Connect on-premises domeininformatie naar Azure AD. Wanneer een gebruiker zich aanmeldt met een Azure AD toegevoegde apparaat in een hybride omgeving:
 
 1. Azure AD stuurt dat de naam van de on-premises domein de gebruiker lid is van terug naar het apparaat. 
-
-2. De lokale security authority (LSA) service kan Kerberos-verificatie op het apparaat.
+1. De lokale security authority (LSA) service kan Kerberos-verificatie op het apparaat.
 
 Tijdens een poging tot toegang tot een resource in het on-premises domein van de gebruiker, het apparaat:
 
 1. Maakt gebruik van de domein-informatie te zoeken naar een domeincontroller (DC). 
-
-2. De on-premises verzendt domein en de gebruikersreferenties naar de domeincontroller bevinden om op te halen van de geverifieerde gebruiker.
-
-3. Ontvangt van een Kerberos [Ticket-Granting Ticket (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) die wordt gebruikt voor toegang tot AD-join-bronnen.
+1. De on-premises verzendt domein en de gebruikersreferenties naar de domeincontroller bevinden om op te halen van de geverifieerde gebruiker.
+1. Ontvangt van een Kerberos [Ticket-Granting Ticket (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) die wordt gebruikt voor toegang tot AD-join-bronnen.
 
 Alle apps die zijn geconfigureerd voor **geïntegreerde Windows-verificatie** SSO naadloos ontvangen wanneer een gebruiker probeert toegang tot deze.  
 
@@ -59,19 +49,14 @@ Windows Hello voor bedrijven is aanvullende configuratie vereist om in te schake
 Met eenmalige aanmelding, toegevoegde op een Azure AD apparaat die u kunt: 
 
 - Toegang tot een UNC-pad op een lidserver AD
-
 - Toegang tot een AD lid webserver die is geconfigureerd voor geïntegreerde Windows-beveiliging 
-
-
 
 Als u beheren van uw wilt on-premises AD vanaf een Windows-apparaat, installeert de [Remote Server Administration Tools voor Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
 
 U kunt gebruiken:
 
 - De Active Directory: gebruikers en Computers (ADUC)-module voor het beheer van alle AD-objecten. U moet echter het domein dat u verbinding maken wilt met handmatig opgeven.
-
 - De DHCP-module voor het beheren van een AD-join DHCP-server. U moet echter mogelijk opgeven van de DHCP-servernaam of het adres.
-
  
 ## <a name="what-you-should-know"></a>Wat u moet weten
 

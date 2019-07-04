@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190840"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446225"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -74,7 +74,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 
 ## <a name="prerequisites"></a>Vereisten
 
-- De ondersteunde besturingssysteemversies zijn Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Installatie van de zelf-hostende integratieruntime op een domeincontroller wordt niet ondersteund.
+- De ondersteunde besturingssysteemversies zijn Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 en Windows Server 2019. Installatie van de zelf-hostende integratieruntime op een domeincontroller wordt niet ondersteund.
 - .NET framework 4.6.1 of hoger is vereist. Als u de zelf-hostende integratieruntime op een computer met Windows 7 installeert, installeert u .NET Framework 4.6.1 of hoger. Zie [.NET Framework-systeemvereisten](/dotnet/framework/get-started/system-requirements) voor meer informatie.
 - De aanbevolen configuratie voor de zelf-hostende integration runtime-machine is ten minste 2 GHz, vier kernen, 8 GB aan RAM-geheugen en een schijf van 80GB.
 - Als de hostmachine in de slaapstand, reageert de zelf-hostende integratieruntime niet op aanvragen voor gegevens. Een juiste energiebeheerschema configureren op de computer voordat u de zelf-hostende integratieruntime installeren. Als de machine is geconfigureerd voor de slaapstand, wordt een bericht gevraagd om de zelf-hostende integration runtime-installatie.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2019
+ms.date: 07/03/2019
 ms.author: jaredr80
-ms.openlocfilehash: 3a29940c4ef904d813fa7400928448a5c48334a4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bda5fb8a267fae3309c73678465693e1fef9b838
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205970"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565947"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -77,9 +77,9 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Location** | **Eigenaar peeringlocatie** | **Lokale Azure-regio 's** | **Serviceproviders** |
 | --- | --- | --- | --- |
 | **Amsterdam** | Equinix | Europa -west | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amsterdam2** | Interxion | Europa -west | DE-CIX, Interxion, Vodafone |
+| **Amsterdam2** | Interxion | Europa -west | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | N.v.t. | Equinix, Megaport |
-| **Auckland** | Vocus | N.v.t. | Devoli |
+| **Auckland** | Vocus | N.v.t. | Devoli, Megaport |
 | **Busan** |LG CNS | Korea - zuid | LG CNS |
 | **Canberra** | CDC | Australië - centraal | CDC |
 | **Canberra2** | CDC | Australië - centraal 2| CDC |
@@ -100,7 +100,7 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Londen** | Equinix | Verenigd Koninkrijk Zuid | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **London2** | Telehouse | Verenigd Koninkrijk Zuid | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | N.v.t. | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **Marseille** |Interxion | Frankrijk - zuid | Interxion, Jaguar Network |
+| **Marseille** |Interxion | Frankrijk - zuid | DE-CIX, Interxion, Jaguar Network |
 | **Melbourne** | NextDC | Australië - zuidoost | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | N.v.t. | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | N.v.t. | Bell Canada, Cologix, Telus, Zayo |
@@ -109,7 +109,7 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **New York** | Equinix | N.v.t. | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport (Wales)** | Next Generation Data | Verenigd Koninkrijk West | British Telecom, Colt, Level 3 Communications, Next Generation Data |
 | **Osaka** | Equinix | Japan - west | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Parijs** | Interxion | Frankrijk - centraal | Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
+| **Parijs** | Interxion | Frankrijk - centraal | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | N.v.t. | Megaport, NextDC |
 | **Quebec** | 4Degrees | Canada - oost | Bell Canada, Megaport |
 | **San Antonio** | CyrusOne | US - zuid-centraal | CenturyLink Cloud Connect, Megaport |
