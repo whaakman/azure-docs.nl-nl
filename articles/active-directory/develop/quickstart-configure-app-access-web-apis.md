@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b434e5b0c4524af642eb1255597cd3e7674571c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7e8b0e17248dff3c53b96fd240a7566f09b22fae
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545805"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482684"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Quickstart: Een clienttoepassing configureren voor toegang tot web-API's
 
@@ -74,14 +74,14 @@ Ga als volgt te werk om een omleidings-URI toe te voegen aan uw toepassing:
 1. Als u een aangepaste omleidings-URI's voor web- en openbare client-apps wilt toevoegen, voert u deze stappen uit:
 
    1. Ga naar de sectie **Omleidings-URI**.
-   1. Selecteer het type toepassing dat u bouwt, **Web** of **Openbare client (mobiel en desktop)**.
+   1. Selecteer het type toepassing dat u bouwt, **Web** of **Openbare client (mobiel en desktop)** .
    1. Voer de omleidings-URI voor uw toepassing in.
       * Geef voor webtoepassingen de basis-URL van uw toepassing op. `http://localhost:31544` kan bijvoorbeeld de URL zijn van een webtoepassing die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden.
       * Geef voor openbare toepassingen de URI op die door Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, bijvoorbeeld https://MyFirstApp.
 
 1. Volg deze stappen om een keuze te maken uit voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop):
 
-    1. Ga naar de sectie **Voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop)**.
+    1. Ga naar de sectie **Voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop)** .
     1. Selecteer de juiste omleidings-URI's voor uw toepassing met behulp van de selectievakjes.
 
 ## <a name="add-credentials-to-your-web-application"></a>Referenties toevoegen aan uw webtoepassing
@@ -110,7 +110,7 @@ Ga als volgt te werk om een referentie aan uw webtoepassing toe te voegen:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Machtigingen toevoegen voor toegang tot web-API's
 
-[![API-machtigingen toevoegen](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
+[![Geeft het scherm waar u de API-machtigingen kunt toevoegen](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 Ga als volgt te werk om machtiging(en) voor toegang tot resource-API's van uw client toe te voegen:
 

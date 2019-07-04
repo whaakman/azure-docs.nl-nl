@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 26dd7554cc713d85a9e03649bcb6d41139cbdf27
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137189"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448891"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Wat is ML-Services in Azure HDInsight
 
@@ -27,7 +27,7 @@ De modellen of voorspellingen op die het resultaat van de analyse kunnen worden 
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Aan de slag met ML-Services op HDInsight
 
-Voor het maken van een ML-Services-cluster in Azure HDInsight, selecteer de **ML-Services** clustertype bij het maken van een HDInsight-cluster met behulp van de Azure portal. Het clustertype van de ML-Services bevat ML-Server op de gegevensknooppunten van het cluster en een edge-knooppunt, dat als een zone landingspagina voor analyses op basis van een ML-Services fungeert. Zie [aan de slag met ML-Services op HDInsight](r-server-get-started.md) voor een overzicht over het maken van het cluster.
+Voor het maken van een ML-Services-cluster in Azure HDInsight, selecteer de **ML-Services** clustertype bij het maken van een HDInsight-cluster met behulp van de Azure portal. Het clustertype van de ML-Services bevat ML-Server op de gegevensknooppunten van het cluster en een edge-knooppunt, dat als een zone landingspagina voor analyses op basis van een ML-Services fungeert. Zie [Apache Hadoop-clusters maken met behulp van de Azure-portal](../hdinsight-hadoop-create-linux-clusters-portal.md) voor een overzicht over het maken van het cluster.
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>Waarom kiezen voor ML-Services in HDInsight?
 
@@ -68,13 +68,13 @@ De volgende functies zijn opgenomen in ML-Services op HDInsight.
 
 Standaardopslag voor het HDFS-bestandssysteem van HDInsight-clusters kan worden gekoppeld aan een Azure Storage-account of een Azure Data Lake-opslag. Deze koppeling zorgt ervoor dat de gewenste gegevens is geüpload naar het cluster opslag tijdens de analyse persistent wordt gemaakt en de gegevens zijn beschikbaar, zelfs nadat het cluster wordt verwijderd. Er zijn verschillende hulpprogramma's voor het verwerken van de gegevensoverdracht naar de opslagoptie die u selecteert, met inbegrip van de faciliteit portal op basis van het uploaden van het opslagaccount en de [AzCopy](../../storage/common/storage-use-azcopy.md) hulpprogramma.
 
-U hebt de mogelijkheid van het inschakelen van toegang tot extra Blob en Data lake opgeslagen tijdens het inrichtingsproces, ongeacht de primaire opslag-optie gebruikt cluster. Zie [aan de slag met ML-Services op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) voor informatie over het toevoegen van toegang tot extra accounts. Zie [Azure Storage-opties voor ML-Services op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) artikel voor meer informatie over het gebruik van meerdere opslagaccounts.
+U hebt de mogelijkheid van het inschakelen van toegang tot extra Blob en Data lake opgeslagen tijdens het inrichtingsproces, ongeacht de primaire opslag-optie gebruikt cluster.  Zie [Azure Storage-opties voor ML-Services op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) artikel voor meer informatie over het gebruik van meerdere opslagaccounts.
 
 U kunt ook [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) als een opslagoptie voor gebruik op het edge-knooppunt. Azure Files kunt u een bestandsshare die is gemaakt in Azure Storage op het Linux-bestandssysteem koppelen. Zie voor meer informatie over deze opties voor gegevensopslag voor ML-Services op HDInsight-cluster, [Azure Storage-opties voor ML-Services op HDInsight](r-server-storage.md).
 
 ## <a name="access-ml-services-edge-node"></a>Toegang tot Services ML edge-knooppunt
 
-U kunt verbinding maken met Microsoft ML Server op het edge-knooppunt via een browser. Dit is standaard geïnstalleerd tijdens het maken van clusters. Zie voor meer informatie, [stared ophalen met ML-Services op HDInsight](r-server-get-started.md). U kunt ook verbinding maken met het edge-knooppunt van het cluster vanaf de opdrachtregel met behulp van SSH/PuTTY voor toegang tot de R-console.
+U kunt verbinding maken met Microsoft ML Server op het edge-knooppunt via een browser. Dit is standaard geïnstalleerd tijdens het maken van clusters.  U kunt ook verbinding maken met het edge-knooppunt van het cluster vanaf de opdrachtregel met behulp van SSH/PuTTY voor toegang tot de R-console.
 
 ## <a name="develop-and-run-r-scripts"></a>Ontwikkelen en uitvoeren van R-scripts
 
@@ -142,6 +142,6 @@ De prijzen die gekoppeld aan een cluster met HDInsight voor ML-Services zijn zij
 
 Zie de volgende onderwerpen voor meer informatie over het gebruik van ML-Services op HDInsight-clusters:
 
-* [Aan de slag met ML-Services-cluster in HDInsight](r-server-get-started.md)
+* [Een R-script uitvoeren op een cluster ML-Services in Azure HDInsight met behulp van RStudio Server](machine-learning-services-quickstart-job-rstudio.md)
 * [Opties voor compute-context voor ML Services-cluster in HDInsight](r-server-compute-contexts.md)
 * [Opties voor opslag voor ML-Services-cluster in HDInsight](r-server-storage.md)

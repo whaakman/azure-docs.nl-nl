@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66518580"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446740"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Quickstart: Azure Data Box zware met behulp van de Azure portal implementeren
 
@@ -57,7 +57,7 @@ Zorg voordat u begint voor het volgende:
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Bestellen
 
@@ -95,7 +95,7 @@ Deze stap duurt ongeveer 10-15 minuten om te voltooien.
 
 Deze stap neemt ongeveer 5 tot 7 minuten in beslag.
 
-1. Als u het wachtwoord van het apparaat wilt ophalen, gaat u naar **Algemeen > Apparaatdetails** in de [Azure-portal](http://portal.azure.com). Hetzelfde wachtwoord wordt gebruikt voor beide knooppunten van het apparaat.
+1. Als u het wachtwoord van het apparaat wilt ophalen, gaat u naar **Algemeen > Apparaatdetails** in de [Azure-portal](https://portal.azure.com). Hetzelfde wachtwoord wordt gebruikt voor beide knooppunten van het apparaat.
 2. Een statisch IP-adres 192.168.100.5 en subnet 255.255.255.0 toewijzen aan de Ethernet-adapter op de computer die u gebruikt voor het verbinding maken met gegevens in het zware. U hebt op `https://192.168.100.10` toegang tot de webgebruikersinterface van het apparaat. Nadat u het apparaat hebt ingeschakeld, duurt het maximaal 5 minuten om de verbinding tot stand te brengen.
 3. Meld u aan met het wachtwoord uit de Azure-portal. U ziet nu een foutmelding over een probleem met het beveiligingscertificaat van de website. Volg de browserinstructies om naar de webpagina te gaan.
 4. De instellingen voor de interfaces (met uitzondering van de MGMT) zijn standaard geconfigureerd als DHCP. Indien nodig, kunt u deze interfaces configureren als statisch en een IP-adres opgeven.

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e78dd093c4bbf0cf1bdbd5280ffaa63286e585d4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533876"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537138"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Snelstart: Een serverfirewall configureren - Portal
 
@@ -33,7 +33,7 @@ Deze snelstart helpt u bij het configureren van een firewall voor uw Azure Analy
 1. Klik op de server om de overzichtspagina te openen. 
 2. Klik in **INSTELLINGEN** > **Firewall** > **Firewall inschakelen** op **Aan**.
 3. Klik op **Aan** bij **Toegang toestaan vanuit Power BI** om toegang tot DirectQuery toe te staan vanuit Power BI-service.  
-4. (Optioneel) Geef een of meer IP-adresbereiken op. Typ een naam, begin- en eind-IP-adressen voor elk bereik. 
+4. (Optioneel) Geef een of meer IP-adresbereiken op. Typ een naam, begin- en eind-IP-adressen voor elk bereik. Naam van de firewallregel moet beperkt tot 128 tekens en mag alleen hoofdletters, kleine letters, cijfers, onderstrepingstekens en afbreekstreepjes bevatten. Alleen uit spaties bestaan en andere speciale tekens zijn niet toegestaan.
 5. Klik op **Opslaan**.
 
      ![Firewallinstellingen](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

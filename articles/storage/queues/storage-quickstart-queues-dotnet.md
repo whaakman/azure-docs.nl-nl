@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159815"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540317"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Quickstart: .NET gebruiken om een wachtrij te creëren in Azure Storage
 
@@ -187,9 +187,9 @@ Console.WriteLine();
 
 Vervolgens voegt het voorbeeld een bericht achteraan de wachtrij toe. 
 
-Een bericht moet in een formaat zijn dat kan worden opgenomen in een XML-aanvraag met UTF-8-codering, en mag maximaal 64 KB groot zijn. Als een bericht binaire gegevens bevat, raadt Microsoft u aan om het bericht met Base64 te coderen.
+Een bericht moet in een formaat zijn dat kan worden opgenomen in een XML-aanvraag met UTF-8-codering, en mag maximaal 64 KB groot zijn. Als een bericht bevat de binaire gegevens, raden wij aan dat u met Base64 coderen het bericht.
 
-Standaard is de maximale time-to-live voor een bericht ingesteld op 7 dagen. U kunt een positief getal opgeven voor de time-to-live van het bericht, of -1 om aan te geven dat het bericht niet verloopt.
+Standaard is de maximale time-to-live voor een bericht ingesteld op 7 dagen. U kunt een positief getal voor de time-to-live bericht opgeven.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +199,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+U kunt een bericht dat niet verloopt toevoegen met `Timespan.FromSeconds(-1)` in de aanroep van [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Een specifiek bericht in de wachtrij bekijken

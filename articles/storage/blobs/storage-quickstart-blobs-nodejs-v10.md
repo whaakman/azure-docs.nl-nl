@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149439"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536163"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Quickstart: Blobs uploaden, downloaden, weergeven en verwijderen met behulp van Azure Storage v10 SDK voor JavaScript
 
-In deze snelstart leert u hoe u de [Azure Storage v10 SDK voor JavaScript](https://github.com/Azure/azure-storage-js) kunt gebruiken in Node.js om blobs te uploaden, downloaden, weergeven en verwijderen en containers te beheren.
+In deze snelstart leert u hoe u de [Azure Storage v10 SDK voor JavaScript](https://github.com/Azure/azure-sdk-for-js) kunt gebruiken in Node.js om blobs te uploaden, downloaden, weergeven en verwijderen en containers te beheren.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -99,7 +99,7 @@ Referenties worden op basis van de juiste context gelezen uit de omgevingsvariab
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
@@ -238,7 +238,7 @@ De methode *create* van *ContainerURL* wordt gebruikt om een container te maken.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
-Omdat de naam van de container wordt gedefinieerd bij het aanroepen van *ContainerURL.fromServiceURL(serviceURL, containerName)*, is het aanroepen van de methode *create* het enige dat nodig is om de container te maken.
+Omdat de naam van de container wordt gedefinieerd bij het aanroepen van *ContainerURL.fromServiceURL(serviceURL, containerName)* , is het aanroepen van de methode *create* het enige dat nodig is om de container te maken.
 
 ### <a name="upload-text"></a>Tekst uploaden
 Als u tekst wilt uploaden naar de blob, gebruikt u de methode *upload*.

@@ -4,17 +4,17 @@ description: In deze snelstartgids leert u hoe u een IoT Edge-apparaat maakt en 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 07/02/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 58dc2f5d8862c0b51b36e028d52275b2c8e732be
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573953"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537565"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Quickstart: Uw eerste IoT Edge-module implementeren in een Linux-apparaat
 
@@ -55,15 +55,14 @@ Cloudresources:
 
 IoT Edge-apparaat:
 
-* Een virtueel Linux-apparaat of een virtuele Linux-computer die fungeert als uw IoT Edge-apparaat. Moet u de Microsoft-voorwaarde [Azure IoT Edge op Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtuele machine, die vooraf alles wat u nodig hebt om uit te voeren van IoT Edge op een apparaat installeert. Maak deze virtuele machine met de volgende opdracht:
+* Een virtueel Linux-apparaat of een virtuele Linux-computer die fungeert als uw IoT Edge-apparaat. Moet u de Microsoft-voorwaarde [Azure IoT Edge op Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtuele machine, die vooraf alles wat u nodig hebt om uit te voeren van IoT Edge op een apparaat installeert. Maak deze virtuele machine met de volgende opdrachten:
 
    ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
    Het maken en starten van de nieuwe virtuele machine kan een paar minuten duren.
-
-   Op dit punt ontvangt u mogelijk een `MarketplacePurchaseEligibilityFailed`-fout. Als dit gebeurt, moet u de voorwaarden accepteren door naar [Azure IoT Edge in Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) te gaan en op `Get It Now` te klikken. Meld u aan en accepteer de voorwaarden voordat u de opdracht opnieuw probeert uit te voeren.
 
    Wanneer u een nieuwe virtuele machine maakt, noteert u het **publicIpAddress**, dat deel uitmaakt van de uitvoer van de opdracht create. U gebruikt dit openbare IP-adres later in deze quickstart om verbinding te maken met de virtuele machine.
 

@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738247"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477606"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Een virtuele Linux-machine met Desired State Configuration configureren
 
@@ -38,7 +38,7 @@ Er zijn veel verschillende methoden voor het uitvoeren van onboarding op een mac
 
 1. Selecteer in het linkerdeelvenster van Azure Portal de optie **Automation-accounts**. Als die niet in het linkerdeelvenster wordt weergegeven, klikt u op **Alle services** en zoekt u ernaar in de weergave die u dan ziet.
 1. Selecteer een Automation-account in de lijst.
-1. Selecteer in het linkerdeelvenster van het Automation-account de optie **Statusconfiguratie (DSC)**.
+1. Selecteer in het linkerdeelvenster van het Automation-account de optie **Statusconfiguratie (DSC)** .
 2. Klik op **Toevoegen** om de selectiepagina van de virtuele machine te openen.
 3. Zoek naar de virtuele machine waarvoor u DSC wilt inschakelen DSC. U kunt het zoekveld en de filteropties gebruiken om een specifieke virtuele machine te vinden.
 4. Klik op de virtuele machine en selecteer vervolgens **Verbinden**

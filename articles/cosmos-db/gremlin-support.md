@@ -5,68 +5,34 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: b36c041c24a07f89701e78aea4d08270342b8d22
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: db263c1c7f0a8b87b315c5aa6da31336229c9643
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978937"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502727"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Ondersteuning voor Gremlin-grafieken in Azure Cosmos DB
 Azure Cosmos DB ondersteunt [van Apache Tinkerpop](https://tinkerpop.apache.org) grafiek-traversal taal, ook wel [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). U kunt de Gremlin-taal gebruiken om grafiekentiteiten (hoekpunten en randen) te maken, eigenschappen binnen deze entiteiten te wijzigen, query’s en traversals uit te voeren, en entiteiten te verwijderen. 
 
-Azure Cosmos DB brengt functies van zakelijk niveau naar grafiekdatabases. Deze functies omvatten globale distributie, onafhankelijk schalen van opslag en doorvoer, voorspelbare milliseconden latentie, automatische indexering, sla's, leesbeschikbaarheid voor database-accounts die twee of meer Azure-regio's. Omdat Azure Cosmos DB ondersteunt TinkerPop Gremlin /, kunt u eenvoudig toepassingen die zijn geschreven met behulp van een andere compatibel graph-database migreren. Daarnaast integreert Azure Cosmos DB, vanwege de ondersteuning voor Gremlin, naadloos met analyseframeworks waarvoor TinkerPop is ingeschakeld, zoals [Apache Spark GraphX](https://spark.apache.org/graphx/). 
-
 In dit artikel, we bieden een snel overzicht van Gremlin en inventariseren van de Gremlin-functies die worden ondersteund door de Gremlin-API.
 
-## <a name="gremlin-by-example"></a>Gremlin via een voorbeeld
-Laten we een voorbeeldgrafiek gebruiken om te zien hoe query’s kunnen worden uitgedrukt in Gremlin. In de volgende afbeelding ziet u een zakelijke toepassing waarmee gegevens over gebruikers, interesses en apparaten worden beheerd, in de vorm van een grafiek.  
+## <a name="compatible-client-libraries"></a>Compatibel-clientbibliotheken
 
-![Voorbeelddatabase met personen, apparaten en interesses](./media/gremlin-support/sample-graph.png) 
+In de volgende tabel ziet u populaire Gremlin-stuurprogramma’s die u kunt gebruiken met Azure Cosmos DB:
 
-Deze grafiek heeft de volgende hoekpunttypen (in Gremlin ‘label’ genaamd):
+| Downloaden | source | Aan de slag | Ondersteunde connectorversie |
+| --- | --- | --- | --- |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Grafiek maken met behulp van .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Grafiek maken met behulp van Java](create-graph-java.md) | 3.2.0+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript in GitHub](https://github.com/jbmusso/gremlin-javascript) | [Grafiek maken met behulp van Node.js](create-graph-nodejs.md) | 3.3.4+ |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python in GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Grafiek maken met behulp van Python](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP in GitHub](https://github.com/PommeVerte/gremlin-php) | [Grafiek maken met behulp van PHP](create-graph-php.md) | 3.1.0 |
+| [Gremlin-console](https://tinkerpop.apache.org/downloads.html) | [TinkerPop-documenten](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Grafiek maken met behulp van de Gremlin-console](create-graph-gremlin-console.md) | 3.2.0 + |
 
-- Personen: In de grafiek komen drie personen voor: Robin, Thomas en Ben
-- Interesses: In dit voorbeeld is hun interesse voetbal
-- Apparaten: De apparaten die de personen gebruiken
-- Besturingssystemen: De besturingssystemen op de apparaten
-
-We laten de relaties tussen deze entiteiten zien via de volgende randtypen/labels:
-
-- Kent: Bijvoorbeeld 'Thomas kent Robin'
-- Is geïnteresseerd in: Geeft de interesses weer van de personen in de grafiek, bijvoorbeeld 'Ben is geïnteresseerd in voetbal'
-- RunsOS: Op de laptop wordt het Windows-besturingssysteem uitgevoerd
-- Gebruikt: Geeft aan welk apparaat een persoon gebruikt. Robin gebruikt bijvoorbeeld een Motorola-telefoon met serienummer 77
-
-We gaan enkele bewerkingen uitvoeren in deze grafiek met behulp van de [Gremlin-console](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). U kunt deze bewerkingen ook uitvoeren met behulp van Gremlin-stuurprogramma’s op een platform naar keuze (Java, Node.js, Python of NET).  Voordat we kijken wat wordt ondersteund in Azure Cosmos DB, bekijken we een aantal voorbeelden om vertrouwd te raken met de syntaxis.
-
-Eerst kijken we naar CRUD. Met de volgende Gremlin-instructie wordt het hoekpunt Thomas ingevoegd in de grafiek:
-
-```java
-:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
-```
-
-Vervolgens wordt met de volgende Gremlin-instructie de rand Kent ingevoegd tussen Thomas en Robin.
-
-```java
-:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
-```
-
-Met de volgende query worden de hoekpunten voor Persoon in aflopende volgorde van de voornamen geretourneerd:
-```java
-:> g.V().hasLabel('person').order().by('firstName', decr)
-```
-
-Waar grafieken in uitblinken is in het beantwoorden van vragen zoals: Welke besturingssystemen gebruiken de vrienden van Thomas? U kunt deze Gremlin-traversal om op te halen die informatie in de grafiek kunt uitvoeren:
-
-```java
-:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
-```
-Laten we nu kijken wat Azure Cosmos DB te bieden heeft voor Gremlin-ontwikkelaars.
-
-## <a name="gremlin-features"></a>Gremlin-functies
+## <a name="supported-graph-objects"></a>Graph-objecten ondersteund
 TinkerPop is een standaard die een breed bereik aan grafiektechnologieën beslaat. Daarom beschikt TinkerPop over een standaardterminologie om te beschrijven welke functies worden aangeboden door een grafiekprovider. Azure Cosmos DB biedt een permanente, beschrijfbare grafiekdatabase met een hoge gelijktijdigheid, die kan worden gepartitioneerd op meerdere servers of clusters. 
 
 In de volgende tabel worden de TinkerPop-functies vermeld die zijn geïmplementeerd met Azure Cosmos DB: 
@@ -128,7 +94,7 @@ De eigenschappen die worden gebruikt door GraphSON voor hoekpunten worden hieron
 | Eigenschap | Description | 
 | --- | --- | --- |
 | `id` | De id voor het hoekpunt. Moet uniek zijn (in combinatie met de waarde van `_partition` indien van toepassing). Als er geen waarde is opgegeven, zal deze automatisch worden geleverd met een GUID | 
-| `label` | Het label van het hoekpunt. Dit wordt gebruikt om te beschrijven van het entiteitstype. |
+| `label` | Het label van het hoekpunt. Deze eigenschap wordt gebruikt om te beschrijven van het entiteitstype. |
 | `type` | Wordt gebruikt om hoekpunten te onderscheiden van niet-Graph-documenten |
 | `properties` | Groep door de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan het hoekpunt. Elke eigenschap kan meerdere waarden hebben. |
 | `_partition` | De partitiesleutel van het hoekpunt. Gebruikt voor [graph-partitionering](graph-partitioning.md). |
@@ -184,12 +150,12 @@ We gaan nu de Gremlin-stappen bekijken die worden ondersteund in Azure Cosmos DB
 | `sample` | Wordt gebruikt voor voorbeeldresultaten van de traversal | [stap: sample](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Wordt gebruikt voor projectresultaten van de traversal |  [stap: select](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Wordt gebruikt voor niet-blokkerende combinaties van de traversal | [stap: store](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap met het begin van een opgegeven tekenreeks | [TextP predicaten](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap met de beëindiging van een opgegeven tekenreeks | [TextP predicaten](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap met de inhoud van een opgegeven tekenreeks | [TextP predicaten](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap die niet wordt gestart door een opgegeven tekenreeks | [TextP predicaten](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap die niet met een opgegeven tekenreeks eindigt | [TextP predicaten](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap die een opgegeven tekenreeks bevat geen | [TextP predicaten](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap met het begin van een opgegeven tekenreeks | [TextP predicaten](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap met de beëindiging van een opgegeven tekenreeks | [TextP predicaten](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap met de inhoud van een opgegeven tekenreeks | [TextP predicaten](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap die niet wordt gestart door een opgegeven tekenreeks | [TextP predicaten](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap die niet met een opgegeven tekenreeks eindigt | [TextP predicaten](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | Filters gebruiken om de functie een tekenreeks. Deze functie wordt gebruikt als een predicaat voor de `has()` stap zodat deze overeenkomt met een eigenschap die een opgegeven tekenreeks bevat geen | [TextP predicaten](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Paden van een hoekpunt combineren in een boomstructuur | [stap: tree](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Een iterator uitvoeren als stap| [stap: unfold](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Resultaten van meerdere traversals samenvoegen| [stap: union](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |

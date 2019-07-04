@@ -3,31 +3,30 @@ title: Overzicht van Azure Digital Twins | Microsoft Docs
 description: Kom meer te weten over Azure Digital Twins, een Azure-IoT-oplossing voor ruimtelijke intelligentie.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 41a6b040c04c3a212a7ee89897b29f5ec96048d7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072179"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459019"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Overzicht van Azure Digital Twins
 
-Azure Digital Twins is een Azure IoT-service waarmee uitgebreide modellen van de fysieke omgeving worden gemaakt. Er kunnen grafieken voor ruimtelijke intelligentie mee worden gemaakt voor het modelleren van de relaties en interacties tussen personen, ruimten en apparaten.
+Azure digitale dubbels Preview is een Azure IoT-service waarmee uitgebreide modellen van de fysieke omgeving. Er kunnen grafieken voor ruimtelijke intelligentie mee worden gemaakt voor het modelleren van de relaties en interacties tussen personen, ruimten en apparaten.
 
-Met Azure Digital Twins kunt u gegevens opvragen van een fysieke ruimte in plaats van uit veel verschillende sensoren. Deze service helpt u om herbruikbare, zeer schaalbare, ruimtebewuste functionaliteit te bouwen die streaminggegevens uit de digitale en fysieke wereld koppelt. Uw apps worden verbeterd door deze uniek relevante, contextuele functies. Azure Digital Twins kan in de volgende voorbeeldtaken worden gebruikt voor:
+Met Azure Digital Twins kunt u gegevens opvragen van een fysieke ruimte in plaats van uit veel verschillende sensoren. Deze service helpt u om herbruikbare, zeer schaalbare, ruimtebewuste functionaliteit te bouwen die streaminggegevens uit de digitale en fysieke wereld koppelt. Uw apps worden verbeterd door deze uniek relevante, contextuele functies. 
+
+Azure van digitale dubbels geldt voor alle typen van omgevingen, zoals warehouses, kantoren, scholen, ziekenhuizen en banken. Het kan ook worden gebruikt voor stadions, fabrieken, parkeerplaatsen, parken, smart grids en steden. Hier volgen enkele scenario's waar Azure digitale dubbels kan nuttig zijn:
 
 - Voorspellen van onderhoudsbehoeften voor een fabriek.
 - Analyseren van realtime energiebehoeften van een elektriciteitsnet.
 - Optimaliseren van het gebruik van beschikbare ruimte voor een kantoorgebouw.
-
-Azure Digital Twins is van toepassing op allerlei typen omgevingen. Magazijnen, kantoren, scholen, ziekenhuizen en banken zijn slechts enkele voorbeelden. Het kan ook worden gebruikt voor stadions, fabrieken, parkeerplaatsen, parken, smart grids en steden. Azure Digital Twins kan ook in de volgende voorbeeldscenario's worden gebruikt voor:
-
 - Volgen van de dagelijkse temperatuur voor meerdere locaties.
 - Bewaken van vliegroutes met intensief droneverkeer.
 - Identificeren van zelfrijdende voertuigen.
@@ -46,15 +45,15 @@ Azure Digital Twins biedt de volgende belangrijke mogelijkheden.
 
 ### <a name="spatial-intelligence-graph"></a>Grafiek voor ruimtelijke intelligentie
 
-De [*grafiek voor ruimtelijke intelligentie*](./concepts-objectmodel-spatialgraph.md), of *ruimtelijke grafiek*, is een virtuele voorstelling van de fysieke omgeving. U kunt het gebruiken om relaties tussen personen, plaatsen en apparaten te modelleren.
+De [*grafiek voor ruimtelijke intelligentie*](./concepts-objectmodel-spatialgraph.md#graph), of *ruimtelijke grafiek*, is een virtuele voorstelling van de fysieke omgeving. U kunt het gebruiken om relaties tussen personen, plaatsen en apparaten te modelleren.
 
 Denk eens aan een slimme app voor nutsvoorzieningen waarbij verschillende elektriciteitsmeters in een omgeving zijn betrokken. Het nutsbedrijf moet het elektriciteitsgebruik en de facturering nauwkeurig bijhouden en voorspellen. Elk apparaat en elke sensor moeten worden gemodelleerd met context over de locatie en over de te factureren klant. U kunt de grafiek voor ruimtelijke intelligentie gebruiken om dit soort complexe relaties te modelleren.
 
 ### <a name="digital-twin-object-models"></a>Digital Twin-objectmodellen
 
-[Digital Twin-objectmodellen](./concepts-objectmodel-spatialgraph.md) zijn vooraf gedefinieerde apparaatprotocollen en gegevensschema's. Hiermee worden de domeinspecifieke behoeften van uw oplossing met elkaar in overeenstemming gebracht om het ontwikkelen te versnellen en vereenvoudigen.
+[Digital Twin-objectmodellen](./concepts-objectmodel-spatialgraph.md#model) zijn vooraf gedefinieerde apparaatprotocollen en gegevensschema's. Hiermee worden de domeinspecifieke behoeften van uw oplossing met elkaar in overeenstemming gebracht om het ontwikkelen te versnellen en vereenvoudigen.
 
-Een toepassing voor de bezetting van een ruimte kan bijvoorbeeld vooraf gedefinieerde ruimtetypen gebruiken, zoals een campus, gebouw, verdieping en ruimte.
+Bijvoorbeeld, een kamer bezetting toepassing vooraf gedefinieerde ruimte typen zoals campus, gebouw, verdieping en ruimte gebruiken.
 
 ### <a name="multiple-and-nested-tenants"></a>Meerdere en geneste tenants
 

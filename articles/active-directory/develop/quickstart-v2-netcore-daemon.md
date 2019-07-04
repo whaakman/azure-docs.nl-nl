@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d64c13a43d1e74e4372e57cf6d5c3054f5effea4
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784963"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540714"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een console-app met behulp van de identiteit van de app
 
@@ -96,6 +96,10 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Een nieuw clientgeheim genereren]()
     
+    > [!div renderon="portal"]
+    > > [!NOTE]
+    > > In deze snelstartgids ondersteunt Enter_the_Supported_Account_Info_Here.
+    
     > [!div renderon="docs"]
     >> Waar:
     >> * `Enter_the_Application_Id_Here`: is de **toepassings-id (client-id)** voor de toepassing die u hebt geregistreerd.
@@ -106,7 +110,7 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
     > > [!TIP]
     > > Om de waarden van **Toepassings-id (client-id)** en **Map-id (tenant-id)** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal. Voor het genereren van een nieuwe sleutel gaat u naar de pagina **Certificaten en geheimen**.
     
-#### <a name="step-4-admin-consent"></a>Stap 4: Toestemming van de beheerder
+#### <a name="step-4-admin-consent"></a>Stap 4: toestemming van de beheerder
 
 Als u op dit moment probeert de toepassing uit te voeren, krijgt u de foutmelding *HTTP 403 - verboden*: `Insufficient privileges to complete the operation`. Dit komt doordat een *alleen app-machtiging* beheerderstoestemming, wat betekent dat een globale beheerder van uw directory moet toestemming geven aan uw toepassing vereist. Selecteer een van de onderstaande opties, afhankelijk van uw rol:
 
@@ -157,7 +161,7 @@ U ziet een lijst met gebruikers in uw Azure AD-directory als resultaat.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is de bibliotheek gebruikt voor het aanmelden van gebruikers en aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd door Microsoft identity-platform. Zoals beschreven aanvragen in deze snelstartgids tokens met behulp van de eigen identiteit in plaats van gedelegeerde machtigingen. De verificatiestroom die in dit voorbeeld wordt gebruikt, staat bekend als de *[oauth-stroom voor clientreferenties](v2-oauth2-client-creds-grant-flow.md)*. Zie voor meer informatie over het gebruik van MSAL.NET met clientreferentiestroom [in dit artikel](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is de bibliotheek gebruikt voor het aanmelden van gebruikers en aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd door Microsoft identity-platform. Zoals beschreven aanvragen in deze snelstartgids tokens met behulp van de eigen identiteit in plaats van gedelegeerde machtigingen. De verificatiestroom die in dit voorbeeld wordt gebruikt, staat bekend als de *[oauth-stroom voor clientreferenties](v2-oauth2-client-creds-grant-flow.md)* . Zie voor meer informatie over het gebruik van MSAL.NET met clientreferentiestroom [in dit artikel](https://aka.ms/msal-net-client-credentials).
 
  U kunt MSAL.NET installeren door de volgende opdracht uit te voeren in **Package Manager Console** van Visual Studio:
 

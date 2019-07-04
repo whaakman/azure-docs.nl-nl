@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 6023e4bd4028cf1679051b6665297afd00b1eba7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121996"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482662"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstartgids: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
@@ -45,7 +45,7 @@ U hebt een Azure Active Directory tenant nodig om van start te gaan waar u gebru
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: Gebruikers aanmelden en Microsoft Graph aanroepen
 
-![Topologie](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Toont de Azure AD- en Android-topologie](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 U kunt deze app gebruiken voor alle Azure Active Directory accounts. Het ondersteunt single-tenant en multi-tenant scenario’s (wordt in stappen besproken). Het laat zien hoe u apps kunt bouwen om met enterprise-gebruikers in contact te komen en toegang te krijgen tot hun Azure + O365-gegevens via de Microsoft Graph. Tijdens de auth-flow, dienen eindgebruikers in te loggen en akkoord te gaan met de machtigingen van de toepassing, en in sommige gevallen dient een beheerder met de app akkoord te gaan. Het merendeel van de logica in dit voorbeeld laat zien hoe een eindgebruiker te autoriseren en een basisaanroep uit te voeren naar de Microsoft Graph.
 
@@ -96,7 +96,7 @@ U dient een native client-toepassing geregistreerd te hebben bij Microsoft via h
     - Selecteer **toevoegen van een machtiging**, in **Select an API** Selecteer ***Microsoft Graph***.
     - Onder **overgedragen machtigingen**, selecteer de machtiging **User.Read**, drukt u op **toevoegen** om op te slaan.        
     
-4. Gefeliciteerd. Uw app is geconfigureerd. In het volgende deel dient u:
+4. Gefeliciteerd! Uw app is geconfigureerd. In het volgende deel dient u:
     - `Application ID`
     - `Redirect URI`
 

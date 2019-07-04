@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61314735"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447773"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Aan de slag met beheerd exemplaar voor Azure SQL Database
 
@@ -79,3 +79,4 @@ Met de artikelen in deze quickstarts kunt u snel een beheerd exemplaar instellen
 - Vind [hier een lijst met ondersteunde functies in het beheerde exemplaar](sql-database-features.md) en [hier details en bekende problemen](sql-database-managed-instance-transact-sql-information.md).
 - Meer informatie over de [technische kenmerken van het beheerde exemplaar](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 - U vindt meer uitgebreide informatie in [Beheerd exemplaar gebruiken in Azure SQL Database](sql-database-howto-managed-instance.md).
+- [Identificeren van de juiste Azure SQL Database/Managed Instance SKU voor uw on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

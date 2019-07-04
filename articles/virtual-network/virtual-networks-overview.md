@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 0d6762c8f3034923ddc0fe7dcf0cc2df34bd3629
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332105"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542840"
 ---
 # <a name="what-is-azure-virtual-network"></a>Wat is Azure Virtual Network?
 
@@ -27,7 +27,7 @@ Azure-netwerk (VNet) is de fundamentele bouwstenen voor uw particuliere netwerk 
 ## <a name="vnet-concepts"></a>VNet-concepten
 
 - **Adresruimte:** Bij het maken van een VNet, moet u een aangepaste persoonlijke IP-adresruimte met behulp van openbare en persoonlijke (RFC 1918)-adressen opgeven. Azure wijst resources in een virtueel netwerk een persoonlijk IP-adres toe op basis van de adresruimte die u toewijst. Bijvoorbeeld, als u een virtuele machine in een VNet met de adresruimte implementeert, wordt 10.0.0.0/16, de virtuele machine toegewezen, zoals 10.0.0.4 een privé IP-adres.
-- **Subnetten:** Subnetten kunnen u het virtuele netwerk segmenteren in een of meer onderliggende netwerken en een gedeelte van de adresruimte van het virtuele netwerk op elk subnet toewijzen. Vervolgens kunt u Azure-resources in een specifiek subnet implementeren. Net als in een traditioneel netwerk kunnen subnetten u de adresruimte van uw VNet segmenteren in segmenten die geschikt voor het interne netwerk van de organisatie zijn. Dit verbetert de efficiëntie van adres-toewijzing. U kunt resources binnen de subnetten met behulp van Netwerkbeveiligingsgroepen kunt beveiligen. Zie voor meer informatie, [beveiligingsgroepen](/security-overview.md).
+- **Subnetten:** Subnetten kunnen u het virtuele netwerk segmenteren in een of meer onderliggende netwerken en een gedeelte van de adresruimte van het virtuele netwerk op elk subnet toewijzen. Vervolgens kunt u Azure-resources in een specifiek subnet implementeren. Net als in een traditioneel netwerk kunnen subnetten u de adresruimte van uw VNet segmenteren in segmenten die geschikt voor het interne netwerk van de organisatie zijn. Dit verbetert de efficiëntie van adres-toewijzing. U kunt resources binnen de subnetten met behulp van Netwerkbeveiligingsgroepen kunt beveiligen. Zie voor meer informatie, [beveiligingsgroepen](security-overview.md).
 - **Regio's**: VNet is afgestemd op een enkele regio/locatie. meerdere virtuele netwerken in verschillende regio's kunnen echter worden verbonden samen met behulp van Peering in virtuele netwerken.
 - **Abonnement:** VNet is afgestemd op een abonnement. U kunt meerdere virtuele netwerken binnen elk Azure-[abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) en elke Azure-[regio](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) implementeren.
 

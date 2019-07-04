@@ -1,28 +1,22 @@
 ---
 title: Wat is enterprise state roaming in Azure Active Directory? | Microsoft Docs
-description: Bevat informatie over Enterprise State Roaming-instellingen in het Windows-apparaten. Enterprise State Roaming biedt gebruikers een uniforme ervaring op hun Windows-apparaten en vermindert de tijd die nodig is voor het configureren van een nieuw apparaat.
+description: Enterprise State Roaming biedt gebruikers een uniforme ervaring op hun Windows-apparaten en vermindert de tijd die nodig is voor het configureren van een nieuw apparaat.
 services: active-directory
-keywords: Wat is Enterprise State Roaming, synchronisatie, enterprise, windows-cloud
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: overview
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3a2a81bd8aa3fc99d033564e8a8782c79261305
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353139"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481914"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Wat is Enterprise State Roaming?
 

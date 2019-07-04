@@ -1,21 +1,20 @@
 ---
 title: Communiceren met een apparaat-app in C# via Azure IoT Hub apparaat-streams (preview) | Microsoft Docs
 description: In deze snelstartgids hebt u twee voorbeelden uitvoeren C# toepassingen die via de stroom van een apparaat tot stand gebracht via IoT Hub communiceren.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 74a8fc40cff12070f7cea99981eb4e8321d7c1ef
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: de581362371e28523c99f961dfdb5c2009901343
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735140"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446112"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Communiceren met de apparaattoepassing van een in C# via IoT Hub apparaat-streams (preview)
 

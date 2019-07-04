@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 0dc9d18ea4dae6ea0f45d1a91392eb1994e6e80e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b52453bab661531461a2bec2f15f7659ec15a1c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331686"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441709"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Aan de slag met individuele databases in Azure SQL Database
 
@@ -51,3 +51,4 @@ Met de artikelen in deze quickstarts kunt u uw database snel maken of importeren
 - U vindt meer uitgebreide informatie in [Individuele database gebruiken in Azure SQL Database](sql-database-howto-single-database.md).
 - Meer voorbeeldscripts zoeken die zijn geschreven in [PowerShell](sql-database-powershell-samples.md) en [Azure CLI](sql-database-cli-samples.md).
 - Meer informatie over de [Management-API](sql-database-single-databases-manage.md) die u kunt gebruiken om uw databases te configureren.
+- [Identificeren van de juiste Azure SQL Database/Managed Instance SKU voor uw on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

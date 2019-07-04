@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236598"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428499"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
@@ -47,16 +47,16 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. Selecteer **Een resource maken** > **Hulpprogramma's voor ontwikkelaars** > **Application Insights**.
 
-   ![Application Insights-resource toevoegen](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >Als dit de eerste keer is het maken van een Application Insights-resource vindt u meer informatie in de [maken van een Application Insights-Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc-bestand.
 
     Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
-    | Instellingen        |  Waarde           | Beschrijving  |
+   | Instellingen        |  Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|
-   | **Naam**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
-   | **Toepassingstype** | ASP.NET-webtoepassing | Type app dat u wilt controleren |
+   | **Name**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
    | **Resourcegroep**     | myResourceGroup      | Naam voor de nieuwe resourcegroep waarin App Insights-gegevens worden gehost |
-   | **Locatie** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
+   | **Location** | East US | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 2. Klik op **Create**.
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aae5b87e49b6d64e4c9ee854b65821d65969e66b
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023736"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536805"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snelstartgids: Een server maken - portal
 
@@ -37,7 +37,7 @@ In deze snelstart wordt beschreven hoe u een Azure Analysis Services-serverresou
 
 2. Vul in **Analysis Services** de vereiste velden in. Druk vervolgens op **Maken**.
    
-   * **Servernaam**: Voer een unieke naam in om naar de server te verwijzen.
+   * **Servernaam**: Voer een unieke naam in om naar de server te verwijzen. De servernaam moet beginnen met een kleine letter en tussen de 3 tot 128 tekens in kleine letters en cijfers bevatten. Spaties en speciale tekens zijn niet toegestaan.
    * **Abonnement**: Selecteer het abonnement waaraan deze server wordt gekoppeld.
    * **Resourcegroep**: Maak een nieuwe resourcegroep of selecteer een bestaande resourcegroep. Resourcegroepen zijn ontworpen om u te helpen bij het beheren van een verzameling Azure-resources. Zie [Resourcegroepen](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
    * **Locatie**: Op deze Azure-datacenterlocatie wordt de server gehost. Kies een locatie die zich zo dicht mogelijk bij uw grootste gebruikersgroep bevindt.

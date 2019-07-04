@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754256"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514596"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: een Python-app maken met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -184,13 +184,13 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand `CosmosGetSta
 
 4. Controleer of u zich in het venster van de geïntegreerde terminal in de map azure-cosmos-db-python-getting-started bevindt. Zo niet, voer dan de volgende opdracht uit om naar de voorbeeldmap over te schakelen. 
 
-    ```
+    ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. Voer de volgende opdracht uit om het azure-cosmos-pakket te installeren. 
 
-    ```
+    ```python
     pip3 install azure-cosmos
     ```
 
@@ -198,7 +198,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand `CosmosGetSta
 
 6. Voer de volgende opdracht uit om het voorbeeld uit te voeren, nieuwe documenten in Azure Cosmos DB te maken en op te slaan.
 
-    ```
+    ```python
     python CosmosGetStarted.py
     ```
 

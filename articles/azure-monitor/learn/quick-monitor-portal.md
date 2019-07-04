@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595730"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442213"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Begin uw ASP.NET-webtoepassing te controleren
 
@@ -63,15 +63,15 @@ U kunt nu Application Insights openen in Azure Portal om allerlei gegevens over 
 
 1. Vouw de **Connected Services** map (cloud en plug-pictogram) in de Solution Explorer klikt u vervolgens met de rechtermuisknop op de **Application Insights** map en klikt u op **Open Application Insights-Portal** .  U ziet een aantal gegevens over uw toepassing en allerlei opties.
 
-    ![Toepassingsoverzicht](media/quick-monitor-portal/4overview.png)
+    ![Toepassingskaart](media/quick-monitor-portal/04-overview.png)
 
 2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing.  Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-    ![Toepassingsoverzicht](media/quick-monitor-portal/5appmap.png)
+    ![Toepassingskaart](media/quick-monitor-portal/05-appmap.png)
 
-3. Klik op de **Appanalyses** pictogram ![Toepassingsoverzicht](media/quick-monitor-portal/app-analytics-icon.png) **weergeven in Analytics** op een van de onderdelen van de toepassing. Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights.  In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
+3. Klik op de **analyse van App-** pictogram ![Toepassingsoverzicht](media/quick-monitor-portal/app-viewinlogs-icon.png) **weergeven in Logboeken (Analytics)** op een van de onderdelen van de toepassing. Hiermee opent u **Logboeken (Analytics)** , waarmee u een uitgebreide querytaal voor het analyseren van alle gegevens die worden verzameld door Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
-    ![Analytische gegevens](media/quick-monitor-portal/6viewanalytics.png)
+    ![Analyse](media/quick-monitor-portal/6viewanalytics.png)
 
 4. Klik op **Live Metrics Stream** aan de linkerkant onder onderzoeken. Hier worden live statistieken weergegeven over uw toepassing terwijl deze wordt uitgevoerd. Dit zijn onder andere gegevens over het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. U kunt ook kritieke prestatiegegevens inspecteren, zoals de processor en het geheugen.
 

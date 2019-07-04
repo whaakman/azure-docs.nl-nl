@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8b340eeaaae41815482f4dfed4168dfd8367aba9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143896"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428780"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Overzicht van de service Azure blauwdrukken
 
@@ -109,7 +109,7 @@ Als u een blauwdruk wilt toewijzen of de toewijzing ongedaan wilt maken, heeft u
 Alle bovenstaande machtigingen zijn opgenomen in de rol **Eigenaar**. De rol **Inzender** beschikt over machtigingen voor het maken en verwijderen van blauwdrukken. Er is geen sprake van blauwdruktoewijzingsmachtigingen. Als deze ingebouwde rollen niet aan uw beveiligingsbehoeften voldoen, kunt u een [aangepaste rol](../../role-based-access-control/custom-roles.md) maken.
 
 > [!NOTE]
-> Als met behulp van een systeem toegewezen identiteit wordt beheerd, vereist dat de service-principal voor Azure blauwdruk de **eigenaar** -rol op het toegewezen abonnement om in te schakelen van de implementatie. Als u de portal gebruikt, wordt deze rol automatisch verleend en ingetrokken voor de implementatie. Als u de REST API gebruikt, moet deze rol handmatig worden toegekend, maar wordt deze automatisch ingetrokken nadat de implementatie is voltooid. Als met behulp van een gebruiker toegewezen identiteit wordt beheerd, alleen de gebruiker die het maken van de blauwdruktoewijzing moet **eigenaar** machtigingen.
+> Als met behulp van een systeem toegewezen identiteit wordt beheerd, vereist dat de service-principal voor Azure blauwdrukken de **eigenaar** -rol op het toegewezen abonnement om in te schakelen van de implementatie. Als u de portal gebruikt, wordt deze rol automatisch verleend en ingetrokken voor de implementatie. Als u de REST API gebruikt, moet deze rol handmatig worden toegekend, maar wordt deze automatisch ingetrokken nadat de implementatie is voltooid. Als met behulp van een gebruiker toegewezen identiteit wordt beheerd, alleen de gebruiker die het maken van de blauwdruktoewijzing moet **eigenaar** machtigingen.
 
 ## <a name="video-overview"></a>Video-overzicht
 

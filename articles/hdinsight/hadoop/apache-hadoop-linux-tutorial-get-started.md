@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 8eb297c555d2d7f95419b2a9aa11a26cf5c7230f
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 89d25c9c0a45b740bfb60a71f6d85bfbf4a4686a
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137476"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459873"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Quickstart: Apache Hadoop-cluster maken in Azure HDInsight met behulp van Resource Manager-sjabloon
 
@@ -81,4 +81,4 @@ Nadat u de Quick Start hebt voltooid, kunt u het cluster verwijdert. Met HDInsig
 In deze snelstartgids hebt u geleerd over het maken van een Apache Hadoop-cluster in HDInsight met behulp van Resource Manager-sjabloon. In het volgende artikel leert u hoe u een ETL-bewerking (Extraction, Transformation, Loading) uitvoert met behulp van Hadoop in HDInsight.
 
 > [!div class="nextstepaction"]
->[Gegevens uitpakken, transformeren en laden met Apache Hive in HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Uitpakken, transformeren en laden van gegevens met behulp van interactieve Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

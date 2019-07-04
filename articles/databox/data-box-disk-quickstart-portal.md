@@ -9,20 +9,42 @@ ms.topic: quickstart
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306203"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477789"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Quickstart: Azure Data Box Disk implementeren met behulp van de Azure-portal
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Aan de slag met Azure Data Box-schijf met behulp van Azure portal
+
+::: zone-end
+
+::: zone target="docs"
 
 In deze quickstart wordt beschreven hoe u de Azure Data Box Disk implementeert met de Azure-portal. De stappen omvatten hoe u snel een order maakt, schijven ontvangt, uitpakt en verbindt, en gegevens naar schijven kopieert zodat ze naar Azure worden geüpload.
 
 Ga voor gedetailleerde stapsgewijze instructies voor implementatie en tracering naar [Zelfstudie: Azure Data Box Disk bestellen](data-box-disk-deploy-ordered.md). 
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan.
+
+::: zone-end
+
+::: zone target="chromeless"
+
+In deze quickstart wordt beschreven hoe u de Azure Data Box Disk implementeert met de Azure-portal. De stappen zijn onder andere vereisten controleren, de schijven te ontgrendelen, verbinding maken met en gegevens kopiëren naar de schijven, zodat die wordt geüpload naar Azure.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,6 +55,23 @@ Voordat u begint:
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij de Azure Portal op [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Vereisten
+
+- U hebt uw order voor het gebruik van Data Box-schijf geplaatst de [zelfstudie: Azure Data Box Disk bestellen](data-box-disk-deploy-ordered.md).
+- U hebt uw schijven ontvangen en de taakstatus in de portal is bijgewerkt naar **Geleverd**.
+- U hebt een clientcomputer beschikbaar van waaruit u de gegevens kunt kopiëren. De clientcomputer moet voldoen aan deze vereisten:
+
+    - Voer een [ondersteund besturingssysteem](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Hebben [andere vereiste software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) als het een Windows-client is geïnstalleerd.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="order"></a>Bestellen
 
@@ -123,3 +162,5 @@ In deze quickstart hebt u Azure Data Box Disk geïmplementeerd om u te helpen uw
 
 > [!div class="nextstepaction"]
 > [De Azure-portal gebruiken om Data Box Disk te beheren](data-box-portal-ui-admin.md)
+
+::: zone-end

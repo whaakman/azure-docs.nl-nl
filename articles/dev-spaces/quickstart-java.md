@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snelle ontwikkeling van Kubernetes met containers, microservices en Java in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 2a7ff71a8143883226c10754afc9757aea310c63
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: b3074fc280098d0aa55292c48a1562b8dfeb3cc0
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393461"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503096"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Ontwikkelen met Java op Kubernetes met Azure Dev spaties
 
@@ -195,7 +195,7 @@ return "Hello from webfrontend in Azure while debugging!";
 
 Sla het bestand op. Klik op *fouten opsporen in* vervolgens *opnieuw foutopsporing* of in de *werkbalk Foutopsporing*, klikt u op de *opnieuw foutopsporing* knop.
 
-![Foutopsporing vernieuwen](media/get-started-java/debug-action-refresh.png)
+![Foutopsporing vernieuwen](media/common/debug-action-refresh.png)
 
 Open uw service in een browser en bekijk dat uw bijgewerkte bericht wordt weergegeven.
 

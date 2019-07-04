@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 929ba7e28bca608359e76f9eeb130c61ba3235a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391942"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435810"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Quickstart: Azure Storage Explorer gebruiken om een blob te maken in de objectopslag
 
@@ -47,7 +47,7 @@ Wanneer de verbinding tot stand is gebracht, wordt Azure Storage Explorer gelade
 
 Blobs worden altijd naar een container geüpload. Hierdoor kunt u groepen blobs ordenen net zoals u bestanden in mappen op de computer ordent.
 
-Breid het opslagaccount uit dat u hebt gemaakt in de vorige stap, om een container te maken. Selecteer **Blobcontainers**, klik met de rechtermuisknop en selecteer **Blobcontainer maken**. Voer een naam in voor de blobcontainer. Raadpleeg de sectie [De container maken en machtigingen instellen](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) voor een lijst met regels en beperkingen voor namen van blobcontainers. Als u klaar bent, drukt u op **Enter** om de blobcontainer te maken. Als de blobcontainer is gemaakt, wordt deze weergegeven in de map **Blobcontainers** voor het geselecteerde opslagaccount.
+Breid het opslagaccount uit dat u hebt gemaakt in de vorige stap, om een container te maken. Selecteer **Blobcontainers**, klik met de rechtermuisknop en selecteer **Blobcontainer maken**. Voer een naam in voor de blobcontainer. Zie de [maken van een container](storage-quickstart-blobs-dotnet.md#create-a-container) sectie voor een lijst van regels en beperkingen voor namen van blobcontainers. Als u klaar bent, drukt u op **Enter** om de blobcontainer te maken. Als de blobcontainer is gemaakt, wordt deze weergegeven in de map **Blobcontainers** voor het geselecteerde opslagaccount.
 
 ## <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
@@ -57,7 +57,7 @@ Selecteer op het containerlint de optie **Uploaden**. Met deze bewerking kunt u 
 
 Kies de bestanden of map die u wilt uploaden. Selecteer het **blobtype**. Acceptabele keuzes zijn **Toevoeg-blob**, **Pagina-blob** of **Blok-blob**.
 
-Als u een VHD- of VHDX-bestand uploadt, kiest u **VHD-/VHDX-bestanden uploaden als pagina-blobs (aanbevolen)**.
+Als u een VHD- of VHDX-bestand uploadt, kiest u **VHD-/VHDX-bestanden uploaden als pagina-blobs (aanbevolen)** .
 
 Selecteer in het veld **Uploaden naar map (optioneel)** de naam van een map om de bestanden of mappen in op te slaan. Deze map moet in de containermap zitten. Als er geen map is gekozen, worden de bestanden rechtstreeks geüpload naar de containermap.
 

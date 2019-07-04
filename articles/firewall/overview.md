@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/21/2019
+ms.date: 6/26/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2567c47e41306a7940b6d065feb49ae80bb16198
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
-ms.translationtype: HT
+ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312686"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442912"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -24,15 +24,13 @@ Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die u
 
 U kunt beleid voor toepassings- en netwerkconnectiviteit centraal maken, afdwingen en registreren voor abonnementen en virtuele netwerken. Azure Firewall maakt gebruik van een statisch openbaar IP-adres voor uw virtuele-netwerkresources zodat externe firewalls verkeer dat afkomstig is van uw virtuele netwerk kunnen identificeren.  De service is volledig geïntegreerd met Azure Monitor voor registratie en analyses.
 
-## <a name="features"></a>Functies
-
 Azure Firewall biedt de volgende functies:
 
-### <a name="built-in-high-availability"></a>Ingebouwde hoge beschikbaarheid
+## <a name="built-in-high-availability"></a>Ingebouwde hoge beschikbaarheid
 
 Hoge beschikbaarheid is ingebouwd in, zodat er zijn geen extra load balancers vereist zijn en er u hoeft niets is te configureren.
 
-### <a name="availability-zones-public-preview"></a>Beschikbaarheidszones (preview-versie)
+## <a name="availability-zones-public-preview"></a>Beschikbaarheidszones (preview-versie)
 
 Firewall van Azure kan worden geconfigureerd tijdens de implementatie in meerdere Beschikbaarheidszones voor verhoogde beschikbaarheid omvatten. Met Beschikbaarheidszones, wordt de beschikbaarheid van uw verhoogd naar bedrijfstijd van 99,99%. Zie voor meer informatie, de Azure-Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). De bedrijfstijd van 99,99% SLA wordt aangeboden wanneer twee of meer Beschikbaarheidszones zijn geselecteerd.
 
@@ -47,41 +45,41 @@ Azure-Beschikbaarheidszones Firewall zijn beschikbaar in regio's die ondersteuni
 
 Zie voor meer informatie over Beschikbaarheidszones [wat zijn Beschikbaarheidszones in Azure?](../availability-zones/az-overview.md)
 
-### <a name="unrestricted-cloud-scalability"></a>Onbeperkte cloudschaalbaarheid
+## <a name="unrestricted-cloud-scalability"></a>Onbeperkte cloudschaalbaarheid
 
 U kunt Azure Firewall omhoog schalen zoveel als nodig is om te voldoen aan veranderende netwerkverkeersstromen, zodat u geen budget hoeft te reserveren voor het drukste verkeer.
 
-### <a name="application-fqdn-filtering-rules"></a>Regels voor het filteren van de FQDN van toepassingen
+## <a name="application-fqdn-filtering-rules"></a>Regels voor het filteren van de FQDN van toepassingen
 
 U kunt uitgaand HTTP/S-verkeer beperken tot een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), inclusief jokertekens. Deze functie is geen SSL-beëindiging vereist.
 
-### <a name="network-traffic-filtering-rules"></a>Regels voor het filteren van netwerkverkeer
+## <a name="network-traffic-filtering-rules"></a>Regels voor het filteren van netwerkverkeer
 
 U kunt de netwerkfilterregels *toestaan* of *weigeren* centraal maken op IP-adres van bron en doel, poort en protocol. Azure Firewall is volledig stateful, wat betekent dat het legitieme pakketten voor verschillende soorten verbindingen kan onderscheiden. Regels worden afgedwongen en vastgelegd voor meerdere abonnementen en virtuele netwerken.
 
-### <a name="fqdn-tags"></a>FQDN-tags
+## <a name="fqdn-tags"></a>FQDN-tags
 
 Met FQDN-tags kunt u eenvoudig bekend netwerkverkeer voor Azure-services toestaan in uw firewall. Stel dat u Windows Update-netwerkverkeer wilt toestaan in de firewall. U maakt een toepassingsregel die de Windows Update-tag bevat. Het netwerkverkeer van Windows Update kan nu door uw firewall.
 
-### <a name="service-tags"></a>Servicetags
+## <a name="service-tags"></a>Servicetags
 
 Een servicetag vertegenwoordigt een groep IP-adresvoorvoegsels die het maken van beveiligingsregel vereenvoudigt. U kan niet uw eigen servicetag maken en ook niet opgeven welke IP-adressen zijn opgenomen in een tag. Microsoft beheert de adresvoorvoegsels die de servicetag omvat en werkt de servicetag automatisch bij wanneer adressen veranderen.
 
-### <a name="threat-intelligence"></a>Informatie over bedreigingen
+## <a name="threat-intelligence"></a>Informatie over bedreigingen
 
 Filteren op basis van bedreigingsinformatie kan voor uw firewall worden ingeschakeld voor waarschuwingen over of het weigeren van verkeer van en naar bekende kwaadaardige IP-adressen en domeinen. De IP-adressen en domeinen zijn afkomstig uit de feed Bedreigingsinformatie van Microsoft.
 
-### <a name="outbound-snat-support"></a>Ondersteuning voor uitgaande SNAT
+## <a name="outbound-snat-support"></a>Ondersteuning voor uitgaande SNAT
 
 Alle uitgaande IP-adressen van virtueel netwerkverkeer worden geconverteerd naar de openbare IP van Azure Firewall (Source Network Address Translation). U kunt verkeer dat afkomstig is uit uw virtuele netwerk naar externe internetbestemmingen identificeren en toestaan. Firewall van Azure SNAT niet wanneer het doel-IP-adres een privé-IP-adresbereik per is [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Als uw organisatie gebruikmaakt van een openbare IP-adresbereik voor particuliere netwerken, wordt Azure Firewall SNAT het verkeer naar een van de firewall privé IP-adressen in AzureFirewallSubnet.
 
-### <a name="inbound-dnat-support"></a>Ondersteuning voor inkomende DNAT
+## <a name="inbound-dnat-support"></a>Ondersteuning voor inkomende DNAT
 
 Het inkomende netwerkverkeer op het openbare IP-adres van de firewall wordt omgezet (Destination Network Address Translation) en gefilterd op het privé-IP-adres in uw virtuele netwerken.
 
-### <a name="multiple-public-ips-public-preview"></a>Meerdere openbare IP-adressen (openbare preview)
+## <a name="multiple-public-ips-public-preview"></a>Meerdere openbare IP-adressen (openbare preview)
 
-U kunt meerdere openbare IP-adressen (maximaal 600) koppelen aan uw firewall.
+U kunt meerdere openbare IP-adressen (maximaal 100) koppelen aan uw firewall.
 
 Hiermee kunt de volgende scenario's:
 
@@ -91,7 +89,7 @@ Hiermee kunt de volgende scenario's:
 > [!NOTE]
 > Tijdens de preview-versie, als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall bestaande binnenkomende verbindingen met behulp van regels DNAT werkt mogelijk niet voor 40-120 seconden. U kunt de eerste openbare IP-adres toegewezen aan de firewall, tenzij de firewall is ongedaan gemaakt of verwijderd niet verwijderen.
 
-### <a name="azure-monitor-logging"></a>Logboekregistratie van Azure Monitor
+## <a name="azure-monitor-logging"></a>Logboekregistratie van Azure Monitor
 
 Alle gebeurtenissen zijn geïntegreerd met Azure Monitor, zodat u logboeken kunt archiveren in een opslagaccount, gebeurtenissen kunt streamen naar uw Event Hub of deze kunt verzenden naar Azure Monitor-logboeken.
 
@@ -113,6 +111,7 @@ Netwerkfilterregels voor niet-TCP/UDP-protocollen (bijvoorbeeld ICMP) werken nie
 |Eerste openbare IP-adres verwijderen niet|U kunt de eerste openbare IP-adres toegewezen aan de firewall, tenzij de firewall is ongedaan gemaakt of verwijderd niet verwijderen.|Dit is standaard.|
 |Als u toevoegen of verwijderen van een openbaar IP-adres, werken de DNAT regels mogen niet tijdelijk.| Als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall, werkt mogelijk niet bestaande binnenkomende verbindingen met behulp van regels DNAT 40-120 seconden.|Dit is een beperking van de openbare preview-versie voor deze functie.|
 |Beschikbaarheidszones kunnen alleen worden geconfigureerd tijdens de implementatie.|Beschikbaarheidszones kunnen alleen worden geconfigureerd tijdens de implementatie. U kunt de Beschikbaarheidszones niet configureren nadat een firewall is geïmplementeerd.|Dit is standaard.|
+|SNAT voor binnenkomende verbindingen|Naast DNAT,-verbindingen via de firewall openbare IP-adres (inkomend) zijn Snat naar een van de firewall privé-IP's. Deze vereiste vandaag (ook voor NVA's actief/actief) om ervoor te zorgen symmetrische routering.|Als u wilt behouden de oorspronkelijke bron voor HTTP/S, kunt u overwegen [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) headers. Gebruik bijvoorbeeld een service zoals [Azure voordeur](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) voor de firewall. U kunt ook WAF als onderdeel van de voordeur Azure en de keten toevoegen aan de firewall.
 
 ## <a name="next-steps"></a>Volgende stappen
 

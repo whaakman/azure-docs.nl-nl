@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f47735a6e41ae14cb439e10803b82c0dbd3e64d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115019"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476046"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken
 
@@ -74,9 +74,12 @@ Nadat de virtuele machine wordt uitgevoerd, gebruikt u de **Notebook VMs** secti
 
 1. De bovenste mapnaam is op de webpagina Jupyter-notebook uw gebruikersnaam.  Selecteer deze map.
 
+    > [!TIP]
+    > Deze map bevindt zich op de [opslagcontainer](concept-workspace.md#resources) in uw werkruimte, in plaats van in de notebook virtuele machine zelf.  U kunt de notebook VM verwijderen en toch al het werk blijven.  Wanneer u een nieuwe notebook VM later maakt, wordt deze dezelfde map laden.
+
 1. De mapnaam voorbeelden bevat een versienummer, bijvoorbeeld **voorbeelden 1.0.33.1**.  Selecteer de map met voorbeelden.
 
-1. Selecteer de **snelstartgids** notebook.
+1. Selecteer de **snelstartgids** map.
 
 ## <a name="run-the-notebook"></a>Het notitieblok uitvoeren
 
@@ -115,11 +118,11 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
 1. Klik op de **koppelen aan Azure-portal** om informatie over het uitvoeren in uw werkruimte weer te geven.  Met deze koppeling wordt uw werkruimte in de Microsoft Azure-portal geopend.
 
-1. De grafieken van vastgelegde waarden die u ziet, zijn automatisch in de werkruimte gemaakt. Wanneer u meerdere waarden met dezelfde naamparameter vastlegt, wordt automatisch een grafiek voor u gegenereerd.
+1. De grafieken van vastgelegde waarden die u ziet, zijn automatisch in de werkruimte gemaakt. Wanneer u meerdere waarden met dezelfde naamparameter vastlegt, wordt automatisch een grafiek voor u gegenereerd. Hier volgt een voorbeeld:
 
    ![Geschiedenis weergeven](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Omdat er in de code om pi te schatten gebruik wordt gemaakt van willekeurige waarden, worden er in uw plots andere waarden weergegeven.  
+Omdat de code voor het geschatte pi gebruikmaakt van willekeurige waarden, uw grafieken kunnen er anders uitzien.  
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -154,7 +157,9 @@ In deze Quick Start, moet u deze taken uitgevoerd:
 * Uitvoeren van het notitieblok.
 * Bekijk de geregistreerde foutwaarden in uw werkruimte.  Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
 
-Blader door de andere notebooks onder in de map met voorbeelden voor meer informatie over Azure Machine Learning-service op de webpagina Jupyter-Notebook.
+Op de webpagina Jupyter-Notebook in de **snelstartgids** map openen en voer de **02.deploy-web-service.ipynb** -notebook geïnstrueerd om informatie over het implementeren van een webservice.
+
+Ook op de webpagina Jupyter-Notebook Blader door de andere notebooks onder in de map met voorbeelden voor meer informatie over Azure Machine Learning-service.
 
 Voor een diepgaande werkstroomervaring volgt u de zelfstudies over Machine Learning om een ​​model te trainen en te implementeren:  
 

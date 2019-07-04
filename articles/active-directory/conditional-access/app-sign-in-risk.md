@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8de4e785bbe2496ca38b33512da1c85f9ff76f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdbdd0253478200d39501444ae649b87b77e65a4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112777"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509044"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Quickstart: Toegang blokkeren als er een risico voor de sessie wordt gedetecteerd met Azure Active Directory voor voorwaardelijke toegang  
 
@@ -33,11 +33,8 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Voor het voltooien van het scenario in deze zelfstudie hebt u het volgende nodig:
 
 - **Toegang tot een Azure AD Premium P2-editie** -terwijl voorwaardelijke toegang is een Azure AD Premium P1-mogelijkheid, moet u een P2-editie omdat het scenario in deze snelstartgids Identity Protection is vereist.
-
 - **Identity Protection** -Identity Protection wordt ingeschakeld door het scenario in deze Quick Start is vereist. Als u niet hoe u Identity Protection inschakelen weet, raadpleegt u [inschakelen van Azure Active Directory Identity Protection](../identity-protection/enable.md).
-
-- **Tor Browser** : de [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is ontworpen om u te helpen u uw privacy online beschermen. Identity Protection detecteert een aanmelding vanuit een Tor Browser als **aanmeldingen vanaf anonieme IP-adressen**, die is voorzien van een gemiddeld risico-niveau. Zie [Risicogebeurtenissen in Azure Active Directory](../reports-monitoring/concept-risk-events.md) voor meer informatie.  
-
+- **Tor Browser** : de [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is ontworpen om u te helpen u uw privacy online beschermen. Identity Protection detecteert een aanmelding vanuit een Tor Browser als aanmeldingen vanaf anonieme IP-adressen, waarvoor een gemiddeld risico-niveau. Zie [Risicogebeurtenissen in Azure Active Directory](../reports-monitoring/concept-risk-events.md) voor meer informatie.  
 - **Een testaccount met de naam Alain Charon** : als u niet hoe ik een testaccount maakt weet, Zie [cloudgebruikers toevoegen](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Test de aanmelding
@@ -67,7 +64,6 @@ Deze sectie wordt beschreven hoe u het vereiste beleid voor voorwaardelijke toeg
 **Uw beleid voor voorwaardelijke toegang configureren:**
 
 1. Aanmelden bij uw [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of een beheerder van voorwaardelijke toegang.
-
 1. Klik in de Azure-portal op de navigatiebalk links op **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
@@ -93,13 +89,9 @@ Deze sectie wordt beschreven hoe u het vereiste beleid voor voorwaardelijke toeg
    ![Voorwaardelijke toegang](./media/app-sign-in-risk/107.png)
 
    1. Klik op **gebruikers en groepen selecteren**, en selecteer vervolgens **gebruikers en groepen**.
-
    1. Klik op **Selecteren**.
-
    1. Op de **Selecteer** pagina, selecteert u **Alain Charon**, en klik vervolgens op **Selecteer**.
-
    1. Op de **gebruikers en groepen** pagina, klikt u op **gedaan**.
-
 1. Klik op **Cloud-apps**.
 
    ![Cloud-apps](./media/app-sign-in-risk/08.png)
@@ -109,9 +101,7 @@ Deze sectie wordt beschreven hoe u het vereiste beleid voor voorwaardelijke toeg
    ![Voorwaardelijke toegang](./media/app-sign-in-risk/109.png)
 
    1. Klik op **alle cloud-apps**.
-
    1. Klik op **Gereed**.
-
 1. Klik op **voorwaarden**.
 
    ![Besturingselementen voor toegang](./media/app-sign-in-risk/19.png)
@@ -121,15 +111,10 @@ Deze sectie wordt beschreven hoe u het vereiste beleid voor voorwaardelijke toeg
    ![Het niveau van aanmeldingsrisico](./media/app-sign-in-risk/21.png)
 
    1. Klik op **aanmeldingsrisico**.
-
    1. Als **configureren**, klikt u op **Ja**.
-
    1. Niveau van aanmeldingsrisico selecteren **gemiddeld**.
-
    1. Klik op **Selecteren**.
-
    1. Op de **voorwaarden** pagina, klikt u op **gedaan**.
-
 1. In de **besturingselementen voor toegang** sectie, klikt u op **verlenen**.
 
    ![Besturingselementen voor toegang](./media/app-sign-in-risk/10.png)
@@ -139,9 +124,7 @@ Deze sectie wordt beschreven hoe u het vereiste beleid voor voorwaardelijke toeg
    ![Voorwaardelijke toegang](./media/app-sign-in-risk/105.png)
 
    1. Selecteer **toegang blokkeren**.
-
    1. Klik op **Selecteren**.
-
 1. In de **beleid inschakelen** sectie, klikt u op **op**.
 
    ![Beleid inschakelen](./media/app-sign-in-risk/18.png)
@@ -185,7 +168,6 @@ Als u wilt testen van uw beleid, willen aanmelden bij uw [Azure-portal](https://
 Wanneer u niet meer nodig hebt, verwijdert u de testgebruiker, de Tor-Browser en het beleid voor voorwaardelijke toegang:
 
 - Als u niet hoe u een Azure AD-gebruiker verwijdert weet, Zie [gebruikers verwijderen uit Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-
 - Als u wilt verwijderen van uw beleid, selecteert u uw beleid en klik vervolgens op **verwijderen** in de werkbalk Snelle toegang.
 
    ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)

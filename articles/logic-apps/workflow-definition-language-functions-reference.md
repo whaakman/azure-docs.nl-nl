@@ -84,13 +84,13 @@ Tekenreeks-functies werken alleen op tekenreeksen.
 | --------------- | ---- |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Twee of meer tekenreeksen combineren en retourneert de gecombineerde tekenreeks. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Controleer of een tekenreeks met de opgegeven subtekenreeks eindigt. |
-| [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genereer een globally unique identifier (GUID) als een tekenreeks. |
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genereer een globally unique identifier (GUID) als een tekenreeks. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retourneert de beginpositie voor een subtekenreeks. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourneert de beginpositie voor het laatste exemplaar van een subtekenreeks. |
-| [vervangen](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Vervangen door de opgegeven tekenreeks een subtekenreeks en retourneert de bijgewerkte tekenreeks. |
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Vervangen door de opgegeven tekenreeks een subtekenreeks en retourneert de bijgewerkte tekenreeks. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourneert een matrix met subtekenreeksen, gescheiden door komma's, uit een grotere tekenreeks op basis van een opgegeven scheidingsteken in de oorspronkelijke reeks. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Controleren of een tekenreeks met een specifieke subtekenreeks begint. |
-| [de subtekenreeks](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Tekens retourneren uit een tekenreeks, beginnend vanaf de opgegeven positie. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Tekens retourneren uit een tekenreeks, beginnend vanaf de opgegeven positie. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourneert een tekenreeks in kleine letters indeling. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourneert een tekenreeks in hoofdletters. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Voorloop-en volgspaties verwijderen uit een tekenreeks en retourneert de bijgewerkte tekenreeks. |
@@ -107,11 +107,11 @@ Als u wilt werken met verzamelingen, in het algemeen matrices, tekenreeksen en s
 | [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Controleer of een verzameling een specifiek item heeft. |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Controleer of een verzameling leeg is. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Retourneert het eerste item van een verzameling. |
-| [snijpunt](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retourneert een verzameling met *alleen* de algemene items in de gespecificeerde verzamelingen. |
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retourneert een verzameling met *alleen* de algemene items in de gespecificeerde verzamelingen. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Wanneer u zich binnen een herhalingsactie via een matrix, het huidige item in de matrix te retourneren tijdens de huidige herhaling van de actie. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retourneert een tekenreeks is die is *alle* de items uit een array, gescheiden door het opgegeven teken. |
-| [laatste](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retourneert het laatste item uit een verzameling. |
-| [Lengte](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retourneert het aantal items in een tekenreeks of een matrix. |
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retourneert het laatste item uit een verzameling. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retourneert het aantal items in een tekenreeks of een matrix. |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Items verwijderen uit het voorste deel van een verzameling en retourneren *alle andere* items. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Items retourneren vanaf het begin van een verzameling. |
 | [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen. |
@@ -1743,7 +1743,7 @@ En dit resultaat wordt weergegeven: `false`
 
 <a name="equals"></a>
 
-### <a name="equals"></a>is gelijk aan
+### <a name="equals"></a>equals
 
 Controleer of zowel waarden, expressies of objecten equivalent zijn.
 Retourneert ' True ' wanneer beide gelijk zijn, of onwaar retourneren wanneer ze niet gelijk zijn.
@@ -2100,7 +2100,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>GUID
+### <a name="guid"></a>guid
 
 Een globally unique identifier (GUID) genereren als een tekenreeks, bijvoorbeeld 'c2ecc88d-88c8-4096-912c-d6f2e2b138ce':
 
@@ -3053,7 +3053,7 @@ En dit resultaat wordt weergegeven: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-### <a name="replace"></a>vervangen
+### <a name="replace"></a>replace
 
 Vervangen door de opgegeven tekenreeks een subtekenreeks en de resultaattekenreeks retourneren. Deze functie is hoofdlettergevoelig.
 
@@ -3193,7 +3193,7 @@ split('<text>', '<delimiter>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>, <*substring2*>,...] | Matrix | Een matrix met subtekenreeksen uit de oorspronkelijke reeks, gescheiden door komma 's |
+| [<*substring1*>,<*substring2*>,...] | Matrix | Een matrix met subtekenreeksen uit de oorspronkelijke reeks, gescheiden door komma 's |
 ||||
 
 *Voorbeeld*

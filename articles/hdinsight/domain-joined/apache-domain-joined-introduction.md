@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: ef32fb9615d36d68da613c4cb1b443dfd928e807
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137381"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441427"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Wat is de Enterprise-beveiligingspakket in Azure HDInsight
 
@@ -49,7 +49,7 @@ Controle van alle toegang tot de resources van het cluster en de gegevens is die
 
 De beheerder kan weergeven en rapporteren van alle toegang tot het HDInsight-clusterresources en gegevens. De beheerder kan ook weergeven en rapporteren van alle wijzigingen aan het beleid voor toegangsbeheer in Apache Ranger ondersteunde eindpunten hebt gemaakt. 
 
-Een HDInsight-cluster met ESP maakt gebruik van de vertrouwde Apache Ranger-gebruikersinterface om te zoeken naar de logboeken voor controle. Op de back-end, Ranger maakt gebruik van [Apache Solr](http://lucene.apache.org/solr/) voor het opslaan en zoeken naar Logboeken.
+Een HDInsight-cluster met ESP maakt gebruik van de vertrouwde Apache Ranger-gebruikersinterface om te zoeken naar de logboeken voor controle. Op de back-end, Ranger maakt gebruik van [Apache Solr](https://lucene.apache.org/solr/) voor het opslaan en zoeken naar Logboeken.
 
 ## <a name="encryption"></a>Versleuteling
 Beveiligen van gegevens is belangrijk voor vergadering beveiligings- en vereisten van de organisatie. Naast het beperken van toegang tot gegevens onbevoegde werknemers, moet u het versleutelen. 

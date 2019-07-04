@@ -4,20 +4,20 @@ description: In deze snelstart wordt getoond hoe u aan de slag kunt door een Str
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493386"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449237"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Quickstart: Een Stream Analytics-taak maken met behulp van Azure portal
 
-In deze snelstart wordt getoond hoe u aan de slag kunt door een Stream Analytics-taak te maken. In deze quickstart definieert u een Stream Analytics-taak waarmee streaminggegevens in realtime worden gelezen, en berichten worden gefilterd over een temperatuur die hoger is dan 27. Met de Stream Analytics-taak worden gegevens van een IoT Hub-apparaat gelezen, en worden de gegevens getransformeerd en teruggeschreven naar een container in een blob-opslag. De invoergegevens in deze quickstart worden gegenereerd via een Raspberry Pi Online Simulator. 
+In deze snelstart wordt getoond hoe u aan de slag kunt door een Stream Analytics-taak te maken. In deze quickstart definieert u een Stream Analytics-taak waarmee streaminggegevens in realtime worden gelezen, en berichten worden gefilterd over een temperatuur die hoger is dan 27. Uw Stream Analytics-taak wordt lezen van gegevens van IoT Hub, de gegevens te transformeren en terugschrijven van de gegevens naar een container in blob-opslag. De invoergegevens in deze quickstart worden gegenereerd via een Raspberry Pi Online Simulator. 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -27,7 +27,7 @@ In deze snelstart wordt getoond hoe u aan de slag kunt door een Stream Analytics
 
 ## <a name="prepare-the-input-data"></a>De invoergegevens voorbereiden
 
-Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden die later worden geconfigureerd als de taakinvoer. Voltooi de volgende stappen om de invoergegevens voor te bereiden die zijn vereist voor de taak:
+Voordat u de Stream Analytics-taak definieert, moet u de invoergegevens voorbereiden. De realtime-sensorgegevens wordt opgenomen met IoT Hub, die later worden geconfigureerd als de taak invoeren. Voltooi de volgende stappen om de invoergegevens voor te bereiden die zijn vereist voor de taak:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -91,7 +91,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
    |Taaknaam   |  MyASAJob   |   Voer een unieke naam in voor uw Stream Analytics-taak. De naam van een Stream Analytics-taak mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet tussen de 3 en 63 tekens lang zijn. |
    |Abonnement  | \<Uw abonnement\> |  Selecteer het Azure-abonnement dat u wilt gebruiken voor deze taak. |
    |Resourcegroep   |   asaquickstart-resourcegroup  |   Selecteer dezelfde resourcegroep als de IoT-hub. |
-   |Locatie  |  \<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\> | Selecteer de geografische locatie waar u de Stream Analytics-taak kunt hosten. Gebruik de locatie die het dichtst bij uw gebruikers is gelegen voor betere prestaties en om de kosten van gegevensoverdracht te verminderen. |
+   |Location  |  \<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\> | Selecteer de geografische locatie waar u de Stream Analytics-taak kunt hosten. Gebruik de locatie die het dichtst bij uw gebruikers is gelegen voor betere prestaties en om de kosten van gegevensoverdracht te verminderen. |
    |Streaming-eenheden  | 1  |   Streaming-eenheden vertegenwoordigen de computerresources die nodig zijn om een taak uit te voeren. Deze waarde is standaard ingesteld op 1. Zie het artikel [Streaming-eenheden begrijpen en aanpassen](stream-analytics-streaming-unit-consumption.md) voor meer informatie over het schalen van streaming-eenheden.   |
    |Hostingomgeving  |  Cloud  |   Stream Analytics-taken kunnen worden geïmplementeerd in Cloud of in Edge. Cloud kunt u taken implementeren naar Azure-Cloud en Edge kunt u implementeren in een IoT Edge-apparaat. |
 
@@ -179,7 +179,7 @@ In deze sectie configureert u IoT Hub-apparaatinvoer in de Stream Analytics-taak
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze snelstart zijn gemaakt. Daarvoor voert u de volgende stappen uit:
+Wanneer u niet meer nodig hebt, verwijdert u de resourcegroep, de Stream Analytics-taak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze snelstart zijn gemaakt. Daarvoor voert u de volgende stappen uit:
 
 1. Selecteer in het menu aan de linkerkant in Azure Portal de optie **Resourcegroepen** en selecteer vervolgens de resource die u hebt gemaakt.  
 

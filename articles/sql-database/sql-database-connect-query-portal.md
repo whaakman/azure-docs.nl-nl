@@ -8,17 +8,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/28/2019
+ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409061"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508754"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snelstartgids: Gebruik de SQL-queryeditor van Azure Portal om verbinding te maken en query's op gegevens uit te voeren
 
@@ -32,14 +32,14 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
   || Individuele database |
   |:--- |:--- |
-  | Maken| [Portal](sql-database-single-database-get-started.md) | 
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| 
+  | Maken| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> Zorg ervoor dat de optie **Toegang tot Azure-services toestaan** is ingesteld op **AAN** in de firewall-instellingen van SQL Server. Met deze optie geeft de SQL-queryeditor toegang tot uw databases en datawarehouses.
+> De query-editor maakt gebruik van poort 443 en 1443 om te communiceren.  Controleer of dat u uitgaande HTTPS-verkeer op deze poorten zijn ingeschakeld. U moet ook uw uitgaande IP-adres toevoegen aan de toegestane firewallregels van de server voor toegang tot uw databases en datawarehouses.
 
 ## <a name="sign-in-the-azure-portal"></a>Meld u aan bij Azure Portal
 
@@ -55,7 +55,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 3. Selecteer in de vervolgkeuzelijst **Autorisatietype** de optie **SQL Server-verificatie** en voer de gebruikersnaam en het wachtwoord van het serverbeheerdersaccount in dat wordt gebruikt om de database te maken.
 
-    ![aanmelden](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![aanmelden](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. Selecteer **OK**.
 
@@ -78,8 +78,8 @@ Als u een Active Directory-beheerder (AD) instelt, kunt u gebruikmaken van één
 
 4. Selecteer **Opslaan** op de werkbalk van de AD-beheerderspagina.
 
-5. Navigeer naar de database **mySampleDatabase** en selecteer in het menu links **Query-editor (preview)**. De pagina **Aanmelden** wordt weergegeven. Als u een AD-beheerder bent, wordt aan de rechterkant, onder **Active Directory: eenmalige aanmelding** een bericht weergegeven met de mededeling dat u bent aangemeld. 
-   
+5. Navigeer naar de database **mySampleDatabase** en selecteer in het menu links **Query-editor (preview)** . De pagina **Aanmelden** wordt weergegeven. Als u een AD-beheerder bent, wordt aan de rechterkant, onder **Active Directory: eenmalige aanmelding** een bericht weergegeven met de mededeling dat u bent aangemeld.
+
 6. Selecteer **OK**.
 
 
@@ -160,7 +160,7 @@ Gebruik de volgende Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms1
 
 U moet enkele dingen weten voordat u met de queryeditor gaat werken.
 
-* U kunt de query-editor niet gebruiken om query's uit te voeren op SQL Server-databases in een virtueel netwerk.
+* De query-editor maakt gebruik van poort 443 en 1443 om te communiceren.  Controleer of dat u uitgaande HTTPS-verkeer op deze poorten zijn ingeschakeld. U moet ook uw uitgaande IP-adres toevoegen aan de toegestane firewallregels van de server voor toegang tot uw databases en datawarehouses.
 
 * Wanneer u op F5 drukt, wordt de pagina van de queryeditor vernieuwd en gaan query's waaraan wordt gewerkt, verloren.
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu;
 ms.custom: seodec18
-ms.openlocfilehash: 90ced740c2554b2364535125241a3ec91f6d899e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8180ddeceb0dcace61b5c3de7e5a45ab75042419
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063822"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448404"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
@@ -33,9 +33,9 @@ App Service onder Linux ondersteunt een aantal ingebouwde installatiekopieën om
 
 | Taal | Ondersteunde versies |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10, 10.14 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14 (voeren alle JRE 8 uit) |
-| PHP | 5.6, 7.0, 7.2 |
+| PHP | 5.6, 7.0, 7.2, 7.3 |
 | Python | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
 | Ruby | 2.3, 2.4, 2.5, 2.6 |
@@ -77,12 +77,7 @@ Op basis van een beperking voor dezelfde resourcegroep bevinden in dezelfde regi
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Wanneer uw toepassing niet kan worden gestart of als u de logboeken vanuit de app wilt controleren, controleert u de Docker-logboeken in de map LogFiles. U kunt deze map openen via uw SCM-site of via FTP.
-Als u `stdout` en `stderr` in het logboek wilt registreren in de container, moet u **Logboekregistratie voor Docker-container** inschakelen onder **Diagnoselogboeken**.
-
-![Logboekregistratie inschakelen][2]
-
-De instelling wordt onmiddellijk van kracht. App Service detecteert de wijziging van de instellingen en start de container automatisch opnieuw.
+Wanneer uw toepassing niet kan worden gestart of als u de logboeken vanuit de app wilt controleren, controleert u de Docker-logboeken in de map LogFiles. U kunt deze map openen via uw SCM-site of via FTP. Logboek de `stdout` en `stderr` in de container, moet u inschakelen **logboekregistratie voor Docker-Container** onder **logboeken voor App Service**. De instelling wordt onmiddellijk van kracht. App Service de wijziging wordt gedetecteerd en wordt de container automatisch opnieuw opgestart.
 
 U hebt toegang tot de SCM-site via **Geavanceerde hulpmiddelen** in het menu **Ontwikkelprogramma's**.
 

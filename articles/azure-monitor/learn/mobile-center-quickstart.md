@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8ce08c662e1615b62160e0c681a2fe8dbcb2be1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683432"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447047"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobiele app analyseren met App Center en Application Insights
 
@@ -68,17 +68,17 @@ Om er zeker van te zijn dat uw aangepaste gebeurtenissen worden ontvangen, gaat 
 Wanneer uw app aangepaste gebeurtenissen verzendt en deze gebeurtenissen worden ontvangen door App Center, moet u in Azure Portal een Application Insights-resource van het type App Center maken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **Een resource maken** > **Hulpprogramma's voor beheer** > **Application Insights**.
+2. Selecteer **Een resource maken** > **Hulpprogramma's voor ontwikkelaars** > **Application Insights**.
 
-    ![Application Insights-resource toevoegen](./media/mobile-center-quickstart/add-b.png)
+    > [!NOTE]
+    > Als dit de eerste keer is het maken van een Application Insights-resource vindt u meer informatie in de [maken van een Application Insights-Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc-bestand.
 
     Er verschijnt een configuratievenster. Gebruik de onderstaande tabel om de velden in te vullen.
 
     | Instellingen        |  Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|
    | **Naam**      | Een volledig unieke waarde, zoals 'mijnApp-iOS' | Naam die de app beschrijft die u wilt controleren |
-   | **Toepassingstype** | App Center-toepassing | Type app dat u wilt controleren |
-   | **Resourcegroep**     | Maak een nieuwe resourcegroep of selecteer een groep in het menu. | De resourcegroep waarin u de nieuwe Application Insights-resource wilt maken |
+     | **Resourcegroep**     | Maak een nieuwe resourcegroep of selecteer een groep in het menu. | De resourcegroep waarin u de nieuwe Application Insights-resource wilt maken |
    | **Locatie** | Een locatie in het menu | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 3. Klik op **Create**.
@@ -89,9 +89,7 @@ Als uw app meerdere platforms ondersteunt (iOS, Android, enz.), is het raadzaam 
 
 In de nieuwe Application Insights-resource op de **overzicht** pagina. Kopieer de instrumentatiesleutel van uw resource.
 
-   ![Knop Analyse in Application Insights](./media/mobile-center-quickstart/overview-01.png)
-
-Ga als volgt te werk in het App Center-exemplaar voor uw app:
+In de [App Center](https://appcenter.ms/) exemplaar voor uw app:
 
 1. Klik op de pagina **Instellingen** op **Exporteren**.
 2. Kies **Nieuwe export**, kies **Application Insights** en klik vervolgens op **Aanpassen**.
@@ -108,13 +106,11 @@ Om u toegang te geven tot meer gegevens wanneer u voor het eerst verbinding maak
 
 Met Application Insights kunt u de telemetriegegevens voor aangepaste gebeurtenissen van uw apps opvragen, segmenteren, filteren en analyseren. Deze mogelijkheden zijn uitgebreider dan de mogelijkheden in de analysetools van App Center.
 
-1. **Vraag de telemetriegegevens van aangepaste gebeurtenissen op.** Kies op de pagina **Overzicht** van Application Insights de optie **Analyse**. 
+1. **Vraag de telemetriegegevens van aangepaste gebeurtenissen op.** Van Application Insights de **overzicht** pagina, kies **Logboeken (Analytics)** .
 
-   ![Knop Analyse in Application Insights](./media/mobile-center-quickstart/analytics-001.png)
-
-   De analyseportal van Application Insights die is gekoppeld aan uw Application Insights-resource, wordt geopend. In de portal kunt u rechtstreeks query's uitvoeren op uw gegevens via de querytaal Log Analytics. Dit betekent dat u willekeurig complexe vragen over uw app en de gebruikers kunt stellen.
+   De portal van de Application Insights-Logboeken (Analytics) die zijn gekoppeld aan uw Application Insights-resource wordt geopend. De logboeken (Analytics)-portal kunt u rechtstreeks query uitvoeren op uw gegevens met behulp van de querytaal van Log Analytics, zodat u willekeurig complexe vragen over uw app en de gebruikers stellen kunt.
    
-   Open een nieuw tabblad in de analyseportal en plak vervolgens de volgende query. De query retourneert het aantal unieke gebruikers dat de afgelopen 24 uur aangepaste gebeurtenissen heeft verzonden vanuit uw app, gesorteerd op deze unieke aantallen.
+   Open een nieuw tabblad in de logboeken (Analytics)-portal en plak in de volgende query. De query retourneert het aantal unieke gebruikers dat de afgelopen 24 uur aangepaste gebeurtenissen heeft verzonden vanuit uw app, gesorteerd op deze unieke aantallen.
 
    ```AIQL
    customEvents
@@ -123,7 +119,7 @@ Met Application Insights kunt u de telemetriegegevens voor aangepaste gebeurteni
    | order by dcount_user_Id desc 
    ```
 
-   ![Analyseportal](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![Logboeken (Analytics)-portal](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Selecteer de query door ergens in de teksteditor op de query te klikken.
    2. Klik vervolgens op **Go** om de query uit te voeren. 

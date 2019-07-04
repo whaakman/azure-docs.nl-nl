@@ -2,24 +2,24 @@
 title: What is Azure Active Directory? (Engelstalig) -Azure Active Directory | Microsoft Docs
 description: Overzicht en algemene informatie over Azure Active Directory, met inbegrip van de terminologie, welke licenties beschikbaar zijn en een lijst van verbonden functies met koppelingen voor meer informatie.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 05/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4c0bbe4e4ef1cfbd4d9da92d6fcfac509f45ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110426"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440536"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig)
 
-Azure Active Directory (Azure AD) is van Microsoft cloud-gebaseerde identiteits- en access management-service, waarmee uw werknemers zich aanmelden en toegang tot bronnen in:
+Azure Active Directory (Azure AD) is van Microsoft cloud-gebaseerde identiteits- en toegangsbeheer management-service, waarmee uw werknemer zich aanmelden en toegang tot bronnen in:
 
 - Externe resources, zoals Microsoft Office 365, de Azure-portal en duizenden andere SaaS-toepassingen.
 
@@ -48,7 +48,7 @@ Om uw Azure AD-implementatie te verbeteren, kunt u ook betaalde mogelijkheden to
 >
 >Azure Active Directory Premium P1, P2 Premium en Azure Active Directory Basic worden momenteel niet ondersteund in China. Voor meer informatie over de prijzen voor Azure AD, neem contact op met de [Azure Active Directory-Forum](https://azure.microsoft.com/support/community/?product=active-directory).
 
-- **Azure Active Directory Free.** Biedt gebruikers- en groepsbeheer, on-premises adreslijstsynchronisatie, eenvoudige rapporten en eenmalige aanmelding voor Azure, Office 365 en talloze populaire SaaS-apps.
+- **Azure Active Directory Free.** Biedt beheer van gebruikers en groepen, on-premises directory-synchronisatie, Basisrapporten, wijzigen van wachtwoorden via Self-service voor cloudgebruikers en eenmalige aanmelding voor Azure, Office 365 en vele populaire SaaS-apps.
 
 - **Azure Active Directory Basic.** Naast de functies van de Free-licentie biedt Basic toegang tot apps in de cloud, op groepen gebaseerd toegangsbeheer, selfservice voor wachtwoordherstel voor cloud-apps en Azure Active Directory-toepassingsproxy, waarmee u on-premises web-apps kunt publiceren via Azure AD.
 
@@ -66,12 +66,14 @@ Voor meer informatie over Azure AD en de bijbehorende documentatie raadzaam de v
 
 |Term of concept|Description|
 |---------------|-----------|
+|Identiteit| Een ding dat kunt u geverifieerde. Een identiteit kan een gebruiker met een gebruikersnaam en wachtwoord zijn. Identiteiten bevatten ook toepassingen of andere servers waarvoor verificatie via geheime sleutels of certificaten.|
+|Account| Een identiteit met gegevens die zijn gekoppeld. U kunt een account zonder een identiteit kan niet hebt.|
+|Azure AD-account| Een identiteit die wordt gemaakt via Azure AD of een andere cloudservice van Microsoft, bijvoorbeeld Office 365. Identiteiten worden opgeslagen in Azure AD en zijn toegankelijk voor de cloudservice-abonnementen van de organisatie. Dit account wordt ook wel een werk- of schoolaccount genoemd.|
 |Azure-abonnement| Dit wordt gebruikt voor de betaling van Azure-cloudservices. U kunt zo veel abonnementen hebben als u wilt. Ze zijn gekoppeld aan uw creditcard.|
 |Azure-tenant| De tenant is een speciaal en vertrouwd exemplaar van Azure AD dat automatisch wordt gemaakt wanneer uw organisatie zich registreert voor een abonnement op een cloudservice van Microsoft, bijvoorbeeld Microsoft Azure, Microsoft Intune of Office 365. Een Azure-tenant vertegenwoordigt één organisatie.|
 |Eén tenant| Azure-tenants die toegang hebben tot andere services in een toegewezen omgeving, worden als één tenant beschouwd.|
 |Multitenant| Azure-tenants die toegang hebben tot andere services in een gedeelde omgeving in meerdere organisaties, worden als meerdere tenants beschouwd.|
 |Azure AD-directory|Elke Azure-tenant beschikt over een toegewezen en vertrouwde Azure AD-directory. Deze Azure AD-directory omvat de gebruikers, groepen en apps van de gebruiker en wordt gebruikt om identiteits- en toegangsbeheerfuncties voor resources van tenants uit te voeren.|
-|Azure AD-account | Een identiteit die wordt gemaakt via Azure AD of een andere cloudservice van Microsoft, bijvoorbeeld Office 365. Identiteiten worden opgeslagen in Azure AD en zijn toegankelijk voor de cloudservice-abonnementen van de organisatie. Dit account wordt ook wel een werk- of schoolaccount genoemd.|
 |Aangepast domein|Elke nieuwe Azure AD-directory heeft in eerste instantie een domeinnaam van de vorm domeinnaam.onmicrosoft.com. Naast deze initiële naam kunt u ook de domeinnamen van uw organisatie aan de lijst toevoegen. Deze omvatten de namen die u voor uw bedrijf gebruikt en waarmee uw gebruikers toegang tot de resources van de organisatie krijgen. Als u aangepaste domeinnamen toevoegt, kunt u gebruikersnamen maken waarmee uw gebruikers vertrouwd zijn, zoals alain@contoso.com.|
 |Accountbeheerder|Deze rol van klassieke abonnementsbeheerder is conceptueel gezien de eigenaar facturering van een abonnement. Deze rol heeft toegang tot het [Azure-accountcentrum](https://account.azure.com/Subscriptions). Hier kunt u alle abonnementen van een account beheren. Zie voor meer informatie, [klassiek abonnement beheerdersrollen, functies van Azure Role-based access control (RBAC) en Azure AD-beheerdersrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Servicebeheerder|Met deze klassieke abonnementsbeheerdersrol kunt u alle Azure-resources beheren, inclusief de toegang. Deze rol heeft dezelfde toegang als een gebruiker met de rol van eigenaar op abonnementsniveau. Zie [Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
