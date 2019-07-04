@@ -196,7 +196,7 @@ Elke kolom in de structuur bevat de volgende eigenschappen:
 | name |Naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom.  |Nee |
 | culture |. NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. |Nee |
-| Indeling |Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. |Nee |
+| format |Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. |Nee |
 
 De volgende richtlijnen kunnen u bepalen waar structuur informatie op te nemen, en wat u wilt opnemen de **structuur** sectie.
 
