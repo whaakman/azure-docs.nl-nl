@@ -197,7 +197,7 @@
         - name: Experimenten bijhouden met MLflow
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
-        - name: Experimenten visualiseren met TensorBoard
+        - name: Uitvoeringen visualiseren met TensorBoard
           displayName: 'log, monitor, metrics'
           href: how-to-monitor-tensorboard.md
     - name: Machine learning automatiseren

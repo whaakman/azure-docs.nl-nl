@@ -37,10 +37,12 @@
       items:
         - name: Scenario's
           href: scenarios.md
-        - name: Een virtueel netwerk selecteren
+        - name: Een virtueel netwerk plannen
           href: network-considerations.md
     - name: Azure AD DS beheren
       items:
+        - name: Beveiligingscontrolegebeurtenissen inschakelen (preview)
+          href: security-audit-events.md
         - name: De status van een beheerd domein controleren
           href: check-health.md
         - name: Bereik voor synchronisatie van Azure AD naar een beheerd domein configureren
