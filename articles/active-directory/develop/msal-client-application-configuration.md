@@ -38,10 +38,10 @@ In uw code kunt u een nieuwe openbare of vertrouwelijke client (of gebruikersage
 ## <a name="authority"></a>Instantie
 De instantie is een URL die een map met MSAL tokens van vragen kan aangeeft. Algemene instanties zijn:
 
-- https://login.microsoftonline.com/&lt ; tenant&gt; / waar &lt; tenant&gt; is de tenant-ID van de tenant Azure Active Directory (Azure AD) of een domein dat is gekoppeld aan deze Azure AD-tenant. Alleen aan te melden bij de gebruikers van een specifieke organisatie gebruikt.
-- https://login.microsoftonline.com/common/. Gebruikt voor het aanmelden van gebruikers met werk en schoolaccounts of persoonlijke Microsoft-accounts.
-- https://login.microsoftonline.com/organizations/. Gebruikt voor het aanmelden van gebruikers met een werk-en schoolaccounts.
-- https://login.microsoftonline.com/consumers/. Gebruikt voor het aanmelden van gebruikers met alleen persoonlijke Microsoft-accounts (voorheen bekend als Windows Live ID-accounts).
+- [https://login.microsoftonline.com/&amp;lt](https://login.microsoftonline.com/&lt ); tenant&gt; / waar &lt; tenant&gt; is de tenant-ID van de tenant Azure Active Directory (Azure AD) of een domein dat is gekoppeld aan deze Azure AD-tenant. Alleen aan te melden bij de gebruikers van een specifieke organisatie gebruikt.
+- [https://login.microsoftonline.com/common/](https://login.microsoftonline.com/common/ ). Gebruikt voor het aanmelden van gebruikers met werk en schoolaccounts of persoonlijke Microsoft-accounts.
+- [https://login.microsoftonline.com/organizations/](https://login.microsoftonline.com/organizations/ ). Gebruikt voor het aanmelden van gebruikers met een werk-en schoolaccounts.
+- [https://login.microsoftonline.com/consumers/](https://login.microsoftonline.com/consumers/ ). Gebruikt voor het aanmelden van gebruikers met alleen persoonlijke Microsoft-accounts (voorheen bekend als Windows Live ID-accounts).
 
 De instelling van de instantie moet consistent zijn met wat in de portal voor appregistratie gedeclareerd.
 

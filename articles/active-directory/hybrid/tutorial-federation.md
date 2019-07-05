@@ -256,7 +256,7 @@ We gaan nu Azure AD Connect downloaden en installeren.  Zodra dat is gebeurd, ne
 10. Zorg ervoor dat in het scherm voor AD FS-farm **Een nieuwe AD FS-farm configureren** is geselecteerd.
 11. Selecteer **Gebruik van een certificaat geïnstalleerd op de federatieservers** en klik op **Bladeren**.
 12. Voer DC1 in het zoekvak in en selecteer dit als het is gevonden.  Klik op **OK**.
-13. Selecteer uit de vervolgkeuzelijst **Certificaatbestand****adfs.contoso.com** het certificaat dat eerder is gemaakt.  Klik op **volgende**.
+13. Selecteer uit de vervolgkeuzelijst **Certificaatbestand** **adfs.contoso.com** het certificaat dat eerder is gemaakt.  Klik op **volgende**.
 ![Federatie](media/tutorial-federation/fed2.png)
 
 1. Klik op het scherm van de AD FS-server op **Bladeren** en voer DC1 in het zoekvak in en selecteer dit als het is gevonden.  Klik op **OK**.  Klik op **volgende**.
