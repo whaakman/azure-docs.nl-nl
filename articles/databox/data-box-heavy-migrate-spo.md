@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446722"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592336"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Azure Data Box zware gebruiken voor het migreren van uw bestand delen inhoud tot SharePoint Online
 
@@ -23,7 +23,7 @@ De Microsoft Azure Data Box is een service waarmee u een apparaat van de Microso
 
 - [Data Box-schijf](https://docs.microsoft.com/azure/databox/data-box-disk-overview) met 35 TB aan bruikbare capaciteit per order voor kleine tot middelgrote gegevenssets.
 - [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) met 80 TB aan bruikbare capaciteit per apparaat voor middelgrote tot grote gegevenssets.
-- [Gegevens in het zware](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) met 770 TB aan bruikbare capaciteit per apparaat voor grote gegevenssets. Gegevens in het zware momenteel in preview.
+- [Gegevens in het zware](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) met 770 TB aan bruikbare capaciteit per apparaat voor grote gegevenssets.
 
 In dit artikel is specifiek vertelt over het gebruik van de Data Box-zwaar uw bestand delen inhoud migreren naar SharePoint Online.
 

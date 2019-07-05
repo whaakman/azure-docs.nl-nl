@@ -4,18 +4,17 @@ titleSuffix: Azure Open Datasets
 description: Leer hoe u het gemak van Azure Open gegevenssets samen met de kracht van Azure Machine Learning-service te maken van een regressiemodel om te voorspellen NYC taxi fare prijzen.
 services: open-datasets
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: e753793b5da59d09a21991831046a43899c62ef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a1df79c59ede8cd9ad72a2ebb2edb4bdb64b802a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026821"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588976"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Zelfstudie: Bouw een regressiemodel met geautomatiseerde machine learning en Open gegevenssets
 

@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/02/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: De Bing-API voor zoeken naar lokale bedrijven stelt uw toepassingen in staat om contact- en locatiegegevens van lokale bedrijven te vinden op basis van zoekquery's.
 sections:
