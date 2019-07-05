@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: 412ce3c5245f3f22bfb03740a0451670dc6a90a7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293209"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448113"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-extensies in Azure Database for PostgreSQL - één Server
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -48,7 +48,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gepartitioneerde tabellen worden beheerd door de tijd of -ID. |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Biedt de functies en operatoren voor het bepalen van de overeenkomsten van alfanumerieke tekst op basis van trigram overeenkomst. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Biedt functies die hele tabellen, inclusief een kruistabel bewerken. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genereert universele, unieke id (UUID's). |
+> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genereert universele, unieke id (UUID's). (Zie hieronder voor een notitie van deze extensie). |
 > | [orafce](https://github.com/orafce/orafce) | Biedt een subset van functies en pakketten die zijn geëmuleerd van commerciële databases. |
 
 ### <a name="full-text-search-extensions"></a>Extensies zoeken in volledige tekst
@@ -118,6 +118,10 @@ Er is een verschil tussen de querygegevens kan worden uitgevoerd als pg_stat_sta
 dblink en postgres_fdw kunt u verbinding maken vanaf een PostgreSQL-server naar een andere of naar een andere database op dezelfde server. U moet de ontvangende server verbindingen toestaan vanaf de server verzenden via de firewall. Wanneer u deze uitbreidingen te verbinden met Azure Database for PostgreSQL-servers, kan dit worden gedaan door in te stellen 'Toegang tot Azure-services toestaan' op ON. Dit is ook nodig als u de extensies wilt aan lus terug naar dezelfde server gebruiken. De instelling 'Toegang tot Azure-services toestaan' vindt u in de Azure portal-pagina voor de Postgres-server, onder de beveiliging van de verbinding. 'Toestaan toegang tot Azure-services' op accounttoewijzing alle Azure-IP-adressen te schakelen.
 
 Uitgaande verbindingen van Azure Database for PostgreSQL worden op dit moment niet ondersteund, met uitzondering van verbindingen met andere Azure-Database voor PostgreSQL-servers.
+
+## <a name="uuid"></a>uuid
+Als u van plan bent te gebruiken `uuid_generate_v4()` van de extensie uuid ossp, houd rekening met vergelijken met `gen_random_uuid()` van de extensie pgcrypto voor prestatievoordelen.
+
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB is een time series-database die wordt geleverd als een uitbreiding voor PostgreSQL. TimescaleDB voorziet in analytische functies tijdgebaseerde, optimalisatie, en kan worden geschaald Postgres voor time series-werkbelastingen.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024345"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445402"
 ---
 # <a name="data-import-overview---azure-search"></a>Gegevens importeren overzicht - Azure Search
 
@@ -36,7 +36,7 @@ U kunt de volgende API's gebruiken om één of meerdere documenten in een index 
 
 Er is momenteel geen ondersteuning voor het pushen van gegevens via de portal.
 
-Zie voor een inleiding tot elke methodologie [Quick Start: Een Azure Search-index met behulp van PowerShell en de REST-API maken](search-create-index-rest-api.md) of [Quick Start: Maken van een Azure Search-index in C# ](search-import-data-dotnet.md).
+Zie voor een inleiding tot elke methodologie [Quick Start: Maken van een Azure Search-index met behulp van PowerShell](search-create-index-rest-api.md) of [ C# Quick Start: Maken van een Azure Search-index met behulp van .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +44,9 @@ Zie voor een inleiding tot elke methodologie [Quick Start: Een Azure Search-inde
 
 U kunt het type indexering actie op basis van per document beheren op te geven of het document moet worden geüpload in de volledige, samengevoegd met de bestaande inhoud van het document of verwijderd.
 
-In de REST-API, geven u een HTTP POST-aanvragen met JSON-aanvraagtekst voor eindpunt-URL van uw Azure Search-index. Elk JSON-object in de matrix '' waarde '' sleutel van het document bevat en geeft een indexeerbewerking u toevoegt, updates, of inhoud van het document verwijderd. Zie voor een codevoorbeeld van [laden van documenten](search-create-index-rest-api.md#load-documents).
+In de REST-API, geven u een HTTP POST-aanvragen met JSON-aanvraagtekst voor eindpunt-URL van uw Azure Search-index. Elk JSON-object in de matrix '' waarde '' sleutel van het document bevat en geeft aan of een indexeringsbewerking wordt toegevoegd, bijgewerkt of Hiermee verwijdert u de inhoud van het document. Zie voor een codevoorbeeld van [laden van documenten](search-get-started-dotnet.md#load-documents).
 
-In de .NET-SDK-pakket van uw gegevens in een `IndexBatch` object. Een `IndexBatch` bevat een verzameling van `IndexAction` objecten, die elk bevat een document en een eigenschap die Azure Search welke actie om uit te voeren voor het desbetreffende document. Zie voor een codevoorbeeld van [IndexBatch maken](search-import-data-dotnet.md#construct-indexbatch).
+In de .NET-SDK-pakket van uw gegevens in een `IndexBatch` object. Een `IndexBatch` bevat een verzameling van `IndexAction` objecten, die elk bevat een document en een eigenschap die Azure Search welke actie om uit te voeren voor het desbetreffende document. Zie voor een codevoorbeeld van de [ C# snelstartgids](search-get-started-dotnet.md).
 
 
 | @search.action | Description | Vereiste velden voor elk document | Opmerkingen |

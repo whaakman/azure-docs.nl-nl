@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7961656e0f295b3e1a9264d839da94de25a224a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466352"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550320"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Veelgestelde vragen over Windows Virtual Machines
 In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van de Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp, [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,7 +31,7 @@ Alle abonnees kunnen serversoftware uitvoeren op een virtuele machine van Azure.
 Bepaalde versies van Windows 7, Windows 8.1 en Windows 10 zijn beschikbaar voor MSDN Azure-voordeel abonnees en abonnees van MSDN ontwikkelen en testen van betalen per gebruik, voor ontwikkelings- en taken. Zie het Engelstalige blogbericht [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/) voor meer informatie, zoals instructies en beperkingen. 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hoeveel opslagruimte kan ik gebruiken met een virtuele machine?
-Elke gegevensschijf kan tot 4 TB (4095 GB) zijn. Het aantal gegevensschijven dat u kunt gebruiken, is afhankelijk van de grootte van de virtuele machine. Zie [Grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie.
+Elke gegevensschijf kan maximaal 32.767 GiB zijn. Het aantal gegevensschijven dat u kunt gebruiken, is afhankelijk van de grootte van de virtuele machine. Zie [Grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie.
 
 Azure Managed Disks is de aanbevolen product voor schijfopslag gebruiken met Azure Virtual Machines voor permanente opslag van gegevens. U kunt voor elke virtuele machine Managed Disks gebruiken. Beheerde schijven bieden twee typen duurzame opslag: Premium en Standard Managed Disks. Zie voor informatie over de prijzen [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks).
 

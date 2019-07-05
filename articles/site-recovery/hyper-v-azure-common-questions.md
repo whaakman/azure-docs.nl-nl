@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36c109e083873e9c4ec63ebe34f5c5c0cfb6eeb1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399466"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491815"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Veelgestelde vragen - Hyper-V naar Azure-noodherstel
 
@@ -26,6 +26,10 @@ Beoordeling [prijzen voor Azure Site Recovery](https://azure.microsoft.com/prici
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>Hoe moet ik betalen voor Azure VM's?
 Tijdens de replicatie, gegevens worden gerepliceerd naar Azure storage en betaalt u geen wijzigingen in de virtuele machine. Wanneer u een failover naar Azure uitvoert, maakt Site Recovery automatisch virtuele machines van Azure IaaS. Hierna wordt u gefactureerd voor de rekenresources die u in Azure gebruikt.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Is er een verschil in kosten bij het repliceren naar een opslagaccount voor algemeen gebruik v2?
+
+Meestal ziet u een verhoging van de transactiekosten in rekening gebracht op GPv2-opslagaccounts, omdat Azure Site Recovery zwaar transacties is. [Lees meer](../storage/common/storage-account-upgrade.md#pricing-and-billing) om in te schatten van de wijziging.
 
 ## <a name="azure"></a>Azure
 

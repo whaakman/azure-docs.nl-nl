@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 651ae9d9f9a622724e1ee606219ba940995aa555
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331312"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441749"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -423,3 +423,19 @@ Azure Dev spaties niet een domeincontroller op uw AKS-cluster kan maken omdat ni
 
 ### <a name="try"></a>Proberen
 [Werk de configuratie van uw beïnvloeding](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) op uw AKS-cluster om ervoor te zorgen ten minste één Linux knooppunt kunt voor het plannen van schillen zonder tolerations op te geven. Zorg er ook voor dat ten minste één Linux-knooppunt waarmee planning schillen zonder op te geven tolerations zich in de *gereed* staat. Als het knooppunt lang duurt is om te bereiken het *gereed* staat, kunt u proberen het knooppunt opnieuw op te starten.
+
+## <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>'Azure Dev spaties CLI niet correct geïnstalleerd' Fout bij het uitvoeren van `az aks use-dev-spaces`
+
+### <a name="reason"></a>Reason
+Een update van de CLI van Azure Dev spaties gewijzigd het installatiepad. Als u een versie van de Azure-CLI ouder dan 2.0.63 gebruikt, ziet u mogelijk deze fout. Als uw versie van Azure CLI wilt weergeven, gebruikt u `az --version`.
+
+```bash
+$ az --version
+azure-cli                         2.0.60 *
+...
+```
+
+Ondanks het foutbericht bij het uitvoeren van `az aks use-dev-spaces` met een versie van de Azure CLI voor 2.0.63, de installatie is gelukt. U kunt echter ook doorgaan met `azds` zonder problemen.
+
+### <a name="try"></a>Proberen
+Werk de installatie van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.63 of hoger. Hiermee wordt het foutbericht u ontvangt bij het uitvoeren van opgelost `az aks use-dev-spaces`. U kunt ook u kunt echter ook doorgaan met uw huidige versie van de Azure CLI en de CLI van Azure Dev spaties.

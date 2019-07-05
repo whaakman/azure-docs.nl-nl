@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979631"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444733"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Actieve Directory Role-Based Access Control (preview)
 
@@ -33,12 +33,12 @@ Een toepassing die gebruikmaakt van Azure AD RBAC hoeft niet voor het afhandelen
 
 Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot een Service Bus-naamruimte:
 
-* [Service Bus de eigenaar van gegevens (preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Hiermee kunt toegang tot gegevens in Service Bus-naamruimte en de entiteiten (wachtrijen, onderwerpen, abonnementen en Filters)
+* [Azure Service Bus de eigenaar van gegevens (Preview)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Hiermee kunt toegang tot gegevens in Service Bus-naamruimte en de entiteiten (wachtrijen, onderwerpen, abonnementen en Filters)
 
 >[!IMPORTANT]
 > We eerder toe te voegen beheerde identiteit ondersteund de **'Eigenaar'** of **"Bijdrager"** rol.
 >
-> Echter bevoegdheden voor toegang tot de gegevens **'Eigenaar'** en **"Bijdrager"** rol wordt niet meer worden herkend. Als u de **'Eigenaar'** of **"Bijdrager"** rol en vervolgens die moet worden aangepast aan het gebruik van de **'Service Bus Gegevenseigenaar'** rol.
+> Echter bevoegdheden voor toegang tot de gegevens **'Eigenaar'** en **"Bijdrager"** rol wordt niet meer worden herkend. Als u de **'Eigenaar'** of **"Bijdrager"** rol en vervolgens die moet worden aangepast aan het gebruik van de **'Azure Service Bus Gegevenseigenaar (Preview)'** rol.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Service Bus gebruiken met een gebruikersaccount voor Azure AD-domein
 

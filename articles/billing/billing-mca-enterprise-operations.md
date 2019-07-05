@@ -1,8 +1,6 @@
 ---
-title: Enterprise Agreement-taken in Microsoft KLANTOVEREENKOMST - Azure | Microsoft Docs
+title: Enterprise Agreement-taken in Microsoft KLANTOVEREENKOMST - Azure
 description: Leer hoe u Enterprise Agreement-taken in uw nieuwe account voor de facturering uit te voeren.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,20 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9404908b7c486801480474c5a2c9ff7688e1de48
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371327"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490713"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Enterprise Agreement-taken uitvoeren in uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
 
 Als uw organisatie heeft een Microsoft-KLANTOVEREENKOMST vernieuwen van uw Enterprise Agreement-inschrijving is ondertekend, wordt een nieuwe factureringsaccount gemaakt voor de overeenkomst. De facturering in uw nieuwe account is anders dan uw Enterprise Agreement ingedeeld. Dit artikel wordt beschreven hoe u de nieuwe factureringsaccount kunt gebruiken om uit te voeren taken die u in uw Enterprise Agreement hebt uitgevoerd.
 
-## <a name="how-billing-is-organized-in-the-new-account"></a>Hoe facturering wordt georganiseerd in het nieuwe account
+## <a name="billing-organization-in-the-new-account"></a>Organisatie van de facturering in het nieuwe account
 
 Het volgende diagram wordt beschreven hoe de facturering is georganiseerd in uw nieuwe account voor de facturering.
 
@@ -33,16 +31,16 @@ Het volgende diagram wordt beschreven hoe de facturering is georganiseerd in uw 
 
 | Enterprise Agreement   | Microsoft-klantovereenkomst    |
 |------------------------|--------------------------------------------------------|
-| Registratie            | U kunt een facturering profiel gebruikt voor het beheren van facturering voor uw organisatie, die vergelijkbaar is met uw Enterprise Agreement-inschrijving. Enterprise-beheerders kunnen worden eigenaren van het profiel voor facturering. Zie voor meer informatie over facturering-profielen, [inzicht in facturering profielen](billing-mca-overview.md#understand-billing-profiles).
-| Afdeling            | Een gedeelte van de factuur kunt u uw kosten weer te geven, die vergelijkbaar is met afdelingen in uw Enterprise Agreement-inschrijving organiseren. Afdeling wordt factuur secties en beheerders van de afdeling worden eigenaars van de secties met respectieve factuur. Zie voor meer informatie over de secties van de factuur, [begrijpen factuur secties](billing-mca-overview.md#understand-invoice-sections). |
+| Registratie            | U kunt een facturering profiel gebruikt voor het beheren van facturering voor uw organisatie, die vergelijkbaar is met uw Enterprise Agreement-inschrijving. Enterprise-beheerders kunnen worden eigenaren van het profiel voor facturering. Zie voor meer informatie over facturering-profielen, [inzicht in facturering profielen](billing-mca-overview.md#billing-profiles).
+| Afdeling            | Een gedeelte van de factuur kunt u uw kosten weer te geven, die vergelijkbaar is met afdelingen in uw Enterprise Agreement-inschrijving organiseren. Afdeling wordt factuur secties en beheerders van de afdeling worden eigenaars van de secties met respectieve factuur. Zie voor meer informatie over de secties van de factuur, [begrijpen factuur secties](billing-mca-overview.md#invoice-sections). |
 | Account               | De accounts die zijn gemaakt in uw Enterprise Agreement worden niet ondersteund in het nieuwe account voor facturering. De account van de abonnementen deel uitmaken van het gedeelte van de respectieve factuur voor hun afdeling. Eigenaars kunnen maken en beheren van abonnementen voor een sectie factuur. |
 
-## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>Wijzigingen voor beheerders in een onderneming in de nieuwe factureringsaccount
+## <a name="changes-for-enterprise-administrators"></a>Wijzigingen voor enterprise-beheerders
 
 De volgende wijzigingen zijn van toepassing op enterprise-beheerders kunnen een Enterprise-overeenkomst die aan de KLANTOVEREENKOMST van een Microsoft is vernieuwd.
 
-- Een profiel voor facturering wordt voor uw inschrijving gemaakt. U gebruikt de facturering profiel voor het beheren van facturering voor uw organisatie, zoals uw Enterprise Agreement-inschrijving. Voor meer informatie over facturering profielen [inzicht in facturering profielen](billing-mca-overview.md#understand-billing-profiles).
-- Een gedeelte van de factuur wordt voor elke afdeling in uw Enterprise Agreement-inschrijving gemaakt. U gebruikt de secties van de factuur voor het beheren van uw afdelingen. U kunt nieuwe factuur secties voor het instellen van aanvullende afdelingen maken. Zie voor meer informatie over de secties van de factuur, [begrijpen factuur secties](billing-mca-overview.md#understand-invoice-sections).
+- Een profiel voor facturering wordt voor uw inschrijving gemaakt. U gebruikt de facturering profiel voor het beheren van facturering voor uw organisatie, zoals uw Enterprise Agreement-inschrijving. Voor meer informatie over facturering profielen [inzicht in facturering profielen](billing-mca-overview.md#billing-profiles).
+- Een gedeelte van de factuur wordt voor elke afdeling in uw Enterprise Agreement-inschrijving gemaakt. U gebruikt de secties van de factuur voor het beheren van uw afdelingen. U kunt nieuwe factuur secties voor het instellen van aanvullende afdelingen maken. Zie voor meer informatie over de secties van de factuur, [begrijpen factuur secties](billing-mca-overview.md#invoice-sections).
 - U gebruikt de rol van de maker van Azure-abonnement op factuur secties aan andere gebruikers machtigen om op te maken van Azure-abonnement, zoals de accounts die zijn gemaakt in de Enterprise Agreement-inschrijving.
 - U gebruikt de [Azure-portal](https://portal.azure.com) voor het beheren van facturering voor uw organisatie, in plaats van de Azure EA-portal.
 
@@ -76,7 +74,7 @@ Een maandelijkse factuur wordt gegenereerd voor elke factureringsprofiel in uw f
 
 Zie voor meer informatie over Azure kosten en het gebruik van csv-bestand downloaden, [gebruiksgegevens downloaden voor uw Microsoft-KLANTOVEREENKOMST](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
 
-Zie voor informatie over het downloaden van de prijslijst, [downloaden prijzen voor uw Microsoft-KLANTOVEREENKOMST](billing-ea-pricing.md#view-and-download-pricing-for-your-microsoft-customer-agreement).
+Zie voor informatie over het downloaden van de prijslijst, [downloaden prijzen voor uw Microsoft-KLANTOVEREENKOMST](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
 
 Zie voor informatie over het downloaden van de btw-documenten, [de btw-documenten weergeven voor uw Microsoft-KLANTOVEREENKOMST](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -92,13 +90,13 @@ Maak een factuur sectie organiseren van uw kosten op basis van uw behoeften, zoa
 
 ### <a name="create-a-new-account"></a>Een nieuw account maken
 
-De rol van de maker van Azure-abonnement op factuur secties zodat ze de machtiging voor het maken van Azure-abonnement, zoals de accounts die zijn gemaakt in de Enterprise Agreement-inschrijving voor gebruikers toewijzen. Zie voor meer informatie, [Geef anderen toestemming voor het maken van Azure-abonnementen](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+De rol van de maker van Azure-abonnement op factuur secties zodat ze de machtiging voor het maken van Azure-abonnement, zoals de accounts die zijn gemaakt in de Enterprise Agreement-inschrijving voor gebruikers toewijzen. Zie voor meer informatie, [Geef anderen toestemming voor het maken van Azure-abonnementen](billing-mca-create-subscription.md#give-others-permission).
 
-## <a name="changes-for-department-administrators-in-the-new-billing-account"></a>Wijzigingen voor afdeling beheerders in de nieuwe factureringsaccount
+## <a name="changes-for-department-administrators"></a>Wijzigingen voor beheerders van de afdeling
 
 De volgende wijzigingen zijn van toepassing op afdeling beheerders op een Enterprise-overeenkomst die aan de KLANTOVEREENKOMST van een Microsoft is vernieuwd.
 
-- Een gedeelte van de factuur wordt voor elke afdeling in uw Enterprise Agreement-inschrijving gemaakt. U gebruikt de factuur sectie (s) voor het beheren van uw afdeling(en). Zie voor meer informatie over de secties van de factuur, [begrijpen factuur secties](billing-mca-overview.md#understand-invoice-sections).
+- Een gedeelte van de factuur wordt voor elke afdeling in uw Enterprise Agreement-inschrijving gemaakt. U gebruikt de factuur sectie (s) voor het beheren van uw afdeling(en). Zie voor meer informatie over de secties van de factuur, [begrijpen factuur secties](billing-mca-overview.md#invoice-sections).
 - U gebruikt u de rol van de maker van Azure-abonnement aan het gedeelte factuur anderen om toestemming te geven om te maken van Azure-abonnement, zoals de accounts die zijn gemaakt in de Enterprise Agreement-inschrijving.
 - U gebruikt de Azure-portal voor het beheren van facturering voor uw organisatie, in plaats van de Azure EA-portal.
 
@@ -118,7 +116,7 @@ Zie voor meer informatie over bieden, toegang tot het gedeelte van uw factuur, [
 
 ### <a name="create-a-new-account-in-your-department"></a>Een nieuw account maken in uw afdeling
 
-Gebruikers van de rol van de maker van Azure-abonnement op factuur sectie die wordt gemaakt voor uw afdeling toewijzen. Zie voor meer informatie, [Geef anderen toestemming voor het maken van Azure-abonnementen](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Gebruikers van de rol van de maker van Azure-abonnement op factuur sectie die wordt gemaakt voor uw afdeling toewijzen. Zie voor meer informatie, [Geef anderen toestemming voor het maken van Azure-abonnementen](billing-mca-create-subscription.md#give-others-permission).
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Kosten voor accounts in uw afdelingen weergeven
 
@@ -126,7 +124,7 @@ De accounts die zijn gemaakt in uw Enterprise Agreement-inschrijving worden niet
 
 Als u wilt weergeven in totale kosten voor abonnementen die deel uitmaakten van een account in uw afdeling, moet u een kostenplaats voor elk abonnement instellen. Vervolgens kunt u het Azure-gebruik en de kosten-bestand voor het filteren van de abonnementen van de kostenplaats.
 
-## <a name="changes-for-account-owners-in-the-new-billing-account"></a>Wijzigingen voor eigenaars in het nieuwe account voor facturering
+## <a name="changes-for-account-owners"></a>Wijzigingen voor eigenaars
 
 Eigenaars van de Enterprise Agreement get-machtiging voor het maken van Azure-abonnementen op het nieuwe account voor facturering. Het gedeelte factuur die is gemaakt voor uw afdeling deel uitmaken van uw bestaande Azure-abonnementen. Als uw account niet tot een afdeling behoort, worden uw abonnementen behoren tot een factuur sectie met de naam standaardsectie factuur.
 

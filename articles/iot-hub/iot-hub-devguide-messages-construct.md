@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252796"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450088"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub-berichten maken en lezen
 
@@ -55,7 +55,7 @@ De volgende tabel wordt de lijst met Systeemeigenschappen in IoT Hub-berichten.
 | volgnummer: |Een aantal (uniek per apparaat-wachtrij) door IoT Hub is toegewezen aan elk cloud-naar-apparaat-bericht. | Nee voor C2D-berichten; anders Ja. |
 | tot |Een doel dat is opgegeven in [Cloud-naar-apparaat](iot-hub-devguide-c2d-guidance.md) berichten. | Nee voor C2D-berichten; anders Ja. |
 | absolute-expiry-time |Datum en tijd van verlopen van berichten. | Ja |
-| iothub-enqueuedtime |Datum en tijd waarop de [Cloud-naar-apparaat](iot-hub-devguide-c2d-guidance.md) bericht is ontvangen door de IoT Hub. | Nee voor C2D-berichten; anders Ja. |
+| iothub-enqueuedtime |Datum en tijd waarop de [apparaat-naar-Cloud](iot-hub-devguide-d2c-guidance.md) bericht is ontvangen door de IoT Hub. | Nee voor D2C berichten; anders Ja. |
 | correlatie-id |Een string-eigenschap in een antwoordbericht die normaal gesproken de MessageId van de aanvraag, in de aanvraag / antwoord-patronen bestaat. | Ja |
 | gebruikers-id |Een ID die wordt gebruikt om op te geven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, dat is ingesteld op `{iot hub name}`. | Nee |
 | iothub-ack |De generator van een feedback-bericht. Deze eigenschap wordt gebruikt in de cloud-naar-apparaat-berichten om aan te vragen van IoT Hub voor het genereren van Feedbackberichten als gevolg van het verbruik van het bericht door het apparaat. Mogelijke waarden: **geen** (standaard): Er is geen Feedbackbericht wordt gegenereerd, **positieve**: een feedbackbericht ontvangen als het bericht is voltooid, **negatieve**: ontvangen een feedback wordt weergegeven als het bericht is verlopen (of maximum aantal bezorgingen is bereikt) zonder wordt voltooid door het apparaat of **volledige**: positieve en negatieve. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Ja |

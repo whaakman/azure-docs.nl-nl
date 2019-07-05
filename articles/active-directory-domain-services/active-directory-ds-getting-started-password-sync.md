@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Synchronisatie van wachtwoordhas
 description: Aan de slag met Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 35add0737d90d7f550fa6d907718c3c193dd60c4
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234893"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67474231"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Synchronisatie van wachtwoordhashes inschakelen voor Azure Active Directory Domain Services
 Tijdens de vorige taken hebt u Azure Active Directory Domain Services ingeschakeld voor uw Azure Active Directory-tenant (Azure AD). De volgende taak bestaat uit het inschakelen van synchronisatie voor wachtwoordhashes die zijn vereist voor NTLM- (NT LAN Manager) en Kerberos-verificatie met Azure AD Domain Services. Wanneer u de synchronisatie voor wachtwoordhashes hebt ingesteld, kunnen gebruikers zich bij het beheerde domein aanmelden met hun zakelijke referenties.

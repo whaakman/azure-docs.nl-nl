@@ -5,14 +5,14 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 06/25/2019
 ms.author: vinagara
-ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8183c7070b5d42e1c7a96fc0d64974658b2ec7d0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244963"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448929"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -24,16 +24,17 @@ Deze waarschuwingen zijn voor Azure-resources kunnen worden gemaakt met behulp v
 > [!IMPORTANT]
 > Waarschuwingen op status van de Service-melding kunnen niet worden gemaakt via de interface voor het maken van activiteit log waarschuwingen. Zie voor meer informatie over het maken en gebruiken van servicestatusmeldingen [ontvangen van waarschuwingen voor activiteitenlogboeken op servicestatusmeldingen](alerts-activity-log-service-notifications.md).
 
+Tijdens het maken van de regels voor waarschuwingen, Controleer het volgende:
+
+- Abonnement in het bereik is niet af van het abonnement waarin de waarschuwing wordt gemaakt.
+- Criteria moet niveau/status/aanroeper / resourcegroep / resource-id / resourcetype / gebeurteniscategorie waarop de waarschuwing is geconfigureerd.
+- Er is geen 'dragen' voorwaarde of geneste voorwaarden in de waarschuwingsconfiguratie JSON (in feite, slechts één allOf met geen verdere allOf/dragen is toegestaan).
+- Wanneer is de categorie 'beheer'. U moet ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
+
+
 ## <a name="azure-portal"></a>Azure Portal
 
-> [!NOTE]
-> 
->  Tijdens het maken van de regels voor waarschuwingen, Controleer het volgende:
-> 
-> - Abonnement in het bereik is niet af van het abonnement waarin de waarschuwing wordt gemaakt.
-> - Criteria moet niveau/status/aanroeper / resourcegroep / resource-id / resourcetype / gebeurteniscategorie waarop de waarschuwing is geconfigureerd.
-> - Er is geen 'dragen' voorwaarde of geneste voorwaarden in de waarschuwingsconfiguratie JSON (in feite, slechts één allOf met geen verdere allOf/dragen is toegestaan).
-> - Wanneer is de categorie 'beheer'. U moet ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
+Met Azure portal, gebruiker maken en wijzigen van de activiteit-logboekwaarschuwingsregels. En de ervaring is geïntegreerd met Azure-activiteitenlogboek - om ervoor te zorgen naadloze waarschuwing maken voor specifieke gebeurtenissen die van belang zijn.
 
 ### <a name="create-with-azure-portal"></a>Maken met Azure portal
 
@@ -220,11 +221,11 @@ de sampleActivityLogAlert.parameters.json bevat waarin de waarden voor de parame
 
 Waarschuwingen voor activiteitenlogboeken zijn speciaal bestemd voor PowerShell-cmdlets beschikbaar:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Maakt u een nieuwe of bestaande waarschuwing voor een activiteitenlogboek bijwerken.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Hiermee haalt u een of meer activiteiten waarschuwingsresources log.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Hiermee kunt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Schakelt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Hiermee verwijdert u een waarschuwing voor activiteitenlogboek.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert) : Maakt u een nieuwe of bestaande waarschuwing voor een activiteitenlogboek bijwerken.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert) : Hiermee haalt u een of meer activiteiten waarschuwingsresources log.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert) : Hiermee kunt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert) : Schakelt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert)    : Hiermee verwijdert u een waarschuwing voor activiteitenlogboek.
 
 ## <a name="cli"></a>CLI
 

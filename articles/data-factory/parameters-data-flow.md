@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: ef97f17bf159511ce94f90cd00623e05489acb92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274713"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477703"
 ---
 # <a name="mapping-data-flow-parameters"></a>Toewijzing van Parameters voor stroom
 
@@ -37,6 +37,12 @@ Parameters toevoegen aan uw gegevensstroom, klikt u op het lege gedeelte van het
 Parameters kunnen worden gebruikt in een expressie van de gegevensstroom. Parameters beginnen met $ en zijn onveranderd. U vindt de lijst met beschikbare parameters in de opbouwfunctie voor expressies op het tabblad 'Parameters'.
 
 ![Gegevensstroom parameterexpressie](media/data-flow/parameter-expression.png "gegevensstroom parameterexpressie")
+
+## <a name="use-parameters-in-your-data-flow"></a>Parameters voor gebruik in de gegevensstroom
+
+* Binnen de transformatie-expressies kunt u parameterwaarden. De lijst met parameters onder het tabblad Parameters vindt u in de opbouwfunctie voor expressies. ![Gebruik parameters gegevensstroom](media/data-flow/params9.png "parameters gegevensstroom gebruiken")
+
+* Parameters worden ook gebruikt voor het configureren van dynamische waarden voor de bron en Sink-transformatie-instellingen. Wanneer u op de velden kunnen worden geconfigureerd klikt, ziet u de koppeling 'Dynamische contect toevoegen' wordt weergegeven. Er klikken, gaat u naar een opbouwfunctie voor expressies waar u parameters gebruiken kunt voor het gebruik van dynamische waarden. ![Dynamische inhoud van de gegevensstroom](media/data-flow/params6.png "gegevensstroom dynamische inhoud")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Parameters gegevensstroom toewijzing van de pijplijn instellen
 

@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288436"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476389"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Goedkeuren of weigeren van aanvragen voor Azure-resource-rollen in PIM
 
@@ -38,15 +38,15 @@ Als een gedelegeerde fiatteur ontvangt u een e-mailmelding wanneer een aanvraag 
 
 1. Klik op **aanvragen goedkeuren**.
 
-    ![Azure-resources - aanvragen goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Aanvragen - Azure-resources pagina voor het verzoek om te bekijken waarin goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     In de **aanvragen voor rolactiveringen** sectie ziet u een lijst met aanvragen moeten worden goedgekeurd.
 
 ## <a name="approve-requests"></a>Aanvragen goedkeuren
 
-1. Zoek en klik op de aanvraag die u wilt goedkeuren. Een goedkeuring deelvenster wordt weergegeven.
+1. Zoek en klik op de aanvraag die u wilt goedkeuren. Een goedkeuren of weigeren deelvenster wordt weergegeven.
 
-    ![Deelvenster aanvragen goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aanvragen goedkeuren - goedkeuren of weigeren van deelvenster met details en reden box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. In de **reden** typt u een reden op.
 
@@ -54,13 +54,13 @@ Als een gedelegeerde fiatteur ontvangt u een e-mailmelding wanneer een aanvraag 
 
     Er wordt een melding weergegeven met uw goedkeuring wordt vereist.
 
-    ![Melding goed te keuren](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Melding weergegeven dat de aanvraag is goedgekeurd goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>Aanvragen weigeren
 
-1. Zoek en klik op de aanvraag die u wilt weigeren. Een goedkeuring deelvenster wordt weergegeven.
+1. Zoek en klik op de aanvraag die u wilt weigeren. Een goedkeuren of weigeren deelvenster wordt weergegeven.
 
-    ![Deelvenster aanvragen goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aanvragen goedkeuren - goedkeuren of weigeren van deelvenster met details en reden box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. In de **reden** typt u een reden op.
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417769"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491701"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Veelgestelde vragen over VMware naar Azure-replicatie
 
@@ -85,6 +85,10 @@ Voor een gedetailleerde raming van kosten, voer het hulpprogramma deployment pla
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Is er een verschil in kosten tussen repliceren naar de opslag of rechtstreeks naar managed disks?
 
 Beheerde schijven worden in rekening gebracht net iets anders uit storage-accounts. [Meer informatie](https://azure.microsoft.com/pricing/details/managed-disks/) over de prijzen voor beheerde schijf.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Is er een verschil in kosten bij het repliceren naar een opslagaccount voor algemeen gebruik v2?
+
+Meestal ziet u een verhoging van de transactiekosten in rekening gebracht op GPv2-opslagaccounts, omdat Azure Site Recovery zwaar transacties is. [Lees meer](../storage/common/storage-account-upgrade.md#pricing-and-billing) om in te schatten van de wijziging.
 
 ## <a name="mobility-service"></a>Mobility-service
 
@@ -293,7 +297,7 @@ Updates in versies 9,24 en hoger nu weer de [status van de processerver wanneer 
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Hoe kan ik de processerver bijwerken naar versie 9.24 of hoger voor nauwkeurige gezondheidsinformatie?
 
-Beginnen met [versie 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), meer waarschuwingen zijn toegevoegd om aan te geven van de status van de processerver. [Uw Site Recovery-onderdelen bijwerken naar versie 9.24 of hoger] (service-updates-how-to.md#links-to-currently-supported-update-rollups) zodat alle waarschuwingen worden gegenereerd.
+Beginnen met [versie 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), meer waarschuwingen zijn toegevoegd om aan te geven van de status van de processerver. [Uw Site Recovery-onderdelen bijwerken naar versie 9.24 of hoger](service-updates-how-to.md#links-to-currently-supported-update-rollups) zodat alle waarschuwingen worden gegenereerd.
 
 ## <a name="failover-and-failback"></a>Failover en failback
 

@@ -5,18 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/27/2019
+ms.openlocfilehash: 686adfb2998eff10ef4b9f378163b164ba970c56
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067413"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461845"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>SSL-connectiviteit configureren in Azure Database voor PostgreSQL - één Server
-Azure Database voor PostgreSQL verkiest het verbinden van uw clienttoepassingen met de PostgreSQL-service met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
+Azure Database voor PostgreSQL verkiest het verbinden van uw clienttoepassingen met de PostgreSQL-service met Secure Sockets Layer (SSL). Afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen helpt te beschermen tegen 'man-in-the-middle'-aanvallen door het versleutelen van de gegevensstroom tussen de server en uw toepassing.
 
-De PostgreSQL-databaseservice is standaard geconfigureerd om te vereisen dat SSL-verbinding. Desgewenst kunt u uitschakelen dat SSL verbinding maken met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit is vereist. 
+De PostgreSQL-databaseservice is standaard geconfigureerd om te vereisen dat SSL-verbinding. U kunt kiezen om uit te schakelen dat SSL is vereist als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit. 
 
 ## <a name="enforcing-ssl-connections"></a>Afdwingen van SSL-verbindingen
 Voor alle Azure-Database voor PostgreSQL-servers die zijn ingericht via de Azure portal en CLI is afdwingen van SSL-verbindingen standaard ingeschakeld. 
@@ -41,48 +41,23 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Zorg ervoor dat uw toepassing of framework ondersteunt SSL-verbindingen
-Veel veelvoorkomende toepassingsframeworks die PostgreSQL voor de databaseservices, zoals Drupal en Django gebruiken, doen SSL niet standaard ingeschakeld tijdens de installatie. SSL-verbinding moet worden uitgevoerd na de installatie of via de CLI-opdrachten die specifiek zijn voor de toepassing. Als uw PostgreSQL-server is afdwingen van SSL-verbindingen en de bijbehorende toepassing niet correct is geconfigureerd, kan de toepassing geen verbinding maken met uw database-server. Raadpleeg de documentatie van uw toepassing voor informatie over het inschakelen van SSL-verbindingen.
+Sommige toepassingsframeworks die PostgreSQL voor hun databaseservices gebruiken doen SSL niet standaard ingeschakeld tijdens de installatie. Als uw PostgreSQL-server SSL-verbindingen worden afgedwongen, maar de toepassing is niet geconfigureerd voor SSL, kan de toepassing geen verbinding maken met uw database-server. Raadpleeg de documentatie van uw toepassing voor informatie over het inschakelen van SSL-verbindingen.
 
 
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>Toepassingen waarvoor certificaatverificatie van het voor SSL-connectiviteit
-In sommige gevallen vereisen toepassingen een lokale certificaatbestand gegenereerd op basis van een vertrouwde certificeringsinstantie (CA) certificaatbestand (.cer) om veilig verbinding te maken. Zie de volgende stappen voor het verkrijgen van het cer-bestand, het certificaat decoderen en koppel deze aan uw toepassing.
+In sommige gevallen vereisen toepassingen een lokale certificaatbestand gegenereerd op basis van een vertrouwde certificeringsinstantie (CA) certificaatbestand (.cer) om veilig verbinding te maken. Het certificaat verbinding maken met een Azure Database voor PostgreSQL-server bevindt zich in https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Download het certificaatbestand en sla deze op uw gewenste locatie. 
 
-### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>Download het certificaatbestand van de certificeringsinstantie (CA) 
-Het certificaat nodig om te communiceren via SSL met uw Azure Database voor PostgreSQL-server zich bevindt [hier](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Download het certificaatbestand lokaal.
+### <a name="connect-using-psql"></a>Verbinding maken met behulp van psql
+Het volgende voorbeeld ziet hoe u verbinding maakt met uw PostgreSQL-server met behulp van het opdrachtregelprogramma psql. Gebruik de `sslmode=verify-full` instelling voor de verbindingsreeks om af te dwingen de verificatie van SSL-certificaat. Doorgeven van het lokale certificaatarchief pad naar de `sslrootcert` parameter.
 
-### <a name="install-a-cert-decoder-on-your-machine"></a>De decoder van een certificaat installeren op uw computer 
-U kunt [OpenSSL](https://github.com/openssl/openssl) moet worden gedecodeerd het certificaatbestand dat nodig is voor uw toepassing veilig verbinding maken met uw database-server. Als u wilt weten hoe u OpenSSL installeren, Zie de [OpenSSL installatie-instructies](https://github.com/openssl/openssl/blob/master/INSTALL). 
-
-
-### <a name="decode-your-certificate-file"></a>Uw certificaatbestand decoderen
-Het gedownloade basis-CA-bestand is in een versleutelde indeling. Gebruikmaken van OpenSSL moet worden gedecodeerd het certificaatbestand. Om dit te doen, moet u deze OpenSSL-opdracht uitvoeren:
-
+Hieronder volgt een voorbeeld van de psql-verbindingsreeks:
 ```
-openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
+psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=myusern@mydemoserver"
 ```
 
-### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Verbinding maken met Azure Database for PostgreSQL met SSL-verificatie
-Nu dat u hebt uw certificaat is gedecodeerd, u kunt nu verbinding maken met uw databaseserver veilig via SSL. Om toe te staan certificaatcontrole server, moet het certificaat in het bestand ~/.postgresql/root.crt in de basismap van de gebruiker worden geplaatst. (In Microsoft Windows het bestand is met de naam % APPDATA%\postgresql\root.crt.). 
+> [!TIP]
+> Bevestig dat de waarde moet worden doorgegeven aan `sslrootcert` komt overeen met het pad voor het certificaat dat u hebt opgeslagen.
 
-#### <a name="connect-using-psql"></a>Verbinding maken met behulp van psql
-Het volgende voorbeeld ziet hoe u verbinding maken met de PostgreSQL-server met behulp van het opdrachtregelprogramma psql. Gebruik de `root.crt` -bestand hebt gemaakt en de `sslmode=verify-ca` of `sslmode=verify-full` optie.
-
-Met behulp van de PostgreSQL-opdrachtregelinterface, dan de volgende opdracht:
-```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
-```
-Als dit lukt, wordt de volgende uitvoer:
-```bash
-Password for user mylogin@mydemoserver:
-psql (9.6.2)
-WARNING: Console code page (437) differs from Windows code page (1252)
-     8-bit characters might not work correctly. See psql reference
-     page "Notes for Windows users" for details.
-SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
-Type "help" for help.
-
-postgres=>
-```
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk verschillende connectiviteitsopties van toepassing na [verbindingsbibliotheken voor Azure Database for PostgreSQL](concepts-connection-libraries.md).
+Bekijk de verschillende connectiviteitsopties van toepassing in [verbindingsbibliotheken voor Azure Database for PostgreSQL](concepts-connection-libraries.md).

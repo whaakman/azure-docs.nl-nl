@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65538300"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501889"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Preview: Een Azure Image Builder-sjabloon maken 
 
@@ -51,11 +51,11 @@ De `type` is van het resourcetype dat moet worden `"Microsoft.VirtualMachineImag
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Locatie
+## <a name="location"></a>Location
 
 De locatie is de regio waar de aangepaste installatiekopie wordt gemaakt. Voor de Preview Image Builder-versie, worden de volgende regio's ondersteund:
 
-- US - oost
+- East US
 - US - oost 2
 - US - west-centraal
 - US - west
@@ -331,6 +331,8 @@ Dit wordt ondersteund door de mappen van Windows en Linux-paden, maar er zijn en
  
  
 Als er een fout is probeert te downloaden van het bestand en plaatst deze in een bepaalde map, mislukken de stap aanpassen en dit is in de customization.log.
+
+>> Houd er rekening mee! De systeemaanpasser bestand is alleen geschikt voor het downloaden van klein bestand, < 20MB. Voor grotere bestandsdownloads een script of een inline-opdracht, de code gebruiken om bestanden te downloaden, zoals Linux gebruiken `wget` of `curl`, Windows, `Invoke-WebRequest`.
 
 Bestanden in het bestand systeemaanpasser kunnen worden gedownload uit Azure Storage met behulp van [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

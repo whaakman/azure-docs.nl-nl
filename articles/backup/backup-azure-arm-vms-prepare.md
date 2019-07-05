@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0835c3af52a16e7549698e35b3fded0f64c71dc4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076789"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447697"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back-up van virtuele Azure-machines in een Recovery Services-kluis
 
@@ -72,7 +72,9 @@ Er zijn bovendien een aantal dingen die u moet uitvoeren in sommige gevallen:
 ![Lijst met back-upkluizen](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 > [!NOTE]
-> Azure Backup-service wordt een afzonderlijke resourcegroep (met uitzondering van de VM-resourcegroep) voor het opslaan van de momentopname, met de naamgevingsindeling **AzureBackupRG_geography_number** (voorbeeld: AzureBackupRG_northeurope_1). De gegevens die in deze resourcegroep bewaard voor de duur in dagen zoals opgegeven in *behouden met instant herstelmomentopname* sectie van de virtuele Machine back-up van Azure-beleid.  Toepassen van een vergrendeling op deze resourcegroep kan leiden tot mislukte back-ups.
+> Azure Backup-service wordt een afzonderlijke resourcegroep (met uitzondering van de VM-resourcegroep) voor het opslaan van de momentopname, met de naamgevingsindeling **AzureBackupRG_geography_number** (voorbeeld: AzureBackupRG_northeurope_1). De gegevens die in deze resourcegroep bewaard voor de duur in dagen zoals opgegeven in *behouden met instant herstelmomentopname* sectie van de virtuele Machine back-up van Azure-beleid.  Toepassen van een vergrendeling op deze resourcegroep kan leiden tot mislukte back-ups.<br>
+Deze resourcegroep moet ook worden uitgesloten van de naam/tag beperkingen als een restrictiebeleid voor het maken van de punt van de Resource-verzamelingen in deze opnieuw back-upfouten veroorzaakt blokkeren.
+
 
 ### <a name="modify-storage-replication"></a>Wijzigen van de storage-replicatie
 

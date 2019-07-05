@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 334d7b886aa4e2130a12f0c8a7919986fdac55d1
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078330"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508118"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Apache Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van REST
 
@@ -23,48 +23,64 @@ Informatie over het gebruik van de REST-API van WebHCat Apache Hive-query's uitv
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een op Linux gebaseerde Hadoop op HDInsight-clusterversie 3.4 of hoger.
+* Een Apache Hadoop-cluster in HDInsight. Zie [aan de slag met HDInsight op Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Een REST-client. Dit document maakt gebruik van Windows PowerShell en [Curl](https://curl.haxx.se/) voorbeelden.
+* Een REST-client. Dit document wordt [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) op Windows PowerShell en [Curl](https://curl.haxx.se/) op [Bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-    > [!NOTE]  
-    > Azure PowerShell biedt toegewezen cmdlets voor het werken met Hive in HDInsight. Zie voor meer informatie de [Apache Hive gebruiken met Azure PowerShell](apache-hadoop-use-hive-powershell.md) document.
+* Als u Bash gebruikt, moet u ook jq, een opdrachtregelprogramma JSON-processor.  Zie [ https://stedolan.github.io/jq/ ](https://stedolan.github.io/jq/).
 
-Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.github.io/jq/) de JSON-gegevens geretourneerd door de REST-aanvragen verwerken.
+## <a name="base-uri-for-rest-api"></a>Basis-URI voor de Rest-API
+
+De base id URI (Uniform Resource) voor de REST-API voor HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, waarbij `CLUSTERNAME` is de naam van uw cluster.  Clusternamen in de URI's zijn **hoofdlettergevoelig**.  Terwijl de naam van het cluster in het gedeelte van de FQDN-naam (Fully Qualified Domain Name) van de URI (`CLUSTERNAME.azurehdinsight.net`) is niet hoofdlettergevoelig, andere exemplaren in de URI zijn hoofdlettergevoelig.
+
+## <a name="authentication"></a>Verificatie
+
+Wanneer u cURL of een andere REST-communicatie met WebHCat, moet u de aanvragen verifiëren door te geven van de gebruikersnaam en het wachtwoord voor de beheerder van de HDInsight-cluster. De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). Om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server, moet u aanvragen altijd uitvoeren via HTTP Secure (HTTPS).
+
+### <a name="setup-preserve-credentials"></a>Setup (behouden referenties)
+Uw referenties in om te voorkomen dat deze opnieuw invoeren voor elke voorbeeld behouden.  Naam van het cluster worden bewaard in een afzonderlijke stap.
+
+**EEN. Bash**  
+Het onderstaande script bewerken door te vervangen `PASSWORD` met uw huidige wachtwoord.  Voer de opdracht.
+
+```bash
+export password='PASSWORD'
+```  
+
+**B. PowerShell** uitvoeren van de onderstaande code en voer uw referenties in het pop-upvenster:
+
+```powershell
+$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
+```
+
+### <a name="identify-correctly-cased-cluster-name"></a>De naam correct omhuld cluster identificeren
+De werkelijke behuizing van de naam van het cluster is mogelijk anders dan u verwacht, afhankelijk van hoe het cluster is gemaakt.  De stappen die hier wordt het werkelijke hoofdlettergebruik weergeven en vervolgens opslaan in een variabele voor alle opeenvolgende voorbeelden.
+
+De scripts hieronder om te vervangen bewerken `CLUSTERNAME` met de clusternaam van uw. Voer de opdracht. (De naam van het cluster voor de FQDN-naam is niet hoofdlettergevoelig).
+
+```bash
+export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+echo $clusterName
+```  
+
+```powershell
+# Identify properly cased cluster name
+$resp = Invoke-WebRequest -Uri "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" `
+    -Credential $creds -UseBasicParsing
+$clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
+
+# Show cluster name
+$clusterName
+```
 
 ## <a id="curl"></a>Een Hive-query uitvoeren
 
-> [!NOTE]  
-> Wanneer u cURL of een andere REST-communicatie met WebHCat, moet u de aanvragen verifiëren door te geven van de gebruikersnaam en het wachtwoord voor de beheerder van de HDInsight-cluster.
->
-> De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). Om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server, moet u aanvragen altijd uitvoeren via HTTP Secure (HTTPS).
-
-1. Om in te stellen de aanmelding bij cluster dat wordt gebruikt door de scripts in dit document, gebruikt u een van de volgende opdrachten:
+1. Als u wilt controleren of u verbinding kunt maken met uw HDInsight-cluster, gebruikt u een van de volgende opdrachten:
 
     ```bash
-    read -p "Enter your cluster login account name: " LOGIN
+    curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/status
     ```
 
-    ```powershell
-    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
-    ```
-
-2. Om in te stellen de clusternaam, gebruikt u een van de volgende opdrachten:
-
-    ```bash
-    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
-    ```
-
-    ```powershell
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    ```
-
-3. Als u wilt controleren of u verbinding kunt maken met uw HDInsight-cluster, gebruikt u een van de volgende opdrachten:
-
-    ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-    ```
-    
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
        -Credential $creds `
@@ -83,10 +99,10 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
     * `-u` -De gebruikersnaam en wachtwoord voor het verifiëren van de aanvraag.
     * `-G` -Geeft aan dat deze aanvraag een GET-bewerking is.
 
-   Het begin van de URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is hetzelfde voor alle aanvragen. Het pad `/status`, geeft aan dat de aanvraag is de status van WebHCat (ook wel bekend als Templeton) voor de server. U kunt ook de versie van Hive vragen met behulp van de volgende opdracht uit:
+1. Het begin van de URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is hetzelfde voor alle aanvragen. Het pad `/status`, geeft aan dat de aanvraag is de status van WebHCat (ook wel bekend als Templeton) voor de server. U kunt ook de versie van Hive vragen met behulp van de volgende opdracht uit:
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/version/hive
     ```
 
     ```powershell
@@ -99,18 +115,18 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
     Deze aanvraag retourneert een reactie vergelijkbaar met de volgende tekst:
 
     ```json
-        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-4. Het volgende gebruiken om te maken van een tabel met de naam **log4jLogs**:
+1. Het volgende gebruiken om te maken van een tabel met de naam **log4jLogs**:
 
     ```bash
-    JOBID=`curl -s -u $LOGIN -d user.name=$LOGIN -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/hive | jq .id`
-    echo $JOBID
+    jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
+    echo $jobid
     ```
 
     ```powershell
-    $reqParams = @{"user.name"="admin";"execute"="set hive.execution.engine=tez;DROP TABLE log4jLogs;CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/;SELECT t4 AS sev,COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;";"statusdir"="/example/rest"}
+    $reqParams = @{"user.name"="admin";"execute"="DROP TABLE log4jLogs;CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/;SELECT t4 AS sev,COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;";"statusdir"="/example/rest"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
@@ -127,7 +143,7 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
      * `statusdir` -De map die de status voor deze taak worden geschreven naar.
 
    Deze instructies uit uitvoeren de volgende acties:
-   
+
    * `DROP TABLE` -Als de tabel al bestaat, wordt deze verwijderd.
    * `CREATE EXTERNAL TABLE` -Maakt een nieuwe 'externe' tabel in Hive. Externe tabellen worden alleen de definitie van de tabel in Hive opslaan. De gegevens is achtergebleven in de oorspronkelijke locatie.
 
@@ -145,10 +161,10 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
 
       Met deze opdracht retourneert een taak-ID die kan worden gebruikt om de status van de taak te controleren.
 
-5. Om te controleren of de status van de taak, gebruikt u de volgende opdracht:
+1. Om te controleren of de status van de taak, gebruikt u de volgende opdracht:
 
     ```bash
-    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
+    curl -u admin:$password -d user.name=admin -G https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
     ```
 
     ```powershell
@@ -165,7 +181,7 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
 
     Als de taak is voltooid, wordt de status is **geslaagd**.
 
-6. Zodra de status van de taak is gewijzigd in **geslaagd**, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die is doorgegeven met de query bevat de locatie van het uitvoerbestand; in dit geval `/example/rest`. Dit adres slaat de uitvoer in de `example/curl` map in de standaardopslag voor clusters.
+1. Zodra de status van de taak is gewijzigd in **geslaagd**, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die is doorgegeven met de query bevat de locatie van het uitvoerbestand; in dit geval `/example/rest`. Dit adres slaat de uitvoer in de `example/curl` map in de standaardopslag voor clusters.
 
     U kunt de lijst en deze bestanden downloaden met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het gebruik van de Azure CLI met Azure Storage de [Azure CLI gebruiken met Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
 
@@ -181,27 +197,3 @@ Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 * [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 Zie voor meer informatie over de REST-API die wordt gebruikt in dit document, de [WebHCat verwijzing](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-
-
-
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-

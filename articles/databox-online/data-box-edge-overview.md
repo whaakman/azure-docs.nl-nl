@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 438e25a72361866acd449024b6e7e8c06ed6c9c7
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144220"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484761"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Wat is Azure Data Box Edge? 
 
@@ -55,7 +55,7 @@ Data Box Edge biedt de volgende mogelijkheden:
 |Mogelijkheid |Description  |
 |---------|---------|
 |Hoge prestaties     | Volledig geautomatiseerde en zeer geoptimaliseerde gegevensoverdracht en bandbreedte.|
-|Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Edge](https://aka.ms/dbe-docs) voor meer informatie over ondersteunde versies.|
+|Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Edge](data-box-edge-system-requirements.md) voor meer informatie over ondersteunde versies.|
 |Berekenen       |Gegevens kunnen worden geanalyseerd, verwerkt of gefilterd.|
 |Toegang tot gegevens     | Rechtstreekse gegevenstoegang vanuit Azure Storage Blobs en Azure Files met behulp van cloud-API’s voor aanvullende gegevensverwerking in de cloud.|
 |Snelle toegang     | Lokale cache op het apparaat voor snelle toegang tot laatst gebruikte bestanden.|
@@ -75,13 +75,13 @@ De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Da
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Ga naar [De Data Box Edge-service gebruiken om uw Data Box Edge-apparaat te beheren](https://aka.ms/dbe-docs) voor meer informatie.
+    Ga voor meer informatie naar [een order maken voor uw gegevens in het Edge-apparaat](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Lokale Data Box-webinterface**: Gebruik de lokale webinterface om diagnoses uit te voeren, het Data Box Edge-apparaat uit te schakelen of opnieuw op te starten, logboeken met kopieerbewerkingen te bekijken en contact op te nemen met Microsoft Ondersteuning om een serviceaanvraag in te dienen.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    Ga naar [De webgebaseerde gebruikersinterface gebruiken om uw Data Box te beheren](https://aka.ms/dbe-docs) voor informatie over het gebruik van de webgebaseerde gebruikersinterface.
+    Ga naar [De webgebaseerde gebruikersinterface gebruiken om uw Data Box te beheren](data-box-edge-manage-access-power-connectivity-mode.md) voor informatie over het gebruik van de webgebaseerde gebruikersinterface.
 
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s

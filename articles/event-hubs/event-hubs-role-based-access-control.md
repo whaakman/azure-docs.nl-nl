@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978312"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448148"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Actieve Directory Role-Based Access Control (preview)
 
@@ -29,10 +29,10 @@ Een toepassing die gebruikmaakt van Azure AD RBAC hoeft niet voor het afhandelen
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs-rollen en machtigingen
 Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot een Event Hubs-naamruimte:
 
-De [Event Hubs de eigenaar van gegevens (Preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) rol kunnen toegang tot gegevens in een Event Hubs-naamruimte en de entiteiten (wachtrijen, onderwerpen, abonnementen en filters)
+De [Gegevenseigenaar (Preview) voor de Azure-Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) rol kunnen toegang tot gegevens in een Event Hubs-naamruimte en de entiteiten (wachtrijen, onderwerpen, abonnementen en filters)
 
 >[!IMPORTANT]
-> We eerder toe te voegen beheerde identiteit ondersteund de **eigenaar** of **Inzender** rol. Echter bevoegdheden voor toegang tot de gegevens **eigenaar** en **Inzender** rol niet meer worden herkend. Als u de **eigenaar** of **Inzender** rol, switch voor het gebruik van de **Event Hubs-Gegevenseigenaar** rol.
+> We eerder toe te voegen beheerde identiteit ondersteund de **eigenaar** of **Inzender** rol. Echter bevoegdheden voor toegang tot de gegevens **eigenaar** en **Inzender** rol niet meer worden herkend. Als u de **eigenaar** of **Inzender** rol, switch voor het gebruik van de **Gegevenseigenaar (Preview) voor de Azure-Event Hubs** rol.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Event Hubs gebruiken met een gebruikersaccount voor Azure AD-domein

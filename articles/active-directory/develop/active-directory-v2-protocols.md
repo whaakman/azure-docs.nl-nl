@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417662"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482990"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-platform-protocollen
 
@@ -36,7 +36,7 @@ De Microsoft identity-platform-eindpunt voor identity-as-a-service met standaard
 
 In bijna alle stromen van OAuth 2.0 en OpenID Connect zijn er vier partijen die betrokken zijn bij de uitwisseling van:
 
-![OAuth 2.0-rollen](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram van de OAuth 2.0-rollen](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * De **Autorisatieserver** is het eindpunt van Microsoft identity-platform en is verantwoordelijk voor de identiteit van de gebruiker, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens. De autorisatie-server ook wel bekend als de id-provider - veilig worden verwerkt niets te maken met gegevens van de gebruiker, de toegang en de vertrouwensrelaties tussen de partijen in een stroom.
 * De **Resource-eigenaar** is doorgaans de eindgebruiker. Het is de partij die eigenaar is van de gegevens en het vermogen om toe te staan van derden voor toegang tot die gegevens of bron heeft.

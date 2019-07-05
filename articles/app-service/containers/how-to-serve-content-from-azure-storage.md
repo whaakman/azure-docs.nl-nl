@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6284174089419cd201d094bcb1a8c7e865d2892
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956008"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484423"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Inhoud leveren vanuit Azure Storage in App Service onder Linux
 
-Deze handleiding wordt beschreven hoe u aan het leveren van statische inhoud in App Service on Linux met behulp van [Azure Storage](/azure/storage/common/storage-introduction). De volgende voordelen beveiligde inhoud, inhoud draagbaarheid, de toegang tot meerdere apps en meerdere methoden voor overdracht. 
+Deze handleiding wordt beschreven hoe u aan het leveren van statische inhoud in App Service on Linux met behulp van [Azure Storage](/azure/storage/common/storage-introduction). De volgende voordelen beveiligde inhoud, inhoud draagbaarheid, de toegang tot meerdere apps en meerdere methoden voor overdracht.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,6 +28,8 @@ Deze handleiding wordt beschreven hoe u aan het leveren van statische inhoud in 
 
 > [!NOTE]
 > Azure-opslag is niet-standaard opslag en apart in rekening gebracht, niet zijn opgenomen in de web-app.
+>
+> Breng uw eigen storage biedt geen ondersteuning voor het gebruik van de opslag-Firewall-configuratie vanwege beperkingen van de infrastructuur.
 >
 
 Maak een Azure [Azure storage-account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).

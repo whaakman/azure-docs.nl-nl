@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024428"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485203"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Maak een eenvoudige index in Azure Search
 
@@ -36,7 +36,7 @@ Die binnenkomen in de juiste index-ontwerp wordt normaal gesproken via meerdere 
   
    Wanneer u klikt op **maken**, alle van de fysieke structuren ondersteuning van uw index worden gemaakt in uw search-service.
 
-3. Download de index schema met behulp [Index REST-API ophalen](https://docs.microsoft.com/rest/api/searchservice/get-index) en een web testen hulpprogramma zoals [Postman](search-fiddler.md). U hebt nu een JSON-weergave van de index die u hebt gemaakt in de portal. 
+3. Download de index schema met behulp [Index REST-API ophalen](https://docs.microsoft.com/rest/api/searchservice/get-index) en een web testen hulpprogramma zoals [Postman](search-get-started-postman.md). U hebt nu een JSON-weergave van de index die u hebt gemaakt in de portal. 
 
    U wordt op dit moment overschakelen naar een benadering op basis van code. De portal is niet geschikt voor herhaling omdat u niet bewerken, een index die al is gemaakt. Maar u kunt Postman en REST gebruiken voor de resterende taken.
 
@@ -48,7 +48,7 @@ Die binnenkomen in de juiste index-ontwerp wordt normaal gesproken via meerdere 
 
 Omdat fysieke structuren zijn gemaakt in de service [verwijderen en opnieuw maken van indexen](search-howto-reindex.md) is noodzakelijk wanneer u er belangrijke wijzigingen in de definitie van een bestaande veld aanbrengen. Dit betekent dat tijdens de ontwikkeling, u van plan frequente opnieuw op te bouwen bent moet. U kunt overwegen werken met een subset van uw gegevens om te maken van opnieuw gebouwde go sneller. 
 
-Code, in plaats van een portal-benadering wordt aanbevolen voor terugkerende ontwerp. Als u zich op de portal voor de definitie van de index baseert, heeft u om de definitie van de index op elke opnieuw in te vullen. Als alternatief, hulpprogramma's zoals [Postman en de REST-API](search-fiddler.md) zijn handig voor het testen van proof of concept wanneer ontwikkelingsprojecten zich nog steeds in de eerste fasen. U kunt incrementele wijzigingen aanbrengen in de indexdefinitie van een in de hoofdtekst van de aanvraag, en vervolgens de aanvraag te verzenden naar uw service opnieuw maken van een index met behulp van een schema bijgewerkt.
+Code, in plaats van een portal-benadering wordt aanbevolen voor terugkerende ontwerp. Als u zich op de portal voor de definitie van de index baseert, heeft u om de definitie van de index op elke opnieuw in te vullen. Als alternatief, hulpprogramma's zoals [Postman en de REST-API](search-get-started-postman.md) zijn handig voor het testen van proof of concept wanneer ontwikkelingsprojecten zich nog steeds in de eerste fasen. U kunt incrementele wijzigingen aanbrengen in de indexdefinitie van een in de hoofdtekst van de aanvraag, en vervolgens de aanvraag te verzenden naar uw service opnieuw maken van een index met behulp van een schema bijgewerkt.
 
 ## <a name="components-of-an-index"></a>Onderdelen van een index
 
@@ -160,16 +160,22 @@ Bij het definiëren van het schema moet u de naam, het type en de kenmerken van 
 Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Indexkenmerken
+
+Precies één veld in de index moet zijn aangewezen als een **sleutel** veld dat elk document wordt aangeduid.
+
+Overige kenmerken bepalen hoe een veld in een toepassing wordt gebruikt. Bijvoorbeeld, de **doorzoekbare** kenmerk is toegewezen aan elk veld dat u in een zoekopdracht in volledige tekst opnemen wilt. 
+
+De API's die u gebruikt om een index te maken hebben verschillende standaardgedrag. Voor de [REST-API's](https://docs.microsoft.com/rest/api/searchservice/Create-Index), meeste kenmerken zijn standaard ingeschakeld (bijvoorbeeld **doorzoekbare** en **ophaalbaar** ' True ' voor tekenreeksvelden zijn) en moet u vaak alleen in te stellen ze als wilt u deze uitschakelen. Het omgekeerde geldt voor de .NET SDK. Op elke eigenschap die u niet expliciet instelt, wordt de standaardwaarde is om uit te schakelen van de bijbehorende zoekgedrag tenzij expliciet inschakelt.
+
 | Kenmerk | Description |
 | --- | --- |
-| *Sleutel* |Een tekenreeks met de unieke id van elk document. Deze reeks wordt gebruikt om op te zoeken. Elke index moet een sleutel hebben. Slechts één veld kan de sleutel zijn en het type moet zijn ingesteld op Edm.String. |
-| *Ophalen mogelijk* |Hiermee geeft u op of een veld in een zoekresultaat kan worden geretourneerd. |
-| *Filterbaar* |Hiermee kan het veld in een filterquery's worden gebruikt. |
-| *Sorteerbaar* |Hiermee kan een query de zoekresultaten sorteren op basis van dit veld. |
-| *Facetten mogelijk* |Hiermee kunt u een veld gebruiken in een [meervoudige navigatie](search-faceted-navigation.md)structuur om op de gebruiker te filteren. Doorgaans werken velden met terugkerende waarden die u kunt gebruiken om meerdere documenten te groeperen (bijvoorbeeld meerdere documenten die in een bepaalde merk- of servicecategorie vallen) het beste als facetten. |
-| *Doorzoekbaar* |Hiermee kunt u in dit veld in de volledige tekst zoeken. |
+| `key` |Een tekenreeks met de unieke id van elk document. Deze reeks wordt gebruikt om op te zoeken. Elke index moet een sleutel hebben. Slechts één veld kan de sleutel zijn en het type moet zijn ingesteld op Edm.String. |
+| `retrievable` |Hiermee geeft u op of een veld in een zoekresultaat kan worden geretourneerd. |
+| `filterable` |Hiermee kan het veld in een filterquery's worden gebruikt. |
+| `Sortable` |Hiermee kan een query de zoekresultaten sorteren op basis van dit veld. |
+| `facetable` |Hiermee kunt u een veld gebruiken in een [meervoudige navigatie](search-faceted-navigation.md)structuur om op de gebruiker te filteren. Doorgaans werken velden met terugkerende waarden die u kunt gebruiken om meerdere documenten te groeperen (bijvoorbeeld meerdere documenten die in een bepaalde merk- of servicecategorie vallen) het beste als facetten. |
+| `searchable` |Hiermee kunt u in dit veld in de volledige tekst zoeken. |
 
-Gedetailleerdere informatie over ondersteunde Azure-Search[-indexkenmerken vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="storage-implications"></a>Gevolgen van opslag
 

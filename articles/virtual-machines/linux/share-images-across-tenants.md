@@ -10,17 +10,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: 1578ba840c6dca93feb68754863439811d7ef099
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88596a4bda3c9ebae99403e95b3539f068cad665
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65158728"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465483"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Galerie met VM-installatiekopieën in Azure-tenants delen
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
+> [!IMPORTANT]
+> U kunt de portal niet gebruiken voor het implementeren van een virtuele machine uit een afbeelding in een andere azure-tenant. Voor het maken van een virtuele machine van een installatiekopie die wordt gedeeld tussen tenants, moet u de Azure CLI of [Powershell](../windows/share-images-across-tenants.md).
 
 ## <a name="create-a-vm-using-azure-cli"></a>Een virtuele machine maken met Azure CLI
 

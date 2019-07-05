@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111618"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483073"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom worden toepassingen toegevoegd aan Azure AD
 
@@ -79,8 +79,10 @@ Net als objecten van de toepassing, worden service-principals ook gemaakt via me
 * Via een programma via de Azure AD Graph API of PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Hoe worden toepassingsobjecten en service-principals aan elkaar gerelateerd?
+
 Een toepassing heeft een toepassingsobject in de basisdirectory waarnaar wordt verwezen door een of meer service-principals in elk van de mappen waar deze werkt (met inbegrip van de basismap van de toepassing).
-![Een diagram waarin u ziet hoe toepassingsobjecten en service-principals met elkaar en exemplaren van Azure AD communiceren.][apps_service_principals_directory]
+
+![Geeft de relatie tussen de app-objecten en service-principals][apps_service_principals_directory]
 
 In het voorgaande diagram, behoudt Microsoft twee directory's intern (weergegeven aan de linkerkant) die worden gebruikt om toepassingen te publiceren:
 
@@ -96,6 +98,7 @@ Toepassingen die u zelf toevoegen (weergegeven als **App (u)** in het diagram) o
 * Apps worden gepubliceerd met behulp van de Azure AD-toepassingsproxy
 
 ### <a name="notes-and-exceptions"></a>Opmerkingen bij de en uitzonderingen
+
 * Niet alle service-principals verwijzen naar een toepassingsobject. Wanneer Azure AD was oorspronkelijk bedoeld voor de services die worden geleverd aan toepassingen is beperktere en de service-principal is voldoende voor het tot stand brengen van een toepassings-id. De oorspronkelijke service-principal is dichter in de vorm aan het Windows Server Active Directory-serviceaccount. Daarom is het nog steeds mogelijk te maken van service-principals via verschillende paden, zoals het gebruik van Azure AD PowerShell, zonder eerst een toepassingsobject maken. De Azure AD Graph API is een toepassingsobject vereist voordat u een service-principal maken.
 * Niet alle van de hierboven beschreven gegevens is momenteel beschikbaar gemaakt via een programma. De volgende zijn alleen beschikbaar in de gebruikersinterface:
   * Claims transformatie regels
@@ -105,6 +108,7 @@ Toepassingen die u zelf toevoegen (weergegeven als **App (u)** in het diagram) o
   * [Service Principal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Waarom toepassingen integreren met Azure AD?
+
 Toepassingen worden toegevoegd aan Azure AD gebruikmaken van een of meer van de services die het biedt, met inbegrip van:
 
 * Toepassing verificatie en autorisatie
@@ -116,6 +120,7 @@ Toepassingen worden toegevoegd aan Azure AD gebruikmaken van een of meer van de 
 * Toepassingen publiceren en proxy - publiceren een toepassing van een particulier netwerk naar internet
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Wie heeft machtigingen voor toepassingen toevoegen aan mijn Azure AD-instantie?
+
 Er zijn enkele taken die alleen globale beheerders uitvoeren kunnen (zoals toepassingen uit de app-galerie toevoegen en configureren van een toepassing voor het gebruik van de toepassingsproxy) standaard alle gebruikers in uw directory over rechten voor het registreren van de toepassing die objecten ze zijn ontwikkelen en over welke toepassingen ze share/geven toegang tot de gegevens van hun organisatie via toestemming en billijkheid vastgesteld. Als een persoon de eerste gebruiker in uw directory is te melden bij een toepassing toestemming te verlenen, wordt die een service-principal maken in uw tenant; anders wordt worden de toestemming verlenen gegevens opgeslagen op de bestaande service-principal.
 
 Zodat gebruikers kunnen registreren en instemmen met toepassingen kan in eerste instantie geluid over, maar houd rekening met het volgende:
@@ -132,10 +137,11 @@ Als u nog steeds wilt om te voorkomen dat gebruikers in uw directory kunnen toep
 
 * Om te voorkomen dat gebruikers ze toepassingen namens hun eigen goedkeuren:
   1. In de Azure-portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sectie onder zakelijke toepassingen.
-  2. Wijziging **gebruikers toestemming kunnen geven voor apps die toegang tot bedrijfsgegevens namens hen** naar **Nee**. 
+  2. Wijziging **gebruikers toestemming kunnen geven voor apps die toegang tot bedrijfsgegevens namens hen** naar **Nee**.
      
      > [!NOTE]
-     > Als u besluit uitschakelen toestemming van de gebruiker, kan een beheerder moeten akkoord gaan met een nieuwe toepassing die een gebruiker moet worden gebruikt.    
+     > Als u besluit uitschakelen toestemming van de gebruiker, kan een beheerder moeten akkoord gaan met een nieuwe toepassing die een gebruiker moet worden gebruikt.
+
 * Om te voorkomen dat gebruikers hun eigen toepassingen registreren:
   1. In de Azure-portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) sectie onder Azure Active Directory
   2. Wijziging **gebruikers kunnen toepassingen registreren** naar **Nee**.
@@ -145,4 +151,3 @@ Als u nog steeds wilt om te voorkomen dat gebruikers in uw directory kunnen toep
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

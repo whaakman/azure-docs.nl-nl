@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc80fcde8de3fb2d6dd6f59804f6019b76aa8727
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8def58eb003fcc817c21151416744cf391b5f38f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295598"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443926"
 ---
 # <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>Trainen en PyTorch-modellen op schaal registreren met Azure Machine Learning-service
 
-Dit artikel leest u hoe te trainen en een PyTorch-model met behulp van Azure Machine Learning-service te registreren. Deze gebaseerd op [PyTorch van overdracht learning-zelfstudie](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) die een deep neural network (DNN)-classificatie voor afbeeldingen van mieren en bijen bouwt.
+Dit artikel leest u hoe te trainen en een PyTorch-model met behulp van Azure Machine Learning-service te registreren. Deze gebaseerd op [PyTorch van overdracht learning-zelfstudie](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) die een deep neural network (DNN)-classificatie voor afbeeldingen van kuikens en kalkoenen bouwt.
 
 [PyTorch](https://pytorch.org/) is een open-source-framework rekenkundige meestal gebruikt om (DNN) deep neural networks. Met Azure Machine Learning-service, kunt u snel schalen van open-source trainingstaken met behulp van flexibele cloud compute-resources. U kunt ook bijhouden uw trainingsuitvoeringen, de versie-modellen implementeren van modellen en nog veel meer.
 
@@ -75,19 +75,19 @@ ws = Workspace.from_config()
 
 ### <a name="create-an-experiment"></a>Een experiment maken
 
-Een experiment en een map voor het opslaan van uw trainingsscripts maken. In dit voorbeeld maakt u een experiment met de naam 'pytorch-hymenoptera'.
+Een experiment en een map voor het opslaan van uw trainingsscripts maken. In dit voorbeeld maakt u een experiment met de naam 'pytorch-dieren'.
 
 ```Python
-project_folder = './pytorch-hymenoptera'
+project_folder = './pytorch-birds'
 os.makedirs(project_folder, exist_ok=True)
 
-experiment_name = 'pytorch-hymenoptera'
+experiment_name = 'pytorch-birds'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
 ### <a name="get-the-data"></a>De gegevens ophalen
 
-De gegevensset bestaat uit ongeveer 120 training-installatiekopieën voor mieren en bijen, waarbij 75 validatie van installatiekopieën voor elke categorie. Hymenoptera is de volgorde van insecten die mieren en bijen bevat. Downloaden en uitpakken van de gegevensset als onderdeel van onze trainingsscript `pytorch_train.py`.
+De gegevensset bestaat uit ongeveer 120 training-installatiekopieën voor kalkoenen en kuikens, waarbij 100 validatie-afbeeldingen voor elke categorie. We zullen downloaden en uitpakken van de gegevensset als onderdeel van onze trainingsscript `pytorch_train.py`. De afbeeldingen zijn een subset van de [afbeeldingen openen v5 gegevensset](https://storage.googleapis.com/openimages/web/index.html).
 
 ### <a name="prepare-training-scripts"></a>Trainingsscripts voorbereiden
 

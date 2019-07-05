@@ -1,19 +1,20 @@
 ---
-title: Beperkingen in Azure Database voor PostgreSQL - één Server
-description: Dit artikel wordt beschreven beperkingen in Azure Database voor PostgreSQL - één Server, zoals het aantal verbindingen en opties voor opslag-engine.
+title: Limieten in Azure Database for PostgreSQL - één Server
+description: Dit artikel beschrijft de limieten in Azure Database voor PostgreSQL - één Server, zoals het aantal verbindingen en opties voor opslag-engine.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66732865"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448089"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Beperkingen in Azure Database voor PostgreSQL - één Server
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limieten in Azure Database for PostgreSQL - één Server
 De volgende secties beschrijven de capaciteits- en functionele limieten in de database-service. Als u wilt meer informatie over de lagen van de resource (berekenen, geheugen, opslag), raadpleegt u de [Prijscategorieën](concepts-pricing-tiers.md) artikel.
 
 
@@ -34,7 +35,7 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Geoptimaliseerd geheugen| 4| 500|
 |Geoptimaliseerd geheugen| 8| 960|
 |Geoptimaliseerd geheugen| 16| 1900|
-|Geoptimaliseerd geheugen| 32| 1900|
+|Geoptimaliseerd geheugen| 32| 1987|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 > Onherstelbare fout: er al te veel clients
@@ -48,6 +49,9 @@ De Azure-systeem is vijf verbindingen voor het bewaken van de Azure Database for
 
 ### <a name="server-version-upgrades"></a>Server-versie-upgrades
 - Automatische migratie tussen versies van de primaire database-engine wordt momenteel niet ondersteund. Als u wilt upgraden naar de volgende primaire versie, een [dump maken en terugzetten](./howto-migrate-using-dump-and-restore.md) deze naar een server die is gemaakt met de versie van de nieuwe engine.
+
+> Houd er rekening mee dat voorafgaand aan de PostgreSQL-versie 10, de [PostgreSQL versiebeheer beleid](https://www.postgresql.org/support/versioning/) beschouwd als een _hoofdversie_ upgrade naar een toename van de eerste worden _of_ tweede getal (voor voorbeeld, 9.5-9.6 werd beschouwd als een _belangrijke_ versie-upgrade).
+> Vanaf versie 10, alleen een wijziging in het eerste getal wordt beschouwd als een grote versie-upgrade (10.0-10.1 is bijvoorbeeld een _kleine_ versie-upgrade en 10 tot en met 11 is een _belangrijke_ versie-upgrade).
 
 ### <a name="vnet-service-endpoints"></a>VNet-service-eindpunten
 - Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.

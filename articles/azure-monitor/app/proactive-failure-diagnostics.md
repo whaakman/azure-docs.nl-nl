@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299058"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465891"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Slimme detectie: afwijkende fouten
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) automatisch ontvangt u een melding in bijna realtime als er een abnormale toename van mislukte aanvragen optreedt in uw web-app. Een ongewone stijging van het aantal HTTP-aanvragen of afhankelijkheidsaanroepen die worden gerapporteerd als mislukt wordt gedetecteerd. Voor aanvragen zijn mislukte aanvragen meestal met responscodes van 400 of hoger. Als u wilt, kunt u sorteren en onderzoeken van het probleem een analyse van de kenmerken van de fouten en verwante telemetrie vindt u in de melding. Er zijn ook koppelingen naar de Application Insights-portal voor verdere diagnose. De functie moet geen installatie of configuratie, zoals het machine learning-algoritmen gebruikt om te voorspellen van de normaal foutpercentage.
 
-Deze functie werkt voor Java en ASP.NET-webtoepassingen, die worden gehost in de cloud of op uw eigen servers. Het werkt ook voor elke app die wordt bijvoorbeeld gegenereerd aanvraag of een afhankelijkheid telemetrie - hebt u een werkrol die worden aangeroepen [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) of [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Deze functie werkt voor een web-app, die wordt gehost in de cloud of op uw eigen servers die aanvraag of een afhankelijkheid telemetrie - bijvoorbeeld genereert als u hebt een werkrol die worden aangeroepen [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) of [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Na het instellen van [Application Insights voor uw project](../../azure-monitor/app/app-insights-overview.md), en mits uw app een bepaalde minimale hoeveelheid telemetrie genereert, Slimme detectie van afwijkende fouten 24 uur voor meer informatie over het normale gedrag van uw app, voordat dit duurt is ingeschakeld en meldingen kunt verzenden.
 
@@ -43,6 +43,26 @@ U ziet dat u leest:
 * Een kenmerkend patroon dat is gekoppeld aan de fouten. In dit voorbeeld wordt een bepaalde responscode, de naam (bewerking) en de app-versie. Die onmiddellijk informatie over waar u om te beginnen met zoeken in uw code. Andere mogelijkheden kunnen een specifiek besturingssysteem browser of de client zijn.
 * De uitzondering, logboektraceringen en afhankelijkheidsfout (databases of andere externe componenten) weergegeven die zijn gekoppeld aan de wordt gekenmerkt fouten.
 * Koppelingen naar relevante zoekopdrachten op de telemetrie in Application Insights.
+
+## <a name="failure-anomalies-v2"></a>Fout bij afwijkingen v2
+Een nieuwe versie van de waarschuwingsregel afwijkende fouten is nu beschikbaar. Deze nieuwe versie wordt uitgevoerd op de nieuwe Azure-waarschuwingen platform en introduceert een aantal verbeteringen via de bestaande versie.
+
+### <a name="whats-new-in-this-version"></a>Wat is er nieuw in deze versie?
+- Snellere detectie van problemen
+- Een uitgebreidere set acties - de waarschuwingsregel wordt gemaakt met een bijbehorende [actiegroep](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) met de naam 'Application Insights Slimme detectie"die e-mail en webhook-acties bevat en kan worden uitgebreid om aanvullende acties activeren wanneer de waarschuwing wordt geactiveerd.
+- Meer meldingen gericht - e-mailmeldingen verzonden vanaf deze waarschuwingsregel nu standaard worden verzonden naar gebruikers die zijn gekoppeld aan de rollen bewaking lezer en Inzender bewaking van het abonnement. Meer informatie hierover vindt u [hier](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- Eenvoudigere configuratie via ARM-sjablonen - Zie voorbeeld [hier](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Voer de algemene Schemaondersteuning voor waarschuwing - meldingen die worden verzonden vanuit deze waarschuwingsregel de [algemene waarschuwing schema](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- Geïntegreerde e-mailsjabloon - e-mailbericht meldingen van deze waarschuwingsregel een consistent uiterlijk en u kunt met andere typen waarschuwingen. Met deze wijziging is de optie om op te halen van afwijkende fouten waarschuwingen met uitgebreide diagnostische gegevens niet meer beschikbaar.
+
+### <a name="how-do-i-get-the-new-version"></a>Hoe ontvang ik de nieuwe versie?
+- Nieuwe Application Insights-resources worden nu ingericht met de nieuwe versie van de waarschuwingsregel afwijkende fouten.
+- Bestaande Application Insights-resources met de klassieke versie van de afwijkende fouten waarschuwen regel krijgt de nieuwe versie één keer hun hosting-abonnement is gemigreerd naar het nieuwe waarschuwingen platform als onderdeel van de [klassiek buitengebruikstellingsproces voor waarschuwingen ](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> De nieuwe versie van de waarschuwingsregel afwijkende fouten blijft gratis. Bovendien e-mail en webhook-acties geactiveerd door de bijbehorende "Application Insights Slimme detectie" actiegroep zijn ook gratis.
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>Voordelen van Slimme detectie
 Gewone [metrische waarschuwingen](../../azure-monitor/app/alerts.md) zien er mogelijk een probleem. Maar Slimme detectie begint het diagnostische werk voor u veel van de analyse die u anders zelf zou moeten zelf doen uitvoeren. U krijgt de resultaten die netjes verpakt, zodat u snel aan de hoofdmap van het probleem.

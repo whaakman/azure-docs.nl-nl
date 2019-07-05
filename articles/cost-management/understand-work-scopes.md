@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991385"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490111"
 ---
 # <a name="understand-and-work-with-scopes"></a>Bereiken begrijpen en gebruiken
 
@@ -100,19 +100,19 @@ Azure-abonnementen worden genest onder inschrijvingsaccounts. Facturering-gebrui
 
 Facturering-gebruikers hebben geen toegang tot van beheergroepen omdat ze expliciet niet onder een specifieke factureringsaccount vallen. Toegang moet expliciet worden verleend aan beheergroepen. -Beheergroepen totaliseren kosten van alle geneste abonnementen. Echter, zijn ze alleen aankopen op basis van gebruik. Ze omvatten geen aankopen zoals reserveringen en van derden Marketplace-aanbiedingen. Als u deze kosten, facturering EA-account te gebruiken.
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>Afzonderlijke overeenkomst (betalen naar gebruik) bereiken
+## <a name="individual-agreement-scopes"></a>Afzonderlijke overeenkomst bereiken
 
-Abonnementen voor betalen per gebruik (betalen per gebruik), inclusief het gerelateerde typen, zoals gratis of proeflaag en dev/test-aanbiedingen, hoeft een expliciete facturering accountbereik. Elk abonnement heeft in plaats daarvan een accounteigenaar of beheerder van het account, net als de eigenaar van het EA-account.
+Azure-abonnementen gemaakt op basis van afzonderlijke aanbiedingen, zoals betalen per gebruik en de bijbehorende typen zoals gratis proefversie en dev/test-aanbiedingen, hoeft een expliciete facturering accountbereik. Elk abonnement heeft in plaats daarvan een accounteigenaar of beheerder van het account, net als de eigenaar van het EA-account.
 
 - [**Factureringsaccount** ](../billing/billing-view-all-accounts.md) -Hiermee geeft u de accounteigenaar van een enkel voor een of meer Azure-abonnementen. Het ondersteunt momenteel geen toegang verlenen tot meerdere personen of toegang tot samengevoegde kosten weergaven.
 
     Resourcetype: Niet van toepassing
 
-Betalen per gebruik-account abonnementsbeheerders kunt weergeven en beheren van facturering gegevens, zoals facturen en betalingen van de [Azure-Accountcentrum](https://account.azure.com/subscriptions). Ze kunnen echter kostengegevens weergeven of beheren van resources in Azure portal. Om toegang tot de accountbeheerder, gebruikt u de Cost Management-functies die eerder is vermeld.
+Accountbeheerders individueel Azure-abonnement kunt weergeven en beheren van facturering gegevens, zoals facturen en betalingen van de [Azure-Accountcentrum](https://account.azure.com/subscriptions). Ze kunnen echter kostengegevens weergeven of beheren van resources in Azure portal. Om toegang tot de accountbeheerder, gebruikt u de Cost Management-functies die eerder is vermeld.
 
-In tegenstelling tot EA ziet de betalen per gebruik-account abonnementsbeheerders hun facturen in Azure portal. Houd er rekening mee dat Cost Management lezer en Inzender voor versiebeheer voor kosten rollen niet worden gebruikt voor het bieden van toegang tot facturen. Zie voor meer informatie, [over het verkrijgen van toegang tot PAYG facturen](../billing/billing-manage-access.md#give-access-to-billing).
+In tegenstelling tot EA ziet individueel Azure-abonnement rekening beheerders hun facturen in Azure portal. Houd er rekening mee dat Cost Management lezer en Inzender voor versiebeheer voor kosten rollen niet worden gebruikt voor het bieden van toegang tot facturen. Zie voor meer informatie, [over het verkrijgen van toegang tot facturen](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## <a name="customer-agreement-scopes"></a>Klant overeenkomst bereiken
+## <a name="microsoft-customer-agreement-scopes"></a>Overeenkomst voor Microsoft-klanten bereiken
 
 Facturering KLANTOVEREENKOMST van Microsoft-accounts hebben de volgende bereiken:
 
@@ -148,7 +148,7 @@ Cloud Solution Provider (CSP) partners worden niet ondersteund in Cost Managemen
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Schakelen tussen bereiken in Cost Management
 
-Alle weergaven van Cost Management in Azure portal zijn onder meer een **bereik** pill in de linkerbovenhoek van de weergave. Gebruik dit voor het snel bereik wijzigen. Klik op de **bereik** pill openen de bereikskiezer voor. U ziet facturering accounts, de root management-groep en abonnementen die niet worden genest onder het root-beheergroep. Als u wilt een bereik selecteert, klikt u op de achtergrond Markeer deze en klik vervolgens op **Selecteer** aan de onderkant. Als u wilt inzoomen in op de geneste bereiken, zoals resourcegroepen in een abonnement, klikt u op de koppeling van de naam van bereik. Klik om te selecteren in het bovenliggende bereik op het niveau van alle geneste, **Selecteer deze optie &lt;bereik&gt;**  aan de bovenkant van de bereikskiezer voor.
+Alle weergaven van Cost Management in Azure portal zijn onder meer een **bereik** pill selectie in de linkerbovenhoek van de weergave. Gebruik dit voor het snel bereik wijzigen. Klik op de **bereik** pill openen de bereikskiezer voor. U ziet facturering accounts, de root management-groep en abonnementen die niet worden genest onder het root-beheergroep. Als u wilt een bereik selecteert, klikt u op de achtergrond Markeer deze en klik vervolgens op **Selecteer** aan de onderkant. Als u wilt inzoomen in op de geneste bereiken, zoals resourcegroepen in een abonnement, klikt u op de koppeling van de naam van bereik. Klik om te selecteren in het bovenliggende bereik op het niveau van alle geneste, **Selecteer deze optie &lt;bereik&gt;**  aan de bovenkant van de bereikskiezer voor.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificeren van de resource-ID voor een bereik
 

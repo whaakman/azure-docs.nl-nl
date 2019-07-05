@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476900"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442957"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Edge
 
@@ -66,7 +66,7 @@ Bij het genereren van activeringscode voor de gegevens in het Edge-apparaat of h
 -  Het maken van een share met een gekoppelde storage-account.
 -  Het maken van een gebruiker aan wie toegang heeft tot de shares op het apparaat.
 
-U moet beschikken over een `User` toegang krijgen tot op Active Directory-tenant, als u nodig hebt om te kunnen `Read all directory objects`. U kunt een gastgebruiker kan niet als ze niet gemachtigd om te `Read all directory objects`. Als u een gast en vervolgens de bewerkingen zoals het genereren van een activeringscode, het maken van een share op uw gegevens in het Edge-apparaat, mislukt het maken van een gebruiker alle.
+U moet beschikken over een `User` toegang krijgen tot op Active Directory-tenant, als u nodig hebt om te kunnen `Read all directory objects`. U kunt een gastgebruiker kan niet als ze niet gemachtigd om te `Read all directory objects`. Als u een gast en vervolgens de bewerkingen zoals het genereren van een activering sleutel, het maken van een share op uw gegevens in het Edge-apparaat, het maken van een gebruiker, de configuratie van Edge compute-rol, het wachtwoord opnieuw instellen van apparaat mislukken alle.
 
 Zie voor meer informatie over het bieden van toegang voor gebruikers voor Azure Active Directory Graph API [standaard toegang voor beheerders, gebruikers en gastgebruikers](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 

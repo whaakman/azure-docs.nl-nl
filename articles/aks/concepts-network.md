@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afb7acda67eb5818ace8169dc4e98fb86bdbeaa7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431313"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442007"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Netwerkconcepten voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -68,25 +68,57 @@ In AKS implementeert u een cluster dat gebruik maakt van een van de volgende twe
 
 De *kubenet* optie netwerken is de standaardconfiguratie voor het AKS-cluster maken. Met *kubenet*, knooppunten een IP-adres ophalen uit het subnet van de Azure-netwerk. Schillen ontvangen een IP-adres van een logisch verschillende adresruimte op het subnet van de Azure-netwerk van de knooppunten. Netwerkadresomzetting (NAT) wordt vervolgens geconfigureerd zodat de schillen bronnen op het Azure-netwerk kunnen bereiken. De bron-IP-adres van het verkeer is dat NAT wilt aan de primaire IP-adres van het knooppunt oplossen.
 
-Knooppunten maken gebruik van de [kubenet] [ kubenet] Kubernetes-invoegtoepassing. U kunt het Azure-platform maken en configureren van de virtuele netwerken voor u of uw AKS-cluster in een bestaand virtueel netwerksubnet implementeren. Nogmaals, alleen de knooppunten ontvangen een routeerbaar IP-adres en de schillen NAT gebruiken om te communiceren met andere resources buiten het AKS-cluster. Deze aanpak vermindert aanzienlijk het aantal IP-adressen die u reserveren in de adresruimte van uw netwerk voor pods wilt te gebruiken.
+Knooppunten maken gebruik van de [kubenet][kubenet] Kubernetes-invoegtoepassing. U kunt het Azure-platform maken en configureren van de virtuele netwerken voor u of uw AKS-cluster in een bestaand virtueel netwerksubnet implementeren. Nogmaals, alleen de knooppunten ontvangen een routeerbaar IP-adres en de schillen NAT gebruiken om te communiceren met andere resources buiten het AKS-cluster. Deze aanpak vermindert aanzienlijk het aantal IP-adressen die u reserveren in de adresruimte van uw netwerk voor pods wilt te gebruiken.
 
 Zie voor meer informatie, [kubenet netwerken voor een AKS-cluster configureren][aks-configure-kubenet-networking].
 
 ### <a name="azure-cni-advanced-networking"></a>Azure CNI (Geavanceerd)-netwerken
 
-Met Azure CNI, elke pod krijgt een IP-adres van het subnet en kan rechtstreeks worden geopend. Deze IP-adressen moeten uniek zijn in de adresruimte van uw netwerk, en moeten vooraf worden gepland. Elk knooppunt heeft een configuratieparameter voor het maximum aantal schillen worden ondersteund. Het equivalente aantal IP-adressen per knooppunt worden vervolgens een gereserveerd voor dat knooppunt. Deze aanpak vereist meer planning en leidt vaak tot uitputting van IP-adres of de noodzaak voor het opnieuw opbouwen van clusters in een groter subnet aan de vereisten van uw toepassing.
+Met Azure CNI, elke pod krijgt een IP-adres van het subnet en kan rechtstreeks worden geopend. Deze IP-adressen moeten uniek zijn in de adresruimte van uw netwerk, en moeten vooraf worden gepland. Elk knooppunt heeft een configuratieparameter voor het maximum aantal schillen worden ondersteund. Het equivalente aantal IP-adressen per knooppunt worden vervolgens een gereserveerd voor dat knooppunt. Deze aanpak vereist meer planning, anders kan leiden tot uitputting van IP-adres of de noodzaak voor het opnieuw opbouwen van clusters in een groter subnet aan de vereisten van uw toepassing.
 
-Knooppunten maken gebruik van de [Azure Container netwerken Interface (CNI)] [ cni-networking] Kubernetes-invoegtoepassing.
+Knooppunten maken gebruik van de [Azure Container netwerken Interface (CNI)][cni-networking] Kubernetes-invoegtoepassing.
 
 ![Diagram van twee knooppunten met bruggen, elk met een enkel Azure-VNet verbinding maken][advanced-networking-diagram]
 
-Azure CNI biedt de volgende functies ten opzichte van kubenet netwerken:
-
-- Elke pod in het cluster is een IP-adres in het virtuele netwerk worden toegewezen. De pods die kunnen rechtstreeks communiceren met andere schillen in het cluster en andere knooppunten in het virtuele netwerk.
-- Schillen in een subnet waarvoor service-eindpunten ingeschakeld kunnen veilig verbinding maken met Azure-services, zoals Azure Storage en SQL-database.
-- U kunt de gebruiker gedefinieerde routes (UDR) voor het routeren van verkeer van schillen met een virtueel netwerkapparaat maken.
-
 Zie voor meer informatie, [Azure CNI configureren voor een AKS-cluster][aks-configure-advanced-networking].
+
+### <a name="compare-network-models"></a>Netwerk modellen vergelijken
+
+Zowel kubenet en Azure CNI bieden verbinding met het netwerk voor uw AKS-clusters. Er zijn echter voordelen en nadelen aan elk. Op hoog niveau, de volgende overwegingen zijn van toepassing:
+
+* **kubenet**
+    * IP-adresruimte bespaart.
+    * Maakt gebruik van Kubernetes interne of externe load balancer te bereiken schillen van buiten het cluster.
+    * U moet handmatig beheren en onderhouden van de gebruiker gedefinieerde routes (udr's).
+    * Maximaal 400 knooppunten per cluster.
+* **Azure CNI**
+    * Schillen volledige virtuele netwerkverbinding ophalen en rechtstreeks bereikbaar van buiten het cluster.
+    * Vereist meer IP-adresruimte.
+
+De volgende verschillen in werking bestaan tussen kubenet en Azure CNI:
+
+| Mogelijkheid                                                                                   | Kubenet   | Azure CNI |
+|----------------------------------------------------------------------------------------------|-----------|-----------|
+| Cluster implementeren in een bestaand of nieuw virtueel netwerk                                            | Ondersteund - udr's handmatig toegepast | Ondersteund |
+| Pod-pod-connectiviteit                                                                         | Ondersteund | Ondersteund |
+| Pod-VM-connectiviteit; Virtuele machine in hetzelfde virtuele netwerk                                          | Werkt wanneer gestart door pod | Beide richtingen werkt |
+| Pod-VM-connectiviteit; Virtuele machine in gekoppelde virtuele netwerk                                            | Werkt wanneer gestart door pod | Beide richtingen werkt |
+| On-premises toegang met behulp van VPN of Express Route                                                | Werkt wanneer gestart door pod | Beide richtingen werkt |
+| Toegang tot resources die zijn beveiligd door de service-eindpunten                                             | Ondersteund | Ondersteund |
+| Kubernetes-services met behulp van een load balancer-service of App Gateway inkomend controller blootstellen | Ondersteund | Ondersteund |
+| Azure DNS en Private Zones                                                          | Ondersteund | Ondersteund |
+
+### <a name="support-scope-between-network-models"></a>Reikwijdte van ondersteuning tussen netwerk modellen
+
+Ongeacht de netwerk-model die u gebruikt, kan zowel kubenet als Azure CNI worden geïmplementeerd in een van de volgende manieren:
+
+* Het Azure-platform kan automatisch maken en configureren van de virtuele-netwerkbronnen wanneer u een AKS-cluster maakt.
+* U kunt handmatig maken en configureren van de virtuele-netwerkbronnen en koppelen aan deze resources bij het maken van uw AKS-cluster.
+
+Hoewel mogelijkheden, zoals service-eindpunten of udr's worden ondersteund van kubenet zowel Azure CNI, de [ondersteuningsbeleid voor AKS][support-policies] definiëren welke wijzigingen u kunt maken. Bijvoorbeeld:
+
+* Als u handmatig de virtuele-netwerkbronnen voor een AKS-cluster maakt, kunt u bij het configureren van uw eigen udr's of de service-eindpunten worden ondersteund.
+* Als het Azure-platform wordt automatisch de virtuele-netwerkbronnen voor uw AKS-cluster maakt, wordt het niet ondersteund als handmatig wilt wijzigen die via AKS beheerde resources voor het configureren van uw eigen udr's of de service-eindpunten.
 
 ## <a name="ingress-controllers"></a>Inkomend verkeer domeincontrollers
 
@@ -116,7 +148,7 @@ Zie voor meer informatie, [beveiliging van verkeer tussen schillen met behulp va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met AKS netwerken, maken en configureren van een AKS-cluster met uw eigen IP-adresbereiken met behulp van [kubenet] [ aks-configure-kubenet-networking] of [Azure CNI] [ aks-configure-advanced-networking].
+Aan de slag met AKS netwerken, maken en configureren van een AKS-cluster met uw eigen IP-adresbereiken met behulp van [kubenet][aks-configure-kubenet-networking] or [Azure CNI][aks-configure-advanced-networking].
 
 Zie voor de bijbehorende best practices, [aanbevolen procedures voor verbinding met het netwerk en beveiliging in AKS][operator-best-practices-network].
 
@@ -151,3 +183,4 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
+[support-policies]: support-policies.md

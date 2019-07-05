@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 679d91da774b3e4d2c53c70cdc0abfd4da9c6953
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48fdb251fa0302c2755281644a804c74ae80a63e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059634"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491544"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Preview - maken en beheren van meerdere knooppuntgroepen voor een cluster in Azure Kubernetes Service (AKS)
 
@@ -28,22 +28,26 @@ In dit artikel wordt beschreven hoe u maken en beheren van meerdere groepen in e
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][install-azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks-preview CLI-extensie installeren
 
-De CLI-opdrachten voor het maken en beheren van meerdere groepen zijn beschikbaar in de *aks-preview* CLI-extensie. Installeer de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen] [ az-extension-add] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Als u meerdere nodepools, moet u de *aks-preview* CLI versie van de extensie 0.4.1 of hoger. Installeer de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] opdracht::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Als u eerder hebt geïnstalleerd het *aks-preview* extensie, installatie van de beschikbare updates met behulp van de `az extension update --name aks-preview` opdracht.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>Meerdere knooppunt groep functie provider registreren
 
-Voor het maken van een AKS-cluster die meerdere groepen kunt gebruiken, moet u eerst twee functie vlaggen voor uw abonnement inschakelen. Een virtuele-machineschaalset (VMSS) clusters met meerdere knooppunten groep gebruiken voor het beheren van de implementatie en configuratie van de Kubernetes-knooppunten. Registreert de *MultiAgentpoolPreview* en *VMSSPreview* functie worden gemarkeerd met behulp van de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in de bijvoorbeeld:
+Voor het maken van een AKS-cluster die meerdere groepen kunt gebruiken, moet u eerst twee functie vlaggen voor uw abonnement inschakelen. Een virtuele-machineschaalset (VMSS) clusters met meerdere knooppunten groep gebruiken voor het beheren van de implementatie en configuratie van de Kubernetes-knooppunten. Registreert de *MultiAgentpoolPreview* en *VMSSPreview* functie worden gemarkeerd met behulp van de [az functie registreren][az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+
+> [!CAUTION]
+> Als u een functie op een abonnement registreert, kunt u niet op dit moment opheffen van de registratie die functie. Nadat u een preview-functies ingeschakeld, kunnen de standaardwaarden worden gebruikt voor alle AKS-clusters wordt gemaakt in het abonnement. Geen preview-functies voor productieabonnementen niet inschakelen. Gebruik een afzonderlijk abonnement voor het testen van de preview-functies en verzamelen van feedback.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
@@ -53,14 +57,14 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Een AKS-cluster dat u maakt nadat u hebt geregistreerd de *MultiAgentpoolPreview* gebruik van deze preview-cluster-ervaring. Als u wilt doorgaan met het maken van clusters van reguliere, volledig ondersteunde, geen preview-functies voor productieabonnementen inschakelen. Gebruik een afzonderlijke test- en Azure-abonnement voor het testen van de preview-functies.
 
-Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst] [ az-feature-list] opdracht:
+Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst][az-feature-list] opdracht:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
+Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register][az-provider-register] opdracht:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -74,16 +78,16 @@ De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-c
 * U kunt het eerste knooppunt van toepassingen niet verwijderen.
 * De HTTP-aanvraag routering invoegtoepassing kan niet worden gebruikt.
 * U kunt geen knooppuntgroepen toevoegen, bijwerken en verwijderen met behulp van een bestaande Resource Manager-sjabloon net als bij de meeste bewerkingen. In plaats daarvan [een afzonderlijke Resource Manager-sjabloon gebruiken](#manage-node-pools-using-a-resource-manager-template) wijzigingen aanbrengen in groepen in een AKS-cluster.
-* Het cluster automatisch schalen (momenteel in preview in AKS) kan niet worden gebruikt.
 
 Hoewel deze functie nog in preview, gelden de volgende aanvullende beperkingen:
 
 * Het AKS-cluster kan maximaal acht knooppuntgroepen hebben.
 * Het AKS-cluster kan maximaal 400 knooppunten hebt in die pools acht knooppunten.
+* Alle knooppuntgroepen van moeten zich in hetzelfde subnet bevinden
 
 ## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
-Om te beginnen, moet u een AKS-cluster maken met een groep met één knooppunt. Het volgende voorbeeld wordt de [az-groep maken] [ az-group-create] opdracht voor het maken van een resourcegroep met de naam *myResourceGroup* in de *eastus* de regio. Een AKS-cluster met de naam *myAKSCluster* wordt vervolgens gemaakt met behulp van de [az aks maken] [ az-aks-create] opdracht. Een *--kubernetes-versie* van *1.12.6* wordt gebruikt om u te laten zien hoe u een knooppuntgroep in een volgende stap bijwerken. U kunt elk opgeven [Kubernetes-versie ondersteund][supported-versions].
+Om te beginnen, moet u een AKS-cluster maken met een groep met één knooppunt. Het volgende voorbeeld wordt de [az-groep maken][az-group-create] opdracht voor het maken van een resourcegroep met de naam *myResourceGroup* in de *eastus* regio. Een AKS-cluster met de naam *myAKSCluster* wordt vervolgens gemaakt met behulp van de [az aks maken][az-aks-create] opdracht. Een *--kubernetes-versie* van *1.12.6* wordt gebruikt om u te laten zien hoe u een knooppuntgroep in een volgende stap bijwerken. U kunt elk opgeven [Kubernetes-versie ondersteund][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +105,7 @@ az aks create \
 
 Het duurt een paar minuten om het cluster te maken.
 
-Wanneer het cluster gereed is, gebruikt u de [az aks get-credentials] [ az-aks-get-credentials] opdracht voor het ophalen van de clusterreferenties voor gebruik met `kubectl`:
+Wanneer het cluster gereed is, gebruikt u de [az aks get-credentials][az-aks-get-credentials] opdracht voor het ophalen van de clusterreferenties voor gebruik met `kubectl`:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -109,7 +113,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="add-a-node-pool"></a>De knooppuntgroep van een toevoegen
 
-Het cluster hebt gemaakt in de vorige stap heeft een groep met één knooppunt. We voegen een tweede knooppunt groep met de [az aks knooppuntgroep toevoegen] [ az-aks-nodepool-add] opdracht. Het volgende voorbeeld wordt een knooppunt van toepassingen met de naam *mynodepool* die wordt uitgevoerd *3* knooppunten:
+Het cluster hebt gemaakt in de vorige stap heeft een groep met één knooppunt. We voegen een tweede knooppunt groep met de [az aks knooppuntgroep toevoegen][az-aks-nodepool-add] opdracht. Het volgende voorbeeld wordt een knooppunt van toepassingen met de naam *mynodepool* die wordt uitgevoerd *3* knooppunten:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -119,7 +123,7 @@ az aks nodepool add \
     --node-count 3
 ```
 
-Als de status van uw groepen wilt weergeven, gebruikt de [az aks knooppunt groep lijst] [ az-aks-nodepool-list] opdracht en geeft u de naam van uw resource en van het cluster:
+Als de status van uw groepen wilt weergeven, gebruikt de [az aks knooppunt groep lijst][az-aks-nodepool-list] opdracht en geeft u de naam van uw resource en van het cluster:
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster -o table
@@ -141,7 +145,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="upgrade-a-node-pool"></a>Upgrade van een knooppunt van toepassingen
 
-Wanneer uw AKS-cluster is gemaakt in de eerste stap van een `--kubernetes-version` van *1.12.6* is opgegeven. Laten we upgrade de *mynodepool* naar Kubernetes *1.12.7*. Gebruik de [az aks knooppunt groep upgrade] [ az-aks-nodepool-upgrade] opdracht bijwerken van de knooppuntgroep, zoals wordt weergegeven in het volgende voorbeeld:
+Wanneer uw AKS-cluster is gemaakt in de eerste stap van een `--kubernetes-version` van *1.12.6* is opgegeven. Laten we upgrade de *mynodepool* naar Kubernetes *1.12.7*. Gebruik de [az aks knooppunt groep upgrade][az-aks-nodepool-upgrade] opdracht bijwerken van de knooppuntgroep, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -152,7 +156,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Lijst van de status van uw groepen opnieuw met behulp van de [az aks knooppunt groep lijst] [ az-aks-nodepool-list] opdracht. Het volgende voorbeeld ziet u dat *mynodepool* is in de *upgraden* status naar *1.12.7*:
+Lijst van de status van uw groepen opnieuw met behulp van de [az aks knooppunt groep lijst][az-aks-nodepool-list] opdracht. Het volgende voorbeeld ziet u dat *mynodepool* is in de *upgraden* status naar *1.12.7*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -173,7 +177,7 @@ Als uw toepassing werkbelasting daarom vraagt, moet u mogelijk het aantal knoopp
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Als u wilt schalen het aantal knooppunten in een pool knooppunt, gebruikt u de [az aks knooppunt pool schalen] [ az-aks-nodepool-scale] opdracht. Het volgende voorbeeld wordt het aantal knooppunten in geschaald *mynodepool* naar *5*:
+Als u wilt schalen het aantal knooppunten in een pool knooppunt, gebruikt u de [az aks knooppunt pool schalen][az-aks-nodepool-scale] opdracht. Het volgende voorbeeld wordt het aantal knooppunten in geschaald *mynodepool* naar *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -184,7 +188,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-Lijst van de status van uw groepen opnieuw met behulp van de [az aks knooppunt groep lijst] [ az-aks-nodepool-list] opdracht. Het volgende voorbeeld ziet u dat *mynodepool* is in de *schalen* status met het nieuwe aantal *5* knooppunten:
+Lijst van de status van uw groepen opnieuw met behulp van de [az aks knooppunt groep lijst][az-aks-nodepool-list] opdracht. Het volgende voorbeeld ziet u dat *mynodepool* is in de *schalen* status met het nieuwe aantal *5* knooppunten:
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o table
@@ -199,7 +203,7 @@ Het duurt een paar minuten voor de schaalbewerking is voltooid.
 
 ## <a name="delete-a-node-pool"></a>De knooppuntgroep van een verwijderen
 
-Als u een pool niet meer nodig hebt, kunt u deze verwijderen en verwijderen van de onderliggende VM-knooppunten. Als u wilt een knooppuntgroep verwijderen, gebruikt u de [az aks knooppuntgroep verwijderen] [ az-aks-nodepool-delete] opdracht en geeft u de naam van het knooppunt toepassingen. Hiermee verwijdert u het volgende voorbeeld de *mynoodepool* in de vorige stappen hebt gemaakt:
+Als u een pool niet meer nodig hebt, kunt u deze verwijderen en verwijderen van de onderliggende VM-knooppunten. Als u wilt een knooppuntgroep verwijderen, gebruikt u de [az aks knooppuntgroep verwijderen][az-aks-nodepool-delete] opdracht en geeft u de naam van het knooppunt toepassingen. Hiermee verwijdert u het volgende voorbeeld de *mynoodepool* in de vorige stappen hebt gemaakt:
 
 > [!CAUTION]
 > Er zijn geen opties voor herstel voor verlies van gegevens die optreden kunnen wanneer u een knooppuntgroep verwijderen. Als schillen kunnen niet worden gepland op andere knooppuntgroepen, kan deze toepassingen zijn niet beschikbaar. Zorg ervoor dat u een knooppuntgroep niet verwijderen wanneer de toepassingen in gebruik niet over een gegevensback-ups of de mogelijkheid om uit te voeren op het andere knooppunt van toepassingen in uw cluster.
@@ -208,7 +212,7 @@ Als u een pool niet meer nodig hebt, kunt u deze verwijderen en verwijderen van 
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-De volgende voorbeelduitvoer van de [az aks knooppunt groep lijst] [ az-aks-nodepool-list] -opdracht laat zien dat *mynodepool* is in de *verwijderen* status:
+De volgende voorbeelduitvoer van de [az aks knooppunt groep lijst][az-aks-nodepool-list] -opdracht laat zien dat *mynodepool* is in de *verwijderen* status:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -227,7 +231,7 @@ In de vorige voorbeelden om de knooppuntgroep van een te maken, is een standaard
 
 In het volgende voorbeeld maakt u een knooppunt op basis van GPU pool die gebruikmaakt van de *Standard_NC6* VM-grootte. Deze VM's worden aangestuurd door de NVIDIA Tesla R80-kaart. Zie voor meer informatie over beschikbare VM-grootten [grootten voor virtuele Linux-machines in Azure][vm-sizes].
 
-Maken van een knooppunt van toepassingen met de [az aks knooppuntgroep toevoegen] [ az-aks-nodepool-add] opdracht opnieuw uit. Geef de naam van dit moment *gpunodepool*, en gebruik de `--node-vm-size` parameter opgeven voor de *Standard_NC6* grootte:
+Maken van een knooppunt van toepassingen met de [az aks knooppuntgroep toevoegen][az-aks-nodepool-add] opdracht opnieuw uit. Geef de naam van dit moment *gpunodepool*, en gebruik de `--node-vm-size` parameter opgeven voor de *Standard_NC6* grootte:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -239,7 +243,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-De volgende voorbeelduitvoer van de [az aks knooppunt groep lijst] [ az-aks-nodepool-list] -opdracht laat zien dat *gpunodepool* is *maken* knooppunten met de opgegeven *VmSize*:
+De volgende voorbeelduitvoer van de [az aks knooppunt groep lijst][az-aks-nodepool-list] -opdracht laat zien dat *gpunodepool* is *maken* knooppunten met de opgegeven *VmSize*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -254,7 +258,7 @@ Het duurt een paar minuten voor de *gpunodepool* om te worden gemaakt.
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Schillen met behulp van taints en tolerations plannen
 
-U hebt nu twee knooppuntgroepen in het cluster - de standaardgroep knooppunt oorspronkelijk is gemaakt, en de pool op basis van GPU-knooppunt. Gebruik de [kubectl ophalen knooppunten] [ kubectl-get] opdracht om de knooppunten in uw cluster weer te geven. De volgende voorbeelduitvoer ziet u één knooppunt in elk knooppunt van toepassingen:
+U hebt nu twee knooppuntgroepen in het cluster - de standaardgroep knooppunt oorspronkelijk is gemaakt, en de pool op basis van GPU-knooppunt. Gebruik de [kubectl ophalen knooppunten][kubectl-get] opdracht om de knooppunten in uw cluster weer te geven. De volgende voorbeelduitvoer ziet u één knooppunt in elk knooppunt van toepassingen:
 
 ```console
 $ kubectl get nodes
@@ -271,7 +275,7 @@ De scheduler Kubernetes kunt taints en tolerations gebruiken om te beperken welk
 
 Zie voor meer informatie over het gebruik van functies van Kubernetes is gepland geavanceerde, [aanbevolen procedures voor geavanceerde scheduler-functies in AKS][taints-tolerations]
 
-In dit voorbeeld wordt een beïnvloeding van toepassing op het knooppunt op basis van GPU met behulp van de [kubectl beïnvloeding knooppunt] [ kubectl-taint] opdracht. Geef de naam van uw op basis van GPU-knooppunt uit de uitvoer van de vorige `kubectl get nodes` opdracht. De beïnvloeding wordt toegepast als een *key: value* en vervolgens een optie voor planning. Het volgende voorbeeld wordt de *sku gpu =* worden gekoppeld en definieert schillen anders de *NoSchedule* mogelijkheid:
+In dit voorbeeld wordt een beïnvloeding van toepassing op het knooppunt op basis van GPU met behulp van de [kubectl beïnvloeding knooppunt][kubectl-taint] opdracht. Geef de naam van uw op basis van GPU-knooppunt uit de uitvoer van de vorige `kubectl get nodes` opdracht. De beïnvloeding wordt toegepast als een *key: value* en vervolgens een optie voor planning. Het volgende voorbeeld wordt de *sku gpu =* worden gekoppeld en definieert schillen anders de *NoSchedule* mogelijkheid:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -310,7 +314,7 @@ Plant de schil met de `kubectl apply -f gpu-toleration.yaml` opdracht:
 kubectl apply -f gpu-toleration.yaml
 ```
 
-Het duurt een paar seconden voor het plannen van de schil en haal de NGINX-installatiekopie. Gebruik de [kubectl beschrijven pod] [ kubectl-describe] opdracht om de status van de schil weer te geven. Het volgende verkorte voorbeeld uitvoer toont de *sku = gpu:NoSchedule* toleration wordt toegepast. In de sectie gebeurtenissen de scheduler de schil is toegewezen de *aks-gpunodepool-28993262-vmss000000* op basis van GPU-knooppunt:
+Het duurt een paar seconden voor het plannen van de schil en haal de NGINX-installatiekopie. Gebruik de [kubectl beschrijven pod][kubectl-describe] opdracht om de status van de schil weer te geven. Het volgende verkorte voorbeeld uitvoer toont de *sku = gpu:NoSchedule* toleration wordt toegepast. In de sectie gebeurtenissen de scheduler de schil is toegewezen de *aks-gpunodepool-28993262-vmss000000* op basis van GPU-knooppunt:
 
 ```console
 $ kubectl describe pod mypod
@@ -410,7 +414,7 @@ Deze waarden worden bewerkt omdat nodig hebt om bij te werken, toevoegen of knoo
 }
 ```
 
-Implementeer deze sjabloon met de [az group deployment maken] [ az-group-deployment-create] opdracht, zoals wordt weergegeven in het volgende voorbeeld. U wordt gevraagd voor de bestaande naam van de AKS-cluster en de locatie:
+Implementeer deze sjabloon met de [az group deployment maken][az-group-deployment-create] opdracht, zoals wordt weergegeven in het volgende voorbeeld. U wordt gevraagd voor de bestaande naam van de AKS-cluster en de locatie:
 
 ```azurecli-interactive
 az group deployment create \
@@ -424,13 +428,13 @@ Het duurt een paar minuten om bij te werken van uw AKS-cluster, afhankelijk van 
 
 In dit artikel hebt u een AKS-cluster met knooppunten op basis van GPU gemaakt. Om onnodige kosten reduceren, kunt u verwijdert de *gpunodepool*, of het hele AKS-cluster.
 
-Als u wilt verwijderen van het knooppunt op basis van GPU pool, gebruiken de [az aks nodepool verwijderen] [ az-aks-nodepool-delete] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Als u wilt verwijderen van het knooppunt op basis van GPU pool, gebruiken de [az aks nodepool verwijderen][az-aks-nodepool-delete] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-Als u wilt verwijderen van het cluster zelf, gebruikt u de [az group delete] [ az-group-delete] opdracht om de AKS-resourcegroep te verwijderen:
+Als u wilt verwijderen van het cluster zelf, gebruikt u de [az group delete][az-group-delete] opdracht om de AKS-resourcegroep te verwijderen:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -473,3 +477,5 @@ Als u wilt maken en gebruiken van groepen met Windows Server-container, Zie [een
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

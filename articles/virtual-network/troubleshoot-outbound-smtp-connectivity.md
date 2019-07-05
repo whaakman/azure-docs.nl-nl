@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13ed2dc2b304368e468c433b5abf5d056c33e406
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401916"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466486"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Uitgaande SMTP-verbindingsproblemen in Azure oplossen
 
@@ -36,9 +36,9 @@ Er is geen wijziging in de technische mogelijkheden voor het verzenden van e-mai
 ## <a name="pay-as-you-go"></a>Betalen per gebruik
 Als u zich hebt geregistreerd vóór 15 November 2017 voor het betalen per gebruik of Microsoft Partner Network-abonnement biedt, er zijn geen wijzigingen in de technische mogelijkheden om te proberen uitgaande e-maillevering. U gaat verder met het mogelijk om te proberen uitgaande e-maillevering van Azure VM's binnen deze abonnementen rechtstreeks naar externe e-mailproviders zonder beperkingen van het Azure-platform. Nogmaals, er geen garantie dat e-mailproviders inkomende e-mailbericht van een bepaalde gebruiker accepteert, en gebruikers hebben rechtstreeks met e-mailproviders oplossen van eventuele bezorging van berichten of filters gebruiken om problemen met betrekking specifieke providers tot SPAM.
 
-Voor betalen per gebruik of Microsoft Partner Network-abonnementen die zijn gemaakt na 15 November 2017 zullen er technische beperkingen die voorkomen dat e-mail die rechtstreeks vanuit virtuele machines in deze abonnementen worden verzonden. Als u wilt dat de mogelijkheid om e-mail te verzenden van Azure VM's rechtstreeks naar externe e-mailproviders (niet via een geverifieerde SMTP-relay), kunt u een aanvraag voor het verwijderen van de beperking. Aanvragen worden bekeken en goedgekeurd goeddunken van Microsoft, en ze wordt verleend nadat extra ter voorkoming van fraude wordt gecontroleerd. Als u een aanvraag, moet u een ondersteuningsaanvraag openen met behulp van het volgende probleemtype: **Technische** > **Virtueelnetwerk** > **connectiviteit** > **kunnen geen e-mail (SMTP/poort 25) verzenden**. Zorg ervoor dat u meer informatie over waarom uw implementatie heeft voor het verzenden van e-mail rechtstreeks naar e-mailproviders in plaats van via een geverifieerde relay toevoegt.
+Voor betalen per gebruik of Microsoft Partner Network-abonnementen die zijn gemaakt na 15 November 2017 zullen er technische beperkingen die voorkomen dat e-mail die rechtstreeks vanuit virtuele machines in deze abonnementen worden verzonden. Als u wilt dat de mogelijkheid om e-mail te verzenden van Azure VM's rechtstreeks naar externe e-mailproviders (niet via een geverifieerde SMTP-relay), kunt u een aanvraag voor het verwijderen van de beperking. Aanvragen worden bekeken en goedgekeurd goeddunken van Microsoft, en ze wordt verleend nadat extra ter voorkoming van fraude wordt gecontroleerd. Als u een aanvraag, moet u een ondersteuningsaanvraag openen met behulp van het volgende probleemtype: **Beheer van abonnementen** type probleem: **Aanvraag voor het inschakelen van poort 25 e stroom**. Zorg ervoor dat u meer informatie over waarom uw implementatie heeft voor het verzenden van e-mail rechtstreeks naar e-mailproviders in plaats van via een geverifieerde relay toevoegt.
 
-Wanneer u een abonnement met betalen per gebruik of Microsoft Partner Network is uitgesloten, wordt virtuele machines binnen dat abonnement alleen vrijgesteld voortaan.
+Nadat een abonnement met betalen per gebruik of Microsoft Partner Network is uitgesloten, en de virtuele machines 'Gestopt' & gestart vanuit de Azure-portal zijn, worden alle virtuele machines binnen dat abonnement uitgesloten voortaan. De uitzondering is alleen van toepassing op het abonnement dat is aangevraagd.
 
 > [!NOTE]
 > Microsoft behoudt zich het recht om in te trekken van deze uitzondering als wordt vastgesteld dat een schending van de servicevoorwaarden heeft plaatsgevonden.
@@ -46,12 +46,12 @@ Wanneer u een abonnement met betalen per gebruik of Microsoft Partner Network is
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, Azure Pass, Azure in Open, Education, BizSpark en gratis proefversie
 Als u een MSDN, Azure Pass, Azure in Open, Education, BizSpark, Azure Sponsorship, Azure Student, gratis proefversie of een Visual Studio-abonnement na 15 November 2017 hebt gemaakt hebt u technische beperkingen dat e-blok dat wordt verzonden door virtuele machines in deze abonnementen rechtstreeks naar e-providers. De beperkingen worden uitgevoerd om te voorkomen dat misbruik. Er zijn geen aanvragen voor het verwijderen van deze beperking wordt verleend.
 
-Als u deze abonnementstypen, bent u aangeraden om te gebruiken SMTP-relayservices, zoals eerder in dit artikel wordt beschreven.
+Als u deze abonnementstypen gebruikt, bent u aangeraden te gebruiken SMTP-relayservices, zoals eerder in dit artikel wordt beschreven of uw abonnementstype wijzigen.
 
 ## <a name="cloud-service-provider-csp"></a>Cloud serviceprovider (CSP)
 
-Als u Azure-resources via CSP, om te maken van een ondersteuningsverzoek in via uw keuze van CSP kunt u en u kunt aanvragen de CSP een aanvraag voor opheffen van blokkeringen namens maken als een beveiligde SMTP-relay kan niet worden gebruikt.
+Als u Azure-resources via CSP gebruikt, kunt u vragen de CSP een aanvraag voor opheffen van blokkeringen vrijstelling maken met Microsoft namens u, als een beveiligde SMTP-relay kan niet worden gebruikt.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
-Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost met behulp van het volgende probleemtype: **Beheer van abonnementen** type probleem: **Aanvraag voor het inschakelen van poort 25 e stroom**.

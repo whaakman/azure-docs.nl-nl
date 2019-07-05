@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024644"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485397"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**,  **Standard**, of **met geoptimaliseerde opslag** Prijscategorieën.
@@ -29,7 +29,7 @@ Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en an
 + **Opslag geoptimaliseerd** wordt uitgevoerd op toegewezen virtuele machines met meer totale opslag, opslag, bandbreedte en geheugen dan **Standard**. Opslag geoptimaliseerd wordt geleverd met twee niveaus: L1 en L2
 
 > [!NOTE]
-> De Servicelagen met geoptimaliseerde opslag zijn momenteel beschikbaar als preview op kortingsprijzen voor testen en experimenteren met het doel van het verzamelen van feedback. Laatste prijzen worden later aangekondigd wanneer deze lagen algemeen beschikbaar zijn. We raden u aan die deze lagen gebruiken voor productie-Apps.
+> Alle lagen worden vanaf 1 juli algemeen beschikbaar, met inbegrip van de laag geoptimaliseerd voor opslag. Alle prijzen vindt u op de [prijsinformatie](https://azure.microsoft.com/pricing/details/search/) pagina.
 
   S3 High Density (S3 HD) is ontworpen voor specifieke werkbelastingen: [multitenancy](search-modeling-multitenant-saas-applications.md) en grote hoeveelheden kleine indexen (1 miljoen documenten per index, drie duizend indexen per service). Deze laag biedt de [indexeerfunctie functie](search-indexer-overview.md). Opname van gegevens moet gebruikmaken van de push-benadering, met behulp van API-aanroepen om gegevens te pushen van bron naar een index op S3 HD. 
 
@@ -84,7 +84,7 @@ Voor services beperkt het document de volgende maximale limieten gelden:
 
 |  Gratis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10\.000 |1&nbsp;miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
+|  10.000 |1&nbsp;miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
 
 Als uw service limiet die u blokkeren een, een nieuwe service maken en alle inhoud die service vervolgens opnieuw te publiceren. Er is geen mechanisme voor het naadloos beëindiging van uw service op de nieuwe hardware op de achtergrond.
 
@@ -110,7 +110,7 @@ Maximum aantal actieve keren herhaald bestaan voor het saldo en stabiliteit naar
 | Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |10 |10 |
 | Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
 | Maximale kennis en vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
-| Indexering maximumbelasting per aanroep |10\.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |Geen limiet |Geen limiet |
+| Indexering maximumbelasting per aanroep |10.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |Geen limiet |Geen limiet |
 | Minimale plannen | 5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten | 5 minuten |
 | Maximale uitvoeringstijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |24 uur |24 uur |
 | Maximale uitvoeringstijd voor cognitief zoeken kennis en vaardigheden of blob-indexering met analyse van de afbeelding <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |2 uur |2 uur |

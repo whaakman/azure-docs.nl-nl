@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 796ae0e3be3a2e43d7f27d5932cdba0cf660f36b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417000"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441913"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -56,6 +56,8 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen c
     b. **Actietype**: Selecteer de e-mailadres/SMS/Push/Voice, logische App, Webhook, ITSM of Automation-Runbook.
 
     c. **Details**: Op basis van het actietype, voer een telefoonnummer, e-mailadres, webhook URI, Azure-app, ITSM-verbinding of Automation-runbook. Voor ITSM-actie, Daarnaast Geef **werkitem** en andere velden uw ITSM-hulpprogramma is vereist.
+    
+    d. **Algemene waarschuwing schema**: U kunt kiezen om in te schakelen de [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs), waarmee u het voordeel dat een enkele, uitbreidbare en geïntegreerde alert payload voor alle van de waarschuwing services in Azure Monitor.
 
 1. Selecteer **OK** te maken van de actiegroep.
 

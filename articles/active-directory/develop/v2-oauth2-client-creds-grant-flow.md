@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545099"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482250"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-platform en de OAuth 2.0-clientreferentiestroom
 
@@ -42,7 +42,7 @@ In de typische *3-legged OAuth*, een clienttoepassing is gemachtigd voor toegang
 
 De volledige clientreferentiestroom lijkt op het volgende diagram. We beschrijven elk van de stappen verderop in dit artikel.
 
-![Clientreferenties-stroom](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagram van de client clientreferenties-stroom](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>Directe autorisatie ophalen
 
@@ -92,7 +92,7 @@ Als u de gebruiker zich in uw app, kunt u de organisatie waarvan de gebruiker de
 Wanneer u klaar om aan te vragen van machtigingen van de organisatie-beheerder bent, kunt u de gebruiker omleiden naar de Microsoft identity-platform *toestemming het beheereindpunt*.
 
 > [!TIP]
-> Probeer deze aanvraag wordt uitgevoerd in Postman. (Uw eigen app-ID gebruiken voor de beste resultaten - zelfstudie-de toepassing wordt niet handig machtigingen aanvragen.) [![Uitvoeren in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Probeer deze aanvraag wordt uitgevoerd in Postman. (Uw eigen app-ID gebruiken voor de beste resultaten - zelfstudie-de toepassing wordt niet handig machtigingen aanvragen.) [![Probeer uit te voeren van deze aanvraag in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -154,7 +154,7 @@ Nadat u een geslaagd antwoord van het eindpunt van app-inrichting ontvangen hebt
 Nadat u de benodigde machtiging hebt voor uw toepassing hebt verkregen, kunt u doorgaan met het verkrijgen van toegang tot tokens voor API's. Als u een token met behulp van de client clientreferenties, verzendt u een POST-aanvraag naar de `/token` Microsoft identity-platform-eindpunt:
 
 > [!TIP]
-> Probeer deze aanvraag wordt uitgevoerd in Postman. (Uw eigen app-ID gebruiken voor de beste resultaten - zelfstudie-de toepassing wordt niet handig machtigingen aanvragen.) [![Uitvoeren in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Probeer deze aanvraag wordt uitgevoerd in Postman. (Uw eigen app-ID gebruiken voor de beste resultaten - zelfstudie-de toepassing wordt niet handig machtigingen aanvragen.) [![Probeer uit te voeren van deze aanvraag in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Aanvraag voor een toegangstoken met een gedeeld geheim
 

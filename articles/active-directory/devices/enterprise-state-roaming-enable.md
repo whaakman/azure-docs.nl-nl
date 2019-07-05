@@ -1,28 +1,22 @@
 ---
 title: Enterprise State Roaming in Azure Active Directory inschakelen | Microsoft Docs
-description: Veelgestelde vragen over Enterprise State Roaming-instellingen in het Windows-apparaten. Enterprise State Roaming biedt gebruikers een uniforme ervaring op hun Windows-apparaten en vermindert de tijd die nodig is voor het configureren van een nieuw apparaat.
+description: Veelgestelde vragen over Enterprise State Roaming-instellingen in het Windows-apparaten.
 services: active-directory
-keywords: Enterprise state roaming, windows-cloud, enterprise state roaming inschakelen
-documentationcenter: ''
-author: tanning
-manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
+ms.subservice: devices
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45c1fc6340df6a5400864b2e1222a2c65e586232
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954944"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482031"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -32,9 +26,7 @@ Wanneer u de Enterprise State Roaming inschakelt, wordt uw organisatie een grati
 ## <a name="to-enable-enterprise-state-roaming"></a>Enterprise State Roaming inschakelen
 
 1. Aanmelden bij [Azure AD-beheercentrum](https://aad.portal.azure.com/).
-
 1. Selecteer **Azure Active Directory** &gt; **apparaten** &gt; **Enterprise State Roaming**.
-
 1. Selecteer **gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten**. Zie voor meer informatie, [apparaatinstellingen configureren](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
    ![afbeelding van de instelling van de apparaten met het label gebruikers kan instellingen en app-gegevens synchroniseren via apparaten](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -44,12 +36,12 @@ Het apparaat moet verifiëren met behulp van een Azure AD-identiteit voor een Wi
 ## <a name="data-storage"></a>Gegevensopslag
 Enterprise State Roaming gegevens worden gehost in een of meer [Azure-regio's](https://azure.microsoft.com/regions/) dat beste zijn afgestemd op de waarde land/regio in de Azure Active Directory-exemplaar. Enterprise State Roaming gegevens zijn gepartitioneerd op basis van drie belangrijke geografische regio's: Noord-Amerika, EMEA en APAC. Enterprise State Roaming gegevens voor de tenant is lokaal bevindt als de geografische regio, en wordt niet gerepliceerd tussen regio's.  Bijvoorbeeld:
 
-Land/regio waarde | heeft de gegevens die worden gehost in
----------------------|-------------------------
-Een EMEA-land/regio, zoals Frankrijk of Zambia | Een of meer van de Azure-regio's in Europa 
-Een Noord-Amerikaanse land/regio, zoals de Verenigde Staten of Canada | een of meer van de Azure-regio's binnen de VS
-Een APAC land/regio, zoals Australië en Nieuw-Zeeland | een of meer van de Azure-regio's in Azië
-Regio's Zuid-Amerika en Antarctica | een of meer Azure-regio's binnen de VS
+| Land/regio waarde | heeft de gegevens die worden gehost in |
+| -------------------- | ------------------------ |
+| Een EMEA-land/regio, zoals Frankrijk of Zambia | Een of meer van de Azure-regio's in Europa |
+| Een Noord-Amerikaanse land/regio, zoals de Verenigde Staten of Canada | een of meer van de Azure-regio's binnen de VS |
+| Een APAC land/regio, zoals Australië en Nieuw-Zeeland | een of meer van de Azure-regio's in Azië |
+| Regio's Zuid-Amerika en Antarctica | een of meer Azure-regio's binnen de VS |
 
 De waarde van het land/regio is ingesteld als onderdeel van het proces voor het maken van Azure AD directory en vervolgens kan niet worden gewijzigd. Als u meer informatie op uw locatie voor de gegevensopslag, een ticket indienen bij [ondersteuning van Azure](https://azure.microsoft.com/support/options/).
 
@@ -57,11 +49,8 @@ De waarde van het land/regio is ingesteld als onderdeel van het proces voor het 
 Volg deze stappen om een statusrapport voor synchronisatie van per gebruiker-apparaat weer te geven.
 
 1. Aanmelden bij [Azure AD-beheercentrum](https://aad.portal.azure.com/).
-
 1. Selecteer **Azure Active Directory** &gt; **gebruikers** &gt; **alle gebruikers**.
-
 1. Selecteer de gebruiker en selecteer vervolgens **apparaten**.
-
 1. Onder **weergeven**, selecteer **synchronisatie-instellingen en app-gegevens voor apparaten** om weer te geven van de synchronisatiestatus.
   
    ![afbeelding van de gegevens van de Apparaatinstelling synchroniseren](./media/enterprise-state-roaming-enable/sync-status.png)

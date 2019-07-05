@@ -16,41 +16,56 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6726c876d0895f9488aa2ae5c225a6b2ac19e69f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60918522"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491051"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Beheer de toegang tot factureringsgegevens voor Azure
 
-U kunt voor de meeste abonnementen, facturering Informatietoegang geven tot leden van uw team van **abonnementen** in Azure portal. Als u een Azure-klant met een Enterprise Agreement (EA-klanten bent) en de Enterprise-beheerder bent, kunt u machtigingen geven voor de afdeling beheerders en eigenaren van een Account in de Enterprise portal.
+U kunt andere gebruikers toegang bieden tot de factureringsgegevens voor uw account in Azure portal. Het type van de facturering rollen en de instructies voor toegang tot de factureringsgegevens variëren per type van uw factureringsrekening. Zie het vaststellen van het type van uw factureringsrekening [controleert u het type van uw factureringsrekening](#check-the-type-of-your-billing-account).
 
-## <a name="give-access-to-billing"></a>Toegang verlenen tot facturering
+Het artikel is van toepassing op klanten met accounts van Microsoft Online Service-programma. Als u een Azure-klant met een Enterprise Agreement (EA) en de Enterprise-beheerder bent, kunt u machtigingen geven voor de afdeling beheerders en eigenaren van een Account in de Enterprise portal. Zie voor meer informatie, [beheerdersrollen in Azure begrijpen Azure Enterprise overeenkomst](billing-understand-ea-roles.md). Als u een Microsoft-KLANTOVEREENKOMST-klant bent, ziet, [KLANTOVEREENKOMST Microsoft informatie over beheerdersrollen in Azure](billing-understand-mca-roles.md). 
 
-Alles behalve EA-klanten kunnen toegang verlenen tot Azure-Factureringsinformatie door een van de volgende gebruikersrollen toewijzen aan leden van uw team:
+## <a name="account-administrators-for-microsoft-online-service-program-accounts"></a>Accountbeheerders voor Microsoft Online Service programma-accounts
 
-- Accountbeheerder
+Een beheerder is de enige eigenaar voor een programma van de Microsoft Online Service-account voor facturering. De rol wordt toegewezen aan een persoon die zich hebben aangemeld voor Azure. Accountbeheerders bent gemachtigd om uit te voeren van verschillende facturering taken zoals het maken van abonnementen, facturen weergeven of wijzigen van de facturering voor een abonnement.
+
+## <a name="give-others-access-to-view-billing-information"></a>Anderen toegang geven tot factureringsgegevens weergeven
+
+Accountbeheerder kan anderen toegang verlenen tot Azure-Factureringsinformatie door toe te wijzen op een van de volgende rollen op een abonnement in hun account.
+
 - Servicebeheerder
 - Co-beheerder
 - Eigenaar
 - Inzender
 - Lezer
-- Lezer voor facturering
+- Facturering voor lezer
+
+Deze rollen hebben toegang tot factureringsgegevens in de [Azure-portal](https://portal.azure.com/). Personen die deze rollen zijn toegewezen, kunnen ook gebruiken de [facturerings-API's](billing-usage-rate-card-overview.md) om op te halen via een programma facturen en informatie over het gebruik.
 
 Als u wilt toewijzen van rollen, Zie [toegang met RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md).
 
-Deze rollen hebben toegang tot factureringsgegevens in de [Azure-portal](https://portal.azure.com/). Personen die deze rollen zijn toegewezen, kunnen ook gebruiken de [facturerings-API's](billing-usage-rate-card-overview.md) om op te halen via een programma facturen en informatie over het gebruik. Zie voor meer informatie, [rollen in Azure RBAC](../role-based-access-control/built-in-roles.md).
+** Als u een EA-klant bent, kunt eigenaar van een Account de bovenstaande rol toewijzen aan andere gebruikers van uw team. Maar voor deze gebruikers om factuurgegevens weer te geven, moet de Enterprise-beheerder de kosten van de door de AO weergeven in de Enterprise portal inschakelen.
+
 
 ### <a name="opt-in"></a> Gebruikers toestaan om te downloaden van facturen
 
-Nadat u de juiste rollen aan leden van uw team toewijzen, kan de accountbeheerder toegang tot het downloaden van facturen in Azure portal moet inschakelen. Facturen die ouder zijn dan December 2016 zijn beschikbaar alleen naar de accountbeheerder.
+Nadat een accountbeheerder de juiste rollen aan andere gebruikers toegewezen heeft, moeten ze toegang tot het downloaden van facturen in Azure portal inschakelen. Facturen die ouder zijn dan December 2016 zijn beschikbaar alleen naar de accountbeheerder.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-1. Als de accountbeheerder, selecteer uw abonnement uit de [blade abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/), als een accountbeheerder
 
-1. Selecteer **facturen** en vervolgens **toegang tot facturen**.
+1. Zoek naar **kostenbeheer en facturering**.
+
+    ![Schermafbeelding van zoeken in Azure portal](./media/billing-manage-access/billing-search-cost-management-billing.png)
+ 
+1. Selecteer **abonnementen** in het linkerdeelvenster. Afhankelijk van uw toegang mogelijk moet u een facturering bereik selecteren en selecteer vervolgens **abonnementen**.
+ 
+    ![Schermafbeelding waarin de abonnementen te selecteren](./media/billing-manage-access/billing-select-subscriptions.png)
+
+1. Selecteer **facturen** en vervolgens **toegang tot de factuur**.
 
     ![Schermafbeelding ziet u hoe u toegang tot facturen delegeren](./media/billing-manage-access/AA-optin.png)
 
@@ -64,40 +79,35 @@ De accountbeheerder kan de instellingen ook zo configureren dat facturen via e-m
 
 De rol factureren voor lezer toewijzen aan iemand die alleen-lezen toegang tot de factureringsgegevens van het abonnement, maar niet de mogelijkheid om te beheren of maken van Azure-services nodig heeft. Deze rol is geschikt voor gebruikers in een organisatie die verantwoordelijk voor het beheer van financiële en de kosten voor Azure-abonnementen zijn.
 
-Als u een EA-klant bent, kunt een accounteigenaar of beheerder van de afdeling de rol van lezer facturering toewijzen aan leden van een team. Maar voor deze factureren voor lezer om informatie over facturering voor de afdeling of het account weer te geven, de Enterprise-beheerder moet inschakelen **kosten weergeven die door de AO** of **DA weergave kosten** beleid in de Enterprise portal.
-
 De functie factureren voor lezer is in preview en biedt niet-globale clouds nog geen ondersteuning.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-1. Selecteer uw abonnement op de [blade Abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in de Azure-portal.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/), als een accountbeheerder
+
+1. Zoek naar **kostenbeheer en facturering**.
+
+    ![Schermafbeelding van zoeken in Azure portal](./media/billing-manage-access/billing-search-cost-management-billing.png)
+
+1. Selecteer **abonnementen** in het linkerdeelvenster. Afhankelijk van uw toegang mogelijk moet u een facturering bereik selecteren en selecteer vervolgens **abonnementen**.
+ 
+    ![Schermafbeelding waarin de abonnementen te selecteren](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. Selecteer **toegangsbeheer (IAM)** .
-1. Selecteer **roltoewijzingen** om de roltoewijzingen voor dit abonnement weer te geven.
-1. Selecteer **roltoewijzing toevoegen**.
+1. Selecteer **toevoegen** vanaf de bovenkant van de pagina.
+
+    ![Schermafbeelding van te klikken op roltoewijzing toevoegen](./media/billing-manage-access/billing-click-add-role-assignment.png)
+
 1. In de **rol** vervolgkeuzelijst Kies **factureren voor lezer**.
 1. In de **Selecteer** tekstvak, typ de naam of e-voor de gebruiker die u wilt toevoegen.
 1. Selecteer de gebruiker.
 1. Selecteer **Opslaan**.
-1. Na enkele ogenblikken wordt de gebruiker de rol van lezer facturering op het abonnementsbereik toegewezen.
-1. Het factureren voor lezer ontvangt een e-mailbericht met een koppeling aan te melden.
+    ![Schermafbeelding van te klikken op roltoewijzing toevoegen](./media/billing-manage-access/billing-save-role-assignment.png)
 
-    ![Schermopname die laat zien wat de factureren voor lezer kan zien in Azure portal](./media/billing-manage-access/billing-reader-view.png)
+1. Na enkele ogenblikken wordt de gebruiker de rol van lezer facturering voor het abonnement toegewezen.
 
-## <a name="allow-department-administrator-or-account-owner-billing-access"></a>Afdeling beheerder of eigenaar van Account facturering toegang toestaan
+** Als u een EA-klant bent, kunt een accounteigenaar of beheerder van de afdeling de rol van lezer facturering toewijzen aan leden van een team. Maar voor deze factureren voor lezer om informatie over facturering voor de afdeling of het account weer te geven, de Enterprise-beheerder moet inschakelen **kosten weergeven die door de AO** of **DA weergave kosten** beleid in de Enterprise portal.
 
-De Enterprise-beheerder kunt toestaan dat de beheerders van de afdeling en eigenaars om weer te geven informatie over het gebruik en de kosten die zijn gekoppeld aan de verschillende afdelingen en Accounts die ze beheren.
-
-1. Als de Enterprise-beheerder aanmelden bij de [EA-portal](https://ea.azure.com/).
-1. Selecteer **beheren**.
-1. Onder **inschrijving**, wijzigt de **DA weergave kosten** naar **ingeschakeld** voor de beheerder van de afdeling gebruik en kosten kunt bekijken.
-1. Wijziging **kosten weergeven die door de AO** naar **ingeschakeld** voor de eigenaar van het gebruik en kosten kunt bekijken.
-
-
-Zie voor meer informatie, [beheerdersrollen in Azure begrijpen Azure Enterprise overeenkomst](billing-understand-ea-roles.md).
-
-## <a name="only-account-admins-can-access-account-center"></a>Alleen de accountbeheerders hebben toegang tot Accountcentrum
-
-De accountbeheerder is de juridische eigenaar van het abonnement. De persoon die zich heeft aangemeld of het Azure-abonnement hebt gekocht is de accountbeheerder, tenzij de [abonnement eigendom is overgedragen](billing-subscription-transfer.md) aan iemand anders. De accountbeheerder kunt maken van abonnementen, abonnementen annuleren, het factuuradres voor een abonnement wijzigen en beheren van toegangsbeleid voor het abonnement van de [Accountcentrum](https://account.azure.com/Subscriptions).
+## <a name="check-the-type-of-your-billing-account"></a>Het type van uw factureringsrekening controleren
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

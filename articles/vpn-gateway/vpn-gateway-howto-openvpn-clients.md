@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147243"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477849"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>OpenVPN clients voor Azure VPN-Gateway configureren
 
@@ -67,9 +67,9 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 4. Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Zie [Exporteer de openbare sleutel](vpn-gateway-certificates-point-to-site.md#cer) voor informatie over het exporteren van een certificaat om de gecodeerde openbare sleutel.
 5. Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Zie [uw persoonlijke sleutel exporteren](https://openvpn.net/community-resources/how-to/#pki) voor informatie over het ophalen van een persoonlijke sleutel.
 6. Wijzig geen andere velden. Gebruik de ingevulde configuratie in de clientinvoer om verbinding te maken met de VPN.
-7. Dubbelklik op het bestand van het profiel voor het maken van het profiel in tunnelblik.
-8. Start Tunnelblik uit de toepassingsmap.
-9. Klik op het pictogram Tunnelblik in het systeemvak en kies verbinding maken.
+7. Dubbelklik op het bestand van het profiel voor het maken van het profiel in Tunnelblick.
+8. Start Tunnelblick uit de toepassingsmap.
+9. Klik op het pictogram Tunnelblick in het systeemvak en kies verbinding maken.
 
 > [!IMPORTANT]
 >Alleen iOS 11.0 en hoger en MacOS 10.13 en hoger worden ondersteund met OpenVPN-protocol.

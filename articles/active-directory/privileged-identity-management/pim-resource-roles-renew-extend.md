@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a064fc67bf94ba6aa443e429fe83179d84cada84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 147b1714c88fd93a3098ecf7a28164a227af29de
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602647"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476301"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Verlengen of vernieuwen van Azure-resource-roltoewijzingen in PIM
 
@@ -45,30 +45,30 @@ De volgende stappen beschrijven het proces voor aanvragen, het oplossen van of b
 
 Leden van een roltoewijzing kunnen uitbreiden verlopende roltoewijzingen rechtstreeks vanuit de **in aanmerking komende** of **Active** tabblad op de **mijn rollen** pagina van een resource en van het hoogste niveau **Mijn rollen** pagina van de PIM-portal. Leden kunnen aanvragen om uit te breiden in aanmerking komende en actieve (toegewezen) functies die in de volgende 14 dagen verlopen.
 
-![Rollen verlengen](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
+![Azure-resources - rollen pagina aanbieding in aanmerking komende rollen met een actiekolom](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 
 Wanneer de toewijzing einddatum en-tijd is binnen 14 dagen, op de knop **uitbreiden** verandert in een actieve koppeling in de gebruikersinterface. In het volgende voorbeeld wordt ervan uitgegaan dat de huidige datum valt 27 maart.
 
-![Knop uitbreiden](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
+![Actiekolom met koppelingen naar activeren of uitbreiden](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
 
 Selecteer om aan te vragen een uitbreiding van deze roltoewijzing, **uitbreiden** om het aanvraagformulier te openen.
 
-![Open het aanvraagformulier](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-role-assignment-request.png)
+![Rol Toewijzingsdeelvenster met een reden in uitbreiden](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-role-assignment-request.png)
 
 Als u informatie over de oorspronkelijke toewijzing, vouw **toewijzingsdetails**. Geef een reden op voor de extensie-aanvraag, en selecteer vervolgens **uitbreiden**.
 
 >[!Note]
 >We raden aan om de details van waarom de extensie is nodig, en hoe lang de extensie moet worden verleend (als u deze informatie hebt).
 
-![Roltoewijzing uitbreiden](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-form-complete.png)
+![Rol Toewijzingsdeelvenster uitbreiden met details van de toewijzing uitgebreid](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-form-complete.png)
 
 Binnen enkele ogenblikken ontvangt resource beheerders een e-mailbericht melding met het verzoek dat ze de extensie-aanvraag bekijken. Als een aanvraag om uit te breiden al heeft ingediend, wordt een pop-upmelding weergegeven aan de bovenkant van de Azure portal waarin wordt uitgelegd van de fout.
 
-![Melding waarin wordt uitgelegd fout](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-failed-existing-request.png)
+![Melding waarin wordt uitgelegd dat er is al een bestaande in behandeling zijnde rol toewijzing-extensie](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-failed-existing-request.png)
 
-Ga naar de **aanvragen in behandeling** tabblad in het linkerdeelvenster om de status van uw aanvraag weer te geven of om deze te annuleren.
+Ga naar de **aanvragen in behandeling** pagina in het linkerdeelvenster om de status van uw aanvraag weer te geven of om deze te annuleren.
 
-![Aanvragen in behandeling](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-cancel-request.png)
+![Azure-resources - in behandeling zijnde aanvragen pagina weergegeven met een eventuele aangevraagde en een koppeling om te annuleren](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-cancel-request.png)
 
 ### <a name="admin-approve"></a>Beheerder goedkeuren
 
@@ -76,11 +76,11 @@ Wanneer een lid van een aanvraag om uit te breiden een roltoewijzing verzendt, w
 
 Naast het gebruik van de koppeling van e-mailbericht te volgen, beheerders kunnen goedkeuren of weigeren van aanvragen door te gaan naar de portal en vervolgens de PIM-beheer **aanvragen goedkeuren** in het linkerdeelvenster.
 
-![Schermopname van foutbericht](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
+![Azure-resources - keuren aanvragen pagina aanbieding aanvragen en koppelingen voor het goedkeuren of weigeren](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
 
 Wanneer een beheerder selecteert **goedkeuren** of **weigeren**, de details van de aanvraag worden weergegeven, samen met een veld reden voor de controlelogboeken op te geven.
 
-![De aanvraag voor roltoewijzing goedkeuren](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
+![De aanvraag voor roltoewijzing met reden van de aanvrager, toewijzingstype goedkeuren, begintijd, eindtijd, en de reden](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
 
 Wanneer een aanvraag om uit te breiden roltoewijzing wordt goedgekeurd, worden de resource-beheerders kunnen kiezen een nieuwe begindatum, einddatum en toewijzingstype. Wijzigen van dit toewijzingstype kan het nodig zijn als de beheerder wil de toegang beperkt voor het voltooien van een specifieke taak (bijvoorbeeld één dag). In dit voorbeeld kan de beheerder de toewijzing van wijzigen **in aanmerking komende** naar **Active**. Dit betekent dat ze kunnen toegang bieden aan de aanvrager zonder dat ze om te activeren.
 
@@ -90,7 +90,7 @@ Als rollid vergeet of kan niet een verlenging van het lidmaatschap van rol aanvr
 
 Als u wilt uitbreiden een lidmaatschap van de rol, blader naar de weergave van resources rol of lid in PIM. Het lid dat is vereist dat er vinden. Selecteer vervolgens **uitbreiden** in de actiekolom.
 
-![Uitbreiden van een lidmaatschap van de rol](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-extend.png)
+![Azure-resources - leden-pagina in aanmerking komende rollen van de lijst met koppelingen om uit te breiden](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-extend.png)
 
 ## <a name="renew-role-assignments"></a>Roltoewijzingen vernieuwen
 
@@ -100,13 +100,13 @@ Terwijl qua ontwerp vergelijkbaar met het proces voor het aanvragen van een exte
 
 Leden die niet langer toegang bronnen tot hebben toegang tot maximaal 30 dagen van de geschiedenis van werkitemtoewijzingen verlopen. U doet dit door ze te bladeren **mijn rollen** in het linkerdeelvenster en selecteer vervolgens de **verlopen rollen** tabblad in de sectie Azure-resource-rollen.
 
-![Verlopen rollen tabblad](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
+![Mijn pagina serverfuncties - tabblad verlopen rollen](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
 
 De lijst met rollen weergegeven standaard ingesteld op **in aanmerking komende rollen**. Gebruik de vervolgkeuzelijst om uit te schakelen tussen van in aanmerking komende en actieve rollen toegewezen krijgen.
 
 Voor het aanvragen van verlenging voor het gebruik van de roltoewijzingen in de lijst, selecteer de **vernieuwen** actie. Geef een reden op voor de aanvraag. Het is handig voor een duur naast elke aanvullende context waarmee de beheerder van de resource wilt goedkeuren of weigeren.
 
-![De roltoewijzing te verlengen](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-request-form.png)
+![Rol Toewijzingsdeelvenster met reden vak vernieuwen](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-request-form.png)
 
 Nadat de aanvraag heeft ingediend, resource beheerders zijn op de hoogte gesteld van een aanvraag in behandeling om een roltoewijzing te verlengen.
 
@@ -114,11 +114,11 @@ Nadat de aanvraag heeft ingediend, resource beheerders zijn op de hoogte gesteld
 
 Resource-beheerders hebben toegang tot de vernieuwingsaanvraag via de koppeling in het e-mailbericht of door PIM vanuit de Azure-portal te openen en te selecteren **aanvragen goedkeuren** in het linkerdeelvenster.
 
-![Aanvragen goedkeuren](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
+![Azure-resources - keuren aanvragen pagina aanbieding aanvragen en koppelingen voor het goedkeuren of weigeren](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
 
 Wanneer een beheerder selecteert **goedkeuren** of **weigeren**, de details van de aanvraag worden weergegeven, samen met een veld reden voor de controlelogboeken op te geven.
 
-![Roltoewijzing goedkeuren](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
+![De aanvraag voor roltoewijzing met reden van de aanvrager, toewijzingstype goedkeuren, begintijd, eindtijd, en de reden](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
 
 Bij het goedkeuren van een aanvraag om roltoewijzing te verlengen, moeten resource beheerders een nieuwe begindatum, einddatum en toewijzingstype invoeren. 
 
@@ -128,7 +128,7 @@ Resource-beheerders kunnen vernieuwen verlopen roltoewijzingen worden van de **l
 
 Om weer te geven van een lijst van alle roltoewijzingen, is verlopen op de **leden** scherm, selecteer **verlopen rollen**.
 
-![Verlopen rollen](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-member-blade.png)
+![Azure-resources - ledenpagina weergegeven met een verlopen rollen met koppelingen om te vernieuwen](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-member-blade.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

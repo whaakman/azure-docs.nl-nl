@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050715"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447720"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
-Azure Functions-hulpprogramma's voor Visual Studio 2019 is een extensie voor Visual Studio kunt u ontwikkelen, testen en implementeren van C# functies naar Azure. Als deze ervaring uw eerste met Azure Functions is, kunt u meer informatie op [een inleiding tot Azure Functions](functions-overview.md).
+Azure Functions-hulpprogramma's is een extensie voor Visual Studio kunt u ontwikkelen, testen en implementeren van C# functies naar Azure. Als deze ervaring uw eerste met Azure Functions is, kunt u meer informatie op [een inleiding tot Azure Functions](functions-overview.md).
 
 De Azure Functions-hulpprogramma's biedt de volgende voordelen: 
 
@@ -42,13 +42,11 @@ Azure Functions-hulpprogramma's is opgenomen in de Azure-ontwikkelworkload van [
 
 Zorg ervoor dat uw Visual Studio up-to-date is en dat u gebruikmaakt van de [meest recente versie](#check-your-tools-version) van de Azure Functions-hulpprogramma's.
 
-### <a name="other-requirements"></a>Andere vereisten
+### <a name="azure-resources"></a>Azure-resources
 
-Als u wilt maken en implementeren van functies, moet u ook:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Een actief Azure-abonnement. Als u een Azure-abonnement geen [gratis accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) beschikbaar zijn.
-
-* Een Azure Storage-account. Raadpleeg [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) als u een opslagaccount wilt maken.
+Andere resources die u nodig hebt, zoals een Azure Storage-account zijn gemaakt in uw abonnement gedurende het publicatieproces.
 
 ### <a name="check-your-tools-version"></a>Controleer uw versie van de hulpprogramma 's
 
@@ -80,12 +78,20 @@ De projectsjabloon, maken een C#-project maakt, installeert de `Microsoft.NET.Sd
 
 * **host.json**: Kunt u de host van de functies configureren. Deze instellingen gelden zowel bij het uitvoeren van lokaal en in Azure. Zie voor meer informatie, [naslaginformatie over host.json](functions-host-json.md).
 
-* **local.settings.json**: Instellingen die worden gebruikt bij het uitvoeren van functies lokaal onderhoudt. Deze instellingen worden niet gebruikt door Azure, ze worden gebruikt door de [Azure Functions Core Tools](functions-run-local.md). Dit bestand gebruiken om op te geven van de app-instellingen voor omgevingsvariabelen die worden vereist door uw functies. Een nieuw item toevoegen aan de **waarden** matrix voor elke verbinding die is vereist voor de bindingen voor functions in uw project. Zie voor meer informatie, [lokale instellingenbestand](functions-run-local.md#local-settings-file) in het artikel Azure Functions Core Tools.
+* **local.settings.json**: Instellingen die worden gebruikt bij het uitvoeren van functies lokaal onderhoudt. Deze instellingen worden niet gebruikt bij het uitvoeren in Azure. Zie voor meer informatie, [lokale instellingenbestand](#local-settings-file).
 
     >[!IMPORTANT]
     >Omdat het bestand local.settings.json kunt geheimen bevat, moet u deze uitgesloten van uw project broncodebeheer. De **naar uitvoermap kopiëren** instellen voor dit bestand altijd moet **kopiëren indien nieuwer**. 
 
 Zie voor meer informatie, [Functions-klassebibliotheekproject](functions-dotnet-class-library.md#functions-class-library-project).
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+Instellingen in local.settings.json worden niet automatisch geüpload wanneer u het project publiceren. Om ervoor te zorgen dat deze instellingen ook aanwezig zijn in uw functie-app in Azure, moet u ze uploaden nadat u uw project kunt publiceren. Zie voor meer informatie, [functie app-instellingen](#function-app-settings).
+
+De waarden in **ConnectionStrings** nooit worden gepubliceerd.
+
+De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie voor meer informatie, [omgevingsvariabelen](functions-dotnet-class-library.md#environment-variables).
 
 ## <a name="configure-the-project-for-local-development"></a>Het project configureren voor lokale ontwikkeling
 
@@ -133,8 +139,9 @@ De bindingen die worden gebruikt door de functie worden in de vooraf gecompileer
         }
     }
     ```
+
     Een kenmerk binding-specifieke wordt toegepast op elke bindende parameter doorgegeven aan de methode post point. Het kenmerk wordt de informatie over de binding als parameters. In het vorige voorbeeld, de eerste parameter heeft een **QueueTrigger** kenmerk toegepast, waarmee wordt aangegeven wachtrij geactiveerde functie. De naam van de wachtrij en de naam van instelling voor de verbindingsreeks worden doorgegeven als parameters voor de **QueueTrigger** kenmerk. Zie voor meer informatie, [Azure Queue storage-bindingen voor Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
-    
+
 U kunt de bovenstaande procedure meer functies toevoegen aan uw functie-app-project. Elke functie in het project een andere trigger kan hebben, maar een functie moet exact één trigger hebben. Zie voor meer informatie, [Azure Functions-triggers en bindingen concepten](functions-triggers-bindings.md).
 
 ## <a name="add-bindings"></a>Bindingen toevoegen
@@ -183,11 +190,14 @@ Zie voor meer informatie over het gebruik van Azure Functions Core Tools, [Code 
 
 ## <a name="publish-to-azure"></a>Publiceren naar Azure
 
+Bij het publiceren vanuit Visual Studio, een van twee methoden voor het implementeren worden gebruikt:
+
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): pakketten en Windows-apps implementeert op een IIS-server.
+* [Implementeren met het uitvoeren van pakket ingeschakeld ZIP](functions-deployment-technologies.md#zip-deploy): aanbevolen voor implementaties van Azure Functions.
+
+Gebruik de volgende stappen voor het publiceren van uw project aan een functie-app in Azure.
+
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
-
-### <a name="deployment-technology"></a>Implementatietechnologie
-
-Bij het publiceren vanuit Visual Studio, wordt een van twee technologieën gebruikt om uit te voeren van de implementatie: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) en [Zip implementeren met het uitvoeren van pakket ingeschakeld (aanbevolen)](functions-deployment-technologies.md#zip-deploy).
 
 ## <a name="function-app-settings"></a>Instellingen voor functie-app
 

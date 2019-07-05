@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80cba5e1b5e38e31dea2272cc4e33b4a95940e41
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706322"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565615"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Een aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken 
 
@@ -49,7 +49,7 @@ U kunt een beheerde installatiekopie van momentopnamen van een Azure-VM-besturin
 
 ### <a name="prepare-a-vm"></a>Een virtuele machine voorbereiden
 
-Als u een nieuwe virtuele machine voor de installatiekopie maakt, gebruikt u een eerste partij Azure Marketplace-installatiekopie door de Batch wordt ondersteund als de basisinstallatiekopie voor uw beheerde installatiekopie. Eigen installatiekopieën kunnen alleen worden gebruikt als basisinstallatiekopie. Als u een volledige lijst met verwijzingen naar afbeeldingen Azure Marketplace wordt ondersteund door Azure Batch, raadpleegt u de [knooppuntagent-SKU's lijst](/rest/api/batchservice/account/listnodeagentskus) bewerking.
+Als u een nieuwe virtuele machine voor de installatiekopie maakt, gebruikt u een eerste partij Azure Marketplace-installatiekopie door de Batch wordt ondersteund als de basisinstallatiekopie voor uw beheerde installatiekopie. Eigen installatiekopieën kunnen alleen worden gebruikt als basisinstallatiekopie. Als u een volledige lijst met verwijzingen naar afbeeldingen Azure Marketplace wordt ondersteund door Azure Batch, raadpleegt u de [knooppuntagent-SKU's lijst](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) bewerking.
 
 > [!NOTE]
 > U kunt een installatiekopie van derden waarvoor extra licentie en de Aankoopvoorwaarden als uw basisinstallatiekopie niet gebruiken. Zie voor informatie over deze Marketplace-installatiekopieën, de richtlijnen voor [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

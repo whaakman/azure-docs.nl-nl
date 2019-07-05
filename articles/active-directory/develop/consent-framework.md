@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235445"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482938"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory-toestemmingsframework
 
@@ -50,7 +50,7 @@ De volgende stappen laten zien hoe de toestemming werkt ervaren voor zowel de on
 
 1. Nadat de gebruiker is aangemeld, wordt Azure AD te bepalen of de gebruiker moet een instemmingspagina weergegeven. Hierbij wordt gecontroleerd of de gebruiker (of de beheerder in de organisatie) de toepassing al toestemming heeft gegeven. Als toestemming nog niet is gedaan, wordt Azure AD de gebruiker om toestemming wordt gevraagd en geeft de vereiste machtigingen die nodig is om te werken. De reeks machtigingen die worden weergegeven in het dialoogvenster overeenkomen met de die u hebt geselecteerd de **overgedragen machtigingen** in Azure portal.
 
-    ![Gebruikerservaring voor toestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Toont een voorbeeld van machtigingen weergegeven in het dialoogvenster](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Nadat de gebruiker toestemming verleent, wordt een autorisatiecode voor uw toepassing, die wordt ingewisseld voor een toegangstoken verkrijgen en vernieuwen van het token geretourneerd. Zie voor meer informatie over deze stroom, [Web-API-app-type](web-api.md).
 

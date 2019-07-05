@@ -12,23 +12,21 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/04/2019
-ms.openlocfilehash: dfa5d4cb2d782f1466329300157a64fd17765460
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 2f3723e0a1b14edd6f516f3cc080501bea80d486
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61412340"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442037"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
-**Zakelijke continuïteit** in Azure SQL Database verwijst naar de mechanismen, beleidsregels en procedures waarmee uw bedrijf om door te gaan met het besturingssysteem bij storingen van apparaten wordt onderbroken, met name naar de IT-infrastructuur. In de meeste gevallen, Azure SQL Database de verstorende gebeurtenissen die mogelijk optreden in de cloudomgeving en uw toepassingen en zakelijke processen die worden verwerkt. Er zijn echter enkele verstorende gebeurtenissen die kunnen niet worden verwerkt door de SQL-Database, zoals:
+**Zakelijke continuïteit** in Azure SQL Database verwijst naar de mechanismen, beleidsregels en procedures waarmee uw bedrijf om door te gaan met het besturingssysteem bij storingen van apparaten wordt onderbroken, met name naar de IT-infrastructuur. In de meeste gevallen, Azure SQL Database de verstorende gebeurtenissen die mogelijk optreden in de cloudomgeving en uw toepassingen en zakelijke processen die worden verwerkt. Er zijn echter enkele verstorende gebeurtenissen die kunnen niet worden verwerkt door SQL Database automatisch, zoals:
 
 - Gebruiker per ongeluk verwijderd of een rij in een tabel bijgewerkt.
 - Kwaadwillende is voltooid om te verwijderen van gegevens of een database verwijderen.
 - Aardbeving veroorzaakt een stroomstoring en tijdelijk uitgeschakeld Datacenter.
-
-Deze gevallen kunnen niet worden bepaald door de Azure SQL Database, dus u moet het gebruik van de functies voor bedrijfscontinuïteit in SQL-Database waarmee u uw gegevens herstellen en uw toepassingen die worden uitgevoerd.
 
 In dit overzicht worden de mogelijkheden beschreven die Azure SQL Database biedt voor bedrijfscontinuïteit en herstel na noodgevallen. Meer informatie over de opties, aanbevelingen en zelfstudies voor het herstellen van storingen die kunnen leiden tot gegevensverlies of ervoor zorgen dat uw databases en toepassingen niet meer beschikbaar zijn. Meer informatie over wat er gebeurt wanneer een gebruiker of toepassing-fout is van invloed op de integriteit van gegevens, een Azure-regio een storing heeft of uw toepassing onderhoud vereist.
 
@@ -37,63 +35,51 @@ In dit overzicht worden de mogelijkheden beschreven die Azure SQL Database biedt
 Vanuit het perspectief van een database zijn er vier belangrijke mogelijke onderbreking van de scenario's:
 
 - Lokale hardware- of fouten die betrekking hebben op de database-knooppunt, zoals een schijfstation fout.
-- Beschadigde gegevens of verwijdering meestal veroorzaakt door een toepassing bug of menselijke fouten. Deze fouten zijn intrinsiek toepassingsspecifieke en kunnen niet als een regel worden gedetecteerd of automatisch worden verholpen door de infrastructuur.
+- Beschadigde gegevens of verwijdering meestal veroorzaakt door een toepassing bug of menselijke fouten. Deze fouten zijn toepassingsspecifiek en doorgaans niet kunnen worden gedetecteerd door de database-service.
 - Datacenter uitvalt, wordt mogelijk veroorzaakt door een natuurramp. In dit scenario moeten bepaalde mate van geografische redundantie met failover van de toepassing naar een ander datacenter.
-- Upgraden of onderhoud fouten, onverwachte problemen die tijdens optreden geplande upgrades of onderhoud voor een toepassing of de database mogelijk snelle terugdraaien naar een eerdere database staat.
+- Upgraden of onderhoud fouten, onverwachte problemen die tijdens optreden gepland onderhoud aan de infrastructuur of upgrades mogelijk snelle terugdraaien naar een eerdere database staat.
 
-SQL Database biedt verschillende functies voor bedrijfscontinuïteit, met inbegrip van geautomatiseerde back-ups en optionele databasereplicatie die deze scenario's kunt beperken. U moet eerst, om te begrijpen hoe SQL-Database [architectuur voor hoge beschikbaarheid](sql-database-high-availability.md) biedt een beschikbaarheid van 99,99% en bestendigheid met betrekking tot bepaalde verstorende gebeurtenissen die invloed kunnen zijn op uw bedrijfsprocessen.
-Vervolgens kunt u meer informatie over de aanvullende methoden die u gebruiken kunt om te herstellen van de verstorende gebeurtenissen die kunnen niet worden verwerkt door de SQL-Database-architectuur voor hoge beschikbaarheid, zoals:
+Als u wilt de lokale hardware en softwarefouten oplossen, SQL-Database bevat een [architectuur voor hoge beschikbaarheid](sql-database-high-availability.md), die garandeert dat automatisch herstel van deze fouten met 99.995% beschikbaarheids-SLA.  
 
-- [Tijdelijke tabellen](sql-database-temporal-tables.md) u mogelijk te herstellen van rij-versies van elk gewenst moment in-time.
-- [Ingebouwde geautomatiseerde back-ups](sql-database-automated-backups.md) en [verwijzen in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) kunt u de volledige database herstellen naar een bepaald moment in de tijd binnen de afgelopen 35 dagen.
+Als u wilt uw bedrijf te beschermen tegen verlies van gegevens, SQL-Database maakt automatisch volledige databaseback-ups wekelijks, differentiële databaseback-ups elke 12 uur, en de transactielogboeken elke 5 - 10 minuten. De back-ups worden opgeslagen in de RA-GRS-opslag voor ten minste zeven dagen voor alle Servicelagen. Alle service-lagen, behalve Basic ondersteuning configureerbare back-up bewaarperiode voor point-in-time-restore, maximaal 35 dagen. 
+
+SQL Database biedt ook diverse functies voor bedrijfscontinuïteit, die u gebruiken kunt om te beperken van verschillende scenario's voor niet-geplande. 
+
+- [Tijdelijke tabellen](sql-database-temporal-tables.md) maken het mogelijk rijversies te herstellen naar ieder gewenst tijdstip.
+- [Ingebouwde geautomatiseerde back-ups](sql-database-automated-backups.md) en [verwijzen in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) kunt u de volledige database naar een bepaald moment in de tijd binnen de geconfigureerde retentieperiode van 35 dagen herstellen naar.
 - U kunt [een verwijderde database herstellen](sql-database-recovery-using-backups.md#deleted-database-restore) op het punt waarop deze is verwijderd als de **SQL Database-server is niet verwijderd**.
 - [Langetermijnretentie van back-up](sql-database-long-term-retention.md) kunt u de back-ups op 10 jaar houden.
 - [Actieve geo-replicatie](sql-database-active-geo-replication.md) kunt u maken leesbare replica's en handmatig failover naar een replica in het geval van een upgrade data center stroomstoring of toepassing.
 - [Automatische-failovergroep](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) kan de toepassing automatisch herstel in het geval van een storing in het datacenter.
 
-Elke functie heeft verschillende kenmerken voor geschatte hersteltijd (ERT) en mogelijk gegevensverlies voor recente transacties. Wanneer u bekend bent met deze opties, kunt u eruit kiezen en ze in de meeste scenario's samen gebruiken voor verschillende doeleinden. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na de storing begrijpen. De tijd die nodig is voor de toepassing volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates (tijdsinterval) de toepassing kan tolereren verliezen tijdens het herstellen na de storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als het beoogde herstelpunt (RPO).
+## <a name="recover-a-database-within-the-same-azure-region"></a>Herstellen van een database in dezelfde Azure-regio
 
-De volgende tabel worden de ERT en RPO vergeleken voor elke servicelaag voor de meest voorkomende scenario's.
+Automatische databaseback-ups kunt u een database herstellen naar een tijdstip in het verleden. Op deze manier kunt u herstellen van beschadiging van gegevens veroorzaakt door menselijke fouten. De pakkettoegang-in-time-restore kunt u een nieuwe database maken in de server waarop ook de status van gegevens voorafgaand aan de foutieve gebeurtenis. Voor de meeste databases de herstelbewerkingen duurt minder dan 12 uur. Het duurt langer om een zeer groot of zeer actieve database te herstellen. Zie voor meer informatie over de hersteltijd, [database hersteltijd](sql-database-recovery-using-backups.md#recovery-time). 
 
-| Mogelijkheid | Basic | Standard | Premium | Algemeen doel | Bedrijfskritiek
-| --- | --- | --- | --- |--- |--- |
-| Herstel naar een bepaald tijdstip vanuit back-up |Willekeurig herstelpunt binnen zeven dagen |Willekeurig herstelpunt binnen 35 dagen |Willekeurig herstelpunt binnen 35 dagen |Willekeurig herstelpunt binnen de geconfigureerde periode (maximaal 35 dagen)|Willekeurig herstelpunt binnen de geconfigureerde periode (maximaal 35 dagen)|
-| Geo-herstellen vanaf back-ups via geo-replicatie |ERT < 12 u<br> RPO < 1 uur |ERT < 12 u<br>RPO < 1 uur |ERT < 12 u<br>RPO < 1 uur |ERT < 12 u<br>RPO < 1 uur|ERT < 12 u<br>RPO < 1 uur|
-| Automatische failover-groepen |RTO = 1 uur<br>RPO < 5s |RTO = 1 uur<br>RPO < 5 s |RTO = 1 uur<br>RPO < 5 s |RTO = 1 uur<br>RPO < 5 s|RTO = 1 uur<br>RPO < 5 s|
-| Handmatige databasefailover |ERT = 30 s<br>RPO < 5s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s|ERT = 30 s<br>RPO < 5 s|
+Als de maximale ondersteunde back-up bewaarperiode voor point-in-time restore (PITR) niet voldoende is voor uw toepassing is, kunt u deze uitbreiden door het configureren van een op de lange termijn (LTR) bewaarbeleid voor de database (s). Zie voor meer informatie, [langetermijnretentie](sql-database-long-term-retention.md).
 
-> [!NOTE]
-> *Handmatige databasefailover* verwijst naar de failover van één database naar de geo-replicatie secundaire met behulp van de [modus voor niet-geplande](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
-
-## <a name="recover-a-database-to-the-existing-server"></a>Een database aan de bestaande server herstellen
-
-SQL-Database voert automatisch een combinatie van volledige databaseback-ups wekelijks, differentiële back-ups in het algemeen genomen elke 12 uur en transactie logboekback-ups elke 5-10 minuten voor uw bedrijf beschermen tegen gegevensverlies. De back-ups worden opgeslagen in de RA-GRS-opslag gedurende 35 dagen voor alle service-lagen, behalve de Servicelagen Basic DTU waarin de back-ups voor zeven dagen worden opgeslagen. Zie voor meer informatie, [automatische databaseback-ups](sql-database-automated-backups.md). U kunt een bestaande databaseformulier de geautomatiseerde back-ups naar een eerder tijdstip in herstellen tijd als een nieuwe database op dezelfde SQL-Database-server met behulp van de Azure-portal, PowerShell of de REST-API. Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
-
-Als de maximale ondersteunde point-in-time restore (PITR) bewaarperiode is niet voldoende voor uw toepassing, kunt u deze uitbreiden door het configureren van een op de lange termijn (LTR) bewaarbeleid voor de database (s). Zie voor meer informatie, [langetermijnretentie](sql-database-long-term-retention.md).
-
-U kunt deze automatische databaseback-ups gebruiken om een database te herstellen na diverse storingen, zowel binnen uw datacenter als naar een ander datacenter. De hersteltijd is meestal minder dan 12 uur. Het duurt langer om een zeer groot of zeer actieve database te herstellen. Bij het gebruik van automatische databaseback-ups is de geschatte duur van het herstel afhankelijk van diverse factoren, waaronder het totale aantal databases dat op hetzelfde moment in dezelfde regio moet worden hersteld, de grootte van de database, de transactielogboekgrootte en de netwerkbandbreedte. Zie voor meer informatie over de hersteltijd, [database hersteltijd](sql-database-recovery-using-backups.md#recovery-time). Wanneer er naar een andere gegevensregio wordt hersteld, is het mogelijke gegevensverlies beperkt tot 1 uur met gebruik van geografisch redundante back-ups.
-
-Gebruik van geautomatiseerde back-ups en [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore) als uw mechanisme voor zakelijke continuïteit en herstel als uw toepassing:
-
-- Niet wordt beschouwd als bedrijfskritiek.
-- Beschikt niet over een SLA van de binding - een uitvaltijd van 24 uur of langer niet leidt tot financiële verplichting.
-- Een lage wijzigingssnelheid van gegevens (laag aantal transacties per uur) heeft en het verliezen van maximaal een uur na de wijziging een acceptabel gegevensverlies is.
-- Kostengevoelig is.
-
-Als u snellere herstelmogelijkheid nodig hebt, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md) of [automatische failovergroepen](sql-database-auto-failover-group.md). Als u kunnen gegevens herstellen vanaf een periode van meer dan 35 dagen wilt, gebruikt u [langetermijnretentie](sql-database-long-term-retention.md).
-
-## <a name="recover-a-database-to-another-region"></a>Een database herstellen naar een andere regio
+## <a name="recover-a-database-to-another-azure-region"></a>Een database herstellen naar een andere Azure-regio
 
 Hoewel zeldzaam, kan er een storing optreden in een Azure-datacenter. Wanneer er een storing optreedt, veroorzaakt deze een bedrijfsonderbreking die mogelijk slechts een paar minuten maar ook enkele uren kan duren.
 
 - Een optie is om te wachten tot de database weer online komt wanneer de storing in het datacenter is verholpen. Dit werkt voor toepassingen waarvoor het niet erg is dat de database offline is. Bijvoorbeeld een ontwikkelingsproject of een gratis proefversie waaraan u niet voortdurend hoeft te werken. Wanneer een datacenter een storing heeft, weet u niet hoe lang de storing kan duren, zodat u deze optie werkt alleen als u uw database even niet nodig.
 - Een andere optie is om te herstellen van een database op elke server in een Azure-regio met behulp van [geografisch redundante databaseback-ups](sql-database-recovery-using-backups.md#geo-restore) (geo-herstel). Geo-herstel een geografisch redundante back-up gebruikt als de bron- en kan worden gebruikt om een database herstellen, zelfs als de database of het datacenter niet toegankelijk als gevolg van een storing is.
-- Ten slotte, u kunt snel herstellen na een storing als u hebt geconfigureerd met behulp van een geo-secundaire [actieve geo-replicatie](sql-database-active-geo-replication.md) of een [automatische-failovergroep](sql-database-auto-failover-group.md) voor uw database of databases. Afhankelijk van uw keuze van deze technologieën, kunt u handmatige of automatische failover. Tijdens failover zelf slechts enkele seconden duurt, gaat de service ten minste 1 uur om deze te activeren. Dit is nodig om ervoor te zorgen dat de failover gerechtvaardigd is door de schaal van de serviceonderbreking. De failover kan ook leiden tot kleine gegevensverlies vanwege de aard van asynchrone replicatie. Zie de tabel eerder in dit artikel voor meer informatie van de automatische failover RTO en RPO.
+- Ten slotte, u kunt snel herstellen na een storing als u hebt geconfigureerd met behulp van een geo-secundaire [actieve geo-replicatie](sql-database-active-geo-replication.md) of een [automatische-failovergroep](sql-database-auto-failover-group.md) voor uw database of databases. Afhankelijk van uw keuze van deze technologieën, kunt u handmatige of automatische failover. Tijdens failover zelf slechts enkele seconden duurt, gaat de service ten minste 1 uur om deze te activeren. Dit is nodig om ervoor te zorgen dat de failover gerechtvaardigd is door de schaal van de serviceonderbreking. De failover kan ook leiden tot kleine gegevensverlies vanwege de aard van asynchrone replicatie. 
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-> [!IMPORTANT]
-> Voor het gebruik van actieve geo-replicatie en automatische failover-groepen, moet u eigenaar van het abonnement zijn of beheerdersmachtigingen in SQL Server. U kunt configureren en failover met behulp van Azure portal, PowerShell of de REST-API met behulp van Azure-abonnementsmachtigingen of met behulp van Transact-SQL met SQL Server-machtigingen.
+Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit moet u weten wat de maximaal acceptabele tijd is voordat de toepassing volledig is hersteld na de verstorende gebeurtenis. De tijd die nodig is voor de toepassing volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates (tijdsinterval) de toepassing kan tolereren verliezen tijdens het herstellen van een niet-geplande storing. Het mogelijke gegevensverlies staat bekend als het beoogde herstelpunt (RPO).
+
+Verschillende herstelmethoden bieden verschillende niveaus van RPO en RTO. U kunt een specifieke methode kiezen of een combinatie van methoden voor het herstel van de volledige toepassing achicethe gebruiken. De volgende tabel vergelijkt RPO en RTO van elke optie voor siteherstel.
+
+| Herstelmethode | RTO | RPO |
+| --- | --- | --- | 
+| Geo-herstellen vanaf back-ups via geo-replicatie | 12 uur | 1 uur |
+| Automatische failover-groepen | 1 uur | 5 s |
+| Handmatige databasefailover | 30 s | 5 s |
+
+> [!NOTE]
+> *Handmatige databasefailover* verwijst naar de failover van één database naar de geo-replicatie secundaire met behulp van de [modus voor niet-geplande](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
+Zie de tabel eerder in dit artikel voor meer informatie van de automatische failover RTO en RPO.
+
 
 Automatische failover-groepen gebruiken als uw toepassing voldoet aan een van deze criteria:
 
@@ -103,8 +89,10 @@ Automatische failover-groepen gebruiken als uw toepassing voldoet aan een van de
 - Heeft een hoge frequentie van de gegevens wijzigen en 1 uur aan gegevensverlies wordt niet geaccepteerd.
 - De extra kosten van actieve geo-replicatie zijn lager dan de mogelijke financiële verplichting en het bijbehorende bedrijfsverlies.
 
-Wanneer u actie onderneemt, hoe lang duurt het om te herstellen en hoeveel verlies van gegevens in rekening worden gebracht afhankelijk van hoe u bepaalt het gebruik van deze functies voor bedrijfscontinuïteit in uw toepassing. U wilt immers een combinatie van databaseback-ups en actieve geo-replicatie, al naar gelang de vereisten van uw toepassing gebruiken. Zie voor een bespreking van ontwerpoverwegingen voor toepassingen voor zelfstandige databases en elastische pools met behulp van deze functies voor bedrijfscontinuïteit, [een toepassing ontwerpen voor noodherstel voor cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) en [elastische strategieën voor noodherstel van toepassingen](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
+U kunt een combinatie van databaseback-ups en actieve geo-replicatie, al naar gelang de vereisten van uw toepassing gebruiken. Zie voor een bespreking van overwegingen bij het ontwerp voor zelfstandige databases en elastische pools met behulp van deze functies voor bedrijfscontinuïteit, [een toepassing ontwerpen voor noodherstel voor cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) en [noodherstel voor elastische pool strategieën voor herstel](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 De volgende secties bevatten een overzicht van de stappen voor het herstellen met behulp van de databaseback-ups of actieve geo-replicatie. Zie voor gedetailleerde stappen, waaronder planningsvereisten vereisten, stappen na herstel en informatie over het simuleren van een storing om uit te voeren een Dr-herstelanalyse [een SQL-Database herstellen na een storing](sql-database-disaster-recovery.md).
 

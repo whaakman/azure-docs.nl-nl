@@ -6,17 +6,23 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/30/2019
+ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399919"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537787"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualiseer gegevens uit Azure Data Explorer in Grafana
 
 Grafana is een platform voor streaminganalyse waarmee u query's uitvoeren en gegevens visualiseren, klikt u vervolgens maken en delen van dashboards op basis van uw visualisaties. Grafana geeft een Azure Data Explorer *invoegtoepassing*, waarmee u kunt verbinding maken met en Visualiseer gegevens uit Azure Data Explorer. In dit artikel leert u hoe u Azure Data Explorer instellen als een gegevensbron voor Grafana en visualiseren van gegevens uit een voorbeeld-cluster.
+
+Met behulp van de volgende video, kunt u meer gebruik van Grafana-invoegtoepassing voor Azure Data Explorer, Azure Data Explorer instellen als een gegevensbron voor Grafana en visualiseren van deze gegevens. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+U kunt ook [de gegevensbron configureren](#configure-the-data-source) en [visualiseren](#visualize-data) zoals beschreven in het onderstaande artikel.
 
 ## <a name="prerequisites"></a>Vereisten
 

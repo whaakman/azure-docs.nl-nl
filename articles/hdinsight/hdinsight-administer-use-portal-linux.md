@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c745fceca5efa66b1b23661001d93ddb287fe37b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068908"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460637"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -152,7 +152,7 @@ Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer
 Er zijn veel manieren waarop u het proces kunt programmeren:
 
 * Gebruiker Azure-Gegevensfactory. Zie [maken op aanvraag op basis van Linux Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) gekoppelde services voor het maken van HDInsight op aanvraag.
-* Azure PowerShell gebruiken.  Zie [gegevens over vertraagde vluchten analyseren](hdinsight-analyze-flight-delay-data-linux.md).
+* Azure PowerShell gebruiken.  Zie [gegevens over vertraagde vluchten analyseren](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
 * Azure CLI gebruiken. Zie [beheren Azure HDInsight-clusters met behulp van Azure CLI](hdinsight-administer-use-command-line.md).
 * HDInsight .NET SDK gebruiken. Zie [indienen Apache Hadoop-taken](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

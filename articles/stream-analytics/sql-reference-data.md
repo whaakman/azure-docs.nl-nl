@@ -1,5 +1,5 @@
 ---
-title: Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak (Preview)
+title: Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak
 description: Dit artikel wordt beschreven hoe u een SQL-Database gebruikt als referentie-invoer van gegevens voor een Azure Stream Analytics-taak in de Azure-portal en Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304977"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461740"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak (Preview)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak
 
 Azure Stream Analytics biedt ondersteuning voor Azure SQL Database als een bron van de invoer voor referentiegegevens. U kunt SQL-Database gebruiken als referentiegegevens voor uw Stream Analytics-taak in de Azure-portal en Visual Studio met Stream Analytics-hulpprogramma's. In dit artikel laat zien hoe u beide methoden doet.
 

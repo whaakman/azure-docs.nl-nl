@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550206"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436262"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Een Azure Batch-pool in een virtueel netwerk maken
 
@@ -56,7 +56,7 @@ Mogelijk hebt vereisten in uw organisatie voor omleiden (geforceerd) internetver
 
 Om ervoor te zorgen dat de rekenknooppunten van de Azure Batch-pool werken in een VNet dat is geforceerde tunnels zijn ingeschakeld, moet u het volgende toevoegen [gebruiker gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md) voor dat subnet:
 
-* De Batch-service moet communiceren met een pool van rekenknooppunten voor het plannen van taken. Toevoegen zodat deze communicatie een door de gebruiker gedefinieerde route voor elk IP-adres gebruikt door de Batch-service in de regio waar uw Batch-account bestaat. Neem contact op met ondersteuning voor Azure om de lijst met IP-adressen van de Batch-service te verkrijgen.
+* De Batch-service moet communiceren met een pool van rekenknooppunten voor het plannen van taken. Toevoegen zodat deze communicatie een door de gebruiker gedefinieerde route voor elk IP-adres gebruikt door de Batch-service in de regio waar uw Batch-account bestaat. Zie voor informatie over het verkrijgen van de lijst met IP-adressen van de Batch-service, [servicetags on-premises](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * Zorg ervoor dat uitgaand verkeer naar Azure Storage (vooral URL's van het formulier `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, en `<account>.blob.core.windows.net`) niet via uw on-premises netwerk-apparaat is geblokkeerd.
 

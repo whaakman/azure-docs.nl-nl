@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 190b7f15a8ae0a5b9472188129f7116050fc831f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424637"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466839"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Lever een geïntegreerde ervaring meerdere Azure Monitor Application Insights-resources 
 In dit artikel wordt beschreven hoe u query's uitvoeren en Bekijk alle uw Application Insights toepassing logboekgegevens op één plek, zelfs wanneer ze zich in verschillende Azure-abonnementen, als vervanging voor de afschaffing van de Application Insights-Connector. Het aantal resources Application Insights-resources die u in één query opnemen kunt is beperkt tot 100.  
@@ -141,7 +141,7 @@ De volgende tabel ziet u de schemaverschillen tussen Log Analytics en Applicatio
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
-| URL | _url |
+| URL | url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Volgende stappen

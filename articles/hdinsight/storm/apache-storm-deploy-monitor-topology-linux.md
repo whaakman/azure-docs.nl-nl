@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078248"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483854"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Apache Storm-topologieën op Azure HDInsight implementeren en beheren 
 
@@ -21,11 +21,12 @@ In dit document leert de basisbeginselen van het beheren en controleren van [Apa
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een op Linux gebaseerde Storm op HDInsight-cluster**: Zie [aan de slag met Apache Storm op HDInsight](apache-storm-tutorial-get-started-linux.md) voor stapsgewijze instructies voor het maken van een cluster
+* Een Apache Storm-cluster in HDInsight. Zie [Apache Hadoop-clusters maken met behulp van de Azure-portal](../hdinsight-hadoop-create-linux-clusters-portal.md) en selecteer **Storm** voor **clustertype**.
 
-* (Optioneel) **Kennis van SSH en SCP**: Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-* (Optioneel) **Visual Studio**: Azure SDK 2.5.1 of hoger en de Data Lake Tools voor Visual Studio. Zie voor meer informatie, [aan de slag met Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Optioneel) Kennis van SSH en SCP: Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+
+* (Optioneel) Visual Studio: Azure SDK 2.5.1 of hoger en de Data Lake Tools voor Visual Studio. Zie voor meer informatie, [aan de slag met Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     Een van de volgende versies van Visual Studio:
 

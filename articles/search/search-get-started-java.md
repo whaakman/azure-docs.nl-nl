@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Search in Java - Azure Search
-description: Een gehoste cloudtoepassing voor zoeken in Azure bouwen met de programmeertaal Java.
+title: "Java-Quickstart: Maken en query's uitvoeren met behulp van Azure Search REST API's - Azure Search indexen laden"
+description: Wordt uitgelegd hoe u een index maken, gegevens laden en query's uitvoeren met Java en de Azure Search REST-API's.
 services: search
 author: jj09
 manager: jlembicz
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289803"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450106"
 ---
-# <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
+# <a name="quickstart-create-an-azure-search-index-in-java"></a>Quickstart: Een Azure Search-index maken in Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -25,7 +25,7 @@ ms.locfileid: "61289803"
 
 Informatie over het bouwen van een aangepaste Java-zoektoepassing die voor de zoekfunctie gebruikmaakt van Azure Search. In deze zelfstudie wordt de [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) gebruikt om de objecten en bewerkingen in deze oefening te bouwen.
 
-Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikken. U kunt zich hiervoor aanmelden in de [Azure-portal](https://portal.azure.com). Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor stapsgewijze instructies.
+Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikken. U kunt zich hiervoor aanmelden in [Azure Portal](https://portal.azure.com). Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor stapsgewijze instructies.
 
 De volgende software is gebruik om deze sample te maken en te testen:
 
@@ -36,7 +36,7 @@ De volgende software is gebruik om deze sample te maken en te testen:
 ## <a name="about-the-data"></a>Over de gegevens
 In deze voorbeeldtoepassing wordt gebruikgemaakt van gegevens van [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), gefilterd op de staat Rhode Island om de grootte van de gegevensset te reduceren. We gebruiken deze gegevens om een zoektoepassing te bouwen die kenmerkende gebouwen, zoals ziekenhuizen of scholen, gebouwen zoals ziekenhuizen en scholen, maar ook geologische kenmerken, zoals stromen, meren en toppen, retourneert.
 
-In deze toepassing zorgt het programma **SearchServlet.java** er met een [indexeerfunctie](https://msdn.microsoft.com/library/azure/dn798918.aspx) voor dat de index wordt gebouwd en geladen en dat de gefilterde USGS-gegevensset uit een openbare Azure SQL-database wordt opgehaald. De programmacode bevat de vooraf gedefinieerde referenties en gegevens voor verbinding met de onlinegegevensbron. Voor de toegang tot de gegevens hoeft u verder niets te configureren.
+In deze toepassing, de **SearchServlet.java** wordt gebouwd en geladen en de index met behulp van een [indexeerfunctie](https://msdn.microsoft.com/library/azure/dn798918.aspx) om voor te bereiden, het ophalen van de gefilterde USGS-gegevensset uit een Azure SQL Database. De programmacode bevat de vooraf gedefinieerde referenties en gegevens voor verbinding met de onlinegegevensbron. Voor de toegang tot de gegevens hoeft u verder niets te configureren.
 
 > [!NOTE]
 > Er is een filter op de gegevensset toegepast om onder de limiet van 10.000 documenten voor de gratis prijscategorie te blijven. Als u de standaardcategorie gebruikt, is de limiet niet van toepassing en kunt u deze code aanpassen om een grotere gegevensset te gebruiken. Zie [Limieten en beperkingen](search-limits-quotas-capacity.md) voor meer informatie over de capaciteit voor elke prijscategorie.
@@ -51,15 +51,15 @@ In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit v
 * SearchServiceClient.java: HTTP-aanvragen worden verwerkt
 * SearchServiceHelper.java: Een helperklasse die statische methoden biedt
 * Document.java: Levert het gegevensmodel
-* config.properties: Stelt de Search service-URL en api-sleutel
+* config.properties: Hiermee stelt u de Search service-URL en `api-key`
 * pom.xml: Een Maven-afhankelijkheid
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>De servicenaam en API-sleutel van uw Azure Search-service zoeken
-Voor alle REST API-aanroepen in Azure Search geldt dat u de service-URL en API-sleutel moet opgeven. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Naam van de service vinden en `api-key` van uw Azure Search-service
+Alle REST API-aanroepen in Azure Search vereisen dat u de service-URL opgeven en een `api-key`. 
 
-1. Meld u aan bij [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in de snelbalk op de **Search-service** om alle Azure Search-services weer te geven die zijn ingericht voor uw abonnement.
 3. Selecteer de service die u wilt gebruiken.
 4. Op het servicedashboard worden tegels weergegeven voor essentiële informatie. Daarnaast wordt het sleutelpictogram voor toegang tot de beheersleutels weergegeven.
@@ -84,10 +84,10 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 3. Klik op **Voltooien**.
 4. Gebruik **Projectverkenner** om de bestanden weer te geven en te bewerken. Als Projectverkenner nog niet is geopend, klikt u op **Window** (Venster) > **Show View** (Weergaven tonen) > **Projectverkenner** of gebruik de snelkoppeling om Projectverkenner te openen.
 
-## <a name="configure-the-service-url-and-api-key"></a>Configureer de service-URL en API-sleutel
-1. Dubbelklik in **Projectverkenner** op **config.properties** om de configuratie-instellingen met de servernaam en API-sleutel te bewerken.
-2. Raadpleeg de eerdere stappen in dit artikel, waarin u de service-URL en API-sleutel in de [Azure-portal](https://portal.azure.com) hebt gevonden, om de waarden te verkrijgen die u nu moet opgeven in **config.properties**.
-3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL https://servicename.search.windows.net) vervangt de "service de naam" in hetzelfde bestand.
+## <a name="configure-the-service-url-and-api-key"></a>Configureren van de service-URL en `api-key`
+1. In **Projectverkenner**, dubbelklikt u op **config.properties** bewerken van de configuratie-instellingen met de servernaam en `api-key`.
+2. Raadpleeg de stappen eerder in dit artikel, waar u de service-URL gevonden en `api-key` in de [Azure-portal](https://portal.azure.com), om op te halen van de waarden die u nu moet opgeven in **config.properties**.
+3. In **config.properties**, vervangt u 'API Key' door de `api-key` voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL https://servicename.search.windows.net) vervangt de "service de naam" in hetzelfde bestand.
    
     ![][5]
 

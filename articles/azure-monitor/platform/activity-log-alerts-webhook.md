@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c91c1badaa4b1bc055859d700857cfd4d062babd
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66477914"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491503"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor waarschuwingen voor activiteitenlogboeken van Azure
 U kunt webhook-eindpunten voor het ontvangen van waarschuwingsmeldingen voor activiteit log configureren als onderdeel van de definitie van een actiegroep. Met webhooks, kunt u deze meldingen doorsturen naar andere systemen voor na verwerking of aangepaste acties. Dit artikel leest hoe de nettolading voor de HTTP POST naar een webhook eruitziet.
@@ -33,6 +33,7 @@ De webhook kunt u eventueel autorisatie op basis van tokens gebruiken voor verif
 De JSON-nettolading die is opgenomen in de POST-bewerking afhankelijk van de nettolading van data.context.activityLog.eventSource veld.
 
 ### <a name="common"></a>Algemeen
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -59,7 +60,9 @@ De JSON-nettolading die is opgenomen in de POST-bewerking afhankelijk van de net
     }
 }
 ```
+
 ### <a name="administrative"></a>Administratief
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -84,9 +87,96 @@ De JSON-nettolading die is opgenomen in de POST-bewerking afhankelijk van de net
         "properties": {}
     }
 }
-
 ```
+
+### <a name="security"></a>Beveiliging
+
+```json
+{
+    "schemaId":"Microsoft.Insights/activityLogs",
+    "data":{"status":"Activated",
+        "context":{
+            "activityLog":{
+                "channels":"Operation",
+                "correlationId":"2518408115673929999",
+                "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
+                "eventSource":"Security",
+                "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
+                "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "level":"Informational",
+                "operationName":"Microsoft.Security/locations/alerts/activate/action",
+                "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "properties":{
+                    "attackers":"[\"IP Address: 01.02.03.04\"]",
+                    "numberOfFailedAuthenticationAttemptsToHost":"456",
+                    "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
+                    "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
+                    "actionTaken":"Detected",
+                    "resourceType":"Virtual Machine",
+                    "severity":"Medium",
+                    "compromisedEntity":"LinuxVM1",
+                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+                    "attackedResourceType":"Virtual Machine"
+                },
+                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "resourceGroupName":"contoso",
+                "resourceProviderName":"Microsoft.Security",
+                "status":"Active",
+                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+                "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
+                "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+            }
+        },
+        "properties":{}
+    }
+}
+```
+
+### <a name="recommendation"></a>Aanbeveling
+
+```json
+{
+    "schemaId":"Microsoft.Insights/activityLogs",
+    "data":{
+        "status":"Activated",
+        "context":{
+            "activityLog":{
+                "channels":"Operation",
+                "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+                "caller":"Microsoft.Advisor",
+                "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+                "description":"A new recommendation is available.",
+                "eventSource":"Recommendation",
+                "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+                "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+                "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+                "level":"Informational",
+                "operationName":"Microsoft.Advisor/recommendations/available/action",
+                "properties":{
+                    "recommendationSchemaVersion":"1.0",
+                    "recommendationCategory":"HighAvailability",
+                    "recommendationImpact":"Medium",
+                    "recommendationName":"Enable Soft Delete to protect your blob data",
+                    "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+                    "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
+                },
+                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+                "resourceGroupName":"CONTOSO",
+                "resourceProviderName":"MICROSOFT.STORAGE",
+                "status":"Active",
+                "subStatus":"",
+                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+                "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+                "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+            }
+        },
+        "properties":{}
+    }
+}
+```
+
 ### <a name="servicehealth"></a>ServiceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -128,7 +218,10 @@ De JSON-nettolading die is opgenomen in de POST-bewerking afhankelijk van de net
 }
 ```
 
+Zie voor specifieke schema-informatie over service health melding activiteitenlogboekalarmen, [health servicemeldingen](../../azure-monitor/platform/service-notifications.md). Bovendien leert hoe u [service health webhook-meldingen configureren met uw bestaande oplossingen voor probleem](../../service-health/service-health-alert-webhook-guide.md).
+
 ### <a name="resourcehealth"></a>ResourceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -165,10 +258,6 @@ De JSON-nettolading die is opgenomen in de POST-bewerking afhankelijk van de net
 }
 ```
 
-Zie voor specifieke schema-informatie over service health melding activiteitenlogboekalarmen, [health servicemeldingen](../../azure-monitor/platform/service-notifications.md). Bovendien leert hoe u [service health webhook-meldingen configureren met uw bestaande oplossingen voor probleem](../../service-health/service-health-alert-webhook-guide.md).
-
-Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboekalarmen, [overzicht van de Azure-activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md).
-
 | De naam van element | Description |
 | --- | --- |
 | status |Gebruikt voor het metrische waarschuwingen. Altijd ingesteld op 'actief' voor waarschuwingen voor activiteitenlogboeken. |
@@ -192,12 +281,14 @@ Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboek
 | eventDataId |De unieke id voor de gebeurtenis. |
 | eventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis is gegenereerd. |
 | httpRequest |De aanvraag bevat meestal de clientRequestId, clientIpAddress en HTTP-methode (bijvoorbeeld plaatsen). |
-| niveau |Een van de volgende waarden: Kritiek, fout, waarschuwing en ter informatie. |
+| level |Een van de volgende waarden: Kritiek, fout, waarschuwing en ter informatie. |
 | operationId |Meestal een GUID gedeeld tussen de gebeurtenissen die overeenkomt met één bewerking. |
 | operationName |Naam van de bewerking. |
 | properties |De eigenschappen van de gebeurtenis. |
 | status |tekenreeks. Status van de bewerking. Algemene waarden zijn gestart, wordt uitgevoerd, is voltooid, is mislukt, actieve en opgelost. |
 | subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Er kan ook andere tekenreeksen die een substatus beschrijven bevatten. Algemene substatus waarden zijn OK (HTTP-statuscode: 200), die zijn gemaakt (HTTP-statuscode: 201), geaccepteerd (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), onjuiste aanvraag (HTTP-statuscode: 400), niet gevonden (HTTP-statuscode: 404), conflict (HTTP-statuscode: 409), een interne serverfout (HTTP-statuscode: 500), Service is niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode: 504). |
+
+Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboekalarmen, [overzicht van de Azure-activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over het activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md).

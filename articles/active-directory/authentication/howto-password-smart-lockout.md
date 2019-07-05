@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358113"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483308"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slimme accountvergrendeling
 
@@ -41,7 +41,9 @@ Slimme accountvergrendelingen kan worden geïntegreerd met hybride implementatie
 Bij het gebruik van [Pass through-verificatie](../hybrid/how-to-connect-pta.md), moet u ervoor zorgen dat:
 
 * De drempelwaarde voor vergrendeling van Azure AD is **minder** dan de drempelwaarde voor vergrendeling van Active Directory-account. Stel de waarden, zodat de drempelwaarde voor vergrendeling van Active Directory-account ten minste twee of drie keer langer zijn dan de drempelwaarde voor vergrendeling van Azure AD is. 
-* De duur van de Azure AD-vergrendeling **in een paar seconden** is **langer** dan de Active Directory accountvergrendelingsteller opnieuw na duur instellen **minuten**.
+* De duur van de Azure AD-vergrendeling moet langer dan de Active Directory accountvergrendelingsteller opnieuw na duur instellen zijn ingesteld. Let erop dat de Azure AD-duur is ingesteld in seconden, terwijl de AD duur in minuten is ingesteld. 
+
+Bijvoorbeeld, als u uw Azure AD-item moet hoger zijn dan AD wilt, is klikt u vervolgens Azure AD 120 seconden (2 minuten) bij uw on-premises die AD is ingesteld op 1 minuut (60 seconden).
 
 > [!IMPORTANT]
 > Een beheerder kan op dit moment niet de gebruikersaccounts cloud ontgrendelen als ze hebben uit is vergrendeld door de functie Smart Lockout. De beheerder moet wachten tot de duur van de vergrendeling verloopt binnenkort.

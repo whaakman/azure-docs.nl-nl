@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 766b004217d6679dcba00c581ade4fe911b5f8b9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258808"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491870"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Instellen van herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell
 
@@ -600,6 +600,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 Zodra opnieuw beveiligen voltooid is, kunt u failover in omgekeerde richting (VS West op VS-Oost) en failback naar de regio van de gegevensbron kunt starten.
+
+## <a name="disable-replication"></a>Replicatie uitschakelen
+
+U kunt replicatie uitschakelen met behulp van de cmdlet Remove-ASRReplicationProtectedItem.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 Weergave de [Azure Site Recovery PowerShell-referentie](https://docs.microsoft.com/powershell/module/az.RecoveryServices) voor meer informatie over hoe u kunt andere taken uitvoert zoals herstelplannen maken en testen van failover van plannen voor herstel via PowerShell.

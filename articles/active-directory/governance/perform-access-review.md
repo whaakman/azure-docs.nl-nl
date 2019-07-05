@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113245"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471830"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Controleer toegang tot groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
@@ -40,7 +40,7 @@ De eerste stap bij het uitvoeren van een toegangsbeoordeling is om te zoeken en 
 
 1. Zoek naar een e-mailbericht van Microsoft waarmee u wordt gevraagd te toegang beoordelen. Hier volgt een voorbeeld van de e-mail om te controleren van de toegang voor een groep.
 
-    ![Controleer toegang tot e-mail](./media/perform-access-review/access-review-email.png)
+    ![Voorbeeld van de e-mailbericht van Microsoft om te controleren van toegang tot een groep](./media/perform-access-review/access-review-email.png)
 
 1. Klik op de **revisie starten** koppeling naar het openen van de toegangsbeoordeling.
 
@@ -48,7 +48,7 @@ Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoor
 
 1. Meld u aan bij de MyApps-portal op [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![MyApps-portal](./media/perform-access-review/myapps-access-panel.png)
+    ![Apps die u machtigingen hebben voor aanbieding MyApps-portal](./media/perform-access-review/myapps-access-panel.png)
 
 1. Klik in de rechterbovenhoek van de pagina op het gebruikerssymbool, waar uw naam en standaardorganisatie worden weergegeven. Als er meerdere organisaties vermeld staan, selecteert u de organisatie waarvoor een toegangsbeoordeling is aangevraagd.
 
@@ -56,7 +56,7 @@ Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoor
 
     Als de tegel niet zichtbaar is, zijn er geen toegangsbeoordelingen die voor die organisatie moeten worden uitgevoerd en hoeft er momenteel geen actie te worden ondernomen.
 
-    ![Lijst met toegangsbeoordelingen](./media/perform-access-review/access-reviews-list.png)
+    ![Lijst met revisies in behandeling zijnde voor apps en -groepen](./media/perform-access-review/access-reviews-list.png)
 
 1. Klik op de **controle beginnen** koppeling voor de toegangsbeoordeling die u wilt uitvoeren.
 
@@ -66,7 +66,7 @@ Nadat u de toegangsbeoordeling hebt geopend, ziet u de namen van gebruikers die 
 
 Als de aanvraag is uw eigen toegang controleren, ziet de pagina er anders. Zie voor meer informatie, [toegang beoordelen zelf aan groepen of toepassingen](review-your-access.md).
 
-![Toegangscontrole uitvoeren](./media/perform-access-review/perform-access-review.png)
+![De gebruikers die moeten worden gecontroleerd van de aanbieding van Open toegang controleren](./media/perform-access-review/perform-access-review.png)
 
 Er zijn twee manieren waarop u kunt goedkeuren of weigeren van toegang:
 
@@ -81,7 +81,7 @@ Er zijn twee manieren waarop u kunt goedkeuren of weigeren van toegang:
 
 1. Klik op **goedkeuren** of **weigeren**. Als u niet zeker weet, klikt u op **weet niet**. In dat geval zal leiden tot de gebruiker die het beheren van hun toegang, maar de selectie, worden weergegeven in de auditlogboeken.
 
-    ![Toegangscontrole uitvoeren](./media/perform-access-review/approve-deny.png)
+    ![Actie-venster met goedkeuren, weigeren, en niet weet opties](./media/perform-access-review/approve-deny.png)
 
 1. Voer een reden in, indien nodig de **reden** vak.
 
@@ -102,11 +102,11 @@ Als u wilt maken met toegangsbeoordelingen sneller en gemakkelijker voor u, bied
 
 1. Klik in de blauwe balk aan de onderkant van de pagina op **aanbevelingen accepteren**.
 
-    ![Aanbevelingen accepteren](./media/perform-access-review/accept-recommendations.png)
+    ![Open toegangsbeoordeling weergeven met de knop van de aanbevelingen accepteren](./media/perform-access-review/accept-recommendations.png)
 
     U ziet een overzicht van de aanbevolen acties uitvoert.
 
-    ![Samenvatting aanbevelingen accepteren](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Venster een samenvatting van de aanbevolen acties geeft](./media/perform-access-review/accept-recommendations-summary.png)
 
 1. Klik op **Ok** te accepteren van de aanbevelingen.
 

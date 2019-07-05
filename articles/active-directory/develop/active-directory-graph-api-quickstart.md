@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544671"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483182"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Procedure: De Azure AD Graph API gebruiken
 
@@ -65,7 +65,7 @@ U kunt de Azure AD Graph Explorer voor de Azure AD Graph API gebruiken om op te 
 
 De volgende schermafbeelding is de uitvoer u ziet als u gaat u naar de Azure AD Graph Explorer, meld u aan en voer zijn `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` om weer te geven van alle gebruikers in de aangemelde gebruiker in de map:
 
-![Azure AD graph api-Verkenner](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Voorbeeld van uitvoer in Azure AD Graph API-Verkenner](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Laden van de Azure AD Graph Explorer**: Voor het laden van het hulpprogramma, gaat u naar [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Klik op **aanmelding** en meld u met de referenties van uw Azure AD-account om uit te voeren van de Azure AD Graph Explorer op basis van uw tenant. Als u Azure AD Graph Explorer in uw eigen tenant uitvoert, moet u of uw beheerder om in te stemmen tijdens het aanmelden. Als u een Office 365-abonnement hebt, hebt u automatisch een Azure AD-tenant. De referenties die u zich kunt aanmelden bij Office 365 zijn, in feite Azure AD-accounts, en u kunt deze referenties gebruiken met Azure AD Graph Explorer.
 

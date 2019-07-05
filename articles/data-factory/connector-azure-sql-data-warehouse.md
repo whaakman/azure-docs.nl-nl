@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206076"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449583"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -472,7 +472,10 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
 
 Wanneer de brongegevens niet voldoet aan de criteria in de vorige sectie, gegevens kopiëren via een exemplaar tussentijdse staging Azure Blob-opslag inschakelen Azure Premium Storage kan niet. In dit geval Azure Data Factory wordt automatisch uitgevoerd transformaties op de gegevens om te voldoen aan de vereisten voor het opmaken van gegevens van PolyBase. Vervolgens deze gebruikmaakt van PolyBase om gegevens te laden in SQL Data Warehouse. Ten slotte opschonen het van uw tijdelijke gegevens uit de blob-opslag. Zie [gefaseerd kopiëren](copy-activity-performance.md#staged-copy) voor meer informatie over het kopiëren van gegevens via een gefaseerde installatie exemplaar van de Azure Blob-opslag.
 
-Deze functie wilt gebruiken, maakt u een [gekoppelde Azure Storage-service](connector-azure-blob-storage.md#linked-service-properties) die verwijst naar de Azure storage-account met de tussentijdse blob-opslag. Geef vervolgens de `enableStaging` en `stagingSettings` eigenschappen voor de Kopieeractiviteit, zoals wordt weergegeven in de volgende code:
+Deze functie wilt gebruiken, maakt u een [gekoppelde Azure Blob Storage-service](connector-azure-blob-storage.md#linked-service-properties) die verwijst naar de Azure storage-account met de tussentijdse blob-opslag. Geef vervolgens de `enableStaging` en `stagingSettings` eigenschappen voor de Kopieeractiviteit, zoals wordt weergegeven in de volgende code.
+
+>[!IMPORTANT]
+>Als de Azure-opslag staging met VNet-service-eindpunt is geconfigureerd, moet u verificatie van de beheerde identiteit - Raadpleeg [gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Informatie over de vereiste configuraties in Data Factory uit [Azure Blob - verificatie van de beheerde identiteit](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[

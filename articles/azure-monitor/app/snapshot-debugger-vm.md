@@ -12,16 +12,18 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c6ff8696775c0631a173bc44f7d8c67174ad19e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783497"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444495"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Snapshot Debugger voor .NET-apps in Azure Service Fabric-Service in de Cloud en virtuele Machines inschakelen
 
-Als uw ASP.NET- of ASP.NET core-toepassing wordt uitgevoerd in Azure App Service, kunnen ook de onderstaande instructies worden gebruikt. Als uw toepassing een aangepaste Snapshot Debugger-configuratie vereist, het raadzaam om te [Snapshot Debugger inschakelen via de Application Insights-portalpagina](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Als uw toepassing wordt uitgevoerd in Azure Service Fabric, Cloudservice, virtuele Machines of on-premises machines, moeten de volgende instructies worden gebruikt. 
+Als uw ASP.NET- of ASP.NET core-toepassing wordt uitgevoerd in Azure App Service, het raadzaam om te [Snapshot Debugger inschakelen via de Application Insights-portalpagina](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Echter, als uw toepassing een aangepaste Snapshot Debugger-configuratie of een preview-versie van .NET core vereist, klikt u vervolgens deze opdracht moet worden gevolgd ***bovendien*** naar de instructies voor het [inschakelen via de Application Insights-portalpagina](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+
+Als uw toepassing wordt uitgevoerd in Azure Service Fabric, Cloudservice, virtuele Machines of on-premises machines, moeten de volgende instructies worden gebruikt. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Momentopname verzamelen voor ASP.NET-toepassingen configureren
 
@@ -66,7 +68,7 @@ Als uw ASP.NET- of ASP.NET core-toepassing wordt uitgevoerd in Azure App Service
 4. Momentopnamen worden verzameld alleen op uitzonderingen die worden gerapporteerd aan Application Insights. In sommige gevallen (bijvoorbeeld oudere versies van het .NET-platform), moet u wellicht te [uitzondering verzamelen configureren](../../azure-monitor/app/asp-net-exceptions.md#exceptions) om te zien welke uitzonderingen met momentopnamen in de portal.
 
 
-## <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>Momentopname verzamelen voor ASP.NET Core 2.0-toepassingen configureren
+## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Momentopname verzamelen voor toepassingen met behulp van ASP.NET Core 2.0 of hoger configureren
 
 1. [Application Insights inschakelen in uw ASP.NET Core web-app](../../azure-monitor/app/asp-net-core.md), als u dit nog niet hebt gedaan.
 
@@ -76,52 +78,70 @@ Als uw ASP.NET- of ASP.NET core-toepassing wordt uitgevoerd in Azure App Service
 2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
 3. Wijzigen van uw toepassing `Startup` klasse die u wilt toevoegen en configureren van de Snapshot Collector telemetrie processor.
+    1. Als [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Pakketversie 1.3.5 of hoger wordt gebruikt, en voeg de volgende using-instructies toe aan `Startup.cs`.
 
-    Voeg de volgende using-instructies toe aan `Startup.cs`
+       ```csharp
+            using Microsoft.ApplicationInsights.SnapshotCollector;
+       ```
 
-   ```csharp
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   using Microsoft.Extensions.Options;
-   using Microsoft.ApplicationInsights.AspNetCore;
-   using Microsoft.ApplicationInsights.Extensibility;
-   ```
+       Voeg het volgende toe aan het einde van de methode ConfigureServices in de `Startup` in klasse `Startup.cs`.
 
-   Voeg de volgende `SnapshotCollectorTelemetryProcessorFactory` klasse aan `Startup` klasse.
+       ```csharp
+            services.AddSnapshotCollector((configuration) =>
+            {
+                IConfigurationSection section = Configuration.GetSection(nameof(SnapshotCollectorConfiguration));
+                if (section.Value != null)
+                {
+                    section.Bind(configuration);
+                }
+            });
 
-   ```csharp
-   class Startup
-   {
-       private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
+       ```
+    2. Als [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Pakketversie 1.3.4 of hieronder wordt gebruikt, en voeg de volgende using-instructies toe aan `Startup.cs`.
+
+       ```csharp
+       using Microsoft.ApplicationInsights.SnapshotCollector;
+       using Microsoft.Extensions.Options;
+       using Microsoft.ApplicationInsights.AspNetCore;
+       using Microsoft.ApplicationInsights.Extensibility;
+       ```
+    
+       Voeg de volgende `SnapshotCollectorTelemetryProcessorFactory` klasse aan `Startup` klasse.
+    
+       ```csharp
+       class Startup
        {
-           private readonly IServiceProvider _serviceProvider;
-
-           public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
-               _serviceProvider = serviceProvider;
-
-           public ITelemetryProcessor Create(ITelemetryProcessor next)
+           private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
            {
-               var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
-               return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+               private readonly IServiceProvider _serviceProvider;
+    
+               public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
+                   _serviceProvider = serviceProvider;
+    
+               public ITelemetryProcessor Create(ITelemetryProcessor next)
+               {
+                   var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
+                   return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+               }
+           }
+           ...
+        ```
+        Voeg de `SnapshotCollectorConfiguration` en `SnapshotCollectorTelemetryProcessorFactory` services aan de pijplijn starten:
+    
+        ```csharp
+           // This method gets called by the runtime. Use this method to add services to the container.
+           public void ConfigureServices(IServiceCollection services)
+           {
+               // Configure SnapshotCollector from application settings
+               services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
+    
+               // Add SnapshotCollector telemetry processor.
+               services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+    
+               // TODO: Add other services your application needs here.
            }
        }
-       ...
-    ```
-    Voeg de `SnapshotCollectorConfiguration` en `SnapshotCollectorTelemetryProcessorFactory` services aan de pijplijn starten:
-
-    ```csharp
-       // This method gets called by the runtime. Use this method to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           // Configure SnapshotCollector from application settings
-           services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
-
-           // Add SnapshotCollector telemetry processor.
-           services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
-
-           // TODO: Add other services your application needs here.
-       }
-   }
-   ```
+       ```
 
 4. Indien nodig, moet u de configuratie van de Snapshot Debugger aangepast door het toevoegen van een sectie SnapshotCollectorConfiguration aan appsettings.json. Alle instellingen in de configuratie van de Snapshot Debugger zijn optioneel. Hier volgt een voorbeeld van een configuratie gelijk is aan de standaard-configuratie:
 
@@ -172,5 +192,5 @@ Als uw ASP.NET- of ASP.NET core-toepassing wordt uitgevoerd in Azure App Service
 ## <a name="next-steps"></a>Volgende stappen
 
 - Genereert verkeer naar uw toepassing die een uitzondering kunt activeren. Wacht 10 tot 15 minuten voor momentopnamen worden verzonden naar de Application Insights-exemplaar.
-- Zie [momentopnamen](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) in Azure portal.
-- Zie voor hulp bij het oplossen van problemen van Profiler, [Snapshot Debugger probleemoplossing](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- Zie [momentopnamen](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in Azure portal.
+- Zie voor hulp bij het oplossen van problemen met Snapshot Debugger [Snapshot Debugger probleemoplossing](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

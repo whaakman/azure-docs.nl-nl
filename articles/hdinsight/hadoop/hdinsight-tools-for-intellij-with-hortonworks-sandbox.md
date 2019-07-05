@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5234835f5fbfd5617e6b0440ff38fa900051470a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696133"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450109"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken
 
@@ -24,7 +24,7 @@ Informatie over het gebruik van HDInsight-hulpprogramma's voor IntelliJ Apache S
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
+Voordat u dit artikel, hebt u de volgende items:
 
 - Hortonworks Data Platform (HDP) 2.4 op Hortonworks Sandbox wordt uitgevoerd op uw lokale computer. Als u HDP instelt, Zie [aan de slag in het Apache Hadoop-ecosysteem met een Hadoop-sandbox op een virtuele machine](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
@@ -142,7 +142,7 @@ Indienen van een project voor een emulator:
 2. Voltooi de volgende stappen:
 
     1. In de **Spark-cluster (alleen Linux)** vervolgkeuzelijst, selecteert u uw lokale Hortonworks Sandbox.
-    2. In de **de naam van de Main-klasse** selecteert of Voer de naam van de main-klasse. Voor deze zelfstudie is de naam **GroupByTest**.
+    2. In de **de naam van de Main-klasse** selecteert of Voer de naam van de main-klasse. Voor dit artikel is de naam **GroupByTest**.
 
 3. Selecteer **Indienen**. De logboeken van de verzending van taak worden weergegeven in het venster Spark inzending hulpprogramma.
 

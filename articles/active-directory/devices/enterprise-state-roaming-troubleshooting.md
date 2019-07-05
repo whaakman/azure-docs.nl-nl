@@ -2,29 +2,21 @@
 title: Enterprise State Roaming-instellingen in Azure Active Directory oplossen | Microsoft Docs
 description: Vindt u antwoorden op enkele vragen die IT-beheerders mogelijk over de instellingen en app-gegevens synchroniseren.
 services: active-directory
-keywords: Enterprise state roaming-instellingen, windows-cloud, veelgestelde vragen over enterprise state roaming
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110670"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481857"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming-instellingen in Azure Active Directory oplossen
 
@@ -70,12 +62,11 @@ In deze sectie bevat suggesties over het oplossen en diagnosticeren van probleme
 
 Enterprise State Roaming vereist dat het apparaat worden geregistreerd bij Azure AD. Hoewel niet specifiek zijn voor Enterprise State Roaming, volgens de onderstaande instructies kunt bevestigen dat de Windows 10-Client is geregistreerd, en doet dit door de vingerafdruk, URL voor Azure AD-instellingen, NGC, en andere informatie.
 
-1.  Open de opdrachtprompt verlaagde bevoegdheden. Om dit te doen in Windows, opent u het uitvoeren starten (Win + R) en typ "cmd" om te openen.
-2.  Zodra de opdrachtprompt geopend is, typt u "*dsregcmd.exe status*'.
-3.  Voor de verwachte uitvoer, de **AzureAdJoined** veldwaarde moet 'Ja', **WamDefaultSet** veldwaarde moet 'Ja', en de **WamDefaultGUID** veldwaarde moet een GUID met '(AzureAd)' aan het einde.
+1. Open de opdrachtprompt verlaagde bevoegdheden. Om dit te doen in Windows, opent u het uitvoeren starten (Win + R) en typ "cmd" om te openen.
+1. Zodra de opdrachtprompt geopend is, typt u "*dsregcmd.exe status*'.
+1. Voor de verwachte uitvoer, de **AzureAdJoined** veldwaarde moet 'Ja', **WamDefaultSet** veldwaarde moet 'Ja', en de **WamDefaultGUID** veldwaarde moet een GUID met '(AzureAd)' aan het einde.
 
 **Potentiële problemen**: **WamDefaultSet** en **AzureAdJoined** zowel "Nee" hebben in de veldwaarde, het apparaat is domein en geregistreerd bij Azure AD en het apparaat wordt niet gesynchroniseerd. Als het dit wordt weergegeven, wordt het apparaat moet mogelijk na afloop van beleid moet worden toegepast of de verificatie voor het apparaat is mislukt bij het verbinden met Azure AD. De gebruiker mogelijk Wacht een paar uur voor het beleid moet worden toegepast. Andere stappen voor probleemoplossing, omvat mogelijk automatische registratie door afmelden en weer opnieuw of start de taak in Task Scheduler. In sommige gevallen wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
-
 
 **Potentiële problemen**: Het veld voor **SettingsUrl** leeg is en het apparaat wordt niet gesynchroniseerd. De gebruiker kan hebben laatst vastgelegd in op het apparaat voordat Enterprise State Roaming is ingeschakeld in de Azure Active Directory-Portal. Het apparaat opnieuw starten en de gebruikersaanmelding hebben. (Optioneel) in de portal, probeer het met de IT-beheerder gaat u naar **Azure Active Directory** > **apparaten** > **Enterprise State Roaming** uitschakelen en weer inschakelen **gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten**. Eenmaal opnieuw ingeschakeld, start het apparaat opnieuw en de gebruikersaanmelding hebben. Als het probleem hiermee niet is opgelost **SettingsUrl** mag niet leeg zijn in het geval van een certificaat voor beschadigde apparaten. In dit geval wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
 

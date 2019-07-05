@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9903bb82a82291febf571829fb9874ba66d2eab2
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602305"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476365"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Een toegangscontrole van Azure-resource-rollen in PIM voltooien
 Beheerders met bevoegdheid kunnen bekijken bevoegde toegang na een [toegangsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) verzendt automatisch een e-mailbericht dat gebruikers om te controleren van hun toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze de instructies van verzenden [hoe u een toegangscontrole uitvoeren](pim-resource-roles-perform-access-review.md).
@@ -33,13 +33,14 @@ Nadat de periode van de toegangsbeoordeling is voltooid, of na alle gebruikers h
 2. Selecteer uw resource.
 
 3. Selecteer de **Toegangsbeoordelingen** gedeelte van het dashboard.
-![Toegangsbeoordelingen](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
+
+    ![Azure-resources - toegangsbeoordelingen lijst tonen rol, eigenaar, begindatum, einddatum en -status](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
 
 4. Selecteer de toegangsbeoordeling die u wilt beheren.
 
 Op de blade details van de toegangsbeoordeling en zijn er een aantal opties voor het beheren van deze evaluatie. De opties zijn als volgt:
 
-![Opties voor het beheren van een beoordeling](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
+![Opties voor het beheren van een evaluatie - stoppen, opnieuw instellen, toepassen, verwijderen](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Stoppen
 Alle beoordelingen voor toegang tot een einddatum hebben, maar u kunt de **stoppen** knop vroeg voltooid. Alle gebruikers die nog niet klaar met de beoordeling op dit moment niet mogelijk om deze te voltooien nadat u de beoordeling stoppen. U kunt een evaluatie kan niet opnieuw starten nadat deze gestopt.
@@ -54,12 +55,14 @@ Wanneer een toegangsbeoordeling voltooid is, gebruikt u de **toepassen** knop vo
 Als u worden niet meer geïnteresseerd in de beoordeling, het verwijderen. De **verwijderen** knop verwijdert u de controle van de PIM-toepassing.
 
 ## <a name="results"></a>Resultaten
-Op de **resultaten** tabblad, weergeven en downloaden van een lijst van de resultaten bekijken. 
-![Tabblad resultaten](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
+Op de **resultaten** pagina, weergeven en downloaden van een lijst van de resultaten bekijken. 
+
+![Pagina met resultaten met gebruikers, resultaat, om die reden worden bekeken door, toegepast door en resultaat toepassen](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Revisoren
 Bekijk en revisoren toevoegen aan uw bestaande toegangsbeoordeling. Herinner revisoren hun beoordelingen te voltooien.
-![Revisoren toevoegen](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
+
+![Revisoren pagina weergegeven met een naam en het UPN-naam](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

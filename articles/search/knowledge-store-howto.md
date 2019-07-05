@@ -1,47 +1,46 @@
 ---
-title: Aan de slag met kennis store (preview) - Azure Search
+title: Hoe om te met kennis analysemodel (preview beginnen) - Azure Search
 description: Meer informatie over de stappen voor het verzenden van verrijkt documenten die zijn gemaakt door AI indexeren in Azure Search die leiden tot een archief kennis in uw Azure storage-account. Van daaruit kunt u bekijken, vorm en verrijkt documenten in Azure Search en andere toepassingen gebruiken.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e50dfcdc5ac2fbe2435066546a340874e1b8f682
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540730"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551059"
 ---
-# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Aan de slag met kennis store in Azure Search
+# <a name="how-to-get-started-with-knowledge-mining-in-azure-search"></a>Aan de slag met kennis analysemodel in Azure Search
 
 > [!Note]
 > Kennis store is in preview en niet bedoeld voor gebruik in productieomgevingen. De [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) biedt deze functie. Er is geen .NET SDK-ondersteuning op dit moment.
 >
+[Kennis store](knowledge-store-concept-intro.md) AI verrijkt documenten die zijn gemaakt tijdens het indexeren met uw Azure storage-account voor downstream kennis gegevensanalyse in andere apps worden opgeslagen. U kunt ook opgeslagen enrichments gebruiken om te begrijpen en verfijnen van een Azure Search-pijplijn voor indexering. 
 
-[Kennis store](knowledge-store-concept-intro.md) AI enrichments gemaakt tijdens het indexeren met uw Azure storage-account voor downstream kennis gegevensanalyse in andere apps worden opgeslagen. U kunt ook opgeslagen enrichments gebruiken om te begrijpen en verfijnen van een Azure Search-pijplijn voor indexering.
-
-Een store kennis wordt gedefinieerd door een set vaardigheden. Voor reguliere's voor Azure Search-zoekopdracht in volledige tekst, is het leveren van het doel van een set vaardigheden AI enrichments zodat inhoud meer doorzoekbaar. Voor scenario's voor gegevensanalyse kennis, is de rol van een set vaardigheden het maken, vullen, en meerdere gegevensstructuren voor analyse of opslaan modelleren in andere apps en -processen.
+Een store kennis wordt gedefinieerd door een *vaardigheden* en die zijn gemaakt door een *indexeerfunctie*. De fysieke expressie van een winkel kennis is opgegeven via *projecties* om te bepalen wanneer de gegevensstructuren in de opslag. Op het moment dat u klaar bent met dit scenario, hebt u gemaakt al deze objecten en u weet hoe ze allemaal bij elkaar passen. 
 
 In deze oefening begint u met voorbeeldgegevens, services en hulpprogramma's voor meer informatie over de algemene werkstroom voor het maken en gebruiken van de store van uw eerste kennis, met nadruk op de definitie van de vaardigheden.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick Start. 
+Kennis store is in het centrum van meerdere services, met Azure Blob storage en Azure-tabelopslag fysieke opslag en Azure Search en Cognitive Services voor het maken van databaseobject en updates te geven. Vertrouwd zijn met de [basisarchitectuur](knowledge-store-concept-intro.md) is een vereiste voor dit scenario.
+
+De volgende services en hulpprogramma's worden gebruikt in deze Quick Start. 
+
++ [Postman bureaublad-app ophalen](https://www.getpostman.com/), die wordt gebruikt voor het HTTP-aanvragen verzenden naar Azure Search.
+
++ [Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van voorbeeldgegevens en de kennis opslaan. Uw store kennis aanwezig in Azure storage.
+
++ [Een Cognitive Services-resource maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) op de betalen per gebruik S0-laag voor broad-spectrum toegang tot het volledige bereik van de vaardigheden die in AI enrichments gebruikt. Cognitive Services en uw Azure Search-service moet zich in dezelfde regio bevinden.
 
 + [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken. 
 
-+ [Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van de voorbeeldgegevens. Uw store kennis aanwezig in Azure storage. 
-
-+ [Een Cognitive Services-resource maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) op de betalen per gebruik S0-laag voor broad-spectrum toegang tot het volledige bereik van de vaardigheden die in AI enrichments gebruikt. Deze resource en wordt uw Azure Search-service moet zich in dezelfde regio bevinden.
-
-+ [Postman bureaublad-app](https://www.getpostman.com/) voor het verzenden van aanvragen naar Azure Search.
-
-+ [Postman-verzameling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw) met voorbereide aanvragen voor het maken van een gegevensbron, index, vaardigheden en indexeerfunctie. Er zijn verschillende objectdefinities te lang om op te nemen in dit artikel. U moet deze verzameling om te zien van de definities van de index en vaardigheden in hun geheel ophalen.
-
-+ [Voorbeeldgegevens Caselaw](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) die afkomstig zijn van de [Caselaw toegang Project](https://case.law/bulk/download/) downloadpagina openbare grote hoeveelheden gegevens. De oefening gebruikt met name de eerste 10 documenten van het downloaden van de eerste (Arkansas). We een voorbeeld van een 10-document geüpload naar GitHub voor deze oefening.
+Voorbeeld van JSON-documenten en een Postman collection-bestand zijn ook vereist. Instructies voor het zoeken en aanvullende bestanden laden is opgegeven de [voorbeeldgegevens voorbereiden](#prepare-sample-data) sectie.
 
 ## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
@@ -51,15 +50,29 @@ REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel n
 
 1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
-    ![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+    ![Een HTTP-eindpunt en -sleutel ophalen](media/search-get-started-postman/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
-Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service.
+Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. U vindt de servicenaam en API-sleutel in elke HTTP-aanvraag in de volgende secties.
+
+<a name="prepare-sample-data"></a>
 
 ## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
 
+Een knowledge-store bevat de uitvoer van een pijplijn verrijking. Invoer bestaan uit 'onbruikbare' gegevens die uiteindelijk "toegankelijk wordt" terwijl deze wordt uitgevoerd via de pijplijn. Voorbeelden van onbruikbare gegevens mogelijk zijn afbeeldingsbestanden hebt die moeten worden geanalyseerd voor tekst- of image-kenmerken of compacte tekstbestanden die kunnen worden geanalyseerd voor entiteiten, sleuteltermen of sentiment. 
+
+In deze oefening gebruikt compacte tekstbestanden (informatie over het recht van de aanvraag) die afkomstig is van de [Caselaw toegang Project](https://case.law/bulk/download/) downloadpagina openbare grote hoeveelheden gegevens. We een voorbeeld van een 10-document geüpload naar GitHub voor deze oefening. 
+
+In deze taak maakt u een Azure Blob-container voor deze documenten te gebruiken als invoer voor de pijplijn. 
+
+1. Downloaden en uitpakken van de [voorbeeldgegevens voor Azure Search](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) opslagplaats om op te halen de [Caselaw gegevensset](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw). 
+
 1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account, klikt u op **Blobs**, en klik vervolgens op **+ Container**.
 
-1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. De container de naam "caselaw-test" gebruiken. U kunt het niveau van de openbare toegang instellen op een van de geldige waarden.
+1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten: 
+
+   1. Naam van de container `caselaw-test`. 
+   
+   1. Het niveau van de openbare toegang ingesteld op een van de geldige waarden.
 
 1. Nadat de container is gemaakt, opent u het en selecteer **uploaden** op de opdrachtbalk.
 
@@ -67,88 +80,44 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 1. Navigeer naar de map met de **caselaw sample.json** -voorbeeldbestand. Selecteer het bestand en klik vervolgens op **uploaden**.
 
+1. Wanneer u zich in Azure storage, krijgen de naam van de verbinding tekenreeks en de container.  U moet beide van deze tekenreeksen in [gegevensbron maken](#create-data-source):
+
+   1. Klik in de overzichtspagina op **toegangssleutels** en kopieer een *verbindingsreeks*. Het begint al met `DefaultEndpointsProtocol=https;` en eindigt met `EndpointSuffix=core.windows.net`. Uw accountnaam en -sleutel zijn tussen. 
+
+   1. De containernaam moet `caselaw-test` of zelfgekozen naam geven die u hebt toegewezen.
+
+
 
 ## <a name="set-up-postman"></a>Postman instellen
 
-Start Postman en de Caselaw Postman-verzameling importeren. U kunt ook instellen op een reeks HTTP-aanvragen. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Postman](search-fiddler.md).
+Postman is de client-app die u gebruikt voor het verzenden van aanvragen en JSON-documenten in Azure Search. Aantal van de aanvragen kunnen worden geformuleerd met behulp van alleen de informatie in dit artikel. Twee van de grootste aanvragen (het maken van een index, het maken van een set vaardigheden) bevatten echter uitgebreide JSON die is te groot om in te sluiten in een artikel. 
 
-+ Aanvraagmethode voor elke aanroep in dit scenario is **plaatsen** of **POST**.
-+ Aanvraagheaders (2) omvatten het volgende: "Content-type' ingesteld op 'application/json', 'api-key' ingesteld op 'admin key' (admin key is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht) respectievelijk. 
-+ De aanvraagtekst is waar u de werkelijke inhoud van de aanroep van plaatsen. 
+Als u wilt alle van de JSON-documenten en aanvragen volledig beschikbaar maken, hebben we een Postman collection-bestand gemaakt. Is uw eerste taak bij het instellen van de client downloaden en vervolgens dit bestand te importeren.
 
-  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/postmanoverview.png)
+1. Downloaden en pak deze uit de [voorbeelden van Azure Search Postman](https://github.com/Azure-Samples/azure-search-postman-samples) opslagplaats.
 
-We gebruiken Postman voor vier API-aanroepen naar uw zoekservice, het maken van een gegevensbron, een index, een set vaardigheden en een indexeerfunctie - in die volgorde. De gegevensbron bevat een verwijzing naar uw Azure storage-account en JSON-gegevens. Uw zoekservice maakt de verbinding bij het importeren van de gegevens.
+1. Start Postman en de Caselaw Postman-verzameling importeren:
 
-[Maken van een set vaardigheden](#create-skillset) wordt de focus van dit scenario: Hiermee geeft u de stappen verrijking en hoe gegevens worden opgeslagen in een winkel kennis.
+   1. Klik op **importeren** >  **-bestanden importeren** > **bestanden kiezen**. 
 
-URL-eindpunt moet opgeven, een api-versie en elke aanroep moeten retourneren een **201-gemaakt**. De preview-api-versie voor het maken van een set vaardigheden met ondersteuning voor het opslaan van kennis is `2019-05-06-Preview` (hoofdlettergevoelig).
+   1. Navigeer naar de \azure-search-postman-samples-master\azure-search-postman-samples-master\Caselaw map.
 
-De volgende API-aanroepen van de REST-client uitvoeren.
+   1. Select **Caselaw.postman_collection_v2.json**. Ziet u vier **POST** aanvragen in de verzameling.
 
-## <a name="create-a-data-source"></a>Een gegevensbron maken
-
-De [Data Source-API maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source) maakt een Azure Search-object waarmee wordt aangegeven welke gegevens moeten worden geïndexeerd.
-
-Het eindpunt van deze aanroep is `https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview` 
-
-1. Vervang `[service name]` door de naam van uw zoekservice. 
-
-2. Voor deze aanroep moet de aanvraagtekst connection string en blob-containernaam van uw opslagaccount bevatten. De verbinding kan worden gevonden in de Azure-portal in uw storage-account **toegangssleutels**. 
-
-   Zorg ervoor dat u de tekenreeks als de blob-container verbindingsnaam in de hoofdtekst van de aanvraag Vervang voordat u de aanroep uitvoert.
-
-    ```json
-    {
-        "name": "caselaw-ds",
-        "description": null,
-        "type": "azureblob",
-        "subtype": null,
-        "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
-        },
-        "container": {
-            "name": "<YOUR-BLOB-CONTAINER-NAME>",
-            "query": null
-        },
-        "dataChangeDetectionPolicy": null,
-        "dataDeletionDetectionPolicy": null
-    }
-    ```
-
-3. Verzend de aanvraag. Het antwoord moet zijn **201** en hoofdtekst van het antwoord ziet er bijna identiek aan de nettolading van de aanvraag die u hebt opgegeven.
-
-    ```json
-    {
-        "name": "caselaw-ds",
-        "description": null,
-        "type": "azureblob",
-        "subtype": null,
-        "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
-        },
-        "container": {
-            "name": "<your blob container name>",
-            "query": null
-        },
-        "dataChangeDetectionPolicy": null,
-        "dataDeletionDetectionPolicy": null
-    }
-    ```
+   ![Postman-verzameling voor Caselaw demo](media/knowledge-store-howto/postman-collection.png "Postman-verzameling voor Caselaw-demo")
+   
 
 ## <a name="create-an-index"></a>Een index maken
     
-De tweede aanroep [API ' Create Index '](https://docs.microsoft.com/rest/api/searchservice/create-data-source), een Azure Search-index te maken die alle doorzoekbare gegevens worden opgeslagen. Een index geeft alle velden, parameters en kenmerken.
+De eerste aanvraag maakt gebruik van de [API ' Create Index '](https://docs.microsoft.com/rest/api/searchservice/create-data-source), een Azure Search-index te maken die alle doorzoekbare gegevens worden opgeslagen. Een index geeft alle velden, parameters en kenmerken.
 
 U hoeft niet per se een index voor knowledge gegevensanalyse, maar een indexeerfunctie niet uitgevoerd, tenzij een index wordt geleverd. 
 
-De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?api-version=2019-05-06-Preview`
+1. In de URL `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/indexes?api-version=2019-05-06-Preview`, Vervang `YOUR-AZURE-SEARCH-SERVICE-NAME` met de naam van uw search-service. 
 
-1. Vervang `[service name]` door de naam van uw zoekservice.
+1. Vervang in de sectie Header `<YOUR AZURE SEARCH ADMIN API-KEY>` met een beheer-API-sleutel voor Azure Search.
 
-2. Kopieer de indexdefinitie van de aanvraag Create Index in de Postman-verzameling in de aanvraagtekst. De indexdefinitie van de is enkele honderden regels die te lang om hier af te drukken. 
-
-   De buitenste shell van een index bestaat uit de volgende elementen. 
+1. In de sectie instantie is het JSON-document een indexschema. Samengevouwen voor zichtbaarheid, bestaat de buitenste shell van een index uit de volgende elementen. De Veldenverzameling komt overeen met de velden in de gegevensset caselaw.
 
    ```json
    {
@@ -166,9 +135,9 @@ De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?a
    }
    ```
 
-3. De `fields` verzameling bevat het grootste deel van de indexdefinitie. Het eenvoudige velden bevat [complexe velden](search-howto-complex-data-types.md) met geneste substructuren en verzamelingen.
+1. Vouw de `fields` verzameling. Het bevat het grootste deel van de indexdefinitie bestaat uit eenvoudige velden [complexe velden](search-howto-complex-data-types.md) met geneste substructuren en verzamelingen.
 
-   Controleer de velddefinitie voor `casebody` op regels 302-384. U ziet dat een complexe veld andere complexe velden bevatten kan als hiërarchische weergaven nodig is.
+   Neem even de tijd om te controleren van de velddefinitie voor de `casebody` complexe veld op regels 302-384. U ziet dat een complexe veld andere complexe velden bevatten kan als hiërarchische weergaven nodig is. Hiërarchische structuren kunnen worden gemodelleerd in een index, zoals wordt weergegeven, ook als een projectie, hier, en in een set vaardigheden, waardoor het maken van een geneste gegevensstructuur in het archief met kennis.
 
    ```json
    {
@@ -258,59 +227,53 @@ De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?a
     . . .
    ```
 
-4. Verzend de aanvraag. 
+1. Klik op **verzenden** voor het uitvoeren van de aanvraag.  U krijgt een **Status: 201-gemaakt** bericht als antwoord.
 
-   Het antwoord moet zijn **201** en het volgende voorbeeld wordt de eerste verschillende velden weergegeven als volgt uitzien:
+<a name="create-data-source"></a>
+
+## <a name="create-a-data-source"></a>Een gegevensbron maken
+
+Maakt gebruik van de tweede aanvraag de [Data Source-API maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source) verbinding maken met Azure Blob-opslag. 
+
+1. In de URL `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/datasources?api-version=2019-05-06-Preview`, Vervang `YOUR-AZURE-SEARCH-SERVICE-NAME` met de naam van uw search-service. 
+
+1. Vervang in de sectie Header `<YOUR AZURE SEARCH ADMIN API-KEY>` met een beheer-API-sleutel voor Azure Search.
+
+1. In de sectie instantie bevat het JSON-document connection string en blob-containernaam van uw opslagaccount. De verbindingsreeks in Azure portal in uw storage-account vindt **toegangssleutels**. 
 
     ```json
     {
-        "name": "caselaw",
-        "defaultScoringProfile": null,
-        "fields": [
-            {
-                "name": "id",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": true,
-                "retrievable": true,
-                "sortable": true,
-                "facetable": true,
-                "key": true,
-                "indexAnalyzer": null,
-                "searchAnalyzer": null,
-                "analyzer": null,
-                "synonymMaps": []
-            },
-            {
-                "name": "name",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": true,
-                "retrievable": true,
-                "sortable": true,
-                "facetable": true,
-                "key": false,
-                "indexAnalyzer": null,
-                "searchAnalyzer": null,
-                "analyzer": null,
-                "synonymMaps": []
-            },
-      . . .
+        "name": "caselaw-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
+        },
+        "container": {
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
+            "query": null
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
     ```
+
+1. Klik op **verzenden** voor het uitvoeren van de aanvraag.  U krijgt een **Status: 201-gemaakt** bericht als antwoord.
+
+
 
 <a name="create-skillset"></a>
 
 ## <a name="create-a-skillset-and-knowledge-store"></a>Maak een winkel vaardigheden en kennis
 
-De [vaardigheden API maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset) maakt een Azure Search-object waarmee wordt aangegeven welke cognitieve vaardigheden om aan te roepen, hoe u vaardigheden samen en het belangrijkste is dat voor dit scenario - hoe u een archief kennis op te geven.
+Maakt gebruik van de derde aanvraag de [vaardigheden API maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset), het maken van een Azure Search-object die Hiermee geeft u op welke cognitieve vaardigheden om aan te roepen, hoe u vaardigheden samen en het belangrijkste is dat voor dit scenario - hoe u een archief kennis op te geven.
 
-Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skillsets?api-version=2019-05-06-Preview`
+1. In de URL `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/skillsets?api-version=2019-05-06-Preview`, Vervang `YOUR-AZURE-SEARCH-SERVICE-NAME` met de naam van uw search-service. 
 
-1. Vervang `[service name]` door de naam van uw zoekservice.
+1. Vervang in de sectie Header `<YOUR AZURE SEARCH ADMIN API-KEY>` met een beheer-API-sleutel voor Azure Search.
 
-2. Kopieer de definitie van de vaardigheden van de aanvraag vaardigheden maken in de Postman-verzameling in de aanvraagtekst. De definitie van de vaardigheden is enkele honderden regels die te lang om af te drukken, maar het is de focus van dit scenario.
-
-   De buitenste shell van een set vaardigheden bestaat uit de volgende elementen. De `skills` verzameling definieert de enrichments in het geheugen, maar de `knowledgeStore` definitie Hiermee geeft u op hoe de uitvoer wordt opgeslagen. De `cognitiveServices` definitie is uw connectie met de AI-verrijking-engines.
+1. In de sectie instantie is het JSON-document een definitie vaardigheden. Samengevouwen voor zichtbaarheid, bestaat de buitenste shell van een set vaardigheden uit de volgende elementen. De `skills` verzameling definieert de enrichments in het geheugen, maar de `knowledgeStore` definitie Hiermee geeft u op hoe de uitvoer wordt opgeslagen. De `cognitiveServices` definitie is uw connectie met de AI-verrijking-engines.
 
    ```json
    {
@@ -322,7 +285,11 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skil
    }
    ```
 
-3. Stel eerst `cognitiveServices` en `knowledgeStore` sleutel en de verbindingsreeks. In het voorbeeld zijn deze tekenreeksen gevonden na de definitie van de vaardigheden aan het einde van de aanvraagtekst. Gebruik een Cognitive Services-resource, ingericht op de S0-laag, zich in dezelfde regio als de Azure Search.
+1. Vouw `cognitiveServices` en `knowledgeStore` zodat u gegevens kunt opgeven. In het voorbeeld zijn deze tekenreeksen gevonden na de definitie van de vaardigheden aan het einde van de aanvraagtekst. 
+
+   Voor `cognitiveServices`, inrichten van een resource op de S0-laag, die zich in dezelfde regio als de Azure Search. U krijgt de cognitiveServices naam en sleutel van de dezelfde pagina in Azure portal. 
+   
+   Voor `knowledgeStore`, kunt u de dezelfde verbindingsreeks die wordt gebruikt voor de caselaw Blob-container.
 
     ```json
     "cognitiveServices": {
@@ -334,7 +301,7 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skil
         "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
-3. Controleer de vaardigheden verzameling, met name de vaardigheden Shaper op regels 85 en 170, respectievelijk. De kwalificatie Shaper is belangrijk omdat deze de gegevensstructuren die u wilt gebruiken voor knowledge analysestructuur ophaalprotocol. Tijdens de uitvoering van vaardigheden, deze structuren zijn alleen in het geheugen, maar als u naar de volgende stap gaat, ziet u hoe deze uitvoer naar een winkel kennis voor verder onderzoek kan worden opgeslagen.
+1. Vouw de verzameling vaardigheden in het bijzonder de vaardigheden Shaper op regels 85 en 179, respectievelijk. De kwalificatie Shaper is belangrijk omdat deze de gegevensstructuren die u wilt gebruiken voor knowledge analysestructuur ophaalprotocol. Tijdens de uitvoering van vaardigheden, deze structuren zijn alleen in het geheugen, maar als u naar de volgende stap gaat, ziet u hoe deze uitvoer naar een winkel kennis voor verder onderzoek kan worden opgeslagen.
 
    Het volgende codefragment is afkomstig van regel 217. 
 
@@ -370,7 +337,7 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skil
    . . .
    ```
 
-3. Controleer de `projections` -element in `knowledgeStore`, beginnend op regel 262. Projecties opgeven de samenstelling van de store kennis. Projecties worden in paren met tabellen-objecten, maar momenteel maar één keer opgegeven. Zoals u in de eerste projectie ziet `tables` is opgegeven maar `objects` niet. In de tweede is het tegenovergestelde.
+1. Vouw `projections` -element in `knowledgeStore`, beginnend op regel 262. Projecties opgeven de samenstelling van de store kennis. Projecties worden in paren met tabellen-objecten, maar momenteel maar één keer opgegeven. Zoals u in de eerste projectie ziet `tables` is opgegeven maar `objects` niet. In de tweede is het tegenovergestelde.
 
    Tabellen wordt gemaakt in de tabelopslag voor elke tabel die u maakt in Azure-opslag, en elk object Hiermee haalt u een container in Blob-opslag.
 
@@ -406,7 +373,7 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skil
     ]
     ```
 
-5. Verzend de aanvraag. Het antwoord moet zijn **201** en er ongeveer als volgt het volgende voorbeeld wordt het eerste deel van het antwoord weergegeven.
+1. Klik op **verzenden** voor het uitvoeren van de aanvraag. Het antwoord moet zijn **201** en er ongeveer als volgt het volgende voorbeeld wordt het eerste deel van het antwoord weergegeven.
 
     ```json
     {
@@ -439,13 +406,13 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skil
 
 ## <a name="create-and-run-an-indexer"></a>Maken en een indexeerfunctie uitvoeren
 
-De [Indexer-API maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer) gemaakt en een indexeerfunctie onmiddellijk uitgevoerd. Alle van de definities die u tot nu toe hebt gemaakt zijn in beweging bij deze stap geplaatst. De indexeerfunctie wordt onmiddellijk uitgevoerd omdat deze niet in de service bestaat. Nadat deze bestaat, wordt een POST-aanroep naar een bestaande indexeerfunctie een updatebewerking.
+De vierde aanvraag maakt gebruik van de [Indexer-API maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer), het maken van een Azure Search-indexeerfunctie. Een indexeerfunctie is de engine voor het uitvoeren van de pijplijn voor indexering. Alle van de definities die u tot nu toe hebt gemaakt zijn in beweging bij deze stap geplaatst.
 
-Het eindpunt van deze aanroep is `https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview`
+1. In de URL `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/indexers?api-version=2019-05-06-Preview`, Vervang `YOUR-AZURE-SEARCH-SERVICE-NAME` met de naam van uw search-service. 
 
-1. Vervang `[service name]` door de naam van uw zoekservice. 
+1. Vervang in de sectie Header `<YOUR AZURE SEARCH ADMIN API-KEY>` met een beheer-API-sleutel voor Azure Search.
 
-2. De aanvraagtekst voor deze aanroep Hiermee geeft u de naam van de indexeerfunctie. Een gegevensbron en index zijn vereist door de indexeerfunctie. Een set vaardigheden is optioneel voor een indexeerfunctie, maar vereist voor verrijking AI.
+1. Hiermee geeft u de naam van de indexeerfunctie in de sectie instantie op de JSON-document. Een gegevensbron en index zijn vereist door de indexeerfunctie. Een set vaardigheden is optioneel voor een indexeerfunctie, maar vereist voor verrijking AI.
 
     ```json
     {
@@ -456,47 +423,44 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/inde
         "targetIndexName": "caselaw",
         "disabled": null,
         "schedule": null,
-        "parameters": {
-            "batchSize": 1,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration": {
-                "parsingMode": "jsonLines"
-            }
-        },
+        "parameters": { },
         "fieldMappings": [],
-        "outputFieldMappings": [
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
-                "targetFieldName": "people",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/organizations/*",
-                "targetFieldName": "orginizations",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/locations/*",
-                "targetFieldName": "locations",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/Case/OpinionsSnippets/*/Entities/*",
-                "targetFieldName": "entities",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/keyPhrases/*",
-                "targetFieldName": "keyPhrases",
-                "mappingFunction": null
-            }
-        ]
-    }
+        "outputFieldMappings": [ ]
     ```
 
-3. Verzend de aanvraag. Het antwoord moet zijn **201** en hoofdtekst van het antwoord ziet er bijna identiek aan de aanvraaglading die u hebt opgegeven (bijgesneden voor beknoptheid).
+1. Vouw outputFieldMappings. In tegenstelling tot fieldMappings, die worden gebruikt voor de aangepaste toewijzing tussen de velden in een gegevensbron en velden in een index, worden de outputFieldMappings gebruikt voor het toewijzen van verrijkt velden, gemaakt en ingevuld door de pijplijn, uitvoer velden in een index of de projectie.
+
+    ```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
+            "targetFieldName": "people",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/organizations/*",
+            "targetFieldName": "orginizations",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/locations/*",
+            "targetFieldName": "locations",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/Case/OpinionsSnippets/*/Entities/*",
+            "targetFieldName": "entities",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/keyPhrases/*",
+            "targetFieldName": "keyPhrases",
+            "mappingFunction": null
+        }
+    ]
+    ```
+
+1. Klik op **verzenden** voor het uitvoeren van de aanvraag. Het antwoord moet zijn **201** en hoofdtekst van het antwoord ziet er bijna identiek aan de aanvraaglading die u hebt opgegeven (bijgesneden voor beknoptheid).
 
     ```json
     {
@@ -507,23 +471,9 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/inde
         "targetIndexName": "caselaw",
         "disabled": null,
         "schedule": null,
-        "parameters": {
-            "batchSize": 1,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration": {
-                "parsingMode": "jsonLines"
-            }
-        },
+        "parameters": { },
         "fieldMappings": [],
-        "outputFieldMappings": [
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
-                "targetFieldName": "people",
-                "mappingFunction": null
-            }
-        ]
+        "outputFieldMappings": [ ]
     }
     ```
 

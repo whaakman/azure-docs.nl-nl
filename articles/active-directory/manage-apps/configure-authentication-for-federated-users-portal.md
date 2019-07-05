@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18f7f6588cb4fb3b3b480402c3dad13be4a0ed2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781029"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440377"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory-aanmelding in gedrag voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren
 
@@ -209,7 +209,13 @@ Als u wilt het HRD-beleid wordt toegepast nadat u deze hebt gemaakt, kunt u deze
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Stap 2: Zoek de service-principal waarop het beleid toewijzen  
 U moet de **ObjectID** van de service-principals die u wilt toewijzen van het beleid. Er zijn verschillende manieren zoeken naar de **ObjectID** van service-principals.    
 
-U kunt de portal of u kunt een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). U kunt ook gaan naar de [Graph Explorer hulpprogramma](https://developer.microsoft.com/graph/graph-explorer) en aanmelden bij uw Azure AD-account om te zien van de service-principals van uw organisatie. Omdat u met behulp van PowerShell, kunt u de cmdlet get-azureadserviceprincipal namelijk niet kunt gebruiken om de service-principals en hun-id's weer te geven.
+U kunt de portal of u kunt een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). U kunt ook gaan naar de [Graph Explorer hulpprogramma](https://developer.microsoft.com/graph/graph-explorer) en aanmelden bij uw Azure AD-account om te zien van de service-principals van uw organisatie. 
+
+Omdat u met behulp van PowerShell, kunt u de volgende cmdlet om de service-principals en hun-id's weer te geven.
+
+``` powershell
+Get-AzureADServicePrincipal
+```
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Stap 3: Wijs het beleid toe aan uw service-principal  
 Nadat u hebt de **ObjectID** van de service-principal van de toepassing waarvoor u wilt configureren van automatische-versnelling, de volgende opdracht uitvoeren. Met deze opdracht wordt gekoppeld aan het HRD-beleid dat u in stap 1 hebt gemaakt met de service-principal die u in stap 2.
@@ -226,7 +232,7 @@ In het geval waarbij een toepassing al een HomeRealmDiscovery beleid is toegewez
 Om te controleren welke toepassingen hebben HRD-beleid dat is geconfigureerd, gebruikt u de **Get-AzureADPolicyAppliedObject** cmdlet. Geeft die door de **ObjectID** van het beleid dat u controleren wilt op.
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>Stap 5: U bent klaar.
 Probeer de toepassing om te controleren of het nieuwe beleid werkt.
@@ -244,7 +250,7 @@ Houd er rekening mee de **ObjectID** van het beleid dat u de lijst met toewijzin
 #### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 2: Lijst van de service-principals waarop het beleid is toegewezen  
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Voorbeeld: Een HRD-beleid voor een toepassing verwijderen
@@ -254,13 +260,13 @@ Het vorige voorbeeld gebruiken om op te halen de **ObjectID** van het beleid en 
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Stap 2: De beleidstoewijzing verwijderen uit de service-principal van toepassing  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 3: Selectievakje verwijderen door de service-principals waarop het beleid is toegewezen weer te geven 
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over de werking van verificatie in Azure AD [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).

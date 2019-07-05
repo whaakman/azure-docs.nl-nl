@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0067bd6dc2f47c5460220295d486910d9195782d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143517"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476246"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Een toegangsbeoordeling van Azure-resource-rollen in PIM maken
 
@@ -44,7 +44,7 @@ In dit artikel wordt beschreven hoe u een of meer beoordelingen voor bevoegde Az
 
 1. Klik onder beheren, op **Toegangsbeoordelingen**.
 
-    ![Azure-resources - toegangsbeoordelingen](./media/pim-resource-roles-start-access-review/access-reviews.png)
+    ![Azure-resources - lijst weergegeven met de status van alle beoordelingen van toegangsbeoordelingen](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -54,7 +54,7 @@ In dit artikel wordt beschreven hoe u een of meer beoordelingen voor bevoegde Az
 
 Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op **Start**. De toegangsbeoordeling wordt weergegeven in de lijst met een indicatie van de status ervan.
 
-![Lijst met toegangsbeoordelingen](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+![Lijst met de status van gestarte controle voor toegangsbeoordelingen](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
 Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de evaluatie wordt gestart. Als u geen Azure AD-tenant het e-mailbericht verzenden, zorg er dan voor dat laten weten de revisoren een toegangsbeoordeling wordt gewacht om uit te voeren. U ze kunt weergeven, kunt u de instructies voor het [toegang tot Azure-resource-rollen beoordelen](pim-resource-roles-perform-access-review.md).
 
@@ -62,7 +62,7 @@ Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de eva
 
 U kunt de voortgang volgen de revisoren hun beoordelingen zijn voltooid op de **overzicht** pagina van de toegangsbeoordeling. Er is geen toegangsrechten worden gewijzigd in de map totdat de [beoordeling is voltooid](pim-resource-roles-complete-access-review.md).
 
-![Toegangsbeoordelingen wordt uitgevoerd](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+![Overzichtspagina worden de details van de beoordeling van toegangsbeoordelingen](./media/pim-resource-roles-start-access-review/access-review-overview.png)
 
 Als dit een eenmalige beoordeling, klikt u vervolgens of de beheerder van de toegangsbeoordeling, stopt de periode van de toegangsbeoordeling is via de stappen in [een toegangscontrole van Azure-resourcerollen voltooien](pim-resource-roles-complete-access-review.md) om te zien en de resultaten van toepassing.  
 

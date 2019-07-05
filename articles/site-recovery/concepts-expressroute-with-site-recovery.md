@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 6/27/2019
 ms.author: mayg
-ms.openlocfilehash: bf4cce8a224db81b8db7fae6a69b8b578bb3d47a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fa26112a6026ab05bd59b38621de7ee802c715
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772306"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491898"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Met Azure ExpressRoute met Azure Site Recovery
 
@@ -25,20 +25,15 @@ Dit artikel wordt beschreven hoe u Azure ExpressRoute kunt gebruiken met Azure S
 
 Een ExpressRoute-circuit vertegenwoordigt een logische verbinding tussen uw on-premises infrastructuur en Microsoft cloud-services via een connectiviteitsprovider. U kunt meerdere ExpressRoute-circuits bestellen. Elk circuit kan in de dezelfde of verschillende regio's, en kan worden verbonden met uw locatie via verschillende connectiviteitsproviders. Meer informatie over ExpressRoute-circuits [hier](../expressroute/expressroute-circuit-peerings.md).
 
-## <a name="expressroute-routing-domains"></a>ExpressRoute-routeringsdomeinen
-
-Een ExpressRoute-circuit heeft meerdere Routeringsdomeinen gekoppeld:
--   [Persoonlijke Azure-peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) : Azure compute-services, namelijk virtuele machines (IaaS), en cloudservices (PaaS) die zijn geïmplementeerd in een virtueel netwerk kunnen worden verbonden via het domein voor persoonlijke peering. Het domein voor persoonlijke peering wordt beschouwd als een vertrouwde uitbreiding van uw Basisnetwerk in Microsoft Azure.
--   [Openbare Azure-peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) -Services zoals Azure Storage, SQL-databases en Websites zijn beschikbaar voor openbare IP-adressen. U kunt privé verbinding maken met services die worden gehost op openbare IP-adressen, met inbegrip van VIP's van uw cloudservices, via de openbare peering routeringsdomein. Openbare peering is afgeschaft voor nieuwe bewerkingen voor het maken en Microsoft-Peering in plaats daarvan moet worden gebruikt voor Azure PaaS-services.
--   [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) -connectiviteit met Microsoft online services (Office 365, Dynamics 365 en Azure PaaS-services), is via de Microsoft-peering. Microsoft-peering is de aanbevolen routeringsdomein verbinding maken met Azure PaaS-services.
-
-Meer informatie over en vergelijken van ExpressRoute-Routeringsdomeinen [hier](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
+Een ExpressRoute-circuit heeft meerdere Routeringsdomeinen die ermee verbonden zijn. Meer informatie over en vergelijken van ExpressRoute-Routeringsdomeinen [hier](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
 ## <a name="on-premises-to-azure-replication-with-expressroute"></a>On-premises naar Azure-replicatie met ExpressRoute
 
 Azure Site Recovery maakt herstel na noodgevallen en migratie naar Azure voor on-premises [Hyper-V virtuele machines](hyper-v-azure-architecture.md), [virtuele VMware-machines](vmware-azure-architecture.md), en [fysieke servers](physical-azure-architecture.md). Replicatiegegevens worden voor alle on-premises naar Azure-scenario's, verzonden naar en opgeslagen in een Azure Storage-account. Tijdens de replicatie betaalt u geen kosten voor elke virtuele machine. Wanneer u een failover naar Azure uitvoert, maakt Site Recovery automatisch virtuele machines van Azure IaaS.
 
-Site Recovery repliceert gegevens naar een Azure Storage-account via een openbaar eindpunt. U kunt gebruiken voor het gebruik van ExpressRoute voor Site Recovery-replicatie, [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (afgeschaft voor nieuw aangemaakte) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. Nadat de virtuele machines of servers een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Replicatie wordt niet ondersteund via persoonlijke peering.
+Site Recovery repliceert gegevens naar een Azure Storage-account of een replica beheerde schijf op de doel-Azure-regio via een openbaar eindpunt. U kunt gebruiken voor het gebruik van ExpressRoute voor Site Recovery-replicatieverkeer, [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) of een bestaande [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (afgeschaft voor nieuw aangemaakte). Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Houd er rekening mee dat de replicatie wordt niet ondersteund via persoonlijke peering.
+
+Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) voor de configuratieserver is voldaan. Verbinding met specifieke URL's is vereist voor de configuratieserver voor het indelen van Site Recovery-replicatie. ExpressRoute kan niet worden gebruikt voor deze connectiviteit. 
 
 Als u gebruik van proxy op on-premises en ExpressRoute gebruikt voor replicatieverkeer wilt, moet u de proxylijst configureren op de configuratieserver en de proces-Servers. Volg de onderstaande stappen:
 
@@ -48,6 +43,8 @@ Als u gebruik van proxy op on-premises en ExpressRoute gebruikt voor replicatiev
 - De bypass-lijst, voeg de URL van de Azure storage *. blob.core.windows.net
 
 Dit zorgt ervoor dat alleen replicatieverkeer via ExpressRoute stroomt terwijl de communicatie via proxy kunt gaan.
+
+Nadat de virtuele machines of servers een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
 De gecombineerde scenario wordt weergegeven in het volgende diagram: ![On-premises-to-Azure with ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 

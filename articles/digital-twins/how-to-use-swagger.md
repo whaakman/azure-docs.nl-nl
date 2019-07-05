@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116442"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502704"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Digitale dubbele Swagger referentiedocumentatie voor Azure
 
@@ -92,14 +92,12 @@ De voorbeelden zijn ook foutcodes zodat fouten opspoort of mislukt tests verbete
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0-autorisatie
 
-Zie voor meer informatie over het testen van interactief aanvragen die zijn beveiligd met OAuth 2.0, de [officiële documentatie](https://swagger.io/docs/specification/authentication/oauth2/).
-
 > [!NOTE]
-> De principal gebruiker die de digitale dubbels Azure-resource gemaakt heeft een roltoewijzing ruimte beheerder en is mogelijk te maken van aanvullende roltoewijzingen voor andere gebruikers.
+> * De principal gebruiker die de digitale dubbels Azure-resource gemaakt heeft een roltoewijzing ruimte beheerder en is mogelijk te maken van aanvullende roltoewijzingen voor andere gebruikers. Dergelijke gebruikers en hun rollen kunnen worden geautoriseerd voor het aanroepen van de API's.
 
-1. Volg de stappen in [in deze snelstartgids](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) te maken van een Azure AD-toepassing van het type ***Web-app / API***. Of u een bestaande app-registratie opnieuw kunt gebruiken.
+1. Volg de stappen in [in deze snelstartgids](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) of [uw digitale dubbels Azure-app registreren bij Azure Active Directory legacy](./how-to-use-legacy-aad.md) maken en configureren van een Azure AD-toepassing. U kunt ook kunt u een bestaande app-registratie opnieuw gebruiken.
 
-2. De volgende antwoord-url toevoegen aan de app-registratie:
+1. De volgende antwoord-url toevoegen aan de app-registratie:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
@@ -108,29 +106,23 @@ Zie voor meer informatie over het testen van interactief aanvragen die zijn beve
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | De URL van uw Management REST API-documentatie te vinden in de portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-3. Verleent machtigingen voor uw app voor toegang tot digitale dubbels van Azure. Onder **vereiste machtigingen**, voer `Azure Digital Twins` en selecteer **gedelegeerde machtigingen**. Selecteer vervolgens **machtigingen verlenen**.
-
-    ![Azure AD-app-registraties toevoegen api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
-
-4. Configureer het toepassingsmanifest voor OAuth 2.0-impliciete stroom toestaan. Selecteer **Manifest** manifest voor de toepassing voor uw app te openen. Stel *oauth2AllowImplicitFlow* naar `true`.
-
-    ![Azure AD-impliciete stroom](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
-
-5. Kopieer de ID van uw Azure AD-app.
+1. Kopieer de ID van uw Azure AD-app.
 
 Na het voltooien van de registratie van de Azure Active Directory:
 
-6. Selecteer de **autoriseren** knop op de pagina van uw swagger.
+1. Selecteer de **autoriseren** knop op de pagina van uw swagger.
 
     [![Selecteer de Swagger autoriseren knop](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-7. Plak de toepassings-ID in de **client_id** veld.
+1. Plak de toepassings-ID in de **client_id** veld.
 
     [![Swagger client_id field](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. U wordt vervolgens omgeleid naar het volgende modale succes.
+1. U wordt vervolgens omgeleid naar het volgende modale succes.
 
-    [![Swagger-omleiding modale](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+    [![Swagger-omleiding modale](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+
+Zie voor meer informatie over het testen van interactief aanvragen die zijn beveiligd met OAuth 2.0, de [officiële documentatie](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

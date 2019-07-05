@@ -3,17 +3,17 @@ title: Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT C
 description: Als de ontwikkelaar van een apparaat, hoe u een algemene Node.js-apparaat verbinden met uw Azure IoT Central-toepassing.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888911"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444214"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -68,6 +68,18 @@ De volgende gebeurtenis toevoegen aan de **metingen** pagina:
 
 > [!NOTE]
 > Het gegevenstype van de meting van de gebeurtenis is een tekenreeks.
+
+### <a name="location-measurements"></a>Locatie-metingen
+
+Toevoegen van de meting van de volgende locatie op de **metingen** pagina:
+
+| Weergavenaam | Veldnaam  |
+| ------------ | ----------- |
+| Location     | location    |
+
+De meting van de locatie van gegevens van het type uit twee bestaat floating point cijfers voor lengtegraad en breedtegraad en een optionele Drijvendekommagetal voor de hoogte.
+
+Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet overeenkomt met de namen van eigenschappen in de bijbehorende apparaatcode, kan de locatie kan niet worden weergegeven in de toepassing.
 
 ### <a name="device-properties"></a>Apparaateigenschappen
 
@@ -144,12 +156,14 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Bijwerken van de tijdelijke aanduiding `{your device connection string}` met de [apparaatverbindingsreeks](tutorial-add-device.md#generate-connection-string). In dit voorbeeld u initialiseren `targetTemperature` op nul, kunt u de huidige lezen van het apparaat of een waarde van het dubbele apparaat.
 
-1. Voor het verzenden van telemetrie, status en metingen van de gebeurtenis voor uw Azure IoT Central-toepassing, de volgende functie toevoegen aan het bestand:
+1. Voor het verzenden van telemetrie, status, gebeurtenis en metingen van de locatie voor uw Azure IoT Central-toepassing, de volgende functie toevoegen aan het bestand:
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ Als operator in uw Azure IoT Central-toepassing voor uw echte apparaat kunt u:
 * De telemetrie bekijken die op de **metingen** pagina:
 
     ![Telemetrie bekijken](media/howto-connect-nodejs/viewtelemetry.png)
+
+* De locatie weergeven op de **metingen** pagina:
+
+    ![Weergave locatie metingen](media/howto-connect-nodejs/viewlocation.png)
 
 * Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschap voor tegels bijwerken wanneer het apparaat verbinding maakt:
 

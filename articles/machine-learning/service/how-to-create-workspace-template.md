@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2c5491bab9b45df11c2fe81aa933a1a34c49a41b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205924"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477016"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Een Azure Resource Manager-sjabloon gebruiken om te maken van een werkruimte voor Azure Machine Learning-service
 
@@ -103,6 +103,19 @@ az group deployment create \
 ```
 
 Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) en [persoonlijke Resource Manager-sjabloon implementeren met SAS-token en Azure CLI](../../azure-resource-manager/resource-manager-cli-sas-token.md).
+
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault-toegangsbeleid en Azure Resource Manager-sjablonen
+
+Wanneer u een Azure Resource Manager-sjabloon te maken van de werkruimte en de bijbehorende resources (met inbegrip van Azure Key Vault), meerdere keren gebruikt. Bijvoorbeeld, met behulp van de sjabloon meerdere keren met dezelfde parameters als onderdeel van een continue integratie en implementatiepijplijn.
+
+De meeste bewerkingen van resources maken via sjablonen idempotent zijn, maar Key Vault wist het toegangsbeleid telkens wanneer die de sjabloon wordt gebruikt. Wissen van het beleid einden toegang naar de Key Vault voor een bestaande werkruimte die wordt gebruikt. Functies van Azure-notitieblokken VM stoppen/maken kunnen bijvoorbeeld mislukken.  
+
+Als u wilt voorkomen dat dit probleem, raden we aan een van de volgende methoden:
+
+*  Implementeer niet de sjabloon meerdere keren voor dezelfde parameters. Of verwijder de bestaande resources voordat u ze opnieuw maken met de sjabloon.
+  
+* Het toegangsbeleid van Key Vault onderzoekt en vervolgens deze beleidsregels gebruiken om in te stellen de eigenschap accessPolicies van de sjabloon.
+* Controleren of de Key Vault-resource al bestaat. Als dit het geval is, niet opnieuw maken door de sjabloon. Bijvoorbeeld een parameter waarmee u het maken van de Key Vault-resource uitschakelen als deze al bestaat kunt toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

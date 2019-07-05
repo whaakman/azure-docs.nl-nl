@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544861"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482146"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Machtigingen en toestemming in het eindpunt van de Microsoft identity-platform
 
@@ -89,7 +89,7 @@ Als een app aanmelden met behulp van uitvoert [OpenID Connect](active-directory-
 
 De `email` bereik kan worden gebruikt met de `openid` bereik en voor eventuele andere. Geeft de apptoegang tot de primaire e-mailadres van de gebruiker in de vorm van de `email` claim. De `email` claim is opgenomen in een token alleen als een e-mailadres is gekoppeld aan het gebruikersaccount dat is niet altijd het geval is. Als deze gebruikt de `email` bereik, uw app moet worden voorbereid voor het afhandelen van een aanvraag waarin de `email` claim bestaat niet in het token.
 
-### <a name="profile"></a>Profiel
+### <a name="profile"></a>profile
 
 De `profile` bereik kan worden gebruikt met de `openid` bereik en voor eventuele andere. Deze geeft de apptoegang tot een aanzienlijke hoeveelheid informatie over de gebruiker. Deze toegang heeft tot informatie bevat, maar is niet beperkt tot, van de gebruiker de voornaam, achternaam, gewenste gebruikersnaam en object-ID. Zie voor een volledige lijst van het profiel claims die beschikbaar zijn in de parameter id_tokens voor een specifieke gebruiker, de [ `id_tokens` verwijzing](id-tokens.md).
 
@@ -124,7 +124,7 @@ Nadat de gebruiker de referenties invoert, wordt het eindpunt van de Microsoft i
 > [!NOTE]
 > Op dit moment de `offline_access` ('gewoon toegang tot de gegevens die u toegang hebt gegeven") en `user.read` ('aanmelden en uw profiel te lezen') machtigingen automatisch zijn opgenomen in de eerste toestemming voor een toepassing.  Deze machtigingen zijn algemeen vereist zijn voor de functionaliteit van de juiste app - `offline_access` de apptoegang tot het vernieuwen van tokens, kritieke biedt voor native en web-apps, terwijl `user.read` biedt toegang tot de `sub` claim, zodat de client of de app correct identificeren van de gebruiker gedurende de tijd en toegang elementaire gebruikersgegevens.  
 
-![Toestemming voor Work-account](./media/v2-permissions-and-consent/work_account_consent.png)
+![Schermopname waarin de toestemming voor work-account](./media/v2-permissions-and-consent/work_account_consent.png)
 
 Wanneer de gebruiker de machtiging-aanvraag goedkeurt, toestemming is geregistreerd en de gebruiker beschikt niet over accepteren opnieuw op de volgende aanmeldingen voor de toepassing.
 

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118583"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436165"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Met behulp van Azure Batch met render farm managers
 
@@ -23,7 +23,7 @@ Azure biedt ingebouwde ondersteuning of invoegtoepassingen voor populaire render
 De volgende render-managers worden ondersteund:
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Gebruik van Azure met PipelineFX Qube
@@ -32,7 +32,7 @@ Scripts en instructies voor het inschakelen van Azure Batch pool van virtuele ma
 
 ## <a name="using-azure-with-royal-render"></a>Gebruik van Azure met Royal Render
 
-Royal Render heeft ingebouwde, integratie van Azure en Azure Batch zodat u kunt om uit te breiden een renderfarm met virtuele machines op basis van Azure. Zie voor een overzicht [de help-bestanden](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Royal Render heeft ingebouwde, integratie van Azure en Azure Batch zodat u kunt om uit te breiden een renderfarm met virtuele machines op basis van Azure. Zie voor een overzicht [de help-bestanden](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 Zie voor een voorbeeld van een klant Royal renderen met behulp van de integratie van Azure, de [Jellyfish Pictures klantverhaal](https://customers.microsoft.com/story/jellyfishpictures).
 

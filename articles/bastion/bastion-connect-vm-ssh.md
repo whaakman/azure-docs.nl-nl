@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 572043598c71a400e154c5c2e9e6c2f1e9b4ab49
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 69548541d16db95f633400808f72aebaf59cff08
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191796"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477785"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion-preview"></a>Verbinding maken met SSH naar een virtuele Linux-machine met behulp van Azure bastionhost (Preview)
 
@@ -42,7 +42,7 @@ Als u wilt een verbinding maakt, zijn de volgende rollen zijn vereist:
 ## <a name="username"></a>Verbinding maken: Met behulp van de gebruikersnaam en wachtwoord
 
 
-1. In de [Azure-portal](https://aka.ms/BastionHost) voor de Bastionomgeving Preview-versie, gaat u naar de virtuele machine die u wilt verbinden, en klik vervolgens op **Connect**. De virtuele machine moet een virtuele Linux-machine bij het gebruik van een SSH-verbinding.
+1.  Gebruik [deze koppeling](https://aka.ms/BastionHost) de preview-portal-pagina voor Azure bastionhost openen. Navigeer naar de virtuele machine die u verbinding maken wilt met en klik vervolgens op **Connect**. De virtuele machine moet een virtuele Linux-machine bij het gebruik van een SSH-verbinding.
 1. Nadat u op verbinden klikt, verschijnt er een zijbalk met drie tabbladen: RDP, SSH en bastionhost. Als de Bastionomgeving is ingericht voor het virtuele netwerk, is het tabblad bastionhost standaard actief. Als u nog niet hebt bastionhost voor het virtuele netwerk ingericht, Zie [configureren bastionhost](bastion-create-host-portal.md). Als u niet ziet **bastionhost** weergegeven, u hebt niet geopend de preview-portal. Open de portal via [deze koppeling](https://aka.ms/BastionHost).
 
       ![Virtuele machine verbinding maken](./media/bastion-connect-vm-ssh/bastion.png)
@@ -52,7 +52,7 @@ Als u wilt een verbinding maakt, zijn de volgende rollen zijn vereist:
 
 ## <a name="privatekey"></a>Verbinding maken: Voer handmatig een persoonlijke sleutel
 
-1. In de [Azure-portal](https://aka.ms/BastionHost) voor de Bastionomgeving Preview-versie, gaat u naar de virtuele machine die u wilt verbinden, en klik vervolgens op **Connect**. De virtuele machine moet een virtuele Linux-machine bij het gebruik van een SSH-verbinding.
+1.  Gebruik [deze koppeling](https://aka.ms/BastionHost) de preview-portal-pagina voor Azure bastionhost openen. Navigeer naar de virtuele machine die u verbinding maken wilt met en klik vervolgens op **Connect**. De virtuele machine moet een virtuele Linux-machine bij het gebruik van een SSH-verbinding.
 1. Nadat u op verbinden klikt, verschijnt er een zijbalk met drie tabbladen: RDP, SSH en bastionhost. Als de Bastionomgeving is ingericht voor het virtuele netwerk, is het tabblad bastionhost standaard actief. Als u nog niet hebt bastionhost voor het virtuele netwerk ingericht, Zie [configureren bastionhost](bastion-create-host-portal.md). Als u niet ziet **bastionhost** weergegeven, u hebt niet geopend de preview-portal. Open de portal via [deze koppeling](https://aka.ms/BastionHost).
 
       ![Virtuele machine verbinding maken](./media/bastion-connect-vm-ssh/bastion.png)
@@ -63,7 +63,7 @@ Als u wilt een verbinding maakt, zijn de volgende rollen zijn vereist:
 
 ## <a name="ssh"></a>Verbinding maken: Met behulp van een bestand met persoonlijke sleutel
 
-1. In de [Azure-portal](https://aka.ms/BastionHost) voor de Bastionomgeving Preview-versie, gaat u naar de virtuele machine die u wilt verbinden, en klik vervolgens op **Connect**. De virtuele machine moet een virtuele Linux-machine bij het gebruik van een SSH-verbinding.
+1.  Gebruik [deze koppeling](https://aka.ms/BastionHost) de preview-portal-pagina voor Azure bastionhost openen. Navigeer naar de virtuele machine die u verbinding maken wilt met en klik vervolgens op **Connect**. De virtuele machine moet een virtuele Linux-machine bij het gebruik van een SSH-verbinding.
 
     ![Virtuele machine verbinding maken](./media/bastion-connect-vm-ssh/connect.png)
 

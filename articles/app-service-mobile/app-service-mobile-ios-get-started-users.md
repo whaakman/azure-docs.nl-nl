@@ -3,7 +3,7 @@ title: Verificatie op iOS met Azure Mobile Apps toevoegen
 description: Informatie over het gebruik van Azure Mobile Apps om gebruikers van uw iOS-app via een groot aantal id-providers, met inbegrip van AAD, Google, Facebook, Twitter en Microsoft te verifiëren.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128146"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449123"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Verificatie toevoegen aan uw iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) vandaag nog.
+>
 
 In deze zelfstudie voegt u verificatie van de [Snelstartgids voor iOS] project met behulp van een ondersteunde id-provider. In deze zelfstudie is gebaseerd op de [Snelstartgids voor iOS] van de zelfstudie moet u eerst uitvoeren.
 
@@ -77,7 +81,7 @@ In Xcode, drukt u op **uitvoeren** om de app te starten. Een uitzondering is opg
     }
     ```
 
-    Wijziging *google* naar *microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u geen van Google als id-provider gebruikmaakt. Als u Facebook gebruikt, moet u [whitelist Facebook domeinen] [ 1] in uw app.
+    Wijziging *google* naar *microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u geen van Google als id-provider gebruikmaakt. Als u Facebook gebruikt, moet u [whitelist Facebook domeinen][1] in uw app.
 
     Vervang de **urlScheme** met een unieke naam voor uw toepassing.  De urlScheme moet gelijk zijn aan het URL-schema-protocol dat u hebt opgegeven in de **toegestane externe Omleidings-URL's** veld in de Azure-portal. De urlScheme wordt gebruikt door de callback voor gebruikersverificatie wilt terugkeren naar uw toepassing nadat de verificatieaanvraag voltooid is.
 
@@ -163,7 +167,7 @@ In Xcode, drukt u op **uitvoeren** om de app te starten. Een uitzondering is opg
     }
     ```
 
-    Wijziging *google* naar *microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u geen van Google als id-provider gebruikmaakt. Als u Facebook gebruikt, moet u [whitelist Facebook domeinen] [ 1] in uw app.
+    Wijziging *google* naar *microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u geen van Google als id-provider gebruikmaakt. Als u Facebook gebruikt, moet u [whitelist Facebook domeinen][1] in uw app.
 
     Vervang de **urlScheme** met een unieke naam voor uw toepassing.  De urlScheme moet gelijk zijn aan het URL-schema-protocol dat u hebt opgegeven in de **toegestane externe Omleidings-URL's** veld in de Azure-portal. De urlScheme wordt gebruikt door de callback voor gebruikersverificatie wilt terugkeren naar uw toepassing nadat de verificatieaanvraag voltooid is.
 

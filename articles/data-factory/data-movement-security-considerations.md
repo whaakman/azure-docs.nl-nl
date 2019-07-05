@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153207"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460690"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -119,7 +119,7 @@ De referenties voor uw on-premises gegevensarchieven worden altijd versleuteld e
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Poorten die worden gebruikt bij het versleutelen van gekoppelde service op een zelf-hostende integratieruntime
-PowerShell gebruikt standaard poort 8050 op de machine met de zelf-hostende integratieruntime voor veilige communicatie. Indien nodig, kan deze poort kan worden gewijzigd.  
+PowerShell gebruikt standaard poort 8060 op de machine met de zelf-hostende integratieruntime voor veilige communicatie. Indien nodig, kan deze poort kan worden gewijzigd.  
 
 ![HTTPS-poort voor de gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Ja. [Hier](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-ru
 
 **Wat zijn de Poortvereisten voor de zelf-hostende integratieruntime om te werken?**
 
-De zelf-hostende integratieruntime maakt op basis van HTTP-verbindingen voor toegang tot het internet. De uitgaande poorten 443 moeten worden geopend voor de zelf-hostende integratieruntime om deze verbinding te maken. Open de binnenkomende poort 8050 alleen op het niveau van de machine (niet het niveau van de firewall van het bedrijf) voor de toepassing Referentiebeheer. Als Azure SQL Database of Azure SQL Data Warehouse wordt gebruikt als de bron- of de doelserver, moet u ook poort 1433 openen. Zie voor meer informatie de [Firewall-configuraties en IP-adressen voor opname in de whitelist](#firewall-configurations-and-whitelisting-ip-address-of-gateway) sectie. 
+De zelf-hostende integratieruntime maakt op basis van HTTP-verbindingen voor toegang tot het internet. De uitgaande poorten 443 moeten worden geopend voor de zelf-hostende integratieruntime om deze verbinding te maken. Open de binnenkomende poort 8060 alleen op het niveau van de machine (niet het niveau van de firewall van het bedrijf) voor de toepassing Referentiebeheer. Als Azure SQL Database of Azure SQL Data Warehouse wordt gebruikt als de bron- of de doelserver, moet u ook poort 1433 openen. Zie voor meer informatie de [Firewall-configuraties en IP-adressen voor opname in de whitelist](#firewall-configurations-and-whitelisting-ip-address-of-gateway) sectie. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

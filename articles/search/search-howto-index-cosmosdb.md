@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754002"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485453"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexeren van Cosmos DB met behulp van een Azure Search-indexeerfunctie
 
@@ -133,7 +133,7 @@ U kunt in uw Cosmos DB-account of u wilt dat de verzameling moeten worden alle d
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - invoer voor de aanvraag samenvoegen
 
-U moet de servicenaam en de beheersleutel voor Azure Search (in de bericht-header) en de naam van het opslagaccount en de sleutel voor blob-opslag opgeven voor elke aanvraag. U kunt [Postman](search-fiddler.md) HTTP-aanvragen verzenden naar Azure Search.
+U moet de servicenaam en de beheersleutel voor Azure Search (in de bericht-header) en de naam van het opslagaccount en de sleutel voor blob-opslag opgeven voor elke aanvraag. U kunt [Postman](search-get-started-postman.md) HTTP-aanvragen verzenden naar Azure Search.
 
 Kopieer de volgende vier waarden in Kladblok, zodat u ze in een aanvraag kunt plakken:
 

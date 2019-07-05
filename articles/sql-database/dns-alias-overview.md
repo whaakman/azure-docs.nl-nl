@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 06/19/2019
-ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275193"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461827"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias voor Azure SQL Database
 
@@ -30,6 +30,7 @@ Veelvoorkomende toepassingen voor een DNS-alias zijn onder andere de volgende ge
 - Maak een gemakkelijk te onthouden naam voor een Azure SQL-Server.
 - Tijdens het ontwikkelen van initiële, kan uw alias verwijzen naar een test SQL Database-server. Wanneer de toepassing live gaat, kunt u de alias om te verwijzen naar de productieserver wijzigen. De overgang van test naar productie vereist wijzigingen in de configuraties niet meerdere clients die verbinding met de database-server maken.
 - Stel dat de enige database in uw toepassing wordt verplaatst naar een andere SQL-Database-server. Hier kunt u de alias wijzigen zonder dat de configuraties van verschillende clients wijzigen.
+- Tijdens een regionale storing kunt u geo-herstel gebruiken om uw database in een andere server en de regio te herstellen. U kunt uw bestaande alias om te verwijzen naar de nieuwe server, zodat de bestaande toepassing van de client opnieuw verbinding met deze maken kan wijzigen. 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>Domain Name System (DNS) van het Internet
 

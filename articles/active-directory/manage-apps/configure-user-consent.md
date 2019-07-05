@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824851"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476558"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>De manier waarop eindgebruikers toestemming voor een toepassing in Azure Active Directory geven configureren
 Informatie over het configureren van de manier waarop gebruikers toestemming voor machtigingen van de toepassing geven. Verleent toestemming van een beheerder kunt u de gebruikerservaring vereenvoudigen. Dit artikel bevat de verschillende manieren waarop die u toestemming van de gebruiker kunt configureren. De methoden van toepassing op alle gebruikers in uw tenant Azure Active Directory (Azure AD). 
@@ -38,9 +38,10 @@ Beheerderstoestemming voor een zakelijke app verlenen:
 2. Klik op **alle services** boven aan het navigatiemenu aan. De **Azure Active Directory-extensie** wordt geopend.
 3. Typ in het zoekvak filter **'Azure Active Directory'** en selecteer de **Azure Active Directory** item.
 4. Klik in het navigatiemenu op **bedrijfstoepassingen**.
-5. Klik op **verlenen Beheerderstoestemming**. U wordt gevraagd zich aanmeldt bij het beheren van de toepassing.
-6. Meld u aan met een account met machtigingen voor het verlenen van toestemming van een beheerder voor de toepassing. 
-7. Instemming met de machtigingen van de toepassing.
+5. Selecteer de app om toestemming.
+6. Selecteer **machtigingen** en klik vervolgens op **verlenen van toestemming van een beheerder**. U wordt gevraagd zich aanmeldt bij het beheren van de toepassing.
+7. Meld u aan met een account met machtigingen voor het verlenen van toestemming van een beheerder voor de toepassing. 
+8. Instemming met de machtigingen van de toepassing.
 
 Deze optie werkt alleen als de toepassing is: 
 
@@ -54,8 +55,8 @@ Beheerderstoestemming verlenen bij het registreren van een app:
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als globale beheerder.
 2. Navigeer naar de **App-registraties** blade.
 3. Selecteer de toepassing om de toestemming.
-4. Selecteer **vereiste machtigingen**.
-5. Klik op **machtigingen verlenen** aan de bovenkant van de blade.
+4. Selecteer **API-machtigingen**.
+5. Klik op **verlenen van toestemming van een beheerder**.
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>Verlenen van toestemming van een beheerder via een URL-aanvraag

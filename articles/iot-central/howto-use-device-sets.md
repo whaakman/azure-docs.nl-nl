@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e7b91e0808b9e23e653acd43b95f24a46c7d27
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052935"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503209"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing
 
 Dit artikel wordt beschreven hoe, als een operator voor het gebruik van apparaat wordt ingesteld in uw Azure IoT Central-toepassing.
 
-Een apparaat is een lijst met apparaten die samen worden gegroepeerd, omdat ze allemaal overeenkomen met bepaalde opgegeven criteria. Apparaat Hiermee stelt u helpen te beheren, visualiseren en analyseren van apparaten op schaal door het groeperen van apparaten in kleinere, logische groepen. Bijvoorbeeld, maken u een lijst met alle airconditioner apparaten in Seattle om in te schakelen van de technicus Seattle om alle apparaten waarvoor de medewerker van de verantwoordelijk is te vinden. In dit artikel wordt beschreven hoe u maken en configureren van Apparaatsets.
+Een apparaat is een lijst met apparaten die samen worden gegroepeerd, omdat ze overeenkomen met bepaalde opgegeven criteria. Apparaat Hiermee stelt u helpen te beheren, visualiseren en analyseren van apparaten op schaal door het groeperen van apparaten in kleinere, logische groepen. U kunt bijvoorbeeld een apparaat instellen om een lijst van alle apparaten airconditioner in Seattle om in te schakelen van een medewerker van de apparaten waarvoor ze verantwoordelijk zijn te vinden die te maken. In dit artikel wordt beschreven hoe u maken en configureren van Apparaatsets.
 
 ## <a name="create-a-device-set"></a>Maken van een apparaat instellen
 
@@ -42,9 +42,9 @@ Voor het maken van een apparaat instellen:
 
 1. Kies **Opslaan**.
 
-## <a name="configure-the-dashboard-for-your-device-set"></a>Het Dashboard voor het instellen van uw apparaat configureren
+## <a name="configure-the-dashboard-for-your-device-set"></a>Het dashboard voor het instellen van uw apparaat configureren
 
-Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**. De **Dashboard** is de startpagina waar kunt u afbeeldingen en koppelingen plaatsen. U kunt ook rasters die lijst van de apparaten in de apparaatset toevoegen.
+Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**. De **Dashboard** is de startpagina, waar u afbeeldingen en koppelingen plaatsen. U kunt ook rasters die lijst van de apparaten in de apparaatset toevoegen.
 
 1. Kies **Apparaatsets** in het navigatiemenu links.
 
@@ -85,19 +85,20 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
   
     1. Selecteer **Done**.
 
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Dashboard instellen locatiekaart configureren in uw apparaat
+Zie voor meer informatie over het gebruik van tegels in Azure IoT Central, [dashboardtegels gebruiken](howto-use-tiles.md).
 
-U kunt toevoegen om een locatiekaart voor het visualiseren van de locatie van uw apparaten ingesteld op een kaart.
+### <a name="configure-a-location-map-in-your-device-sets-dashboard"></a>Een locatiekaart in het dashboard van de sets apparaat configureren
 
-Als u wilt toevoegen aan een locatiekaart op uw apparaat wordt ingesteld dashboard hebt u geconfigureerde locatie-eigenschap in de sjabloon voor het apparaat, Zie [maakt u een locatie-eigenschap aangestuurd door Azure Maps](howto-set-up-template.md).
+U kunt een kaart voor het visualiseren van de locatie van de apparaten in uw apparaat instellen toevoegen.
 
-1. Selecteer de kaart uit de bibliotheek op uw Dashboard apparaat instellen.
-2. Geef een titel in en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
-3. Opslaan en u ziet de kaart tegel weergeven van de locatie van uw apparaten in het apparaat ingesteld.
-4. Nu als een operator weergaven dashboard Hiermee stelt u het apparaat, de operator alle tegels die u hebt geconfigureerd ziet, met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag!
+Als u wilt toevoegen aan dat een map op uw apparaat dashboard wordt ingesteld, moet u hebt geconfigureerd een meting van de locatie of de locatie-eigenschap in de sjabloon voor het apparaat. Zie voor meer informatie, [maken van een meting locatie](howto-set-up-template.md) of [maakt u een locatie-eigenschap](howto-set-up-template.md).
 
-> [!NOTE]
-> U kunt het formaat van de kaart naar de gewenste grootte. Selecteren van een pincode op de kaart wordt weergegeven, de gegevens van een apparaat, naam en locatie. U kunt het pop-upvenster naar de eigenschappenpagina van het apparaat selecteren.
+1. Stel op uw apparaat **Dashboard**, selecteer **kaart** uit de bibliotheek.
+2. Voeg een titel en kies de locatie meting of de eigenschap die u eerder hebt geconfigureerd.
+3. Selecteer **opslaan** en de kaarttegel ziet u de laatste bekende locaties van de apparaten in uw apparaat instellen.
+4. Wanneer een operator-dashboard voor de sets bekijkt, ziet de operator voor alle tegels die u hebt geconfigureerd, met inbegrip van de locatiekaart.
+
+U kunt het formaat van de tegel met de kaart op het dashboard. Selecteren van een pincode op de kaart wordt weergegeven, de gegevens van een apparaat, naam en locatie. Selecteer het pop-upvenster om naar de eigenschappenpagina van het apparaat te gaan.
 
 ## <a name="configure-the-list-for-your-device-set"></a>De lijst voor het instellen van uw apparaat configureren
 

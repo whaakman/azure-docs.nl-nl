@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237873"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447258"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Afstemming van prestaties van query's met Azure Cosmos DB
 
@@ -272,7 +272,7 @@ Hier volgen enkele voorbeeldquery's en over het interpreteren van de metrische g
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de ondersteunde SQL-query-operators en trefwoorden, [SQL-query](how-to-sql-query.md). 
+* Zie voor meer informatie over de ondersteunde SQL-query-operators en trefwoorden, [SQL-query](sql-query-getting-started.md). 
 * Zie voor meer informatie over aanvraageenheden, [aanvraageenheden](request-units.md).
 * Zie voor meer informatie over het indexeringsbeleid, [indexeringsbeleid](index-policy.md) 
 

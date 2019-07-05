@@ -1,34 +1,30 @@
 ---
-title: Meer informatie over de voorwaarden in de prijslijst voor een Microsoft-KLANTOVEREENKOMST - Azure | Microsoft Docs
-description: Meer informatie over het lezen en informatie over het gebruik en de factuur voor uw Azure-abonnement
-services: ''
-documentationcenter: ''
-author: jureid
+title: Meer informatie over de voorwaarden in de prijslijst voor een Microsoft-KLANTOVEREENKOMST - Azure
+description: Informatie over het lezen en meer informatie over het gebruik en de factuur voor een Microsoft-KLANTOVEREENKOMST.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371356"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490653"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Meer informatie over de voorwaarden in de prijslijst voor een Microsoft-KLANTOVEREENKOMST
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Voorwaarden in uw Microsoft-KLANTOVEREENKOMST prijslijst
 
-In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-access-to-a-microsoft-customer-agreement).
+In dit artikel is van toepassing op een Azure-facturering account voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-access-to-a-microsoft-customer-agreement).
 
 Als u een factureringsprofiel eigenaar, bijdrager, lezer of factuur Manager kunt u de prijslijst van uw organisatie kunt downloaden vanuit Azure portal. Zie [weergeven en downloaden van de prijzen voor uw organisatie](billing-ea-pricing.md).
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>Gedetailleerde voorwaarden en beschrijvingen in uw Microsoft-KLANTOVEREENKOMST prijslijst
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Voorwaarden en beschrijvingen in de prijslijst
 
 De volgende sectie bevat de belangrijke termen weergegeven in uw Microsoft-KLANTOVEREENKOMST-prijslijst.
 

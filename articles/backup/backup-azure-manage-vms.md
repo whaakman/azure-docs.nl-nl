@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219089"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434198"
 ---
 # <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
 
@@ -103,25 +103,36 @@ Voor het volgen van de voortgang van de taak op het kluisdashboard, selecteer de
 
 Er zijn twee manieren om te stoppen met het beveiligen van een virtuele machine:
 
-- Alle toekomstige back-uptaken stoppen en alle herstelpunten verwijderen. In dit geval kunt u zich niet op de virtuele machine herstellen.
-- Alle toekomstige back-uptaken stoppen en de herstelpunten behouden. Hoewel u betaalt voor het behouden van de herstelpunten in de kluis moet, moet u de virtuele machine kunt herstellen indien nodig zijn. Zie voor meer informatie, [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+* **Stop de beveiliging en back-upgegevens behouden**. Deze optie worden alle toekomstige back-uptaken voor het beveiligen van uw virtuele machine; stoppen Azure Backup-service, maar de herstelpunten die back-ups behouden.  U moet betalen voor het behouden van de herstelpunten in de kluis (Zie [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/) voor meer informatie). U zult de virtuele machine kunt herstellen indien nodig. Als u wilt doorgaan met VM-beveiliging, dan kunt u *back-up hervatten* optie.
+* **Stop de beveiliging en back-upgegevens verwijderen**. Deze optie worden alle toekomstige back-uptaken voor het beveiligen van uw virtuele machine stoppen en verwijderen van alle herstelpunten. Kunt u zich niet op de virtuele machine herstellen en niet gebruiken *back-up hervatten* optie.
 
 >[!NOTE]
 >Als u een gegevensbron verwijdert zonder back-ups wordt gestopt, worden nieuwe back-ups mislukken. Oude herstelpunten verlopen volgens het beleid, maar één laatste herstelpunt altijd worden bewaard totdat de back-ups stoppen en verwijderen van de gegevens.
 >
 
-Beveiliging voor een virtuele machine stoppen:
+### <a name="stop-protection-and-retain-backup-data"></a>Stop de beveiliging en back-upgegevens behouden
+
+Stop de beveiliging en behoud van gegevens van een virtuele machine:
 
 1. Op de [van item dashboard kluis](#view-vms-on-the-dashboard), selecteer **back-up stoppen**.
-2. Kies of u wilt behouden of verwijderen van de back-upgegevens en bevestigt u uw selectie. Voeg een opmerking toe als u wilt. Als u niet zeker weet van de naam van het item, Beweeg de muisaanwijzer over de uitroepteken om de naam van de weer te geven.
+2. Kies **back-upgegevens behouden**, en bevestigt u uw selectie. Voeg een opmerking toe als u wilt. Als u niet zeker weet van de naam van het item, Beweeg de muisaanwijzer over de uitroepteken om de naam van de weer te geven.
 
-    ![Beveiliging stoppen](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Back-upgegevens behouden](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     Een melding laat u weten dat de back-uptaken zijn gestopt.
+Een melding laat u weten dat de back-uptaken zijn gestopt.
+
+### <a name="stop-protection-and-delete-backup-data"></a>Stop de beveiliging en back-upgegevens verwijderen
+
+Beveiliging stoppen en verwijderen van gegevens van een virtuele machine:
+
+1. Op de [van item dashboard kluis](#view-vms-on-the-dashboard), selecteer **back-up stoppen**.
+2. Kies **back-upgegevens verwijderen**, en bevestigt u uw selectie. Voer de naam van het back-upitem en voeg een opmerking toe als u wilt.
+
+    ![Back-upgegevens verwijderen](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>De beveiliging van een virtuele machine hervatten
 
-Als u back-upgegevens behouden wanneer u de virtuele machine stopt, kunt u later beveiliging hervatten. Als u de back-upgegevens verwijdert, kunt u de beveiliging niet hervatten.
+Als u had gekozen [Stop de beveiliging en back-upgegevens behouden](#stop-protection-and-retain-backup-data) tijdens de beveiliging van de virtuele machine stop te zetten, kunt u de optie **back-up hervatten**. Deze optie is niet beschikbaar als u ervoor kiest [Stop de beveiliging en back-upgegevens verwijderen](#stop-protection-and-delete-backup-data) optie of [back-upgegevens verwijderen](#delete-backup-data).
 
 Beveiliging voor een virtuele machine hervatten:
 
@@ -134,23 +145,25 @@ Beveiliging voor een virtuele machine hervatten:
 
 ## <a name="delete-backup-data"></a>Back-upgegevens verwijderen
 
-U kunt verwijderen van een virtuele machine back-upgegevens tijdens de **back-up stoppen** taak of nadat de back-uptaak is voltooid. Voordat u back-upgegevens verwijderen, houd rekening met deze details:
+Er zijn twee manieren om de back-gegevens van een virtuele machine te verwijderen:
 
-- Het is mogelijk een goed idee om te wachten van dagen of weken voordat u de herstelpunten verwijderen.
-- In tegenstelling tot het proces voor het herstellen van herstelpunten, wanneer u back-upgegevens verwijdert u kan niet specifieke herstelpunten kiezen om te verwijderen. Als u uw back-upgegevens verwijdert, verwijdert u alle gekoppelde herstelpunten.
+- Het kluisdashboard item, selecteer back-up stoppen en volg de instructies voor [Stop de beveiliging en back-upgegevens verwijderen](#stop-protection-and-delete-backup-data) optie.
 
-Nadat u stoppen of uitschakelen van de back-uptaak van de virtuele machine, kunt u de back-upgegevens verwijderen:
+  ![Back-up stoppen selecteren](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- Selecteer in het item kluisdashboard back-upgegevens verwijderen. Deze optie is ingeschakeld als u had gekozen voor [Stop de beveiliging en back-upgegevens behouden](#stop-protection-and-retain-backup-data) optie tijdens de beveiliging van de virtuele machine stop te zetten
 
-1. Op de [item kluisdashboard](#view-vms-on-the-dashboard), selecteer **back-upgegevens verwijderen**.
+  ![Back-up verwijderen selecteren](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Back-up verwijderen selecteren](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - Op de [item kluisdashboard](#view-vms-on-the-dashboard), selecteer **back-upgegevens verwijderen**.
+  - Typ de naam van het back-upitem om te bevestigen dat u wilt verwijderen van de herstelpunten.
 
-1. Typ de naam van het back-upitem om te bevestigen dat u wilt verwijderen van de herstelpunten.
+    ![Back-upgegevens verwijderen](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Bevestig dat u wilt verwijderen van de herstelpunten](./media/backup-azure-manage-vms/item-verification-box.png)
+  - Selecteer wilt verwijderen van de back-upgegevens voor het item **verwijderen**. Een melding laat u weten dat de back-upgegevens zijn verwijderd.
 
-1. Selecteer wilt verwijderen van de back-upgegevens voor het item **verwijderen**. Een melding laat u weten dat de back-upgegevens zijn verwijderd.
+  > [!NOTE]
+  > Wanneer u back-upgegevens verwijdert verwijderen u alle gekoppelde herstelpunten. U kunt specifieke herstelpunten te verwijderen niet kiezen.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over het [maakt u een back-up van virtuele Azure-machines uit de instellingen van de virtuele machine](backup-azure-vms-first-look-arm.md).

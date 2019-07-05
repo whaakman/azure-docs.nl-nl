@@ -4,14 +4,14 @@ description: Beschrijft hoe u om op te geven of u wilt een volledige of incremen
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ff098bf329979d0702c41f83d8e5f8ee7cceca1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206554"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508204"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
 
@@ -22,6 +22,8 @@ Voor beide modi wordt geprobeerd de Resource Manager om alle resources die zijn 
 ## <a name="complete-mode"></a>Volledige modus
 
 In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. Resources die zijn opgegeven in de sjabloon, maar niet geïmplementeerd omdat een [voorwaarde](resource-group-authoring-templates.md#condition) wordt geëvalueerd als onwaar, worden niet verwijderd.
+
+Wees voorzichtig met volledig modus met [kopiëren lussen](resource-group-create-multiple.md). Alle resources die niet zijn opgegeven in de sjabloon na het oplossen van de lus kopiëren worden verwijderd.
 
 Er zijn enkele verschillen in hoe resourcetypen omgaan met volledige modus verwijderingen. Bovenliggende resources worden automatisch verwijderd wanneer het niet in een sjabloon die in de modus voor volledig geïmplementeerd. Sommige onderliggende resources worden niet automatisch verwijderd als deze niet in de sjabloon. Deze onderliggende resources worden echter verwijderd als de bovenliggende resource wordt verwijderd. 
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e54a69b6c2b48e50c089f8b6b7458cf91133dd85
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074053"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443307"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Gegevens kopiëren van SAP-tabel met behulp van Azure Data Factory
 
@@ -206,16 +206,16 @@ Om gegevens te kopiëren uit SAP-tabel, worden de volgende eigenschappen worden 
 
 | Eigenschap                         | Description                                                  | Vereist |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| type                             | De eigenschap type moet worden ingesteld op **SapTableSource**.       | Ja      |
+| type                             | De eigenschap type moet worden ingesteld op **SapTableSource**.         | Ja      |
 | rowCount                         | Het aantal rijen moeten worden opgehaald.                              | Nee       |
 | rfcTableFields                   | Velden om te kopiëren uit de SAP-tabel. Bijvoorbeeld `column0, column1`. | Nee       |
 | rfcTableOptions                  | Opties voor het filteren van de rijen in de SAP-tabel. Bijvoorbeeld `COLUMN0 EQ 'SOMEVALUE'`. Zie meer beschrijving onder deze tabel. | Nee       |
-| customRfcReadTableFunctionModule | Aangepaste RFC functiemodule die kan worden gebruikt om gegevens te lezen uit SAP-tabel. | Nee       |
+| customRfcReadTableFunctionModule | Aangepaste RFC functiemodule die kan worden gebruikt om gegevens te lezen uit SAP-tabel.<br>U kunt aangepaste module voor RFC-functie gebruiken om te definiëren hoe de gegevens wordt opgehaald uit uw SAP-systeem en geretourneerd aan ADF. Terwijl, houd er rekening mee dat de module voor aangepaste functies moet dezelfde interface geïmplementeerd (import, export, tabellen), die vergelijkbaar is als/SAPDS/RFC_READ_TABLE2 is standaard gebruikt door ADF. | Nee       |
 | partitionOption                  | Het mechanisme voor partitie te lezen uit SAP-tabel. De ondersteunde opties zijn onder andere: <br/>- **Geen**<br/>- **PartitionOnInt** (normale geheel getal of gehele getallen met nul opvulling aan de linkerkant, zoals 0000012345)<br/>- **PartitionOnCalendarYear** (4 cijfers in de indeling "YYYY")<br/>- **PartitionOnCalendarMonth** (6 cijfers in de indeling "JJJJMM")<br/>- **PartitionOnCalendarDate** (8 cijfers in de indeling "JJJJMMDD") | Nee       |
-| partitionColumnName              | De naam van de kolom voor het partitioneren van de gegevens. | Nee       |
+| partitionColumnName              | De naam van de kolom voor het partitioneren van de gegevens.                | Nee       |
 | partitionUpperBound              | De maximale waarde van de kolom die is opgegeven `partitionColumnName` dat wordt gebruikt voor het partitioneren van u doorgaat. | Nee       |
 | partitionLowerBound              | De minimumwaarde van de kolom die is opgegeven `partitionColumnName` dat wordt gebruikt voor het partitioneren van u doorgaat. | Nee       |
-| maxPartitionsNumber              | Het maximale aantal partities splitsen van de gegevens in. | Nee       |
+| maxPartitionsNumber              | Het maximale aantal partities splitsen van de gegevens in.     | Nee       |
 
 >[!TIP]
 >- Als uw SAP-tabel heeft een groot volume aan gegevens, zoals verschillende miljarden rijen, gebruikt u `partitionOption` en `partitionSetting` als u wilt de gegevens splitsen in kleine partities, in welk geval gegevens worden gelezen door partities en elke partitie wordt opgehaald uit uw SAP-server via één RFC-aanroep.<br/>

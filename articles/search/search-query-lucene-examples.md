@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: affe9084c488984747c4bafca5b8e9536cd6dba8
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595916"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485428"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Queryvoorbeelden met behulp van de syntaxis 'volledig' Lucene search (geavanceerde query's in Azure Search)
 
@@ -31,7 +31,7 @@ De parser Lucene biedt ondersteuning voor complexe query-constructs, zoals veldg
 
 De volgende voorbeelden gebruikmaken van een NYC-Jobs search-index die bestaat uit functies die beschikbaar zijn op basis van een gegevensset die is geleverd door de [stad New York OpenData](https://opendata.cityofnewyork.us/) initiatief. Deze gegevens moet niet worden beschouwd als huidige of voltooid. De index is een sandboxservice van Microsoft, wat betekent dat u hoeft niet een Azure-abonnement of een Azure Search om te proberen deze query's.
 
-Wat u moet is Postman of een gelijkwaardig hulpprogramma voor het uitgeven van HTTP-aanvraag voor ontvangen. Zie voor meer informatie, [verkennen met REST-clients](search-fiddler.md).
+Wat u moet is Postman of een gelijkwaardig hulpprogramma voor het uitgeven van HTTP-aanvraag voor ontvangen. Zie voor meer informatie, [verkennen met REST-clients](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>De aanvraagheader instellen
 

@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277205"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457306"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Netwerklimieten - Azure Resource Manager de volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via **Azure Resource Manager** per regio per abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -75,7 +75,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Virtuele netwerken |50 |100 |
+| Virtuele netwerken |100 |100 |
 | Lokale netwerksites |20 |Neem contact op met ondersteuning. |
 | DNS-servers per virtueel netwerk |20 |20 |
 | Privé-IP-adressen per virtueel netwerk |4,096 |4,096 |
@@ -84,8 +84,8 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | NSG-regels per NSG |1000 |1000 |
 | Gebruiker gedefinieerde routetabellen |200 |200 |
 | Gebruiker gedefinieerde routes per routetabel |400 |400 |
-| Openbare IP-adressen (dynamisch) |5 |Neem contact op met ondersteuning |
-| Gereserveerde openbare IP-adressen |20 |Neem contact op met ondersteuning |
+| Openbare IP-adressen (dynamisch) |500 |500 |
+| Gereserveerde openbare IP-adressen |500 |500 |
 | Openbare VIP per implementatie |5 |Neem contact op met ondersteuning |
 | VIP-privénetwerk (interne taakverdeling) per implementatie |1 |1 |
 | Eindpunt-toegangsbeheerlijsten (ACL's) |50 |50 |

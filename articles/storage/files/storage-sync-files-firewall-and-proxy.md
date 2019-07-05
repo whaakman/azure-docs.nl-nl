@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdbbea2d32762d2d4030ec3a10826595dadd371c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696752"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449832"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Azure File Sync verbindt uw on-premises servers naar Azure Files, synchronisatie van meerdere locaties en cloud-opslaglagen functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen van het beste pad voor de server te bereiken in Azure cloudservices.
@@ -111,20 +111,31 @@ Voor zakelijke continuïteit en noodherstel (BCDR) recovery redenen kan u hebt o
 
 | Cloud  | Regio | Primair eindpunt-URL | Gekoppelde regio | Detectie-URL |
 |--------|--------|----------------------|---------------|---------------|
-| Public |Australië - oost | https://kailani-aue.one.microsoft.com | Australië - zuidoost | https://kailani-aue.one.microsoft.com |
+| Public |Australië - oost | https://kailani-aue.one.microsoft.com | Australië - zuidoost | https://tm-kailani-aue.one.microsoft.com |
 | Public |Australië - zuidoost | https://kailani-aus.one.microsoft.com | Australië - oost | https://tm-kailani-aus.one.microsoft.com |
+| Public | Brazilië - zuid | https://brazilsouth01.afs.azure.net | US - zuid-centraal | https://tm-brazilsouth01.afs.azure.net |
 | Public | Canada - midden | https://kailani-cac.one.microsoft.com | Canada - oost | https://tm-kailani-cac.one.microsoft.com |
 | Public | Canada - oost | https://kailani-cae.one.microsoft.com | Canada - midden | https://tm-kailani.cae.one.microsoft.com |
+| Public | India - centraal | https://kailani-cin.one.microsoft.com | India - zuid | https://tm-kailani-cin.one.microsoft.com |
 | Public | US - centraal | https://kailani-cus.one.microsoft.com | US - oost 2 | https://tm-kailani-cus.one.microsoft.com |
 | Public | Azië - oost | https://kailani11.one.microsoft.com | Azië - zuidoost | https://tm-kailani11.one.microsoft.com |
-| Public | US - oost | https://kailani1.one.microsoft.com | US - west | https://tm-kailani1.one.microsoft.com |
+| Public | East US | https://kailani1.one.microsoft.com | US - west | https://tm-kailani1.one.microsoft.com |
 | Public | US - oost 2 | https://kailani-ess.one.microsoft.com | US - centraal | https://tm-kailani-ess.one.microsoft.com |
+| Public | Japan - oost | https://japaneast01.afs.azure.net | Japan - west | https://tm-japaneast01.afs.azure.net |
+| Public | Japan - west | https://japanwest01.afs.azure.net | Japan - oost | https://tm-japanwest01.afs.azure.net |
+| Public | Korea - centraal | https://koreacentral01.afs.azure.net/ | Korea - zuid | https://tm-koreacentral01.afs.azure.net/ |
+| Public | Korea - zuid | https://koreasouth01.afs.azure.net/ | Korea - centraal | https://tm-koreasouth01.afs.azure.net/ |
+| Public | US - noord-centraal | https://northcentralus01.afs.azure.net | US - zuid-centraal | https://tm-northcentralus01.afs.azure.net |
 | Public | Europa - noord | https://kailani7.one.microsoft.com | Europa -west | https://tm-kailani7.one.microsoft.com |
+| Public | US - zuid-centraal | https://southcentralus01.afs.azure.net | US - noord-centraal | https://tm-southcentralus01.afs.azure.net |
+| Public | India - zuid | https://kailani-sin.one.microsoft.com | India - centraal | https://tm-kailani-sin.one.microsoft.com |
 | Public | Azië - zuidoost | https://kailani10.one.microsoft.com | Azië - oost | https://tm-kailani10.one.microsoft.com |
 | Public | Verenigd Koninkrijk Zuid | https://kailani-uks.one.microsoft.com | Verenigd Koninkrijk West | https://tm-kailani-uks.one.microsoft.com |
 | Public | Verenigd Koninkrijk West | https://kailani-ukw.one.microsoft.com | Verenigd Koninkrijk Zuid | https://tm-kailani-ukw.one.microsoft.com |
+| Public | US - west-centraal | https://westcentralus01.afs.azure.net | US - west 2 | https://tm-westcentralus01.afs.azure.net |
 | Public | Europa -west | https://kailani6.one.microsoft.com | Europa - noord | https://tm-kailani6.one.microsoft.com |
-| Public | US - west | https://kailani.one.microsoft.com | US - oost | https://tm-kailani.one.microsoft.com |
+| Public | US - west | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+| Public | US - west 2 | https://westus201.afs.azure.net | US - west-centraal | https://tm-westus201.afs.azure.net |
 | Overheid | VS (overheid) - Arizona | https://usgovarizona01.afs.azure.us | VS (overheid) - Texas | https://tm-usgovarizona01.afs.azure.us |
 | Overheid | VS (overheid) - Texas | https://usgovtexas01.afs.azure.us | VS (overheid) - Arizona | https://tm-usgovtexas01.afs.azure.us |
 

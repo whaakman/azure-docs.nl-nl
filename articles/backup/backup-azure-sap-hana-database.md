@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237805"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481110"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Back-up van een SAP HANA-database
 
@@ -22,15 +22,13 @@ ms.locfileid: "65237805"
 > [!NOTE]
 > Deze functie is momenteel beschikbaar als openbare preview-versie. Het is momenteel niet klaar voor productie en u beschikt niet over een gegarandeerde SLA. 
 
-
 ## <a name="scenario-support"></a>Scenario-ondersteuning
 
 **Ondersteuning** | **Details**
 --- | ---
 **Ondersteunde geografische gebieden** | Australië-Zuidoost, Australië Oost <br> Brazilië - zuid <br> Canada Central, Canada East <br> Zuidoost-Azië, Oost-Azië <br> VS-Oost, VS-Oost 2, West-Centraal VS, VS-West, VS-West 2, Noord-centraal VS, VS-midden, VS Zuid-centraal<br> India-centraal, India-Zuid <br> Japan (oost), Japan (west)<br> Korea Centraal, Korea Zuid <br> Europa - noord, Europa - west <br> UK-Zuid, UK-West
 **Ondersteunde besturingssystemen voor VM** | SLES 12 SP2 of SP3.
-**Ondersteunde versies van HANA** | SSDC op HANA 1.x, MDC op HANA 2.x < = SPS03
-
+**Ondersteunde versies van HANA** | SDC op HANA 1.x, MDC op HANA 2.x < = SPS03
 
 ### <a name="current-limitations"></a>Huidige beperkingen
 
@@ -39,12 +37,9 @@ ms.locfileid: "65237805"
 - U kunt alleen back-up van databases in de modus voor Scale-Up.
 - U kunt back-up van databaselogboeken om de 15 minuten. Logboekback-ups wordt alleen beginnen met flow nadat een geslaagde volledige back-up voor de database is voltooid.
 - U kunt volledige en differentiële back-ups op te nemen. Incrementele back-up wordt momenteel niet ondersteund.
-- U kunt het back-upbeleid niet wijzigen nadat u deze voor back-ups van SAP HANA toepast. Als u back wilt-up maken met verschillende instellingen, een nieuw beleid maken of toewijzen van een ander beleid. 
-    - Als u wilt een nieuw beleid hebt gemaakt, klik in de kluis op **beleid** > **back-upbeleid** >  **+ toevoegen** > **SAP HANA in Azure-VM**, en geeft u beleidsinstellingen.
-    - Klik op de naam van het huidige beleid om te wijzen aan een ander beleid, in de eigenschappen van de virtuele machine waarop de database wordt uitgevoerd. Klik op de **back-upbeleid** pagina kunt u een ander beleid moet worden gebruikt voor de back-up selecteren.
-
-
-
+- U kunt het back-upbeleid niet wijzigen nadat u deze voor back-ups van SAP HANA toepast. Als u back wilt-up maken met verschillende instellingen, een nieuw beleid maken of toewijzen van een ander beleid.
+  - Als u wilt een nieuw beleid hebt gemaakt, klik in de kluis op **beleid** > **back-upbeleid** >  **+ toevoegen** > **SAP HANA in Azure-VM**, en geeft u beleidsinstellingen.
+  - Klik op de naam van het huidige beleid om te wijzen aan een ander beleid, in de eigenschappen van de virtuele machine waarop de database wordt uitgevoerd. Klik op de **back-upbeleid** pagina kunt u een ander beleid moet worden gebruikt voor de back-up selecteren.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -57,14 +52,16 @@ Zorg ervoor dat u het volgende doen voordat u back-ups configureren:
 
         ![Pakket-installatieoptie](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  Op de virtuele machine, installeren en inschakelen van ODBC-stuurprogramma-pakketten uit de officiële SLES pakket/media met zypper, als volgt:
+2. Op de virtuele machine, installeren en inschakelen van ODBC-stuurprogramma-pakketten uit de officiële SLES pakket/media met zypper, als volgt:
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  Een verbinding van de virtuele machine toestaan met internet, zodat het Azure, bereiken kan, zoals beschreven in de volgende procedure.
 
+3. Een verbinding toestaan van de virtuele machine met het internet, zodat het Azure, bereiken kan, zoals beschreven in de procedure [hieronder](#set-up-network-connectivity).
+
+4. Voer het script vóór registratie op de virtuele machine waarop HANA als een hoofdgebruiker is geïnstalleerd. Het script wordt geleverd [in de portal](#discover-the-databases) in de stroom en is vereist voor het instellen van de [rechts machtigingen](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Verbinding met het netwerk instellen
 
@@ -80,7 +77,7 @@ Onboarding van de openbare preview-versie als volgt te werk:
 - In de portal, registreert u uw abonnements-ID met de Recovery Services-provider door [in dit artikel te volgen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - Voor PowerShell, moet u deze cmdlet uitvoert. Het moet uitvoeren als 'Registered'.
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ Onboarding van de openbare preview-versie als volgt te werk:
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>De databases detecteren
-
 
 1. In de kluis in **aan de slag**, klikt u op **back-up**. In **waar wordt uw werkbelasting uitgevoerd?** , selecteer **SAP HANA in virtuele Azure-machine**.
 2. Klik op **detectie starten**. Hiermee initieert detectie van niet-beveiligde Linux-machines in de kluisregio.
@@ -104,7 +100,7 @@ Onboarding van de openbare preview-versie als volgt te werk:
 6. Azure Backup detecteert alle SAP HANA-databases op de virtuele machine. Azure Backup wordt de virtuele machine geregistreerd bij de kluis en een uitbreiding op de virtuele machine wordt geïnstalleerd tijdens de detectie. Geen agent is geïnstalleerd op de database.
 
     ![SAP HANA-databases detecteren](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>Back-up configureren  
 
 Nu back-up inschakelen.
@@ -116,6 +112,7 @@ Nu back-up inschakelen.
 5. De back-upconfiguratie voortgang volgen in de **meldingen** gebied van de portal.
 
 ### <a name="create-a-backup-policy"></a>Maak een back-upbeleid
+
 Een back-upbeleid definieert wanneer back-ups worden gemaakt en hoe lang ze worden bewaard.
 
 - Een beleid wordt gemaakt op kluisniveau.
@@ -189,6 +186,5 @@ Als u wilt een lokale back-up (met behulp van HANA Studio) van een database die 
 
 ## <a name="next-steps"></a>Volgende stappen
 
+[Meer informatie over](backup-azure-sap-hana-database-troubleshoot.md) over het oplossen van veelvoorkomende fouten tijdens het gebruik van back-up van SAP HANA in virtuele Azure-machines.
 [Meer informatie over](backup-azure-arm-vms-prepare.md) back-ups van virtuele Azure-machines.
-
-

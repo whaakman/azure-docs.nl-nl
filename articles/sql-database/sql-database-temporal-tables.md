@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: ac57e873a6948e85e78849bd4e22db85491c4bfb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951494"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441542"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Aan de slag met tijdelijke tabellen in Azure SQL-Database
 
@@ -195,6 +195,7 @@ Met systeemversietabellen tijdelijke tabellen verhoogt de geschiedenistabel moge
 * [Script voor aangepaste opschoning](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk voor meer informatie over tijdelijke tabellen [MSDN-documentatie](https://msdn.microsoft.com/library/dn935015.aspx).
-Ga naar Channel 9 graag een [Succesverhaal van een echte klant tijdelijke implementatie](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) en bekijk een [tijdelijke demonstratie live](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+
+- Zie voor meer informatie over tijdelijke tabellen, Bekijk [tijdelijke tabellen](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Ga naar Channel 9 graag een [Succesverhaal van een echte klant tijdelijke implementatie](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) en bekijk een [tijdelijke demonstratie live](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

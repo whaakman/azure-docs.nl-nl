@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399581"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491889"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architectuur voor herstel na noodgevallen van Azure naar Azure
 
@@ -31,7 +31,7 @@ De onderdelen die betrokken zijn bij herstel na noodgevallen voor Azure-VM's wor
 **Virtuele machines in de regio van de gegevensbron** | Een van de meer Azure-VM's in een [bronregio ondersteund](azure-to-azure-support-matrix.md#region-support).<br/><br/> Virtuele machines kunnen worden uitgevoerd op elk [ondersteund besturingssysteem](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Bron-VM-opslag** | Azure-VM's kunnen worden beheerd of niet-beheerde schijven verdeeld zijn over storage-accounts.<br/><br/>[Meer informatie over](azure-to-azure-support-matrix.md#replicated-machines---storage) Azure storage wordt ondersteund.
 **Bron-VM-netwerken** | VM's kunnen zich bevinden in een of meer subnetten in een virtueel netwerk (VNet) in de bronregio. [Meer informatie](azure-to-azure-support-matrix.md#replicated-machines---networking) over netwerkvereisten.
-**Cache-opslagaccount** | U moet een cache-opslagaccount in het Bronnetwerk. Tijdens de replicatie, worden wijzigingen van de virtuele machine in de cache opgeslagen voordat het wordt verzonden naar de doel-opslagaccount.<br/><br/> Met behulp van een cache zorgt ervoor dat de minimale gevolgen voor de productie-Apps die worden uitgevoerd op een virtuele machine.<br/><br/> [Meer informatie](azure-to-azure-support-matrix.md#cache-storage) over de vereisten voor cache-opslag. 
+**Cache-opslagaccount** | U moet een cache-opslagaccount in het Bronnetwerk. Tijdens de replicatie, worden wijzigingen van de virtuele machine in de cache opgeslagen voordat het wordt verzonden naar de doel-opslagaccount.  Cacheopslagaccounts moet standaard.<br/><br/> Met behulp van een cache zorgt ervoor dat de minimale gevolgen voor de productie-Apps die worden uitgevoerd op een virtuele machine.<br/><br/> [Meer informatie](azure-to-azure-support-matrix.md#cache-storage) over de vereisten voor cache-opslag. 
 **Doelresources** | Doelresources worden gebruikt tijdens de replicatie, en wanneer er een failover optreedt. Site Recovery standaard doelresource kunt instellen, of u kunt maken/pas ze aan.<br/><br/> Controleer in de doelregio dat kunt u virtuele machines maken en uw abonnement heeft onvoldoende resources voor ondersteuning van VM-grootten die in de doelregio worden vereist. 
 
 ![Bron- en replicatie](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)

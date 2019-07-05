@@ -4,7 +4,7 @@ description: Azure App Service on Linux Veelgestelde vragen over.
 keywords: Azure appservice, web-app, veelgestelde vragen over, linux, oss, web-app voor containers, meerdere containers, multicontainer
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594274"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448425"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -119,10 +119,7 @@ Tijdens een Git-implementatie moet Kudu Ja, detecteert dat u een PHP-toepassing 
 
 **Ik ben mijn eigen aangepaste container gebruiken. Ik wil het platform, een SMB-share koppelen voor de `/home/` directory.**
 
-U kunt dit doen door het instellen van de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-instelling op *waar*. Houd er rekening mee dat dit ervoor container opnieuw opgestart dat zorgt wanneer de opslag platform via een wijziging verloopt.
-
->[!NOTE]
->Als de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` instelling is niet opgegeven of is ingesteld op *false*, wordt de `/home/` directory wordt niet gedeeld met schalingsinstanties en bestanden die zijn geschreven er wordt niet permanent worden opgeslagen in opnieuw wordt opgestart.
+Als `WEBSITES_ENABLE_APP_SERVICE_STORAGE` instelling is **niet nader omschreven** of is ingesteld op *waar*, wordt de `/home/` directory **wordt gedeeld** tussen exemplaren van de schaal, en bestanden die worden weggeschreven **blijven behouden** via opnieuw wordt opgestart. Expliciet `WEBSITES_ENABLE_APP_SERVICE_STORAGE` naar *false* het koppelen wordt uitgeschakeld.
 
 **Mijn aangepaste container lang duurt om te starten en het platform de container opnieuw wordt opgestart voordat het is gestart.**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: c1386f4058f9490bad0161b680005db6031bace1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787300"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491529"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook-meldingen van waarschuwingen in Azure Monitor
 Dit artikel leest u hoe triggers zo instellen dat u kunt specifieke web-URL's aanroepen of verzenden van e-mailberichten op basis van de acties voor automatisch schalen in Azure.  
