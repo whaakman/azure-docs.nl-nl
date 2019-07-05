@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050577"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448362"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -68,6 +68,9 @@ De volgende stappen gebruikt npm Core Tools installeren op Windows. U kunt ook [
     ```bash
     npm install -g azure-functions-core-tools
     ```
+
+   Het duurt een paar minuten voor npm downloaden en installeren van het pakket Core Tools.
+
 1. Als u niet van plan bent te gebruiken [extensie bundels], installeert de [.NET Core 2.x SDK voor Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS met Homebrew
@@ -82,6 +85,7 @@ De volgende stappen gebruikt Homebrew de essentiële hulpprogramma installeren o
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+
 1. Als u niet van plan bent te gebruiken [extensie bundels], installeer [.NET Core SDK 2.x voor macOS](https://www.microsoft.com/net/download/macos).
 
 
@@ -115,6 +119,7 @@ De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
 1. Als u niet van plan bent te gebruiken [extensie bundels], installeren [.NET Core SDK voor Linux 2.x](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Een lokaal Functions-project maken
@@ -163,53 +168,16 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Standaard versie 2.x van de essentiële hulpprogramma maakt de functie app-projecten voor de .NET runtime als [projecten van C#-klasse](functions-dotnet-class-library.md) (.csproj). Deze C# projecten, die kunnen worden gebruikt met Visual Studio of Visual Studio Code, worden gecompileerd tijdens het testen en bij het publiceren naar Azure. Als u in plaats daarvan wilt maken en werken met de dezelfde C#-script (.csx)-bestanden gemaakt in versie 1.x en in de portal, moet u de `--csx` parameter bij het maken en implementeren van functions.
 
-## <a name="register-extensions"></a>Extensies registreren
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-In versie 2.x van de Azure Functions-runtime die u moet expliciet de binding-extensies (bindingstypen) die u in uw functie-app gebruikt te registreren.
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
-
-Zie voor meer informatie, [Azure Functions-triggers en bindingen concepten](./functions-bindings-expressions-patterns.md).
-
-## <a name="local-settings-file"></a>Lokale instellingsbestand
-
-Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core Tools. Instellingen in het bestand local.settings.json worden alleen gebruikt door de Functions-hulpprogramma's bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen deze instellingen worden toegevoegd aan de functie-app in Azure. De waarden in **ConnectionStrings** nooit worden gepubliceerd. Het bestand heeft de volgende structuur:
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
-    "AzureWebJobsStorage": "<connection-string>",
-    "AzureWebJobsDashboard": "<connection-string>",
-    "MyBindingConnection": "<binding-connection-string>"
-  },
-  "Host": {
-    "LocalHttpPort": 7071,
-    "CORS": "*",
-    "CORSCredentials": false
-  },
-  "ConnectionStrings": {
-    "SQLConnectionString": "<sqlclient-connection-string>"
-  }
-}
-```
-
-| Instelling      | Description                            |
-| ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Als de waarde `true`, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is `false`. |
-| **`Values`** | Verzameling van toepassings- en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze waarden overeenkomen met app-instellingen in uw functie-app in Azure, zoals [ `AzureWebJobsStorage` ]. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst `Connection` voor de [Blob storage-trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de `Values` matrix. <br/>[`AzureWebJobsStorage`] is een vereiste app instellen voor triggers dan HTTP. <br/>Versie 2.x van de Functions-runtime moet de [ `FUNCTIONS_WORKER_RUNTIME` ] instelling, die wordt gegenereerd voor uw project door Core Tools. <br/> Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen [ `AzureWebJobsStorage` ] naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie. |
-| **`Host`** | Instellingen in deze sectie aanpassen hostproces van de functies bij lokale uitvoering. |
-| **`LocalHttpPort`** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie te gebruiken heeft voorrang op deze waarde. |
-| **`CORS`** | Definieert de oorsprongen toegestaan voor [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
-| **`CORSCredentials`** |  Instellen op true opdat `withCredentials` aanvragen |
-| **`ConnectionStrings`** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die doorgaans downloadt verbindingsreeksen uit de `ConnectionStrings` gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de `Connection strings` verzameling van de instellingen van uw functie-app. Als u maakt een [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** in de portal aan met uw andere verbindingen. |
+Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen deze instellingen worden toegevoegd aan de functie-app in Azure. Houd er rekening mee dat de waarden in **ConnectionStrings** nooit worden gepubliceerd.
 
 De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie de sectie van de variabelen voor de omgeving van de volgende taalspecifieke referentie-onderwerpen voor meer informatie:
 
 * [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -439,7 +407,7 @@ De volgende opties voor het publiceren van toepassing voor zowel versies, 1.x en
 
 | Optie     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u eerst de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | De prompt dat appinstellingen worden overschreven wanneer `--publish-local-settings -i` wordt gebruikt.|
 
 De volgende opties publiceren, worden alleen ondersteund in versie 2.x:
@@ -495,6 +463,6 @@ Naar het bestand een bug of functie-aanvraag [opent u een GitHub-probleem](https
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure-portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
-['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[extensie bundels]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles
+[extensie bundels]: functions-bindings-register.md#extension-bundles

@@ -1,6 +1,6 @@
 ---
 title: Azure bestanden prestaties, problemen oplossen met
-description: Bekende problemen met prestaties met Azure premium-bestandsshares (preview) en de bijbehorende tijdelijke oplossingen.
+description: Bekende prestatieproblemen met Azure-bestandsshares en bijbehorende oplossingen.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190051"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445672"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files-prestatieproblemen oplossen
 
-Dit artikel worden enkele veelvoorkomende problemen met betrekking tot premium-Azure-bestandsshares (preview). Het biedt mogelijke oorzaken en oplossingen als deze problemen zijn opgetreden.
+Dit artikel worden enkele veelvoorkomende problemen met betrekking tot Azure-bestandsshares. Het biedt mogelijke oorzaken en oplossingen als deze problemen zijn opgetreden.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Hoge latentie en lage doorvoer algemene prestatieproblemen
 
 ### <a name="cause-1-share-experiencing-throttling"></a>1 oorzaak: Delen ondervindt beperking
 
-Het standaardquotum op een share is 100 GiB, waarmee u 100 basislijn IOPS (met een kans om uit te breiden tot 300 een uur). Zie voor meer informatie over het inrichten en de relatie tussen IOPS, de [ingericht shares](storage-files-planning.md#provisioned-shares) sectie van de handleiding voor capaciteitsplanning.
+De quotumlimiet voor een premium-share is 100 GiB, waarmee u 100 basislijn IOPS (met een kans om uit te breiden tot 300 een uur). Zie voor meer informatie over het inrichten en de relatie tussen IOPS, de [ingericht shares](storage-files-planning.md#provisioned-shares) sectie van de handleiding voor capaciteitsplanning.
 
 Om te bevestigen als uw bestandsshare wordt beperkt, kunt u gebruikmaken van Azure metrische gegevens in de portal.
 
@@ -39,7 +39,7 @@ Om te bevestigen als uw bestandsshare wordt beperkt, kunt u gebruikmaken van Azu
 
 1. Selecteer **transacties** als de metriek.
 
-1. Voeg een filter voor **ResponseType** en controleert u of alle aanvragen die een Antwoordcode van hebt **SuccessWithThrottling**.
+1. Voeg een filter voor **ResponseType** en controleert u of alle aanvragen die een Antwoordcode van hebt **SuccessWithThrottling** (voor SMB) of **ClientThrottlingError** (voor REST).
 
 ![Metrische gegevens over opties voor het premium-bestandsshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Als de toepassing die wordt gebruikt door de klant één thread is, kan dit resu
 
 ### <a name="cause"></a>Oorzaak
 
-De client virtuele machine is gevonden in een andere regio dan de premium-bestandsshare.
+De client virtuele machine is gevonden in een andere regio dan de bestandsshare.
 
 ### <a name="solution"></a>Oplossing
 
-- Voer de toepassing van een virtuele machine die zich in dezelfde regio als de premium-bestandsshare.
+- Voer de toepassing van een virtuele machine die zich in dezelfde regio als de bestandsshare.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client niet kan bereiken van maximale doorvoer die worden ondersteund door het netwerk
 
@@ -121,6 +121,10 @@ I/o-diepte van meer dan één wordt niet ondersteund op CentOS/RHEL.
 
 - Een upgrade uitvoeren naar CentOS 8 / RHEL 8.
 - Wijzig in Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Trage bestand kopiëren van en naar Azure-bestanden in Linux
+
+Als u ondervindt langzaam bestand kopiëren van en naar Azure Files, kijk dan eens de [langzaam bestand kopiëren van en naar Azure-bestanden in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) sectie bij het oplossen van de Linux-handleiding.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Schokkend/saw-kantoor in tooth patroon voor IOPS
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118070"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536233"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van de vCore-aanschafmodel
 
@@ -34,6 +34,9 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 > Zie voor richtlijnen en overwegingen bij schalen, [schalen van één database](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Categorie voor algemeen gebruik-service: Opslaggrootte en compute-grootten
+
+> [!IMPORTANT]
+> Nieuwe Gen4 databases worden niet meer ondersteund in de regio AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Categorie voor algemeen gebruik-service: Generatie 4 computerplatform (deel 1)
 
@@ -52,7 +55,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|500|1000|1500|2000|2500|3000|
 |Meld u frequentielimieten (MBps)|3.75|7.5|11.25|15|18.75|22.5|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -75,7 +78,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|3500|4000|4500|5000|7000|7000|
 |Meld u frequentielimieten (MBps)|26.25|30|30|30|30|30|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -98,7 +101,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|1000|2000|3000|4000|5000|6000|7000|
 |Meld u frequentielimieten (MBps)|3.75|7.5|11.25|15|18.75|22.5|26.25|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -121,7 +124,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|7000|7000|7000|7000|7000|7000|7000|
 |Meld u frequentielimieten (MBps)|30|30|30|30|30|30|30|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -149,13 +152,16 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Doel-IOPS (van 64 KB)|500|1000|2000|
 |Meld u frequentielimieten (MBps)|2.5|5.6|10|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|75|150|300|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|
 |Aantal replica 's|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Kritieke-bedrijfslaag voor de ingerichte Computing-laag
+
+> [!IMPORTANT]
+> Nieuwe Gen4 databases worden niet meer ondersteund in de regio AustraliaEast.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Kritieke-bedrijfslaag: Generatie 4 computerplatform (deel 1)
 
@@ -171,11 +177,11 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Maximale logboekgrootte (GB)|195|195|195|195|195|195|
 |TempDB-grootte (GB)|32|64|96|128|160|192|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
-|Doel-IOPS (van 64 KB)|5000|10\.000|15\.000|20000|25000|30\.000|
+|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30.000|
 |Meld u frequentielimieten (MBps)|8|16|24|32|40|48|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
 |Maximaal aantal gelijktijdige aanmeldingen|200|400|600|800|1000|1200|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -199,7 +205,7 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Meld u frequentielimieten (MBps)|56|64|64|64|64|64|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
 |Maximaal aantal gelijktijdige aanmeldingen (aanvragen)|1400|1600|1800|2000|3200|4800|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -223,7 +229,7 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Meld u frequentielimieten (MBps)|12|24|36|48|60|72|84|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
 |Maximaal aantal gelijktijdige aanmeldingen|200|400|600|800|1000|1200|1400|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -247,7 +253,7 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Meld u frequentielimieten (MBps)|96|96|96|96|96|96|96|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
 |Maximaal aantal gelijktijdige aanmeldingen|1600|1800|2000|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -268,17 +274,21 @@ De [serverloze compute-laag](sql-database-serverless.md) is in preview en is all
 |Maximale logboekgrootte (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB-grootte (GB)|64|128|256|384|384|384|384|384|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
-|Doel-IOPS (van 64 KB)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
+|Doel-IOPS (van 64 KB)| [Opmerking 1](#note-1) |[Opmerking 1](#note-1)|[Opmerking 1](#note-1) |[Opmerking 1](#note-1) |[Opmerking 1](#note-1) |[Opmerking 1](#note-1) |[Opmerking 1](#note-1) | [Opmerking 1](#note-1) |
 |I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|30\.000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>Volgende stappen
+### <a name="note-1"></a>Opmerking 1
+
+Zeer grootschalige is een architectuur met meerdere lagen met caching op meerdere niveaus. Effectieve IOP's afhankelijk van de werkbelasting.
+
+### <a name="next-steps"></a>Volgende stappen
 
 - Zie voor DTU resourcelimieten voor een individuele database, [resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel](sql-database-dtu-resource-limits-single-databases.md)
 - Zie voor vCore resourcelimieten voor elastische pools, [resourcelimieten voor elastische pools met behulp van de vCore-aanschafmodel](sql-database-vcore-resource-limits-elastic-pools.md)

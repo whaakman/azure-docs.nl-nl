@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478324"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443342"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure cloud services
-[Application Insights] [ start] kunt bewaken [Azure cloud service-apps](https://azure.microsoft.com/services/cloud-services/) voor beschikbaarheid, prestaties, fouten en gebruik door het combineren van gegevens uit Application Insights-SDK's met [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) gegevens van uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
+[Application Insights][start] kunt bewaken [Azure cloud service-apps](https://azure.microsoft.com/services/cloud-services/) voor beschikbaarheid, prestaties, fouten en gebruik door het combineren van gegevens uit Application Insights-SDK's met [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)gegevens van uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
 
 ![Een dashboard](./media/cloudservices/overview-graphs.png)
 
@@ -80,7 +80,7 @@ Voor het verzenden van de telemetrie naar de juiste resources, kunt u de Applica
 
 Als u hebt besloten om een afzonderlijke resource voor elke rol te maken en misschien een afzonderlijke voor elke buildconfiguratie set, is het gemakkelijkst te maken in de Application Insights-portal. Als u vaak resources maakt, kunt u [het proces automatiseren](../../azure-monitor/app/powershell.md).
 
-1. In de [Azure-portal][portal], selecteer **nieuw** > **Ontwikkelaarsservices**  >   **Application Insights**.  
+1. In de [Azure-portal][portal], selecteer **nieuw** > **Ontwikkelaarsservices** > **Application Insights**.  
 
     ![Deelvenster voor Application Insights](./media/cloudservices/01-new.png)
 
@@ -136,7 +136,38 @@ Gebruik Visual Studio om de Application Insights-SDK voor elk cloudtoepassingspr
 1. Stel de *ApplicationInsights.config* bestanden altijd worden gekopieerd naar de uitvoermap.  
     Een bericht in de *.config* bestand vraagt u de instrumentatiesleutel er plaatsen. Echter voor cloud-apps, is het beter om in te stellen via de *.cscfg* bestand. Deze aanpak zorgt ervoor dat de rol correct wordt geïdentificeerd in de portal.
 
-#### <a name="run-and-publish-the-app"></a>De app uitvoeren en publiceren
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Instellen van Status Monitor voor het verzamelen van volledige SQL-query's (optioneel)
+
+Deze stap is alleen nodig als u wilt vastleggen van volledige SQL-query's op .NET Framework. 
+
+1. In `\*.csdef` bestand toevoegen [opstarttaak](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) voor elke rol die vergelijkbaar is met 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. Download [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) en [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), plaatst u deze in de `AppInsightsAgent` map op elke rolproject. Zorg ervoor dat u deze kopiëren naar de uitvoermap via eigenschappen van Visual Studio of scripts te bouwen.
+
+3. Op alle Worker-rollen, omgevingsvariabelen toevoegen: 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## <a name="run-and-publish-the-app"></a>De app uitvoeren en publiceren
 
 1. Uitvoeren van uw app en zich aanmelden bij Azure. 
 
@@ -146,10 +177,10 @@ Gebruik Visual Studio om de Application Insights-SDK voor elk cloudtoepassingspr
 1. Meer telemetrie toevoegen (Zie de volgende secties) en publiceert u uw app om live diagnostische gegevens en gebruiksgegevens feedback ontvangen. 
 
 Als er geen gegevens, het volgende doen:
-1. Als u wilt weergeven van afzonderlijke gebeurtenissen, opent u de [zoeken] [ diagnostic] tegel.
+1. Als u wilt weergeven van afzonderlijke gebeurtenissen, opent u de [zoeken][diagnostic] tegel.
 1. Open verschillende pagina's in de app, zodat er telemetrie wordt gegenereerd.
 1. Wacht een paar seconden en klik vervolgens op **vernieuwen**.  
-    Zie voor meer informatie, [probleemoplossing][qna].
+    Zie [Probleemoplossing][qna] voor meer informatie .
 
 ## <a name="view-azure-diagnostics-events"></a>Azure Diagnostics-gebeurtenissen weergeven
 U vindt de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) gegevens in Application Insights in de volgende locaties:

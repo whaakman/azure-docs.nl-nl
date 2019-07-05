@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: e8e11ffd4260c2956c6bb4740973eb77abfdc7b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26a5baf07ee31bdf155629139e12ef1977ddca1d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055215"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457307"
 ---
 GPU-geoptimaliseerde VM-grootten zijn gespecialiseerde virtuele machines die beschikbaar zijn met één of meerdere NVIDIA GPU's. Deze grootten zijn ontworpen voor intensieve compute- en grafisch intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type van GPU's, vcpu's, gegevensschijven en NIC's. De doorvoer en netwerkbandbreedte Storage zijn ook opgenomen voor elke grootte in deze groepering.
 
@@ -31,7 +31,7 @@ Premium Storage opslaan in cache:  Niet ondersteund
 
 NC-serie VM's worden aangestuurd door de [NVIDIA Tesla R80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) kaart en de Intel Xeon E5-2690 v3 (Haswell)-processor. Gebruikers kunnen Verwerk gegevens sneller door gebruik te maken van CUDA voor energie-exploratietoepassingen, vastlopen simulaties, ray getraceerde rendering, deep learning en meer. De NC24r-configuratie biedt een lage latentie en hoge doorvoer network interface die is geoptimaliseerd voor nauw gekoppelde werkbelastingen voor parallelle berekeningen.
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Max. aantal NIC's |
+| Size | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Standard_NC6 |6 |56 | 340 | 1 | 12 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 24 | 48 | 2 |
@@ -56,7 +56,7 @@ De NC24rs versie 2-configuratie biedt een lage latentie en hoge doorvoer network
 > Voor deze serie grootte van is de vCPU (kern) quotum in uw abonnement in eerste instantie ingesteld op 0 in elke regio. [Een vCPU-quotum verhoging](../articles/azure-supportability/resource-manager-core-quotas-request.md) voor deze serie in een [beschikbare regio](https://azure.microsoft.com/regions/services/).
 >
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's |
+| Size | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -79,7 +79,7 @@ NCv3-serie VM's worden aangestuurd door [NVIDIA Tesla V100](https://www.nvidia.c
 > Voor deze serie grootte van is de vCPU (kern) quotum in uw abonnement in eerste instantie ingesteld op 0 in elke regio. [Een vCPU-quotum verhoging](../articles/azure-supportability/resource-manager-core-quotas-request.md) voor deze serie in een [beschikbare regio](https://azure.microsoft.com/regions/services/).
 >
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's |
+| Size | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000 / 200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -103,9 +103,9 @@ NDv2-serie virtuele machine is een nieuwe toevoeging aan de GPU die is ontworpen
 [Meld u aan en krijg toegang tot deze machines tijdens de preview](https://aka.ms/ndv2signup).
 <br>
 
-| Grootte | vCPU | GPU | Geheugen | NIC's (max.) | Met maximaal Schijfgrootte | Met maximaal Gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Maximale netwerkbandbreedte | 
+| Size | vCPU | GPU | Geheugen | NIC's (max.) | Temp Storage (SSD) GiB | Met maximaal Gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Maximale netwerkbandbreedte | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | Tijdelijke 1344 / 2948XIO | 32 | 80000 / 800 | 24000 Mbps |
+| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000 / 800 | 24000 Mbps |
 
 ## <a name="nd-series"></a>ND-serie
 
@@ -119,7 +119,7 @@ De ND-serie virtuele machines zijn een nieuwe toevoeging aan de GPU-serie die is
 > Voor deze serie grootte van is de vCPU (kern) quotum per regio in uw abonnement in eerste instantie ingesteld op 0. [Een vCPU-quotum verhoging](../articles/azure-supportability/resource-manager-core-quotas-request.md) voor deze serie in een [beschikbare regio](https://azure.microsoft.com/regions/services/).
 >
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's |
+| Size | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_ND6s | 6 |112 | 736 | 1 | 24 | 12 | 20000 / 200 | 4 |
 | Standard_ND12s | 12 |224 | 1474 | 2 | 48 | 24 | 40000 / 400 | 8 | 
@@ -140,7 +140,7 @@ De NV-serie virtuele machines worden aangestuurd door [NVIDIA Tesla M60](http://
 
 Elke GPU in NV-exemplaren wordt geleverd met een licentie RASTER. Deze licentie geeft u de flexibiliteit om te gebruiken een NV-exemplaar als een virtuele werkstation voor één gebruiker of 25 gelijktijdige gebruikers verbinding kunnen maken met de virtuele machine voor een virtuele toepassing-scenario.
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen |
+| Size | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
@@ -158,7 +158,7 @@ Virtuele machines uit de NVv3-serie worden aangedreven door [NVIDIA Tesla M60](h
 
 Elke GPU in NVv3 exemplaren wordt geleverd met een licentie RASTER. Deze licentie geeft u de flexibiliteit om te gebruiken een NV-exemplaar als een virtuele werkstation voor één gebruiker of 25 gelijktijdige gebruikers verbinding kunnen maken met de virtuele machine voor een virtuele toepassing-scenario.
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen | 
+| Size | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV12s_v3 |12 |112 |320 | 1 | 8 | 12 | 20000 / 200 | 4 | 1 | 25 |
 | Standard_NV24s_v3 |24 |224 |640 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |

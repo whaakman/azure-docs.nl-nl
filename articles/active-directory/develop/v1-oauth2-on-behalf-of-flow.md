@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110995"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482420"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-naar-service aanroepen die gebruik gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
 
@@ -38,7 +38,7 @@ De stroom voor OAuth 2.0 namens (OBO) kan een toepassing die een service of een 
 
 De OBO-stroom wordt gestart nadat de gebruiker is geverifieerd in een toepassing die gebruikmaakt van de [OAuth 2.0-autorisatiecode verlenen stroom](v1-protocols-oauth-code.md). Op dat moment een toegangstoken (token A) in de toepassing wordt verzonden op de middelste laag web API (A-API) met claims van de gebruiker en de toestemming voor toegang tot API A. API A maakt vervolgens een geverifieerde aanvraag voor de downstream web-API (API-B).
 
-De stroom op-andere gebruikers-Of deel uitmaken van deze stappen: ![OAuth 2.0 op namens-stroom](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+De stroom op-andere gebruikers-Of deel uitmaken van deze stappen: ![Bevat de stappen in de OAuth 2.0 op namens-stroom](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. De clienttoepassing doet een aanvraag bij API A met het token A.
 1. API A wordt geverifieerd op het eindpunt van de Azure AD-token-uitgifte en vraagt een token voor toegang tot API B.

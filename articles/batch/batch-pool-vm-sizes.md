@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 033e0865f23034b94e3133e0ba5890eca4e746ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1848891a0a37235c9769b3cee18262239e19df5a
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080879"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502661"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-pool
 
@@ -51,8 +51,8 @@ Aanbiedingen of VM-grootten van een Preview-versie niet wordt vermeld, zijn niet
 | [Geoptimaliseerd voor geheugen-grootten](../virtual-machines/linux/sizes-memory.md) | Geen | Niet beschikbaar |
 | Fsv2-serie | Alle grootten | Alle |
 | H-serie | Alle grootten | Alle |
-| Hb-serie | Alle grootten | Modus Gebruikersabonnement |
-| Hc-serie | Alle grootten | Modus Gebruikersabonnement |
+| Hb-series<sup>2</sup> | Alle grootten | Alle |
+| Hc-series<sup>2</sup> | Alle grootten | Alle |
 | Ls-serie | Alle grootten | Alle |
 | Lsv2-serie | Geen | Niet beschikbaar |
 | M-serie | Standard_M64ms (met lage prioriteit alleen), Standard_M128s (met lage prioriteit alleen) | Alle |  
